@@ -1,24 +1,6 @@
 site_name: Le C pour l'ingénieur
 site_url: https://example.com/
 nav:
-  - Section:
-    - Home: index.md
-    - Listings: listings.md
-  - Notebook page: notebook.ipynb
-  - Python file: python_script.py
-  - Tags: tags.md
-  - Annexes:
-    - Bash: appendix/bash.md
-    - Développement: appendix/development.md
-    - Grammaire: appendix/grammar.md
-    - Laboratoires: appendix/laboratories.md
-    - Unités: appendix/unit.md
-    - VsCode: appendix/vscode.md
-  - Backmatter:
-    - Bibliography: backmatter/bibliography.md
-    - Colophon: backmatter/colophon.md
-    - Exercices: backmatter/exercises.md
-    - Glossaire: backmatter/glossary.md
   - Cours:
     - content/introduction.md
     - content/programming.md
@@ -47,6 +29,19 @@ nav:
     - frontmatter/introduction.md
     - frontmatter/preface.md
     - summary/summary.md
+  - Annexes:
+    - Bash: appendix/bash.md
+    - Développement: appendix/development.md
+    - Grammaire: appendix/grammar.md
+    - Laboratoires: appendix/laboratories.md
+    - Unités: appendix/unit.md
+    - VsCode: appendix/vscode.md
+  - Backmatter:
+    - Bibliography: backmatter/bibliography.md
+    - Colophon: backmatter/colophon.md
+    - Exercices: backmatter/exercises.md
+    - Glossaire: backmatter/glossary.md
+  - Tags: tags.md
 watch:
   - includes
 extra_css:
@@ -64,7 +59,6 @@ theme:
     - navigation.path
     - navigation.footer
     - toc.follow
-    - toc.integrate
     - navigation.top
     - search.suggest
     - search.highlight
@@ -80,7 +74,6 @@ theme:
     text: Roboto
     code: Roboto Mono
   palette:
-    # Palette toggle for light mode
     - scheme: default
       media: "(prefers-color-scheme: light)"
       toggle:
@@ -88,7 +81,6 @@ theme:
         name: Switch to dark mode
       primary: red
       accent: light blue
-    # Palette toggle for dark mode
     - scheme: slate
       media: "(prefers-color-scheme: dark)"
       primary: red
@@ -112,6 +104,8 @@ theme:
       bug: octicons/bug-16
       example: octicons/beaker-16
       quote: octicons/quote-16
+      exercise: octicons/pencil-16
+      solution: octicons/light-bulb-16
 extra:
   homepage: https://example.com
   annotate:
@@ -126,15 +120,16 @@ plugins:
   - mkdocs-jupyter
   - glightbox
   - info
+  - caption
   - charts
+  - git-authors
   - git-revision-date-localized:
       enable_creation_date: true
   - tags:
-      listings_toc: true
       tags_file: tags.md
-      tags_hierarchy: true
   - drawio-exporter
-  - toggle-sidebar
+  # b toggle both, m toggle menu, t toggle sidebar
+  #- toggle-sidebar
   - markdown-exec
   - extract_listings:
       listings_file: listings.md

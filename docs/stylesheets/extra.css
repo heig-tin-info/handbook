@@ -31,3 +31,39 @@
   .enumerate-headings-plugin {
     filter: opacity(35%);
   }
+
+  .md-typeset p {
+    hyphens: auto;
+    text-align: justify;
+  }
+
+
+  .md-typeset .admonition.exercise,
+  .md-typeset details.exercise {
+    border-color: rgb(43, 155, 70);
+  }
+  .md-typeset .exercise > .admonition-title,
+  .md-typeset .exercise > summary {
+    background-color: rgba(43, 155, 70, 0.1);
+  }
+  .md-typeset .exercise > .admonition-title::before,
+  .md-typeset .exercise > summary::before {
+    background-color: rgb(43, 155, 70);
+    -webkit-mask-image: var(--md-admonition-icon--exercise);
+            mask-image: var(--md-admonition-icon--exercise);
+  }
+
+  .md-typeset .admonition.solution,
+  .md-typeset details.solution {
+    border-color: rgb(255, 255, 255);
+  }
+  .md-typeset .solution > .admonition-title,
+  .md-typeset .solution > summary {
+    background-color: rgba(146, 146, 146, 0.466);
+  }
+  .md-typeset .solution > .admonition-title::before,
+  .md-typeset .solution > summary::before {
+    background-color: rgb(139, 139, 139);
+    -webkit-mask-image: var(--md-admonition-icon--solution);
+            mask-image: var(--md-admonition-icon--solution);
+  }
