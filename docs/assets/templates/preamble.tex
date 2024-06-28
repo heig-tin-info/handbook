@@ -1,0 +1,329 @@
+% Disable the ugly colouring of titles. Why does Sphinx do this?
+\definecolor{TitleColor}{rgb}{0,0,0}
+\definecolor{InnerLinkColor}{rgb}{0,0,0}
+
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{emptypage}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{array} % Fix tabular glitches with lines
+\usepackage{ctex}
+\usepackage{lstfiracode}
+\usepackage[xparse,skins,breakable]{tcolorbox}
+\usepackage[framemethod=tikz]{mdframed}
+
+\babelprovide{french-switzerland}
+
+% Style
+%\AtBeginDocument{\def\labelitemi{--}}
+\frenchbsetup{IndentFirst=false}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1ex}
+
+% UTF-8
+\setCJKmainfont{ipaexm.ttf}
+\setmonofont{Fira Code}
+\tracinglostchars=2
+\usepackage{newunicodechar}
+\usepackage{unicode-math}
+\newunicodechar{ﬁ}{{\sffamily ﬁ}}
+
+\newunicodechar{⇒}{{\sffamily ⇒}}
+\newunicodechar{⊕}{{\sffamily ⊕}}
+\newunicodechar{♯}{{\sffamily ♯}}
+\newunicodechar{⨼}{{\sffamily ⨼}}
+\newunicodechar{◿}{{\sffamily ◿}}
+\newunicodechar{🠔}{{\sffamily 🠔}}
+
+\newunicodechar{α}{$\alpha$}
+\newunicodechar{δ}{$\delta$}
+\newunicodechar{ε}{$\varepsilon$}
+\newunicodechar{η}{$\eta$}
+\newunicodechar{ι}{$\iota$}
+\newunicodechar{κ}{$\kappa$}
+\newunicodechar{λ}{$\lambda$}
+\newunicodechar{μ}{$\mu$}
+\newunicodechar{π}{$\pi$}
+\newunicodechar{ω}{$\omega$}
+\newunicodechar{ρ}{$\rho$}
+\newunicodechar{τ}{$\tau$}
+
+\newcommand\documentTitle{Le C pour l'ingénieur}
+\newtcolorbox{hint}{breakable,enhanced,arc=0mm,colback=lightgray!5,colframe=lightgray,leftrule=11mm,%
+height from=1.3cm to 16cm,%
+overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
+    \includegraphics[width=2em]{../../assets/icons/hint.pdf}}; }}
+
+\renewenvironment{sphinxnote}[1]
+    {\begin{hint}{#1}}
+    {\end{hint}}
+
+% Change code-block style
+\colorlet{aaa}{lightgray}
+\colorlet{foobar}{lightgray!8}
+\sphinxsetup{%
+  VerbatimColor={named}{foobar},
+  verbatimwithframe=true,
+  VerbatimBorderColor={named}{aaa},
+  verbatimborder=0.3mm,
+  OuterLinkColor={rgb}{0.55,0.06,0.09}
+}
+
+% Define header and footers
+\pagestyle{fancy}
+
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{\uppercase\expandafter{\documentTitle}}
+\fancyhead[CO]{\leftmark}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Chapter pages
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[LE,RO]{\thepage}
+    \fancyfoot{}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+% Better looking descriptions... leftmargin must be tweaked if needed...
+
+\setlist[description]{labelindent=0pt,style=multiline,leftmargin=4cm}
+
+% Redefine to remove the buggy pagenumbering
+\makeatletter
+\renewcommand{\sphinxtableofcontents}{%
+  %\pagenumbering{roman}% <-- Not wanted
+  \begingroup
+    \parskip \z@skip
+    \sphinxtableofcontentshook
+    \tableofcontents
+  \endgroup
+  % before resetting page counter, let's do the right thing.
+  \if@openright\cleardoublepage\else\clearpage\fi
+  %\pagenumbering{arabic}% <-- Not wanted
+}
+\makeatother
+
+% Index does not use ttfamily, make bigletters bold
+\def\sphinxstyleindexentry   #1{#1}
+\def\sphinxstyleindexlettergroup #1%
+    {{\Large\textbf{#1}}\nopagebreak\vspace{1mm}}
+
+% Maketitle
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+\def\department{Département des Techniques de l'Ingénieur (TIN)}
+
+\makeatletter
+\def\maketitle{                   % Prints the title page
+\thispagestyle{empty}
+\begin{textblock}{20}(10,10)
+%    \includegraphics[height=2.5cm]{heig-vd-small.pdf}
+\end{textblock}
+\vspace{7cm}
+\begin{center}
+  {\huge
+  \lineskip 10ex
+  \bfseries\@title\par}                  %% The Title
+  \vskip0pt plus1fill\relax
+  %\rule{75mm}{0.5pt}
+  \vspace{3cm}
+  \Large
+  Cours d'informatique pour étudiants Bachelor première année
+  \par
+  \emph{\department}
+  \par
+  \vspace{2cm}
+  \vskip0pt plus2fill\relax
+  \emph{par}
+  \par%\vskip0pt plus2fill\relax
+  \@author                      %% Author
+  \par\vskip0pt plus1fill\relax
+  \par
+  \py@release
+  %% \rule{37.5mm}{0.5pt}
+\end{center}
+\vspace{5cm}
+
+\vskip0pt plus1fill\relax
+
+\begin{center}
+  \large
+  \par\vskip0pt plus2fill\relax
+  Haute École d'Ingénierie et de Gestion du canton de Vaud\\
+  Route de Cheseaux, CH-1400 Yverdon-les-Bains, Suisse
+  \par%\vskip0pt plus2fill\relax
+  \today                       %% Year
+  \par
+\end{center}
+\mbox{}\relax}
+\thispagestyle{empty}
+\makeatother
+
+% Listing
+\definecolor{code-background}{HTML}{DFE2E5}
+\definecolor{comment-color}{HTML}{5C5D5E}
+
+%% Inline code
+% Pretty with background color
+\usepackage{longfbox}
+\fboxset{
+    rounded,
+    background-color=code-background,
+    border-width=0pt,
+    border-color=code-background,
+    border-radius=2pt,
+    padding={0.4ex,0.5ex},
+}
+\protect\def\sphinxcode#1{\lfbox{\footnotesize\texttt{#1}}}
+
+%% Listings environment
+% With a selection of ligatures
+\lstdefinestyle{HandoutStyle}{
+  basewidth=0.6em,
+  literate=
+    {www}{{www}}3
+    {**}{{**}}2
+    {***}{{***}}3
+    {*>}{{*>}}2
+    {::}{{::}}2
+    {:::}{{:::}}3
+    {!!}{{!!}}2
+    {!==}{{!==}}3
+    {-->}{{-->}}3
+    {->>}{{->>}}3
+    {-<}{{-<}}2
+    {-<<}{{-<<}}3
+    {-~}{{-\textasciitilde}}2
+    {\#\{}{{\#\{}}2
+    {\#[}{{\#[}}2
+    {\#\#}{{\#\#}}2
+    {\#\#\#}{{\#\#\#}}3
+    {\#\#\#\#}{{\#\#\#\#}}4
+    {\#(}{{\#(}}2
+    {\#?}{{\#?}}2
+    {\#_}{{\#\_}}2
+    {\#_(}{{\#\_(}}3
+    {.-}{{.-}}2
+    {.=}{{.=}}2
+    {..}{{..}}2
+    {..<}{{..<}}3
+    {...}{{...}}3
+    {?=}{{?=}}2
+    {??}{{??}}2
+    {/>}{{/>}}2
+    {//}{{//}}2
+    {///}{{///}}3
+    {\&\&}{{\&\&}}2
+    {||}{{||}}2
+    {|>}{{|>}}2
+    {^=}{{\textasciicircum=}}2
+    {$>}{{\$>}}2
+    {++}{{++}}2
+    {+>}{{+>}}2
+    {=:=}{{=:=}}3
+    {===}{{===}}3
+    {==>}{{==>}}3
+    {=>}{{=>}}2
+    {=>>}{{=>>}}3
+    {=<<}{{=<<}}3
+    {=/=}{{=/=}}3
+    {>-}{{>-}}2
+    {>=>}{{>=>}}3
+    {>>}{{>>}}2
+    {>>-}{{>>-}}3
+    {>>=}{{>>=}}3
+    {>>>}{{>>>}}3
+    {<*}{{<*}}2
+    {<*>}{{<*>}}3
+    {<|}{{<|}}2
+    {<|>}{{<|>}}3
+    {<$}{{<\$}}2
+    {<$>}{{<\$>}}3
+    {<!--}{{<!--}}4
+    {<-}{{<-}}2
+    {<--}{{<--}}3
+    {<->}{{<->}}3
+    {<+}{{<+}}2
+    {<+>}{{<+>}}3
+    {<=}{{<=}}2
+    {<==}{{<==}}3
+    {<=>}{{<=>}}3
+    {<=<}{{<=<}}3
+    {<>}{{<>}}2
+    {<<}{{<<}}2
+    {<<-}{{<<-}}3
+    {<<=}{{<<=}}3
+    {<<<}{{<<<}}3
+    {<~}{{<\textasciitilde}}2
+    {<~~}{{<\textasciitilde\textasciitilde}}3
+    {</}{{</}}2
+    {~@}{{\textasciitilde @}}2
+    {~-}{{\textasciitilde-}}2
+    {~=}{{\textasciitilde=}}2
+    {~>}{{\textasciitilde>}}2
+    {~~}{{\textasciitilde\textasciitilde}}2
+    {~~>}{{\textasciitilde\textasciitilde>}}3
+    {\%\%}{{\%\%}}2
+    {<==>}{{<==>}}4
+    {<||}{{<||}}3
+    {<|||}{{<|||}}4
+    {|||>}{{|||>}}4
+    {</>}{{</>}}3
+    {<~>}{{<\textasciitilde>}}3
+    {=!=}{{=!=}}3
+    {+++}{{+++}}3
+    {||>}{{||>}}3
+    {_|_}{{\_|\_}}3
+    {..=}{{..=}}3
+    {!!.}{{!!.}}3
+    {::=}{{::=}}3
+    {<:}{{<:}}2
+    {>:}{{>:}}2
+    {|-}{{|-}}2
+    {|]}{{|]}}2
+    {|\}}{{|\}}}2
+    {?.}{{?.}}2
+    {?:}{{?:}}2
+    {.?}{{.?}}2
+    {\#=}{{\#=}}2
+    {\#!}{{\#!}}2
+    {\#:}{{\#:}}2
+    {-|}{{-|}}2
+    {:<}{{:<}}2
+    {:>}{{:>}}2
+    {]\#}{{]\#}}2
+    {[|}{{[|}}2
+    {\{|}{{\{|}}2
+}
+\lstset{
+  language=C,
+  style=FiraCodeStyle,
+  basicstyle=\setlength{\lineskip}{0pt}\ttfamily\footnotesize,
+  commentstyle=\rmfamily\itshape\color{comment-color},
+  aboveskip=1em,
+  belowskip=1em,
+  breaklines=true
+}
+
+\mdfsetup{skipabove=1.5em,skipbelow=1em}
+
+\surroundwithmdframed[
+roundcorner=3pt,
+hidealllines=true,
+backgroundcolor=code-background,
+innerleftmargin=15pt,
+innertopmargin=0pt,
+innerbottommargin=0pt]{lstlisting}
+
+\def\sphinxstyletheadfamily {\bfseries}
+\protected\def\sphinxcrossref#1{#1}

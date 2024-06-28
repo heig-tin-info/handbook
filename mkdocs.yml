@@ -7,6 +7,46 @@ nav:
   - Notebook page: notebook.ipynb
   - Python file: python_script.py
   - Tags: tags.md
+  - Annexes:
+    - Bash: appendix/bash.md
+    - Développement: appendix/development.md
+    - Grammaire: appendix/grammar.md
+    - Laboratoires: appendix/laboratories.md
+    - Unités: appendix/unit.md
+    - VsCode: appendix/vscode.md
+  - Backmatter:
+    - Bibliography: backmatter/bibliography.md
+    - Colophon: backmatter/colophon.md
+    - Exercices: backmatter/exercises.md
+    - Glossaire: backmatter/glossary.md
+  - Cours:
+    - content/introduction.md
+    - content/programming.md
+    - content/advanced-topics.md
+    - content/algorithms.md
+    - content/composite-datatypes.md
+    - content/control-structures.md
+    - content/data-structures.md
+    - content/datatype.md
+    - content/files.md
+    - content/foundations.md
+    - content/functions.md
+    - content/memory-management.md
+    - content/numeration.md
+    - content/operators.md
+    - content/philosophy.md
+    - content/pointers.md
+    - content/preprocessor.md
+    - content/processus.md
+    - content/scopes.md
+    - content/standard-library.md
+    - content/stdio.md
+    - content/testing.md
+    - content/translation-units.md
+    - content/traps.md
+    - frontmatter/introduction.md
+    - frontmatter/preface.md
+    - summary/summary.md
 watch:
   - includes
 extra_css:
@@ -46,7 +86,8 @@ theme:
       toggle:
         icon: material/lightbulb
         name: Switch to dark mode
-
+      primary: red
+      accent: light blue
     # Palette toggle for dark mode
     - scheme: slate
       media: "(prefers-color-scheme: dark)"
