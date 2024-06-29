@@ -1,11 +1,8 @@
 # Types composites
 
-```{index} struct
-```
-
 ## Tableaux
 
-Les [tableaux](<https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)>) (*arrays*) représentent une séquence finie d'éléments d'un type donné que l'on peut accéder par leur position (indice) dans la séquence. Un tableau est par conséquent une liste indexée de variable du même type.
+Les [tableaux](https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)) (*arrays*) représentent une séquence finie d'éléments d'un type donné que l'on peut accéder par leur position (indice) dans la séquence. Un tableau est par conséquent une liste indexée de variable du même type.
 
 L'opérateur crochet `[]` est utilisé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau :
 
@@ -29,15 +26,15 @@ uint32_t array(5);
 size_t length = sizeof(array) / sizeof(array[0]);
 ```
 
-:::{hint}
-L'index d'un tableau commence toujours à **0** et par conséquent l'index maximum d'un tableau de 5 éléments sera 4. Il est donc fréquent dans une boucle d'utiliser `<` et non `<=`:
+!!! hint
 
-```c
-for(size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++) {
-   /* ... */
-}
-```
-:::
+    L'index d'un tableau commence toujours à **0** et par conséquent l'index maximum d'un tableau de 5 éléments sera 4. Il est donc fréquent dans une boucle d'utiliser `<` et non `<=`:
+
+    ```c
+    for(size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++) {
+    /* ... */
+    }
+    ```
 
 Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est-à-dire la position mémoire à laquelle se trouvent les éléments du tableau. Nous verrons ceci plus en détail à la section {numref}`pointers`. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie, mais seule une **référence** sur ce tableau est passée.
 
@@ -57,81 +54,74 @@ int main(void) {
 
 Un fait remarquable est que l'opérateur `[]` est commutatif. En effet, l'opérateur *crochet* est un sucre syntaxique :
 
-% code-block::c
-%
-% a[b] == *(a + b)
+```c
+a[b] == *(a + b)
+```
 
 Et cela fonctionne même avec les tableaux à plusieurs dimensions :
 
-% code-block::c
-%
-% a[1][2] == *(*(a + 1) + 2))
+```c
+a[1][2] == *(*(a + 1) + 2))
+```
 
-```{eval-rst}
-.. exercise:: Assignation
+!!! exercise "Assignation"
 
     Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.
 
-    .. solution::
+    ??? solution
 
-        .. code-block:: c
+        ```
+        int8_t a[50];
+        for (size_t i = 0; i < sizeof(a) / sizeof(a[0]; i++) {
+            a[i] = i;
+        }
+        ```
 
-            int8_t a[50];
-            for (size_t i = 0; i < sizeof(a) / sizeof(a[0]; i++) {
-                a[i] = i;
-            }
-```
-
-```{eval-rst}
-.. exercise:: Première position
+!!! exercise "Première position"
 
     Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurrence d'une valeur dans le tableau.
 
     Traitez les cas particuliers.
 
-    .. code-block:: c
+    ```c
+    int index_of(int *array, size_t size, int search);
+    ```
 
-        int index_of(int *array, size_t size, int search);
+    ??? solution
 
-    .. solution::
+        ```c
+        int index_of(int *array, size_t size, int search) {
+            int i = 0;
+            while (i < size && array[i++] != search);
+            return i == size ? -1 : i;
+        }
+        ```
 
-        .. code-block:: c
-
-            int index_of(int *array, size_t size, int search) {
-                int i = 0;
-                while (i < size && array[i++] != search);
-                return i == size ? -1 : i;
-            }
-```
-
-```{eval-rst}
-.. exercise:: Déclarations de tableaux
+!!! exercise "Déclarations de tableaux"
 
     Considérant les déclarations suivantes :
 
-    .. code-block:: c
-
-        #define LIMIT 10
-        const int twelve = 12;
-        int i = 3;
+    ```c
+    #define LIMIT 10
+    const int twelve = 12;
+    int i = 3;
+    ```
 
     Indiquez si les déclarations suivantes (qui n'ont aucun lien entre elles), sont correctes ou non.
 
-    .. code-block:: c
+    ```c
+    int t(3);
+    int k, t[3], l;
+    int i[3], l = 2;
+    int t[LIMITE];
+    int t[i];
+    int t[douze];
+    int t[LIMITE + 3];
+    float t[3, /* five */ 5];
+    float t[3]        [5];
+    ```
 
-        int t(3);
-        int k, t[3], l;
-        int i[3], l = 2;
-        int t[LIMITE];
-        int t[i];
-        int t[douze];
-        int t[LIMITE + 3];
-        float t[3, /* five */ 5];
-        float t[3]        [5];
-```
-
-```{eval-rst}
-.. exercise:: Comparaisons
+!!! exercise "Comparaisons"
 
     Soit deux tableaux `char u[]` et `char v[]`, écrire une fonction comparant leur contenu et retournant :
 
@@ -146,132 +136,127 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions :
 
     Le prototype de la fonction à écrire est :
 
-    .. code-block:: c
+    ```c
+    int comp(char a[], char b[], size_t length);
+    ```
 
-        int comp(char a[], char b[], size_t length);
+    ??? solution
 
-    .. solution::
+        ```c
+        int comp(char a[], char b[], size_t length) {
+            int sum_a = 0, sum_b = 0;
 
-        .. code-block:: c
-
-            int comp(char a[], char b[], size_t length) {
-                int sum_a = 0, sum_b = 0;
-
-                for (size_t i = 0; i < length; i++) {
-                    sum_a += a[i];
-                    sum_b += b[i];
-                }
-
-                return sum_b - sum_a;
+            for (size_t i = 0; i < length; i++) {
+                sum_a += a[i];
+                sum_b += b[i];
             }
-```
 
-```{eval-rst}
-.. exercise:: Le plus grand et le plus petit
+            return sum_b - sum_a;
+        }
+        ```
 
-    Dans le canton de Genève, il existe une tradition ancestrale: l'`Escalade <https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)>`__. En commémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle "Ainsi périrent les ennemis de la République !".
+!!! exercise "Le plus grand et le plus petit"
+
+    Dans le canton de Genève, il existe une tradition ancestrale: l'[Escalade](https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)). En commémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle "Ainsi périrent les ennemis de la République !".
 
     Pour gagner du temps et puisque l'assemblée est grande, il vous est demandé d'écrire un programme pour identifier le doyen et le benjamin de l'assistance.
 
     Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci :
 
-    .. code-block:: text
-
-        1931
-        1986
-        1996
-        1981
-        1979
-        1999
-        2004
-        1978
-        1964
+    ```c
+    1931
+    1986
+    1996
+    1981
+    1979
+    1999
+    2004
+    1978
+    1964
+    ```
 
     Votre programme sera exécuté comme suit :
 
-    .. code-block:: console
+    ```bash
+    $ cat years.txt | marmite
+    2004
+    1931
+    ```
 
-        $ cat years.txt | marmite
-        2004
-        1931
-```
-
-```{eval-rst}
-.. exercise:: L'index magique
+!!! exercise "L'index magique"
 
     Un indice magique d'un tableau ``A[0..n-1]`` est défini tel que la valeur ``A[i] == i``. Étant donné que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.
 
     Exemple :
 
-    .. code-block:: text
+    ```text
+        0   1   2   3   4   5   6   7   8   9   10
+    ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
+    │-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
+    └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+                                    ^
+    ```
 
-          0   1   2   3   4   5   6   7   8   9   10
-        ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
-        │-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
-        └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
-                                      ^
-
-    .. solution::
+    ??? solution
 
         Une solution triviale consiste à itérer tous les éléments jusqu'à trouver l'indice magique :
 
-        .. code-block:: c
+        ```c
+        int magic_index(int[] array) {
+            const size_t size = sizeof(array) / sizeof(array[0]);
 
-            int magic_index(int[] array) {
-                const size_t size = sizeof(array) / sizeof(array[0]);
+            size_t i = 0;
 
-                size_t i = 0;
+            while (i < size && array[i] != i) i++;
 
-                while (i < size && array[i] != i) i++;
-
-                return i == size ? -1 : i;
-            }
+            return i == size ? -1 : i;
+        }
+        ```
 
         La complexité de cet algorithme est :math:`O(n)` or, la donnée du problème indique que le tableau est trié. Cela veut dire que probablement, cette information n'est pas donnée par hasard.
 
         Pour mieux se représenter le problème, prenons l'exemple d'un tableau :
 
-        .. code-block:: text
-
-              0   1   2   3   4   5   6   7   8   9   10
-            ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
-            │-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
-            └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
-                                          ^
+        ```text
+            0   1   2   3   4   5   6   7   8   9   10
+        ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
+        │-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
+        └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+                                        ^
+        ```
 
         La première valeur magique est ``7``. Est-ce qu'une approche dichotomique est possible ?
 
         Prenons le milieu du tableau ``A[5] = 4``. Est-ce qu'une valeur magique peut se trouver à gauche du tableau ? Dans le cas le plus favorable qui serait :
 
-        .. code-block:: text
-
-              0   1   2   3   4
-            ┌───┬───┬───┬───┬───┐
-            │ -1│ 0 │ 1 │ 2 │ 3 │
-            └───┴───┴───┴───┴───┘
+        ```text
+            0   1   2   3   4
+        ┌───┬───┬───┬───┬───┐
+        │ -1│ 0 │ 1 │ 2 │ 3 │
+        └───┴───┴───┴───┴───┘
+        ```
 
         On voit qu'il est impossible que la valeur se trouve à gauche, car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est ``A[mid] < mid`` où ``mid`` est la valeur médiane.
 
         Il est possible de répéter cette approche de façon dichotomique :
 
-        .. code-block:: c
+        ```c
+        int magic_index(int[] array) {
+            return _magic_index(array, 0, sizeof(array) / sizeof(array[0]) - 1);
+        }
 
-            int magic_index(int[] array) {
-                return _magic_index(array, 0, sizeof(array) / sizeof(array[0]) - 1);
+        int _magic_index(int[] array, size_t start, size_t end) {
+            if (end < start) return -1;
+            int mid = (start + end) / 2;
+            if (array[mid] == mid) {
+                return mid;
+            } else if (array[mid] > mid) {
+                return _magic_index(array, start, mid - 1);
+            } else {
+                return _magic_index(array, mid + 1, end);
             }
-
-            int _magic_index(int[] array, size_t start, size_t end) {
-                if (end < start) return -1;
-                int mid = (start + end) / 2;
-                if (array[mid] == mid) {
-                    return mid;
-                } else if (array[mid] > mid) {
-                    return _magic_index(array, start, mid - 1);
-                } else {
-                    return _magic_index(array, mid + 1, end);
-                }
-            }
-```
+        }
+        ```
 
 ### Initialisation
 
@@ -451,72 +436,67 @@ Notons que l'écriture suivante est similaire, car un tableau multidimensionnel 
 char game[][3] = {'o', 'x', 'x', 'x', 'o', 'o', 'x', 'o', 'x'};
 ```
 
-```{eval-rst}
-.. exercise:: Détectives privés
+!!! exercise Détectives privés
 
     Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :
 
-    =========  =======  =======   ======  ======
-    ` `        Bosley   Sabrina   Jill    Kelly
-    =========  =======  =======   ======  ======
-    Janvier    414.38   222.72    99.17   153.81
-    Février    403.41   390.61    174.39  18.11
-    Mars       227.55   73.86     291.08  416.55
-    Avril      220.20   342.25    139.45  86.98
-    Mai         13.46   172.66    252.33  265.32
-    Juin       259.37   378.72    173.02  208.43
-    Juillet    327.06   16.53     391.05  266.84
-    Août        50.82   3.37      201.71  170.84
-    Septembre  450.78   9.33      111.63  337.07
-    Octobre    434.45   77.80     459.46  479.17
-    Novembre   420.13   474.69    343.64  273.28
-    Décembre   147.76   250.73    201.47  9.75
-    =========  =======  =======   ======  ======
+
+    | Mois      | Bosley | Sabrina | Jill   | Kelly |
+    |-----------|--------|---------|--------|-------|
+    | Janvier   | 414.38 | 222.72  | 99.17  | 153.81 |
+    | Février   | 403.41 | 390.61  | 174.39 | 18.11 |
+    | Mars      | 227.55 | 73.86   | 291.08 | 416.55 |
+    | Avril     | 220.20 | 342.25  | 139.45 | 86.98 |
+    | Mai       |  13.46 | 172.66  | 252.33 | 265.32 |
+    | Juin      | 259.37 | 378.72  | 173.02 | 208.43 |
+    | Juillet   | 327.06 | 16.53   | 391.05 | 266.84 |
+    | Août      |  50.82 | 3.37    | 201.71 | 170.84 |
+    | Septembre | 450.78 | 9.33    | 111.63 | 337.07 |
+    | Octobre   | 434.45 | 77.80   | 459.46 | 479.17 |
+    | Novembre  | 420.13 | 474.69  | 343.64 | 273.28 |
+    | Décembre  | 147.76 | 250.73  | 201.47 | 9.75 |
 
     Afin de laisser plus de temps aux détectives à résoudre des affaires, vous êtes mandaté pour écrire une fonction qui reçoit en paramètre le tableau de réels ci-dessus formaté comme suit :
 
-    .. code-block:: c
-
-        double accounts[][] = {
-            {414.38, 222.72,  99.17, 153.81, 0},
-            {403.41, 390.61, 174.39, 18.11,  0},
-            {227.55,  73.86, 291.08, 416.55, 0},
-            {220.20, 342.25, 139.45, 86.98,  0},
-            {13.46 , 172.66, 252.33, 265.32, 0},
-            {259.37, 378.72, 173.02, 208.43, 0},
-            {327.06,  16.53, 391.05, 266.84, 0},
-            {50.82 ,   3.37, 201.71, 170.84, 0},
-            {450.78,   9.33, 111.63, 337.07, 0},
-            {434.45,  77.80, 459.46, 479.17, 0},
-            {420.13, 474.69, 343.64, 273.28, 0},
-            {147.76, 250.73, 201.47, 9.75,   0},
-            {  0,      0,      0,    0,      0}
-        };
+    ```c
+    double accounts[][] = {
+        {414.38, 222.72,  99.17, 153.81, 0},
+        {403.41, 390.61, 174.39, 18.11,  0},
+        {227.55,  73.86, 291.08, 416.55, 0},
+        {220.20, 342.25, 139.45, 86.98,  0},
+        {13.46 , 172.66, 252.33, 265.32, 0},
+        {259.37, 378.72, 173.02, 208.43, 0},
+        {327.06,  16.53, 391.05, 266.84, 0},
+        {50.82 ,   3.37, 201.71, 170.84, 0},
+        {450.78,   9.33, 111.63, 337.07, 0},
+        {434.45,  77.80, 459.46, 479.17, 0},
+        {420.13, 474.69, 343.64, 273.28, 0},
+        {147.76, 250.73, 201.47, 9.75,   0},
+        {  0,      0,      0,    0,      0}
+    };
+    ```
 
     Et laquelle complète les valeurs manquantes.
-```
 
-```{eval-rst}
-.. exercise:: Pot de peinture
+!!! exercise "Pot de peinture"
 
     À l'instar de l'outil *pot de peinture* des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.
 
     L'image est représentée par un tableau bidimensionnel contenant des couleurs indexées :
 
-    .. code-block::
+    ```c
+    typedef enum { BLACK, RED, PURPLE, BLUE, GREEN YELLOW, WHITE } Color;
 
-        typedef enum { BLACK, RED, PURPLE, BLUE, GREEN YELLOW, WHITE } Color;
+    #if 0 // Image declaration example
+    Color image[100][100];
+    #endif
 
-        #if 0 // Image declaration example
-        Color image[100][100];
-        #endif
+    boolean paint(Color* image, size_t rows, size_t cols, Color fill_color);
+    ```
 
-        boolean paint(Color* image, size_t rows, size_t cols, Color fill_color);
-
-    .. hint::
+    !!! hint
 
         Deux approches intéressantes sont possibles: **DFS** (Depth-First-Search) ou **BFS** (Breadth-First-Search), toutes deux récursives.
-```
 
 ## Chaînes de caractères
 
@@ -783,9 +763,8 @@ int main(void) {
 
 Le résultat affiché sera `0.0, 1.0`. Seule la seconde valeur est modifiée.
 
-:::{hint}
-Lorsqu'un membre d'une structure est accédé, via son pointeur, on utilise la notation `->` au lieu de `.` car il est nécessaire de déréférencer le pointeur. Il s'agit d'un sucre syntaxique permettant d'écrire `p->x` au lieu de `(*p).x`
-:::
+!!! hint
+    Lorsqu'un membre d'une structure est accédé, via son pointeur, on utilise la notation `->` au lieu de `.` car il est nécessaire de déréférencer le pointeur. Il s'agit d'un sucre syntaxique permettant d'écrire `p->x` au lieu de `(*p).x`
 
 ### Structures flexibles
 
@@ -1127,8 +1106,7 @@ void main() {
 }
 ```
 
-```{eval-rst}
-.. exercise:: Mendeleïev
+!!! exercise "Mendeleïev"
 
     Chaque élément du tableau périodique des éléments comporte les propriétés suivantes :
 
@@ -1156,12 +1134,11 @@ void main() {
 
     Déclarer une structure de données permettant de stocker tous les éléments chimiques de telle façon qu'ils puissent être accédés comme :
 
-    .. code-block:: c
+    ```c
+    assert(strcmp(table.element[6].name, "Helium") == 0);
+    assert(strcmp(table.element[54].type, "Gaz noble") == 0);
+    assert(table.element[11].period == 3);
 
-        assert(strcmp(table.element[6].name, "Helium") == 0);
-        assert(strcmp(table.element[54].type, "Gaz noble") == 0);
-        assert(table.element[11].period == 3);
-
-        Element *el = table.element[92];
-        assert(el->atomic_weight == 92);
-```
+    Element *el = table.element[92];
+    assert(el->atomic_weight == 92);
+    ```

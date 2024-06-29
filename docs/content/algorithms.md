@@ -1,5 +1,3 @@
-(algorithms)=
-
 # Algorithmes et conception
 
 L'algorithmique est le domaine scientifique qui étudie les algorithmes, une suite finie et non ambiguë d'opérations ou d'instructions permettant de résoudre un problème ou de traiter des données.
@@ -58,32 +56,21 @@ void discriminate(int* array, size_t length)
 D'une manière générale, la plupart des algorithmes que l'ingénieur écrira appartiendront à ces
 catégories exprimées du meilleur au plus mauvais :
 
-```{eval-rst}
-.. table:: Temps pour différentes complexités d'algorithmes
+Table: Temps pour différentes complexités d'algorithmes
 
-    +----------------------+--------------------+----------------------------------------+
-    | Complexité           | :math:`n = 100000` | i7 (100'000 MIPS)                      |
-    +======================+====================+========================================+
-    | :math:`O(log(n))`    |              11    | 0.11 ns                                |
-    +----------------------+--------------------+----------------------------------------+
-    | :math:`O(n)`         |         100'000    | 1 us                                   |
-    +----------------------+--------------------+----------------------------------------+
-    | :math:`O(n log(n))`  |       1'100'000    | 11 us                                  |
-    +----------------------+--------------------+----------------------------------------+
-    | :math:`O(n^2)`       |  10'000'000'000    | 100 ms (un battement de cil)           |
-    +----------------------+--------------------+----------------------------------------+
-    | :math:`O(2^n)`       | très très grand    | Le soleil devenu géante rouge          |
-    |                      |                    | aura ingurgité la terre                |
-    +----------------------+--------------------+----------------------------------------+
-    | :math:`O(n!)`        | trop trop grand    | La galaxie ne sera plus que poussière  |
-    +----------------------+--------------------+----------------------------------------+
-```
+| Complexité           | :math:`n = 100000` | i7 (100'000 MIPS)                      |
+|----------------------|--------------------|----------------------------------------|
+| :math:`O(log(n))`    |              11    | 0.11 ns                                |
+| :math:`O(n)`         |         100'000    | 1 us                                   |
+| :math:`O(n log(n))`  |       1'100'000    | 11 us                                  |
+| :math:`O(n^2)`       |  10'000'000'000    | 100 ms (un battement de cil)           |
+| :math:`O(2^n)`       | très très grand    | Le soleil devenu géante rouge          |
+|                      |                    | aura ingurgité la terre                |
+| :math:`O(n!)`        | trop trop grand    | La galaxie ne sera plus que poussière  |
 
 Les différentes complexités peuvent être résumées sur la figure suivante :
 
-:::{figure} ../../assets/images/complexity.*
-Différentes complexités d'algorithmes
-:::
+![Différentes complexités d'algorithmes](../assets/images/complexity.svg)
 
 Un algorithme en $O(n^2)$, doit éveiller chez le développeur la volonté de voir s'il n'y a pas moyen d'optimiser l'algorithme en réduisant sa complexité, souvent on s'aperçoit qu'un algorithme peut être optimisé et s'intéresser à sa complexité est un excellent point d'entrée.
 
@@ -122,29 +109,26 @@ for (size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++)
 }
 ```
 
-```{eval-rst}
-.. exercise:: Triangle évanescent
+!!! exercise "Triangle évanescent"
 
     Quel serait l'algorithme permettant d'afficher :
 
-    .. code-block::text
-
-        *****
-        ****
-        ***
-        **
-        *
+    ```c
+    *****
+    ****
+    ***
+    **
+    *
+    ```
 
     et dont la taille peut varier ?
 ```
 
-```{eval-rst}
-.. exercise:: L'entier manquant
+!!! exercise "L'entier manquant"
 
     On vous donne un gros fichier de 3'000'000'000 entiers positifs 32-bits, il vous faut générer un entier qui n'est pas dans la liste. Le hic, c'est que vous n'avez que 500 MiB de mémoire de travail. Quel algorithme proposez-vous ?
 
     Une fois le travail terminé, votre manager vient vous voir pour vous annoncer que le cahier des charges a été modifié. Le client dit qu'il n'a que 10 MiB. Pensez-vous pouvoir résoudre le problème quand même ?
-```
 
 ## Machines d'états
 
@@ -160,23 +144,22 @@ for (size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++)
 
 La [récursivité](https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9) est une autoréférence. Il peut s'agit en C d'une fonction qui s'appelle elle-même.
 
-```{eval-rst}
-.. exercise:: La plus petite différence
+!!! exercise "La plus petite différence"
 
     Soit deux tableaux d'entiers, trouver la paire de valeurs (une dans chaque tableau) ayant la plus petite différence (positive).
 
     Exemple :
 
-    .. code-block:: text
+    ```c
+    int a[] = {5, 3, 14, 11, 2};
+    int b[] = {24, 128, 236, 20, 8};
 
-        int a[] = {5, 3, 14, 11, 2};
-        int b[] = {24, 128, 236, 20, 8};
+    int diff = 3 // pair 11, 8
+    ```
 
-        int diff = 3 // pair 11, 8
+    1. Proposer une implémentation
+    2. Quelle est la complexité de votre algorithme ?
 
-    #. Proposer une implémentation
-    #. Quelle est la complexité de votre algorithme ?
-```
 
 ## Programmation dynamique
 
@@ -276,8 +259,8 @@ Ce n'est pas un algorithme très académique, il s'agit d'un [kludge](https://fr
 
 Cet algorithme [Rabin-Karp](https://fr.wikipedia.org/wiki/Algorithme_de_Rabin-Karp) permet la recherche d'une sous-chaîne de caractère. Sa complexité moyenne est $O(n + m)$.
 
-```{literalinclude} ../../assets/src/rabin-karp.c
-:language: c
+```c title="rabin-karp.c"
+--8<-- "docs/assets/src/rabin-karp.c"
 ```
 
 ## Algorithmes de tris
@@ -396,11 +379,7 @@ Considérons le tableau suivant. Les valeurs ne sont pas triées. La première �
 
 Dans cet exemple, le dernier élément `6` sera arbitrairement choisi comme pivot.
 
-:::{figure} ../../assets/figures/dist/algorithm/quicksort.*
-:scale: 70%
-
-Représentation du tableau à trier avec son pivot.
-:::
+![Représentation du tableau à trier avec son pivot.](../assets/figures/dist/algorithm/quicksort.svg)
 
 L'étape de paritionnement utilise l'algorithme suivant :
 
@@ -416,7 +395,7 @@ int partition (int a[], int low, int high, int pivot)
 }
 ```
 
-Voici comment `partition(a, 0, 10, 10)` modifie le tableau (voir [code source](../../assets/src/partition.c)) :
+Voici comment `partition(a, 0, 10, 10)` modifie le tableau (voir [code source](../assets/src/partition.c)) :
 
 ```text
 2 9 4 1 b 5 a 7 3 8 6
@@ -429,13 +408,9 @@ Voici comment `partition(a, 0, 10, 10)` modifie le tableau (voir [code source](.
 
 On constate que la valeur `6` choisie comme pivot est maintenant à sa bonne place. L'algorithme est donc appelé récursivement pour les éléments `0` à `4` et \`\` 6\`\`  à `a`.
 
-:::{figure} ../../assets/figures/dist/algorithm/quicksort-2.*
-:scale: 70%
+![Tri rapide après le premier partitionnement.](../assets/figures/dist/algorithm/quicksort-2.svg)
 
-Tri rapide après le premier partitionnement.
-:::
-
-Voici une autre représentation (voir [code source](../../assets/src/quicksort.c)) :
+Voici une autre représentation (voir [code source](../assets/src/quicksort.c)) :
 
 ```c
 1  9  5  2  b  4  a  7  3  8 [6]
@@ -464,40 +439,37 @@ Un exemple typique est le [problème de la secrétaire](https://fr.wikipedia.org
 
 La solution à ce problème est de laisser passer 37% des candidats sans les engager. Ceci correspond à une proportion de $1/e$. Ensuite il suffit d'attendre un ou une candidate meilleure que tous ceux/celles du premier échantillon.
 
-______________________________________________________________________
+## Exercices de révision
 
-```{eval-rst}
-.. exercise:: Intégrateur de Kahan
+!!! exercise "Intégrateur de Kahan"
 
     L'intégrateur de Kahan (`Kahan summation algorithm <https://en.wikipedia.org/wiki/Kahan_summation_algorithm>`__) est une solution élégante pour pallier à la limite de résolution des types de données.
 
     L'algorithme pseudo-code peut être exprimé comme :
 
-    .. code-block:: text
+    ```text
+    function kahan_sum(input)
+        var sum = 0.0
+        var c = 0.0
+        for i = 1 to input.length do
+            var y = input[i] - c
+            var t = sum + y
+            c = (t - sum) - y
+            sum = t
+        next i
+        return sum
+    ```
 
-        function kahan_sum(input)
-            var sum = 0.0
-            var c = 0.0
-            for i = 1 to input.length do
-                var y = input[i] - c
-                var t = sum + y
-                c = (t - sum) - y
-                sum = t
-            next i
-            return sum
+    1. Implémenter cet algorithme en C compte tenu du prototype :
 
-    #. Implémenter cet algorithme en C compte tenu du prototype :
+        ```c
+        float kahan_sum(float value, float sum, float c);
+        ```
 
-        .. code-block:: c
+    2. Expliquer comment fonctionne cet algorithme.
+    3. Donner un exemple montrant l'avantage de cet algorithme sur une simple somme.
 
-            float kahan_sum(float value, float sum, float c);
-
-    #. Expliquer comment fonctionne cet algorithme.
-    #. Donner un exemple montrant l'avantage de cet algorithme sur une simple somme.
-```
-
-```{eval-rst}
-.. exercise:: Robot aspirateur affamé
+!!! exercise "Robot aspirateur affamé"
 
     Un robot aspirateur souhaite se rassasier et cherche le frigo, le problème c'est qu'il ne sait pas où il est. Elle serait la stratégie de recherche du robot pour se rendre à la cuisine ?
 
@@ -509,30 +481,29 @@ ______________________________________________________________________
 
     Élaborer un algorithme de recherche.
 
-    .. code-block::
-
-          │ A │ B │ C │ D │ E │ F │ G │ H │ I │ J │ K │ L │ M │ O │ P │ Q │
-        ──┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
-        1 ┃                     x ┃       ┃               ┃               ┃
-        ──┃             F1: Frigo ┃       ┃               ┃               ┃
-        2 ┃       ┃               ┃       ┃               ┃               ┃
-        ──┃       ┃               ┃       ┃               ┃               ┃
-        3 ┃       ┃               ┃       ┃               ┃               ┃
-        ──┃       ┃               ┃       ┃               ┃               ┃
-        4 ┃       ┃               ┃       ┃               ┃               ┃
-        ──┃       ┃               ┃       ┃               ┃               ┃
-        5 ┃       ┃               ┃       ┃               ┃      <--o     ┃
-        ──┃       ┣━━━━━━━   ━━━━━┫       ┃               ┃     P5: Robot ┃
-        6 ┃       ┃               ┃       ┃               ┃               ┃
-        ──┃       ┃               ┃       ┃               ┃               ┃
-        7 ┃                       ┃       ┃               ┃               ┃
-        ──┃                       ┃       ┃               ┃               ┃
-        8 ┃       ┃               ┃       ┃               ┃               ┃
-        ──┣━━━━━━━┻━━━━━━━    ━━━━┛   ━━━━┛   ━━━━━━━━━━━━┛   ━━━━┳━━━━━━━┫
-        9 ┃                                                       ┃       ┃
-        ──┃                                                       ┃       ┃
-        10┃                                                               ┃
-        ──┃                                                               ┃
-        11┃                                                       ┃       ┃
-        ──┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━┛
-```
+    ```text
+        │ A │ B │ C │ D │ E │ F │ G │ H │ I │ J │ K │ L │ M │ O │ P │ Q │
+    ──┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+    1 ┃                     x ┃       ┃               ┃               ┃
+    ──┃             F1: Frigo ┃       ┃               ┃               ┃
+    2 ┃       ┃               ┃       ┃               ┃               ┃
+    ──┃       ┃               ┃       ┃               ┃               ┃
+    3 ┃       ┃               ┃       ┃               ┃               ┃
+    ──┃       ┃               ┃       ┃               ┃               ┃
+    4 ┃       ┃               ┃       ┃               ┃               ┃
+    ──┃       ┃               ┃       ┃               ┃               ┃
+    5 ┃       ┃               ┃       ┃               ┃      <--o     ┃
+    ──┃       ┣━━━━━━━   ━━━━━┫       ┃               ┃     P5: Robot ┃
+    6 ┃       ┃               ┃       ┃               ┃               ┃
+    ──┃       ┃               ┃       ┃               ┃               ┃
+    7 ┃                       ┃       ┃               ┃               ┃
+    ──┃                       ┃       ┃               ┃               ┃
+    8 ┃       ┃               ┃       ┃               ┃               ┃
+    ──┣━━━━━━━┻━━━━━━━    ━━━━┛   ━━━━┛   ━━━━━━━━━━━━┛   ━━━━┳━━━━━━━┫
+    9 ┃                                                       ┃       ┃
+    ──┃                                                       ┃       ┃
+    10┃                                                               ┃
+    ──┃                                                               ┃
+    11┃                                                       ┃       ┃
+    ──┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━┛
+    ```

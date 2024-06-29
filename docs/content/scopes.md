@@ -9,9 +9,7 @@ Ce chapitre se concentre sur quatre caractéristiques d'une variable :
 
 Dans les quatre cas, elles décrivent l'accessibilité, c'est à dire jusqu'à ou/et jusqu'à quand une variable est accessible, et de quelle manière
 
-:::{figure} ../../assets/images/visibility.*
-Brouillard matinal sur le [Golden Gate Bridge](https://fr.wikipedia.org/wiki/Golden_Gate_Bridge), San Francisco.
-:::
+![Brouillard matinal sur le Golden Gate Bridge, San Francisco](../assets/images/visibility.jpg)
 
 ## Espace de nommage
 
@@ -23,7 +21,7 @@ L'espace de nommage ou `namespace` est un concept différent de celui existant d
 
 ## Portée
 
-La portée ou [scope](<https://en.wikipedia.org/wiki/Scope_(computer_science)>) décrit jusqu'à où une variable est accessible.
+La portée ou [scope](https://en.wikipedia.org/wiki/Scope_(computer_science)) décrit jusqu'à où une variable est accessible.
 
 Une variable est **globale**, c'est-à-dire accessible partout, si elle est déclarée en dehors d'une fonction :
 
@@ -117,9 +115,7 @@ Une particularité en C est que tout symbole global (variable ou fonction) a une
 
 L'exemple suivant implique deux fichiers `foo.c` et `main.c`. Dans l'un deux symboles sont déclarés, une variable et une fonction.
 
-```c
-// foo.c
-
+```c title="foo.c"
 int foo;
 
 void do_foo() {
@@ -129,9 +125,7 @@ void do_foo() {
 
 Depuis le programme principal, il est possible d'accéder à symboles à condition de renseigner sur le prototype de la fonction et l'existence de la variable :
 
-```c
-// main.c
-
+```c title="main.c"
 extern int foo;
 extern void do_foo(); // Non obligatoire
 
@@ -152,9 +146,6 @@ Une classe de stockage peut être implicite à une déclaration de variable ou e
 
 ### `auto`
 
-```{index} auto
-```
-
 Cette classe est utilisée par défaut lorsqu'aucune autre classe
 n'est précisée. Les variables automatiques sont visibles uniquement dans
 le bloc où elles sont déclarées. Ces variables sont habituellement créées sur la pile (*stack*) mais peuvent être aussi stockées dans les registres du processeur. C'est un choix qui incombe au compilateur.
@@ -168,24 +159,15 @@ obligatoire, et n'est pas recommandé en **C99**, car son utilisation est implic
 
 ### `register`
 
-```{index} classe de stockage; register, register
-```
-
 Ce mot clé incite le compilateur à utiliser un registre processeur pour stocker la variable. Ceci permet de gagner en temps d'exécution, car la variable n'a pas besoin d'être chargée depuis et écrite vers la mémoire.
 
 Jadis, ce mot clé était utilisé devant toutes les variables d'itérations de boucles. La traditionnelle variable `i` utilisée dans les boucles `for` était déclarées `register int i = 0;`. Les compilateurs modernes savent aujourd'hui identifier les variables les plus souvent utilisées. L'usage de ce mot clé n'est donc plus recommandé depuis **C99**.
 
 ### `const`
 
-```{index} classe de stockage; const, const
-```
-
 Ce mot clé rend une déclaration non modifiable par le programme lui-même. Néanmoins il ne s'agit pas de constantes au sens strict du terme, car une variable de type `const` pourrait très bien être modifiée par erreur en jardinant la mémoire. Quand ce mot clé est appliqué à une structure, aucun des champs de la structure n'est accessible en écriture. Bien qu'il puisse paraître étrange de vouloir rendre « constante » une « variable », ce mot clé a une utilité. En particulier, il permet de faire du code plus sûr.
 
 ### `static`
-
-```{index} classe de stockage; static, static
-```
 
 Elle permet de déclarer des variables dont le contenu est
 préservé même lorsque l'on sort du bloc où elles ont été déclarées.
@@ -208,9 +190,6 @@ static int add(int a, int b) { return a + b; }
 ```
 
 ### `volatile`
-
-```{index} classe de stockage; volatile, volatile
-```
 
 Cette classe de stockage indique au compilateur qu'il ne peut faire aucune hypothèse d'optimisation concernant cette variable. Elle indique que son contenu peut être modifié en tout temps en arrière-plan par le système d'exploitation ou le matériel. Ce mot clé est davantage utilisé en programmation système, ou sur microcontrôleurs.
 
@@ -313,9 +292,6 @@ int main() {
 
 ### `extern`
 
-```{index} classe de stockage; extern, extern
-```
-
 Cette classe est utilisée pour signaler que la variable ou la fonction associée est déclarée dans un autre module (autre fichier). Ainsi le code suivant ne déclare pas une nouvelle variable `foo` mais s'attend à ce que cette variable ait été déclarée dans un autre fichier.
 
 ```c
@@ -323,9 +299,6 @@ extern int foo;
 ```
 
 ### `restrict`
-
-```{index} classe de stockage; restrict, restrict
-```
 
 En C, le mot clé `restrict`, apparu avec **C99**, est utilisé uniquement pour des pointeurs. Ce qualificatif de type informe le compilateur que pour toute la durée de vie du pointeur, aucun autre pointeur ne pointera que sur la valeur qu'il pointe ou une valeur dérivée de lui-même (p. ex: `p + 1`).
 

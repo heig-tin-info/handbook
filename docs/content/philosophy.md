@@ -2,13 +2,9 @@
 
 La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur. Les vaudois l'appelant parfois: **le bon sens paysan** comme l'aurait sans doute confirmé feu [Jean Villard dit Gilles](https://fr.wikipedia.org/wiki/Jean_Villard).
 
-(ockham)=
-
 ## Rasoir d'Ockham
 
-:::{figure} ../../assets/images/razor.*
-Illustration humoristique du rasoir d'Ockham
-:::
+![Illustration humoristique du rasoir d'Ockham](../assets/images/razor.jpg)
 
 Le [rasoir d'Ockham](https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham) expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise [Shadok](https://en.wikipedia.org/wiki/Les_Shadoks): "Pourquoi faire simple quand on peut faire compliqué ?"
 
@@ -20,7 +16,6 @@ Il trouve admirablement bien sa place en programmation où le programmeur ne peu
 
 Également appelés [programming idioms](https://en.wikipedia.org/wiki/Programming_idiom), ces principes sont des lignes directrices aidant le développeur à organiser son code pour le rendre plus lisible, plus maintenable, et moins sensible aux erreurs humaines.
 
-(dry)=
 
 ### DRY
 
@@ -235,9 +230,7 @@ for (size_t i = 0; i < length; i++)
 }
 ```
 
-(code-smell)=
-
-## L'odeur du code
+## L'odeur du code (*code smell*)
 
 Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs des [antipatterns](https://fr.wikipedia.org/wiki/Antipattern). Voici quelques indicateurs les plus courants :
 

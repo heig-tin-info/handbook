@@ -2,8 +2,6 @@
 
 Ce chapitre regroupe les sujets avancés dont la compréhension n'est pas requise pour le contrôle de connaissance.
 
-(sequence-point)=
-
 ## Points de séquences
 
 On appelle un point de séquence ou [sequence point](https://en.wikipedia.org/wiki/Sequence_point) exprimé dans l'annexe C du standard C99 chaque élément de code dont l'exécution est garantie avant la séquence suivante. Ce qu'il est important de retenir c'est :
@@ -12,7 +10,7 @@ On appelle un point de séquence ou [sequence point](https://en.wikipedia.org/wi
 
 - La fin du premier opérande dans les opérations `&&`, `||`, `?` et `,`.
 
-  > - Ceci permet de court-circuiter le calcul dans ``` a() && b() ``. La condition ``b() ``` n'est jamais évaluée si la condition `a()` est valide.
+    - Ceci permet de court-circuiter le calcul dans ``` a() && b() ``. La condition ``b() ``` n'est jamais évaluée si la condition `a()` est valide.
 
 - Avant et après des actions associées à un formatage d'entrée sortie
 

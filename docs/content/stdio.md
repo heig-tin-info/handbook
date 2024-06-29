@@ -22,45 +22,41 @@ Si l'on souhaite simplement écrire du texte sur la sortie standard, deux foncti
 
 : Pour imprimer une chaîne de caractères
 
-```{eval-rst}
-.. exercise:: Mot du jour
+!!! exercise "Mot du jour"
 
     Écrire un programme qui retourne un mot parmi une liste de mot, de façon aléatoire.
 
-    .. code-block:: c
+    ```c
+    #include <time.h>
+    #include <stdlib.h>
 
+    char *words[] = {"Albédo", "Bigre", "Maringouin", "Pluripotent", "Entrechat",
+        "Caracoler" "Palinodie", "Sémillante", "Atavisme", "Cyclothymie",
+        "Idiosyncratique", "Entéléchie"};
+
+    #if 0
+        srand(time(NULL));   // Initialization, should only be called once.
+        size_t r = rand() % sizeof(words) / sizeof(char*); // Generate random value
+    #endif
+    ```
+
+    ??? solution
+
+        ```c
         #include <time.h>
         #include <stdlib.h>
 
-        char *words[] = {"Albédo", "Bigre", "Maringouin", "Pluripotent", "Entrechat",
+        char *words[] = {
+            "Albédo", "Bigre", "Maringouin", "Pluripotent", "Entrechat",
             "Caracoler" "Palinodie", "Sémillante", "Atavisme", "Cyclothymie",
             "Idiosyncratique", "Entéléchie"};
 
-        #if 0
-            srand(time(NULL));   // Initialization, should only be called once.
-            size_t r = rand() % sizeof(words) / sizeof(char*); // Generate random value
-        #endif
-
-    .. solution::
-
-        .. code-block:: c
-
-            #include <time.h>
-            #include <stdlib.h>
-
-            char *words[] = {
-                "Albédo", "Bigre", "Maringouin", "Pluripotent", "Entrechat",
-                "Caracoler" "Palinodie", "Sémillante", "Atavisme", "Cyclothymie",
-                "Idiosyncratique", "Entéléchie"};
-
-            int main(void)
-            {
-                srand(time(NULL));
-                puts(words[rand() % (sizeof(words) / sizeof(char*))]);
-
-                return 0;
-            }
-```
+        int main(void)
+        {
+            srand(time(NULL));
+            puts(words[rand() % (sizeof(words) / sizeof(char*))]);
+        }
+        ```
 
 ## Sorties formatées
 
@@ -77,9 +73,8 @@ Comme on ne sait pas à priori combien de caractères on aura, et que ces caract
 
 Voici un exemple possible d'implémentation :
 
-```{literalinclude} ../../assets/src/iota.c
-:language: c
-:name: iota-c
+```c
+--8<-- "docs/assets/src/iota.c"
 ```
 
 Cette implémentation pourrait être utilisée de la façon suivante :
@@ -150,55 +145,39 @@ La construction d'un marqueur est loin d'être simple, mais heureusement on n'a 
 
 : Type de formatage souhaité
 
-:::{figure} ../../assets/figures/dist/string/formats.*
-Formatage d'un marqueur
-:::
+![Formatage d'un marqueur](../assets/figures/dist/string/formats.svg)
+
 
 ### Exemples
 
-```{index} printf; format
-```
 
-```{eval-rst}
-.. table:: Exemple de formatage avec :code:`printf`
+Table: Exemple de formatage avec `printf`
 
-    +-------------------------------------+-------------------+--------+
-    | Exemple                             | Sortie            | Taille |
-    +=====================================+===================+========+
-    | :code:`printf("%c", 'c')`           | :code:`c`         | 1      |
-    +-------------------------------------+-------------------+--------+
-    | :code:`printf("%d", 1242)`          | :code:`1242`      | 4      |
-    +-------------------------------------+-------------------+--------+
-    | :code:`printf("%10d", 42)`          | :code:`       42` | 10     |
-    +-------------------------------------+-------------------+--------+
-    | :code:`printf("%07d", 42)`          | :code:`0000042`   | 7      |
-    +-------------------------------------+-------------------+--------+
-    | :code:`printf("%+-5dfr", 23)`       | :code:`+23   fr`  | 6      |
-    +-------------------------------------+-------------------+--------+
-    | :code:`printf("%5.3f", 314.15)`     | :code:`314.100`   | 7      |
-    +-------------------------------------+-------------------+--------+
-    | :code:`printf("%*.*f", 4, 2, 102.1)`| :code:`102.10`    | 7      |
-    +-------------------------------------+-------------------+--------+
-    | :code:`printf("%8x", 57005)`        | :code:`    dead`  | 6      |
-    +-------------------------------------+-------------------+--------+
-    | :code:`printf("%s", "Hello")`       | :code:`Hello`     | 5      |
-    +-------------------------------------+-------------------+--------+
-```
+| Exemple                             | Sortie            | Taille |
+|-------------------------------------|-------------------|--------|
+| :code:`printf("%c", 'c')`           | :code:`c`         | 1      |
+| :code:`printf("%d", 1242)`          | :code:`1242`      | 4      |
+| :code:`printf("%10d", 42)`          | :code:`       42` | 10     |
+| :code:`printf("%07d", 42)`          | :code:`0000042`   | 7      |
+| :code:`printf("%+-5dfr", 23)`       | :code:`+23   fr`  | 6      |
+| :code:`printf("%5.3f", 314.15)`     | :code:`314.100`   | 7      |
+| :code:`printf("%*.*f", 4, 2, 102.1)`| :code:`102.10`    | 7      |
+| :code:`printf("%8x", 57005)`        | :code:`    dead`  | 6      |
+| :code:`printf("%s", "Hello")`       | :code:`Hello`     | 5      |
 
-```{eval-rst}
-.. exercise:: Quelque bogues bien formatés
+
+!!! exercise "Quelque bogues bien formatés"
 
     Indiquez les erreurs dans les instructions suivantes :
 
-    .. code-block:: c
-
-        printf("%d%d\n", 10, 20);
-        printf("%d, %d, %d\n", 10, 20);
-        printf("%d, %d, %d, %d\n", 10, 20, 30, 40.);
-        printf("%*d, %*d\n", 10, 20);
-        printf("%6.2f\n", 10);
-        printf("%10s\n", 0x9f);
-```
+    ```c
+    printf("%d%d\n", 10, 20);
+    printf("%d, %d, %d\n", 10, 20);
+    printf("%d, %d, %d, %d\n", 10, 20, 30, 40.);
+    printf("%*d, %*d\n", 10, 20);
+    printf("%6.2f\n", 10);
+    printf("%10s\n", 0x9f);
+    ```
 
 ## Entrées formatées
 
@@ -350,137 +329,111 @@ int main(void) {
 
 Ensuite, `[^\n]`. Le marqueur `[`, terminé par `]` cherche à capturer une séquence de caractères parmi une liste de caractères acceptés. Cette syntaxe est inspirée des [expressions régulières](https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re) très utilisées en informatique. Le caractère `^` à une signification particulière, il indique que l'on cherche à capturer une séquence de caractères parmi une liste de caractères **qui ne sont pas acceptés**. C'est une sorte de négation. Dans le cas présent, cette directive `scanf` cherche à consommer tous les caractères jusqu'à une fin de ligne, car, dans le cas ou la capture échoue à `C` de `Celsius`, le pointeur de fichier est bloqué au caractère `C` et au prochain tour de boucle, `scanf` échouera au même endroit. Cette instruction est donc utilisée pour repartir sur des bases saines en sautant à la prochaine ligne.
 
-```{eval-rst}
-.. exercise:: scanf sur des entiers et des réels
+!!! exercise "scanf sur des entiers et des réels"
 
     Considérant les déclarations :
 
-    .. code-block:: c
-
-        int i, j, k;
-        float f;
+    ```c
+    int i, j, k;
+    float f;
+    ```
 
     Donnez les valeurs de chacune des variables après exécution. Chaque ligne est indépendante des autres.
 
-    .. code-block:: c
+    ```c
+    i = sscanf("1 12.5", "%d %d, &j, &k);
+    sscanf("12.5", "%d %f", &j, %f);
+    i = sscanf("123 123", "%d %f", &j, &f);
+    i = sscanf("123a 123", "%d %f", &j, &f);
+    i = sscanf("%2d%2d%f", &j, &k, &f);
+    ```
 
-        i = sscanf("1 12.5", "%d %d, &j, &k);
-        sscanf("12.5", "%d %f", &j, %f);
-        i = sscanf("123 123", "%d %f", &j, &f);
-        i = sscanf("123a 123", "%d %f", &j, &f);
-        i = sscanf("%2d%2d%f", &j, &k, &f);
-```
-
-```{eval-rst}
-.. exercise:: Saisie de valeurs
+!!! exercise "Saisie de valeurs"
 
     Considérant les déclarations suivantes, donner la valeur des variables après l'exécution des instructions données avec les captures associées :
 
-    .. code-block:: c
+    ```c
+    int i = 0, j = 0, n = 0;
+    float x = 0;
+    ```
 
-        int i = 0, j = 0, n = 0;
-        float x = 0;
+    1. `n = scanf("%1d%1d", &i, &j);`, ``12\n``
+    2. `n = scanf("%d%d", &i, &j);`, ``1 , 2\n``
+    3. `n = scanf("%d%d", &i, &j);`, ``-1   -2\n``
+    4. `n = scanf("%d%d", &i, &j);`, ``-  1  -  2\n``
+    5. `n = scanf("%d,%d", &i, &j);`, ``1  ,  2\n``
+    6. `n = scanf("%d ,%d", &i, &j);`, ``1  ,  2\n``
+    7. `n = scanf("%4d %2d", &i, &j);`, ``1 234\n``
+    8. `n = scanf("%4d %2d", &i, &j);`, ``1234567\n``
+    9. `n = scanf("%d%*d%d", &i, &j);`, ``123 456 789\n``
+    10. `n = scanf("i=%d , j=%d", &i, &j);`, ``1 , 2\n``
+    11. `n = scanf("i=%d , j=%d", &i, &j);`, ``i=1, j=2\n``
+    12. `n = scanf("%d%d", &i, &j);`, ``1.23 4.56\n``
+    13. `n = scanf("%d.%d", &i, &j);`, ``1.23 4.56\n``
+    14. `n = scanf("%x%x", &i, &j);`, ``12 2a\n``
+    15. `n = scanf("%x%x", &i, &j);`, ``0x12 0X2a\n``
+    16. `n = scanf("%o%o", &i, &j);`, ``12 018\n``
+    17. `n = scanf("%f", &x);`, ``123\n``
+    18. `n = scanf("%f", &x);`, ``1.23\n``
+    19. `n = scanf("%f", &x);`, ``123E4\n``
+    20. `n = scanf("%e", &x);`, ``12\n``
 
-    #. :code:`n = scanf("%1d%1d", &i, &j);`, ``12\n``
-    #. :code:`n = scanf("%d%d", &i, &j);`, ``1 , 2\n``
-    #. :code:`n = scanf("%d%d", &i, &j);`, ``-1   -2\n``
-    #. :code:`n = scanf("%d%d", &i, &j);`, ``-  1  -  2\n``
-    #. :code:`n = scanf("%d,%d", &i, &j);`, ``1  ,  2\n``
-    #. :code:`n = scanf("%d ,%d", &i, &j);`, ``1  ,  2\n``
-    #. :code:`n = scanf("%4d %2d", &i, &j);`, ``1 234\n``
-    #. :code:`n = scanf("%4d %2d", &i, &j);`, ``1234567\n``
-    #. :code:`n = scanf("%d%*d%d", &i, &j);`, ``123 456 789\n``
-    #. :code:`n = scanf("i=%d , j=%d", &i, &j);`, ``1 , 2\n``
-    #. :code:`n = scanf("i=%d , j=%d", &i, &j);`, ``i=1, j=2\n``
-    #. :code:`n = scanf("%d%d", &i, &j);`, ``1.23 4.56\n``
-    #. :code:`n = scanf("%d.%d", &i, &j);`, ``1.23 4.56\n``
-    #. :code:`n = scanf("%x%x", &i, &j);`, ``12 2a\n``
-    #. :code:`n = scanf("%x%x", &i, &j);`, ``0x12 0X2a\n``
-    #. :code:`n = scanf("%o%o", &i, &j);`, ``12 018\n``
-    #. :code:`n = scanf("%f", &x);`, ``123\n``
-    #. :code:`n = scanf("%f", &x);`, ``1.23\n``
-    #. :code:`n = scanf("%f", &x);`, ``123E4\n``
-    #. :code:`n = scanf("%e", &x);`, ``12\n``
+    ??? solution
 
-    .. solution::
-
-        +------+----------+--------+--------+-------------------------------+
         |``Q`` | ``i``    | ``j``  | ``n``  | Remarque                      |
-        +======+==========+========+========+===============================+
+        |------|----------|--------|--------|-------------------------------|
         |  1   | ``1``    | ``2``  | ``2``  |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  2   | ``1``    | ``0``  | ``1.`` | ``j`` n'est pas lue car arrêt |
         |      |          |        |        | prématuré sur ``,``           |
-        +------+----------+--------+--------+-------------------------------+
         |  3   | ``-1``   | ``-2`` | ``2``  |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  4   | ``0``    | ``0``  | ``0.`` | ``i`` n'est pas lue car arrêt |
         |      |          |        |        | prématuré sur ``-``           |
-        +------+----------+--------+--------+-------------------------------+
         |  5   | ``1``    | ``0``  | ``1.`` |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  6   | ``1``    | ``2``  | ``2``  |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  7   | ``1``    | ``23`` | ``2``  |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  8   | ``1234`` | ``56`` | ``2``  |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  9   | ``123``  | ``789``| ``2``  |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  10  | ``0``    | ``0``  | ``0``  |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  11  | ``1``    | ``2``  | ``2``  |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  12  | ``1``    | ``0``  | ``1``  |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  13  | ``1``    | ``23`` | ``2``  |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  14  | ``18``   | ``42`` | ``2``  |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  15  | ``10``   | ``1``  | ``2.`` | Le chiffre 8 interdit en octal|
         |      |          |        |        | provoque un arrêt             |
-        +------+----------+--------+--------+-------------------------------+
         |      | ``x``    | ``n``  |        |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  16  | ``123.`` | ``1``  |        |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  17  | ``1.23`` | ``1``  |        |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  18  |``1.23E6``| ``1``  |        |                               |
-        +------+----------+--------+--------+-------------------------------+
         |  19  | ``12``   | ``1``  |        |                               |
-        +------+----------+--------+--------+-------------------------------+
 ```
 
-```{eval-rst}
-.. exercise:: Chaînes de formats
+!!! exercise "Chaînes de formats"
 
-    #. Saisir 3 caractères consécutifs dans des variables ``i``, ``j``, ``k``.
-    #. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables ``x``, ``y`` et ``z``.
-    #. Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe ``=``, dans des variables ``t``, ``u`` et ``v``.
+    1. Saisir 3 caractères consécutifs dans des variables ``i``, ``j``, ``k``.
+    2. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables ``x``, ``y`` et ``z``.
+    3. Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe ``=``, dans des variables ``t``, ``u`` et ``v``.
 
-    .. solution::
+    ??? solution
 
-        #. Saisir 3 caractères consécutifs dans des variables ``i``, ``j``, ``k``.
+        1. Saisir 3 caractères consécutifs dans des variables ``i``, ``j``, ``k``.
 
-           .. code-block:: c
+            ```c
+            scanf("%c%c%c", &i, &j, &k);
+            ```
 
-               scanf("%c%c%c", &i, &j, &k);
+        2. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables ``x``, ``y`` et ``z``.
 
-        #. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables ``x``, ``y`` et ``z``.
+            ```c
+            scanf("%f ;%f ;%f", &x, &y, &z);
+            ```
 
-           .. code-block:: c
+        3. Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe ``=``, dans des variables ``t``, ``u`` et ``v``.
 
-               scanf("%f ;%f ;%f", &x, &y, &z);
-
-        #. Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe ``=``, dans des variables ``t``, ``u`` et ``v``.
-
-           .. code-block:: c
-
-               printf("t="); scanf("%f", &t);
-               printf("u="); scanf("%f", &u);
-               printf("v="); scanf("%f", &v);
-```
+            ```c
+            printf("t="); scanf("%f", &t);
+            printf("u="); scanf("%f", &u);
+            printf("v="); scanf("%f", &v);
+            ```
 
 ### Saisie de chaîne de caractères
 
@@ -527,106 +480,100 @@ sscanf(input, "%127[0-9A-Za-z+/]", &output);
 
 Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères majuscules et minuscules `A-Za-z` (52), ainsi que les caractères `+`, `/` (2), soit 64 caractères. Le buffer d'entrée étant fixé à 128 positions, la saisie est contrainte à 127 caractères imprimables.
 
-```{eval-rst}
-.. exercise:: Bugs
+!!! exercise "Bugs"
 
     Parmi les instructions ci-dessous, indiquez celles qui sont correctes et celle qui comporte des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.
 
-    .. code-block:: c
+    ```c
+    short i;
+    long j;
+    unsigned short u;
+    float x;
+    double y;
+    printf(i);
+    scanf(&i);
+    printf("%d", &i);
+    scanf("%d", &i);
+    printf("%d%ld", i, j, u);
+    scanf("%d%ld", &i, j);
+    printf("%u", &u);
+    scanf("%d", &u);
+    printf("%f", x);
+    scanf("%f", &x);
+    printf("%f", y);
+    scanf("%f", &y);
+    ```
 
-        short i;
-        long j;
-        unsigned short u;
-        float x;
-        double y;
+    ??? solution
+
+        ```c
+        // Incorrect ! Le premier paramètre de printf doit être la chaîne de format.
         printf(i);
+
+        // Incorrect ! Le premier paramètre de scanf doit être la chaîne de format.
         scanf(&i);
+
+        // Correct, mais surprenant.
+        // Cette instruction affichera l’adresse de I, et non pas sa valeur !
         printf("%d", &i);
+
+        // Incorrect. Le paramètre i est de type short, alors que la chaîne de
+        // format spécifie un type int. Fonctionnera sur les machines dont le type
+        // short et int sont identiques
         scanf("%d", &i);
+
+        // Incorrect, la troisième variable passée en paramètre ne sera pas affichée.
         printf("%d%ld", i, j, u);
+
+        // Incorrect ! Le premier paramètre est de type short alors que int
+        // est spécifié dans la chaîne de format.
+        // Le deuxième paramètre n’est pas passé par adresse, ce qui va
+        // probablement causer une erreur fatale.
         scanf("%d%ld", &i, j);
+
+        // Correct, mais étonnant. Affiche l’adresse de la variable u.
         printf("%u", &u);
+
+        // Incorrect ! Le paramètre est de type unsigned short, alors que
+        // la chaîne de format spécifie int. Fonctionnera pour les valeurs
+        // positives sur les machines dont le type short et int sont identiques.
+        // Pour les valeurs négatives, le résultat sera l’interprétation non
+        // signée de la valeur en complément à 2.
         scanf("%d", &u);
+
+        // Correct, mais x est traité comme double.
         printf("%f", x);
+
+        // Correct.
         scanf("%f", &x);
+
+        // Correct ! %f est traité comme double par printf !
         printf("%f", y);
+
+        // Incorrect ! La chaîne de format spécifie float,
+        // le paramètre passé est l’adresse d’une variable de type double.
         scanf("%f", &y);
+        ```
 
-    .. solution::
-
-        .. code-block:: c
-
-            // Incorrect ! Le premier paramètre de printf doit être la chaîne de format.
-            printf(i);
-
-            // Incorrect ! Le premier paramètre de scanf doit être la chaîne de format.
-            scanf(&i);
-
-            // Correct, mais surprenant.
-            // Cette instruction affichera l’adresse de I, et non pas sa valeur !
-            printf("%d", &i);
-
-            // Incorrect. Le paramètre i est de type short, alors que la chaîne de
-            // format spécifie un type int. Fonctionnera sur les machines dont le type
-            // short et int sont identiques
-            scanf("%d", &i);
-
-            // Incorrect, la troisième variable passée en paramètre ne sera pas affichée.
-            printf("%d%ld", i, j, u);
-
-            // Incorrect ! Le premier paramètre est de type short alors que int
-            // est spécifié dans la chaîne de format.
-            // Le deuxième paramètre n’est pas passé par adresse, ce qui va
-            // probablement causer une erreur fatale.
-            scanf("%d%ld", &i, j);
-
-            // Correct, mais étonnant. Affiche l’adresse de la variable u.
-            printf("%u", &u);
-
-            // Incorrect ! Le paramètre est de type unsigned short, alors que
-            // la chaîne de format spécifie int. Fonctionnera pour les valeurs
-            // positives sur les machines dont le type short et int sont identiques.
-            // Pour les valeurs négatives, le résultat sera l’interprétation non
-            // signée de la valeur en complément à 2.
-            scanf("%d", &u);
-
-            // Correct, mais x est traité comme double.
-            printf("%f", x);
-
-            // Correct.
-            scanf("%f", &x);
-
-            // Correct ! %f est traité comme double par printf !
-            printf("%f", y);
-
-            // Incorrect ! La chaîne de format spécifie float,
-            // le paramètre passé est l’adresse d’une variable de type double.
-            scanf("%f", &y);
-
-```
-
-```{eval-rst}
-.. exercise:: Test de saisir correcte
+!!! exercise "Test de saisir correcte"
 
     Écrivez un programme déclarant des variables réelles ``x``, ``y`` et ``z``, permettant de
     saisir leur valeur en une seule instruction, et vérifiant que les 3 valeurs ont bien
     été assignées. Dans le cas contraire, afficher un message du type "données
     invalides".
 
-    .. solution::
+    ??? solution
 
-        .. code-block:: c
+        ```c
+        int n;
+        float x, y, z;
+        printf("Donnez les valeurs de x, y et z :");
+        n = scanf("%f%f%f", &x, &y, &z);
+        if (n != 3)
+        printf("Erreur de saisie.\n");
+        ```
 
-            int n;
-            float x, y, z;
-            printf("Donnez les valeurs de x, y et z :");
-            n = scanf("%f%f%f", &x, &y, &z);
-            if (n != 3)
-            printf("Erreur de saisie.\n");
-```
-
-```{eval-rst}
-.. exercise:: Produit scalaire
+!!! exercise "Produit scalaire"
 
     Écrire un programme effectuant les opérations suivantes :
 
@@ -634,175 +581,166 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
     - Saisir les coordonnées réelles ``x2`` et ``y2`` d’un vecteur ``v2``.
     - Calculer le produit scalaire. Afficher un message indiquant si les vecteurs sont orthogonaux ou non.
 
-    .. solution::
+    ??? solution
 
-        .. code-block:: c
-
-            #include <stdio.h>
-            #include <stdlib.h>
-
-            int main(void)
-            {
-                float x1, y1
-                printf("Coordonnées du vecteur v1 séparées par un \";\" :\n");
-                scanf("%f ;%f", &x1, &y1);
-
-                float x2, y2;
-                printf("Coordonnées du vecteur v2 séparées par un \";\" :\n");
-                scanf("%f ;%f", &x2, &y2);
-
-                float dot_product = x1 * x2 + y1 * y2;
-                printf("Produit scalaire : %f\n", dot_product);
-                if (dot_product == 0.0)
-                    printf("Les vecteurs sont orthogonaux.\n");
-            }
-
-        Ce programme risque de ne pas bien détecter l’orthogonalité de certains vecteurs, car le test d’égalité à 0 avec les virgules flottantes pourrait mal fonctionner. En effet, pour deux vecteurs orthogonaux, les erreurs de calcul en virgule flottante pourraient amener à un produit scalaire calculé très proche, mais cependant différent de zéro.
-        On peut corriger ce problème en modifiant le test pour vérifier si le produit scalaire est très petit, par exemple compris entre ``-0.000001`` et ``+0.000001``:
-
-        .. code-block:: c
-
-            if (dot_product >= -1E-6 && dot_product <= 1E-6)
-
-        Ce qui peut encore s’écrire en utilisant la fonction valeur absolue :
-
-        .. code-block:: c
-
-            if (fabs(dot_product) <= 1E-6)
-```
-
-```{eval-rst}
-.. exercise:: Crampes de doigts
-
-    Votre collègue n'a pas cessé de se plaindre de crampes... aux doigts... Il a écrit le programme suivant avant de prendre congé pour se rendre chez son médecin.
-
-    Grâce à votre esprit affuté et votre œil perçant, vous identifiez 13 erreurs. Lesquelles sont-elles ?
-
-    .. code-block:: text
-
-        #include <std_io.h>
-        #jnclude <stdlib.h>
-        INT Main()
-        {
-        int a, sum;
-        printf("Addition de 2 entiers a et b.\n");
-
-        printf("a: ")
-        scanf("%d", a);
-
-        printf("b: ");
-        scanf("%d", &b);
-
-        /* Affichage du résultat
-        somme = a - b;
-        Printf("%d + %d = %d\n", a, b, sum);
-
-        retturn EXIT_FAILURE;
-        }
-        }
-
-    .. solution::
-
-        Une fois la correction effectuée, vous utilisez l'outil de ``diff`` pour montrer les différences :
-
-        .. code-block:: diff
-
-            1,3c1,3
-            <         #include <stdio.h>
-            <         #include <stdlib.h>
-            <         int main()
-            ---
-            >         #include <std_io.h>
-            >         #jnclude <stdlib.h>
-            >         INT Main()
-            5c5
-            <         int a, b, sum;
-            ---
-            >         int a, sum;
-            9c9
-            <         scanf("%d", &a);
-            ---
-            >         scanf("%d", a);
-            14,16c14,16
-            <         /* Affichage du résultat */
-            <         sum = a + b;
-            <         printf("%d + %d = %d\n", a, b, sum);
-            ---
-            >         /* Affichage du résultat
-            >         somme = a - b;
-            >         Printf("%d + %d = %d\n", a, b, sum);
-            18c18,19
-            <         return EXIT_SUCCESS;
-            ---
-            >         return EXIT_FAILURE;
-            >         }
-
-```
-
-```{eval-rst}
-.. exercise:: Géométrie affine
-
-    Considérez le programme suivant :
-
-    .. code-block:: c
-
+        ```c
         #include <stdio.h>
         #include <stdlib.h>
 
         int main(void)
         {
-            float a;
-            printf("a = ");
-            scanf("%f", &a);
+            float x1, y1
+            printf("Coordonnées du vecteur v1 séparées par un \";\" :\n");
+            scanf("%f ;%f", &x1, &y1);
 
-            float b;
-            printf("b = ");
-            scanf("%f", &b);
+            float x2, y2;
+            printf("Coordonnées du vecteur v2 séparées par un \";\" :\n");
+            scanf("%f ;%f", &x2, &y2);
 
-            float x;
-            printf("x = ");
-            scanf("%f", &x);
-
-            float y = a * x + b;
-
-            printf("y = %f\n", y);
-
-            return 0;
+            float dot_product = x1 * x2 + y1 * y2;
+            printf("Produit scalaire : %f\n", dot_product);
+            if (dot_product == 0.0)
+                printf("Les vecteurs sont orthogonaux.\n");
         }
+        ```
 
-    #. À quelle ligne commence l'exécution de ce programme ?
-    #. Dans quel ordre s'exécutent les instructions ?
-    #. Décrivez ce que fait ce programme étape par étape
-    #. Que verra l'utilisateur à l'écran ?
-    #. Quelle est l'utilité de ce programme ?
+        Ce programme risque de ne pas bien détecter l’orthogonalité de certains vecteurs, car le test d’égalité à 0 avec les virgules flottantes pourrait mal fonctionner. En effet, pour deux vecteurs orthogonaux, les erreurs de calcul en virgule flottante pourraient amener à un produit scalaire calculé très proche, mais cependant différent de zéro.
+        On peut corriger ce problème en modifiant le test pour vérifier si le produit scalaire est très petit, par exemple compris entre ``-0.000001`` et ``+0.000001``:
 
-    .. solution::
+        ```c
+        if (dot_product >= -1E-6 && dot_product <= 1E-6)
+        ```
 
-        #. Ligne 6
-        #. C est un langage impératif, l'ordre est séquentiel du haut vers le bas
-        #. Les étapes sont les suivantes :
+        Ce qui peut encore s’écrire en utilisant la fonction valeur absolue :
 
-           #. Demande de la valeur de ``a`` à l'utilisateur
-           #. Demande de la valeur de ``b`` à l'utilisateur
-           #. Demande de la valeur de ``x`` à l'utilisateur
-           #. Calcul de l'image affine de ``x`` (équation de droite)
-           #. Affichage du résultat
+        ```c
+        if (fabs(dot_product) <= 1E-6)
+        ```
 
-        #. Que verra l'utilisateur à l'écran ?
+!!! exercise "Crampes de doigts"
 
-           #. Il verra ``y = 12`` pour ``a = 2; x = 5; b = 2``
+    Votre collègue n'a pas cessé de se plaindre de crampes... aux doigts... Il a écrit le programme suivant avant de prendre congé pour se rendre chez son médecin.
 
-        #. Quelle est l'utilité de ce programme ?
+    Grâce à votre esprit affuté et votre œil perçant, vous identifiez 13 erreurs. Lesquelles sont-elles ?
 
-           #. Le calcul d'un point d'une droite
-```
+    ```text
+    #include <std_io.h>
+    #jnclude <stdlib.h>
+    INT Main()
+    {
+    int a, sum;
+    printf("Addition de 2 entiers a et b.\n");
 
-```{eval-rst}
-.. exercise:: Équation de droite
+    printf("a: ")
+    scanf("%d", a);
+
+    printf("b: ");
+    scanf("%d", &b);
+
+    /* Affichage du résultat
+    somme = a - b;
+    Printf("%d + %d = %d\n", a, b, sum);
+
+    retturn EXIT_FAILURE;
+    }
+    }
+    ```
+
+    ??? solution
+
+        Une fois la correction effectuée, vous utilisez l'outil de ``diff`` pour montrer les différences :
+
+        ```diff
+        1,3c1,3
+        <         #include <stdio.h>
+        <         #include <stdlib.h>
+        <         int main()
+        ---
+        >         #include <std_io.h>
+        >         #jnclude <stdlib.h>
+        >         INT Main()
+        5c5
+        <         int a, b, sum;
+        ---
+        >         int a, sum;
+        9c9
+        <         scanf("%d", &a);
+        ---
+        >         scanf("%d", a);
+        14,16c14,16
+        <         /* Affichage du résultat */
+        <         sum = a + b;
+        <         printf("%d + %d = %d\n", a, b, sum);
+        ---
+        >         /* Affichage du résultat
+        >         somme = a - b;
+        >         Printf("%d + %d = %d\n", a, b, sum);
+        18c18,19
+        <         return EXIT_SUCCESS;
+        ---
+        >         return EXIT_FAILURE;
+        >         }
+        ```
+
+!!! exercise "Géométrie affine"
+
+    Considérez le programme suivant :
+
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    int main(void)
+    {
+        float a;
+        printf("a = ");
+        scanf("%f", &a);
+
+        float b;
+        printf("b = ");
+        scanf("%f", &b);
+
+        float x;
+        printf("x = ");
+        scanf("%f", &x);
+
+        float y = a * x + b;
+
+        printf("y = %f\n", y);
+    }
+    ```
+
+    1. À quelle ligne commence l'exécution de ce programme ?
+    2. Dans quel ordre s'exécutent les instructions ?
+    3. Décrivez ce que fait ce programme étape par étape
+    4. Que verra l'utilisateur à l'écran ?
+    5. Quelle est l'utilité de ce programme ?
+
+    ??? solution
+
+        1. Ligne 6
+        2. C est un langage impératif, l'ordre est séquentiel du haut vers le bas
+        3. Les étapes sont les suivantes :
+
+            1. Demande de la valeur de ``a`` à l'utilisateur
+            2. Demande de la valeur de ``b`` à l'utilisateur
+            3. Demande de la valeur de ``x`` à l'utilisateur
+            4. Calcul de l'image affine de ``x`` (équation de droite)
+            5. Affichage du résultat
+
+        4. Que verra l'utilisateur à l'écran ?
+
+            - Il verra ``y = 12`` pour ``a = 2; x = 5; b = 2``
+
+        5. Quelle est l'utilité de ce programme ?
+
+            - Le calcul d'un point d'une droite
+
+!!! exercise "Équation de droite"
 
     L'exercice précédent souffre de nombreux défauts. Sauriez-vous les identifier et perfectionner l'implémentation de ce programme ?
 
-    .. solution::
+    ??? solution
 
         Citons les défauts de ce programme :
 
@@ -814,55 +752,49 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
 
         Une solution possible serait :
 
-        .. literalinclude:: ../../assets/src/linear.c
-            :language: c
-```
+        ```c
+        --8<-- "docs/assets/src/linear.c"
+        ```
 
-```{eval-rst}
-.. exercise:: Loi d'Ohm
+!!! exercise "Loi d'Ohm"
 
     Écrivez un programme demandant deux réels ``tension`` et ``résistance``, et affichez ensuite le ``courant``. Prévoir un test pour le cas où la résistance serait nulle.
-```
 
-```{eval-rst}
-.. exercise:: Tour Eiffel
+
+!!! exercise "Tour Eiffel"
 
     Considérons le programme suivant :
 
-    .. code-block:: c
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <math.h>
 
-        #include <stdio.h>
-        #include <stdlib.h>
-        #include <math.h>
+    int main()
+    {
+        printf("Quel angle mesurez-vous en visant le sommet du bâtiment (en degrés): ");
+        float angle_degre;
+        scanf("%f", &angle_degrees);
+        float angle_radian = angle_degrees * M_PI / 45.;
 
-        int main()
-        {
-            printf("Quel angle mesurez-vous en visant le sommet du bâtiment (en degrés): ");
-            float angle_degre;
-            scanf("%f", &angle_degrees);
-            float angle_radian = angle_degrees * M_PI / 45.;
+        printf("À quelle distance vous trouvez vous du bâtiment (en mètres): ");
+        float distance;
+        scanf("%f", &distance);
 
-            printf("À quelle distance vous trouvez vous du bâtiment (en mètres): ");
-            float distance;
-            scanf("%f", &distance);
+        float height = distance / tan(angle_radian);
+        printf("La hauteur du bâtiment est : %g mètres.\n", height);
+    }
+    ```
 
-            float height = distance / tan(angle_radian);
-            printf("La hauteur du bâtiment est : %g mètres.\n", height);
+    1. Que fait le programme étape par étape ?
+    2. Que verra l'utilisateur à l'écran ?
+    3. À quoi sert ce programme ?
+    4. Euh, mais ? Ce programme comporte des erreurs, lesquelles ?
+    5. Implémentez-le et testez-le.
 
-            return 0;
-        }
+!!! exercise "Hyperloop"
 
-    #. Que fait le programme étape par étape ?
-    #. Que verra l'utilisateur à l'écran ?
-    #. À quoi sert ce programme ?
-    #. Euh, mais ? Ce programme comporte des erreurs, lesquelles ?
-    #. Implémentez-le et testez-le.
-```
-
-```{eval-rst}
-.. exercise:: Hyperloop
-
-    `Hyperloop <https://fr.wikipedia.org/wiki/Hyperloop>`__ (aussi orthographié **Hyperl∞p**) est un projet ambitieux d'Elon Musk visant à construire un moyen de transport ultra rapide utilisant des capsules voyageant dans un tube sous vide. Ce projet est analogue à celui étudié en suisse et nommé `Swissmetro <https://fr.wikipedia.org/wiki/Swissmetro>`__, mais abandonné en 2009.
+    [Hyperloop](https://fr.wikipedia.org/wiki/Hyperloop) (aussi orthographié **Hyperl∞p**) est un projet ambitieux d'Elon Musk visant à construire un moyen de transport ultra rapide utilisant des capsules voyageant dans un tube sous vide. Ce projet est analogue à celui étudié en suisse et nommé [Swissmetro](https://fr.wikipedia.org/wiki/Swissmetro), mais abandonné en 2009.
 
     Néanmoins, les ingénieurs suisses avaient à l'époque écrit un programme pour calculer, compte tenu d'une vitesse donnée, le temps de parcours entre deux villes de Suisse.
 
@@ -875,4 +807,3 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
     - St-Galle
 
     Considérez une accélération de 0.5 g pour le calcul de mouvement, et une vitesse maximale de 1220 km/h.
-```

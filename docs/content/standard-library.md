@@ -1,8 +1,6 @@
 # Bibliothèques
 
-:::{figure} ../../assets/images/library.*
-Bibliothèque du Trinity College de Dublin
-:::
+![Bibliothèque du Trinity College de Dublin](../assets/images/library.jpg)
 
 Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La fonction `printf` est une de ces fonctionnalités et offerte par le header `<stdio.h>` faisant partie de la bibliothèque `libc6`.
 
@@ -47,8 +45,8 @@ On a donc :
 
 Imaginons que l'on souhaite bénéficier des fonctionnalités de cette bibliothèque pour le calcul d'orbites pour un satellite d'observation de Jupyter. Pour prendre en main cet *libary* on écrit ceci :
 
-```{literalinclude} ../../assets/src/gmp.c
-:language: c
+```c
+--8<-- "docs/assets/src/gmp.c"
 ```
 
 Puis on compile :
@@ -136,11 +134,7 @@ La bibliothèque [ncurses](https://fr.wikipedia.org/wiki/Ncurses) traduction de 
 
 La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...
 
-:::{figure} ../../assets/images/linux-menuconfig.png
-:alt: Example avec `ncurses`
-
-Exemple d'interface graphique écrite avec `ncurses`. Ici la configuration du noyau Linux.
-:::
+![Exemple d'interface graphique écrite avec `ncurses`. Ici la configuration du noyau Linux.](../assets/images/linux-menuconfig.png)
 
 L'écriture d'un programme Hello World avec cette bibliothèque pourrait être :
 
@@ -179,14 +173,14 @@ Une bibliothèque statique n'est rien d'autre qu'une archive d’un ou plusieurs
 
 Par exemple si l'on souhaite écrire une bibliothèque statique pour le [code de César](https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage) on écrira un fichier source `caesar.c`:
 
-```{literalinclude} ../../assets/src/caesar.c
-:language: c
+```c title="caesar.c"
+--8<-- "docs/assets/src/caesar.c"
 ```
 
 Ainsi qu'un fichier d'en-tête `caesar.h`:
 
-```{literalinclude} ../../assets/src/caesar.h
-:language: c
+```c title="caesar.h"
+--8<-- "docs/assets/src/caesar.h"
 ```
 
 Pour créer une bibliothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiver crée l'amalgame :
@@ -198,8 +192,8 @@ $ ar rcs caesar.a caesar.o
 
 Puis il suffit d'écrire un programme pour utiliser cette bibliothèque :
 
-```{literalinclude} ../../assets/src/encrypt.c
-:language: c
+```c title="encrypt.c"
+--8<-- "docs/assets/src/encrypt.c"
 ```
 
 Et de compiler le tout. Ici on utilise `-I.` et `-L.` pour dire au compilateur de chercher le fichier d'en-tête et la bibliothèque dans le répertoire courant.
@@ -300,59 +294,57 @@ Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilis�
 
 : Accès au fonctions lecture et de conversion de date et d'heure.
 
-```{eval-rst}
-.. exercise:: Arc-cosinus
+!!! exercise Arc-cosinus
 
     La fonction Arc-Cosinus ``acos`` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension ``.h``.
 
-    .. solution::
+    ??? solution
 
         En cherchant ``man acos header`` dans Google, on trouve que la fonction ``acos`` est définie dans le header ``<math.h>``.
 
         Une autre solution est d'utiliser sous Linux la commande ``apropos``:
 
-        .. code-block:: console
-
-            $ apropos acos
-            acos (3)     - arc cosine function
-            acosf (3)    - arc cosine function
-            acosh (3)    - inverse hyperbolic cosine function
-            acoshf (3)   - inverse hyperbolic cosine function
-            acoshl (3)   - inverse hyperbolic cosine function
-            acosl (3)    - arc cosine function
-            cacos (3)    - complex arc cosine
-            cacosf (3)   - complex arc cosine
-            cacosh (3)   - complex arc hyperbolic cosine
-            cacoshf (3)  - complex arc hyperbolic cosine
-            cacoshl (3)  - complex arc hyperbolic cosine
-            cacosl (3)   - complex arc cosine
+        ```bash
+        $ apropos acos
+        acos (3)     - arc cosine function
+        acosf (3)    - arc cosine function
+        acosh (3)    - inverse hyperbolic cosine function
+        acoshf (3)   - inverse hyperbolic cosine function
+        acoshl (3)   - inverse hyperbolic cosine function
+        acosl (3)    - arc cosine function
+        cacos (3)    - complex arc cosine
+        cacosf (3)   - complex arc cosine
+        cacosh (3)   - complex arc hyperbolic cosine
+        cacoshf (3)  - complex arc hyperbolic cosine
+        cacoshl (3)  - complex arc hyperbolic cosine
+        cacosl (3)   - complex arc cosine
+        ```
 
         Le premier résultat permet ensuite de voir :
 
-        .. code-block:: console
+        ```bash
+        $ man acos | head -10
+        ACOS(3)    Linux Programmer's Manual         ACOS(3)
 
-            $ man acos | head -10
-            ACOS(3)    Linux Programmer's Manual         ACOS(3)
+        NAME
+            acos, acosf, acosl - arc cosine function
 
-            NAME
-                acos, acosf, acosl - arc cosine function
+        SYNOPSIS
+            #include <math.h>
 
-            SYNOPSIS
-                #include <math.h>
-
-                double acos(double x);
-                float acosf(float x);
+            double acos(double x);
+            float acosf(float x);
+        ```
 
         La réponse est donc ``<math.h>``.
 
-        Sous Windows avec Visual Studio, il suffit d'écrire ``acos`` dans un fichier source et d'appuyer sur ``F1``. L'IDE redirige l'utilisateur sur l'aide Microsoft `acos-acosf-acosl <https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl>`__ qui indique que le header source est ``<math.h>``.
+        Sous Windows avec Visual Studio, il suffit d'écrire ``acos`` dans un fichier source et d'appuyer sur ``F1``. L'IDE redirige l'utilisateur sur l'aide Microsoft [acos-acosf-acosl](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl) qui indique que le header source est ``<math.h>``.
 ```
 
-```{eval-rst}
-.. exercise:: Date
+!!! exercise "Date"
 
     Lors du formatage d'une date, on y peut y lire ``%w``, par quoi sera remplacé ce *token* ?
-```
+
 
 ### Fonctions d'intérêt
 
@@ -360,46 +352,28 @@ Il serait inutile ici de lister toutes les fonctions, les bibliothèques standar
 
 #### Math
 
-```{eval-rst}
-.. table:: Constantes mathématiques
+Table: Constantes mathématiques
 
-    +------------------+-------------------------------------------------------+
-    | Constantes       | Description                                           |
-    +==================+=======================================================+
-    | ``M_PI``         | Valeur de :math:`\pi`                                 |
-    +------------------+-------------------------------------------------------+
-    | ``M_E``          | Valeur de :math:`e`                                   |
-    +------------------+-------------------------------------------------------+
-    | ``M_SQRT1_2``    | Valeur de :math:`1/\sqrt(2)`                          |
-    +------------------+-------------------------------------------------------+
-```
+| Constantes       | Description                                           |
+|------------------|-------------------------------------------------------|
+| ``M_PI``         | Valeur de :math:`\pi`                                 |
+| ``M_E``          | Valeur de :math:`e`                                   |
+| ``M_SQRT1_2``    | Valeur de :math:`1/\sqrt(2)`                          |
 
-```{eval-rst}
-.. table:: Fonctions mathématiques
+Table: Fonctions mathématiques
 
-    +------------------+-------------------------------------------------------+
-    | Fonction         | Description                                           |
-    +==================+=======================================================+
-    | ``exp(x)``       | Exponentielle :math:`e^x`                             |
-    +------------------+-------------------------------------------------------+
-    | ``ldexp(x,n)``   | Exposant d'un nombre flottant :math:`x\cdot2^n`       |
-    +------------------+-------------------------------------------------------+
-    | ``log(x)``       | Logarithme binaire :math:`\log_{2}(x)`                |
-    +------------------+-------------------------------------------------------+
-    | ``log10(x)``     | Logarithme décimal :math:`\log_{10}(x)`               |
-    +------------------+-------------------------------------------------------+
-    | ``pow(x,y)``     | Puissance :math:`x^y`                                 |
-    +------------------+-------------------------------------------------------+
-    | ``sqrt(x)``      | Racine carrée :math:`\sqrt(x)`                        |
-    +------------------+-------------------------------------------------------+
-    | ``cbrt(x)``      | Racine cubique :math:`\sqrt[3](x)`                    |
-    +------------------+-------------------------------------------------------+
-    | ``hypot(x,y)``   | Hypoténuse optimisé :math:`\sqrt(x^2 + y^2)`          |
-    +------------------+-------------------------------------------------------+
-    | ``ceil``         | Arrondi à l'entier supérieur                          |
-    +------------------+-------------------------------------------------------+
-    | ``floor``        | Arrondi à l'entier inférieur                          |
-    +------------------+-------------------------------------------------------+
+| Fonction         | Description                                           |
+|------------------|-------------------------------------------------------|
+| ``exp(x)``       | Exponentielle :math:`e^x`                             |
+| ``ldexp(x,n)``   | Exposant d'un nombre flottant :math:`x\cdot2^n`       |
+| ``log(x)``       | Logarithme binaire :math:`\log_{2}(x)`                |
+| ``log10(x)``     | Logarithme décimal :math:`\log_{10}(x)`               |
+| ``pow(x,y)``     | Puissance :math:`x^y`                                 |
+| ``sqrt(x)``      | Racine carrée :math:`\sqrt(x)`                        |
+| ``cbrt(x)``      | Racine cubique :math:`\sqrt[3](x)`                    |
+| ``hypot(x,y)``   | Hypoténuse optimisé :math:`\sqrt(x^2 + y^2)`          |
+| ``ceil``         | Arrondi à l'entier supérieur                          |
+| ``floor``        | Arrondi à l'entier inférieur                          |
 ```
 
 Notons par exemple que la fonction `hypot` peut très bien être émulée facilement en utilisant la fonction `sqrt`. Néanmoins elle existe pour deux raisons élémentaires :
@@ -425,96 +399,78 @@ Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables
 
 Test d'une propriété d'un caractère passé en paramètre
 
-```{eval-rst}
-.. table:: Fonctions de test de caractères
+Table: Fonctions de test de caractères
 
-    +--------------+------------------------------------------+
-    | Fonction     | Description                              |
-    +==============+==========================================+
-    | ``isalnum``  | une lettre ou un chiffre                 |
-    +--------------+------------------------------------------+
-    | ``isalpha``  | une lettre                               |
-    +--------------+------------------------------------------+
-    | ``iscntrl``  | un caractère de commande                 |
-    +--------------+------------------------------------------+
-    | ``isdigit``  | un chiffre décimal                       |
-    +--------------+------------------------------------------+
-    | ``isgraph``  | un caractère imprimable ou le blanc      |
-    +--------------+------------------------------------------+
-    | ``islower``  | une lettre minuscule                     |
-    +--------------+------------------------------------------+
-    | ``isprint``  | un caractère imprimable (pas le blanc)   |
-    +--------------+------------------------------------------+
-    | ``ispunct``  | un caractère imprimable pas isalnum      |
-    +--------------+------------------------------------------+
-    | ``isspace``  | un caractère d'espace blanc              |
-    +--------------+------------------------------------------+
-    | ``isupper``  | une lettre majuscule                     |
-    +--------------+------------------------------------------+
-    | ``isxdigit`` | un chiffre hexadécimal                   |
-    +--------------+------------------------------------------+
-```
+| Fonction     | Description                              |
+|--------------|------------------------------------------|
+| ``isalnum``  | une lettre ou un chiffre                 |
+| ``isalpha``  | une lettre                               |
+| ``iscntrl``  | un caractère de commande                 |
+| ``isdigit``  | un chiffre décimal                       |
+| ``isgraph``  | un caractère imprimable ou le blanc      |
+| ``islower``  | une lettre minuscule                     |
+| ``isprint``  | un caractère imprimable (pas le blanc)   |
+| ``ispunct``  | un caractère imprimable pas isalnum      |
+| ``isspace``  | un caractère d'espace blanc              |
+| ``isupper``  | une lettre majuscule                     |
+| ``isxdigit`` | un chiffre hexadécimal                   |
 
 #### Limites
 
-```{eval-rst}
-.. table:: Valeurs limites pour les entiers signés et non signés
+Table: Valeurs limites pour les entiers signés et non signés
 
-    +------------------+---------------+
-    | Constante        | Valeur        |
-    +==================+===============+
-    | ``SCHAR\_MIN``   | -128          |
-    +------------------+---------------+
-    | ``SCHAR\_MAX``   | +127          |
-    +------------------+---------------+
-    | ``CHAR\_MIN``    | 0             |
-    +------------------+---------------+
-    | ``CHAR\_MAX``    | 255           |
-    +------------------+---------------+
-    | ``SHRT\_MIN``    | -32768        |
-    +------------------+---------------+
-    | ``SHRT\_MAX``    | +32767        |
-    +------------------+---------------+
-    | ``USHRT\_MAX``   | 65535         |
-    +------------------+---------------+
-    | ``LONG\_MIN``    | -2147483648   |
-    +------------------+---------------+
-    | ``LONG\_MAX``    | +2147483647   |
-    +------------------+---------------+
-    | ``ULONG\_MAX``   | +4294967295   |
-    +------------------+---------------+
-    | ``DBL\_MAX``     | 1E+37 ou plus |
-    +------------------+---------------+
-    | ``DBL\_EPSILON`` | 1E-9 ou moins |
-    +------------------+---------------+
-```
+| Constante        | Valeur        |
+|------------------|---------------|
+| ``SCHAR_MIN``   | -128          |
+| ``SCHAR_MAX``   | +127          |
+| ``CHAR_MIN``    | 0             |
+| ``CHAR_MAX``    | 255           |
+| ``SHRT_MIN``    | -32768        |
+| ``SHRT_MAX``    | +32767        |
+| ``USHRT_MAX``   | 65535         |
+| ``LONG_MIN``    | -2147483648   |
+| ``LONG_MAX``    | +2147483647   |
+| ``ULONG_MAX``   | +4294967295   |
+| ``DBL_MAX``     | 1E+37 ou plus |
+| ``DBL_EPSILON`` | 1E-9 ou moins |
 
 ## Autres bibliothèques
 
 - GNU C Library ([glibc](https://www.gnu.org/software/libc/))
-  \- C11
-  \- POSIX.1-2008
-  \- IEEE 754-2008
+  - C11
+  - POSIX.1-2008
+  - IEEE 754-2008
 
 ### POSIX C Library
 
 Le standard C ne définit que le minimum vital et qui est valable sur toutes les architectures pour autant que la *toolchain* soit compatible **C99**. Il existe néanmoins toute une collection d'autres fonctions manquantes :
 
 - La communication entre les processus (deux programmes qui souhaitent communiquer entre eux)
-  \- `<sys/socket.h>`
-  \- `<sharedmemory.h>`
+
+    - `<sys/socket.h>`
+    - `<sharedmemory.h>`
+
 - La communication sur le réseau e.g. internet
-  \- `<sys/socket.h>`
-  \- `<arpa/inet.h>`
-  \- `<net/if.h>`
+
+    - `<sys/socket.h>`
+    - `<arpa/inet.h>`
+    - `<net/if.h>`
+
 - Les tâches
-  \- `<thread.h>`
+
+    - `<thread.h>`
+
 - Les traductions de chaînes p.ex. français vers anglais
-  \- `<iconv.h>`
+
+    - `<iconv.h>`
+
 - Les fonctions avancées de recherche de texte
-  \- `<regex.h>`
+
+    - `<regex.h>`
+
 - Le log centralisé des messages (d'erreur)
-  \- `<syslog.h>`
+
+    - `<syslog.h>`
 
 Toutes ces bibliothèques additionnelles ne sont pas nécessairement disponibles sur votre ordinateur ou pour le système cible, surtout si vous convoitez une application *bare-metal*. Elles dépendent grandement du système d'exploitation utilisé, mais une tentative de normalisation existe et se nomme [POSIX](https://en.wikipedia.org/wiki/POSIX) (ISO/IEC 9945).
 

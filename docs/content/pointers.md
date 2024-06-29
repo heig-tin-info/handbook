@@ -1,5 +1,3 @@
-(pointers)=
-
 # Pointeurs
 
 [Attention les vélos](https://fr.wikiquote.org/wiki/Le_Jour_de_gloire), on s'attaque à un sujet délicat, difficile, scabreux, mais nécessaire. Un sujet essentiel, indispensable et fantastique: les [pointeurs](<https://fr.wikipedia.org/wiki/Pointeur_(programmation)>).
@@ -180,29 +178,23 @@ Oui très exactement, les deux codes sont similaires, mais l'un est plus éléga
 
 L'arithmétique de pointeur est donc chose courante avec les tableaux. À vrai dire, les deux concepts sont interchangeables :
 
-```{eval-rst}
-.. table:: Arithmétique sur tableau unidimensionnel
+Table: Arithmétique sur tableau unidimensionnel
 
-    ==============  ========  ============  ============  ================
-    Élément         Premier   Deuxième      Troisième     n ième
-    ==============  ========  ============  ============  ================
-    Accès tableau   ``a[0]``  ``a[1]``      ``a[2]``      ``a[n - 1]``
-    Accès pointeur  ``*a``    ``*(a + 1)``  ``*(a + 2)``  ``*(a + n - 1)``
-    ==============  ========  ============  ============  ================
-```
+| Élément        | Premier  | Deuxième     | Troisième    | n ième |
+|----------------|----------|--------------|--------------|--------|
+| Accès tableau  | ``a[0]`` | ``a[1]``     | ``a[2]``     | ``a[n - 1]`` |
+| Accès pointeur | ``*a``   | ``*(a + 1)`` | ``*(a + 2)`` | ``*(a + n - 1)`` |
+
 
 De même, l'exercice peut être répété avec des tableaux à deux dimensions :
 
-```{eval-rst}
-.. table:: Arithmétique sur tableau bidimensionnel
+Table: Arithmétique sur tableau bidimensionnel
 
-    ==============  ===============  ===============  ===================
-    Élément         Premier          Deuxième         n ligne m colonne
-    ==============  ===============  ===============  ===================
-    Accès tableau   ``a[0][0]``      ``a[1][1]``      ``a[n - 1][m - 1]``
-    Accès pointeur  ``*(*(a+0)+0)``  ``*(*(a+1)+1)``  ``*(*(a+i-1)+j-1)``
-    ==============  ===============  ===============  ===================
-```
+| Élément        | Premier         | Deuxième        | n ligne m colonne|
+|----------------|-----------------|-----------------|------------------|
+| Accès tableau  | ``a[0][0]``     | ``a[1][1]``     | ``a[n - 1][m - 1]``|
+| Accès pointeur | ``*(*(a+0)+0)`` | ``*(*(a+1)+1)`` | ``*(*(a+i-1)+j-1)``|
+
 
 ## Pointeur et chaînes de caractères
 
@@ -212,9 +204,7 @@ static const char* conjonctions[] = {
 };
 ```
 
-:::{figure} ../../assets/figures/dist/string/ptrstr.*
-Pointeur sur une chaîne de caractère
-:::
+![Pointeur sur une chaîne de caractère](../assets/figures/dist/string/ptrstr.svg)
 
 Cette structure est très exactement la même que pour les arguments transmis à la fonction `main`: la définition `char *argv[]`.
 
@@ -475,7 +465,7 @@ main :
     .ascii  "La Broye c'est fantastique!\000"
 ```
 
-Vous pouvez jouer avec cet exemple [ici](<https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(j:1,lang:c%2B%2B,source:'%23include+%3Cstring.h%3E%0A%23include+%3Cstdio.h%3E%0A%0Aint+main(void)%0A%7B%0A++++char+a%5B%5D+%3D+%22La+Broye+c!'est+fantastique!!%22%3B%0A++++char+b%5Bsizeof(a)%5D%3B%0A%0A++++memcpy(a,+b,+sizeof(a))%3B%0A%0A++++printf(%22%25s+%25s%22,+a,+b)%3B%0A%7D'),l:'5',n:'0',o:'C%2B%2B+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:compiler,i:(compiler:armg820,filters:(b:'0',binary:'1',commentOnly:'0',demangle:'0',directives:'0',execute:'1',intel:'0',libraryCode:'1',trim:'1'),lang:c%2B%2B,libs:!(),options:'-O2',source:1),l:'5',n:'0',o:'ARM+gcc+8.2+(Editor+%231,+Compiler+%231)+C%2B%2B',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4>).
+Vous pouvez jouer avec cet exemple [ici](https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(j:1,lang:c%2B%2B,source:'%23include+%3Cstring.h%3E%0A%23include+%3Cstdio.h%3E%0A%0Aint+main(void)%0A%7B%0A++++char+a%5B%5D+%3D+%22La+Broye+c!'est+fantastique!!%22%3B%0A++++char+b%5Bsizeof(a)%5D%3B%0A%0A++++memcpy(a,+b,+sizeof(a))%3B%0A%0A++++printf(%22%25s+%25s%22,+a,+b)%3B%0A%7D'),l:'5',n:'0',o:'C%2B%2B+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:compiler,i:(compiler:armg820,filters:(b:'0',binary:'1',commentOnly:'0',demangle:'0',directives:'0',execute:'1',intel:'0',libraryCode:'1',trim:'1'),lang:c%2B%2B,libs:!(),options:'-O2',source:1),l:'5',n:'0',o:'ARM+gcc+8.2+(Editor+%231,+Compiler+%231)+C%2B%2B',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4).
 
 ## Pointeurs de fonctions
 
@@ -519,19 +509,13 @@ int (*callback)(int)
 
 Cette [règle](http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html) est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs. Il faut tout d'abord lire :
 
-```{eval-rst}
-.. table:: Règles gauche droite
+Table: Règles gauche droite
 
-    +---------+-------------------------+-------------------+
-    | Symbole | Traduction              | Direction         |
-    +=========+=========================+===================+
-    | ``*``   | ``pointeur sur``        | Toujours à gauche |
-    +---------+-------------------------+-------------------+
-    | ``[]``  | ``tableau de``          | Toujours à droite |
-    +---------+-------------------------+-------------------+
-    | ``()``  | ``fonction retournant`` | Toujours à droite |
-    +---------+-------------------------+-------------------+
-```
+| Symbole | Traduction              | Direction         |
+|---------|-------------------------|-------------------|
+| ``*``   | ``pointeur sur``        | Toujours à gauche |
+| ``[]``  | ``tableau de``          | Toujours à droite |
+| ``()``  | ``fonction retournant`` | Toujours à droite |
 
 Première étape
 
@@ -557,31 +541,31 @@ int *p[];
 
 1. Trouver l'identifiant: `p`: `p est`
 
-   > ```c
-   > int *p[];
-   >      ^
-   > ```
+    ```c
+    int *p[];
+         ^
+    ```
 
 2. Se déplacer à **droite**: `p est un tableau de`
 
-   > ```c
-   > int *p[];
-   >       ^^
-   > ```
+    ```c
+    int *p[];
+          ^^
+    ```
 
 3. Se déplacer à **gauche**: `p est un tableau de pointeurs sur`
 
-   > ```c
-   > int *p[];
-   >     ^
-   > ```
+    ```c
+    int *p[];
+        ^
+    ```
 
 4. Continuer à **gauche**: `p est un tableau de pointeurs sur un int`
 
-   > ```c
-   > int *p[];
-   > ^^^
-   > ```
+    ```c
+    int *p[];
+    ^^^
+    ```
 
 ### cdecl
 
@@ -666,48 +650,41 @@ Notre simple fonction de déplacement mémoire ne fonctionne pas avec des régio
 
 Notons que sa fonction voisine `memcpy` ne dois **jamais** être utilisée en cas d'*aliasing*. Cette fonction se veut performante, c'est-à-dire qu'elle peut être implémentée en suivant le même principe que notre exemple `memory_move`. Le standard **C99** ne définit pas le comportement de `memcpy` pour des pointeurs qui se chevauchent.
 
-______________________________________________________________________
+## Exercices de révision
 
-% exercises
-
-```{eval-rst}
-.. exercise:: Esperluettes cascadées
+!!! exercise "Esperluettes cascadées"
 
     Quel est le type de :
 
-    .. code-block:: c
+    ```c
+    *&*&*&*&*&*&(int)x;
+    ```
 
-        *&*&*&*&*&*&(int)x;
-
-```
-
-```{eval-rst}
-.. exercise:: Passage par adresse
+!!! exercise "Passage par adresse"
 
     Donnez les valeurs affichées par ce programme pour les variables ``a`` à ``e``.
 
-    .. code-block:: c
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h>
 
-        #include <stdio.h>
-        #include <stdlib.h>
+    int test(int a, int * b, int * c, int * d) {
+        a = *b;
+        *b = *b + 5;
+        *c = a + 2;
+        d = c;
+        return *d;
+    }
 
-        int test(int a, int * b, int * c, int * d) {
-            a = *b;
-            *b = *b + 5;
-            *c = a + 2;
-            d = c;
-            return *d;
-        }
+    int main(void) {
+        int a = 0, b = 100, c = 200, d = 300, e = 400;
+        e = test(a, &b, &c, &d);
+        printf("a:%d, b:%d, c:%d, d:%d, e:%d\n", a, b, c, d, e);
+    }
+    ```
 
-        int main(void) {
-            int a = 0, b = 100, c = 200, d = 300, e = 400;
-            e = test(a, &b, &c, &d);
-            printf("a:%d, b:%d, c:%d, d:%d, e:%d\n", a, b, c, d, e);
-        }
+    ??? solution
 
-    .. solution::
-
-        .. code-block:: text
-
-            a:0, b:105, c:102, d:300, e:102
-```
+        ```text
+        a:0, b:105, c:102, d:300, e:102
+        ```

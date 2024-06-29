@@ -1,5 +1,3 @@
-(translationunits)=
-
 # Compilation séparée
 
 ## Unité de traduction
@@ -109,9 +107,8 @@ Lorsqu'un seul fichier est fourni à GCC, les trois opérations sont effectuées
 
 La figure suivante résume les différentes étapes de GCC. Les pointillés indiquent à quel niveau les opérations peuvent s'arrêter. Il est dès lors possible de passer par des fichiers intermédiaires assembleur (`.s`) ou objets (`.o`) en utilisant la bonne commande.
 
-:::{figure} ../../assets/figures/dist/toolchain/gcc.*
-Étapes intermédiaires de compilation avec GCC
-:::
+![Étapes intermédiaires de compilation avec GCC](../assets/figures/dist/toolchain/gcc.svg)
+
 
 Notons que ces étapes existent, quel que soit le compilateur ou le système d'exploitation. Nous retrouverons ces exactes mêmes étapes avec Microsoft Visual Studio, mais le nom des commandes et les extensions des fichiers peuvent varier s'ils ne respectent pas la norme POSIX (et GNU).
 
@@ -130,8 +127,7 @@ Les fichiers d'en-tête (`.h`) sont des fichiers écrits en langage C, mais qui 
 
 Nous l'avons vu dans le chapitre sur le préprocesseur, la directive `#include` ne fais qu'inclure le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fort déconseillé), d'avoir la situation suivante :
 
-```c
-// main.c
+```c title="main.c"
 int main() {
    #include "foobar.def"
 }
@@ -139,8 +135,7 @@ int main() {
 
 Et le fichier `foobar.def` pourrait contenir :
 
-```c
-// foobar.def
+```c title="foobar.def"
 #ifdef FOO
 printf("hello foo!\n");
 #else
@@ -179,15 +174,14 @@ Lorsque l'on observe le résultat du préprocesseur, on s'aperçoit que toutes l
 
 Nous avons vu au chapitre sur les [prototypes de fonctions](function_prototype) qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de savoir combien d'arguments est composé une fonction sans nécessairement disposer de l'implémentation de cette fonction. Aussi on trouve dans tous les fichiers d'en-tête des déclaration en amont (*forward declaration*). Dans le fichier d'en-tête `stdio.h` on trouvera la ligne : `int printf( const char *restrict format, ... );`.
 
-% code-block::c
-%
-% $ cat << EOF > main.c
-% → #include <stdio.h>
-% → int main() { }
-% → EOF
-%
-% $ gcc -E main.c | grep -P '\bprintf\b'
-% extern int printf (const char *__restrict __format, ...);
+```bash
+$ cat << EOF > main.c
+→ #include <stdio.h>
+→ int main() { }
+→ EOF
+$ gcc -E main.c | grep -P '\bprintf\b'
+extern int printf (const char *__restrict __format, ...);
+```
 
 Notons qu'ici le prototype est précédé par le mot clé `extern`. Il s'agit d'un mot clé **optionnel** permettant de renforcer l'intention du développeur que la fonction déclarée n'est pas inclue dans fichier courant, mais qu'elle est implémentée ailleurs, dans un autre fichier. Et c'est le cas, car `printf` est déjà compilée quelque part dans la bibliothèque `libc` inclue par défaut lorsqu'un programme C est compilé dans un environnement POSIX.
 
@@ -197,7 +191,7 @@ Un fichier d'en-tête contiendra donc tout le nécessaire utile à pouvoir utili
 
 La protection de réentrence aussi nommée *header guards* est une solution au problème d'inclusion multiple. Si par exemple on définit dans un fichier d'en-tête un nouveau type et que l'on inclus ce fichier, mais que ce dernier est déjà inclus par une autre bibliothèque une erreur de compilation apparaîtra :
 
-```console
+```bash
 $ cat << EOF > main.c
 → #include "foo.h"
 → #include "bar.h"
@@ -238,7 +232,7 @@ bar.h:3:3: error: conflicting types for ‘Bar’
 
 Dans cet exemple l'utilisateur ne sait pas forcément que `bar.h` est déjà inclus avec `foo.h` et le résultat après pré-processing est le suivant :
 
-```console
+```bash
 $ gcc -E main.c | sed '/^#/ d'
 typedef struct Bar {
 int b, a, r;
