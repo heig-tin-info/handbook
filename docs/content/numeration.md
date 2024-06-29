@@ -1,28 +1,20 @@
 # Numération
 
-```{index} numération
-```
-
 La numération désigne le mode de représentation des nombres (p. ex. cardinaux, ordinaux), leur base (système binaire, ternaire, quinaire, décimal ou vicésimal), ainsi que leur codification, IEEE 754, complément à un, complément à deux. Bien comprendre les bases de la numération est important pour l'ingénieur développeur, car il est souvent amené à effectuer des opérations de bas niveau sur les nombres.
 
 Ce chapitre n'est essentiel qu'au programmeur de bas niveau, l'électronicien ou l'informaticien technique. Bien comprendre la numération permet de mieux se représenter la manière dont l'ordinateur traite les données au niveau le plus fondamental: le bit.
 
 Un **bit** est l'unité d'information fondamentale qui peut prendre que deux états : `1` ou `0`. En électronique, cette information peut être stockée dans un élément mémoire par une charge électrique. Dans le monde réel, on peut stocker un bit avec une pièce de monnaie déposée sur le côté pile ou face. L'assemblage de plusieurs bits permet de stocker de l'information plus complexe.
 
-```{eval-rst}
-.. exercise:: Pile ou face
+!!! exercise "Pile ou face"
 
     Lors d'un tir à pile ou face de l'engagement d'un match de football, l'arbitre lance une pièce de monnaie qu'il rattrape et dépose sur l'envers de sa main. Lorsqu'il annonce le résultat de ce tir, quelle quantité d'information transmet-il ?
 
-    .. solution::
+    ??? solution
 
         Il transmet un seul 1 bit : équipe A ou pile ou ``1``, équipe B ou face ou ``0``. Il faut néanmoins encore définir à quoi correspond cette information.
-```
 
 ## Bases
-
-```{index} base
-```
 
 Une base désigne la valeur dont les puissances successives interviennent dans l'écriture des nombres dans la numération positionnelle, laquelle est un procédé par lequel l'écriture des nombres est composée de chiffres ou symboles reliés à leur position voisine par un multiplicateur, appelé base du système de numération.
 
@@ -39,34 +31,25 @@ j4b12
 
 Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche à droite) la base du système de numération utilisé est essentielle pour décoder ces nombres. Cette base définit combien de symboles différents possibles peuvent être utilisés pour coder une position.
 
-```{eval-rst}
-.. exercise:: Symboles binaires
+!!! exercise Symboles binaires
 
     Dans la notation binaire, composés de 1 et de 0, combien de symboles existent et combien de positions y-a-t-il dans le nombre ``11001`` ?
 
-    .. solution::
+    ??? solution
 
         Le nombre ``11001`` est composé de 5 positions et de deux symboles possibles par position : ``1`` et ``0``. La quantité d'information est donc de 5 bits.
-```
 
 ### Système décimal
-
-```{index} système décimal
-```
 
 Le système décimal est le système de numération utilisant la base **dix** et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
 
 L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique `(1000+100+100+100+100+100+1+1+1+1+1+1)`. Il s'agit d'une numération additive.
 
-:::{figure} ../../assets/figures/dist/encoding/hieroglyph.*
-:scale: 20%
-
-1506 en écriture hiéroglyphique
-:::
+![1506 en écriture hiéroglyphique](../assets/figures/dist/encoding/hieroglyph.svg){width="20%"}
 
 Notre système de représentation des nombres décimaux est le système de numération indo-arabe qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf :
 
-```
+```c
 0 1 2 3 4 5 6 7 8 9
 ```
 
@@ -78,22 +61,17 @@ $$
 
 La base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la manipulation de dix états ce qui est difficile avec les systèmes logiques à deux états; le stockage d'un bit en mémoire étant généralement assuré par des transistors.
 
-```{eval-rst}
-.. exercise:: Deux mains
+!!! exercise "Deux mains"
 
     Un dessin représentant deux mains humaines (composées chacune de cinq doigts) est utilisé pour représenter un chiffre. Les doigts peuvent être soit levés, soit baissés mais un seul doigt peut être levé. Quelle est la base utilisée ?
 
-    .. solution::
+    ??? solution
 
         Deux mains de cinq doigts forment une paire composée de 10 doigts. Il existe donc dix possibilités, la base est donc décimale : 10.
 
         Si plusieurs doigts peuvent être levés à la fois, il faut réduire le système à l'unité de base "le doigt" pouvant prendre deux états : levé ou baissé. Avec dix doigts (dix positions) et 2 symboles par doigts, un nombre binaire est ainsi représenté.
-```
 
 ### Système binaire
-
-```{index} binaire
-```
 
 Le système binaire est similaire au système décimal, mais utilise la base deux. Les symboles utilisés pour exprimer ces deux états possibles sont d'ailleurs empruntés au système indo-arabe :
 
@@ -128,26 +106,19 @@ $$
 
 Avec un seul `bit` il est donc possible d'exprimer 2 valeurs distinctes.
 
-```{eval-rst}
-.. exercise:: Base 2
+!!! exercise Base 2
 
     Combien de valeurs décimales peuvent être représentées avec 10-bits ?
 
-    .. solution::
+    ??? solution
 
         Avec une base binaire 2 et 10 bits, le total représentable est :
 
-            .. math::
-
-                2^10 = 1024
+        $$2^10 = 1024$$
 
         Soit les nombres de 0 à 1023.
-```
 
 ### Système octal
-
-```{index} octal
-```
 
 Inventé par [Charles XII de Suède](https://fr.wikipedia.org/wiki/Charles_XII) , le système de numération octal utilise 8 symboles empruntés au système indo-arabe. Ce système pourrait avoir été utilisé par l'homme en comptant soit les jointures des phalanges proximales (trous entre les doigts), ou les doigts différents des pouces.
 
@@ -185,14 +156,11 @@ char cr = '\015';
 char msg = "Hell\0157\040World!";
 ```
 
-:::{important}
-N'essayez pas de préfixer vos nombres avec des zéros lorsque vous programmer car ces nombres seraient alors interprétés en octal et non en décimal.
-:::
+!!! important
+
+    N'essayez pas de préfixer vos nombres avec des zéros lorsque vous programmer car ces nombres seraient alors interprétés en octal et non en décimal.
 
 ### Système hexadécimal
-
-```{index} hexadécimal
-```
 
 Ce système de numération positionnel en base 16 est le plus utilisé en informatique pour exprimer des grandeurs binaires. Il utilise les dix symboles du système indo-arabe, plus les lettres de A à F. Il n'y a pas de réel consensus quant à la casse des lettres qui peuvent être soit majuscules ou minuscules. Veillez néanmoins à respecter une certaine cohérence, ne mélangez pas les casses dans un même projet.
 
@@ -212,53 +180,29 @@ Il est très pratique en électronique et en informatique d'utiliser ce système
 0101'1110'0001₂ = 5E1₁₆
 ```
 
-```{index} quadruplets
-```
-
 L'ingénieur qui se respecte doit connaître par coeur la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplication (qu'il connaît d'ailleurs parfaitement, n'est-ce pas ?)
 
-```{eval-rst}
-.. table:: Correspondance binaire, octal, hexadécimal
+Table: Correspondance binaire, octal, hexadécimal
 
-    +------------+-------------+--------+---------+
-    | Binaire    | Hexadécimal | Octal  | Décimal |
-    +============+=============+========+=========+
-    | ``0b0000`` | ``0x0``     | ``00`` | ``0``   |
-    +------------+-------------+--------+---------+
-    | ``0b0001`` | ``0x1``     | ``01`` | ``1``   |
-    +------------+-------------+--------+---------+
-    | ``0b0010`` | ``0x2``     | ``02`` | ``2``   |
-    +------------+-------------+--------+---------+
-    | ``0b0011`` | ``0x3``     | ``03`` | ``3``   |
-    +------------+-------------+--------+---------+
-    | ``0b0100`` | ``0x4``     | ``04`` | ``4``   |
-    +------------+-------------+--------+---------+
-    | ``0b0101`` | ``0x5``     | ``05`` | ``5``   |
-    +------------+-------------+--------+---------+
-    | ``0b0110`` | ``0x6``     | ``06`` | ``6``   |
-    +------------+-------------+--------+---------+
-    | ``0b0111`` | ``0x7``     | ``07`` | ``7``   |
-    +------------+-------------+--------+---------+
-    | ``0b1000`` | ``0x8``     | ``10`` | ``8``   |
-    +------------+-------------+--------+---------+
-    | ``0b1001`` | ``0x9``     | ``11`` | ``0``   |
-    +------------+-------------+--------+---------+
-    | ``0b1010`` | ``0xA``     | ``12`` | ``10``  |
-    +------------+-------------+--------+---------+
-    | ``0b1011`` | ``0xB``     | ``13`` | ``11``  |
-    +------------+-------------+--------+---------+
-    | ``0b1100`` | ``0xC``     | ``14`` | ``12``  |
-    +------------+-------------+--------+---------+
-    | ``0b1101`` | ``0xD``     | ``15`` | ``13``  |
-    +------------+-------------+--------+---------+
-    | ``0b1110`` | ``0xE``     | ``16`` | ``14``  |
-    +------------+-------------+--------+---------+
-    | ``0b1111`` | ``0xF``     | ``17`` | ``15``  |
-    +------------+-------------+--------+---------+
-```
+| Binaire    | Hexadécimal | Octal  | Décimal |
+|------------|-------------|--------|---------|
+| ``0b0000`` | ``0x0``     | ``00`` | ``0``   |
+| ``0b0001`` | ``0x1``     | ``01`` | ``1``   |
+| ``0b0010`` | ``0x2``     | ``02`` | ``2``   |
+| ``0b0011`` | ``0x3``     | ``03`` | ``3``   |
+| ``0b0100`` | ``0x4``     | ``04`` | ``4``   |
+| ``0b0101`` | ``0x5``     | ``05`` | ``5``   |
+| ``0b0110`` | ``0x6``     | ``06`` | ``6``   |
+| ``0b0111`` | ``0x7``     | ``07`` | ``7``   |
+| ``0b1000`` | ``0x8``     | ``10`` | ``8``   |
+| ``0b1001`` | ``0x9``     | ``11`` | ``0``   |
+| ``0b1010`` | ``0xA``     | ``12`` | ``10``  |
+| ``0b1011`` | ``0xB``     | ``13`` | ``11``  |
+| ``0b1100`` | ``0xC``     | ``14`` | ``12``  |
+| ``0b1101`` | ``0xD``     | ``15`` | ``13``  |
+| ``0b1110`` | ``0xE``     | ``16`` | ``14``  |
+| ``0b1111`` | ``0xF``     | ``17`` | ``15``  |
 
-```{index} albatros
-```
 
 Le fichier `albatros.txt` contient un extrait du poème de Baudelaire, l'ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à comprendre et utilise le programme `hexdump`
 pour lister le contenu hexadécimal de son fichier et il obtient la sortie suivante sur son terminal :
@@ -301,44 +245,38 @@ Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadé
 
 Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur il concerne probablement les deux manières distinctes utilisées pour encoder le `é`.
 
-```{eval-rst}
-.. exercise:: Les chiffres hexadécimaux
+!!! exercise "Les chiffres hexadécimaux"
 
     Calculez la valeur décimale des nombres suivants et donnez le détail du calcul :
 
-    .. code-block:: text
+    ```text
+    0xaaaa
+    0b1100101
+    0x1010
+    129
+    0216
+    ```
 
-        0xaaaa
-        0b1100101
-        0x1010
-        129
-        0216
+    ??? solution
 
-    .. solution::
+        ```c
+        0xaaaa    ≡ 43690
+        0b1100101 ≡   101
+        0x1010    ≡  4112
+        129       ≡   129 (n'est-ce pas ?)
+        0216      ≡   142
+        ```
 
-        .. code-block::
-
-            0xaaaa    ≡ 43690
-            0b1100101 ≡   101
-            0x1010    ≡  4112
-            129       ≡   129 (n'est-ce pas ?)
-            0216      ≡   142
-```
-
-```{eval-rst}
-.. exercise:: Albatros
+!!! exercise "Albatros"
 
     Tentez de récupérer vous même le fichier :download:`albatros <../../assets/src/albatros.txt>` et d'afficher le même résultat que ci-dessus depuis un terminal de commande Linux.
 
-    .. code-block:: console
-
-        $ wget https://.../albatros.txt
-        $ hexdump -C albatros.txt
+    ```bash
+    $ wget https://.../albatros.txt
+    $ hexdump -C albatros.txt
+    ```
 
     Si vous n'avez pas les outils ``wget`` ou ``hexdump``, tentez de les installer via la commande ``apt-get install wget hexdump``.
-```
-
-(base-convertions)=
 
 ### Conversions de bases
 
@@ -399,57 +337,48 @@ n = 209
 209 == 0b11010001
 ```
 
-```{eval-rst}
-.. exercise:: La numération Shadock
+!!! exercise "La numération Shadock"
 
-    .. figure:: ../../assets/images/shadocks.*
-        :height: 150px
+    ![Les Shadocks](../assets/images/shadocks.svg){height="150px"}
 
-    Les Shadocks ne connaissent que quatre mots: ``GA``, ``BU``, ``ZO``, ``MEU``. La vidéo `Comment compter comme les Shadocks <https://www.youtube.com/watch?v=lP9PaDs2xgQ>`__ en explique le principe.
+    Les Shadocks ne connaissent que quatre mots: ``GA``, ``BU``, ``ZO``, ``MEU``. La vidéo [Comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ>) en explique le principe.
 
     Convertir ``−⨼○◿○`` (``BU ZO GA MEU GA``) en décimal.
 
-    .. solution::
+    ??? solution
 
         Le système Shadock est un système quaternaire similaire au système du génome humain basé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks les symboles du système indo-arabe que nous connaissons mieux :
 
-        .. code-block::
-
-            0 ○ (GA)
-            1 − (BU)
-            2 ⨼ (ZO)
-            3 ◿ (MEU)
+        ```text
+        0 ○ (GA)
+        1 − (BU)
+        2 ⨼ (ZO)
+        3 ◿ (MEU)
+        ```
 
         Le nombre d'entrée ``−⨼O◿O`` peut ainsi s'exprimer :
 
-        .. code-block::
-
-            −⨼○◿○ ≡ 12030₄
+        ```text
+        −⨼○◿○ ≡ 12030₄
+        ```
 
         En appliquant la méthode du cours, on obtient :
 
-        .. math::
-
+        $$
             1 \cdot 4^4 + 2 \cdot 4^3 + 0 \cdot 4^2 + 3 \cdot 4^1 + 0 \cdot 4^0 = 396_{10}
+        $$
 
-        .. hint::
+        !!! hint
 
             Depuis un terminal Python vous pouvez simplement utiliser ``int("12030", 4)``
-```
 
 ## Entiers relatifs
-
-```{index} Entiers relatifs
-```
 
 Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives car il n'existe pas de symboles pour le signe `-` (ni même d'ailleurs `+`).
 
 Une approche naïve est de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. L'ennui pour les **variables** c'est que le contenu peut changer et qu'il serait préférable de stocker le signe avec la valeur.
 
 ### Bit de signe
-
-```{index} Bit de signe
-```
 
 On peut se réserver un bit de signe, par exemple le 8{sup}`ième` bit d'un `char`.
 
@@ -488,9 +417,6 @@ En résumé, la solution utilisant un bit de signe pose deux problèmes :
 2. Le double zéro (positif et négatif) est gênant.
 
 ### Complément à un
-
-```{index} Complément à un, CDC6600
-```
 
 Le **complément à un** est une méthode plus maline utilisée dans les premiers ordinateurs comme le [CDC 6600](https://fr.wikipedia.org/wiki/Control_Data_6600) (1964) ou le [UNIVAC 1107](https://en.wikipedia.org/wiki/UNIVAC_1100/2200_series) (1962). Il existe également un bit de signe, mais il est implicite.
 
@@ -603,58 +529,34 @@ Les opérations logiques sont introduites par l'[algèbre de Boole](<https://fr.
 
 ### Opérations bit à bit
 
-```{index} bitwise
-```
-
 Les {index}`opérations bit à bit` (*bitwise*) disponibles en C sont les suivantes :
 
-(bitwise-operators)=
+Table: Opérateurs bit à bit
 
-```{eval-rst}
-.. table:: Opérateurs bit à bit
+| Opérateur | Description       | Exemple                         |
+|-----------|-------------------|---------------------------------|
+| ``&``     | Conjonction (ET)  | ``(0b1101 & 0b1010) == 0b1000`` |
+| ``|``     | Disjonction (OU)  | ``(0b1101 | 0b1010) == 0b1111`` |
+| ``^``     | XOR binaire       | ``(0b1101 ^ 0b1010) == 0b0111`` |
+| ``~``     | Complément à un   | ``~0b11011010 == 0b00100101``   |
+| ``<<``    | Décalage à gauche | ``(0b1101 << 3) == 0b1101000``  |
+| ``>>``    | Décalage à droite | ``(0b1101 >> 2) == 0b11``       |
 
-    +-----------+-------------------+---------------------------------+
-    | Opérateur | Description       | Exemple                         |
-    +===========+===================+=================================+
-    | ``&``     | Conjonction (ET)  | ``(0b1101 & 0b1010) == 0b1000`` |
-    +-----------+-------------------+---------------------------------+
-    | ``|``     | Disjonction (OU)  | ``(0b1101 | 0b1010) == 0b1111`` |
-    +-----------+-------------------+---------------------------------+
-    | ``^``     | XOR binaire       | ``(0b1101 ^ 0b1010) == 0b0111`` |
-    +-----------+-------------------+---------------------------------+
-    | ``~``     | Complément à un   | ``~0b11011010 == 0b00100101``   |
-    +-----------+-------------------+---------------------------------+
-    | ``<<``    | Décalage à gauche | ``(0b1101 << 3) == 0b1101000``  |
-    +-----------+-------------------+---------------------------------+
-    | ``>>``    | Décalage à droite | ``(0b1101 >> 2) == 0b11``       |
-    +-----------+-------------------+---------------------------------+
-```
 
-:::{important}
-Ne pas confondre l'opérateur `!` et l'opérateur `~`. Le premier est la négation d'un nombre tandis que l'autre est l'inversion bit à bit. La négation d'un nombre différent de zéro donnera toujours `0` et la négation de zéro donnera toujours `1`.
-:::
+!!! important
+
+    Ne pas confondre l'opérateur `!` et l'opérateur `~`. Le premier est la négation d'un nombre tandis que l'autre est l'inversion bit à bit. La négation d'un nombre différent de zéro donnera toujours `0` et la négation de zéro donnera toujours `1`.
 
 #### Conjonction
 
-La conjonction ou **ET logique** est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.
+La conjonction ou **ET logique** ($\wedge$) est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.
 
-```{eval-rst}
-.. list-table:: Conjonction bit à bit
-   :widths: 10 10 10
-   :header-rows: 1
-   :stub-columns: 1
-   :align: center
+Table: Conjonction bit à bit
 
-   * - :math:`A ∧ B`
-     - :math:`A=0`
-     - :math:`A=1`
-   * - :math:`B=0`
-     - 0
-     - 0
-   * - :math:`B=1`
-     - 0
-     - 1
-```
+| $A ∧ B$ | $A=0$ | $A=1$ |
+| ------- | ----- | ----- |
+| $B=0$   | 0     | 0     |
+| $B=1$   | 0     | 1     |
 
 Avec cette opération l'état dominant est le `0` et l'état récessif est le `1`. Il suffit qu'une seule valeur soit à zéro pour forcer le résultat à zéro :
 
@@ -673,25 +575,12 @@ balrog = balrog & gandalf; // You shall not pass!
 
 #### Disjonction
 
-La disjonction ou **OU logique** s'apparente à l'opération `+`.
+La disjonction ou **OU logique** ($\lor$) s'apparente à l'opération `+`.
 
-```{eval-rst}
-.. list-table:: Disjonction bit à bit
-   :widths: 10 10 10
-   :header-rows: 1
-   :stub-columns: 1
-   :align: center
-
-   * - :math:`A ∨ B`
-     - :math:`A=0`
-     - :math:`A=1`
-   * - :math:`B=0`
-     - 0
-     - 1
-   * - :math:`B=1`
-     - 1
-     - 1
-```
+| $A ∨ B$ | $A=0$ | $A=1$ |
+| ------- | ----- | ----- |
+| $B=0$   | 0     | 1     |
+| $B=1$   | 1     | 1     |
 
 Ici l'état dominant est le `1` car il force n'importe quel `0` à changer d'état :
 
@@ -704,27 +593,16 @@ student = student | teacher; // Tes devoirs tu feras...
 
 #### Disjonction exclusive
 
-Le **OU exclusif** symbolisé d'un signe plus entouré d'un cercle est une opération curieuse mais extrêmement puissante et utilisée en cryptographie.
+Le **OU exclusif** ($\oplus$ ou $\veebar$) est une opération curieuse mais extrêmement puissante et utilisée en cryptographie.
 
 En électronique sur les symboles CEI, l'opération logique est nommée `=1` car si le résultat de l'addition des deux opérandes est différent de `1`, la sortie sera nulle. Lorsque `A` et `B` valent `1` la somme vaut `2` et donc la sortie est nulle.
 
-```{eval-rst}
-.. list-table:: Disjonction exclusive bit à bit
-   :widths: 10 10 10
-   :header-rows: 1
-   :stub-columns: 1
-   :align: center
+Table: Disjonction exclusive
 
-   * - :math:`A \oplus B`
-     - :math:`A=0`
-     - :math:`A=1`
-   * - :math:`B=0`
-     - 0
-     - 1
-   * - :math:`B=1`
-     - 1
-     - 0
-```
+| $A \veebar B$ | $A=0$ | $A=1$ |
+| ------- | ----- | ----- |
+| $B=0$   | 0     | 1     |
+| $B=1$   | 1     | 0     |
 
 L'opération présente une propriété très intéressante : elle est réversible.
 
@@ -748,19 +626,15 @@ assert(b == 123);
 
 #### Complément à un
 
-Le complément à un est simplement la valeur qui permet d'inverser bit à bit une valeur :
+Le complément à un ($\lnot$) est simplement la valeur qui permet d'inverser bit à bit une valeur :
 
-```{eval-rst}
-.. table:: Complément à un
+Table: Complément à un
 
-    +-----+-----+
-    | A   | ¬ A |
-    +=====+=====+
-    | 0   | 1   |
-    +-----+-----+
-    | 1   | 0   |
-    +-----+-----+
-```
+| $A$ | $\lnot~A$ |
+| --- | -------- |
+| 0   | 1 |
+| 1   | 0 |
+
 
 ### Opérateurs arithmétiques
 
@@ -792,71 +666,68 @@ En arithmétique binaire, c'est exactement la même chose :
  101001100₂
 ```
 
-```{eval-rst}
-.. exercise:: Additions binaires
+!!! exercise "Additions binaires"
 
     Une unité de calcul arithmétique (ALU) est capable d'effectuer les 4 opérations de bases comprenant additions et soustractions.
 
     Traduisez les opérandes ci-dessous en binaire, puis poser l'addition en binaire.
 
-    #. :math:`1 + 51`
-    #. :math:`51 - 7`
-    #. :math:`204 + 51`
-    #. :math:`204 + 204` (sur 8-bits)
+    1. $1 + 51$
+    2. $51 - 7$
+    3. $204 + 51$
+    4. $204 + 204` (sur 8-bits$
 
-    .. solution::
+    ??? solution
 
-        #. 1 + 51
+        1. $1 + 51$
 
-            .. code-block:: text
+            ```text
+                    ¹¹
+                      1₂
+            +   110011₂  (2⁵ + 2⁴ + 2¹+ 2⁰ ≡ 51)
+            ----------
+                110100₂
+            ```
 
-                       ¹¹
-                         1₂
-                +   110011₂  (2⁵ + 2⁴ + 2¹+ 2⁰ ≡ 51)
-                ----------
-                    110100₂
+        2. $51 - 7$
 
-        #. 51 - 7
+            ```text
+              …¹¹¹  ¹¹
+              …000110011₂  (2⁵ + 2⁴ + 2¹ + 2⁰ ≡ 51)
+            + …111111001₂  (complément à deux) 2³ + 2¹ + 2⁰ ≡ 111₂ → !7 + 1 ≡ …111001₂)
+              -----------
+              …000101100₂  (2⁵ + 2³ + 2₂ ≡ 44)
+            ```
 
-            .. code-block:: text
+        3. $204 + 51$
 
-                  …¹¹¹  ¹¹
-                  …000110011₂  (2⁵ + 2⁴ + 2¹ + 2⁰ ≡ 51)
-                + …111111001₂  (complément à deux) 2³ + 2¹ + 2⁰ ≡ 111₂ → !7 + 1 ≡ …111001₂)
-                 -----------
-                  …000101100₂  (2⁵ + 2³ + 2₂ ≡ 44)
+            ```text
+                11001100₂
+            +     110011₂
+              -----------
+              …011111111₂  (2⁸ - 1 ≡ 255)
+            ```
 
-        #. 204 + 51
+        4. $204 + 204$ (sur 8-bits)
 
-            .. code-block:: text
-
-                    11001100₂
-                +     110011₂
-                 -----------
-                  …011111111₂  (2⁸ - 1 ≡ 255)
-
-        #. 204 + 204 (sur 8-bits)
-
-            .. code-block:: text
-
-                   ¹|¹  ¹¹
-                    |11001100₂
-                +   |11001100₂
-                 ---+--------
-                   1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
-```
+            ```text
+                ¹|¹  ¹¹
+                |11001100₂
+            +   |11001100₂
+              ---+--------
+                1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
+            ```
 
 ### Lois de De Morgan
 
-```{index} De Morgan
-```
-
 Les [lois de De Morgan](https://fr.wikipedia.org/wiki/Lois_de_De_Morgan) sont des identités logiques formulées il y a près de deux siècles: sachant qu'en logique classique, la négation d'une conjonction implique la disjonction des négations et que la conjonction de négations implique la négation d'une disjonction, on peut alors exprimer que :
 
-```
-¬ (P ∧ Q) ⇒ ((¬ P) ∨ (¬ Q))
-((¬ P) ∧ (¬ Q)) ⇒ ¬ (P ∨ Q)
-```
+$$
+\begin{align*}
+& \neg (P \land Q) \Rightarrow ((\neg P) \lor (\neg Q)) \\
+& ((\neg P) \land (\neg Q)) \Rightarrow \neg (P \lor Q)
+\end{align*}
+$$
 
 Ces opérations logiques sont très utiles en programmation où elles permettent de simplifier certains algorithmes.
 
@@ -872,29 +743,23 @@ assert(~a & ~b == ~(a | b));
 
 En logique booléenne on exprime la négation par une barre p.ex. $\bar{P}$.
 
-```{eval-rst}
-.. exercise:: De Morgan
+!!! exercise "De Morgan"
 
     Utiliser les relations de De Morgan pour simplifier l'expression suivante
 
-    .. math::
+    $$
+    D \cdot E + \bar{D} + \bar{E}
+    $$
 
+    ??? solution
+
+        Si l'on applique De Morgan ($\bar{XY} = \bar{X} + \bar{Y}$):
+
+        $$
         D \cdot E + \bar{D} + \bar{E}
-
-    .. solution::
-
-        Si l'on applique De Morgan (:math:`\bar{XY} = \bar{X} + \bar{Y}`):
-
-        .. math::
-
-            D \cdot E + \bar{D} + \bar{E}
-
-```
+        $$
 
 ### Arrondi
-
-```{index} arrondi, rounding, truncate
-```
 
 En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus complexe qu'imaginée. Un nombre réel peut être converti en un nombre entier de plusieurs manières dont voici une liste non exhaustive :
 
@@ -910,22 +775,21 @@ Selon le langage de programmation et la méthode utilisée, le mécanisme d'arro
 
 Le fonctionnement de la fonction `round` n'est pas unanime entre les mathématiciens et les programmeurs. C utilise l'arrondi au plus proche, c'est à dire que -23.5 donne -24 et 23.5 donnent 24.
 
-:::{note}
-En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre-intuitive, car `round(3.5)` donne 4, mais `round(4.5)` donne 4 aussi.
-:::
+!!! note
 
-```{eval-rst}
-.. exercise:: Swap sans valeur intermédiaire
+    En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre-intuitive, car `round(3.5)` donne 4, mais `round(4.5)` donne 4 aussi.
+
+
+!!! exercise "Swap sans valeur intermédiaire"
 
     Soit deux variables entières ``a`` et ``b``, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR ``^``.
 
     Testez votre solution...
 
-    .. solution::
+    ??? solution
 
-        .. code-block:: c
-
-            a ^= b;
-            b ^= a;
-            a ^= b;
-```
+        ```c
+        a ^= b;
+        b ^= a;
+        a ^= b;
+        ```

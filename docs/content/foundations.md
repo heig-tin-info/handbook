@@ -4,13 +4,8 @@ Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il 
 
 Notons que ce chapitre est transversal, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maîtrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.
 
-```{index} alphabet
-```
 
 ## L'alphabet
-
-```{index} Chiffres arabes
-```
 
 Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 [chiffres indo-arabes](https://fr.wikipedia.org/wiki/Chiffres_arabes) :
 
@@ -24,8 +19,6 @@ La séparation des symboles est assurée par [une espace](<https://fr.wikipedia.
 
 On nomme les caractères non imprimables soit par leur acronyme `LF` pour *Line Feed* ou soit par leur convention C échappée par un *backslash* `\n`:
 
-```{index} LF, VT, FF, TAB, CR
-```
 
 ```text
 LF    \n   Line feed (retour à la ligne)
@@ -42,8 +35,6 @@ La ponctuation utilise les 29 symboles graphiques suivants :
 ! # % ^ & * ( _ ) - + = ~ [ ] ' | \ ; : " { } , . < > / ?
 ```
 
-```{index} trigraphes, digraphes
-```
 
 Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la commission responsable de standardiser C a intégré au standard les **trigraphes** et plus tard les **digraphes** qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi `<:` est le digraphe de `[` et `??<` est le trigraphe de `{`. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables.
 
@@ -69,13 +60,9 @@ c=0)                            :( O
             ))                    ;}
 ```
 
-```{index} EOL
-```
 
 ## Fin de lignes (EOL)
 
-```{index} téléscripteurs
-```
 
 À l'instar des premières machines à écrire, les [téléscripteurs](https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur) possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme [retour chariot](https://fr.wikipedia.org/wiki/Retour_chariot) est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC [IBM compatibles](https://fr.wikipedia.org/wiki/Compatible_PC) ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères: un retour chariot (`CR`) et une nouvelle ligne (`LF`) ou en C `\r\n`. Les premiers [Macintosh](https://fr.wikipedia.org/wiki/Macintosh) d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère `\r`. Enfin, les ordinateurs UNIX ont eu le même raisonnement, mais ils ont choisi de ne garder que `\n`.
 
@@ -86,170 +73,102 @@ Fort heureusement depuis que Apple a migré son système sur une base [BSD](http
 
 Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (`EOL`: *End Of Line*) il faut utiliser, faite preuve de bon sens et surtout, soyez cohérent.
 
-:::{figure} ../../assets/figures/dist/encoding/crlf.*
-Distinction de différents caractères non imprimables
-:::
+![Distinction de différents caractères non imprimables](../assets/figures/dist/encoding/crlf.svg)
 
 ## Mots clés
 
 Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés :
 
-```{index} auto, do, goto, return, typedef, _Complex , break, double, if, short, union, _Imaginary , case, else, inline, signed, unsigned , char, enum, int, sizeof, void , const, extern, long, static, volatile , continue, float, register, struct, while , default, for, restrict, switch, _Bool
+```c
+_Bool       do        int       switch
+_Complex    double    long      typedef
+_Imaginary  else      register  union
+auto        enum      restrict  unsigned
+break       extern    return    void
+case        float     short     volatile
+char        for       signed    while
+const       goto      sizeof
+continue    if        static
+default     inline    struct
 ```
 
-```{eval-rst}
-.. hlist::
-    :columns: 4
+Dans ce cours, l'usage des mots clés suivants est découragé, car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.
 
-    - ``_Bool``
-    - ``_Complex``
-    - ``_Imaginary``
-    - ``auto``
-    - ``break``
-    - ``case``
-    - ``char``
-    - ``const``
-    - ``continue``
-    - ``default``
-    - ``do``
-    - ``double``
-    - ``else``
-    - ``enum``
-    - ``extern``
-    - ``float``
-    - ``for``
-    - ``goto``
-    - ``if``
-    - ``inline``
-    - ``int``
-    - ``long``
-    - ``register``
-    - ``restrict``
-    - ``return``
-    - ``short``
-    - ``signed``
-    - ``sizeof``
-    - ``static``
-    - ``struct``
-    - ``switch``
-    - ``typedef``
-    - ``union``
-    - ``unsigned``
-    - ``void``
-    - ``volatile``
-    - ``while``
-```
-
-Dans ce cours l'usage des mots clés suivants est découragé, car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.
-
-```{eval-rst}
-.. hlist::
-    :columns: 4
-
-    - ``_Bool``
-    - ``_imaginary``
-    - ``auto``
-    - ``goto``
-    - ``inline``
-    - ``long``
-    - ``register``
-    - ``restrict``
-    - ``short``
-
+```c
+_Bool, _imaginary, auto, goto, inline, long, register, restrict, short
 ```
 
 Notons que les mots clés `true` et `false` décrits à la {numref}`booleans` ne sont pas standardisés en C, mais ils le sont en C++.
 
-(identifiers)=
 
 ## Identificateurs
 
-```{index} identificateur
-```
 
 Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par :
 
-:::{figure} ../../assets/figures/dist/grammar/identifier.*
-Grammaire d'un identificateur C
-:::
+![Grammaire d'un identificateur C](../assets/figures/dist/grammar/identifier.svg)
 
 En addition de ceci, voici quelques règles :
-
-```{index} casse
-```
 
 - Un identificateur ne peut pas être l'un des mots clés du langage.
 - Les identificateurs sont sensibles à la [casse](<https://fr.wikipedia.org/wiki/Casse_(typographie)>).
 - Le standard C99, se réserve l'usage de tous les identificateurs débutant par `_` suivi d'une lettre majuscule ou un autre *underscore* `_`.
 - Le standard [POSIX](https://fr.wikipedia.org/wiki/POSIX), se réserve l'usage de tous les identificateurs finissant par `_t`.
 
-:::{hint}
-Expression régulière
+!!! hint "Expression régulière"
 
-Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'expression régulière suivante :
+    Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'expression régulière suivante :
 
-```text
-^[a-zA-Z_][a-zA-Z0-9_]*$
-```
-:::
+    ```text
+    ^[a-zA-Z_][a-zA-Z0-9_]*$
+    ```
 
-```{eval-rst}
-.. exercise:: Validité des identificateurs
+
+!!! exercise "Validité des identificateurs"
 
     Pour chacune des suites de caractères ci-dessous, indiquez s'il s'agit d'un identificateur valide et utilisable en C. Justifier votre réponse.
 
-    .. hlist::
-        :columns: 2
+        1. `2_pi`
+        2. `x_2`
+        3. `x___3`
+        4. `x 2`
+        5. `positionRobot`
+        6. `piece_presente`
+        7. `_commande_vanne`
+        8. `-courant_sortie`
+        9. `_alarme_`
+        10. `panne#2`
+        11. `int`
+        12. `défaillance`
+        13. `f'`
+        14. `INT`
 
-        #. ``2_pi``
-        #. ``x_2``
-        #. ``x___3``
-        #. ``x 2``
-        #. ``positionRobot``
-        #. ``piece_presente``
-        #. ``_commande_vanne``
-        #. ``-courant_sortie``
-        #. ``_alarme_``
-        #. ``panne#2``
-        #. ``int``
-        #. ``défaillance``
-        #. ``f'``
-        #. ``INT``
-
-    .. solution::
+    ??? solution
 
         Une excellente approche serait d'utiliser directement l'expression régulière fournie et d'utiliser l'outil en ligne `regex101.com <https://regex101.com/r/cmxaic/1>`__.
 
-        .. hlist::
-            :columns: 2
 
-            #. ``2_pi`` **invalide**, car commence par un chiffre
-            #. ``x_2`` **valide**
-            #. ``x___3`` **valide**
-            #. ``x 2`` **invalide**, car comporte un espace
-            #. ``positionRobot`` **valide**, notation *camelCase*
-            #. ``piece_presente`` **valide**, notation *snake_case*
-            #. ``_commande_vanne`` **valide**
-            #. ``-courant_sortie`` **invalide**, un identificateur ne peut pas commencer par le signe ``-``
-            #. ``_alarme_`` **valide**
-            #. ``panne#2`` **invalide**, le caractère ``#`` n'est pas autorisé
-            #. ``int`` **invalide**, ``int`` est un mot réservé du langage
-            #. ``défaillance`` **invalide**, uniquement les caractères imprimable ASCII sont autorisés
-            #. ``f'`` **invalide** l'apostrophe n'est pas autorisée
-            #. ``INT`` **valide**
-```
+            1. ``2_pi`` **invalide**, car commence par un chiffre
+            2. ``x_2`` **valide**
+            3. ``x___3`` **valide**
+            4. ``x 2`` **invalide**, car comporte un espace
+            5. ``positionRobot`` **valide**, notation *camelCase*
+            6. ``piece_presente`` **valide**, notation *snake_case*
+            7. ``_commande_vanne`` **valide**
+            8. ``-courant_sortie`` **invalide**, un identificateur ne peut pas commencer par le signe ``-``
+            9. ``_alarme_`` **valide**
+            10. ``panne#2`` **invalide**, le caractère ``#`` n'est pas autorisé
+            11. ``int`` **invalide**, ``int`` est un mot réservé du langage
+            12. ``défaillance`` **invalide**, uniquement les caractères imprimable ASCII sont autorisés
+            13. ``f'`` **invalide** l'apostrophe n'est pas autorisée
+            14. ``INT`` **valide**
 
-```{index} variable
-```
 
 ## Variables
 
 Une variable est un symbole qui associe un nom **identificateur** à une **valeur**. Comme son nom l'indique, une variable peut voir son contenu varier au cours du temps.
 
 Une variable est définie par :
-
-```{index} visibilité, type, valeur, portée
-```
 
 - Son **nom** (*name*), c'est-à-dire l'identificateur associé au symbole.
 - Son **type** (*type*), qui est la convention d'interprétation du contenu binaire en mémoire.
@@ -258,8 +177,6 @@ Une variable est définie par :
 - Sa **portée** (*scope*) qui est la portion de code ou le symbole est défini et accessible.
 - Sa **visibilité** (*visibility*) qui ne peut être que *public* en C.
 
-```{index} déclaration
-```
 
 ### Déclaration
 
@@ -279,44 +196,39 @@ Il n'est pas nécessaire d'associer une valeur initiale à une variable, une dé
 int i, j, k;
 ```
 
-```{eval-rst}
-.. exercise:: Affectation de variables
+??? exercise "Affectation de variables"
 
     Considérons les déclarations suivantes :
 
-    .. code-block:: c
-
-        int a, b, c;
-        float x;
+    ```c
+    int a, b, c;
+    float x;
+    ```
 
     Notez après chaque affectation, le contenu des différentes variables :
 
-    =====  ================  =====  =====  =====  =====
-    Ligne  Instruction       ``a``  ``b``  ``c``  ``x``
-    =====  ================  =====  =====  =====  =====
-    1      ``a = 5;``
-    2      ``b = c;``
-    3      ``c = a;``
-    4      ``a = a + 1;``
-    5      ``x = a - ++c;``
-    6      ``b = c = x;``
-    7      ``x + 2. = 7.;``
-    =====  ================  =====  =====  =====  =====
 
-    .. solution::
+    | Ligne | Instruction      | ``a`` | ``b`` | ``c`` | ``x`` |
+    | ----- | ---------------- | ----- | ----- | ----- | ----- |
+    | 1     | ``a = 5;``       |       |       |       |       |
+    | 2     | ``b = c;``       |       |       |       |       |
+    | 3     | ``c = a;``       |       |       |       |       |
+    | 4     | ``a = a + 1;``   |       |       |       |       |
+    | 5     | ``x = a - ++c;`` |       |       |       |       |
+    | 6     | ``b = c = x;``   |       |       |       |       |
+    | 7     | ``x + 2. = 7.;`` |       |       |       |       |
 
-        =====  ================  =====  =====  =====  =====
-        Ligne  Instruction       ``a``  ``b``  ``c``  ``x``
-        =====  ================  =====  =====  =====  =====
-        1      ``a = 5;``            5      ?      ?      ?
-        2      ``b = c;``            5      ?      ?      ?
-        3      ``c = a;``            5      ?      5      ?
-        4      ``a = a + 1;``        6      ?      5      ?
-        5      ``x = a - ++c;``      6      ?      6     12
-        6      ``b = c = x;``        6     12     12     12
-        7      ``x + 2. = 7.;``      -      -      -      -
-        =====  ================  =====  =====  =====  =====
-```
+    ??? solution
+
+        | Ligne | Instruction      | ``a`` | ``b`` | ``c`` | ``x`` |
+        | ----- | ---------------- | ----- | ----- | ----- | ----- |
+        | 1     | ``a = 5;``       |     5 |     ? |     ? |     ? |
+        | 2     | ``b = c;``       |     5 |     ? |     ? |     ? |
+        | 3     | ``c = a;``       |     5 |     ? |     5 |     ? |
+        | 4     | ``a = a + 1;``   |     6 |     ? |     5 |     ? |
+        | 5     | ``x = a - ++c;`` |     6 |     ? |     6 |    12 |
+        | 6     | ``b = c = x;``   |     6 |    12 |    12 |    12 |
+        | 7     | ``x + 2. = 7.;`` |     - |     - |     - |     - |
 
 ### Convention de nommage
 
@@ -328,21 +240,15 @@ Il existe autant de conventions de nommage qu'il y a de développeurs, mais un c
 
 Selon les standards adoptés chaque société on trouve ceux qui préfèrent nommer les variables en utilisant un *underscore* (`_`) comme séparateur et ceux qui préfèrent nommer une variable en utilisant des majuscules comme séparateurs de mots.
 
-```{eval-rst}
-.. table:: Conventions de nommage
+Table: Conventions de nommage
 
-    +--------------+------------------+----------------------+
-    | Convention   | Nom français     | Exemple              |
-    +==============+==================+======================+
-    | *camelcase*  | Casse de chameau | ``userLoginCount``   |
-    +--------------+------------------+----------------------+
-    | *snakecase*  | Casse de serpent | ``user_login_count`` |
-    +--------------+------------------+----------------------+
-    | *pascalcase* | Casse de Pascal  | ``UserLoginCount``   |
-    +--------------+------------------+----------------------+
-    | *kebabcase*  | Casse de kebab   | ``user-login-count`` |
-    +--------------+------------------+----------------------+
-```
+| Convention   | Nom français     | Exemple              |
+|--------------|------------------|----------------------|
+| *camelcase*  | Casse de chameau | ``userLoginCount``   |
+| *snakecase*  | Casse de serpent | ``user_login_count`` |
+| *pascalcase* | Casse de Pascal  | ``UserLoginCount``   |
+| *kebabcase*  | Casse de kebab   | ``user-login-count`` |
+
 
 ### Variable métasyntaxiques
 
@@ -363,13 +269,13 @@ Formellement, une constante se déclare comme une variable, mais préfixée du m
 const double scale_factor = 12.67;
 ```
 
-:::{note}
-Il ne faut pas confondre la **constante** qui est une variable immuable, stockée en mémoire et une **macro** qui appartient au préprocesseur. Le fichier d'en-tête `math.h` définit par exemple la constante `M_PI` sous forme de macro.
+!!! info
 
-```c
-#define M_PI 3.14159265358979323846
-```
-:::
+    Il ne faut pas confondre la **constante** qui est une variable immuable, stockée en mémoire et une **macro** qui appartient au préprocesseur. Le fichier d'en-tête `math.h` définit par exemple la constante `M_PI` sous forme de macro.
+
+    ```c
+    #define M_PI 3.14159265358979323846
+    ```
 
 ## Constantes littérales
 
@@ -387,31 +293,30 @@ Les constantes littérales représentent des grandeurs scalaires numériques ou 
 '0'    // Grandeur caractère valant 48 en décimal
 ```
 
-```{eval-rst}
-.. exercise:: Constances littérales
+!!! exercise "Constances littérales"
 
     Pour les entrées suivantes, indiquez lesquelles sont correctes.
 
-    .. hlist::
-        :columns: 2
+    /// html | div[class='two-column-list']
 
-        #. ``12.3``
-        #. ``12E03``
-        #. ``12u``
-        #. ``12.0u``
-        #. ``1L``
-        #. ``1.0L``
-        #. ``.9``
-        #. ``9.``
-        #. ``.``
-        #. ``0x33``
-        #. ``0xefg``
-        #. ``0xef``
-        #. ``0xeF``
-        #. ``0x0.2``
-        #. ``09``
-        #. ``02``
-```
+    1. ``12.3``
+    1. ``12E03``
+    2. ``12u``
+    3. ``12.0u``
+    4. ``1L``
+    5. ``1.0L``
+    6. ``.9``
+    7. ``9.``
+    8. ``.``
+    9.  ``0x33``
+    10. ``0xefg``
+    11. ``0xef``
+    12. ``0xeF``
+    13. ``0x0.2``
+    14. ``09``
+    15. ``02``
+
+    ///
 
 ## Opérateur d'affectation
 
@@ -447,47 +352,45 @@ a = b = c = 42;
 
 Nous verrons {numref}`precedence` que l'associativité de chaque opérateur détermine s'il agit de gauche à droite ou de droite à gauche.
 
-```{eval-rst}
-.. exercise:: Affectations simples
+!!! exercise "Affectations simples"
 
     Donnez les valeurs de ``x``, ``n``, ``p`` après l'exécution des instructions ci-dessous :
 
-    .. code-block:: c
+    ```c
+    float x;
+    int n, p;
 
-        float x;
-        int n, p;
+    p = 2;
+    x = 15 / p;
+    n = x + 0.5;
+    ```
 
-        p = 2;
-        x = 15 / p;
-        n = x + 0.5;
+    ??? solution
 
-    .. solution::
+        ```text
+        p ≡ 2
+        x ≡ 7
+        n ≡ 7
+        ```
 
-        .. code-block:: text
 
-            p ≡ 2
-            x ≡ 7
-            n ≡ 7
-```
-
-```{eval-rst}
-.. exercise:: Trop d'égalités
+!!! exercise "Trop d'égalités"
 
     On considère les déclarations suivantes :
 
-    .. code-block:: c
-
-        int i, j, k;
+    ```c
+    int i, j, k;
+    ```
 
     Donnez les valeurs des variables ``i``, ``j`` et ``k`` après l'exécution de chacune des expressions ci-dessous. Qu'en pensez-vous ?
 
-    .. code-block:: c
+    ```c
+    /* 1 */ i = (k = 2) + (j = 3);
+    /* 2 */ i = (k = 2) + (j = 2) + j * 3 + k * 4;
+    /* 3 */ i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1);
+    ```
 
-        /* 1 */ i = (k = 2) + (j = 3);
-        /* 2 */ i = (k = 2) + (j = 2) + j * 3 + k * 4;
-        /* 3 */ i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1);
-
-    .. solution::
+    ??? solution
 
         Selon la table de priorité des opérateurs, on note :
 
@@ -500,29 +403,25 @@ Nous verrons {numref}`precedence` que l'associativité de chaque opérateur dét
 
         Ainsi, seul le premier point possède une solution, les deux autres sont indéterminés
 
-        #. ``i = (k = 2) + (j = 3)``
+        1. ``i = (k = 2) + (j = 3)``
 
             - ``i = 5``
             - ``j = 3``
             - ``k = 2``
-        #. ``i = (k = 2) + (j = 2) + j * 3 + k * 4``
+        2. ``i = (k = 2) + (j = 2) + j * 3 + k * 4``
 
             - Résultat indéterminé
-        #. ``i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1)``
+        3. ``i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1)``
 
             - Résultat indéterminé
-
-```
 
 ## Commentaires
 
 Comme en français et ainsi qu'illustré par la {numref}`proust`, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source.
 
-(proust)=
 
-:::{figure} ../../assets/images/proust.*
-Les carafes dans la Vivonne
-:::
+![Les carafes dans la Vivonne](../assets/images/proust.svg)
+
 
 Il existe deux manière d'écrire un commentaire en C :
 
@@ -590,25 +489,24 @@ Le format des commentaires est par essence libre au développeur, mais il est g�
 - Les commentaires soient concis et précis.
 - Les commentaires soient écrits en anglais.
 
-```{eval-rst}
-.. exercise:: Verbosité
+!!! exercise "Verbosité"
 
     Comment récririez-vous ce programme?
 
-    .. code-block:: c
+    ```c
+    for (register unsigned int the_element_index = 0;
+        the_element_index < number_of_elements; the_element_index += 1)
+        array_of_elements[the_element_index] =  the_element_index;
+    ```
 
-        for (register unsigned int the_element_index = 0; the_element_index < number_of_elements; the_element_index += 1)
-            array_of_elements[the_element_index] =  the_element_index;
-
-    .. solution::
+    ??? solution
 
         Une règle de programmation: le nom identifieurs doit être proportionnel à leur contexte. Plus le contexte de la variable est réduit, plus le nom peut être court. Le même programme pourrait être écrit comme suit :
 
-        .. code-block:: c
-
-            for (size_t i; i < nelems; i++)
-                elem[i] = i;
+        ```c
+        for (size_t i; i < nelems; i++)
+            elem[i] = i;
+        ```
 
         Un consensus assez bien établi est qu'une variable commençant par ``n`` peut signifier
         *number of*.
-```

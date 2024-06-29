@@ -1,13 +1,8 @@
 # La programmation
 
-:::{figure} ../../assets/images/eniac.*
-L'un des premiers ordinateurs: l'Eniac
-:::
+![L'un des premiers ordinateurs: l'Eniac](../assets/images/eniac.jpg)
 
 Il ne serait pas raisonnable de vous enseigner la programmation C sans au préalable définir ce qu'est la programmation et quelle est son origine. La programmation intervient après une étape plus générale impliquant un ou plusieurs algorithmes.
-
-```{index} algorithmique, programmation
-```
 
 **Algorithmique et Programmation**, il y donc deux questions à éclaircir :
 
@@ -26,45 +21,28 @@ L'algorithmique et non l'*algorithmie*, est la science qui étudie la production
 
 Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l'[algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide) datant probablement de 300 av. J.-C. est un algorithme permettant de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD). Voici la description de l'algorithme :
 
-```{index} pgcd, Euclide
-```
 
-:::{figure} ../../assets/figures/dist/algorithm/euclide-gcd.*
-Algorithme de calcul du PGCD d'Euclide.
-:::
+![Algorithme de calcul du PGCD d'Euclide.](../assets/figures/dist/algorithm/euclide-gcd.svg)
 
-```{eval-rst}
-.. exercise:: Algorithme d'Euclide
 
-    Appliquer l'algorithme d'Euclide aux entrées suivantes. Que vaut :math:`a`
-    , :math:`b` et :math:`r` ?
+!!! exercise "Algorithme d'Euclide"
 
-    .. math::
+    Appliquer l'algorithme d'Euclide aux entrées suivantes. Que vaut $a$
+    , $b$ et $r$ ?
 
-        a = 1260, b = 630
-```
+    $$a = 1260, b = 630$$
+
 
 ## Programmation
 
-```{index} Joseph Marie Jacquard, 1801, Carte perforée
-```
-
 La machine Jacquard est un [métier à tisser](https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser) mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
 
-:::{figure} ../../assets/images/loom.*
-:width: 600px
+![Mécanisme Jacquard au Musée des arts et métiers de Paris.](../assets/images/loom.jpg){ width="80%" }
 
-Mécanisme Jacquard au Musée des arts et métiers de Paris.
-:::
-
-```{index} Révolte des canuts, canuts
-```
 
 Les cartes perforées contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. L'automatisation d'un travail qui jadis était effectué manuellement causa une vague de chômage menant à la [Révolte des canuts](https://fr.wikipedia.org/wiki/R%C3%A9volte_des_canuts) en 1831.
 
 La [programmation](https://fr.wikipedia.org/wiki/Programmation_informatique) définit toute activité menant à l'écriture de programmes. En informatique, un programme est un ensemble ordonné d'instructions codées avec un langage donné et décrivant les étapes menant à la solution d'un problème. Il s'agit le plus souvent d'une écriture formelle d'un algorithme.
-
-```{index} héraldique
 ```
 
 Les informaticiens-tisserands responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons l'exemple d'un ouvrier spécialisé en [héraldique](https://fr.wikipedia.org/wiki/H%C3%A9raldique) et devant créer des motifs complexes de blasons. Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qui le maîtrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de Mayenne (c.f. figure ci-dessous) aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :
@@ -98,21 +76,12 @@ Les informaticiens-tisserands responsables de la création des cartes perforées
         à la bordure endentée de gueules et d'or.
 ```
 
-```{index} de gueules
-```
 
 Notons que *de gueules* signifie *rouge*. Le [drapeau suisse](https://fr.wikipedia.org/wiki/Drapeau_et_armoiries_de_la_Suisse) est donc *de gueules, à la croix alésée d'argent*.
 
-:::{figure} ../../assets/images/armoiries.*
-:width: 200px
-
-Armoiries des ducs de Mayenne
-:::
+![Armoiries des ducs de Mayenne](../assets/images/armoiries.svg){ width="200px" }
 
 ## Calculateur
-
-```{index} calculateur, abaque
-```
 
 Un calculateur du latin *calculare*: calculer avec des cailloux, originellement appelé [abaque](<https://fr.wikipedia.org/wiki/Abaque_(calcul)>) était un dispositif permettant de faciliter les calculs mathématiques.
 
@@ -123,8 +92,6 @@ Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *compu
 - l'interface de saisie (pavé numérique);
 - l'affichage du résultat (écran à cristaux liquide).
 
-```{index} ordinateur
-```
 
 ## Ordinateur
 
@@ -153,15 +120,11 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques P
 
 : [La pascaline](https://fr.wikipedia.org/wiki/Pascaline): machine d'arithmétique de Blaise Pascal, première machine à calculer
 
-```{index} 1834
-```
 
 1834
 
 : Machine à calculer programmable de Charles Babbage
 
-```{index} 1937
-```
 
 1937
 
@@ -171,8 +134,6 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques P
   - 6 secondes par multiplication à 23 chiffres décimaux
   - Cartes perforées
 
-```{index} 1950
-```
 
 1950
 
@@ -184,8 +145,7 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques P
   - 100'000 additions/seconde
   - 357 multiplications/seconde
 
-```{index} 1965
-```
+
 
 1965
 
@@ -196,8 +156,7 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques P
   - Temps de cycle de 1.5 µs
   - [Fortran](https://fr.wikipedia.org/wiki/Fortran) et BASIC
 
-```{index} 2018, Behold Summit
-```
+
 
 2018
 
@@ -207,19 +166,3 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques P
   - simple ou double précision
   - 14.668 GFlops/watt
   - 600 GiB de mémoire RAM
-
-```{eval-rst}
-.. todo:: Chapitre sur le fonctionnement de l'ordinateur
-```
-
-% Fonctionnement de l'ordinateur
-
-% ==============================
-
-% Machine de Turing
-
-% -----------------
-
-% .. exercise:: Alain Turing
-
-% Comment est mort Alain Turing et pourquoi est-il connu ?

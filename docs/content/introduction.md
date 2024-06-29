@@ -39,7 +39,7 @@ En substance, **C18** n'apporte pas de nouvelles fonctionnalités au langage, ma
 
 **C11** apporte peu de grands changements fondamentaux pour le développement sur microcontrôleur par rapport à **C99** et ce dernier reste de facto le standard qu'il est souhaité de respecter dans l'industrie.
 
-!!! note
+!!! info
 
     Vous entendrez ou lirez souvent des références à **ANSI C** ou **K&R**, préférez plutôt une compatibilité avec **C99** au minimum.
 
@@ -378,9 +378,9 @@ Jul 24 09:50  Date de création du fichier
 a.out         Nom du fichier
 ```
 
-## Révision
+## Exercices de Révision
 
-!!! exercise Auteurs
+!!! exercise "Auteurs"
 
     Qui a inventé le C ?
 
@@ -390,7 +390,7 @@ a.out         Nom du fichier
 
 
 
-!!! exercise Standardisation
+!!! exercise "Standardisation"
 
     Quel est le standard C à utiliser en 2021 et pourquoi ?
 
@@ -401,7 +401,7 @@ a.out         Nom du fichier
         au langage depuis et les entreprises préfèrent migrer sur C++ plutôt
         que d'adopter un standard plus récent qui n'apporte que peu de changements.
 
-!!! exercise Paradigmes
+!!! exercise "Paradigmes"
 
     Quels sont les paradigmes de programmation supportés par C ?
 
@@ -411,7 +411,7 @@ a.out         Nom du fichier
 
 
 
-!!! exercise Langage impératif
+!!! exercise "Langage impératif"
 
     Pourriez-vous définir ce qu'est la programmation impérative ?
 
@@ -420,7 +420,7 @@ a.out         Nom du fichier
         La programmation impérative consiste en des séquences de commandes ordonnées.
         C'est-à-dire que les séquences sont exécutées dans un ordre définis les unes à la suite d’autres.
 
-!!! exercise Coulée de lave
+!!! exercise "Coulée de lave"
 
     Qu'est-ce qu'une coulée de lave en informatique ?
 
@@ -434,7 +434,7 @@ a.out         Nom du fichier
         Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement, mais être difficile à l'utilisation, car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.
 
 
-!!! exercise Cat
+!!! exercise "Cat"
 
     Qu'est-ce que `cat`?
 

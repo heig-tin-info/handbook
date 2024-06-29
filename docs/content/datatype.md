@@ -2,25 +2,15 @@
 
 ## Typage
 
-```{index} typage
-```
-
 Inhérent au fonctionnement interne de l'ordinateur, un langage de programmation s'abstrait plus ou moins du mode de stockage interne des données telles qu'elles sont enregistrées dans la mémoire. De la même manière que dans la vie réelle, il n'est pas possible de rendre de la monnaie à un vendeur à moins d'un cinquième de centime près, il n'est pas possible pour un ordinateur de stocker des informations numériques avec une précision infinie.
 
 Aussi, les langages de programmation sont dits **typés** lorsqu'ils confient au programmeur la responsabilité de choisir comment une information sera stockée en mémoire, et **non typés** lorsque ce choix est implicite. Chacun des langages à ses avantages et ses inconvénients et pour reprendre l'exemple du rendu de monnaie, il serait ennuyant d'autoriser d'enregistrer des informations financières avec une précision meilleure qu'une pièce de cinq centimes, car il serait alors impossible à un caissier de rendre la monnaie correctement. Dans cette situation on préférera les langages **typés** et heureusement C est un langage fortement typé.
 
 Les types de données ne se bornent pas qu'aux informations numériques, il existe des types plus complexes qui permettent par exemple de traiter des caractères tels que `A` ou `B`. Ce chapitre à pour objectif de familiariser le lecteur aux différents types de données disponibles en C.
 
-:::{note}
-Standard ISO
+!!! note "Standard ISO 80000-2"
 
-```{index} ISO 80000-2
-```
-
-Les ingénieurs sont friands des standards et qui plus est lorsqu'ils sont  internationaux. Ainsi afin d'éviter le crash malheureux d'une fusée causé par la mésentente de deux ingénieurs de différents pays, il existe la norme **ISO 80000-2** qui définit précisément ce qu'est un entier, s'il doit inclure ou non le zéro, que sont les nombres réels, etc. Bien entendu les compilateurs, s'ils sont bien faits, cherchent à respecter au mieux ces normes internationales, et vous ?
-:::
-
-(storage)=
+    Les ingénieurs sont friands des standards et qui plus est lorsqu'ils sont  internationaux. Ainsi afin d'éviter le crash malheureux d'une fusée causé par la mésentente de deux ingénieurs de différents pays, il existe la norme **ISO 80000-2** qui définit précisément ce qu'est un entier, s'il doit inclure ou non le zéro, que sont les nombres réels, etc. Bien entendu les compilateurs, s'ils sont bien faits, cherchent à respecter au mieux ces normes internationales, et vous ?
 
 ## Stockage et interprétation
 
@@ -36,10 +26,10 @@ Il pourrait s'agir :
 
 - de 4 caractères de 8-bits :
 
-  > - `01000000` `@`
-  > - `01001001` `I`
-  > - `00001111` `\x0f`
-  > - `11011011` `Û`
+    - `01000000` `@`
+    - `01001001` `I`
+    - `00001111` `\x0f`
+    - `11011011` `Û`
 
 - ou de 4 nombres de 8-bits: `64`, `73`, `15`, `219`,
 
@@ -81,15 +71,9 @@ int main() {
 }
 ```
 
-(endianess)=
-
 ## Boutisme
 
-:::{figure} ../../assets/images/endian.*
-:::
-
-```{index} boutisme, endianess, little endian, big endian
-```
+![Boutisme](../assets/images/endian.jpg)
 
 La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé *endianess*. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les œufs à la coque par le petit bout (petit boutisme/*little endian*), la répression incite les rebelles à manger leurs œufs par le gros bout (gros boutisme/*big endian*).
 
@@ -111,9 +95,6 @@ Comme aucun ordinateur ne dispose d'un espace de stockage infini, ces nombres ex
 
 ### Les entiers naturels
 
-```{index} entiers naturels
-```
-
 En mathématiques, un [entier naturel](https://fr.wikipedia.org/wiki/Entier_naturel) est un nombre positif ou nul. Chaque nombre à un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, et donc sans signe et sans virgule. L'ensemble des entiers naturels est défini de la façon suivante :
 
 $$
@@ -126,21 +107,14 @@ En C, on nomme ce type de donnée `unsigned int`, `int` étant le dénominatif d
 
 Voici quelques exemples des valeurs minimales et maximales possibles selon le nombre de bits utilisés pour coder l'information numérique :
 
-```{eval-rst}
-.. table:: Stockage d'un entier non signé sur différentes profondeurs
+Table: Stockage d'un entier non signé sur différentes profondeurs
 
-    +--------------+-----------+-------------------------------------------------+
-    | Profondeur   | Minimum   | Maximum                                         |
-    +==============+===========+=================================================+
-    | 8 bits       | 0         | 255 (:math:`2^8 - 1`)                           |
-    +--------------+-----------+-------------------------------------------------+
-    | 16 bits      | 0         | 65'535 (:math:`2^{16} - 1`)                     |
-    +--------------+-----------+-------------------------------------------------+
-    | 32 bits      | 0         | 4'294'967'295 (:math:`2^{32} - 1`)              |
-    +--------------+-----------+-------------------------------------------------+
-    | 64 bits      | 0         | 18'446'744'073'709'551'616 (:math:`2^{64} - 1`) |
-    +--------------+-----------+-------------------------------------------------+
-```
+| Profondeur   | Minimum   | Maximum                                         |
+|--------------|-----------|-------------------------------------------------|
+| 8 bits       | 0         | 255 (:math:`2^8 - 1`)                           |
+| 16 bits      | 0         | 65'535 (:math:`2^{16} - 1`)                     |
+| 32 bits      | 0         | 4'294'967'295 (:math:`2^{32} - 1`)              |
+| 64 bits      | 0         | 18'446'744'073'709'551'616 (:math:`2^{64} - 1`) |
 
 Notez l'importance du $-1$ dans la définition du maximum, car la valeur minimum $0$ fait partie de l'information même si elle représente une quantité nulle. Il y a donc 256 valeurs possibles pour un nombre entier non signé 8-bits, bien que la valeur maximale ne soit que de 255.
 
@@ -158,19 +132,13 @@ En C on dit que ces nombres sont `signed`. Il est par conséquent correct d'écr
 
 Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information :
 
-```{eval-rst}
-.. table:: Stockage d'un entier signé sur différentes profondeurs
+Table: Stockage d'un entier signé sur différentes profondeurs
 
-    +--------------+------------------+------------------+
-    | Profondeur   | Minimum          | Maximum          |
-    +==============+==================+==================+
-    | 8 bits       | -128             | +127             |
-    +--------------+------------------+------------------+
-    | 16 bits      | -32'768          | +32'767          |
-    +--------------+------------------+------------------+
-    | 32 bits      | -2'147'483'648   | +2'147'483'647   |
-    +--------------+------------------+------------------+
-```
+| Profondeur   | Minimum          | Maximum          |
+|--------------|------------------|------------------|
+| 8 bits       | -128             | +127             |
+| 16 bits      | -32'768          | +32'767          |
+| 32 bits      | -2'147'483'648   | +2'147'483'647   |
 
 En mémoire ces nombres sont stockés en utilisant le {ref}`complément à deux <twos_complement>` qui fait l'objet d'une section à part entière.
 
@@ -187,140 +155,106 @@ Comme nous l'avons vu, les degrés de liberté pour définir un entier sont :
 
 La construction d'un type entier C est la suivante :
 
-:::{figure} ../../assets/figures/dist/datatype/ansi-integers.*
-:alt: "Entiers standardis\xE9s C89"
-:width: 100 %
-:::
+![Entiers standardisés](../assets/figures/dist/datatype/ansi-integers.svg)
 
 Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins $N$ bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée au {numref}`standard-integers`.
 
-```{eval-rst}
-.. todo:: Table too big on LaTeX
-```
+Table: Types entiers standards
 
-(standard-integers)=
+Table: "Table des types entiers en C"
 
-```{eval-rst}
-.. table:: Types entiers standards
+| Type                   | Signe    | Profondeur          | Format   |
+|------------------------|----------|---------------------|----------|
+| ``char``               | ?        | ``CHAR_BIT``        | ``%c``   |
+| ``signed char``        | signed   | au moins 8 bits     | ``%c``   |
+| ``unsigned char``      | unsigned | au moins 8 bits     | ``%c``   |
+|                        |          |                     |          |
+| ``short``              | signed   | au moins 16 bits    | ``%hi``  |
+| ``short int``          |          |                     |          |
+| ``signed short``       |          |                     |          |
+| ``signed short int``   |          |                     |          |
+|                        |          |                     |          |
+| ``unsigned short``     | unsigned | au moins 16 bits    | ``%hu``  |
+| ``unsigned short int`` |          |                     |          |
+|                        |          |                     |          |
+| ``unsigned``           | unsigned | au moins 32 bits    | ``%u``   |
+| ``unsigned int``       |          |                     |          |
+|                        |          |                     |          |
+| ``int``                | signed   | au moins 32 bits    | ``%d``   |
+| ``signed``             |          |                     |          |
+| ``signed int``         |          |                     |          |
+|                        |          |                     |          |
+| ``unsigned``           | unsigned | au moins 32 bits    | ``%u``   |
+| ``unsigned int``       |          |                     |          |
+|                        |          |                     |          |
+| ``long``               | signed   | au moins 32 bits    | ``%li``  |
+| ``long int``           |          |                     |          |
+| ``signed long``        |          |                     |          |
+| ``signed long int``    |          |                     |          |
+|                        |          |                     |          |
+| ``unsigned long``      | unsigned | au moins 32 bits    | ``%lu``  |
+| ``unsigned long int``  |          |                     |          |
+|                        |          |                     |          |
+| ``long long``          | signed   | au moins 64 bits    | ``%lli`` |
+| ``long long int``      |          |                     |          |
+| ``signed long long``   |          |                     |          |
+| ``signed long long int`` |       |                     |          |
+|                        |          |                     |          |
+| ``unsigned long long`` | unsigned | au moins 64 bits    | ``%llu`` |
+| ``unsigned long long int`` |     |                     |          |
 
-    +-----------------------------------------------+----------+------------------+----------+
-    | Type                                          | Signe    | Profondeur       | Format   |
-    +===============================================+==========+==================+==========+
-    | ``char``                                      | ?        | ``CHAR_BIT``     | ``%c``   |
-    +-----------------------------------------------+----------+------------------+----------+
-    | ``signed char``                               | signed   | au moins 8 bits  | ``%c``   |
-    +-----------------------------------------------+----------+------------------+----------+
-    | ``unsigned char``                             | unsigned | au moins 8 bits  | ``%c``   |
-    +-----------------------------------------------+----------+------------------+----------+
-    | | ``short``                                   | signed   | au moins 16 bits | ``%hi``  |
-    | | ``short int``                               |          |                  |          |
-    | | ``signed short``                            |          |                  |          |
-    | | ``signed short int``                        |          |                  |          |
-    +-----------------------------------------------+----------+------------------+----------+
-    | | ``unsigned short``                          | unsigned | au moins 16 bits | ``%hu``  |
-    | | ``unsigned short int``                      |          |                  |          |
-    +-----------------------------------------------+----------+------------------+----------+
-    | | ``unsigned``                                | unsigned | au moins 32 bits | ``%u``   |
-    | | ``unsigned int``                            |          |                  |          |
-    +-----------------------------------------------+----------+------------------+----------+
-    | | ``int``                                     | signed   | au moins 32 bits | ``%d``   |
-    | | ``signed``                                  |          |                  |          |
-    | | ``signed int``                              |          |                  |          |
-    +-----------------------------------------------+----------+------------------+----------+
-    | | ``unsigned``                                | unsigned | au moins 32 bits | ``%u``   |
-    | | ``unsigned int``                            |          |                  |          |
-    +-----------------------------------------------+----------+------------------+----------+
-    | | ``long``                                    | signed   | au moins 32 bits | ``%li``  |
-    | | ``long int``                                |          |                  |          |
-    | | ``signed long``                             |          |                  |          |
-    | | ``signed long int``                         |          |                  |          |
-    +-----------------------------------------------+----------+------------------+----------+
-    | | ``unsigned long``                           | unsigned | au moins 32 bits | ``%lu``  |
-    | | ``unsigned long int``                       |          |                  |          |
-    +-----------------------------------------------+----------+------------------+----------+
-    | | ``long long``                               | signed   | au moins 64 bits | ``%lli`` |
-    | | ``long long int``                           |          |                  |          |
-    | | ``signed long long``                        |          |                  |          |
-    | | ``signed long long int``                    |          |                  |          |
-    +-----------------------------------------------+----------+------------------+----------+
-    | | ``unsigned long long``                      | unsigned | au moins 64 bits | ``%llu`` |
-    | | ``unsigned long long int``                  |          |                  |          |
-    +-----------------------------------------------+----------+------------------+----------+
-```
 
 Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête `stdint.h`. Cette bibliothèque standard offre les types suivants :
 
-:::{figure} ../../assets/figures/dist/datatype/c99-integers.*
-:alt: "Entiers standardis\xE9s C99"
-:scale: 80%
-
-Flux de construction d'un entier standardisé
-:::
+![Flux de construction d'un entier standardisé](../assets/figures/dist/datatype/c99-integers.svg)
 
 #### Types réformés
 
 Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.
 
-(stdint)=
+Table: Entiers standard défini par `stdint`
 
-```{eval-rst}
-.. table:: Entiers standard défini par ``stdint``
-
-    +-----------------------------------------------+----------+------------------+----------+
-    | Type                                          | Signe    | Profondeur       | Format   |
-    +===============================================+==========+==================+==========+
-    | ``uint8_t``                                   | unsigned | 8 bits           | ``%c``   |
-    +-----------------------------------------------+----------+------------------+----------+
-    | ``int8_t``                                    | signed   | 8 bits           | ``%c``   |
-    +-----------------------------------------------+----------+------------------+----------+
-    | ``uint16_t``                                  | unsigned | 16 bits          | ``%hu``  |
-    +-----------------------------------------------+----------+------------------+----------+
-    | ``int16_t``                                   | signed   | 16 bits          | ``%hi``  |
-    +-----------------------------------------------+----------+------------------+----------+
-    | ``uint32_t``                                  | unsigned | 32 bits          | ``%u``   |
-    +-----------------------------------------------+----------+------------------+----------+
-    | ``int32_t``                                   | signed   | 32 bits          | ``%d``   |
-    +-----------------------------------------------+----------+------------------+----------+
-    | ``uint64_t``                                  | unsigned | 64 bits          | ``%llu`` |
-    +-----------------------------------------------+----------+------------------+----------+
-    | ``int64_t``                                   | signed   | 64 bits          | ``%lli`` |
-    +-----------------------------------------------+----------+------------------+----------+
-```
+| Type                                          | Signe    | Profondeur       | Format   |
+|-----------------------------------------------|----------|------------------|----------|
+| ``uint8_t``                                   | unsigned | 8 bits           | ``%c``   |
+| ``int8_t``                                    | signed   | 8 bits           | ``%c``   |
+| ``uint16_t``                                  | unsigned | 16 bits          | ``%hu``  |
+| ``int16_t``                                   | signed   | 16 bits          | ``%hi``  |
+| ``uint32_t``                                  | unsigned | 32 bits          | ``%u``   |
+| ``int32_t``                                   | signed   | 32 bits          | ``%d``   |
+| ``uint64_t``                                  | unsigned | 64 bits          | ``%llu`` |
+| ``int64_t``                                   | signed   | 64 bits          | ``%lli`` |
 
 À ces types s'ajoutent les types **rapides** (*fast*) et **minimums** (*least*). Un type nommé `uint_least32_t` garanti l'utilisation du type de donnée utilisant le moins de mémoire et garantissant une profondeur d'au minimum 32 bits. Il est strictement équivalent à `unsigned int`.
 
 Les types rapides, moins utilisés vont automatiquement choisir le type adapté le plus rapide à l'exécution. Par exemple si l'architecture matérielle permet un calcul natif sur 48-bits, elle sera privilégiée par rapport au type 32-bits.
 
-```{eval-rst}
-.. exercise:: Expressions arithmétiques entières
+!!! exercise "Expressions arithmétiques entières"
 
     Donnez la valeur des expressions ci-dessous :
 
-    .. code-block:: text
+    ```text
+    25 + 10 + 7 – 3
+    5 / 2
+    24 + 5 / 2
+    (24 + 5) / 2
+    25 / 5 / 2
+    25 / (5 / 2)
+    72 % 5 – 5
+    72 / 5 – 5
+    8 % 3
+    -8 % 3
+    8 % -3
+    -8 % -3
+    ```
 
-        25 + 10 + 7 – 3
-        5 / 2
-        24 + 5 / 2
-        (24 + 5) / 2
-        25 / 5 / 2
-        25 / (5 / 2)
-        72 % 5 – 5
-        72 / 5 – 5
-        8 % 3
-        -8 % 3
-        8 % -3
-        -8 % -3
-```
-
-```{eval-rst}
-.. exercise:: Débordement
+!!! exercise "Débordement"
 
     Quel sera le contenu de ``j`` après l'exécution de l'instruction suivante :
 
-    .. code-block:: c
-
-        uint16_t j = 1024 * 64;
-```
+    ```c
+    uint16_t j = 1024 * 64;
+    ```
 
 #### Modèle de donnée
 
@@ -330,66 +264,16 @@ Admettons que ce développeur sans scrupule développe un programme complexe sur
 
 La première solution est de toujours utiliser les types proposés par `<stdint.h>` lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :
 
-```{eval-rst}
-.. todo:: Inline text are sometime too wide
-```
 
-```{eval-rst}
-.. list-table:: Modèle de données
-   :widths: 15 10 10 10 10 10 30
-   :header-rows: 1
+| Modèle de donnée | ``short`` | ``int`` | ``long`` | ``long long`` | ``size_t`` | Système d'exploitation                                      |
+|------------------|-----------|---------|----------|---------------|------------|-------------------------------------------------------------|
+| **LP32**         | 16        | 16      | 32       |               | 32         | Windows 16-bits, Apple Macintosh (très vieux)               |
+| **ILP32**        | 16        | 32      | 32       | 64            | 32         | Windows x86, Linux/Unix 32-bits                             |
+| **LLP64**        | 16        | 32      | 32       | 64            | 64         | [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) x86-64, [MinGW](https://en.wikipedia.org/wiki/MinGW) |
+| **LP64**         | 16        | 32      | 64       | 64            | 64         | Unix, Linux, macOS, Cygwin                                  |
+| **ILP64**        | 16        | 64      | 64       | 64            | 64         | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC) |
+| **SILP64**       | 64        | 64      | 64       | 64            | 64         | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur) |
 
-   * - Modèle de donnée
-     - ``short``
-     - ``int``
-     - ``long``
-     - ``long long``
-     - ``size_t``
-     - Système d'exploitation
-   * - **LP32**
-     - 16
-     - 16
-     - 32
-     -
-     - 32
-     - Windows 16-bits, Apple Macintosh (très vieux)
-   * - **ILP32**
-     - 16
-     - 32
-     - 32
-     - 64
-     - 32
-     - Windows x86, Linux/Unix 32-bits
-   * - **LLP64**
-     - 16
-     - 32
-     - 32
-     - 64
-     - 64
-     - `Microsoft Windows <https://en.wikipedia.org/wiki/Microsoft_Windows>`__ x86-64, `MinGW <https://en.wikipedia.org/wiki/MinGW>`__
-   * - **LP64**
-     - 16
-     - 32
-     - 64
-     - 64
-     - 64
-     - `Unix <https://en.wikipedia.org/wiki/Unix>`__, `Linux <https://en.wikipedia.org/wiki/Linux>`__, `macOS <https://en.wikipedia.org/wiki/MacOS>`__, `Cygwin <https://en.wikipedia.org/wiki/Cygwin>`__
-   * - **ILP64**
-     - 16
-     - 64
-     - 64
-     - 64
-     - 64
-     - `HAL <https://en.wikipedia.org/wiki/HAL_Computer_Systems>`__ (`SPARC <https://en.wikipedia.org/wiki/SPARC>`__)
-   * - **SILP64**
-     - 64
-     - 64
-     - 64
-     - 64
-     - 64
-     - `UNICOS <https://en.wikipedia.org/wiki/UNICOS>`__ (Super ordinateur)
-
-```
 
 ## Les nombres réels
 
@@ -402,12 +286,9 @@ Le premier ordinateur avec une capacité de calcul en virgule flottante date de 
 
 ### Virgule fixe
 
-```{index} virgule fixe
-```
-
 Prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facilement que bien qu'il s'agisse d'un nombre entier, une virgule pourrait être ajoutée au bit zéro sans en modifier sa signification.
 
-```
+```text
 ┌─┬─┬─┬─┬─┬─┬─┬─┐
 │0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
 └─┴─┴─┴─┴─┴─┴─┴─┘
@@ -416,7 +297,7 @@ Prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facil
 
 Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre `0b01010011` avec une virgule fixe positionnée au quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisée par 8 ($2^3$). On parvient alors à exprimer une grandeur réelle comportant une partie décimale :
 
-```
+```text
 ┌─┬─┬─┬─┬─┬─┬─┬─┐
 │0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
 └─┴─┴─┴─┴─┴─┴─┴─┘
@@ -425,7 +306,7 @@ Imaginons à présent que nous déplacions cette virgule virtuelle de trois él�
 
 Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens, est incapable sans information additionnelle d'interpréter correctement la position de la virgule puisque sa position n'est encodée nulle part. Et puisque la position de cette virgule est dans l'intervalle `[0..7]`, il serait possible d'utiliser trois bits supplémentaires à cette fin :
 
-```
+```text
 ┌─┬─┬─┬─┬─┬─┬─┬─┐
 │0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
 └─┴─┴─┴─┴─┴─┴─┴─┘
@@ -437,12 +318,6 @@ Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens,
 Cette solution est élégante, mais demande à présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.
 
 ### Virgule flottante
-
-```{index} virgule flottante
-```
-
-```{index} mantisse, exposant
-```
 
 Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' [exposant](<https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)>) et le reste de l'information la [mantisse](https://fr.wikipedia.org/wiki/Mantisse), qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la [mantis shrimp](https://fr.wikipedia.org/wiki/Stomatopoda), une quille ou crevette mante boxeuse aux couleurs particulièrement chatoyantes).
 
@@ -515,9 +390,6 @@ Prenons le temps de faire quelques observations.
 
 ### Simple précision
 
-```{index} float
-```
-
 Le type `float` aussi dit à {index}`précision simple` utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :
 
 - $\pm\inf$ lorsque l'exposant vaut `0xff`
@@ -527,27 +399,33 @@ Le type `float` aussi dit à {index}`précision simple` utilise un espace de sto
 La valeur de 1.0 est encodée :
 
 $$
+\begin{align*}
 0\:01111111\:00000000000000000000000_2 &= \text{3f80}\: \text{0000}_{16} \\
 &= (-1)^0 \cdot 2^{127-127} \cdot \frac{(2^{23} + 0)}{2^{23}} \\
-&= 2^{0} \cdot 1.0 = 1.0\\
+&= 2^{0} \cdot 1.0 = 1.0
+\end{align*}
 $$
 
 La valeur maximale exprimable :
 
 $$
+\begin{align*}
 0\:11111110\:11111111111111111111111_2 &= \text{7f7f}\: \text{ffff}_{16} \\
 &= (-1)^0 \cdot 2^{254-127} \cdot \frac{(2^{23} + 838'607)}{2^{23}} \\
 &≈ 2^{127} \cdot 1.9999998807 \\
 &≈ 3.4028234664 \cdot 10^{38}
+\end{align*}
 $$
 
 La valeur de $-\pi$ (pi) est :
 
 $$
+\begin{align*}
 1\:10000000\:10010010000111111011011_2 &= \text{4049}\: \text{0fdb}_{16} \\
 &= (-1)^1 \cdot 2^{128-127} \cdot \frac{(2^{23} + 4'788'187)}{2^{23}} \\
 &≈ -1 \cdot 2^{1} \cdot 1.5707963 \\
 &≈ -3.14159274101
+\end{align*}
 $$
 
 Vient s'ajouter les valeurs particulières suivantes :
@@ -562,26 +440,21 @@ Vient s'ajouter les valeurs particulières suivantes :
 
 La double précision est similaire à la simple précision, mais avec une mantisse à **52 bits** et **11 bits** d'exposants.
 
-```{eval-rst}
-.. exercise:: Expressions arithmétiques flottantes
+!!! exercise "Expressions arithmétiques flottantes"
 
     Donnez la valeur des expressions ci-dessous :
 
-    .. code-block:: text
-
-        25. + 10. + 7. – 3.
-        5. / 2.
-        24. + 5. / 2.
-        25. / 5. / 2.
-        25. / (5. / 2.)
-        2. * 13. % 7.
-        1.3E30 + 1.
-```
+    ```text
+    25. + 10. + 7. – 3.
+    5. / 2.
+    24. + 5. / 2.
+    25. / 5. / 2.
+    25. / (5. / 2.)
+    2. * 13. % 7.
+    1.3E30 + 1.
+    ```
 
 ## Les caractères
-
-```{index} caractère
-```
 
 Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement représentés par des grandeurs exprimées sur 1 octet (8-bits):
 
@@ -591,28 +464,15 @@ Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement repr�
 
 Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'[ASA](https://fr.wikipedia.org/wiki/American_National_Standards_Institute), l'*American Standards Association* aujourd'hui {index}`ANSI` qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.
 
-:::{figure} ../../assets/figures/dist/encoding/ascii-1963.*
-Table ASCII ASA X3.4 établie en 1963
-:::
+![Table ASCII ASA X3.4 établie en 1963](../assets/figures/dist/encoding/ascii-1963.svg)
 
 Aujourd'hui la table ASCII de base définit 128 caractères qui n'incluent pas les caractères accentués.
 
-:::{figure} ../../assets/figures/dist/encoding/ascii.*
-Table ANSI INCITS 4-1986 (standard actuel)
-:::
-
-```{index} ISO/IEC 8859, latin1
-```
+![Table ANSI INCITS 4-1986 (standard actuel)](../assets/figures/dist/encoding/ascii.svg)
 
 Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard **ISO/IEC 8859** aussi appelé standard *Latin* définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**):
 
-```{eval-rst}
-.. todo:: Fix vertical bars
-```
-
-:::{figure} ../../assets/figures/dist/encoding/latin1.*
-Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)
-:::
+![Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)](../assets/figures/dist/encoding/latin1.svg)
 
 Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.
 
@@ -622,12 +482,9 @@ Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب‎), le
 
 Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) plus précisément nommé **UTF-8**.
 
-:::{figure} ../../assets/images/encoding-trends.*
-Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008 ([src](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html))
-:::
+![Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008](../assets/images/encoding-trends.png)
 
-```{index} UTF-8
-```
+Cette tendence est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
 
 L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en {ref}`introduction <thompson>` est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination unicode {unicode}`U+0939` et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
 
@@ -675,65 +532,60 @@ char string[] = "Hello";
  0x05 00000000
 ```
 
-```{eval-rst}
-.. exercise:: Constantes littérales caractérielles
+!!! exercise "Constantes littérales caractérielles"
 
     Indiquez si les constantes littérales suivantes sont valides ou invalides.
 
-    .. hlist::
-        :columns: 2
+    /// html | div[class='two-column-list']
 
-        #. ``'a'``
-        #. ``'A'``
-        #. ``'ab'``
-        #. ``'\x41'``
-        #. ``'\041'``
-        #. ``'\0x41'``
-        #. ``'\n'``
-        #. ``'\w'``
-        #. ``'\t'``
-        #. ``'\xp2'``
-        #. ``"abcdef"``
-        #. ``"\abc\ndef"``
-        #. ``"\'\"\\"``
-        #. ``"Hello \world !\n"``
-```
+    1. ``'a'``
+    2. ``'A'``
+    3. ``'ab'``
+    4. ``'\x41'``
+    5. ``'\041'``
+    6. ``'\0x41'``
+    7. ``'\n'``
+    8. ``'\w'``
+    9. ``'\t'``
+    10. ``'\xp2'``
+    11. ``"abcdef"``
+    12. ``"\abc\ndef"``
+    13. ``"\'\"\\"``
+    14. ``"Hello \world !\n"``
 
-```{eval-rst}
-.. exercise:: Chaînes de formatage
+    ///
+
+!!! exercise "Chaînes de formatage"
 
     Pour les instructions ci-dessous, indiquer quel est l'affichage obtenu.
 
-    .. code-block:: c
+    ```c
+    char a = 'a';
+    short sh1 = 5;
+    float f1 = 7.0f;
+    int i1 = 7, i2 = 'a';
+    ```
 
-        char a = 'a';
-        short sh1 = 5;
-        float f1 = 7.0f;
-        int i1 = 7, i2 = 'a';
-
-    #. ``printf("Next char: %c.\n", a + 1);``
-    #. ``printf("Char: %3c.\n", a);``
-    #. ``printf("Char: %-3c.\n", a);``
-    #. ``printf("Chars: \n-%c.\n-%c.\n", a, 'z' - 1);``
-    #. ``printf("Sum: %i\n", i1 + i2 - a);``
-    #. ``printf("Taux d’erreur\t%i %%\n", i1);``
-    #. ``printf("Quel charabia horrible:\\\a\a\a%g\b\a%%\a\\\n", f1);``
-    #. ``printf("Inventaire: %i4 pieces\n", i1);``
-    #. ``printf("Inventory: %i %s\n", i1, "pieces");``
-    #. ``printf("Inventaire: %4i pieces\n", i1);``
-    #. ``printf("Inventaire: %-4i pieces\n", i1);``
-    #. ``printf("Mixed sum: %f\n", sh1 + i1 + f1);``
-    #. ``printf("Tension: %5.2f mV\n", f1);``
-    #. ``printf("Tension: %5.2e mV\n", f1);``
-    #. ``printf("Code: %X\n", 12);``
-    #. ``printf("Code: %x\n", 12);``
-    #. ``printf("Code: %o\n", 12);``
-    #. ``printf("Value: %i\n", -1);``
-    #. ``printf("Value: %hi\n", 65535u);``
-    #. ``printf("Value: %hu\n", -1);``
-```
-
-(booleans)=
+    1. ``printf("Next char: %c.\n", a + 1);``
+    2. ``printf("Char: %3c.\n", a);``
+    3. ``printf("Char: %-3c.\n", a);``
+    4. ``printf("Chars: \n-%c.\n-%c.\n", a, 'z' - 1);``
+    5. ``printf("Sum: %i\n", i1 + i2 - a);``
+    6. ``printf("Taux d’erreur\t%i %%\n", i1);``
+    7. ``printf("Quel charabia horrible:\\\a\a\a%g\b\a%%\a\\\n", f1);``
+    8. ``printf("Inventaire: %i4 pieces\n", i1);``
+    9. ``printf("Inventory: %i %s\n", i1, "pieces");``
+    10. ``printf("Inventaire: %4i pieces\n", i1);``
+    11. ``printf("Inventaire: %-4i pieces\n", i1);``
+    12. ``printf("Mixed sum: %f\n", sh1 + i1 + f1);``
+    13. ``printf("Tension: %5.2f mV\n", f1);``
+    14. ``printf("Tension: %5.2e mV\n", f1);``
+    15. ``printf("Code: %X\n", 12);``
+    16. ``printf("Code: %x\n", 12);``
+    17. ``printf("Code: %o\n", 12);``
+    18. ``printf("Value: %i\n", -1);``
+    19. ``printf("Value: %hi\n", 65535u);``
+    20. ``printf("Value: %hu\n", -1);``
 
 ## Les booléens
 
@@ -827,9 +679,6 @@ Un {index}`type incomplet` est un qualificatif de type de donnée décrivant un 
 
 ## Type vide (*void*)
 
-```{index} void
-```
-
 Le type `void` est particulier. Il s'agit d'un type dit **incomplet**, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :
 
 ```c
@@ -859,64 +708,54 @@ assez grand pour  contenir un `int`.
 
 Aussi, la plupart des types de taille inférieure à `int` sont automatiquement et implicitement promus en `int`. Le résultat de `a + b` lorsque `a` et `b` sont des `char` sera automatiquement un `int`.
 
-```{eval-rst}
-+---------+-----------------------+----------+
-| char    | :math:`\Rightarrow`   | int      |
-+---------+-----------------------+----------+
-| short   | :math:`\Rightarrow`   | int      |
-+---------+-----------------------+----------+
-| int     | :math:`\Rightarrow`   | long     |
-+---------+-----------------------+----------+
-| long    | :math:`\Rightarrow`   | float    |
-+---------+-----------------------+----------+
-| float   | :math:`\Rightarrow`   | double   |
-+---------+-----------------------+----------+
-```
+| Type source | Type cible |
+|---------|----------|
+| char    | int      |
+| short   | int      |
+| int     | long     |
+| long    | float    |
+| float   | double   |
 
 Notez qu'il n'y a pas de promotion numérique vers le type *short*. On
 passe directement à un type *int*.
 
-```{eval-rst}
-.. exercise:: Expressions mixtes
+!!! exercise "Expressions mixtes"
 
     Soit les instructions suivantes :
 
-    .. code-block:: c
-
-        int n = 10;
-        int p = 7;
-        float x = 2.5;
+    ```c
+    int n = 10;
+    int p = 7;
+    float x = 2.5;
+    ```
 
     Donnez le type et la valeur des expressions suivantes :
 
-    #. ``x + n % p``
-    #. ``x + p / n``
-    #. ``(x + p) / n``
-    #. ``.5 * n``
-    #. ``.5 * (float)n``
-    #. ``(int).5 * n``
-    #. ``(n + 1) / n``
-    #. ``(n + 1.0) / n``
-```
+    1. ``x + n % p``
+    2. ``x + p / n``
+    3. ``(x + p) / n``
+    4. ``.5 * n``
+    5. ``.5 * (float)n``
+    6. ``(int).5 * n``
+    7. ``(n + 1) / n``
+    8. ``(n + 1.0) / n``
 
-```{eval-rst}
-.. exercise:: Promotion numérique
+!!! exercise "Promotion numérique"
 
     Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :
 
-    .. code-block:: c
+    ```c
+    char c;
+    short sh;
+    int i;
+    float f;
+    double d;
+    ```
 
-        char c;
-        short sh;
-        int i;
-        float f;
-        double d;
-
-    #. ``c * sh - f / i + d;``
-    #. ``c * (sh – f) / i + d;``
-    #. ``c * sh - f - i + d;``
-    #. ``c + sh * f / i + d;``
-```
+    1. ``c * sh - f / i + d;``
+    2. ``c * (sh – f) / i + d;``
+    3. ``c * sh - f - i + d;``
+    4. ``c + sh * f / i + d;``
 
 ### Effets du transtypage
 
@@ -937,7 +776,7 @@ long l=3;
 double d=(double)l; // valeur : 3 => OK
 ```
 
-A l'exécution, la valeur de $d$ sera la même que $l$.
+À l'exécution, la valeur de $d$ sera la même que $l$.
 
 #### Transtypage d'un réel en entier
 
@@ -983,214 +822,201 @@ float f=(float)d; // valeur : 0.1111111119389533 => perte de précision
 À l'exécution, il y a une perte de précision lors de la conversion ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
-```{eval-rst}
-.. exercise:: Conversion de types
+!!! exercise "Conversion de types"
 
     On considère les déclarations suivantes :
 
-    .. code-block:: c
-
-        float x;
-        short i;
-        unsigned short j;
-        long k;
-        unsigned long l;
+    ```c
+    float x;
+    short i;
+    unsigned short j;
+    long k;
+    unsigned long l;
+    ```
 
     Identifiez les expressions ci-dessous dont le résultat n'est pas mathématiquement correct.
 
-    .. code-block:: c
+    ```c
+    x = 1e6;
+    i = x;
+    j = -20;
+    k = x;
+    l = k;
+    k = -20;
+    l = k;
+    ```
 
+    ??? solution
+
+        ```c
         x = 1e6;
-        i = x;
-        j = -20;
+        i = x;    // Incorrect, i peut-être limité à -32767..+32767 (C99 §5.2.4.2.1)
+        j = -20;  // Incorrect, valeur signée dans un conteneur non signé
         k = x;
         l = k;
         k = -20;
-        l = k;
+        l = k;    // Incorrect, valeur signée dans un conteneur non signé
+        ```
 
-    .. solution::
-
-        .. code-block:: c
-
-            x = 1e6;
-            i = x;    // Incorrect, i peut-être limité à -32767..+32767 (C99 §5.2.4.2.1)
-            j = -20;  // Incorrect, valeur signée dans un conteneur non signé
-            k = x;
-            l = k;
-            k = -20;
-            l = k;    // Incorrect, valeur signée dans un conteneur non signé
-```
-
-```{eval-rst}
-.. exercise:: Un casting explicite
+!!! exercise "Un casting explicite"
 
     Que valent les valeurs de ``p``, ``x`` et ``n``:
 
-    .. code-block:: c
+    ```c
+    float x;
+    int n, p;
 
-        float x;
-        int n, p;
+    p = 2;
+    x = (float)15 / p;
+    n = x + 1.1;
+    ```
 
-        p = 2;
-        x = (float)15 / p;
-        n = x + 1.1;
+    ??? solution
 
-    .. solution::
+        ```text
+        p ≡ 2
+        x = 7.5
+        n = 8
+        ```
 
-        .. code-block:: text
-
-            p ≡ 2
-            x = 7.5
-            n = 8
-```
-
-```{eval-rst}
-.. exercise:: Opérateurs de relation et opérateurs logiques
+!!! exercise "Opérateurs de relation et opérateurs logiques"
 
     Soit les déclarations suivantes :
 
-    .. code-block:: c
-
-        float x, y;
-        bool condition;
+    ```c
+    float x, y;
+    bool condition;
+    ```
 
     Réécrire l'expression ci-dessous en mettant des parenthèses montrant l'ordre des opérations :
 
-    .. code-block:: c
-
-        condition = x >= 0 && x <= 20 && y > x || y == 50 && x == 2 || y == 60;
+    ```c
+    condition = x >= 0 && x <= 20 && y > x || y == 50 && x == 2 || y == 60;
+    ```
 
     Donner la valeur de ``condition`` évaluée avec les valeurs suivantes de ``x`` et ``y``:
 
-    #. ``x = -1.0; y = 60.;``
-    #. ``x = 0; y = 1.;``
-    #. ``x = 19.0; y = 1.0;``
-    #. ``x = 0.0; y = 50.0;``
-    #. ``x = 2.0; y = 50.0;``
-    #. ``x = -10.0; y = 60.0;``
+    1. ``x = -1.0; y = 60.;``
+    2. ``x = 0; y = 1.;``
+    3. ``x = 19.0; y = 1.0;``
+    4. ``x = 0.0; y = 50.0;``
+    5. ``x = 2.0; y = 50.0;``
+    6. ``x = -10.0; y = 60.0;``
 
-    .. solution::
+    ??? solution
 
-        .. code-block:: c
+        ```c
+        condition = (
+            (x >= 0) && (x <= 20) && (y > x))
+            ||
+            ((y == 50) && (x == 2))
+            ||
+            (y == 60)
+        );
+        ```
 
-            condition = (
-                (x >= 0) && (x <= 20) && (y > x))
-                ||
-                ((y == 50) && (x == 2))
-                ||
-                (y == 60)
-            );
+        1. ``true``
+        2. ``true``
+        3. ``false``
+        4. ``true``
+        5. ``true``
+        6. ``true``
 
-        #. ``true``
-        #. ``true``
-        #. ``false``
-        #. ``true``
-        #. ``true``
-        #. ``true``
-```
-
-```{eval-rst}
-.. exercise:: Casse-tête
+!!! exercise "Casse-tête"
 
     Vous participez à une revue de code et tombez sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée **LLP64**.
 
     Pour chaque exemple, donner la valeur des variables après exécution du code.
 
-    #. .. code-block:: c
-
+    1. ```c
         unsigned short i = 32767;
         i++;
+        ```
 
-    #. .. code-block:: c
-
+    2. ```c
         short i = 32767;
         i++;
+        ```
 
-    #. .. code-block:: c
-
+    3. ```c
         short i = 0;
         i = i--;
         i = --i;
         i = i--;
-```
+        ```
 
-______________________________________________________________________
+## Exercices de révision
 
-```{eval-rst}
-.. exercise:: Évaluation d'expressions
+!!! exercise "Évaluation d'expressions"
 
     Considérons les déclarations suivantes :
 
-    .. code-block:: c
-
-        char c = 3;
-        short s = 7;
-        int i = 3;
-        long l = 4;
-        float f = 3.3;
-        double d = 7.7;
+    ```c
+    char c = 3;
+    short s = 7;
+    int i = 3;
+    long l = 4;
+    float f = 3.3;
+    double d = 7.7;
+    ```
 
     Que vaut le type et la valeur des expressions suivantes ?
 
-    #. ``c / 2``
-    #. ``sh + c / 10``
-    #. ``lg + i / 2.0``
-    #. ``d + f``
-    #. ``(int)d + f``
-    #. ``(int)d + lg``
-    #. ``c << 2``
-    #. ``sh & 0xF0``
-    #. ``sh && 0xF0``
-    #. ``sh == i + lg``
-    #. ``d + f == sh + lg``
-```
+    1. ``c / 2``
+    2. ``sh + c / 10``
+    3. ``lg + i / 2.0``
+    4. ``d + f``
+    5. ``(int)d + f``
+    6. ``(int)d + lg``
+    7. ``c << 2``
+    8. ``sh & 0xF0``
+    9. ``sh && 0xF0``
+    10. ``sh == i + lg``
+    11. ``d + f == sh + lg``
 
-```{eval-rst}
-.. exercise:: Précision des flottants
+
+!!! exercise "Précision des flottants"
 
     Que vaut ``x``?
 
-    .. code-block:: c
+    ```c
+    float x = 10000000. + 0.1;
+    ```
 
-        float x = 10000000. + 0.1;
-
-    .. solution::
+    ??? solution
 
         Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc :
 
-        .. code-block:: c
+        ```c
+        #include <stdio.h>
 
-            #include <stdio.h>
+        int main(void) {
+            float x = 10000000. + 0.1;
+            printf("%f\n", x);
+        }
+        ```
 
-            int main(void) {
-                float x = 10000000. + 0.1;
-                printf("%f\n", x);
-            }
+        ```bash
+        $ ./a.out
+        10000000.000000
+        ```
 
-        .. code-block:: console
-
-            $ ./a.out
-            10000000.000000
-```
-
-```{eval-rst}
-.. exercise:: Type de donnée idoine
+!!! exercise "Type de donnée idoine"
 
     Pour chaque entrée suivante, indiquez le nom et le type des variables que vous utiliseriez pour représenter les données dans ce programme :
 
-    #. Gestion d'un parking: nombre de voitures présente
-    #. Station météo
-        #. Température moyenne de la journée
-        #. Nombre de valeurs utilisées pour la moyenne
-    #. Montant disponible sur un compte en banque
-    #. Programme de calcul de d'énergie produite dans une centrale nucléaire
-    #. Programme de conversion décimal, hexadécimal, binaire
-    #. Produit scalaire de deux vecteurs plans
-    #. Nombre d'impulsions reçues par un capteur de position incrémental
-```
+    1. Gestion d'un parking: nombre de voitures présente
+    2. Station météo
+        a. Température moyenne de la journée
+        b. Nombre de valeurs utilisées pour la moyenne
+    3. Montant disponible sur un compte en banque
+    4. Programme de calcul de d'énergie produite dans une centrale nucléaire
+    5. Programme de conversion décimal, hexadécimal, binaire
+    6. Produit scalaire de deux vecteurs plans
+    7. Nombre d'impulsions reçues par un capteur de position incrémental
 
-```{eval-rst}
-.. exercise:: Construction d'expressions
+
+!!! exercise "Construction d'expressions"
 
     On considère un disque, divisé en 12 secteurs angulaires égaux, numérotés de 0
     à 11. On mesure l’angle de rotation du disque en degrés, sous la forme d’un
@@ -1204,99 +1030,94 @@ ______________________________________________________________________
 
     Écrivez un programme demandant l’angle et affichant le numéro de secteur
     correspondant.
-```
 
-```{eval-rst}
-.. exercise:: Somme des entiers
+!!! exercise "Somme des entiers"
 
     Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimée comme :
 
-    .. math::
+    $$
+    \sum_{k=1}^n k = \frac{n(n+1)}{2}
+    $$
 
-        \sum_{k=1}^n k = \frac{n(n+1)}{2}
+    Un grand mathématicien [Srinivasa Ramanujan](https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan>) (En tamoul: சீனிவாச இராமானுஜன்) à démontré que ce la somme à l'infini donne :
 
-    Un grand mathématicien `Srinivasa Ramanujan <https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan>`__ (En tamoul: சீனிவாச இராமானுஜன்) à démontré que ce la somme à l'infini donne :
+    $$
+    \sum_{k=1}^{\inf} k = -\frac{1}{12}
+    $$
 
-    .. math::
-
-        \sum_{k=1}^{\inf} k = -\frac{1}{12}
-
-    Vous ne le croyez pas et décider d'utiliser le superordinateur `Pensées Profondes <https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste>`__ pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur ``n`` à laquelle s'arrêter.
+    Vous ne le croyez pas et décider d'utiliser le superordinateur [Pensées Profondes](https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste) pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur ``n`` à laquelle s'arrêter.
 
     Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme ``time``:
 
-    .. code-block:: console
+    ```console
+    $ time ./a.out 1000000000
+    500000000500000000
 
-        $ time ./a.out 1000000000
-        500000000500000000
-
-        real    0m0.180s
-        user    0m0.172s
-        sys     0m0.016s
+    real    0m0.180s
+    user    0m0.172s
+    sys     0m0.016s
+    ```
 
     À partir de quelle valeur, le temps de calcul devient significativement palpable ?
 
-    .. solution::
+    ??? solution
 
-        .. code-block:: c
+        ```c
+        #include <stdio.h>
+        #include <stdlib.h>
 
-            #include <stdio.h>
-            #include <stdlib.h>
+        int main(int argc, char *argv[]) {
+            long long n = atoi(argv[1]);
+            long long sum = 0;
+            for(size_t i = 0; i < n; i++, sum += i);
+            printf("%lld\n", sum);
+        }
+        ```
 
-            int main(int argc, char *argv[]) {
-                long long n = atoi(argv[1]);
-                long long sum = 0;
-                for(size_t i = 0; i < n; i++, sum += i);
-                printf("%lld\n", sum);
-            }
-```
-
-```{eval-rst}
-.. exercise:: Système de vision industriel
+!!! exercise "Système de vision industriel"
 
     La société japonaise Nakainœil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :
 
-    .. code-block:: c
-
-        uint32_t inspected_parts, bad_parts;
-        float percentage_good_parts;
+    ```c
+    uint32_t inspected_parts, bad_parts;
+    float percentage_good_parts;
+    ```
 
     À un moment du programme, on peut lire :
 
-    .. code-block:: c
-
-        percentage_good_parts = (inspected_parts - bad_parts) / inspected_parts;
+    ```c
+    percentage_good_parts = (inspected_parts - bad_parts) / inspected_parts;
+    ```
 
     Sachant que ``inspected_parts = 2000`` et ``bad_parts = 200``:
 
-    #. Quel résultat le développeur s'attend-il à obtenir ?
-    #. Qu'obtient-il en pratique ?
-    #. Pourquoi ?
-    #. Corrigez les éventuelles erreurs.
+    1. Quel résultat le développeur s'attend-il à obtenir ?
+    2. Qu'obtient-il en pratique ?
+    3. Pourquoi ?
+    4. Corrigez les éventuelles erreurs.
 
-    .. solution::
+    ??? solution
 
-        #. Le développeur s'attend à obtenir le pourcentage de bonnes pièces avec plusieurs décimales après la virgule.
-        #. En pratique, il obtient un entier, c'est à dire toujours 0.
-        #. La promotion implicite des entiers peut être découpée comme suit :
+        1. Le développeur s'attend à obtenir le pourcentage de bonnes pièces avec plusieurs décimales après la virgule.
+        2. En pratique, il obtient un entier, c'est à dire toujours 0.
+        3. La promotion implicite des entiers peut être découpée comme suit :
 
-           .. code-block:: c
+            ```c
+            (uint32_t)numerator = (uint32_t)inspected_parts - (uint32_t)bad_parts;
+            (uint32_t)percentage = (uint32_t)numerator / (uint32_t)inspected_parts;
+            (float)percentage_good_parts = (uint32_t)percentage;
+            ```
 
-               (uint32_t)numerator = (uint32_t)inspected_parts - (uint32_t)bad_parts;
-               (uint32_t)percentage = (uint32_t)numerator / (uint32_t)inspected_parts;
-               (float)percentage_good_parts = (uint32_t)percentage;
+        La division est donc appliquée à des entiers et non des flottants.
 
-           La division est donc appliquée à des entiers et non des flottants.
+        4. Une possible correction consiste à forcer le type d'un des membres de la division :
 
-        #. Une possible correction consiste à forcer le type d'un des membres de la division :
+            ```c
+            percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;
+            ```
 
-           .. code-block::c
 
-               percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;
-```
-
-```{eval-rst}
-.. exercise:: Missile Patriot
+!!! exercise "Missile Patriot"
 
     Durant la guerre du Golfe le 25 février 1991, une batterie de missile américaine à Dharan en Arabie saoudite à échoué à intercepter un missile irakien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport **GAO/OMTEC-92-26** du commandement général.
 
@@ -1304,17 +1125,16 @@ ______________________________________________________________________
 
     Le stockage de la valeur 0.1 est donné par :
 
-    .. math::
-
-        0.1_{10} \approx \lfloor 0.1_{10}\cdot 2^{23} \rfloor = 11001100110011001100_{2} \approx 0.09999990463256836
+    $$
+    0.1_{10} \approx \lfloor 0.1_{10}\cdot 2^{23} \rfloor = 11001100110011001100_{2} \approx 0.09999990463256836
+    $$
 
     Un registre contient donc le nombre d'heures écoulées exprimées en dixième de seconde soit pour 100 heures :
 
-    .. math::
-
-        100 \cdot 60 \cdot 60 \cdot 10 = 3'600'000
+    $$
+    100 \cdot 60 \cdot 60 \cdot 10 = 3'600'000
+    $$
 
     En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne ``Q1.23 x Q0.24 = Q1.47`` le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par :math:`2^{47}` pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.
 
     Quel est l'erreur en seconde cumulée sur les 100 heures de fonctionnement ?
-```

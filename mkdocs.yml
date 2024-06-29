@@ -4,37 +4,38 @@ nav:
   - Cours:
     - content/introduction.md
     - content/programming.md
-    - content/advanced-topics.md
-    - content/algorithms.md
-    - content/composite-datatypes.md
-    - content/control-structures.md
-    - content/data-structures.md
-    - content/datatype.md
-    - content/files.md
     - content/foundations.md
-    - content/functions.md
-    - content/memory-management.md
     - content/numeration.md
     - content/operators.md
-    - content/philosophy.md
-    - content/pointers.md
-    - content/preprocessor.md
+    - content/datatype.md
+    - content/control-structures.md
     - content/processus.md
-    - content/scopes.md
-    - content/standard-library.md
+    - content/functions.md
     - content/stdio.md
-    - content/testing.md
+    - content/composite-datatypes.md
+    - content/files.md
+    - content/memory-management.md
+    - content/pointers.md
+    - content/standard-library.md
+    - content/algorithms.md
     - content/translation-units.md
+    - content/scopes.md
+    - content/data-structures.md
+    - content/testing.md
+    - content/preprocessor.md
     - content/traps.md
+    - content/advanced-topics.md
+    - content/philosophy.md
+  - Introduction:
     - frontmatter/introduction.md
     - frontmatter/preface.md
-    - summary/summary.md
   - Annexes:
     - Bash: appendix/bash.md
     - Développement: appendix/development.md
     - Grammaire: appendix/grammar.md
     - Laboratoires: appendix/laboratories.md
     - Unités: appendix/unit.md
+    - summary/summary.md
     - VsCode: appendix/vscode.md
   - Backmatter:
     - Bibliography: backmatter/bibliography.md
@@ -71,8 +72,8 @@ theme:
   language: fr
   logo: assets/heig-vd-white.svg
   font:
-    text: Roboto
-    code: Roboto Mono
+    text: Segoe UI
+    code: Consolas
   palette:
     - scheme: default
       media: "(prefers-color-scheme: light)"
@@ -166,6 +167,7 @@ markdown_extensions:
   - pymdownx.tilde
   - pymdownx.snippets
   - pymdownx.blocks.admonition
+  - pymdownx.blocks.html
   - admonition
   - pymdownx.details
   - pymdownx.arithmatex:
