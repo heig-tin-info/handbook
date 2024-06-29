@@ -1,11 +1,8 @@
 # Fonctions
 
-:::{figure} ../../assets/images/hamilton.*
-:alt: Margaret Hamilton, directrice projet AGC
-:scale: 40%
+![Margaret Hamilton, directrice projet AGC](../assets/images/hamilton.jpg){ width="50%" }
 
 Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.
-:::
 
 À l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du [Apollo Guidance Computer](https://github.com/chrislgarry/Apollo-11) ont été publiées sur GitHub. Le langage est l'assembler [yaYUL](https://www.ibiblio.org/apollo/yaYUL.html) dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.
 
@@ -19,11 +16,7 @@ Une fonction est donc un ensemble de code exécutable délimité du programme pr
 - D'une valeur de retour
 - De paramètres d'appel
 
-:::{figure} ../../assets/images/functions.*
-:scale: 40%
-
-Agencement de fonctions
-:::
+![Agencement de fonctions](../assets/images/functions.svg)
 
 L'utilisation des fonctions permet :
 
@@ -36,15 +29,11 @@ L'utilisation des fonctions permet :
 
 En revanche, une fonction apporte quelques désavantages qui à l'échelle des ordinateurs moderne sont parfaitement négligeables. L'appel à une fonction ou sous-routine requiert du [housekeeping](https://fr.wikipedia.org/wiki/Sous-programme), qui se compose d'un prélude et d'un aboutissant et dans lequel le [contexte](https://fr.wikipedia.org/wiki/Commutation_de_contexte) doit être sauvegardé.
 
-(calling-conventions)=
-
 ## Conventions d'appel
 
 Dans le [Voyage de Chihiro](https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro) (千と千尋の神隠し) de Hayao Miyazaki, le vieux Kamaji (釜爺) travaille dans la chaudière des bains pour l'alimenter en charbon et préparer les décoctions d'herbes pour parfumer les bains des clients.
 
-:::{figure} ../../assets/images/kamaji.*
-Le vieux Kamaji et ses bras extensibles.
-:::
+![Le vieux Kamaji et ses bras extensibles.](../assets/images/kamaji.jpg)
 
 Je vous propose bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel il mélange les herbes ; ils sont à l'instar de l'[ALU](https://en.wikipedia.org/wiki/Arithmetic_logic_unit) d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie: le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaires aux registres du processeur.
 
@@ -100,11 +89,7 @@ En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à ce s
 
 L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés :
 
-:::{figure} ../../assets/figures/dist/function/calling-convention.*
-:scale: 60%
-
-Sauvegarde des registres du processeur et convention d'appel de fonction.
-:::
+![Sauvegarde des registres du processeur et convention d'appel de fonction.](../assets/figures/dist/function/calling-convention.svg)
 
 Ce coût est faible, très faible, un ordinateur fonctionnant à 3 GHz et une fonction complexe utilisant tous les registres disponibles, mettons 10 registres, consommera entre l'appel de la fonction et son retour 0.000'000'003 seconde, ça va, c'est raisonnable. Sauf que, si la fonction ne comporte qu'une seule opération comme ci-dessous, l'overhead sera aussi plus faible.
 
@@ -123,8 +108,6 @@ double quaternion_norm(double a1, double b1, double c1, double d1);
 ```
 
 La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont empilés et dépilés les éléments au besoin. À chaque appel d'une fonction, la valeur des registres à sauvegarder est empilée et au retour d'une fonction les registres sont dépilés si bien que la fonction d'appel retrouve le *stack* dans le même état qu'il était avant l'appel d'une fonction enfant.
-
-(function-prototype)=
 
 ## Prototype
 
@@ -218,21 +201,21 @@ Le type `void` est à une signification particulière dans la syntaxe d'une fonc
 
 - Pour indiquer l'absence de valeur de retour :
 
-  > ```c
-  > void foo(int a, int b);
-  > ```
+    ```c
+    void foo(int a, int b);
+    ```
 
 - Pour indiquer l'absence de paramètres :
 
-  > ```c
-  > int bar(void);
-  > ```
+    ```c
+    int bar(void);
+    ```
 
 - Pour indiquer que la valeur de retour n'est pas utilisée par le parent :
 
-  > ```c
-  > (void) foo(23, 11);
-  > ```
+    ```c
+    (void) foo(23, 11);
+    ```
 
 La déclaration suivante est formellement fausse, car la fonction ne possède pas un prototype complet. En effet, le nombre de paramètres n'est pas contraint et le code suivant est valide au sens de **C99**.
 
@@ -428,178 +411,172 @@ int memoize_get(int input) {
 }
 ```
 
-```{eval-rst}
-.. exercise:: Dans la moyenne
+## Exercices de révision
+
+!!! exercise "Dans la moyenne"
 
     Écrire une fonction ``mean`` qui reçoit 3 paramètres réels et qui retourne la moyenne.
 
-    .. solution::
+    ??? solution
 
-        .. code-block:: c
+        ```c
+        double mean(double a, double b, double c) {
+            return (a + b + c) / 3.;
+        }
+        ```
 
-            double mean(double a, double b, double c) {
-                return (a + b + c) / 3.;
-            }
-```
-
-```{eval-rst}
-.. exercise:: Le plus petit
+!!! exercise "Le plus petit"
 
     Écrire une fonction ``min`` qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.
 
-    .. solution::
+    ??? solution
 
-        .. code-block:: c
-
-            double min(double a, double b, double c) {
-                double min_value = a;
-                if (b < min_value)
-                    min_value = b;
-                if (c < min_value)
-                    min_value = c;
-                return min_value;
-            }
+        ```c
+        double min(double a, double b, double c) {
+            double min_value = a;
+            if (b < min_value)
+                min_value = b;
+            if (c < min_value)
+                min_value = c;
+            return min_value;
+        }
+        ```
 
         Une manière plus compacte, mais moins lisible serait :
 
-        .. code-block:: c
+        ```c
+        double min(double a, double b, double c) {
+            return (a = (a < b ? a : b)) < c ? a : c;
+        }
+        ```
 
-            double min(double a, double b, double c) {
-                return (a = (a < b ? a : b)) < c ? a : c;
-            }
-```
-
-```{eval-rst}
-.. exercise:: Algorithme de retour de monnaie
+!!! exercise "Algorithme de retour de monnaie"
 
     On considère le cas d'une caisse automatique de parking. Cette caisse délivre des tickets au prix unique de CHF 0.50 et dispose d'un certain nombre de pièces de 10 et 20 centimes pour le rendu de monnaie.
 
     Dans le code du programme, les trois variables suivantes seront utilisées :
 
-    .. code-block:: c
+    ```c
+    // Available coins in the parking ticket machine
+    unsigned int ncoin_10, ncoin_20;
 
-        // Available coins in the parking ticket machine
-        unsigned int ncoin_10, ncoin_20;
-
-        // How much money the user inserted into the machine (in cents)
-        unsigned int amount_payed;
+    // How much money the user inserted into the machine (in cents)
+    unsigned int amount_payed;
+    ```
 
     Écrivez l'algorithme de rendu de la monnaie tenant compte du nombre de pièces de 10 et 20 centimes restants dans l'appareil. Voici un exemple du fonctionnement du programme :
 
-    .. code-block:: console
-
-        $ echo "10 10 20 20 20" | ./ptm 30 1
-        ticket
-        20
-        10
+    ```bash
+    $ echo "10 10 20 20 20" | ./ptm 30 1
+    ticket
+    20
+    10
+    ```
 
     Le programme reçoit sur ``stdin`` les pièces introduites dans la machine. Les deux arguments passés au programme ``ptm`` sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. ``stdout`` contient les valeurs rendues à l'utilisateur. La valeur ``ticket`` correspond au ticket distribué.
 
     Le cas échéant, s'il n'est possible de rendre la monnaie, aucun ticket n'est distribué et l'argent donné est rendu.
 
-    .. solution::
+    ??? solution
 
         Voici une solution partielle :
 
-        .. code-block:: c
+        ```c
+        #define TICKET_PRICE 50
 
-            #define TICKET_PRICE 50
+        void give_coin(unsigned int value) { printf("%d\n", value); }
+        void give_ticket(void) { printf("ticket\n"); }
 
-            void give_coin(unsigned int value) { printf("%d\n", value); }
-            void give_ticket(void) { printf("ticket\n"); }
+        bool no_ticket = amount_payed < TICKET_PRICE;
 
-            bool no_ticket = amount_payed < TICKET_PRICE;
-
-            int amount_to_return = amount_payed - TICKET_PRICE;
-            do {
-                while (amount_to_return > 0) {
-                    if (amount_to_return >= 20 && ncoin_20 > 0) {
-                        give_coin(20);
-                        amount_to_return -= 20;
-                        ncoin_20--;
-                    } else if (amount_to_return >= 10 && ncoin_10 > 0) {
-                        give_coin(10);
-                        amount_to_return -= 10;
-                        ncoin_10--;
-                    } else {
-                        no_ticket = true;
-                        break;
-                    }
+        int amount_to_return = amount_payed - TICKET_PRICE;
+        do {
+            while (amount_to_return > 0) {
+                if (amount_to_return >= 20 && ncoin_20 > 0) {
+                    give_coin(20);
+                    amount_to_return -= 20;
+                    ncoin_20--;
+                } else if (amount_to_return >= 10 && ncoin_10 > 0) {
+                    give_coin(10);
+                    amount_to_return -= 10;
+                    ncoin_10--;
+                } else {
+                    no_ticket = true;
+                    break;
                 }
-            } while (amount_to_return > 0);
-
-            if (!no_ticket) {
-                give_ticket();
             }
-```
+        } while (amount_to_return > 0);
 
-```{eval-rst}
-.. exercise:: La fonction f
+        if (!no_ticket) {
+            give_ticket();
+        }
+        ```
+
+
+!!! exercise "La fonction f"
 
     Considérons le programme suivant :
 
-    .. code-block:: c
-
-        int f(float x) {
-            int i;
-            if (x > 0.0)
-                i = (int)(x + 0.5);
-            else
-                i = (int)(x - 0.5);
-            return i;
-        }
+    ```c
+    int f(float x) {
+        int i;
+        if (x > 0.0)
+            i = (int)(x + 0.5);
+        else
+            i = (int)(x - 0.5);
+        return i;
+    }
+    ```
 
     Quel sont les types et les valeurs retournées par les expressions ci-dessous ?
 
-    .. code-block:: c
-
-        f(1.2)
-        f(-1.2)
-        f(1.6)
-        f(-1.6)
+    ```c
+    f(1.2)
+    f(-1.2)
+    f(1.6)
+    f(-1.6)
+    ```
 
     Quel est votre conclusion sur cette fonction ?
-```
 
-```{eval-rst}
-.. exercise:: Mauvaise somme
+
+!!! exercise "Mauvaise somme"
 
     Le programme suivant compile sans erreurs graves, mais ne fonctionne pas correctement.
 
-    .. code-block:: c
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <math.h>
 
-        #include <stdio.h>
-        #include <stdlib.h>
-        #include <math.h>
-
-        long get_integer()
+    long get_integer()
+    {
+        bool ok;
+        long result;
+        do
         {
-            bool ok;
-            long result;
-            do
-            {
-                printf("Enter a integer value: ");
-                fflush(stdin); // Empty input buffer
-                ok = (bool)scanf("%ld", &result);
-                if (!ok)
-                    printf("Incorrect value.\n");
-            }
-            while (!ok);
-            return result;
+            printf("Enter a integer value: ");
+            fflush(stdin); // Empty input buffer
+            ok = (bool)scanf("%ld", &result);
+            if (!ok)
+                printf("Incorrect value.\n");
         }
+        while (!ok);
+        return result;
+    }
 
-        int main(void)
-        {
-            long a = get_integer;
-            long b = get_integer;
+    int main(void)
+    {
+        long a = get_integer;
+        long b = get_integer;
 
-            printf("%d\n", a + b);
-        }
+        printf("%d\n", a + b);
+    }
+    ```
 
     Quel est le problème ? À titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparu :
 
-    .. code-block:: console
-
-        $ ./sum
-        8527952
-```
+    ```bash
+    $ ./sum
+    8527952
+    ```

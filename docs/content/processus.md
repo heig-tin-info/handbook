@@ -1,10 +1,6 @@
 # Programmes et Processus
 
-:::{figure} ../../assets/images/vintage-programmer.*
-:scale: 60%
-
-Programmeuse en tenue décontractée à côté de 62'500 cartes perforées
-:::
+![Programmeuse en tenue décontractée à côté de 62'500 cartes perforées](../assets/images/vintage-programmer.jpg){width="60%"}
 
 ## Qu'est-ce qu'un programme?
 
@@ -32,8 +28,8 @@ Un exécutable binaire doit être compilé pour la bonne architecture matériell
 
 Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci :
 
-```{literalinclude} ../../assets/src/fibonacci.c
-:language: c
+```c
+--8<-- "docs/assets/src/fibonacci.c"
 ```
 
 Une fois [assemblé](<https://fr.wikipedia.org/wiki/Assembly_(informatique)>) le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc :
@@ -128,8 +124,6 @@ Les lettres `r-x` indiquent :
 
 Ce programme peut-être exécuté par tout le monde, mais modifié que par l'utilisateur `root`.
 
-(inputs-outputs)=
-
 ### Entrées sorties
 
 Tout programme doit pouvoir interagir avec son environnement. À l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées :
@@ -145,11 +139,7 @@ Ainsi qu'à des sorties :
 
 La figure suivante résume les interactions qu'un programme peut avoir sur son environnement. Les appels système ([syscall](https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me)) sont des ordres transmis directement au système d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.
 
-:::{figure} ../../assets/figures/dist/process/program.*
-Résumé des interactions avec un programme
-:::
-
-(signals)=
+![Résumé des interactions avec un programme](../assets/figures/dist/process/program.svg)
 
 ### Signaux
 
@@ -159,9 +149,9 @@ Si, en utilisant Windows, vous vous rendez dans le [gestionnaire de tâches](htt
 
 Sous Linux, habituellement, le *shell* relie certains raccourcis clavier à des signaux particuliers :
 
-- {kbd}`C-c` envoie le signal `SIGINT` pour interrompre l'exécution d'un programme
-- {kbd}`C-z` envoie le signal `SIGTSTP` pour suspendre l'exécution d'un programme
-- {kbd}`C-t` envoie le signal `SIGINFO` permettant de visualiser certaines informations liées à l'exécution du processus.
+- ++ctrl+c++ envoie le signal `SIGINT` pour interrompre l'exécution d'un programme
+- ++ctrl+z++ envoie le signal `SIGTSTP` pour suspendre l'exécution d'un programme
+- ++ctrl+t++ envoie le signal `SIGINFO` permettant de visualiser certaines informations liées à l'exécution du processus.
 
 Si le programme suivant est exécuté, il sera bloquant, c'est-à-dire qu'à moins d'envoyer un signal d'interruption, il ne sera pas possible d'interrompre le processus :
 
@@ -220,23 +210,23 @@ Liste des arguments et options passés au programme :
 
 Le standard POSIX décrit une façon de distinguer des *options* passées à un programme. Par exemple, le programme [cowsay](https://en.wikipedia.org/wiki/Cowsay) peut être paramétré pour changer son comportement en utilisant des `options` standards comme `-d`. La fonction `getopt` disponible dans la bibliothèque `<unistd.h>` permet de facilement interpréter ces options.
 
-% code-block::c
-%
-% int getopt(int, char * const [], const char *);
+```c
+int getopt(int, char * const [], const char *);
+```
 
 ### Extension GNU
 
 Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension [GNU](https://fr.wikipedia.org/wiki/GNU) et son en-tête `<getopt.h>` permet l'accès à la fonction `getopt_long` laquelle permet d'interpréter aussi les options longues `--version` qui sont devenues très répandue.
 
-% code-block::c
-%
-% int getopt_long (int argc, char *const *argv, const char *shortopts,
-%             const struct option *longopts, int *longind);
+```c
+int getopt_long (int argc, char *const *argv, const char *shortopts,
+                 const struct option *longopts, int *longind);
+```
 
 Ci-dessous une possible utilisation de cette fonction :
 
-```{literalinclude} ../../assets/src/options.c
-:language: c
+```c
+--8<-- "docs/assets/src/options.c"
 ```
 
 ### Windows
@@ -371,6 +361,7 @@ int main(void) {
 
         ...
     }
+}
 ```
 
 Alternativement, lorsqu'un programme attend un retour de l'utilisateur par exemple en demandant la saisie au clavier d'informations, le système d'exploitation est également mis en attente et le processus ne consomme pas de ressources CPU. Le programme ci-dessous attend que l'utilisateur presse la touche enter.
@@ -386,14 +377,12 @@ int main(void) {
 }
 ```
 
-```{eval-rst}
-.. exercise:: La fortune, la vache qui dit et le chat drôle
+!!! exercise "La fortune, la vache qui dit et le chat drôle"
 
     En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande :
 
-    .. code-block:: console
-
-        $ fortune | cowsay | lolcat
+    ```bash
+    $ fortune | cowsay | lolcat
+    ```
 
     Quelle est sa structure et que fait-elle ?
-```

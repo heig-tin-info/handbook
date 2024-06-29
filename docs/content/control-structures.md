@@ -32,14 +32,11 @@ Une {index}`séquence` est une suite d'instructions regroupées en un bloc maté
 }
 ```
 
-:::{note}
-N'allez pas confondre le point virgule `;` ({unicode}`U+003B`) avec le `;` ({unicode}`U+037E`), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
-:::
+!!! note
+
+    N'allez pas confondre le point virgule `;` ({unicode}`U+003B`) avec le `;` ({unicode}`U+037E`), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
 
 ## Les embranchements
-
-```{index} embranchement
-```
 
 Les embranchements sont des instructions de prise de décision. Une prise de décision peut être binaire, lorsqu'il y a un choix *vrai* et un choix *faux*, ou multiple lorsque la condition est scalaire. En C il y en a trois type d'embranchements :
 
@@ -47,12 +44,9 @@ Les embranchements sont des instructions de prise de décision. Une prise de dé
 2. `switch`
 3. L'instruction ternaire
 
-:::{figure} ../../assets/figures/dist/control-structure/branching-diagram.*
-:alt: Diagrammes BPMN
-:width: 60%
+![Diagrammes BPMN](../assets/figures/dist/control-structure/branching-diagram.svg)
 
 Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modelling Notation) et NSD (Nassi-Shneiderman)
-:::
 
 Les embranchements s'appuient naturellement sur les séquences puisque chaque branche est composée d'une séquence regroupant le code la composant :
 
@@ -68,9 +62,6 @@ else
 ```
 
 ### if..else
-
-```{index} if..else, if, else
-```
 
 Le mot clé `if` est toujours suivi d'une condition entre parenthèses qui est évaluée. Si la condition est vraie, le premier bloc est exécuté, sinon, le second bloc situé après le `else` est exécuté.
 
@@ -116,27 +107,27 @@ Notons quelques erreurs courantes :
 
 - Il est courant de placer un point virgule derrière un `if`. Le point virgule correspondant à une instruction vide, c'est cette instruction qui sera exécutée si la condition du test est vraie.
 
-  ```c
-  if (z == 0);
-  printf("z est nul"); // ALWAYS executed
-  ```
+    ```c
+    if (z == 0);
+    printf("z est nul"); // ALWAYS executed
+    ```
 
 - Le test de la valeur d'une variable s'écrit avec l'opérateur d'égalité `==` et non l'opérateur d'affectation `=`. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.
 
-  ```c
-  if (z = 0)               // set z to zero !!
-      printf("z est nul"); // NEVER executed
-  ```
+    ```c
+    if (z = 0)               // set z to zero !!
+        printf("z est nul"); // NEVER executed
+    ```
 
 - L'oubli des accolades pour déclarer un bloc d'instructions
 
-  ```c
-  if (z == 0)
-      printf("z est nul");
-      is_valid = false;
-  else
-      printf("OK");
-  ```
+    ```c
+    if (z == 0)
+        printf("z est nul");
+        is_valid = false;
+    else
+        printf("OK");
+    ```
 
 L'instruction `if` permet également l'embranchement multiple, lorsque les conditions ne peuvent pas être regroupées :
 
@@ -159,73 +150,67 @@ else
 }
 ```
 
-```{eval-rst}
-.. exercise:: Et si?
+!!! exercise "Et si?"
 
     Comment se comporte l'exemple suivant :
 
-    .. code-block:: c
+    ```c
+    if (!(i < 8) && !(i > 8))
+        printf("i is %d\n", i);
+    ```
 
-        if (!(i < 8) && !(i > 8))
-            printf("i is %d\n", i);
-```
-
-```{eval-rst}
-.. exercise:: D'autres si?
+!!! exercise "D'autres si ?"
 
     Compte tenu de la déclaration ``int i = 8;``, indiquer pour chaque expression si elles impriment ou non ``i vaut 8``:
 
-    .. todo:: Fix box around code...
+    1. ```c
+       if (!(i < 8) && !(i > 8)) then
+           printf("i vaut 8\n");
+       ```
 
-    #. .. code-block:: c
+    2. ```c
+       if (!(i < 8) && !(i > 8))
+           printf("i vaut 8");
+           printf("\n");
+       ```
 
-        if (!(i < 8) && !(i > 8)) then
-            printf("i vaut 8\n");
+    3. ```c
+       if !(i < 8) && !(i > 8)
+           printf("i vaut 8\n");
+       ```
+    4. ```c
+       if (!(i < 8) && !(i > 8))
+           printf("i vaut 8\n");
+       ```
 
-    #. .. code-block:: c
+    5. ```c
+       if (i = 8) printf("i vaut 8\n");
+       ```
 
-        if (!(i < 8) && !(i > 8))
-            printf("i vaut 8");
-            printf("\n");
+    6. ```c
+       if (i & (1 << 3)) printf("i vaut 8\n");
+       ```
 
-    #. .. code-block:: c
+    7. ```c
+       if (i ^ 8) printf("i vaut 8\n");
+       ```
 
-        if !(i < 8) && !(i > 8)
-            printf("i vaut 8\n");
+    8. ```c
+       if (i - 8) printf("i vaut 8\n");
+       ```
 
-    #. .. code-block:: c
+    9. ```c
+       if (i == 1 << 3) printf ("i vaut 8\n");
+       ```
 
-        if (!(i < 8) && !(i > 8))
-            printf("i vaut 8\n");
-
-    #. .. code-block:: c
-
-        if (i = 8) printf("i vaut 8\n");
-
-    #. .. code-block:: c
-
-        if (i & (1 << 3)) printf("i vaut 8\n");
-
-    #. .. code-block:: c
-
-        if (i ^ 8) printf("i vaut 8\n");
-
-    #. .. code-block:: c
-
-        if (i - 8) printf("i vaut 8\n");
-
-    #. .. code-block:: c
-
-        if (i == 1 << 3) printf ("i vaut 8\n");
-
-    #. .. code-block:: c
-
+    10. ```c
         if (!((i < 8) || (i > 8)))
             printf("i vaut 8\n");
-```
+        ```
 
-:::{note}
-Notons que formellement, la grammaire C ne connait pas `else if` il s'agit d'une construction implicite dans laquelle un `if` ou `if..else` est la condition du `else` parent. Hiérarchiquement, on devrait écrire :
+!!! note
+
+    Notons que formellement, la grammaire C ne connait pas `else if` il s'agit d'une construction implicite dans laquelle un `if` ou `if..else` est la condition du `else` parent. Hiérarchiquement, on devrait écrire :
 
 ```c
 if (x)
@@ -249,14 +234,8 @@ selection_statement
     | SWITCH '(' expression ')' statement
     ;
 ```
-:::
-
-(switch)=
 
 ### `switch`
-
-```{index} switch
-```
 
 L'instruction `switch` n'est pas fondamentale et certain langage de programmation comme Python ne la connaisse pas. Elle permet essentiellement de simplifier l'écriture pour minimiser les répétitions. On l'utilise lorsque les conditions multiples portent toujours sur la même variable. Par exemple, le code suivant peut être réécrit plus simplement en utilisant un `switch` :
 
@@ -300,9 +279,6 @@ switch (defcon)
 }
 ```
 
-```{index} default, break
-```
-
 La valeur par défaut `default` est optionnelle mais recommandée pour traiter les cas d'erreurs possibles.
 
 La structure d'un `switch` est composée d'une condition `switch (condition)` suivie d'une séquence `{}`. Les instructions de cas `case 42:` sont appelés *labels*. Notez la présence de l'instruction `break` qui est nécessaire pour terminer l'exécution de chaque condition. Par ailleurs, les labels peuvent être chaînés sans instructions intermédiaires ni `break`:
@@ -335,22 +311,15 @@ Notons quelques observations :
 
 ## Les boucles
 
-:::{figure} ../../assets/images/road-runner.*
-Bien choisir sa structure de contrôle
-:::
+![Bien choisir sa structure de contrôle](../assets/images/road-runner.svg)
 
 Une {index}`boucle` est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :
-
-```{index} for, while, do..while
-```
 
 - `for`
 - `while`
 - `do` .. `while`
 
-:::{figure} ../../assets/figures/dist/control-structure/for.*
-Aperçu des trois structure de boucles
-:::
+![Aperçu des trois structure de boucles](../assets/figures/dist/control-structure/for.svg)
 
 ### while
 
@@ -368,19 +337,17 @@ while (get_weight() < 420 /* newtons */)
 
 Séquentiellement une boucle `while` teste la condition, puis exécute la séquence associée.
 
-```{eval-rst}
-.. exercise:: Tant que...
+!!! exercise "Tant que..."
 
     Comment se comportent ces programmes :
 
-    #. ``size_t i=0;while(i<11){i+=2;printf("%i\n",i);}``
-    #. ``i=11;while(i--){printf("%i\n",i--);}``
-    #. ``i=12;while(i--){printf("%i\n",--i);}``
-    #. ``i = 1;while ( i <= 5 ){ printf ( "%i\n", 2 * i++ );}``
-    #. ``i = 1; while ( i != 9 ) { printf ( "%i\n", i = i + 2 ); }``
-    #. ``i = 1; while ( i < 9 ) { printf ( "%i\n", i += 2 ); break; }``
-    #. ``i = 0; while ( i < 10 ) { continue; printf ( "%i\n", i += 2 ); }``
-```
+    1. ``size_t i=0;while(i<11){i+=2;printf("%i\n",i);}``
+    2. ``i=11;while(i--){printf("%i\n",i--);}``
+    3. ``i=12;while(i--){printf("%i\n",--i);}``
+    4. ``i = 1;while ( i <= 5 ){ printf ( "%i\n", 2 * i++ );}``
+    5. ``i = 1; while ( i != 9 ) { printf ( "%i\n", i = i + 2 ); }``
+    6. ``i = 1; while ( i < 9 ) { printf ( "%i\n", i += 2 ); break; }``
+    7. ``i = 0; while ( i < 10 ) { continue; printf ( "%i\n", i += 2 ); }``
 
 ### do..while
 
@@ -438,38 +405,34 @@ for (; get_weight() < 420 ;)
 }
 ```
 
-```{eval-rst}
-.. exercise:: Pour quelques tours
+!!! exercise Pour quelques tours
 
     Comment est-ce que ces expressions se comportent-elles ?
 
-    .. code-block:: c
+    ```c
+    int i, k;
+    ```
 
-        int i, k;
-
-    #. :code:`for (i = 'a'; i < 'd'; printf ("%i\n", ++i));`
-    #. :code:`for (i = 'a'; i < 'd'; printf ("%c\n", ++i));`
-    #. :code:`for (i = 'a'; i++ < 'd'; printf ("%c\n", i ));`
-    #. :code:`for (i = 'a'; i <= 'a' + 25; printf ("%c\n", i++ ));`
-    #. :code:`for (i = 1 / 3; i ; printf("%i\n", i++ ));`
-    #. :code:`for (i = 0; i != 1 ; printf("%i\n", i += 1 / 3 ));`
-    #. :code:`for (i = 12, k = 1; k++ < 5 ; printf("%i\n", i-- ));`
-    #. :code:`for (i = 12, k = 1; k++ < 5 ; k++, printf("%i\n", i-- ));`
+    1. `for (i = 'a'; i < 'd'; printf ("%i\n", ++i));`
+    2. `for (i = 'a'; i < 'd'; printf ("%c\n", ++i));`
+    3. `for (i = 'a'; i++ < 'd'; printf ("%c\n", i ));`
+    4. `for (i = 'a'; i <= 'a' + 25; printf ("%c\n", i++ ));`
+    5. `for (i = 1 / 3; i ; printf("%i\n", i++ ));`
+    6. `for (i = 0; i != 1 ; printf("%i\n", i += 1 / 3 ));`
+    7. `for (i = 12, k = 1; k++ < 5 ; printf("%i\n", i-- ));`
+    8. `for (i = 12, k = 1; k++ < 5 ; k++, printf("%i\n", i-- ));`
 ```
 
-```{eval-rst}
-.. exercise:: Erreur
+!!! exercise "Erreur"
 
     Identifier les deux erreurs dans ce code suivant :
 
-    .. code-block:: c
+    ```c
+    for (size_t = 100; i >= 0; --i)
+        printf("%d\n", i);
+    ```
 
-        for (size_t = 100; i >= 0; --i)
-            printf("%d\n", i);
-```
-
-```{eval-rst}
-.. exercise:: De un à cent
+!!! exercise "De un à cent"
 
     Écrivez un programme affichant les entiers de 1 à 100 en employant :
 
@@ -480,20 +443,18 @@ for (; get_weight() < 420 ;)
     Quelle est la structure de contrôle la plus adaptée à cette situation ?
 ```
 
-```{eval-rst}
-.. exercise:: Opérateur virgule dans une boucle
+!!! exercise "Opérateur virgule dans une boucle"
 
     Expliquez quelle est la fonctionnalité globale du programme ci-dessous :
 
-    .. code-block:: c
-
-        int main(void) {
-            for(size_t i = 0, j = 0; i * i < 1000; i++, j++, j %= 26, printf("\n"))
-                printf("%c", 'a' + (char)j);
-        }
+    ```c
+    int main(void) {
+        for(size_t i = 0, j = 0; i * i < 1000; i++, j++, j %= 26, printf("\n"))
+            printf("%c", 'a' + (char)j);
+    }
+    ```
 
     Proposer une meilleure implémentation de ce programme.
-```
 
 ### Boucles infinies
 
@@ -584,7 +545,7 @@ Néanmoins, il est important de comprendre que `goto` était dans certain langag
 
 L'un des seuls cas de figure autorisés est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code :
 
-```
+```c
 #include <time.h>
 
 int parse_message(int message)
@@ -648,9 +609,7 @@ Le mot-clé `break` peut être utilisé dans une boucle ou dans un `switch`. Il 
 
 Le mot clé `return` suivi d'une valeur de retour ne peut apparaître que dans une fonction dont le type de retour n'est pas `void`. Ce mot-clé permet de stopper l'exécution d'une fonction et de retourner à son point d'appel.
 
-```{code-block} c
-:emphasize-lines: 8
-
+```c {hl_lines=[8]}
 void unlock(int password)
 {
     static tries = 0;
@@ -668,159 +627,150 @@ void unlock(int password)
 }
 ```
 
-```{eval-rst}
-.. exercise:: Faute d'erreur
+## Exercices de révision
+
+!!! exercise "Faute d'erreur"
 
     Considérons les déclarations suivantes :
 
-    .. code-block:: c
-
-        long i = 0;
-        double x = 100.0;
+    ```c
+    long i = 0;
+    double x = 100.0;
+    ```
 
     Indiquer la nature de l'erreur dans les expressions suivantes :
 
-    #.
-        .. code-block:: c
+    1.
+        ```c
+        do
+            x = x / 2.0;
+            i++;
+        while (x > 1.0);
+        ```
+    2.
+        ```c
+        if (x = 0)
+            printf("0 est interdit !\n");
+        ```
+    3.
+        ```c
+        switch(x) {
+            case 100 :
+                printf("Bravo.\n");
+                break;
+            default :
+                printf("Pas encore.\n");
 
-            do
-                x = x / 2.0;
-                i++;
-            while (x > 1.0);
+        }
+        ```
+    4.
+        ```c
+        for (i = 0 ; i < 10 ; i++);
+            printf("%d\n", i);
+        ```
+    5.
+        ```c
+        while i < 100 {
+            printf("%d", ++i);
+        }
+        ```
 
-    #.
-        .. code-block:: c
-
-            if (x = 0)
-                printf("0 est interdit !\n");
-
-    #.
-        .. code-block:: c
-
-            switch(x) {
-                case 100 :
-                    printf("Bravo.\n");
-                    break;
-                default :
-                    printf("Pas encore.\n");
-
-            }
-    #.
-        .. code-block:: c
-
-            for (i = 0 ; i < 10 ; i++);
-                printf("%d\n", i);
-
-    #.
-        .. code-block:: c
-
-            while i < 100 {
-                printf("%d", ++i);
-            }
-```
-
-```{eval-rst}
-.. exercise:: Cas appropriés
+!!! exercise "Cas appropriés"
 
     Parmi les cas suivants, quelle structure de contrôle utiliser ?
 
-    #. Test qu'une variable est dans un intervalle donné.
-    #. Actions suivant un choix multiple de l'utilisateur
-    #. Rechercher un caractère particulier dans une chaîne de caractère
-    #. Itérer toutes les valeurs paires sur un intervalle donné
-    #. Demander la ligne suivante du télégramme à l'utilisateur jusqu'à ``STOP``
+    1. Test qu'une variable est dans un intervalle donné.
+    2. Actions suivant un choix multiple de l'utilisateur
+    3. Rechercher un caractère particulier dans une chaîne de caractère
+    4. Itérer toutes les valeurs paires sur un intervalle donné
+    5. Demander la ligne suivante du télégramme à l'utilisateur jusqu'à ``STOP``
 
-    .. solution::
+    ??? solution
 
-        #. Le cas est circonscrit à un intervalle de valeur donnée, le ``if`` est approprié :
+        1. Le cas est circonscrit à un intervalle de valeur donnée, le ``if`` est approprié :
 
-           .. code-block:: c
+            ```c
+            if (i > min && i < max) { /* ... */ }
+            ```
 
-               if (i > min && i < max) { /* ... */ }
+        2. Dans ce cas un `switch` semble le plus approprié
 
-        #. Dans ce cas un `switch` semble le plus approprié
+            ```c
+            switch(choice) {
+                case 0 :
+                    /* ... */
+                    break;
+                case 1 :
+                    /* ... */
+            }
+            ```
 
-           .. code-block:: c
+        3. À reformuler *tant que le caractère n'est pas trouvé ou que la fin de la chaîne n'est pas atteinte*. On se retrouve donc avec une boucle à deux conditions de sorties.
 
-               switch(choice) {
-                   case 0 :
-                       /* ... */
-                       break;
-                   case 1 :
-                       /* ... */
-               }
+            ```c
+            size_t pos;
+            while (pos < strlen(str) && str[pos] != c) {
+                pos++;
+            }
+            if (pos == strlen(str)) {
+                // Not found
+            } else {
+                // Found `c` in `str` at position `pos`
+            }
+            ```
 
-        #. À reformuler *tant que le caractère n'est pas trouvé ou que la fin de la chaîne n'est pas atteinte*. On se retrouve donc avec une boucle à deux conditions de sorties.
+        4. La boucle ``for`` semble ici la plus adaptée
 
-           .. code-block:: c
+            ```c
+            for (size_t i = 100; i < 200; i += 2) {
+                /* ... */
+            }
+            ```
 
-               size_t pos;
-               while (pos < strlen(str) && str[pos] != c) {
-                   pos++;
-               }
-               if (pos == strlen(str)) {
-                   // Not found
-               } else {
-                   // Found `c` in `str` at position `pos`
-               }
+        5. Il est nécessaire ici d'assurer au moins un tour de boucle :
 
-        #. La boucle ``for`` semble ici la plus adaptée
+            ```c
+            const size_t max_line_length = 64;
+            char format[32];
+            snprintf(format, sizeof(format), "%%%zus", max_line_length - 1);
+            unsigned int line = 0;
+            char buffer[max_lines][max_line_length];
+            do {
+                printf("%d. ", line);
+            } while (
+                scanf(format, buffer[line]) == 1 &&
+                strcmp(buffer[line], "STOP") &&
+                ++line < max_lines
+            );
+            ```
 
-           .. code-block:: c
-
-               for (size_t i = 100; i < 200; i += 2) {
-                   /* ... */
-               }
-
-        #. Il est nécessaire ici d'assurer au moins un tour de boucle :
-
-           .. code-block:: c
-
-               const size_t max_line_length = 64;
-               char format[32];
-               snprintf(format, sizeof(format), "%%%zus", max_line_length - 1);
-               unsigned int line = 0;
-               char buffer[max_lines][max_line_length];
-               do {
-                   printf("%d. ", line);
-               } while (
-                   scanf(format, buffer[line]) == 1 &&
-                   strcmp(buffer[line], "STOP") &&
-                   ++line < max_lines
-               );
-```
-
-```{eval-rst}
-.. exercise:: Comptons sur les caractères
+!!! exercise "Comptons sur les caractères"
 
     Un texte est passé à un programme par ``stdin``. Comptez le nombre de caractères transmis.
 
-    .. code-block:: console
+    ```console
+    $ echo "Hello world" | count-this
+    11
+    ```
 
-        $ echo "Hello world" | count-this
-        11
-```
-
-```{eval-rst}
-.. exercise:: Esperluette conditionnelle
+!!! exercise "Esperluette conditionnelle"
 
     Quel est le problème avec cette ligne de code ?
 
-    .. code-block:: c
+    ```c
+    if (x&mask==bits)
+    ```
 
-        if (x&mask==bits)
-
-    .. solution::
+    ??? solution
 
         La priorité de l'opérateur unitaire ``&`` est plus élevée que ``==`` ce qui se traduit par :
 
-        .. code-block:: c
-
-            if (x & (mask == bits))
+        ```c
+        if (x & (mask == bits))
+        ```
 
         Le développeur voulait probablement appliquer le masque à ``x`` puis le comparer au motif ``bits``. La bonne réponse devrait alors être :
 
-        .. code-block:: c
-
-            if ((x & mask) == bits)
-```
+        ```c
+        if ((x & mask) == bits)
+        ```
