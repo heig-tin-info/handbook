@@ -118,23 +118,23 @@ end_of_line = crlf
 
 Ce fichier permet à Git de résoudre certains problèmes dans l'édition de fichiers sous Windows ou POSIX lorsque le type de fichiers n'a pas le bon format. On se contente de définir quelle sera la fin de ligne standard pour certains types de fichiers :
 
-% code::text
-%
-% * text=auto eol=lf
-% *.{cmd,[cC][mM][dD]} text eol=crlf
-% *.{bat,[bB][aA][tT]} text eol=crlf
+```text
+* text=auto eol=lf
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+```
 
 ### .gitignore
 
 Ce fichier de configuration permet à Git d'ignorer par défaut certains fichiers et ainsi éviter qu'ils ne soient ajoutés par erreur au référentiel. Ici, on souhaite éviter d'ajouter les fichiers objets `.o` et les exécutables `*.out` :
 
-% code::text
-%
-% *.out
-% *.o
-% *.d
-% *.so
-% *.lib
+```text
+*.out
+*.o
+*.d
+*.so
+*.lib
+```
 
 ### .vscode/launch.json
 
@@ -172,27 +172,27 @@ Ce fichier permet à Visual Studio Code de savoir comment exécuter le programme
 
 Ce fichier contient les directives de compilation utilisées par Visual Studio Code lors de l'exécution de la tâche *build* accessible par la touche `<F5>`. On y voit que la commande exécutée est `make`. Donc la manière dont l'exécutable est généré dépend d'un `Makefile`.
 
-% code::json
-%
-% {
-%     "version": "2.0.0",
-%     "tasks": [
-%         {
-%             "label": "Build Main",
-%             "type": "shell",
-%             "command": "make",
-%             "group": {
-%                 "kind": "build",
-%                 "isDefault": true
-%             }
-%         },
-%         {
-%             "label": "Clean",
-%             "type": "shell",
-%             "command": "make clean"
-%         }
-%     ]
-% }
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Main",
+            "type": "shell",
+            "command": "make",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "make clean"
+        }
+    ]
+}
+```
 
 ### Makefile
 
@@ -230,15 +230,13 @@ Pas de panique, il vous suffit de savoir exécuter `make all` ou `make clean` po
 
 Il s'agit de la documentation principale de votre référentiel. Elle contient la donnée du travail pratique en format Markdown. Ce fichier est également utilisé par défaut dans GitHub. Il contient notamment le titre du laboratoire, la durée, le délai de rendu et le format individuel ou de groupe :
 
-% code::markdown
-%
-% # Laboratoire <!-- omit in toc -->
-%
-% - **Durée**: 2 périodes + environ 3h à la maison
-% - **Date de rendu**: dimanche avant minuit
-% - **Format**: travail individuel
-%
-% ...
+```markdown
+# Laboratoire <!-- omit in toc -->
+- **Durée**: 2 périodes + environ 3h à la maison
+- **Date de rendu**: dimanche avant minuit
+- **Format**: travail individuel
+...
+```
 
 ### criteria.yml
 
@@ -246,111 +244,111 @@ Ce fichier contient les directives d'évaluation du travail pratique. Il est au 
 
 Des points bonus sont donnés si le programme dispose d'une aide et d'une version et si la fonctionnalité du programme est étendue.
 
-% code::yaml
-%
-% # Critères d'évaluation du travail pratique
-% %YAML 1.2
-% ---
-% tests:
-%     build:
-%         description: Le programme compile sans erreurs ni warning
-%         points: 0/-4
-%         test: test_build
-%     unit-testing:
-%         function_foo:
-%         points: 0/10
-%         test: test_foo
-%         function_bar:
-%         points: 0/10
-%         test: test_bar
-%     functional-testing:
-%         arguments:
-%         description: La lecture des arguments fonctionne comme demandé
-%         points: 0/7
-%         test: test_arguments
-%         output-display:
-%         description: Affichage sur stdout/stderr comme spécifié
-%         points: 0/3
-%         test: test_output
-%         errors:
-%         description: Le programme affiche des erreurs si rencontrées
-%         points: 0/2
-%         test: test_errors
-% report:
-%     introduction:
-%         description: Le rapport de test contient une introduction
-%         points: 0/2
-%     conclusion:
-%         description: Le rapport de test contient une conclusion
-%         points: 0/2
-%     analysis:
-%         description: Le rapport de test contient une analyse du comportement
-%         points: 0/3
-% code:
-%     specifications:
-%         prototypes:
-%             description: Les prototypes des fonctions demandées sont respectés
-%             points: 0/3
-%         main:
-%             description: Le programme principal est minimaliste
-%             points: 0/3
-%         algorithm:
-%             description: L'algorithme de encode/decode est bien pensé
-%             points: 0/5
-%     comments:
-%         header:
-%         description: Un en-tête programme est clairement défini
-%         points: 0/2
-%         purpose:
-%         description: Les commentaires sont pertinents
-%         points: 0/-2
-%         commented-code:
-%         description: Du code est commenté
-%         points: 0/-2
-%     variables:
-%         naming:
-%         description: Le noms des variables est minimaliste et explicite
-%         points: 0/2
-%         scope:
-%         description: La portée des variables est réduite au minimum
-%         points: 0/2
-%         type:
-%         description: Le type des variables est approprié
-%         points: 0/2
-%     functions:
-%         length:
-%         description: La longueur des fonctions est raisonnable
-%         points: 0/-4
-%     control-flow:
-%         description: Les structures de contrôle sont appropriées
-%         points: 0/4
-%     overall:
-%         dry:
-%         description: Pas de répétition dans le code
-%         points: 0/-5
-%         kiss:
-%         description: Le code est minimaliste et simple
-%         points: 0/-5
-%         ssot:
-%         description: Pas de répétition d'information
-%         points: 0/-5
-%         indentation:
-%         description: L'indentation du code est cohérente
-%         points: 0/-5
-% bonus:
-%     help:
-%         description: Le programme dispose d'une aide
-%         bonus: 0/1
-%         test: test_help
-%     version:
-%         description: La version du programme peut être affichée
-%         bonus: 0/1
-%         test: test_version
-%     extension:
-%         description: La fonctionnalité du programme est étendue
-%         bonus: 0/3
-%     english:
-%         description: Usage de l'anglais
-%         bonus: 0/1
+```yaml
+# Critères d'évaluation du travail pratique
+%YAML 1.2
+---
+tests:
+    build:
+        description: Le programme compile sans erreurs ni warning
+        points: 0/-4
+        test: test_build
+    unit-testing:
+        function_foo:
+        points: 0/10
+        test: test_foo
+        function_bar:
+        points: 0/10
+        test: test_bar
+    functional-testing:
+        arguments:
+        description: La lecture des arguments fonctionne comme demandé
+        points: 0/7
+        test: test_arguments
+        output-display:
+        description: Affichage sur stdout/stderr comme spécifié
+        points: 0/3
+        test: test_output
+        errors:
+        description: Le programme affiche des erreurs si rencontrées
+        points: 0/2
+        test: test_errors
+report:
+    introduction:
+        description: Le rapport de test contient une introduction
+        points: 0/2
+    conclusion:
+        description: Le rapport de test contient une conclusion
+        points: 0/2
+    analysis:
+        description: Le rapport de test contient une analyse du comportement
+        points: 0/3
+code:
+    specifications:
+        prototypes:
+            description: Les prototypes des fonctions demandées sont respectés
+            points: 0/3
+        main:
+            description: Le programme principal est minimaliste
+            points: 0/3
+        algorithm:
+            description: L'algorithme de encode/decode est bien pensé
+            points: 0/5
+    comments:
+        header:
+        description: Un en-tête programme est clairement défini
+        points: 0/2
+        purpose:
+        description: Les commentaires sont pertinents
+        points: 0/-2
+        commented-code:
+        description: Du code est commenté
+        points: 0/-2
+    variables:
+        naming:
+        description: Le noms des variables est minimaliste et explicite
+        points: 0/2
+        scope:
+        description: La portée des variables est réduite au minimum
+        points: 0/2
+        type:
+        description: Le type des variables est approprié
+        points: 0/2
+    functions:
+        length:
+        description: La longueur des fonctions est raisonnable
+        points: 0/-4
+    control-flow:
+        description: Les structures de contrôle sont appropriées
+        points: 0/4
+    overall:
+        dry:
+        description: Pas de répétition dans le code
+        points: 0/-5
+        kiss:
+        description: Le code est minimaliste et simple
+        points: 0/-5
+        ssot:
+        description: Pas de répétition d'information
+        points: 0/-5
+        indentation:
+        description: L'indentation du code est cohérente
+        points: 0/-5
+bonus:
+    help:
+        description: Le programme dispose d'une aide
+        bonus: 0/1
+        test: test_help
+    version:
+        description: La version du programme peut être affichée
+        bonus: 0/1
+        test: test_version
+    extension:
+        description: La fonctionnalité du programme est étendue
+        bonus: 0/3
+    english:
+        description: Usage de l'anglais
+        bonus: 0/1
+```
 
 Ce fichier est utilisé par des tests automatique pour faciliter la correction du travail pratique.

@@ -235,7 +235,7 @@ Windows utilise à l'instar de `RDOS` ou [OpenVMS](https://en.wikipedia.org/wiki
 
 ## Fonction main
 
-Le standard définit une fonction nommée `main` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction `main` a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le [BIOS](https://en.wikipedia.org/wiki/BIOS) a chargé le système d'exploitation en mémoire. Dès lors la fonction `main` de notre programme [Hello World](hello) n'est pas la première, mais est appelé.
+Le standard définit une fonction nommée `main` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction `main` a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le [BIOS](https://en.wikipedia.org/wiki/BIOS) a chargé le système d'exploitation en mémoire. Dès lors la fonction `main` de notre programme [Hello World](introduction.md#hello-world) n'est pas la première, mais est appelé.
 
 ### Qui appelle main ?
 

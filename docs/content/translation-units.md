@@ -97,7 +97,7 @@ Un module logiciel peut se composer de fichiers sources, c'est-à-dire un ensemb
 
 ## Compilation avec assemblage différé
 
-Lorsque nous avions compilé notre premier exemple [Hello World](hello) nous avions simplement appelé `gcc` avec le fichier source `hello.c` qui nous avait créé un exécutable `a.out`. En réalité, GCC est passé par plusieurs sous-étapes de compilation :
+Lorsque nous avions compilé notre premier exemple [Hello World](introduction.md#hello-world) nous avions simplement appelé `gcc` avec le fichier source `hello.c` qui nous avait créé un exécutable `a.out`. En réalité, GCC est passé par plusieurs sous-étapes de compilation :
 
 1. **Préprocessing** : les commentaires sont retirés, les directives préprocesseur sont remplacées par leur équivalent C.
 2. **Compilation** : le code C d'une seule *translation unit* est converti en langage machine en un fichier objet `.o`.
@@ -172,7 +172,7 @@ printf("hello bar\n");
 
 Lorsque l'on observe le résultat du préprocesseur, on s'aperçoit que toutes les directives préprocesseur ont disparues et que la directive `#include` a été remplacée par de contenu de `foobar.def`. Remarquons que le fichier est inclus deux fois, nous verrons plus loin comme éviter cela.
 
-Nous avons vu au chapitre sur les [prototypes de fonctions](function_prototype) qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de savoir combien d'arguments est composé une fonction sans nécessairement disposer de l'implémentation de cette fonction. Aussi on trouve dans tous les fichiers d'en-tête des déclaration en amont (*forward declaration*). Dans le fichier d'en-tête `stdio.h` on trouvera la ligne : `int printf( const char *restrict format, ... );`.
+Nous avons vu au chapitre sur les [prototypes de fonctions](functions.md#function-prototype) qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de savoir combien d'arguments est composé une fonction sans nécessairement disposer de l'implémentation de cette fonction. Aussi on trouve dans tous les fichiers d'en-tête des déclaration en amont (*forward declaration*). Dans le fichier d'en-tête `stdio.h` on trouvera la ligne : `int printf( const char *restrict format, ... );`.
 
 ```bash
 $ cat << EOF > main.c

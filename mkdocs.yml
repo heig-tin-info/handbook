@@ -1,48 +1,6 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 site_name: Le C pour l'ingénieur
 site_url: https://example.com/
-nav:
-  - Cours:
-    - content/introduction.md
-    - content/programming.md
-    - content/foundations.md
-    - content/numeration.md
-    - content/operators.md
-    - content/datatype.md
-    - content/control-structures.md
-    - content/processus.md
-    - content/functions.md
-    - content/stdio.md
-    - content/composite-datatypes.md
-    - content/files.md
-    - content/memory-management.md
-    - content/pointers.md
-    - content/standard-library.md
-    - content/algorithms.md
-    - content/translation-units.md
-    - content/scopes.md
-    - content/data-structures.md
-    - content/testing.md
-    - content/preprocessor.md
-    - content/traps.md
-    - content/advanced-topics.md
-    - content/philosophy.md
-  - Introduction:
-    - frontmatter/introduction.md
-    - frontmatter/preface.md
-  - Annexes:
-    - Bash: appendix/bash.md
-    - Développement: appendix/development.md
-    - Grammaire: appendix/grammar.md
-    - Laboratoires: appendix/laboratories.md
-    - Unités: appendix/unit.md
-    - summary/summary.md
-    - VsCode: appendix/vscode.md
-  - Backmatter:
-    - Bibliography: backmatter/bibliography.md
-    - Colophon: backmatter/colophon.md
-    - Exercices: backmatter/exercises.md
-    - Glossaire: backmatter/glossary.md
-  - Tags: tags.md
 watch:
   - includes
 extra_css:
@@ -69,8 +27,10 @@ theme:
     - content.code.select
     - content.code.annotate
     - content.action.view
+    - instant
   language: fr
   logo: assets/heig-vd-white.svg
+  favicon: assets/favicon.ico
   font:
     text: Segoe UI
     code: Consolas
@@ -123,14 +83,14 @@ plugins:
   - info
   - caption
   - charts
+  - autorefs
+  - awesome-pages
   - git-authors
   - git-revision-date-localized:
       enable_creation_date: true
   - tags:
       tags_file: tags.md
   - drawio-exporter
-  # b toggle both, m toggle menu, t toggle sidebar
-  #- toggle-sidebar
   - markdown-exec
   - extract_listings:
       listings_file: listings.md
@@ -139,9 +99,14 @@ plugins:
       toc_depth: 0
       increment_across_pages: true
   - search
+  - minify:
+      minify_html: true
 markdown_extensions:
   - toc:
       toc_depth: 3
+      permalink: true
+  - pymdownx.betterem:
+      smart_enable: all
   - tables
   - pymdownx.superfences:
       custom_fences:
@@ -166,10 +131,13 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.smartsymbols
   - pymdownx.blocks.admonition
   - pymdownx.blocks.html
+  - pymdownx.magiclink
   - admonition
-  - pymdownx.details
   - pymdownx.arithmatex:
       generic: true
   - def_list
@@ -187,6 +155,7 @@ extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
   - javascripts/mathjax.js
+  - javascripts/multiple-choice.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - https://cdn.jsdelivr.net/npm/vega@5
   - https://cdn.jsdelivr.net/npm/vega-lite@5

@@ -320,6 +320,8 @@ $
 
 La première étape est de s'assurer que le fichier `test.c` contient bien notre programme. Pour ce faire on utilise un autre programme [cat](<https://fr.wikipedia.org/wiki/Cat_(Unix)>) qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :
 
+[](){#hello-world}
+
 ```bash
 $ cat hello.c
 #include <stdio.h>

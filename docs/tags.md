@@ -1,5 +1,5 @@
-# Tags
+# Mots clés
 
-Following is a list of relevant tags:
+Liste des mots clés utilisés dans la documentation :
 
 <!-- material/tags -->
