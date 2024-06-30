@@ -182,6 +182,19 @@ In figure [](fig:label), we can see that...
 ![Caption](url){label="fig:label"}
 ```
 
+### Table caption ?
+
+How to add a caption to a table ?
+
+```markdown
+
+Table: Caption
+
+| Header 1 | Header 2 |
+| -------- | -------- |
+| Cell 1   | Cell 2   |
+```
+
 ### Preview Wikipedia links in modal
 
 When highlight a wiki link, show a modal with the content of the page.

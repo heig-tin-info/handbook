@@ -159,8 +159,6 @@ La construction d'un type entier C est la suivante :
 
 Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins $N$ bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée au {numref}`standard-integers`.
 
-Table: Types entiers standards
-
 Table: "Table des types entiers en C"
 
 | Type                   | Signe    | Profondeur          | Format   |

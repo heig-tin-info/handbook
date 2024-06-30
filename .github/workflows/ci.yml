@@ -27,4 +27,4 @@ jobs:
             mkdocs-material-
       - run: pip install -U pip
       - run: pip install -r requirements.txt
-      - run: mkdocs gh-deploy --force
+      - run: JUPYTER_PLATFORM_DIRS=1 mkdocs gh-deploy --force

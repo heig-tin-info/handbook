@@ -16,7 +16,7 @@ Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un program
 
 ### Code source
 
-Le **code source** est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes [Ladder](https://fr.wikipedia.org/wiki/Langage_Ladder) utilisés dans les automates programmables et respectant la norme [IEC 61131-3](https://fr.wikipedia.org/wiki/CEI_61131-3), ou [LabView](www.ni.com/en-us/shop/labview.html) un outil de développement graphique.
+Le **code source** est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes [Ladder](https://fr.wikipedia.org/wiki/Langage_Ladder) utilisés dans les automates programmables et respectant la norme [IEC 61131-3](https://fr.wikipedia.org/wiki/CEI_61131-3), ou [LabView](https://en.wikipedia.org/wiki/LabVIEW) un outil de développement graphique.
 
 Le plus souvent le code source est organisé en une [arborescence](https://fr.wikipedia.org/wiki/Arborescence) de fichiers. Des programmes complexes comme le noyau Linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.
 

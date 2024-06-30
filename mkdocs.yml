@@ -1,12 +1,24 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+# Project information
 site_name: Le C pour l'ingénieur
 site_url: https://example.com/
+site_author: Yves Chevallier
+site_description: |
+  Un manuel pour apprendre le langage C en partant de zéro.
+copyright: Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier
+
+# Repository information
+repo_name: heig-tin-info/handbook
+repo_url: https://github.com/heig-tin-info/handbook
+
 watch:
   - includes
 extra_css:
   - stylesheets/extra.css
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.instant
     - navigation.instant.prefetch
@@ -160,5 +172,3 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/vega@5
   - https://cdn.jsdelivr.net/npm/vega-lite@5
   - https://cdn.jsdelivr.net/npm/vega-embed@6
-copyright: Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier
-repo_url: https://github.com/heig-tin-info/handbook
