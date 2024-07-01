@@ -18,7 +18,7 @@ extra_css:
   - stylesheets/extra.css
 theme:
   name: material
-  #custom_dir: overrides
+  custom_dir: overrides
   features:
     - content.action.view
     - content.code.annotate
@@ -93,7 +93,7 @@ extra:
 plugins:
   #- mkdocs-jupyter
   - glightbox
-  - info
+  # - info
   - caption
   - charts
   - autorefs
