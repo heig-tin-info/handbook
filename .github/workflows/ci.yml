@@ -28,5 +28,5 @@ jobs:
       - run: pip install -U pip
       - run: pip install -r requirements.txt
       - name: Install drawio
-        run: apt-get update && apt-get install -y snapd && snap install drawio
+        run: sudo apt-get update && sudo apt-get install -y snapd && sudo snap install drawio
       - run: JUPYTER_PLATFORM_DIRS=1 mkdocs gh-deploy --force
