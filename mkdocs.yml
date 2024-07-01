@@ -18,7 +18,7 @@ extra_css:
   - stylesheets/extra.css
 theme:
   name: material
-  custom_dir: overrides
+  #custom_dir: overrides
   features:
     - content.action.view
     - content.code.annotate
@@ -91,7 +91,7 @@ extra:
       link: https://github.com/heig-tin-info/handbook
   generator: false
 plugins:
-  - mkdocs-jupyter
+  #- mkdocs-jupyter
   - glightbox
   - info
   - caption
