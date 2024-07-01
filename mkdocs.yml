@@ -49,14 +49,14 @@ theme:
     code: Consolas
   palette:
     - scheme: default
-      media: "(prefers-color-scheme: light)"
+      #media: "(prefers-color-scheme: light)"
       toggle:
         icon: material/lightbulb
         name: Switch to dark mode
       primary: red
       accent: light blue
     - scheme: slate
-      media: "(prefers-color-scheme: dark)"
+      #media: "(prefers-color-scheme: dark)"
       primary: red
       accent: light blue
       toggle:
@@ -81,7 +81,7 @@ theme:
       exercise: octicons/mortar-board-16
       solution: octicons/light-bulb-16
 extra:
-  homepage: https://example.com
+  homepage: https://heig-tin-info.github.io/handbook
   annotate:
     json: [.s2]
   version:
