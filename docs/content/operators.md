@@ -1,4 +1,4 @@
-# Opérateurs
+# Les Opérateurs
 
 Le langage C est composé d'une multitude d'opérateurs permettant de modifier les valeurs de variables en mémoire. Un **opérateur** prend habituellement deux opérandes et retourne un résultat. On dit alors que ces opérateurs ont une [arité](https://fr.wikipedia.org/wiki/Arit%C3%A9) de 2. Il existe également des opérateurs à arité de 1 dit [unaire](https://fr.wikipedia.org/wiki/Op%C3%A9ration_unaire) comme l'opposé d'un nombre réel : $-x$.
 
@@ -119,6 +119,277 @@ Table: Opérateurs d'affectation
 | `^=`      | Affectation par XOR             | `x ^= y`  | `x = x ^ y` |
 | `<<=`     | Affectation par décalage gauche | `x <<= y` | `x = x << y` |
 | `>>=`     | Affectation par décalage droite | `x >>= y` | `x = x >> y` |
+
+## Opérations logiques
+
+Les opérations logiques sont introduites par l'[algèbre de Boole](<https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)>) et permettent de combiner plusieurs grandeurs binaires en utilisant des opérations.
+
+### Opérations bit à bit
+
+Les {index}`opérations bit à bit` (*bitwise*) disponibles en C sont les suivantes :
+
+Table: Opérateurs bit à bit
+
+| Opérateur | Description       | Exemple                         |
+|-----------|-------------------|---------------------------------|
+| ``&``     | Conjonction (ET)  | ``(0b1101 & 0b1010) == 0b1000`` |
+| ``|``     | Disjonction (OU)  | ``(0b1101 | 0b1010) == 0b1111`` |
+| ``^``     | XOR binaire       | ``(0b1101 ^ 0b1010) == 0b0111`` |
+| ``~``     | Complément à un   | ``~0b11011010 == 0b00100101``   |
+| ``<<``    | Décalage à gauche | ``(0b1101 << 3) == 0b1101000``  |
+| ``>>``    | Décalage à droite | ``(0b1101 >> 2) == 0b11``       |
+
+
+!!! important
+
+    Ne pas confondre l'opérateur `!` et l'opérateur `~`. Le premier est la négation d'un nombre tandis que l'autre est l'inversion bit à bit. La négation d'un nombre différent de zéro donnera toujours `0` et la négation de zéro donnera toujours `1`.
+
+#### Conjonction
+
+La conjonction ou **ET logique** ($\wedge$) est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.
+
+Table: Conjonction bit à bit
+
+| $A ∧ B$ | $A=0$ | $A=1$ |
+| ------- | ----- | ----- |
+| $B=0$   | 0     | 0     |
+| $B=1$   | 0     | 1     |
+
+Avec cette opération l'état dominant est le `0` et l'état récessif est le `1`. Il suffit qu'une seule valeur soit à zéro pour forcer le résultat à zéro :
+
+```c
+assert(0b1100 & 0b0011 & 0b1111 & 0 == 0)
+```
+
+Cet opérateur est d'ailleurs souvent utilisé pour imposer une valeur nulle suivant une condition. Dans l'exemple suivant le Balrog est réduit à néant par Gandalf :
+
+```c
+balrog = 0b1100110101;
+gandalf = 0;
+
+balrog = balrog & gandalf; // You shall not pass!
+```
+
+#### Disjonction
+
+La disjonction ou **OU logique** ($\lor$) s'apparente à l'opération `+`.
+
+| $A ∨ B$ | $A=0$ | $A=1$ |
+| ------- | ----- | ----- |
+| $B=0$   | 0     | 1     |
+| $B=1$   | 1     | 1     |
+
+Ici l'état dominant est le `1` car il force n'importe quel `0` à changer d'état :
+
+```c
+bool student = false; // Veut pas faire ses devoirs ?
+bool teacher = true;
+
+student = student | teacher; // Tes devoirs tu feras...
+```
+
+#### Disjonction exclusive
+
+Le **OU exclusif** ($\oplus$ ou $\veebar$) est une opération curieuse mais extrêmement puissante et utilisée en cryptographie.
+
+En électronique sur les symboles CEI, l'opération logique est nommée `=1` car si le résultat de l'addition des deux opérandes est différent de `1`, la sortie sera nulle. Lorsque `A` et `B` valent `1` la somme vaut `2` et donc la sortie est nulle.
+
+Table: Disjonction exclusive
+
+| $A \veebar B$ | $A=0$ | $A=1$ |
+| ------- | ----- | ----- |
+| $B=0$   | 0     | 1     |
+| $B=1$   | 1     | 0     |
+
+L'opération présente une propriété très intéressante : elle est réversible.
+
+```c
+assert(1542 ^ 42 ^ 42 == 1542)
+```
+
+Par exemple il est possible d'inverser la valeur de deux variables simplement :
+
+```c
+int a = 123;
+int b = 651;
+
+a ^= b;
+b ^= a;
+a ^= b;
+
+assert(a == 651);
+assert(b == 123);
+```
+
+#### Complément à un
+
+Le complément à un ($\lnot$) est simplement la valeur qui permet d'inverser bit à bit une valeur :
+
+Table: Complément à un
+
+| $A$ | $\lnot~A$ |
+| --- | -------- |
+| 0   | 1 |
+| 1   | 0 |
+
+
+### Opérateurs arithmétiques
+
+Les opérations arithmétiques nécessitent le plus souvent d'une communication entre les bits.
+C'est-à-dire en utilisant une retenue (*carry*). En base décimale, on se souvient de l'addition que l'on écrivait dans les petites écoles :
+
+```text
+  ¹¹    ← retenues
+  123₁₀
++  89₁₀
+-----
+  212₁₀
+```
+
+En arithmétique binaire, c'est exactement la même chose :
+
+| A   | B   | A + B | C   |
+| --- | --- | ----- | --- |
+| 0   | 0   | 0     | 0   |
+| 0   | 1   | 1     | 0   |
+| 1   | 0   | 1     | 0   |
+| 1   | 1   | 0     | 1   |
+
+```text
+ ¹¹¹  ¹¹¹
+  11100101₂
++  1100111₂
+----------
+ 101001100₂
+```
+
+!!! exercise "Additions binaires"
+
+    Une unité de calcul arithmétique (ALU) est capable d'effectuer les 4 opérations de bases comprenant additions et soustractions.
+
+    Traduisez les opérandes ci-dessous en binaire, puis poser l'addition en binaire.
+
+    1. $1 + 51$
+    2. $51 - 7$
+    3. $204 + 51$
+    4. $204 + 204` (sur 8-bits$
+
+    ??? solution
+
+        1. $1 + 51$
+
+            ```text
+                    ¹¹
+                      1₂
+            +   110011₂  (2⁵ + 2⁴ + 2¹+ 2⁰ ≡ 51)
+            ----------
+                110100₂
+            ```
+
+        2. $51 - 7$
+
+            ```text
+              …¹¹¹  ¹¹
+              …000110011₂  (2⁵ + 2⁴ + 2¹ + 2⁰ ≡ 51)
+            + …111111001₂  (complément à deux) 2³ + 2¹ + 2⁰ ≡ 111₂ → !7 + 1 ≡ …111001₂)
+              -----------
+              …000101100₂  (2⁵ + 2³ + 2₂ ≡ 44)
+            ```
+
+        3. $204 + 51$
+
+            ```text
+                11001100₂
+            +     110011₂
+              -----------
+              …011111111₂  (2⁸ - 1 ≡ 255)
+            ```
+
+        4. $204 + 204$ (sur 8-bits)
+
+            ```text
+                ¹|¹  ¹¹
+                |11001100₂
+            +   |11001100₂
+              ---+--------
+                1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
+            ```
+
+### Lois de De Morgan
+
+Les [lois de De Morgan](https://fr.wikipedia.org/wiki/Lois_de_De_Morgan) sont des identités logiques formulées il y a près de deux siècles: sachant qu'en logique classique, la négation d'une conjonction implique la disjonction des négations et que la conjonction de négations implique la négation d'une disjonction, on peut alors exprimer que :
+
+$$
+\begin{align*}
+& \neg (P \land Q) \Rightarrow ((\neg P) \lor (\neg Q)) \\
+& ((\neg P) \land (\neg Q)) \Rightarrow \neg (P \lor Q)
+\end{align*}
+$$
+
+Ces opérations logiques sont très utiles en programmation où elles permettent de simplifier certains algorithmes.
+
+À titre d'exemple, les opérations suivantes sont donc équivalentes :
+
+```c
+int a = 0b110010011;
+int b = 0b001110101;
+
+assert(a | b == ~a & ~b);
+assert(~a & ~b == ~(a | b));
+```
+
+En logique booléenne on exprime la négation par une barre p.ex. $\bar{P}$.
+
+!!! exercise "De Morgan"
+
+    Utiliser les relations de De Morgan pour simplifier l'expression suivante
+
+    $$
+    D \cdot E + \bar{D} + \bar{E}
+    $$
+
+    ??? solution
+
+        Si l'on applique De Morgan ($\bar{XY} = \bar{X} + \bar{Y}$):
+
+        $$
+        D \cdot E + \bar{D} + \bar{E}
+        $$
+
+### Arrondi
+
+En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus complexe qu'imaginée. Un nombre réel peut être converti en un nombre entier de plusieurs manières dont voici une liste non exhaustive :
+
+- **tronqué** (*truncate*) lorsque la partie fractionnaire est simplement enlevée
+- **arrondi à l'entier supérieur** (*rounding up*)
+- **arrondi à l'entier inférieur** (*rounding down*)
+- **arrondi en direction du zéro** (*rounding towards zero*)
+- **arrondi loin du zéro** (*rounding away from zero*)
+- **arrondi au plus proche entier** (*rounding to the nearest integer*)
+- **arrondi la moitié en direction de l'infini** (*rounding half up*)
+
+Selon le langage de programmation et la méthode utilisée, le mécanisme d'arrondi sera différent. En C, la bibliothèque mathématique offre les fonctions `ceil` pour l'arrondi au plafond (entier supérieur), `floor` pour arrondi au plancher (entier inférieur) et `round` pour l'arrondi au plus proche (*nearest*). Il existe également fonction `trunc` qui tronque la valeur en supprimant la partie fractionnaire.
+
+Le fonctionnement de la fonction `round` n'est pas unanime entre les mathématiciens et les programmeurs. C utilise l'arrondi au plus proche, c'est à dire que -23.5 donne -24 et 23.5 donnent 24.
+
+!!! note
+
+    En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre-intuitive, car `round(3.5)` donne 4, mais `round(4.5)` donne 4 aussi.
+
+
+!!! exercise "Swap sans valeur intermédiaire"
+
+    Soit deux variables entières ``a`` et ``b``, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR ``^``.
+
+    Testez votre solution...
+
+    ??? solution
+
+        ```c
+        a ^= b;
+        b ^= a;
+        a ^= b;
+        ```
 
 ## Opérateurs logiques
 

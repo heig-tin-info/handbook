@@ -77,6 +77,8 @@ collapse : true
 
 Currently drawio conversion occurs at each build (very slow) and does not support dark mode. It would be nice to have a way to convert the drawio files to svg and include them in the markdown files.
 
+One solution for simple graphics is to include svg directly and twick the svg to map colors with the theme colors.
+
 ### Exercices
 
 - Add "Exercise:" before admonition Exercice

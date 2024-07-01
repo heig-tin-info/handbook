@@ -1,62 +1,110 @@
-# Introduction
+# Le langage C
+
+Le langage C est un des premiers langages de programmation de haut niveau. Il est très proche de l'assembleur, le langage de bas niveau des processeurs, et permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation système en passant par les applications de bureau.
+
+Même s'il est très ancien, il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.
 
 ## Historique { data-search-keyword="thompson"}
 
 Le langage de programmation **C** est la suite naturelle du langage **B** créé dans la toute fin des années soixante par un grand pionnier de l'informatique moderne: [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson).
 
-Le langage C a été inventé en 1972 par [Brian Kernighan](https://fr.wikipedia.org/wiki/Brian_Kernighan) et [Dennis Ritchie](https://fr.wikipedia.org/wiki/Dennis_Ritchie). Ils sont les concepteurs du système d'exploitation [UNIX](https://fr.wikipedia.org/wiki/Unix) et ont créé ce nouveau langage pour faciliter leurs travaux de développement logiciel. La saga continue avec [Bjarne Stroustrup](https://fr.wikipedia.org/wiki/Bjarne_Stroustrup) qui décide d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fera l'objet d'un cours à part entière. Ce C amélioré voit le jour en 1985.
+Le langage C a été inventé en 1972 par [Brian Kernighan](https://fr.wikipedia.org/wiki/Brian_Kernighan) et [Dennis Ritchie](https://fr.wikipedia.org/wiki/Dennis_Ritchie). Ils sont aussi les concepteurs du système d'exploitation [UNIX](https://fr.wikipedia.org/wiki/Unix) et ont créé ce nouveau langage pour faciliter leurs travaux de développement logiciel. La saga continue avec [Bjarne Stroustrup](https://fr.wikipedia.org/wiki/Bjarne_Stroustrup) qui décide d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fera l'objet d'un cours à part entière. Ce C amélioré voit le jour en 1985.
 
-Il faut attendre 1989 pour que le langage C fasse l'objet d'une normalisation par l'ANSI. L'année suivante le comité ISO ratifie le standard *ISO/IEC 9899:1990* communément appelé **C90**.
+Il faut attendre 1989 pour que le langage C fasse l'objet d'une normalisation par l'ANSI (*American National Standards Institute*). L'année suivante le comité ISO (*International Organization for Standardization*) ratifie le standard *ISO/IEC 9899:1990* communément appelé **C90**. Dès lors, le langage C est devenu un standard international et devient le langage dominant dans le monde de l'informatique.
 
 Les années se succèdent et le standard évolue pour soit corriger certaines de ses faiblesses soit pour apporter de nouvelles fonctionnalités.
 
-Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés, car il allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances tels que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.
+Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés par les ingénieurs, car il allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances tels que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.
 
-Il faut retenir que C est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C.
+Il faut retenir que **C** est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C.
 
-![Les pères fondateurs du C](../assets/images/kernighan-ritchie-thompson.jpg)
+![Les pères fondateurs du C](../assets/figures/thompson-kernighan-ritchie.webp)
 
 ## Standardisation
 
-Vous l'aurez compris à lecture de cette introduction, le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.
+Le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.
 
-Le standard le plus couramment utilisé en 2024 est encore [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf). C11 le remplace peu à peu dans l'industrie.
+Le standard le plus couramment utilisé en 2024 est encore [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf). C11 le remplace peu à peu dans l'industrie mais la saga continue avec C17, C18 et C23 qui sont des évolutions.
 
 Table: Normes internationales du language C
 
-| Notation courte   | Standard international               | Date   |
-| ----------------- | ------------------------------------ | ------ |
-| C                 | n/a                                  | 1972   |
-| K&R C             | n/a                                  | 1978   |
-| C89 (ANSI C)      | ANSI X3.159-1989                     | 1989   |
-| C90               | [ISO/IEC 9899:1990](https://www.iso.org/standard/17782.html) | 1990   |
-| C99               | [ISO/IEC 9899:1999](https://www.iso.org/standard/29237.html) | 1999   |
-| C11               | [ISO/IEC 9899:2011](https://www.iso.org/standard/57853.html) | 2011   |
-| C17/C18           | [ISO/IEC 9899:2018](https://www.iso.org/standard/74528.html) | 2018   |
-| C23               | [ISO/IEC 9899:2023](https://www.iso.org/standard/82075.html) | 2023   |
+| Notation courte | Standard international                                       | Date |
+| --------------- | ------------------------------------------------------------ | ---- |
+| C               | n/a                                                          | 1972 |
+| K&R C           | n/a                                                          | 1978 |
+| C89 (ANSI C)    | ANSI X3.159-1989                                             | 1989 |
+| C90             | [ISO/IEC 9899:1990](https://www.iso.org/standard/17782.html) | 1990 |
+| C99             | [ISO/IEC 9899:1999](https://www.iso.org/standard/29237.html) | 1999 |
+| C11             | [ISO/IEC 9899:2011](https://www.iso.org/standard/57853.html) | 2011 |
+| C17/C18         | [ISO/IEC 9899:2018](https://www.iso.org/standard/74528.html) | 2018 |
+| C23             | [ISO/IEC 9899:2023](https://www.iso.org/standard/82075.html) | 2023 |
 
 En substance, **C18** n'apporte pas de nouvelles fonctionnalités au langage, mais vise à clarifier de nombreuses zones d'ombres laissées par **C11**.
 
-**C11** apporte peu de grands changements fondamentaux pour le développement sur microcontrôleur par rapport à **C99** et ce dernier reste de facto le standard qu'il est souhaité de respecter dans l'industrie.
+**C11** apporte peu de grands changements fondamentaux pour le développement sur microcontrôleur.
 
 !!! info
 
     Vous entendrez ou lirez souvent des références à **ANSI C** ou **K&R**, préférez plutôt une compatibilité avec **C99** au minimum.
 
-Le standard est lourd, difficile à lire et avec 552 pages pour **C99**, vous n'aurez probablement jamais le moindre plaisir à y plonger les yeux. L'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà ?
+Le standard est lourd, difficile à lire et avec 552 pages pour **C99**, vous n'aurez probablement jamais le moindre plaisir à y plonger les yeux qui se rempliront de larmes à chaque lecture.
+
+Armez-vous de mouchoirs car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà ?
+
+Vous vous demandez probablement pourquoi l'industrie a-t-elle autant de retard sur le dernier standard. Lorsque qu'Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglées par des validations strictes qui décrivent les standards utilisés. Migrer vers un standard plus récent est une aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée qu'on enverra sur Mars n'aura pas d'issue fatale. Ces validations sont longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèle à un ancien standard.
 
 !!! exercise
 
-    Ouvrez le standard `C99 <http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf>`__ et cherchez la valeur maximale possible de la constante ``ULLONG_MAX``. Que vaut-elle ?
+    Ouvrez le standard [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf) et cherchez la valeur maximale possible de la constante ``ULLONG_MAX``. Que vaut-elle ?
 
     ??? solution
 
         Au paragraphe §5.2.4.2.1-1 on peut lire que `ULLONG_MAX` est encodé sur 64-bits et donc que sa valeur est $2^{64}-1$ donc `18'446'744'073'709'551'615`.
 
+## Le C et les autres langages de programmation
+
+Si ce cours ce concentre sur le C, ce n'est pas le seul langage de programmation et surtout ce n'est certainement pas le seul que vous apprendrez.
+
+| Langage de programmation | Année | Utilisation               |
+| ------------------------ | ----- | ------------------------- |
+| Fortran                  | 1957  | Calcul scientifique       |
+| Lisp                     | 1958  | Intelligence artificielle |
+| Cobol                    | 1959  | Finance, banque           |
+| Basic                    | 1964  | Enseignement              |
+| Pascal                   | 1970  | Enseignement              |
+| C                        | 1972  | Systèmes embarqués        |
+| C++                      | 1985  | Applications lourdes      |
+| Perl                     | 1987  | Scripts                   |
+| Python                   | 1991  | Ingénierie, sciences      |
+| Ruby                     | 1995  | Scripts, Web              |
+| Java                     | 1995  | Applications lourdes      |
+| PHP                      | 1995  | Web                       |
+| C#                       | 2000  | Applications graphiques   |
+| Go                       | 2009  | Systèmes distribués       |
+| Rust                     | 2010  | Systèmes embarqués        |
+| Swift                    | 2014  | Applications mobiles      |
+| Zig                      | 2016  | Systèmes embarqués        |
+
+L'index [TIOBE](https://www.tiobe.com/tiobe-index/) est un bon indicateur de la popularité des langages de programmation. Il est mis à jour chaque mois et permet de suivre l'évolution de la popularité des langages de programmation.
+
+En 2024, le top 10 des langages de programmation les plus populaires est le suivant :
+
+1. Python
+2. C++
+3. C
+4. Java
+5. C#
+6. JavaScript
+7. Go
+8. SQL
+9. Visual Basic
+10. Fortran
+
+Python est un langage de très haut niveau, simple a apprendre mais éloigné du matériel. C++ est un langage de programmation orientée objet, très puissant, mais complexe à apprendre. C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C.
 
 ## Environnement de développement
 
-Un développeur logiciel passe son temps devant son écran à étudier, et écrire du code et bien qu'il pourrait utiliser un éditeur de texte tel que Microsoft Word ou Notepad, il préfèrera des outils apportant davantage d'interactivité et d'aide au développement. Les *smartphones* disposent aujourd'hui d'une fonctionnalité de suggestion automatique de mots; les éditeurs de texte orienté programmation disposent de fonctionnalités similaires qui complètent automatiquement le code selon le contexte.
+Un développeur logiciel passe son temps devant son écran à étudier, et écrire du code et bien qu'il pourrait utiliser un éditeur de texte tel que Microsoft Word ou Notepad, il préfèrera des outils apportant davantage d'interactivité et d'aide au développement. Les éditeurs de texte orienté programmation disposent d'outils puissances de complétion automatique de code et de coloration syntaxique. La touche `Tab` devient alors un allié précieux pour écrire du code rapidement.
 
 Un autre composant essentiel de l'environnement de développement est le **compilateur**. Il s'agit généralement d'un ensemble de programmes qui permettent de convertir le **code** écrit en un programme exécutable. Ce programme peut-être par la suite intégré dans un *smartphone*, dans un système embarqué sur un satellite, sur des cartes de prototypage comme un Raspberry PI, ou encore sur un ordinateur personnel.
 
@@ -64,7 +112,7 @@ L'ensemble des outils nécessaire à créer un produit logiciel est appelé cha�
 
 Un environnement de développement intégré, ou [IDE](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement) pour *Integrated development environment* comporte généralement un éditeur de code ainsi que la [toolchain](https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_compilation) associée.
 
-![Représentation graphique des notions de compilateur, IDE, toolchain...](../assets/figures/dist/toolchain/ide.svg)
+![Représentation graphique des notions de compilateur, IDE, toolchain...](../assets/figures/toolchain.drawio)
 
 À titre d'exemple on peut citer quelques outils bien connus des développeurs. Choisissez celui que vous pensez être le plus adapté à vos besoins, consultez l'internet, trouvez votre optimal :
 
@@ -101,39 +149,21 @@ Un environnement de développement intégré, ou [IDE](https://fr.wikipedia.org/
 
 : Prononcé "hidi", il s'agit du tout premier éditeur de texte développé en 1969 faisant partie des trois premiers éléments du système UNIX: l'assembleur, l'éditeur et le *shell*. Il n'est pas interactif, il n'a pas de coloration syntaxique, il est absolument obscur dans son fonctionnement, mais bientôt 50 ans après, il fait toujours partie de la norme POSIX et donc disponible sur tout système compatible. Bref, ne l'utilisez pas...
 
+Le résultat de l'étude annuelle de [Stackoverflow](https://survey.stackoverflow.co/2023/#overview) donne une idée de la popularité des éditeurs et IDE les plus utilisés par les développeurs :
+
+1. Visual Studio Code (73.3%)
+2. Visual Studio (28.4%)
+3. IntelliJ IDEA (26.8%)
+4. Notepad++ (24.5%)
+5. Vim (22.3%)
+
 !!! exercise Eclipse
 
     Un ami vous parle d'un outil utilisé pour le développement logiciel nommé **Eclipse**. De quel type d'outil s'agit-il ?
 
     ??? solution
 
-        `Eclipse <https://www.eclipse.org/ide/>`__ est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
-
-## L'Anglais
-
-En programmation, quel que soit le langage utilisé, la langue **anglaise** est omniprésente. D'une part les mots clés des langages de programmation sont majoritairement empruntés à l'anglais, mais souvent les outils de développement ne sont disponibles qu'en anglais. Il existe une raison à cela. Un article de journal publié dans une revue locale sera certainement lu par madame Machin et monsieur Bidule, mais n'aura aucun intérêt pour les habitants de l'antipode néo-zélandais. En programmation, le code se veut **réutilisable** pour économiser des coûts de développement. On réutilise ainsi volontiers des algorithmes écrits par un vénérable japonais, ou une bibliothèque de calcul matriciel développée en Amérique du Sud. Pour faciliter la mise en commun de ces différents blocs logiciels et surtout pour que chacun puisse dépanner le code des autres, il est essentiel qu'une langue commune soit choisie et l'anglais est le choix le plus naturel.
-
-
-Aussi dans cet ouvrage, l'anglais sera privilégié dans les exemples de code et les noms des symboles (variables, constantes ...), les termes techniques seront traduits lorsqu'il existe un consensus établi sinon l'anglicisme sera préféré. Il m'est d'ailleurs difficile, bien que ce cours soit écrit en français de parler de *feu d'alerte* en lieu et place de *warning*, car si l'un est la traduction ad hoc de l'autre, la terminologie n'a rien à voir et préfère, au risque d'un affront avec l'Académie, préserver les us et coutumes des développeurs logiciels.
-
-
-Un autre point méritant d'être mentionné est la constante interaction d'un développeur avec internet pour y piocher des exemples, chercher des conseils, ou de l'aide pour utiliser des outils développés par d'autres. De nombreux sites internet, la vaste majorité en anglais, sont d'une aide précieuse pour le développeur. On peut ainsi citer :
-
-[Stack Overflow](https://stackoverflow.com/)
-
-: Aujourd'hui le plus grand portail de questions/réponses dédié à la programmation logicielle
-
-[GitHub](https://github.com/)
-
-: Un portail de partage de code
-
-[Google Scholar](https://scholar.google.ch/)
-
-: Un point d'entrée essentiel pour la recherche d'articles scientifiques
-
-[Man Pages](https://linux.die.net/man/)
-
-: La documentation (*man pages*) des commandes et outils les plus utilisés dans les environnements macOS/Linux/Unix et POSIX compatible.
+        [Eclipse](https://www.eclipse.org/ide/) est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
 
 ??? exercise
 
@@ -145,22 +175,7 @@ Un autre point méritant d'être mentionné est la constante interaction d'un d�
 
         Seriez-vous capable de répondre à une question posée?
 
-
-## Apprendre à pêcher
-
-Un jeune homme s'en va à la mer avec son père et lui demande: papa, j'ai faim, comment ramènes-tu du poisson? Le père fier, lance sa ligne à la mer et lui ramène un beau poisson. Plus tard, alors que le jeune homme revient d'une balade sur les estrans, il demande à son père: papa, j'ai faim, me ramènerais-tu du poisson? Le père, sort de son étui sa plus belle canne et l'équipant d'un bel hameçon lance sa ligne à la mer et ramène un gros poisson. Durant longtemps, le jeune homme mange ainsi à sa faim cependant que le père ramène du poisson pour son fils.
-
-Un jour, alors que le fils invective son père l'estomac vide, le père annonce. Fils, il est temps pour toi d'apprendre à pêcher, je peux te montrer encore longtemps comment je ramène du poisson, mais ce ne serait pas t'aider, voici donc cette canne et cet hameçon.
-
-Le jeune homme tente de répéter les gestes de son père, mais il ne parvient pas à ramener le poisson qui le rassasierait. Il demande à son père de l'aide que ce dernier refuse. Fils, c'est par la pratique et avec la faim au ventre que tu parviendras à prendre du poisson, persévère et tu deviendras meilleur pêcheur que moi, la lignée ainsi assurée de toujours manger à sa faim.
-
-La morale de cette histoire est plus que jamais applicable en programmation, confier aux expérimentés l'écriture d'algorithmes compliqués, ou se contenter d'observer les réponses des exercices pour se dire: j'ai compris ce n'est pas si compliqué, est une erreur, car pêcher ou expliquer comment pêcher n'est pas la même chose.
-
-Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le développement logiciel et non un guide exhaustif du langage, car le standard C99/C11 est disponible sur internet ainsi que le K&R qui reste l'ouvrage de référence pour apprendre C. Il est donc inutile de paraphraser les exemples donnés quand internet apporte toutes les réponses, pour tous les publics du profane réservé au hacker passionné.
-
-
 ## Programmation texte structurée
-
 
 Le C comme la plupart des langages de programmation utilise du texte structuré, c'est-à-dire que le langage peut être défini par un **vocabulaire**, une **grammaire** et se compose d'un **alphabet**.
 
@@ -278,22 +293,6 @@ La phase d'édition de liens permet de rassembler le fichier binaire issu de la 
 déroulement complet de génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.
 
 ![Édition des liens de plusieurs objets](../assets/figures/dist/toolchain/link.svg)
-
-## Une affaire de consensus
-
-En informatique comme dans la société humaine, il y a les religieux, les prosélytes, les dogmatiques, les fanatiques, les contestataires et les maximalistes. Le plus souvent les motifs de fâcheries concernent les outils que ces derniers utilisent et ceux dont on doit taire le nom. Ils se portent parfois sur les conventions de codage à respecter, l'encodage des fichiers, le choix de l'[EOL](https://fr.wikipedia.org/wiki/Fin_de_ligne), l'interdiction du `goto`, le respect inconditionnel des règles [MISRA](https://en.wikipedia.org/wiki/MISRA_C). Il existe ainsi de longues guerres de croyances, parfois vielles de plusieurs générations et qui perdurent souvent par manque d'ouverture d'esprit et surtout parce que la bonne attitude à adopter n'est pas enseignée dans les écoles supérieures là où les dogmes s'établissent et pénètrent les esprits dociles, faute au biais d'[ancrage mental](<https://fr.wikipedia.org/wiki/Ancrage_(psychologie)>). L'enseignant devrait être sensible à ces aspects fondamentaux et devrait viser l'impartialité en visant l'ouverture l'esprit et le culte du bon sens de l'ingénieur.
-
-Citons par exemple les [guerres d'éditeurs](https://fr.wikipedia.org/wiki/Guerre_d%27%C3%A9diteurs) qui date des années 1970 et qui opposent les défenseurs de l'éditeur `vi` aux inconditionnels d'`emacs`. Il s'agit de deux éditeurs de texte très puissants et à la courbe d'apprentissage raide qui séparent les opinions tant leur paradigme de fonctionnement est aporétique. Ces guerres sont d'abord entretenues par plaisir de l'amusement, mais les foules de convertis ne s'aperçoivent pas toujours de l'envergure émotionnelle que prend l'affaire dans son ensemble et force est de constater qu'avec le temps ils ne parviennent plus à percevoir le monde tel qu'il est, à force d'habitudes.
-
-S'enterrer dans une zone de confort renforce le biais du [Marteau de Maslow](https://everlaab.com/marteau-de-maslow/), car lorsque l'on est un marteau, on ne voit plus les problèmes qu'en forme de clou. Cette zone de confort devient un ennemi et barre l'accès au regard critique et au pragmatisme qui devrait prévaloir. Car accepter l'existence de différentes approches possibles d'un problème donné est essentiel, car plus que dans tout autre domaine technique, le développement logiciel est avant tout une aventure collaborative qui ne devrait jamais être sous le joug d'une quelconque emprise émotionnelle.
-
-Un programme se doit d'être le plus neutre possible, impartial et minimaliste. Il n'est pas important de se préoccuper des affaires cosmétiques telles que la position des accolades dans un programme, le choix d'utiliser des espaces versus des tabulations horizontales, ou le besoin d'utiliser tel ou tel outil de développement parce qu'il est jugé meilleur qu'un autre.
-
-La clé de la bonne attitude c'est d'être à l'écoute du consensus de ne pas sombrer au [biais d'attention](https://en.wikipedia.org/wiki/Attentional_bias). Il faut non seulement être sensible au consensus local direct: son entreprise, son école, son équipe de travail, mais surtout au consensus planétaire dont l'accès ne peut se faire que par l'interaction directe avec la communauté de développeurs, soit par les forums de discussions (Reddit, stackoverflow), soit par le code lui-même. Vous avez un doute sur la bonne méthode pour écrire tel algorithme ou sur la façon dont votre programme devrait être structuré ? Plongez-vous dans le code des autres, multipliez vos expériences, observez les disparités et les oppositions, et apprenez à ne pas y être sensible.
-
-Vous verrez qu'au début, un programme ne vous semble lisible que s'il respecte vos habitudes, la taille de vos indentations préférées, la police de caractère qui vous sied le mieux, l'éditeur qui supporte les ligatures, car admettez-le `ﬁ` est infiniment plus lisible que `fi`. Par la suite, et à la relecture de cette section, vous apprendrez à faire fi de cette zone de confort qui vous était si chère et que l'important n'est plus la forme, mais le fond. Vous aurez comme [Néo](<https://fr.wikipedia.org/wiki/Neo_(Matrix)>), libéré votre esprit et serez capable de voir la matrice sans filtre, sans biais.
-
-En somme, restez ouvert aux autres points de vues, cherchez à adopter le consensus majoritaire qui dynamise au mieux votre équipe de développement, qui s'encadre le mieux dans votre stratégie de croissance et de collaboration et surtout, abreuvez-vous de code, faites-en des indigestions, rêvez-en la nuit. Vous tradez du Bitcoin, allez lire [le code source](https://github.com/bitcoin/bitcoin), vous aimez Linux, plongez-vous dans le code source du [kernel](https://github.com/torvalds/linux), certains collègues ou amis vous ont parlé de Git, allez voir ses [entrailles](https://github.com/git/git)... Oui, tous ces projets sont écrits en C, n'est-ce pas merveilleux ?
 
 
 ## Hello World!

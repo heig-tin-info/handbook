@@ -1,17 +1,17 @@
 # La programmation
 
-![L'un des premiers ordinateurs: l'Eniac](../assets/images/eniac.jpg)
+Il ne serait pas raisonnable d'enseigner la programmation sans au préalable définir ce qu'est la programmation et quelle est son origine. La programmation est l'étape qui suit l'élaboration algorithmes. Elle vise à traduire un algorithme en un langage formel compréhensible par une machine. La programmation est donc une activité de communication entre un humain et une machine. Elle est un art, une science et une technique.
 
-Il ne serait pas raisonnable de vous enseigner la programmation C sans au préalable définir ce qu'est la programmation et quelle est son origine. La programmation intervient après une étape plus générale impliquant un ou plusieurs algorithmes.
-
-**Algorithmique et Programmation**, il y donc deux questions à éclaircir :
+Dans un cursus académique on parle souvent de cours d'**Algorithmique et Programmation**, il y donc deux questions à éclaircir ici :
 
 1. Qu'est-ce que l'algorithmique ?
 2. Qu'est-ce que la programmation ?
 
+![L'un des premiers ordinateurs: l'Eniac](../assets/images/eniac.jpg)
+
 ## Algorithmique
 
-L'algorithmique et non l'*algorithmie*, est la science qui étudie la production de règles et techniques impliquées dans la définition et la conception d'[algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Nous verrons l'algorithmique plus en détail dans le chapitre [algorithmes](algorithms.md). Retenons pour l'heure que l'algorithmique intervient tous les jours :
+L'algorithmique et non l'*algorithmie*, est la science qui étudie la production de règles et techniques impliquées dans la définition et la conception d'[algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Nous verrons l'algorithmique plus en détail dans le chapitre [algorithmes](algorithms.md). Retenons pour l'heure que l'algorithmique est un domaine bien plus vaste que celui appliqué aux ordinateurs. Elle intervient tous les jours :
 
 - dans une recette de cuisine,
 - le tissage de tapis persans,
@@ -19,11 +19,33 @@ L'algorithmique et non l'*algorithmie*, est la science qui étudie la production
 - les tactiques sportives,
 - les procédures administratives.
 
-Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l'[algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide) datant probablement de 300 av. J.-C. est un algorithme permettant de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD). Voici la description de l'algorithme :
-
+Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l'[algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide) datant probablement de 300 av. J.-C. est un algorithme permettant de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD). Voici la description de l'algorithme sous forme d'un diagramme de flux :
 
 ![Algorithme de calcul du PGCD d'Euclide.](../assets/figures/pgcd.drawio)
 
+Souvent, les informaticiens et ingénieurs aiment utiliser des diagrammes pour synthétiser des idées. Le diagramme de flux est un outil de communication visuelle permettant de représenter des processus. Ici on observe des formes géométriques et des flèches. Les flèches indique le sens de lecture du processus. Les formes géométriques sont des boîtes de texte contenant des instructions. Les formes de début et de fin sont des ovales. Les formes de traitement sont des rectangles. Les formes de décision sont des losanges. Une forme de décision contient une question et deux flèches de sortie, une pour chaque réponse possible. Généralement une flèche de sortie est étiquetée avec la réponse attendue. On le verra plus tard mais un processus de traitement d'information dispose toujours d'une entrée et d'une sortie.
+
+Si l'on souhaite trouver le plus grand diviseur commun de 42 et 30, il suffit d'applique l'algorithme d'Euclide :
+
+Table: Exemple de calcul du PGCD entre 42 et 30
+
+| Étape | $a$ | $b$ | $r$ |
+|-------|-----|-----|-----|
+| Prendre deux entiers naturels $a$ et $b$ | 42  | 30  | non défini |
+| Est-ce que $b$ est nul ? non ! | 42  | 30  | non défini |
+| Calculer le reste de la division euclidienne de $a$ par $b$ | 42  | 30  | 12  |
+| Remplacer $a$ par $b$ | 30  | 30  | 12 |
+| Remplacer $b$ par $r$ | 30  | 12  | 12 |
+| Est-ce que $b$ est nul ? non ! | 30  | 12  | 12 |
+| Calculer le reste de la division euclidienne de $a$ par $b$ | 30  | 12  | 6   |
+| Remplacer $a$ par $b$ | 12  | 12  | 6   |
+| Remplacer $b$ par $r$ | 12  | 6   | 6   |
+| Est-ce que $b$ est nul ? non ! | 12  | 6   | 6   |
+| Calculer le reste de la division euclidienne de $a$ par $b$ | 12  | 6   | 0   |
+| Remplacer $a$ par $b$ | 6   | 6   | 0   |
+| Remplacer $b$ par $r$ | 6   | 0   | 0   |
+| Est-ce que $b$ est nul ? oui ! | 6   | 0   | 0   |
+| Le PGCD de 42 et 30 est 6 |  6  |  0  |  0   |
 
 !!! exercise "Algorithme d'Euclide"
 
@@ -32,15 +54,13 @@ Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l
 
     $$a = 1260, b = 630$$
 
-
 ## Programmation
 
 La machine Jacquard est un [métier à tisser](https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser) mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
 
 ![Mécanisme Jacquard au Musée des arts et métiers de Paris.](../assets/images/loom.jpg){ width="80%" }
 
-
-Les cartes perforées contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. L'automatisation d'un travail qui jadis était effectué manuellement causa une vague de chômage menant à la [Révolte des canuts](https://fr.wikipedia.org/wiki/R%C3%A9volte_des_canuts) en 1831.
+Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. L'automatisation d'un travail qui jadis était effectué manuellement causa une vague de chômage menant à la [Révolte des canuts](https://fr.wikipedia.org/wiki/R%C3%A9volte_des_canuts) en 1831.
 
 La [programmation](https://fr.wikipedia.org/wiki/Programmation_informatique) définit toute activité menant à l'écriture de programmes. En informatique, un programme est un ensemble ordonné d'instructions codées avec un langage donné et décrivant les étapes menant à la solution d'un problème. Il s'agit le plus souvent d'une écriture formelle d'un algorithme.
 
@@ -75,10 +95,9 @@ Les informaticiens-tisserands responsables de la création des cartes perforées
         à la bordure endentée de gueules et d'or.
 ```
 
+![Armoiries des ducs de Mayenne](../assets/images/armoiries.svg){ width="200px" }
 
 Notons que *de gueules* signifie *rouge*. Le [drapeau suisse](https://fr.wikipedia.org/wiki/Drapeau_et_armoiries_de_la_Suisse) est donc *de gueules, à la croix alésée d'argent*.
-
-![Armoiries des ducs de Mayenne](../assets/images/armoiries.svg){ width="200px" }
 
 ## Calculateur
 
@@ -86,11 +105,12 @@ Un calculateur du latin *calculare*: calculer avec des cailloux, originellement 
 
 Les [os d'Ishango](https://fr.wikipedia.org/wiki/Os_d%27Ishango) datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
 
-Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur, car même une calculatrice de poche doit gérer en plus des calculs :
+Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur, car même une calculatrice de poche doit gérer en plus des calculs un certains nombre de périphériques comme :
 
 - l'interface de saisie (pavé numérique);
 - l'affichage du résultat (écran à cristaux liquide).
 
+Notons qu'à l'instar de notre diagramme de flux, un calculateur dispose d'une entrée, d'une sortie et d'états internes.
 
 ## Ordinateur
 
@@ -111,31 +131,35 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques P
 
 ## Historique
 
+Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates clés :
+
 87 av. J.-C.
 
-: La [machine d'Anticythère](https://fr.wikipedia.org/wiki/Machine_d%27Anticyth%C3%A8re) considéré comme le premier calculateur analogique pour positions astronomiques.
+: La [machine d'Anticythère](https://fr.wikipedia.org/wiki/Machine_d%27Anticyth%C3%A8re) considéré comme le premier calculateur analogique pour positions astronomiques permettant de prédire des éclipses. Cette machine encore si mystérieuse à inspiré de nombreux scénarios comme le film Indiana Jones et le Cadran de la destinée. Elle a été découverte en 1901 dans une épave au large de l'île d'Anticythère. Grace aux techniques modernes de radiographie, on a pu reconstruire une partie de son mécanisme.
 
 1642
 
-: [La pascaline](https://fr.wikipedia.org/wiki/Pascaline): machine d'arithmétique de Blaise Pascal, première machine à calculer
+: [La pascaline](https://fr.wikipedia.org/wiki/Pascaline): machine d'arithmétique de Blaise Pascal, première machine à calculer. Elle permettait d'effectuer des additions et des soustractions en utilisant des roues dentées.
 
+1801
+
+: [Métier à tisser Jacquard](https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser_Jacquard) programmable avec des cartes perforées.
 
 1834
 
-: Machine à calculer programmable de Charles Babbage
-
+: Machine à calculer programmable de Charles Babbage. Charles Babbage est considéré comme le père de l'informatique. Il a conçu la [machine analytique](https://fr.wikipedia.org/wiki/Machine_analytique) qui est considérée comme le premier ordinateur programmable. Ada Lovelace, fille de Lord Byron, est considérée comme la première programmeuse de l'histoire.
 
 1937
 
-: l'[Automatic Sequence Controlled Calculator Mark I](https://fr.wikipedia.org/wiki/Harvard_Mark_I) d'IBM, le premier grand calculateur numérique.
+: l'ASCC ([Automatic Sequence Controlled Calculator Mark I](https://fr.wikipedia.org/wiki/Harvard_Mark_I)) d'IBM, le premier grand calculateur numérique. Il était constitué de 765'000 pièces, dont des interrupteurs, des relais, des arbres mécaniques et des embrayages. Les ordres étaient lus à partir d'une bande perforée. Une seconde bande perforée contenait les données d'entrée. Les instructions étant simples, pour répéter un algorithme en boucle comme l'algorithme d'Euclide, on pouvait typiquement créer une boucle dans la bande perforée.
 
     - 4500 kg
     - 6 secondes par multiplication à 23 chiffres décimaux
     - Cartes perforées
 
-1950
+1945
 
-: L'ENIAC, de Presper Eckert et John William Mauchly
+: L'ENIAC, de Presper Eckert et John William Mauchly. C'est le premier ordinateur Turing-complet entièrement électronique et fonctionnant avec des diodes et des tubes à vide. Il était programmé en branchant des câbles et en changeant des interrupteurs. Il était utilisé pour des calculs balistiques.
 
     - 160 kW
     - 100 kHz
@@ -171,6 +195,92 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques P
     - 22.7 MW (5 locomotives électriques ou 56'750 foyers européens)
     - 62.68 GFlops/watt
 
+## La machine de Turing
+
+Comment pourrait-on introduire les notions d'ordinateur, de programmes et d'algorithmes sans évoquer la machine de Turing ? Alan Turing est un mathématicien britannique qui a joué un rôle majeur dans la création de l'informatique. Il est notamment connu pour avoir cassé le code de la machine Enigma utilisée par les forces allemandes pendant la Seconde Guerre mondiale.
+
+La machine de Turing est un modèle théorique d'un ordinateur. Elle est composée d'une bande infinie divisée en cases, d'une tête de lecture/écriture et d'un ensemble fini d'états. La machine de Turing est capable de lire et d'écrire des symboles sur la bande, de se déplacer à gauche ou à droite et de changer d'état. Elle est capable de simuler n'importe quel algorithme. La machine de Turing est un modèle abstrait qui a permis de définir la notion de calculabilité et de démontrer des résultats fondamentaux en informatique théorique.
+
+Lorsque l'on parle d'un ordinateur Turing-complet, on fait référence à un ordinateur capable de simuler n'importe quel algorithme. Tous les ordinateurs modernes sont Turing-complets. Selon le modèle, ces ordinateurs se composent d'un programme et d'une mémoire. Le programme est une suite d'instructions qui sont exécutées par le processeur. La mémoire est un espace de stockage qui contient les données et les instructions du programme.
+
+Prenons l'exemple d'un programme visant à additionner `1` à un nombre `n` en binaire. L'algorithme peut être exprimé comme suit :
+
+![Algorithme d'addition binaire](../assets/figures/turing-add.drawio)
+
+On commence par l'état de gauche, on lit un symbole sur la bande. Tant que ce symbole est `0` ou `1` on avance à droite. Lorsque l'on rencontre une case vide, on se déplace à gauche et on entre dans le second état. Tant que l'on lit un `1`, on le remplace par un `0` et on avance à gauche. Lorsque l'on lit un `0` ou une case vide, on le remplace par un `1` et on se déplace à gauche. On revient à l'état initial et on continue jusqu'à ce que l'on rencontre une case vide.
+
+![Exécution de l'algorithme sur une bande](../assets/figures/turing-animation.drawio)
+
+On peut essayer de traduire cet algorithme dans un langage formel :
+
+=== "Pseudo code"
+
+    ```text
+    début:
+        lire symbole
+        si symbole = 0 ou 1 alors
+            avancer à droite
+            aller à début
+        sinon si symbole = vide alors
+            se déplacer à gauche
+            aller retenue
+    retenue:
+        lire symbole
+        si symbole = 1 alors
+            écrire 0
+            se déplacer à gauche
+            aller à retenue
+        sinon si symbole = 0 ou vide alors
+            écrire 1
+            se déplacer à gauche
+    ```
+
+=== "Langage formel de Turing"
+
+    ```text
+    input: '101'
+    table:
+      right:
+        [1,0]: R
+        ' '  : {L: carry}
+      carry:
+        1      : {write: 0, L}
+        [0,' ']: {write: 1, L: done}
+    done:
+    ```
+
+=== "C"
+
+    ```c
+    #include <stdio.h>
+    #include <string.h>
+
+    #define BAND_SIZE 1000
+
+    int main() {
+        char tape[BAND_SIZE] = {0};
+        int head = BAND_SIZE / 2; // Position au milieu de la bande
+
+        scanf("%s", tape + head); // Saisie du nombre d'entrée
+
+        // Algorithme d'addition
+        char c = tape[head];
+        while (c == '0' || c == '1')
+            c = tape[++head];
+        c =  tape[--head];
+        while (c == '1') {
+            tape[head--] = '0';
+            c = tape[head];
+        }
+        tape[head] = '1';
+
+        // Recherche de la position du premier symbole non nul
+        while (tape[head]) head--;
+        head++;
+        printf("%s\n", tape + head);
+    }
+    ```
+
 ## Exercices de révision
 
 !!! exercise "Ordinateur"
@@ -181,3 +291,12 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques P
     - [ ] ordonnateur
     - [ ] systémateur
     - [x] ordiner
+
+!!! exercise "Machine de Turing"
+
+    Qu'est-ce que la machine de Turing ?
+
+    - [ ] Une bombe réalisée pour casser le code de la machine Enigma.
+    - [x] Un modèle théorique d'un ordinateur capable de simuler n'importe quel algorithme.
+    - [ ] Le premier ordinateur électronique.
+    - [ ] Un modèle théorique d'un ordinateur ne pouvant pas simuler n'importe quel algorithme.

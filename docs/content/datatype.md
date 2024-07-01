@@ -1,4 +1,4 @@
-# Types de données
+# Les Types de données
 
 ## Typage
 
@@ -89,7 +89,7 @@ Imaginons qu'un programme exécuté sur un microcontrôleur *big-endian* 8-bit e
 
 ## Les nombres entiers
 
-Les {index}`nombres entiers` sont des nombres sans virgule et incluant le zéro. Ils peuvent donc être négatifs, nuls ou positifs. Mathématiquement ils appartiennent à l'ensemble des [entiers relatifs](https://fr.wikipedia.org/wiki/Entier_relatif).
+Les **nombres entiers** sont des nombres sans virgule et incluant le zéro. Ils peuvent donc être négatifs, nuls ou positifs. Mathématiquement ils appartiennent à l'ensemble des [entiers relatifs](https://fr.wikipedia.org/wiki/Entier_relatif).
 
 Comme aucun ordinateur ne dispose d'un espace de stockage infini, ces nombres excluent les infinis positifs et négatifs, et sont donc bornés, cela va de soi.
 
@@ -109,18 +109,18 @@ Voici quelques exemples des valeurs minimales et maximales possibles selon le no
 
 Table: Stockage d'un entier non signé sur différentes profondeurs
 
-| Profondeur   | Minimum   | Maximum                                         |
-|--------------|-----------|-------------------------------------------------|
-| 8 bits       | 0         | 255 (:math:`2^8 - 1`)                           |
-| 16 bits      | 0         | 65'535 (:math:`2^{16} - 1`)                     |
-| 32 bits      | 0         | 4'294'967'295 (:math:`2^{32} - 1`)              |
-| 64 bits      | 0         | 18'446'744'073'709'551'616 (:math:`2^{64} - 1`) |
+| Profondeur | Minimum | Maximum                                         |
+| ---------- | ------- | ----------------------------------------------- |
+| 8 bits     | 0       | 255 (:math:`2^8 - 1`)                           |
+| 16 bits    | 0       | 65'535 (:math:`2^{16} - 1`)                     |
+| 32 bits    | 0       | 4'294'967'295 (:math:`2^{32} - 1`)              |
+| 64 bits    | 0       | 18'446'744'073'709'551'616 (:math:`2^{64} - 1`) |
 
 Notez l'importance du $-1$ dans la définition du maximum, car la valeur minimum $0$ fait partie de l'information même si elle représente une quantité nulle. Il y a donc 256 valeurs possibles pour un nombre entier non signé 8-bits, bien que la valeur maximale ne soit que de 255.
 
 ### Les entiers relatifs
 
-Mathématiquement un {index}`entier relatif` appartient à l'ensemble $\mathbb{Z}$:
+Mathématiquement un **entier relatif** appartient à l'ensemble $\mathbb{Z}$:
 
 $$
 \mathbb{Z} = {..., -3, -2, -1, 0, 1, 2, 3, ...}
@@ -134,11 +134,11 @@ Voici quelques exemples de valeurs minimales et maximales selon le nombre de bit
 
 Table: Stockage d'un entier signé sur différentes profondeurs
 
-| Profondeur   | Minimum          | Maximum          |
-|--------------|------------------|------------------|
-| 8 bits       | -128             | +127             |
-| 16 bits      | -32'768          | +32'767          |
-| 32 bits      | -2'147'483'648   | +2'147'483'647   |
+| Profondeur | Minimum        | Maximum        |
+| ---------- | -------------- | -------------- |
+| 8 bits     | -128           | +127           |
+| 16 bits    | -32'768        | +32'767        |
+| 32 bits    | -2'147'483'648 | +2'147'483'647 |
 
 En mémoire ces nombres sont stockés en utilisant le {ref}`complément à deux <twos_complement>` qui fait l'objet d'une section à part entière.
 
@@ -161,45 +161,45 @@ Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au
 
 Table: "Table des types entiers en C"
 
-| Type                   | Signe    | Profondeur          | Format   |
-|------------------------|----------|---------------------|----------|
-| ``char``               | ?        | ``CHAR_BIT``        | ``%c``   |
-| ``signed char``        | signed   | au moins 8 bits     | ``%c``   |
-| ``unsigned char``      | unsigned | au moins 8 bits     | ``%c``   |
-|                        |          |                     |          |
-| ``short``              | signed   | au moins 16 bits    | ``%hi``  |
-| ``short int``          |          |                     |          |
-| ``signed short``       |          |                     |          |
-| ``signed short int``   |          |                     |          |
-|                        |          |                     |          |
-| ``unsigned short``     | unsigned | au moins 16 bits    | ``%hu``  |
-| ``unsigned short int`` |          |                     |          |
-|                        |          |                     |          |
-| ``unsigned``           | unsigned | au moins 32 bits    | ``%u``   |
-| ``unsigned int``       |          |                     |          |
-|                        |          |                     |          |
-| ``int``                | signed   | au moins 32 bits    | ``%d``   |
-| ``signed``             |          |                     |          |
-| ``signed int``         |          |                     |          |
-|                        |          |                     |          |
-| ``unsigned``           | unsigned | au moins 32 bits    | ``%u``   |
-| ``unsigned int``       |          |                     |          |
-|                        |          |                     |          |
-| ``long``               | signed   | au moins 32 bits    | ``%li``  |
-| ``long int``           |          |                     |          |
-| ``signed long``        |          |                     |          |
-| ``signed long int``    |          |                     |          |
-|                        |          |                     |          |
-| ``unsigned long``      | unsigned | au moins 32 bits    | ``%lu``  |
-| ``unsigned long int``  |          |                     |          |
-|                        |          |                     |          |
-| ``long long``          | signed   | au moins 64 bits    | ``%lli`` |
-| ``long long int``      |          |                     |          |
-| ``signed long long``   |          |                     |          |
-| ``signed long long int`` |       |                     |          |
-|                        |          |                     |          |
-| ``unsigned long long`` | unsigned | au moins 64 bits    | ``%llu`` |
-| ``unsigned long long int`` |     |                     |          |
+| Type                       | Signe    | Profondeur       | Format   |
+| -------------------------- | -------- | ---------------- | -------- |
+| ``char``                   | ?        | ``CHAR_BIT``     | ``%c``   |
+| ``signed char``            | signed   | au moins 8 bits  | ``%c``   |
+| ``unsigned char``          | unsigned | au moins 8 bits  | ``%c``   |
+|                            |          |                  |          |
+| ``short``                  | signed   | au moins 16 bits | ``%hi``  |
+| ``short int``              |          |                  |          |
+| ``signed short``           |          |                  |          |
+| ``signed short int``       |          |                  |          |
+|                            |          |                  |          |
+| ``unsigned short``         | unsigned | au moins 16 bits | ``%hu``  |
+| ``unsigned short int``     |          |                  |          |
+|                            |          |                  |          |
+| ``unsigned``               | unsigned | au moins 32 bits | ``%u``   |
+| ``unsigned int``           |          |                  |          |
+|                            |          |                  |          |
+| ``int``                    | signed   | au moins 32 bits | ``%d``   |
+| ``signed``                 |          |                  |          |
+| ``signed int``             |          |                  |          |
+|                            |          |                  |          |
+| ``unsigned``               | unsigned | au moins 32 bits | ``%u``   |
+| ``unsigned int``           |          |                  |          |
+|                            |          |                  |          |
+| ``long``                   | signed   | au moins 32 bits | ``%li``  |
+| ``long int``               |          |                  |          |
+| ``signed long``            |          |                  |          |
+| ``signed long int``        |          |                  |          |
+|                            |          |                  |          |
+| ``unsigned long``          | unsigned | au moins 32 bits | ``%lu``  |
+| ``unsigned long int``      |          |                  |          |
+|                            |          |                  |          |
+| ``long long``              | signed   | au moins 64 bits | ``%lli`` |
+| ``long long int``          |          |                  |          |
+| ``signed long long``       |          |                  |          |
+| ``signed long long int``   |          |                  |          |
+|                            |          |                  |          |
+| ``unsigned long long``     | unsigned | au moins 64 bits | ``%llu`` |
+| ``unsigned long long int`` |          |                  |          |
 
 
 Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête `stdint.h`. Cette bibliothèque standard offre les types suivants :
@@ -212,16 +212,16 @@ Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de 
 
 Table: Entiers standard défini par `stdint`
 
-| Type                                          | Signe    | Profondeur       | Format   |
-|-----------------------------------------------|----------|------------------|----------|
-| ``uint8_t``                                   | unsigned | 8 bits           | ``%c``   |
-| ``int8_t``                                    | signed   | 8 bits           | ``%c``   |
-| ``uint16_t``                                  | unsigned | 16 bits          | ``%hu``  |
-| ``int16_t``                                   | signed   | 16 bits          | ``%hi``  |
-| ``uint32_t``                                  | unsigned | 32 bits          | ``%u``   |
-| ``int32_t``                                   | signed   | 32 bits          | ``%d``   |
-| ``uint64_t``                                  | unsigned | 64 bits          | ``%llu`` |
-| ``int64_t``                                   | signed   | 64 bits          | ``%lli`` |
+| Type         | Signe    | Profondeur | Format   |
+| ------------ | -------- | ---------- | -------- |
+| ``uint8_t``  | unsigned | 8 bits     | ``%c``   |
+| ``int8_t``   | signed   | 8 bits     | ``%c``   |
+| ``uint16_t`` | unsigned | 16 bits    | ``%hu``  |
+| ``int16_t``  | signed   | 16 bits    | ``%hi``  |
+| ``uint32_t`` | unsigned | 32 bits    | ``%u``   |
+| ``int32_t``  | signed   | 32 bits    | ``%d``   |
+| ``uint64_t`` | unsigned | 64 bits    | ``%llu`` |
+| ``int64_t``  | signed   | 64 bits    | ``%lli`` |
 
 À ces types s'ajoutent les types **rapides** (*fast*) et **minimums** (*least*). Un type nommé `uint_least32_t` garanti l'utilisation du type de donnée utilisant le moins de mémoire et garantissant une profondeur d'au minimum 32 bits. Il est strictement équivalent à `unsigned int`.
 
@@ -263,204 +263,25 @@ Admettons que ce développeur sans scrupule développe un programme complexe sur
 La première solution est de toujours utiliser les types proposés par `<stdint.h>` lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :
 
 
-| Modèle de donnée | ``short`` | ``int`` | ``long`` | ``long long`` | ``size_t`` | Système d'exploitation                                      |
-|------------------|-----------|---------|----------|---------------|------------|-------------------------------------------------------------|
-| **LP32**         | 16        | 16      | 32       |               | 32         | Windows 16-bits, Apple Macintosh (très vieux)               |
-| **ILP32**        | 16        | 32      | 32       | 64            | 32         | Windows x86, Linux/Unix 32-bits                             |
+| Modèle de donnée | ``short`` | ``int`` | ``long`` | ``long long`` | ``size_t`` | Système d'exploitation                                                                                                    |
+| ---------------- | --------- | ------- | -------- | ------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **LP32**         | 16        | 16      | 32       |               | 32         | Windows 16-bits, Apple Macintosh (très vieux)                                                                             |
+| **ILP32**        | 16        | 32      | 32       | 64            | 32         | Windows x86, Linux/Unix 32-bits                                                                                           |
 | **LLP64**        | 16        | 32      | 32       | 64            | 64         | [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) x86-64, [MinGW](https://en.wikipedia.org/wiki/MinGW) |
-| **LP64**         | 16        | 32      | 64       | 64            | 64         | Unix, Linux, macOS, Cygwin                                  |
-| **ILP64**        | 16        | 64      | 64       | 64            | 64         | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC) |
-| **SILP64**       | 64        | 64      | 64       | 64            | 64         | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur) |
+| **LP64**         | 16        | 32      | 64       | 64            | 64         | Unix, Linux, macOS, Cygwin                                                                                                |
+| **ILP64**        | 16        | 64      | 64       | 64            | 64         | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC)                                                         |
+| **SILP64**       | 64        | 64      | 64       | 64            | 64         | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur)                                                         |
 
-
-## Les nombres réels
-
-Mathématiquement, les [nombres réels](https://fr.wikipedia.org/wiki/Nombre_r%C3%A9el) $\mathbb{R}$, sont des nombres qui peuvent être représentés par une partie entière, et une liste finie ou infinie de décimales. En informatique, stocker une liste infinie de décimale demanderait une quantité infinie de mémoire et donc, la [précision arithmétique](https://fr.wikipedia.org/wiki/Pr%C3%A9cision_arithm%C3%A9tique) est contrainte.
-
-Au début de l'ère des ordinateurs, il n'était possible de stocker que des nombres entiers, mais
-le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La transition s'est faite progressivement, d'abord par l'apparition de la [virgule fixe](https://fr.wikipedia.org/wiki/Virgule_fixe), puis par la [virgule flottante](https://fr.wikipedia.org/wiki/Virgule_flottante).
-
-Le premier ordinateur avec une capacité de calcul en virgule flottante date de 1942 (ni vous ni moi n'étions probablement né) avec le [Zuse's Z4](https://fr.wikipedia.org/wiki/Zuse_4), du nom de son inventeur [Konrad Zuse](https://fr.wikipedia.org/wiki/Konrad_Zuse).
-
-### Virgule fixe
-
-Prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facilement que bien qu'il s'agisse d'un nombre entier, une virgule pourrait être ajoutée au bit zéro sans en modifier sa signification.
-
-```text
-┌─┬─┬─┬─┬─┬─┬─┬─┐
-│0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
-└─┴─┴─┴─┴─┴─┴─┴─┘
-                , / 2^0     ----> 83 / 1 = 83
-```
-
-Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre `0b01010011` avec une virgule fixe positionnée au quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisée par 8 ($2^3$). On parvient alors à exprimer une grandeur réelle comportant une partie décimale :
-
-```text
-┌─┬─┬─┬─┬─┬─┬─┬─┐
-│0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
-└─┴─┴─┴─┴─┴─┴─┴─┘
-          ,       / 2^3     ----> 83 / 8 = 10.375
-```
-
-Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens, est incapable sans information additionnelle d'interpréter correctement la position de la virgule puisque sa position n'est encodée nulle part. Et puisque la position de cette virgule est dans l'intervalle `[0..7]`, il serait possible d'utiliser trois bits supplémentaires à cette fin :
-
-```text
-┌─┬─┬─┬─┬─┬─┬─┬─┐
-│0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
-└─┴─┴─┴─┴─┴─┴─┴─┘
-          ┌─┬─┬─┐
-          │0│1│1│ / 2^3     ----> 83 / 8 = 10.375
-          └─┴─┴─┘
-```
-
-Cette solution est élégante, mais demande à présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.
-
-### Virgule flottante
-
-Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' [exposant](<https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)>) et le reste de l'information la [mantisse](https://fr.wikipedia.org/wiki/Mantisse), qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la [mantis shrimp](https://fr.wikipedia.org/wiki/Stomatopoda), une quille ou crevette mante boxeuse aux couleurs particulièrement chatoyantes).
-
-```
-  exp.  mantisse
-┞─┬─┬─╀─┬─┬─┬─┬─┦
-│0│1│0│1│0│0│1│1│ = 2^4 + 2^1 + 2^0 = 16 + 2 + 1 = 19
-└─┴─┴─┴─┴─┴─┴─┴─┘
-   └────────────> / 2^1 ----> 19 / 2 = 9.5
-```
-
-Notre construction nous permet toujours d'exprimer des grandeurs réelles, mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre $1\cdot2^{7}=0.0078125$ et $63$. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32-bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.
-
-Dernière itération, choisissons d'étendre notre espace de stockage à ,4 octets. Réservons un bit de signe pour exprimer les grandeurs négatives, 8 bits pour l'exposant et 23 bits pour la mantisse :
-
-```
- ┌ Signe 1 bit
- │        ┌ Exposant 8 bits
- │        │                             ┌ Mantisse 23 bits
- ┴ ───────┴──────── ────────────────────┴──────────────────────────
-┞─╀─┬─┬─┬─┬─┬─┬─┐┌─╀─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
-│0│0│0│1│0│0│0│0││0│1│0│0│1│0│0│0││1│1│0│1│1│1│1│1││0│1│0│0│0│0│0│1│
-└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
-```
-
-Peu à peu, nous nous rapprochons du *Standard for Floating-Point Arithmetic* ([IEEE 754](https://fr.wikipedia.org/wiki/IEEE_754)). La formule de base est la suivante :
-
-$$
-x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{max}}
-$$
-
-Avec :
-
-$s$
-
-: Signe ($\pm1$)
-
-$b$
-
-: Base de l'exposant, un entier $>1$.
-
-$e$
-
-: Exposant, un entier entre $e_\text{min}$ et $e_\text{max}$
-
-$p$
-
-: Précision, nombre de digits en base $b$ de la mantisse
-
-$f_k$
-
-: Entier non négatif plus petit que la base $b$.
-
-Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres `binary16`, `binary32` ou `binary64`, selon le nombre de bits utilisé pour coder l'information. Les termes de *Single precision* ou *Double precision* sont aussi couramment utilisées.
-
-Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante ([FPU](https://en.wikipedia.org/wiki/Floating-point_unit) pour *Floating point unit*) sont les suivants :
-
-| IEEE-754   | Exposant | Mantisse | Signe |
-| ---------- | -------- | -------- | ----- |
-| `binary32` | 8 bits   | 23 bits  | 1 bit |
-| `binary64` | 11 bits  | 52 bits  | 1 bit |
-
-Prenons le temps de faire quelques observations.
-
-- Une valeur encodée en virgule flottante sera toujours une approximation d'une grandeur réelle.
-- La précision est d'autant plus grande que le nombre de bits de la mantisse est grand.
-- La base ayant été fixée à 2, il est possible d'exprimer $1/1024$ sans erreur de précision, mais pas $1/1000$.
-- Un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent [(10 à 100x)](https://stackoverflow.com/a/15585448/2612235) pour faire des calculs en virgule flottante.
-- Bien que le standard **C99** définisse les types virgule flottante `float`, `double` et `long double`, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé.
-
-### Simple précision
-
-Le type `float` aussi dit à {index}`précision simple` utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :
-
-- $\pm\inf$ lorsque l'exposant vaut `0xff`
-- $(-1)^{\text{sign}}\cdot2^{\text{exp} - 127}\cdot1.\text{significand}$
-- $0$ lorsque la mantisse vaut `0x00000`
-
-La valeur de 1.0 est encodée :
-
-$$
-\begin{align*}
-0\:01111111\:00000000000000000000000_2 &= \text{3f80}\: \text{0000}_{16} \\
-&= (-1)^0 \cdot 2^{127-127} \cdot \frac{(2^{23} + 0)}{2^{23}} \\
-&= 2^{0} \cdot 1.0 = 1.0
-\end{align*}
-$$
-
-La valeur maximale exprimable :
-
-$$
-\begin{align*}
-0\:11111110\:11111111111111111111111_2 &= \text{7f7f}\: \text{ffff}_{16} \\
-&= (-1)^0 \cdot 2^{254-127} \cdot \frac{(2^{23} + 838'607)}{2^{23}} \\
-&≈ 2^{127} \cdot 1.9999998807 \\
-&≈ 3.4028234664 \cdot 10^{38}
-\end{align*}
-$$
-
-La valeur de $-\pi$ (pi) est :
-
-$$
-\begin{align*}
-1\:10000000\:10010010000111111011011_2 &= \text{4049}\: \text{0fdb}_{16} \\
-&= (-1)^1 \cdot 2^{128-127} \cdot \frac{(2^{23} + 4'788'187)}{2^{23}} \\
-&≈ -1 \cdot 2^{1} \cdot 1.5707963 \\
-&≈ -3.14159274101
-\end{align*}
-$$
-
-Vient s'ajouter les valeurs particulières suivantes :
-
-```
-0 00000000 00000000000000000000000₂ ≡ 0000 0000₁₆ ≡ 0
-0 11111111 00000000000000000000000₂ ≡ 7f80 0000₁₆ ≡ inf
-1 11111111 00000000000000000000000₂ ≡ ff80 0000₁₆ ≡ −inf
-```
-
-### Double précision
-
-La double précision est similaire à la simple précision, mais avec une mantisse à **52 bits** et **11 bits** d'exposants.
-
-!!! exercise "Expressions arithmétiques flottantes"
-
-    Donnez la valeur des expressions ci-dessous :
-
-    ```text
-    25. + 10. + 7. – 3.
-    5. / 2.
-    24. + 5. / 2.
-    25. / 5. / 2.
-    25. / (5. / 2.)
-    2. * 13. % 7.
-    1.3E30 + 1.
-    ```
 
 ## Les caractères
 
 Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement représentés par des grandeurs exprimées sur 1 octet (8-bits):
 
-```
+```text
 97 ≡ 0b1100001 ≡ 'a'
 ```
 
-Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'[ASA](https://fr.wikipedia.org/wiki/American_National_Standards_Institute), l'*American Standards Association* aujourd'hui {index}`ANSI` qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.
+Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'[ASA](https://fr.wikipedia.org/wiki/American_National_Standards_Institute), l'*American Standards Association* aujourd'hui **ANSI** qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.
 
 ![Table ASCII ASA X3.4 établie en 1963](../assets/figures/dist/encoding/ascii-1963.svg)
 
@@ -508,7 +329,7 @@ int main(void) {
 
 ## Chaîne de caractères
 
-Une {index}`chaîne de caractères` est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit `NUL` ou `\0`.
+Une **chaîne de caractères** est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit `NUL` ou `\0`.
 
 La chaîne de caractère `Hello` sera en mémoire stockée en utilisant les codes ASCII suivants.
 
@@ -591,7 +412,7 @@ Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est un type de donnée
 
 La convention est d'utiliser `1` pour mémoriser un état vrai, et `0` pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.
 
-Les {index}`booléens` ont étés introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête `stdbool.h`. Avant cela le type boolean était `_Bool` et définir les états vrais et faux était à la charge du développeur.
+Les **booléens** ont étés introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête `stdbool.h`. Avant cela le type boolean était `_Bool` et définir les états vrais et faux était à la charge du développeur.
 
 ```c
 #include <stdbool.h>
@@ -673,7 +494,7 @@ void call(enum country_codes code) {
 
 ## Type incomplet
 
-Un {index}`type incomplet` est un qualificatif de type de donnée décrivant un objet dont sa taille en mémoire n'est pas connue.
+Un **type incomplet** est un qualificatif de type de donnée décrivant un objet dont sa taille en mémoire n'est pas connue.
 
 ## Type vide (*void*)
 
@@ -707,12 +528,12 @@ assez grand pour  contenir un `int`.
 Aussi, la plupart des types de taille inférieure à `int` sont automatiquement et implicitement promus en `int`. Le résultat de `a + b` lorsque `a` et `b` sont des `char` sera automatiquement un `int`.
 
 | Type source | Type cible |
-|---------|----------|
-| char    | int      |
-| short   | int      |
-| int     | long     |
-| long    | float    |
-| float   | double   |
+| ----------- | ---------- |
+| char        | int        |
+| short       | int        |
+| int         | long       |
+| long        | float      |
+| float       | double     |
 
 Notez qu'il n'y a pas de promotion numérique vers le type *short*. On
 passe directement à un type *int*.

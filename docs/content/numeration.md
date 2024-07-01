@@ -1,10 +1,30 @@
-# Numération
+# La Numération
 
 La numération désigne le mode de représentation des nombres (p. ex. cardinaux, ordinaux), leur base (système binaire, ternaire, quinaire, décimal ou vicésimal), ainsi que leur codification, IEEE 754, complément à un, complément à deux. Bien comprendre les bases de la numération est important pour l'ingénieur développeur, car il est souvent amené à effectuer des opérations de bas niveau sur les nombres.
 
 Ce chapitre n'est essentiel qu'au programmeur de bas niveau, l'électronicien ou l'informaticien technique. Bien comprendre la numération permet de mieux se représenter la manière dont l'ordinateur traite les données au niveau le plus fondamental: le bit.
 
+## Le bit
+
 Un **bit** est l'unité d'information fondamentale qui peut prendre que deux états : `1` ou `0`. En électronique, cette information peut être stockée dans un élément mémoire par une charge électrique. Dans le monde réel, on peut stocker un bit avec une pièce de monnaie déposée sur le côté pile ou face. L'assemblage de plusieurs bits permet de stocker de l'information plus complexe.
+
+Le bit est l'abbréviation de *binary digit* (chiffre binaire) et est centrale à la théorie de l'information. Le concept a été popularisé par Claude Shannon dans son article fondateur de la théorie de l'information en 1948: *A Mathematical Theory of Communication*. Shannon y introduit le bit comme unité de mesure de l'information.
+
+S'il existe un meuble avec huit casiers assez grand pour une pomme, et que l'on souhaite connaître le nombre de possibilités de rangement, on sait que chaque casier peut contenir une pomme ou aucune. Le nombre de possibilités est alors de $2^8 = 256$. La quantité d'information nécessaire à connaître l'état du meuble est de 8 bits.
+
+On pourrait utiliser ce meuble, et ces pommes pour représenter son age. Une personne de 42 ans n'aurait pas besoin de 42 pommes mais seulement de 3. En effet si on représente l'absence de pomme par `0` et la présence d'une pomme par `1`, on obtient :
+
+```text
+0 0 1 0 1 0 1 0
+```
+
+Si l'on souhaite représenter l'état d'un meuble beaucoup plus grand, par exemple un meuble de 64 casiers, la quantité d'information représentable est de $2^{64} = 18'446'744'073'709'551'616$, où 64 bits. Cela permet de représenter le nombre de grains de sable sur Terre, le nombre de secondes dans 584'942 années, ou le nombre de combinaisons possibles pour un mot de passe de 8 caractères.
+
+Les informaticiens ont l'habitude de regrouper les bits par 8 pour former un **octet**. Un octet peut donc représenter $256$ valeurs différentes. Un octet est souvent appelé un **byte** en anglais mais ce terme est ambigu car il peut également désigner un groupe de bits de taille variable.
+
+Lorsque vous achetez un disque de stockage pour votre ordinateur vous pouvez par exemple lire sur l'emballage que le disque a une capacité de 1 To (Téra-octet). Un Téra-octet est égal à $2^{40}$ octets, soit $1'099'511'627'776$ octets. Un octet égant égal à 8 bits, donc un Téra-octet est égal à $8'796'093'022'208$ bits. À titre d'information l'entièreté de Wikipedia en pèse environ 22 Go (Giga-octet). On peut donc dire que notre disque de 1 To permettrait de stocker 45 copies de Wikipedia.
+
+Pour représenter l'état de Wikipedia, il suffirait donc d'avoir $10'225'593'776'312$ pommes et de l'armoire appropriée.
 
 !!! exercise "Pile ou face"
 
@@ -12,7 +32,45 @@ Un **bit** est l'unité d'information fondamentale qui peut prendre que deux ét
 
     ??? solution
 
-        Il transmet un seul 1 bit : équipe A ou pile ou ``1``, équipe B ou face ou ``0``. Il faut néanmoins encore définir à quoi correspond cette information.
+        Il transmet un seul 1 bit : équipe A ou pile ou `1`, équipe B ou face ou `0`. Il faut néanmoins encore définir à quoi correspond cette information.
+
+## Les préfixes
+
+On l'a vu, le nombre de bits peut être très grand et même divisé par 8 pour obtenir un nombre d'octets, il est difficile avec des nombres simples de représenter ces quantités. C'est pourquoi on utilise des préfixes.
+
+Avec le système international d'unités, on utilise des préfixes pour exprimer des multiples de 10. Par exemple, un kilogramme est égal à 1000 grammes. La tonne est égale à 1000 kilogrammes.
+
+En informatique, comme on utilise un système binaire en puissance de deux, rajouter un bit double la quantité d'information. On utilise donc des préfixes pour exprimer des multiples de 2. Un kilo-octet est égal à 1000 octets $10^3$, mais un kibi-octet est égal à 1024 octets $2^10$. Les préfixes binaires sont définis par l'IEC (International Electrotechnical Commission) et sont les suivants :
+
+=== "Préfixes standards"
+
+    | Préfixe | Symbole | $10^n$    |
+    |---------|---------|-----------|
+    | Kilo    | K       | $10^3$    |
+    | Méga    | M       | $10^6$    |
+    | Giga    | G       | $10^9$    |
+    | Téra    | T       | $10^{12}$ |
+    | Peta    | P       | $10^{15}$ |
+    | Exa     | E       | $10^{18}$ |
+    | Zetta   | Z       | $10^{21}$ |
+    | Yotta   | Y       | $10^{24}$ |
+
+=== "Préfixes binaires"
+
+    | Préfixe | Symbole | $2^{10n}$ |
+    |---------|---------|-----------|
+    | Kibi    | Ki      | $2^{10}$  |
+    | Mébi    | Mi      | $2^{20}$  |
+    | Gibi    | Gi      | $2^{30}$  |
+    | Tébi    | Ti      | $2^{40}$  |
+    | Pébi    | Pi      | $2^{50}$  |
+    | Exbi    | Ei      | $2^{60}$  |
+    | Zebi    | Zi      | $2^{70}$  |
+    | Yobi    | Yi      | $2^{80}$  |
+
+!!! info
+
+    Les préfixes binaires sont méconnus et peu utilisés par le marketing. Les disques durs sont souvent vendus en Go (Giga-octets) alors que les systèmes d'exploitation les affichent en Gio (Gibi-octets). Il est donc important de bien comprendre la différence entre ces deux unités.
 
 ## Bases
 
@@ -339,7 +397,7 @@ n = 209
 
 !!! exercise "La numération Shadock"
 
-    ![Les Shadocks](../assets/images/shadocks.svg){height="150px"}
+    ![Les Shadocks](../assets/images/shadocks.svg){height="300px"}
 
     Les Shadocks ne connaissent que quatre mots: ``GA``, ``BU``, ``ZO``, ``MEU``. La vidéo [Comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ>) en explique le principe.
 
@@ -372,6 +430,12 @@ n = 209
 
             Depuis un terminal Python vous pouvez simplement utiliser ``int("12030", 4)``
 
+## Entiers simples
+
+Les entiers sont les premiers types de données manipulés par les ordinateurs. Ils sont stockés en mémoire sous forme de bits. En choisissant la taille de stockage des entiers, on détermine la plage de valeurs que l'on peut représenter. Un entier de 8 bits peut représenter $2^8 = 256$ valeurs différentes, de 0 à 255. Un entier de 16 bits peut représenter $2^{16} = 65536$ valeurs différentes, de 0 à 65535.
+
+Cette manière est élégante mais elle ne permet pas de représenter des valeurs négatives. Pour cela, on aura recours aux entiers relatifs.
+
 ## Entiers relatifs
 
 Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives car il n'existe pas de symboles pour le signe `-` (ni même d'ailleurs `+`).
@@ -380,7 +444,7 @@ Une approche naïve est de réserver une partie de la mémoire pour des entiers 
 
 ### Bit de signe
 
-On peut se réserver un bit de signe, par exemple le 8{sup}`ième` bit d'un `char`.
+On peut se réserver un bit de signe, par exemple le 8{sup}`e` bit d'un `char`.
 
 ```text
 ┌─┐┌─┬─┬─┬─┬─┬─┬─┐
@@ -523,273 +587,189 @@ Les avantages :
 
 Vous l'aurez compris, le complément à deux est le mécanisme le plus utilisé dans les ordinateurs moderne pour représenté les nombres entiers négatifs.
 
-## Opérations logiques
+## Les nombres réels
 
-Les opérations logiques sont introduites par l'[algèbre de Boole](<https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)>) et permettent de combiner plusieurs grandeurs binaires en utilisant des opérations.
+Mathématiquement, les [nombres réels](https://fr.wikipedia.org/wiki/Nombre_r%C3%A9el) $\mathbb{R}$, sont des nombres qui peuvent être représentés par une partie entière, et une liste finie ou infinie de décimales. En informatique, stocker une liste infinie de décimale demanderait une quantité infinie de mémoire et donc, la [précision arithmétique](https://fr.wikipedia.org/wiki/Pr%C3%A9cision_arithm%C3%A9tique) est contrainte.
 
-### Opérations bit à bit
+Au début de l'ère des ordinateurs, il n'était possible de stocker que des nombres entiers, mais
+le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La transition s'est faite progressivement, d'abord par l'apparition de la [virgule fixe](https://fr.wikipedia.org/wiki/Virgule_fixe), puis par la [virgule flottante](https://fr.wikipedia.org/wiki/Virgule_flottante).
 
-Les {index}`opérations bit à bit` (*bitwise*) disponibles en C sont les suivantes :
+Le premier ordinateur avec une capacité de calcul en virgule flottante date de 1942 (ni vous ni moi n'étions probablement né) avec le [Zuse's Z4](https://fr.wikipedia.org/wiki/Zuse_4), du nom de son inventeur [Konrad Zuse](https://fr.wikipedia.org/wiki/Konrad_Zuse).
 
-Table: Opérateurs bit à bit
+### Virgule fixe
 
-| Opérateur | Description       | Exemple                         |
-|-----------|-------------------|---------------------------------|
-| ``&``     | Conjonction (ET)  | ``(0b1101 & 0b1010) == 0b1000`` |
-| ``|``     | Disjonction (OU)  | ``(0b1101 | 0b1010) == 0b1111`` |
-| ``^``     | XOR binaire       | ``(0b1101 ^ 0b1010) == 0b0111`` |
-| ``~``     | Complément à un   | ``~0b11011010 == 0b00100101``   |
-| ``<<``    | Décalage à gauche | ``(0b1101 << 3) == 0b1101000``  |
-| ``>>``    | Décalage à droite | ``(0b1101 >> 2) == 0b11``       |
-
-
-!!! important
-
-    Ne pas confondre l'opérateur `!` et l'opérateur `~`. Le premier est la négation d'un nombre tandis que l'autre est l'inversion bit à bit. La négation d'un nombre différent de zéro donnera toujours `0` et la négation de zéro donnera toujours `1`.
-
-#### Conjonction
-
-La conjonction ou **ET logique** ($\wedge$) est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.
-
-Table: Conjonction bit à bit
-
-| $A ∧ B$ | $A=0$ | $A=1$ |
-| ------- | ----- | ----- |
-| $B=0$   | 0     | 0     |
-| $B=1$   | 0     | 1     |
-
-Avec cette opération l'état dominant est le `0` et l'état récessif est le `1`. Il suffit qu'une seule valeur soit à zéro pour forcer le résultat à zéro :
-
-```c
-assert(0b1100 & 0b0011 & 0b1111 & 0 == 0)
-```
-
-Cet opérateur est d'ailleurs souvent utilisé pour imposer une valeur nulle suivant une condition. Dans l'exemple suivant le Balrog est réduit à néant par Gandalf :
-
-```c
-balrog = 0b1100110101;
-gandalf = 0;
-
-balrog = balrog & gandalf; // You shall not pass!
-```
-
-#### Disjonction
-
-La disjonction ou **OU logique** ($\lor$) s'apparente à l'opération `+`.
-
-| $A ∨ B$ | $A=0$ | $A=1$ |
-| ------- | ----- | ----- |
-| $B=0$   | 0     | 1     |
-| $B=1$   | 1     | 1     |
-
-Ici l'état dominant est le `1` car il force n'importe quel `0` à changer d'état :
-
-```c
-bool student = false; // Veut pas faire ses devoirs ?
-bool teacher = true;
-
-student = student | teacher; // Tes devoirs tu feras...
-```
-
-#### Disjonction exclusive
-
-Le **OU exclusif** ($\oplus$ ou $\veebar$) est une opération curieuse mais extrêmement puissante et utilisée en cryptographie.
-
-En électronique sur les symboles CEI, l'opération logique est nommée `=1` car si le résultat de l'addition des deux opérandes est différent de `1`, la sortie sera nulle. Lorsque `A` et `B` valent `1` la somme vaut `2` et donc la sortie est nulle.
-
-Table: Disjonction exclusive
-
-| $A \veebar B$ | $A=0$ | $A=1$ |
-| ------- | ----- | ----- |
-| $B=0$   | 0     | 1     |
-| $B=1$   | 1     | 0     |
-
-L'opération présente une propriété très intéressante : elle est réversible.
-
-```c
-assert(1542 ^ 42 ^ 42 == 1542)
-```
-
-Par exemple il est possible d'inverser la valeur de deux variables simplement :
-
-```c
-int a = 123;
-int b = 651;
-
-a ^= b;
-b ^= a;
-a ^= b;
-
-assert(a == 651);
-assert(b == 123);
-```
-
-#### Complément à un
-
-Le complément à un ($\lnot$) est simplement la valeur qui permet d'inverser bit à bit une valeur :
-
-Table: Complément à un
-
-| $A$ | $\lnot~A$ |
-| --- | -------- |
-| 0   | 1 |
-| 1   | 0 |
-
-
-### Opérateurs arithmétiques
-
-Les opérations arithmétiques nécessitent le plus souvent d'une communication entre les bits.
-C'est-à-dire en utilisant une retenue (*carry*). En base décimale, on se souvient de l'addition que l'on écrivait dans les petites écoles :
+Prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facilement que bien qu'il s'agisse d'un nombre entier, une virgule pourrait être ajoutée au bit zéro sans en modifier sa signification.
 
 ```text
-  ¹¹    ← retenues
-  123₁₀
-+  89₁₀
------
-  212₁₀
+┌─┬─┬─┬─┬─┬─┬─┬─┐
+│0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
+└─┴─┴─┴─┴─┴─┴─┴─┘
+                , / 2^0     ----> 83 / 1 = 83
 ```
 
-En arithmétique binaire, c'est exactement la même chose :
-
-| A   | B   | A + B | C   |
-| --- | --- | ----- | --- |
-| 0   | 0   | 0     | 0   |
-| 0   | 1   | 1     | 0   |
-| 1   | 0   | 1     | 0   |
-| 1   | 1   | 0     | 1   |
+Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre `0b01010011` avec une virgule fixe positionnée au quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisée par 8 ($2^3$). On parvient alors à exprimer une grandeur réelle comportant une partie décimale :
 
 ```text
- ¹¹¹  ¹¹¹
-  11100101₂
-+  1100111₂
-----------
- 101001100₂
+┌─┬─┬─┬─┬─┬─┬─┬─┐
+│0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
+└─┴─┴─┴─┴─┴─┴─┴─┘
+          ,       / 2^3     ----> 83 / 8 = 10.375
 ```
 
-!!! exercise "Additions binaires"
+Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens, est incapable sans information additionnelle d'interpréter correctement la position de la virgule puisque sa position n'est encodée nulle part. Et puisque la position de cette virgule est dans l'intervalle `[0..7]`, il serait possible d'utiliser trois bits supplémentaires à cette fin :
 
-    Une unité de calcul arithmétique (ALU) est capable d'effectuer les 4 opérations de bases comprenant additions et soustractions.
+```text
+┌─┬─┬─┬─┬─┬─┬─┬─┐
+│0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
+└─┴─┴─┴─┴─┴─┴─┴─┘
+          ┌─┬─┬─┐
+          │0│1│1│ / 2^3     ----> 83 / 8 = 10.375
+          └─┴─┴─┘
+```
 
-    Traduisez les opérandes ci-dessous en binaire, puis poser l'addition en binaire.
+Cette solution est élégante, mais demande à présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.
 
-    1. $1 + 51$
-    2. $51 - 7$
-    3. $204 + 51$
-    4. $204 + 204` (sur 8-bits$
+### Virgule flottante
 
-    ??? solution
+Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' [exposant](<https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)>) et le reste de l'information la [mantisse](https://fr.wikipedia.org/wiki/Mantisse), qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la [mantis shrimp](https://fr.wikipedia.org/wiki/Stomatopoda), une quille ou crevette mante boxeuse aux couleurs particulièrement chatoyantes).
 
-        1. $1 + 51$
+```
+  exp.  mantisse
+┞─┬─┬─╀─┬─┬─┬─┬─┦
+│0│1│0│1│0│0│1│1│ = 2^4 + 2^1 + 2^0 = 16 + 2 + 1 = 19
+└─┴─┴─┴─┴─┴─┴─┴─┘
+   └────────────> / 2^1 ----> 19 / 2 = 9.5
+```
 
-            ```text
-                    ¹¹
-                      1₂
-            +   110011₂  (2⁵ + 2⁴ + 2¹+ 2⁰ ≡ 51)
-            ----------
-                110100₂
-            ```
+Notre construction nous permet toujours d'exprimer des grandeurs réelles, mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre $1\cdot2^{7}=0.0078125$ et $63$. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32-bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.
 
-        2. $51 - 7$
+Dernière itération, choisissons d'étendre notre espace de stockage à ,4 octets. Réservons un bit de signe pour exprimer les grandeurs négatives, 8 bits pour l'exposant et 23 bits pour la mantisse :
 
-            ```text
-              …¹¹¹  ¹¹
-              …000110011₂  (2⁵ + 2⁴ + 2¹ + 2⁰ ≡ 51)
-            + …111111001₂  (complément à deux) 2³ + 2¹ + 2⁰ ≡ 111₂ → !7 + 1 ≡ …111001₂)
-              -----------
-              …000101100₂  (2⁵ + 2³ + 2₂ ≡ 44)
-            ```
+```
+ ┌ Signe 1 bit
+ │        ┌ Exposant 8 bits
+ │        │                             ┌ Mantisse 23 bits
+ ┴ ───────┴──────── ────────────────────┴──────────────────────────
+┞─╀─┬─┬─┬─┬─┬─┬─┐┌─╀─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
+│0│0│0│1│0│0│0│0││0│1│0│0│1│0│0│0││1│1│0│1│1│1│1│1││0│1│0│0│0│0│0│1│
+└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
+```
 
-        3. $204 + 51$
+Peu à peu, nous nous rapprochons du *Standard for Floating-Point Arithmetic* ([IEEE 754](https://fr.wikipedia.org/wiki/IEEE_754)). La formule de base est la suivante :
 
-            ```text
-                11001100₂
-            +     110011₂
-              -----------
-              …011111111₂  (2⁸ - 1 ≡ 255)
-            ```
+$$
+x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{max}}
+$$
 
-        4. $204 + 204$ (sur 8-bits)
+Avec :
 
-            ```text
-                ¹|¹  ¹¹
-                |11001100₂
-            +   |11001100₂
-              ---+--------
-                1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
-            ```
+$s$
 
-### Lois de De Morgan
+: Signe ($\pm1$)
 
-Les [lois de De Morgan](https://fr.wikipedia.org/wiki/Lois_de_De_Morgan) sont des identités logiques formulées il y a près de deux siècles: sachant qu'en logique classique, la négation d'une conjonction implique la disjonction des négations et que la conjonction de négations implique la négation d'une disjonction, on peut alors exprimer que :
+$b$
+
+: Base de l'exposant, un entier $>1$.
+
+$e$
+
+: Exposant, un entier entre $e_\text{min}$ et $e_\text{max}$
+
+$p$
+
+: Précision, nombre de digits en base $b$ de la mantisse
+
+$f_k$
+
+: Entier non négatif plus petit que la base $b$.
+
+Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres `binary16`, `binary32` ou `binary64`, selon le nombre de bits utilisé pour coder l'information. Les termes de *Single precision* ou *Double precision* sont aussi couramment utilisées.
+
+Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante ([FPU](https://en.wikipedia.org/wiki/Floating-point_unit) pour *Floating point unit*) sont les suivants :
+
+| IEEE-754   | Exposant | Mantisse | Signe |
+| ---------- | -------- | -------- | ----- |
+| `binary32` | 8 bits   | 23 bits  | 1 bit |
+| `binary64` | 11 bits  | 52 bits  | 1 bit |
+
+Prenons le temps de faire quelques observations.
+
+- Une valeur encodée en virgule flottante sera toujours une approximation d'une grandeur réelle.
+- La précision est d'autant plus grande que le nombre de bits de la mantisse est grand.
+- La base ayant été fixée à 2, il est possible d'exprimer $1/1024$ sans erreur de précision, mais pas $1/1000$.
+- Un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent [(10 à 100x)](https://stackoverflow.com/a/15585448/2612235) pour faire des calculs en virgule flottante.
+- Bien que le standard **C99** définisse les types virgule flottante `float`, `double` et `long double`, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé.
+
+### Simple précision
+
+Le type `float` aussi dit à {index}`précision simple` utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :
+
+- $\pm\inf$ lorsque l'exposant vaut `0xff`
+- $(-1)^{\text{sign}}\cdot2^{\text{exp} - 127}\cdot1.\text{significand}$
+- $0$ lorsque la mantisse vaut `0x00000`
+
+La valeur de 1.0 est encodée :
 
 $$
 \begin{align*}
-& \neg (P \land Q) \Rightarrow ((\neg P) \lor (\neg Q)) \\
-& ((\neg P) \land (\neg Q)) \Rightarrow \neg (P \lor Q)
+0\:01111111\:00000000000000000000000_2 &= \text{3f80}\: \text{0000}_{16} \\
+&= (-1)^0 \cdot 2^{127-127} \cdot \frac{(2^{23} + 0)}{2^{23}} \\
+&= 2^{0} \cdot 1.0 = 1.0
 \end{align*}
 $$
 
-Ces opérations logiques sont très utiles en programmation où elles permettent de simplifier certains algorithmes.
+La valeur maximale exprimable :
 
-À titre d'exemple, les opérations suivantes sont donc équivalentes :
+$$
+\begin{align*}
+0\:11111110\:11111111111111111111111_2 &= \text{7f7f}\: \text{ffff}_{16} \\
+&= (-1)^0 \cdot 2^{254-127} \cdot \frac{(2^{23} + 838'607)}{2^{23}} \\
+&≈ 2^{127} \cdot 1.9999998807 \\
+&≈ 3.4028234664 \cdot 10^{38}
+\end{align*}
+$$
 
-```c
-int a = 0b110010011;
-int b = 0b001110101;
+La valeur de $-\pi$ (pi) est :
 
-assert(a | b == ~a & ~b);
-assert(~a & ~b == ~(a | b));
+$$
+\begin{align*}
+1\:10000000\:10010010000111111011011_2 &= \text{4049}\: \text{0fdb}_{16} \\
+&= (-1)^1 \cdot 2^{128-127} \cdot \frac{(2^{23} + 4'788'187)}{2^{23}} \\
+&≈ -1 \cdot 2^{1} \cdot 1.5707963 \\
+&≈ -3.14159274101
+\end{align*}
+$$
+
+Vient s'ajouter les valeurs particulières suivantes :
+
+```
+0 00000000 00000000000000000000000₂ ≡ 0000 0000₁₆ ≡ 0
+0 11111111 00000000000000000000000₂ ≡ 7f80 0000₁₆ ≡ inf
+1 11111111 00000000000000000000000₂ ≡ ff80 0000₁₆ ≡ −inf
 ```
 
-En logique booléenne on exprime la négation par une barre p.ex. $\bar{P}$.
+!!! info "Les nombres subnormaux"
 
-!!! exercise "De Morgan"
+    On l'a vu un nombre en virgule flottante simple précision s'écrit sous la forme :
 
-    Utiliser les relations de De Morgan pour simplifier l'expression suivante
+    $$ (-1)^s \times (1.m) \times 2^{(e - Bias)} $$
 
-    $$
-    D \cdot E + \bar{D} + \bar{E}
-    $$
+    Les nombres subnormaux sont des nombres qui ne respectent pas la norme IEEE 754, mais qui sont tout de même représentables. Ils sont utilisés pour représenter des nombres très petits, proches de zéro. En effet, la norme IEEE 754 impose que le premier bit de la mantisse soit toujours égal à 1, ce qui implique que le nombre 0 ne peut pas être représenté. Les nombres subnormaux permettent de représenter des nombres très proches de zéro, en diminuant la précision de la mantisse.
 
-    ??? solution
+### Double précision
 
-        Si l'on applique De Morgan ($\bar{XY} = \bar{X} + \bar{Y}$):
+La double précision est similaire à la simple précision, mais avec une mantisse à **52 bits** et **11 bits** d'exposants.
 
-        $$
-        D \cdot E + \bar{D} + \bar{E}
-        $$
+!!! exercise "Expressions arithmétiques flottantes"
 
-### Arrondi
+    Donnez la valeur des expressions ci-dessous :
 
-En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus complexe qu'imaginée. Un nombre réel peut être converti en un nombre entier de plusieurs manières dont voici une liste non exhaustive :
-
-- **tronqué** (*truncate*) lorsque la partie fractionnaire est simplement enlevée
-- **arrondi à l'entier supérieur** (*rounding up*)
-- **arrondi à l'entier inférieur** (*rounding down*)
-- **arrondi en direction du zéro** (*rounding towards zero*)
-- **arrondi loin du zéro** (*rounding away from zero*)
-- **arrondi au plus proche entier** (*rounding to the nearest integer*)
-- **arrondi la moitié en direction de l'infini** (*rounding half up*)
-
-Selon le langage de programmation et la méthode utilisée, le mécanisme d'arrondi sera différent. En C, la bibliothèque mathématique offre les fonctions `ceil` pour l'arrondi au plafond (entier supérieur), `floor` pour arrondi au plancher (entier inférieur) et `round` pour l'arrondi au plus proche (*nearest*). Il existe également fonction `trunc` qui tronque la valeur en supprimant la partie fractionnaire.
-
-Le fonctionnement de la fonction `round` n'est pas unanime entre les mathématiciens et les programmeurs. C utilise l'arrondi au plus proche, c'est à dire que -23.5 donne -24 et 23.5 donnent 24.
-
-!!! note
-
-    En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre-intuitive, car `round(3.5)` donne 4, mais `round(4.5)` donne 4 aussi.
-
-
-!!! exercise "Swap sans valeur intermédiaire"
-
-    Soit deux variables entières ``a`` et ``b``, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR ``^``.
-
-    Testez votre solution...
-
-    ??? solution
-
-        ```c
-        a ^= b;
-        b ^= a;
-        a ^= b;
-        ```
+    ```text
+    25. + 10. + 7. – 3.
+    5. / 2.
+    24. + 5. / 2.
+    25. / 5. / 2.
+    25. / (5. / 2.)
+    2. * 13. % 7.
+    1.3E30 + 1.
+    ```

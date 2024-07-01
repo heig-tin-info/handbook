@@ -20,26 +20,27 @@ theme:
   name: material
   custom_dir: overrides
   features:
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+    - content.tooltips
+    - header.autohide
+    #- instant
+    - navigation.footer
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
-    - header.autohide
-    - navigation.tracking
-    - navigation.tabs
-    - navigation.sections
     - navigation.path
-    - navigation.footer
-    - toc.follow
+    - navigation.sections
+    - navigation.tabs
     - navigation.top
-    - search.suggest
+    - navigation.tracking
     - search.highlight
     - search.share
-    - content.tooltips
-    - content.code.copy
-    - content.code.select
-    - content.code.annotate
-    - content.action.view
-    - instant
+    - search.suggest
+    - toc.follow
   language: fr
   logo: assets/heig-vd-white.svg
   favicon: assets/favicon.ico
@@ -144,7 +145,8 @@ markdown_extensions:
   - pymdownx.tilde
   - pymdownx.snippets
   - pymdownx.details
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.smartsymbols
   - pymdownx.blocks.admonition
   - pymdownx.blocks.html
