@@ -167,7 +167,7 @@
 
 .mdx-hero {
   margin: 0 2rem;
-  color: var(--md-primary-bg-color);
+  color: var(--md-primary-fg-color);
 }
 
 .mdx-hero h1 {
@@ -202,12 +202,12 @@
     transform: translateX(5rem);
   }
 }
-
+/*
 @media (min-width: 1280px) {
   .mdx-hero__image {
-    transform: translateX(10rem);
+    transform: translateX(20rem);
   }
-}
+} */
 
 .mdx-hero .md-button {
   margin-top: 0.625rem;

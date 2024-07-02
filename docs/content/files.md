@@ -82,7 +82,7 @@ int main(int* argc, char* argv[])
 
 Si nous le compilons et cherchons dans son code binaire :
 
-```
+```text
 $ gcc example.c
 | $ hexdump -C a.out                                         | grep -C3 sec     |
 | 000006f0  f3 c3 00 00 48 83 ec 08  48 83 c4 08 c3 00 00 00 | ....H...H....... |

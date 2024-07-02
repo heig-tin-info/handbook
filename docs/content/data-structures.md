@@ -131,11 +131,11 @@ Nous définirons par la suite le vocabulaire suivant:
 Table: Vocabulaire des actions sur un tableau dynamique
 
 | Action                                         | Terme technique |
-|------------------------------------------------|-----------------|
-| Ajout d'un élément à la tête du tableau        | `unshift` |
-| Ajout d'un élément à la queue du tableau       | `push` |
-| Suppression d'un élément à la tête du tableau  | `shift` |
-| Suppression d'un élément à la queue du tableau | `pop` |
+| ---------------------------------------------- | --------------- |
+| Ajout d'un élément à la tête du tableau        | `unshift`       |
+| Ajout d'un élément à la queue du tableau       | `push`          |
+| Suppression d'un élément à la tête du tableau  | `shift`         |
+| Suppression d'un élément à la queue du tableau | `pop`           |
 
 Nous comprenons rapidement qu'il est plus compliqué d'ajouter ou de supprimer un élément depuis la tête du tableau, car il est nécessaire ensuite de déplacer chaque élément (l'élément 0 devient l'élément 1, l'élément 1 devient l'élément 2...).
 
@@ -362,12 +362,12 @@ Ce surcoût est souvent part du compromis entre la complexité d'exécution du c
 
 Table: Coût des opérations dans des structures de données récursives
 
-| Structure de donnée    | Pire cas |               |                  |              |
-|------------------------|----------|---------------|------------------|--------------|
-|                        | Insertion| Suppression   | Recherche (Trié) | Recherche (Non trié) |
-|------------------------|----------|---------------|------------------|--------------|
-| Tableau, pile, queue   | $O(n)$   | $O(n)$        | $O(\log(n))$     | $O(n)$       |
-| Liste chaînée simple   | $O(1)$   | $O(1)$        | $O(n)$           | $O(n)$       |
+| Structure de donnée      | Pire cas   |                 |                    |                      |
+| ------------------------ | ---------- | --------------- | ------------------ | -------------------- |
+|                          | Insertion  | Suppression     | Recherche (Trié)   | Recherche (Non trié) |
+| ------------------------ | ---------- | --------------- | ------------------ | --------------       |
+| Tableau, pile, queue     | $O(n)$     | $O(n)$          | $O(\log(n))$       | $O(n)$               |
+| Liste chaînée simple     | $O(1)$     | $O(1)$          | $O(n)$             | $O(n)$               |
 
 ### Liste simplement chaînée (*linked-list*)
 
@@ -636,12 +636,12 @@ La structure de donnée `heap` aussi nommée tas ne doit pas être confondue ave
 
 Un tas peut aisément être représenté sous forme de tableau en utilisant la règle suivante :
 
-Table: Opération d'accès à un élément d'un *heap*
+Table: Opération d'accès à un élément d'un heap
 
-| Cible            | Début à 0              | Début à 1 |
-|------------------|-------------------------|-----------|
-| Enfant de gauche | $2*k  + 1$       | $2 * k$ |
-| Enfant de droite | $2*k  + 2$       | $2 * k + 1$ |
+| Cible            | Début à 0        | Début à 1      |
+| ---------------- | ---------------- | -------------- |
+| Enfant de gauche | $2*k  + 1$       | $2 * k$        |
+| Enfant de droite | $2*k  + 2$       | $2 * k + 1$    |
 | Parent           | $floor(k-1) / 2$ | $floor(k) / 2$ |
 
 ![Représentation d'un *heap*](../assets/figures/dist/data-structure/heap.svg)
@@ -1068,13 +1068,13 @@ Le tableau suivant résume les performances obtenues pour les différentes struc
 
 Table: Comparaison des performances des structures récursives
 
-| Action          | Tableau                    | Liste                   | Buffer                 | Arbre                 | Hash Map              |
-|-----------------|----------------------------|-------------------------|------------------------|-----------------------|-----------------------|
-|                 | Statique | Dynamique         | chaînée | circulaire | binaire | linéaire  |
-|-----------------|----------|-------------------|---------|------------|---------|-----------|
-| **Indexing**    | 1        | 1                 | n       | 1          | log n   | 1         |
-| **Unshift/Shift**| n        | n                 | 1       | 1          | log n   | n         |
-| **Push/Pop**    | 1        | 1 amorti          | 1       | 1          | log n   | 1         |
-| **Insert/Delete**| n        | n                 | 1       | n          | log n   | n         |
-| **Search**      | n        | n                 | n       | n          | log n   | 1         |
-| **Sort**        | n log n  | n log n           | n log n | n log n    | 1       | *n/a*     |
+| Action            | Tableau    | Liste               | Buffer    | Arbre        | Hash Map  |
+| ----------------- | ---------- | ------------------- | --------- | ------------ | --------- |
+|                   | Statique   | Dynamique           | chaînée   | circulaire   | binaire   | linéaire    |
+| ----------------- | ---------- | ------------------- | --------- | ------------ | --------- | ----------- |
+| **Indexing**      | 1          | 1                   | n         | 1            | log n     | 1           |
+| **Unshift/Shift** | n          | n                   | 1         | 1            | log n     | n           |
+| **Push/Pop**      | 1          | 1 amorti            | 1         | 1            | log n     | 1           |
+| **Insert/Delete** | n          | n                   | 1         | n            | log n     | n           |
+| **Search**        | n          | n                   | n         | n            | log n     | 1           |
+| **Sort**          | n log n    | n log n             | n log n   | n log n      | 1         | *n/a*       |

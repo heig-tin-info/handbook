@@ -1,15 +1,5 @@
 # Bibliographie
 
-```{eval-rst}
-.. spelling::
-
-    Delanoy
-    Gayle
-    Laakmann
-    Reference
-    Complete
-```
-
 Les références utilisées dans cet ouvrage sont :
 
 - Programming languages C -- [ISO/IEC 9899](https://www.iso.org/standard/74528.html)

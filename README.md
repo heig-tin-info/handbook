@@ -186,7 +186,12 @@ In figure [](fig:label), we can see that...
 
 ### Table caption ?
 
-How to add a caption to a table ?
+How to add a caption to a table ? The plugin `mkdocs-caption` is straightforward, but does not support:
+
+- Table above the caption
+- Number from section numbers section.number
+- No alt text for the caption
+- No markdown in the caption (Table: *italic*) not supported
 
 ```markdown
 
@@ -197,6 +202,38 @@ Table: Caption
 | Cell 1   | Cell 2   |
 ```
 
+We could use superfences to add a caption and caption alt to the table:
+
+```markdown
+
+Table: Caption {#my_id alt="Short Caption"}
+
+| Header 1 | Header 2 |
+| -------- | -------- |
+| Cell 1   | Cell 2   |
+
+```
+
 ### Preview Wikipedia links in modal
 
 When highlight a wiki link, show a modal with the content of the page.
+
+
+## My extensions
+
+### Numbering
+
+The plugin `mkdocs-numbering` has several goals:
+
+- Add section numbering
+- Numbering can be configured to appear in the title, in the TOC, in the sidebar
+- Add table, figure and equation numbering, based on the section numbers
+- Configure admonition numbering
+
+```yaml
+plugins:
+  numbering:
+    toc: true
+    sidebar: true
+    admonition:
+      - exercise

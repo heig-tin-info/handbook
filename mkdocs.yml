@@ -101,13 +101,13 @@ plugins:
   - git-authors
   - git-revision-date-localized:
       enable_creation_date: true
-  - tags:
-      tags_file: tags.md
+  # - tags:
+  #     tags_file: tags.md
   - drawio-exporter
   - markdown-exec
-  - extract_listings:
-      listings_file: listings.md
-      placeholder: PLACEHOLDER_LISTINGS_PLUGIN
+  # - extract_listings:
+  #     listings_file: listings.md
+  #     placeholder: PLACEHOLDER_LISTINGS_PLUGIN
   - enumerate-headings:
       toc_depth: 0
       increment_across_pages: true

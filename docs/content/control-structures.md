@@ -17,13 +17,13 @@ Sans {index}`structure de contrôle`, un programme se comportera toujours de la 
 
 ## Séquences
 
-En C, chaque instruction est séparée de la suivante par un point virgule `;` ({unicode}`U+003B`):
+En C, chaque instruction est séparée de la suivante par un point virgule `;` (`U+003B`):
 
 ```c
 k = 8; k *= 2;
 ```
 
-Une {index}`séquence` est une suite d'instructions regroupées en un bloc matérialisé par des accolades `{}`:
+Une *séquence* est une suite d'instructions regroupées en un bloc matérialisé par des accolades `{}`:
 
 ```c
 {
@@ -421,7 +421,6 @@ for (; get_weight() < 420 ;)
     6. `for (i = 0; i != 1 ; printf("%i\n", i += 1 / 3 ));`
     7. `for (i = 12, k = 1; k++ < 5 ; printf("%i\n", i-- ));`
     8. `for (i = 12, k = 1; k++ < 5 ; k++, printf("%i\n", i-- ));`
-```
 
 !!! exercise "Erreur"
 
@@ -441,7 +440,6 @@ for (; get_weight() < 420 ;)
     3. Une boucle ``do..while``
 
     Quelle est la structure de contrôle la plus adaptée à cette situation ?
-```
 
 !!! exercise "Opérateur virgule dans une boucle"
 
@@ -528,9 +526,11 @@ Il existe 4 instructions en C permettant de contrôler le déroulement de
 l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un autre endroit du programme.
 
 - `break` interrompt la structure de contrôle en cours. Elle est valide pour :
-  : - `while`
-    - `do`...\`\`while\`\`
-    - `switch`
+
+  - `while`
+  - `do`...\`\`while\`\`
+  - `switch`
+
 - `continue`: saute un tour d'exécution dans une boucle
 - `goto`: interrompt l'exécution et saute à un label situé ailleurs dans la fonction
 - `return`

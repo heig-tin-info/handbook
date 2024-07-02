@@ -58,15 +58,15 @@ catégories exprimées du meilleur au plus mauvais :
 
 Table: Temps pour différentes complexités d'algorithmes
 
-| Complexité           | :math:`n = 100000` | i7 (100'000 MIPS)                      |
-|----------------------|--------------------|----------------------------------------|
-| :math:`O(log(n))`    |              11    | 0.11 ns                                |
-| :math:`O(n)`         |         100'000    | 1 us                                   |
-| :math:`O(n log(n))`  |       1'100'000    | 11 us                                  |
-| :math:`O(n^2)`       |  10'000'000'000    | 100 ms (un battement de cil)           |
-| :math:`O(2^n)`       | très très grand    | Le soleil devenu géante rouge          |
-|                      |                    | aura ingurgité la terre                |
-| :math:`O(n!)`        | trop trop grand    | La galaxie ne sera plus que poussière  |
+| Complexité          | :math:`n = 100000` | i7 (100'000 MIPS)                     |
+| ------------------- | ------------------ | ------------------------------------- |
+| :math:`O(log(n))`   | 11                 | 0.11 ns                               |
+| :math:`O(n)`        | 100'000            | 1 us                                  |
+| :math:`O(n log(n))` | 1'100'000          | 11 us                                 |
+| :math:`O(n^2)`      | 10'000'000'000     | 100 ms (un battement de cil)          |
+| :math:`O(2^n)`      | très très grand    | Le soleil devenu géante rouge         |
+|                     |                    | aura ingurgité la terre               |
+| :math:`O(n!)`       | trop trop grand    | La galaxie ne sera plus que poussière |
 
 Les différentes complexités peuvent être résumées sur la figure suivante :
 
@@ -122,7 +122,6 @@ for (size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++)
     ```
 
     et dont la taille peut varier ?
-```
 
 !!! exercise "L'entier manquant"
 
@@ -159,7 +158,6 @@ La [récursivité](https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9) est une 
 
     1. Proposer une implémentation
     2. Quelle est la complexité de votre algorithme ?
-
 
 ## Programmation dynamique
 

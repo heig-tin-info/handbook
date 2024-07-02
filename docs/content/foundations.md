@@ -56,7 +56,6 @@ c=0)                            :( O
             ))                    ;}
 ```
 
-
 ## Fin de lignes (EOL)
 
 ![Machine à écrire mécanique](../assets/figures/typewriter.png)
@@ -159,7 +158,6 @@ En addition de ceci, voici quelques règles :
             12. ``défaillance`` **invalide**, uniquement les caractères imprimable ASCII sont autorisés
             13. ``f'`` **invalide** l'apostrophe n'est pas autorisée
             14. ``INT`` **valide**
-
 
 ## Variables
 
@@ -370,7 +368,6 @@ Nous verrons {numref}`precedence` que l'associativité de chaque opérateur dét
         n ≡ 7
         ```
 
-
 !!! exercise "Trop d'égalités"
 
     On considère les déclarations suivantes :
@@ -416,9 +413,7 @@ Nous verrons {numref}`precedence` que l'associativité de chaque opérateur dét
 
 Comme en français et ainsi qu'illustré par la {numref}`proust`, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source.
 
-
 ![Les carafes dans la Vivonne](../assets/images/proust.svg)
-
 
 Il existe deux manière d'écrire un commentaire en C :
 

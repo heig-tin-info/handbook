@@ -147,11 +147,9 @@ La construction d'un marqueur est loin d'être simple, mais heureusement on n'a 
 
 ![Formatage d'un marqueur](../assets/figures/dist/string/formats.svg)
 
-
 ### Exemples
 
-
-Table: Exemple de formatage avec `printf`
+Table: Exemple de formatage avec printf
 
 | Exemple                             | Sortie            | Taille |
 |-------------------------------------|-------------------|--------|

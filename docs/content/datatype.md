@@ -210,7 +210,7 @@ Avec l'avènement de **C99**, une meilleure cohésion des types a été proposé
 
 Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.
 
-Table: Entiers standard défini par `stdint`
+Table: Entiers standard défini par stdint
 
 | Type         | Signe    | Profondeur | Format   |
 | ------------ | -------- | ---------- | -------- |
