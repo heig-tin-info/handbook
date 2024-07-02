@@ -403,7 +403,6 @@ Ensuite, `[^\n]`. Le marqueur `[`, terminé par `]` cherche à capturer une séq
         |  17  | ``1.23`` | ``1``  |        |                               |
         |  18  |``1.23E6``| ``1``  |        |                               |
         |  19  | ``12``   | ``1``  |        |                               |
-```
 
 !!! exercise "Chaînes de formats"
 

@@ -93,6 +93,7 @@ extra:
 plugins:
   #- mkdocs-jupyter
   - glightbox
+  # - mike
   # - info
   - caption
   - charts
@@ -109,8 +110,10 @@ plugins:
   #     listings_file: listings.md
   #     placeholder: PLACEHOLDER_LISTINGS_PLUGIN
   - enumerate-headings:
-      toc_depth: 0
+      toc_depth: 3
       increment_across_pages: true
+      exclude:
+        - index.md
   - search
   - minify:
       minify_html: true

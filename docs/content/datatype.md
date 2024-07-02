@@ -297,6 +297,8 @@ Ce standard a généré durant des décennies de grandes frustrations et de prof
 
 Pour tenter de remédier à ce standard incompatible entre les pays Microsoft à proposé un standard nommé [Windows-1252](https://fr.wikipedia.org/wiki/Windows-1252) s'inspirant de [ISO-8859-1](https://fr.wikipedia.org/wiki/ISO/CEI_8859-1). En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...
 
+### Unicode
+
 Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب‎), les Coréens (한국어), les Chinois avec le chinois simplifié (官话) et le chinois traditionnel (官話), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.
 
 Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) plus précisément nommé **UTF-8**.
@@ -326,6 +328,10 @@ int main(void) {
     return 0;
 }
 ```
+
+!!! note
+
+    L'unicode permet notament de représenter des caractères spéciaux tels que les émoticônes (💩).
 
 ## Chaîne de caractères
 
@@ -550,6 +556,8 @@ passe directement à un type *int*.
 
     Donnez le type et la valeur des expressions suivantes :
 
+    /// html | div[class='two-column-list']
+
     1. ``x + n % p``
     2. ``x + p / n``
     3. ``(x + p) / n``
@@ -558,6 +566,8 @@ passe directement à un type *int*.
     6. ``(int).5 * n``
     7. ``(n + 1) / n``
     8. ``(n + 1.0) / n``
+
+    ///
 
 !!! exercise "Promotion numérique"
 
@@ -571,10 +581,14 @@ passe directement à un type *int*.
     double d;
     ```
 
+    /// html | div[class='two-column-list']
+
     1. ``c * sh - f / i + d;``
     2. ``c * (sh – f) / i + d;``
     3. ``c * sh - f - i + d;``
     4. ``c + sh * f / i + d;``
+
+    ///
 
 ### Effets du transtypage
 
@@ -713,14 +727,18 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     condition = x >= 0 && x <= 20 && y > x || y == 50 && x == 2 || y == 60;
     ```
 
-    Donner la valeur de ``condition`` évaluée avec les valeurs suivantes de ``x`` et ``y``:
+    Donner la valeur de `condition` évaluée avec les valeurs suivantes de `x` et `y`:
 
-    1. ``x = -1.0; y = 60.;``
-    2. ``x = 0; y = 1.;``
-    3. ``x = 19.0; y = 1.0;``
-    4. ``x = 0.0; y = 50.0;``
-    5. ``x = 2.0; y = 50.0;``
-    6. ``x = -10.0; y = 60.0;``
+    /// html | div[class='two-column-list']
+
+    1. `x = -1.0; y = 60.;`
+    2. `x = 0; y = 1.;`
+    3. `x = 19.0; y = 1.0;`
+    4. `x = 0.0; y = 50.0;`
+    5. `x = 2.0; y = 50.0;`
+    6. `x = -10.0; y = 60.0;`
+
+    ///
 
     ??? solution
 
@@ -734,12 +752,16 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
         );
         ```
 
+        /// html | div[class='two-column-list']
+
         1. ``true``
         2. ``true``
         3. ``false``
         4. ``true``
         5. ``true``
         6. ``true``
+
+        ///
 
 !!! exercise "Casse-tête"
 
@@ -781,18 +803,21 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
     Que vaut le type et la valeur des expressions suivantes ?
 
-    1. ``c / 2``
-    2. ``sh + c / 10``
-    3. ``lg + i / 2.0``
-    4. ``d + f``
-    5. ``(int)d + f``
-    6. ``(int)d + lg``
-    7. ``c << 2``
-    8. ``sh & 0xF0``
-    9. ``sh && 0xF0``
-    10. ``sh == i + lg``
-    11. ``d + f == sh + lg``
+    /// html | div[class='two-column-list']
 
+    1. `c / 2`
+    2. `sh + c / 10`
+    3. `lg + i / 2.0`
+    4. `d + f`
+    5. `(int)d + f`
+    6. `(int)d + lg`
+    7. `c << 2`
+    8. `sh & 0xF0`
+    9. `sh && 0xF0`
+    10. `sh == i + lg`
+    11. `d + f == sh + lg`
+
+    ///
 
 !!! exercise "Précision des flottants"
 

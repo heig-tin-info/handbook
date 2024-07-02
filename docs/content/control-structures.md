@@ -609,7 +609,7 @@ Le mot-clé `break` peut être utilisé dans une boucle ou dans un `switch`. Il 
 
 Le mot clé `return` suivi d'une valeur de retour ne peut apparaître que dans une fonction dont le type de retour n'est pas `void`. Ce mot-clé permet de stopper l'exécution d'une fonction et de retourner à son point d'appel.
 
-```c {hl_lines=[8]}
+```c
 void unlock(int password)
 {
     static tries = 0;

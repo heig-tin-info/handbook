@@ -298,9 +298,7 @@ struct Element elements[100];
 
 Considérons les dix premiers éléments de la séquence de nombre [A130826](https://oeis.org/A130826) dans un tableau statique. Ensuite, répartissons ces valeurs aléatoirement dans notre tableau `elements` déclaré plus haut entre les indices 0 et 19.
 
-:::{figure} ../../assets/figures/dist/data-structure/static-linked-list.*
-Construction d'une liste chainée à l'aide d'un tableau
-:::
+![Construction d'une liste chainée à l'aide d'un tableau](../assets/figures/dist/data-structure/static-linked-list.svg)
 
 On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire, car il est possible facilement de chercher l'élément suivant de la liste avec cette relation :
 
@@ -364,8 +362,7 @@ Table: Coût des opérations dans des structures de données récursives
 
 | Structure de donnée      | Pire cas   |                 |                    |                      |
 | ------------------------ | ---------- | --------------- | ------------------ | -------------------- |
-|                          | Insertion  | Suppression     | Recherche (Trié)   | Recherche (Non trié) |
-| ------------------------ | ---------- | --------------- | ------------------ | --------------       |
+|                          | **Insertion**  | **Suppression**     | **Recherche (Trié)**   | **Recherche (Non trié)** |
 | Tableau, pile, queue     | $O(n)$     | $O(n)$          | $O(\log(n))$       | $O(n)$               |
 | Liste chaînée simple     | $O(1)$     | $O(1)$          | $O(n)$             | $O(n)$               |
 
@@ -764,9 +761,6 @@ Cette [vidéo](https://www.youtube.com/watch?v=KyUTuwz_b7Q) YouTube explique bie
 
 ### Collisions
 
-```{index} collision
-```
-
 Lorsque la **fonction de hachage** est mal choisie, un certain nombre de collisions peuvent apparaître. Si l'on souhaite par exemple ajouter les personnes suivantes :
 
 ```text
@@ -1049,7 +1043,7 @@ int get(List *list) {
 
 L'indexation d'une liste chaînée prend dans le cas le plus défavorable $O(n)$.
 
-Les arbres binaires ont une structure qui permet naturellement la dichotomique. Chercher l'élément 5 prend 4 opérations : `12 -> 4 -> 6 -> 5`. L'indexation est ainsi possible en $O(log n)$.
+Les arbres binaires ont une structure qui permet naturellement la dichotomique. Chercher l'élément 5 prend 4 opérations : `12 -> 4 -> 6 -> 5`. L'indexation est ainsi possible en $O(log~n)$.
 
 ```text
             12
@@ -1071,7 +1065,6 @@ Table: Comparaison des performances des structures récursives
 | Action            | Tableau    | Liste               | Buffer    | Arbre        | Hash Map  |
 | ----------------- | ---------- | ------------------- | --------- | ------------ | --------- |
 |                   | Statique   | Dynamique           | chaînée   | circulaire   | binaire   | linéaire    |
-| ----------------- | ---------- | ------------------- | --------- | ------------ | --------- | ----------- |
 | **Indexing**      | 1          | 1                   | n         | 1            | log n     | 1           |
 | **Unshift/Shift** | n          | n                   | 1         | 1            | log n     | n           |
 | **Push/Pop**      | 1          | 1 amorti            | 1         | 1            | log n     | 1           |

@@ -58,15 +58,15 @@ catégories exprimées du meilleur au plus mauvais :
 
 Table: Temps pour différentes complexités d'algorithmes
 
-| Complexité          | :math:`n = 100000` | i7 (100'000 MIPS)                     |
+| Complexité          | $n = 100000$ | i7 (100'000 MIPS)                     |
 | ------------------- | ------------------ | ------------------------------------- |
-| :math:`O(log(n))`   | 11                 | 0.11 ns                               |
-| :math:`O(n)`        | 100'000            | 1 us                                  |
-| :math:`O(n log(n))` | 1'100'000          | 11 us                                 |
-| :math:`O(n^2)`      | 10'000'000'000     | 100 ms (un battement de cil)          |
-| :math:`O(2^n)`      | très très grand    | Le soleil devenu géante rouge         |
+| $O(log(n))$   | 11                 | 0.11 ns                               |
+| $O(n)$        | 100'000            | 1 us                                  |
+| $O(n log(n))$ | 1'100'000          | 11 us                                 |
+| $O(n^2)$      | 10'000'000'000     | 100 ms (un battement de cil)          |
+| $O(2^n)$      | très très grand    | Le soleil devenu géante rouge         |
 |                     |                    | aura ingurgité la terre               |
-| :math:`O(n!)`       | trop trop grand    | La galaxie ne sera plus que poussière |
+| $O(n!)`       | trop trop grand    | La galaxie ne sera plus que poussière |
 
 Les différentes complexités peuvent être résumées sur la figure suivante :
 

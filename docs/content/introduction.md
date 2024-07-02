@@ -8,11 +8,19 @@ Chaque chapitre est composé d'exercices, mais à des fins pédagogiques, toutes
 
 Cet ouvrage est destiné à des étudiants ingénieurs de première année n'ayant aucune expérience en programmation.
 
-## Conventions
+Le contenu concerne les cours d'informatique 1 et 2 de l'enseignement de base du département des technologies industrielles (TIN) de la HEIG-VD.
+
+### Informatique 1 (*Info1*)
+
+
+### Informatique 2 (*Info2*)
+
+
+## Conventions d'écriture
 
 ### Symbole d'égalité
 
-Nous verrons que le signe d'égalité `=` peut aisément être confondu avec l'opérateur d'affectation (également) `=` utilisé en C. Dans certains exemples où l'on montre une égalité entre différentes écritures, le signe d'égalité triple  ({unicode}`U+2261`) sera utilisé pour dissiper toute ambiguïté éventuelle :
+Nous verrons que le signe d'égalité `=` peut aisément être confondu avec l'opérateur d'affectation (également) `=` utilisé en C. Dans certains exemples où l'on montre une égalité entre différentes écritures, le signe d'égalité triple  (`U+2261`) sera utilisé pour dissiper toute ambiguïté éventuelle :
 
 ```
 'a' ≡ 0b1100001 ≡ 97 ≡ 0x61 ≡ 00141
@@ -34,4 +42,24 @@ Les conventions C s'appliquent à la manière d'exprimer les grandeurs suivantes
 
 ### Encodage de caractère
 
-Il sera souvent fait mention dans cet ouvrage la notation du type {unicode}`U+01AE`, il s'agit d'une notation Unicode qui ne dépend pas d'un quelconque encodage. Parler du caractère ASCII 234 est incorrect, car cela dépend de la table d'encodage utilisée; en revanche, la notation Unicode est exacte.
+Il sera souvent fait mention dans cet ouvrage la notation du type `U+01AE`, il s'agit d'une notation Unicode qui ne dépend pas d'un quelconque encodage. Parler du caractère ASCII 234 est incorrect, car cela dépend de la table d'encodage utilisée; en revanche, la notation Unicode est exacte.
+
+### Encadrés
+
+Des encadrés sont utilisés pour mettre en avant des informations complémentaires ou des astuces. Ils sont également utilisés pour donner des informations sur des concepts avancés ou des détails techniques.
+
+!!! info "Information supplémentaire"
+
+    Ceci est un encadré d'information.
+
+!!! warning "Attention"
+
+    Point important à retenir.
+
+!!! note "Note"
+
+    Corollaire à retenir.
+
+!!! exercise "Exercice"
+
+    Exercice à faire.

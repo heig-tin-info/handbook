@@ -2,7 +2,7 @@
 
 ![Bibliothèque du Trinity College de Dublin](../assets/images/library.jpg)
 
-Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La fonction `printf` est une de ces fonctionnalités et offerte par le header `<stdio.h>` faisant partie de la bibliothèque `libc6`.
+Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La `printf` est une de ces fonctionnalités et offerte par le header `<stdio.h>` faisant partie de la bibliothèque `libc6`.
 
 L'anglicisme *library*, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme `<stdlib.h>` étant la concaténation de *standard library* par exemple. Notez que librairie n'est pas la traduction correcte de *library* qui est un [faux ami](https://fr.wikipedia.org/wiki/Faux-ami).
 
@@ -336,15 +336,13 @@ Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilis�
             float acosf(float x);
         ```
 
-        La réponse est donc ``<math.h>``.
+        La réponse est donc `<math.h>`.
 
-        Sous Windows avec Visual Studio, il suffit d'écrire ``acos`` dans un fichier source et d'appuyer sur ``F1``. L'IDE redirige l'utilisateur sur l'aide Microsoft [acos-acosf-acosl](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl) qui indique que le header source est ``<math.h>``.
-```
+        Sous Windows avec Visual Studio, il suffit d'écrire `acos` dans un fichier source et d'appuyer sur `F1`. L'IDE redirige l'utilisateur sur l'aide Microsoft [acos-acosf-acosl](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl) qui indique que le header source est `<math.h>`.
 
 !!! exercise "Date"
 
     Lors du formatage d'une date, on y peut y lire ``%w``, par quoi sera remplacé ce *token* ?
-
 
 ### Fonctions d'intérêt
 
@@ -354,27 +352,26 @@ Il serait inutile ici de lister toutes les fonctions, les bibliothèques standar
 
 Table: Constantes mathématiques
 
-| Constantes       | Description                                           |
-|------------------|-------------------------------------------------------|
-| ``M_PI``         | Valeur de :math:`\pi`                                 |
-| ``M_E``          | Valeur de :math:`e`                                   |
-| ``M_SQRT1_2``    | Valeur de :math:`1/\sqrt(2)`                          |
+| Constantes  | Description                  |
+| ----------- | ---------------------------- |
+| `M_PI`      | Valeur de :math:`\pi`        |
+| `M_E`       | Valeur de :math:`e`          |
+| `M_SQRT1_2` | Valeur de :math:`1/\sqrt(2)` |
 
 Table: Fonctions mathématiques
 
-| Fonction         | Description                                           |
-|------------------|-------------------------------------------------------|
-| ``exp(x)``       | Exponentielle :math:`e^x`                             |
-| ``ldexp(x,n)``   | Exposant d'un nombre flottant :math:`x\cdot2^n`       |
-| ``log(x)``       | Logarithme binaire :math:`\log_{2}(x)`                |
-| ``log10(x)``     | Logarithme décimal :math:`\log_{10}(x)`               |
-| ``pow(x,y)``     | Puissance :math:`x^y`                                 |
-| ``sqrt(x)``      | Racine carrée :math:`\sqrt(x)`                        |
-| ``cbrt(x)``      | Racine cubique :math:`\sqrt[3](x)`                    |
-| ``hypot(x,y)``   | Hypoténuse optimisé :math:`\sqrt(x^2 + y^2)`          |
-| ``ceil``         | Arrondi à l'entier supérieur                          |
-| ``floor``        | Arrondi à l'entier inférieur                          |
-```
+| Fonction     | Description                                     |
+| ------------ | ----------------------------------------------- |
+| `exp(x)`     | Exponentielle :math:`e^x`                       |
+| `ldexp(x,n)` | Exposant d'un nombre flottant :math:`x\cdot2^n` |
+| `log(x)`     | Logarithme binaire :math:`\log_{2}(x)`          |
+| `log10(x)`   | Logarithme décimal :math:`\log_{10}(x)`         |
+| `pow(x,y)`   | Puissance :math:`x^y`                           |
+| `sqrt(x)`    | Racine carrée :math:`\sqrt(x)`                  |
+| `cbrt(x)`    | Racine cubique :math:`\sqrt[3](x)`              |
+| `hypot(x,y)` | Hypoténuse optimisé :math:`\sqrt(x^2 + y^2)`    |
+| `ceil`       | Arrondi à l'entier supérieur                    |
+| `floor`      | Arrondi à l'entier inférieur                    |
 
 Notons par exemple que la fonction `hypot` peut très bien être émulée facilement en utilisant la fonction `sqrt`. Néanmoins elle existe pour deux raisons élémentaires :
 
@@ -401,26 +398,26 @@ Test d'une propriété d'un caractère passé en paramètre
 
 Table: Fonctions de test de caractères
 
-| Fonction     | Description                              |
-|--------------|------------------------------------------|
-| ``isalnum``  | une lettre ou un chiffre                 |
-| ``isalpha``  | une lettre                               |
-| ``iscntrl``  | un caractère de commande                 |
-| ``isdigit``  | un chiffre décimal                       |
-| ``isgraph``  | un caractère imprimable ou le blanc      |
-| ``islower``  | une lettre minuscule                     |
-| ``isprint``  | un caractère imprimable (pas le blanc)   |
-| ``ispunct``  | un caractère imprimable pas isalnum      |
-| ``isspace``  | un caractère d'espace blanc              |
-| ``isupper``  | une lettre majuscule                     |
-| ``isxdigit`` | un chiffre hexadécimal                   |
+| Fonction     | Description                            |
+| ------------ | -------------------------------------- |
+| ``isalnum``  | une lettre ou un chiffre               |
+| ``isalpha``  | une lettre                             |
+| ``iscntrl``  | un caractère de commande               |
+| ``isdigit``  | un chiffre décimal                     |
+| ``isgraph``  | un caractère imprimable ou le blanc    |
+| ``islower``  | une lettre minuscule                   |
+| ``isprint``  | un caractère imprimable (pas le blanc) |
+| ``ispunct``  | un caractère imprimable pas isalnum    |
+| ``isspace``  | un caractère d'espace blanc            |
+| ``isupper``  | une lettre majuscule                   |
+| ``isxdigit`` | un chiffre hexadécimal                 |
 
 #### Limites
 
 Table: Valeurs limites pour les entiers signés et non signés
 
-| Constante        | Valeur        |
-|------------------|---------------|
+| Constante       | Valeur        |
+| --------------- | ------------- |
 | ``SCHAR_MIN``   | -128          |
 | ``SCHAR_MAX``   | +127          |
 | ``CHAR_MIN``    | 0             |
@@ -447,30 +444,30 @@ Le standard C ne définit que le minimum vital et qui est valable sur toutes les
 
 - La communication entre les processus (deux programmes qui souhaitent communiquer entre eux)
 
-    - `<sys/socket.h>`
-    - `<sharedmemory.h>`
+  - `<sys/socket.h>`
+  - `<sharedmemory.h>`
 
 - La communication sur le réseau e.g. internet
 
-    - `<sys/socket.h>`
-    - `<arpa/inet.h>`
-    - `<net/if.h>`
+  - `<sys/socket.h>`
+  - `<arpa/inet.h>`
+  - `<net/if.h>`
 
 - Les tâches
 
-    - `<thread.h>`
+  - `<thread.h>`
 
 - Les traductions de chaînes p.ex. français vers anglais
 
-    - `<iconv.h>`
+  - `<iconv.h>`
 
 - Les fonctions avancées de recherche de texte
 
-    - `<regex.h>`
+  - `<regex.h>`
 
 - Le log centralisé des messages (d'erreur)
 
-    - `<syslog.h>`
+  - `<syslog.h>`
 
 Toutes ces bibliothèques additionnelles ne sont pas nécessairement disponibles sur votre ordinateur ou pour le système cible, surtout si vous convoitez une application *bare-metal*. Elles dépendent grandement du système d'exploitation utilisé, mais une tentative de normalisation existe et se nomme [POSIX](https://en.wikipedia.org/wiki/POSIX) (ISO/IEC 9945).
 

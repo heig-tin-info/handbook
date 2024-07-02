@@ -1,8 +1,10 @@
 # La programmation
 
-Il ne serait pas raisonnable d'enseigner la programmation sans au préalable définir ce qu'est la programmation et quelle est son origine. La programmation est l'étape qui suit l'élaboration algorithmes. Elle vise à traduire un algorithme en un langage formel compréhensible par une machine. La programmation est donc une activité de communication entre un humain et une machine. Elle est un art, une science et une technique.
+Il ne serait pas raisonnable d'enseigner la programmation informatique sans au préalable définir ce qu'est la programmation et quelle est son origine.
 
-Dans un cursus académique on parle souvent de cours d'**Algorithmique et Programmation**, il y donc deux questions à éclaircir ici :
+La **programmation** est l'étape qui suit l'élaboration **algorithmes**. Elle vise à traduire un algorithme en un **langage formel** compréhensible par une machine. La programmation est donc une activité de communication entre un humain et une machine. Elle est un art, une science et une technique.
+
+Dans un cursus académique on parle souvent de cours d'**Algorithmique et Programmation**, il y donc deux questions à éclaircir :
 
 1. Qu'est-ce que l'algorithmique ?
 2. Qu'est-ce que la programmation ?
@@ -11,7 +13,7 @@ Dans un cursus académique on parle souvent de cours d'**Algorithmique et Progra
 
 ## Algorithmique
 
-L'algorithmique et non l'*algorithmie*, est la science qui étudie la production de règles et techniques impliquées dans la définition et la conception d'[algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Nous verrons l'algorithmique plus en détail dans le chapitre [algorithmes](algorithms.md). Retenons pour l'heure que l'algorithmique est un domaine bien plus vaste que celui appliqué aux ordinateurs. Elle intervient tous les jours :
+L'algorithmique et non l'*algorithmie* (qui n'est pas français), est la science qui étudie la production de règles et techniques impliquées dans la définition et la conception d'[algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Nous verrons l'algorithmique plus en détail dans le chapitre [algorithmes](algorithms.md). Retenons pour l'heure que l'algorithmique est un domaine bien plus vaste que celui appliqué aux ordinateurs. Elle intervient tous les jours :
 
 - dans une recette de cuisine,
 - le tissage de tapis persans,
@@ -19,13 +21,17 @@ L'algorithmique et non l'*algorithmie*, est la science qui étudie la production
 - les tactiques sportives,
 - les procédures administratives.
 
-Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l'[algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide) datant probablement de 300 av. J.-C. est un algorithme permettant de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD). Voici la description de l'algorithme sous forme d'un diagramme de flux :
+### Algorithme d'Euclide
+
+Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l'[algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide) datant probablement de 300 av. J.-C.
+
+Il est un algorithme permettant de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD). Voici la description de l'algorithme sous forme d'un diagramme de flux :
 
 ![Algorithme de calcul du PGCD d'Euclide.](../assets/figures/pgcd.drawio)
 
-Souvent, les informaticiens et ingénieurs aiment utiliser des diagrammes pour synthétiser des idées. Le diagramme de flux est un outil de communication visuelle permettant de représenter des processus. Ici on observe des formes géométriques et des flèches. Les flèches indique le sens de lecture du processus. Les formes géométriques sont des boîtes de texte contenant des instructions. Les formes de début et de fin sont des ovales. Les formes de traitement sont des rectangles. Les formes de décision sont des losanges. Une forme de décision contient une question et deux flèches de sortie, une pour chaque réponse possible. Généralement une flèche de sortie est étiquetée avec la réponse attendue. On le verra plus tard mais un processus de traitement d'information dispose toujours d'une entrée et d'une sortie.
+Souvent, les informaticiens et ingénieurs aiment utiliser des diagrammes pour synthétiser leurs idées. Le diagramme de flux est un outil de communication visuelle permettant de représenter des **processus**. Ici on observe des formes géométriques et des flèches. Les flèches indiquent le sens de lecture du processus. Les formes géométriques sont des boîtes de texte contenant des instructions. Les formes de début et de fin sont par convention des ovales. Les formes de traitement sont des rectangles et les formes de décision sont quant à elles des losanges. Une forme de décision contient une question et deux flèches de sortie, une pour chaque réponse possible. Généralement une flèche de sortie est étiquetée avec la réponse attendue. On le verra plus tard mais un processus de traitement d'information dispose toujours d'une entrée et d'une sortie.
 
-Si l'on souhaite trouver le plus grand diviseur commun de 42 et 30, il suffit d'applique l'algorithme d'Euclide :
+Si l'on souhaite trouver le plus grand diviseur commun de 42 et 30, il suffit d'applique l'algorithme d'Euclide du *début* à la *fin* :
 
 Table: Exemple de calcul du PGCD entre 42 et 30
 
@@ -53,6 +59,58 @@ Table: Exemple de calcul du PGCD entre 42 et 30
     , $b$ et $r$ ?
 
     $$a = 1260, b = 630$$
+
+### Tri à bulles
+
+Un autre algorithme célèbre est l'algorithme de tri de [Bulles](https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles). Il s'agit d'un algorithme de tri simple qui consiste à comparer les éléments adjacents et à les permuter si nécessaire. Voici un diagramme de flux de l'algorithme de tri de bulles :
+
+![Algorithme de tri de bulles.](../assets/figures/bubblesort.drawio)
+
+Soit un tableau de $N = 5$ valeurs à trier :
+
+$$T = {5, 3, 8, 4, 2}$$
+
+<!-- Table: Exemple de tri de bulles
+
+| Étape | $k$ | $s$ | $T$ |
+|-------|-----|-----|-----|
+| Initialisation | 0 | 0 | $\left\{\underline{5}, \underline{3}, 8, 4, 2\right\}$ |
+| $k + 1 > N$ ? non | 0 | 0 | $\left\{\underline{5}, \underline{3}, 8, 4, 2\right\}$ |
+| $T[k] > T[k + 1]$ ? oui | 0 | 1 | $\left\{\underline{5}, \underline{3}, 8, 4, 2\right\}$ |
+| Inverser et modifier $s$ et $k$ | 1 | 1 | $\left\{3, \underline{5}, \underline{8}, 4, 2\right\}$ |
+| $k + 1 > N$ ? non | 1 | 1 | $\left\{3, \underline{5}, \underline{8}, 4, 2\right\}$ |
+| $T[k] > T[k + 1]$ ? non | 1 | 1 | $\left\{3, \underline{5}, \underline{8}, 4, 2\right\}$ |
+| Incrémenter $k$ | 2 | 1 | $\left\{3, 5, \underline{8}, \underline{4}, 2\right\}$ |
+| $k + 1 > N$ ? non | 2 | 1 | $\left\{3, 5, \underline{8}, \underline{4}, 2\right\}$ |
+| $k + 1 > N$ ? non | 2 | 1 | $\left\{3, 5, \underline{8}, \underline{4}, 2\right\}$ |
+| $T[k] > T[k + 1]$ ? oui | 2 | 1 | $\left\{3, 5, \underline{8}, \underline{4}, 2\right\}$ |
+| Inverser et modifier $s$ et $k$ | 3 | 1 | $\left\{3, 5, 4, \underline{8}, \underline{2}\right\}$ |
+| $k + 1 > N$ ? non | 3 | 1 | $\left\{3, 5, \underline{4}, \underline{8}, 2\right\}$ |
+| $T[k] > T[k + 1]$ ? oui | 3 | 1 | $\left\{3, 5, 4, \underline{8}, \underline{2}\right\}$ |
+| Inverser et modifier $s$ et $k$ | 4 | 1 | $\left\{3, 5, 4, 2, \underline{8}\right\}$ |
+| $k + 1 > N$ ? oui | 4 | 1 | $\left\{3, 5, 4, 2, \underline{8}\right\}$ |
+| $s égal à 1$ ? oui | 4 | 1 | $\left\{3, 5, 4, 2, \underline{8}\right\}$ |
+| Initialisation | 0 | 0 | $\left\{\underline{3}, \underline{5}, 4, 2, 8\right\}$ |
+| ... | -->
+
+Le cycle se répète jusqu'à ce que le tableau soit trié. Si $s$ est égal à 0, il n'y a pas eu d'échange lors du parcours du tableau et le tableau est donc trié.
+
+```text
+Cycle 1:
+    {5, 3, 8, 4, 2}
+    {3, 5, 8, 4, 2}
+    {3, 5, 4, 8, 2}
+    {3, 5, 4, 2, 8}
+Cycle 2:
+    {3, 4, 5, 2, 8}
+    {3, 4, 2, 5, 8}
+Cycle 3:
+    {3, 4, 2, 5, 8}
+Cycle 4:
+    {3, 2, 4, 5, 8}
+Cycle 5:
+    {2, 3, 4, 5, 8}
+```
 
 ## Programmation
 
@@ -280,6 +338,15 @@ On peut essayer de traduire cet algorithme dans un langage formel :
         printf("%s\n", tape + head);
     }
     ```
+
+## L'ordinateur moderne
+
+Les ordinateurs modernes sont des machines complexes qui contiennent plusieurs composants. Les composants principaux d'un ordinateur sont :
+
+- Le processeur (CPU) : c'est le cerveau de l'ordinateur. Il exécute les ordres du programme.
+- La mémoire (RAM) : c'est l'espace de stockage temporaire des données et des instructions du programme.
+- Le disque *dur* (HDD/SSD) : c'est l'espace de stockage permanent des données.
+- Les périphériques d'entrée/sortie : ce sont les interfaces qui permettent à l'ordinateur de communiquer avec l'utilisateur (clavier, souris, écran, imprimante, etc.).
 
 ## Exercices de révision
 

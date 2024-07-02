@@ -103,6 +103,18 @@
   break-inside: avoid-column;
 }
 
+.three-column-list {
+  list-style-type: none;
+  columns: 3;
+  column-gap: 16px;
+  padding: 0;
+}
+
+.three-column-list li {
+  break-inside: avoid-column;
+}
+
+
 /* French bullet point */
 .md-content ul {
   list-style: none;
