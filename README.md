@@ -4,6 +4,8 @@ Cours d'informatique pour les étudiants de la HEIG-VD, département TIN.
 
 Ce cours couvre les bases de l'informatique, de l'architecture des ordinateurs à la programmation en C.
 
+La version web est disponible sur cette [page](https://heig-tin-info.github.io/handbook/).
+
 ## Développement
 
 ```bash
