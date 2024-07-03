@@ -9,8 +9,8 @@ La version web est disponible sur cette [page](https://heig-tin-info.github.io/h
 ## Développement
 
 ```bash
-pip install -r requirements.txt
-mkdocs serve
+poetry install
+poetry run mkdocs serve
 ```
 
 ### Docker
@@ -27,11 +27,22 @@ Installer l'extension `vscode-yaml` pour une meilleure coloration syntaxique des
 
 ## To-Do
 
-- [ ] Figures dark/white theme (draw.io)?
-- [ ] Center tables, full width, alternate colors, header above table (proper numbering)
-- [ ] Having part on the system to show "slides" with examples and interactive examples
-- [ ] Interactive examples (linked-list)...
-- [ ] Two columns for itemize ?
+- [ ] Fix drawio generation on GitHub Actions
+- [ ] Make figures compatible with both light/dark theme
+- [ ] Tables
+  - [ ] Caption above table
+  - [ ] Addfull parameter for adjusting width, fullwidth
+  - [ ] Alternate colors for table entries
+  - [ ] Number table from section number
+- [ ] Slides for each course with inteactive examples
+- [ ] Embedded Interactive examples (linked-list)...
+- [ ] Interactive exercices
+  - [ ] Multiple choice
+  - [ ] Code execution
+  - [ ] Fill the gap
+- [ ] Generate PDF with LaTeX
+- [x] Center tables
+- [x] Two columns for itemize ?
 
 ### Content
 
