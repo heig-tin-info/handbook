@@ -1,4 +1,4 @@
-# Ligne de commande
+# Bash (Ligne de commande)
 
 La maîtrise de la ligne de commande n'est pas indispensable pour ce cours, mais la compréhension de quelques commandes est utile pour bien comprendre les exemples donnés.
 
