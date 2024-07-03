@@ -23,6 +23,7 @@ Les références utilisées dans cet ouvrage sont :
 ## Problèmes en lignes
 
 - [CSES, 300 problèmes d'algorithmique](https://cses.fi/problemset)
+- [Exercism](https://exercism.org/tracks/c)
 
 ## Cartes de références
 

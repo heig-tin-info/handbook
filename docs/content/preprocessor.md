@@ -431,3 +431,28 @@ Les commentaires C du type suivant sont aussi des directives du préprocesseur. 
     ```c
     #define IS_OCTAL(c) ((c) >= '0' && (c) <= '8')
     ```
+
+## Usages avancés
+
+### Simulation d'exceptions
+
+Il est possible de simuler des exceptions en C en utilisant les directives du préprocesseur :
+
+```c
+#define TRY do { jmp_buf ex_buf__; if (setjmp(ex_buf__) == 0) {
+#define CATCH } else {
+#define ETRY } } while (0)
+#define THROW longjmp(ex_buf__, 1)
+```
+
+### Débogage
+
+Il est possible de définir des macros pour le débogage :
+
+```c
+#ifdef DEBUG
+#    define TRACE printf("Trace: %s:%d\n", __FILE__, __LINE__)
+#else
+#    define TRACE
+#endif
+```

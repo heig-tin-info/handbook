@@ -212,7 +212,7 @@ if (elements >= capacity) {
 
 ## Buffer circulaire
 
-Un {index}`tampon circulaire` aussi appelé {index}`buffer circulaire` ou {index}`ring buffer` en anglais est généralement d'une taille fixe et possède deux pointeurs. L'un pointant sur le dernier élément (*tail*) et l'un sur le premier élément (*head*).
+Un **tampon circulaire** aussi appelé *buffer circulaire* ou *ring buffer* en anglais est généralement d'une taille fixe et possède deux pointeurs. L'un pointant sur le dernier élément (*tail*) et l'un sur le premier élément (*head*).
 
 Lorsqu'un élément est supprimé du buffer, le pointeur de fin est incrémenté. Lorsqu'un élément est ajouté, le pointeur de début est incrémenté.
 
@@ -447,7 +447,9 @@ for (Element *e = &head; e != NULL; e = e->next)
     count++;
 ```
 
-Attention, cette technique ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant :
+#### Détection des boucles
+
+Attention, la technique précédente ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant :
 
 ![Boucle dans une liste chaînée](../assets/figures/dist/data-structure/loop.svg)
 
@@ -455,7 +457,6 @@ La liste se terminant par une boucle, il n'y aura jamais d'élément de fin et l
 calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment donc les compter ?
 
 Il existe un algorithme nommé détection de cycle de Robert W. Floyd aussi appelé *algorithme du lièvre et de la tortue*. Il consiste à avoir deux pointeurs qui parcourent la liste chaînée. L'un avance deux fois plus vite que le second.
-
 
 ![Algorithme de détection de cycle de Robert W. Floyd](../assets/figures/dist/data-structure/floyd.svg)
 
@@ -497,7 +498,9 @@ size_t compute_length(Element* head)
 }
 ```
 
-Une bonne idée pour se simplifier la vie est simplement d'éviter la création de boucles.
+!!! tip
+
+    Une bonne idée pour se simplifier la vie est simplement d'éviter la création de boucles.
 
 #### Insertion
 

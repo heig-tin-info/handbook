@@ -1,4 +1,4 @@
-# Les Opérateurs
+# Opérateurs
 
 Le langage C est composé d'une multitude d'opérateurs permettant de modifier les valeurs de variables en mémoire. Un **opérateur** prend habituellement deux opérandes et retourne un résultat. On dit alors que ces opérateurs ont une [arité](https://fr.wikipedia.org/wiki/Arit%C3%A9) de 2. Il existe également des opérateurs à arité de 1 dit [unaire](https://fr.wikipedia.org/wiki/Op%C3%A9ration_unaire) comme l'opposé d'un nombre réel : $-x$.
 

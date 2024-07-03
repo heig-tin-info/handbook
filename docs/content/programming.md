@@ -1,4 +1,4 @@
-# La programmation
+# Programmation
 
 Il ne serait pas raisonnable d'enseigner la programmation informatique sans au préalable définir ce qu'est la programmation et quelle est son origine.
 

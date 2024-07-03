@@ -1,4 +1,4 @@
-# Les  fichiers
+# Fichiers
 
 ## Système de fichiers
 

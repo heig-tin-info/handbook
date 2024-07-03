@@ -10,12 +10,6 @@ Cet ouvrage est destiné à des étudiants ingénieurs de première année n'aya
 
 Le contenu concerne les cours d'informatique 1 et 2 de l'enseignement de base du département des technologies industrielles (TIN) de la HEIG-VD.
 
-### Informatique 1 (*Info1*)
-
-
-### Informatique 2 (*Info2*)
-
-
 ## Conventions d'écriture
 
 ### Symbole d'égalité
@@ -28,7 +22,7 @@ Nous verrons que le signe d'égalité `=` peut aisément être confondu avec l'o
 
 ### Symbole de remplissage
 
-Dans les exemples qui seront donnés, on pourra voir `while (condition) { 〰 }` ou `〰` ({unicode}`U+3030`) indique une continuité logique d'opération. Le symbole exprime ainsi `...` ([points de suspension](https://fr.wikipedia.org/wiki/Points_de_suspension) ou *ellipsis*). Or, pour ne pas confondre avec le symbole C `...` utilisé dans les fonctions à arguments variables tels que `printf`.
+Dans les exemples qui seront donnés, on pourra voir `while (condition) { 〰 }` ou `〰` (`U+3030`) indique une continuité logique d'opération. Le symbole exprime ainsi `...` ([points de suspension](https://fr.wikipedia.org/wiki/Points_de_suspension) ou *ellipsis*). Or, pour ne pas confondre avec le symbole C `...` utilisé dans les fonctions à arguments variables tels que `printf`.
 
 ### Types de données
 
@@ -59,6 +53,10 @@ Des encadrés sont utilisés pour mettre en avant des informations complémentai
 !!! note "Note"
 
     Corollaire à retenir.
+
+!!! tip "Astuce"
+
+    Astuce pour faciliter la compréhension.
 
 !!! exercise "Exercice"
 

@@ -1,4 +1,4 @@
-# Le langage C
+# Langage C
 
 Le langage C est un des premiers langages de programmation de haut niveau. Il est très proche de l'assembleur, le langage de bas niveau des processeurs, et permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation système en passant par les applications de bureau.
 

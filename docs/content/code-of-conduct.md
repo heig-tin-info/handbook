@@ -1,4 +1,4 @@
-# Le code de conduite
+# Code de conduite
 
 ![Code d'Hammurabi (1750 av. J.-C.)](../assets/figures/hammurabi.png)
 

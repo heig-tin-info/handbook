@@ -1,4 +1,4 @@
-# Les Types de données
+# Types de données
 
 ## Typage
 
