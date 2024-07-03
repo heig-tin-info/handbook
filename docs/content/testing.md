@@ -1,6 +1,6 @@
 # Qualité et Testabilité
 
-![Bug de l'an 2000](../assets/figures/y2k-bug.webp)
+![Bogue de l'an 2000](../assets/figures/y2k-bug.webp)
 
 Surveiller et assurer la qualité d'un code est primordial dans toute institution et quelques soit le produit. Dans l'industrie automobile par exemple, un bogue qui serait découvert plusieurs années après la commercialisation d'un modèle d'automobile aurait des conséquences catastrophiques.
 
@@ -12,7 +12,7 @@ La sonde martienne Mariner
 
 Un pipeline soviétique de gaz
 
-: En 1982, un bug a été introduit dans un ordinateur canadien acheté pour le contrôle d'un pipeline de gaz transsibérien. L'erreur est reportée comme la plus large explosion jamais enregistrée d'origine non nucléaire.
+: En 1982, un bogue a été introduit dans un ordinateur canadien acheté pour le contrôle d'un pipeline de gaz transsibérien. L'erreur est reportée comme la plus large explosion jamais enregistrée d'origine non nucléaire.
 
 Le générateur de nombre pseudo-aléatoire Kerberos
 
@@ -24,7 +24,7 @@ La division entière sur Pentium
 
 ## SQuaRE
 
-La norme ISO/IEC 25010 (qui remplace ISO/IEC 9126-1) décrit les caractéristiques définissant la qualité d'un logiciel. L'acronyme **SQuaRE** (*Software product Quality Requirements and Evaluation*) défini le standard international. Voici quelques critères d'un code de qualité :
+La norme ISO/IEC 25010 (qui remplace ISO/IEC 9126-1) décrit les caractéristiques définissant la qualité d'un logiciel. L'acronyme **SQuaRE** (*Software product Quality Requirements and Evaluation*) définit le standard international. Voici quelques critères d'un code de qualité :
 
 - Maintenabilié
 - Modifiabilité

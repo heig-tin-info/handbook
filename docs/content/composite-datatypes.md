@@ -260,7 +260,7 @@ a[1][2] == *(*(a + 1) + 2))
 
 ### Initialisation
 
-Lors de la déclaration d'un tableau, le compilateur réserve un espace mémoire de la taille suffisante pour contenir tous les éléments du tableaux. La déclaration suivante :
+Lors de la déclaration d'un tableau, le compilateur réserve un espace mémoire de la taille suffisante pour contenir tous les éléments du tableau. La déclaration suivante :
 
 ```c
 int32_t even[6];
@@ -304,13 +304,13 @@ Il est également possible d'initialiser un tableau de façon explicite en utili
 int32_t sequence[6] = {[0]=4, [1]=8, [2]=15, [3]=16, [4]=23, [5]=42};
 ```
 
-Et naturellement il est possible d'omettre certaines valeurs, lesquelles seront initialisées à zéro par défaut. Dans l'exemple suivant les valeurs aux indices 1 à 4 vaudront zéro.
+Et naturellement il est possible d'omettre certaines valeurs, lesquelles seront initialisées à zéro par défaut. Dans l'exemple suivant, les valeurs aux indices 1 à 4 vaudront zéro.
 
 ```c
 int32_t sequence[6] = {[0]=4, [5]=42};
 ```
 
-Notons que lorsque que la notation `[]=` est utilisée, les valeurs qui suivent seront positionnées aux indices suivants :
+Notons que lorsque la notation `[]=` est utilisée, les valeurs qui suivent seront positionnées aux indices suivants :
 
 ```c
 int32_t sequence[6] = {[0]=4, 8, [3]=16, 23, 42};
@@ -406,7 +406,7 @@ Jouer `x` au centre équivaut à écrire :
 game[1][1] = 'x';
 ```
 
-De la même façon il est possible de définir structure tridimensionnelle :
+De la même façon, il est possible de définir une structure tridimensionnelle :
 
 ```c
 int volume[10][4][8];
@@ -574,7 +574,7 @@ Notons que la valeur `0` est strictement identique au caractère 0 de la table A
 
 Les structures sont des déclarations spécifiques permettant de regrouper une liste de variables dans un même bloc mémoire et permettant de s'y référer à partir d'une référence commune. Historiquement le type `struct` a été dérivé de `ALGOL 68`. Il est également utilisé en C++ et est similaire à une classe.
 
-Il faut voir une structure comme un container à variables qu'il est possible de véhiculer comme un tout.
+Il faut voir une structure comme un conteneur à variables qu'il est possible de véhiculer comme un tout.
 
 La structure suivante décrit un agrégat de trois grandeurs scalaires formant un point tridimensionnel :
 
@@ -596,7 +596,7 @@ Il ne faut pas confondre l'écriture ci-dessus avec ceci, dans lequel il y a un 
 };
 ```
 
-En utilisant le mot-clé `struct` devant un bloc, les variables déclarées au sein de ce bloc ne seront pas réservées en mémoire. Autrement dit, il ne sera pas possible d'accéder à `x` puisqu'il n'existe pas de variable `x`. En revanche, un nouveau container contenant trois variables est défini, mais pas encore déclaré.
+En utilisant le mot-clé `struct` devant un bloc, les variables déclarées au sein de ce bloc ne seront pas réservées en mémoire. Autrement dit, il ne sera pas possible d'accéder à `x` puisqu'il n'existe pas de variable `x`. En revanche, un nouveau conteneur contenant trois variables est défini, mais pas encore déclaré.
 
 La structure ainsi déclarée n'est pas très utile telle quelle, en revanche elle peut-être utilisée pour déclarer une variable de type `struct` :
 
@@ -616,13 +616,13 @@ point.y = 3192003.220;
 point.z = 4581359.381;
 ```
 
-Comme `point` n'est pas une primitive standard, mais un container à primitive, il n'est pas correct d'écrire `point = 12`. Il est essentiel d'indiquer quel élément de ce container on souhaite accéder.
+Comme `point` n'est pas une primitive standard, mais un conteneur à primitive, il n'est pas correct d'écrire `point = 12`. Il est essentiel d'indiquer quel élément de ce conteneur on souhaite accéder.
 
-Ces coordonnées sont un clin d'œil aux [Pierres du Niton](https://fr.wikipedia.org/wiki/Pierres_du_Niton) qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la Terre. Ces pierres sont donc situées à 4.5 km du centre de la terre, et donc un sacré défi pour [Axel Lidenbrock](https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre) et son fulmicoton.
+Ces coordonnées sont un clin d'œil aux [Pierres du Niton](https://fr.wikipedia.org/wiki/Pierres_du_Niton) qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la Terre. Ces pierres sont donc situées à 4.5 km du centre de la Terre, et donc un sacré défi pour [Axel Lidenbrock](https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre) et son fulmicoton.
 
 ### Structures nommées
 
-L'écriture que l'on a vu initialement `struct { ... };` est appelée structure anonyme, c'est-à-dire qu'elle n'a pas de nom. Telle quelle elle ne peut pas être utilisée et elle ne sert donc pas à grand chose. En revanche, il est possible de déclarer une variable de ce type en ajoutant un identificateur à la fin de la déclaration `struct { ... } nom;`. Néanmoins la structure est toujours anonyme.
+L'écriture que l'on a vue initialement `struct { ... };` est appelée structure anonyme, c'est-à-dire qu'elle n'a pas de nom. Telle quelle elle ne peut pas être utilisée et elle ne sert donc pas à grand chose. En revanche, il est possible de déclarer une variable de ce type en ajoutant un identificateur à la fin de la déclaration `struct { ... } nom;`. Néanmoins la structure est toujours anonyme.
 
 Le langage C prévoit la possibilité de nommer une structure pour une utilisation ultérieure en rajoutant un nom après le mot clé `struct` :
 
@@ -664,7 +664,7 @@ point.x = 42;
 
 ### Initialisation
 
-Une structure se comporte à peu de chose près comme un tableau sauf que les éléments de la structure ne s'accèdent pas avec l'opérateur crochet `[]` mais avec l'opérateur `.`. Néanmoins une structure est représentée en mémoire comme un contenu linéaire. Notre structure `struct Point` serait identique à un tableau de trois `double` et par conséquent l'initialisation suivante est possible :
+Une structure se comporte à peu de chose près comme un tableau sauf que les éléments de la structure ne s'accèdent pas avec l'opérateur crochet, `[]` mais avec l'opérateur `.`. Néanmoins une structure est représentée en mémoire comme un contenu linéaire. Notre structure `struct Point` serait identique à un tableau de trois `double` et par conséquent l'initialisation suivante est possible :
 
 ```c
 struct Point point = { 3060426.957, 3192003.220, 4581359.381 };
@@ -713,7 +713,7 @@ point[2].x = 12;
 
 ### Structures en paramètres
 
-L'intérêt d'une structure est de pouvoir passer ou retourner un ensemble de données à une fonction. On a vu qu'une fonction ne permet de retourner qu'une seule primitive. Une structure est ici considérée comme un seul container et l'écriture suivante est possible :
+L'intérêt d'une structure est de pouvoir passer ou retourner un ensemble de données à une fonction. On a vu qu'une fonction ne permet de retourner qu'une seule primitive. Une structure est ici considérée comme un seul conteneur et l'écriture suivante est possible :
 
 ```c
 struct Point generate_point(void) {
@@ -768,7 +768,7 @@ Le résultat affiché sera `0.0, 1.0`. Seule la seconde valeur est modifiée.
 
 ### Structures flexibles
 
-Introduits avec C99, les membres de structures flexibles ou *flexible array members* (§6.7.2.1) sont un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.
+Introduits avec C99, les membres de structures flexibles ou *flexible array members* (§6.7.2.1) est un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.
 
 ```c
 struct Vector {
@@ -913,7 +913,7 @@ struct Align
     A         B         C         D
 ```
 
-L'option `-Wpadded` de GCC permet lever une alerte lorsqu'une structure est alignée par le compilateur. Si l'on utilise par exemple une structure pour écrire un fichier binaire respectant un format précis par exemple l'en-tête d'un fichier BMP. Et que cette structure `BitmapFileHeader` est enregistrée avec `fwrite(header, sizeof(BitmapFileHeader), ...)`. Si le compilateur rajoute des éléments de rembourrage, le fichier BMP serait alors compromis. Il faudrait donc considérer l'alerte `Wpadded` comme une erreur critique.
+L'option `-Wpadded` de GCC permet de lever une alerte lorsqu'une structure est alignée par le compilateur. Si l'on utilise par exemple une structure pour écrire un fichier binaire respectant un format précis par exemple l'en-tête d'un fichier BMP. Et que cette structure `BitmapFileHeader` est enregistrée avec `fwrite(header, sizeof(BitmapFileHeader), ...)`. Si le compilateur rajoute des éléments de rembourrage, le fichier BMP serait alors compromis. Il faudrait donc considérer l'alerte `Wpadded` comme une erreur critique.
 
 Pour pallier à ce problème, lorsqu'une structure mémoire doit être respectée dans un ordre précis. Une option de compilation non standard existe. La directive `#pragma pack` permet de forcer un type d'alignement pour une certaine structure. Considérons par exemple la structure suivante :
 
@@ -987,7 +987,7 @@ int32_t i2cmdr;
 i2cmdr |= 1 << 12;
 ```
 
-Notons que les champs de bits, ainsi que les structures seront déclarées différemment selon que l'architecture cible est *little-endian* ou *big-endian*.
+Notons que les champs de bits, ainsi que les structures seront déclarés différemment selon que l'architecture cible est *little-endian* ou *big-endian*.
 
 ## Unions
 

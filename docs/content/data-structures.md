@@ -124,7 +124,7 @@ Lorsque le nombre d'éléments du tableau devient inférieur du facteur de crois
 
 ### Anatomie
 
-Un tableau dynamique est représenté en mémoire comme un contenu séquentiel qui possède un début et une fin. On appelle son début la **tête** ou *head* et la fin du tableau sa **queue** ou *tail*. Selon que l'on souhaite ajouter des éléments au début ou à la fin du tableau la complexité n'est pas la même.
+Un tableau dynamique est représenté en mémoire comme un contenu séquentiel qui possède un début et une fin. On appelle son début la **tête** ou *head* et la fin du tableau, sa **queue** ou *tail*. Selon que l'on souhaite ajouter des éléments au début ou à la fin du tableau, la complexité n'est pas la même.
 
 Nous définirons par la suite le vocabulaire suivant:
 
@@ -625,7 +625,7 @@ Node* search(Node* node, size_t id)
 }
 ```
 
-L'insertion et la suppression d'éléments dans un arbre binaire fait appel à des [rotations](https://fr.wikipedia.org/wiki/Rotation_d%27un_arbre_binaire_de_recherche), puisque les éléments doivent être insérés dans le correct ordre et que l'arbre, pour être performant doit toujours être équilibré. Ces rotations sont donc des mécanismes de rééquilibrage de l'arbre ne sont pas triviaux, mais dont la complexité d'exécution reste simple, et donc performante.
+L'insertion et la suppression d'éléments dans un arbre binaire font appel à des [rotations](https://fr.wikipedia.org/wiki/Rotation_d%27un_arbre_binaire_de_recherche), puisque les éléments doivent être insérés dans le correct ordre et que l'arbre, pour être performant, doit toujours être équilibré. Ces rotations sont donc des mécanismes de rééquilibrage de l'arbre ne sont pas triviaux, mais dont la complexité d'exécution reste simple, et donc performante.
 
 ## Heap
 
@@ -678,9 +678,9 @@ int main() {
 }
 ```
 
-La queue prioritaire dispose donc aussi des méthodes `enqueue` et `dequeue` mais le `dequeue` retournera l'élément le plus prioritaire de la liste. Ceci se traduit par trier la file d'attente à chaque opération `enqueue` ou `dequeue`. L'une de ces deux opérations pourrait donc avoir une complexité de $O(n log n)$. Heureusement, il existe méthodes de tris performantes si un tableau est déjà trié et qu'un seul nouvel élément y est ajouté.
+La queue prioritaire dispose donc aussi des méthodes `enqueue` et `dequeue` mais le `dequeue` retournera l'élément le plus prioritaire de la liste. Ceci se traduit par trier la file d'attente à chaque opération `enqueue` ou `dequeue`. L'une de ces deux opérations pourrait donc avoir une complexité de $O(n log n)$. Heureusement, il existe des méthodes de tris performantes si un tableau est déjà trié et qu'un seul nouvel élément y est ajouté.
 
-L'implémentation de ce type de structure de donnée s'appuie le plus souvent sur un *heap*, soit construit à partir d'un tableau statique, soit un tableau dynamique.
+L'implémentation de ce type de structure de donnée s'appuie le plus souvent sur un *heap*, soit construite à partir d'un tableau statique, soit un tableau dynamique.
 
 ## Tableau de Hachage
 
@@ -755,7 +755,7 @@ int hash_person(struct Person person) {
 }
 ```
 
-L'accès à une personne à partir de la clé se résous donc en `O(1)` car il n'y a aucune itération ou recherche à effectuer.
+L'accès à une personne à partir de la clé se résout donc en `O(1)` car il n'y a aucune itération ou recherche à effectuer.
 
 Cette [vidéo](https://www.youtube.com/watch?v=KyUTuwz_b7Q) YouTube explique bien le fonctionnement des tableaux de hachage.
 
@@ -770,7 +770,7 @@ Len -> {76, 101, 110} -> 287 -> 1
 
 On voit que les positions `4` et `1` sont déjà occupées par Mia et Tim.
 
-Une stratégie de résolution s'appelle [Open adressing](https://en.wikipedia.org/wiki/Open_addressing). Parmi les possibilités de cette stratégie le *linear probing* consiste à vérifier si la position du tableau est déjà occupée et en cas de collision, chercher la prochaine place disponible dans le tableau :
+Une stratégie de résolution s'appelle [Open adressing](https://en.wikipedia.org/wiki/Open_addressing). Parmi les possibilités de cette stratégie, le *linear probing* consiste à vérifier si la position du tableau est déjà occupée et en cas de collision, chercher la prochaine place disponible dans le tableau :
 
 ```c
 Person people[10] = {0}
@@ -791,7 +791,7 @@ while (strcmp(people[hash], key) != 0) hash++;
 Person person = people[hash];
 ```
 
-Lorsque le nombre de collisions est négligeable par rapport à la table de hachage la recherche d'un élément est toujours en moyenne égale à $O(1)$, mais lorsque le nombre de collisions est prépondérant, la complexité se rapproche de celle de la recherche linéaire $O(n)$ et on perd tout avantage à cette structure de donnée.
+Lorsque le nombre de collisions est négligeable par rapport à la table de hachage, la recherche d'un élément est toujours en moyenne égale à $O(1)$, mais lorsque le nombre de collisions est prépondérant, la complexité se rapproche de celle de la recherche linéaire $O(n)$ et on perd tout avantage à cette structure de donnée.
 
 Dans le cas extrême, pour garantir un accès unitaire pour tous les noms de trois lettres, il faudrait un tableau de hachage d'une taille $26^3 = 17576$ personnes. L'empreinte mémoire peut être considérablement réduite en stockant non pas une structure `struct Person` mais plutôt l'adresse vers cette structure :
 
@@ -819,7 +819,7 @@ $$
 \text{Facteur de charge} = \frac{\text{Nombre total d'éléments}}{\text{Taille de la table}}
 $$
 
-Plus ce facteur de charge est élevé, dans le cas du *linear probing*, moins bon sera performance de la table de hachage.
+Plus ce facteur de charge est élevé, dans le cas du *linear probing*, moins bon sera la performance de la table de hachage.
 
 Certains algorithmes permettent de redimensionner dynamiquement la table de hachage pour conserver un facteur de charge le plus faible possible.
 
@@ -1058,7 +1058,7 @@ Les arbres binaires ont une structure qui permet naturellement la dichotomique. 
 1   3  5   7  9  11 13  15
 ```
 
-Le tableau suivant résume les performances obtenues pour les différentes structures de données que nous avons vu dans ce chapitre :
+Le tableau suivant résume les performances obtenues pour les différentes structures de données que nous avons vues dans ce chapitre :
 
 Table: Comparaison des performances des structures récursives
 

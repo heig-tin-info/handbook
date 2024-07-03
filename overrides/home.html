@@ -2,79 +2,132 @@
 
 <!-- Render hero under tabs -->
 {% block tabs %}
-  {{ super() }}
+{{ super() }}
 
-  <!-- Additional styles for landing page -->
-  <style>
+<!-- Additional styles for landing page -->
+<style>
+  /* Application header should be static for the landing page */
+  .md-header {
+    position: initial;
+  }
 
-    /* Application header should be static for the landing page */
-    .md-header {
-      position: initial;
-    }
+  /* Remove spacing, as we cannot hide it completely */
+  .md-main__inner {
+    margin: 0;
+  }
 
-    /* Remove spacing, as we cannot hide it completely */
-    .md-main__inner {
-      margin: 0;
-    }
+  /* Hide main content for now */
+  .md-content {
+    display: none;
+  }
 
-    /* Hide main content for now */
-    .md-content {
+  /* Hide table of contents */
+  @media screen and (min-width: 60em) {
+    .md-sidebar--secondary {
       display: none;
     }
+  }
 
-    /* Hide table of contents */
-    @media screen and (min-width: 60em) {
-      .md-sidebar--secondary {
-        display: none;
-      }
+  /* Hide navigation */
+  @media screen and (min-width: 76.25em) {
+    .md-sidebar--primary {
+      display: none;
+    }
+  }
+
+  .mdx-hero {
+    margin: 0 2rem;
+    color: var(--md-default-fg-color);
+  }
+
+  .mdx-hero h1 {
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+    color: currentcolor;
+  }
+
+  @media (max-width: 480px) {
+    .mdx-hero h1 {
+      font-size: 1.75rem;
+    }
+  }
+
+  .mdx-hero__content {
+    padding-bottom: 7.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .mdx-hero {
+      display: flex;
+      align-items: stretch;
     }
 
-    /* Hide navigation */
-    @media screen and (min-width: 76.25em) {
-      .md-sidebar--primary {
-        display: none;
-      }
+    .mdx-hero__content {
+      max-width: 23.75rem;
+      padding-bottom: 14vw;
+      margin-top: 4.375rem;
     }
-  </style>
 
-  <!-- Hero for landing page -->
-  <section class="mdx-container">
-    <div class="md-grid md-typeset">
-      <div class="mdx-hero">
+    .mdx-hero__image {
+      order: 1;
+      right: 0;
+      width: 40rem;
+      position:absolute;
+      transform: translateX(5rem);
+    }
+  }
 
-        <!-- Hero image -->
-        <div class="mdx-hero__image">
-          <img
-            src="assets/figures/hero.png"
-            alt=""
-            width="1659"
-            height="1200"
-            draggable="false"
-          >
-        </div>
+  /*
+    @media (min-width: 1280px) {
+      .mdx-hero__image {
+        transform: translateX(20rem);
+      }
+    } */
+/*
+  .mdx-hero .md-button {
+    margin-top: 0.625rem;
+    margin-right: 0.625rem;
+    color: var(--md-primary-bg-color);
+  }
 
-        <!-- Hero content -->
-        <div class="mdx-hero__content">
-          <h1>Un cours d'informatique pour ingénieur</h1>
-          <p>{{ config.site_description }}.</p>
-          <a
-            href="{{ page.next_page.url | url }}"
-            title="{{ page.next_page.title | e }}"
-            class="md-button md-button--primary"
-          >
-            Cours
-          </a>
-          <a
-            href="{{ 'insiders/' | url }}"
-            title="Material for MkDocs Insiders"
-            class="md-button"
-          >
-            Programme
-          </a>
-        </div>
+  .mdx-hero .md-button:is(:focus, :hover) {
+    color: var(--md-accent-bg-color);
+    background-color: var(--md-accent-fg-color);
+    border-color: var(--md-accent-fg-color);
+  }
+
+  .mdx-hero .md-button--primary {
+    color: hsla(280, 37%, 48%, 1);
+    background-color: var(--md-primary-bg-color);
+    border-color: var(--md-primary-bg-color);
+  }*/
+</style>
+
+<!-- Hero for landing page -->
+<section class="mdx-container">
+  <div class="md-grid md-typeset">
+    <div class="mdx-hero">
+
+      <!-- Hero image -->
+      <div class="mdx-hero__image">
+        <img src="assets/figures/hero.png" alt="" draggable="false">
+      </div>
+
+      <!-- Hero content -->
+      <div class="mdx-hero__content">
+        <h1>Un cours d'informatique pour ingénieur</h1>
+        <p>{{ config.site_description }}.</p>
+        <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}"
+          class="md-button md-button--primary">
+          Cours
+        </a>
+        <a href="{{ 'insiders/' | url }}" title="Material for MkDocs Insiders" class="md-button">
+          Programme
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 {% endblock %}
 
 <!-- Content -->

@@ -164,7 +164,7 @@ Table: Exemple de formatage avec printf
 | :code:`printf("%s", "Hello")`       | :code:`Hello`     | 5      |
 
 
-!!! exercise "Quelque bogues bien formatés"
+!!! exercise "Quelques bogues bien formatés"
 
     Indiquez les erreurs dans les instructions suivantes :
 
@@ -309,7 +309,7 @@ count = EOF; // Fin de fichier
 
 Dans cet exemple, la boucle `do`... `while` est utilisée, car il n'est pas simplement possible de traiter le cas `while(scanf(...) > 0` puisque l'exemple cherche à montrer les cas particuliers où justement, la capture échoue. Il est nécessaire alors de faire appel à des fonctions de plus bas niveau `feof` pour détecter si la fin du fichier est atteinte, et `ferror` pour détecter une éventuelle erreur sur le flux d'entrée.
 
-La directive `scanf("%*[^\n]");` étant un peu particulier, il peut valoir la peine de s'y attarder un peu. Le *flag* `*`, différent de `printf` indique d'ignorer la capture en cours. L'exemple suivant montre comment ignorer un mot.
+La directive `scanf("%*[^\n]");` étant un peu particulière, il peut valoir la peine de s'y attarder un peu. Le *flag* `*`, différent de `printf` indique d'ignorer la capture en cours. L'exemple suivant montre comment ignorer un mot.
 
 ```c
 #include <assert.h>
@@ -454,9 +454,9 @@ a. jardinage
 b. age
 ```
 
-Ici la variable b contient `age` alors qu'elle devrait contenir `râteau`. La raison est que le mot capturé `jardinage` est trop long pour la variable `a` qui n'est disposée à stocker que 5 caractères imprimables. Il y a donc dépassement mémoire et comme vous le constatez, le compilateur ne génère aucune erreur. La bonne méthode est donc de protéger la saisie ici avec `%5s`.
+Ici la variable b contient `age` alors qu'elle devrait contenir `râteau`. La raison est que le mot capturé `jardinage` est trop long pour la variable `a` qui n'est disposée à stocker que 5 caractères imprimables. Il y a donc dépassement de mémoire et comme vous le constatez, le compilateur ne génère aucune erreur. La bonne méthode est donc de protéger la saisie ici avec `%5s`.
 
-En mémoire, ces deux variables sont adjacentes et naturellement `a[7]` est équivalent à dire *la septième case mémoire à partir du début de \`\`a\`\`*.
+En mémoire, ces deux variables sont adjacentes et naturellement `a[7]` est équivalente à dire *la septième case mémoire à partir du début de \`\`a\`\`*.
 
 ```text
      a[6]              b[10]

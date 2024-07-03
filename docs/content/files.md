@@ -54,18 +54,18 @@ La localisation d'un fichier au sein d'un système de fichier peut être soit **
 
 Le chemin `/usr/bin/.././bin/../../home/john/documents` est correct, mais il n'est pas [canonique](<https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)>). La forme canonique est `/home/john/documents`. Un chemin peut être relatif s'il ne commence pas par un `/`: `../bin`. Sous Windows c'est pareil, mais la racine différemment selon le type de média `C:\`, `\\network`, ...
 
-Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier donc le chemin peut être soit relatif, soit absolu.
+Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier, donc le chemin peut être soit relatif, soit absolu.
 
 ### Navigation
 
 Sous Windows (PowerShell) ou un système **POSIX** (Bash/Sh/Zsh), la navigation dans une arborescence peut être effectuée en ligne de commande à l'aide des commandes (programmes) suivants :
 
 - `ls` est un raccourci du nom *list*, ce programme permet d'afficher sur la sortie standard le contenu d'un répertoire.
-- `cd` pour *change directory* permet de naviguer dans l'arborescence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.
+- `cd` pour *change directory* permets de naviguer dans l'arborescence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.
 
 ## Format d'un fichier
 
-Un fichier peut avoir un contenu arbitraire; une suite de zéros et d’un binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un [fichier texte](https://fr.wikipedia.org/wiki/Fichier_texte). C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un [fichier binaire](https://fr.wikipedia.org/wiki/Fichier_binaire).
+Un fichier peut avoir un contenu arbitraire; une suite de zéro et d’un binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un [fichier texte](https://fr.wikipedia.org/wiki/Fichier_texte). C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un [fichier binaire](https://fr.wikipedia.org/wiki/Fichier_binaire).
 
 La frontière est parfois assez mince, car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme :
 
@@ -177,7 +177,7 @@ Le mode d'ouverture du fichier peut être :
 
 : Ouverture du fichier pour lecture et écriture. Le fichier est créé s'il n'existe pas déjà et le pointeur du fichier est positionné à la fin.
 
-Sous Windows et pour soucis de compatibilité, selon la norme C99, le flag `b` pour *binary* existe. Pour ouvrir un fichier en mode binaire on peut alors écrire `rb+`.
+Sous Windows et pour soucis de compatibilité, selon la norme C99, le flag `b` pour *binary* existe. Pour ouvrir un fichier en mode binaire, on peut alors écrire `rb+`.
 
 L'ouverture d'un fichier cause, selon le mode, un accès exclusif au fichier. C'est-à-dire que d'autres programmes ne pourront pas accéder à ce fichier. Il est donc essentiel de toujours refermer l'accès à un fichier dès lors que l'opération de lecture ou d'écriture est terminée :
 
@@ -337,7 +337,7 @@ int main(int argc, char* argv[])
 }
 ```
 
-Cependant le comportement réel est différent. Seulement si le buffer est désactivé que le programme interrompt le noyau pour chaque caractère :
+Cependant le comportement réel est différent. Seulement si le buffer est désactivé, que le programme interrompt le noyau pour chaque caractère :
 
 ```console
 $ gcc buftest.c -o buftest
@@ -401,7 +401,7 @@ int main(void) {
 }
 ```
 
-Pour mémoire `strace` permet de capturer les appels systèmes du programme passé en argument et de les afficher. Deux particularités de la commande exécutée sont `2>&1` qui redirige `stderr` vers `stdout` afin de pouvoir rediriger le flux vers `grep`. Ensuite `grep` permet de filtrer la sortie pour n'afficher que les lignes contenant `open`, `read`, `write` ou `close`:
+Pour mémoire `strace` permet de capturer les appels système du programme passé en argument et de les afficher. Deux particularités de la commande exécutée sont `2>&1` qui redirige `stderr` vers `stdout` afin de pouvoir rediriger le flux vers `grep`. Ensuite `grep` permet de filtrer la sortie pour n'afficher que les lignes contenant `open`, `read`, `write` ou `close`:
 
 ```console
 $ echo k | strace ./a.out 2>&1 | grep -P 'open|read|write|close'
@@ -498,7 +498,7 @@ Yémen     Aden    25.7  26.0  27.2  28.9 31.0 32.7 32.7 31.5 31.6 28.9 27.1  26
 Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37.6
 ```
 
-Idéalement on utilise comme caractère de remplissage le caractère nulle `\0`, mais le caractère espace peut aussi convenir à condition que les données ne contiennent pas d'espace.
+Idéalement on utilise comme caractère de remplissage le caractère nul `\0`, mais le caractère espace peut aussi convenir à condition que les données ne contiennent pas d'espace.
 
 La lecture aléatoire de ce type de fichier est facilitée, car la position de chaque entrée est connue à l'avance, on sait par exemple que le pays est stocké sur 11 caractères, la ville sur 9 caractères et chaque température sur 7 caractères.
 

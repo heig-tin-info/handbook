@@ -2,9 +2,9 @@
 
 Il ne serait pas raisonnable d'enseigner la programmation informatique sans au préalable définir ce qu'est la programmation et quelle est son origine.
 
-La **programmation** est l'étape qui suit l'élaboration **algorithmes**. Elle vise à traduire un algorithme en un **langage formel** compréhensible par une machine. La programmation est donc une activité de communication entre un humain et une machine. Elle est un art, une science et une technique.
+La **programmation** est l'étape qui suit l'élaboration **d’algorithmes**. Elle vise à traduire un algorithme en un **langage formel** compréhensible par une machine. La programmation est donc une activité de communication entre un humain et une machine. Elle est un art, une science et une technique.
 
-Dans un cursus académique on parle souvent de cours d'**Algorithmique et Programmation**, il y donc deux questions à éclaircir :
+Dans un cursus académique, on parle souvent de cours d'**Algorithmique et Programmation**, il y donc deux questions à éclaircir :
 
 1. Qu'est-ce que l'algorithmique ?
 2. Qu'est-ce que la programmation ?
@@ -29,7 +29,7 @@ Il est un algorithme permettant de déterminer le [plus grand commun diviseur](h
 
 ![Algorithme de calcul du PGCD d'Euclide.](../assets/figures/pgcd.drawio)
 
-Souvent, les informaticiens et ingénieurs aiment utiliser des diagrammes pour synthétiser leurs idées. Le diagramme de flux est un outil de communication visuelle permettant de représenter des **processus**. Ici on observe des formes géométriques et des flèches. Les flèches indiquent le sens de lecture du processus. Les formes géométriques sont des boîtes de texte contenant des instructions. Les formes de début et de fin sont par convention des ovales. Les formes de traitement sont des rectangles et les formes de décision sont quant à elles des losanges. Une forme de décision contient une question et deux flèches de sortie, une pour chaque réponse possible. Généralement une flèche de sortie est étiquetée avec la réponse attendue. On le verra plus tard mais un processus de traitement d'information dispose toujours d'une entrée et d'une sortie.
+Souvent, les informaticiens et ingénieurs aiment utiliser des diagrammes pour synthétiser leurs idées. Le diagramme de flux est un outil de communication visuelle permettant de représenter des **processus**. Ici on observe des formes géométriques et des flèches. Les flèches indiquent le sens de lecture du processus. Les formes géométriques sont des boîtes de texte contenant des instructions. Les formes de début et de fin sont par convention des ovales. Les formes de traitement sont des rectangles et les formes de décision sont quant à elles des losanges. Une forme de décision contient une question et deux flèches de sortie, une pour chaque réponse possible. Généralement une flèche de sortie est étiquetée avec la réponse attendue. On le verra plus tard, mais un processus de traitement d'information dispose toujours d'une entrée et d'une sortie.
 
 Si l'on souhaite trouver le plus grand diviseur commun de 42 et 30, il suffit d'applique l'algorithme d'Euclide du *début* à la *fin* :
 
@@ -163,7 +163,7 @@ Un calculateur du latin *calculare*: calculer avec des cailloux, originellement 
 
 Les [os d'Ishango](https://fr.wikipedia.org/wiki/Os_d%27Ishango) datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
 
-Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur, car même une calculatrice de poche doit gérer en plus des calculs un certains nombre de périphériques comme :
+Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur, car même une calculatrice de poche doit gérer en plus des calculs un certain nombre de périphériques comme :
 
 - l'interface de saisie (pavé numérique);
 - l'affichage du résultat (écran à cristaux liquide).
@@ -193,11 +193,11 @@ Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates cl�
 
 87 av. J.-C.
 
-: La [machine d'Anticythère](https://fr.wikipedia.org/wiki/Machine_d%27Anticyth%C3%A8re) considéré comme le premier calculateur analogique pour positions astronomiques permettant de prédire des éclipses. Cette machine encore si mystérieuse à inspiré de nombreux scénarios comme le film Indiana Jones et le Cadran de la destinée. Elle a été découverte en 1901 dans une épave au large de l'île d'Anticythère. Grace aux techniques modernes de radiographie, on a pu reconstruire une partie de son mécanisme.
+: La [machine d'Anticythère](https://fr.wikipedia.org/wiki/Machine_d%27Anticyth%C3%A8re) considéré comme le premier calculateur analogique pour positions astronomiques permettant de prédire des éclipses. Cette machine encore si mystérieuse à inspiré de nombreux scénarios comme le film Indiana Jones et le Cadran de la destinée. Elle a été découverte en 1901 dans une épave au large de l'île d'Anticythère. Grâce aux techniques modernes de radiographie, on a pu reconstruire une partie de son mécanisme.
 
 1642
 
-: [La pascaline](https://fr.wikipedia.org/wiki/Pascaline): machine d'arithmétique de Blaise Pascal, première machine à calculer. Elle permettait d'effectuer des additions et des soustractions en utilisant des roues dentées.
+: [La Pascaline](https://fr.wikipedia.org/wiki/Pascaline): machine d'arithmétique de Blaise Pascal, première machine à calculer. Elle permettait d'effectuer des additions et des soustractions en utilisant des roues dentées.
 
 1801
 
@@ -265,7 +265,7 @@ Prenons l'exemple d'un programme visant à additionner `1` à un nombre `n` en b
 
 ![Algorithme d'addition binaire](../assets/figures/turing-add.drawio)
 
-On commence par l'état de gauche, on lit un symbole sur la bande. Tant que ce symbole est `0` ou `1` on avance à droite. Lorsque l'on rencontre une case vide, on se déplace à gauche et on entre dans le second état. Tant que l'on lit un `1`, on le remplace par un `0` et on avance à gauche. Lorsque l'on lit un `0` ou une case vide, on le remplace par un `1` et on se déplace à gauche. On revient à l'état initial et on continue jusqu'à ce que l'on rencontre une case vide.
+On commence par l'état de gauche, on lit un symbole sur la bande. Tant que ce symbole est `0` ou `1` on avance à droite. Lorsque l'on rencontre une case vide, on se déplace à gauche et on entre dans le second état. Tant qu’on lit un `1`, on le remplace par un `0` et on avance à gauche. Lorsqu’on lit un `0` ou une case vide, on le remplace par un `1` et on se déplace à gauche. On revient à l'état initial et on continue jusqu'à ce que l'on rencontre une case vide.
 
 ![Exécution de l'algorithme sur une bande](../assets/figures/turing-animation.drawio)
 

@@ -2,7 +2,7 @@
 
 Le langage C est composé d'une multitude d'opérateurs permettant de modifier les valeurs de variables en mémoire. Un **opérateur** prend habituellement deux opérandes et retourne un résultat. On dit alors que ces opérateurs ont une [arité](https://fr.wikipedia.org/wiki/Arit%C3%A9) de 2. Il existe également des opérateurs à arité de 1 dit [unaire](https://fr.wikipedia.org/wiki/Op%C3%A9ration_unaire) comme l'opposé d'un nombre réel : $-x$.
 
-Dans un ordinateur c'est l'unité de calcul arithmétique [ALU](https://fr.wikipedia.org/wiki/Unit%C3%A9_arithm%C3%A9tique_et_logique) qui est en charge d'effectuer les opérations fondamentales. Un ordinateur à 2 GHz pourrait effectuer plus de 2'000'000'000 opérations par seconde. Cette unité de calcul est consensuellement représentée comme illustré à la figure {numref}`ual`.
+Dans un ordinateur c'est l'unité de calcul arithmétique [ALU](https://fr.wikipedia.org/wiki/Unit%C3%A9_arithm%C3%A9tique_et_logique) qui est en charge d'effectuer les opérations fondamentales. Un ordinateur à 2 GHz pourrait effectuer plus de 2'000'000'000 opérations par seconde. Cette unité de calcul est consensuellement représentée comme illustrée à la figure {numref}`ual`.
 
 ![ALU](../assets/figures/dist/processor/alu.svg)
 
@@ -26,7 +26,7 @@ Une **associativité**
 
 Un **point de séquence**
 
-: Certains opérateurs comme `&&`, `||`, `?` ou `,` possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression `i < 12 && j > 2` la valeur de `i` est plus grande que 12, le test `j > 2` ne sera jamais effectué. L'opérateur `&&` garanti l'ordre des choses ce qui n'est pas le cas avec l'affectation `=`.
+: Certains opérateurs comme `&&`, `||`, `?` ou `,` possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression `i < 12 && j > 2` la valeur de `i` est plus grande que 12, le test `j > 2` ne sera jamais effectué. L'opérateur `&&` garantit l'ordre des choses ce qui n'est pas le cas avec l'affectation `=`.
 
 ## Opérateurs relationnels
 

@@ -1,5 +1,5 @@
 /* Adjust view icon (eye) */
-.md-icon svg {
+.md-content__button svg {
   width: 18px;
   padding-top: 9px;
 }
@@ -9,6 +9,15 @@
   line-height: 1;
 }
 
+/* Center tables */
+.md-typeset__table {
+  display: flex;
+  justify-content: center;
+}
+
+.md-typeset__table table {
+  width: auto !important;
+}
 
 @keyframes heart {
   0%,
@@ -180,67 +189,4 @@
 
 .exercise .task-list-item::before {
   content: none; /* Supprime les icônes ajoutées par ::before */
-}
-
-
-.mdx-hero {
-  margin: 0 2rem;
-  color: var(--md-primary-fg-color);
-}
-
-.mdx-hero h1 {
-  margin-bottom: 1.25rem;
-  font-weight: 700;
-  color: currentcolor;
-}
-
-@media (max-width: 480px) {
-  .mdx-hero h1 {
-    font-size: 1.75rem;
-  }
-}
-
-.mdx-hero__content {
-  padding-bottom: 7.5rem;
-}
-
-@media (min-width: 1024px) {
-  .mdx-hero {
-    display: flex;
-    align-items: stretch;
-  }
-  .mdx-hero__content {
-    max-width: 23.75rem;
-    padding-bottom: 14vw;
-    margin-top: 4.375rem;
-  }
-  .mdx-hero__image {
-    order: 1;
-    width: 47.5rem;
-    transform: translateX(5rem);
-  }
-}
-/*
-@media (min-width: 1280px) {
-  .mdx-hero__image {
-    transform: translateX(20rem);
-  }
-} */
-
-.mdx-hero .md-button {
-  margin-top: 0.625rem;
-  margin-right: 0.625rem;
-  color: var(--md-primary-bg-color);
-}
-
-.mdx-hero .md-button:is(:focus, :hover) {
-  color: var(--md-accent-bg-color);
-  background-color: var(--md-accent-fg-color);
-  border-color: var(--md-accent-fg-color);
-}
-
-.mdx-hero .md-button--primary {
-  color: hsla(280, 37%, 48%, 1);
-  background-color: var(--md-primary-bg-color);
-  border-color: var(--md-primary-bg-color);
 }

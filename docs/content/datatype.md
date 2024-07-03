@@ -77,7 +77,7 @@ int main() {
 
 La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé *endianess*. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les œufs à la coque par le petit bout (petit boutisme/*little endian*), la répression incite les rebelles à manger leurs œufs par le gros bout (gros boutisme/*big endian*).
 
-Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en *big endian* alors que d'autres sont en *little endian*. C'est à dire que si une information est stockée en mémoire comme suit :
+Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en *big endian* alors que d'autres sont en *little endian*. C'est-à-dire que si une information est stockée en mémoire comme suit :
 
 ```text
 [0x40, 0x49, 0xf, 0xdb]
@@ -140,7 +140,7 @@ Table: Stockage d'un entier signé sur différentes profondeurs
 | 16 bits    | -32'768        | +32'767        |
 | 32 bits    | -2'147'483'648 | +2'147'483'647 |
 
-En mémoire ces nombres sont stockés en utilisant le {ref}`complément à deux <twos_complement>` qui fait l'objet d'une section à part entière.
+En mémoire, ces nombres sont stockés en utilisant le {ref}`complément à deux <twos_complement>` qui fait l'objet d'une section à part entière.
 
 ### Les entiers bornés
 
@@ -295,7 +295,7 @@ Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouv
 
 Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.
 
-Pour tenter de remédier à ce standard incompatible entre les pays Microsoft à proposé un standard nommé [Windows-1252](https://fr.wikipedia.org/wiki/Windows-1252) s'inspirant de [ISO-8859-1](https://fr.wikipedia.org/wiki/ISO/CEI_8859-1). En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...
+Pour tenter de remédier à ce standard incompatible entre les pays Microsoft a proposé un standard nommé [Windows-1252](https://fr.wikipedia.org/wiki/Windows-1252) s'inspirant de [ISO-8859-1](https://fr.wikipedia.org/wiki/ISO/CEI_8859-1). En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...
 
 ### Unicode
 
@@ -305,7 +305,7 @@ Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du 
 
 ![Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008](../assets/images/encoding-trends.png)
 
-Cette tendence est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
+Cette tendance est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
 
 L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en {ref}`introduction <thompson>` est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination unicode {unicode}`U+0939` et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
 
@@ -414,11 +414,11 @@ char string[] = "Hello";
 
 ## Les booléens
 
-Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est un type de donnée à deux états consensuellement nommés *vrai* (`true`) et *faux* (`false`) et destiné à représenter les états en logique booléenne (Nom venant de [George Boole](https://fr.wikipedia.org/wiki/George_Boole) fondateur de l'algèbre éponyme).
+Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est un type de donnée à deux états consensuellement nommés *vrai* (`true`) et *faux* (`false`) et destinés à représenter les états en logique booléenne (Nom venant de [George Boole,](https://fr.wikipedia.org/wiki/George_Boole) fondateur de l'algèbre éponyme).
 
 La convention est d'utiliser `1` pour mémoriser un état vrai, et `0` pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.
 
-Les **booléens** ont étés introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête `stdbool.h`. Avant cela le type boolean était `_Bool` et définir les états vrais et faux était à la charge du développeur.
+Les **booléens** ont été introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête `stdbool.h`. Avant cela le type booléen était `_Bool` et définir les états vrais et faux était à la charge du développeur.
 
 ```c
 #include <stdbool.h>
@@ -452,7 +452,7 @@ enum ColorCode {
 };
 ```
 
-Le type d'une énumération est apparenté à un entier `int`. Sans autre précisions, la première valeur vaut 0, la suivante 1, etc.
+Le type d'une énumération est apparenté à un entier `int`. Sans autres précisions, la première valeur vaut 0, la suivante 1, etc.
 
 Il est possible de forcer les valeurs de la manière suivante :
 
@@ -652,7 +652,7 @@ double d=0.1111111111111111;
 float f=(float)d; // valeur : 0.1111111119389533 => perte de précision
 ```
 
-À l'exécution, il y a une perte de précision lors de la conversion ce
+À l'exécution, il y a une perte de précision lors de la conversion, ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 !!! exercise "Conversion de types"

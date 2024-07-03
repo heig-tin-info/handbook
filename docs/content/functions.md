@@ -8,7 +8,7 @@ Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côt
 
 Néanmoins, dans ce langage assembleur étrange, le code reste **monolithique** et toutes les variables sont globales.
 
-Un programme convenablement **structuré** est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un [télencéphale hautement développé et son pouce préhenseur](https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs) aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les [effets de bords](<https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)>).
+Un programme convenablement **structuré** est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un [télencéphale hautement développé et son pouce préhenseur](https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs) aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les [effets de bord](<https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)>).
 
 Une fonction est donc un ensemble de code exécutable délimité du programme principal et disposant :
 
@@ -35,7 +35,7 @@ Dans le [Voyage de Chihiro](https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro) 
 
 ![Le vieux Kamaji et ses bras extensibles.](../assets/images/kamaji.jpg)
 
-Je vous propose bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel il mélange les herbes ; ils sont à l'instar de l'[ALU](https://en.wikipedia.org/wiki/Arithmetic_logic_unit) d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie: le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaires aux registres du processeur.
+Je vous propose de bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel il mélange les herbes ; ils sont à l'instar de l'[ALU](https://en.wikipedia.org/wiki/Arithmetic_logic_unit) d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie: le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaires aux registres du processeur.
 
 Il profite de son temps libre, pendant que les bains sont fermés pour préparer certains mélanges d'herbes les plus populaires et il place ce stock dans un casier du mur. Préparer un mélange est très similaire à un programme informatique dans lequel une suite d'opération représente une recette donnée. Le vieux Kamaji à une très grande mémoire, et il ne dispose pas de livre de recettes, mais vous, moi, n'importe qui, aurions besoin d'instructions claires du type :
 
@@ -83,7 +83,7 @@ Dans les conventions d'appel, il faut donc également donner la responsabilité 
 - ceux qui peuvent être utilisés librement par une fonction (la sauvegarde est à la charge du *caller*, la fonction qui appelle une autre fonction),
 - ceux qui doivent être sauvegardés par le *callee* (la fonction qui est appelée).
 
-En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à ce soucier du processeur, du nom des registres, de la correspondance entre le nom des herbes et le casier ou elles sont entreposées. Néanmoins, l'électronicien développeur, proche du matériel doit parfois bien comprendre ces mécanismes et ce qu'ils coûtent (en temps et en place mémoire) à l'exécution d'un programme.
+En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à se soucier du processeur, du nom des registres, de la correspondance entre le nom des herbes et le casier ou elles sont entreposées. Néanmoins, l'électronicien développeur, proche du matériel, doit parfois bien comprendre ces mécanismes et ce qu'ils coûtent (en temps et en place mémoire) à l'exécution d'un programme.
 
 ### Overhead
 
@@ -101,7 +101,7 @@ int add(int a, int b) {
 
 ### Stack
 
-En français la [pile d'exécution](https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution), est un emplacement mémoire utilisé pour sauvegarder les registres du processeur entre les appels de fonctions, sauvegarder les adresses de retour des fonctions qui sont analogue à sauvegarder le numéro de page du livre de recettes: p 443. Recette du Bras de Vénus: commencer par réaliser une génoise de 300g (p. 225). Une fois la génoise terminée, il faut se rappeler de retourner à la page 443. Enfin le *stack* est utilisé pour mémoriser les paramètres des fonctions supplémentaires qui ne tiendraient pas dans les registres d'entrées. La convention d'appel de la plupart des architectures prévoie généralement 3 registres pour les paramètres d'entrées, ci bien qu'une fonction à 4 paramètres, pourrait bien aussi utiliser le *stack*:
+En français la [pile d'exécution](https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution), est un emplacement mémoire utilisé pour sauvegarder les registres du processeur entre les appels de fonctions, sauvegarder les adresses de retour des fonctions qui sont analogue à sauvegarder le numéro de page du livre de recettes: p 443. Recette du Bras de Vénus: commencer par réaliser une génoise de 300g (p. 225). Une fois la génoise terminée, il faut se rappeler de retourner à la page 443. Enfin le *stack* est utilisé pour mémoriser les paramètres des fonctions supplémentaires qui ne tiendraient pas dans les registres d'entrées. La convention d'appel de la plupart des architectures prévoie généralement 3 registres pour les paramètres d'entrées, si bien qu'une fonction à 4 paramètres, pourrait bien aussi utiliser le *stack*:
 
 ```c
 double quaternion_norm(double a1, double b1, double c1, double d1);
@@ -181,11 +181,11 @@ La syntaxe d'écriture d'une fonction peut être assez compliquée et la source 
 
 `<function-name>`
 
-> Il s'agit d'un {ref}`identifiant <identifiers>` qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom: `compute_norm`, `make_coffee`, ... Néanmoins lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que `main`, `display` ou `dot_product`.
+> Il s'agit d'un {ref}`identifiant <identifiers>` qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom: `compute_norm`, `make_coffee`, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que `main`, `display` ou `dot_product`.
 
 `<parameter-type> <parameter-name>`
 
-> La fonction peut prendre en paramètre zéro à plusieurs paramètres chaque paramètre est défini par son type et son nom tel que: `double real, double imag` pour une fonction qui prendrait en paramètre un nombre complexe.
+> La fonction peut prendre en paramètre zéro à plusieurs paramètres où chaque paramètre est défini par son type et son nom tel que: `double real, double imag` pour une fonction qui prendrait en paramètre un nombre complexe.
 
 Après la fermeture de la parenthèse de la liste des paramètres, deux possibilités :
 
@@ -312,7 +312,7 @@ int fib(int n)
 }
 ```
 
-Le code est beaucoup plus simple a écrire, et même à lire. Néanmoins cet algorithme est notoirement connu pour être mauvais en terme de performance. Calculer `fib(5)` revient à la chaîne d'appel suivant.
+Le code est beaucoup plus simple à écrire, et même à lire. Néanmoins cet algorithme est notoirement connu pour être mauvais en termes de performance. Calculer `fib(5)` revient à la chaîne d'appel suivant.
 
 Cette chaîne d'appel représente le nombre de fois que `fib` est appelé et à quel niveau elle est appelée. Par exemple `fib(4)` est appelé dans `fib(5)` :
 

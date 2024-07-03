@@ -274,9 +274,9 @@ Table: Conventions de nommage
 
     La casse de kebab n'est pas acceptée par le standard C car les noms formés ne sont pas des identificateurs valides. Néanmoins cette notation est beaucoup utilisée par exemple sur GitHub.
 
-### Variable métasyntaxiques
+### Variable métasyntaxique
 
-Souvent lors d'exemples donnés en programmation on utilise des variables génériques dites [métasyntaxiques](https://fr.wikipedia.org/wiki/Variable_m%C3%A9tasyntaxique). En français les valeurs `toto`, `titi`, `tata` et `tutu` sont régulièrement utilisées tandis qu'en anglais
+Souvent lors d'exemples donnés en programmation, on utilise des variables génériques dites [métasyntaxiques](https://fr.wikipedia.org/wiki/Variable_m%C3%A9tasyntaxique). En français les valeurs `toto`, `titi`, `tata` et `tutu` sont régulièrement utilisées tandis qu'en anglais
 `foo`, `bar`, `baz` et `qux` sont régulièrement utilisés. Les valeurs `spam`, `ham` et `eggs` sont quant à elles souvent utilisée en Python, en référence au sketch [Spam](<https://en.wikipedia.org/wiki/Spam_(Monty_Python)>) des Monthy Python.
 
 Leur usage est conseillé pour appuyer le cadre générique d'un exemple sans lui donner la consonance d'un problème plus spécifique.
@@ -474,7 +474,7 @@ Comme en français et ainsi qu'illustré par la figure suivante, il est possible
 
 ![Les carafes dans la Vivonne](../assets/images/proust.svg)
 
-Il existe deux manière d'écrire un commentaire en C :
+Il existe deux manières d'écrire un commentaire en C :
 
 - Les commentaires de lignes (depuis C99)
 

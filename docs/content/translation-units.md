@@ -6,7 +6,7 @@ En programmation, on appelle *translation unit* (unité de traduction), un code 
 
 ## Diviser pour mieux régner
 
-De même qu'un magasine illustré est divisé en sections pour accroître la lisibilité (sport, news, annonces, météo) de même un code source est organisé en éléments fonctionnels le plus souvent séparés en plusieurs fichiers et ces derniers parfois maintenus par différents développeurs.
+De même qu'un magazine illustré est divisé en sections pour accroître la lisibilité (sport, news, annonces, météo) de même un code source est organisé en éléments fonctionnels le plus souvent séparés en plusieurs fichiers et ces derniers parfois maintenus par différents développeurs.
 
 Rappelons-le (et c'est très important) :
 
@@ -29,7 +29,7 @@ $ tree
 Le programme principal et la fonction `main` est contenu dans `main.c` quant au module *complex* il est composé de deux fichiers : `complex.h` l'en-tête et `complex.c`, l'implémentation du module.
 
 Le fichier `main.c` devra inclure le fichier `complex.h` afin de
-pourvoir utiliser correctement les fonctions du module de gestion des
+pouvoir utiliser correctement les fonctions du module de gestion des
 nombres complexes. Exemple :
 
 ```c
@@ -119,7 +119,7 @@ Notons que généralement, seul deux étapes de GCC sont utilisées :
 
 ## Fichiers d'en-tête (*header*)
 
-Les fichiers d'en-tête (`.h`) sont des fichiers écrits en langage C, mais qui ne contiennent pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de `while`, de `for` ou même de `if`. Par convention ces fichiers ne contiennent que :
+Les fichiers d'en-tête (`.h`) sont des fichiers écrits en langage C, mais qui ne contiennent pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de `while`, de `for` ou même de `if`. Par convention, ces fichiers ne contiennent que :
 
 - Des prototypes de fonctions (ou de variables).
 - Des déclarations de types (`typedef`, `struct`).
@@ -172,7 +172,7 @@ printf("hello bar\n");
 
 Lorsque l'on observe le résultat du préprocesseur, on s'aperçoit que toutes les directives préprocesseur ont disparues et que la directive `#include` a été remplacée par de contenu de `foobar.def`. Remarquons que le fichier est inclus deux fois, nous verrons plus loin comme éviter cela.
 
-Nous avons vu au chapitre sur les [prototypes de fonctions](functions.md#function-prototype) qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de savoir combien d'arguments est composé une fonction sans nécessairement disposer de l'implémentation de cette fonction. Aussi on trouve dans tous les fichiers d'en-tête des déclaration en amont (*forward declaration*). Dans le fichier d'en-tête `stdio.h` on trouvera la ligne : `int printf( const char *restrict format, ... );`.
+Nous avons vu au chapitre sur les [prototypes de fonctions](functions.md#function-prototype) qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de savoir combien d'arguments est composé une fonction sans nécessairement disposer de l'implémentation de cette fonction. Aussi on trouve dans tous les fichiers d'en-tête des déclarations en amont (*forward declaration*). Dans le fichier d'en-tête `stdio.h` on trouvera la ligne : `int printf( const char *restrict format, ... );`.
 
 ```bash
 $ cat << EOF > main.c
@@ -189,7 +189,7 @@ Un fichier d'en-tête contiendra donc tout le nécessaire utile à pouvoir utili
 
 ### Protection de réentrance
 
-La protection de réentrence aussi nommée *header guards* est une solution au problème d'inclusion multiple. Si par exemple on définit dans un fichier d'en-tête un nouveau type et que l'on inclus ce fichier, mais que ce dernier est déjà inclus par une autre bibliothèque une erreur de compilation apparaîtra :
+La protection de réentrence aussi nommée *header guards* est une solution au problème d'inclusion multiple. Si par exemple on définit dans un fichier d'en-tête un nouveau type et que l'on inclut ce fichier, mais que ce dernier est déjà inclus par une autre bibliothèque, une erreur de compilation apparaîtra :
 
 ```bash
 $ cat << EOF > main.c
@@ -325,7 +325,7 @@ Disassembly of section .text:
 
 On constate à la ligne `19` que l'addition à bien lieu `eax + 42`, et que l'appel de la fonction `bar` se produit à la ligne `14`.
 
-Maintenant considérons le programme principal :
+Maintenant, considérons le programme principal :
 
 ```c
 #include <stdio.h>
@@ -377,7 +377,7 @@ Disassembly of section .text:
 
 On observe l'appel de la fonction `foo` à la ligne `1f` et l'appel de `printf` à la ligne `32`.
 
-L'assemblage de ces deux fichiers en un exécutable résoud les liens en modifiant les adresses d'appel des fonctions puisqu'elles sont maintenant connues (notons que certaines lignes ont été retirées pour plus de lisibilité) :
+L'assemblage de ces deux fichiers en un exécutable résout les liens en modifiant les adresses d'appel des fonctions puisqu'elles sont maintenant connues (notons que certaines lignes ont été retirées pour plus de lisibilité) :
 
 ```sh
 $ gcc foo.o main.o
@@ -428,7 +428,7 @@ Disassembly of section .text:
     11af:       90                      nop
 ```
 
-On constate que les appels de fonctions ont été bien remplacés par les bon noms :
+On constate que les appels de fonctions ont été bien remplacés par les bons noms :
 
 - `115d` Appel de `bar`
 - `1186` Appel de `foo`

@@ -8,7 +8,7 @@ Rappelons-le, les macros sont des simples remplacements de chaînes de caractèr
 
 ### Macro avec paramètre
 
-Le préprocesseur interprète une macro avec paramètres que si la parenthèse ouvrante suit directement et sans espace le nom de la macro. Ainsi considérant cet exemple :
+Le préprocesseur interprète une macro avec paramètres que si la parenthèse ouvrante suit directement et sans espace le nom de la macro. Ainsi, considérant cet exemple :
 
 ```c
 #define f (x) ((x) + 1)

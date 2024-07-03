@@ -4,7 +4,7 @@
 
 Comme nous l'avons vu en introduction (c.f. {numref}`structured_text`), le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.
 
-Le coeur de cette opération est appelé **préprocesseur**. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon (`#`), *hash* en anglais et utilisé récemment comme [hashtag](https://fr.wikipedia.org/wiki/Hashtag) sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif *pound* (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse (`♯`) présent sur les pavés numériques de téléphone.
+Le cœur de cette opération est appelé **préprocesseur**. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon (`#`), *hash* en anglais et utilisé récemment comme [hashtag](https://fr.wikipedia.org/wiki/Hashtag) sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif *pound* (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse (`♯`) présent sur les pavés numériques de téléphone.
 
 Le vocabulaire du préprocesseur est le suivant :
 
@@ -297,7 +297,7 @@ Une macro est une définition qui prend des arguments en paramètre :
 #define MIN(x, y) ((x) < (y) ? (x) : (y))
 ```
 
-De la même manière que pour les définissions simple, il s'agit d'un remplacement de chaîne :
+De la même manière que pour les définitions simples, il s'agit d'un remplacement de chaîne :
 
 ```console
 $ cat test.c
@@ -331,7 +331,7 @@ int main(void) {
 
 ## Concaténation
 
-Parfois il est utile de vouloir concaténer deux symboles comme si ce n'était qu'un seul. Attention il est nécessaire de passer par une macro pour que cela fonctionne :
+Parfois il est utile de vouloir concaténer deux symboles comme si ce n'était qu'un seul. Attention, il est nécessaire de passer par une macro pour que cela fonctionne :
 
 ```c
 int foobar = 42;
@@ -340,7 +340,7 @@ int foobar = 42;
 printf("%d", CONCAT(foo, bar));
 ```
 
-En appelant seulement le préprocesseur on constate ce résultat :
+En appelant seulement le préprocesseur, on constate ce résultat :
 
 ```sh
 $ gcc -E ww.c

@@ -128,7 +128,7 @@ Un environnement de développement intégré, ou [IDE](https://fr.wikipedia.org/
 
 [Visual Studio Code](https://code.visualstudio.com/)
 
-: Un **éditeur de code** *open-source* multi-plate-forme disponible sur Windows, macOS et Linux. Souvent abrégé *VsCode*.
+: Un **éditeur de code** *open-source* multi-plates-formes disponible sur Windows, macOS et Linux. Souvent abrégé *VsCode*.
 
 
 [GCC](https://gcc.gnu.org/)
@@ -181,7 +181,7 @@ Le C comme la plupart des langages de programmation utilise du texte structuré,
 
 À l'inverse des [langages naturels](https://en.wikipedia.org/wiki/Natural_language) comme le Français, un langage de programmation est un [langage formel](https://fr.wikipedia.org/wiki/Langage_formel) et se veut exact dans sa grammaire et son vocabulaire, il n'y a pas de cas particuliers ni d'ambiguïtés possibles dans l'écriture.
 
-Les **compilateurs**, sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.
+Les **compilateurs** sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.
 
 L'exemple suivant est un [pseudo-code](https://fr.wikipedia.org/wiki/Pseudo-code) utilisant une grammaire simple :
 
@@ -203,7 +203,7 @@ POUR CHAQUE <> DANS <>:
 
 Où les `<>` sont des marques substitutives ([placeholder](https://fr.wikipedia.org/wiki/Marque_substitutive)) qui seront remplacées par le développeur par ce qui convient.
 
-Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. La grammaire du langage C utilisé dans ce cours peu ainsi s'exprimer en utilisant la forme Backus-Naur ou **BNF** disponible en annexe.
+Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. La grammaire du langage C utilisé dans ce cours peut ainsi s'exprimer en utilisant la forme Backus-Naur ou **BNF** disponible en annexe.
 
 ## Les paradigmes de programmation
 
@@ -243,7 +243,7 @@ Le cycle de développement logiciel comprend la suite des étapes menant de l'é
 8. **Vérification** que le cahier des charges est respecté
 9. **Livraison** du programme
 
-Mises à part la dernière étape où il n'y a pas de retour en arrière possible, les autres étapes sont **itératives**. Il est très rare d'écrire un programme juste du premier coup. Durant tout le cycle de développement logiciel, des itérations successives sont faites pour permettre d'optimiser le programme, de résoudre des bogues, d'affiner les spécifications, d'écrire davantage de tests pour renforcer l'assurance d'un bon fonctionnement du programme et éviter une {ref}`coulée de lave <code_smell>`.
+Mis à part la dernière étape où il n'y a pas de retour en arrière possible, les autres étapes sont **itératives**. Il est très rare d'écrire un programme juste du premier coup. Durant tout le cycle de développement logiciel, des itérations successives sont faites pour permettre d'optimiser le programme, de résoudre des bogues, d'affiner les spécifications, d'écrire davantage de tests pour renforcer l'assurance d'un bon fonctionnement du programme et éviter une {ref}`coulée de lave <code_smell>`.
 
 Le modèle en cascade suivant résume le cycle de développement d'un programme. Il s'agit d'un modèle simple, mais qu'il faut garder à l'esprit que ce soit pour le développement d'un produit logiciel que durant les travaux pratiques liés à ce cours.
 
@@ -273,7 +273,7 @@ La phase de *preprocessing* permet de générer un fichier intermédiaire en lan
 
 Avec `gcc` il est possible de demander que l'exécution du préprocesseur en utilisant l'option `-E`.
 
-![Processus de pré-processing](../assets/figures/dist/toolchain/preprocessing.svg)
+![Processus de prépressing](../assets/figures/dist/toolchain/preprocessing.svg)
 
 ### Compilation (*build*)
 
@@ -332,7 +332,7 @@ int main(void)
 }
 ```
 
-À présent on peut utiliser notre compilateur par défaut: `cc` pour *C Compiler*. Ce compilateur prends en argument un fichier C et sans autre option, il génèrera un fichier [a.out](https://fr.wikipedia.org/wiki/A.out) pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter.
+À présent on peut utiliser notre compilateur par défaut: `cc` pour *C Compiler*. Ce compilateur prend en argument un fichier C et sans autre option, il génèrera un fichier [a.out](https://fr.wikipedia.org/wiki/A.out) pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter.
 
 ```bash
 $ gcc hello.c
@@ -357,7 +357,7 @@ hello, world
 
 Félicitations, le programme s'est exécuté.
 
-Pouvons nous en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à sa taille sur le disque. Une fois de plus `ls` nous sera utile, mais cette fois-ci avec l'option `l`:
+Pouvons-nous en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à sa taille sur le disque. Une fois de plus `ls` nous sera utile, mais cette fois-ci avec l'option `l`:
 
 ```console
 $ ls -l a.out

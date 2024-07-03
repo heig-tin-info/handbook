@@ -26,7 +26,7 @@ static int64_t vector[1024] = {0};
 
 ## Allocation dynamique
 
-Il est des circonstances ou un programme ne sait pas combien de mémoire il a besoin. Par exemple un programme qui compterait le nombre d'occurrences de chaque mot dans un texte devra se construire un index de tous les mots qu'il découvre lors de la lecture du fichier d'entrée. A priori ce fichier d'entrée étant inconnu au moment de l'exécution du programme, l'espace mémoire nécessaire à construire ce dictionnaire de mots est également inconnu.
+Il est des circonstances ou un programme ne sait pas combien de mémoire il a besoin. Par exemple un programme qui compterait le nombre d'occurrences de chaque mot dans un texte devra se construire un index de tous les mots qu'il découvre lors de la lecture du fichier d'entrée. A priori, ce fichier d'entrée étant inconnu au moment de l'exécution du programme, l'espace mémoire nécessaire à construire ce dictionnaire de mots est également inconnu.
 
 L'approche la plus naïve serait d'anticiper le cas le plus défavorable. Le dictionnaire Littré comporte environ 132'000 mots tandis que le Petit Larousse Illustré 80'000 mots environ. Pour se donner une bonne marge de manœuvre et anticiper les anglicismes et les noms propres. Il suffirait de réserver un tableau de 1 million de mots de 10 caractères soit un peu plus de 100 MiB de mémoire quand bien même le fichier qui serait lu ne comporterait que 2 mots: `Hello World!`.
 
@@ -251,7 +251,7 @@ Une variable est dite *automatique* lorsque sa déclaration est faite au sein d'
 - sur la pile ;
 - dans un registre mémoire processeur.
 
-Jadis, le mot clé `register` était utiliser pour forcer le compilateur à placer une variable locale dans un registre processeur pour obtenir de meilleures performances. Aujourd'hui, les compilateurs sont assez malins pour déterminer automatiquement les variables souvent utilisées.
+Jadis, le mot clé `register` était utilisé pour forcer le compilateur à placer une variable locale dans un registre processeur pour obtenir de meilleures performances. Aujourd'hui, les compilateurs sont assez malins pour déterminer automatiquement les variables souvent utilisées.
 
 ## Fragmentation mémoire
 
@@ -265,13 +265,13 @@ Dans une petite architecture, l'allocation et la libération fréquente d'espace
 
 ### MMU
 
-Les systèmes d'exploitation modernes (Windows, Linux, macOS...) utilisent tous un dispositif matériel nommé [MMU](https://en.wikipedia.org/wiki/Memory_management_unit) pour *Memory Management Unit*. La MMU est en charge de créer un espace mémoire **virtuel** entre l'espace physique. Cela crée une indirection supplémentaire, mais permet de réorganiser la mémoire physique sans compromettre le système.
+Les systèmes d'exploitation modernes (Windows, Linux, macOS...) utilisent tous un dispositif matériel nommé [MMU](https://en.wikipedia.org/wiki/Memory_management_unit) pour *Memory Management Unit*. La MMU est responsable de créer un espace mémoire **virtuel** entre l'espace physique. Cela crée une indirection supplémentaire, mais permet de réorganiser la mémoire physique sans compromettre le système.
 
 En pratique l'espace de mémoire virtuelle est toujours beaucoup plus grand que l'espace physique. Cela permet de s'affranchir dans une large mesure de problèmes de fragmentation, car si l'espace virtuel est suffisamment grand, il y aura statistiquement plus de chance d'y trouver un emplacement non utilisé.
 
-La programmation sur de petites architectures matérielles (microcontrôleurs, DSP) ne possèdent pas de MMU et dès lors l'allocation dynamique est généralement à proscrire à moins qu'elle soit faite en connaissance de cause et en utilisant des mécanismes comme les *memory pool*.
+La programmation sur de petites architectures matérielles (microcontrôleurs, DSP) ne possède pas de MMU et dès lors l'allocation dynamique est généralement à proscrire à moins qu'elle soit faite en connaissance de cause et en utilisant des mécanismes comme les *memory pool*.
 
-Dans la figure ci-dessous. La mémoire physique est représentée à droite en termes de pages mémoires physiques (*Physical Pages* ou **PP**). Il s'agit de blocs mémoires contigus d'une taille fixe, par exemple 64 kB. Chaque page physique est mappée dans une table propre à chaque processus (programme exécutable). On y retrouve quelques propriétés utiles à savoir est-ce que la page mémoire est accessible en écriture, est-ce qu'elle peut contenir du code exécutable ? Une propriété peut indiquer par exemple si la page mémoire est valide. Chacune de ces entrées est considérée comme une page mémoire virtuelle (*virtual page* **VP**).
+Dans la figure ci-dessous. La mémoire physique est représentée à droite en termes de pages mémoires physiques (*Physical Pages* ou **PP**). Il s'agit de blocs mémoires contigus d'une taille fixe, par exemple 64 kb. Chaque page physique est mappée dans une table propre à chaque processus (programme exécutable). On y retrouve quelques propriétés utiles à savoir, est-ce que la page mémoire est accessible en écriture, est-ce qu'elle peut contenir du code exécutable ? Une propriété peut indiquer par exemple si la page mémoire est valide. Chacune de ces entrées est considérée comme une page mémoire virtuelle (*virtual page* **VP**).
 
 ![Mémoire virtuelle](../assets/figures/dist/memory/mmu.svg)
 
@@ -285,6 +285,6 @@ L'erreur de segmentation est donc générée par le système d'exploitation en l
 
 Un *memory pool* est une méthode faisant appel à de l'allocation dynamique de blocs de taille fixe. Lorsqu'un programme doit très régulièrement allouer et désallouer de la mémoire, il est préférable que les blocs mémoires aient une taille fixe. De cette façon, après un `free`, la mémoire libérée est assez grande pour une allocation ultérieure.
 
-Lorsqu'un programme est exécuté sous Windows, macOS ou Linux, l'allocation dynamique standard `malloc`, `calloc`, `realloc` et `free` sont performants et le risque de crash dû à une fragmentation mémoire est rare.
+Lorsqu'un programme est exécuté sous Windows, macOS ou Linux, l'allocation dynamique standard `malloc`, `calloc`, `realloc` et `free` sont performant et le risque de crash dû à une fragmentation mémoire est rare.
 
-En revanche lors de l'utilisation sur de petites architectures (microcontrôleurs) qui n'ont pas de système sophistiqué pour gérer la mémoire, il est parfois nécessaire d'écrire son propre système de gestion de mémoire.
+En revanche, lors de l'utilisation sur de petites architectures (microcontrôleurs) qui n'ont pas de système sophistiqué pour gérer la mémoire, il est parfois nécessaire d'écrire son propre système de gestion de mémoire.

@@ -7,7 +7,7 @@ Ce chapitre se concentre sur quatre caractéristiques d'une variable :
 - La durée de vie
 - Son qualificatif de type
 
-Dans les quatre cas, elles décrivent l'accessibilité, c'est à dire jusqu'à ou/et jusqu'à quand une variable est accessible, et de quelle manière
+Dans les quatre cas, elles décrivent l'accessibilité, c'est à dire jusqu'à ou jusqu'à quand une variable est accessible, et de quelle manière
 
 ![Brouillard matinal sur le Golden Gate Bridge, San Francisco](../assets/images/visibility.jpg)
 
@@ -81,7 +81,7 @@ void foo(int a) { //   ┬ b
 
 Une variable déclarée globalement, c'est à dire en dehors d'une fonction à une durée de vie sur l'entier du module (*translation unit*) quel que soit l'endroit où elle est déclarée, en revanche elle n'est visible que depuis l'endroit ou elle est déclarée. Les deux variables `i` et `j` sont globales au module, c'est-à-dire qu'elles peuvent être accédées depuis n'importe quelle fonction contenue dans ce module.
 
-En revanche la variable `j`, bien qu'elle ait ait une durée de vie sur toute l'exécution du programme et que sa portée est globale, elle ne pourra être accédée depuis `main` car elle n'est pas visible.
+En revanche la variable `j`, bien qu'elle ait ait une durée de vie sur toute l'exécution du programme et que sa portée est globale, elle ne pourra être accédée depuis, `main` car elle n'est pas visible.
 
 ```text
 #include <stdio.h>
@@ -95,7 +95,7 @@ int main() {                 //  │
 int j;                       //  ┴ ┬
 ```
 
-Le mot clé `extern` permet non pas de déclarer la variable `j` mais de renseigner le compilateur qu'il existe *ailleurs* une variable `j`. C'est ce que l'on appelle une déclaration avancée ou *forward-declaration*. Dans ce cas, bien que `j` soit déclaré après la fonction principale, elle est maintenant visible.
+Le mot clé `extern` permet non pas de déclarer la variable, `j` mais de renseigner le compilateur qu'il existe *ailleurs* une variable `j`. C'est ce que l'on appelle une déclaration avancée ou *forward-declaration*. Dans ce cas, bien que `j` soit déclarée après la fonction principale, elle est maintenant visible.
 
 ```c
 #include <stdio.h>
@@ -123,7 +123,7 @@ void do_foo() {
 }
 ```
 
-Depuis le programme principal, il est possible d'accéder à symboles à condition de renseigner sur le prototype de la fonction et l'existence de la variable :
+Depuis le programme principal, il est possible d'accéder à des symboles à condition de renseigner sur le prototype de la fonction et l'existence de la variable :
 
 ```c title="main.c"
 extern int foo;
@@ -148,7 +148,7 @@ Une classe de stockage peut être implicite à une déclaration de variable ou e
 
 Cette classe est utilisée par défaut lorsqu'aucune autre classe
 n'est précisée. Les variables automatiques sont visibles uniquement dans
-le bloc où elles sont déclarées. Ces variables sont habituellement créées sur la pile (*stack*) mais peuvent être aussi stockées dans les registres du processeur. C'est un choix qui incombe au compilateur.
+le bloc où elles sont déclarées. Ces variables sont habituellement créées sur la pile (*stack*), mais peuvent être aussi stockées dans les registres du processeur. C'est un choix qui incombe au compilateur.
 
 ```c
 auto type identificateur = valeur_initiale;
@@ -161,7 +161,7 @@ obligatoire, et n'est pas recommandé en **C99**, car son utilisation est implic
 
 Ce mot clé incite le compilateur à utiliser un registre processeur pour stocker la variable. Ceci permet de gagner en temps d'exécution, car la variable n'a pas besoin d'être chargée depuis et écrite vers la mémoire.
 
-Jadis, ce mot clé était utilisé devant toutes les variables d'itérations de boucles. La traditionnelle variable `i` utilisée dans les boucles `for` était déclarées `register int i = 0;`. Les compilateurs modernes savent aujourd'hui identifier les variables les plus souvent utilisées. L'usage de ce mot clé n'est donc plus recommandé depuis **C99**.
+Jadis, ce mot clé était utilisé devant toutes les variables d'itérations de boucles. La traditionnelle variable `i` utilisée dans les boucles `for` était déclarée `register int i = 0;`. Les compilateurs modernes savent aujourd'hui identifier les variables les plus souvent utilisées. L'usage de ce mot clé n'est donc plus recommandé depuis **C99**.
 
 ### `const`
 
@@ -195,7 +195,7 @@ Cette classe de stockage indique au compilateur qu'il ne peut faire aucune hypot
 
 L'usage de cette classe de stockage réduit les performances d'un programme puisqu'elle empêche l'optimisation du code et le contenu de cette variable devra être rechargé à chaque utilisation
 
-Considérons le cas du progamme suivant :
+Considérons le cas du programme suivant :
 
 ```c
 #include <stdio.h>
@@ -212,7 +212,7 @@ int main() {
 }
 ```
 
-On notera que les 4 lignes où `i` successivement assigné à 1 et 0 sont inutiles car dans tous les cas, la valeur 0 sera affichée. Si le programme est compilé on obtiens le listing suivant :
+On notera que les 4 lignes où `i` successivement assigné à 1 et 0 sont inutiles, car dans tous les cas, la valeur 0 sera affichée. Si le programme est compilé on obtiens le listing suivant :
 
 ```sh
 $ gcc main.c
@@ -271,9 +271,9 @@ Disassembly of section .text:
     108e:       66 90                   xchg   %ax,%ax
 ```
 
-Les lignes ont disparues !
+Les lignes ont disparu !
 
-Afin d'éviter cette optimisation il faut marquer la variable `i` comme `volatile`:
+Afin d'éviter cette optimisation, il faut marquer la variable `i` comme `volatile`:
 
 ```c
 #include <stdio.h>
@@ -292,7 +292,7 @@ int main() {
 
 ### `extern`
 
-Cette classe est utilisée pour signaler que la variable ou la fonction associée est déclarée dans un autre module (autre fichier). Ainsi le code suivant ne déclare pas une nouvelle variable `foo` mais s'attend à ce que cette variable ait été déclarée dans un autre fichier.
+Cette classe est utilisée pour signaler que la variable ou la fonction associée est déclarée dans un autre module (autre fichier). Ainsi le code suivant ne déclare pas une nouvelle variable, `foo` mais s'attend à ce que cette variable ait été déclarée dans un autre fichier.
 
 ```c
 extern int foo;

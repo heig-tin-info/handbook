@@ -6,23 +6,23 @@ Ce chapitre n'est essentiel qu'au programmeur de bas niveau, l'électronicien ou
 
 ## Le bit
 
-Un **bit** est l'unité d'information fondamentale qui peut prendre que deux états : `1` ou `0`. En électronique, cette information peut être stockée dans un élément mémoire par une charge électrique. Dans le monde réel, on peut stocker un bit avec une pièce de monnaie déposée sur le côté pile ou face. L'assemblage de plusieurs bits permet de stocker de l'information plus complexe.
+Un **bit** est l'unité d'information fondamentale qui ne peut prendre que deux états : `1` ou `0`. En électronique, cette information peut être stockée dans un élément mémoire par une charge électrique. Dans le monde réel, on peut stocker un bit avec une pièce de monnaie déposée sur le côté pile ou face. L'assemblage de plusieurs bits permet de stocker de l'information plus complexe.
 
-Le bit est l'abbréviation de *binary digit* (chiffre binaire) et est centrale à la théorie de l'information. Le concept a été popularisé par Claude Shannon dans son article fondateur de la théorie de l'information en 1948: *A Mathematical Theory of Communication*. Shannon y introduit le bit comme unité de mesure de l'information.
+Le bit est l'abréviation de *binary digit* (chiffre binaire) et est central à la théorie de l'information. Le concept a été popularisé par Claude Shannon dans son article fondateur de la théorie de l'information en 1948: *A Mathematical Theory of Communication*. Shannon y introduit le bit comme unité de mesure de l'information.
 
-S'il existe un meuble avec huit casiers assez grand pour une pomme, et que l'on souhaite connaître le nombre de possibilités de rangement, on sait que chaque casier peut contenir une pomme ou aucune. Le nombre de possibilités est alors de $2^8 = 256$. La quantité d'information nécessaire à connaître l'état du meuble est de 8 bits.
+S'il existe un meuble avec huit casiers assez grands pour une pomme, et que l'on souhaite connaître le nombre de possibilités de rangement, on sait que chaque casier peut contenir une pomme ou aucune. Le nombre de possibilités est alors de $2^8 = 256$. La quantité d'information nécessaire à connaître l'état du meuble est de 8 bits.
 
-On pourrait utiliser ce meuble, et ces pommes pour représenter son age. Une personne de 42 ans n'aurait pas besoin de 42 pommes mais seulement de 3. En effet si on représente l'absence de pomme par `0` et la présence d'une pomme par `1`, on obtient :
+On pourrait utiliser ce meuble, et ces pommes pour représenter son âge. Une personne de 42 ans n'aurait pas besoin de 42 pommes, mais seulement de 3. En effet, si on représente l'absence de pomme par `0` et la présence d'une pomme par `1`, on obtient :
 
 ```text
 0 0 1 0 1 0 1 0
 ```
 
-Si l'on souhaite représenter l'état d'un meuble beaucoup plus grand, par exemple un meuble de 64 casiers, la quantité d'information représentable est de $2^{64} = 18'446'744'073'709'551'616$, où 64 bits. Cela permet de représenter le nombre de grains de sable sur Terre, le nombre de secondes dans 584'942 années, ou le nombre de combinaisons possibles pour un mot de passe de 8 caractères.
+Si l'on souhaite représenter l'état d'un meuble beaucoup plus grand, par exemple un meuble de 64 casiers, la quantité d'information représentable est de $2^{64} = 18'446'744'073'709'551'616$, ou 64 bits. Cela permet de représenter le nombre de grains de sable sur Terre, le nombre de secondes dans 584'942 années, ou le nombre de combinaisons possibles pour un mot de passe de 8 caractères.
 
-Les informaticiens ont l'habitude de regrouper les bits par 8 pour former un **octet**. Un octet peut donc représenter $256$ valeurs différentes. Un octet est souvent appelé un **byte** en anglais mais ce terme est ambigu car il peut également désigner un groupe de bits de taille variable.
+Les informaticiens ont l'habitude de regrouper les bits par 8 pour former un **octet**. Un octet peut donc représenter $256$ valeurs différentes. Un octet est souvent appelé un **byte** en anglais, mais ce terme est ambigu, car il peut également désigner un groupe de bits de taille variable.
 
-Lorsque vous achetez un disque de stockage pour votre ordinateur vous pouvez par exemple lire sur l'emballage que le disque a une capacité de 1 To (Téra-octet). Un Téra-octet est égal à $2^{40}$ octets, soit $1'099'511'627'776$ octets. Un octet égant égal à 8 bits, donc un Téra-octet est égal à $8'796'093'022'208$ bits. À titre d'information l'entièreté de Wikipedia en pèse environ 22 Go (Giga-octet). On peut donc dire que notre disque de 1 To permettrait de stocker 45 copies de Wikipedia.
+Lorsque vous achetez un disque de stockage pour votre ordinateur, vous pouvez par exemple lire sur l'emballage que le disque a une capacité de 1 To (Téra-octet). Un Téra-octet est égal à $2^{40}$ octets, soit $1'099'511'627'776$ octets. Un octet égant égal à 8 bits, donc un Téra-octet est égal à $8'796'093'022'208$ bits. À titre d'information l'entièreté de Wikipedia en pèse environ 22 Go (Giga-octet). On peut donc dire que notre disque de 1 To permettrait de stocker 45 copies de Wikipedia.
 
 Pour représenter l'état de Wikipedia, il suffirait donc d'avoir $10'225'593'776'312$ pommes et de l'armoire appropriée.
 
@@ -111,13 +111,13 @@ Notre système de représentation des nombres décimaux est le système de numé
 0 1 2 3 4 5 6 7 8 9
 ```
 
-Un nombre peut être décomposé en puissance successives :
+Un nombre peut être décomposé en puissance successive :
 
 $$
 1506_{10} = 1 \cdot 10^{3} + 5 \cdot 10^{2} + 0 \cdot 10^{1} + 6 \cdot 10^{0}
 $$
 
-La base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la manipulation de dix états ce qui est difficile avec les systèmes logiques à deux états; le stockage d'un bit en mémoire étant généralement assuré par des transistors.
+La base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la manipulation de dix états, ce qui est difficile avec les systèmes logiques à deux états; le stockage d'un bit en mémoire étant généralement assuré par des transistors.
 
 !!! exercise "Deux mains"
 
@@ -150,7 +150,7 @@ $$
 
 En termes techniques ces états sont le plus souvent représentés par des signaux électriques dont souvent l'un des deux états est dit récessif tandis que l'autre est dit dominant. Par exemple si l'état `0` est symbolisé par un verre vide et l'état `1` par un verre contenant du liquide. L'état dominant est l'état `1`. En effet, si le verre contient déjà du liquide, en rajouter ne changera pas l'état actuel, il y aura juste plus de liquide dans le verre.
 
-Un nombre binaire peut être également décomposé en puissance successives :
+Un nombre binaire peut être également décomposé en puissance successive :
 
 $$
 1101_{2} = 1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 1 \cdot 2^{0}
@@ -184,7 +184,7 @@ Inventé par [Charles XII de Suède](https://fr.wikipedia.org/wiki/Charles_XII) 
 0 1 2 3 4 5 6 7
 ```
 
-Notons que l'utilisation des 8 premiers symboles du système indo-arabe est une convention d'usage bien pratique car tout humain occidental est familier de ces symboles. L'inconvénient est qu'un nombre écrit en octal pourrait être confondu avec un nombre écrit en décimal.
+Notons que l'utilisation des 8 premiers symboles du système indo-arabe est une convention d'usage bien pratique, car tout humain occidental est familier de ces symboles. L'inconvénient est qu'un nombre écrit en octal pourrait être confondu avec un nombre écrit en décimal.
 
 Comme pour le système décimal, un nombre octal peut également être décomposé en puissance successives :
 
@@ -226,7 +226,7 @@ Ce système de numération positionnel en base 16 est le plus utilisé en inform
 0 1 2 3 4 5 6 7 8 9 A B C D E F
 ```
 
-L'écriture peut également être décomposée en puissance successives :
+L'écriture peut également être décomposée en puissance successive :
 
 $$
 1AC7_{16} = (1 \cdot 16^{3} + 10 \cdot 16^{2} + 12 \cdot 16^{1} + 7 \cdot 16^{0})_{10} = 41415_{10}
@@ -238,7 +238,7 @@ Il est très pratique en électronique et en informatique d'utiliser ce système
 0101'1110'0001₂ = 5E1₁₆
 ```
 
-L'ingénieur qui se respecte doit connaître par coeur la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplication (qu'il connaît d'ailleurs parfaitement, n'est-ce pas ?)
+L'ingénieur qui se respecte doit connaître par cœur la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplication (qu'il connaît d'ailleurs parfaitement, n'est-ce pas ?)
 
 Table: Correspondance binaire, octal, hexadécimal
 
@@ -301,7 +301,7 @@ Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadé
 - `é` de *ailé* est encodé avec `e\xcc\x81`, soit le caractère e suivi du diacritique `´` {unicode}`U+0301`
 - Une espace fine insécable `\xe2\x80\xaf` est utilisée avant les `!`, ce qui est le caractère unicode {unicode}`U+202F`, conformément à la recommandation de l'Académie française.
 
-Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur il concerne probablement les deux manières distinctes utilisées pour encoder le `é`.
+Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur, il concerne probablement les deux manières distinctes utilisées pour encoder le `é`.
 
 !!! exercise "Les chiffres hexadécimaux"
 
@@ -358,7 +358,7 @@ $h_i$
 
 : La valeur du chiffre à la position $i$
 
-Ainsi, la valeur `AP7` exprimée en base tritrigesimale (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimal après avoir pris connaissance de la correspondance d'un symbole [tritrigesimal](https://en.wikipedia.org/wiki/List_of_numeral_systems) vers le système décimal :
+Ainsi, la valeur `AP7` exprimée en base tritrigesimale (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimales après avoir pris connaissance de la correspondance d'un symbole [tritrigesimal](https://en.wikipedia.org/wiki/List_of_numeral_systems) vers le système décimal :
 
 ```text
 Tritrigesimal -> Décimal :
@@ -434,11 +434,11 @@ n = 209
 
 Les entiers sont les premiers types de données manipulés par les ordinateurs. Ils sont stockés en mémoire sous forme de bits. En choisissant la taille de stockage des entiers, on détermine la plage de valeurs que l'on peut représenter. Un entier de 8 bits peut représenter $2^8 = 256$ valeurs différentes, de 0 à 255. Un entier de 16 bits peut représenter $2^{16} = 65536$ valeurs différentes, de 0 à 65535.
 
-Cette manière est élégante mais elle ne permet pas de représenter des valeurs négatives. Pour cela, on aura recours aux entiers relatifs.
+Cette manière est élégante, mais elle ne permet pas de représenter des valeurs négatives. Pour cela, on aura recours aux entiers relatifs.
 
 ## Entiers relatifs
 
-Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives car il n'existe pas de symboles pour le signe `-` (ni même d'ailleurs `+`).
+Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car il n'existe pas de symboles pour le signe `-` (ni même d'ailleurs `+`).
 
 Une approche naïve est de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. L'ennui pour les **variables** c'est que le contenu peut changer et qu'il serait préférable de stocker le signe avec la valeur.
 
@@ -631,7 +631,7 @@ Cette solution est élégante, mais demande à présent 11-bits contre 8-bits in
 
 ### Virgule flottante
 
-Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' [exposant](<https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)>) et le reste de l'information la [mantisse](https://fr.wikipedia.org/wiki/Mantisse), qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la [mantis shrimp](https://fr.wikipedia.org/wiki/Stomatopoda), une quille ou crevette mante boxeuse aux couleurs particulièrement chatoyantes).
+Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' [exposant](<https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)>) et le reste de l'information la [mantisse](https://fr.wikipedia.org/wiki/Mantisse), qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la [mantis shrimp](https://fr.wikipedia.org/wiki/Stomatopoda), une quille ou crevette-mante boxeuse aux couleurs particulièrement chatoyantes).
 
 ```
   exp.  mantisse
@@ -683,7 +683,7 @@ $f_k$
 
 : Entier non négatif plus petit que la base $b$.
 
-Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres `binary16`, `binary32` ou `binary64`, selon le nombre de bits utilisé pour coder l'information. Les termes de *Single precision* ou *Double precision* sont aussi couramment utilisées.
+Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres `binary16`, `binary32` ou `binary64`, selon le nombre de bits utilisé pour coder l'information. Les termes de *Single precision* ou *Double precision* sont aussi couramment utilisés.
 
 Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante ([FPU](https://en.wikipedia.org/wiki/Floating-point_unit) pour *Floating point unit*) sont les suivants :
 

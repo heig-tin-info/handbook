@@ -23,9 +23,9 @@ Il trouve admirablement bien sa place en programmation où le programmeur ne peu
 
 > Dans un système, toute connaissance doit avoir une représentation unique, non ambiguë, faisant autorité.
 
-En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement {kbd}`CTRL` ({kbd}`⌘`) + {kbd}`C` suivi de {kbd}`CTRL` ({kbd}`⌘`) + {kbd}`V`. Dupliquer du code et quelle que soit l'envergure de texte concerné est **toujours** une mauvaise pratique, car c'est le plus souvent le signe évident d'un [code smell](https://fr.wikipedia.org/wiki/Code_smell) indiquant que le code peut être simplifié et optimisé.
+En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement {kbd}`CTRL` ({kbd}`⌘`) + {kbd}`C` suivi de {kbd}`CTRL` ({kbd}`⌘`) + {kbd}`V`. Dupliquez du code et, quelle que soit l'envergure de texte concerné est **toujours** une mauvaise pratique, car c'est le plus souvent le signe évident d'un [code smell](https://fr.wikipedia.org/wiki/Code_smell) indiquant que le code peut être simplifié et optimisé.
 
-Le code suivant comprend une erreur **DRY** car la fonction display est appelée deux fois. Dans les deux cas de figure, la fonction `display` reçois un pointeur sur un fichier, il est donc possible de simplifier ce code.
+Le code suivant comprend une erreur **DRY** car la fonction display est appelée deux fois. Dans les deux cas de figure, la fonction `display` reçoit un pointeur sur un fichier, il est donc possible de simplifier ce code.
 
 ```c
 FILE *fp = NULL;

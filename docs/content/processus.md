@@ -39,7 +39,7 @@ gcc Fibonacci.c -o fibonacci.exe
 objdump -d fibonacci.exe
 ```
 
-On obtiens un fichier similaire à ceci qui contient le code machine (`48 83 ec 20`), et l'équivalent en langage assembleur (`mov    %fs:0x28,%rax`):
+On obtient un fichier similaire à ceci qui contient le code machine (`48 83 ec 20`), et l'équivalent en langage assembleur (`mov    %fs:0x28,%rax`):
 
 ```console
 0000000000000680 <main>:
@@ -75,7 +75,7 @@ On obtiens un fichier similaire à ceci qui contient le code machine (`48 83 ec 
 74c:   0f 1f 40 00             nopl   0x0(%rax)
 ```
 
-Avec un visualiseur hexadécimal, on peut extraire le langage machine du binaire exécutable. L'utilitaire `hexdump` est appelé avec deux options `-s` pour spécifier l'adresse de début, on choisi ici celle du début de la fonction `main` `0x680`, et `-n` pour n'extraire que les premiers 256 octets :
+Avec un visualiseur hexadécimal, on peut extraire le langage machine du binaire exécutable. L'utilitaire `hexdump` est appelé avec deux options `-s` pour spécifier l'adresse de début, on choisit ici celle du début de la fonction `main` `0x680`, et `-n` pour n'extraire que les premiers 256 octets :
 
 ```console
 $ hexdump -s0x680 -n256 a.out
@@ -97,7 +97,7 @@ $ hexdump -s0x680 -n256 a.out
 0000770 ff0c ffff 15ff 0866 0020 0ff4 441f 0000
 ```
 
-Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs `41 55` puis `41 54` puis `48 8d 35 59` se retrouvent directement dans le *dump*: `5541 5441 8d48`. Si les valeurs sont interverties c'est parce qu'un PC est *little-endian* (c.f. {numref}`endianess`), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.
+Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs `41 55` puis `41 54` puis `48 8d 35 59` se retrouvent directement dans le *dump*: `5541 5441 8d48`. Si les valeurs sont interverties, c'est parce qu'un PC est *little-endian* (c.f. {numref}`endianess`), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.
 
 Sous Windows, l'extension des fichiers détermine leur type. Un fichier avec l'extension `.jpg` sera un fichier image du [Join Photographic Experts Group](https://fr.wikipedia.org/wiki/JPEG) et exécuter ce fichier correspond à l'ouvrir en utilisant l'application par défaut pour visualiser les images de ce type. Un fichier avec l'extension `.exe` est un exécutable binaire, et il sera exécuté en tant que programme par le système d'exploitation.
 
@@ -128,7 +128,7 @@ Ce programme peut-être exécuté par tout le monde, mais modifié que par l'uti
 
 Tout programme doit pouvoir interagir avec son environnement. À l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées :
 
-- L'entrée standard `STDIN` fourni au programme du contenu qui est généralement fourni par la sortie d'un autre programme.
+- L'entrée standard `STDIN` fournit au programme du contenu qui est généralement fourni par la sortie d'un autre programme.
 - Les arguments du programme `ARGV`
 - Les variables d'environnement `ENVP`
 
@@ -145,7 +145,7 @@ La figure suivante résume les interactions qu'un programme peut avoir sur son e
 
 Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des [signaux](<https://fr.wikipedia.org/wiki/Signal_(informatique)>). Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.
 
-Si, en utilisant Windows, vous vous rendez dans le [gestionnaire de tâches](https://fr.wikipedia.org/wiki/Gestionnaire_des_t%C3%A2ches_Windows) et que vous décider de *Terminer une tâche*, le système d'exploitation envoie un signal au programme lui demandant de se terminer.
+Si, en utilisant Windows, vous vous rendez dans le [gestionnaire de tâches](https://fr.wikipedia.org/wiki/Gestionnaire_des_t%C3%A2ches_Windows) et que vous décidez de *Terminer une tâche*, le système d'exploitation envoie un signal au programme lui demandant de se terminer.
 
 Sous Linux, habituellement, le *shell* relie certains raccourcis clavier à des signaux particuliers :
 
@@ -216,7 +216,7 @@ int getopt(int, char * const [], const char *);
 
 ### Extension GNU
 
-Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension [GNU](https://fr.wikipedia.org/wiki/GNU) et son en-tête `<getopt.h>` permet l'accès à la fonction `getopt_long` laquelle permet d'interpréter aussi les options longues `--version` qui sont devenues très répandue.
+Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension [GNU](https://fr.wikipedia.org/wiki/GNU) et son en-tête `<getopt.h>` permet l'accès à la fonction `getopt_long` laquelle permet d'interpréter aussi les options longues `--version` qui sont devenues très répandues.
 
 ```c
 int getopt_long (int argc, char *const *argv, const char *shortopts,
@@ -333,10 +333,10 @@ $ cat data.txt
 Obawbhe
 ```
 
-Dans cet exemple ci-dessus le programme `echo` prends en argument la chaîne de caractère `Bonjour` qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme `tr` qui effectue une opération de [ROT13](https://fr.wikipedia.org/wiki/ROT13) et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier `data.txt`.
+Dans cet exemple ci-dessus, le programme `echo` prend en argument la chaîne de caractère `Bonjour` qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme `tr` qui effectue une opération de [ROT13](https://fr.wikipedia.org/wiki/ROT13) et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier `data.txt`.
 La commande suivante `cat` lis le contenu du fichier dont le nom est passé en argument et écrit le contenu sur la sortie standard.
 
-Dans le cas où un de ces programmes génère une alerte (*warning*), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie: `stdout` pour la sortie standard et `stderr` pour les messages de diagnostique et les erreurs.
+Dans le cas où un de ces programmes génère une alerte (*warning*), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie: `stdout` pour la sortie standard et `stderr` pour les messages de diagnostic et les erreurs.
 
 ## Boucle d'attente
 
@@ -364,7 +364,7 @@ int main(void) {
 }
 ```
 
-Alternativement, lorsqu'un programme attend un retour de l'utilisateur par exemple en demandant la saisie au clavier d'informations, le système d'exploitation est également mis en attente et le processus ne consomme pas de ressources CPU. Le programme ci-dessous attend que l'utilisateur presse la touche enter.
+Alternativement, lorsqu'un programme attend un retour de l'utilisateur par exemple en demandant la saisie au clavier d'informations, le système d'exploitation est également mis en attente et le processus ne consomme pas de ressources CPU. Le programme ci-dessous attend que l'utilisateur presse la touche entrée.
 
 ```c
 #include <stdio.h>

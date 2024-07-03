@@ -1,4 +1,4 @@
-# L'environnement Windows/Linux
+# L'environnement de travail
 
 Vous êtes étudiant et vous êtes perdus avec l'utilisation de Python, LaTeX, Git, etc. sous Windows, Linux ou encore Docker Ce document est fait pour vous. Il vous guidera dans l'installation et l'utilisation de ces outils. L'objectif est de comprendre les avantages et les inconvénients de chaque outil et de vous permettre de les utiliser de manière efficace.
 

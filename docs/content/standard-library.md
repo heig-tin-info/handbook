@@ -504,4 +504,4 @@ Quelques observations :
 - Officiellement Windows est compatible avec C89 (ANSI C) (c.f. [C Language Reference](https://docs.microsoft.com/en-us/cpp/c-language/c-language-reference?view=vs-2019))
 - L'API Windows n'est pas officiellement compatible avec C99, mais elle s'en approche, il n'y pas ou peu de documents expliquant les différences.
 - Microsoft n'a aucune priorité pour développer son support C, il se focalise davantage sur C++ et C#, c'est pourquoi certains éléments du langage ne sont pas ou peu documentés.
-- Les [types standards Windows](https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types) différent de ceux proposés par C99. Par exemple `LONG32` remplace `int32_t`.
+- Les [types standards Windows](https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types) différent de ceux proposés par C99. Par exemple, `LONG32` remplace `int32_t`.

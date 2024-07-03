@@ -280,7 +280,7 @@ Prenons l'exemple du tableau ci-dessous et deux règles suivantes :
   0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  (indice)
 ```
 
-La première valeur du tableau est appelée la racine *root*. C'est le premier élément de l'arbre. Puisqu'il s'agit d'un arbre binaire, chaque noeud peut comporter jusqu'à 2 enfants. L'enfant de gauche est calculé à partir de l'indice `k` de l'élément courant. Ainsi les deux enfants de l'élément `4` seront `2 * 4 + 1 = 9` et `2 * 4 + 2 == a`.
+La première valeur du tableau est appelée la racine *root*. C'est le premier élément de l'arbre. Puisqu'il s'agit d'un arbre binaire, chaque nœud peut comporter jusqu'à 2 enfants. L'enfant de gauche est calculé à partir de l'indice `k` de l'élément courant. Ainsi les deux enfants de l'élément `4` seront `2 * 4 + 1 = 9` et `2 * 4 + 2 == a`.
 
 Ce tableau linéaire en mémoire pourra être représenté visuellement comme un arbre binaire :
 
@@ -296,7 +296,7 @@ Ce tableau linéaire en mémoire pourra être représenté visuellement comme un
 11  3  35  7  9  11 50  16
 ```
 
-Le coeur de cet algorithme est le sous-algorithme nommé *heapify*. Ce dernier à pour objectif de satisfaire une exigence supplémentaire de notre arbre : **chaque enfant doit être plus petit que son parent**. Le principe est donc simple. On part du dernier élément de l'arbre qui possède au moins un enfant : la valeur `14` (indice `6`). Le plus grand des enfants est échangé avec la valeur du parent. Ici `50` sera échangé avec `14`. Ensuite on applique récursivement ce même algorithme pour tous les enfants qui ont été échangés. Comme `14` (anciennement `50`) n'a pas d'enfant, on s'arrête là.
+Le cœur de cet algorithme est le sous-algorithme nommé *heapify*. Ce dernier à pour objectif de satisfaire une exigence supplémentaire de notre arbre : **chaque enfant doit être plus petit que son parent**. Le principe est donc simple. On part du dernier élément de l'arbre qui possède au moins un enfant : la valeur `14` (indice `6`). Le plus grand des enfants est échangé avec la valeur du parent. Ici `50` sera échangé avec `14`. Ensuite on applique récursivement ce même algorithme pour tous les enfants qui ont été échangés. Comme `14` (anciennement `50`) n'a pas d'enfant, on s'arrête là.
 
 L'algorithme continue en remontant jusqu'à la racine de l'arbre. La valeur suivante analysée est donc `42`, comme les deux enfants sont petits on continue avec la valeur `6`. Cette fois-ci `35` qui est plus grand est alors échangé. Comme `6` n'a plus d'enfant, on continue avec `20`, puis `12`. À cette étape, notre arbre ressemble à ceci :
 
@@ -326,7 +326,7 @@ La valeur `12` est plus petite que `50` et est donc échangée. Mais puisque `12
 8   3  6   4  9  11 14  12
 ```
 
-On peut observer que chaque noeud de l'arbre satisfait à l'exigence susmentionnée : tous les enfants sont inférieurs à leurs parents.
+On peut observer que chaque nœud de l'arbre satisfait à l'exigence susmentionnée : tous les enfants sont inférieurs à leurs parents.
 
 Une fois que cette propriété est respectée, on a l'assurance que la racine de l'arbre est maintenant le plus grand élément du tableau. Il est alors échangé avec le dernier élément du tableau `12`, qui devient à son tour la racine.
 

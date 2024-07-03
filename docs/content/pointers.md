@@ -23,7 +23,7 @@ char valmont_mailbox[] = "Chère Maquise, ...";
 char merteil_mailbox[] = "Chère Maquise, ...";
 ```
 
-La canicule n'étant pas finie, et cette physique discutable ne pouvant être déjouée, la marquise décide de résoudre le problème et se rends à [Tarente](https://fr.wikipedia.org/wiki/Pierre_Choderlos_de_Laclos) (un très mauvais choix par jour de canicule) et formule sa réponse sur le mur sud du Castello Aragonese ayant préalablement pris soin de noter la position GPS du mur avec exactitude (`0x30313233`):
+La canicule n'étant pas finie, et cette physique discutable ne pouvant être déjouées, la marquise décide de résoudre le problème et se rend à [Tarente](https://fr.wikipedia.org/wiki/Pierre_Choderlos_de_Laclos) (un très mauvais choix par jour de canicule) et formule sa réponse sur le mur sud du Castello Aragonese ayant préalablement pris soin de noter la position GPS du mur avec exactitude (`0x30313233`):
 
 ```c
 char castello_wall[] = "Cher Vicomte ...";
@@ -34,13 +34,13 @@ De retour chez elle, elle prie le facteur de transmettre au vicomte de Valmont c
 
 La variable `gps_position` ne contient donc pas le message, mais seulement l'adresse mémoire de ce message. Il s'agit ici d'un **pointeur sur un tableau de caractères**.
 
-Entre temps, le vicomte qui est paresseux s'est équipé d'un téléscripteur capable d'exécuter du code C et il parvient à lire le message de sa complice la marquise.
+Entre-temps, le vicomte qui est paresseux s'est équipé d'un téléscripteur capable d'exécuter du code C et il parvient à lire le message de sa complice la marquise.
 
 ```c
 printf("%s", *gps_position);
 ```
 
-S'il avait oublié l'astérisque (`*`, {unicode}`U+002A`) dans cette dernière ligne il n'aurait pas vu le message espéré, mais simplement `0123` qui correspond au contenu à l'adresse mémoire ou se trouve l'adresse du message (et non le message).
+S'il avait oublié l'astérisque (`*`, {unicode}`U+002A`) dans cette dernière ligne, il n'aurait pas vu le message espéré, mais simplement `0123` qui correspond au contenu à l'adresse mémoire ou se trouve l'adresse du message (et non le message).
 
 L'astérisque agit donc comme un **déréférencement**, autrement dit, la demande expresse faite au dévoué facteur d'aller à l'adresse donnée récupérer le contenu du message.
 
@@ -81,7 +81,7 @@ Le format le plus simple d'un pointeur sur un entier s'écrit avec l'astérisque
 int* ptr = NULL;
 ```
 
-La valeur `NULL` corresponds à l'adresse nulle `0x00000000`. On utilise cette convention pour bien indiquer qu'il s'agit d'une adresse et non d'une valeur scalaire.
+La valeur `NULL` correspond à l'adresse nulle `0x00000000`. On utilise cette convention pour bien indiquer qu'il s'agit d'une adresse et non d'une valeur scalaire.
 
 À tout moment, la valeur du pointeur peut être assignée à l'adresse d'un entier puisque nous avons déclaré un pointeur sur un entier :
 
@@ -162,7 +162,7 @@ for (size_t row = 0; row < 3; row++) {
 }
 ```
 
-Mais ? N'est-ce pas là ce que fait le compilateur lorsque l'adresse les éléments d'un tableau multi dimensionnel ?
+Mais ? N'est-ce pas là ce que fait le compilateur lorsque l'adresse les éléments d'un tableau multidimensionnel ?
 
 ```c
 char magic[][3] = {"792", "357", "816"};
@@ -304,7 +304,7 @@ e[2].next = NULL;
 Les fonctions comportent une liste de paramètres permettant de retourner
 une information au programme appelant. Il est souvent indispensable de
 pouvoir fournir à une fonction des paramètres qu'elle peut modifier lors
-de son exécution. Pour se faire, on passera par l'utilisation de
+de son exécution. Pour ce faire, on passera par l'utilisation de
 pointeurs.
 
 ### Paramètres sous la forme de pointeurs
@@ -359,7 +359,7 @@ int array[128];
 struct { int a; char b; float c[3] } elements[128];
 ```
 
-Il faudrait donc autant de fonction `memcpy` que de type possible, ce qui n'est ni raisonnable, ni même imaginable. Face à ce dilemme, on utilise un pointeur neutre, celui qui n'envie personne et que personne n'envie `void` et qui permet sans autre :
+Il faudrait donc autant de fonctions `memcpy` que de type possible, ce qui n'est ni raisonnable, ni même imaginable. Face à ce dilemme, on utilise un pointeur neutre, celui qui n'envie personne et que personne n'envie `void` et qui permet sans autre :
 
 ```c
 void *ptr;
@@ -389,7 +389,7 @@ La clé est dans le standard ISO/IEC 9899:2011 section 6.3.2.3 page 55 :
 
 > A pointer to void may be converted to or from a pointer to any object type. A pointer to any object type may be converted to a pointer to void and back again; the result shall compare equal to the original pointer.
 
-Autrement dit, il n'est pas nécessaire, ni recommandé de faire un transtypage explicite pour convertir vers et en provenance d'un pointeur sur `void`. Et donc, l'astuce de memcpy est que la fonction accepte n'importe quel type de pointeur et c'est le message auto documenté du code.
+Autrement dit, il n'est pas nécessaire ni recommandé de faire un transtypage explicite pour convertir vers et en provenance d'un pointeur sur `void`. Et donc, l'astuce de memcpy est que la fonction accepte n'importe quel type de pointeur et c'est le message auto documenté du code.
 
 Et quant à l'implémentation de cette fonction me direz-vous ? Une possibilité serait :
 
@@ -494,7 +494,7 @@ void main(void)
 }
 ```
 
-Avec la règle gauche droite on parvient à décortiquer la déclaration :
+Avec la règle gauche droite, on parvient à décortiquer la déclaration :
 
 ```c
 int (*callback)(int)
