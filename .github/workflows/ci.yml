@@ -10,8 +10,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           submodules: true
       - name: Configure Git Credentials
         run: |
@@ -31,4 +33,5 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Install drawio
         run: sudo apt-get update && sudo apt-get install -y snapd && sudo snap install drawio
-      - run: JUPYTER_PLATFORM_DIRS=1 mkdocs gh-deploy --force
+      - name: Build Documentation with MkDocs
+        run: DISPLAY=:1 mkdocs gh-deploy --force
