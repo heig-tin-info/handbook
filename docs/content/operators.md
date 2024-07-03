@@ -174,6 +174,8 @@ balrog = balrog & gandalf; // You shall not pass!
 
 La disjonction ou **OU logique** ($\lor$) s'apparente à l'opération `+`.
 
+Table: Disjonction bit à bit
+
 | $A ∨ B$ | $A=0$ | $A=1$ |
 | ------- | ----- | ----- |
 | $B=0$   | 0     | 1     |
@@ -360,19 +362,19 @@ En logique booléenne on exprime la négation par une barre p.ex. $\bar{P}$.
 
 En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus complexe qu'imaginée. Un nombre réel peut être converti en un nombre entier de plusieurs manières dont voici une liste non exhaustive :
 
-- **tronqué** (*truncate*) lorsque la partie fractionnaire est simplement enlevée
-- **arrondi à l'entier supérieur** (*rounding up*)
-- **arrondi à l'entier inférieur** (*rounding down*)
-- **arrondi en direction du zéro** (*rounding towards zero*)
-- **arrondi loin du zéro** (*rounding away from zero*)
-- **arrondi au plus proche entier** (*rounding to the nearest integer*)
-- **arrondi la moitié en direction de l'infini** (*rounding half up*)
+- tronqué (*truncate*) lorsque la partie fractionnaire est simplement enlevée
+- arrondi à l'entier supérieur (*rounding up*)
+- arrondi à l'entier inférieur (*rounding down*)
+- arrondi en direction du zéro (*rounding towards zero*)
+- arrondi loin du zéro (*rounding away from zero*)
+- arrondi au plus proche entier (*rounding to the nearest integer*)
+- arrondi la moitié en direction de l'infini (*rounding half up*)
 
 Selon le langage de programmation et la méthode utilisée, le mécanisme d'arrondi sera différent. En C, la bibliothèque mathématique offre les fonctions `ceil` pour l'arrondi au plafond (entier supérieur), `floor` pour arrondi au plancher (entier inférieur) et `round` pour l'arrondi au plus proche (*nearest*). Il existe également fonction `trunc` qui tronque la valeur en supprimant la partie fractionnaire.
 
 Le fonctionnement de la fonction `round` n'est pas unanime entre les mathématiciens et les programmeurs. C utilise l'arrondi au plus proche, c'est à dire que -23.5 donne -24 et 23.5 donnent 24.
 
-!!! note
+!!! info
 
     En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre-intuitive, car `round(3.5)` donne 4, mais `round(4.5)` donne 4 aussi.
 
@@ -468,6 +470,36 @@ On remarque dans cet exemple une répétition `max =`. Une façon plus élégant
 ```c
 max = a > b ? a : b;
 ```
+
+!!! warning
+
+    Ne pas utiliser l'opérateur ternaire si vous ne modifiez pas une valeur. L'opérateur ternaire est un opérateur de **sélection** et non de **modification**.
+
+    === Bon exemple
+
+        ```c
+        int max = a > b ? a : b;
+        ```
+
+    === Mauvais exemple
+
+        ```c
+        a > b ? max = a : min = b;
+        ```
+
+    Cela va de même pour afficher une valeur :
+
+    === Bon exemple
+
+        ```c
+        printf("Le maximum est %d\n", a > b ? a : b);
+        ```
+
+    === Mauvais exemple
+
+        ```c
+        a > b ? printf("Le maximum est %d\n", a) : printf("Le maximum est %d\n", b);
+        ```
 
 ## Opérateur de transtypage
 

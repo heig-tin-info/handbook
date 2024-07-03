@@ -164,7 +164,7 @@ $$
 
 Avec un seul `bit` il est donc possible d'exprimer 2 valeurs distinctes.
 
-!!! exercise Base 2
+!!! exercise "Base 2"
 
     Combien de valeurs décimales peuvent être représentées avec 10-bits ?
 
@@ -554,6 +554,8 @@ En résumé, la méthode du complément à 1 :
 (twos-complement)=
 
 ### Complément à deux
+
+[](){#twos-complement}
 
 Le {index}`complément à deux` n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont :
 

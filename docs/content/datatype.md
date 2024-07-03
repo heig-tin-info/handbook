@@ -111,10 +111,10 @@ Table: Stockage d'un entier non signé sur différentes profondeurs
 
 | Profondeur | Minimum | Maximum                                         |
 | ---------- | ------- | ----------------------------------------------- |
-| 8 bits     | 0       | 255 (:math:`2^8 - 1`)                           |
-| 16 bits    | 0       | 65'535 (:math:`2^{16} - 1`)                     |
-| 32 bits    | 0       | 4'294'967'295 (:math:`2^{32} - 1`)              |
-| 64 bits    | 0       | 18'446'744'073'709'551'616 (:math:`2^{64} - 1`) |
+| 8 bits     | 0       | 255 ($2^8 - 1$)                           |
+| 16 bits    | 0       | 65'535 ($2^{16} - 1$)                     |
+| 32 bits    | 0       | 4'294'967'295 ($2^{32} - 1$)              |
+| 64 bits    | 0       | 18'446'744'073'709'551'616 ($2^{64} - 1$) |
 
 Notez l'importance du $-1$ dans la définition du maximum, car la valeur minimum $0$ fait partie de l'information même si elle représente une quantité nulle. Il y a donc 256 valeurs possibles pour un nombre entier non signé 8-bits, bien que la valeur maximale ne soit que de 255.
 
@@ -140,7 +140,7 @@ Table: Stockage d'un entier signé sur différentes profondeurs
 | 16 bits    | -32'768        | +32'767        |
 | 32 bits    | -2'147'483'648 | +2'147'483'647 |
 
-En mémoire, ces nombres sont stockés en utilisant le {ref}`complément à deux <twos_complement>` qui fait l'objet d'une section à part entière.
+En mémoire, ces nombres sont stockés en utilisant le [complément à deux](numeration.md#twos_complement) qui fait l'objet d'une section à part entière.
 
 ### Les entiers bornés
 
@@ -157,7 +157,7 @@ La construction d'un type entier C est la suivante :
 
 ![Entiers standardisés](../assets/figures/dist/datatype/ansi-integers.svg)
 
-Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins $N$ bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée au {numref}`standard-integers`.
+Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins $N$ bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée ci-dessous :
 
 Table: "Table des types entiers en C"
 
