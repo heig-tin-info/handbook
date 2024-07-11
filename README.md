@@ -92,6 +92,8 @@ Currently drawio conversion occurs at each build (very slow) and does not suppor
 
 One solution for simple graphics is to include svg directly and twick the svg to map colors with the theme colors.
 
+One possiblity is to integrate the svg as `<object>` and use css to style the svg.
+
 ### Exercices
 
 - Add "Exercise:" before admonition Exercice
