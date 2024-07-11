@@ -1523,6 +1523,27 @@ jsmin = ">=3.0.1"
 mkdocs = ">=1.4.1"
 
 [[package]]
+name = "mkdocs-plugin-exercises"
+version = "0.1.0"
+description = "Provide Exercises to Mkdocs"
+optional = false
+python-versions = "^3.10"
+files = []
+develop = false
+
+[package.dependencies]
+beautifulsoup4 = "^4.12.3"
+mkdocs = "^1.6"
+mkdocs-material = "^9.5.28"
+pymdown-extensions = "^10.8.1"
+
+[package.source]
+type = "git"
+url = "git@github.com:yves-chevallier/mkdocs-exercise.git"
+reference = "HEAD"
+resolved_reference = "69117fa135f6db0938bed9d30c62ab0f53c5f07e"
+
+[[package]]
 name = "mkdocs-snippets"
 version = "1.3.0"
 description = "Snippets for MkDocs"
@@ -2713,4 +2734,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "83f942b08ddffdfbfaa67ecebc7257912c47cf0813351689b8a1fe5015e10afe"
+content-hash = "7423c8366c71900c22d827d92c7974bd7fb6477b5b7c33b6095d839b535d9bed"

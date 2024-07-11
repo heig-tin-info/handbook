@@ -385,32 +385,43 @@ a.out         Nom du fichier
 
     Qui a inventé le C ?
 
-    ??? solution
-
-        Brian Kernighan et Dennis Ritchie en 1972
-
-
+    - [x] Ken Thompson
+    - [ ] Brian Kernighan
+    - [ ] Bjarne Stroustrup
+    - [ ] Linus Torvalds
+    - [x] Dennis Ritchie
+    - [ ] Guido van Rossum
 
 !!! exercise "Standardisation"
 
-    Quel est le standard C à utiliser en 2021 et pourquoi ?
+    Quel est le standard C à utiliser dans l'industrie en 2024 et pourquoi ?
 
-    ??? solution
+    - [ ] C89
+    - [ ] C99
+    - [ ] C11
+    - [x] C17
+    - [ ] C23
 
-        Le standard industriel, malgré que nous soyons en 2019 est toujours
-        **ISO/IEC 9899:1999**, car peu de changements majeurs ont été apportés
+    !!! solution
+
+        Le standard industriel, malgré que nous soyons en 2024 est toujours
+        **ISO/IEC 9899:2017**, car peu de changements majeurs ont été apportés
         au langage depuis et les entreprises préfèrent migrer sur C++ plutôt
         que d'adopter un standard plus récent qui n'apporte que peu de changements.
 
 !!! exercise "Paradigmes"
 
-    Quels sont les paradigmes de programmation supportés par C ?
+    Quels est le paradigme de programmation supportés par C ?
 
-    ??? solution
+    - [ ] Fonctionnel
+    - [ ] Orienté objet
+    - [ ] Réflectif
+    - [x] Impératif
+    - [ ] Déclaratif
+
+    !!! solution
 
         C supporte les paradigmes impératifs, structurés et procédural.
-
-
 
 !!! exercise "Langage impératif"
 
@@ -434,11 +445,16 @@ a.out         Nom du fichier
 
         Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement, mais être difficile à l'utilisation, car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.
 
-
 !!! exercise "Cat"
 
     Qu'est-ce que `cat`?
 
-    ??? solution
+    - [ ] Un programme de chat
+    - [ ] Un programme de compilation
+    - [x] Un programme d'affichage de fichiers
+    - [ ] Un programme de copie de fichiers
+    - [ ] Un programme de recherche de fichiers
+
+    !!! solution
 
         `cat` est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier `hello.c` est bel et bien celui attendu.

@@ -141,7 +141,7 @@
   padding-left: 1.5em;
 }
 
-.md-content ul li:not(.task-list-item)::before {
+.md-content ul:not(.exercise-list) li:not(.task-list-item)::before {
   content: "–";
   position: absolute;
   left: 0;
@@ -190,3 +190,21 @@
 .exercise .task-list-item::before {
   content: none; /* Supprime les icônes ajoutées par ::before */
 }
+
+
+/* Mermaid colors */
+/* :root {
+  --md-mermaid-edge-color: var(--md-code-fg-color);
+  --md-mermaid-node-bg-color: var(--md-accent-fg-color--transparent);
+  --md-mermaid-node-fg-color: var(--md-accent-fg-color);
+  --md-mermaid-label-bg-color: var(--md-default-bg-color);
+  --md-mermaid-label-fg-color: var(--md-code-fg-color);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-mermaid-edge-color: var(--md-code-fg-color);
+  --md-mermaid-node-bg-color: var(--md-accent-fg-color--transparent);
+  --md-mermaid-node-fg-color: var(--md-accent-fg-color);
+  --md-mermaid-label-bg-color: var(--md-default-bg-color);
+  --md-mermaid-label-fg-color: var(--md-code-fg-color);
+} */

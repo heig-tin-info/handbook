@@ -79,7 +79,11 @@ theme:
       example: octicons/beaker-16
       quote: octicons/quote-16
       exercise: octicons/mortar-board-16
-      solution: octicons/light-bulb-16
+      solution: octicons/trophy-16
+      hint: octicons/light-bulb-16
+      foobar: octicons/check-circle-16
+      failure: octicons/x-circle-16
+      reload: octicons/sync-16
 extra:
   homepage: https://heig-tin-info.github.io/handbook
   annotate:
@@ -104,7 +108,8 @@ plugins:
       enable_creation_date: true
   # - tags:
   #     tags_file: tags.md
-  - drawio-exporter
+  - drawio-exporter:
+      embed_format: '{content}'
   - markdown-exec
   # - extract_listings:
   #     listings_file: listings.md
@@ -117,6 +122,7 @@ plugins:
   - search
   - minify:
       minify_html: true
+  - exercises
 markdown_extensions:
   - toc:
       toc_depth: 3
@@ -158,8 +164,6 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - def_list
-  - pymdownx.tasklist:
-      custom_checkbox: true
   - abbr
   - attr_list
   - pymdownx.snippets:
