@@ -13,22 +13,10 @@ poetry install
 poetry run mkdocs serve
 ```
 
-### Docker
-
-Alternativement, vous pouvez utiliser Docker pour lancer le serveur de développement :
-
-```bash
-docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
-```
-
-### Vscode
-
-Installer l'extension `vscode-yaml` pour une meilleure coloration syntaxique des fichiers `.yml`.
-
 ## To-Do
 
-- [ ] Fix drawio generation on GitHub Actions
-- [ ] Make figures compatible with both light/dark theme
+- [ ] Update drawio plugin to use theme colors.
+- [ ] Make all figures compatible with both light/dark theme
 - [ ] Tables
   - [ ] Caption above table
   - [ ] Addfull parameter for adjusting width, fullwidth
@@ -43,6 +31,13 @@ Installer l'extension `vscode-yaml` pour une meilleure coloration syntaxique des
 - [ ] Generate PDF with LaTeX
 - [x] Center tables
 - [x] Two columns for itemize ?
+
+### Custom extensions
+
+- [ ] Flexible table
+  - [ ] Full Width
+  - [ ] X column
+  - [ ] Rowspan
 
 ### Content
 

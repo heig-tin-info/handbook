@@ -237,33 +237,59 @@ Table: Complément à un
 
 ### Opérateurs arithmétiques
 
-Les opérations arithmétiques nécessitent le plus souvent d'une communication entre les bits.
-C'est-à-dire en utilisant une retenue (*carry*). En base décimale, on se souvient de l'addition que l'on écrivait dans les petites écoles :
+Nous l'avons tous appris dans les petites écoles, les opérations arithmétiques s'effectues de **droite à gauche** et **chiffre à chiffre**.
+Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on retient une unité et on la reporte à la colonne suivante. L'addition de $123$ et $89$ en base $10$ donne $212$.
 
-```text
-  ¹¹    ← retenues
-  123₁₀
-+  89₁₀
------
-  212₁₀
-```
+$$
+\begin{array}{lrrr}
+\phantom{1}& _1 & _1 &  \\
+           & 1           & 2 & 3_{~10} \\
+         + & \phantom{0} & 8 & 9_{~10} \\
+\hline
+           &           2 & 1 & 2_{~10} \\
+\end{array}
+$$
 
-En arithmétique binaire, c'est exactement la même chose :
+L'exemple reste valable quelque soit la base, en binaire par exemple, on commence par additionner les bits de poids faible et on reporte les retenues. Ainsi en premier lieu on aura $1_2 + 1_2 = 10_2$. Donc le résultat est $0$ et la retenue (*carry*) est $1$ :
 
-| A   | B   | A + B | C   |
-| --- | --- | ----- | --- |
+$$
+\begin{array}{lrrrrrrrr}
+  & _1 & _1 & _1 & _1 &  & _1 & _1 &  \\
+    & & 1 & 1 & 1 & 1 & 0 & 1 & 1_{~2} \\
+ +  & & 1 & 0 & 1 & 1 & 0 & 0 & 1_{~2} \\
+\hline
+  &1 & 1 & 0 & 1 & 0 & 1 & 0 & 0_{~2} \\
+\end{array}
+$$
+
+En algèbre de Boole, l'addition de deux chiffres n'a que $2^2 = 4$ cas de figure (contre $10^2=100$ en base $10$).
+
+L'addition de deux bits $A$ et $B$ est donnée par la table suivante où `C` est la retenue engendrée par l'addition :
+
+| A   | B  @rb | A + B @rb | C @bb  |
+|:---:|:---:|:-----:|:---:|
 | 0   | 0   | 0     | 0   |
 | 0   | 1   | 1     | 0   |
 | 1   | 0   | 1     | 0   |
 | 1   | 1   | 0     | 1   |
 
-```text
- ¹¹¹  ¹¹¹
-  11100101₂
-+  1100111₂
-----------
- 101001100₂
-```
+!!! tip "Le cas de la soustraction"
+
+    La soustraction reste une addition mais elle s'effectue sur les nombres représentés en complément à deux. On pourrait s'amuser à soustraire deux nombres en base $10$ en les représentant en complément à neuf plus 1. Par exemple, pour soustraire $23$ de $12$ il faut représenter $12$ en complément à neuf plus un.
+
+    La méthode est la même, on effectue le complément à $9$ de $12$, soit $87$ et on ajoute $1$ pour obtenir $88$. Ensuite on peut faire l'addition en éliminant le chiffre supplémentaire qui dépasse :
+
+    $$
+    \begin{array}{lrrr}
+    & _1 & _1 &  \\
+    & 0 & 2 & 3_{~10} \\
+    +  & 0 & 8 & 8_{~10} \\
+    \hline
+    & 1 & 1 & 1_{~10} \\
+    \end{array}
+    $$
+
+    L'intérêt de cette méthode c'est qu'il s'agisse d'une addition ou d'une soustraction, c'est la même opération calculée par l'unité arithmétique et logique.
 
 !!! exercise "Additions binaires"
 
@@ -274,15 +300,17 @@ En arithmétique binaire, c'est exactement la même chose :
     1. $1 + 51$
     2. $51 - 7$
     3. $204 + 51$
-    4. $204 + 204` (sur 8-bits$
+    4. $204 + 204$ (sur 8-bits)
 
     ??? solution
+
+        Voici la solution du calcul en binaire :
 
         1. $1 + 51$
 
             ```text
                     ¹¹
-                      1₂
+                     1₂
             +   110011₂  (2⁵ + 2⁴ + 2¹+ 2⁰ ≡ 51)
             ----------
                 110100₂
@@ -293,7 +321,7 @@ En arithmétique binaire, c'est exactement la même chose :
             ```text
               …¹¹¹  ¹¹
               …000110011₂  (2⁵ + 2⁴ + 2¹ + 2⁰ ≡ 51)
-            + …111111001₂  (complément à deux) 2³ + 2¹ + 2⁰ ≡ 111₂ → !7 + 1 ≡ …111001₂)
+            + …111111001₂  (complément à deux, 2³ + 2¹ + 2⁰ ≡ 111₂ → !7 + 1 ≡ …111001₂)
               -----------
               …000101100₂  (2⁵ + 2³ + 2₂ ≡ 44)
             ```
@@ -311,26 +339,28 @@ En arithmétique binaire, c'est exactement la même chose :
 
             ```text
                 ¹|¹  ¹¹
-                |11001100₂
-            +   |11001100₂
+                 |11001100₂
+             +   |11001100₂
               ---+--------
                 1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
             ```
 
 ### Lois de De Morgan
 
-Les [lois de De Morgan](https://fr.wikipedia.org/wiki/Lois_de_De_Morgan) sont des identités logiques formulées il y a près de deux siècles: sachant qu'en logique classique, la négation d'une conjonction implique la disjonction des négations et que la conjonction de négations implique la négation d'une disjonction, on peut alors exprimer que :
+Les [lois de De Morgan](https://fr.wikipedia.org/wiki/Lois_de_De_Morgan) sont des identités logiques formulées il y a près de deux siècles par Augustus De Morgan (1806-1871). À noter que l'on peut prononcer *də mɔʁ.gɑ̃* (de Mort Gant) ou *də mɔʁ.ɡan* (de Morgane).
+
+En logique classique, la négation d'une conjonction implique la disjonction des négations et la conjonction de négations implique la négation d'une disjonction. On peut donc écrire les relations suivantes :
 
 $$
 \begin{align*}
-& \neg (P \land Q) \Rightarrow ((\neg P) \lor (\neg Q)) \\
-& ((\neg P) \land (\neg Q)) \Rightarrow \neg (P \lor Q)
+& \overline{P \land Q} &\Rightarrow~& \overline{P} \lor \overline{Q} \\
+& \overline{P} \land \overline{Q} &\Rightarrow~& \overline{P \lor Q}
 \end{align*}
 $$
 
 Ces opérations logiques sont très utiles en programmation où elles permettent de simplifier certains algorithmes.
 
-À titre d'exemple, les opérations suivantes sont donc équivalentes :
+À titre d'exemple, les opérations suivantes sont équivalentes :
 
 ```c
 int a = 0b110010011;
@@ -340,35 +370,37 @@ assert(a | b == ~a & ~b);
 assert(~a & ~b == ~(a | b));
 ```
 
-En logique booléenne on exprime la négation par une barre p.ex. $\bar{P}$.
+En logique booléenne on exprime la négation par une barre p.ex. $\overline{P}$.
 
 !!! exercise "De Morgan"
 
     Utiliser les relations de De Morgan pour simplifier l'expression suivante
 
     $$
-    D \cdot E + \bar{D} + \bar{E}
+    D \cdot E + \overline{D} + \overline{E}
     $$
 
     ??? solution
 
-        Si l'on applique De Morgan ($\bar{XY} = \bar{X} + \bar{Y}$):
+        Si l'on applique De Morgan ($\overline{XY} = \overline{X} + \overline{Y}$):
 
         $$
-        D \cdot E + \bar{D} + \bar{E}
+        D \cdot E + \overline{D} + \overline{E}
         $$
 
 ### Arrondi
 
-En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus complexe qu'imaginée. Un nombre réel peut être converti en un nombre entier de plusieurs manières dont voici une liste non exhaustive :
+En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus délicate que l'on peut l'imaginer de prime abord.
 
-- tronqué (*truncate*) lorsque la partie fractionnaire est simplement enlevée
-- arrondi à l'entier supérieur (*rounding up*)
-- arrondi à l'entier inférieur (*rounding down*)
-- arrondi en direction du zéro (*rounding towards zero*)
-- arrondi loin du zéro (*rounding away from zero*)
-- arrondi au plus proche entier (*rounding to the nearest integer*)
-- arrondi la moitié en direction de l'infini (*rounding half up*)
+Un nombre réel dans $\mathbb{R}$ peut être converti en un nombre entier de plusieurs manières dont voici une liste non exhaustive :
+
+- tronqué (*truncate*) lorsque la partie fractionnaire est simplement enlevée ;
+- arrondi à l'entier supérieur (*rounding up*) ;
+- arrondi à l'entier inférieur (*rounding down*) ;
+- arrondi en direction du zéro (*rounding towards zero*) ;
+- arrondi loin du zéro (*rounding away from zero*) ;
+- arrondi au plus proche entier (*rounding to the nearest integer*) ;
+- arrondi la moitié en direction de l'infini (*rounding half up*).
 
 Selon le langage de programmation et la méthode utilisée, le mécanisme d'arrondi sera différent. En C, la bibliothèque mathématique offre les fonctions `ceil` pour l'arrondi au plafond (entier supérieur), `floor` pour arrondi au plancher (entier inférieur) et `round` pour l'arrondi au plus proche (*nearest*). Il existe également fonction `trunc` qui tronque la valeur en supprimant la partie fractionnaire.
 
@@ -378,20 +410,41 @@ Le fonctionnement de la fonction `round` n'est pas unanime entre les mathématic
 
     En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre-intuitive, car `round(3.5)` donne 4, mais `round(4.5)` donne 4 aussi.
 
+    Pourquoi faire cela ? Il y a deux raisons principales :
 
-!!! exercise "Swap sans valeur intermédiaire"
+    1. **Réduction du biais cumulatif** : Lorsque vous arrondissez toujours vers le haut ou vers le bas en cas de valeur à mi-chemin (comme 0.5), cela introduit un biais systématique dans vos données. Par exemple, si vous arrondissez toujours 0.5 vers le haut, la somme des valeurs arrondies sera systématiquement plus grande que la somme des valeurs originales.
 
-    Soit deux variables entières ``a`` et ``b``, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR ``^``.
+    2. **Statistiques plus précises** : En arrondissant les valeurs à la paire la plus proche, vous distribuez les erreurs d'arrondissement de manière plus équitable, ce qui donne des statistiques globales plus précises.
 
-    Testez votre solution...
+    Supposons que nous avons les montants suivants:
 
-    ??? solution
+    ```text
+    3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5
+    ```
 
-        ```c
-        a ^= b;
-        b ^= a;
-        a ^= b;
-        ```
+    En utilisant l'arrondi classique (toujours vers le haut à 0.5), nous obtenons :
+
+    ```text
+    4 + 5 + 6 + 7 + 8 + 9 + 10 = 49
+    ```
+
+    En utilisant l'arrondi commercial, nous obtenons :
+
+    ```text
+    4 + 4 + 6 + 6 + 8 + 8 + 10 = 46
+    ```
+
+    Si on compare à la somme réelle des valeurs, on obtient :
+
+    ```text
+    3.5 + 4.5 + 5.5 + 6.5 + 7.5 + 8.5 + 9.5 = 45.5
+    ```
+
+    La méthode *round half to even* donne une somme arrondie (46) qui est plus proche de la somme réelle (45.5) que la méthode classique (49).
+
+    L'utilisation cette méthode est particulièrement utile dans les domaines où l'exactitude statistique est cruciale et où les erreurs d'arrondissement peuvent s'accumuler sur de grands ensembles de données, comme en finance, en analyse de données, et en statistiques.
+
+
 
 ## Opérateurs logiques
 
@@ -475,13 +528,13 @@ max = a > b ? a : b;
 
     Ne pas utiliser l'opérateur ternaire si vous ne modifiez pas une valeur. L'opérateur ternaire est un opérateur de **sélection** et non de **modification**.
 
-    === Bon exemple
+    === "Bon exemple"
 
         ```c
         int max = a > b ? a : b;
         ```
 
-    === Mauvais exemple
+    === "Mauvais exemple"
 
         ```c
         a > b ? max = a : min = b;
@@ -489,13 +542,13 @@ max = a > b ? a : b;
 
     Cela va de même pour afficher une valeur :
 
-    === Bon exemple
+    === "Bon exemple"
 
         ```c
         printf("Le maximum est %d\n", a > b ? a : b);
         ```
 
-    === Mauvais exemple
+    === "Mauvais exemple"
 
         ```c
         a > b ? printf("Le maximum est %d\n", a) : printf("Le maximum est %d\n", b);
@@ -587,16 +640,14 @@ La **précédence** est un anglicisme de *precedence* (priorité) qui concerne l
 La table suivante indique les règles à suivre pour les précédences des opérateurs en C.
 La précédence
 
-Table: Table des opérateurs en C
-
-| Priorité | Opérateur             | Description                                | Associativité   |
-|:---------|:----------------------|:-------------------------------------------|:----------------|
-| 1        | `++`, `--`            | Postfix incréments/décréments              | Gauche à Droite |
+| Priorité | Opérateur             | Description @flex                          | Associativité   |
+| -------- | --------------------- | ------------------------------------------ | --------------- |
+| 1 @span       | `++`, `--`            | Postfix incréments/décréments              | Gauche à Droite |
 |          | `()`                  | Appel de fonction                          |                 |
 |          | `[]`                  | Indexage des tableaux                      |                 |
 |          | `.`                   | Élément d'une structure                    |                 |
 |          | `->`                  | Élément d'une structure                    |                 |
-| 2        | `++`, `--`            | Préfixe incréments/décréments              | Droite à Gauche |
+| 2 @span       | `++`, `--`            | Préfixe incréments/décréments              | Droite à Gauche |
 |          | `+`, `-`              | Signe                                      |                 |
 |          | `!`, `~`              | NON logique et NON binaire                 |                 |
 |          | `(type)`              | Cast (Transtypage)                         |                 |
@@ -606,7 +657,7 @@ Table: Table des opérateurs en C
 | 3        | `*`, `/`, `%`         | Multiplication, Division, Mod              | Gauche à Droite |
 | 4        | `+`, `-`              | Addition, soustraction                     |                 |
 | 5        | `<<`, `>>`            | Décalages binaires                         |                 |
-| 6        | `<`, `<=`             | Comparaison plus petit que                 |                 |
+| 6 @span       | `<`, `<=`             | Comparaison plus petit que                 |                 |
 |          | `>`, `>=`             | Comparaison plus grand que                 |                 |
 | 7        | `==`, `!=`            | Égalité, non égalité                       |                 |
 | 8        | `&`                   | ET binaire                                 |                 |
@@ -615,11 +666,12 @@ Table: Table des opérateurs en C
 | 11       | `&&`                  | ET logique                                 |                 |
 | 12       | `||`                  | OU logique                                 |                 |
 | 13       | `?:`                  | Opérateur ternaire                         | Droite à Gauche |
-| 14       | `=`                   | Assignation simple                         |                 |
+| 14 @span      | `=`                   | Assignation simple                         |                 |
 |          | `+=`, `-=`            | Assignation par somme/diff                 |                 |
 |          | `*=`, `/=`, `%=`      | Assignation par produit/quotient/modulo    |                 |
 |          | `<<=`, `>>=`          | Assignation par décalage binaire           |                 |
 | 15       | `,`                   | Virgule                                    | Gauche à Droite |
+
 
 Considérons l'exemple suivant :
 
@@ -803,3 +855,17 @@ if (a % 2) {
     $ ./armstrong 154
     0
     ```
+
+!!! exercise "Swap sans valeur intermédiaire"
+
+    Soit deux variables entières ``a`` et ``b``, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR ``^``.
+
+    Testez votre solution...
+
+    ??? solution
+
+        ```c
+        a ^= b;
+        b ^= a;
+        a ^= b;
+        ```
