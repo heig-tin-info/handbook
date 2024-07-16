@@ -23,7 +23,7 @@ def on_page_markdown(markdown, page, config, files):
     doc = pandoc.read(markdown)
     pages.append({'file': page.file, 'doc': pandoc.write(doc, format='latex', options=[
         '--listings',
-        '-t markdown-simple_tables',
+        # '-t markdown-simple_tables',
         '-r markdown-auto_identifiers'
     ])})
     stopwatch.stop()

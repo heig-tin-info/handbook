@@ -296,13 +296,13 @@ Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilis�
 
 !!! exercise Arc-cosinus
 
-    La fonction Arc-Cosinus ``acos`` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension ``.h``.
+    La fonction Arc-Cosinus `acos` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension `.h`.
 
     ??? solution
 
-        En cherchant ``man acos header`` dans Google, on trouve que la fonction ``acos`` est définie dans le header ``<math.h>``.
+        En cherchant `man acos header` dans Google, on trouve que la fonction `acos` est définie dans le header `<math.h>`.
 
-        Une autre solution est d'utiliser sous Linux la commande ``apropos``:
+        Une autre solution est d'utiliser sous Linux la commande `apropos`:
 
         ```bash
         $ apropos acos
@@ -342,7 +342,7 @@ Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilis�
 
 !!! exercise "Date"
 
-    Lors du formatage d'une date, on y peut y lire ``%w``, par quoi sera remplacé ce *token* ?
+    Lors du formatage d'une date, on y peut y lire `%w`, par quoi sera remplacé ce *token* ?
 
 ### Fonctions d'intérêt
 
@@ -400,17 +400,17 @@ Table: Fonctions de test de caractères
 
 | Fonction     | Description                            |
 | ------------ | -------------------------------------- |
-| ``isalnum``  | une lettre ou un chiffre               |
-| ``isalpha``  | une lettre                             |
-| ``iscntrl``  | un caractère de commande               |
-| ``isdigit``  | un chiffre décimal                     |
-| ``isgraph``  | un caractère imprimable ou le blanc    |
-| ``islower``  | une lettre minuscule                   |
-| ``isprint``  | un caractère imprimable (pas le blanc) |
-| ``ispunct``  | un caractère imprimable pas isalnum    |
-| ``isspace``  | un caractère d'espace blanc            |
-| ``isupper``  | une lettre majuscule                   |
-| ``isxdigit`` | un chiffre hexadécimal                 |
+| `isalnum`  | une lettre ou un chiffre               |
+| `isalpha`  | une lettre                             |
+| `iscntrl`  | un caractère de commande               |
+| `isdigit`  | un chiffre décimal                     |
+| `isgraph`  | un caractère imprimable ou le blanc    |
+| `islower`  | une lettre minuscule                   |
+| `isprint`  | un caractère imprimable (pas le blanc) |
+| `ispunct`  | un caractère imprimable pas isalnum    |
+| `isspace`  | un caractère d'espace blanc            |
+| `isupper`  | une lettre majuscule                   |
+| `isxdigit` | un chiffre hexadécimal                 |
 
 #### Limites
 
@@ -418,18 +418,18 @@ Table: Valeurs limites pour les entiers signés et non signés
 
 | Constante       | Valeur        |
 | --------------- | ------------- |
-| ``SCHAR_MIN``   | -128          |
-| ``SCHAR_MAX``   | +127          |
-| ``CHAR_MIN``    | 0             |
-| ``CHAR_MAX``    | 255           |
-| ``SHRT_MIN``    | -32768        |
-| ``SHRT_MAX``    | +32767        |
-| ``USHRT_MAX``   | 65535         |
-| ``LONG_MIN``    | -2147483648   |
-| ``LONG_MAX``    | +2147483647   |
-| ``ULONG_MAX``   | +4294967295   |
-| ``DBL_MAX``     | 1E+37 ou plus |
-| ``DBL_EPSILON`` | 1E-9 ou moins |
+| `SCHAR_MIN`   | -128          |
+| `SCHAR_MAX`   | +127          |
+| `CHAR_MIN`    | 0             |
+| `CHAR_MAX`    | 255           |
+| `SHRT_MIN`    | -32768        |
+| `SHRT_MAX`    | +32767        |
+| `USHRT_MAX`   | 65535         |
+| `LONG_MIN`    | -2147483648   |
+| `LONG_MAX`    | +2147483647   |
+| `ULONG_MAX`   | +4294967295   |
+| `DBL_MAX`     | 1E+37 ou plus |
+| `DBL_EPSILON` | 1E-9 ou moins |
 
 ## Autres bibliothèques
 

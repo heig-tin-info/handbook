@@ -355,76 +355,76 @@ Ensuite, `[^\n]`. Le marqueur `[`, terminé par `]` cherche à capturer une séq
     float x = 0;
     ```
 
-    1. `n = scanf("%1d%1d", &i, &j);`, ``12\n``
-    2. `n = scanf("%d%d", &i, &j);`, ``1 , 2\n``
-    3. `n = scanf("%d%d", &i, &j);`, ``-1   -2\n``
-    4. `n = scanf("%d%d", &i, &j);`, ``-  1  -  2\n``
-    5. `n = scanf("%d,%d", &i, &j);`, ``1  ,  2\n``
-    6. `n = scanf("%d ,%d", &i, &j);`, ``1  ,  2\n``
-    7. `n = scanf("%4d %2d", &i, &j);`, ``1 234\n``
-    8. `n = scanf("%4d %2d", &i, &j);`, ``1234567\n``
-    9. `n = scanf("%d%*d%d", &i, &j);`, ``123 456 789\n``
-    10. `n = scanf("i=%d , j=%d", &i, &j);`, ``1 , 2\n``
-    11. `n = scanf("i=%d , j=%d", &i, &j);`, ``i=1, j=2\n``
-    12. `n = scanf("%d%d", &i, &j);`, ``1.23 4.56\n``
-    13. `n = scanf("%d.%d", &i, &j);`, ``1.23 4.56\n``
-    14. `n = scanf("%x%x", &i, &j);`, ``12 2a\n``
-    15. `n = scanf("%x%x", &i, &j);`, ``0x12 0X2a\n``
-    16. `n = scanf("%o%o", &i, &j);`, ``12 018\n``
-    17. `n = scanf("%f", &x);`, ``123\n``
-    18. `n = scanf("%f", &x);`, ``1.23\n``
-    19. `n = scanf("%f", &x);`, ``123E4\n``
-    20. `n = scanf("%e", &x);`, ``12\n``
+    1. `n = scanf("%1d%1d", &i, &j);`, `12\n`
+    2. `n = scanf("%d%d", &i, &j);`, `1 , 2\n`
+    3. `n = scanf("%d%d", &i, &j);`, `-1   -2\n`
+    4. `n = scanf("%d%d", &i, &j);`, `-  1  -  2\n`
+    5. `n = scanf("%d,%d", &i, &j);`, `1  ,  2\n`
+    6. `n = scanf("%d ,%d", &i, &j);`, `1  ,  2\n`
+    7. `n = scanf("%4d %2d", &i, &j);`, `1 234\n`
+    8. `n = scanf("%4d %2d", &i, &j);`, `1234567\n`
+    9. `n = scanf("%d%*d%d", &i, &j);`, `123 456 789\n`
+    10. `n = scanf("i=%d , j=%d", &i, &j);`, `1 , 2\n`
+    11. `n = scanf("i=%d , j=%d", &i, &j);`, `i=1, j=2\n`
+    12. `n = scanf("%d%d", &i, &j);`, `1.23 4.56\n`
+    13. `n = scanf("%d.%d", &i, &j);`, `1.23 4.56\n`
+    14. `n = scanf("%x%x", &i, &j);`, `12 2a\n`
+    15. `n = scanf("%x%x", &i, &j);`, `0x12 0X2a\n`
+    16. `n = scanf("%o%o", &i, &j);`, `12 018\n`
+    17. `n = scanf("%f", &x);`, `123\n`
+    18. `n = scanf("%f", &x);`, `1.23\n`
+    19. `n = scanf("%f", &x);`, `123E4\n`
+    20. `n = scanf("%e", &x);`, `12\n`
 
     ??? solution
 
-        |``Q`` | ``i``    | ``j``  | ``n``  | Remarque                      |
+        |`Q` | `i`    | `j`  | `n`  | Remarque                      |
         |------|----------|--------|--------|-------------------------------|
-        |  1   | ``1``    | ``2``  | ``2``  |                               |
-        |  2   | ``1``    | ``0``  | ``1.`` | ``j`` n'est pas lue car arrêt |
-        |      |          |        |        | prématuré sur ``,``           |
-        |  3   | ``-1``   | ``-2`` | ``2``  |                               |
-        |  4   | ``0``    | ``0``  | ``0.`` | ``i`` n'est pas lue car arrêt |
-        |      |          |        |        | prématuré sur ``-``           |
-        |  5   | ``1``    | ``0``  | ``1.`` |                               |
-        |  6   | ``1``    | ``2``  | ``2``  |                               |
-        |  7   | ``1``    | ``23`` | ``2``  |                               |
-        |  8   | ``1234`` | ``56`` | ``2``  |                               |
-        |  9   | ``123``  | ``789``| ``2``  |                               |
-        |  10  | ``0``    | ``0``  | ``0``  |                               |
-        |  11  | ``1``    | ``2``  | ``2``  |                               |
-        |  12  | ``1``    | ``0``  | ``1``  |                               |
-        |  13  | ``1``    | ``23`` | ``2``  |                               |
-        |  14  | ``18``   | ``42`` | ``2``  |                               |
-        |  15  | ``10``   | ``1``  | ``2.`` | Le chiffre 8 interdit en octal|
+        |  1   | `1`    | `2`  | `2`  |                               |
+        |  2   | `1`    | `0`  | `1.` | `j` n'est pas lue car arrêt |
+        |      |          |        |        | prématuré sur `,`           |
+        |  3   | `-1`   | `-2` | `2`  |                               |
+        |  4   | `0`    | `0`  | `0.` | `i` n'est pas lue car arrêt |
+        |      |          |        |        | prématuré sur `-`           |
+        |  5   | `1`    | `0`  | `1.` |                               |
+        |  6   | `1`    | `2`  | `2`  |                               |
+        |  7   | `1`    | `23` | `2`  |                               |
+        |  8   | `1234` | `56` | `2`  |                               |
+        |  9   | `123`  | `789`| `2`  |                               |
+        |  10  | `0`    | `0`  | `0`  |                               |
+        |  11  | `1`    | `2`  | `2`  |                               |
+        |  12  | `1`    | `0`  | `1`  |                               |
+        |  13  | `1`    | `23` | `2`  |                               |
+        |  14  | `18`   | `42` | `2`  |                               |
+        |  15  | `10`   | `1`  | `2.` | Le chiffre 8 interdit en octal|
         |      |          |        |        | provoque un arrêt             |
-        |      | ``x``    | ``n``  |        |                               |
-        |  16  | ``123.`` | ``1``  |        |                               |
-        |  17  | ``1.23`` | ``1``  |        |                               |
-        |  18  |``1.23E6``| ``1``  |        |                               |
-        |  19  | ``12``   | ``1``  |        |                               |
+        |      | `x`    | `n`  |        |                               |
+        |  16  | `123.` | `1`  |        |                               |
+        |  17  | `1.23` | `1`  |        |                               |
+        |  18  |`1.23E6`| `1`  |        |                               |
+        |  19  | `12`   | `1`  |        |                               |
 
 !!! exercise "Chaînes de formats"
 
-    1. Saisir 3 caractères consécutifs dans des variables ``i``, ``j``, ``k``.
-    2. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables ``x``, ``y`` et ``z``.
-    3. Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe ``=``, dans des variables ``t``, ``u`` et ``v``.
+    1. Saisir 3 caractères consécutifs dans des variables `i`, `j`, `k`.
+    2. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables `x`, `y` et `z`.
+    3. Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe `=`, dans des variables `t`, `u` et `v`.
 
     ??? solution
 
-        1. Saisir 3 caractères consécutifs dans des variables ``i``, ``j``, ``k``.
+        1. Saisir 3 caractères consécutifs dans des variables `i`, `j`, `k`.
 
             ```c
             scanf("%c%c%c", &i, &j, &k);
             ```
 
-        2. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables ``x``, ``y`` et ``z``.
+        2. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables `x`, `y` et `z`.
 
             ```c
             scanf("%f ;%f ;%f", &x, &y, &z);
             ```
 
-        3. Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe ``=``, dans des variables ``t``, ``u`` et ``v``.
+        3. Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe `=`, dans des variables `t`, `u` et `v`.
 
             ```c
             printf("t="); scanf("%f", &t);
@@ -554,7 +554,7 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
 
 !!! exercise "Test de saisir correcte"
 
-    Écrivez un programme déclarant des variables réelles ``x``, ``y`` et ``z``, permettant de
+    Écrivez un programme déclarant des variables réelles `x`, `y` et `z`, permettant de
     saisir leur valeur en une seule instruction, et vérifiant que les 3 valeurs ont bien
     été assignées. Dans le cas contraire, afficher un message du type "données
     invalides".
@@ -574,8 +574,8 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
 
     Écrire un programme effectuant les opérations suivantes :
 
-    - Saisir les coordonnées réelles ``x1`` et ``y1`` d’un vecteur ``v1``.
-    - Saisir les coordonnées réelles ``x2`` et ``y2`` d’un vecteur ``v2``.
+    - Saisir les coordonnées réelles `x1` et `y1` d’un vecteur `v1`.
+    - Saisir les coordonnées réelles `x2` et `y2` d’un vecteur `v2`.
     - Calculer le produit scalaire. Afficher un message indiquant si les vecteurs sont orthogonaux ou non.
 
     ??? solution
@@ -602,7 +602,7 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
         ```
 
         Ce programme risque de ne pas bien détecter l’orthogonalité de certains vecteurs, car le test d’égalité à 0 avec les virgules flottantes pourrait mal fonctionner. En effet, pour deux vecteurs orthogonaux, les erreurs de calcul en virgule flottante pourraient amener à un produit scalaire calculé très proche, mais cependant différent de zéro.
-        On peut corriger ce problème en modifiant le test pour vérifier si le produit scalaire est très petit, par exemple compris entre ``-0.000001`` et ``+0.000001``:
+        On peut corriger ce problème en modifiant le test pour vérifier si le produit scalaire est très petit, par exemple compris entre `-0.000001` et `+0.000001`:
 
         ```c
         if (dot_product >= -1E-6 && dot_product <= 1E-6)
@@ -645,7 +645,7 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
 
     ??? solution
 
-        Une fois la correction effectuée, vous utilisez l'outil de ``diff`` pour montrer les différences :
+        Une fois la correction effectuée, vous utilisez l'outil de `diff` pour montrer les différences :
 
         ```diff
         1,3c1,3
@@ -719,15 +719,15 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
         2. C est un langage impératif, l'ordre est séquentiel du haut vers le bas
         3. Les étapes sont les suivantes :
 
-            1. Demande de la valeur de ``a`` à l'utilisateur
-            2. Demande de la valeur de ``b`` à l'utilisateur
-            3. Demande de la valeur de ``x`` à l'utilisateur
-            4. Calcul de l'image affine de ``x`` (équation de droite)
+            1. Demande de la valeur de `a` à l'utilisateur
+            2. Demande de la valeur de `b` à l'utilisateur
+            3. Demande de la valeur de `x` à l'utilisateur
+            4. Calcul de l'image affine de `x` (équation de droite)
             5. Affichage du résultat
 
         4. Que verra l'utilisateur à l'écran ?
 
-            - Il verra ``y = 12`` pour ``a = 2; x = 5; b = 2``
+            - Il verra `y = 12` pour `a = 2; x = 5; b = 2`
 
         5. Quelle est l'utilité de ce programme ?
 
@@ -742,7 +742,7 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
         Citons les défauts de ce programme :
 
         - Le programme ne peut pas être utilisé avec les arguments, uniquement en mode interactif
-        - Les invités de dialogue ``a = ``, ``b = `` ne sont pas clair, ``a`` et ``b`` sont associés à quoi ?
+        - Les invités de dialogue `a = `, `b = ` ne sont pas clair, `a` et `b` sont associés à quoi ?
         - La valeur de retour n'est pas exploitable directement.
         - Le nom des variables utilisé n'est pas clair.
         - Aucune valeur par défaut.
@@ -755,7 +755,7 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
 
 !!! exercise "Loi d'Ohm"
 
-    Écrivez un programme demandant deux réels ``tension`` et ``résistance``, et affichez ensuite le ``courant``. Prévoir un test pour le cas où la résistance serait nulle.
+    Écrivez un programme demandant deux réels `tension` et `résistance`, et affichez ensuite le `courant`. Prévoir un test pour le cas où la résistance serait nulle.
 
 
 !!! exercise "Tour Eiffel"

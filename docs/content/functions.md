@@ -417,7 +417,7 @@ int memoize_get(int input) {
 
 !!! exercise "Dans la moyenne"
 
-    Écrire une fonction ``mean`` qui reçoit 3 paramètres réels et qui retourne la moyenne.
+    Écrire une fonction `mean` qui reçoit 3 paramètres réels et qui retourne la moyenne.
 
     ??? solution
 
@@ -429,7 +429,7 @@ int memoize_get(int input) {
 
 !!! exercise "Le plus petit"
 
-    Écrire une fonction ``min`` qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.
+    Écrire une fonction `min` qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.
 
     ??? solution
 
@@ -475,7 +475,7 @@ int memoize_get(int input) {
     10
     ```
 
-    Le programme reçoit sur ``stdin`` les pièces introduites dans la machine. Les deux arguments passés au programme ``ptm`` sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. ``stdout`` contient les valeurs rendues à l'utilisateur. La valeur ``ticket`` correspond au ticket distribué.
+    Le programme reçoit sur `stdin` les pièces introduites dans la machine. Les deux arguments passés au programme `ptm` sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. `stdout` contient les valeurs rendues à l'utilisateur. La valeur `ticket` correspond au ticket distribué.
 
     Le cas échéant, s'il n'est possible de rendre la monnaie, aucun ticket n'est distribué et l'argent donné est rendu.
 

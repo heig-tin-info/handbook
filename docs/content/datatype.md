@@ -163,43 +163,43 @@ Table: "Table des types entiers en C"
 
 | Type                       | Signe    | Profondeur       | Format   |
 | -------------------------- | -------- | ---------------- | -------- |
-| ``char``                   | ?        | ``CHAR_BIT``     | ``%c``   |
-| ``signed char``            | signed   | au moins 8 bits  | ``%c``   |
-| ``unsigned char``          | unsigned | au moins 8 bits  | ``%c``   |
+| `char`                   | ?        | `CHAR_BIT`     | `%c`   |
+| `signed char`            | signed   | au moins 8 bits  | `%c`   |
+| `unsigned char`          | unsigned | au moins 8 bits  | `%c`   |
 |                            |          |                  |          |
-| ``short``                  | signed   | au moins 16 bits | ``%hi``  |
-| ``short int``              |          |                  |          |
-| ``signed short``           |          |                  |          |
-| ``signed short int``       |          |                  |          |
+| `short`                  | signed   | au moins 16 bits | `%hi`  |
+| `short int`              |          |                  |          |
+| `signed short`           |          |                  |          |
+| `signed short int`       |          |                  |          |
 |                            |          |                  |          |
-| ``unsigned short``         | unsigned | au moins 16 bits | ``%hu``  |
-| ``unsigned short int``     |          |                  |          |
+| `unsigned short`         | unsigned | au moins 16 bits | `%hu`  |
+| `unsigned short int`     |          |                  |          |
 |                            |          |                  |          |
-| ``unsigned``               | unsigned | au moins 32 bits | ``%u``   |
-| ``unsigned int``           |          |                  |          |
+| `unsigned`               | unsigned | au moins 32 bits | `%u`   |
+| `unsigned int`           |          |                  |          |
 |                            |          |                  |          |
-| ``int``                    | signed   | au moins 32 bits | ``%d``   |
-| ``signed``                 |          |                  |          |
-| ``signed int``             |          |                  |          |
+| `int`                    | signed   | au moins 32 bits | `%d`   |
+| `signed`                 |          |                  |          |
+| `signed int`             |          |                  |          |
 |                            |          |                  |          |
-| ``unsigned``               | unsigned | au moins 32 bits | ``%u``   |
-| ``unsigned int``           |          |                  |          |
+| `unsigned`               | unsigned | au moins 32 bits | `%u`   |
+| `unsigned int`           |          |                  |          |
 |                            |          |                  |          |
-| ``long``                   | signed   | au moins 32 bits | ``%li``  |
-| ``long int``               |          |                  |          |
-| ``signed long``            |          |                  |          |
-| ``signed long int``        |          |                  |          |
+| `long`                   | signed   | au moins 32 bits | `%li`  |
+| `long int`               |          |                  |          |
+| `signed long`            |          |                  |          |
+| `signed long int`        |          |                  |          |
 |                            |          |                  |          |
-| ``unsigned long``          | unsigned | au moins 32 bits | ``%lu``  |
-| ``unsigned long int``      |          |                  |          |
+| `unsigned long`          | unsigned | au moins 32 bits | `%lu`  |
+| `unsigned long int`      |          |                  |          |
 |                            |          |                  |          |
-| ``long long``              | signed   | au moins 64 bits | ``%lli`` |
-| ``long long int``          |          |                  |          |
-| ``signed long long``       |          |                  |          |
-| ``signed long long int``   |          |                  |          |
+| `long long`              | signed   | au moins 64 bits | `%lli` |
+| `long long int`          |          |                  |          |
+| `signed long long`       |          |                  |          |
+| `signed long long int`   |          |                  |          |
 |                            |          |                  |          |
-| ``unsigned long long``     | unsigned | au moins 64 bits | ``%llu`` |
-| ``unsigned long long int`` |          |                  |          |
+| `unsigned long long`     | unsigned | au moins 64 bits | `%llu` |
+| `unsigned long long int` |          |                  |          |
 
 
 Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête `stdint.h`. Cette bibliothèque standard offre les types suivants :
@@ -214,14 +214,14 @@ Table: Entiers standard défini par stdint
 
 | Type         | Signe    | Profondeur | Format   |
 | ------------ | -------- | ---------- | -------- |
-| ``uint8_t``  | unsigned | 8 bits     | ``%c``   |
-| ``int8_t``   | signed   | 8 bits     | ``%c``   |
-| ``uint16_t`` | unsigned | 16 bits    | ``%hu``  |
-| ``int16_t``  | signed   | 16 bits    | ``%hi``  |
-| ``uint32_t`` | unsigned | 32 bits    | ``%u``   |
-| ``int32_t``  | signed   | 32 bits    | ``%d``   |
-| ``uint64_t`` | unsigned | 64 bits    | ``%llu`` |
-| ``int64_t``  | signed   | 64 bits    | ``%lli`` |
+| `uint8_t`  | unsigned | 8 bits     | `%c`   |
+| `int8_t`   | signed   | 8 bits     | `%c`   |
+| `uint16_t` | unsigned | 16 bits    | `%hu`  |
+| `int16_t`  | signed   | 16 bits    | `%hi`  |
+| `uint32_t` | unsigned | 32 bits    | `%u`   |
+| `int32_t`  | signed   | 32 bits    | `%d`   |
+| `uint64_t` | unsigned | 64 bits    | `%llu` |
+| `int64_t`  | signed   | 64 bits    | `%lli` |
 
 À ces types s'ajoutent les types **rapides** (*fast*) et **minimums** (*least*). Un type nommé `uint_least32_t` garanti l'utilisation du type de donnée utilisant le moins de mémoire et garantissant une profondeur d'au minimum 32 bits. Il est strictement équivalent à `unsigned int`.
 
@@ -248,7 +248,7 @@ Les types rapides, moins utilisés vont automatiquement choisir le type adapté 
 
 !!! exercise "Débordement"
 
-    Quel sera le contenu de ``j`` après l'exécution de l'instruction suivante :
+    Quel sera le contenu de `j` après l'exécution de l'instruction suivante :
 
     ```c
     uint16_t j = 1024 * 64;
@@ -263,7 +263,7 @@ Admettons que ce développeur sans scrupule développe un programme complexe sur
 La première solution est de toujours utiliser les types proposés par `<stdint.h>` lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :
 
 
-| Modèle de donnée | ``short`` | ``int`` | ``long`` | ``long long`` | ``size_t`` | Système d'exploitation                                                                                                    |
+| Modèle de donnée | `short` | `int` | `long` | `long long` | `size_t` | Système d'exploitation                                                                                                    |
 | ---------------- | --------- | ------- | -------- | ------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------- |
 | **LP32**         | 16        | 16      | 32       |               | 32         | Windows 16-bits, Apple Macintosh (très vieux)                                                                             |
 | **ILP32**        | 16        | 32      | 32       | 64            | 32         | Windows x86, Linux/Unix 32-bits                                                                                           |
@@ -363,20 +363,20 @@ char string[] = "Hello";
 
     /// html | div[class='two-column-list']
 
-    1. ``'a'``
-    2. ``'A'``
-    3. ``'ab'``
-    4. ``'\x41'``
-    5. ``'\041'``
-    6. ``'\0x41'``
-    7. ``'\n'``
-    8. ``'\w'``
-    9. ``'\t'``
-    10. ``'\xp2'``
-    11. ``"abcdef"``
-    12. ``"\abc\ndef"``
-    13. ``"\'\"\\"``
-    14. ``"Hello \world !\n"``
+    1. `'a'`
+    2. `'A'`
+    3. `'ab'`
+    4. `'\x41'`
+    5. `'\041'`
+    6. `'\0x41'`
+    7. `'\n'`
+    8. `'\w'`
+    9. `'\t'`
+    10. `'\xp2'`
+    11. `"abcdef"`
+    12. `"\abc\ndef"`
+    13. `"\'\"\\"`
+    14. `"Hello \world !\n"`
 
     ///
 
@@ -391,26 +391,26 @@ char string[] = "Hello";
     int i1 = 7, i2 = 'a';
     ```
 
-    1. ``printf("Next char: %c.\n", a + 1);``
-    2. ``printf("Char: %3c.\n", a);``
-    3. ``printf("Char: %-3c.\n", a);``
-    4. ``printf("Chars: \n-%c.\n-%c.\n", a, 'z' - 1);``
-    5. ``printf("Sum: %i\n", i1 + i2 - a);``
-    6. ``printf("Taux d’erreur\t%i %%\n", i1);``
-    7. ``printf("Quel charabia horrible:\\\a\a\a%g\b\a%%\a\\\n", f1);``
-    8. ``printf("Inventaire: %i4 pieces\n", i1);``
-    9. ``printf("Inventory: %i %s\n", i1, "pieces");``
-    10. ``printf("Inventaire: %4i pieces\n", i1);``
-    11. ``printf("Inventaire: %-4i pieces\n", i1);``
-    12. ``printf("Mixed sum: %f\n", sh1 + i1 + f1);``
-    13. ``printf("Tension: %5.2f mV\n", f1);``
-    14. ``printf("Tension: %5.2e mV\n", f1);``
-    15. ``printf("Code: %X\n", 12);``
-    16. ``printf("Code: %x\n", 12);``
-    17. ``printf("Code: %o\n", 12);``
-    18. ``printf("Value: %i\n", -1);``
-    19. ``printf("Value: %hi\n", 65535u);``
-    20. ``printf("Value: %hu\n", -1);``
+    1. `printf("Next char: %c.\n", a + 1);`
+    2. `printf("Char: %3c.\n", a);`
+    3. `printf("Char: %-3c.\n", a);`
+    4. `printf("Chars: \n-%c.\n-%c.\n", a, 'z' - 1);`
+    5. `printf("Sum: %i\n", i1 + i2 - a);`
+    6. `printf("Taux d’erreur\t%i %%\n", i1);`
+    7. `printf("Quel charabia horrible:\\\a\a\a%g\b\a%%\a\\\n", f1);`
+    8. `printf("Inventaire: %i4 pieces\n", i1);`
+    9. `printf("Inventory: %i %s\n", i1, "pieces");`
+    10. `printf("Inventaire: %4i pieces\n", i1);`
+    11. `printf("Inventaire: %-4i pieces\n", i1);`
+    12. `printf("Mixed sum: %f\n", sh1 + i1 + f1);`
+    13. `printf("Tension: %5.2f mV\n", f1);`
+    14. `printf("Tension: %5.2e mV\n", f1);`
+    15. `printf("Code: %X\n", 12);`
+    16. `printf("Code: %x\n", 12);`
+    17. `printf("Code: %o\n", 12);`
+    18. `printf("Value: %i\n", -1);`
+    19. `printf("Value: %hi\n", 65535u);`
+    20. `printf("Value: %hu\n", -1);`
 
 ## Les booléens
 
@@ -558,14 +558,14 @@ passe directement à un type *int*.
 
     /// html | div[class='two-column-list']
 
-    1. ``x + n % p``
-    2. ``x + p / n``
-    3. ``(x + p) / n``
-    4. ``.5 * n``
-    5. ``.5 * (float)n``
-    6. ``(int).5 * n``
-    7. ``(n + 1) / n``
-    8. ``(n + 1.0) / n``
+    1. `x + n % p`
+    2. `x + p / n`
+    3. `(x + p) / n`
+    4. `.5 * n`
+    5. `.5 * (float)n`
+    6. `(int).5 * n`
+    7. `(n + 1) / n`
+    8. `(n + 1.0) / n`
 
     ///
 
@@ -583,10 +583,10 @@ passe directement à un type *int*.
 
     /// html | div[class='two-column-list']
 
-    1. ``c * sh - f / i + d;``
-    2. ``c * (sh – f) / i + d;``
-    3. ``c * sh - f - i + d;``
-    4. ``c + sh * f / i + d;``
+    1. `c * sh - f / i + d;`
+    2. `c * (sh – f) / i + d;`
+    3. `c * sh - f - i + d;`
+    4. `c + sh * f / i + d;`
 
     ///
 
@@ -693,7 +693,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 !!! exercise "Un casting explicite"
 
-    Que valent les valeurs de ``p``, ``x`` et ``n``:
+    Que valent les valeurs de `p`, `x` et `n`:
 
     ```c
     float x;
@@ -754,12 +754,12 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
         /// html | div[class='two-column-list']
 
-        1. ``true``
-        2. ``true``
-        3. ``false``
-        4. ``true``
-        5. ``true``
-        6. ``true``
+        1. `true`
+        2. `true`
+        3. `false`
+        4. `true`
+        5. `true`
+        6. `true`
 
         ///
 
@@ -821,7 +821,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 !!! exercise "Précision des flottants"
 
-    Que vaut ``x``?
+    Que vaut `x`?
 
     ```c
     float x = 10000000. + 0.1;
@@ -889,9 +889,9 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     \sum_{k=1}^{\inf} k = -\frac{1}{12}
     $$
 
-    Vous ne le croyez pas et décider d'utiliser le superordinateur [Pensées Profondes](https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste) pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur ``n`` à laquelle s'arrêter.
+    Vous ne le croyez pas et décider d'utiliser le superordinateur [Pensées Profondes](https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste) pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur `n` à laquelle s'arrêter.
 
-    Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme ``time``:
+    Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme `time`:
 
     ```console
     $ time ./a.out 1000000000
@@ -933,7 +933,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     percentage_good_parts = (inspected_parts - bad_parts) / inspected_parts;
     ```
 
-    Sachant que ``inspected_parts = 2000`` et ``bad_parts = 200``:
+    Sachant que `inspected_parts = 2000` et `bad_parts = 200`:
 
     1. Quel résultat le développeur s'attend-il à obtenir ?
     2. Qu'obtient-il en pratique ?
@@ -979,6 +979,6 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     100 \cdot 60 \cdot 60 \cdot 10 = 3'600'000
     $$
 
-    En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne ``Q1.23 x Q0.24 = Q1.47`` le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par :math:`2^{47}` pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.
+    En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne `Q1.23 x Q0.24 = Q1.47` le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par :math:`2^{47}` pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.
 
     Quel est l'erreur en seconde cumulée sur les 100 heures de fonctionnement ?

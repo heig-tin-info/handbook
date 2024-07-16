@@ -154,20 +154,20 @@ En addition de cette grammaire, voici quelques règles :
 
         /// html | div[class='two-column-list']
 
-        1. ``2_pi`` **invalide**, car commence par un chiffre
-        2. ``x_2`` **valide**
-        3. ``x___3`` **valide**
-        4. ``x 2`` **invalide**, car comporte un espace
-        5. ``positionRobot`` **valide**, notation *camelCase*
-        6. ``piece_presente`` **valide**, notation *snake_case*
-        7. ``_commande_vanne`` **valide**
-        8. ``-courant_sortie`` **invalide**, un identificateur ne peut pas commencer par le signe ``-``
-        9. ``_alarme_`` **valide**
-        10. ``panne#2`` **invalide**, le caractère ``#`` n'est pas autorisé
-        11. ``int`` **invalide**, ``int`` est un mot réservé du langage
-        12. ``défaillance`` **invalide**, uniquement les caractères imprimable ASCII sont autorisés
-        13. ``f'`` **invalide** l'apostrophe n'est pas autorisée
-        14. ``INT`` **valide**
+        1. `2_pi` **invalide**, car commence par un chiffre
+        2. `x_2` **valide**
+        3. `x___3` **valide**
+        4. `x 2` **invalide**, car comporte un espace
+        5. `positionRobot` **valide**, notation *camelCase*
+        6. `piece_presente` **valide**, notation *snake_case*
+        7. `_commande_vanne` **valide**
+        8. `-courant_sortie` **invalide**, un identificateur ne peut pas commencer par le signe `-`
+        9. `_alarme_` **valide**
+        10. `panne#2` **invalide**, le caractère `#` n'est pas autorisé
+        11. `int` **invalide**, `int` est un mot réservé du langage
+        12. `défaillance` **invalide**, uniquement les caractères imprimable ASCII sont autorisés
+        13. `f'` **invalide** l'apostrophe n'est pas autorisée
+        14. `INT` **valide**
 
         ///
 
@@ -265,10 +265,10 @@ Table: Conventions de nommage
 
 | Convention   | Nom français     | Exemple              |
 | ------------ | ---------------- | -------------------- |
-| *camelcase*  | Casse de chameau | ``userLoginCount``   |
-| *snakecase*  | Casse de serpent | ``user_login_count`` |
-| *pascalcase* | Casse de Pascal  | ``UserLoginCount``   |
-| *kebabcase*  | Casse de kebab   | ``user-login-count`` |
+| *camelcase*  | Casse de chameau | `userLoginCount`   |
+| *snakecase*  | Casse de serpent | `user_login_count` |
+| *pascalcase* | Casse de Pascal  | `UserLoginCount`   |
+| *kebabcase*  | Casse de kebab   | `user-login-count` |
 
 !!! note
 
@@ -351,22 +351,22 @@ Quant aux guillemets simples `'`, ils sont utilisés pour délimiter un caractè
 
     /// html | div[class='two-column-list']
 
-    1. ``12.3``
-    2. ``12E03``
-    3. ``12u``
-    4. ``12.0u``
-    5. ``1L``
-    6. ``1.0L``
-    7. ``.9``
-    8. ``9.``
-    9. ``.``
-    10. ``0x33``
-    11. ``0xefg``
-    12. ``0xef``
-    13. ``0xeF``
-    14. ``0x0.2``
-    15. ``09``
-    16. ``02``
+    1. `12.3`
+    2. `12E03`
+    3. `12u`
+    4. `12.0u`
+    5. `1L`
+    6. `1.0L`
+    7. `.9`
+    8. `9.`
+    9. `.`
+    10. `0x33`
+    11. `0xefg`
+    12. `0xef`
+    13. `0xeF`
+    14. `0x0.2`
+    15. `09`
+    16. `02`
 
     ///
 
@@ -596,5 +596,5 @@ Le format des commentaires est par essence libre au développeur, mais il est g�
             elem[i] = i;
         ```
 
-        Un consensus assez bien établi est qu'une variable commençant par ``n`` peut signifier
+        Un consensus assez bien établi est qu'une variable commençant par `n` peut signifier
         *number of*.

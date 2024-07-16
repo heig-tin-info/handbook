@@ -55,7 +55,7 @@ Vous vous demandez probablement pourquoi l'industrie a-t-elle autant de retard s
 
 !!! exercise
 
-    Ouvrez le standard [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf) et cherchez la valeur maximale possible de la constante ``ULLONG_MAX``. Que vaut-elle ?
+    Ouvrez le standard [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf) et cherchez la valeur maximale possible de la constante `ULLONG_MAX`. Que vaut-elle ?
 
     ??? solution
 

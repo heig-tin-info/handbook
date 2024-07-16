@@ -475,7 +475,7 @@ La solution à ce problème est de laisser passer 37% des candidats sans les eng
 
     - Avancer
     - Tourner à droite de 90°
-    - Détection de sa position absolue p. ex. ``P5``
+    - Détection de sa position absolue p. ex. `P5`
 
     Élaborer un algorithme de recherche.
 

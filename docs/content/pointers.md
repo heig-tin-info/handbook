@@ -182,8 +182,8 @@ Table: Arithmétique sur tableau unidimensionnel
 
 | Élément        | Premier  | Deuxième     | Troisième    | n ième |
 |----------------|----------|--------------|--------------|--------|
-| Accès tableau  | ``a[0]`` | ``a[1]``     | ``a[2]``     | ``a[n - 1]`` |
-| Accès pointeur | ``*a``   | ``*(a + 1)`` | ``*(a + 2)`` | ``*(a + n - 1)`` |
+| Accès tableau  | `a[0]` | `a[1]`     | `a[2]`     | `a[n - 1]` |
+| Accès pointeur | `*a`   | `*(a + 1)` | `*(a + 2)` | `*(a + n - 1)` |
 
 
 De même, l'exercice peut être répété avec des tableaux à deux dimensions :
@@ -192,8 +192,8 @@ Table: Arithmétique sur tableau bidimensionnel
 
 | Élément        | Premier         | Deuxième        | n ligne m colonne|
 |----------------|-----------------|-----------------|------------------|
-| Accès tableau  | ``a[0][0]``     | ``a[1][1]``     | ``a[n - 1][m - 1]``|
-| Accès pointeur | ``*(*(a+0)+0)`` | ``*(*(a+1)+1)`` | ``*(*(a+i-1)+j-1)``|
+| Accès tableau  | `a[0][0]`     | `a[1][1]`     | `a[n - 1][m - 1]`|
+| Accès pointeur | `*(*(a+0)+0)` | `*(*(a+1)+1)` | `*(*(a+i-1)+j-1)`|
 
 
 ## Pointeur et chaînes de caractères
@@ -513,9 +513,9 @@ Table: Règles gauche droite
 
 | Symbole | Traduction              | Direction         |
 |---------|-------------------------|-------------------|
-| ``*``   | ``pointeur sur``        | Toujours à gauche |
-| ``[]``  | ``tableau de``          | Toujours à droite |
-| ``()``  | ``fonction retournant`` | Toujours à droite |
+| `*`   | `pointeur sur`        | Toujours à gauche |
+| `[]`  | `tableau de`          | Toujours à droite |
+| `()`  | `fonction retournant` | Toujours à droite |
 
 Première étape
 
@@ -662,7 +662,7 @@ Notons que sa fonction voisine `memcpy` ne dois **jamais** être utilisée en ca
 
 !!! exercise "Passage par adresse"
 
-    Donnez les valeurs affichées par ce programme pour les variables ``a`` à ``e``.
+    Donnez les valeurs affichées par ce programme pour les variables `a` à `e`.
 
     ```c
     #include <stdio.h>

@@ -91,11 +91,11 @@ Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche �
 
 !!! exercise Symboles binaires
 
-    Dans la notation binaire, composés de 1 et de 0, combien de symboles existent et combien de positions y-a-t-il dans le nombre ``11001`` ?
+    Dans la notation binaire, composés de 1 et de 0, combien de symboles existent et combien de positions y-a-t-il dans le nombre `11001` ?
 
     ??? solution
 
-        Le nombre ``11001`` est composé de 5 positions et de deux symboles possibles par position : ``1`` et ``0``. La quantité d'information est donc de 5 bits.
+        Le nombre `11001` est composé de 5 positions et de deux symboles possibles par position : `1` et `0`. La quantité d'information est donc de 5 bits.
 
 ### Système décimal
 
@@ -244,22 +244,22 @@ Table: Correspondance binaire, octal, hexadécimal
 
 | Binaire    | Hexadécimal | Octal  | Décimal |
 |------------|-------------|--------|---------|
-| ``0b0000`` | ``0x0``     | ``00`` | ``0``   |
-| ``0b0001`` | ``0x1``     | ``01`` | ``1``   |
-| ``0b0010`` | ``0x2``     | ``02`` | ``2``   |
-| ``0b0011`` | ``0x3``     | ``03`` | ``3``   |
-| ``0b0100`` | ``0x4``     | ``04`` | ``4``   |
-| ``0b0101`` | ``0x5``     | ``05`` | ``5``   |
-| ``0b0110`` | ``0x6``     | ``06`` | ``6``   |
-| ``0b0111`` | ``0x7``     | ``07`` | ``7``   |
-| ``0b1000`` | ``0x8``     | ``10`` | ``8``   |
-| ``0b1001`` | ``0x9``     | ``11`` | ``0``   |
-| ``0b1010`` | ``0xA``     | ``12`` | ``10``  |
-| ``0b1011`` | ``0xB``     | ``13`` | ``11``  |
-| ``0b1100`` | ``0xC``     | ``14`` | ``12``  |
-| ``0b1101`` | ``0xD``     | ``15`` | ``13``  |
-| ``0b1110`` | ``0xE``     | ``16`` | ``14``  |
-| ``0b1111`` | ``0xF``     | ``17`` | ``15``  |
+| `0b0000` | `0x0`     | `00` | `0`   |
+| `0b0001` | `0x1`     | `01` | `1`   |
+| `0b0010` | `0x2`     | `02` | `2`   |
+| `0b0011` | `0x3`     | `03` | `3`   |
+| `0b0100` | `0x4`     | `04` | `4`   |
+| `0b0101` | `0x5`     | `05` | `5`   |
+| `0b0110` | `0x6`     | `06` | `6`   |
+| `0b0111` | `0x7`     | `07` | `7`   |
+| `0b1000` | `0x8`     | `10` | `8`   |
+| `0b1001` | `0x9`     | `11` | `0`   |
+| `0b1010` | `0xA`     | `12` | `10`  |
+| `0b1011` | `0xB`     | `13` | `11`  |
+| `0b1100` | `0xC`     | `14` | `12`  |
+| `0b1101` | `0xD`     | `15` | `13`  |
+| `0b1110` | `0xE`     | `16` | `14`  |
+| `0b1111` | `0xF`     | `17` | `15`  |
 
 
 Le fichier `albatros.txt` contient un extrait du poème de Baudelaire, l'ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à comprendre et utilise le programme `hexdump`
@@ -334,7 +334,7 @@ Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami 
     $ hexdump -C albatros.txt
     ```
 
-    Si vous n'avez pas les outils ``wget`` ou ``hexdump``, tentez de les installer via la commande ``apt-get install wget hexdump``.
+    Si vous n'avez pas les outils `wget` ou `hexdump`, tentez de les installer via la commande `apt-get install wget hexdump`.
 
 ### Conversions de bases
 
@@ -399,9 +399,9 @@ n = 209
 
     ![Les Shadocks](../assets/images/shadocks.svg){height="300px"}
 
-    Les Shadocks ne connaissent que quatre mots: ``GA``, ``BU``, ``ZO``, ``MEU``. La vidéo [Comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ>) en explique le principe.
+    Les Shadocks ne connaissent que quatre mots: `GA`, `BU`, `ZO`, `MEU`. La vidéo [Comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ>) en explique le principe.
 
-    Convertir ``−⨼○◿○`` (``BU ZO GA MEU GA``) en décimal.
+    Convertir `−⨼○◿○` (`BU ZO GA MEU GA`) en décimal.
 
     ??? solution
 
@@ -414,7 +414,7 @@ n = 209
         3 ◿ (MEU)
         ```
 
-        Le nombre d'entrée ``−⨼O◿O`` peut ainsi s'exprimer :
+        Le nombre d'entrée `−⨼O◿O` peut ainsi s'exprimer :
 
         ```text
         −⨼○◿○ ≡ 12030₄
@@ -428,7 +428,7 @@ n = 209
 
         !!! hint
 
-            Depuis un terminal Python vous pouvez simplement utiliser ``int("12030", 4)``
+            Depuis un terminal Python vous pouvez simplement utiliser `int("12030", 4)`
 
 ## Entiers simples
 

@@ -125,13 +125,13 @@ a[1][2] == *(*(a + 1) + 2))
 
     Soit deux tableaux `char u[]` et `char v[]`, écrire une fonction comparant leur contenu et retournant :
 
-    ``0``
+    `0`
         La somme des deux tableaux est égale.
 
-    ``-1``
+    `-1`
         La somme du tableau de gauche est plus petite que le tableau de droite
 
-    ``1``
+    `1`
         La somme du tableau de droite est plus grande que le tableau de gauche
 
     Le prototype de la fonction à écrire est :
@@ -185,7 +185,7 @@ a[1][2] == *(*(a + 1) + 2))
 
 !!! exercise "L'index magique"
 
-    Un indice magique d'un tableau ``A[0..n-1]`` est défini tel que la valeur ``A[i] == i``. Étant donné que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.
+    Un indice magique d'un tableau `A[0..n-1]` est défini tel que la valeur `A[i] == i`. Étant donné que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.
 
     Exemple :
 
@@ -225,9 +225,9 @@ a[1][2] == *(*(a + 1) + 2))
                                         ^
         ```
 
-        La première valeur magique est ``7``. Est-ce qu'une approche dichotomique est possible ?
+        La première valeur magique est `7`. Est-ce qu'une approche dichotomique est possible ?
 
-        Prenons le milieu du tableau ``A[5] = 4``. Est-ce qu'une valeur magique peut se trouver à gauche du tableau ? Dans le cas le plus favorable qui serait :
+        Prenons le milieu du tableau `A[5] = 4`. Est-ce qu'une valeur magique peut se trouver à gauche du tableau ? Dans le cas le plus favorable qui serait :
 
         ```text
             0   1   2   3   4
@@ -236,7 +236,7 @@ a[1][2] == *(*(a + 1) + 2))
         └───┴───┴───┴───┴───┘
         ```
 
-        On voit qu'il est impossible que la valeur se trouve à gauche, car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est ``A[mid] < mid`` où ``mid`` est la valeur médiane.
+        On voit qu'il est impossible que la valeur se trouve à gauche, car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est `A[mid] < mid` où `mid` est la valeur médiane.
 
         Il est possible de répéter cette approche de façon dichotomique :
 

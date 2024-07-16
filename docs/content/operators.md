@@ -44,11 +44,11 @@ Table: Opérateurs arithmétiques
 
 | Opérateur | Abbréviation | Description    | Assertion vraie  |
 | --------- | ------------ | -------------- | ---------------- |
-| ``+``     | *add*        | Addition       | ``5 == 2 + 3``   |
-| ``-``     | *sub*        | Soustraction   | ``8 == 12 - 4``  |
-| ``*``     | *mul*        | Multiplication | ``42 == 21 * 2`` |
-| ``/``     | *div*        | Division       | ``2 == 5 / 2``   |
-| ``%``     | *mod*        | Modulo         | ``13 % 4 == 1``  |
+| `+`     | *add*        | Addition       | `5 == 2 + 3`   |
+| `-`     | *sub*        | Soustraction   | `8 == 12 - 4`  |
+| `*`     | *mul*        | Multiplication | `42 == 21 * 2` |
+| `/`     | *div*        | Division       | `2 == 5 / 2`   |
+| `%`     | *mod*        | Modulo         | `13 % 4 == 1`  |
 
 Lors d'opérations il faut faire attention aux types des variables impliquées. La division `5 / 2` donnera `2` et non `2.5` car les deux valeurs fournies sont entières et le résultat est donc un entier. Pour obtenir un résultat flottant, il faut que l'une des valeurs soit un flottant, ici le `5` est exprimé en `double`, la propagation de type fera que le résultat sera aussi un `double` :
 
@@ -320,12 +320,12 @@ Table: Opérateurs bit à bit
 
 | Opérateur | Description                                | Exemple                          |
 | --------- | ------------------------------------------ | -------------------------------- |
-| ``&``     | [Conjonction (ET)](#operator-and)          | ``(0b1101 & 0b1010) == 0b1000``  |
-| ``        | ``                                         | [Disjonction (OU)](#operator-or) | ``(0b1101 | 0b1010) == 0b1111`` |
-| ``^``     | [XOR binaire](#operator-xor)               | ``(0b1101 ^ 0b1010) == 0b0111``  |
-| ``~``     | [Complément à un](#operator-not)           | ``~0b11011010 == 0b00100101``    |
-| ``<<``    | [Décalage à gauche](#operator-shift-left)  | ``(0b1101 << 3) == 0b1101000``   |
-| ``>>``    | [Décalage à droite](#operator-shift-right) | ``(0b1101 >> 2) == 0b11``        |
+| `&`     | [Conjonction (ET)](#operator-and)          | `(0b1101 & 0b1010) == 0b1000`  |
+| `        | `                                         | [Disjonction (OU)](#operator-or) | `(0b1101 | 0b1010) == 0b1111` |
+| `^`     | [XOR binaire](#operator-xor)               | `(0b1101 ^ 0b1010) == 0b0111`  |
+| `~`     | [Complément à un](#operator-not)           | `~0b11011010 == 0b00100101`    |
+| `<<`    | [Décalage à gauche](#operator-shift-left)  | `(0b1101 << 3) == 0b1101000`   |
+| `>>`    | [Décalage à droite](#operator-shift-right) | `(0b1101 >> 2) == 0b11`        |
 
 
 !!! important
@@ -1101,7 +1101,7 @@ int foo(int a, int b, int c) {
     char m, n = 2, d = 0x55, e = 0xAA;
     ```
 
-    Représenter en binaire et en hexadécimal la valeur de tous les bits de la variable ``m`` après exécution de chacune des instructions suivantes :
+    Représenter en binaire et en hexadécimal la valeur de tous les bits de la variable `m` après exécution de chacune des instructions suivantes :
 
     1. `m = 1 << n;`
     2. `m = ~1 << n;`
@@ -1150,8 +1150,8 @@ int foo(int a, int b, int c) {
 !!! exercise "Nombres narcissiques"
 
     Un nombre narcissique ou [nombre d'Amstrong](https://fr.wikipedia.org/wiki/Nombre_narcissique>) est
-    un entier naturel ``n`` non nul qui est égal à la somme des puissances ``p``-ièmes de ses
-    chiffres en base dix, où ``p`` désigne le nombre de chiffres de ``n``:
+    un entier naturel `n` non nul qui est égal à la somme des puissances `p`-ièmes de ses
+    chiffres en base dix, où `p` désigne le nombre de chiffres de `n`:
 
     $$
     n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0,\ldots,9\}\quad\text{et}\quad x_{p-1}\ne 0
@@ -1159,9 +1159,9 @@ int foo(int a, int b, int c) {
 
     Par exemple :
 
-    - ``9`` est un nombre narcissique, car $9 = 9^1 = 9$
-    - ``153`` est un nombre narcissique, car $153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153$
-    - ``10`` n'est pas un nombre narcissique, car $10 \ne 1^2 + 0^2 = 1$
+    - `9` est un nombre narcissique, car $9 = 9^1 = 9$
+    - `153` est un nombre narcissique, car $153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153$
+    - `10` n'est pas un nombre narcissique, car $10 \ne 1^2 + 0^2 = 1$
 
     Implanter un programme permettant de vérifier si un nombre d'entrées est narcissique ou non. L'exécution est la suivante :
 
@@ -1175,7 +1175,7 @@ int foo(int a, int b, int c) {
 
 !!! exercise "Swap sans valeur intermédiaire"
 
-    Soit deux variables entières ``a`` et ``b``, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR ``^``.
+    Soit deux variables entières `a` et `b`, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR `^`.
 
     Testez votre solution...
 

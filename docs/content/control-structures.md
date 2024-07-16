@@ -161,7 +161,7 @@ else
 
 !!! exercise "D'autres si ?"
 
-    Compte tenu de la déclaration ``int i = 8;``, indiquer pour chaque expression si elles impriment ou non ``i vaut 8``:
+    Compte tenu de la déclaration `int i = 8;`, indiquer pour chaque expression si elles impriment ou non `i vaut 8`:
 
     1. ```c
        if (!(i < 8) && !(i > 8)) then
@@ -341,13 +341,13 @@ Séquentiellement une boucle `while` teste la condition, puis exécute la séque
 
     Comment se comportent ces programmes :
 
-    1. ``size_t i=0;while(i<11){i+=2;printf("%i\n",i);}``
-    2. ``i=11;while(i--){printf("%i\n",i--);}``
-    3. ``i=12;while(i--){printf("%i\n",--i);}``
-    4. ``i = 1;while ( i <= 5 ){ printf ( "%i\n", 2 * i++ );}``
-    5. ``i = 1; while ( i != 9 ) { printf ( "%i\n", i = i + 2 ); }``
-    6. ``i = 1; while ( i < 9 ) { printf ( "%i\n", i += 2 ); break; }``
-    7. ``i = 0; while ( i < 10 ) { continue; printf ( "%i\n", i += 2 ); }``
+    1. `size_t i=0;while(i<11){i+=2;printf("%i\n",i);}`
+    2. `i=11;while(i--){printf("%i\n",i--);}`
+    3. `i=12;while(i--){printf("%i\n",--i);}`
+    4. `i = 1;while ( i <= 5 ){ printf ( "%i\n", 2 * i++ );}`
+    5. `i = 1; while ( i != 9 ) { printf ( "%i\n", i = i + 2 ); }`
+    6. `i = 1; while ( i < 9 ) { printf ( "%i\n", i += 2 ); break; }`
+    7. `i = 0; while ( i < 10 ) { continue; printf ( "%i\n", i += 2 ); }`
 
 ### do..while
 
@@ -435,9 +435,9 @@ for (; get_weight() < 420 ;)
 
     Écrivez un programme affichant les entiers de 1 à 100 en employant :
 
-    1. Une boucle ``for``
-    2. Une boucle ``while``
-    3. Une boucle ``do..while``
+    1. Une boucle `for`
+    2. Une boucle `while`
+    3. Une boucle `do..while`
 
     Quelle est la structure de contrôle la plus adaptée à cette situation ?
 
@@ -683,11 +683,11 @@ void unlock(int password)
     2. Actions suivant un choix multiple de l'utilisateur
     3. Rechercher un caractère particulier dans une chaîne de caractère
     4. Itérer toutes les valeurs paires sur un intervalle donné
-    5. Demander la ligne suivante du télégramme à l'utilisateur jusqu'à ``STOP``
+    5. Demander la ligne suivante du télégramme à l'utilisateur jusqu'à `STOP`
 
     ??? solution
 
-        1. Le cas est circonscrit à un intervalle de valeur donnée, le ``if`` est approprié :
+        1. Le cas est circonscrit à un intervalle de valeur donnée, le `if` est approprié :
 
             ```c
             if (i > min && i < max) { /* ... */ }
@@ -719,7 +719,7 @@ void unlock(int password)
             }
             ```
 
-        4. La boucle ``for`` semble ici la plus adaptée
+        4. La boucle `for` semble ici la plus adaptée
 
             ```c
             for (size_t i = 100; i < 200; i += 2) {
@@ -746,7 +746,7 @@ void unlock(int password)
 
 !!! exercise "Comptons sur les caractères"
 
-    Un texte est passé à un programme par ``stdin``. Comptez le nombre de caractères transmis.
+    Un texte est passé à un programme par `stdin`. Comptez le nombre de caractères transmis.
 
     ```console
     $ echo "Hello world" | count-this
@@ -763,13 +763,13 @@ void unlock(int password)
 
     ??? solution
 
-        La priorité de l'opérateur unitaire ``&`` est plus élevée que ``==`` ce qui se traduit par :
+        La priorité de l'opérateur unitaire `&` est plus élevée que `==` ce qui se traduit par :
 
         ```c
         if (x & (mask == bits))
         ```
 
-        Le développeur voulait probablement appliquer le masque à ``x`` puis le comparer au motif ``bits``. La bonne réponse devrait alors être :
+        Le développeur voulait probablement appliquer le masque à `x` puis le comparer au motif `bits`. La bonne réponse devrait alors être :
 
         ```c
         if ((x & mask) == bits)
