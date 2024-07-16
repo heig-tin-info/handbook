@@ -820,7 +820,7 @@ int hash_name(char name[4]) {
 
 ### Facteur de charge
 
-Le {index}`facteur de charge` d'une table de hachage est donné par la relation :
+Le facteur de charge d'une table de hachage est donné par la relation :
 
 $$
 \text{Facteur de charge} = \frac{\text{Nombre total d'éléments}}{\text{Taille de la table}}
@@ -832,7 +832,7 @@ Certains algorithmes permettent de redimensionner dynamiquement la table de hach
 
 ### Chaînage
 
-Le {index}`chaînage` ou *chaining* est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.
+Le chaînage ou *chaining* est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.
 
 ![Chaînage d'une table de hachage](../assets/images/hash-table.drawio)
 

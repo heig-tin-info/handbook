@@ -883,7 +883,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     \sum_{k=1}^n k = \frac{n(n+1)}{2}
     $$
 
-    Un grand mathématicien [Srinivasa Ramanujan](https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan>) (En tamoul: சீனிவாச இராமானுஜன்) à démontré que ce la somme à l'infini donne :
+    Un grand mathématicien [Srinivasa Ramanujan](https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan) (En tamoul: சீனிவாச இராமானுஜன்) à démontré que ce la somme à l'infini donne :
 
     $$
     \sum_{k=1}^{\inf} k = -\frac{1}{12}

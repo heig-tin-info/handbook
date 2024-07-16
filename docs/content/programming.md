@@ -114,7 +114,7 @@ Cycle 5:
 
 ## Programmation
 
-La machine Jacquard est un [métier à tisser](https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser) mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
+La machine Jacquard est un [métier à tisser](https://fr.wikipedia.org/wiki/M%C3%A9tier_Jacquard) mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
 
 ![Mécanisme Jacquard au Musée des arts et métiers de Paris.](../assets/images/loom.jpg){ width="80%" }
 
@@ -165,10 +165,14 @@ Les [os d'Ishango](https://fr.wikipedia.org/wiki/Os_d%27Ishango) datés de 20'00
 
 Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur, car même une calculatrice de poche doit gérer en plus des calculs un certain nombre de périphériques comme :
 
-- l'interface de saisie (pavé numérique);
+- l'interface de saisie ([pavé numérique]);
 - l'affichage du résultat (écran à cristaux liquide).
 
-Notons qu'à l'instar de notre diagramme de flux, un calculateur dispose d'une entrée, d'une sortie et d'états internes.
+[pavé numérique]: https://fr.wikipedia.org/wiki/Pav%C3%A9_num%C3%A9rique
+
+Notons qu'à l'instar de notre diagramme de flux, un [calculateur] dispose d'une entrée, d'une sortie et d'états internes.
+
+[calculateur]: #calculateur
 
 ## Ordinateur
 

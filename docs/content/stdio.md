@@ -8,7 +8,7 @@ La fonction phare est bien entendu `printf` pour le formatage de chaîne de cara
 - depuis/vers un fichier quelconque `fprintf`, `fscanf`
 - depuis/vers une chaîne de caractères `sprintf`, `sscanf`
 
-La liste citée est non exhaustive, mais largement documentée ici: [\<stdio.h>](http://man7.org/linux/man-pages/man3/stdio.3.html).
+La liste citée est non exhaustive, mais largement documentée ici: [`<stdio.h>`](http://man7.org/linux/man-pages/man3/stdio.3.html).
 
 ## Sorties non formatées
 

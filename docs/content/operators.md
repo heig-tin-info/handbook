@@ -1149,7 +1149,7 @@ int foo(int a, int b, int c) {
 
 !!! exercise "Nombres narcissiques"
 
-    Un nombre narcissique ou [nombre d'Amstrong](https://fr.wikipedia.org/wiki/Nombre_narcissique>) est
+    Un nombre narcissique ou [nombre d'Amstrong](https://fr.wikipedia.org/wiki/Nombre_narcissique) est
     un entier naturel `n` non nul qui est égal à la somme des puissances `p`-ièmes de ses
     chiffres en base dix, où `p` désigne le nombre de chiffres de `n`:
 

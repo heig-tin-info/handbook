@@ -47,7 +47,7 @@ En substance, **C18** n'apporte pas de nouvelles fonctionnalités au langage, ma
 
     Vous entendrez ou lirez souvent des références à **ANSI C** ou **K&R**, préférez plutôt une compatibilité avec **C99** au minimum.
 
-Le standard est lourd, difficile à lire et avec 552 pages pour **C99**, vous n'aurez probablement jamais le moindre plaisir à y plonger les yeux qui se rempliront de larmes à chaque lecture.
+Le standard est lourd, difficile à lire et avec 552 pages pour C99, vous n'aurez probablement jamais le moindre plaisir à y plonger les yeux qui se rempliront de larmes à chaque lecture.
 
 Armez-vous de mouchoirs car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà ?
 
@@ -318,8 +318,6 @@ $
 ```
 
 La première étape est de s'assurer que le fichier `test.c` contient bien notre programme. Pour ce faire on utilise un autre programme [cat](<https://fr.wikipedia.org/wiki/Cat_(Unix)>) qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :
-
-[](){#hello-world}
 
 ```bash
 $ cat hello.c

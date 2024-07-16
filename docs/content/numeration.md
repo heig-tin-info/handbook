@@ -200,12 +200,14 @@ Au début de l'informatique, la base octale fut très utilisée, car il est trè
 
 En C, un nombre octal est écrit en préfixant la valeur à représenter d'un zéro. Attention donc à ne pas confondre :
 
-```c
-int octal = 042;
+``` { .c .annotate }
+int octal = 042; // (1)!
 int decimal = 42;
 
 assert(octal != decimal);
 ```
+
+1. La valeur `042` est un nombre octal, soit $4 \cdot 8^1 + 2 \cdot 8^0 = 34$ en décimal. En C un nombre octal est préfixé par un zéro.
 
 Il est également possible de faire référence à un caractère en utilisant l'échappement octal dans une chaîne de caractère :
 
@@ -555,7 +557,7 @@ En résumé, la méthode du complément à 1 :
 
 ### Complément à deux
 
-Le {index}`complément à deux` n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont :
+Le complément à deux n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont :
 
 1. Calculer le complément à un du nombre d'entrées.
 2. Ajouter 1 au résultat.
@@ -702,7 +704,7 @@ Prenons le temps de faire quelques observations.
 
 ### Simple précision
 
-Le type `float` aussi dit à {index}`précision simple` utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :
+Le type `float` aussi dit à précision simple utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :
 
 - $\pm\inf$ lorsque l'exposant vaut `0xff`
 - $(-1)^{\text{sign}}\cdot2^{\text{exp} - 127}\cdot1.\text{significand}$

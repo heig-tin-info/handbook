@@ -13,7 +13,7 @@ Ces structures de contrôles sont toujours composées de :
 - Répétitions
 - Appels de fonctions
 
-Sans {index}`structure de contrôle`, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènement extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement.
+Sans structure de contrôle, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènement extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement.
 
 ## Séquences
 
@@ -313,11 +313,11 @@ Notons quelques observations :
 
 ![Bien choisir sa structure de contrôle](../assets/images/road-runner.svg)
 
-Une {index}`boucle` est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :
+Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :
 
-- `for`
-- `while`
-- `do` .. `while`
+- `#!c for`
+- `#!c while`
+- `#!c do` .. `#!c while`
 
 ![Aperçu des trois structure de boucles](../assets/images/for.drawio)
 

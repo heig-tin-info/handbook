@@ -12,7 +12,7 @@ Dans ce chapitre on donnera plusieurs exemples sur un environnement POSIX. Sous 
 
 ## Exemple: libgmp
 
-Voyons ensemble le cas de [libgmp](https://packages.debian.org/buster/libgmp-dev). Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que `libgmp` est disponible pour différentes architectures `amd64`, `arm64`, `s390x`, `i386`, ... Un développement sur un Raspberry-PI nécessitera `arm64` alors qu'un développement sur un PC utilisera `amd64`. En [cliquant](https://packages.debian.org/buster/amd64/libgmp-dev/filelist) sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C :
+Voyons ensemble le cas de [libgmp](https://packages.ubuntu.com/jammy/libgmp-dev). Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que `libgmp` est disponible pour différentes architectures `amd64`, `arm64`, `s390x`, `i386`, ... Un développement sur un Raspberry-PI nécessitera `arm64` alors qu'un développement sur un PC utilisera `amd64`. En [cliquant](https://packages.ubuntu.com/jammy/amd64/libgmp-dev/filelist) sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C):
 
 ```
 # Fichier d'en-tête C

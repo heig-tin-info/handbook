@@ -2,7 +2,7 @@
 
 # Project information
 site_name: Le C pour l'ingénieur
-site_url: https://example.com/
+site_url: https://heig-tin-info.github.io/handbook/
 site_author: Yves Chevallier
 site_description: |
   Un manuel pour apprendre le langage C en partant de zéro.
@@ -11,25 +11,33 @@ copyright: Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier
 # Repository information
 repo_name: heig-tin-info/handbook
 repo_url: https://github.com/heig-tin-info/handbook
-
+edit_uri: edit/master/docs/
 
 theme:
   name: material
+  language: fr
   custom_dir: overrides
+  font:
+    text: Segoe UI
+    code: Consolas
+  logo: assets/logos/heig-vd-white.svg
+  favicon: assets/icons/favicon.ico
   features:
+    - content.action.edit
     - content.action.view
     - content.code.annotate
     - content.code.copy
     - content.code.select
-    - content.tabs.link
     - content.tooltips
+    - content.footnote.tooltips # Insiders only
     - header.autohide
     - navigation.footer
     - navigation.instant
     - navigation.instant.prefetch
-    - navigation.instant.progress
-    - navigation.path
+    - navigation.instant.progress # Insiders only
+    - navigation.path # Insiders only
     - navigation.sections
+    - navigation.prune
     - navigation.tabs
     - navigation.top
     - navigation.tracking
@@ -37,12 +45,6 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
-  language: fr
-  logo: assets/logos/heig-vd-white.svg
-  favicon: assets/icons/favicon.ico
-  font:
-    text: Segoe UI
-    code: Consolas
   palette:
     - scheme: default
       #media: "(prefers-color-scheme: light)"
@@ -59,6 +61,7 @@ theme:
         icon: material/lightbulb-outline
         name: Switch to light mode
   icon:
+    edit: material/pencil
     view: material/eye
     repo: fontawesome/brands/github
     admonition:
@@ -80,26 +83,26 @@ theme:
       foobar: octicons/check-circle-16
       failure: octicons/x-circle-16
       reload: octicons/sync-16
-extra:
-  homepage: https://heig-tin-info.github.io/handbook
-  annotate:
-    json: [.s2]
-  version:
-    provider: mike
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/heig-tin-info/handbook
-  generator: false
 plugins:
-  #- mkdocs-jupyter
+  - group:
+      enabled: !ENV CI
+      plugins:
+        - privacy
+        - mike
+        #- info
+        - minify:
+            minify_html: true
+        - git-committers:
+            repository: heig-tin-info/handbook
+            branch: master
   - glightbox
-  - mike
-  # - info
   - caption
   - charts
   - autorefs
+  - toggle-sidebar
   - awesome-pages
   - git-authors
+
   - git-revision-date-localized:
       enable_creation_date: true
   # - tags:
@@ -116,8 +119,8 @@ plugins:
       exclude:
         - index.md
   - search
-  - minify:
-      minify_html: true
+  #- htmlproofer  # Very slow, and not accurate
+
   - exercises
 markdown_extensions:
   - toc:
@@ -169,6 +172,29 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+extra:
+  analytics:
+    provider: google
+    tracking_id: G-FVF0WYPMYM
+    feedback:
+      title: Cette page vous a-t-elle été utile ?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: Cette page m'a été utile
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: Cette page pourrait être améliorée
+          data: 0
+          note: >-
+            Merci pour votre retour !
+  homepage: https://heig-tin-info.github.io/handbook
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/heig-tin-info/handbook
 watch:
   - includes
 hooks:
@@ -179,6 +205,7 @@ extra_css:
   - css/extra.css
   - css/tables.css
 extra_javascript:
+  - js/feedback.js
   - js/tablesort.js
   - js/mathjax.js
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js

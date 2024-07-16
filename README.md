@@ -13,6 +13,12 @@ poetry install
 poetry run mkdocs serve
 ```
 
+Pour déployer une nouvelle version:
+
+```bash
+poetry run mike deploy --push --update-aliases 0.1 latest
+```
+
 ## To-Do
 
 - [ ] Optimize plugins with a beautiful soup parser

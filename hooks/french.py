@@ -16,6 +16,9 @@ TRANSLATIONS = {
 
 stopwatch = sw.Stopwatch()
 
+def on_config(config):
+    stopwatch.reset()
+
 def on_page_content(html, page, config, files):
     stopwatch.start()
     soup = BeautifulSoup(html, 'lxml')

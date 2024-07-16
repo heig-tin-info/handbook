@@ -1419,6 +1419,22 @@ files = [
 mkdocs = ">=1.0"
 
 [[package]]
+name = "mkdocs-git-committers-plugin-2"
+version = "2.3.0"
+description = "An MkDocs plugin to create a list of contributors on the page. The git-committers plugin will seed the template context with a list of GitHub or GitLab committers and other useful GIT info such as last modified date"
+optional = false
+python-versions = ">=3.8,<4"
+files = [
+    {file = "mkdocs-git-committers-plugin-2-2.3.0.tar.gz", hash = "sha256:d6baca1ae04db8120640038eda8142f2d081c27b53f3b566c83c75717e4ed81a"},
+    {file = "mkdocs_git_committers_plugin_2-2.3.0-py3-none-any.whl", hash = "sha256:7b3434af3be525c12858eb3b44b4c6b695b7c7b7760482ea8de1c6e292e84f0f"},
+]
+
+[package.dependencies]
+gitpython = "*"
+mkdocs = ">=1.0.3"
+requests = "*"
+
+[[package]]
 name = "mkdocs-git-revision-date-localized-plugin"
 version = "1.2.6"
 description = "Mkdocs plugin that enables displaying the localized date of the last git modification of a markdown file."
@@ -1445,6 +1461,23 @@ files = [
     {file = "mkdocs-glightbox-0.4.0.tar.gz", hash = "sha256:392b34207bf95991071a16d5f8916d1d2f2cd5d5bb59ae2997485ccd778c70d9"},
     {file = "mkdocs_glightbox-0.4.0-py3-none-any.whl", hash = "sha256:e0107beee75d3eb7380ac06ea2d6eac94c999eaa49f8c3cbab0e7be2ac006ccf"},
 ]
+
+[[package]]
+name = "mkdocs-htmlproofer-plugin"
+version = "1.2.1"
+description = "A MkDocs plugin that validates URL in rendered HTML files"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "mkdocs-htmlproofer-plugin-1.2.1.tar.gz", hash = "sha256:6afb8f0dd1f243f480f49ff5648155d78050a9f79702061006b3d293d3058e1b"},
+    {file = "mkdocs_htmlproofer_plugin-1.2.1-py3-none-any.whl", hash = "sha256:8cc2f60366191fb8b870fa6ae3a5f7b9b622fd81e83afd0d4d66cbf23362cb0e"},
+]
+
+[package.dependencies]
+beautifulsoup4 = "*"
+Markdown = "*"
+mkdocs = ">=1.4.0"
+requests = "*"
 
 [[package]]
 name = "mkdocs-jupyter"
@@ -1701,17 +1734,22 @@ files = [
 
 [[package]]
 name = "pandoc"
-version = "2.3"
+version = "2.4b0"
 description = "Pandoc Documents for Python"
 optional = false
 python-versions = "*"
-files = [
-    {file = "pandoc-2.3.tar.gz", hash = "sha256:e772c2c6d871146894579828dbaf1efd538eb64fc7e71d4a6b3a11a18baef90d"},
-]
+files = []
+develop = false
 
 [package.dependencies]
 plumbum = "*"
 ply = "*"
+
+[package.source]
+type = "git"
+url = "git@github.com:yves-chevallier/pandoc.git"
+reference = "HEAD"
+resolved_reference = "0ff4f6ee3d213f46cd6b12035b92d6f7ee50b4ef"
 
 [[package]]
 name = "pandocfilters"
@@ -2793,4 +2831,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "06f31c38461c9044d2a0f89fe622cc55249ef075a395a3a88ca74b959ee1ec98"
+content-hash = "adeb27fff99b3aa4a2ab86c218312376fe01ac60a6313863dab0010c065a3df0"

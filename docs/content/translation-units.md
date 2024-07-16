@@ -97,7 +97,7 @@ Un module logiciel peut se composer de fichiers sources, c'est-à-dire un ensemb
 
 ## Compilation avec assemblage différé
 
-Lorsque nous avions compilé notre premier exemple [Hello World](c-lang.md#hello-world) nous avions simplement appelé `gcc` avec le fichier source `hello.c` qui nous avait créé un exécutable `a.out`. En réalité, GCC est passé par plusieurs sous-étapes de compilation :
+Lorsque nous avions compilé notre premier exemple [Hello World](c-lang.md#hello-world_1) nous avions simplement appelé `gcc` avec le fichier source `hello.c` qui nous avait créé un exécutable `a.out`. En réalité, GCC est passé par plusieurs sous-étapes de compilation :
 
 1. **Préprocessing** : les commentaires sont retirés, les directives préprocesseur sont remplacées par leur équivalent C.
 2. **Compilation** : le code C d'une seule *translation unit* est converti en langage machine en un fichier objet `.o`.

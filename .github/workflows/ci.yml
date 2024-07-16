@@ -52,4 +52,4 @@ jobs:
       - name: Install Python dependencies
         run: poetry install
       - name: Build Documentation with MkDocs
-        run: xvfb-run -a poetry run mkdocs gh-deploy --force
+        run: CI=true xvfb-run -a poetry run mkdocs gh-deploy --force

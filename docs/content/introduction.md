@@ -10,6 +10,17 @@ Cet ouvrage est destiné à des étudiants ingénieurs de première année n'aya
 
 Le contenu concerne les cours d'informatique 1 et 2 de l'enseignement de base du département des technologies industrielles (TIN) de la HEIG-VD.
 
+## Raccourcis clavier
+
+Pour améliorer votre navigation sur ce site, voici quelques raccourcis clavier que vous pouvez utiliser :
+
+* ++f++ , ++s++ , ++slash++ : Ouvre la barre de recherche
+* ++p++ , ++comma++ : Va à la page précédente
+* ++n++ , ++period++ : Va à la page suivante
+* ++b++ : Afficher/cacher les tables des matières
+* ++m++ : Afficher/cacher le menu
+* ++h++ : Afficher/cacher la table des matières
+
 ## Conventions d'écriture
 
 ### Symbole d'égalité
