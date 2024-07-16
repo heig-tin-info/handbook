@@ -38,8 +38,8 @@ theme:
     - search.suggest
     - toc.follow
   language: fr
-  logo: assets/heig-vd-white.svg
-  favicon: assets/favicon.ico
+  logo: assets/logos/heig-vd-white.svg
+  favicon: assets/icons/favicon.ico
   font:
     text: Segoe UI
     code: Consolas
@@ -176,12 +176,12 @@ hooks:
   - hooks/french.py
   - hooks/latex.py
 extra_css:
-  - stylesheets/extra.css
-  - stylesheets/tables.css
+  - css/extra.css
+  - css/tables.css
 extra_javascript:
+  - js/tablesort.js
+  - js/mathjax.js
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
-  - javascripts/tablesort.js
-  - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - https://cdn.jsdelivr.net/npm/vega@5
   - https://cdn.jsdelivr.net/npm/vega-lite@5

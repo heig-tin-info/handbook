@@ -19,7 +19,6 @@ def on_nav(nav, config, files):
 @mkdocs.plugins.event_priority(-100)
 def on_page_markdown(markdown, page, config, files):
     stopwatch.start()
-    log.error(page.file.name)
     doc = pandoc.read(markdown)
     pages.append({'file': page.file, 'doc': pandoc.write(doc, format='latex', options=[
         '--listings',
@@ -45,16 +44,3 @@ def on_post_build(config):
         # Add .tex extension to the file name
         with open((output_dir / page['file'].name).with_suffix('.tex'), 'w') as f:
             f.write(page['doc'])
-
-""" To DO
-- [ ] Resolve images
-- [ ] Admonitions
-- [ ] Table in tabularx
-- [ ] numref
-- [ ] \passthrough{\lstinline!gcc!}
-- [ ] \href{}{}
-- [ ] checkboxes -> add exercise with reference and solutions at the end.
-- [ ] ’ -> '
-- [ ] Replace tabs with two columns `=== ``Préfixes standards''`, remove indentation
-- [ ] /// html | div[class='two-column-list'] -> \begin{multicols}{2}
-"""

@@ -103,7 +103,7 @@ Le système décimal est le système de numération utilisant la base **dix** et
 
 L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique `(1000+100+100+100+100+100+1+1+1+1+1+1)`. Il s'agit d'une numération additive.
 
-![1506 en écriture hiéroglyphique](../assets/figures/dist/encoding/hieroglyph.svg){width="20%"}
+![1506 en écriture hiéroglyphique](../assets/images/hieroglyph.drawio){width="20%"}
 
 Notre système de représentation des nombres décimaux est le système de numération indo-arabe qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf :
 

@@ -1,6 +1,6 @@
 # Fonctions
 
-![Margaret Hamilton, directrice projet AGC](../assets/images/hamilton.jpg){ width="50%" }
+![Margaret Hamilton, directrice projet AGC (1969), photo du MIT Museum](../assets/images/hamilton.png){ width="50%" }
 
 Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.
 
@@ -89,7 +89,7 @@ En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à se s
 
 L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés :
 
-![Sauvegarde des registres du processeur et convention d'appel de fonction.](../assets/figures/dist/function/calling-convention.svg)
+![Sauvegarde des registres du processeur et convention d'appel de fonction.](../assets/images/calling-convention.drawio)
 
 Ce coût est faible, très faible, un ordinateur fonctionnant à 3 GHz et une fonction complexe utilisant tous les registres disponibles, mettons 10 registres, consommera entre l'appel de la fonction et son retour 0.000'000'003 seconde, ça va, c'est raisonnable. Sauf que, si la fonction ne comporte qu'une seule opération comme ci-dessous, l'overhead sera aussi plus faible.
 

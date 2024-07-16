@@ -24,7 +24,7 @@ Un **point de séquence**
 
 Dans un ordinateur, ou sur un microcontrôleur, c'est l'unité de calcul arithmétique [ALU](https://fr.wikipedia.org/wiki/Unit%C3%A9_arithm%C3%A9tique_et_logique) qui est en charge d'effectuer les opérations fondamentales. Cette unité de calcul est consensuellement représentée comme illustrée à la figure suivante :
 
-![ALU](../assets/figures/dist/processor/alu.svg)
+![ALU](../assets/images/alu.drawio)
 
 L'unité de calcul arithmétique (**ALU**) représentée est composée de deux entrées `A` et `B`, d'une sortie `C` et d'un mode opératoire `O`. Sur de petites architectures matérielles, l'ALU peut être limitée aux opérations d'addition `+`, d'inversion bit à bit `~`, de décalage vers la gauche `<<` et vers la droite `>>` et de l'opération bit à bit logique `&` pour la conjonction ainsi que `|` pour la disjonction.
 

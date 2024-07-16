@@ -377,7 +377,7 @@ Considérons le tableau suivant. Les valeurs ne sont pas triées. La première �
 
 Dans cet exemple, le dernier élément `6` sera arbitrairement choisi comme pivot.
 
-![Représentation du tableau à trier avec son pivot.](../assets/figures/dist/algorithm/quicksort.svg)
+![Représentation du tableau à trier avec son pivot.](../assets/images/quicksort.drawio)
 
 L'étape de paritionnement utilise l'algorithme suivant :
 
@@ -406,7 +406,7 @@ Voici comment `partition(a, 0, 10, 10)` modifie le tableau (voir [code source](.
 
 On constate que la valeur `6` choisie comme pivot est maintenant à sa bonne place. L'algorithme est donc appelé récursivement pour les éléments `0` à `4` et \`\` 6\`\`  à `a`.
 
-![Tri rapide après le premier partitionnement.](../assets/figures/dist/algorithm/quicksort-2.svg)
+![Tri rapide après le premier partitionnement.](../assets/images/quicksort-2.drawio)
 
 Voici une autre représentation (voir [code source](../assets/src/quicksort.c)) :
 

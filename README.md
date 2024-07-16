@@ -81,6 +81,21 @@ hide: true
 collapse : true
 ```
 
+## Hooks
+
+### LaTeX
+
+- [ ] Resolve images
+- [ ] Admonitions
+- [ ] Table in tabularx
+- [ ] numref
+- [ ] \passthrough{\lstinline!gcc!}
+- [ ] \href{}{}
+- [ ] checkboxes -> add exercise with reference and solutions at the end.
+- [ ] ’ -> '
+- [ ] Replace tabs with two columns `=== ``Préfixes standards''`, remove indentation
+- [ ] /// html | div[class='two-column-list'] -> \begin{multicols}{2}
+
 ## Extensions to be implemented
 
 ### Drawio

@@ -27,7 +27,7 @@ Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l
 
 Il est un algorithme permettant de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD). Voici la description de l'algorithme sous forme d'un diagramme de flux :
 
-![Algorithme de calcul du PGCD d'Euclide.](../assets/figures/pgcd.drawio)
+![Algorithme de calcul du PGCD d'Euclide.](../assets/images/pgcd.drawio)
 
 Souvent, les informaticiens et ingénieurs aiment utiliser des diagrammes pour synthétiser leurs idées. Le diagramme de flux est un outil de communication visuelle permettant de représenter des **processus**. Ici on observe des formes géométriques et des flèches. Les flèches indiquent le sens de lecture du processus. Les formes géométriques sont des boîtes de texte contenant des instructions. Les formes de début et de fin sont par convention des ovales. Les formes de traitement sont des rectangles et les formes de décision sont quant à elles des losanges. Une forme de décision contient une question et deux flèches de sortie, une pour chaque réponse possible. Généralement une flèche de sortie est étiquetée avec la réponse attendue. On le verra plus tard, mais un processus de traitement d'information dispose toujours d'une entrée et d'une sortie.
 
@@ -64,7 +64,7 @@ Table: Exemple de calcul du PGCD entre 42 et 30
 
 Un autre algorithme célèbre est l'algorithme de tri de [Bulles](https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles). Il s'agit d'un algorithme de tri simple qui consiste à comparer les éléments adjacents et à les permuter si nécessaire. Voici un diagramme de flux de l'algorithme de tri de bulles :
 
-![Algorithme de tri de bulles.](../assets/figures/bubblesort.drawio)
+![Algorithme de tri de bulles.](../assets/images/bubblesort.drawio)
 
 Soit un tableau de $N = 5$ valeurs à trier :
 
@@ -263,11 +263,11 @@ Lorsque l'on parle d'un ordinateur Turing-complet, on fait référence à un ord
 
 Prenons l'exemple d'un programme visant à additionner `1` à un nombre `n` en binaire. L'algorithme peut être exprimé comme suit :
 
-![Algorithme d'addition binaire](../assets/figures/turing-add.drawio)
+![Algorithme d'addition binaire](../assets/images/turing-add.drawio)
 
 On commence par l'état de gauche, on lit un symbole sur la bande. Tant que ce symbole est `0` ou `1` on avance à droite. Lorsque l'on rencontre une case vide, on se déplace à gauche et on entre dans le second état. Tant qu’on lit un `1`, on le remplace par un `0` et on avance à gauche. Lorsqu’on lit un `0` ou une case vide, on le remplace par un `1` et on se déplace à gauche. On revient à l'état initial et on continue jusqu'à ce que l'on rencontre une case vide.
 
-![Exécution de l'algorithme sur une bande](../assets/figures/turing-animation.drawio)
+![Exécution de l'algorithme sur une bande](../assets/images/turing-animation.drawio)
 
 On peut essayer de traduire cet algorithme dans un langage formel :
 

@@ -28,7 +28,7 @@ Table: Caractères non imprimables
 | SPACE    | `\040`  | Espace                 |
 | NUL      | `\0`    | Caractère nul          |
 
-![Distinction de différents caractères non imprimables](../assets/figures/dist/encoding/crlf.svg)
+![Distinction de différents caractères non imprimables](../assets/images/crlf.drawio)
 
 La ponctuation utilise les 29 symboles graphiques suivants :
 
@@ -62,7 +62,7 @@ c=0)                            :( O
 
 ## Fin de lignes (EOL)
 
-![Machine à écrire mécanique](../assets/figures/typewriter.png)
+![Machine à écrire mécanique](../assets/images/typewriter.png)
 
 À l'instar des premières machines à écrire, les [téléscripteurs](https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur) possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme [retour chariot](https://fr.wikipedia.org/wiki/Retour_chariot) est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC [IBM compatibles](https://fr.wikipedia.org/wiki/Compatible_PC) ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères: un retour chariot (`CR`) et une nouvelle ligne (`LF`) ou en C `\r\n`. Les premiers [Macintosh](https://fr.wikipedia.org/wiki/Macintosh) d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère `\r`. Enfin, les ordinateurs UNIX ont eu le même raisonnement, mais ils ont choisi de ne garder que `\n`.
 
@@ -106,7 +106,7 @@ Notons que les mots clés `true` et `false` ne sont pas standardisés en C, mais
 
 Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par une grammaire régulière qui peut être exprimée comme suit :
 
-![Grammaire d'un identificateur C](../assets/figures/dist/grammar/identifier.svg)
+![Grammaire d'un identificateur C](../assets/images/identifier.drawio)
 
 La notation `[a-z]` signifie que l'on peut utiliser n'importe quelle lettre minuscule de l'alphabet latin, `[A-Z]` pour les lettres majuscules, `[0-9]` pour les chiffres et `_` pour le caractère souligné.
 
@@ -192,7 +192,7 @@ Une variable est définie par :
 
     On voit que sans connaître le **type** de la variable, il est impossible de savoir comment interpréter sa **valeur**.
 
-    ![La plage de Donnant](../assets/figures/donnant.png)
+    ![La plage de Donnant](../assets/images/donnant.png)
 
     En pratique l'adresse sera plutôt de la forme `0x7fffbf7f1b4c`, la valeur serait plutôt `0100001101001111010010010100111000000000` et le type serait une chaîne de caractères `char[]`.
 
@@ -251,7 +251,7 @@ int i, j, k;
 
 ### Convention de nommage
 
-![Différentes casses illustrées](../assets/figures/kebab.png)
+![Différentes casses illustrées](../assets/images/kebab.png)
 
 Il existe autant de conventions de nommage qu'il y a de développeurs, mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation dit que :
 
