@@ -12,8 +12,7 @@ copyright: Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier
 repo_name: heig-tin-info/handbook
 repo_url: https://github.com/heig-tin-info/handbook
 
-watch:
-  - includes
+
 theme:
   name: material
   custom_dir: overrides
@@ -25,7 +24,6 @@ theme:
     - content.tabs.link
     - content.tooltips
     - header.autohide
-    #- instant
     - navigation.footer
     - navigation.instant
     - navigation.instant.prefetch
@@ -171,8 +169,12 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+watch:
+  - includes
 hooks:
   - extensions/spantable.py
+  - extensions/french.py
+  - extensions/latex.py
 extra_css:
   - stylesheets/extra.css
   - stylesheets/tables.css

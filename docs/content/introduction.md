@@ -42,22 +42,30 @@ Il sera souvent fait mention dans cet ouvrage la notation du type `U+01AE`, il s
 
 Des encadrés sont utilisés pour mettre en avant des informations complémentaires ou des astuces. Ils sont également utilisés pour donner des informations sur des concepts avancés ou des détails techniques.
 
-!!! info "Information supplémentaire"
+!!! info
 
     Ceci est un encadré d'information.
 
-!!! warning "Attention"
+!!! warning
 
     Point important à retenir.
 
-!!! note "Note"
+!!! danger
+
+      Attention
+
+!!! example
+
+    Exemple à suivre.
+
+!!! note
 
     Corollaire à retenir.
 
-!!! tip "Astuce"
+!!! tip
 
     Astuce pour faciliter la compréhension.
 
-!!! exercise "Exercice"
+!!! exercise
 
     Exercice à faire.

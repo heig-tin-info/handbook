@@ -15,6 +15,8 @@ poetry run mkdocs serve
 
 ## To-Do
 
+- [ ] Optimize plugins with a beautiful soup parser
+- [ ] Find a way to add unbreakable space before semi-colon in paragraphs
 - [ ] Update drawio plugin to use theme colors.
 - [ ] Make all figures compatible with both light/dark theme
 - [ ] Tables
