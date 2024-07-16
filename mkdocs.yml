@@ -172,9 +172,9 @@ markdown_extensions:
 watch:
   - includes
 hooks:
-  - extensions/spantable.py
-  - extensions/french.py
-  - extensions/latex.py
+  - hooks/spantable.py
+  - hooks/french.py
+  - hooks/latex.py
 extra_css:
   - stylesheets/extra.css
   - stylesheets/tables.css
