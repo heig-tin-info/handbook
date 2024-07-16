@@ -161,7 +161,7 @@ int make_coffee(void) {
 }
 ```
 
-Un **prototype** de fonction diffère de son **implémentation** par fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les {ref}`conventions d'appel <calling_conventions>` de la fonction.
+Un **prototype** de fonction diffère de son **implémentation** par fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les conventions d'appel [](){#calling_conventions} de la fonction.
 
 ## Syntaxe
 
@@ -181,7 +181,7 @@ La syntaxe d'écriture d'une fonction peut être assez compliquée et la source 
 
 `<function-name>`
 
-> Il s'agit d'un {ref}`identifiant <identifiers>` qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom: `compute_norm`, `make_coffee`, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que `main`, `display` ou `dot_product`.
+> Il s'agit d'un identifiant [](){#identifiers} qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom: `compute_norm`, `make_coffee`, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que `main`, `display` ou `dot_product`.
 
 `<parameter-type> <parameter-name>`
 

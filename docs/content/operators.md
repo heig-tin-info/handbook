@@ -752,7 +752,7 @@ Une particularité de cet opérateur est que seule la dernière valeur est retou
 assert(3 == (1, 2, 3))
 ```
 
-L'opérateur agit également comme un {ref}`Point de séquence <sequence_point>`, c'est-à-dire que l'ordre des étapes est respecté.
+L'opérateur agit également comme un Point de séquence [](){#sequence_point}, c'est-à-dire que l'ordre des étapes est respecté.
 
 !!! exercise Opérateur séquentiel
 

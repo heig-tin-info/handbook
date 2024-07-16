@@ -541,7 +541,7 @@ Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et 
 
 Néanmoins, il est important de comprendre que `goto` était dans certain langage de programmation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine, car la plupart des processeurs ne connaissent que cette instruction souvent appelée `JUMP`. Il est par conséquent possible d'imiter le comportement de n'importe quelle structure de contrôle si l'on dispose de `if` et de `goto`.
 
-`goto` effectue un saut inconditionnel à un *label* défini en C par un {ref}`identificateur <identifiers>` suivi d'un `:`.
+`goto` effectue un saut inconditionnel à un *label* défini en C par un identificateur [](){#identifiers} suivi d'un `:`.
 
 L'un des seuls cas de figure autorisés est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code :
 
