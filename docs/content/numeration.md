@@ -551,11 +551,9 @@ En résumé, la méthode du complément à 1 :
 1. Les opérations redeviennent presque triviales, mais il est nécessaire de soustraire 1 au résultat (c'est dommage).
 2. Le double zéro (positif et négatif) est gênant.
 
-(twos-complement)=
+[](){#twos_complement}
 
 ### Complément à deux
-
-[](){#twos-complement}
 
 Le {index}`complément à deux` n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont :
 
