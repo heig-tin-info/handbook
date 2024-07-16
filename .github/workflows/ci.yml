@@ -29,6 +29,10 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
+      - name: Install pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
       - name: Setup Poetry
         uses: abatilo/actions-poetry@v2
       - name: Install Draw.io Desktop
