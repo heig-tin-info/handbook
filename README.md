@@ -39,9 +39,6 @@ poetry run mike deploy --push --update-aliases 0.1 latest
 - [ ] Generate PDF with LaTeX
 - [x] Center tables
 - [x] Two columns for itemize ?
-
-### Custom extensions
-
 - [ ] Flexible table
   - [ ] Full Width
   - [ ] X column
