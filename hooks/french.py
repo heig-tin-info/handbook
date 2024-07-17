@@ -40,7 +40,7 @@ def on_page_content(html, page, config, files):
         # Append a title to existing content
         else:
             # Add tag to put the title in bold
-            heading = BeautifulSoup(f"<strong>{TRANSLATIONS[key]}&nbsp;:</strong>{text}", 'html.parser')
+            heading = BeautifulSoup(f"<strong>{TRANSLATIONS[key]}&nbsp;:</strong>&nbsp;{text}", 'html.parser')
             title.clear()
             title.append(heading)
     html = str(soup)

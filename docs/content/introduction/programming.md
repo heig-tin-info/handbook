@@ -62,7 +62,11 @@ Table: Exemple de calcul du PGCD entre 42 et 30
 
 ### Tri à bulles
 
-Un autre algorithme célèbre est l'algorithme de tri de [Bulles](https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles). Il s'agit d'un algorithme de tri simple qui consiste à comparer les éléments adjacents et à les permuter si nécessaire. Voici un diagramme de flux de l'algorithme de tri de bulles :
+Un autre algorithme célèbre est l'algorithme de tri de [Bulles](https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles). Il s'agit d'un algorithme de tri simple qui consiste à comparer les éléments adjacents et à les permuter si nécessaire.
+
+Dans la vie de tous les jours, imaginez que vous ayez un jeu de 54 cartes à jouer mélangé et vous souhaitez trier le jeu par valeurs (as, 2, 3, ..., Valet, Dame, Roi). Vous commencez par déposer les cartes les unes à côté des autres et pour trier le jeu vous vous allez intervertir deux cartes jusqu'à ce que le jeu soit trié.
+
+Voici un diagramme de flux de l'algorithme de tri de bulles :
 
 ![Algorithme de tri de bulles.](../../assets/images/bubblesort.drawio)
 
@@ -112,6 +116,8 @@ Cycle 5:
     {2, 3, 4, 5, 8}
 ```
 
+Les algorithmes, il y en a de toutes sortes, des plus simples aux plus complexes. Ils sont utilisés dans de nombreux domaines, de la cryptographie à la bio-informatique en passant par la finance et la robotique.
+
 ## Programmation
 
 La machine Jacquard est un [métier à tisser](https://fr.wikipedia.org/wiki/M%C3%A9tier_Jacquard) mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
@@ -155,7 +161,51 @@ Les informaticiens-tisserands responsables de la création des cartes perforées
 
 ![Armoiries des ducs de Mayenne](../../assets/images/armoiries.svg){ width="200px" }
 
-Notons que *de gueules* signifie *rouge*. Le [drapeau suisse](https://fr.wikipedia.org/wiki/Drapeau_et_armoiries_de_la_Suisse) est donc *de gueules, à la croix alésée d'argent*.
+!!! info "De gueules"
+
+    Notons que *de gueules* signifie *rouge*. Le [drapeau suisse](https://fr.wikipedia.org/wiki/Drapeau_et_armoiries_de_la_Suisse) est donc *de gueules, à la croix alésée d'argent*.
+
+## Langage de programmation
+
+Traduire un algorithme en une suite d'ordres compréhensibles par une machine est donc le travail du programmeur. Il existe de nombreux langages de programmation mais la plupart se regroupe en deux catégories :
+
+1. Les langages textuels qui utilisent du texte pour décrire les instructions.
+2. Les langages visuels qui utilisent des éléments graphiques pour décrire les instructions.
+
+L'être humain a appris depuis des millénaires à communiquer avec des symboles, il stoque son savoir des livres. Au début de l'ère de l'informatique, l'ordinateur ne pouvait communiquer que par du texte. Les premiers langages de programmation étaient donc textuels. Avec l'avènement des interfaces graphiques, les langages visuels ont vu le jour mais ils sont davantage réservés pour enseigner la programmation aux enfants ou pour faciliter la programmation de robots ou de jeux vidéos.
+
+??? info "Scratch"
+
+    [Scratch](https://fr.wikipedia.org/wiki/Scratch_(langage)) est un langage de programmation visuel développé par le MIT. Il est utilisé pour enseigner les bases de la programmation aux enfants. Il permet de créer des animations, des jeux et des histoires interactives.
+
+    ![Interface de scratch](../../assets/images/scratch.png)
+
+??? info "LabView"
+
+    [LabView](https://fr.wikipedia.org/wiki/LabVIEW) est un langage de programmation visuel développé par National Instruments. Il est utilisé pour la programmation de systèmes de mesure et de contrôle. Il est très utilisé dans l'industrie et la recherche.
+
+    ![Interface de LabView](../../assets/images/labview.webp)
+
+    Son interface est composée de blocs graphiques que l'on relie entre eux pour créer un programme.
+
+??? info "Common Lisp"
+
+    [Common Lisp](https://fr.wikipedia.org/wiki/Common_Lisp) est un langage de programmation inventé en 1984. C'est un langage de programmation textuel de type fonctionnel. Voici un exemple de programme en Common Lisp pour résoudre le problème des tours de Hanoï :
+
+    ```lisp
+    (defun hanoi (n source target auxiliary)
+      (when (> n 0)
+        (hanoi (- n 1) source auxiliary target)
+        (format t "~%Move disk from ~A to ~A" source target)
+        (hanoi (- n 1) auxiliary target source)))
+
+    (defun solve-hanoi (n)
+      (hanoi n 'A 'C 'B))
+
+    (solve-hanoi 3)
+    ```
+
+Pour ce cours, et pour l'enseignement de la programmation en général, nous utiliserons des langages textuels.
 
 ## Calculateur
 
@@ -170,92 +220,26 @@ Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *compu
 
 [pavé numérique]: https://fr.wikipedia.org/wiki/Pav%C3%A9_num%C3%A9rique
 
-Notons qu'à l'instar de notre diagramme de flux, un [calculateur] dispose d'une entrée, d'une sortie et d'états internes.
+Notons qu'à l'instar de notre diagramme de flux, un [calculateur] dispose aussi d'une entrée, d'une sortie et d'états internes.
 
 [calculateur]: #calculateur
 
-## Ordinateur
+!!! info "Origine du mot ordinateur"
 
-Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques Perret à la demande d'IBM France (c.f [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)).
+    Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques Perret à la demande d'IBM France (c.f [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)).
 
-> « Le 16 IV 1955
-> Cher Monsieur,
-> Que diriez-vous d’**ordinateur**? C’est un mot correctement formé, qui se trouve même dans le **Littré** comme adjectif désignant **Dieu** qui met de l’ordre dans le monde. Un mot de ce genre a l’avantage de donner aisément un verbe **ordiner**, un nom d’action **ordination**. L’inconvénient est que ordination désigne une cérémonie religieuse ; mais les deux champs de signification (religion et comptabilité) sont si éloignés et la cérémonie d’ordination connue, je crois, de si peu de personnes que l’inconvénient est peut-être mineur. D’ailleurs votre machine serait ordinateur (et non-ordination) et ce mot est tout à fait sorti de l’usage théologique. Systémateur serait un néologisme, mais qui ne me paraît pas offensant ; il permet systématisé ; — mais système ne me semble guère utilisable — Combinateur a l’inconvénient du sens péjoratif de combine ; combiner est usuel donc peu capable de devenir technique ; combination ne me paraît guère viable à cause de la proximité de combinaison. Mais les Allemands ont bien leurs combinats (sorte de trusts, je crois), si bien que le mot aurait peut-être des possibilités autres que celles qu’évoque combine.
->
-> Congesteur, digesteur évoquent trop congestion et digestion. Synthétiseur ne me paraît pas un mot assez neuf pour désigner un objet spécifique, déterminé comme votre machine.
->
-> En relisant les brochures que vous m’avez données, je vois que plusieurs de vos appareils sont désignés par des noms d’agent féminins (trieuse, tabulatrice). Ordinatrice serait parfaitement possible et aurait même l’avantage de séparer plus encore votre machine du vocabulaire de la théologie. Il y a possibilité aussi d’ajouter à un nom d’agent un complément : ordinatrice d’éléments complexes ou un élément de composition, par exemple : sélecto-systémateur. Sélecto-ordinateur a l’inconvénient de deux o en hiatus, comme électro-ordonnatrice.
->
-> Il me semble que je pencherais pour **ordonnatrice électronique**. Je souhaite que ces suggestions stimulent, orientent vos propres facultés d’invention. N’hésitez pas à me donner un coup de téléphone si vous avez une idée qui vous paraisse requérir l’avis d’un philologue.
->
-> Vôtre
-> Jacques Perret »
-
-## Historique
-
-Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates clés :
-
-87 av. J.-C.
-
-: La [machine d'Anticythère](https://fr.wikipedia.org/wiki/Machine_d%27Anticyth%C3%A8re) considéré comme le premier calculateur analogique pour positions astronomiques permettant de prédire des éclipses. Cette machine encore si mystérieuse à inspiré de nombreux scénarios comme le film Indiana Jones et le Cadran de la destinée. Elle a été découverte en 1901 dans une épave au large de l'île d'Anticythère. Grâce aux techniques modernes de radiographie, on a pu reconstruire une partie de son mécanisme.
-
-1642
-
-: [La Pascaline](https://fr.wikipedia.org/wiki/Pascaline): machine d'arithmétique de Blaise Pascal, première machine à calculer. Elle permettait d'effectuer des additions et des soustractions en utilisant des roues dentées.
-
-1801
-
-: [Métier à tisser Jacquard](https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser_Jacquard) programmable avec des cartes perforées.
-
-1834
-
-: Machine à calculer programmable de Charles Babbage. Charles Babbage est considéré comme le père de l'informatique. Il a conçu la [machine analytique](https://fr.wikipedia.org/wiki/Machine_analytique) qui est considérée comme le premier ordinateur programmable. Ada Lovelace, fille de Lord Byron, est considérée comme la première programmeuse de l'histoire.
-
-1937
-
-: l'ASCC ([Automatic Sequence Controlled Calculator Mark I](https://fr.wikipedia.org/wiki/Harvard_Mark_I)) d'IBM, le premier grand calculateur numérique. Il était constitué de 765'000 pièces, dont des interrupteurs, des relais, des arbres mécaniques et des embrayages. Les ordres étaient lus à partir d'une bande perforée. Une seconde bande perforée contenait les données d'entrée. Les instructions étant simples, pour répéter un algorithme en boucle comme l'algorithme d'Euclide, on pouvait typiquement créer une boucle dans la bande perforée.
-
-    - 4500 kg
-    - 6 secondes par multiplication à 23 chiffres décimaux
-    - Cartes perforées
-
-1945
-
-: L'ENIAC, de Presper Eckert et John William Mauchly. C'est le premier ordinateur Turing-complet entièrement électronique et fonctionnant avec des diodes et des tubes à vide. Il était programmé en branchant des câbles et en changeant des interrupteurs. Il était utilisé pour des calculs balistiques.
-
-    - 160 kW
-    - 100 kHz
-    - Tubes à vide
-    - 100'000 additions/seconde
-    - 357 multiplications/seconde
-
-1965
-
-: Premier ordinateur à circuits intégrés, le [PDP-8](https://fr.wikipedia.org/wiki/PDP-8)
-
-    - 12 bits
-    - mémoire de 4096 mots
-    - Temps de cycle de 1.5 µs
-    - [Fortran](https://fr.wikipedia.org/wiki/Fortran) et BASIC
-
-2018
-
-: Le [Behold Summit](<https://fr.wikipedia.org/wiki/Summit_(superordinateur)>) est un superordinateur construit par IBM.
-
-    - 200'000'000'000'000'000 multiplications par seconde
-    - simple ou double précision
-    - 14.668 GFlops/watt
-    - 600 GiB de mémoire RAM
-
-2022
-
-: Le [Frontier](https://fr.wikipedia.org/wiki/Frontier_(superordinateur)) ou **OLCF-5** est le premier ordinateur exaflopique du monde.
-
-    - 1,714,810,000,000,000,000 multiplications par seconde (1.1 exaflops)
-    - 9472 processeurs Trento à 64 cœurs de 2 GHz (606 208 cœurs)
-    - 37888 processeurs graphiques MI250x (8 335 360 coeurs)
-    - 22.7 MW (5 locomotives électriques ou 56'750 foyers européens)
-    - 62.68 GFlops/watt
+    > « Le 16 IV 1955
+    > Cher Monsieur,
+    > Que diriez-vous d’**ordinateur**? C’est un mot correctement formé, qui se trouve même dans le **Littré** comme adjectif désignant **Dieu** qui met de l’ordre dans le monde. Un mot de ce genre a l’avantage de donner aisément un verbe **ordiner**, un nom d’action **ordination**. L’inconvénient est que ordination désigne une cérémonie religieuse ; mais les deux champs de signification (religion et comptabilité) sont si éloignés et la cérémonie d’ordination connue, je crois, de si peu de personnes que l’inconvénient est peut-être mineur. D’ailleurs votre machine serait ordinateur (et non-ordination) et ce mot est tout à fait sorti de l’usage théologique. Systémateur serait un néologisme, mais qui ne me paraît pas offensant ; il permet systématisé ; — mais système ne me semble guère utilisable — Combinateur a l’inconvénient du sens péjoratif de combine ; combiner est usuel donc peu capable de devenir technique ; combination ne me paraît guère viable à cause de la proximité de combinaison. Mais les Allemands ont bien leurs combinats (sorte de trusts, je crois), si bien que le mot aurait peut-être des possibilités autres que celles qu’évoque combine.
+    >
+    > Congesteur, digesteur évoquent trop congestion et digestion. Synthétiseur ne me paraît pas un mot assez neuf pour désigner un objet spécifique, déterminé comme votre machine.
+    >
+    > En relisant les brochures que vous m’avez données, je vois que plusieurs de vos appareils sont désignés par des noms d’agent féminins (trieuse, tabulatrice). Ordinatrice serait parfaitement possible et aurait même l’avantage de séparer plus encore votre machine du vocabulaire de la théologie. Il y a possibilité aussi d’ajouter à un nom d’agent un complément : ordinatrice d’éléments complexes ou un élément de composition, par exemple : sélecto-systémateur. Sélecto-ordinateur a l’inconvénient de deux o en hiatus, comme électro-ordonnatrice.
+    >
+    > Il me semble que je pencherais pour **ordonnatrice électronique**. Je souhaite que ces suggestions stimulent, orientent vos propres facultés d’invention. N’hésitez pas à me donner un coup de téléphone si vous avez une idée qui vous paraisse requérir l’avis d’un philologue.
+    >
+    > Vôtre
+    > Jacques Perret »
 
 ## La machine de Turing
 
@@ -270,6 +254,8 @@ Prenons l'exemple d'un programme visant à additionner `1` à un nombre `n` en b
 ![Algorithme d'addition binaire](../../assets/images/turing-add.drawio)
 
 On commence par l'état de gauche, on lit un symbole sur la bande. Tant que ce symbole est `0` ou `1` on avance à droite. Lorsque l'on rencontre une case vide, on se déplace à gauche et on entre dans le second état. Tant qu’on lit un `1`, on le remplace par un `0` et on avance à gauche. Lorsqu’on lit un `0` ou une case vide, on le remplace par un `1` et on se déplace à gauche. On revient à l'état initial et on continue jusqu'à ce que l'on rencontre une case vide.
+
+Sur la figure ci-dessous, on peut voir l'exécution de l'algorithme sur une bande après chaque étape. La case centrale est celle sous la tête de lecture/écriture. On voit bien qu'au début on a le nombre `101` (5) et à la fin on obtient le nombre `110` (6). L'algorithme a bien fonctionné.
 
 ![Exécution de l'algorithme sur une bande](../../assets/images/turing-animation.drawio)
 
@@ -351,6 +337,132 @@ Les ordinateurs modernes sont des machines complexes qui contiennent plusieurs c
 - La mémoire (RAM) : c'est l'espace de stockage temporaire des données et des instructions du programme.
 - Le disque *dur* (HDD/SSD) : c'est l'espace de stockage permanent des données.
 - Les périphériques d'entrée/sortie : ce sont les interfaces qui permettent à l'ordinateur de communiquer avec l'utilisateur (clavier, souris, écran, imprimante, etc.).
+
+Contrairement à la machine de Turing, les ordinateurs sont équipées d'une mémoire à accès aléatoire qui permet d'accéder n'importe quel élément de la mémoire sans avoir à parcourir toute la bande. Également, ces ordinateurs disposent d'un processeur capable de calculer des opérations arithmétiques et logiques en un temps très court. Ces processeurs peuvent même calculer des fonctions trigonométriques, exponentielles et logarithmiques facilement. En reprenant notre programme d'addition binaire, il est beaucoup plus facile de l'écrire en C&nbsp;:
+
+```c
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("%d", n + 1);
+}
+```
+
+Néanmoins, il est important de comprendre que ce programme est traduit en langage machine par un programme appelé compilateur. Une étape intermédiaire est la traduction du programme en langage assembleur. Le langage assembleur est un langage de plus bas niveau qui permet de contrôler directement le processeur. Ce sont les instructions primitives du processeur. Le programme ci-dessus sera converti en assembleur X86 comme suit :
+
+```asm
+.LC0:
+  .string "%d"
+main:
+  sub     rsp, 24
+  mov     edi, OFFSET FLAT:.LC0
+  xor     eax, eax
+  lea     rsi, [rsp+12]
+  call    scanf
+  mov     eax, DWORD PTR [rsp+12]
+  mov     edi, OFFSET FLAT:.LC0
+  lea     esi, [rax+1]
+  xor     eax, eax
+  call    printf
+  xor     eax, eax
+  add     rsp, 24
+  ret
+```
+
+Ce programme assembleur peut ensuite être converti en langage machine binaire qui est le langage compris par le processeur.
+
+```text
+48 83 ec 18
+bf 00 00 00 00
+31 c0
+48 8d 74 24 0c
+e8 00 00 00 00
+8b 44 24 0c
+bf 00 00 00 00
+48 8d 70 01
+31 c0
+e8 00 00 00 00
+31 c0
+48 83 c4 18
+c3
+```
+
+Ensuite, on peut écrire ce programme en mémoire avec des 1 et des 0 :
+
+```text
+01001000100000111110110000011000101111110000000000000000000000000000000000110001
+11000000010010001000110101110100001001000000110011101000000000000000000000000000
+00000000100010110100010000100100000011001011111100000000000000000000000000000000
+01001000100011010111000000000001001100011100000011101000000000000000000000000000
+0000000000110001110000000100100010000011110001000001100011000011
+```
+
+## Historique
+
+Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates clés :
+
+87 av. J.-C.
+
+: La [machine d'Anticythère](https://fr.wikipedia.org/wiki/Machine_d%27Anticyth%C3%A8re) considéré comme le premier calculateur analogique pour positions astronomiques permettant de prédire des éclipses. Cette machine encore si mystérieuse à inspiré de nombreux scénarios comme le film Indiana Jones et le Cadran de la destinée. Elle a été découverte en 1901 dans une épave au large de l'île d'Anticythère. Grâce aux techniques modernes de radiographie, on a pu reconstruire une partie de son mécanisme.
+
+1642
+
+: [La Pascaline](https://fr.wikipedia.org/wiki/Pascaline): machine d'arithmétique de Blaise Pascal, première machine à calculer. Elle permettait d'effectuer des additions et des soustractions en utilisant des roues dentées.
+
+1801
+
+: [Métier à tisser Jacquard](https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser_Jacquard) programmable avec des cartes perforées.
+
+1834
+
+: Machine à calculer programmable de Charles Babbage. Charles Babbage est considéré comme le père de l'informatique. Il a conçu la [machine analytique](https://fr.wikipedia.org/wiki/Machine_analytique) qui est considérée comme le premier ordinateur programmable. Ada Lovelace, fille de Lord Byron, est considérée comme la première programmeuse de l'histoire.
+
+1937
+
+: l'ASCC ([Automatic Sequence Controlled Calculator Mark I](https://fr.wikipedia.org/wiki/Harvard_Mark_I)) d'IBM, le premier grand calculateur numérique. Il était constitué de 765'000 pièces, dont des interrupteurs, des relais, des arbres mécaniques et des embrayages. Les ordres étaient lus à partir d'une bande perforée. Une seconde bande perforée contenait les données d'entrée. Les instructions étant simples, pour répéter un algorithme en boucle comme l'algorithme d'Euclide, on pouvait typiquement créer une boucle dans la bande perforée.
+
+    - 4500 kg
+    - 6 secondes par multiplication à 23 chiffres décimaux
+    - Cartes perforées
+
+1945
+
+: L'ENIAC, de Presper Eckert et John William Mauchly. C'est le premier ordinateur Turing-complet entièrement électronique et fonctionnant avec des diodes et des tubes à vide. Il était programmé en branchant des câbles et en changeant des interrupteurs. Il était utilisé pour des calculs balistiques.
+
+    - 160 kW
+    - 100 kHz
+    - Tubes à vide
+    - 100'000 additions/seconde
+    - 357 multiplications/seconde
+
+1965
+
+: Premier ordinateur à circuits intégrés, le [PDP-8](https://fr.wikipedia.org/wiki/PDP-8)
+
+    - 12 bits
+    - mémoire de 4096 mots
+    - Temps de cycle de 1.5 µs
+    - [Fortran](https://fr.wikipedia.org/wiki/Fortran) et BASIC
+
+2018
+
+: Le [Behold Summit](<https://fr.wikipedia.org/wiki/Summit_(superordinateur)>) est un superordinateur construit par IBM.
+
+    - 200'000'000'000'000'000 multiplications par seconde
+    - simple ou double précision
+    - 14.668 GFlops/watt
+    - 600 GiB de mémoire RAM
+
+2022
+
+: Le [Frontier](https://fr.wikipedia.org/wiki/Frontier_(superordinateur)) ou **OLCF-5** est le premier ordinateur exaflopique du monde.
+
+    - 1,714,810,000,000,000,000 multiplications par seconde (1.1 exaflops)
+    - 9472 processeurs Trento à 64 cœurs de 2 GHz (606 208 cœurs)
+    - 37888 processeurs graphiques MI250x (8 335 360 coeurs)
+    - 22.7 MW (5 locomotives électriques ou 56'750 foyers européens)
+    - 62.68 GFlops/watt
 
 ## Exercices de révision
 
