@@ -61,7 +61,7 @@ jobs:
       - name: Cache Drawio Exporter
         uses: actions/cache@v4
         with:
-          path: ~/docs/drawio-exporter
+          path: /home/runner/work/handbook/handbook/docs/drawio-exporter/
           key: ${{ runner.os }}-drawio-exporter-${{env.drawio_arch}}-${{ env.drawio_version }}
       - name: Install Python dependencies
         run: poetry install
