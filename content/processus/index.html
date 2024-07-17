@@ -1,6 +1,33 @@
+
 <!DOCTYPE html>
-<html class="no-js" lang="fr"> <head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="Un manuel pour apprendre le langage C en partant de zéro.
-" name="description"/><meta content="Yves Chevallier" name="author"/><link href="https://heig-tin-info.github.io/handbook/content/processus/" rel="canonical"/><link href="../preprocessor/" rel="prev"/><link href="../functions/" rel="next"/><link href="../../assets/icons/favicon.ico" rel="icon"/><meta content="mkdocs-1.6.0, mkdocs-material-9.5.29" name="generator"/><title>Programmes et Processus - Le C pour l'ingénieur</title><link href="../../assets/stylesheets/main.76a95c52.min.css" rel="stylesheet"/><link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/><style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.217 6.962A3.75 3.75 0 0 1 0 3.25v-.5C0 1.784.784 1 1.75 1h1.356c.228-.585.796-1 1.462-1h6.864c.647 0 1.227.397 1.462 1h1.356c.966 0 1.75.784 1.75 1.75v.5a3.75 3.75 0 0 1-3.217 3.712 5.014 5.014 0 0 1-2.771 3.117l.144 1.446c.005.05.03.12.114.204.086.087.217.17.373.227.283.103.618.274.89.568.285.31.467.723.467 1.226v.75h1.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H4v-.75c0-.503.182-.916.468-1.226.27-.294.606-.465.889-.568.139-.048.266-.126.373-.227.084-.085.109-.153.114-.204l.144-1.446a5.015 5.015 0 0 1-2.77-3.117ZM4.5 1.568V5.5a3.5 3.5 0 1 0 7 0V1.568a.068.068 0 0 0-.068-.068H4.568a.068.068 0 0 0-.068.068Zm2.957 8.902-.12 1.204c-.093.925-.858 1.47-1.467 1.691a.766.766 0 0 0-.3.176c-.037.04-.07.093-.07.21v.75h5v-.75c0-.117-.033-.17-.07-.21a.766.766 0 0 0-.3-.176c-.609-.221-1.374-.766-1.466-1.69l-.12-1.204a5.064 5.064 0 0 1-1.087 0ZM13 2.5v2.872a2.25 2.25 0 0 0 1.5-2.122v-.5a.25.25 0 0 0-.25-.25H13Zm-10 0H1.75a.25.25 0 0 0-.25.25v.5c0 .98.626 1.813 1.5 2.122Z"/></svg>');--md-admonition-icon--hint:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg>');--md-admonition-icon--foobar:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg>');--md-admonition-icon--reload:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z"/></svg>');}</style><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/><style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style><link href="../../assets/_markdown_exec_pyodide.css" rel="stylesheet"/><link href="../../css/extra.css" rel="stylesheet"/><link href="../../css/tables.css" rel="stylesheet"/><link href="../../exercise.css" rel="stylesheet"/><script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script><script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config",""),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script><script>"undefined"!=typeof __md_analytics&&__md_analytics()</script> <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><style>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Un manuel pour apprendre le langage C en partant de zéro.
+" name="description"/>
+<meta content="Yves Chevallier" name="author"/>
+<link href="https://heig-tin-info.github.io/handbook/content/processus/" rel="canonical"/>
+<link href="../preprocessor/" rel="prev"/>
+<link href="../functions/" rel="next"/>
+<link href="../../assets/icons/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.29" name="generator"/>
+<title>Programmes et Processus - Le C pour l'ingénieur</title>
+<link href="../../assets/stylesheets/main.76a95c52.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.217 6.962A3.75 3.75 0 0 1 0 3.25v-.5C0 1.784.784 1 1.75 1h1.356c.228-.585.796-1 1.462-1h6.864c.647 0 1.227.397 1.462 1h1.356c.966 0 1.75.784 1.75 1.75v.5a3.75 3.75 0 0 1-3.217 3.712 5.014 5.014 0 0 1-2.771 3.117l.144 1.446c.005.05.03.12.114.204.086.087.217.17.373.227.283.103.618.274.89.568.285.31.467.723.467 1.226v.75h1.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H4v-.75c0-.503.182-.916.468-1.226.27-.294.606-.465.889-.568.139-.048.266-.126.373-.227.084-.085.109-.153.114-.204l.144-1.446a5.015 5.015 0 0 1-2.77-3.117ZM4.5 1.568V5.5a3.5 3.5 0 1 0 7 0V1.568a.068.068 0 0 0-.068-.068H4.568a.068.068 0 0 0-.068.068Zm2.957 8.902-.12 1.204c-.093.925-.858 1.47-1.467 1.691a.766.766 0 0 0-.3.176c-.037.04-.07.093-.07.21v.75h5v-.75c0-.117-.033-.17-.07-.21a.766.766 0 0 0-.3-.176c-.609-.221-1.374-.766-1.466-1.69l-.12-1.204a5.064 5.064 0 0 1-1.087 0ZM13 2.5v2.872a2.25 2.25 0 0 0 1.5-2.122v-.5a.25.25 0 0 0-.25-.25H13Zm-10 0H1.75a.25.25 0 0 0-.25.25v.5c0 .98.626 1.813 1.5 2.122Z"/></svg>');--md-admonition-icon--hint:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg>');--md-admonition-icon--foobar:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg>');--md-admonition-icon--reload:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z"/></svg>');}</style>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+<link href="../../assets/_markdown_exec_pyodide.css" rel="stylesheet"/>
+<link href="../../css/extra.css" rel="stylesheet"/>
+<link href="../../css/tables.css" rel="stylesheet"/>
+<link href="../../exercise.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config",""),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -9,7 +36,701 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></link></head> <body data-md-color-accent="light-blue" data-md-color-primary="red" data-md-color-scheme="default" dir="ltr"> <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/> <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/> <label class="md-overlay" for="__drawer"></label> <div data-md-component="skip"> <a class="md-skip" href="#programmes-et-processus">11.  Aller au contenu </a> </div> <div data-md-component="announce"> </div> <div data-md-color-scheme="default" data-md-component="outdated" hidden=""> <aside class="md-banner md-banner--warning"> <div class="md-banner__inner md-grid md-typeset"> You're not viewing the latest version. <a href="../../.."> <strong>Click here to go to latest.</strong> </a> </div> <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script> </aside> </div> <header class="md-header" data-md-component="header"> <nav aria-label="En-tête" class="md-header__inner md-grid"> <a aria-label="Le C pour l'ingénieur" class="md-header__button md-logo" data-md-component="logo" href="https://heig-tin-info.github.io/handbook" title="Le C pour l'ingénieur"> <img alt="logo" src="../../assets/logos/heig-vd-white.svg"/> </a> <label class="md-header__button md-icon" for="__drawer"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg> </label> <div class="md-header__title" data-md-component="header-title"> <div class="md-header__ellipsis"> <div class="md-header__topic"> <span class="md-ellipsis"> Le C pour l'ingénieur </span> </div> <div class="md-header__topic" data-md-component="header-topic"> <span class="md-ellipsis"> Programmes et Processus </span> </div> </div> </div> <form class="md-header__option" data-md-component="palette"> <input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="red" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/> <label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"></path></svg> </label> <input aria-label="Switch to light mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="red" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/> <label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"></path></svg> </label> </form> <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script> <label class="md-header__button md-icon" for="__search"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg> </label> <div class="md-search" data-md-component="search" role="dialog"> <label class="md-search__overlay" for="__search"></label> <div class="md-search__inner" role="search"> <form class="md-search__form" name="search"> <input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/> <label class="md-search__icon md-icon" for="__search"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg> </label> <nav aria-label="Recherche" class="md-search__options"> <a aria-label="Partager" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Partager"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg> </a> <button aria-label="Effacer" class="md-search__icon md-icon" tabindex="-1" title="Effacer" type="reset"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg> </button> </nav> <div class="md-search__suggest" data-md-component="search-suggest"></div> </form> <div class="md-search__output"> <div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0"> <div class="md-search-result" data-md-component="search-result"> <div class="md-search-result__meta"> Initialisation de la recherche </div> <ol class="md-search-result__list" role="presentation"></ol> </div> </div> </div> </div> </div> <div class="md-header__source"> <a class="md-source" data-md-component="source" href="https://github.com/heig-tin-info/handbook" title="Aller au dépôt"> <div class="md-source__icon md-icon"> <svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!-- Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> </div> <div class="md-source__repository"> heig-tin-info/handbook </div> </a> </div> </nav> </header> <div class="md-container" data-md-component="container"> <nav aria-label="Onglets" class="md-tabs" data-md-component="tabs"> <div class="md-grid"> <ul class="md-tabs__list"> <li class="md-tabs__item"> <a class="md-tabs__link" href="../.."> Home </a> </li> <li class="md-tabs__item md-tabs__item--active"> <a class="md-tabs__link" href="../introduction/"> Cours C </a> </li> <li class="md-tabs__item"> <a class="md-tabs__link" href="../../tools/environment/"> Outils </a> </li> <li class="md-tabs__item"> <a class="md-tabs__link" href="../../appendix/bibliography/"> Annexes </a> </li> <li class="md-tabs__item"> <a class="md-tabs__link" href="../../summary/summary/"> Summary </a> </li> </ul> </div> </nav> <main class="md-main" data-md-component="main"> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation"> <div class="md-sidebar__scrollwrap"> <div class="md-sidebar__inner"> <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0"> <label class="md-nav__title" for="__drawer"> <a aria-label="Le C pour l'ingénieur" class="md-nav__button md-logo" data-md-component="logo" href="https://heig-tin-info.github.io/handbook" title="Le C pour l'ingénieur"> <img alt="logo" src="../../assets/logos/heig-vd-white.svg"/> </a> Le C pour l'ingénieur </label> <div class="md-nav__source"> <a class="md-source" data-md-component="source" href="https://github.com/heig-tin-info/handbook" title="Aller au dépôt"> <div class="md-source__icon md-icon"> <svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!-- Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> </div> <div class="md-source__repository"> heig-tin-info/handbook </div> </a> </div> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../.."> <span class="md-ellipsis"> Home </span> </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested"> <input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/> <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex=""> <span class="md-ellipsis"> Cours C </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="__nav_2"> <span class="md-nav__icon md-icon"></span> Cours C </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../introduction/"> <span class="md-ellipsis"> Introduction </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../programming/"> <span class="md-ellipsis"> Programmation </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../code-of-conduct/"> <span class="md-ellipsis"> Code de conduite </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../c-lang/"> <span class="md-ellipsis"> Langage C </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../foundations/"> <span class="md-ellipsis"> Généralités du langage </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../numeration/"> <span class="md-ellipsis"> Numération </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../datatype/"> <span class="md-ellipsis"> Types de données </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../operators/"> <span class="md-ellipsis"> Opérateurs </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../control-structures/"> <span class="md-ellipsis"> Structures de contrôle </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../preprocessor/"> <span class="md-ellipsis"> Préprocesseur </span> </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/> <label class="md-nav__link md-nav__link--active" for="__toc"> <span class="md-ellipsis"> Programmes et Processus </span> <span class="md-nav__icon md-icon"></span> </label> <a class="md-nav__link md-nav__link--active" href="./"> <span class="md-ellipsis"> Programmes et Processus </span> </a> <nav aria-label="Table des matières" class="md-nav md-nav--secondary"> <label class="md-nav__title" for="__toc"> <span class="md-nav__icon md-icon"></span> Table des matières </label> <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="#quest-ce-quun-programme">11.1  <span class="md-ellipsis"> Qu'est-ce qu'un programme? </span> </a> <nav aria-label="Qu'est-ce qu'un programme?" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#code-source">11.1.1  <span class="md-ellipsis"> Code source </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#executable-binaire">11.1.2  <span class="md-ellipsis"> Exécutable binaire </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#entrees-sorties">11.1.3  <span class="md-ellipsis"> Entrées sorties </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#signaux">11.1.4  <span class="md-ellipsis"> Signaux </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#arguments-et-options">11.2  <span class="md-ellipsis"> Arguments et options </span> </a> <nav aria-label="Arguments et options" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#norme-posix">11.2.1  <span class="md-ellipsis"> Norme POSIX </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#extension-gnu">11.2.2  <span class="md-ellipsis"> Extension GNU </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#windows">11.2.3  <span class="md-ellipsis"> Windows </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#fonction-main">11.3  <span class="md-ellipsis"> Fonction main </span> </a> <nav aria-label="Fonction main" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#qui-appelle-main">11.3.1  <span class="md-ellipsis"> Qui appelle main ? </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#valeur-de-retour">11.3.2  <span class="md-ellipsis"> Valeur de retour </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#entrees-sorties-standards">11.4  <span class="md-ellipsis"> Entrées sorties standards </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#boucle-dattente">11.5  <span class="md-ellipsis"> Boucle d'attente </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../functions/"> <span class="md-ellipsis"> Fonctions </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../stdio/"> <span class="md-ellipsis"> Entrées Sorties </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../composite-datatypes/"> <span class="md-ellipsis"> Types composites </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../files/"> <span class="md-ellipsis"> Fichiers </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../memory-management/"> <span class="md-ellipsis"> Gestion de la mémoire </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../pointers/"> <span class="md-ellipsis"> Pointeurs </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../standard-library/"> <span class="md-ellipsis"> Bibliothèques </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../algorithms/"> <span class="md-ellipsis"> Algorithmes et conception </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../translation-units/"> <span class="md-ellipsis"> Compilation séparée </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../scopes/"> <span class="md-ellipsis"> Portée et visibilité </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../data-structures/"> <span class="md-ellipsis"> Structures de données </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../testing/"> <span class="md-ellipsis"> Qualité et Testabilité </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../traps/"> <span class="md-ellipsis"> Pièges </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../advanced-topics/"> <span class="md-ellipsis"> Avancé </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../philosophy/"> <span class="md-ellipsis"> Philosophie </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../funny/"> <span class="md-ellipsis"> Humour d'informaticien </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--pruned md-nav__item--nested"> <a class="md-nav__link" href="../../tools/environment/"> <span class="md-ellipsis"> Outils </span> <span class="md-nav__icon md-icon"></span> </a> </li> <li class="md-nav__item md-nav__item--pruned md-nav__item--nested"> <a class="md-nav__link" href="../../appendix/bibliography/"> <span class="md-ellipsis"> Annexes </span> <span class="md-nav__icon md-icon"></span> </a> </li> <li class="md-nav__item md-nav__item--pruned md-nav__item--nested"> <a class="md-nav__link" href="../../summary/summary/"> <span class="md-ellipsis"> Summary </span> <span class="md-nav__icon md-icon"></span> </a> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc"> <div class="md-sidebar__scrollwrap"> <div class="md-sidebar__inner"> <nav aria-label="Table des matières" class="md-nav md-nav--secondary"> <label class="md-nav__title" for="__toc"> <span class="md-nav__icon md-icon"></span> Table des matières </label> <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="#quest-ce-quun-programme">11.1  <span class="md-ellipsis"> Qu'est-ce qu'un programme? </span> </a> <nav aria-label="Qu'est-ce qu'un programme?" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#code-source">11.1.1  <span class="md-ellipsis"> Code source </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#executable-binaire">11.1.2  <span class="md-ellipsis"> Exécutable binaire </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#entrees-sorties">11.1.3  <span class="md-ellipsis"> Entrées sorties </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#signaux">11.1.4  <span class="md-ellipsis"> Signaux </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#arguments-et-options">11.2  <span class="md-ellipsis"> Arguments et options </span> </a> <nav aria-label="Arguments et options" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#norme-posix">11.2.1  <span class="md-ellipsis"> Norme POSIX </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#extension-gnu">11.2.2  <span class="md-ellipsis"> Extension GNU </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#windows">11.2.3  <span class="md-ellipsis"> Windows </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#fonction-main">11.3  <span class="md-ellipsis"> Fonction main </span> </a> <nav aria-label="Fonction main" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#qui-appelle-main">11.3.1  <span class="md-ellipsis"> Qui appelle main ? </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#valeur-de-retour">11.3.2  <span class="md-ellipsis"> Valeur de retour </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#entrees-sorties-standards">11.4  <span class="md-ellipsis"> Entrées sorties standards </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#boucle-dattente">11.5  <span class="md-ellipsis"> Boucle d'attente </span> </a> </li> </ul> </nav> </div> </div> </div> <div class="md-content" data-md-component="content"> <article class="md-content__inner md-typeset"> <a class="md-content__button md-icon" href="https://github.com/heig-tin-info/handbook/edit/master/docs/content/processus.md" title="Editer cette page"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg> </a> <a class="md-content__button md-icon" href="https://github.com/heig-tin-info/handbook/raw/master/docs/content/processus.md" title="Consulter la source de cette page"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"></path></svg> </a> <html><body><h1 id="programmes-et-processus"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.</span> Programmes et Processus<a class="headerlink" href="#programmes-et-processus" title="Permanent link">¶</a></h1> <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/vintage-programmer.jpg"><img alt="Programmeuse en tenue décontractée à côté de 62'500 cartes perforées" src="../../assets/images/vintage-programmer.jpg" width="60%"/></a><figcaption>Figure 1: Programmeuse en tenue décontractée à côté de 62'500 cartes perforées</figcaption></figure></p> <h2 id="quest-ce-quun-programme"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1</span> Qu'est-ce qu'un programme?<a class="headerlink" href="#quest-ce-quun-programme" title="Permanent link">¶</a></h2> <p>Un <a href="https://fr.wikipedia.org/wiki/Programme_informatique">programme informatique</a> est un ensemble d'opérations destinées à être exécutées par un ordinateur.</p> <p>Un programme peut se décliner sous plusieurs formes :</p> <ul> <li>Code source</li> <li>Listing assembleur</li> <li>Exécutable binaire</li> </ul> <p>Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation">systèmes d'exploitation</a> tels que Windows sont dits <a href="https://fr.wikipedia.org/wiki/Multit%C3%A2che">multitâches</a>, il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.</p> <h3 id="code-source"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1.1</span> Code source<a class="headerlink" href="#code-source" title="Permanent link">¶</a></h3> <p>Le <strong>code source</strong> est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes <a href="https://fr.wikipedia.org/wiki/Langage_Ladder">Ladder</a> utilisés dans les automates programmables et respectant la norme <a href="https://fr.wikipedia.org/wiki/CEI_61131-3">IEC 61131-3</a>, ou <a href="https://en.wikipedia.org/wiki/LabVIEW">LabView</a> un outil de développement graphique.</p> <p>Le plus souvent le code source est organisé en une <a href="https://fr.wikipedia.org/wiki/Arborescence">arborescence</a> de fichiers. Des programmes complexes comme le noyau Linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.</p> <h3 id="executable-binaire"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1.2</span> Exécutable binaire<a class="headerlink" href="#executable-binaire" title="Permanent link">¶</a></h3> <p>Une fois compilé en <a href="https://fr.wikipedia.org/wiki/Langage_machine">langage machine</a>, il en résulte un fichier qui peut être exécuté soit par un système d'exploitation, soit sur une plateforme embarquée à microcontrôleur sans l'intermédiaire d'un système d'exploitation. On dit que ce type de programme est <a href="https://en.wikipedia.org/wiki/Bare_machine">bare metal</a>, qu'il s'exécute à même le métal.</p> <p>Un exécutable binaire doit être compilé pour la bonne architecture matérielle. Un programme compilé pour un processeur INTEL ne pourra pas s'exécuter sur un processeur ARM, c'est pourquoi on utilise différents compilateurs en fonctions des architectures cibles. L'opération de compiler un programme pour une autre architecture, ou un autre système d'exploitation que celui sur lequel est installé le compilateur s'appelle la compilation croisée (<a href="https://en.wikipedia.org/wiki/Cross_compiler">cross-compilation</a>).</p> <p>Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci :</p> <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></link></head>
+<body data-md-color-accent="light-blue" data-md-color-primary="red" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#programmes-et-processus">11. 
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+<aside class="md-banner md-banner--warning">
+<div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../../..">
+<strong>Click here to go to latest.</strong>
+</a>
+</div>
+<script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+</aside>
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="En-tête" class="md-header__inner md-grid">
+<a aria-label="Le C pour l'ingénieur" class="md-header__button md-logo" data-md-component="logo" href="https://heig-tin-info.github.io/handbook" title="Le C pour l'ingénieur">
+<img alt="logo" src="../../assets/logos/heig-vd-white.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Le C pour l'ingénieur
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Programmes et Processus
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="red" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="red" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"></path></svg>
+</label>
+</form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Recherche" class="md-search__options">
+<a aria-label="Partager" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Partager">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
+</a>
+<button aria-label="Effacer" class="md-search__icon md-icon" tabindex="-1" title="Effacer" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/heig-tin-info/handbook" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    heig-tin-info/handbook
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Onglets" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../introduction/">
+          
+  
+  Cours C
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../tools/environment/">
+          
+  
+  Outils
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../appendix/bibliography/">
+          
+  
+  Annexes
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../summary/summary/">
+          
+  
+  Summary
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Le C pour l'ingénieur" class="md-nav__button md-logo" data-md-component="logo" href="https://heig-tin-info.github.io/handbook" title="Le C pour l'ingénieur">
+<img alt="logo" src="../../assets/logos/heig-vd-white.svg"/>
+</a>
+    Le C pour l'ingénieur
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/heig-tin-info/handbook" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    heig-tin-info/handbook
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    Cours C
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Cours C
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../programming/">
+<span class="md-ellipsis">
+    Programmation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../code-of-conduct/">
+<span class="md-ellipsis">
+    Code de conduite
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../c-lang/">
+<span class="md-ellipsis">
+    Langage C
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../foundations/">
+<span class="md-ellipsis">
+    Généralités du langage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../numeration/">
+<span class="md-ellipsis">
+    Numération
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../datatype/">
+<span class="md-ellipsis">
+    Types de données
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../operators/">
+<span class="md-ellipsis">
+    Opérateurs
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../control-structures/">
+<span class="md-ellipsis">
+    Structures de contrôle
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../preprocessor/">
+<span class="md-ellipsis">
+    Préprocesseur
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Programmes et Processus
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Programmes et Processus
+  </span>
+</a>
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#quest-ce-quun-programme">11.1 
+<span class="md-ellipsis">
+      Qu'est-ce qu'un programme?
+    </span>
+</a>
+<nav aria-label="Qu'est-ce qu'un programme?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#code-source">11.1.1 
+<span class="md-ellipsis">
+      Code source
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#executable-binaire">11.1.2 
+<span class="md-ellipsis">
+      Exécutable binaire
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entrees-sorties">11.1.3 
+<span class="md-ellipsis">
+      Entrées sorties
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#signaux">11.1.4 
+<span class="md-ellipsis">
+      Signaux
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arguments-et-options">11.2 
+<span class="md-ellipsis">
+      Arguments et options
+    </span>
+</a>
+<nav aria-label="Arguments et options" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#norme-posix">11.2.1 
+<span class="md-ellipsis">
+      Norme POSIX
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extension-gnu">11.2.2 
+<span class="md-ellipsis">
+      Extension GNU
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows">11.2.3 
+<span class="md-ellipsis">
+      Windows
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fonction-main">11.3 
+<span class="md-ellipsis">
+      Fonction main
+    </span>
+</a>
+<nav aria-label="Fonction main" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#qui-appelle-main">11.3.1 
+<span class="md-ellipsis">
+      Qui appelle main ?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#valeur-de-retour">11.3.2 
+<span class="md-ellipsis">
+      Valeur de retour
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entrees-sorties-standards">11.4 
+<span class="md-ellipsis">
+      Entrées sorties standards
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#boucle-dattente">11.5 
+<span class="md-ellipsis">
+      Boucle d'attente
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../functions/">
+<span class="md-ellipsis">
+    Fonctions
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../stdio/">
+<span class="md-ellipsis">
+    Entrées Sorties
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../composite-datatypes/">
+<span class="md-ellipsis">
+    Types composites
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../files/">
+<span class="md-ellipsis">
+    Fichiers
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../memory-management/">
+<span class="md-ellipsis">
+    Gestion de la mémoire
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pointers/">
+<span class="md-ellipsis">
+    Pointeurs
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../standard-library/">
+<span class="md-ellipsis">
+    Bibliothèques
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../algorithms/">
+<span class="md-ellipsis">
+    Algorithmes et conception
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../translation-units/">
+<span class="md-ellipsis">
+    Compilation séparée
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../scopes/">
+<span class="md-ellipsis">
+    Portée et visibilité
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-structures/">
+<span class="md-ellipsis">
+    Structures de données
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../testing/">
+<span class="md-ellipsis">
+    Qualité et Testabilité
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../traps/">
+<span class="md-ellipsis">
+    Pièges
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../advanced-topics/">
+<span class="md-ellipsis">
+    Avancé
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../philosophy/">
+<span class="md-ellipsis">
+    Philosophie
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../funny/">
+<span class="md-ellipsis">
+    Humour d'informaticien
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../tools/environment/">
+<span class="md-ellipsis">
+    Outils
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../appendix/bibliography/">
+<span class="md-ellipsis">
+    Annexes
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../summary/summary/">
+<span class="md-ellipsis">
+    Summary
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#quest-ce-quun-programme">11.1 
+<span class="md-ellipsis">
+      Qu'est-ce qu'un programme?
+    </span>
+</a>
+<nav aria-label="Qu'est-ce qu'un programme?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#code-source">11.1.1 
+<span class="md-ellipsis">
+      Code source
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#executable-binaire">11.1.2 
+<span class="md-ellipsis">
+      Exécutable binaire
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entrees-sorties">11.1.3 
+<span class="md-ellipsis">
+      Entrées sorties
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#signaux">11.1.4 
+<span class="md-ellipsis">
+      Signaux
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arguments-et-options">11.2 
+<span class="md-ellipsis">
+      Arguments et options
+    </span>
+</a>
+<nav aria-label="Arguments et options" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#norme-posix">11.2.1 
+<span class="md-ellipsis">
+      Norme POSIX
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extension-gnu">11.2.2 
+<span class="md-ellipsis">
+      Extension GNU
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows">11.2.3 
+<span class="md-ellipsis">
+      Windows
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fonction-main">11.3 
+<span class="md-ellipsis">
+      Fonction main
+    </span>
+</a>
+<nav aria-label="Fonction main" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#qui-appelle-main">11.3.1 
+<span class="md-ellipsis">
+      Qui appelle main ?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#valeur-de-retour">11.3.2 
+<span class="md-ellipsis">
+      Valeur de retour
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entrees-sorties-standards">11.4 
+<span class="md-ellipsis">
+      Entrées sorties standards
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#boucle-dattente">11.5 
+<span class="md-ellipsis">
+      Boucle d'attente
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/heig-tin-info/handbook/edit/master/docs/content/processus.md" title="Editer cette page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<a class="md-content__button md-icon" href="https://github.com/heig-tin-info/handbook/raw/master/docs/content/processus.md" title="Consulter la source de cette page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"></path></svg>
+</a>
+<html><body><h1 id="programmes-et-processus"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.</span> Programmes et Processus<a class="headerlink" href="#programmes-et-processus" title="Permanent link">¶</a></h1>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/vintage-programmer.jpg"><img alt="Programmeuse en tenue décontractée à côté de 62'500 cartes perforées" src="../../assets/images/vintage-programmer.jpg" width="60%"/></a><figcaption>Figure 1: Programmeuse en tenue décontractée à côté de 62'500 cartes perforées</figcaption></figure></p>
+<h2 id="quest-ce-quun-programme"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1</span> Qu'est-ce qu'un programme?<a class="headerlink" href="#quest-ce-quun-programme" title="Permanent link">¶</a></h2>
+<p>Un <a href="https://fr.wikipedia.org/wiki/Programme_informatique">programme informatique</a> est un ensemble d'opérations destinées à être exécutées par un ordinateur.</p>
+<p>Un programme peut se décliner sous plusieurs formes :</p>
+<ul>
+<li>Code source</li>
+<li>Listing assembleur</li>
+<li>Exécutable binaire</li>
+</ul>
+<p>Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation">systèmes d'exploitation</a> tels que Windows sont dits <a href="https://fr.wikipedia.org/wiki/Multit%C3%A2che">multitâches</a>, il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.</p>
+<h3 id="code-source"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1.1</span> Code source<a class="headerlink" href="#code-source" title="Permanent link">¶</a></h3>
+<p>Le <strong>code source</strong> est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes <a href="https://fr.wikipedia.org/wiki/Langage_Ladder">Ladder</a> utilisés dans les automates programmables et respectant la norme <a href="https://fr.wikipedia.org/wiki/CEI_61131-3">IEC 61131-3</a>, ou <a href="https://en.wikipedia.org/wiki/LabVIEW">LabView</a> un outil de développement graphique.</p>
+<p>Le plus souvent le code source est organisé en une <a href="https://fr.wikipedia.org/wiki/Arborescence">arborescence</a> de fichiers. Des programmes complexes comme le noyau Linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.</p>
+<h3 id="executable-binaire"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1.2</span> Exécutable binaire<a class="headerlink" href="#executable-binaire" title="Permanent link">¶</a></h3>
+<p>Une fois compilé en <a href="https://fr.wikipedia.org/wiki/Langage_machine">langage machine</a>, il en résulte un fichier qui peut être exécuté soit par un système d'exploitation, soit sur une plateforme embarquée à microcontrôleur sans l'intermédiaire d'un système d'exploitation. On dit que ce type de programme est <a href="https://en.wikipedia.org/wiki/Bare_machine">bare metal</a>, qu'il s'exécute à même le métal.</p>
+<p>Un exécutable binaire doit être compilé pour la bonne architecture matérielle. Un programme compilé pour un processeur INTEL ne pourra pas s'exécuter sur un processeur ARM, c'est pourquoi on utilise différents compilateurs en fonctions des architectures cibles. L'opération de compiler un programme pour une autre architecture, ou un autre système d'exploitation que celui sur lequel est installé le compilateur s'appelle la compilation croisée (<a href="https://en.wikipedia.org/wiki/Cross_compiler">cross-compilation</a>).</p>
+<p>Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 </span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">{</span>
@@ -27,9 +748,13 @@
 </span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="p">}</span>
-</span></code></pre></div> <p>Une fois <a href="https://fr.wikipedia.org/wiki/Assembly_(informatique)">assemblé</a> le code source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc :</p> <div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="go">gcc Fibonacci.c -o fibonacci.exe</span>
+</span></code></pre></div>
+<p>Une fois <a href="https://fr.wikipedia.org/wiki/Assembly_(informatique)">assemblé</a> le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc :</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="go">gcc Fibonacci.c -o fibonacci.exe</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="go">objdump -d fibonacci.exe</span>
-</span></code></pre></div> <p>On obtient un fichier similaire à ceci qui contient le code machine (<code>48 83 ec 20</code>), et l'équivalent en langage assembleur (<code>mov %fs:0x28,%rax</code>):</p> <div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="go">0000000000000680 &lt;main&gt;:</span>
+</span></code></pre></div>
+<p>On obtient un fichier similaire à ceci qui contient le code machine (<code>48 83 ec 20</code>), et l'équivalent en langage assembleur (<code>mov    %fs:0x28,%rax</code>):</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="go">0000000000000680 &lt;main&gt;:</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="go">680:   41 55                   push   %r13</span>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="go">682:   41 54                   push   %r12</span>
 </span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="go">684:   48 8d 35 59 02 00 00    lea    0x259(%rip),%rsi</span>
@@ -60,7 +785,9 @@
 </span><span id="__span-2-29"><a href="#__codelineno-2-29" id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="go">742:   66 2e 0f 1f 84 00 00    nopw   %cs:0x0(%rax,%rax,1)</span>
 </span><span id="__span-2-30"><a href="#__codelineno-2-30" id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="go">749:   00 00 00</span>
 </span><span id="__span-2-31"><a href="#__codelineno-2-31" id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="go">74c:   0f 1f 40 00             nopl   0x0(%rax)</span>
-</span></code></pre></div> <p>Avec un visualiseur hexadécimal, on peut extraire le langage machine du binaire exécutable. L'utilitaire <code>hexdump</code> est appelé avec deux options <code>-s</code> pour spécifier l'adresse de début, on choisit ici celle du début de la fonction <code>main</code> <code>0x680</code>, et <code>-n</code> pour n'extraire que les premiers 256 octets :</p> <div class="language-console highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gp">$ </span>hexdump<span class="w"> </span>-s0x680<span class="w"> </span>-n256<span class="w"> </span>a.out
+</span></code></pre></div>
+<p>Avec un visualiseur hexadécimal, on peut extraire le langage machine du binaire exécutable. L'utilitaire <code>hexdump</code> est appelé avec deux options <code>-s</code> pour spécifier l'adresse de début, on choisit ici celle du début de la fonction <code>main</code> <code>0x680</code>, et <code>-n</code> pour n'extraire que les premiers 256 octets :</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gp">$ </span>hexdump<span class="w"> </span>-s0x680<span class="w"> </span>-n256<span class="w"> </span>a.out
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="go">0000680 5541 5441 8d48 5935 0002 5500 bf53 0001</span>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="go">0000690 0000 8348 18ec 4864 048b 2825 0000 4800</span>
 </span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="go">00006a0 4489 0824 c031 a5e8 ffff 48ff 748d 0424</span>
@@ -77,14 +804,82 @@
 </span><span id="__span-3-15"><a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="go">0000750 ed31 8949 5ed1 8948 48e2 e483 50f0 4c54</span>
 </span><span id="__span-3-16"><a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="go">0000760 058d 016a 0000 8d48 f30d 0000 4800 3d8d</span>
 </span><span id="__span-3-17"><a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="go">0000770 ff0c ffff 15ff 0866 0020 0ff4 441f 0000</span>
-</span></code></pre></div> <p>Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs <code>41 55</code> puis <code>41 54</code> puis <code>48 8d 35 59</code> se retrouvent directement dans le <em>dump</em>: <code>5541 5441 8d48</code>. Si les valeurs sont interverties, c'est parce qu'un PC est <em>little-endian</em> (c.f. {numref}<code>endianess</code>), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.</p> <p>Sous Windows, l'extension des fichiers détermine leur type. Un fichier avec l'extension <code>.jpg</code> sera un fichier image du <a href="https://fr.wikipedia.org/wiki/JPEG">Join Photographic Experts Group</a> et exécuter ce fichier correspond à l'ouvrir en utilisant l'application par défaut pour visualiser les images de ce type. Un fichier avec l'extension <code>.exe</code> est un exécutable binaire, et il sera exécuté en tant que programme par le système d'exploitation.</p> <p>Sous <abbr title="Portable Operating System Interface">POSIX</abbr> (Linux, macOS, <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>), les <em>flags</em> d'un fichier qualifient son type. Le programme <code>ls</code> permet de visualiser les flags du programme <code>Fibonacci</code> que nous avons compilé:</p> <div class="language-console highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="gp">$ </span>ls<span class="w"> </span>-al<span class="w"> </span>a.out
+</span></code></pre></div>
+<p>Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs <code>41 55</code> puis <code>41 54</code> puis <code>48 8d 35 59</code> se retrouvent directement dans le <em>dump</em>: <code>5541 5441 8d48</code>. Si les valeurs sont interverties, c'est parce qu'un PC est <em>little-endian</em> (c.f. {numref}<code>endianess</code>), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.</p>
+<p>Sous Windows, l'extension des fichiers détermine leur type. Un fichier avec l'extension <code>.jpg</code> sera un fichier image du <a href="https://fr.wikipedia.org/wiki/JPEG">Join Photographic Experts Group</a> et exécuter ce fichier correspond à l'ouvrir en utilisant l'application par défaut pour visualiser les images de ce type. Un fichier avec l'extension <code>.exe</code> est un exécutable binaire, et il sera exécuté en tant que programme par le système d'exploitation.</p>
+<p>Sous <abbr title="Portable Operating System Interface">POSIX</abbr> (Linux, macOS, <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>), les <em>flags</em> d'un fichier qualifient son type. Le programme <code>ls</code> permet de visualiser les flags du programme <code>Fibonacci</code> que nous avons compilé:</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="gp">$ </span>ls<span class="w"> </span>-al<span class="w"> </span>a.out
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="go">-rwxr-xr-x 1 root ftp 8.3K Jul 17 09:53 Fibonacci</span>
-</span></code></pre></div> <p>Les lettres <code>r-x</code> indiquent :</p> <dl> <dt><code>r</code></dt> <dd> <p>Lecture autorisée</p> </dd> <dt><code>w</code></dt> <dd> <p>Écriture autorisée</p> </dd> <dt><code>x</code></dt> <dd> <p>Exécution autorisée</p> </dd> </dl> <p>Ce programme peut-être exécuté par tout le monde, mais modifié que par l'utilisateur <code>root</code>.</p> <h3 id="entrees-sorties"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1.3</span> Entrées sorties<a class="headerlink" href="#entrees-sorties" title="Permanent link">¶</a></h3> <p>Tout programme doit pouvoir interagir avec son environnement. À l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées :</p> <ul> <li>L'entrée standard <code>STDIN</code> fournit au programme du contenu qui est généralement fourni par la sortie d'un autre programme.</li> <li>Les arguments du programme <code>ARGV</code></li> <li>Les variables d'environnement <code>ENVP</code></li> </ul> <p>Ainsi qu'à des sorties :</p> <ul> <li>La sortie standard <code>STDOUT</code> est généralement affichée à l'écran</li> <li>La sortie d'erreur standard <code>STDERR</code> contient des détails sur les éventuelles erreurs d'exécution du programme.</li> </ul> <p>La figure suivante résume les interactions qu'un programme peut avoir sur son environnement. Les appels système (<a href="https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me">syscall</a>) sont des ordres transmis directement au système d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.</p> <p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/program.drawio"><img alt="Résumé des interactions avec un programme" src="../../assets/images/program.drawio"/></a><figcaption>Figure 2: Résumé des interactions avec un programme</figcaption></figure></p> <h3 id="signaux"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1.4</span> Signaux<a class="headerlink" href="#signaux" title="Permanent link">¶</a></h3> <p>Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des <a href="https://fr.wikipedia.org/wiki/Signal_(informatique)">signaux</a>. Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.</p> <p>Si, en utilisant Windows, vous vous rendez dans le <a href="https://fr.wikipedia.org/wiki/Gestionnaire_des_t%C3%A2ches_Windows">gestionnaire de tâches</a> et que vous décidez de <em>Terminer une tâche</em>, le système d'exploitation envoie un signal au programme lui demandant de se terminer.</p> <p>Sous Linux, habituellement, le <em>shell</em> relie certains raccourcis clavier à des signaux particuliers :</p> <ul> <li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> envoie le signal <code>SIGINT</code> pour interrompre l'exécution d'un programme</li> <li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-z">Z</kbd></span> envoie le signal <code>SIGTSTP</code> pour suspendre l'exécution d'un programme</li> <li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-t">T</kbd></span> envoie le signal <code>SIGINFO</code> permettant de visualiser certaines informations liées à l'exécution du processus.</li> </ul> <p>Si le programme suivant est exécuté, il sera bloquant, c'est-à-dire qu'à moins d'envoyer un signal d'interruption, il ne sera pas possible d'interrompre le processus :</p> <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Les lettres <code>r-x</code> indiquent :</p>
+<dl>
+<dt><code>r</code></dt>
+<dd>
+<p>Lecture autorisée</p>
+</dd>
+<dt><code>w</code></dt>
+<dd>
+<p>Écriture autorisée</p>
+</dd>
+<dt><code>x</code></dt>
+<dd>
+<p>Exécution autorisée</p>
+</dd>
+</dl>
+<p>Ce programme peut-être exécuté par tout le monde, mais modifié que par l'utilisateur <code>root</code>.</p>
+<h3 id="entrees-sorties"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1.3</span> Entrées sorties<a class="headerlink" href="#entrees-sorties" title="Permanent link">¶</a></h3>
+<p>Tout programme doit pouvoir interagir avec son environnement. À l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées :</p>
+<ul>
+<li>L'entrée standard <code>STDIN</code> fournit au programme du contenu qui est généralement fourni par la sortie d'un autre programme.</li>
+<li>Les arguments du programme <code>ARGV</code></li>
+<li>Les variables d'environnement <code>ENVP</code></li>
+</ul>
+<p>Ainsi qu'à des sorties :</p>
+<ul>
+<li>La sortie standard <code>STDOUT</code> est généralement affichée à l'écran</li>
+<li>La sortie d'erreur standard <code>STDERR</code> contient des détails sur les éventuelles erreurs d'exécution du programme.</li>
+</ul>
+<p>La figure suivante résume les interactions qu'un programme peut avoir sur son environnement. Les appels système (<a href="https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me">syscall</a>) sont des ordres transmis directement au système d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.</p>
+<p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/program.drawio"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg height="395px" version="1.1" viewbox="-0.5 -0.5 773 395" width="773px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><g><path d="M 226.5 236 L 406.5 236 L 406.5 136 L 226.5 136 L 226.5 236" fill="#ffffff" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><g transform="translate(-0.5 -0.5)"><switch><foreignobject height="100%" pointer-events="none" requiredfeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 182px; height: 1px; padding-top: 186px; margin-left: 226px;" xmlns="http://www.w3.org/1999/xhtml"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center; width: 180px; max-height: 100px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><font style="font-size:14.11px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">Programme<br/></font></div></div></div></div></foreignobject><text fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle" x="317" y="190">Programme
+</text></switch></g><path d="M 49.5 185.5 C 49.5 175.28 57.78 167 68 167 C 78.22 167 86.5 175.28 86.5 185.5 C 86.5 195.72 78.22 204 68 204 C 57.78 204 49.5 195.72 49.5 185.5" fill="#ffffff" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 546.5 158.5 C 546.5 148.28 554.78 140 565 140 C 575.22 140 583.5 148.28 583.5 158.5 C 583.5 168.72 575.22 177 565 177 C 554.78 177 546.5 168.72 546.5 158.5" fill="#ffffff" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 255.5 56.5 C 255.5 46.28 263.78 38 274 38 C 284.22 38 292.5 46.28 292.5 56.5 C 292.5 66.72 284.22 75 274 75 C 263.78 75 255.5 66.72 255.5 56.5" fill="#ffffff" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 347.5 56.5 C 347.5 46.28 355.78 38 366 38 C 376.22 38 384.5 46.28 384.5 56.5 C 384.5 66.72 376.22 75 366 75 C 355.78 75 347.5 66.72 347.5 56.5" fill="#ffffff" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 1 258 L 135 258 L 135 221 L 1 221 L 1 258" fill="none" pointer-events="all" stroke="none"></path><g transform="translate(-0.5 -0.5)"><switch><foreignobject height="100%" pointer-events="none" requiredfeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 136px; height: 1px; padding-top: 240px; margin-left: 0px;" xmlns="http://www.w3.org/1999/xhtml"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center; width: 134px; max-height: 37px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><font style="font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">Entrée standard<br/>(STDIN)<br/></font></div></div></div></div></foreignobject><text fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle" x="68" y="243">Entrée standard...</text></switch></g><path d="M 592.5 172 L 771 172 L 771 144 L 592.5 144 L 592.5 172" fill="none" pointer-events="all" stroke="none"></path><g transform="translate(-0.5 -0.5)"><switch><foreignobject height="100%" pointer-events="none" requiredfeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 181px; height: 1px; padding-top: 158px; margin-left: 593px;" xmlns="http://www.w3.org/1999/xhtml"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left; width: 179px; max-height: 28px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><p style="text-align:left;margin-left:0;margin-right:0;margin-top:0px;margin-bottom:0px;text-indent:0;vertical-align:middle;direction:ltr;"><font style="font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">Sortie standard (STDOUT)<br/></font></p></div></div></div></div></foreignobject><text fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" x="593" y="162">Sortie standard (STDOUT)
+</text></switch></g><path d="M 546.5 211.5 C 546.5 201.28 554.78 193 565 193 C 575.22 193 583.5 201.28 583.5 211.5 C 583.5 221.72 575.22 230 565 230 C 554.78 230 546.5 221.72 546.5 211.5" fill="#ffffff" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 592.5 225 L 771 225 L 771 197 L 592.5 197 L 592.5 225" fill="none" pointer-events="all" stroke="none"></path><g transform="translate(-0.5 -0.5)"><switch><foreignobject height="100%" pointer-events="none" requiredfeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 181px; height: 1px; padding-top: 211px; margin-left: 593px;" xmlns="http://www.w3.org/1999/xhtml"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left; width: 179px; max-height: 28px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><p style="text-align:left;margin-left:0;margin-right:0;margin-top:0px;margin-bottom:0px;text-indent:0;vertical-align:middle;direction:ltr;"><font style="font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">Erreur standard (STDERR)<br/></font></p></div></div></div></div></foreignobject><text fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" x="593" y="215">Erreur standard (STDERR)
+</text></switch></g><path d="M 223.5 29 L 330.5 29 L 330.5 1 L 223.5 1 L 223.5 29" fill="none" pointer-events="all" stroke="none"></path><g transform="translate(-0.5 -0.5)"><switch><foreignobject height="100%" pointer-events="none" requiredfeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 109px; height: 1px; padding-top: 15px; margin-left: 224px;" xmlns="http://www.w3.org/1999/xhtml"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left; width: 107px; max-height: 28px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><p style="text-align:left;margin-left:0;margin-right:0;margin-top:0px;margin-bottom:0px;text-indent:0;vertical-align:middle;direction:ltr;"><font style="font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">Arguments<br/></font></p></div></div></div></div></foreignobject><text fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" x="224" y="19">Arguments
+</text></switch></g><path d="M 313.5 29 L 420.5 29 L 420.5 1 L 313.5 1 L 313.5 29" fill="none" pointer-events="all" stroke="none"></path><g transform="translate(-0.5 -0.5)"><switch><foreignobject height="100%" pointer-events="none" requiredfeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 109px; height: 1px; padding-top: 15px; margin-left: 314px;" xmlns="http://www.w3.org/1999/xhtml"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left; width: 107px; max-height: 28px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><p style="text-align:left;margin-left:0;margin-right:0;margin-top:0px;margin-bottom:0px;text-indent:0;vertical-align:middle;direction:ltr;"><font style="font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">Environment<br/></font></p></div></div></div></div></foreignobject><text fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" x="314" y="19">Environment
+</text></switch></g><path d="M 256.5 250 L 255.59 322.88" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path><path d="M 255.51 328.88 L 252.59 322.85 L 258.59 322.92 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 268.5 341 L 269.41 268.12" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path><path d="M 269.49 262.12 L 272.41 268.15 L 266.41 268.08 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 175.5 393 L 355.5 393 L 355.5 356 L 175.5 356 L 175.5 393" fill="#ffffff" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><g transform="translate(-0.5 -0.5)"><switch><foreignobject height="100%" pointer-events="none" requiredfeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 182px; height: 1px; padding-top: 375px; margin-left: 175px;" xmlns="http://www.w3.org/1999/xhtml"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center; width: 180px; max-height: 37px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><font style="font-size:14.11px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">Système d’exploitation<br/></font></div></div></div></div></foreignobject><text fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle" x="266" y="378">Système d’exploitation
+</text></switch></g><path d="M 128.5 311 L 255.5 311 L 255.5 283 L 128.5 283 L 128.5 311" fill="none" pointer-events="all" stroke="none"></path><g transform="translate(-0.5 -0.5)"><switch><foreignobject height="100%" pointer-events="none" requiredfeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 129px; height: 1px; padding-top: 297px; margin-left: 128px;" xmlns="http://www.w3.org/1999/xhtml"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center; width: 127px; max-height: 28px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><font style="font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">Appel système<br/></font></div></div></div></div></foreignobject><text fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle" x="192" y="301">Appel système
+</text></switch></g><path d="M 546.5 281.5 C 546.5 271.28 554.78 263 565 263 C 575.22 263 583.5 271.28 583.5 281.5 C 583.5 291.72 575.22 300 565 300 C 554.78 300 546.5 291.72 546.5 281.5" fill="#ffffff" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 592.5 296 L 761 296 L 761 268 L 592.5 268 L 592.5 296" fill="none" pointer-events="all" stroke="none"></path><g transform="translate(-0.5 -0.5)"><switch><foreignobject height="100%" pointer-events="none" requiredfeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 171px; height: 1px; padding-top: 282px; margin-left: 593px;" xmlns="http://www.w3.org/1999/xhtml"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left; width: 169px; max-height: 28px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><p style="text-align:left;margin-left:0;margin-right:0;margin-top:0px;margin-bottom:0px;text-indent:0;vertical-align:middle;direction:ltr;"><font style="font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">Status de sortie<br/></font></p></div></div></div></div></foreignobject><text fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" x="593" y="286">Status de sortie
+</text></switch></g><path d="M 316.5 236 L 316.5 282.2 L 539.38 282.01" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path><path d="M 545.38 282 L 539.38 285.01 L 539.38 279.01 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 406.5 212 L 421.5 212 L 539.38 212" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path><path d="M 545.38 212 L 539.38 215 L 539.38 209 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 86.5 186 L 219.38 186" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path><path d="M 225.38 186 L 219.38 189 L 219.38 183 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 406.5 159 L 421.5 159 L 539.38 159" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path><path d="M 545.38 159 L 539.38 162 L 539.38 156 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 274.5 76 L 274.5 91 L 274.5 128.88" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path><path d="M 274.5 134.88 L 271.5 128.88 L 277.5 128.88 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path><path d="M 366.5 76 L 366.5 91 L 366.5 128.88" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path><path d="M 366.5 134.88 L 363.5 128.88 L 369.5 128.88 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path></g><switch><g requiredfeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"></g><a target="_blank" transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems"><text font-size="10px" text-anchor="middle" x="50%" y="100%">Text is not SVG - cannot display</text></a></switch></svg></a><figcaption>Figure 2: Résumé des interactions avec un programme</figcaption></figure></p>
+<h3 id="signaux"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1.4</span> Signaux<a class="headerlink" href="#signaux" title="Permanent link">¶</a></h3>
+<p>Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des <a href="https://fr.wikipedia.org/wiki/Signal_(informatique)">signaux</a>. Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.</p>
+<p>Si, en utilisant Windows, vous vous rendez dans le <a href="https://fr.wikipedia.org/wiki/Gestionnaire_des_t%C3%A2ches_Windows">gestionnaire de tâches</a> et que vous décidez de <em>Terminer une tâche</em>, le système d'exploitation envoie un signal au programme lui demandant de se terminer.</p>
+<p>Sous Linux, habituellement, le <em>shell</em> relie certains raccourcis clavier à des signaux particuliers :</p>
+<ul>
+<li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> envoie le signal <code>SIGINT</code> pour interrompre l'exécution d'un programme</li>
+<li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-z">Z</kbd></span> envoie le signal <code>SIGTSTP</code> pour suspendre l'exécution d'un programme</li>
+<li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-t">T</kbd></span> envoie le signal <code>SIGINFO</code> permettant de visualiser certaines informations liées à l'exécution du processus.</li>
+</ul>
+<p>Si le programme suivant est exécuté, il sera bloquant, c'est-à-dire qu'à moins d'envoyer un signal d'interruption, il ne sera pas possible d'interrompre le processus :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="p">{</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="k">for</span><span class="p">(;;);</span>
 </span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">}</span>
-</span></code></pre></div> <h2 id="arguments-et-options"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.2</span> Arguments et options<a class="headerlink" href="#arguments-et-options" title="Permanent link">¶</a></h2> <p>L'interpréteur de commande <code>cmd.exe</code> sous Windows ou <code>bash</code> sous Linux, fonctionne de façon assez similaire. L'<strong>invite de commande</strong> nommée <em>prompt</em> en anglais invite l'utilisateur à entrer une commande. Sous <a href="https://fr.wikipedia.org/wiki/DOS">DOS</a> puis sous Windows cet invite de commande ressemble à ceci :</p> <div class="language-console highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="go">C:\&gt;</span>
-</span></code></pre></div> <p>Sous Linux, le prompt est largement configurable et dépend de la distribution installée, mais le plus souvent il se termine par le caractère <code>$</code> ou <code>#</code>.</p> <p>Une commande débute par le nom de cette dernière, qui peut être le nom du programme que l'on souhaite exécuter puis vient les arguments et les options.</p> <ul> <li>Une <strong>option</strong> est par convention un <strong>argument</strong> dont le préfixe est <code>-</code> sous Linux ou <code>/</code> sous Windows même si le standard <abbr title="GNU's Not Unix">GNU</abbr> gagne du terrain. Aussi, le consensus le plus large semble être le suivant :</li> <li>Une option peut être exprimée soit sous format court <code>-o</code>, <code>-v</code>, soit sous format long <code>--output=</code>, <code>--verbose</code> selon qu'elle commence par un ou deux tirets. Une option peut être un booléenne (présence ou non de l'option), ou scalaire, c'est-à-dire être associée à une valeur <code>--output=foo.o</code>. Les options modifient le comportement interne d'un programme.</li> </ul> <p>Un argument est une chaîne de caractères utilisée comme entrée au programme. Un programme peut avoir plusieurs arguments.</p> <p>En C, c'est au développeur de distinguer les options des arguments, car ils sont tous passés par le paramètre <code>argv</code>:</p> <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span></code></pre></div>
+<h2 id="arguments-et-options"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.2</span> Arguments et options<a class="headerlink" href="#arguments-et-options" title="Permanent link">¶</a></h2>
+<p>L'interpréteur de commande <code>cmd.exe</code> sous Windows ou <code>bash</code> sous Linux, fonctionne de façon assez similaire. L'<strong>invite de commande</strong> nommée <em>prompt</em> en anglais invite l'utilisateur à entrer une commande. Sous <a href="https://fr.wikipedia.org/wiki/DOS">DOS</a> puis sous Windows cet invite de commande ressemble à ceci :</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="go">C:\&gt;</span>
+</span></code></pre></div>
+<p>Sous Linux, le prompt est largement configurable et dépend de la distribution installée, mais le plus souvent il se termine par le caractère <code>$</code> ou <code>#</code>.</p>
+<p>Une commande débute par le nom de cette dernière, qui peut être le nom du programme que l'on souhaite exécuter puis vient les arguments et les options.</p>
+<ul>
+<li>Une <strong>option</strong> est par convention un <strong>argument</strong> dont le préfixe est <code>-</code> sous Linux ou <code>/</code> sous Windows même si le standard <abbr title="GNU's Not Unix">GNU</abbr> gagne du terrain. Aussi, le consensus le plus large semble être le suivant :</li>
+<li>Une option peut être exprimée soit sous format court <code>-o</code>, <code>-v</code>, soit sous format long <code>--output=</code>, <code>--verbose</code> selon qu'elle commence par un ou deux tirets. Une option peut être un booléenne (présence ou non de l'option), ou scalaire, c'est-à-dire être associée à une valeur <code>--output=foo.o</code>. Les options modifient le comportement interne d'un programme.</li>
+</ul>
+<p>Un argument est une chaîne de caractères utilisée comme entrée au programme. Un programme peut avoir plusieurs arguments.</p>
+<p>En C, c'est au développeur de distinguer les options des arguments, car ils sont tous passés par le paramètre <code>argv</code>:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Liste des arguments et options passés au programme:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
@@ -93,7 +888,8 @@
 </span><span id="__span-7-7"><a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"  %u. %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 </span><span id="__span-7-8"><a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-7-9"><a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="p">}</span>
-</span></code></pre></div> <div class="language-console highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="gp">$ </span>argverbose<span class="w"> </span>--help<span class="w"> </span>-h<span class="o">=</span><span class="m">12</span><span class="w"> </span><span class="m">3</span>.14<span class="w"> </span><span class="s1">'Baguette au beurre'</span><span class="w"> </span><span class="s1">$'\t-Lait\n\t-Viande\n\t-Oeufs\f'</span>
+</span></code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="gp">$ </span>argverbose<span class="w"> </span>--help<span class="w"> </span>-h<span class="o">=</span><span class="m">12</span><span class="w"> </span><span class="m">3</span>.14<span class="w"> </span><span class="s1">'Baguette au beurre'</span><span class="w"> </span><span class="s1">$'\t-Lait\n\t-Viande\n\t-Oeufs\f'</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="go">Liste des arguments et options passés au programme :</span>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="go">0. ./a.out</span>
 </span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="go">1. --help</span>
@@ -103,10 +899,18 @@
 </span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="go">5.  -Lait</span>
 </span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="go">    -Viande</span>
 </span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="go">    -Oeufs</span>
-</span></code></pre></div> <h3 id="norme-posix"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.2.1</span> Norme <abbr title="Portable Operating System Interface">POSIX</abbr><a class="headerlink" href="#norme-posix" title="Permanent link">¶</a></h3> <p>Le standard <abbr title="Portable Operating System Interface">POSIX</abbr> décrit une façon de distinguer des <em>options</em> passées à un programme. Par exemple, le programme <a href="https://en.wikipedia.org/wiki/Cowsay">cowsay</a> peut être paramétré pour changer son comportement en utilisant des <code>options</code> standards comme <code>-d</code>. La fonction <code>getopt</code> disponible dans la bibliothèque <code>&lt;unistd.h&gt;</code> permet de facilement interpréter ces options.</p> <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">getopt</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
-</span></code></pre></div> <h3 id="extension-gnu"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.2.2</span> Extension <abbr title="GNU's Not Unix">GNU</abbr><a class="headerlink" href="#extension-gnu" title="Permanent link">¶</a></h3> <p>Malheureusement, la norme <abbr title="Portable Operating System Interface">POSIX</abbr> ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension <a href="https://fr.wikipedia.org/wiki/GNU"><abbr title="GNU's Not Unix">GNU</abbr></a> et son en-tête <code>&lt;getopt.h&gt;</code> permet l'accès à la fonction <code>getopt_long</code> laquelle permet d'interpréter aussi les options longues <code>--version</code> qui sont devenues très répandues.</p> <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">getopt_long</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">shortopts</span><span class="p">,</span>
+</span></code></pre></div>
+<h3 id="norme-posix"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.2.1</span> Norme <abbr title="Portable Operating System Interface">POSIX</abbr><a class="headerlink" href="#norme-posix" title="Permanent link">¶</a></h3>
+<p>Le standard <abbr title="Portable Operating System Interface">POSIX</abbr> décrit une façon de distinguer des <em>options</em> passées à un programme. Par exemple, le programme <a href="https://en.wikipedia.org/wiki/Cowsay">cowsay</a> peut être paramétré pour changer son comportement en utilisant des <code>options</code> standards comme <code>-d</code>. La fonction <code>getopt</code> disponible dans la bibliothèque <code>&lt;unistd.h&gt;</code> permet de facilement interpréter ces options.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">getopt</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="extension-gnu"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.2.2</span> Extension <abbr title="GNU's Not Unix">GNU</abbr><a class="headerlink" href="#extension-gnu" title="Permanent link">¶</a></h3>
+<p>Malheureusement, la norme <abbr title="Portable Operating System Interface">POSIX</abbr> ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension <a href="https://fr.wikipedia.org/wiki/GNU"><abbr title="GNU's Not Unix">GNU</abbr></a> et son en-tête <code>&lt;getopt.h&gt;</code> permet l'accès à la fonction <code>getopt_long</code> laquelle permet d'interpréter aussi les options longues <code>--version</code> qui sont devenues très répandues.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">getopt_long</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">shortopts</span><span class="p">,</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">                 </span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">option</span><span class="w"> </span><span class="o">*</span><span class="n">longopts</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">longind</span><span class="p">);</span>
-</span></code></pre></div> <p>Ci-dessous une possible utilisation de cette fonction :</p> <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;getopt.h&gt;</span>
+</span></code></pre></div>
+<p>Ci-dessous une possible utilisation de cette fonction :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;getopt.h&gt;</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
@@ -199,14 +1003,42 @@
 </span><span id="__span-11-91"><a href="#__codelineno-11-91" id="__codelineno-11-91" name="__codelineno-11-91"></a>
 </span><span id="__span-11-92"><a href="#__codelineno-11-92" id="__codelineno-11-92" name="__codelineno-11-92"></a><span class="w">    </span><span class="c1">// ...</span>
 </span><span id="__span-11-93"><a href="#__codelineno-11-93" id="__codelineno-11-93" name="__codelineno-11-93"></a><span class="p">}</span>
-</span></code></pre></div> <h3 id="windows"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.2.3</span> Windows<a class="headerlink" href="#windows" title="Permanent link">¶</a></h3> <p>Windows utilise à l'instar de <code>RDOS</code> ou <a href="https://en.wikipedia.org/wiki/OpenVMS">OpenVMS</a>, le caractère <em>slash</em> pour identifier ses options. Alors que sous <abbr title="Portable Operating System Interface">POSIX</abbr> l'affichage de la liste des fichiers s'écrira peut-être <code>ls -l -s D*</code>, sous Windows on utilisera <code>dir /q d* /o:s</code>.</p> <h2 id="fonction-main"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.3</span> Fonction main<a class="headerlink" href="#fonction-main" title="Permanent link">¶</a></h2> <p>Le standard définit une fonction nommée <code>main</code> comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction <code>main</code> a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le <a href="https://en.wikipedia.org/wiki/BIOS">BIOS</a> a chargé le système d'exploitation en mémoire. Dès lors la fonction <code>main</code> de notre programme <a href="../c-lang/#hello-world">Hello World</a> n'est pas la première, mais est appelé.</p> <h3 id="qui-appelle-main"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.3.1</span> Qui appelle main ?<a class="headerlink" href="#qui-appelle-main" title="Permanent link">¶</a></h3> <p>Un exécutable binaire à un format particulier appelé <strong>ELF</strong> (<a href="https://en.wikipedia.org/wiki/Executable_and_Linkable_Format">Executable and Linkable Format</a>) qui contient un <strong>point d'entrée</strong> qui sera l'adresse mémoire de début du programme. Sous un système <abbr title="Portable Operating System Interface">POSIX</abbr> ce point d'entrée est nommé <code>_init</code>. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la <strong>pile</strong> du programme :</p> <ul> <li>Le nombre d'arguments <code>argc</code></li> <li>La liste des arguments <code>argv</code></li> <li>Les variables d'environnements <code>envp</code></li> <li>Les pointeurs de fichiers sur <code>stdout</code>, <code>stdin</code>, <code>stderr</code></li> </ul> <p>C'est la fonction <code>__libc_start_main</code> de la bibliothèque standard qui a la responsabilité d'appeler la fonction <code>main</code>. Voici son prototype :</p> <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">__libc_start_main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">main</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="p">),</span>
+</span></code></pre></div>
+<h3 id="windows"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.2.3</span> Windows<a class="headerlink" href="#windows" title="Permanent link">¶</a></h3>
+<p>Windows utilise à l'instar de <code>RDOS</code> ou <a href="https://en.wikipedia.org/wiki/OpenVMS">OpenVMS</a>, le caractère <em>slash</em> pour identifier ses options. Alors que sous <abbr title="Portable Operating System Interface">POSIX</abbr> l'affichage de la liste des fichiers s'écrira peut-être <code>ls -l -s D*</code>, sous Windows on utilisera <code>dir /q d* /o:s</code>.</p>
+<h2 id="fonction-main"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.3</span> Fonction main<a class="headerlink" href="#fonction-main" title="Permanent link">¶</a></h2>
+<p>Le standard définit une fonction nommée <code>main</code> comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction <code>main</code> a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le <a href="https://en.wikipedia.org/wiki/BIOS">BIOS</a> a chargé le système d'exploitation en mémoire. Dès lors la fonction <code>main</code> de notre programme <a href="../c-lang/#hello-world">Hello World</a> n'est pas la première, mais est appelé.</p>
+<h3 id="qui-appelle-main"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.3.1</span> Qui appelle main ?<a class="headerlink" href="#qui-appelle-main" title="Permanent link">¶</a></h3>
+<p>Un exécutable binaire à un format particulier appelé <strong>ELF</strong> (<a href="https://en.wikipedia.org/wiki/Executable_and_Linkable_Format">Executable and Linkable Format</a>) qui contient un <strong>point d'entrée</strong> qui sera l'adresse mémoire de début du programme. Sous un système <abbr title="Portable Operating System Interface">POSIX</abbr> ce point d'entrée est nommé <code>_init</code>. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la <strong>pile</strong> du programme :</p>
+<ul>
+<li>Le nombre d'arguments <code>argc</code></li>
+<li>La liste des arguments <code>argv</code></li>
+<li>Les variables d'environnements <code>envp</code></li>
+<li>Les pointeurs de fichiers sur <code>stdout</code>, <code>stdin</code>, <code>stderr</code></li>
+</ul>
+<p>C'est la fonction <code>__libc_start_main</code> de la bibliothèque standard qui a la responsabilité d'appeler la fonction <code>main</code>. Voici son prototype :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">__libc_start_main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">main</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="p">),</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">ubp_av</span><span class="p">,</span>
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">init</span><span class="p">)(</span><span class="kt">void</span><span class="p">),</span>
 </span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fini</span><span class="p">)(</span><span class="kt">void</span><span class="p">),</span>
 </span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">rtld_fini</span><span class="p">)(</span><span class="kt">void</span><span class="p">),</span>
 </span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">stack_end</span><span class="p">)</span>
 </span><span id="__span-12-7"><a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="p">);</span>
-</span></code></pre></div> <h3 id="valeur-de-retour"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.3.2</span> Valeur de retour<a class="headerlink" href="#valeur-de-retour" title="Permanent link">¶</a></h3> <p>La fonction <code>main</code> renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme (<a href="https://en.wikipedia.org/wiki/Exit_status">exit status</a>). Sous <abbr title="Portable Operating System Interface">POSIX</abbr> et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante :</p> <dl> <dt><code>0</code></dt> <dd> <p>Succès, le programme s'est terminé correctement.</p> </dd> <dt><code>!0</code></dt> <dd> <p>Erreur, le programme ne s'est pas terminé correctement.</p> </dd> </dl> <p>Par exemple le programme <code>printf</code> retourne dans le cas précis l'erreur 130 :</p> <div class="language-console highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="gp">$ </span><span class="nb">printf</span><span class="w"> </span><span class="s1">'%d'</span><span class="w"> </span><span class="m">42</span>
+</span></code></pre></div>
+<h3 id="valeur-de-retour"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.3.2</span> Valeur de retour<a class="headerlink" href="#valeur-de-retour" title="Permanent link">¶</a></h3>
+<p>La fonction <code>main</code> renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme (<a href="https://en.wikipedia.org/wiki/Exit_status">exit status</a>). Sous <abbr title="Portable Operating System Interface">POSIX</abbr> et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante :</p>
+<dl>
+<dt><code>0</code></dt>
+<dd>
+<p>Succès, le programme s'est terminé correctement.</p>
+</dd>
+<dt><code>!0</code></dt>
+<dd>
+<p>Erreur, le programme ne s'est pas terminé correctement.</p>
+</dd>
+</dl>
+<p>Par exemple le programme <code>printf</code> retourne dans le cas précis l'erreur 130 :</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="gp">$ </span><span class="nb">printf</span><span class="w"> </span><span class="s1">'%d'</span><span class="w"> </span><span class="m">42</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="go">42</span>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
 </span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="go">0</span>
@@ -215,7 +1047,11 @@
 </span><span id="__span-13-7"><a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="go">printf: I am not a number: invalid number</span>
 </span><span id="__span-13-8"><a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
 </span><span id="__span-13-9"><a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="go">130</span>
-</span></code></pre></div> <h2 id="entrees-sorties-standards"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.4</span> Entrées sorties standards<a class="headerlink" href="#entrees-sorties-standards" title="Permanent link">¶</a></h2> <p>Le fichier d'en-tête <code>stdio.h</code> (<a href="http://man7.org/linux/man-pages/man3/stdio.3.html">man stdio</a>) permet de simplifier l'interaction avec les fichiers. Sous Linux et MacOS principalement, mais d'une certaine manière également sous Windows, les canaux d'échanges entre un programme et son hôte (<em>shell</em>, gestionnaire de fenêtre, autre programme), se font par l'intermédiaire de fichiers particuliers nommés <code>stdin</code>, <code>stdout</code> et <code>stderr</code>.</p> <p>La fonction de base est <code>putchar</code> qui écrit un caractère sur <code>stdout</code>:</p> <div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="gp">#</span>include<span class="w"> </span>&lt;stdio.h&gt;
+</span></code></pre></div>
+<h2 id="entrees-sorties-standards"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.4</span> Entrées sorties standards<a class="headerlink" href="#entrees-sorties-standards" title="Permanent link">¶</a></h2>
+<p>Le fichier d'en-tête <code>stdio.h</code> (<a href="http://man7.org/linux/man-pages/man3/stdio.3.html">man stdio</a>) permet de simplifier l'interaction avec les fichiers. Sous Linux et MacOS principalement, mais d'une certaine manière également sous Windows, les canaux d'échanges entre un programme et son hôte (<em>shell</em>, gestionnaire de fenêtre, autre programme), se font par l'intermédiaire de fichiers particuliers nommés <code>stdin</code>, <code>stdout</code> et <code>stderr</code>.</p>
+<p>La fonction de base est <code>putchar</code> qui écrit un caractère sur <code>stdout</code>:</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="gp">#</span>include<span class="w"> </span>&lt;stdio.h&gt;
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="go">int main(void) {</span>
 </span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="go">    putchar('H');</span>
@@ -225,25 +1061,40 @@
 </span><span id="__span-14-8"><a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="go">    putchar('o');</span>
 </span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="go">    putchar('\n');</span>
 </span><span id="__span-14-10"><a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="go">}</span>
-</span></code></pre></div> <p>Bien vite, on préfèrera utiliser <code>printf</code> qui simplifie le formatage de chaînes de caractères et qui permet à l'aide de marqueurs (<em>tokens</em>) de formater des variables :</p> <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span></code></pre></div>
+<p>Bien vite, on préfèrera utiliser <code>printf</code> qui simplifie le formatage de chaînes de caractères et qui permet à l'aide de marqueurs (<em>tokens</em>) de formater des variables :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-4"><a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello</span><span class="se">\v</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-15-5"><a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d, %s, %f"</span><span class="p">,</span><span class="w"> </span><span class="mh">0x12</span><span class="p">,</span><span class="w"> </span><span class="s">"World!"</span><span class="p">,</span><span class="w"> </span><span class="mf">3.1415</span><span class="p">);</span>
 </span><span id="__span-15-6"><a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="p">}</span>
-</span></code></pre></div> <p>Il peut être nécessaire, surtout lorsqu'il s'agit d'erreurs qui ne concernent pas la sortie standard du programme, d'utiliser le bon canal de communication, c'est-à-dire <code>stderr</code> au lieu de <code>stdout</code>. La fonction <code>fprintf</code> permet de spécifier le flux standard de sortie :</p> <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span></code></pre></div>
+<p>Il peut être nécessaire, surtout lorsqu'il s'agit d'erreurs qui ne concernent pas la sortie standard du programme, d'utiliser le bon canal de communication, c'est-à-dire <code>stderr</code> au lieu de <code>stdout</code>. La fonction <code>fprintf</code> permet de spécifier le flux standard de sortie :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-16-4"><a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Sortie standard</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-16-5"><a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Sortie d'erreur standard</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-16-6"><a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="p">}</span>
-</span></code></pre></div> <p>Pourquoi, me direz-vous, faut-il séparer la sortie standard du canal d'erreur? Le plus souvent un programme n'est pas utilisé seul, mais en conjonction avec d'autres programmes :</p> <div class="language-console highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Bonjour"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">'A-Za-z'</span><span class="w"> </span><span class="s1">'N-ZA-Mn-za-m'</span><span class="w"> </span>&gt;<span class="w"> </span>data.txt
+</span></code></pre></div>
+<p>Pourquoi, me direz-vous, faut-il séparer la sortie standard du canal d'erreur? Le plus souvent un programme n'est pas utilisé seul, mais en conjonction avec d'autres programmes :</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Bonjour"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">'A-Za-z'</span><span class="w"> </span><span class="s1">'N-ZA-Mn-za-m'</span><span class="w"> </span>&gt;<span class="w"> </span>data.txt
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="gp">$ </span>cat<span class="w"> </span>data.txt
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="go">Obawbhe</span>
-</span></code></pre></div> <p>Dans cet exemple ci-dessus, le programme <code>echo</code> prend en argument la chaîne de caractère <code>Bonjour</code> qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme <code>tr</code> qui effectue une opération de <a href="https://fr.wikipedia.org/wiki/ROT13">ROT13</a> et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier <code>data.txt</code>. La commande suivante <code>cat</code> lis le contenu du fichier dont le nom est passé en argument et écrit le contenu sur la sortie standard.</p> <p>Dans le cas où un de ces programmes génère une alerte (<em>warning</em>), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie: <code>stdout</code> pour la sortie standard et <code>stderr</code> pour les messages de diagnostic et les erreurs.</p> <h2 id="boucle-dattente"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.5</span> Boucle d'attente<a class="headerlink" href="#boucle-dattente" title="Permanent link">¶</a></h2> <p>Comme évoqué, un programme est souvent destiné à tourner sur un système d'exploitation. Un programme simple comme celui-ci :</p> <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span></code></pre></div>
+<p>Dans cet exemple ci-dessus, le programme <code>echo</code> prend en argument la chaîne de caractère <code>Bonjour</code> qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme <code>tr</code> qui effectue une opération de <a href="https://fr.wikipedia.org/wiki/ROT13">ROT13</a> et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier <code>data.txt</code>.
+La commande suivante <code>cat</code> lis le contenu du fichier dont le nom est passé en argument et écrit le contenu sur la sortie standard.</p>
+<p>Dans le cas où un de ces programmes génère une alerte (<em>warning</em>), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie: <code>stdout</code> pour la sortie standard et <code>stderr</code> pour les messages de diagnostic et les erreurs.</p>
+<h2 id="boucle-dattente"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.5</span> Boucle d'attente<a class="headerlink" href="#boucle-dattente" title="Permanent link">¶</a></h2>
+<p>Comme évoqué, un programme est souvent destiné à tourner sur un système d'exploitation. Un programme simple comme celui-ci :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="k">for</span><span class="p">(;;)</span><span class="w"> </span><span class="p">{}</span>
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="p">}</span>
-</span></code></pre></div> <p>consommera 100% des ressources du processeur. En d'autres termes, le processeur dépensera toute son énergie à faire 150 millions de calculs par seconde, pour rien. Et les autres processus n'auront que très peu de ressources disponibles pour tourner.</p> <p>Il est grandement préférable d'utiliser des appels système pour indiquer au noyau du système d'exploitation que le processus souhaite être mis en pause pour un temps donné. Le programme suivant utilise la fonction standard <code>sleep</code> pour demander au noyau d'être mis en attente pour une période de temps spécifiée en paramètre.</p> <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+</span></code></pre></div>
+<p>consommera 100% des ressources du processeur. En d'autres termes, le processeur dépensera toute son énergie à faire 150 millions de calculs par seconde, pour rien. Et les autres processus n'auront que très peu de ressources disponibles pour tourner.</p>
+<p>Il est grandement préférable d'utiliser des appels système pour indiquer au noyau du système d'exploitation que le processus souhaite être mis en pause pour un temps donné. Le programme suivant utilise la fonction standard <code>sleep</code> pour demander au noyau d'être mis en attente pour une période de temps spécifiée en paramètre.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span><span class="k">for</span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span>
@@ -252,7 +1103,9 @@
 </span><span id="__span-19-7"><a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="w">        </span><span class="p">...</span>
 </span><span id="__span-19-8"><a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-19-9"><a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="p">}</span>
-</span></code></pre></div> <p>Alternativement, lorsqu'un programme attend un retour de l'utilisateur par exemple en demandant la saisie au clavier d'informations, le système d'exploitation est également mis en attente et le processus ne consomme pas de ressources CPU. Le programme ci-dessous attend que l'utilisateur presse la touche entrée.</p> <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span></code></pre></div>
+<p>Alternativement, lorsqu'un programme attend un retour de l'utilisateur par exemple en demandant la saisie au clavier d'informations, le système d'exploitation est également mis en attente et le processus ne consomme pas de ressources CPU. Le programme ci-dessous attend que l'utilisateur presse la touche entrée.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="w">    </span><span class="k">for</span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span>
@@ -260,7 +1113,159 @@
 </span><span id="__span-20-6"><a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Vous avez pressé la touche enter (</span><span class="se">\\</span><span class="s">n)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-20-7"><a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-20-8"><a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="p">}</span>
-</span></code></pre></div> <div class="admonition exercise"> <p class="admonition-title">Exercise: La fortune, la vache qui dit et le chat drôle<span class="exercise-title"></span></p> <p>En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande :</p> <div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>$<span class="w"> </span>fortune<span class="w"> </span><span class="p">|</span><span class="w"> </span>cowsay<span class="w"> </span><span class="p">|</span><span class="w"> </span>lolcat
-</span></code></pre></div> <p>Quelle est sa structure et que fait-elle ?</p> </div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</span></code></pre></div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise: La fortune, la vache qui dit et le chat drôle<span class="exercise-title"></span></p>
+<p>En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>$<span class="w"> </span>fortune<span class="w"> </span><span class="p">|</span><span class="w"> </span>cowsay<span class="w"> </span><span class="p">|</span><span class="w"> </span>lolcat
+</span></code></pre></div>
+<p>Quelle est sa structure et que fait-elle ?</p>
+</div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
-</script></body></html> <aside class="md-source-file"> <span class="md-source-file__fact"> <span class="md-icon" title="Dernière mise à jour"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg> </span> <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 16, 2024</span> </span> <span class="md-source-file__fact"> <span class="md-icon" title="Créé"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"></path></svg> </span> <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2024</span> </span> <span class="md-source-file__fact"> <span class="md-icon" title="Contributeurs"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"></path></svg> </span> <nav> <a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a> </nav> </span> <span class="md-source-file__fact"> <span class="md-icon" title="Contributeurs"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg> </span> <span>GitHub</span> <nav> <a class="md-author" href="https://github.com/yves-chevallier" title="@yves-chevallier"> <img alt="yves-chevallier" src="https://avatars.githubusercontent.com/u/52489316?v=4&amp;size=72"/> </a> </nav> </span> </aside> <form class="md-feedback" hidden="" name="feedback"> <fieldset> <legend class="md-feedback__title"> Cette page vous a-t-elle été utile ? </legend> <div class="md-feedback__inner"> <div class="md-feedback__list"> <button class="md-feedback__icon md-icon" data-md-value="1" title="Cette page m'a été utile" type="submit"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"></path></svg> </button> <button class="md-feedback__icon md-icon" data-md-value="0" title="Cette page pourrait être améliorée" type="submit"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"></path></svg> </button> </div> <div class="md-feedback__note"> <div data-md-value="1" hidden=""> Thanks for your feedback! </div> <div data-md-value="0" hidden=""> Merci pour votre retour ! </div> </div> </div> </fieldset> </form> </article> </div> <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script> </div> <button class="md-top md-icon" data-md-component="top" hidden="" type="button"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg> Retour en haut de la page </button> </main> <footer class="md-footer"> <nav aria-label="Pied de page" class="md-footer__inner md-grid"> <a aria-label="Précédent: Préprocesseur" class="md-footer__link md-footer__link--prev" href="../preprocessor/"> <div class="md-footer__button md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg> </div> <div class="md-footer__title"> <span class="md-footer__direction"> Précédent </span> <div class="md-ellipsis"> Préprocesseur </div> </div> </a> <a aria-label="Suivant: Fonctions" class="md-footer__link md-footer__link--next" href="../functions/"> <div class="md-footer__title"> <span class="md-footer__direction"> Suivant </span> <div class="md-ellipsis"> Fonctions </div> </div> <div class="md-footer__button md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class="md-copyright"> <div class="md-copyright__highlight"> Copyright © 2019 - 2024 HEIG-VD Yves Chevallier </div> Made with <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank"> Material for MkDocs </a> </div> <div class="md-social"> <a class="md-social__link" href="https://github.com/heig-tin-info/handbook" rel="noopener" target="_blank" title="github.com"> <svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!-- Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> </a> </div> </div> </div> </footer> </div> <div class="md-dialog" data-md-component="dialog"> <div class="md-dialog__inner md-typeset"></div> </div> <div class="md-progress" data-md-component="progress" role="progressbar"></div> <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.prune", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"provider": "mike"}}</script> <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script> <script src="../../assets/_markdown_exec_pyodide.js"></script> <script src="../../js/mkdocs-charts-plugin.js"></script> <script src="../../js/feedback.js"></script> <script src="../../js/tablesort.js"></script> <script src="../../js/mathjax.js"></script> <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script> <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script> <script src="https://cdn.jsdelivr.net/npm/vega@5"></script> <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script> <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script> <script async="" src="../../assets/javascripts/toggle-sidebar.js"></script> <script src="../../exercise.js"></script> </body> </html>
+</script></body></html>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Dernière mise à jour">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 16, 2024</span>
+</span>
+<span class="md-source-file__fact">
+<span class="md-icon" title="Créé">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2024</span>
+</span>
+<span class="md-source-file__fact">
+<span class="md-icon" title="Contributeurs">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"></path></svg>
+</span>
+<nav>
+<a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>
+</nav>
+</span>
+<span class="md-source-file__fact">
+<span class="md-icon" title="Contributeurs">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg>
+</span>
+<span>GitHub</span>
+<nav>
+<a class="md-author" href="https://github.com/yves-chevallier" title="@yves-chevallier">
+<img alt="yves-chevallier" src="https://avatars.githubusercontent.com/u/52489316?v=4&amp;size=72"/>
+</a>
+</nav>
+</span>
+</aside>
+<form class="md-feedback" hidden="" name="feedback">
+<fieldset>
+<legend class="md-feedback__title">
+        Cette page vous a-t-elle été utile ?
+      </legend>
+<div class="md-feedback__inner">
+<div class="md-feedback__list">
+<button class="md-feedback__icon md-icon" data-md-value="1" title="Cette page m'a été utile" type="submit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"></path></svg>
+</button>
+<button class="md-feedback__icon md-icon" data-md-value="0" title="Cette page pourrait être améliorée" type="submit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"></path></svg>
+</button>
+</div>
+<div class="md-feedback__note">
+<div data-md-value="1" hidden="">
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+<div data-md-value="0" hidden="">
+              
+              
+                
+              
+              Merci pour votre retour !
+            </div>
+</div>
+</div>
+</fieldset>
+</form>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Retour en haut de la page
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Pied de page" class="md-footer__inner md-grid">
+<a aria-label="Précédent: Préprocesseur" class="md-footer__link md-footer__link--prev" href="../preprocessor/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Précédent
+              </span>
+<div class="md-ellipsis">
+                Préprocesseur
+              </div>
+</div>
+</a>
+<a aria-label="Suivant: Fonctions" class="md-footer__link md-footer__link--next" href="../functions/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Suivant
+              </span>
+<div class="md-ellipsis">
+                Fonctions
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2019 - 2024 HEIG-VD Yves Chevallier
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/heig-tin-info/handbook" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-progress" data-md-component="progress" role="progressbar"></div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.prune", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+<script src="../../assets/_markdown_exec_pyodide.js"></script>
+<script src="../../js/mkdocs-charts-plugin.js"></script>
+<script src="../../js/feedback.js"></script>
+<script src="../../js/tablesort.js"></script>
+<script src="../../js/mathjax.js"></script>
+<script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+<script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<script async="" src="../../assets/javascripts/toggle-sidebar.js"></script>
+<script src="../../exercise.js"></script>
+</body>
+</html>
