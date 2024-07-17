@@ -87,7 +87,7 @@ plugins:
   - group:
       enabled: !ENV CI
       plugins:
-        - privacy
+        #- privacy # Seem to mess with images
         - mike
         #- info
         - minify:

@@ -12,19 +12,13 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          submodules: true
-
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
-
       - name: Cache Poetry dependencies
         uses: actions/cache@v4
         with:
@@ -34,21 +28,17 @@ jobs:
           key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
           restore-keys: |
             ${{ runner.os }}-poetry-
-
       - name: Cache Draw.io download
         uses: actions/cache@v4
         with:
           path: drawio-${{ env.drawio_version }}.deb
           key: ${{ runner.os }}-drawio-${{ env.drawio_version }}
-
       - name: Install pandoc
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc
-
       - name: Setup Poetry
         uses: abatilo/actions-poetry@v2
-
       - name: Install Draw.io Desktop
         run: |
           set -euo pipefail
