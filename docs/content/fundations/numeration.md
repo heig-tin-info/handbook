@@ -103,7 +103,7 @@ Le système décimal est le système de numération utilisant la base **dix** et
 
 L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique `(1000+100+100+100+100+100+1+1+1+1+1+1)`. Il s'agit d'une numération additive.
 
-![1506 en écriture hiéroglyphique](../assets/images/hieroglyph.drawio){width="20%"}
+![1506 en écriture hiéroglyphique](../../assets/images/hieroglyph.drawio){width="20%"}
 
 Notre système de représentation des nombres décimaux est le système de numération indo-arabe qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf :
 
@@ -329,7 +329,7 @@ Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami 
 
 !!! exercise "Albatros"
 
-    Tentez de récupérer vous même le fichier :download:`albatros <../../assets/src/albatros.txt>` et d'afficher le même résultat que ci-dessus depuis un terminal de commande Linux.
+    Tentez de récupérer vous même le fichier :download:`albatros <../../../assets/src/albatros.txt>` et d'afficher le même résultat que ci-dessus depuis un terminal de commande Linux.
 
     ```bash
     $ wget https://.../albatros.txt
@@ -399,7 +399,7 @@ n = 209
 
 !!! exercise "La numération Shadock"
 
-    ![Les Shadocks](../assets/images/shadocks.svg){height="300px"}
+    ![Les Shadocks](../../assets/images/shadocks.svg){height="300px"}
 
     Les Shadocks ne connaissent que quatre mots: `GA`, `BU`, `ZO`, `MEU`. La vidéo [Comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ>) en explique le principe.
 

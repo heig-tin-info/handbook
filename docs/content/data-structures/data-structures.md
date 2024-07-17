@@ -141,7 +141,7 @@ Nous comprenons rapidement qu'il est plus compliqué d'ajouter ou de supprimer u
 
 Un tableau dynamique peut être représenté par la figure suivante :
 
-![Tableau dynamique](../assets/images/dyn-array.drawio)
+![Tableau dynamique](../../assets/images/dyn-array.drawio)
 
 Un espace mémoire est réservé dynamiquement sur le tas. Comme `malloc` ne retourne pas la taille de l'espace mémoire alloué, mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 `int32_t` représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par `malloc` n'est généralement pas vide, mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau, il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.
 
@@ -154,7 +154,7 @@ Les composants de cette structure de donnée sont donc :
 
 L'opération `pop` retire l'élément de la fin du tableau. Le nombre d'éléments est donc ajusté en conséquence.
 
-![Suppression d'un élément dans un tableau dynamique](../assets/images/dyn-array-pop.drawio)
+![Suppression d'un élément dans un tableau dynamique](../../assets/images/dyn-array-pop.drawio)
 
 ```c
 if (elements <= 0) exit(EXIT_FAILURE);
@@ -163,7 +163,7 @@ int value = data[--elements];
 
 L'opération `push` ajoute un élément à la fin du tableau.
 
-![Ajout d'un élément dans un tableau dynamique](../assets/images/dyn-array-push.drawio)
+![Ajout d'un élément dans un tableau dynamique](../../assets/images/dyn-array-push.drawio)
 
 ```c
 if (elements >= capacity) exit(EXIT_FAILURE);
@@ -172,7 +172,7 @@ data[elements++] = value;
 
 L'opération `shift` retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque élément qu'il contient.
 
-![Suppression du premier élément dans un tableau dynamique](../assets/images/dyn-array-shift.drawio)
+![Suppression du premier élément dans un tableau dynamique](../../assets/images/dyn-array-shift.drawio)
 
 
 ```c
@@ -194,7 +194,7 @@ capacity--;
 
 Enfin, l'opération `unshift` ajoute un élément depuis le début du tableau :
 
-![Ajout d'un élément en début d'un tableau dynamique](../assets/images/dyn-array-unshift.drawio)
+![Ajout d'un élément en début d'un tableau dynamique](../../assets/images/dyn-array-unshift.drawio)
 
 ```c
 for (int k = elements; k >= 1; k--)
@@ -220,7 +220,7 @@ Pour permettre la circulation, les indices sont calculés modulo la taille du bu
 
 Il est possible de représenter schématiquement ce buffer comme un cercle et ses deux pointeurs :
 
-![Exemple d'un tampon circulaire](../assets/images/ring.drawio)
+![Exemple d'un tampon circulaire](../../assets/images/ring.drawio)
 
 Le nombre d'éléments dans le buffer est la différence entre le pointeur de tête et le pointeur de queue, modulo la taille du buffer. Néanmoins, l'opérateur `%` en C ne fonctionne que sur des nombres positifs et ne retourne pas le résidu positif le plus petit. En sommes, `-2 % 5` devrait donner `3`, ce qui est le cas en Python, mais en C, en C++ ou en PHP la valeur retournée est `-2`. Le modulo vrai, mathématiquement correct peut être calculé ainsi :
 
@@ -298,7 +298,7 @@ struct Element elements[100];
 
 Considérons les dix premiers éléments de la séquence de nombre [A130826](https://oeis.org/A130826) dans un tableau statique. Ensuite, répartissons ces valeurs aléatoirement dans notre tableau `elements` déclaré plus haut entre les indices 0 et 19.
 
-![Construction d'une liste chainée à l'aide d'un tableau](../assets/images/static-linked-list.drawio)
+![Construction d'une liste chainée à l'aide d'un tableau](../../assets/images/static-linked-list.drawio)
 
 On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire, car il est possible facilement de chercher l'élément suivant de la liste avec cette relation :
 
@@ -374,7 +374,7 @@ qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.
 Il est indispensable de bien identifier le dernier élément de la liste grâce à son pointeur associé
 à la valeur `NULL`.
 
-![Liste chaînée simple](../assets/images/list.drawio)
+![Liste chaînée simple](../../assets/images/list.drawio)
 
 ```c
 #include <stdio.h>
@@ -451,14 +451,14 @@ for (Element *e = &head; e != NULL; e = e->next)
 
 Attention, la technique précédente ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant :
 
-![Boucle dans une liste chaînée](../assets/images/loop.drawio)
+![Boucle dans une liste chaînée](../../assets/images/loop.drawio)
 
 La liste se terminant par une boucle, il n'y aura jamais d'élément de fin et le nombre d'éléments
 calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment donc les compter ?
 
 Il existe un algorithme nommé détection de cycle de Robert W. Floyd aussi appelé *algorithme du lièvre et de la tortue*. Il consiste à avoir deux pointeurs qui parcourent la liste chaînée. L'un avance deux fois plus vite que le second.
 
-![Algorithme de détection de cycle de Robert W. Floyd](../assets/images/floyd.drawio)
+![Algorithme de détection de cycle de Robert W. Floyd](../../assets/images/floyd.drawio)
 
 ```c
 size_t compute_length(Element* head)
@@ -573,7 +573,7 @@ L'avantage principal étant le gain de place en mémoire.
 
 Une liste chaînée déroulée rassemble les avantages d'un tableau et d'une liste chaînée. Elle permet d'accroître les performances en réduisant l'overhead de réservation mémoire avec `malloc`.
 
-![Liste chaînée déroulée](../assets/images/unrolled-linked-list.drawio)
+![Liste chaînée déroulée](../../assets/images/unrolled-linked-list.drawio)
 
 ```c
 typedef struct Node {
@@ -585,7 +585,7 @@ typedef struct Node {
 
 ## Arbres
 
-![Arbre binaire IRL](../assets/images/binary-tree.jpg)
+![Arbre binaire IRL](../../assets/images/binary-tree.jpg)
 
 ### Arbre binaire de recherche
 
@@ -593,7 +593,7 @@ L'objectif de cette section n'est pas d'entrer dans les détails des [arbres bin
 
 L'arbre binaire, n'est rien d'autre qu'une liste chaînée comportant deux enfants un `left` et un `right`:
 
-![Arbre binaire équilibré](../assets/images/binary-tree.drawio)
+![Arbre binaire équilibré](../../assets/images/binary-tree.drawio)
 
 Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours :
 
@@ -648,7 +648,7 @@ Table: Opération d'accès à un élément d'un heap
 | Enfant de droite | $2*k  + 2$       | $2 * k + 1$    |
 | Parent           | $floor(k-1) / 2$ | $floor(k) / 2$ |
 
-![Représentation d'un *heap*](../assets/images/heap.drawio)
+![Représentation d'un *heap*](../../assets/images/heap.drawio)
 
 ## Queue prioritaire
 
@@ -695,7 +695,7 @@ Les tableaux de hachage (*Hash Table*) sont une structure particulière dans laq
 
 L'objectif est de stocker des chaînes de caractères correspondant a des noms simples ici utilisés pour l'exemple. Une possible répartition serait la suivante :
 
-![Tableau de hachage simple](../assets/images/hash-linear.drawio)
+![Tableau de hachage simple](../../assets/images/hash-linear.drawio)
 
 Si l'on cherche l'indice correspondant à `Ada`, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé *hash*, il existe une infinité de méthodes. Dans cet exemple, considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :
 
@@ -834,7 +834,7 @@ Certains algorithmes permettent de redimensionner dynamiquement la table de hach
 
 Le chaînage ou *chaining* est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.
 
-![Chaînage d'une table de hachage](../assets/images/hash-table.drawio)
+![Chaînage d'une table de hachage](../../assets/images/hash-table.drawio)
 
 ### Fonction de hachage
 

@@ -1,6 +1,6 @@
 # Code de conduite
 
-![Code d'Hammurabi (1750 av. J.-C.)](../assets/images/hammurabi.png)
+![Code d'Hammurabi (1750 av. J.-C.)](../../assets/images/hammurabi.png)
 
 Être développeur logiciel que ce soit professionnellement ou comme loisir, ce n'est pas simplement écrire du code. Il y a l'art et la manière de le faire, il y a des règles à respecter, des consensus à suivre et des bonnes pratiques à adopter.
 
@@ -22,7 +22,7 @@ Les valeurs humaines fondamentales du développement logiciel sont :
 
 ## L'Anglais
 
-![La langue une barrière](../assets/images/english.png)
+![La langue une barrière](../../assets/images/english.png)
 
 En programmation, quel que soit le langage utilisé, la langue **anglaise** est omniprésente. D'une part les mots clés des langages de programmation sont majoritairement empruntés à l'anglais, mais souvent les outils de développement ne sont disponibles qu'en anglais. Il existe une raison à cela. Un article de journal publié dans une revue locale sera certainement lu par madame Machin et monsieur Bidule, mais n'aura aucun intérêt pour les habitants de l'antipode néo-zélandais. En programmation, le code se veut **réutilisable** pour économiser des coûts de développement. On réutilise ainsi volontiers des algorithmes écrits par un vénérable japonais, ou une bibliothèque de calcul matriciel développée en Amérique du Sud. Pour faciliter la mise en commun de ces différents blocs logiciels et surtout pour que chacun puisse dépanner le code des autres, il est essentiel qu'une langue commune soit choisie et l'anglais est le choix le plus naturel.
 
@@ -32,7 +32,7 @@ Un autre point méritant d'être mentionné est la constante interaction d'un d�
 
 ## Apprendre à pêcher
 
-![Un père et son fils pêchant](../assets/images/fisherman.png)
+![Un père et son fils pêchant](../../assets/images/fisherman.png)
 
 Un jeune homme s'en va à la mer avec son père et lui demande: papa, j'ai faim, comment ramènes-tu du poisson? Le père, fier, lance sa ligne à la mer et lui ramène un beau poisson. Plus tard, alors que le jeune homme revient d'une balade sur les estrans, il demande à son père: papa, j'ai faim, me ramènerais-tu du poisson? Le père, sort de son étui sa plus belle canne et l'équipant d'un bel hameçon, lance sa ligne à la mer et ramène un gros poisson. Durant longtemps, le jeune homme mange ainsi à sa faim cependant que le père ramène du poisson pour son fils.
 

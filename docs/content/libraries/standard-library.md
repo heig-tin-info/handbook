@@ -1,6 +1,6 @@
 # Bibliothèques
 
-![Bibliothèque du Trinity College de Dublin](../assets/images/library.jpg)
+![Bibliothèque du Trinity College de Dublin](../../assets/images/library.jpg)
 
 Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La `printf` est une de ces fonctionnalités et offerte par le header `<stdio.h>` faisant partie de la bibliothèque `libc6`.
 
@@ -46,7 +46,7 @@ On a donc :
 Imaginons que l'on souhaite bénéficier des fonctionnalités de cette bibliothèque pour le calcul d'orbites pour un satellite d'observation de Jupyter. Pour prendre en main cet *libary* on écrit ceci :
 
 ```c
---8<-- "docs/assets/src/gmp.c"
+--8<-- "docs../../assets/src/gmp.c"
 ```
 
 Puis on compile :
@@ -134,7 +134,7 @@ La bibliothèque [ncurses](https://fr.wikipedia.org/wiki/Ncurses) traduction de 
 
 La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...
 
-![Exemple d'interface graphique écrite avec `ncurses`. Ici la configuration du noyau Linux.](../assets/images/linux-menuconfig.png)
+![Exemple d'interface graphique écrite avec `ncurses`. Ici la configuration du noyau Linux.](../../assets/images/linux-menuconfig.png)
 
 L'écriture d'un programme Hello World avec cette bibliothèque pourrait être :
 
@@ -174,13 +174,13 @@ Une bibliothèque statique n'est rien d'autre qu'une archive d’un ou plusieurs
 Par exemple si l'on souhaite écrire une bibliothèque statique pour le [code de César](https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage) on écrira un fichier source `caesar.c`:
 
 ```c title="caesar.c"
---8<-- "docs/assets/src/caesar.c"
+--8<-- "docs../../assets/src/caesar.c"
 ```
 
 Ainsi qu'un fichier d'en-tête `caesar.h`:
 
 ```c title="caesar.h"
---8<-- "docs/assets/src/caesar.h"
+--8<-- "docs../../assets/src/caesar.h"
 ```
 
 Pour créer une bibliothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiver crée l'amalgame :
@@ -193,7 +193,7 @@ $ ar rcs caesar.a caesar.o
 Puis il suffit d'écrire un programme pour utiliser cette bibliothèque :
 
 ```c title="encrypt.c"
---8<-- "docs/assets/src/encrypt.c"
+--8<-- "docs../../assets/src/encrypt.c"
 ```
 
 Et de compiler le tout. Ici on utilise `-I.` et `-L.` pour dire au compilateur de chercher le fichier d'en-tête et la bibliothèque dans le répertoire courant.

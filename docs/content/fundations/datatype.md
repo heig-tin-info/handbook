@@ -73,7 +73,7 @@ int main() {
 
 ## Boutisme
 
-![Boutisme par J. J. Grandville (1838)](../assets/images/endian.jpg)
+![Boutisme par J. J. Grandville (1838)](../../assets/images/endian.jpg)
 
 La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé *endianess*. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les œufs à la coque par le petit bout (petit boutisme/*little endian*), la répression incite les rebelles à manger leurs œufs par le gros bout (gros boutisme/*big endian*).
 
@@ -155,7 +155,7 @@ Comme nous l'avons vu, les degrés de liberté pour définir un entier sont :
 
 La construction d'un type entier C est la suivante :
 
-![Entiers standardisés](../assets/images/ansi-integers.drawio)
+![Entiers standardisés](../../assets/images/ansi-integers.drawio)
 
 Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins $N$ bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée ci-dessous :
 
@@ -204,7 +204,7 @@ Table: "Table des types entiers en C"
 
 Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête `stdint.h`. Cette bibliothèque standard offre les types suivants :
 
-![Flux de construction d'un entier standardisé](../assets/images/c99-integers.drawio)
+![Flux de construction d'un entier standardisé](../../assets/images/c99-integers.drawio)
 
 #### Types réformés
 
@@ -283,15 +283,15 @@ Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement repr�
 
 Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'[ASA](https://fr.wikipedia.org/wiki/American_National_Standards_Institute), l'*American Standards Association* aujourd'hui **ANSI** qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.
 
-![Table ASCII ASA X3.4 établie en 1963](../assets/images/ascii-1963.drawio)
+![Table ASCII ASA X3.4 établie en 1963](../../assets/images/ascii-1963.drawio)
 
 Aujourd'hui la table ASCII de base définit 128 caractères qui n'incluent pas les caractères accentués.
 
-![Table ANSI INCITS 4-1986 (standard actuel)](../assets/images/ascii.drawio)
+![Table ANSI INCITS 4-1986 (standard actuel)](../../assets/images/ascii.drawio)
 
 Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard **ISO/IEC 8859** aussi appelé standard *Latin* définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**):
 
-![Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)](../assets/images/latin1.drawio)
+![Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)](../../assets/images/latin1.drawio)
 
 Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.
 
@@ -303,7 +303,7 @@ Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب‎), le
 
 Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) plus précisément nommé **UTF-8**.
 
-![Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008](../assets/images/encoding-trends.png)
+![Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008](../../assets/images/encoding-trends.png)
 
 Cette tendance est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
 

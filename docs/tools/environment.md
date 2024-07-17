@@ -33,11 +33,11 @@ Heursement Windows a évolué et propose PowerShell. PowerShell est un terminal 
 
 L'interface du terminal était également rudimentaire (pas d'onglets, pas de séparateurs, etc.). Heureusement Windows propose depuis 2019 [Windows Terminal](https://en.wikipedia.org/wiki/Windows_Terminal). Windows Terminal est un terminal moderne multi-onglets qui supporte plusieurs terminaux (cmd, PowerShell, WSL, etc.). S'il n'est pas installé vous pouvez le faire via le [Microsoft Store](https://www.microsoft.com/fr-ch/p/windows-terminal/9n0dx20hk701).
 
-![Interface de cmd.exe dans Windows Terminal](../assets/images/cmd.png)
+![Interface de cmd.exe dans Windows Terminal](../../assets/images/cmd.png)
 
-![Interface de PowerShell dans Windows Terminal](../assets/images/powershell.png)
+![Interface de PowerShell dans Windows Terminal](../../assets/images/powershell.png)
 
-![Interface de Ubuntu dans Windows Terminal](../assets/images/bash.png)
+![Interface de Ubuntu dans Windows Terminal](../../assets/images/bash.png)
 
 ## Variables d'environnement
 

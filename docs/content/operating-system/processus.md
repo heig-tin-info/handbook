@@ -1,6 +1,6 @@
 # Programmes et Processus
 
-![Programmeuse en tenue décontractée à côté de 62'500 cartes perforées](../assets/images/vintage-programmer.jpg){width="60%"}
+![Programmeuse en tenue décontractée à côté de 62'500 cartes perforées](../../assets/images/vintage-programmer.jpg){width="60%"}
 
 ## Qu'est-ce qu'un programme?
 
@@ -29,7 +29,7 @@ Un exécutable binaire doit être compilé pour la bonne architecture matériell
 Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci :
 
 ```c
---8<-- "docs/assets/src/fibonacci.c"
+--8<-- "docs../../assets/src/fibonacci.c"
 ```
 
 Une fois [assemblé](<https://fr.wikipedia.org/wiki/Assembly_(informatique)>) le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc :
@@ -139,7 +139,7 @@ Ainsi qu'à des sorties :
 
 La figure suivante résume les interactions qu'un programme peut avoir sur son environnement. Les appels système ([syscall](https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me)) sont des ordres transmis directement au système d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.
 
-![Résumé des interactions avec un programme](../assets/images/program.drawio)
+![Résumé des interactions avec un programme](../../assets/images/program.drawio)
 
 ### Signaux
 
@@ -226,7 +226,7 @@ int getopt_long (int argc, char *const *argv, const char *shortopts,
 Ci-dessous une possible utilisation de cette fonction :
 
 ```c
---8<-- "docs/assets/src/options.c"
+--8<-- "docs../../assets/src/options.c"
 ```
 
 ### Windows

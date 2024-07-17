@@ -204,7 +204,7 @@ static const char* conjonctions[] = {
 };
 ```
 
-![Pointeur sur une chaîne de caractère](../assets/images/ptrstr.drawio)
+![Pointeur sur une chaîne de caractère](../../assets/images/ptrstr.drawio)
 
 Cette structure est très exactement la même que pour les arguments transmis à la fonction `main`: la définition `char *argv[]`.
 

@@ -48,7 +48,7 @@ Lorsqu'un programme à besoin de mémoire, il peut générer un appel système p
 
 L'allocation se fait sur le `tas` (*heap*) qui est de taille variable. À chaque fois qu'un espace mémoire est demandé, `malloc` recherche dans le segment un espace vide de taille suffisante, s'il ne parvient pas, il exécute l'appel système [sbrk](https://en.wikipedia.org/wiki/Sbrk) qui permet de déplacer la frontière du segment mémoire et donc d'agrandir le segment.
 
-![Allocation et libération mémoire](../assets/images/malloc.drawio)
+![Allocation et libération mémoire](../../assets/images/malloc.drawio)
 
 ## Mémoire de programme
 
@@ -56,7 +56,7 @@ Les segments mémoires sont une construction de la bibliothèque standard, selon
 
 Néanmoins une bonne représentation est la suivante :
 
-![Organisation de mémoire d'un programme](../assets/images/program-memory.drawio)
+![Organisation de mémoire d'un programme](../../assets/images/program-memory.drawio)
 
 On observe que le tas et la pile vont à leur rencontre, et que lorsqu'ils se percutent c'est le crash avec l'erreur bien connue [stack overflow](https://fr.wikipedia.org/wiki/D%C3%A9passement_de_pile).
 
@@ -259,7 +259,7 @@ On peut observer à la figure {numref}`fig-allocation` qu'après un appel succes
 
 Dans la figure suivante, on suit l'évolution de l'utilisation du *heap* au cours de la vie d'un programme. Au début ➀, la mémoire est libre. Tant que de la mémoire est allouée sans libération (`free`), aucun problème de fragmentation ➁. Néanmoins, après un certain temps la mémoire devient fragmentée ➂ ; il reste dans cet exemple 2 emplacements de taille 2, un emplacement de taille 5 et un emplacement de taille 8. Il est donc impossible de réserver un espace de taille 9 malgré que l'espace cumulé libre est suffisant.
 
-![Fragmentation mémoire](../assets/images/fragmentation.drawio)
+![Fragmentation mémoire](../../assets/images/fragmentation.drawio)
 
 Dans une petite architecture, l'allocation et la libération fréquente d'espaces mémoire de taille arbitraire sont malvenues. Une fois que la fragmentation mémoire est installée, il n'existe aucun moyen de soigner le mal si ce n'est au travers de l'ultime solution de l'informatique : [éteindre puis redémarrer](https://www.youtube.com/watch?v=nn2FB1P_Mn8).
 
@@ -273,7 +273,7 @@ La programmation sur de petites architectures matérielles (microcontrôleurs, D
 
 Dans la figure ci-dessous. La mémoire physique est représentée à droite en termes de pages mémoires physiques (*Physical Pages* ou **PP**). Il s'agit de blocs mémoires contigus d'une taille fixe, par exemple 64 kb. Chaque page physique est mappée dans une table propre à chaque processus (programme exécutable). On y retrouve quelques propriétés utiles à savoir, est-ce que la page mémoire est accessible en écriture, est-ce qu'elle peut contenir du code exécutable ? Une propriété peut indiquer par exemple si la page mémoire est valide. Chacune de ces entrées est considérée comme une page mémoire virtuelle (*virtual page* **VP**).
 
-![Mémoire virtuelle](../assets/images/mmu.drawio)
+![Mémoire virtuelle](../../assets/images/mmu.drawio)
 
 #### Erreurs de segmentation (*segmentation fault*)
 

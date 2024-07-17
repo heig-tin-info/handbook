@@ -70,7 +70,7 @@ Table: Temps pour différentes complexités d'algorithmes
 
 Les différentes complexités peuvent être résumées sur la figure suivante :
 
-![Différentes complexités d'algorithmes](../assets/images/complexity.svg)
+![Différentes complexités d'algorithmes](../../assets/images/complexity.svg)
 
 Un algorithme en $O(n^2)$, doit éveiller chez le développeur la volonté de voir s'il n'y a pas moyen d'optimiser l'algorithme en réduisant sa complexité, souvent on s'aperçoit qu'un algorithme peut être optimisé et s'intéresser à sa complexité est un excellent point d'entrée.
 
@@ -258,7 +258,7 @@ Ce n'est pas un algorithme très académique, il s'agit d'un [kludge](https://fr
 Cet algorithme [Rabin-Karp](https://fr.wikipedia.org/wiki/Algorithme_de_Rabin-Karp) permet la recherche d'une sous-chaîne de caractère. Sa complexité moyenne est $O(n + m)$.
 
 ```c title="rabin-karp.c"
---8<-- "docs/assets/src/rabin-karp.c"
+--8<-- "docs../../assets/src/rabin-karp.c"
 ```
 
 ## Algorithmes de tris
@@ -377,7 +377,7 @@ Considérons le tableau suivant. Les valeurs ne sont pas triées. La première �
 
 Dans cet exemple, le dernier élément `6` sera arbitrairement choisi comme pivot.
 
-![Représentation du tableau à trier avec son pivot.](../assets/images/quicksort.drawio)
+![Représentation du tableau à trier avec son pivot.](../../assets/images/quicksort.drawio)
 
 L'étape de paritionnement utilise l'algorithme suivant :
 
@@ -393,7 +393,7 @@ int partition (int a[], int low, int high, int pivot)
 }
 ```
 
-Voici comment `partition(a, 0, 10, 10)` modifie le tableau (voir [code source](../assets/src/partition.c)) :
+Voici comment `partition(a, 0, 10, 10)` modifie le tableau (voir [code source](../../assets/src/partition.c)) :
 
 ```text
 2 9 4 1 b 5 a 7 3 8 6
@@ -406,9 +406,9 @@ Voici comment `partition(a, 0, 10, 10)` modifie le tableau (voir [code source](.
 
 On constate que la valeur `6` choisie comme pivot est maintenant à sa bonne place. L'algorithme est donc appelé récursivement pour les éléments `0` à `4` et \`\` 6\`\`  à `a`.
 
-![Tri rapide après le premier partitionnement.](../assets/images/quicksort-2.drawio)
+![Tri rapide après le premier partitionnement.](../../assets/images/quicksort-2.drawio)
 
-Voici une autre représentation (voir [code source](../assets/src/quicksort.c)) :
+Voici une autre représentation (voir [code source](../../assets/src/quicksort.c)) :
 
 ```c
 1  9  5  2  b  4  a  7  3  8 [6]
