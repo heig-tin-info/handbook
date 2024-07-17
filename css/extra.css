@@ -10,8 +10,6 @@
 }
 
 /* Center tables */
-
-
 .md-typeset__table table {
   width: auto !important;
 }
@@ -126,82 +124,38 @@
   break-inside: avoid-column;
 }
 
-
-/* French bullet point */
-.md-content ul {
-  list-style: none;
-  padding-left: 0;
+/* Headings */
+.md-typeset h1 {
+  font-size: 2.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 
-.md-content ul li:not(.task-list-item) {
-  position: relative;
-  padding-left: 1.5em;
+.md-typeset h1 {
+  margin-top: 1em;
+  font-weight: 400;
 }
 
-.md-content ul:not(.exercise-list) li:not(.task-list-item)::before {
-  content: "–";
-  position: absolute;
-  left: 0;
-  font-size: 1em;
+.md-typeset h2,
+.md-typeset h3 {
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
 }
 
-/* Interactive multiple-choice questions */
-.exercise .task-list {
-  list-style: none;
-  padding-left: 0;
+.breadcrumb {
+  margin-top: 0.5em;
+  font-size: 0.8em;
+  color: var(--md-default-fg-color--light);
 }
 
-.exercise .task-list-item {
-  position: relative;
-  padding-left: 1.5em;
+.breadcrumb-caret {
+  fill: var(--md-default-fg-color--light);
+  height: 0.7em !important;
+  vertical-align: middle;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
 }
 
-.exercise .task-list-item .task-list-control {
-  display: flex;
-  align-items: center;
+strong:not([class]) {
+  color: var(--md-default-fg-color--light);
 }
-
-.exercise .task-list-indicator {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  margin-right: 0.5em;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-.exercise .task-list-item input[type="checkbox"] {
-  display: none;
-}
-
-.exercise .task-list-item.correct input[type="checkbox"] + .task-list-indicator {
-  background-color: green;
-  border-color: green;
-}
-
-.exercise .task-list-item.incorrect input[type="checkbox"] + .task-list-indicator {
-  background-color: red;
-  border-color: red;
-}
-
-.exercise .task-list-item::before {
-  content: none; /* Supprime les icônes ajoutées par ::before */
-}
-
-
-/* Mermaid colors */
-/* :root {
-  --md-mermaid-edge-color: var(--md-code-fg-color);
-  --md-mermaid-node-bg-color: var(--md-accent-fg-color--transparent);
-  --md-mermaid-node-fg-color: var(--md-accent-fg-color);
-  --md-mermaid-label-bg-color: var(--md-default-bg-color);
-  --md-mermaid-label-fg-color: var(--md-code-fg-color);
-}
-
-[data-md-color-scheme="slate"] {
-  --md-mermaid-edge-color: var(--md-code-fg-color);
-  --md-mermaid-node-bg-color: var(--md-accent-fg-color--transparent);
-  --md-mermaid-node-fg-color: var(--md-accent-fg-color);
-  --md-mermaid-label-bg-color: var(--md-default-bg-color);
-  --md-mermaid-label-fg-color: var(--md-code-fg-color);
-} */
