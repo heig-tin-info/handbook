@@ -329,6 +329,91 @@ int main(void) {
 }
 ```
 
+!!! warning "Macro avec paramètres"
+
+    Le préprocesseur interprète une macro avec paramètres que si la parenthèse ouvrante suit directement et sans espace le nom de la macro. Ainsi, considérant cet exemple :
+
+    ```c
+    #define f (x) ((x) + 1)
+
+    int u = f(1)
+    ```
+
+    Le préprocesseur génère ceci et le compilateur retournera une erreur du type `identification x non déclarés`.
+
+    ```c
+    int u = (x) ((x) + 1)(1)
+    ```
+
+    Observations :
+
+    - Ne jamais mettre d'espace entre le nom d'une macro et ses paramètres.
+    - Être toujours prêt à mettre en doute le code généré par une macro.
+
+!!! warning "Paramètres de macro non protégés"
+
+    On ne le répètera jamais assez: une macro est un remplacement de chaîne effectué par le préprocesseur. Donc écrire `#!c #define m(x) x * 2` et `m(2 + 5)` sera remplacé en `2 + 5 * 2`.
+
+    Quel sera le problème dans le cas suivant ?
+
+    ```c
+    #define ABS(x) x >= 0 ? x: -x
+
+    int foo(void) {
+        return ABS(5 - 8);
+    }
+    ```
+
+    Plus difficile, quel serait le problème ici :
+
+    ```c
+    #define ERROR(str) printf("Erreur: %s\r\n", str); log(str);
+
+    if (y < 0)
+        ERROR("Zero division");
+    else
+        x = x / y;
+    ```
+
+    Observations :
+
+    - Toujours protéger les paramètres des macros avec des parenthèses
+
+        ```c
+        #define ABS(x) ((x) >= 0 ? (x): -(x))
+        ```
+
+    - Toujours protéger une macro à plusieurs instructions par une boucle vide :
+
+        ```c
+        #define ERROR(str) do { \
+            printf("Erreur: %s\r\n", str); \
+            log(str); \
+        } while (0)
+        ```
+
+!!! warning "Pré/Post incrémentation avec une macro"
+
+    On pourrait se dire qu'avec toutes les précautions prises, il n'y aura plus d'ennuis possibles. Or, les post/pré incréments peuvent encore poser problème.
+
+    ```c
+    #define ABS(x) ((x) >= 0 ? (x) : -(x))
+
+    return ABS(x++)
+    ```
+
+    On peut constater que x sera post-incrémenté deux fois au lieu d'une :
+
+    ```c
+    #define ABS(x) ((x) >= 0 ? (x) : -(x))
+
+    return ((x++) >= 0 ? (x++) : -(x++))
+    ```
+
+    Observations :
+
+    - Éviter l'utilisation de la pre/post incrémentation/décrémentation dans l'appel de macros.
+
 ## Concaténation
 
 Parfois il est utile de vouloir concaténer deux symboles comme si ce n'était qu'un seul. Attention, il est nécessaire de passer par une macro pour que cela fonctionne :

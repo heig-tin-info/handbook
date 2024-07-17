@@ -290,6 +290,22 @@ if (a == b) {
     0.1 + 0.2 == 0.3: 1
     ```
 
+!!! warning "Confusion = et =="
+
+    L'erreur est si vite commise, mais souvent fatale :
+
+    ```c
+    if (c = 'o') {
+
+    }
+    ```
+
+    L'effet contre-intuitif est que le test retourne toujours VRAI, car `'o' > 0`. Ajoutons que la valeur de `c` est modifié au passage.
+
+    Observations :
+
+    - Pour éviter toute ambiguïté, éviter les affectations dans les structures conditionnelles.
+
 !!! info "Triple égalité ?"
 
     Dans certains langages comme le [JavaScript](https://fr.wikipedia.org/wiki/JavaScript), il existe un opérateur de comparaison `===` qui compare non seulement les valeurs mais aussi les types.
@@ -546,6 +562,18 @@ La priorité des opérateurs logiques est plus faible que celle des opérateurs 
 
     La priorité de l'opérateur `&&` est plus forte que celle de l'opérateur `||`. Ainsi l'expression `a || b && c` est équivalente à `a || (b && c)`. C'est un piège classique en programmation, pour l'éviter il est recommandé d'utiliser des parenthèses.
 
+!!! warning "Confusion `&` et `&&`"
+
+    Confondre le ET logique et le ET binaire est courant. Dans l'exemple suivant, le `if` n'est jamais exécuté:
+
+    ```c
+    int a = 0xA;
+    int b = 0x5;
+
+    if(a & b) {
+
+    }
+    ```
 
 ## Opérateurs d'affectation
 
@@ -649,8 +677,21 @@ Notons qu'on peut toujours décomposer ces opérateurs en deux instructions expl
         i += 1;
         ```
 
-[](){#operator-ternary}
+!!! warning "Écriture déroutante"
 
+    Selon la table de précédences on aura `i--` calculé en premier suivi de `- -j`:
+
+    ```c
+    k = i----j;
+    ```
+
+    Observations :
+
+    - Éviter les formes ambigües d'écriture
+    - Favoriser la précédence explicite en utilisant des parenthèses
+    - Séparez vos opérations par des espaces pour plus de lisibilité: `#!c k = i-- - -j`
+
+[](){#operator-ternary}
 ## Opérateur ternaire
 
 L'opérateur ternaire aussi appelé **opérateur conditionnel** permet de faire un test et de retourner soit le second opérande, soit le troisième opérande. C'est le seul opérateur du C avec une `arité` de 3. Chacun des opérandes est symbolisé avec une paire de parenthèses :

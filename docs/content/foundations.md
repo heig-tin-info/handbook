@@ -196,6 +196,27 @@ Une variable est définie par :
 
     En pratique l'adresse sera plutôt de la forme `0x7fffbf7f1b4c`, la valeur serait plutôt `0100001101001111010010010100111000000000` et le type serait une chaîne de caractères `char[]`.
 
+!!! info "Variables initialisées"
+
+    Le fait de déclarer des variables dans en langage C implique que le
+    logiciel doit réaliser l'initialisation de ces variables au tout début
+    de son exécution. De fait, on peut remarquer deux choses. Il y a les
+    variables initialisées à la valeur zéro et les variables initialisées à
+    des valeurs différentes de zéro. Le compilateur regroupe en mémoire ces
+    variables en deux catégories et ajoute un bout de code au début de votre
+    application (qui est exécuté avant le `main`).
+
+    Ce code (que l'on n'a pas à écrire) effectue les opérations suivantes :
+
+    - mise à zéro du bloc mémoire contenant les variables ayant été
+      déclarées avec une valeur d'initialisation à zéro,
+    - recopie d'une zone mémoire contenant les valeurs initiales des
+      variables ayant été déclarées avec une valeur d'initialisation
+      différente de zéro vers la zone de ces mêmes variables.
+
+    Par ce fait, dès que l'exécution du logiciel est effectuée, on a, lors
+    de l'exécution du `main`, des variables correctement initialisées.
+
 ### Déclaration
 
 Avant de pouvoir être utilisée, une variable doit être **déclarée** afin que le compilateur puisse réserver un emplacement en mémoire pour stocker sa valeur.

@@ -12,6 +12,7 @@ TRANSLATIONS = {
     'danger': 'Danger',
     'info': 'Information',
     'example': 'Exemple',
+    'cite': 'Citation',
 }
 
 stopwatch = sw.Stopwatch()

@@ -775,3 +775,156 @@ La double précision est similaire à la simple précision, mais avec une mantis
     2. * 13. % 7.
     1.3E30 + 1.
     ```
+
+## Format Q (virgule fixe)
+
+Le format [Q](<https://en.wikipedia.org/wiki/Q_(number_format)>) est une notation en virgule fixe dans laquelle le format d'un nombre est représenté par la lettre **Q** suivie de deux nombres :
+
+1. Le nombre de bits entiers
+2. Le nombre de bits fractionnaires
+
+Ainsi, un registre 16 bits contenant un nombre allant de +0.999 à -1.0 s'exprimera **Q1.15** soit 1 + 15 valant 16 bits.
+
+Pour exprimer la valeur pi (3.1415...) il faudra au minimum 3 bits pour représenter la partie entière, car le bit de signe doit rester à zéro. Le format sur 16 bits sera ainsi **Q4.12**.
+
+La construction de ce nombre est facile :
+
+1. Prendre le nombre réel
+2. Le multiplier par 2 à la puissance du nombre de bits
+3. Prendre la partie entière
+
+```text
+1.    3.1415926535
+2.    2**12 * 3.1415926535 = 12867.963508736
+3.    12867
+```
+
+Pour convertir un nombre **Q4.12** en sa valeur réelle il faut :
+
+1. Prendre le nombre encodé en **Q4.12**
+2. Diviser sa valeur 2 à la puissance du nombre de bits
+
+```text
+1.    12867
+2.    12867 / 2**12 = 3.141357421875
+```
+
+On note une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : $1 / 2^12 = 0.00024$. Il convient alors d'arrondir le nombre à la troisième décimale soit 3.141.
+
+Les opérations arithmétiques sont possibles facilement entre des nombres de mêmes types.
+
+!!! info "Sinus rapide"
+
+    Avec des architectures qui ne supportent pas les nombres réels, il est possible de calculer une bonne approximation du sinus en utilisant une approximation avec une série de Taylor. Les calculs sont effecutés en virgule fixe. Voici un exemple d'implémentation:
+
+    ```c
+    /**
+     * A 5-order polynomial approximation to sin(x).
+     * @param i   angle (with 2^15 units/circle)
+     * @return    16 bit fixed point Sine value (4.12) (ie: +4096 = +1 & -4096 = -1)
+     *
+     * The result is accurate to within +- 1 count. ie: +/-2.44e-4.
+     */
+    int16_t fpsin(int16_t i)
+    {
+        // Convert (signed) input to a value between 0 and 8192.
+        // (8192 is pi/2, which is the region of the curve fit).
+        i <<= 1;
+        uint8_t c = i<0; // set carry for output pos/neg
+
+        if(i == (i|0x4000)) // flip input value to corresponding value in range [0..8192)
+            i = (1<<15) - i;
+        i = (i & 0x7FFF) >> 1;
+
+        /**
+         * The following section implements the formula:
+         *  = y * 2^-n * ( A1 - 2^(q-p)* y * 2^-n * y * 2^-n *
+         *  [B1 - 2^-r * y * 2^-n * C1 * y]) * 2^(a-q)
+         * Where the constants are defined as follows:
+         */
+        enum {A1=3370945099UL, B1=2746362156UL, C1=292421UL};
+        enum {n=13, p=32, q=31, r=3, a=12};
+
+        uint32_t y = (C1*((uint32_t)i))>>n;
+        y = B1 - (((uint32_t)i*y)>>r);
+        y = (uint32_t)i * (y>>n);
+        y = (uint32_t)i * (y>>n);
+        y = A1 - (y>>(p-q));
+        y = (uint32_t)i * (y>>n);
+        y = (y+(1UL<<(q-a-1)))>>(q-a); // Rounding
+
+        return c ? -y : y;
+    }
+    ```
+
+    Source : [5th Order Polynomial Fixed-Point Sine Approximation](https://www.nullhardware.com/blog/fixed-point-sine-and-cosine-for-embedded-systems/)
+
+### Addition
+
+L'addition peut se faire avec ou sans saturation :
+
+```c
+typedef int16_t Q;
+typedef Q Q12;
+
+Q q_add(Q a, Q b) {
+    return a + b;
+}
+
+Q q_add_sat(Q a, Q b) {
+    int32_t res = (int32_t)a + (int32_t)b;
+    res = res > 0x7FFF ? 0x7FFF : res
+    res = res < -1 * 0x8000 ? -1 * 0x8000 : res;
+    return (Q)res;
+}
+```
+
+### Multiplication
+
+Soit deux nombres 0.9 et 3.141 :
+
+```text
+┌─┬─┬─┬─╀─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
+│0│0│0│0│1│1│1│0││0│1│1│0│0│1│1│0│ Q4.12 (0.9) 3686
+└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
+
+┌─┬─┬─┬─╀─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
+│0│0│1│1│0│0│1│0││0│1│0│0│0│0│1│1│ Q4.12 (3.141) 12867
+└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
+```
+
+Multiplier ces deux valeurs revient à une multiplication sur 2 fois la taille. Le résultat doit être obtenu sur 32-bits sachant que les nombre **Q** s'additionnent comme **Q4.12** x **Q4.12** donnera **Q8.24**.
+
+On voit immédiatement que la partie entière vaut 2, donc 90% de 3.14 donnera une valeur en dessous de 3. Pour reconstruire une valeur **Q8.8** il convient de supprimer les 16-bits de poids faible.
+
+```text
+3686 * 12867 = 47227762
+
+┌─┬─┬─┬─┬─┬─┬─┬─┦┌─┬─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
+│0│0│0│0│0│0│1│0││1│1│0│1│0│0│0│0││1│0│1│0│0│0│1│1││0│1│1│1│0│0│1│0│ Q8.24
+└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
+
+┌─┬─┬─┬─┬─┬─┬─┬─┦┌─┬─┬─┬─┬─┬─┬─┬─┦
+│0│0│0│0│0│0│1│0││1│1│0│1│0│0│0│0│ Q8.8
+└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
+```
+
+```c
+inline Q q_sat(int32_t x) {
+    x = x > 0x7FFF ? 0x7FFF : x
+    x = x < -1 * 0x8000 ? -1 * 0x8000 : x;
+    return (Q)x;
+}
+
+inline int16_t q_mul(int16_t a, int16_t b, char q)
+{
+    int32_t c = (int32_t)a * (int32_t)b;
+    c += 1 << (q - 1);
+    return sat(c >> q);
+}
+
+inline int16_t q12_mul(int16_t a, int16_t b)
+{
+    return q_mul(a, b, 12);
+}
+```

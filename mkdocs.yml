@@ -99,7 +99,7 @@ plugins:
   - caption
   - charts
   - autorefs
-  - toggle-sidebar
+  #- toggle-sidebar  # Seems buggy
   - awesome-pages
   - git-authors
 
@@ -113,11 +113,11 @@ plugins:
   # - extract_listings:
   #     listings_file: listings.md
   #     placeholder: PLACEHOLDER_LISTINGS_PLUGIN
-  - enumerate-headings:
-      toc_depth: 3
-      increment_across_pages: true
-      exclude:
-        - index.md
+  # - enumerate-headings:
+  #     toc_depth: 3
+  #     increment_across_pages: true
+  #     exclude:
+  #       - index.md
   - search
   #- htmlproofer  # Very slow, and not accurate
 
@@ -190,17 +190,18 @@ extra:
           note: >-
             Merci pour votre retour !
   homepage: https://heig-tin-info.github.io/handbook
-  version:
-    provider: mike
+  # version:
+  #   provider: mike
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/heig-tin-info/handbook
 watch:
   - includes
+  - overrides
 hooks:
   - hooks/spantable.py
-  - hooks/french.py
-  - hooks/latex.py
+  #- hooks/french.py
+  #- hooks/latex.py
 extra_css:
   - css/extra.css
   - css/tables.css

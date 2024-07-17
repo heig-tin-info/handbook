@@ -101,6 +101,7 @@ collapse : true
 - [ ] ’ -> '
 - [ ] Replace tabs with two columns `=== ``Préfixes standards''`, remove indentation
 - [ ] /// html | div[class='two-column-list'] -> \begin{multicols}{2}
+- [ ] Template https://github.com/Wandmalfarbe/pandoc-latex-template
 
 ## Extensions to be implemented
 

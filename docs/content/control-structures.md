@@ -34,7 +34,39 @@ Une *séquence* est une suite d'instructions regroupées en un bloc matérialis�
 
 !!! note
 
-    N'allez pas confondre le point virgule `;` ({unicode}`U+003B`) avec le `;` ({unicode}`U+037E`), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
+    N'allez pas confondre le point virgule `;` (U+003B) avec le `;` (U+037E), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
+
+!!! info "Points de séquences"
+
+    On appelle un point de séquence ou [sequence point](https://en.wikipedia.org/wiki/Sequence_point) exprimé dans l'annexe C du standard C99 chaque élément de code dont l'exécution est garantie avant la séquence suivante. Ce qu'il est important de retenir c'est :
+
+    - l'appel d'une fonction est effectué après que tous ses arguments ont été évalués&nbsp;;
+
+    - la fin du premier opérande dans les opérations `&&`, `||`, `?` et `,`&nbsp;;
+
+    - ceci permet de court-circuiter le calcul dans `a() && b()`. La condition `b()` n'est jamais évaluée si la condition `a()` est valide&nbsp;;
+
+    - avant et après des actions associées à un formatage d'entrée sortie.
+
+    L'opérateur d'assignation `=` n'est donc pas un point de séquence et l'exécution du code `(a = 2) + a + (a = 2)` est par conséquent indéterminée.
+
+!!! warning "Un point virgule peut tout changer"
+
+    L'erreur typique suivante est arrivée à tout programmeur débutant. Le `;` placé après le test `if` agis comme une instruction nulle si bien que la fusée sera lancée à tous les coups :
+
+    ```c
+    if (countdown == 0);
+      launch_rocket();
+    ```
+
+    Le même type d'erreur peut apparaître avec une boucle, ici causant une boucle infinie :
+
+    ```c
+    while(i > 0);
+    {
+        i--;
+    }
+    ```
 
 ## Les embranchements
 

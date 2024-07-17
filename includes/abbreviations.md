@@ -11,3 +11,5 @@
 *[Python]: Langage de programmation Python
 *[BNF]: Backus-Naur Form
 *[UNIX]: Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&T, le développement de ce dernier ayant commencé dans les années 1970.
+*[U+003B]: Caractère Unicode pour le point-virgule ([lien](https://www.compart.com/en/unicode/U+003B))
+*[U+037E]: Caractère Unicode pour le point-virgule grec ([lien](https://www.compart.com/en/unicode/U+037E))
