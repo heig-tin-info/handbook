@@ -131,20 +131,20 @@ En addition de cette grammaire, voici quelques règles :
 
     /// html | div[class='three-column-list']
 
-    1. `2_pi`
-    2. `x_2`
-    3. `x___3`
-    4. `x 2`
-    5. `positionRobot`
-    6. `piece_presente`
-    7. `_commande_vanne`
-    8. `-courant_sortie`
-    9. `_alarme_`
-    10. `panne#2`
-    11. `int`
-    12. `défaillance`
-    13. `f'`
-    14. `INT`
+    - [ ] `2_pi`
+    - [x] `x_2`
+    - [x] `x___3`
+    - [ ] `x 2`
+    - [x] `positionRobot`
+    - [x] `piece_presente`
+    - [x] `_commande_vanne`
+    - [ ] `-courant_sortie`
+    - [x] `_alarme_`
+    - [ ] `panne#2`
+    - [ ] `int`
+    - [ ] `défaillance`
+    - [ ] `f'`
+    - [x] `INT`
 
     ///
 

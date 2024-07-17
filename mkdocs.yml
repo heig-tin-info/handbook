@@ -97,7 +97,7 @@ plugins:
         - git-committers:
             repository: heig-tin-info/handbook
             branch: master
-  - glightbox
+
   - caption
   - charts
   - autorefs
@@ -112,6 +112,7 @@ plugins:
   - drawio-exporter:
       cache_dir: .drawio_cache
       embed_format: '{content}'
+  - glightbox
   - markdown-exec
   # - extract_listings:
   #     listings_file: listings.md

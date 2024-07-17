@@ -21,6 +21,7 @@ poetry run mike deploy --push --update-aliases 0.1 latest
 
 ## To-Do
 
+- [ ] Allow to click on drawio image to see it full screen
 - [ ] Optimize plugins with a beautiful soup parser
 - [ ] Find a way to add unbreakable space before semi-colon in paragraphs
 - [ ] Update drawio plugin to use theme colors.
@@ -39,6 +40,11 @@ poetry run mike deploy --push --update-aliases 0.1 latest
 - [ ] Generate PDF with LaTeX
 - [x] Center tables
 - [x] Two columns for itemize ?
+- [ ] Two/Three columns for exercises ?
+- [ ] Exercises style bullet is wrong
+
+### Custom extensions
+
 - [ ] Flexible table
   - [ ] Full Width
   - [ ] X column
