@@ -13,7 +13,7 @@ Dans un cursus académique, on parle souvent de cours d'**Algorithmique et Progr
 
 ## Algorithmique
 
-L'algorithmique et non l'*algorithmie* (qui n'est pas français), est la science qui étudie la production de règles et techniques impliquées dans la définition et la conception d'[algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Nous verrons l'algorithmique plus en détail dans le chapitre [algorithmes](algorithms.md). Retenons pour l'heure que l'algorithmique est un domaine bien plus vaste que celui appliqué aux ordinateurs. Elle intervient tous les jours :
+L'algorithmique et non l'*algorithmie* (qui n'est pas français), est la science qui étudie la production de règles et techniques impliquées dans la définition et la conception d'[algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Nous verrons l'algorithmique plus en détail dans le chapitre [algorithmes](../algorithms/algorithms.md). Retenons pour l'heure que l'algorithmique est un domaine bien plus vaste que celui appliqué aux ordinateurs. Elle intervient tous les jours :
 
 - dans une recette de cuisine,
 - le tissage de tapis persans,

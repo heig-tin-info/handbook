@@ -29,18 +29,20 @@ theme:
     - content.code.copy
     - content.code.select
     - content.tooltips
-    - content.footnote.tooltips # Insiders only
+    - content.footnote.tooltips # [Insiders only]
     - header.autohide
-    - navigation.footer
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.progress # Insiders only
-    - navigation.path # Insiders only
-    - navigation.sections
-    - navigation.prune
-    - navigation.tabs
-    - navigation.top
-    - navigation.tracking
+    - navigation.footer # Adds previous and next buttons in the footer
+    - navigation.instant # Dispatch through XHR, without full page reload
+    - navigation.instant.prefetch # [Insiders only]
+    - navigation.instant.progress # [Insiders only]
+    - navigation.path # [Insiders only]
+    #- navigation.expand
+    - navigation.sections # Render top-level section as groups
+    - navigation.indexes # Allows for entry pages for each section
+    #- navigation.prune
+    - navigation.tabs # Render top-level section in navbar
+    - navigation.top # Adds back-to-top button
+    - navigation.tracking # Update address bar with current page
     - search.highlight
     - search.share
     - search.suggest
@@ -108,6 +110,7 @@ plugins:
   # - tags:
   #     tags_file: tags.md
   - drawio-exporter:
+      cache_dir: .drawio_cache
       embed_format: '{content}'
   - markdown-exec
   # - extract_listings:
@@ -199,6 +202,7 @@ watch:
   - includes
   - overrides
 hooks:
+  - hooks/breadcrumb.py
   - hooks/spantable.py
   #- hooks/french.py
   #- hooks/latex.py

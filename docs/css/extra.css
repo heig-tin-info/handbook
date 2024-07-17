@@ -132,11 +132,30 @@
 }
 
 .md-typeset h1 {
+  margin-top: 1em;
   font-weight: 400;
 }
 
 .md-typeset h2,
 .md-typeset h3 {
   font-weight: 600;
+  color: var(--md-default-fg-color--light);
+}
+
+.breadcrumb {
+  margin-top: 0.5em;
+  font-size: 0.8em;
+  color: var(--md-default-fg-color--light);
+}
+
+.breadcrumb-caret {
+  fill: var(--md-default-fg-color--light);
+  height: 0.7em !important;
+  vertical-align: middle;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+
+strong:not([class]) {
   color: var(--md-default-fg-color--light);
 }
