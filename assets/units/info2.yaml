@@ -1,0 +1,187 @@
+# Version formelle et étendue de la fiche d'unité de cours disponible sur GAPS
+# https://gaps.heig-vd.ch/consultation/fiches/uv/uv.php?id=6491
+---
+title:
+    name: Informatique 2
+    tag: info2
+    id: 6491
+domain: Ingénierie et Architecture
+filière: Génie électrique
+orientations:
+  ? EAI
+  ? EEM
+  ? MI
+formation: Plein temps
+validityDate:
+    - 2021-2022
+author: Pierre Bressy
+charge:
+    academicHours: 120
+    inClassAcademicHours: 80
+planning:
+    s1:
+        class: # 48
+            - hours: 4
+              chapters:
+                - 'Préprocesseur (#include, #define, #if, #pragma)'
+            - hours: 4
+              chapters:
+                - Classes de stockage (static, volatile, extern)
+            - hours: 8
+              chapters:
+                - Conception de type de données abstraits simples
+                - Création de bibliothèques
+            - hours: 10
+              chapters:
+                - Pointeurs, arithmétique de pointeurs
+                - Allocation dynamique
+                - Segments mémoire (stack, heap)
+            - hours: 6
+              chapters:
+                - Implémentation des listes
+                - Queues et files d'attente basée sur les tableaux
+            - hours: 8
+              chapters:
+                - Type de données récursifs, queues et files d'attente
+            - hours: 4
+              chapters:
+                - Gestion des flux (stdin, stdout, stderr)
+                - Fichiers binaires et textes
+            - hours: 4
+              chapters:
+                - Contrôles continus
+        laboratory:
+            - hours: 6
+              chapters:
+                - >
+                  Mise en œuvre de type de données composées
+                  (structures, tableaux multidimensionnels)
+            - hours: 4
+              chapters:
+                - Lecture et écriture de fichiers texte et binaire en mode séquentiel
+            - hours: 4
+              chapters:
+                - Mise en œuvre de l'allocation dynamique de mémoire
+            - hours: 2
+              chapters:
+                - Compilation séparée et implémentation de bibliothèques
+            - hours: 4
+              chapters:
+                - Implémentation de types de données abstraits, type simple, liste tableau
+            - hours: 6
+              chapters:
+                - Implémentation de types de données abstraits, file, pile
+            - hours: 6
+              chapters:
+                - Mini-projet
+prerequisites: |
+    L'étudiant-e doit connaître et savoir utiliser les notions suivantes
+        - bases de la programmation en C : types de base, structures
+          de contrôle et sous-programmes,
+        - utilisation d'un environnement de développement,
+          compilation et exécution de programmes.
+    L'unité d'enseignement Informatique 1 permet d'acquérir ces connaissances.
+
+goals:
+    class:
+        - >
+          Décomposer un algorithme selon l'approche descendante (raffinage successif)
+          et ascendante.
+        - Décomposer une application de complexité moyenne en algorithmes élémentaires.
+        - Concevoir un type de données abstrait simple et les fonctions pour le manipuler.
+        - Concevoir une bibliothèque de fonctions en utilisant la compilation séparée.
+        - Écrire un programme qui manipule (lecture/écriture) des fichiers binaires
+        - Lire et générer un fichier de données tabulées (p.ex. csv),
+        - Mettre en œuvre un tableau dynamique avec facteur de croissance,
+        - Définir et manipuler un type de données récursif e.g. liste chaînée,
+        - Comprendre le fonctionnement d'un algorithme de tri en O(n log n),
+        - Savoir implémenter une recherche dichotomique
+        - Comprendre le fonctionnement du préprocesseur C
+        - Connaître et savoir quand utiliser les différentes classes de stockage
+        - Connaître en détail la notion de pointeur et savoir les utiliser
+        - >
+          Utiliser les fonctions standard de recherche et de manipulation
+          de chaîne de caractères (p.ex. strstr, strchr, qsort).
+    laboratory:
+        - Réunir un ensemble de fonctions dans un module logiciel et l'utiliser
+        - Programmer et mettre au point des algorithmes de complexité moyenne
+        - >
+          Réaliser une application de taille et de complexité moyennes,
+          mêlants différents aspects de la programmation
+        - Développer un programme en utilisant un outil de gestion de version
+        - Utiliser un système de test automatique pour valider le fonctionnement d'un programme.
+
+plan:
+  - Algorithmie
+    - Raffinage successif
+    - Décomposition en éléments fonctionnels simples
+    - Conception d'algorithmes de complexité moyenne
+  - Types composés
+    - Manipulation d'une structure (struct)
+    - Passage par copie et adresse
+    - Création de types (typedef)
+  - Bibliothèque
+    - Concevoir une bibliothèque statique
+    - Utilisation d'une bibliothèque statique dans un programme
+  - Fichiers
+    - Types de fichiers
+      - Binaire
+      - Textes
+      - Données tabulées
+      - Données indexées
+    - Système de fichier
+      - Arborescence
+      - Dossiers
+      - Chemins relatifs et absolus
+    - Manipulation de fichiers
+      - Pointeur de fichier (ftell, fseek)
+      - Lecture (fread, fscanf)
+      - Écriture (fwrite, fprintf)
+  - Gestion de la mémoire
+    - Pointeurs
+      - Règle gauche droite
+      - Arithmétique de pointeurs
+      - Types de pointeurs imbriqués (p.ex. int**[])
+    - Allocation dynamique
+      - malloc
+      - calloc
+      - free
+      - Création de tableaux dynamiques
+      - Comprendre la différence entre le stack et le heap
+  - Types de données récursifs
+    - Liste simplement chaînée
+    - Liste doublement chaînée
+  - Alignement mémoire
+    - Unions
+    - Champs de bits
+  - Livraison
+    - Préparer le code à la livraison
+    - Construire une bibliothèque documentée
+    - Utiliser GitHub pour tracer le développement
+    - Utiliser une bibliothèque de test unitaire
+bibliographie:
+  - author: Jean-Michel Léry
+    title: Algorithmique, Applications en C, C++ et Java
+    editor: Pearson
+    year: 2013
+  - standard: ISO/IEC 9899:2011
+    title: Langage de programmation C, ISO/IEC
+    year: 2011
+  - author:
+    ? Brian Kernighan
+    ? Dennis Ritchie
+    title: Le langage C
+    edition: 2nd
+    editor: Dunod
+    year: 2014
+    isbn: 978-2100715770
+  - author: Claude Delannoy
+    title: Programmer en langage C, Cours et exercices corrigés
+    editor: Eyrolles
+    year: 2016
+  - author: Stephen Kochan
+    title: Programming in C
+    edition: 4
+    editor: Pearson
+    year: 2014
+    isbn: 978-0321776419
