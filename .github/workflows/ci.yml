@@ -6,6 +6,10 @@ on:
       - main
 permissions:
   contents: write
+env:
+  drawio_arch: amd64
+  drawio_version: 18.1.3
+  drawio_sha256sum: 39a50f25ad52d6909c5c18d89a7cfc193e8e31fb98458a390c0a0709d22e9e10
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -33,8 +37,8 @@ jobs:
       - name: Cache Draw.io download
         uses: actions/cache@v4
         with:
-          path: drawio-${{ env.drawio_version }}.deb
-          key: ${{ runner.os }}-drawio-${{ env.drawio_version }}
+          path: drawio-${{env.drawio_arch}}-${{env.drawio_version}}.deb
+          key: ${{ runner.os }}-drawio-${{env.drawio_arch}}-${{ env.drawio_version }}
       - name: Install pandoc
         run: |
           sudo apt-get update
@@ -45,11 +49,8 @@ jobs:
         run: |
           set -euo pipefail
 
-          drawio_arch=amd64
-          drawio_version=18.1.3
-          drawio_sha256sum=39a50f25ad52d6909c5c18d89a7cfc193e8e31fb98458a390c0a0709d22e9e10
-          drawio_deb="drawio-${drawio_arch}-${drawio_version}.deb"
-          drawio_url="https://github.com/jgraph/drawio-desktop/releases/download/v${drawio_version}/${drawio_deb}"
+          drawio_deb="drawio-${{env.drawio_arch}}-${{env.drawio_version}}.deb"
+          drawio_url="https://github.com/jgraph/drawio-desktop/releases/download/v${{env.drawio_version}}/${drawio_deb}"
 
           if [ ! -f "$drawio_deb" ]; then
             curl -L -o "$drawio_deb" "$drawio_url"
@@ -57,7 +58,11 @@ jobs:
           fi
 
           sudo apt-get install -y libasound2 xvfb ./"$drawio_deb"
-
+      - name: Cache Drawio Exporter
+        uses: actions/cache@v4
+        with:
+          path: ~/docs/drawio-exporter
+          key: ${{ runner.os }}-drawio-exporter-${{env.drawio_arch}}-${{ env.drawio_version }}
       - name: Install Python dependencies
         run: poetry install
 
