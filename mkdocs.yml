@@ -88,10 +88,10 @@ plugins:
       enabled: !ENV CI
       plugins:
         #- privacy # Seem to mess with images
-        - mike
+        # - mike
         #- info
-        - minify:
-            minify_html: true
+        # - minify:
+        #     minify_html: true # Break draw.io images?
         - git-committers:
             repository: heig-tin-info/handbook
             branch: master
