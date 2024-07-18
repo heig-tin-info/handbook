@@ -1594,6 +1594,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#navigation-dans-un-arbre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation dans un arbre
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigation dans un arbre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parcours-en-profondeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parcours en profondeur
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1698,6 +1722,8 @@
       
         
       
+        
+      
     
     
       
@@ -1746,6 +1772,27 @@
   
   <span class="md-ellipsis">
     Algorithmes et conception
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/sorting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algorithmes de tris
   </span>
   
 
@@ -2622,6 +2669,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#navigation-dans-un-arbre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation dans un arbre
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigation dans un arbre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parcours-en-profondeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parcours en profondeur
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3172,7 +3243,50 @@ Comment allez-vous implémenter le trie ?</p>
 </div>
 <h2 id="radix-trie">Radix Trie<a class="headerlink" href="#radix-trie" title="Permanent link">¶</a></h2>
 <p>On l'a vu l'implémentation d'un trie est simple mais elle peut conduire à une utilisation excessive de la mémoire. En effet, chaque noeud contient un tableau de 26 éléments, même si un mot ne contient que quelques lettres. Pour réduire la consommation de mémoire, on peut utiliser un <a href="https://fr.wikipedia.org/wiki/Arbre_radix">radix trie</a>. Cet arbre est également nommé <em>PATRICIA trie</em> pour <em>Practical Algorithm to Retrieve Information Coded in Alphanumeric</em>.</p>
-<p>Plutôt que de stocker une seule lettre par noeud, on stocke un préfixe commun à plusieurs mots. On peut alors réduire le nombre de noeuds et donc la consommation de mémoire.</p><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+<p>Plutôt que de stocker une seule lettre par noeud, on stocke un préfixe commun à plusieurs mots. On peut alors réduire le nombre de noeuds et donc la consommation de mémoire.</p>
+<h2 id="navigation-dans-un-arbre">Navigation dans un arbre<a class="headerlink" href="#navigation-dans-un-arbre" title="Permanent link">¶</a></h2>
+<p>La navigation dans un arbre binaire est une opération courante. Il existe plusieurs façons de parcourir un arbre binaire :</p>
+<ul>
+<li><strong>Parcours en profondeur</strong> (DFS pour <em>Depth First Search</em>) On commence par la racine, puis on visite le sous-arbre gauche, puis le sous-arbre droit. On peut faire un parcours en profondeur en pré-ordre, en in-ordre ou en post-ordre.</li>
+<li><strong>Parcours en largeur</strong> (BFS pour <em>Breadth First Search</em>) On visite les nœuds de l'arbre de haut en bas et de gauche à droite. On utilise une file pour stocker les nœuds à visiter.</li>
+</ul>
+<h3 id="parcours-en-profondeur">Parcours en profondeur<a class="headerlink" href="#parcours-en-profondeur" title="Permanent link">¶</a></h3>
+<p>Le parcours en profondeur est une méthode de parcours d'un arbre binaire qui commence par la racine, puis visite le sous-arbre gauche, puis le sous-arbre droit. Il existe trois façons de parcourir un arbre en profondeur :</p>
+<ul>
+<li><strong>Pré-ordre</strong> : On visite d'abord la racine, puis le sous-arbre gauche, puis le sous-arbre droit.</li>
+<li><strong>In-ordre</strong> : On visite d'abord le sous-arbre gauche, puis la racine, puis le sous-arbre droit.</li>
+<li><strong>Post-ordre</strong> : On visite d'abord le sous-arbre gauche, puis le sous-arbre droit, puis la racine.</li>
+</ul>
+<p>L'implémentation peut se faire de manière récursive ou itérative. Voici un exemple d'implémentation récursive en C :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)(</span><span class="o">*</span><span class="n">visit</span><span class="p">)(</span><span class="n">Node</span><span class="o">*</span><span class="p">))</span>
+</span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="p">{</span>
+</span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+</span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="n">visit</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+</span><span id="__span-12-7"><a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">visit</span><span class="p">);</span>
+</span><span id="__span-12-8"><a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">visit</span><span class="p">);</span>
+</span><span id="__span-12-9"><a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>L'implémentation itérative utilise une pile pour stocker les nœuds à visiter. Voici un exemple d'implémentation itérative en C :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)(</span><span class="o">*</span><span class="n">visit</span><span class="p">)(</span><span class="n">Node</span><span class="o">*</span><span class="p">))</span>
+</span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="p">{</span>
+</span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="n">Stack</span><span class="w"> </span><span class="n">stack</span><span class="p">;</span>
+</span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="n">stack_init</span><span class="p">(</span><span class="n">stack</span><span class="p">);</span>
+</span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="n">stack_push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="p">);</span>
+</span><span id="__span-13-6"><a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">stack_empty</span><span class="p">(</span><span class="n">stack</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-8"><a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">        </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack_pop</span><span class="p">(</span><span class="n">stack</span><span class="p">);</span>
+</span><span id="__span-13-9"><a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">        </span><span class="n">visit</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+</span><span id="__span-13-10"><a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a>
+</span><span id="__span-13-11"><a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+</span><span id="__span-13-12"><a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">            </span><span class="n">stack_push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span><span class="w"> </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span><span id="__span-13-13"><a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+</span><span id="__span-13-15"><a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="w">            </span><span class="n">stack_push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span><span class="w"> </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span><span id="__span-13-16"><a href="#__codelineno-13-16" id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-13-17"><a href="#__codelineno-13-17" id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="p">}</span>
+</span></code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body></html>
 
