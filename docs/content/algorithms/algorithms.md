@@ -267,30 +267,12 @@ Sa complexité est ainsi réduite à $O(2\cdot n)$ et donc $O(n)$. En revanche, 
 Souvent on a besoin de lire l'entrée standard en entier dans une chaîne de caractère. Il faut convertir le flux d'entrée en une chaîne de caractère. Cependant, comme l'entrée standard n'est pas *seekable*, il faut lire le flux caractère par caractère. Une implémentation possible se repose sur le concept des tableaux dynamiques.
 
 ```c title="slurp.h"
---8<-- "docs../../assets/src/slurp.h"
+--8<-- "../../assets/src/slutp/slurp.h"
 ```
 
 ```c title="slurp.c"
---8<-- "../../assets/src/slurp.c"
+--8<-- "../../assets/src/slutp/slurp.c"
 ```
-
-### Min-heap
-
-Un tas binaire est une structure de données qui permet de stocker des éléments de manière ordonnée. Un tas binaire est un arbre binaire complet où chaque nœud est plus petit que ses enfants. Un tas binaire est souvent utilisé pour implémenter une file de priorité.
-
-```c title="min-heap.h"
---8<-- "docs../../assets/src/min-heap.h"
-```
-
-```c title="min-heap.c"
---8<-- "docs../../assets/src/min-heap.c"
-```
-
-### Max-heap
-
-A l'inverse du [*min-heap*](){#min-heap}, le *max-heap* stocke les éléments de manière ordonnée où chaque nœud est plus grand que ses enfants.
-
-```c title="max-heap.h"
 
 ## Algorithmes célèbres
 
