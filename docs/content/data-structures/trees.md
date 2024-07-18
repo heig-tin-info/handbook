@@ -449,3 +449,54 @@ Exemple d'implémentation:
 On l'a vu l'implémentation d'un trie est simple mais elle peut conduire à une utilisation excessive de la mémoire. En effet, chaque noeud contient un tableau de 26 éléments, même si un mot ne contient que quelques lettres. Pour réduire la consommation de mémoire, on peut utiliser un [radix trie](https://fr.wikipedia.org/wiki/Arbre_radix). Cet arbre est également nommé *PATRICIA trie* pour *Practical Algorithm to Retrieve Information Coded in Alphanumeric*.
 
 Plutôt que de stocker une seule lettre par noeud, on stocke un préfixe commun à plusieurs mots. On peut alors réduire le nombre de noeuds et donc la consommation de mémoire.
+
+## Navigation dans un arbre
+
+La navigation dans un arbre binaire est une opération courante. Il existe plusieurs façons de parcourir un arbre binaire :
+
+- **Parcours en profondeur** (DFS pour *Depth First Search*) On commence par la racine, puis on visite le sous-arbre gauche, puis le sous-arbre droit. On peut faire un parcours en profondeur en pré-ordre, en in-ordre ou en post-ordre.
+- **Parcours en largeur** (BFS pour *Breadth First Search*) On visite les nœuds de l'arbre de haut en bas et de gauche à droite. On utilise une file pour stocker les nœuds à visiter.
+
+### Parcours en profondeur
+
+Le parcours en profondeur est une méthode de parcours d'un arbre binaire qui commence par la racine, puis visite le sous-arbre gauche, puis le sous-arbre droit. Il existe trois façons de parcourir un arbre en profondeur :
+
+- **Pré-ordre** : On visite d'abord la racine, puis le sous-arbre gauche, puis le sous-arbre droit.
+- **In-ordre** : On visite d'abord le sous-arbre gauche, puis la racine, puis le sous-arbre droit.
+- **Post-ordre** : On visite d'abord le sous-arbre gauche, puis le sous-arbre droit, puis la racine.
+
+L'implémentation peut se faire de manière récursive ou itérative. Voici un exemple d'implémentation récursive en C :
+
+```c
+int dfs(Node* node, (void)(*visit)(Node*))
+{
+    if (node == NULL)
+        return;
+
+    visit(node);
+    dfs(node->left, visit);
+    dfs(node->right, visit);
+}
+```
+
+L'implémentation itérative utilise une pile pour stocker les nœuds à visiter. Voici un exemple d'implémentation itérative en C :
+
+```c
+int dfs(Node* node, (void)(*visit)(Node*))
+{
+    Stack stack;
+    stack_init(stack);
+    stack_push(stack, node);
+
+    while (!stack_empty(stack)) {
+        Node* current = stack_pop(stack);
+        visit(current);
+
+        if (current->right != NULL)
+            stack_push(stack, current->right);
+
+        if (current->left != NULL)
+            stack_push(stack, current->left);
+    }
+}
+```
