@@ -1,5 +1,7 @@
 # Arbres
 
+![Arbre binaire IRL](../../assets/images/binary-tree.jpg)
+
 Les arbres sont des structures de données non linéaires qui sont composées de nœuds. Chaque nœud a un ou plusieurs enfants, sauf pour le nœud racine qui n'a pas de parent. Les arbres sont souvent utilisés pour représenter des hiérarchies, comme les systèmes de fichiers, les arbres généalogiques, les arbres de décision, etc.
 
 Voici un exemple d'arbre, il représente par exemple une structure de documents stockés sur un ordinateur. En haut on voit le disque C: qui contient des dossiers et des fichiers. Chaque dossier peut contenir d'autres dossiers ou des fichiers. Il y a donc une hiérarchie entre les éléments. Chaque dossier peut contenir plusieurs éléments, mais chaque élément ne peut être contenu que dans un seul dossier.
@@ -238,8 +240,6 @@ Voici un tableau résumant les complexités des différentes opérations dans un
 - **Mise à jour d'un élément** : La mise à jour d'un élément peut nécessiter soit *heapify up* soit *heapify down* pour rétablir la propriété du tas, ce qui prend $O(log n)$.
 
 Ces complexités font des min-heaps une structure de données efficace pour les files de priorité et les algorithmes nécessitant des opérations fréquentes d'insertion et d'extraction du minimum.
-
-![Arbre binaire IRL](../../assets/images/binary-tree.jpg)
 
 ### Arbre binaire de recherche
 
