@@ -352,3 +352,100 @@ Contrairement à l'arbre AVL, l'arbre rouge-noir est plus simple à implémenter
 5. Tout chemin simple d'un nœud donné à ses feuilles descendantes contient le même nombre de nœuds noirs.
 
 De la même manière que l'arbre AVL, il y a des opérations de rotation pour rééquilibrer l'arbre rouge-noir. Les rotations sont plus simples que dans un arbre AVL car il n'y a que deux types de rotations : la rotation gauche et la rotation droite.
+
+## Trie
+
+Un *trie* est une structure de données qui stocke un ensemble de chaînes de caractères. Il est souvent utilisé pour stocker des mots dans un dictionnaire ou pour rechercher des mots dans un texte. Un trie est donc un arbre où chaque nœud est associé à une lettre et un marqueur de fin de mot. Un noeud peut avoir de 1 à 26 enfants, un pour chaque lettre de l'alphabet (si on se limite à l'alphabet latin minuscule).
+
+Prenons l'exemple des mots suivants :
+
+```c
+char *words[] = {
+    "cadeaux", "le", "car", "cette", "cadre", "cause",
+    "carte", "comme", "car", "ce", "caduc", "cadet",
+    "la", "la", "les"};
+```
+
+On peut construire le trie suivant :
+
+![Trie](../../assets/images/trie.drawio)
+
+En vert, les nœuds qui marquent la fin d'un mot. En orange la racine de l'arbre. La structure de données de chaque noeud pourrait être la suivante :
+
+```c
+typedef struct Node {
+    int occurences;  // Number of occurences of the word
+    struct Node *children[26];  // Children nodes
+} Node;
+```
+
+!!! exercise "Implémentation"
+
+    Vous avez un texte connu et vous voulez permettre de compter les occurences de chaque mot. Une fois que le trie est construit, il est en lecture seule.
+    Comment allez-vous implémenter le trie ?
+
+    - [ ] Comme une liste chaînée, chaque noeud est alloué dynamiquement sur le *heap*.
+    - [ ] Un tableau statique sur la pile ou chaque élément est un noeud.
+    - [ ] Un tableau dynamique sur le *heap*, l'allocation est amortie et chaque noeud contient un tableau de pointeurs sur ses enfants.
+    - [x] Un tableau dynamique sur le *heap*, l'allocation est amortie et chaque noeud contient non pas un pointeur des enfants mais l'indice de l'enfant dans le tableau.
+    - [ ] Par chunks d'éléments, chaque chunk est alloué dynamiquement sur le *heap*.
+
+Discutons de plusieurs implémentations possibles d'un noeud d'un trie :
+
+- **Liste chaînée** : Chaque noeud est alloué dynamiquement sur le *heap*. C'est une solution simple mais qui peut être coûteuse en mémoire et en temps d'allocation. Néanmoins le noeud peut prendre un tableau flexible pour les enfants. Ce qui permet de ne pas allouer de mémoire inutile.
+
+    ```c
+    typedef struct Node {
+        int occurences;  // Number of occurences of the word
+        struct Node *children[];  // Children nodes, variable size
+    } Node;
+    ```
+
+- **Tableau dynamique** : En stoquant tous les éléments dans le tableau dynamique, on ne peut plus utiliser de pointeurs car si le tableau est réalloué, les pointeurs ne sont plus valides. On utilise donc des indices pour accéder aux enfants, car ces derniers sont relatifs à l'adresse de début du tableau. En revanche, on ne peut plus utiliser de tableau flexible pour les enfants car la taille de la structure doit être connue à la compilation. Ceci implique une utilisation de mémoire plus importante.
+
+    ```c
+    typedef struct Node {
+        int occurences;  // Number of occurences of the word
+        size_t children_id[26];  // Children nodes
+    } Node;
+    ```
+
+- **Chunks** : Chaque chunk contient un certain nombre de noeuds. Un chaunk d'une taille donnée est réservée. Lorsque le chunk est plein, un nouveau chunk est alloué. Cela permet de réduire le nombre d'appels à `malloc` et de réduire la fragmentation de la mémoire. Cette méthode permet de réduire le nombre d'appels à `malloc` et de réduire la fragmentation de la mémoire. Elle résoud aussi le problème de la taille fixe du tableau des enfants en autorisant à nouveau un tableau flexible.
+
+    ```c
+    typedef struct Node {
+        int occurences;  // Number of occurences of the word
+        struct Node *children[];  // Children nodes
+    } Node;
+
+    typedef struct Chunk {
+        char *data[1024];
+        size_t used_bytes;
+        struct Chunk *next;
+    } Chunk;
+    ```
+
+
+Exemple d'implémentation:
+
+```c
+--8<-- "../../assets/src/trie/trie.c"
+```
+
+!!! exercise "Regroupement ?"
+
+    On peut se demander si il ne serait pas préférable de regrouper les noeuds communs ensembles comme la figure suivante :
+
+    ![Autre représentation](../../assets/images/trie-not.drawio)
+
+    Est-ce une bonne idée ? Pourquoi ?
+
+    ??? solution
+
+        Non, ce n'est pas une bonne idée. D'une part la figure n'est plus un arbre mais un graphe. Un graph peut avoir des cycles et donc des boucles infinies. Ensuite, regrouper les éléments communs ne peut être fait qu'à la fin de la construction du trie, lorsqu'elle est déjà allouée en mémoire. La complexité de l'optimisation n'est pas à négliger. Si la contrainte est l'utilisation de la mémoire, il est préférable d'utiliser une autre structure de donnée comme un *radix trie*.
+
+## Radix Trie
+
+On l'a vu l'implémentation d'un trie est simple mais elle peut conduire à une utilisation excessive de la mémoire. En effet, chaque noeud contient un tableau de 26 éléments, même si un mot ne contient que quelques lettres. Pour réduire la consommation de mémoire, on peut utiliser un [radix trie](https://fr.wikipedia.org/wiki/Arbre_radix). Cet arbre est également nommé *PATRICIA trie* pour *Practical Algorithm to Retrieve Information Coded in Alphanumeric*.
+
+Plutôt que de stocker une seule lettre par noeud, on stocke un préfixe commun à plusieurs mots. On peut alors réduire le nombre de noeuds et donc la consommation de mémoire.
