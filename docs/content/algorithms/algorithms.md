@@ -340,10 +340,18 @@ Ce n'est pas un algorithme très académique, il s'agit d'un [kludge](https://fr
 
 ### Algorithme de Rabin-Karp
 
-Cet algorithme [Rabin-Karp](https://fr.wikipedia.org/wiki/Algorithme_de_Rabin-Karp) permet la recherche d'une sous-chaîne de caractère. Sa complexité moyenne est $O(n + m)$.
+Cet algorithme [Rabin-Karp](https://fr.wikipedia.org/wiki/Algorithme_de_Rabin-Karp) permet la recherche d'une sous-chaîne de caractère dans une chaîne plus grande. Sa complexité moyenne est $O(n + m)$.
+
+L'algorithme se base sur le principe de la [fonction de hachage](https://fr.wikipedia.org/wiki/Fonction_de_hachage). Il consiste à calculer le hash de la chaîne à rechercher et de la chaîne dans laquelle on recherche. Si les deux hash sont égales, on compare les deux chaînes caractère par caractère.
+
+L'algorithme fait glisser une fenêtre de la taille de la chaîne à rechercher sur la chaîne dans laquelle on recherche. À chaque itération, on calcule le hash de la fenêtre et on le compare au hash de la chaîne à rechercher. Si les deux hash sont égaux, on compare les deux chaînes caractère par caractère.
+
+La performance de l'algorithme dépend de la fonction de hachage. Si la fonction de hachage est bien choisie, l'algorithme est très performant. Si la fonction de hachage est mal choisie, l'algorithme peut être lent.
+
+Ici la fonction de hachage est très simple, on utilise un nombre premier.
 
 ```c title="rabin-karp.c"
---8<-- "docs../../assets/src/rabin-karp.c"
+--8<-- "../../assets/src/rabin-karp.c"
 ```
 
 ### Algorithme de Shunting Yard
@@ -411,31 +419,31 @@ On observe que si on dispose de fonctions pour ajouter/supprimer des éléments 
 === "main.c"
 
     ```c
-    --8<-- "docs../../assets/src/shunting-yard/main.c"
+    --8<-- "../../assets/src/shunting-yard/main.c"
     ```
 
 === "queue.h"
 
     ```c
-    --8<-- "docs../../assets/src/shunting-yard/queue.h"
+    --8<-- "../../assets/src/shunting-yard/queue.h"
     ```
 
 === "stack.h"
 
     ```c
-    --8<-- "docs../../assets/src/shunting-yard/stack.h"
+    --8<-- "../../assets/src/shunting-yard/stack.h"
     ```
 
 === "queue.c"
 
     ```c
-    --8<-- "docs../../assets/src/shunting-yard/queue.c"
+    --8<-- "../../assets/src/shunting-yard/queue.c"
     ```
 
 === "stack.c"
 
     ```c
-    --8<-- "docs../../assets/src/shunting-yard/stack.c"
+    --8<-- "../../assets/src/shunting-yard/stack.c"
     ```
 
 !!! info "Notation polonaise inverse"
@@ -452,7 +460,67 @@ On observe que si on dispose de fonctions pour ajouter/supprimer des éléments 
 
 ### Codage de Huffman
 
-Le codage de Huffman est un algorithme de compression de données sans perte. Il a été inventé par
+Le codage de Huffman est un algorithme de compression sans perte qui permet de réduire la taille des fichiers en utilisant des codes de longueur variable pour représenter les caractères. L'algorithme repose sur l'idée que les caractères les plus fréquents dans un texte peuvent être représentés par des codes plus courts, tandis que les caractères les moins fréquents sont représentés par des codes plus longs.
+
+Prenons le texte `ABRACADABRA`. Il y a des lettres qui reviennent plus souvent que d'autres et des lettres de l'alphabet qui sont absente. Pourquoi donc représenter chaque caractère sur 1 octet ? On pourrait utiliser un code de longueur variable. Par exemple, la lettre `A` pourrait être représentée par `0`, la lettre `B` par `10` et la lettre `R` par `11`. Il faudrait également définir une table de correspondance pour décoder le texte. C'est le principe de l'abre de Huffman.
+
+1. Créer des nœuds pour chaque caractère, en fonction de leur fréquence
+
+    ```text
+    A (5), B (2), R (2), C (1), D (1)
+    ```
+
+2. Fusionner les deux nœuds de plus faible fréquence
+
+    ```text
+    C (1) + D (1) -> CD (2)
+    ```
+
+3. Fusionner les deux nœuds de plus faible fréquence restants
+
+    ```text
+    B (2) + R (2) -> BR (4)
+    ```
+
+4. Fusionner les nœuds restants
+
+    ```text
+    CD (2) + BR (4) -> CDBR (6)
+    A (5) + CDBR (6) -> ACDBR (11)
+    ```
+
+    On obtiens l'arbre de Huffman suivant :
+
+    ```text
+        ACDBR (11)
+       /       \
+     A (5)   CDBR (6)
+             /    \
+           BR (4) CD (2)
+           / \    / \
+         B (2) R (2) C (1) D (1)
+    ```
+
+5. Génération des codes
+
+    ```text
+    A: 0
+    B: 10
+    R: 11
+    C: 110
+    D: 111
+    ```
+
+6. Encodage du texte
+
+    ```text
+    A B  R  A C   A D   A B  R  A
+    0 10 11 0 110 0 111 0 10 11 0
+    ```
+
+!!! todo
+
+    Valider l'implémentation
 
 ## Algorithmes de tris
 

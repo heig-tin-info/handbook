@@ -26,21 +26,18 @@ int search(char needle[], char haystack[], int matches[], size_t size)
     // window of text
     int p = 0; // Hash value for pattern
     int t = 0; // Hash value for haystack
-    for (int i = 0; i < M; i++)
-    {
+    for (int i = 0; i < M; i++) {
         p = (CHARS_IN_ALPHABET * p + needle[i]) % q;
         t = (CHARS_IN_ALPHABET * t + haystack[i]) % q;
     }
 
     // Slide the pattern over text one by one
     size_t k = 0;
-    for (int i = 0; i <= N - M; i++)
-    {
+    for (int i = 0; i <= N - M; i++) {
         // Check the hash values of current window of text
         // and pattern. If the hash values match then only
         // check for characters on by one
-        if (p == t)
-        {
+        if (p == t) {
             // Check for characters one by one
             int j = 0;
             while (haystack[i + j] == needle[j] && j < M)
@@ -56,8 +53,7 @@ int search(char needle[], char haystack[], int matches[], size_t size)
 
         // Calculate hash value for next window of text.
         // Remove leading digit and add trailing digit.
-        if (i < (N - M))
-        {
+        if (i < (N - M)) {
             t = (CHARS_IN_ALPHABET *
                 (t - haystack[i] * h) + haystack[i + M]) % q;
             t += t < 0 ? q : 0;
