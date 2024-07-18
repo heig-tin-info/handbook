@@ -275,11 +275,14 @@ En des termes plus corrects, mais nous verrons cela au chapitre sur les pointeur
 
 Retenez simplement que lors d'un passage par référence, on cherche à rendre la valeur passée en paramètre modifiable par le *caller*.
 
-## Récursion
+## Exemples de fonctions
 
-La récursion, caractère d'un processus, d'un mécanisme récursif, c'est à dire qui peut être répété un nombre indéfini de fois par l'application de la même règle, est une méthode d'écriture dans laquelle une fonction s'appelle elle-même.
+[](){#fib-iterative}
+### Suite de fibonacci
 
-Au chapitre sur les fonctions, nous avions donné l'exemple du calcul de la somme de la suite de Fibonacci jusqu'à `n` :
+La suite de fibonacci est une suite d'entiers dans laquelle chaque terme est la somme des deux termes précédents. La suite commence par 0 et 1. La suite commence donc par 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+
+Voici une implémentation de la suite de fibonacci en utilisant une approche itérative :
 
 ```c
 int fib(int n)
@@ -295,121 +298,6 @@ int fib(int n)
         t2 = next_term;
     }
     return sum;
-}
-```
-
-Il peut sembler plus logique de raisonner de façon récursive. Quelle que soit l'itération à laquelle l'on soit, l'assertion suivante est valable :
-
-> fib(n) == fib(n - 1) + fib(n - 2)
-
-Donc pourquoi ne pas réécrire cette fonction en employant ce caractère récursif ?
-
-```c
-int fib(int n)
-{
-    if (n < 2) return 1;
-    return fib(n - 1) + fib(n - 2);
-}
-```
-
-Le code est beaucoup plus simple à écrire, et même à lire. Néanmoins cet algorithme est notoirement connu pour être mauvais en termes de performance. Calculer `fib(5)` revient à la chaîne d'appel suivant.
-
-Cette chaîne d'appel représente le nombre de fois que `fib` est appelé et à quel niveau elle est appelée. Par exemple `fib(4)` est appelé dans `fib(5)` :
-
-```text
-fib(5)
-    fib(4)
-        fib(3)
-            fib(2)
-            fib(1)
-        fib(2)
-            fib(1)
-            fib(0)
-    fib(3)
-        fib(2)
-            fib(1)
-            fib(0)
-        fib(1)
-```
-
-Si l'on somme le nombre de fois que chacune de ces fonctions est appelée :
-
-```text
-fib(5)   1x
-fib(4)   1x
-fib(3)   2x
-fib(2)   3x
-fib(1)   4x
-fib(0)   2x
------------
-fib(x)  13x
-```
-
-Pour calculer la somme de Fibonacci, il faut appeler 13 fois la fonction. On le verra plus tard, mais la complexité algorithmique de cette fonction est dite $O(2^n)$. C'est-à-dire que le nombre d'appels suit une relation exponentielle. La réelle complexité est donnée par la relation :
-
-$$
-T(n) = O\left(\frac{1+\sqrt(5)}{2}^n\right) = O\left(1.6180^n\right)
-$$
-
-Ce terme 1.6180 est appelé [le nombre d'or](https://fr.wikipedia.org/wiki/Nombre_d%27or).
-
-Ainsi pour calculer fib(100) il faudra sept cent quatre-vingt-douze trillions soixante-dix mille huit cent trente-neuf billions huit cent quarante-huit milliards trois cent soixante-quatorze millions neuf cent douze mille deux cent quatre-vingt-douze appels à la fonction `fib` (792'070'839'848'374'912'292). Pour un processeur Core i7 (2020) capable de calculer environ 100 GFLOPS (milliards d'opérations par seconde), il lui faudra tout de même 251 ans.
-
-En revanche, dans l'approche itérative, on constate qu'une seule boucle `for`. C'est-à-dire qu'il faudra seulement 100 itérations pour calculer la somme.
-
-Généralement les algorithmes récursifs (s'appelant eux-mêmes) sont moins performants que les algorithmes itératifs (utilisant des boucles). Néanmoins il est parfois plus facile d'écrire un algorithme récursif.
-
-Notons que tout algorithme récursif peut être écrit en un algorithme itératif, mais ce n'est pas toujours facile.
-
-## Mémoïsation
-
-En informatique la [mémoïsation](https://fr.wikipedia.org/wiki/M%C3%A9mo%C3%AFsation) est une technique d'optimisation du code souvent utilisée conjointement avec des algorithmes récursifs. Cette technique est largement utilisée en [programmation dynamique](https://fr.wikipedia.org/wiki/Programmation_dynamique).
-
-Nous l'avons vu précédemment, l'algorithme récursif du calcul de la somme de la suite de Fibonacci n'est pas efficace du fait que les mêmes appels sont répétés un nombre inutile de fois. La parade est de mémoriser pour chaque appel de `fib`, la sortie correspondante à l'entrée.
-
-Dans cet exemple nous utiliserons un mécanisme composé de trois fonctions :
-
-- `int memoize(Cache *cache, int input, int output)`
-- `bool memoize_has(Cache *cache, int input)`
-- `int memoize_get(Cache *cache, int input)`
-
-La première fonction mémorise la valeur de sortie `output` liée à la valeur d'entrée `input`. Pour des raisons de simplicité d'utilisation, la fonction retourne la valeur de sortie `output`.
-
-La seconde fonction `memoize_has` vérifie si une valeur de correspondance existe pour l'entrée `input`. Elle retourne `true` en cas de correspondance et `false` sinon.
-
-La troisième fonction `memoize_get` retourne la valeur de sortie correspondante à la valeur d'entrée `input`.
-
-Notre fonction récursive sera ainsi modifiée comme suit :
-
-```c
-int fib(int n)
-{
-    if (memoize_has(n)) return memoize_get(n);
-    if (n < 2) return 1;
-    return memoize(n, fib(n - 1) + fib(n - 2));
-}
-```
-
-Quant aux trois fonctions utilitaires, voici une proposition d'implémentation. Notons que cette implémentation est très élémentaire et n'est valable que pour des entrées inférieures à 1000. Il sera possible ultérieurement de perfectionner ces fonctions, mais nous aurons pour cela besoin de concepts qui n'ont pas encore été abordés, tels que les structures de données complexes.
-
-```c
-#define SIZE 1000
-
-bool cache_input[SIZE] = { false };
-int cache_output[SIZE];
-
-int memoize(int input, int output) {
-    cache_input[input % SIZE] = true;
-    cache_output[input % SIZE] = output;
-    return output;
-}
-
-bool memoize_has(int input) {
-    return cache_input[input % SIZE];
-}
-
-int memoize_get(int input) {
-    return cache_output[input % SIZE];
 }
 ```
 
