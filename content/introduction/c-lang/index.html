@@ -115,8 +115,6 @@
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
-      <link rel="stylesheet" href="../../../exercise.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -564,7 +562,7 @@
             
   
   <span class="md-ellipsis">
-    Préface
+    Avant-propos
   </span>
   
 
@@ -574,7 +572,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
-            Préface
+            Avant-propos
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -936,6 +934,8 @@
       
         
       
+        
+      
     
     
       
@@ -1089,6 +1089,27 @@
   
   <span class="md-ellipsis">
     Préprocesseur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundations/grammar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La grammaire
   </span>
   
 
@@ -1736,6 +1757,8 @@
       
         
       
+        
+      
     
     
       
@@ -1784,6 +1807,27 @@
   
   <span class="md-ellipsis">
     Algorithmes et conception
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/recursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Récursivité
   </span>
   
 
@@ -2748,7 +2792,7 @@
   
 
 
-<html><body><div class="breadcrumb"><span>Cours C</span>
+<div class="breadcrumb"><span>Cours C</span>
 <svg class="breadcrumb-caret" viewbox="0 0 256 512" xmlns="http://www.w3.org/2000/svg">
 <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
 </svg><span>Introduction</span>
@@ -2822,14 +2866,14 @@
 <p>En substance, <strong>C18</strong> n'apporte pas de nouvelles fonctionnalités au langage, mais vise à clarifier de nombreuses zones d'ombres laissées par <strong>C11</strong>.</p>
 <p><strong>C11</strong> apporte peu de grands changements fondamentaux pour le développement sur microcontrôleur.</p>
 <div class="admonition info">
-<p class="admonition-title">Information</p>
+<p class="admonition-title">Info</p>
 <p>Vous entendrez ou lirez souvent des références à <strong><abbr title="American National Standards Institute">ANSI</abbr> C</strong> ou <strong><abbr title="Kernighan and Ritchie">K&amp;R</abbr></strong>, préférez plutôt une compatibilité avec <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> au minimum.</p>
 </div>
 <p>Le standard est lourd, difficile à lire et avec 552 pages pour <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, vous n'aurez probablement jamais le moindre plaisir à y plonger les yeux qui se rempliront de larmes à chaque lecture.</p>
 <p>Armez-vous de mouchoirs car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà ?</p>
 <p>Vous vous demandez probablement pourquoi l'industrie a-t-elle autant de retard sur le dernier standard. Lorsque qu'Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglées par des validations strictes qui décrivent les standards utilisés. Migrer vers un standard plus récent est une aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée qu'on enverra sur Mars n'aura pas d'issue fatale. Ces validations sont longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèle à un ancien standard.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise<span class="exercise-title"></span></p>
+<p class="admonition-title">Exercise</p>
 <p>Ouvrez le standard <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a> et cherchez la valeur maximale possible de la constante <code>ULLONG_MAX</code>. Que vaut-elle ?</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -2985,7 +3029,7 @@
 </dd>
 <dt><a href="https://en.wikipedia.org/wiki/Ed_(text_editor)">Ed</a></dt>
 <dd>
-<p>Prononcé "Exercise: hidi", il s'agit du tout premier éditeur de texte développé en 1969 faisant partie des trois premiers éléments du système <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>: l'assembleur, l'éditeur et le <em>shell</em>. Il n'est pas interactif, il n'a pas de coloration syntaxique, il est absolument obscur dans son fonctionnement, mais bientôt 50 ans après, il fait toujours partie de la norme <abbr title="Portable Operating System Interface">POSIX</abbr> et donc disponible sur tout système compatible. Bref, ne l'utilisez pas...</p>
+<p>Prononcé "hidi", il s'agit du tout premier éditeur de texte développé en 1969 faisant partie des trois premiers éléments du système <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>: l'assembleur, l'éditeur et le <em>shell</em>. Il n'est pas interactif, il n'a pas de coloration syntaxique, il est absolument obscur dans son fonctionnement, mais bientôt 50 ans après, il fait toujours partie de la norme <abbr title="Portable Operating System Interface">POSIX</abbr> et donc disponible sur tout système compatible. Bref, ne l'utilisez pas...</p>
 </dd>
 </dl>
 <p>Le résultat de l'étude annuelle de <a href="https://survey.stackoverflow.co/2023/#overview">Stackoverflow</a> donne une idée de la popularité des éditeurs et IDE les plus utilisés par les développeurs :</p>
@@ -2997,7 +3041,7 @@
 <li>Vim (22.3%)</li>
 </ol>
 <div class="admonition exercise eclipse">
-<p class="admonition-title">Exercise<span class="exercise-title"></span></p>
+<p class="admonition-title">Exercise</p>
 <p>Un ami vous parle d'un outil utilisé pour le développement logiciel nommé <strong>Eclipse</strong>. De quel type d'outil s'agit-il ?</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -3106,7 +3150,13 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="446px" height="203px" viewBox="-0.5 -0.5 446 203"><defs><linearGradient x1="0%" y1="0%" x2="0%" y2="100%" id="mx-gradient-ffffff-1-ffffff-1-s-0"><stop offset="0%" style="stop-color: rgb(255, 255, 255); stop-opacity: 1;"/><stop offset="100%" style="stop-color: rgb(255, 255, 255); stop-opacity: 1;"/></linearGradient></defs><g><rect x="0" y="0" width="78" height="98" fill="none" stroke="none" pointer-events="all"/><path d="M 73 25.11 L 55.63 8 L 5 8.02 L 5 89 L 72.98 89 L 72.98 27.63 L 73 27.63 L 73 25.11" fill="#ffffff" stroke="none" pointer-events="all"/><path d="M 55.67 8 L 5 8 L 5 89 L 73 89 L 73 25.03 L 55.67 8 L 55.67 8" fill="url(#mx-gradient-ffffff-1-ffffff-1-s-0)" stroke="none" pointer-events="all"/><path d="M 72 24.46 L 55.13 8 L 54 8 L 54 25 L 72 24.99 L 72 24.46" fill="#a6a6a6" stroke="none" pointer-events="all"/><path d="M 55 25 L 71 24.99 L 55 9 L 55 25" fill="#ffffff" stroke="none" pointer-events="all"/><path d="M 73 25.11 L 55.63 8 L 5 8.02 L 5 89 L 72.98 89 L 72.98 27.63 L 73 27.63 L 73 25.11" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all"/><rect x="25.84" y="35.88" width="28.33" height="31.61" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 30px; height: 1px; padding-top: 52px; margin-left: 25px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center; width: 28px; max-height: 32px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><font style="font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">.o<br /></font></div></div></div></div></foreignObject><text x="40" y="55" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">.o&#xa;</text></switch></g><rect x="0" y="103" width="78" height="98" fill="none" stroke="none" pointer-events="all"/><path d="M 73 128.11 L 55.63 111 L 5 111.02 L 5 192 L 72.98 192 L 72.98 130.63 L 73 130.63 L 73 128.11" fill="#ffffff" stroke="none" pointer-events="all"/><path d="M 55.67 111 L 5 111 L 5 192 L 73 192 L 73 128.03 L 55.67 111 L 55.67 111" fill="url(#mx-gradient-ffffff-1-ffffff-1-s-0)" stroke="none" pointer-events="all"/><path d="M 72 127.46 L 55.13 111 L 54 111 L 54 128 L 72 127.99 L 72 127.46" fill="#a6a6a6" stroke="none" pointer-events="all"/><path d="M 55 128 L 71 127.99 L 55 112 L 55 128" fill="#ffffff" stroke="none" pointer-events="all"/><path d="M 73 128.11 L 55.63 111 L 5 111.02 L 5 192 L 72.98 192 L 72.98 130.63 L 73 130.63 L 73 128.11" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all"/><rect x="25.84" y="138.88" width="28.33" height="31.61" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 30px; height: 1px; padding-top: 155px; margin-left: 25px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center; width: 28px; max-height: 32px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><font style="font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">.o<br /></font></div></div></div></div></foreignObject><text x="40" y="158" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">.o&#xa;</text></switch></g><rect x="157" y="72" width="130" height="69" fill="none" stroke="none" pointer-events="all"/><path d="M 157 141 L 287 141 L 287 72 L 157 72 L 157 141" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 132px; height: 1px; padding-top: 107px; margin-left: 156px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center; width: 130px; max-height: 69px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><p style="text-align:center;margin-left:0;margin-right:0;margin-top:0px;margin-bottom:0px;text-indent:0;vertical-align:middle;direction:ltr;"><font style="font-size:14.11px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">Link<br /></font><font style="font-size:14.11px;font-family:Themed;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1"><b>gcc</b></font><font style="font-size:14.11px;font-family:Themed;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1"><br /></font></p></div></div></div></div></foreignObject><text x="222" y="110" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Link...</text></switch></g><rect x="366" y="58" width="78" height="98" fill="none" stroke="none" pointer-events="all"/><path d="M 439 83.11 L 421.63 66 L 371 66.02 L 371 147 L 438.98 147 L 438.98 85.63 L 439 85.63 L 439 83.11" fill="#ffffff" stroke="none" pointer-events="all"/><path d="M 421.67 66 L 371 66 L 371 147 L 439 147 L 439 83.03 L 421.67 66 L 421.67 66" fill="url(#mx-gradient-ffffff-1-ffffff-1-s-0)" stroke="none" pointer-events="all"/><path d="M 438 82.46 L 421.13 66 L 420 66 L 420 83 L 438 82.99 L 438 82.46" fill="#a6a6a6" stroke="none" pointer-events="all"/><path d="M 421 83 L 437 82.99 L 421 67 L 421 83" fill="#ffffff" stroke="none" pointer-events="all"/><path d="M 439 83.11 L 421.63 66 L 371 66.02 L 371 147 L 438.98 147 L 438.98 85.63 L 439 85.63 L 439 83.11" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all"/><rect x="384.21" y="83.72" width="43.58" height="51.93" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 46px; height: 1px; padding-top: 110px; margin-left: 383px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center; width: 44px; max-height: 52px; overflow: hidden;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; width: 100%; white-space: normal; overflow-wrap: normal;"><div style="font-size: 1px"><font style="font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1">.out<br />.exe<br /></font></div></div></div></div></foreignObject><text x="406" y="113" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">.out...</text></switch></g><path d="M 288 107 L 363.88 107" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 369.88 107 L 363.88 110 L 363.88 104 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all"/><path d="M 73 154 L 93.05 154 L 93.05 106.83 L 149.88 106.98" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 155.88 107 L 149.87 109.98 L 149.89 103.98 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all"/><path d="M 73 49 L 93.05 49 L 93.05 106.5 L 149.88 106.94" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 155.88 106.99 L 149.86 109.94 L 149.91 103.94 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all"/></g><switch><g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/><a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank"><text text-anchor="middle" font-size="10px" x="50%" y="100%">Text is not SVG - cannot display</text></a></switch></svg></a><figcaption>Figure 8: Édition des liens de plusieurs objets</figcaption></figure></p>
 <h2 id="hello-world">Hello World!<a class="headerlink" href="#hello-world" title="Permanent link">¶</a></h2>
 <p>Il est traditionnellement coutume depuis la publication en 1978 du livre <a href="https://en.wikipedia.org/wiki/The_C_Programming_Language">The C Programming Language</a> de reprendre l'exemple de Brian Kernighan comme premier programme.</p>
-<div class="language-c highlight"><span class="filename">Exercise: hello.c</span><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>
+<div class="language-c highlight"><span class="filename">hello.c</span><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">{</span>
+</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"hello, world</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Ce programme est composé de deux parties. L'inclusion de la <em>library</em> standard d'entrées sorties (<em>STandarD Inputs Outputs</em>) qui définit la fonction <code>printf</code>, et le programme principal nommé <code>main</code>. Tout ce qui se situe à l'intérieur des accolades <code>{ }</code> appartient au programme <code>main</code>.</p>
 <p>L'ensemble que définit <code>main</code> et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction <code>printf</code> dont le nom vient de <em>print formatted</em>.</p>
@@ -3155,247 +3205,27 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 </span><span id="__span-9-10"><a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="go">a.out         Nom du fichier</span>
 </span></code></pre></div>
 <h2 id="exercices-de-revision">Exercices de Révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¶</a></h2>
-<div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise: Auteurs<span class="exercise-title"></span></p>
+<div class="admonition exercise">
+<p class="admonition-title">Auteurs</p>
 <p>Qui a inventé le C ?</p>
-<ul class="exercise-list">
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Ken Thompson
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Brian Kernighan
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Bjarne Stroustrup
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Linus Torvalds
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Dennis Ritchie
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Guido van Rossum
-</li>
+<ul>
+<li>[x] Ken Thompson</li>
+<li>[ ] Brian Kernighan</li>
+<li>[ ] Bjarne Stroustrup</li>
+<li>[ ] Linus Torvalds</li>
+<li>[x] Dennis Ritchie</li>
+<li>[ ] Guido van Rossum</li>
 </ul>
 </div>
-<div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise: Standardisation<span class="exercise-title"></span></p>
+<div class="admonition exercise">
+<p class="admonition-title">Standardisation</p>
 <p>Quel est le standard C à utiliser dans l'industrie en 2024 et pourquoi ?</p>
-<ul class="exercise-list">
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   C89
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<abbr title="Standard ISO/IEC 9899:1999">C99</abbr>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   C11
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   C17
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   C23
-</li>
+<ul>
+<li>[ ] C89</li>
+<li>[ ] <abbr title="Standard ISO/IEC 9899:1999">C99</abbr></li>
+<li>[ ] C11</li>
+<li>[x] C17</li>
+<li>[ ] C23</li>
 </ul>
 <div class="admonition solution">
 <p class="admonition-title">Solution</p>
@@ -3405,115 +3235,15 @@ au langage depuis et les entreprises préfèrent migrer sur C++ plutôt
 que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
 </div>
 </div>
-<div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise: Paradigmes<span class="exercise-title"></span></p>
+<div class="admonition exercise">
+<p class="admonition-title">Paradigmes</p>
 <p>Quels est le paradigme de programmation supportés par C ?</p>
-<ul class="exercise-list">
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Fonctionnel
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Orienté objet
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Réflectif
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Impératif
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Déclaratif
-</li>
+<ul>
+<li>[ ] Fonctionnel</li>
+<li>[ ] Orienté objet</li>
+<li>[ ] Réflectif</li>
+<li>[x] Impératif</li>
+<li>[ ] Déclaratif</li>
 </ul>
 <div class="admonition solution">
 <p class="admonition-title">Solution</p>
@@ -3521,7 +3251,7 @@ que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
 </div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Langage impératif<span class="exercise-title"></span></p>
+<p class="admonition-title">Langage impératif</p>
 <p>Pourriez-vous définir ce qu'est la programmation impérative ?</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -3530,7 +3260,7 @@ C'est-à-dire que les séquences sont exécutées dans un ordre définis les une
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Coulée de lave<span class="exercise-title"></span></p>
+<p class="admonition-title">Coulée de lave</p>
 <p>Qu'est-ce qu'une coulée de lave en informatique ?</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -3541,123 +3271,21 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
 <p>Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement, mais être difficile à l'utilisation, car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.</p>
 </details>
 </div>
-<div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise: Cat<span class="exercise-title"></span></p>
+<div class="admonition exercise">
+<p class="admonition-title">Cat</p>
 <p>Qu'est-ce que <code>cat</code>?</p>
-<ul class="exercise-list">
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Un programme de chat
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Un programme de compilation
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Un programme d'affichage de fichiers
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Un programme de copie de fichiers
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Un programme de recherche de fichiers
-</li>
+<ul>
+<li>[ ] Un programme de chat</li>
+<li>[ ] Un programme de compilation</li>
+<li>[x] Un programme d'affichage de fichiers</li>
+<li>[ ] Un programme de copie de fichiers</li>
+<li>[ ] Un programme de recherche de fichiers</li>
 </ul>
 <div class="admonition solution">
 <p class="admonition-title">Solution</p>
 <p><code>cat</code> est un programme normalisé <abbr title="Portable Operating System Interface">POSIX</abbr> prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier <code>hello.c</code> est bel et bien celui attendu.</p>
 </div>
-</div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</div>
 
 
 
@@ -3680,7 +3308,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 19, 2024</span>
   </span>
 
     
@@ -3908,8 +3536,8 @@ document$.subscribe(() => { lightbox.reload() });
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="../../../exercise.js"></script>
-      
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

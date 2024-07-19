@@ -115,8 +115,6 @@
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
-      <link rel="stylesheet" href="../../../exercise.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -564,7 +562,7 @@
             
   
   <span class="md-ellipsis">
-    Préface
+    Avant-propos
   </span>
   
 
@@ -574,7 +572,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
-            Préface
+            Avant-propos
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -760,6 +758,8 @@
   
     
     
+      
+        
       
         
       
@@ -961,9 +961,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#entiers-simples" class="md-nav__link">
+  <a href="#nombres" class="md-nav__link">
     <span class="md-ellipsis">
-      Entiers simples
+      Nombres
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entiers-naturels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entiers naturels
     </span>
   </a>
   
@@ -1052,6 +1061,15 @@
   <a href="#double-precision" class="md-nav__link">
     <span class="md-ellipsis">
       Double précision
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quadruple-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quadruple précision
     </span>
   </a>
   
@@ -1179,6 +1197,27 @@
   
   <span class="md-ellipsis">
     Préprocesseur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grammar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La grammaire
   </span>
   
 
@@ -1826,6 +1865,8 @@
       
         
       
+        
+      
     
     
       
@@ -1874,6 +1915,27 @@
   
   <span class="md-ellipsis">
     Algorithmes et conception
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/recursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Récursivité
   </span>
   
 
@@ -2763,9 +2825,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#entiers-simples" class="md-nav__link">
+  <a href="#nombres" class="md-nav__link">
     <span class="md-ellipsis">
-      Entiers simples
+      Nombres
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entiers-naturels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entiers naturels
     </span>
   </a>
   
@@ -2859,6 +2930,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#quadruple-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quadruple précision
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2928,7 +3008,7 @@
   
 
 
-<html><body><div class="breadcrumb"><span>Cours C</span>
+<div class="breadcrumb"><span>Cours C</span>
 <svg class="breadcrumb-caret" viewbox="0 0 256 512" xmlns="http://www.w3.org/2000/svg">
 <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
 </svg><span>Les bases</span>
@@ -2949,7 +3029,7 @@
 <p>Lorsque vous achetez un disque de stockage pour votre ordinateur, vous pouvez par exemple lire sur l'emballage que le disque a une capacité de 1 To (Téra-octet). Un Téra-octet est égal à <span class="arithmatex">\(2^{40}\)</span> octets, soit <span class="arithmatex">\(1'099'511'627'776\)</span> octets. Un octet égant égal à 8 bits, donc un Téra-octet est égal à <span class="arithmatex">\(8'796'093'022'208\)</span> bits. À titre d'information l'entièreté de Wikipedia en pèse environ 22 Go (Giga-octet). On peut donc dire que notre disque de 1 To permettrait de stocker 45 copies de Wikipedia.</p>
 <p>Pour représenter l'état de Wikipedia, il suffirait donc d'avoir <span class="arithmatex">\(10'225'593'776'312\)</span> pommes et de l'armoire appropriée.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Pile ou face<span class="exercise-title"></span></p>
+<p class="admonition-title">Pile ou face</p>
 <p>Lors d'un tir à pile ou face de l'engagement d'un match de football, l'arbitre lance une pièce de monnaie qu'il rattrape et dépose sur l'envers de sa main. Lorsqu'il annonce le résultat de ce tir, quelle quantité d'information transmet-il ?</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -3071,7 +3151,7 @@
 </div>
 </div>
 <div class="admonition info">
-<p class="admonition-title">Information</p>
+<p class="admonition-title">Info</p>
 <p>Les préfixes binaires sont méconnus et peu utilisés par le marketing. Les disques durs sont souvent vendus en Go (Giga-octets) alors que les systèmes d'exploitation les affichent en Gio (Gibi-octets). Il est donc important de bien comprendre la différence entre ces deux unités.</p>
 </div>
 <h2 id="bases">Bases<a class="headerlink" href="#bases" title="Permanent link">¶</a></h2>
@@ -3086,7 +3166,7 @@
 </span></code></pre></div>
 <p>Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche à droite) la base du système de numération utilisé est essentielle pour décoder ces nombres. Cette base définit combien de symboles différents possibles peuvent être utilisés pour coder une position.</p>
 <div class="admonition exercise symboles binaires">
-<p class="admonition-title">Exercise<span class="exercise-title"></span></p>
+<p class="admonition-title">Exercise</p>
 <p>Dans la notation binaire, composés de 1 et de 0, combien de symboles existent et combien de positions y-a-t-il dans le nombre <code>11001</code> ?</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -3096,7 +3176,7 @@
 <h3 id="systeme-decimal">Système décimal<a class="headerlink" href="#systeme-decimal" title="Permanent link">¶</a></h3>
 <p>Le système décimal est le système de numération utilisant la base <strong>dix</strong> et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination <em>quatre-vingts</em>.</p>
 <p>L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique <code>(1000+100+100+100+100+100+1+1+1+1+1+1)</code>. Il s'agit d'une numération additive.</p>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/hieroglyph.drawio"><img alt="1506 en écriture hiéroglyphique" src="../../../assets/images/hieroglyph.drawio" width="Exercise: 20%"/></a><figcaption>Figure 1: 1506 en écriture hiéroglyphique</figcaption></figure></p>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/hieroglyph.drawio"><img alt="1506 en écriture hiéroglyphique" src="../../../assets/images/hieroglyph.drawio" width="20%"/></a><figcaption>Figure 1: 1506 en écriture hiéroglyphique</figcaption></figure></p>
 <p>Notre système de représentation des nombres décimaux est le système de numération indo-arabe qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">9</span>
 </span></code></pre></div>
@@ -3106,7 +3186,7 @@
 \]</div>
 <p>La base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la manipulation de dix états, ce qui est difficile avec les systèmes logiques à deux états; le stockage d'un bit en mémoire étant généralement assuré par des transistors.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Deux mains<span class="exercise-title"></span></p>
+<p class="admonition-title">Deux mains</p>
 <p>Un dessin représentant deux mains humaines (composées chacune de cinq doigts) est utilisé pour représenter un chiffre. Les doigts peuvent être soit levés, soit baissés mais un seul doigt peut être levé. Quelle est la base utilisée ?</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -3141,7 +3221,7 @@ N = b^E
 \]</div>
 <p>Avec un seul <code>bit</code> il est donc possible d'exprimer 2 valeurs distinctes.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Base 2<span class="exercise-title"></span></p>
+<p class="admonition-title">Base 2</p>
 <p>Combien de valeurs décimales peuvent être représentées avec 10-bits ?</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -3337,7 +3417,7 @@ pour lister le contenu hexadécimal de son fichier et il obtient la sortie suiva
 </ul>
 <p>Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur, il concerne probablement les deux manières distinctes utilisées pour encoder le <code>é</code>.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Les chiffres hexadécimaux<span class="exercise-title"></span></p>
+<p class="admonition-title">Les chiffres hexadécimaux</p>
 <p>Calculez la valeur décimale des nombres suivants et donnez le détail du calcul :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>0xaaaa
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>0b1100101
@@ -3356,7 +3436,7 @@ pour lister le contenu hexadécimal de son fichier et il obtient la sortie suiva
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Albatros<span class="exercise-title"></span></p>
+<p class="admonition-title">Albatros</p>
 <p>Tentez de récupérer vous même le fichier :download:<code>albatros &lt;../../../assets/src/albatros.txt&gt;</code> et d'afficher le même résultat que ci-dessus depuis un terminal de commande Linux.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>$<span class="w"> </span>wget<span class="w"> </span>https://.../albatros.txt
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>$<span class="w"> </span>hexdump<span class="w"> </span>-C<span class="w"> </span>albatros.txt
@@ -3413,7 +3493,7 @@ pour lister le contenu hexadécimal de son fichier et il obtient la sortie suiva
 </span><span id="__span-14-12"><a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a>209 == 0b11010001
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: La numération Shadock<span class="exercise-title"></span></p>
+<p class="admonition-title">La numération Shadock</p>
 <p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/shadocks.svg"><img alt="Les Shadocks" height="300px" src="../../../assets/images/shadocks.svg"/></a><figcaption>Figure 2: Les Shadocks</figcaption></figure></p>
 <p>Les Shadocks ne connaissent que quatre mots: <code>GA</code>, <code>BU</code>, <code>ZO</code>, <code>MEU</code>. La vidéo <a href="https://www.youtube.com/watch?v=lP9PaDs2xgQ&gt;">Comment compter comme les Shadocks</a> en explique le principe.</p>
 <p>Convertir <code>−⨼○◿○</code> (<code>BU ZO GA MEU GA</code>) en décimal.</p>
@@ -3438,14 +3518,49 @@ pour lister le contenu hexadécimal de son fichier et il obtient la sortie suiva
 </div>
 </details>
 </div>
-<h2 id="entiers-simples">Entiers simples<a class="headerlink" href="#entiers-simples" title="Permanent link">¶</a></h2>
+<h2 id="nombres">Nombres<a class="headerlink" href="#nombres" title="Permanent link">¶</a></h2>
+<p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/ensembles.drawio"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="452px" height="403px" viewBox="-0.5 -0.5 452 403"><defs/><g><rect x="0" y="0" width="450" height="401" rx="36.09" ry="36.09" fill-opacity="0.5" fill="#dae8fc" stroke="#6c8ebf" stroke-opacity="0.5" pointer-events="all"/><rect x="10" y="40" width="430" height="351" rx="31.59" ry="31.59" fill-opacity="0.5" fill="#e1d5e7" stroke="#9673a6" stroke-opacity="0.5" pointer-events="all"/><rect x="20" y="70" width="360" height="311" rx="27.99" ry="27.99" fill-opacity="0.5" fill="#f8cecc" stroke="#b85450" stroke-opacity="0.5" pointer-events="all"/><rect x="30" y="80" width="250" height="291" rx="22.5" ry="22.5" fill-opacity="0.5" fill="#f5f5f5" stroke="#666666" stroke-opacity="0.5" pointer-events="all"/><rect x="40" y="150" width="230" height="211" rx="18.99" ry="18.99" fill-opacity="0.5" fill="#ffe6cc" stroke="#d79b00" stroke-opacity="0.5" pointer-events="all"/><rect x="90" y="210" width="130" height="141" rx="11.7" ry="11.7" fill-opacity="0.5" fill="#d5e8d4" stroke="#82b366" stroke-opacity="0.5" pointer-events="all"/><rect x="95" y="269" width="120" height="71" rx="10.65" ry="10.65" fill-opacity="0.5" fill="#dae8fc" stroke="#6c8ebf" stroke-opacity="0.5" pointer-events="all"/><rect x="100" y="269" width="110" height="39" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 289px; margin-left: 155px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">Entiers naturels<br style="font-size: 12px;" />ℕ</div></div></div></foreignObject><text x="155" y="292" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Entiers naturels...</text></switch></g><rect x="60" y="209" width="190" height="40" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 229px; margin-left: 155px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">Entiers relatifs<br style="font-size: 12px;" />ℤ<br style="font-size: 12px;" /></div></div></div></foreignObject><text x="155" y="233" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Entiers relatifs...</text></switch></g><rect x="60" y="150.5" width="190" height="39.5" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 170px; margin-left: 155px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">Nombres décimaux<br style="font-size: 12px;" />D</div></div></div></foreignObject><text x="155" y="174" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Nombres décimaux...</text></switch></g><rect x="60" y="70" width="190" height="70" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 105px; margin-left: 155px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">Nombres rationnels<br style="font-size: 12px;" />Q</div></div></div></foreignObject><text x="155" y="109" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Nombres rationnels...</text></switch></g><rect x="280" y="85" width="100" height="40" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 105px; margin-left: 330px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">Nombres Réels <br style="font-size: 12px;" />R</div></div></div></foreignObject><text x="330" y="109" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Nombres Réels...</text></switch></g><rect x="140" y="30" width="120" height="50" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 55px; margin-left: 200px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">Nombres complexes (C)</div></div></div></foreignObject><text x="200" y="59" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Nombres complexes (C)</text></switch></g><rect x="90" y="289" width="60" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 304px; margin-left: 91px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">0</div></div></div></foreignObject><text x="120" y="308" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">0</text></switch></g><rect x="135" y="310" width="60" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 325px; margin-left: 136px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">42</div></div></div></foreignObject><text x="165" y="329" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">42</text></switch></g><rect x="165" y="289" width="60" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 304px; margin-left: 166px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">109</div></div></div></foreignObject><text x="195" y="308" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">109</text></switch></g><rect x="90" y="239" width="60" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 254px; margin-left: 91px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">-1</div></div></div></foreignObject><text x="120" y="258" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">-1</text></switch></g><rect x="165" y="239" width="60" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 254px; margin-left: 166px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">-17</div></div></div></foreignObject><text x="195" y="258" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">-17</text></switch></g><rect x="215" y="260" width="60" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 275px; margin-left: 216px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">-0.25</div></div></div></foreignObject><text x="245" y="279" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">-0.25</text></switch></g><rect x="40" y="230" width="60" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 245px; margin-left: 41px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">2/5</div></div></div></foreignObject><text x="70" y="249" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">2/5</text></switch></g><rect x="75" y="180" width="60" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 195px; margin-left: 76px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">-37/20</div></div></div></foreignObject><text x="105" y="199" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">-37/20</text></switch></g><rect x="180" y="180" width="60" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 195px; margin-left: 181px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">-19.06</div></div></div></foreignObject><text x="210" y="199" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">-19.06</text></switch></g><rect x="195" y="110" width="60" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 125px; margin-left: 196px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">2/3</div></div></div></foreignObject><text x="225" y="129" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">2/3</text></switch></g><rect x="50" y="110" width="60" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 125px; margin-left: 51px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">-17/11</div></div></div></foreignObject><text x="80" y="129" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">-17/11</text></switch></g><rect x="300" y="134" width="20" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 18px; height: 1px; padding-top: 141px; margin-left: 302px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">π</div></div></div></foreignObject><text x="302" y="153" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">π</text></switch></g><rect x="320" y="149" width="20" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 18px; height: 1px; padding-top: 156px; margin-left: 322px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">e</div></div></div></foreignObject><text x="322" y="168" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">e</text></switch></g><rect x="340" y="134" width="20" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 18px; height: 1px; padding-top: 141px; margin-left: 342px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">√2</div></div></div></foreignObject><text x="342" y="153" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">√2</text></switch></g><rect x="390" y="140" width="50" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 48px; height: 1px; padding-top: 147px; margin-left: 392px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">1+i√5</div></div></div></foreignObject><text x="392" y="159" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">1+i√5</text></switch></g><rect x="390" y="85" width="40" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 38px; height: 1px; padding-top: 92px; margin-left: 392px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5+2i</div></div></div></foreignObject><text x="392" y="104" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">5+2i</text></switch></g><rect x="390" y="180" width="40" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 38px; height: 1px; padding-top: 187px; margin-left: 392px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">√2+iπ</div></div></div></foreignObject><text x="392" y="199" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">√2+iπ</text></switch></g><rect x="155" y="0" width="120" height="30" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 15px; margin-left: 215px;"><div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">Quaternions (H)</div></div></div></foreignObject><text x="215" y="19" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Quaternions (H)</text></switch></g></g><switch><g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/><a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank"><text text-anchor="middle" font-size="10px" x="50%" y="100%">Text is not SVG - cannot display</text></a></switch></svg></a><figcaption>Figure 3: Ensemble des nombres</figcaption></figure></p>
+<p>Vous avez tous appris dans votre enfance à compter, puis vous avez appris que les nombres se classifient dans des ensembles. Les mathématiciens ont défini des ensembles de nombres pour lesquels des propriétés particulières sont vérifiées ; ces ensembles sont imbriqués les uns dans les autres, et chaque ensemble est un sous-ensemble de l'ensemble suivant.</p>
+<p>Un nombre arbitraire n'est pas directement associé à une quantité d'information. Le nombre <span class="arithmatex">\(\pi\)</span> est irrationnel, c'est à dire qu'il ne se termine jamais et ne se répète jamais. Il est donc impossible de stocker <span class="arithmatex">\(\pi\)</span> en mémoire, car il faudrait une quantité infinie de bits pour le représenter.</p>
+<p>Archimère disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (Donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : Donnez moi un nombre et je vous construirai l'univers ! Bien entendu la quantité d'information dans l'univers est colossale, elle croît avec l'entropie et donc avec le temps qui passe.</p>
+<div class="admonition info minecraft">
+<p class="admonition-title">Info</p>
+<p>Dans Minecraft, lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un monde aléatoire. Cette graine est un nombre fini qui sert de base à l'algorithme de génération de monde. Si vous utilisez la même graine, vous obtiendrez le même monde.</p>
+<p>Mais pour que cela fonctionne il faut le code source de Minecraft, lui aussi c'est une succession de 0 et de 1, et donc c'est un nombre, lui aussi fini.</p>
+<p>Enfin, lorsque vous jouez, vos actions génèrent de l'information qui influence le monde, et donc la quantité d'information dans le monde croît. C'est pour cela que plus vous jouez, plus la sauvegarde de votre monde devient grande, mais vous pouvez la représenter aussi avec un nombre fini.</p>
+</div>
+<p>Les mémoires des ordinateurs ne sont pas infinies, elles sont limitées par la quantité de transistors qui les composent. Il n'est donc pas possible d'y stocker n'importe quel nombre. <span class="arithmatex">\(\pi\)</span> ne peut pas être stocké en mémoire, mais une approximation de <span class="arithmatex">\(\pi\)</span> peut l'être.</p>
+<p>Aussi, l'informatique impose certaines limitations sur les nombres que l'on peut manipuler. Les nombres entiers sont les plus simples à manipuler, mais ils sont limités par la taille de la mémoire et la manière dont on les enregistres en mémoire. C'est ce que nous allons voir.</p>
+<h2 id="entiers-naturels">Entiers naturels<a class="headerlink" href="#entiers-naturels" title="Permanent link">¶</a></h2>
+<p>En mathématiques, un <a href="https://fr.wikipedia.org/wiki/Entier_naturel">entier naturel</a> est un nombre positif ou nul. Chaque nombre à un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, et donc sans signe et sans virgule. L'ensemble des entiers naturels est défini de la façon suivante :</p>
+<div class="arithmatex">\[
+\mathbb{N} = {0, 1, 2, 3, ...}
+\]</div>
 <p>Les entiers sont les premiers types de données manipulés par les ordinateurs. Ils sont stockés en mémoire sous forme de bits. En choisissant la taille de stockage des entiers, on détermine la plage de valeurs que l'on peut représenter. Un entier de 8 bits peut représenter <span class="arithmatex">\(2^8 = 256\)</span> valeurs différentes, de 0 à 255. Un entier de 16 bits peut représenter <span class="arithmatex">\(2^{16} = 65536\)</span> valeurs différentes, de 0 à 65535.</p>
-<p>Cette manière est élégante, mais elle ne permet pas de représenter des valeurs négatives. Pour cela, on aura recours aux entiers relatifs.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Le nombre 142 peut s'écrire sur 8 bits en binaire, avec une notation positionnelle (où les bits sont alignés par poids décroissants) on peut écrire :</p>
+<div class="arithmatex">\[
+\begin{array}{cccccccc}
+2^7 &amp; 2^6 &amp; 2^5 &amp; 2^4 &amp; 2^3 &amp; 2^2 &amp; 2^1 &amp; 2^0 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+\end{array}
+\]</div>
+</div>
+<p>La taille de stockage d'un entier détermine donc ses limites. Si cette manière est élégante, elle ne permet pas de représenter des valeurs négatives. Pour cela, on aura recours aux entiers relatifs.</p>
 <h2 id="entiers-relatifs">Entiers relatifs<a class="headerlink" href="#entiers-relatifs" title="Permanent link">¶</a></h2>
-<p>Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car il n'existe pas de symboles pour le signe <code>-</code> (ni même d'ailleurs <code>+</code>).</p>
-<p>Une approche naïve est de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. L'ennui pour les <strong>variables</strong> c'est que le contenu peut changer et qu'il serait préférable de stocker le signe avec la valeur.</p>
+<p>Mathématiquement un <strong>entier relatif</strong> appartient à l'ensemble <span class="arithmatex">\(\mathbb{Z}\)</span>:</p>
+<div class="arithmatex">\[
+\mathbb{Z} = {..., -3, -2, -1, 0, 1, 2, 3, ...}
+\]</div>
+<p>Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car manque une information permettant d'encoder le symbole pour le signe <code>-</code> (ni même d'ailleurs <code>+</code>).</p>
+<p>Une approche naïve serait de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. Un peu comme si vous aviez deux boîtes chez vous, l'une pour les choses qui se mangent (le frigo) et une pour les choses qui ne se mangent plus (la poubelle).</p>
+<p>L'ennui pour les <strong>variables</strong> c'est que le contenu peut changer et qu'un nombre négatif pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meileure méthode.</p>
+<p>On pourrait alors renseigner la nature du nombre, c'est à dire son signe avec sa valeur.</p>
 <h3 id="bit-de-signe">Bit de signe<a class="headerlink" href="#bit-de-signe" title="Permanent link">¶</a></h3>
-<p>On peut se réserver un bit de signe, par exemple le 8{sup}<code>e</code> bit d'un <code>char</code>.</p>
+<p>Pourquoi ne pas se réserver un bit de signe, par exemple le 8<sup>e</sup> bit de notre nombre de 8 bits, pour indiquer si le nombre est positif ou négatif ?</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>┌─┐┌─┬─┬─┬─┬─┬─┬─┐
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>│0││1│0│1│0│0│1│1│ = (0 * (-1)) * 0b1010011 = 83
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>└─┘└─┴─┴─┴─┴─┴─┴─┘
@@ -3453,7 +3568,9 @@ pour lister le contenu hexadécimal de son fichier et il obtient la sortie suiva
 </span><span id="__span-17-5"><a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>│1││1│0│1│0│0│1│1│ = (1 * (-1)) * 0b1010011 = -83
 </span><span id="__span-17-6"><a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a>└─┘└─┴─┴─┴─┴─┴─┴─┘
 </span></code></pre></div>
-<p>Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable est ici de <code>[-127..127]</code>. On ajoutera qu'il existe alors deux zéros, le zéro négatif <code>0b00000000</code>, et le zéro positif <code>0b10000000</code> ce qui peut poser des problèmes pour les comparaisons.</p>
+<p>Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable est ici n'est plus que de <code>[-127..127]</code>. Elle présente un autre inconvénient majeur : la représentation de zéro.</p>
+<p>Il existe alors deux zéros, le zéro négatif <code>0b00000000</code>, et le zéro positif <code>0b10000000</code> ce qui peut poser des problèmes pour les comparaisons. Est-ce que <span class="arithmatex">\(0\)</span> est égal <span class="arithmatex">\(-0\)</span> ? En un sens oui, mais en termes de l'information stockée, ce n'est pas le même nombre.</p>
+<p>En termes de calcul, l'addition ne fonctionne plus si on raisonne sur les bits. Car si on additionne au zéro positif (<code>0b10000000</code>) la valeur 1 on aura 1, mais si on additionne au zéro négatif (<code>0b00000000</code>) la valeur 1 on obtiendra -1. C'est un peu déroutant.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>000   001   010   011   100   101   110   111
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>-+-----+-----+-----+-----+-----+-----+-----+---&gt;
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>
@@ -3461,15 +3578,15 @@ pour lister le contenu hexadécimal de son fichier et il obtient la sortie suiva
 </span><span id="__span-18-5"><a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>-+-----+-----+-----+-&gt;  -+-----+-----+-----+---&gt; Méthode du bit de signe
 </span><span id="__span-18-6"><a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a> 0     1     2     3     0    -1    -2    -3
 </span></code></pre></div>
-<p>De plus les additions et soustractions sont difficiles, car il n'est pas possible d'effectuer des opérations simples :</p>
+<p>Il faudrait donc trouver une méthode qui permetterait de conserver la possibilité de faire les opérations directement en binaire. En d'autres termes on aimerait pouvoir calculer en base deux sans se soucier du signe :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>  00000010 (2)
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>- 00000101 (5)
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>----------
 </span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>  11111101 (-125)    2 - 5 != -125
 </span></code></pre></div>
-<p>En résumé, la solution utilisant un bit de signe pose deux problèmes :</p>
+<p>Si on résume, la solution proposée qui utilise un bit de signe pose deux problèmes :</p>
 <ol>
-<li>Les opérations ne sont plus triviales, et un algorithme particulier doit être mis en place.</li>
+<li>Les opérations ne sont plus triviales, et un algorithme particulier doit être mis en place pour les gérer.</li>
 <li>Le double zéro (positif et négatif) est gênant.</li>
 </ol>
 <h3 id="complement-a-un">Complément à un<a class="headerlink" href="#complement-a-un" title="Permanent link">¶</a></h3>
@@ -3493,7 +3610,7 @@ b^n - y
 <p>La valeur à complémenter.</p>
 </dd>
 </dl>
-<p>Ainsi, il est facile d'écrire le complément à neuf :</p>
+<p>Ainsi, il est facile d'écrire le complément à neuf d'un nombre en base dix car on s'arrange pour que chaque chiffre composant le nombre on trouve un autre chiffre dont la somme est égale à neuf.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>0 1 2 3 4 5 6 7 8 9
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>        |
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>        | Complément à 9
@@ -3530,12 +3647,13 @@ b^n - y
 </ol>
 <p><a href="" id="twos_complement"></a></p>
 <h3 id="complement-a-deux">Complément à deux<a class="headerlink" href="#complement-a-deux" title="Permanent link">¶</a></h3>
-<p>Le complément à deux n'est rien d'autre que le complément à un <strong>plus</strong> un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont :</p>
+<p>Le complément à deux n'est rien d'autre que le complément à un <strong>plus</strong> un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles et de 2 (<code>0</code> et <code>1</code>). On ne peut pas trouver un chiffre tel que la somme fasse <code>2</code>. C'est la même idée que de demander le complément à 10 en base 10.</p>
+<p>Pour réaliser ce complément à deux (complément à un plus un) il y a deux étapes :</p>
 <ol>
-<li>Calculer le complément à un du nombre d'entrées.</li>
+<li>Calculer le complément à un du nombre d'entrée.</li>
 <li>Ajouter 1 au résultat.</li>
 </ol>
-<p>Oui, et alors, quelle est la valeur ajoutée ? Surprenamment, on résout tous les problèmes amenés par le complément à un :</p>
+<p>Oui, et alors, en quoi cela change la donne ? Surprenamment, on résout tous les problèmes amenés par le complément à un :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a>000   001   010   011   100   101   110   111
 </span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a>-+-----+-----+-----+-----+-----+-----+-----+---&gt;
 </span><span id="__span-24-3"><a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a> 0     1     2     3     4     5     6     7     sans complément
@@ -3700,7 +3818,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </span><span id="__span-31-3"><a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a>1 11111111 00000000000000000000000₂ ≡ ff80 0000₁₆ ≡ −inf
 </span></code></pre></div>
 <div class="admonition info">
-<p class="admonition-title"><strong>Information :</strong> Les nombres subnormaux</p>
+<p class="admonition-title">Les nombres subnormaux</p>
 <p>On l'a vu un nombre en virgule flottante simple précision s'écrit sous la forme :</p>
 <div class="arithmatex">\[ (-1)^s \times (1.m) \times 2^{(e - Bias)} \]</div>
 <p>Les nombres subnormaux sont des nombres qui ne respectent pas la norme IEEE 754, mais qui sont tout de même représentables. Ils sont utilisés pour représenter des nombres très petits, proches de zéro. En effet, la norme IEEE 754 impose que le premier bit de la mantisse soit toujours égal à 1, ce qui implique que le nombre 0 ne peut pas être représenté. Les nombres subnormaux permettent de représenter des nombres très proches de zéro, en diminuant la précision de la mantisse.</p>
@@ -3708,7 +3826,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <h3 id="double-precision">Double précision<a class="headerlink" href="#double-precision" title="Permanent link">¶</a></h3>
 <p>La double précision est similaire à la simple précision, mais avec une mantisse à <strong>52 bits</strong> et <strong>11 bits</strong> d'exposants.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Expressions arithmétiques flottantes<span class="exercise-title"></span></p>
+<p class="admonition-title">Expressions arithmétiques flottantes</p>
 <p>Donnez la valeur des expressions ci-dessous :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a>25. + 10. + 7. – 3.
 </span><span id="__span-32-2"><a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a>5. / 2.
@@ -3718,6 +3836,14 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </span><span id="__span-32-6"><a href="#__codelineno-32-6" id="__codelineno-32-6" name="__codelineno-32-6"></a>2. * 13. % 7.
 </span><span id="__span-32-7"><a href="#__codelineno-32-7" id="__codelineno-32-7" name="__codelineno-32-7"></a>1.3E30 + 1.
 </span></code></pre></div>
+</div>
+<h3 id="quadruple-precision">Quadruple précision<a class="headerlink" href="#quadruple-precision" title="Permanent link">¶</a></h3>
+<p>Bien que ce soit marginal dans le monde de l'informatique, la quadruple précision est une norme IEEE 754 qui utilise 128 bits pour stocker les nombres réels. Elle est utilisée pour des calculs scientifiques nécessitant une très grande précision comme au CERN ou pour l'étude de modèles cosmologiques.</p>
+<p>La quadruple précision offre une précision de 34 chiffres significatifs, soit environ 112 bits de précision. Elle est codée sur 128 bits.</p>
+<p>Il est possible de l'utiliser avec certains compilateurs C comme GCC en utilisant le type <code>__float128</code> de la bibliothèque <code>&lt;quadmath.h&gt;</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Son utilisation ralenti considérablement les calculs, car les processeurs actuels ne sont pas optimisés pour ce type de calculs. Un processeur peut faire des calculs sur 64 bits en une seule opération, mais pour des calculs en quadruple précision, il doit faire plusieurs opérations pour chaque chiffre.</p>
 </div>
 <h2 id="format-q-virgule-fixe">Format Q (virgule fixe)<a class="headerlink" href="#format-q-virgule-fixe" title="Permanent link">¶</a></h2>
 <p>Le format <a href="https://en.wikipedia.org/wiki/Q_(number_format)">Q</a> est une notation en virgule fixe dans laquelle le format d'un nombre est représenté par la lettre <strong>Q</strong> suivie de deux nombres :</p>
@@ -3748,7 +3874,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <p>On note une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : <span class="arithmatex">\(1 / 2^12 = 0.00024\)</span>. Il convient alors d'arrondir le nombre à la troisième décimale soit 3.141.</p>
 <p>Les opérations arithmétiques sont possibles facilement entre des nombres de mêmes types.</p>
 <div class="admonition info">
-<p class="admonition-title"><strong>Information :</strong> Sinus rapide</p>
+<p class="admonition-title">Sinus rapide</p>
 <p>Avec des architectures qui ne supportent pas les nombres réels, il est possible de calculer une bonne approximation du sinus en utilisant une approximation avec une série de Taylor. Les calculs sont effecutés en virgule fixe. Voici un exemple d'implémentation:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="cm">/**</span>
 </span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="cm"> * A 5-order polynomial approximation to sin(x).</span>
@@ -3845,9 +3971,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </span><span id="__span-39-15"><a href="#__codelineno-39-15" id="__codelineno-39-15" name="__codelineno-39-15"></a><span class="p">{</span>
 </span><span id="__span-39-16"><a href="#__codelineno-39-16" id="__codelineno-39-16" name="__codelineno-39-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">q_mul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span>
 </span><span id="__span-39-17"><a href="#__codelineno-39-17" id="__codelineno-39-17" name="__codelineno-39-17"></a><span class="p">}</span>
-</span></code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</span></code></pre></div>
 
 
 
@@ -3870,7 +3994,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 19, 2024</span>
   </span>
 
     
@@ -4098,8 +4222,8 @@ document$.subscribe(() => { lightbox.reload() });
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="../../../exercise.js"></script>
-      
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

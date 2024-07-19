@@ -115,8 +115,6 @@
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
-      <link rel="stylesheet" href="../../../exercise.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -564,7 +562,7 @@
             
   
   <span class="md-ellipsis">
-    Préface
+    Avant-propos
   </span>
   
 
@@ -574,7 +572,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
-            Préface
+            Avant-propos
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -771,6 +769,8 @@
       
         
       
+        
+      
     
     
       
@@ -924,6 +924,27 @@
   
   <span class="md-ellipsis">
     Préprocesseur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundations/grammar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La grammaire
   </span>
   
 
@@ -1811,6 +1832,8 @@
       
         
       
+        
+      
     
     
       
@@ -1859,6 +1882,27 @@
   
   <span class="md-ellipsis">
     Algorithmes et conception
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/recursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Récursivité
   </span>
   
 
@@ -2898,7 +2942,7 @@
   
 
 
-<html><body><div class="breadcrumb"><span>Cours C</span>
+<div class="breadcrumb"><span>Cours C</span>
 <svg class="breadcrumb-caret" viewbox="0 0 256 512" xmlns="http://www.w3.org/2000/svg">
 <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
 </svg><span>Structures de données</span>
@@ -2946,7 +2990,7 @@
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Assignation<span class="exercise-title"></span></p>
+<p class="admonition-title">Assignation</p>
 <p>Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -2958,7 +3002,7 @@
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Première position<span class="exercise-title"></span></p>
+<p class="admonition-title">Première position</p>
 <p>Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurrence d'une valeur dans le tableau.</p>
 <p>Traitez les cas particuliers.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">index_of</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">search</span><span class="p">);</span>
@@ -2974,7 +3018,7 @@
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Déclarations de tableaux<span class="exercise-title"></span></p>
+<p class="admonition-title">Déclarations de tableaux</p>
 <p>Considérant les déclarations suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#define LIMIT 10</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">twelve</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
@@ -2993,7 +3037,7 @@
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Comparaisons<span class="exercise-title"></span></p>
+<p class="admonition-title">Comparaisons</p>
 <p>Soit deux tableaux <code>char u[]</code> et <code>char v[]</code>, écrire une fonction comparant leur contenu et retournant :</p>
 <p><code>0</code>
     La somme des deux tableaux est égale.</p>
@@ -3020,7 +3064,7 @@
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Le plus grand et le plus petit<span class="exercise-title"></span></p>
+<p class="admonition-title">Le plus grand et le plus petit</p>
 <p>Dans le canton de Genève, il existe une tradition ancestrale: l'<a href="https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)">Escalade</a>. En commémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle "Ainsi périrent les ennemis de la République !".</p>
 <p>Pour gagner du temps et puisque l'assemblée est grande, il vous est demandé d'écrire un programme pour identifier le doyen et le benjamin de l'assistance.</p>
 <p>Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci :</p>
@@ -3041,7 +3085,7 @@
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: L'index magique<span class="exercise-title"></span></p>
+<p class="admonition-title">L'index magique</p>
 <p>Un indice magique d'un tableau <code>A[0..n-1]</code> est défini tel que la valeur <code>A[i] == i</code>. Étant donné que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.</p>
 <p>Exemple :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>    0   1   2   3   4   5   6   7   8   9   10
@@ -3198,7 +3242,7 @@
 <div class="language-c highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">game</span><span class="p">[][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">};</span>
 </span></code></pre></div>
 <div class="admonition exercise détectives privés">
-<p class="admonition-title">Exercise<span class="exercise-title"></span></p>
+<p class="admonition-title">Exercise</p>
 <p>Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :</p>
 <table>
 <thead>
@@ -3317,7 +3361,7 @@
 <p>Et laquelle complète les valeurs manquantes.</p>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Pot de peinture<span class="exercise-title"></span></p>
+<p class="admonition-title">Pot de peinture</p>
 <p>À l'instar de l'outil <em>pot de peinture</em> des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.</p>
 <p>L'image est représentée par un tableau bidimensionnel contenant des couleurs indexées :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-45-1"><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">BLACK</span><span class="p">,</span><span class="w"> </span><span class="n">RED</span><span class="p">,</span><span class="w"> </span><span class="n">PURPLE</span><span class="p">,</span><span class="w"> </span><span class="n">BLUE</span><span class="p">,</span><span class="w"> </span><span class="n">GREEN</span><span class="w"> </span><span class="n">YELLOW</span><span class="p">,</span><span class="w"> </span><span class="n">WHITE</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">Color</span><span class="p">;</span>
@@ -3758,7 +3802,7 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-95-7"><a href="#__codelineno-95-7" id="__codelineno-95-7" name="__codelineno-95-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Mendeleïev<span class="exercise-title"></span></p>
+<p class="admonition-title">Mendeleïev</p>
 <p>Chaque élément du tableau périodique des éléments comporte les propriétés suivantes :</p>
 <ul>
 <li>Un nom jusqu'à 20 lettres</li>
@@ -3804,9 +3848,7 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-96-5"><a href="#__codelineno-96-5" id="__codelineno-96-5" name="__codelineno-96-5"></a><span class="n">Element</span><span class="w"> </span><span class="o">*</span><span class="n">el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="n">element</span><span class="p">[</span><span class="mi">92</span><span class="p">];</span>
 </span><span id="__span-96-6"><a href="#__codelineno-96-6" id="__codelineno-96-6" name="__codelineno-96-6"></a><span class="n">assert</span><span class="p">(</span><span class="n">el</span><span class="o">-&gt;</span><span class="n">atomic_weight</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">92</span><span class="p">);</span>
 </span></code></pre></div>
-</div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</div>
 
 
 
@@ -4057,8 +4099,8 @@ document$.subscribe(() => { lightbox.reload() });
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="../../../exercise.js"></script>
-      
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

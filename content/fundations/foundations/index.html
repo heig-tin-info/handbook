@@ -115,8 +115,6 @@
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
-      <link rel="stylesheet" href="../../../exercise.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -564,7 +562,7 @@
             
   
   <span class="md-ellipsis">
-    Préface
+    Avant-propos
   </span>
   
 
@@ -574,7 +572,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
-            Préface
+            Avant-propos
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -760,6 +758,8 @@
   
     
     
+      
+        
       
         
       
@@ -1104,6 +1104,27 @@
   
   <span class="md-ellipsis">
     Préprocesseur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grammar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La grammaire
   </span>
   
 
@@ -1751,6 +1772,8 @@
       
         
       
+        
+      
     
     
       
@@ -1799,6 +1822,27 @@
   
   <span class="md-ellipsis">
     Algorithmes et conception
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/recursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Récursivité
   </span>
   
 
@@ -2778,7 +2822,7 @@
   
 
 
-<html><body><div class="breadcrumb"><span>Cours C</span>
+<div class="breadcrumb"><span>Cours C</span>
 <svg class="breadcrumb-caret" viewbox="0 0 256 512" xmlns="http://www.w3.org/2000/svg">
 <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
 </svg><span>Les bases</span>
@@ -2907,310 +2951,30 @@
 <li>Le standard <a href="https://fr.wikipedia.org/wiki/POSIX"><abbr title="Portable Operating System Interface">POSIX</abbr></a>, se réserve l'usage de tous les identificateurs finissant par <code>_t</code>.</li>
 </ol>
 <div class="admonition tip">
-<p class="admonition-title"><strong>Astuce :</strong> Expression régulière</p>
+<p class="admonition-title">Expression régulière</p>
 <p>Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'expression régulière suivante :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>^[a-zA-Z_][a-zA-Z0-9_]*$
 </span></code></pre></div>
 </div>
-<div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise: Validité des identificateurs<span class="exercise-title"></span></p>
+<div class="admonition exercise">
+<p class="admonition-title">Validité des identificateurs</p>
 <p>Pour chacune des suites de caractères ci-dessous, indiquez s'il s'agit d'un identificateur valide et utilisable en C. Justifier votre réponse.</p>
 <div class="three-column-list">
-<ul class="exercise-list">
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>2_pi</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>x_2</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>x___3</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>x 2</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>positionRobot</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>piece_presente</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>_commande_vanne</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>-courant_sortie</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>_alarme_</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>panne#2</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>int</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>défaillance</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>f'</code>
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-<code>INT</code>
-</li>
+<ul>
+<li>[ ] <code>2_pi</code></li>
+<li>[x] <code>x_2</code></li>
+<li>[x] <code>x___3</code></li>
+<li>[ ] <code>x 2</code></li>
+<li>[x] <code>positionRobot</code></li>
+<li>[x] <code>piece_presente</code></li>
+<li>[x] <code>_commande_vanne</code></li>
+<li>[ ] <code>-courant_sortie</code></li>
+<li>[x] <code>_alarme_</code></li>
+<li>[ ] <code>panne#2</code></li>
+<li>[ ] <code>int</code></li>
+<li>[ ] <code>défaillance</code></li>
+<li>[ ] <code>f'</code></li>
+<li>[x] <code>INT</code></li>
 </ul>
 </div>
 <details class="solution">
@@ -3248,7 +3012,7 @@
 <li>Sa <strong>visibilité</strong> (<em>visibility</em>) qui ne peut être que <em>public</em> en C.</li>
 </ul>
 <div class="admonition example">
-<p class="admonition-title">Exemple</p>
+<p class="admonition-title">Example</p>
 <p>Pour mieux comprendre, imaginons la plage de Donnant à Belle-Île-en-Mer. Quelqu'un a écrit sur le sable, bien visible depuis la colline adjacente, le mot <code>COIN</code>. L'identificateur c'est <code>Donnant</code>, la valeur c'est <code>COIN</code>, le type permet de savoir comment interpréter la valeur. Cela peut s'agir d'une pièce de monnaie en anglais, du coin d'une table en français ou du lapin en neerlandais.</p>
 <p>L'<strong>adresse</strong> est l'emplacement exact de la plage où le mot a été écrit (47.32638670571° N, 3.2363350691522° W), la portée est la plage de Donnant et la visibilité est la colline adjacente.</p>
 <p>On voit que sans connaître le <strong>type</strong> de la variable, il est impossible de savoir comment interpréter sa <strong>valeur</strong>.</p>
@@ -3256,7 +3020,7 @@
 <p>En pratique l'adresse sera plutôt de la forme <code>0x7fffbf7f1b4c</code>, la valeur serait plutôt <code>0100001101001111010010010100111000000000</code> et le type serait une chaîne de caractères <code>char[]</code>.</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title"><strong>Information :</strong> Variables initialisées</p>
+<p class="admonition-title">Variables initialisées</p>
 <p>Le fait de déclarer des variables dans en langage C implique que le
 logiciel doit réaliser l'initialisation de ces variables au tout début
 de son exécution. De fait, on peut remarquer deux choses. Il y a les
@@ -3288,7 +3052,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Affectation de variables<span class="exercise-title"></span></p>
+<p class="admonition-title">Affectation de variables</p>
 <p>Considérons les déclarations suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
@@ -3498,7 +3262,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">scale_factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12.67</span><span class="p">;</span>
 </span></code></pre></div>
 <div class="admonition info">
-<p class="admonition-title">Information</p>
+<p class="admonition-title">Info</p>
 <p>Il ne faut pas confondre la <strong>constante</strong> qui est une variable immuable, stockée en mémoire et une <strong>macro</strong> qui appartient au préprocesseur. Sur certaines plateformes, le fichier d'en-tête <code>math.h</code> définit par exemple la constante <code>M_PI</code> sous forme de macro.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#define M_PI 3.14159265358979323846</span>
 </span></code></pre></div>
@@ -3530,7 +3294,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <p>On utilisera un suffixe <code>u</code> pour indiquer que le nombre est non signé (admettant pas de valeurs négatives) et <code>l</code> pour indiquer qu'il est long ou <code>ll</code> pour indiquer qu'il est très long.</p>
 <p>Quant aux guillemets simples <code>'</code>, ils sont utilisés pour délimiter un caractère de la table ASCII.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Constances littérales<span class="exercise-title"></span></p>
+<p class="admonition-title">Constances littérales</p>
 <p>Pour les entrées suivantes, indiquez lesquelles sont correctes.</p>
 <div class="two-column-list">
 <ol>
@@ -3574,7 +3338,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 </span></code></pre></div>
 <p>Nous verrons plus tard comment l'ordre des opérations et l'associativité de chaque opérateur.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Affectations simples<span class="exercise-title"></span></p>
+<p class="admonition-title">Affectations simples</p>
 <p>Donnez les valeurs de <code>x</code>, <code>n</code>, <code>p</code> après l'exécution des instructions ci-dessous :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
@@ -3592,7 +3356,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Trop d'égalités<span class="exercise-title"></span></p>
+<p class="admonition-title">Trop d'égalités</p>
 <p>On considère les déclarations suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 </span></code></pre></div>
@@ -3730,7 +3494,7 @@ désactiver cette portion de code.</p>
 <li>Les commentaires soient écrits en anglais.</li>
 </ul>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Verbosité<span class="exercise-title"></span></p>
+<p class="admonition-title">Verbosité</p>
 <p>Comment récririez-vous ce programme?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">register</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">the_element_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="w">    </span><span class="n">the_element_index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">number_of_elements</span><span class="p">;</span><span class="w"> </span><span class="n">the_element_index</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
@@ -3745,9 +3509,7 @@ désactiver cette portion de code.</p>
 <p>Un consensus assez bien établi est qu'une variable commençant par <code>n</code> peut signifier
 <em>number of</em>.</p>
 </details>
-</div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</div>
 
 
 
@@ -3998,8 +3760,8 @@ document$.subscribe(() => { lightbox.reload() });
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="../../../exercise.js"></script>
-      
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

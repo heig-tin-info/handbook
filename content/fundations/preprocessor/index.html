@@ -19,7 +19,7 @@
         <link rel="prev" href="../control-structures/">
       
       
-        <link rel="next" href="../../operating-system/processus/">
+        <link rel="next" href="../grammar/">
       
       
       <link rel="icon" href="../../../assets/icons/favicon.ico">
@@ -114,8 +114,6 @@
       <link rel="stylesheet" href="../../../css/extra.css">
     
       <link rel="stylesheet" href="../../../css/tables.css">
-    
-      <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -564,7 +562,7 @@
             
   
   <span class="md-ellipsis">
-    Préface
+    Avant-propos
   </span>
   
 
@@ -574,7 +572,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
-            Préface
+            Avant-propos
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -760,6 +758,8 @@
   
     
     
+      
+        
       
         
       
@@ -1180,6 +1180,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grammar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La grammaire
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1823,6 +1844,8 @@
       
         
       
+        
+      
     
     
       
@@ -1871,6 +1894,27 @@
   
   <span class="md-ellipsis">
     Algorithmes et conception
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/recursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Récursivité
   </span>
   
 
@@ -2922,7 +2966,7 @@
   
 
 
-<html><body><div class="breadcrumb"><span>Cours C</span>
+<div class="breadcrumb"><span>Cours C</span>
 <svg class="breadcrumb-caret" viewbox="0 0 256 512" xmlns="http://www.w3.org/2000/svg">
 <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
 </svg><span>Les bases</span>
@@ -3202,7 +3246,7 @@
 </span><span id="__span-13-11"><a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="go">}</span>
 </span></code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title"><strong>Attention :</strong> Macro avec paramètres</p>
+<p class="admonition-title">Macro avec paramètres</p>
 <p>Le préprocesseur interprète une macro avec paramètres que si la parenthèse ouvrante suit directement et sans espace le nom de la macro. Ainsi, considérant cet exemple :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#define f (x) ((x) + 1)</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
@@ -3218,7 +3262,7 @@
 </ul>
 </div>
 <div class="admonition warning">
-<p class="admonition-title"><strong>Attention :</strong> Paramètres de macro non protégés</p>
+<p class="admonition-title">Paramètres de macro non protégés</p>
 <p>On ne le répètera jamais assez: une macro est un remplacement de chaîne effectué par le préprocesseur. Donc écrire <code class="language-c highlight"><span class="cp">#define m(x) x * 2</span></code> et <code>m(2 + 5)</code> sera remplacé en <code>2 + 5 * 2</code>.</p>
 <p>Quel sera le problème dans le cas suivant ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#define ABS(x) x &gt;= 0 ? x: -x</span>
@@ -3253,7 +3297,7 @@
 </ul>
 </div>
 <div class="admonition warning">
-<p class="admonition-title"><strong>Attention :</strong> Pré/Post incrémentation avec une macro</p>
+<p class="admonition-title">Pré/Post incrémentation avec une macro</p>
 <p>On pourrait se dire qu'avec toutes les précautions prises, il n'y aura plus d'ennuis possibles. Or, les post/pré incréments peuvent encore poser problème.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">#define ABS(x) ((x) &gt;= 0 ? (x) : -(x))</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>
@@ -3334,7 +3378,7 @@
 </span><span id="__span-29-5"><a href="#__codelineno-29-5" id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="cm"> */</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Macro compromise ?<span class="exercise-title"></span></p>
+<p class="admonition-title">Macro compromise ?</p>
 <p>Que pensez-vous de cette définition ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-30-1"><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="cp">#define IS_OCTAL(c) ((c) &gt;= '0' &amp;&amp; (c) &lt;= '8')</span>
 </span></code></pre></div>
@@ -3354,9 +3398,7 @@
 </span><span id="__span-32-3"><a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="cp">#else</span>
 </span><span id="__span-32-4"><a href="#__codelineno-32-4" id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="cp">#    define TRACE</span>
 </span><span id="__span-32-5"><a href="#__codelineno-32-5" id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="cp">#endif</span>
-</span></code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</span></code></pre></div>
 
 
 
@@ -3521,13 +3563,13 @@ document$.subscribe(() => { lightbox.reload() });
         
         
           
-          <a href="../../operating-system/processus/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Programmes et Processus">
+          <a href="../grammar/" class="md-footer__link md-footer__link--next" aria-label="Suivant: La grammaire">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Programmes et Processus
+                La grammaire
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3607,8 +3649,8 @@ document$.subscribe(() => { lightbox.reload() });
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="../../../exercise.js"></script>
-      
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

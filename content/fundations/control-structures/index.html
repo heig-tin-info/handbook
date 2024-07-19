@@ -115,8 +115,6 @@
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
-      <link rel="stylesheet" href="../../../exercise.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -564,7 +562,7 @@
             
   
   <span class="md-ellipsis">
-    Préface
+    Avant-propos
   </span>
   
 
@@ -574,7 +572,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
-            Préface
+            Avant-propos
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -760,6 +758,8 @@
   
     
     
+      
+        
       
         
       
@@ -1119,6 +1119,27 @@
   
   <span class="md-ellipsis">
     Préprocesseur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grammar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La grammaire
   </span>
   
 
@@ -1766,6 +1787,8 @@
       
         
       
+        
+      
     
     
       
@@ -1814,6 +1837,27 @@
   
   <span class="md-ellipsis">
     Algorithmes et conception
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/recursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Récursivité
   </span>
   
 
@@ -2808,18 +2852,18 @@
   
 
 
-<html><body><div class="breadcrumb"><span>Cours C</span>
+<div class="breadcrumb"><span>Cours C</span>
 <svg class="breadcrumb-caret" viewbox="0 0 256 512" xmlns="http://www.w3.org/2000/svg">
 <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
 </svg><span>Les bases</span>
 <svg class="breadcrumb-caret" viewbox="0 0 256 512" xmlns="http://www.w3.org/2000/svg">
 <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
 </svg><a href="content/fundations/control-structures/">Structures de contrôle</a></div><h1 id="structures-de-controle">Structures de contrôle<a class="headerlink" href="#structures-de-controle" title="Permanent link">¶</a></h1>
-<p>Les structures de contrôle appartiennent aux langages de programmation dits <a href="https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e">structurés</a>. Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Il y a trois catégories de structures de contrôle en C :</p>
+<p>Les structures de contrôle appartiennent aux langages de programmation dits impératifs <a href="https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e">structurés</a>. Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Voici les catégories de structures de contrôle :</p>
 <ol>
-<li>Les embranchements (<code>branching</code>)</li>
-<li>Les boucles (<code>loops</code>)</li>
+<li>Les séquences</li>
 <li>Les sauts (<code>jumps</code>)</li>
+<li>Les boucles (<code>loops</code>)</li>
 </ol>
 <p>Ces structures de contrôles sont toujours composées de :</p>
 <ul>
@@ -2829,6 +2873,7 @@
 <li>Appels de fonctions</li>
 </ul>
 <p>Sans structure de contrôle, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènement extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement.</p>
+<p>L'intelligence d'un programme réside dans sa capacité à prendre des décisions en fonction de l'état du système et des données qu'il manipule. Les structures de contrôle permettent de définir ces décisions, un peu comme un livre dont vous êtes le héros où chaque choix vous mène à une page différente par un saut.</p>
 <h2 id="sequences">Séquences<a class="headerlink" href="#sequences" title="Permanent link">¶</a></h2>
 <p>En C, chaque instruction est séparée de la suivante par un point virgule <code>;</code> (<code>U+003B</code>):</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
@@ -2844,7 +2889,7 @@
 <p>N'allez pas confondre le point virgule <code>;</code> (<abbr title="Caractère Unicode pour le point-virgule ([lien](https://www.compart.com/en/unicode/U+003B))">U+003B</abbr>) avec le <code>;</code> (<abbr title="Caractère Unicode pour le point-virgule grec ([lien](https://www.compart.com/en/unicode/U+037E))">U+037E</abbr>), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title"><strong>Information :</strong> Points de séquences</p>
+<p class="admonition-title">Points de séquences</p>
 <p>On appelle un point de séquence ou <a href="https://en.wikipedia.org/wiki/Sequence_point">sequence point</a> exprimé dans l'annexe C du standard <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> chaque élément de code dont l'exécution est garantie avant la séquence suivante. Ce qu'il est important de retenir c'est :</p>
 <ul>
 <li>
@@ -2863,7 +2908,7 @@
 <p>L'opérateur d'assignation <code>=</code> n'est donc pas un point de séquence et l'exécution du code <code>(a = 2) + a + (a = 2)</code> est par conséquent indéterminée.</p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title"><strong>Attention :</strong> Un point virgule peut tout changer</p>
+<p class="admonition-title">Un point virgule peut tout changer</p>
 <p>L'erreur typique suivante est arrivée à tout programmeur débutant. Le <code>;</code> placé après le test <code>if</code> agis comme une instruction nulle si bien que la fusée sera lancée à tous les coups :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">countdown</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="n">launch_rocket</span><span class="p">();</span>
@@ -2973,14 +3018,14 @@
 </span><span id="__span-10-16"><a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Et si?<span class="exercise-title"></span></p>
+<p class="admonition-title">Et si?</p>
 <p>Comment se comporte l'exemple suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"i is %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: D'autres si ?<span class="exercise-title"></span></p>
+<p class="admonition-title">D'autres si ?</p>
 <p>Compte tenu de la déclaration <code>int i = 8;</code>, indiquer pour chaque expression si elles impriment ou non <code>i vaut 8</code>:</p>
 <ol>
 <li>
@@ -3138,7 +3183,7 @@
 </span></code></pre></div>
 <p>Séquentiellement une boucle <code>while</code> teste la condition, puis exécute la séquence associée.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Tant que...<span class="exercise-title"></span></p>
+<p class="admonition-title">Tant que...</p>
 <p>Comment se comportent ces programmes :</p>
 <ol>
 <li><code>size_t i=0;while(i&lt;11){i+=2;printf("%i\n",i);}</code></li>
@@ -3194,12 +3239,12 @@
 </span><span id="__span-21-4"><a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition exercise pour quelques tours">
-<p class="admonition-title">Exercise<span class="exercise-title"></span></p>
+<p class="admonition-title">Exercise</p>
 <p>Comment est-ce que ces expressions se comportent-elles ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 </span></code></pre></div>
 <ol>
-<li><code>for (i = 'a'; i &lt; 'd'; printf ("Exercise: %i\n", ++i));</code></li>
+<li><code>for (i = 'a'; i &lt; 'd'; printf ("%i\n", ++i));</code></li>
 <li><code>for (i = 'a'; i &lt; 'd'; printf ("%c\n", ++i));</code></li>
 <li><code>for (i = 'a'; i++ &lt; 'd'; printf ("%c\n", i ));</code></li>
 <li><code>for (i = 'a'; i &lt;= 'a' + 25; printf ("%c\n", i++ ));</code></li>
@@ -3210,14 +3255,14 @@
 </ol>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Erreur<span class="exercise-title"></span></p>
+<p class="admonition-title">Erreur</p>
 <p>Identifier les deux erreurs dans ce code suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="o">--</span><span class="n">i</span><span class="p">)</span>
 </span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: De un à cent<span class="exercise-title"></span></p>
+<p class="admonition-title">De un à cent</p>
 <p>Écrivez un programme affichant les entiers de 1 à 100 en employant :</p>
 <ol>
 <li>Une boucle <code>for</code></li>
@@ -3227,7 +3272,7 @@
 <p>Quelle est la structure de contrôle la plus adaptée à cette situation ?</p>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Opérateur virgule dans une boucle<span class="exercise-title"></span></p>
+<p class="admonition-title">Opérateur virgule dans une boucle</p>
 <p>Expliquez quelle est la fonctionnalité globale du programme ci-dessous :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">))</span>
@@ -3382,7 +3427,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </span></code></pre></div>
 <h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¶</a></h2>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Faute d'erreur<span class="exercise-title"></span></p>
+<p class="admonition-title">Faute d'erreur</p>
 <p>Considérons les déclarations suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="kt">long</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-33-2"><a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100.0</span><span class="p">;</span>
@@ -3419,7 +3464,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Cas appropriés<span class="exercise-title"></span></p>
+<p class="admonition-title">Cas appropriés</p>
 <p>Parmi les cas suivants, quelle structure de contrôle utiliser ?</p>
 <ol>
 <li>Test qu'une variable est dans un intervalle donné.</li>
@@ -3487,14 +3532,14 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Comptons sur les caractères<span class="exercise-title"></span></p>
+<p class="admonition-title">Comptons sur les caractères</p>
 <p>Un texte est passé à un programme par <code>stdin</code>. Comptez le nombre de caractères transmis.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Hello world"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>count-this
 </span><span id="__span-44-2"><a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a><span class="go">11</span>
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Esperluette conditionnelle<span class="exercise-title"></span></p>
+<p class="admonition-title">Esperluette conditionnelle</p>
 <p>Quel est le problème avec cette ligne de code ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-45-1"><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">mask</span><span class="o">==</span><span class="n">bits</span><span class="p">)</span>
 </span></code></pre></div>
@@ -3507,9 +3552,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <div class="language-c highlight"><pre><span></span><code><span id="__span-47-1"><a href="#__codelineno-47-1" id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">bits</span><span class="p">)</span>
 </span></code></pre></div>
 </details>
-</div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</div>
 
 
 
@@ -3532,7 +3575,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 19, 2024</span>
   </span>
 
     
@@ -3760,8 +3803,8 @@ document$.subscribe(() => { lightbox.reload() });
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="../../../exercise.js"></script>
-      
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

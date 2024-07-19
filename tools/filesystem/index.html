@@ -115,8 +115,6 @@
     
       <link rel="stylesheet" href="../../css/tables.css">
     
-      <link rel="stylesheet" href="../../exercise.css">
-    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -554,7 +552,7 @@
             
   
   <span class="md-ellipsis">
-    Préface
+    Avant-propos
   </span>
   
 
@@ -564,7 +562,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
-            Préface
+            Avant-propos
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -758,6 +756,8 @@
       
         
       
+        
+      
     
     
       
@@ -908,6 +908,27 @@
   
   <span class="md-ellipsis">
     Préprocesseur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/fundations/grammar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La grammaire
   </span>
   
 
@@ -1537,6 +1558,8 @@
       
         
       
+        
+      
     
     
       
@@ -1582,6 +1605,27 @@
   
   <span class="md-ellipsis">
     Algorithmes et conception
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/algorithms/recursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Récursivité
   </span>
   
 
@@ -2645,7 +2689,7 @@
   
 
 
-<html><body><div class="breadcrumb"><span>Outils</span>
+<div class="breadcrumb"><span>Outils</span>
 <svg class="breadcrumb-caret" viewbox="0 0 256 512" xmlns="http://www.w3.org/2000/svg">
 <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
 </svg><a href="tools/filesystem/">Système de fichier</a></div><h1 id="systeme-de-fichier">Système de fichier<a class="headerlink" href="#systeme-de-fichier" title="Permanent link">¶</a></h1>
@@ -2736,7 +2780,7 @@ N_{bits} = 8'796'093'022'208
 </span></code></pre></div>
 <p>Tient ? Pourquoi un <code>slash</code> au début ? C'est pour indiquer le répertoire racine : le répertoire d'origine, le point de départ de l'arborescence. Evidemment si vous vous trouvez déjà dans la cuisine, vous n'avez pas besoin de préciser <code>/maison/cuisine</code>. Vous pouvez simplement écrire <code>frigo/rayonnage2/droite/pomme.jpg</code>. Donc un chemin peut, ou non avoir un <code>slash</code> au début. On dit qu'il est <strong>absolu</strong> ou <strong>relatif</strong>.</p>
 <div class="admonition note">
-<p class="admonition-title"><strong>Note :</strong> Windows</p>
+<p class="admonition-title">Windows</p>
 <p>Sur Windows, le répertoire racine est <code>C:\</code> pour le disque dur principal. Donc un chemin absolu sur Windows ressemblerait à <code>C:\maison\cuisine\frigo\rayonnage2\droite\pomme.jpg</code>.</p>
 <p>L'usage de <code>C</code> est historique. À l'origine il n'y avait pas de disques durs mais des disquettes. Ceux qui avaient la chance d'avoir un lecteur de disquette avaient un unique lecteur <code>A</code>. Ceux qui voulaient faire des copies de disquettes devaient en avoir un deuxième, c'était le lecteur <code>B</code>. En général, le disque dur était le troisième lecteur, le lecteur <code>C</code>. Et depuis Windows 95, c'est resté comme ça.</p>
 </div>
@@ -2952,11 +2996,11 @@ N_{bits} = 8'796'093'022'208
 </div>
 </div>
 <div class="admonition note">
-<p class="admonition-title"><strong>Note :</strong> Windows</p>
+<p class="admonition-title">Windows</p>
 <p>On voit que Microsoft a appris de ses erreurs et a introduit <code>pwd</code> et <code>ls</code> dans PowerShell. C'est une bonne chose car ces commandes sont très utiles. PowerShell est un shell plus moderne que CMD et plus puissant. Il est basé sur le framework .NET et permet d'interagir avec des objets .NET.</p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title"><strong>Attention :</strong> Attention</p>
+<p class="admonition-title">Attention</p>
 <p>Les commandes <code>rm</code>, <code>mv</code>, <code>cp</code> sont très dangereuses. Elles peuvent détruire des données. Il est important de faire attention à ce que vous faites. Il est recommandé de faire des sauvegardes régulières de vos données.</p>
 </div>
 <h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">¶</a></h2>
@@ -2980,7 +3024,7 @@ N_{bits} = 8'796'093'022'208
 </ul>
 <p>Les permissions sont affichées par la commande <code>ls -l</code> dans <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Windows ce n'est pas aussi simple. Les permissions sont affichées par la commande <code>icacls</code> mais le format est différent.</p>
 <div class="admonition note">
-<p class="admonition-title"><strong>Note :</strong> NTFS</p>
+<p class="admonition-title">NTFS</p>
 <p>Le système de fichier NTFS (New Technology File System) de Microsoft permet de définir des permissions très fines sur les fichiers et les répertoires. Il permet de définir des permissions pour des utilisateurs individuels ou des groupes d'utilisateurs. Il permet aussi de chiffrer les données pour les protéger contre les accès non autorisés.</p>
 <p>Les commandes sont donc beaucoup plus complexes et ne se réduisent pas aux permissions que l'on explique ici.</p>
 <p>Cette granularité est très utile dans un environnement professionnel où les données sont sensibles mais cela peut être un cauchemar pour les administrateurs système et surtout cela rend le système plus lent car il doit vérifier toutes les permissions à chaque accès disque.</p>
@@ -3025,7 +3069,7 @@ N_{bits} = 8'796'093'022'208
 </tbody>
 </table>
 <div class="admonition note">
-<p class="admonition-title"><strong>Note :</strong> Représentation octale</p>
+<p class="admonition-title">Représentation octale</p>
 <p>Dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr>, on peut représenter les permissions avec des chiffres. Chaque permission est représentée par un bit :</p>
 <ul>
 <li><code>r</code> : 4</li>
@@ -3154,7 +3198,7 @@ N_{bits} = 8'796'093'022'208
 <li><code>/sys</code> : Les informations sur le noyau</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title"><strong>Note :</strong> Windows</p>
+<p class="admonition-title">Windows</p>
 <p>Malheureusement Windows n'a pas vraiment de convention rigide pour l'organisation des fichiers et des répertoires. Chaque programme peut décider où il veut stocker ses fichiers de configuration, ses fichiers de données, etc. Cela rend la maintenance et la sauvegarde des données plus difficile. On peut néanmoins retrouver quelques répertoires communs :</p>
 <ul>
 <li><code>C:\Program Files</code> : Les programmes installés</li>
@@ -3168,9 +3212,7 @@ N_{bits} = 8'796'093'022'208
 <li><code>C:\Users\username\Documents</code> : Les documents de l'utilisateur</li>
 <li><code>C:\Users\username\Downloads</code> : Les fichiers téléchargés</li>
 </ul>
-</div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</div>
 
 
 
@@ -3421,8 +3463,8 @@ document$.subscribe(() => { lightbox.reload() });
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="../../exercise.js"></script>
-      
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

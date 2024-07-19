@@ -115,8 +115,6 @@
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
-      <link rel="stylesheet" href="../../../exercise.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -564,7 +562,7 @@
             
   
   <span class="md-ellipsis">
-    Préface
+    Avant-propos
   </span>
   
 
@@ -574,7 +572,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
-            Préface
+            Avant-propos
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -771,6 +769,8 @@
       
         
       
+        
+      
     
     
       
@@ -924,6 +924,27 @@
   
   <span class="md-ellipsis">
     Préprocesseur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundations/grammar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La grammaire
   </span>
   
 
@@ -1724,6 +1745,8 @@
       
         
       
+        
+      
     
     
       
@@ -1772,6 +1795,27 @@
   
   <span class="md-ellipsis">
     Algorithmes et conception
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/recursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Récursivité
   </span>
   
 
@@ -2724,7 +2768,7 @@
   
 
 
-<html><body><div class="breadcrumb"><span>Cours C</span>
+<div class="breadcrumb"><span>Cours C</span>
 <svg class="breadcrumb-caret" viewbox="0 0 256 512" xmlns="http://www.w3.org/2000/svg">
 <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
 </svg><span>Structures de données</span>
@@ -2735,7 +2779,7 @@
 <p>Les arbres sont des structures de données non linéaires qui sont composées de nœuds. Chaque nœud a un ou plusieurs enfants, sauf pour le nœud racine qui n'a pas de parent. Les arbres sont souvent utilisés pour représenter des hiérarchies, comme les systèmes de fichiers, les arbres généalogiques, les arbres de décision, etc.</p>
 <p>Voici un exemple d'arbre, il représente par exemple une structure de documents stockés sur un ordinateur. En haut on voit le disque C: qui contient des dossiers et des fichiers. Chaque dossier peut contenir d'autres dossiers ou des fichiers. Il y a donc une hiérarchie entre les éléments. Chaque dossier peut contenir plusieurs éléments, mais chaque élément ne peut être contenu que dans un seul dossier.</p>
 <p>On appelle ce type d'arbre un <strong>arbre n-aire dirigé</strong>. C'est-à-dire que chaque nœud peut avoir plusieurs enfants. L'arbre est dirigé car il y a un sens de la racine vers les feuilles. Il y a donc des flèches qui indiquent le sens de la hiérarchie.</p>
-<pre class="mermaid"><code>graph TD;
+<pre class="mermaid"><code>graph LR;
     C(C:)
 
     C --&gt; Program_Files(Program Files)
@@ -2748,10 +2792,6 @@
     Microsoft --&gt; Office(Office)
     Microsoft --&gt; Edge(Edge)
     Microsoft --&gt; Teams(Teams)
-
-    Adobe --&gt; Photoshop(Photoshop)
-    Adobe --&gt; Illustrator(Illustrator)
-    Adobe --&gt; Acrobat(Acrobat)
 
     Google --&gt; Chrome(Chrome)
     Google --&gt; Drive(Drive)
@@ -2777,8 +2817,6 @@
 
     Album1 --&gt; Song1(pink-floyd.mp3)
     Album1 --&gt; Song2(dorothée.mp3)
-
-    Album2 --&gt; Song3(New Born.mp3)
 
     Documents_Alice --&gt; Thesis(Thesis.docx)
     Documents_Alice --&gt; Notes(Notes.txt)
@@ -2877,10 +2915,123 @@
 <h3 id="min-heap">Min-heap<a class="headerlink" href="#min-heap" title="Permanent link">¶</a></h3>
 <p>Un tas binaire est une structure de données qui permet de stocker des éléments de manière ordonnée. Un tas binaire est un arbre binaire complet où chaque nœud est <strong>plus petit que ses enfants</strong>. Un tas binaire est souvent utilisé pour implémenter une file de priorité.</p>
 <div class="admonition example">
-<p class="admonition-title"><strong>Exemple :</strong> Implémentation en C</p>
-<div class="language-c highlight"><span class="filename">min-heap.h</span><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>
+<p class="admonition-title">Implémentation en C</p>
+<div class="language-c highlight"><span class="filename">min-heap.h</span><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#pragma once</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stddef.h&gt;</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">MinHeap</span><span class="w"> </span><span class="n">MinHeap</span><span class="p">;</span>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="nf">min_heap_create</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">element_size</span><span class="p">,</span>
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">compare</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">),</span>
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">free_function</span><span class="p">)(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">));</span>
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="kt">void</span><span class="w"> </span><span class="nf">min_heap_destroy</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="p">);</span>
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="kt">int</span><span class="w"> </span><span class="nf">min_heap_insert</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">element</span><span class="p">);</span>
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">min_heap_extract_min</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="p">);</span>
+</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="kt">size_t</span><span class="w"> </span><span class="nf">min_heap_size</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="p">);</span>
+</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="kt">void</span><span class="w"> </span><span class="nf">min_heap_to_mermaid</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">output</span><span class="p">);</span>
 </span></code></pre></div>
-<div class="language-c highlight"><span class="filename">min-heap.c</span><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>
+<div class="language-c highlight"><span class="filename">min-heap.c</span><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"min-heap.h"</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"vector.h"</span>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="k">struct</span><span class="w"> </span><span class="nc">MinHeap</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="n">Vector</span><span class="w"> </span><span class="o">*</span><span class="n">vector</span><span class="p">;</span>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">compare</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="p">};</span>
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">**</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">**</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-13"><a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span>
+</span><span id="__span-1-14"><a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-1-15"><a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+</span><span id="__span-1-16"><a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="p">}</span>
+</span><span id="__span-1-17"><a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">heapify_up</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-19"><a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-1-20"><a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">parent_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-1-22"><a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">compare</span><span class="p">(</span><span class="n">vector_get</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p">),</span><span class="w"> </span><span class="n">vector_get</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">parent_index</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-23"><a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="w">        </span><span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">parent_index</span><span class="p">]);</span>
+</span><span id="__span-1-24"><a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">        </span><span class="n">heapify_up</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span><span class="w"> </span><span class="n">parent_index</span><span class="p">);</span>
+</span><span id="__span-1-25"><a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-26"><a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="p">}</span>
+</span><span id="__span-1-27"><a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">heapify_down</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-29"><a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">left_child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-1-30"><a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">right_child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-1-31"><a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">smallest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">index</span><span class="p">;</span>
+</span><span id="__span-1-32"><a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>
+</span><span id="__span-1-33"><a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">left_child</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">vector_size</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+</span><span id="__span-1-34"><a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">        </span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">compare</span><span class="p">(</span><span class="n">vector_get</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">left_child</span><span class="p">),</span><span class="w"> </span><span class="n">vector_get</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">smallest</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-35"><a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">        </span><span class="n">smallest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left_child</span><span class="p">;</span>
+</span><span id="__span-1-36"><a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-37"><a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">right_child</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">vector_size</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+</span><span id="__span-1-38"><a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="w">        </span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">compare</span><span class="p">(</span><span class="n">vector_get</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">right_child</span><span class="p">),</span><span class="w"> </span><span class="n">vector_get</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">smallest</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-39"><a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="w">        </span><span class="n">smallest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right_child</span><span class="p">;</span>
+</span><span id="__span-1-40"><a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-41"><a href="#__codelineno-1-41" id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">smallest</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-42"><a href="#__codelineno-1-42" id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="w">        </span><span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">smallest</span><span class="p">]);</span>
+</span><span id="__span-1-43"><a href="#__codelineno-1-43" id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="w">        </span><span class="n">heapify_down</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span><span class="w"> </span><span class="n">smallest</span><span class="p">);</span>
+</span><span id="__span-1-44"><a href="#__codelineno-1-44" id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-45"><a href="#__codelineno-1-45" id="__codelineno-1-45" name="__codelineno-1-45"></a><span class="p">}</span>
+</span><span id="__span-1-46"><a href="#__codelineno-1-46" id="__codelineno-1-46" name="__codelineno-1-46"></a>
+</span><span id="__span-1-47"><a href="#__codelineno-1-47" id="__codelineno-1-47" name="__codelineno-1-47"></a><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="nf">min_heap_create</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">element_size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">compare</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">free_function</span><span class="p">)(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-48"><a href="#__codelineno-1-48" id="__codelineno-1-48" name="__codelineno-1-48"></a><span class="w">    </span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">MinHeap</span><span class="p">));</span>
+</span><span id="__span-1-49"><a href="#__codelineno-1-49" id="__codelineno-1-49" name="__codelineno-1-49"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">heap</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-1-50"><a href="#__codelineno-1-50" id="__codelineno-1-50" name="__codelineno-1-50"></a>
+</span><span id="__span-1-51"><a href="#__codelineno-1-51" id="__codelineno-1-51" name="__codelineno-1-51"></a><span class="w">    </span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector_create</span><span class="p">(</span><span class="n">element_size</span><span class="p">,</span><span class="w"> </span><span class="n">free_function</span><span class="p">);</span>
+</span><span id="__span-1-52"><a href="#__codelineno-1-52" id="__codelineno-1-52" name="__codelineno-1-52"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-53"><a href="#__codelineno-1-53" id="__codelineno-1-53" name="__codelineno-1-53"></a><span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">heap</span><span class="p">);</span>
+</span><span id="__span-1-54"><a href="#__codelineno-1-54" id="__codelineno-1-54" name="__codelineno-1-54"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-1-55"><a href="#__codelineno-1-55" id="__codelineno-1-55" name="__codelineno-1-55"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-56"><a href="#__codelineno-1-56" id="__codelineno-1-56" name="__codelineno-1-56"></a>
+</span><span id="__span-1-57"><a href="#__codelineno-1-57" id="__codelineno-1-57" name="__codelineno-1-57"></a><span class="w">    </span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">compare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">compare</span><span class="p">;</span>
+</span><span id="__span-1-58"><a href="#__codelineno-1-58" id="__codelineno-1-58" name="__codelineno-1-58"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">heap</span><span class="p">;</span>
+</span><span id="__span-1-59"><a href="#__codelineno-1-59" id="__codelineno-1-59" name="__codelineno-1-59"></a><span class="p">}</span>
+</span><span id="__span-1-60"><a href="#__codelineno-1-60" id="__codelineno-1-60" name="__codelineno-1-60"></a>
+</span><span id="__span-1-61"><a href="#__codelineno-1-61" id="__codelineno-1-61" name="__codelineno-1-61"></a><span class="kt">void</span><span class="w"> </span><span class="nf">min_heap_destroy</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-62"><a href="#__codelineno-1-62" id="__codelineno-1-62" name="__codelineno-1-62"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">heap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-63"><a href="#__codelineno-1-63" id="__codelineno-1-63" name="__codelineno-1-63"></a><span class="w">        </span><span class="n">vector_destroy</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">);</span>
+</span><span id="__span-1-64"><a href="#__codelineno-1-64" id="__codelineno-1-64" name="__codelineno-1-64"></a><span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">heap</span><span class="p">);</span>
+</span><span id="__span-1-65"><a href="#__codelineno-1-65" id="__codelineno-1-65" name="__codelineno-1-65"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-66"><a href="#__codelineno-1-66" id="__codelineno-1-66" name="__codelineno-1-66"></a><span class="p">}</span>
+</span><span id="__span-1-67"><a href="#__codelineno-1-67" id="__codelineno-1-67" name="__codelineno-1-67"></a>
+</span><span id="__span-1-68"><a href="#__codelineno-1-68" id="__codelineno-1-68" name="__codelineno-1-68"></a><span class="kt">int</span><span class="w"> </span><span class="nf">min_heap_insert</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">element</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-69"><a href="#__codelineno-1-69" id="__codelineno-1-69" name="__codelineno-1-69"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vector_push_back</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">element</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-1-70"><a href="#__codelineno-1-70" id="__codelineno-1-70" name="__codelineno-1-70"></a><span class="w">    </span><span class="n">heapify_up</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span><span class="w"> </span><span class="n">vector_size</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-1-71"><a href="#__codelineno-1-71" id="__codelineno-1-71" name="__codelineno-1-71"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-1-72"><a href="#__codelineno-1-72" id="__codelineno-1-72" name="__codelineno-1-72"></a><span class="p">}</span>
+</span><span id="__span-1-73"><a href="#__codelineno-1-73" id="__codelineno-1-73" name="__codelineno-1-73"></a>
+</span><span id="__span-1-74"><a href="#__codelineno-1-74" id="__codelineno-1-74" name="__codelineno-1-74"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">min_heap_extract_min</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-75"><a href="#__codelineno-1-75" id="__codelineno-1-75" name="__codelineno-1-75"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vector_size</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-1-76"><a href="#__codelineno-1-76" id="__codelineno-1-76" name="__codelineno-1-76"></a>
+</span><span id="__span-1-77"><a href="#__codelineno-1-77" id="__codelineno-1-77" name="__codelineno-1-77"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">min_element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector_get</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-1-78"><a href="#__codelineno-1-78" id="__codelineno-1-78" name="__codelineno-1-78"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">last_element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector_get</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">vector_size</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-1-79"><a href="#__codelineno-1-79" id="__codelineno-1-79" name="__codelineno-1-79"></a><span class="w">    </span><span class="n">vector_set</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">last_element</span><span class="p">);</span>
+</span><span id="__span-1-80"><a href="#__codelineno-1-80" id="__codelineno-1-80" name="__codelineno-1-80"></a><span class="w">    </span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="o">-&gt;</span><span class="n">size</span><span class="o">--</span><span class="p">;</span><span class="w"> </span><span class="c1">// Adjust size without deallocating the last element</span>
+</span><span id="__span-1-81"><a href="#__codelineno-1-81" id="__codelineno-1-81" name="__codelineno-1-81"></a>
+</span><span id="__span-1-82"><a href="#__codelineno-1-82" id="__codelineno-1-82" name="__codelineno-1-82"></a><span class="w">    </span><span class="n">heapify_down</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-1-83"><a href="#__codelineno-1-83" id="__codelineno-1-83" name="__codelineno-1-83"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">min_element</span><span class="p">;</span>
+</span><span id="__span-1-84"><a href="#__codelineno-1-84" id="__codelineno-1-84" name="__codelineno-1-84"></a><span class="p">}</span>
+</span><span id="__span-1-85"><a href="#__codelineno-1-85" id="__codelineno-1-85" name="__codelineno-1-85"></a>
+</span><span id="__span-1-86"><a href="#__codelineno-1-86" id="__codelineno-1-86" name="__codelineno-1-86"></a><span class="kt">size_t</span><span class="w"> </span><span class="nf">min_heap_size</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-87"><a href="#__codelineno-1-87" id="__codelineno-1-87" name="__codelineno-1-87"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">vector_size</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">);</span>
+</span><span id="__span-1-88"><a href="#__codelineno-1-88" id="__codelineno-1-88" name="__codelineno-1-88"></a><span class="p">}</span>
+</span><span id="__span-1-89"><a href="#__codelineno-1-89" id="__codelineno-1-89" name="__codelineno-1-89"></a>
+</span><span id="__span-1-90"><a href="#__codelineno-1-90" id="__codelineno-1-90" name="__codelineno-1-90"></a><span class="kt">void</span><span class="w"> </span><span class="nf">min_heap_to_mermaid</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="o">*</span><span class="n">heap</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">output</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-91"><a href="#__codelineno-1-91" id="__codelineno-1-91" name="__codelineno-1-91"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="s">"graph TD</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-1-92"><a href="#__codelineno-1-92" id="__codelineno-1-92" name="__codelineno-1-92"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">vector_size</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-93"><a href="#__codelineno-1-93" id="__codelineno-1-93" name="__codelineno-1-93"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="s">"  %zu((%d))</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">vector_get</span><span class="p">(</span><span class="n">heap</span><span class="o">-&gt;</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">));</span>
+</span><span id="__span-1-94"><a href="#__codelineno-1-94" id="__codelineno-1-94" name="__codelineno-1-94"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-95"><a href="#__codelineno-1-95" id="__codelineno-1-95" name="__codelineno-1-95"></a><span class="w">            </span><span class="kt">size_t</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-1-96"><a href="#__codelineno-1-96" id="__codelineno-1-96" name="__codelineno-1-96"></a><span class="w">            </span><span class="n">fprintf</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="s">"  %zu --&gt; %zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-1-97"><a href="#__codelineno-1-97" id="__codelineno-1-97" name="__codelineno-1-97"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-98"><a href="#__codelineno-1-98" id="__codelineno-1-98" name="__codelineno-1-98"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-99"><a href="#__codelineno-1-99" id="__codelineno-1-99" name="__codelineno-1-99"></a><span class="p">}</span>
 </span></code></pre></div>
 </div>
 <p>Le tas binaire utilise un tableau dynamique pour stocker les éléments. La règle est que chaque élément voit son enfant de gauche à l'indice <code>2 * k + 1</code> et l'enfant de droite à l'indice <code>2 * k + 2</code>. Le parent d'un élément est à l'indice <code>(k - 1) / 2</code> quelque soit l'indice <code>k</code>.</p>
@@ -2919,7 +3070,7 @@
 <li>Une queue prioritaire (<em>Priority queue</em>)</li>
 <li>Déterminer le k-ième élément le plus petit d'une collection (<em>k-th smallest element</em>)</li>
 </ul>
-<p>Voici un tableau résumant les complexités des différentes opérations dans un tas binaire minimal&amp;npsp;:</p>
+<p>Voici un tableau résumant les complexités des différentes opérations dans un tas binaire minimal :</p>
 <table>
 <thead>
 <tr>
@@ -2942,7 +3093,7 @@
 </tr>
 <tr>
 <td>Construction</td>
-<td><span class="arithmatex">\(O(n) ou O(n log n)\)</span></td>
+<td><span class="arithmatex">\(O(n)\)</span> ou <span class="arithmatex">\(O(n log n)\)</span></td>
 </tr>
 <tr>
 <td>Suppression</td>
@@ -2959,16 +3110,16 @@
 <p><strong>Insertion</strong> : Lorsqu'un élément est ajouté au min-heap, il est ajouté à la fin et le processus de <em>heapify up</em> (ou <em>bubble up</em>) est effectué pour rétablir la propriété du tas. Ce processus implique de comparer et potentiellement d'échanger des éléments à chaque niveau de l'arbre, ce qui prend <span class="arithmatex">\(O(log n)\)</span> dans le pire des cas.</p>
 </li>
 <li>
-<p><strong>Extraction du minimum</strong> : L'extraction de l'élément minimum implique de retirer la racine du tas (le plus petit élément), de placer le dernier élément de l'arbre à la racine, puis d'effectuer <em>heapify down</em> (ou <em>sift down</em>) pour rétablir la propriété du tas. Cela prend <span class="arithmatex">\(O(log n)\)</span> car il peut nécessiter de descendre jusqu'au niveau le plus bas de l'arbre.</p>
+<p><strong>Extraction du minimum</strong> : L'extraction de l'élément minimum implique de retirer la racine du tas (le plus petit élément), de placer le dernier élément de l'arbre à la racine, puis d'effectuer <em>heapify down</em> (ou <em>sift down</em>) pour rétablir la propriété du tas. Cela prend <span class="arithmatex">\(O(log~n)\)</span> car il peut nécessiter de descendre jusqu'au niveau le plus bas de l'arbre.</p>
 </li>
 <li>
 <p><strong>Accès au minimum</strong> : L'accès au minimum est <span class="arithmatex">\(O(1)\)</span> car l'élément minimum est toujours à la racine du tas.</p>
 </li>
 <li>
-<p><strong>Construction</strong> : La complexité de la construction d'un tas à partir d'une liste non triée peut être <span class="arithmatex">\(O(n)\)</span> en utilisant une technique appelée <em>heapify</em> (ou <em>build-heap</em>). Cependant, si vous insérez chaque élément un par un en utilisant la méthode d'insertion standard, la complexité serait <span class="arithmatex">\(O(n log n)\)</span>.</p>
+<p><strong>Construction</strong> : La complexité de la construction d'un tas à partir d'une liste non triée peut être <span class="arithmatex">\(O(n)\)</span> en utilisant une technique appelée <em>heapify</em> (ou <em>build-heap</em>). Cependant, si vous insérez chaque élément un par un en utilisant la méthode d'insertion standard, la complexité serait <span class="arithmatex">\(O(n~log~n)\)</span>.</p>
 </li>
 <li>
-<p><strong>Suppression</strong> : La suppression d'un élément (autre que la racine) implique de le remplacer par le dernier élément du tas et d'effectuer <em>heapify up</em> ou <em>heapify down</em> selon le cas, ce qui prend <em>O(log n)</em>.</p>
+<p><strong>Suppression</strong> : La suppression d'un élément (autre que la racine) implique de le remplacer par le dernier élément du tas et d'effectuer <em>heapify up</em> ou <em>heapify down</em> selon le cas, ce qui prend <em>O(log~n)</em>.</p>
 </li>
 <li>
 <p><strong>Mise à jour d'un élément</strong> : La mise à jour d'un élément peut nécessiter soit <em>heapify up</em> soit <em>heapify down</em> pour rétablir la propriété du tas, ce qui prend <span class="arithmatex">\(O(log n)\)</span>.</p>
@@ -3081,116 +3232,16 @@
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">children</span><span class="p">[</span><span class="mi">26</span><span class="p">];</span><span class="w">  </span><span class="c1">// Children nodes</span>
 </span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
 </span></code></pre></div>
-<div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise: Implémentation<span class="exercise-title"></span></p>
+<div class="admonition exercise">
+<p class="admonition-title">Implémentation</p>
 <p>Vous avez un texte connu et vous voulez permettre de compter les occurences de chaque mot. Une fois que le trie est construit, il est en lecture seule.
 Comment allez-vous implémenter le trie ?</p>
-<ul class="exercise-list">
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Comme une liste chaînée, chaque noeud est alloué dynamiquement sur le <em>heap</em>.
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Un tableau statique sur la pile ou chaque élément est un noeud.
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Un tableau dynamique sur le <em>heap</em>, l'allocation est amortie et chaque noeud contient un tableau de pointeurs sur ses enfants.
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="good" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M2 8.36364L6.23077 12L13 2"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Un tableau dynamique sur le <em>heap</em>, l'allocation est amortie et chaque noeud contient non pas un pointeur des enfants mais l'indice de l'enfant dans le tableau.
-</li>
-<li class="flex-container">
-<div class="checkbox-wrapper-12">
-<div class="cbx">
-<input class="" id="cbx-12" type="checkbox"/>
-<label for="cbx-12"></label>
-<svg fill="none" height="14" viewbox="0 0 15 14" width="15">
-<path d="M3 3L12 12M4 12L12 3"></path>
-</svg>
-</div>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo-12">
-<fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
-<feblend in="SourceGraphic" in2="goo-12"></feblend>
-</filter>
-</defs>
-</svg>
-</div>
-   Par chunks d'éléments, chaque chunk est alloué dynamiquement sur le <em>heap</em>.
-</li>
+<ul>
+<li>[ ] Comme une liste chaînée, chaque noeud est alloué dynamiquement sur le <em>heap</em>.</li>
+<li>[ ] Un tableau statique sur la pile ou chaque élément est un noeud.</li>
+<li>[ ] Un tableau dynamique sur le <em>heap</em>, l'allocation est amortie et chaque noeud contient un tableau de pointeurs sur ses enfants.</li>
+<li>[x] Un tableau dynamique sur le <em>heap</em>, l'allocation est amortie et chaque noeud contient non pas un pointeur des enfants mais l'indice de l'enfant dans le tableau.</li>
+<li>[ ] Par chunks d'éléments, chaque chunk est alloué dynamiquement sur le <em>heap</em>.</li>
 </ul>
 </div>
 <p>Discutons de plusieurs implémentations possibles d'un noeud d'un trie :</p>
@@ -3227,10 +3278,78 @@ Comment allez-vous implémenter le trie ?</p>
 </li>
 </ul>
 <p>Exemple d'implémentation:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+</span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="cp">#define ALPHABET_SIZE 26</span>
+</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">occurrences</span><span class="p">;</span>
+</span><span id="__span-11-9"><a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">children</span><span class="p">[</span><span class="n">ALPHABET_SIZE</span><span class="p">];</span>
+</span><span id="__span-11-10"><a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
+</span><span id="__span-11-11"><a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="nf">createNode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-13"><a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+</span><span id="__span-11-14"><a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-15"><a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">        </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">occurrences</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-11-16"><a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ALPHABET_SIZE</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-17"><a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">            </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-11-18"><a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-19"><a href="#__codelineno-11-19" id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-20"><a href="#__codelineno-11-20" id="__codelineno-11-20" name="__codelineno-11-20"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+</span><span id="__span-11-21"><a href="#__codelineno-11-21" id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="p">}</span>
+</span><span id="__span-11-22"><a href="#__codelineno-11-22" id="__codelineno-11-22" name="__codelineno-11-22"></a>
+</span><span id="__span-11-23"><a href="#__codelineno-11-23" id="__codelineno-11-23" name="__codelineno-11-23"></a><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">word</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-24"><a href="#__codelineno-11-24" id="__codelineno-11-24" name="__codelineno-11-24"></a><span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+</span><span id="__span-11-25"><a href="#__codelineno-11-25" id="__codelineno-11-25" name="__codelineno-11-25"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">word</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-26"><a href="#__codelineno-11-26" id="__codelineno-11-26" name="__codelineno-11-26"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="o">*</span><span class="n">word</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">'a'</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-27"><a href="#__codelineno-11-27" id="__codelineno-11-27" name="__codelineno-11-27"></a><span class="w">            </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="o">*</span><span class="n">word</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">'a'</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createNode</span><span class="p">();</span>
+</span><span id="__span-11-28"><a href="#__codelineno-11-28" id="__codelineno-11-28" name="__codelineno-11-28"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-29"><a href="#__codelineno-11-29" id="__codelineno-11-29" name="__codelineno-11-29"></a><span class="w">        </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="o">*</span><span class="n">word</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">'a'</span><span class="p">];</span>
+</span><span id="__span-11-30"><a href="#__codelineno-11-30" id="__codelineno-11-30" name="__codelineno-11-30"></a><span class="w">        </span><span class="n">word</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-11-31"><a href="#__codelineno-11-31" id="__codelineno-11-31" name="__codelineno-11-31"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-32"><a href="#__codelineno-11-32" id="__codelineno-11-32" name="__codelineno-11-32"></a><span class="w">    </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">occurrences</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-11-33"><a href="#__codelineno-11-33" id="__codelineno-11-33" name="__codelineno-11-33"></a><span class="p">}</span>
+</span><span id="__span-11-34"><a href="#__codelineno-11-34" id="__codelineno-11-34" name="__codelineno-11-34"></a>
+</span><span id="__span-11-35"><a href="#__codelineno-11-35" id="__codelineno-11-35" name="__codelineno-11-35"></a><span class="kt">int</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">word</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-36"><a href="#__codelineno-11-36" id="__codelineno-11-36" name="__codelineno-11-36"></a><span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+</span><span id="__span-11-37"><a href="#__codelineno-11-37" id="__codelineno-11-37" name="__codelineno-11-37"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">word</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-38"><a href="#__codelineno-11-38" id="__codelineno-11-38" name="__codelineno-11-38"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="o">*</span><span class="n">word</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">'a'</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-39"><a href="#__codelineno-11-39" id="__codelineno-11-39" name="__codelineno-11-39"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-11-40"><a href="#__codelineno-11-40" id="__codelineno-11-40" name="__codelineno-11-40"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-41"><a href="#__codelineno-11-41" id="__codelineno-11-41" name="__codelineno-11-41"></a><span class="w">        </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="o">*</span><span class="n">word</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">'a'</span><span class="p">];</span>
+</span><span id="__span-11-42"><a href="#__codelineno-11-42" id="__codelineno-11-42" name="__codelineno-11-42"></a><span class="w">        </span><span class="n">word</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-11-43"><a href="#__codelineno-11-43" id="__codelineno-11-43" name="__codelineno-11-43"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-44"><a href="#__codelineno-11-44" id="__codelineno-11-44" name="__codelineno-11-44"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">occurrences</span><span class="p">;</span>
+</span><span id="__span-11-45"><a href="#__codelineno-11-45" id="__codelineno-11-45" name="__codelineno-11-45"></a><span class="p">}</span>
+</span><span id="__span-11-46"><a href="#__codelineno-11-46" id="__codelineno-11-46" name="__codelineno-11-46"></a>
+</span><span id="__span-11-47"><a href="#__codelineno-11-47" id="__codelineno-11-47" name="__codelineno-11-47"></a><span class="kt">void</span><span class="w"> </span><span class="nf">freeTrie</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-48"><a href="#__codelineno-11-48" id="__codelineno-11-48" name="__codelineno-11-48"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ALPHABET_SIZE</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-49"><a href="#__codelineno-11-49" id="__codelineno-11-49" name="__codelineno-11-49"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-50"><a href="#__codelineno-11-50" id="__codelineno-11-50" name="__codelineno-11-50"></a><span class="w">            </span><span class="n">freeTrie</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span><span id="__span-11-51"><a href="#__codelineno-11-51" id="__codelineno-11-51" name="__codelineno-11-51"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-52"><a href="#__codelineno-11-52" id="__codelineno-11-52" name="__codelineno-11-52"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-53"><a href="#__codelineno-11-53" id="__codelineno-11-53" name="__codelineno-11-53"></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span><span id="__span-11-54"><a href="#__codelineno-11-54" id="__codelineno-11-54" name="__codelineno-11-54"></a><span class="p">}</span>
+</span><span id="__span-11-55"><a href="#__codelineno-11-55" id="__codelineno-11-55" name="__codelineno-11-55"></a>
+</span><span id="__span-11-56"><a href="#__codelineno-11-56" id="__codelineno-11-56" name="__codelineno-11-56"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-57"><a href="#__codelineno-11-57" id="__codelineno-11-57" name="__codelineno-11-57"></a><span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createNode</span><span class="p">();</span>
+</span><span id="__span-11-58"><a href="#__codelineno-11-58" id="__codelineno-11-58" name="__codelineno-11-58"></a>
+</span><span id="__span-11-59"><a href="#__codelineno-11-59" id="__codelineno-11-59" name="__codelineno-11-59"></a><span class="w">    </span><span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">"frodo"</span><span class="p">);</span>
+</span><span id="__span-11-60"><a href="#__codelineno-11-60" id="__codelineno-11-60" name="__codelineno-11-60"></a><span class="w">    </span><span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">"sam"</span><span class="p">);</span>
+</span><span id="__span-11-61"><a href="#__codelineno-11-61" id="__codelineno-11-61" name="__codelineno-11-61"></a><span class="w">    </span><span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">"gandalf"</span><span class="p">);</span>
+</span><span id="__span-11-62"><a href="#__codelineno-11-62" id="__codelineno-11-62" name="__codelineno-11-62"></a><span class="w">    </span><span class="c1">// Add more words as needed</span>
+</span><span id="__span-11-63"><a href="#__codelineno-11-63" id="__codelineno-11-63" name="__codelineno-11-63"></a>
+</span><span id="__span-11-64"><a href="#__codelineno-11-64" id="__codelineno-11-64" name="__codelineno-11-64"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Occurrences of 'frodo': %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">search</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">"frodo"</span><span class="p">));</span>
+</span><span id="__span-11-65"><a href="#__codelineno-11-65" id="__codelineno-11-65" name="__codelineno-11-65"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Occurrences of 'sam': %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">search</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">"sam"</span><span class="p">));</span>
+</span><span id="__span-11-66"><a href="#__codelineno-11-66" id="__codelineno-11-66" name="__codelineno-11-66"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Occurrences of 'gandalf': %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">search</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">"gandalf"</span><span class="p">));</span>
+</span><span id="__span-11-67"><a href="#__codelineno-11-67" id="__codelineno-11-67" name="__codelineno-11-67"></a>
+</span><span id="__span-11-68"><a href="#__codelineno-11-68" id="__codelineno-11-68" name="__codelineno-11-68"></a><span class="w">    </span><span class="n">freeTrie</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span><span id="__span-11-69"><a href="#__codelineno-11-69" id="__codelineno-11-69" name="__codelineno-11-69"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise: Regroupement ?<span class="exercise-title"></span></p>
+<p class="admonition-title">Regroupement ?</p>
 <p>On peut se demander si il ne serait pas préférable de regrouper les noeuds communs ensembles comme la figure suivante :</p>
 <p><figure id="_figure-5"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/trie-not.drawio"><?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -3286,9 +3405,7 @@ Comment allez-vous implémenter le trie ?</p>
 </span><span id="__span-13-15"><a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="w">            </span><span class="n">stack_push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span><span class="w"> </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
 </span><span id="__span-13-16"><a href="#__codelineno-13-16" id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-13-17"><a href="#__codelineno-13-17" id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="p">}</span>
-</span></code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</span></code></pre></div>
 
 
 
@@ -3311,7 +3428,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 18, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 19, 2024</span>
   </span>
 
     
@@ -3539,8 +3656,8 @@ document$.subscribe(() => { lightbox.reload() });
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="../../../exercise.js"></script>
-      
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
