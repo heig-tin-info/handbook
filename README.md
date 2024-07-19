@@ -21,6 +21,7 @@ poetry run mike deploy --push --update-aliases 0.1 latest
 
 ## To-Do
 
+- [ ] Build another nav with only the required sections for INFO1, INFO2.
 - [ ] When I enable navigation.tabs, I dont see the fold/unfold
 - [ ] Label for tables are cropped, should be placed above tables
 - [ ] Exercise plugin cause code to be renamed exercise
