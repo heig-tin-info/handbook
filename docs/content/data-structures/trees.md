@@ -9,7 +9,7 @@ Voici un exemple d'arbre, il représente par exemple une structure de documents 
 On appelle ce type d'arbre un **arbre n-aire dirigé**. C'est-à-dire que chaque nœud peut avoir plusieurs enfants. L'arbre est dirigé car il y a un sens de la racine vers les feuilles. Il y a donc des flèches qui indiquent le sens de la hiérarchie.
 
 ```mermaid
-graph TD;
+graph LR;
     C(C:)
 
     C --> Program_Files(Program Files)
@@ -22,10 +22,6 @@ graph TD;
     Microsoft --> Office(Office)
     Microsoft --> Edge(Edge)
     Microsoft --> Teams(Teams)
-
-    Adobe --> Photoshop(Photoshop)
-    Adobe --> Illustrator(Illustrator)
-    Adobe --> Acrobat(Acrobat)
 
     Google --> Chrome(Chrome)
     Google --> Drive(Drive)
@@ -51,8 +47,6 @@ graph TD;
 
     Album1 --> Song1(pink-floyd.mp3)
     Album1 --> Song2(dorothée.mp3)
-
-    Album2 --> Song3(New Born.mp3)
 
     Documents_Alice --> Thesis(Thesis.docx)
     Documents_Alice --> Notes(Notes.txt)
@@ -154,11 +148,11 @@ Un tas binaire est une structure de données qui permet de stocker des élément
 !!! example "Implémentation en C"
 
     ```c title="min-heap.h"
-    --8<-- "../../assets/src/heap/min-heap.h"
+    --8<-- "docs/assets/src/min-heap/min-heap.h"
     ```
 
     ```c title="min-heap.c"
-    --8<-- "../../assets/src/heap/min-heap.c"
+    --8<-- "docs/assets/src/min-heap/min-heap.c"
     ```
 
 Le tas binaire utilise un tableau dynamique pour stocker les éléments. La règle est que chaque élément voit son enfant de gauche à l'indice `2 * k + 1` et l'enfant de droite à l'indice `2 * k + 2`. Le parent d'un élément est à l'indice `(k - 1) / 2` quelque soit l'indice `k`.
@@ -216,26 +210,26 @@ Les utilisations les plus courantes de cette structure de donnée sont:
 - Une queue prioritaire (*Priority queue*)
 - Déterminer le k-ième élément le plus petit d'une collection (*k-th smallest element*)
 
-Voici un tableau résumant les complexités des différentes opérations dans un tas binaire minimal&npsp;:
+Voici un tableau résumant les complexités des différentes opérations dans un tas binaire minimal&nbsp;:
 
-| Opération                | Complexité           |
-| ------------------------ | -------------------- |
-| Insertion                | $O(log n)$           |
-| Extraction du minimum    | $O(log n)$           |
-| Accès au minimum         | $O(1)$               |
-| Construction             | $O(n) ou O(n log n)$ |
-| Suppression              | $O(log n)$           |
-| Mise à jour d'un élément | $O(log n)$           |
+| Opération                | Complexité             |
+| ------------------------ | ---------------------- |
+| Insertion                | $O(log n)$             |
+| Extraction du minimum    | $O(log n)$             |
+| Accès au minimum         | $O(1)$                 |
+| Construction             | $O(n)$ ou $O(n log n)$ |
+| Suppression              | $O(log n)$             |
+| Mise à jour d'un élément | $O(log n)$             |
 
 - **Insertion** : Lorsqu'un élément est ajouté au min-heap, il est ajouté à la fin et le processus de *heapify up* (ou *bubble up*) est effectué pour rétablir la propriété du tas. Ce processus implique de comparer et potentiellement d'échanger des éléments à chaque niveau de l'arbre, ce qui prend $O(log n)$ dans le pire des cas.
 
-- **Extraction du minimum** : L'extraction de l'élément minimum implique de retirer la racine du tas (le plus petit élément), de placer le dernier élément de l'arbre à la racine, puis d'effectuer *heapify down* (ou *sift down*) pour rétablir la propriété du tas. Cela prend $O(log n)$ car il peut nécessiter de descendre jusqu'au niveau le plus bas de l'arbre.
+- **Extraction du minimum** : L'extraction de l'élément minimum implique de retirer la racine du tas (le plus petit élément), de placer le dernier élément de l'arbre à la racine, puis d'effectuer *heapify down* (ou *sift down*) pour rétablir la propriété du tas. Cela prend $O(log~n)$ car il peut nécessiter de descendre jusqu'au niveau le plus bas de l'arbre.
 
 - **Accès au minimum** : L'accès au minimum est $O(1)$ car l'élément minimum est toujours à la racine du tas.
 
-- **Construction** : La complexité de la construction d'un tas à partir d'une liste non triée peut être $O(n)$ en utilisant une technique appelée *heapify* (ou *build-heap*). Cependant, si vous insérez chaque élément un par un en utilisant la méthode d'insertion standard, la complexité serait $O(n log n)$.
+- **Construction** : La complexité de la construction d'un tas à partir d'une liste non triée peut être $O(n)$ en utilisant une technique appelée *heapify* (ou *build-heap*). Cependant, si vous insérez chaque élément un par un en utilisant la méthode d'insertion standard, la complexité serait $O(n~log~n)$.
 
-- **Suppression** : La suppression d'un élément (autre que la racine) implique de le remplacer par le dernier élément du tas et d'effectuer *heapify up* ou *heapify down* selon le cas, ce qui prend *O(log n)*.
+- **Suppression** : La suppression d'un élément (autre que la racine) implique de le remplacer par le dernier élément du tas et d'effectuer *heapify up* ou *heapify down* selon le cas, ce qui prend *O(log~n)*.
 
 - **Mise à jour d'un élément** : La mise à jour d'un élément peut nécessiter soit *heapify up* soit *heapify down* pour rétablir la propriété du tas, ce qui prend $O(log n)$.
 
@@ -429,7 +423,7 @@ Discutons de plusieurs implémentations possibles d'un noeud d'un trie :
 Exemple d'implémentation:
 
 ```c
---8<-- "../../assets/src/trie/trie.c"
+--8<-- "docs/assets/src/trie/trie.c"
 ```
 
 !!! exercise "Regroupement ?"

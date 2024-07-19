@@ -95,12 +95,6 @@ Comme aucun ordinateur ne dispose d'un espace de stockage infini, ces nombres ex
 
 ### Les entiers naturels
 
-En mathématiques, un [entier naturel](https://fr.wikipedia.org/wiki/Entier_naturel) est un nombre positif ou nul. Chaque nombre à un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, et donc sans signe et sans virgule. L'ensemble des entiers naturels est défini de la façon suivante :
-
-$$
-\mathbb{N} = {0, 1, 2, 3, ...}
-$$
-
 En informatique, ces nombres sont par conséquent **non signés**, et peuvent prendre des valeurs comprises entre $0$ et $2^N-1$ où $N$ correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Il faut naturellement que l'ordinateur sur lequel s'exécute le programme soit capable de supporter le nombre de bits demandé par le programmeur.
 
 En C, on nomme ce type de donnée `unsigned int`, `int` étant le dénominatif du latin *integer* signifiant "entier".
@@ -118,17 +112,11 @@ Table: Stockage d'un entier non signé sur différentes profondeurs
 
 Notez l'importance du $-1$ dans la définition du maximum, car la valeur minimum $0$ fait partie de l'information même si elle représente une quantité nulle. Il y a donc 256 valeurs possibles pour un nombre entier non signé 8-bits, bien que la valeur maximale ne soit que de 255.
 
-### Les entiers relatifs
+### Les entiers bornés signés
 
-Mathématiquement un **entier relatif** appartient à l'ensemble $\mathbb{Z}$:
+Les entiers signés peuvent être **négatifs**, **nuls** ou **positifs** et peuvent prendre des valeurs comprises entre $-2^{N-1}$ et $+2^{N-1}-1$ où $N$ correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Notez l'asymétrie entre la borne positive et négative.
 
-$$
-\mathbb{Z} = {..., -3, -2, -1, 0, 1, 2, 3, ...}
-$$
-
-Les entiers relatifs sont des nombres **signés** et donc ils peuvent être **négatifs**, **nuls** ou **positifs** et peuvent prendre des valeurs comprises entre $-2^{N-1}$ et $+2^{N-1}-1$ où $N$ correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Notez l'asymétrie entre la borne positive et négative.
-
-En C on dit que ces nombres sont `signed`. Il est par conséquent correct d'écrire `signed int` bien que le préfixe `signed` soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.
+Comme il sont signés (*signed* en anglais), il est par conséquent correct d'écrire `signed int` bien que le préfixe `signed` soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.
 
 Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information :
 
@@ -281,6 +269,12 @@ Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement repr�
 97 ≡ 0b1100001 ≡ 'a'
 ```
 
+Un caractère du clavier enregistré en mémoire c'est donc un nombre entier de 8-bits. En C, le type de donnée `char` est utilisé pour stocker un caractère.
+
+Mais comment un ordinateur sait-il que `97` correspond à `a` ? C'est là que la notion d'encodage entre en jeu.
+
+### La table ASCII
+
 Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'[ASA](https://fr.wikipedia.org/wiki/American_National_Standards_Institute), l'*American Standards Association* aujourd'hui **ANSI** qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.
 
 ![Table ASCII ASA X3.4 établie en 1963](../../assets/images/ascii-1963.drawio)
@@ -332,6 +326,14 @@ int main(void) {
 !!! note
 
     L'unicode permet notament de représenter des caractères spéciaux tels que les émoticônes (💩).
+
+### Les emojis
+
+Les emojis sont des caractères spéciaux qui ont été introduits en 2010 par le standard Unicode 6.0. Ils sont donc codés sur 4 octets et permettent de représenter des émotions, des objets, des animaux, des symboles, etc.
+
+Les émoticônes que vous pouvez envoyer à votre grand-mère sont donc des caractères Unicode et non des images. Si vous dites à votre grand maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère `U+2764` qui est le caractère `❤`. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.
+
+Ceci est vrai mais encore faut-il que la police d'écriture utilisée par votre chère grand maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère `�` qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.
 
 ## Chaîne de caractères
 
@@ -498,11 +500,17 @@ void call(enum country_codes code) {
 }
 ```
 
-## Type incomplet
+## Type incomplets
 
 Un **type incomplet** est un qualificatif de type de donnée décrivant un objet dont sa taille en mémoire n'est pas connue.
 
-## Type vide (*void*)
+### VLQ
+
+Dans certains systèmes, on peut stocker des nombres entiers à taille variables. C'est à dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers [VLQ](https://en.wikipedia.org/wiki/Variable-length_quantity) utilisés dans le protocole MIDI.
+
+On peut stocker un nombre VLQ en mémoire mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.
+
+### Type vide (*void*)
 
 Le type `void` est particulier. Il s'agit d'un type dit **incomplet**, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :
 
@@ -524,7 +532,9 @@ Le mot clé `void` ne peut être utilisé que dans les contextes suivants :
 - Comme type de retour pour une fonction indiquant que cette fonction ne retourne rien `void display(char c)`
 - Comme pointeur dont le type de destination n'est pas spécifié `void* ptr`
 
-## Promotion implicite
+## Transtypage
+
+### Promotion implicite
 
 Généralement le type `int` est de la même largeur que le bus mémoire de donnée d'un ordinateur.
 C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein
@@ -590,7 +600,14 @@ passe directement à un type *int*.
 
     ///
 
-### Effets du transtypage
+### Promotion explicite
+
+Il est possible de forcer la promotion d'un type vers un autre en utilisant un transtypage explicite. Par exemple, pour forcer la promotion d'un `int` vers un `double` :
+
+```c
+int n = 10;
+double x = (double)n;
+```
 
 Le changement de type forcé (transtypage) entre des variables de
 différents types engendre des effets de bord qu'il faut connaître. Lors
@@ -599,22 +616,9 @@ est plus important, il n'y a pas de problème. À l'inverse, on peut
 rencontrer des erreurs sur la précision ou une modification radicale de
 la valeur représentée !
 
-#### Transtypage d'un entier en réel
+#### Transtypage d'un entier en flottant
 
-La conversion d'un entier (signé ou non) en réel (*double* ou *float*)
-n'a pas d'effet particulier. Le type
-
-```c
-long l=3;
-double d=(double)l; // valeur : 3 => OK
-```
-
-À l'exécution, la valeur de $d$ sera la même que $l$.
-
-#### Transtypage d'un réel en entier
-
-La conversion d'un nombre réel (*double* ou *float*) en entier (signé)
-doit être étudiée pour éviter tout problème. Le type entier doit être
+Par exemple, la conversion d'un nombre flottant (*double* ou *float*) en entier (signé) doit être étudiée pour éviter tout problème. Le type entier doit être
 capable de recevoir la valeur (attention aux valeurs maxi).
 
 ```c

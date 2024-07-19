@@ -125,7 +125,7 @@ plugins:
   - search
   #- htmlproofer  # Very slow, and not accurate
 
-  - exercises
+  #- exercises
 markdown_extensions:
   - toc:
       toc_depth: 3
@@ -171,6 +171,9 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.snippets:
+      check_paths: true
+      url_max_size: 2048
+      url_timeout: 3
       auto_append:
         - includes/abbreviations.md
   - pymdownx.emoji:
@@ -205,7 +208,7 @@ watch:
 hooks:
   - hooks/breadcrumb.py
   - hooks/spantable.py
-  - hooks/french.py
+  #- hooks/french.py
   #- hooks/latex.py
 extra_css:
   - css/extra.css

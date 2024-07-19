@@ -1,0 +1,204 @@
+- Cours C
+  - Avant propos
+    - index
+      - Enseignement à la HEIG-VD
+      - Organisation de l'ouvrage
+  - Introduction
+    - La Programmation Informatique
+      - L'algorithmique
+      - Langages de programmation
+      - L'ordinateur
+        - Calculateur
+        - Machine de Turing
+        - Ordinateur moderne
+        - Historique
+      - Le microcontrôleur
+        - La machine à café
+      - Exercices
+    - Être développeur
+      - Le code de conduite
+      - L'anglais
+      - Apprendre par soi-même
+      - Une affaire de consensus
+      - L'open-source
+      - La communauté
+      - La méthode de travail
+        - Revue de code
+        - Organisation d'un projet (introduction)
+    - Le langage C
+      - Historique / Balbutiements
+      - Standardisation
+      - Environnement de développement
+      - Programmation texte structurée
+      - Cycle de compilation
+      - Hello-World
+
+    - Les bases du langage C
+      - Généralités du langage
+        - L'alphabet
+        - Fin de lignes
+        - Mots clés
+        - Identificateurs
+        - Variables
+          - Déclaration
+          - Constantes
+          - Variables métasyntaxiques
+        - Constantes littérales
+        - Commentaires
+      - Numération
+        - Le bit
+        - Les préfixes
+        - Bases
+          - Décimales
+          - Binaires
+          - Octales
+          - Hexadécimales
+          - Conversion de bases
+        - Les Nombres et leurs représentation
+          - Ensembles (https://fr.wikipedia.org/wiki/Nombre#/media/Fichier:NumberSetinR2.svg)
+          - Naturels
+          - Relatifs
+          - Nombres décimaux
+            - Virgule fixe
+            - Virgule flottante
+              - Simple précision
+              - Double précision
+              - La quadruple précision ?
+          - Le format Q
+      - Types de données
+        - Typage
+        - Stockage et interprétation
+        - Boutisme
+        - Nombres entiers bornés
+          - Signés
+          - Non-signés
+        - Les caractères
+          - ASCII
+          - Unicode
+          - Emoticônes
+        - Les chaînes de caractères
+        - Les booléens
+        - Les énumérations
+        - Les types incomplets
+          - VLQ
+          - void
+      - Transtypage
+    - Opérateurs
+      - l'ALU
+      - Types d'opérateurs
+        - Opérateurs arithmétiques
+        - Opérateurs relationnels
+        - Opérateurs bit à bit
+        - Opérateurs logiques
+        - Opérateurs d'assignation (affectation)
+        - Opérateurs d'incrémentation et de décrémentation
+        - Opérateur ternaire
+        - Opérateurs de transtypage
+        - Opérateur séquentiel
+        - Opérateur sizeof
+      - Priorités des opérateurs
+      - Promotion implicite
+      - Valeurs gauches
+
+    - Structures de contrôle
+      - Les séquences d'instructions
+      - Les branchements
+        - Branchements conditionnels
+          - `if`, `else`
+          - `switch`
+      - Les boucles
+        - Boucle `while`
+        - Boucle `do-while`
+        - Boucle `for`
+        - Boucles infinies
+      - Les sauts
+        - `break`
+        - `continue`
+        - `goto`
+        - `return`
+    - Le préprocesseur
+      - Comprendre le préprocesseur
+      - Les directives
+        - `#define`
+        - `#include`
+        - `#undef`
+        - `#ifdef`, `#ifndef`
+        - `#if`, `#elif`, `#else`
+        - `#error`, `#warning`
+        - `#pragma`
+        - `#line`
+        - `#`
+      - Les macros
+      - Les fichiers d'en-tête
+      - Concaténation
+    - Les fonctions
+      - Fonctions
+        - Définition
+        - Conventions d'appel
+        - Stack
+        - Prototypes
+    - Portée et visibilité
+      - Espace de nommage
+      - Variable shadowing
+      - Visibilité
+      - Qualificatifs de portée
+        - `static`
+        - `extern`
+        - `register`
+        - `auto`
+        - `const`
+        - `volatile`
+        - `restrict`
+        - `inline`
+  - Architecture matérielle
+    - L'ordinateur
+      - La RAM
+      - La ROM
+      - Le CPU
+        - Les registres
+        - L'ALU
+      - La carte mère
+        - Le chipset
+        - Le BIOS
+        - Les bus
+    - Les systèmes à microcontrôleurs
+      - Les microcontrôleurs
+      - Adaptation du style de programmation
+      - Les interruptions
+      - Les périphériques
+      - Les ports
+    - Gestion de la mémoire
+      - Adressage
+  - Structures de données
+    - Les tableaux
+    - Les types composites
+      - Les structures
+      - Les unions
+      - Les énumérations
+    - Structures de données complexes
+      - Les tableaux dynamiques
+      - Les listes chaînées
+      - Les piles
+      - Les files
+      - Les arbres
+      - Les graphes
+  - Entrées sorties
+    - Les fichiers
+  - Les pointeurs
+    - Allocation dynamique
+  - Algorithmes
+    - L'algorithmique
+    - Méthodes de résolution
+    - Algorithmes de recherche
+    - Algorithmes de tris
+    - Récursion
+      - Programmation dynamique
+      - Mémoïsation
+  - Projets complexes
+    - Compilation séparée
+    - Équipe de développement
+    - Organisation d'un projet
+    - Cycle de développement
+    - CI/CD
+  - La grammaire
+  - Exercices

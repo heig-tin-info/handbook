@@ -29,7 +29,7 @@ Un exécutable binaire doit être compilé pour la bonne architecture matériell
 Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci :
 
 ```c
---8<-- "docs../../assets/src/fibonacci.c"
+--8<-- "docs/assets/src/fibonacci.c"
 ```
 
 Une fois [assemblé](<https://fr.wikipedia.org/wiki/Assembly_(informatique)>) le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc :
@@ -226,7 +226,7 @@ int getopt_long (int argc, char *const *argv, const char *shortopts,
 Ci-dessous une possible utilisation de cette fonction :
 
 ```c
---8<-- "docs../../assets/src/options.c"
+--8<-- "docs/assets/src/options.c"
 ```
 
 ### Windows

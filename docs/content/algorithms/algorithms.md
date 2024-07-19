@@ -218,11 +218,11 @@ for (size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++)
 Souvent on a besoin de lire l'entrée standard en entier dans une chaîne de caractère. Il faut convertir le flux d'entrée en une chaîne de caractère. Cependant, comme l'entrée standard n'est pas *seekable*, il faut lire le flux caractère par caractère. Une implémentation possible se repose sur le concept des tableaux dynamiques.
 
 ```c title="slurp.h"
---8<-- "../../assets/src/slutp/slurp.h"
+--8<-- "docs/assets/src/slurp/slurp.h"
 ```
 
 ```c title="slurp.c"
---8<-- "../../assets/src/slutp/slurp.c"
+--8<-- "docs/assets/src/slurp/slurp.c"
 ```
 
 ## Algorithmes célèbres
@@ -302,7 +302,7 @@ La performance de l'algorithme dépend de la fonction de hachage. Si la fonction
 Ici la fonction de hachage est très simple, on utilise un nombre premier.
 
 ```c title="rabin-karp.c"
---8<-- "../../assets/src/rabin-karp.c"
+--8<-- "docs/assets/src/rabin-karp.c"
 ```
 
 ### Algorithme de Shunting Yard
@@ -370,31 +370,31 @@ On observe que si on dispose de fonctions pour ajouter/supprimer des éléments 
 === "main.c"
 
     ```c
-    --8<-- "../../assets/src/shunting-yard/main.c"
+    --8<-- "docs/assets/src/shunting-yard/main.c"
     ```
 
 === "queue.h"
 
     ```c
-    --8<-- "../../assets/src/shunting-yard/queue.h"
+    --8<-- "docs/assets/src/shunting-yard/queue.h"
     ```
 
 === "stack.h"
 
     ```c
-    --8<-- "../../assets/src/shunting-yard/stack.h"
+    --8<-- "docs/assets/src/shunting-yard/stack.h"
     ```
 
 === "queue.c"
 
     ```c
-    --8<-- "../../assets/src/shunting-yard/queue.c"
+    --8<-- "docs/assets/src/shunting-yard/queue.c"
     ```
 
 === "stack.c"
 
     ```c
-    --8<-- "../../assets/src/shunting-yard/stack.c"
+    --8<-- "docs/assets/src/shunting-yard/stack.c"
     ```
 
 !!! info "Notation polonaise inverse"

@@ -400,6 +400,8 @@ Ensuite, on peut écrire ce programme en mémoire avec des 1 et des 0 :
 
 ## Historique
 
+![Historique](../../assets/images/history.drawio)
+
 Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates clés :
 
 87 av. J.-C.
@@ -414,9 +416,13 @@ Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates cl�
 
 : [Métier à tisser Jacquard](https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser_Jacquard) programmable avec des cartes perforées.
 
-1834
+1837
 
 : Machine à calculer programmable de Charles Babbage. Charles Babbage est considéré comme le père de l'informatique. Il a conçu la [machine analytique](https://fr.wikipedia.org/wiki/Machine_analytique) qui est considérée comme le premier ordinateur programmable. Ada Lovelace, fille de Lord Byron, est considérée comme la première programmeuse de l'histoire.
+
+1936
+
+: La [machine de Turing](https://fr.wikipedia.org/wiki/Machine_de_Turing) est un modèle théorique d'un ordinateur capable de simuler n'importe quel algorithme. Elle a été inventée par Alan Turing.
 
 1937
 

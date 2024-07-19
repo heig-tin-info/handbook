@@ -1,5 +1,7 @@
 # Introduction
 
+## À qui s'adresse cet ouvrage ?
+
 ## Organisation de l'ouvrage
 
 Conçu comme un résumé du savoir nécessaire à l'ingénieur pour prendre en main le langage C, cet ouvrage n'est pas un manuel de référence. Il réfère à de nombreuses ressources internet et livres que le lecteur pourra consulter au besoin pour approfondir certains concepts.

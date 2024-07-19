@@ -4,7 +4,7 @@ La [récursivité](https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9) est une 
 
 La récursivité est utilisée pour résoudre des problèmes qui peuvent être décomposés en problèmes plus petits de la même nature. Par exemple, la factorielle d'un nombre est le produit de tous les entiers positifs inférieurs ou égaux à ce nombre. La factorielle d'un nombre `n` est `n! = n * (n-1)!`.
 
-Au chapitre sur les fonctions, nous avions donné l'[exemple du calcul de la somme de la suite de Fibonacci](#fib-iterative) jusqu'à `n` :
+Au chapitre sur les fonctions, nous avions donné l'[exemple du calcul de la somme de la suite de Fibonacci](../architecture/functions.md/#fib-iterative) jusqu'à `n` :
 
 ```c
 int fib(int n)
@@ -99,20 +99,20 @@ Les [tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF) est un 
 1. On ne peut déplacer qu'un seul disque à la fois.
 2. Un disque ne peut être placé que sur un disque plus grand que lui ou sur une tige vide.
 
-![Tours de Hanoï](../../assets/images/hanoi.drawio.drawio)
+![Tours de Hanoï](../../assets/images/hanoi.drawio)
 
 Ce problème se prête très bien à une résolution récursive. En effet, pour déplacer `n` disques de la tige `A` à la tige `C`, il suffit de déplacer `n-1` disques de la tige `A` à la tige `B`, puis de déplacer le disque restant de la tige `A` à la tige `C`, et enfin de déplacer les `n-1` disques de la tige `B` à la tige `C`.
 
 === "Algorithme Récursif"
 
     ```c
-    --8<-- "../../src/hanoi.c"
+    --8<-- "docs/assets/src/hanoi.c"
     ```
 
 === "Algorithme Itératif"
 
     ```c
-    --8<-- "../../src/hanoi-iterative.c"
+    --8<-- "docs/assets/src/hanoi-iterative.c"
     ```
 
 Ce qui donne le résultat suivant :
@@ -138,7 +138,7 @@ D'autre part, une fonction récursive qui utilise beaucoup de variables locales 
 Prenons l'exemple suivant d'une fonction récursive qui déclare un tableau de 1Mio de caractères :
 
 ```c
---8<-- "../../assets/src/stack-overflow.c"
+--8<-- "docs/assets/src/stack-overflow.c"
 ```
 
 À l'exécution, on obtient :

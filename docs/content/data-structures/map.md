@@ -75,7 +75,7 @@ L'accès à une personne à partir de la clé se résout donc en `O(1)` car il n
 
 Cette [vidéo](https://www.youtube.com/watch?v=KyUTuwz_b7Q) YouTube explique bien le fonctionnement des tableaux de hachage.
 
-### Collisions
+## Collisions
 
 Lorsque la **fonction de hachage** est mal choisie, un certain nombre de collisions peuvent apparaître. Si l'on souhaite par exemple ajouter les personnes suivantes :
 
@@ -127,7 +127,7 @@ int hash_name(char name[4]) {
 }
 ```
 
-### Facteur de charge
+## Facteur de charge
 
 Le facteur de charge d'une table de hachage est donné par la relation :
 
@@ -137,15 +137,25 @@ $$
 
 Plus ce facteur de charge est élevé, dans le cas du *linear probing*, moins bon sera la performance de la table de hachage.
 
-Certains algorithmes permettent de redimensionner dynamiquement la table de hachage pour conserver un facteur de charge le plus faible possible.
+Certains algorithmes permettent de redimensionner dynamiquement la table de hachage pour conserver un facteur de charge le plus faible possible. Quand le facteur de charge dépasse un certain seuil (souvent 0.7), la table de hachage est agrandi (souvent doublée comme pour un tableau dynamique) et les éléments sont re-hachés dans la nouvelle table.
 
-### Chaînage
+## Chaînage
 
 Le chaînage ou *chaining* est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.
 
 ![Chaînage d'une table de hachage](../../assets/images/hash-table.drawio)
 
-### Fonction de hachage
+## Adressage ouvert
+
+L'adressage ouvert est une autre méthode pour gérer les collisions. Lorsqu'une collision est détectée, une autre position est calculée pour stocker l'élément.
+
+Si une collision est détectée, on regardera la position suivante dans la table. Si elle est libre on l'utilise, sinon la suitante, jusqu'à trouver une position libre. Cette méthode est appelée *linear probing*.
+
+Une autre méthode consiste à utiliser une fonction de hachage secondaire pour calculer la position suivante. Cette méthode est appelée *double hashing*.
+
+Si la méthode est plus facile à implémenter, l'opération de suppression est plus complexe. En effet, il est souvent nécessaire de re-hacher les éléments pour maintenir la performance de la table de hachage.
+
+## Fonction de hachage
 
 Nous avons vu plus haut une fonction de hachage calculant le modulo sur la somme des caractères ASCII d'une chaîne de caractères. Nous avons également vu que cette fonction de hachage est source de nombreuses collisions. Les chaînes `"Rea"` ou `"Rae"` auront les même *hash* puisqu'ils contiennent les mêmes lettres. De même une fonction de hachage qui ne répartit pas bien les éléments dans la table de hachage sera mauvaise. On sait par exemple que les voyelles sont nombreuses dans les mots et qu'il n'y en a que six et que la probabilité que nos noms de trois lettres contiennent une voyelle en leur milieu est très élevée.
 
@@ -266,3 +276,107 @@ $ ./a.out
 ```
 
 On peut constater qu'ici les indices sont bien répartis et que la fonction de hachage choisie semble uniforme.
+
+### Fonction de hachage affine
+
+Une autre méthode pour calculer le hash consiste à multiplier la valeur de chaque caractère par une constante et de sommer le tout. Par exemple, la fonction de hachage suivante :
+
+```c
+int hash(char *str, int mod) {
+    const int a = 31;
+    int h = 0;
+    while(*str != '\0')
+        h = (h * a + *str++) % mod;
+    return h;
+}
+```
+
+La constante `a` est souvent choisie comme un nombre premier pour éviter les collisions.
+
+On peut également implémenter cette fonction pour hacher des entiers :
+
+```c
+int hash_int(int n, int mod) {
+    const int a = 31;
+    return (a * n) % mod;
+}
+```
+
+### MurmurHash
+
+Une autre fonction de hachage très populaire est [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash). Elle est très rapide et produit des résultats de qualité. Voici un exemple en C :
+
+```c
+uint32_t murmur3_32(const char *key, uint32_t len, uint32_t seed) {
+    uint32_t h = seed;
+    if (len > 3) {
+        const uint32_t *key_x4 = (const uint32_t *)key;
+        size_t i = len >> 2;
+        do {
+            uint32_t k = *key_x4++;
+            k *= 0xcc9e2d51;
+            k = (k << 15) | (k >> 17);
+            k *= 0x1b873593;
+            h ^= k;
+            h = (h << 13) | (h >> 19);
+            h = h * 5 + 0xe6546b64;
+        } while (--i);
+        key = (const char *)key_x4;
+    }
+    if (len & 3) {
+        size_t i = len & 3;
+        uint32_t k = 0;
+        key = &key[i - 1];
+        do {
+            k <<= 8;
+            k |= *key--;
+        } while (--i);
+        k *= 0xcc9e2d51;
+        k = (k << 15) | (k >> 17);
+        k *= 0x1b873593;
+        h ^= k;
+    }
+    h ^= len;
+    h ^= h >> 16;
+    h *= 0x85ebca6b;
+    h ^= h >> 13;
+    h *= 0xc2b2ae35;
+    h ^= h >> 16;
+    return h;
+}
+```
+
+Les valeurs de `seed` et `len` sont des valeurs arbitraires. La valeur de `seed` est souvent choisie aléatoirement. La valeur de `len` est la longueur de la chaîne de caractères à hacher.
+
+On observe égalements des valeurs arbitraires pour les constantes `0xcc9e2d51`, `0x1b873593`, `0xe6546b64`, `0x85ebca6b`... Ces valeurs ont été choisies pour leur qualité de mélange des bits. Elles sont souvent déterminées empiriquement.
+
+### Comparaison
+
+Voici une compaison de différentes fonctions de hachage :
+
+| Fonction de hachage | Qualité                           | Vitesse     | Taille      |
+| ------------------- | --------------------------------- | ----------- | ----------- |
+| **MD5**             | Bonne (cryptographie)             | Lente       | 128 bits    |
+| **SHA-1**           | Très bonne (cryptographie)        | Lente       | 160 bits    |
+| **SHA-256**         | Excellente (cryptographie)        | Très lente  | 256 bits    |
+| **MurmurHash3**     | Bonne (non cryptographique)       | Très rapide | 32/128 bits |
+| **CityHash**        | Très bonne (non cryptographique)  | Très rapide | 64/128 bits |
+| **FNV-1a**          | Bonne (non cryptographique)       | Rapide      | 32/64 bits  |
+| **DJB2**            | Acceptable (non cryptographique)  | Très rapide | 32 bits     |
+| **CRC32**           | Bonne pour la détection d'erreurs | Très rapide | 32 bits     |
+
+## Perte de l'ordre
+
+Il est important de noter que les tableaux de hachage ne conservent pas l'ordre des éléments. Comme ils peuvent être insérés dans n'importe quelle position du tableau, il n'est pas possible de les parcourir dans l'ordre d'insertion.
+
+Pire, selon l'algorithme utlisé, il est possible que si la fonction de hachage ou la taille de la table est modifiée en cours de route, les éléments soient déplacés dans le tableau, et donc que l'ordre de parcours change.
+
+!!! note "Python"
+
+    En Python les tables de hachages sont des structures de base du langage appelées `dict`. Avant la version 3.7, l'ordre des éléments n'était pas conservé. Depuis la version 3.7, l'ordre d'insertion est conservé. Cela est dû à l'implémentation de la table de hachage qui utilise une seconde structure de donnée de type liste chaînée pour conserver l'ordre d'insertion. Cela a un impact sur la quantité de mémoire utilisée et la performance de la table de hachage car à chaque insertion il faut également mettre à jour la liste chaînée.
+
+## Complexité et implémentation
+
+La caractéristique principale recherchée dans une table de hachage est de permettre un accès en temps constant $O(1)$ pour les opérations de recherche.
+
+La complexité de la recherche est en moyenne est donc de $O(1)$, mais peut atteindre $O(n)$ dans le pire des cas, par exemple si le facteur de charge est élevé et que la table de hachage est mal répartie. Il y a donc un compromis à trouver entre la mémoire utilisée et la performance de la table de hachage.

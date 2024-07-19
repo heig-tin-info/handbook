@@ -1,10 +1,10 @@
 # Structures de contrôle
 
-Les structures de contrôle appartiennent aux langages de programmation dits [structurés](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e). Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Il y a trois catégories de structures de contrôle en C :
+Les structures de contrôle appartiennent aux langages de programmation dits impératifs [structurés](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e). Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Voici les catégories de structures de contrôle :
 
-1. Les embranchements (`branching`)
-2. Les boucles (`loops`)
-3. Les sauts (`jumps`)
+1. Les séquences
+2. Les sauts (`jumps`)
+3. Les boucles (`loops`)
 
 Ces structures de contrôles sont toujours composées de :
 
@@ -14,6 +14,8 @@ Ces structures de contrôles sont toujours composées de :
 - Appels de fonctions
 
 Sans structure de contrôle, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènement extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement.
+
+L'intelligence d'un programme réside dans sa capacité à prendre des décisions en fonction de l'état du système et des données qu'il manipule. Les structures de contrôle permettent de définir ces décisions, un peu comme un livre dont vous êtes le héros où chaque choix vous mène à une page différente par un saut.
 
 ## Séquences
 

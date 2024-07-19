@@ -21,6 +21,10 @@ poetry run mike deploy --push --update-aliases 0.1 latest
 
 ## To-Do
 
+- [ ] When I enable navigation.tabs, I dont see the fold/unfold
+- [ ] Label for tables are cropped, should be placed above tables
+- [ ] Exercise plugin cause code to be renamed exercise
+- [ ] Center mermaid diagrams
 - [ ] Allow to click on drawio image to see it full screen
 - [ ] Optimize plugins with a beautiful soup parser
 - [ ] Find a way to add unbreakable space before semi-colon in paragraphs

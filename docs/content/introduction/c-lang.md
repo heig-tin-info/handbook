@@ -294,13 +294,12 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 
 ![Édition des liens de plusieurs objets](../../assets/images/link.drawio)
 
-
 ## Hello World!
 
 Il est traditionnellement coutume depuis la publication en 1978 du livre [The C Programming Language](https://en.wikipedia.org/wiki/The_C_Programming_Language) de reprendre l'exemple de Brian Kernighan comme premier programme.
 
 ```c title="hello.c"
---8<-- "docs../../assets/src/hello.c"
+--8<-- "docs/assets/src/hello.c"
 ```
 
 Ce programme est composé de deux parties. L'inclusion de la *library* standard d'entrées sorties (*STandarD Inputs Outputs*) qui définit la fonction `printf`, et le programme principal nommé `main`. Tout ce qui se situe à l'intérieur des accolades `{ }` appartient au programme `main`.

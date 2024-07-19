@@ -36,7 +36,24 @@ c = a + b;
 
 [](){#operator-arithmetic}
 
-## Opérateurs arithmétiques
+### Types d'opérateurs
+
+Le langage C définit un certain nombre d'opérateurs qui peuvent être classés en plusieurs catégories :
+
+- Les opérateurs arithmétiques
+- Les opérateurs relationnels
+- Les opérateurs logiques
+- Les opérateurs bit à bit
+- Les opérateurs d'affectation
+- Les opérateurs de pointeurs
+- Les opérateurs de taille
+- Les opérateurs de séquence
+- Les opérateurs de pré/post-incrémentation
+- Les opérateurs de condition
+
+Nous allons tous les voir un par un ; ce chapitre est long...
+
+### Opérateurs arithmétiques
 
 Aux 4 opérations de base (+, -, ×, ÷) le C ajoute l'opération [modulo](<https://fr.wikipedia.org/wiki/Modulo_(op%C3%A9ration)>), qui est le reste d'une division entière.
 
@@ -188,7 +205,7 @@ L'addition de deux bits $A$ et $B$ est donnée par la table suivante où `C` est
                 1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
             ```
 
-## Opérateurs relationnels
+### Opérateurs relationnels
 
 Les opérateurs relationnels permettent de comparer deux valeurs. Le résultat d'un opérateur relationnel est toujours un **boolean** c'est-à-dire que le résultat d'une comparaison est soit **vrai**, soit **faux**.
 
@@ -328,7 +345,7 @@ if (a == b) {
         assert('4' === 4); // false
         ```
 
-## Opérateurs bit à bit
+### Opérateurs bit à bit
 
 Les **opérations bit à bit** (*bitwise*) agissent sur chaque bit d'une valeur. Les disponibles en C sont les suivantes :
 
@@ -350,7 +367,7 @@ Table: Opérateurs bit à bit
 
 [](){#operator-and}
 
-### Conjonction
+#### Conjonction
 
 La conjonction ou **ET logique** ($\wedge$) est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.
 
@@ -378,7 +395,7 @@ balrog = balrog & gandalf; // You shall not pass!
 
 [](){#operator-or}
 
-### Disjonction
+#### Disjonction
 
 La disjonction ou **OU logique** ($\lor$) s'apparente à l'opération `+`.
 
@@ -400,7 +417,7 @@ student = student | teacher; // Tes devoirs tu feras...
 
 [](){#operator-xor}
 
-### Disjonction exclusive
+#### Disjonction exclusive
 
 Le **OU exclusif** ($\oplus$ ou $\veebar$) est une opération curieuse mais extrêmement puissante et utilisée massivement en cryptographie.
 
@@ -450,8 +467,7 @@ assert(b == 123);
     ```
 
 [](){#operator-not}
-
-### Complément à un
+#### Complément à un
 
 Le complément à un ($\lnot$) est simplement la valeur qui permet d'inverser bit à bit une valeur :
 
@@ -470,8 +486,7 @@ Table: Complément à un
 
 [](){#operator-shift-left}
 [](){#operator-shift-right}
-
-### Décalages
+#### Décalages
 
 Les opérations de décalage permettent de déplacer les bits d'une valeur vers la gauche ou vers la droite. Les bits décalés sont perdus et remplacés par des zéros dans le cas d'une valeur non signée et par le bit de signe dans le cas d'une valeur signée.
 
@@ -490,7 +505,7 @@ assert(-8 >> 1 == -4) // 0b1111'1000 >> 1 == 0b1111'1100
 
     Le standard ne définit pas le comportement des décalages pour des valeurs de décalage négatives (`a >> -2`). Néanmoins il n'y aura pas d'erreur de compilation, le comportement est simplement indéfini et le résultat dépend donc du compilateur utlisé.
 
-### Tester un bit
+#### Tester un bit
 
 En microinformatique, il est fréquent de tester l'état d'un bit. Pour cela on utilise l'opération ET logique `&` avec un masque. Par exemple, pour tester le bit de poids faible d'une valeur `a` on peut écrire :
 
@@ -513,7 +528,7 @@ int bit = 1;
 printf("Le bit %d à %d.\n", bit, a & (1 << bit));
 ```
 
-### Inverser un bit
+#### Inverser un bit
 
 Pour inverser un bit, on utilise l'opération XOR `^` avec un masque. Par exemple, pour inverser le bit de poids faible d'une valeur `a` on peut écrire :
 
@@ -523,7 +538,7 @@ int bit = 3;
 int b = a ^ (1 << bit);
 ```
 
-### Forcer un bit à un
+#### Forcer un bit à un
 
 Pour forcer un bit à un, on utilise l'opération OU `|` avec un masque. Par exemple, pour forcer le bit de poids faible d'une valeur `a` à un on peut écrire :
 
@@ -533,7 +548,7 @@ int bit = 2;
 int b = a | (1 << bit);
 ```
 
-### Forcer un bit à zéro
+#### Forcer un bit à zéro
 
 Pour forcer un bit à zéro, on utilise l'opération ET `&` avec un masque inversé. Par exemple, pour forcer le bit de poids faible d'une valeur `a` à zéro on peut écrire :
 
@@ -543,7 +558,7 @@ int bit = 4;
 int b = a & ~(1 << bit);
 ```
 
-## Opérations logiques
+### Opérations logiques
 
 Les opérations logiques sont introduites par l'[algèbre de Boole](<https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)>) et permettent de combiner plusieurs grandeurs binaires en utilisant des opérations. Les opérateurs logiques sont au nombre de deux et ne doivent pas être confondus avec leur petits frères `&` et `|`.
 
@@ -575,7 +590,7 @@ La priorité des opérateurs logiques est plus faible que celle des opérateurs 
     }
     ```
 
-## Opérateurs d'affectation
+### Opérateurs d'affectation
 
 Les opérateurs d'affectation permettent d'assigner de nouvelles valeurs à une variable. En C il existe des sucres syntaxiques permettant de simplifier l'écriture lorsqu'une affectation est couplée à un autre opérateur.
 
@@ -613,7 +628,7 @@ Un opérateur d'affectation implique que la valeur à gauche de l'égalité soit
 
         L'opération `+` entre deux nombre retourne une *rvalue* et ne peut donc pas être affecté. L'expression est donc invalide.
 
-## Opérateurs d'incrémentation
+### Opérateurs d'incrémentation
 
 Les opérateurs d'incrémentation sont régulièrement un motif primaire d'arrachage de cheveux pour les étudiants. En effet, ces opérateurs sont très particuliers à ce sens qu'il se décomposent en deux étapes : l'affectation et l'obtention du résultat. Il existe 4 opérateurs d'incrémentation :
 
@@ -692,7 +707,7 @@ Notons qu'on peut toujours décomposer ces opérateurs en deux instructions expl
     - Séparez vos opérations par des espaces pour plus de lisibilité: `#!c k = i-- - -j`
 
 [](){#operator-ternary}
-## Opérateur ternaire
+### Opérateur ternaire
 
 L'opérateur ternaire aussi appelé **opérateur conditionnel** permet de faire un test et de retourner soit le second opérande, soit le troisième opérande. C'est le seul opérateur du C avec une `arité` de 3. Chacun des opérandes est symbolisé avec une paire de parenthèses :
 
@@ -757,8 +772,7 @@ max = a > b ? a : b;
 Enfin, on notera que le résultat de l'opérateur ternaire est une *rvalue* et ne peut donc pas être modifiée.
 
 [](){#operator-cast}
-
-## Opérateur de transtypage
+### Opérateur de transtypage
 
 Le `transtypage` ou *cast* permet de modifier explicitement le type apparent d'une variable. C'est un opérateur particulier car son premier opérande doit être un **type** et le second une **valeur**.
 
@@ -776,8 +790,7 @@ assert(c == 2.0 && d == 2.5);
 ```
 
 [](){#operator-comma}
-
-## Opérateur séquentiel
+### Opérateur séquentiel
 
 L'opérateur séquentiel (*comma operator*) permet l'exécution ordonnée d'opérations, et retourne la dernière valeur. Son utilisation est couramment limitée soit aux déclarations de variables, soit au boucles `for`:
 
@@ -804,7 +817,7 @@ L'opérateur agit également comme un Point de séquence [](){#sequence_point}, 
     printf("%d", (++i, i++, ++i));
     ```
 
-## Opérateur sizeof
+### Opérateur sizeof
 
 Cet opérateur est *unaire* et retourne la taille en **byte** de la variable ou du type passé en argument. Il n'existe pas de symbole particulier et son usage est très similaire à l'appel d'une fonction:
 

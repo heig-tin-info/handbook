@@ -432,21 +432,70 @@ n = 209
 
             Depuis un terminal Python vous pouvez simplement utiliser `int("12030", 4)`
 
-## Entiers simples
+## Nombres
+
+![Ensemble des nombres](../../assets/images/ensembles.drawio)
+
+Vous avez tous appris dans votre enfance à compter, puis vous avez appris que les nombres se classifient dans des ensembles. Les mathématiciens ont défini des ensembles de nombres pour lesquels des propriétés particulières sont vérifiées ; ces ensembles sont imbriqués les uns dans les autres, et chaque ensemble est un sous-ensemble de l'ensemble suivant.
+
+Un nombre arbitraire n'est pas directement associé à une quantité d'information. Le nombre $\pi$ est irrationnel, c'est à dire qu'il ne se termine jamais et ne se répète jamais. Il est donc impossible de stocker $\pi$ en mémoire, car il faudrait une quantité infinie de bits pour le représenter.
+
+Archimère disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (Donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : Donnez moi un nombre et je vous construirai l'univers ! Bien entendu la quantité d'information dans l'univers est colossale, elle croît avec l'entropie et donc avec le temps qui passe.
+
+!!! info Minecraft
+
+    Dans Minecraft, lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un monde aléatoire. Cette graine est un nombre fini qui sert de base à l'algorithme de génération de monde. Si vous utilisez la même graine, vous obtiendrez le même monde.
+
+    Mais pour que cela fonctionne il faut le code source de Minecraft, lui aussi c'est une succession de 0 et de 1, et donc c'est un nombre, lui aussi fini.
+
+    Enfin, lorsque vous jouez, vos actions génèrent de l'information qui influence le monde, et donc la quantité d'information dans le monde croît. C'est pour cela que plus vous jouez, plus la sauvegarde de votre monde devient grande, mais vous pouvez la représenter aussi avec un nombre fini.
+
+Les mémoires des ordinateurs ne sont pas infinies, elles sont limitées par la quantité de transistors qui les composent. Il n'est donc pas possible d'y stocker n'importe quel nombre. $\pi$ ne peut pas être stocké en mémoire, mais une approximation de $\pi$ peut l'être.
+
+Aussi, l'informatique impose certaines limitations sur les nombres que l'on peut manipuler. Les nombres entiers sont les plus simples à manipuler, mais ils sont limités par la taille de la mémoire et la manière dont on les enregistres en mémoire. C'est ce que nous allons voir.
+
+## Entiers naturels
+
+En mathématiques, un [entier naturel](https://fr.wikipedia.org/wiki/Entier_naturel) est un nombre positif ou nul. Chaque nombre à un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, et donc sans signe et sans virgule. L'ensemble des entiers naturels est défini de la façon suivante :
+
+$$
+\mathbb{N} = {0, 1, 2, 3, ...}
+$$
 
 Les entiers sont les premiers types de données manipulés par les ordinateurs. Ils sont stockés en mémoire sous forme de bits. En choisissant la taille de stockage des entiers, on détermine la plage de valeurs que l'on peut représenter. Un entier de 8 bits peut représenter $2^8 = 256$ valeurs différentes, de 0 à 255. Un entier de 16 bits peut représenter $2^{16} = 65536$ valeurs différentes, de 0 à 65535.
 
-Cette manière est élégante, mais elle ne permet pas de représenter des valeurs négatives. Pour cela, on aura recours aux entiers relatifs.
+!!! example
+
+    Le nombre 142 peut s'écrire sur 8 bits en binaire, avec une notation positionnelle (où les bits sont alignés par poids décroissants) on peut écrire :
+
+    $$
+    \begin{array}{cccccccc}
+    2^7 & 2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0 \\
+    1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
+    \end{array}
+    $$
+
+La taille de stockage d'un entier détermine donc ses limites. Si cette manière est élégante, elle ne permet pas de représenter des valeurs négatives. Pour cela, on aura recours aux entiers relatifs.
 
 ## Entiers relatifs
 
-Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car il n'existe pas de symboles pour le signe `-` (ni même d'ailleurs `+`).
+Mathématiquement un **entier relatif** appartient à l'ensemble $\mathbb{Z}$:
 
-Une approche naïve est de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. L'ennui pour les **variables** c'est que le contenu peut changer et qu'il serait préférable de stocker le signe avec la valeur.
+$$
+\mathbb{Z} = {..., -3, -2, -1, 0, 1, 2, 3, ...}
+$$
+
+Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car manque une information permettant d'encoder le symbole pour le signe `-` (ni même d'ailleurs `+`).
+
+Une approche naïve serait de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. Un peu comme si vous aviez deux boîtes chez vous, l'une pour les choses qui se mangent (le frigo) et une pour les choses qui ne se mangent plus (la poubelle).
+
+L'ennui pour les **variables** c'est que le contenu peut changer et qu'un nombre négatif pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meileure méthode.
+
+On pourrait alors renseigner la nature du nombre, c'est à dire son signe avec sa valeur.
 
 ### Bit de signe
 
-On peut se réserver un bit de signe, par exemple le 8{sup}`e` bit d'un `char`.
+Pourquoi ne pas se réserver un bit de signe, par exemple le 8^e^ bit de notre nombre de 8 bits, pour indiquer si le nombre est positif ou négatif ?
 
 ```text
 ┌─┐┌─┬─┬─┬─┬─┬─┬─┐
@@ -457,7 +506,11 @@ On peut se réserver un bit de signe, par exemple le 8{sup}`e` bit d'un `char`.
 └─┘└─┴─┴─┴─┴─┴─┴─┘
 ```
 
-Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable est ici de `[-127..127]`. On ajoutera qu'il existe alors deux zéros, le zéro négatif `0b00000000`, et le zéro positif `0b10000000` ce qui peut poser des problèmes pour les comparaisons.
+Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable est ici n'est plus que de `[-127..127]`. Elle présente un autre inconvénient majeur : la représentation de zéro.
+
+Il existe alors deux zéros, le zéro négatif `0b00000000`, et le zéro positif `0b10000000` ce qui peut poser des problèmes pour les comparaisons. Est-ce que $0$ est égal $-0$ ? En un sens oui, mais en termes de l'information stockée, ce n'est pas le même nombre.
+
+En termes de calcul, l'addition ne fonctionne plus si on raisonne sur les bits. Car si on additionne au zéro positif (`0b10000000`) la valeur 1 on aura 1, mais si on additionne au zéro négatif (`0b00000000`) la valeur 1 on obtiendra -1. C'est un peu déroutant.
 
 ```text
 000   001   010   011   100   101   110   111
@@ -468,7 +521,7 @@ Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable 
  0     1     2     3     0    -1    -2    -3
 ```
 
-De plus les additions et soustractions sont difficiles, car il n'est pas possible d'effectuer des opérations simples :
+Il faudrait donc trouver une méthode qui permetterait de conserver la possibilité de faire les opérations directement en binaire. En d'autres termes on aimerait pouvoir calculer en base deux sans se soucier du signe :
 
 ```text
   00000010 (2)
@@ -477,9 +530,9 @@ De plus les additions et soustractions sont difficiles, car il n'est pas possibl
   11111101 (-125)    2 - 5 != -125
 ```
 
-En résumé, la solution utilisant un bit de signe pose deux problèmes :
+Si on résume, la solution proposée qui utilise un bit de signe pose deux problèmes :
 
-1. Les opérations ne sont plus triviales, et un algorithme particulier doit être mis en place.
+1. Les opérations ne sont plus triviales, et un algorithme particulier doit être mis en place pour les gérer.
 2. Le double zéro (positif et négatif) est gênant.
 
 ### Complément à un
@@ -506,7 +559,7 @@ $y$
 
 : La valeur à complémenter.
 
-Ainsi, il est facile d'écrire le complément à neuf :
+Ainsi, il est facile d'écrire le complément à neuf d'un nombre en base dix car on s'arrange pour que chaque chiffre composant le nombre on trouve un autre chiffre dont la somme est égale à neuf.
 
 ```
 0 1 2 3 4 5 6 7 8 9
@@ -554,15 +607,16 @@ En résumé, la méthode du complément à 1 :
 2. Le double zéro (positif et négatif) est gênant.
 
 [](){#twos_complement}
-
 ### Complément à deux
 
-Le complément à deux n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont :
+Le complément à deux n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles et de 2 (`0` et `1`). On ne peut pas trouver un chiffre tel que la somme fasse `2`. C'est la même idée que de demander le complément à 10 en base 10.
 
-1. Calculer le complément à un du nombre d'entrées.
+Pour réaliser ce complément à deux (complément à un plus un) il y a deux étapes :
+
+1. Calculer le complément à un du nombre d'entrée.
 2. Ajouter 1 au résultat.
 
-Oui, et alors, quelle est la valeur ajoutée ? Surprenamment, on résout tous les problèmes amenés par le complément à un :
+Oui, et alors, en quoi cela change la donne ? Surprenamment, on résout tous les problèmes amenés par le complément à un :
 
 ```
 000   001   010   011   100   101   110   111
@@ -775,6 +829,18 @@ La double précision est similaire à la simple précision, mais avec une mantis
     2. * 13. % 7.
     1.3E30 + 1.
     ```
+
+### Quadruple précision
+
+Bien que ce soit marginal dans le monde de l'informatique, la quadruple précision est une norme IEEE 754 qui utilise 128 bits pour stocker les nombres réels. Elle est utilisée pour des calculs scientifiques nécessitant une très grande précision comme au CERN ou pour l'étude de modèles cosmologiques.
+
+La quadruple précision offre une précision de 34 chiffres significatifs, soit environ 112 bits de précision. Elle est codée sur 128 bits.
+
+Il est possible de l'utiliser avec certains compilateurs C comme GCC en utilisant le type `__float128` de la bibliothèque `<quadmath.h>`.
+
+!!! warning
+
+    Son utilisation ralenti considérablement les calculs, car les processeurs actuels ne sont pas optimisés pour ce type de calculs. Un processeur peut faire des calculs sur 64 bits en une seule opération, mais pour des calculs en quadruple précision, il doit faire plusieurs opérations pour chaque chiffre.
 
 ## Format Q (virgule fixe)
 
