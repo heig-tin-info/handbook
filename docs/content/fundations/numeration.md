@@ -438,6 +438,20 @@ n = 209
 
 Vous avez tous appris dans votre enfance à compter, puis vous avez appris que les nombres se classifient dans des ensembles. Les mathématiciens ont défini des ensembles de nombres pour lesquels des propriétés particulières sont vérifiées ; ces ensembles sont imbriqués les uns dans les autres, et chaque ensemble est un sous-ensemble de l'ensemble suivant.
 
+$$
+\mathbb{N} \in \mathbb{Z} \in \mathbb{Q} \in \mathbb{R} \in \mathbb{C} \in \mathbb{H} \in \mathbb{O} \in \mathbb{S}
+$$
+
+- $\mathbb{N}$ : ensemble des entiers naturels (0, 1, 2, 3, ...)
+- $\mathbb{Z}$ : ensemble des entiers relatifs (..., -3, -2, -1, 0, 1, 2, 3, ...)
+- $\mathbb{D}$ : ensemble des décimaux (-0.1, 0, 0.1, 0.2, 0.3, ...)
+- $\mathbb{Q}$ : ensemble des rationnels (0, 1, 1/2, 1/3, 1/4, ...)
+- $\mathbb{R}$ : ensemble des réels ($\pi$, $\sqrt{2}$, ...)
+- $\mathbb{C}$ : ensemble des complexes ($i$, $1 + i$, ...)
+- $\mathbb{H}$ : ensemble des quaternions ($1 + i + j + k$, ...)
+- $\mathbb{O}$ : ensemble des octonions
+- $\mathbb{S}$ : ensemble des sédénions
+
 Un nombre arbitraire n'est pas directement associé à une quantité d'information. Le nombre $\pi$ est irrationnel, c'est à dire qu'il ne se termine jamais et ne se répète jamais. Il est donc impossible de stocker $\pi$ en mémoire, car il faudrait une quantité infinie de bits pour le représenter.
 
 Archimère disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (Donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : Donnez moi un nombre et je vous construirai l'univers ! Bien entendu la quantité d'information dans l'univers est colossale, elle croît avec l'entropie et donc avec le temps qui passe.
