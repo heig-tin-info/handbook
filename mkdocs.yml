@@ -164,6 +164,7 @@ markdown_extensions:
   - pymdownx.blocks.html
   - pymdownx.magiclink
   - admonition
+  - material.extensions.preview
   - pymdownx.arithmatex:
       generic: true
   - def_list
@@ -206,7 +207,7 @@ watch:
   - includes
   - overrides
 hooks:
-  - hooks/breadcrumb.py
+  #- hooks/breadcrumb.py
   - hooks/spantable.py
   #- hooks/french.py
   #- hooks/latex.py

@@ -34,13 +34,13 @@ Voici les quatre principes les plus connus :
 
 <div class="grid cards" markdown>
 
-- **DRY** [Ne vous répétez pas.](#dry)
+- **DRY** [Ne vous répétez pas.][dry]{ data-preview }
 
     ---
 
     *Do not repeat yourself.*
 
-- **KISS** [Restez simple, stupide.](#kiss)
+- **KISS** [Restez simple, stupide.][kiss]{ data-preview }
 
     ---
 
@@ -48,13 +48,13 @@ Voici les quatre principes les plus connus :
 
     ---
 
-- **SSOT** [Une seule source de vérité.](#ssot)
+- **SSOT** [Une seule source de vérité.][ssot]{ data-preview }
 
     ---
 
     *Single source of truth.*
 
-- **YAGNI** [Vous n'en aurez pas besoin.](#yagni)
+- **YAGNI** [Vous n'en aurez pas besoin.][yagni]{ data-preview }
 
     ---
 

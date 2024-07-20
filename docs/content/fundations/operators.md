@@ -353,12 +353,12 @@ Table: Opérateurs bit à bit
 
 | Opérateur | Description                                | Exemple                          |
 | --------- | ------------------------------------------ | -------------------------------- |
-| `&`     | [Conjonction (ET)](#operator-and)          | `(0b1101 & 0b1010) == 0b1000`  |
-| `        | `                                         | [Disjonction (OU)](#operator-or) | `(0b1101 | 0b1010) == 0b1111` |
-| `^`     | [XOR binaire](#operator-xor)               | `(0b1101 ^ 0b1010) == 0b0111`  |
-| `~`     | [Complément à un](#operator-not)           | `~0b11011010 == 0b00100101`    |
-| `<<`    | [Décalage à gauche](#operator-shift-left)  | `(0b1101 << 3) == 0b1101000`   |
-| `>>`    | [Décalage à droite](#operator-shift-right) | `(0b1101 >> 2) == 0b11`        |
+| `&`     | [Conjonction (ET)][operator-and]          | `(0b1101 & 0b1010) == 0b1000`  |
+| `        | `                                         | [Disjonction (OU)][operator-or] | `(0b1101 | 0b1010) == 0b1111` |
+| `^`     | [XOR binaire][operator-xor]               | `(0b1101 ^ 0b1010) == 0b0111`  |
+| `~`     | [Complément à un][operator-not]           | `~0b11011010 == 0b00100101`    |
+| `<<`    | [Décalage à gauche][operator-shift-left]  | `(0b1101 << 3) == 0b1101000`   |
+| `>>`    | [Décalage à droite][operator-shift-right] | `(0b1101 >> 2) == 0b11`        |
 
 
 !!! important
@@ -610,7 +610,7 @@ Table: Opérateurs d'affectation
 | `<<=`                | Affectation par décalage gauche | `x <<= y`                | `x = x << y`                |
 | `>>=`                | Affectation par décalage droite | `x >>= y`                | `x = x >> y`                |
 
-Un opérateur d'affectation implique que la valeur à gauche de l'égalité soit modifiable ([lvalue](#lvalue)). Ainsi l'expression `3 += 2` est incorrecte car `3` est une constante et ne peut être modifiée.
+Un opérateur d'affectation implique que la valeur à gauche de l'égalité soit modifiable ([lvalue][lvalue]). Ainsi l'expression `3 += 2` est incorrecte car `3` est une constante et ne peut être modifiée.
 
 !!! exercise "R-value"
 
@@ -872,7 +872,7 @@ Table: Priorité des opérateurs
 | 2 @span  | `++`, `--`                | Préfixe incréments/décréments           | Droite à Gauche |
 |          | `+`, `-`                  | Signe                                   |                 |
 |          | `!`, `~`                  | NON logique et NON binaire              |                 |
-|          | `(type)`                  | [Cast (Transtypage)](#operator-cast)    |                 |
+|          | `(type)`                  | [Cast (Transtypage)][operator-cast]{ data-preview }    |                 |
 |          | `*`                       | Indirection, déréférencement            |                 |
 |          | `&`                       | Adresse de...                           |                 |
 |          | `sizeof`                  | Taille de...                            |                 |
@@ -887,12 +887,12 @@ Table: Priorité des opérateurs
 | 10       | <code>&#124;</code>       | OU inclusif binaire                     |                 |
 | 11       | `&&`                      | ET logique                              |                 |
 | 12       | <code>&#124;&#124;</code> | OU logique                              |                 |
-| 13       | `?:`                      | [Opérateur ternaire](#operator-ternary) | Droite à Gauche |
+| 13       | `?:`                      | [Opérateur ternaire][operator-ternary]{ data-preview } | Droite à Gauche |
 | 14 @span | `=`                       | Assignation simple                      |                 |
 |          | `+=`, `-=`                | Assignation par somme/diff              |                 |
 |          | `*=`, `/=`, `%=`          | Assignation par produit/quotient/modulo |                 |
 |          | `<<=`, `>>=`              | Assignation par décalage binaire        |                 |
-| 15       | `,`                       | [Virgule](#operator-comma)              | Gauche à Droite |
+| 15       | `,`                       | [Virgule][operator-comma]{ data-preview }              | Gauche à Droite |
 
 
 Considérons l'exemple suivant :

@@ -1500,20 +1500,19 @@ pygments = ">2.12.0"
 
 [[package]]
 name = "mkdocs-material"
-version = "9.5.29"
+version = "9.5.29+insiders.4.53.11"
 description = "Documentation that simply works"
 optional = false
 python-versions = ">=3.8"
-files = [
-    {file = "mkdocs_material-9.5.29-py3-none-any.whl", hash = "sha256:afc1f508e2662ded95f0a35a329e8a5acd73ee88ca07ba73836eb6fcdae5d8b4"},
-    {file = "mkdocs_material-9.5.29.tar.gz", hash = "sha256:3e977598ec15a4ddad5c4dfc9e08edab6023edb51e88f0729bd27be77e3d322a"},
-]
+files = []
+develop = false
 
 [package.dependencies]
 babel = ">=2.10,<3.0"
 colorama = ">=0.4,<1.0"
 jinja2 = ">=3.0,<4.0"
 markdown = ">=3.2,<4.0"
+mergedeep = ">=1.3,<2.0"
 mkdocs = ">=1.6,<2.0"
 mkdocs-material-extensions = ">=1.3,<2.0"
 paginate = ">=0.5,<1.0"
@@ -1526,6 +1525,12 @@ requests = ">=2.26,<3.0"
 git = ["mkdocs-git-committers-plugin-2 (>=1.1,<2.0)", "mkdocs-git-revision-date-localized-plugin (>=1.2.4,<2.0)"]
 imaging = ["cairosvg (>=2.6,<3.0)", "pillow (>=10.2,<11.0)"]
 recommended = ["mkdocs-minify-plugin (>=0.7,<1.0)", "mkdocs-redirects (>=1.2,<2.0)", "mkdocs-rss-plugin (>=1.6,<2.0)"]
+
+[package.source]
+type = "git"
+url = "git@github.com:heig-tin-info/mkdocs-material-insiders.git"
+reference = "HEAD"
+resolved_reference = "138ca9bc876e97e180707427494e1c53b2e506df"
 
 [[package]]
 name = "mkdocs-material-extensions"
@@ -2831,4 +2836,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "42109969b7005fa9fdf8d41ae8cc7b9e3265b069f1092e5353ef4956f18908a4"
+content-hash = "30b17d6b5fd81db10d743d5c0f4f71ef7208f143b6aac01a8b2ad1280908cb05"
