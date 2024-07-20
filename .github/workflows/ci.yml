@@ -20,6 +20,7 @@ jobs:
           fetch-depth: 0
       - name: Configure Git Credentials
         run: |
+          git config --global url."https://${{ secrets.MKDOCS_MATERIALS_INSIDER_PAT }}:@github.com/".insteadOf "https://github.com/"
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - uses: actions/setup-python@v5

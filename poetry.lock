@@ -1951,6 +1951,20 @@ files = [
 ]
 
 [[package]]
+name = "pngquant"
+version = "1.0.8"
+description = "A Python Wrapper of pngquant"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pngquant-1.0.8-py2.py3-none-any.whl", hash = "sha256:21be7a5847b7d15867afeefa79048b7c8395379430ef7cd159b58071429d7fa8"},
+    {file = "pngquant-1.0.8.tar.gz", hash = "sha256:deddedac715b0b4fe605b9e4f2d2d0885d8049b19022574180116d05ec40bad6"},
+]
+
+[package.dependencies]
+Pillow = "*"
+
+[[package]]
 name = "prompt-toolkit"
 version = "3.0.47"
 description = "Library for building powerful interactive command lines in Python"
@@ -2836,4 +2850,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "30b17d6b5fd81db10d743d5c0f4f71ef7208f143b6aac01a8b2ad1280908cb05"
+content-hash = "d24f36b7bd73f9b93138e2878500bc6e65553f5db55247b3641d5e0178995313"
