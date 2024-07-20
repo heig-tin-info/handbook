@@ -706,6 +706,45 @@ Notons qu'on peut toujours décomposer ces opérateurs en deux instructions expl
     - Favoriser la précédence explicite en utilisant des parenthèses
     - Séparez vos opérations par des espaces pour plus de lisibilité: `#!c k = i-- - -j`
 
+!!! tip
+
+    Il est généralement préférable d'utiliser la pré-incrémentation ou la pré-décrémentation car elles sont plus efficaces. En effet, la post-incrémentation ou la post-décrémentation nécessitent de stocker la valeur actuelle de la variable pour la retourner après l'incrémentation ou la décrémentation.
+
+    C'est particulièrement le cas en C++ où la post-incrémentation ou la post-décrémentation nécessitent de créer une copie de la variable avant de l'incrémenter ou de la décrémenter.
+
+    En C++ on utilise la surcharge d'opérateur pour définir le comportement de l'opérateur `++` et `--` pour les classes personnalisées. Ajouter à une classe ce type de surcharge se fait comme ceci :
+
+    ```cpp
+    class MyClass {
+    public:
+        // Pré-incrémentation
+        auto operator++() {
+            return *this;
+        }
+
+        // Post-incrémentation
+        auto operator++(int) {
+            MyClass tmp(*this);
+            operator++();
+            return tmp;
+        }
+    };
+    ```
+
+    On voit que la post-incrémentation crée une copie de l'objet avant de l'incrémenter, elle est donc moins efficace.
+
+    Donc dans une boucle `for` on préférera :
+
+    ```c
+    for (int i = 0; i < 10; ++i) { }
+    ```
+
+    Plutôt que
+
+    ```c
+    for (int i = 0; i < 10; i++) { }
+    ```
+
 [](){#operator-ternary}
 ### Opérateur ternaire
 

@@ -348,7 +348,7 @@ int array[1024] = { [ 0 ... 1023 ] = -1 };
 En **C99**, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionnelle reste la boucle itérative :
 
 ```c
-for (size_t i = 0; i < sizeof(array)/sizeof(array[0]); i++)
+for (size_t i = 0; i < sizeof(array)/sizeof(array[0]); ++i)
     array[i] = -1;
 ```
 
