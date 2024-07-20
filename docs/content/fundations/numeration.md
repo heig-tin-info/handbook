@@ -452,6 +452,22 @@ $$
 - $\mathbb{O}$ : ensemble des octonions
 - $\mathbb{S}$ : ensemble des sédénions
 
+!!! note "Quaternions, octonions et sédénions"
+
+    Les quaternions, octonions et sédénions sont des nombres hypercomplexes qui généralisent les nombres complexes. Ils sont utilisés en physique pour décrire les rotations dans l'espace.
+
+    Les quaternions sont utilisés en informatique pour représenter les rotations en 3D. Les octonions et sédénions sont des généralisations des quaternions, mais ils sont moins utilisés en pratique.
+
+    A chaque fois que s'éloigne du réel (et c'est une manière amusante de le dire), on perd des propriétés intéressantes. Les nombres complexes ne sont pas ordonnés, les quaternions ne sont pas commutatifs, les octonions ne sont pas associatifs, et les sédénions ne sont même pas alternatifs. Un nombre alternatif est un nombre pour lequel la formule
+
+    $$
+    (a \cdot a) \cdot b = a \cdot (a \cdot b)$
+    $$
+
+     est vérifiée.
+
+     En pratique dans une carrière d'ingénieur, vous n'aurez jamais à manipuler ni des quaternions, ni octonions ou sédénions. Les nombres complexes sont néanmoins une extension des nombres réels qui sont utilisés en physique et en mathématiques.
+
 Un nombre arbitraire n'est pas directement associé à une quantité d'information. Le nombre $\pi$ est irrationnel, c'est à dire qu'il ne se termine jamais et ne se répète jamais. Il est donc impossible de stocker $\pi$ en mémoire, car il faudrait une quantité infinie de bits pour le représenter.
 
 Archimère disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (Donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : Donnez moi un nombre et je vous construirai l'univers ! Bien entendu la quantité d'information dans l'univers est colossale, elle croît avec l'entropie et donc avec le temps qui passe.
@@ -855,6 +871,48 @@ Il est possible de l'utiliser avec certains compilateurs C comme GCC en utilisan
 !!! warning
 
     Son utilisation ralenti considérablement les calculs, car les processeurs actuels ne sont pas optimisés pour ce type de calculs. Un processeur peut faire des calculs sur 64 bits en une seule opération, mais pour des calculs en quadruple précision, il doit faire plusieurs opérations pour chaque chiffre.
+
+### Nombres complexes
+
+En C, il est possible de définir des nombres complexes en utilisant le type `complex` de la bibliothèque `<complex.h>`. Les nombres complexes sont composés de deux parties, la partie réelle et la partie imaginaire. Ils sont souvent utilisés en mathématiques pour représenter des nombres qui ne peuvent pas être exprimés avec des nombres réels. Ils ont été introduits avec la version C99 du langage C.
+
+Néanmoins les nombres complexes ne sont pas supportés par les opérateurs du langage, il est nécessaire d'utiliser des fonctions spécifiques pour effectuer des opérations sur les nombres complexes.
+
+!!! note
+
+    Dans des langages plus haut niveau comme le C++, le C# ou Python, les nombres complexes sont supportés nativement.
+
+    Exemple en Python :
+
+    ```python
+    from math import sqrt
+    a, b, c = 1, 2, 3
+    delta = b**2 - 4*a*c # Calcul du discriminant qui sera négatif
+    x1, x1 = (-b + sqrt(delta)) / (2*a), (-b - sqrt(delta)) / (2*a)
+    ```
+
+    `x1` et `x2` sont des nombres complexes.
+
+```c
+#include <stdio.h>
+#include <complex.h>
+
+int main() {
+    double complex z1 = 1.0 + 2.0*I;
+    double complex z2 = 3.0 + 4.0*I;
+
+    printf("z1 = %.1f + %.1fi\n", creal(z1), cimag(z1));
+    printf("z2 = %.1f + %.1fi\n", creal(z2), cimag(z2));
+
+    double complex sum = z1 + z2;
+    double complex product = z1 * z2;
+
+    printf("sum = %.1f + %.1fi\n", creal(sum), cimag(sum));
+    printf("product = %.1f + %.1fi\n", creal(product), cimag(product));
+
+    return 0;
+}
+```
 
 ## Format Q (virgule fixe)
 
