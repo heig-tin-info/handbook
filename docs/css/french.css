@@ -1,0 +1,9 @@
+ul:not([class]) {
+  list-style: none;
+  padding-left: 0;
+}
+ul:not([class]) li:not([class])::before {
+  content: "–";
+  color: var(--md-default-fg-color--light);
+  padding-right: 0.5em;
+}
