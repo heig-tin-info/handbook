@@ -1,6 +1,6 @@
 # Arbres
 
-![Arbre binaire IRL](../../assets/images/binary-tree.jpg)
+![Arbre binaire IRL]({assets}/images/binary-tree.jpg)
 
 Les arbres sont des structures de données non linéaires qui sont composées de nœuds. Chaque nœud a un ou plusieurs enfants, sauf pour le nœud racine qui n'a pas de parent. Les arbres sont souvent utilisés pour représenter des hiérarchies, comme les systèmes de fichiers, les arbres généalogiques, les arbres de décision, etc.
 
@@ -139,7 +139,7 @@ Table: Opération d'accès à un élément d'un heap
 | Enfant de droite | $2*k  + 2$       | $2 * k + 1$    |
 | Parent           | $floor(k-1) / 2$ | $floor(k) / 2$ |
 
-![Représentation d'un *heap*](../../assets/images/heap.drawio)
+![Représentation d'un *heap*]({assets}/images/heap.drawio)
 
 ### Min-heap
 
@@ -241,7 +241,7 @@ Un [arbres binaires de recherche](https://fr.wikipedia.org/wiki/Arbre_binaire_de
 
 L'implémentation d'un arbre binaire est souvent implémentée avec une liste chaînée comportant deux enfants un `left` et un `right` :
 
-![Arbre binaire équilibré](../../assets/images/binary-tree.drawio)
+![Arbre binaire équilibré]({assets}/images/binary-tree.drawio)
 
 Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours :
 
@@ -362,7 +362,7 @@ char *words[] = {
 
 On peut construire le trie suivant :
 
-![Trie](../../assets/images/trie.drawio)
+![Trie]({assets}/images/trie.drawio)
 
 En vert, les nœuds qui marquent la fin d'un mot. En orange la racine de l'arbre. La structure de données de chaque noeud pourrait être la suivante :
 
@@ -430,7 +430,7 @@ Exemple d'implémentation:
 
     On peut se demander si il ne serait pas préférable de regrouper les noeuds communs ensembles comme la figure suivante :
 
-    ![Autre représentation](../../assets/images/trie-not.drawio)
+    ![Autre représentation]({assets}/images/trie-not.drawio)
 
     Est-ce une bonne idée ? Pourquoi ?
 

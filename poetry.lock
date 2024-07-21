@@ -1480,6 +1480,24 @@ mkdocs = ">=1.4.0"
 requests = "*"
 
 [[package]]
+name = "mkdocs-i18n"
+version = "0.4.6"
+description = "MkDocs i18n plugin"
+optional = false
+python-versions = "<4,>=3.7"
+files = [
+    {file = "mkdocs-i18n-0.4.6.tar.gz", hash = "sha256:977736ac643e6a9fece2f331c72168dda298b09ed55049a9c3bb6be33e099af0"},
+    {file = "mkdocs_i18n-0.4.6-py3-none-any.whl", hash = "sha256:44054cd7de6150f8e03aa074fc46d9ea661e660c9df0aab802115dd30636bc08"},
+]
+
+[package.dependencies]
+mkdocs = ">=1.1"
+mkdocs-material = "*"
+
+[package.extras]
+test = ["bandit", "black", "bs4", "coverage", "expects", "flake8", "gitlint", "isort", "lxml", "mamba", "pylint"]
+
+[[package]]
 name = "mkdocs-jupyter"
 version = "0.24.8"
 description = "Use Jupyter in mkdocs websites"
@@ -1595,6 +1613,23 @@ files = [
 [package.dependencies]
 mkdocs = ">=1.0.4"
 pyyaml = ">=6.0"
+
+[[package]]
+name = "mkdocs-static-i18n"
+version = "1.2.3"
+description = "MkDocs i18n plugin using static translation markdown files"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "mkdocs_static_i18n-1.2.3-py3-none-any.whl", hash = "sha256:e6f2f3c53b657d7632015b32dea3c64d0b80a7a8d6cde0334ca8f66f9e33b52f"},
+    {file = "mkdocs_static_i18n-1.2.3.tar.gz", hash = "sha256:7ccf4da6dd29570ec49cd863ebff6fef9cb82dbb1cb85249bdf744e8d839c914"},
+]
+
+[package.dependencies]
+mkdocs = ">=1.5.2"
+
+[package.extras]
+material = ["mkdocs-material (>=9.2.5)"]
 
 [[package]]
 name = "mkdocs-toggle-sidebar-plugin"
@@ -2850,4 +2885,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "d24f36b7bd73f9b93138e2878500bc6e65553f5db55247b3641d5e0178995313"
+content-hash = "aad40bc8d2338382179215a8198dfb3893e94297a9aef2a84798e0a4041daf4f"

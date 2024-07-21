@@ -9,3 +9,11 @@ Voici à titre d'information la définition formelle du langage C99 :
 ```text
 --8<-- "docs/assets/src/c99.y
 ```
+
+A partir de cette grammaire, Bison génère un fichier `c99.tab.c` qui contient le code C de l'analyseur syntaxique.
+
+Pour la créer vous-même, vous pouvez utiliser la commande suivante :
+
+```bash
+bison -d -o c99.tab.c c99.y
+```

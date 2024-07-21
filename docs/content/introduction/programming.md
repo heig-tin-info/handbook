@@ -9,7 +9,7 @@ Dans un cursus académique, on parle souvent de cours d'**Algorithmique et Progr
 1. Qu'est-ce que l'algorithmique ?
 2. Qu'est-ce que la programmation ?
 
-![L'un des premiers ordinateurs: l'Eniac](../../assets/images/eniac.jpg)
+![L'un des premiers ordinateurs: l'Eniac]({assets}/images/eniac.jpg)
 
 ## Algorithmique
 
@@ -27,7 +27,7 @@ Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l
 
 Il est un algorithme permettant de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD). Voici la description de l'algorithme sous forme d'un diagramme de flux :
 
-![Algorithme de calcul du PGCD d'Euclide.](../../assets/images/pgcd.drawio)
+![Algorithme de calcul du PGCD d'Euclide.]({assets}/images/pgcd.drawio)
 
 Souvent, les informaticiens et ingénieurs aiment utiliser des diagrammes pour synthétiser leurs idées. Le diagramme de flux est un outil de communication visuelle permettant de représenter des **processus**. Ici on observe des formes géométriques et des flèches. Les flèches indiquent le sens de lecture du processus. Les formes géométriques sont des boîtes de texte contenant des instructions. Les formes de début et de fin sont par convention des ovales. Les formes de traitement sont des rectangles et les formes de décision sont quant à elles des losanges. Une forme de décision contient une question et deux flèches de sortie, une pour chaque réponse possible. Généralement une flèche de sortie est étiquetée avec la réponse attendue. On le verra plus tard, mais un processus de traitement d'information dispose toujours d'une entrée et d'une sortie.
 
@@ -68,7 +68,7 @@ Dans la vie de tous les jours, imaginez que vous ayez un jeu de 54 cartes à jou
 
 Voici un diagramme de flux de l'algorithme de tri de bulles :
 
-![Algorithme de tri de bulles.](../../assets/images/bubblesort.drawio)
+![Algorithme de tri de bulles.]({assets}/images/bubblesort.drawio)
 
 Soit un tableau de $N = 5$ valeurs à trier :
 
@@ -122,7 +122,7 @@ Les algorithmes, il y en a de toutes sortes, des plus simples aux plus complexes
 
 La machine Jacquard est un [métier à tisser](https://fr.wikipedia.org/wiki/M%C3%A9tier_Jacquard) mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
 
-![Mécanisme Jacquard au Musée des arts et métiers de Paris.](../../assets/images/loom.jpg){ width="80%" }
+![Mécanisme Jacquard au Musée des arts et métiers de Paris.]({assets}/images/loom.jpg){ width="80%" }
 
 Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. L'automatisation d'un travail qui jadis était effectué manuellement causa une vague de chômage menant à la [Révolte des canuts](https://fr.wikipedia.org/wiki/R%C3%A9volte_des_canuts) en 1831.
 
@@ -159,7 +159,7 @@ Les informaticiens-tisserands responsables de la création des cartes perforées
         à la bordure endentée de gueules et d'or.
 ```
 
-![Armoiries des ducs de Mayenne](../../assets/images/armoiries.svg){ width="200px" }
+![Armoiries des ducs de Mayenne]({assets}/images/armoiries.svg){ width="200px" }
 
 !!! info "De gueules"
 
@@ -178,13 +178,13 @@ L'être humain a appris depuis des millénaires à communiquer avec des symboles
 
     [Scratch](https://fr.wikipedia.org/wiki/Scratch_(langage)) est un langage de programmation visuel développé par le MIT. Il est utilisé pour enseigner les bases de la programmation aux enfants. Il permet de créer des animations, des jeux et des histoires interactives.
 
-    ![Interface de scratch](../../assets/images/scratch.png)
+    ![Interface de scratch]({assets}/images/scratch.png)
 
 ??? info "LabView"
 
     [LabView](https://fr.wikipedia.org/wiki/LabVIEW) est un langage de programmation visuel développé par National Instruments. Il est utilisé pour la programmation de systèmes de mesure et de contrôle. Il est très utilisé dans l'industrie et la recherche.
 
-    ![Interface de LabView](../../assets/images/labview.webp)
+    ![Interface de LabView]({assets}/images/labview.webp)
 
     Son interface est composée de blocs graphiques que l'on relie entre eux pour créer un programme.
 
@@ -251,13 +251,13 @@ Lorsque l'on parle d'un ordinateur Turing-complet, on fait référence à un ord
 
 Prenons l'exemple d'un programme visant à additionner `1` à un nombre `n` en binaire. L'algorithme peut être exprimé comme suit :
 
-![Algorithme d'addition binaire](../../assets/images/turing-add.drawio)
+![Algorithme d'addition binaire]({assets}/images/turing-add.drawio)
 
 On commence par l'état de gauche, on lit un symbole sur la bande. Tant que ce symbole est `0` ou `1` on avance à droite. Lorsque l'on rencontre une case vide, on se déplace à gauche et on entre dans le second état. Tant qu’on lit un `1`, on le remplace par un `0` et on avance à gauche. Lorsqu’on lit un `0` ou une case vide, on le remplace par un `1` et on se déplace à gauche. On revient à l'état initial et on continue jusqu'à ce que l'on rencontre une case vide.
 
 Sur la figure ci-dessous, on peut voir l'exécution de l'algorithme sur une bande après chaque étape. La case centrale est celle sous la tête de lecture/écriture. On voit bien qu'au début on a le nombre `101` (5) et à la fin on obtient le nombre `110` (6). L'algorithme a bien fonctionné.
 
-![Exécution de l'algorithme sur une bande](../../assets/images/turing-animation.drawio)
+![Exécution de l'algorithme sur une bande]({assets}/images/turing-animation.drawio)
 
 On peut essayer de traduire cet algorithme dans un langage formel :
 
@@ -400,7 +400,7 @@ Ensuite, on peut écrire ce programme en mémoire avec des 1 et des 0 :
 
 ## Historique
 
-![Historique](../../assets/images/history.drawio)
+![Historique]({assets}/images/history.drawio)
 
 Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates clés :
 

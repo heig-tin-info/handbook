@@ -99,7 +99,7 @@ Les [tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF) est un 
 1. On ne peut déplacer qu'un seul disque à la fois.
 2. Un disque ne peut être placé que sur un disque plus grand que lui ou sur une tige vide.
 
-![Tours de Hanoï](../../assets/images/hanoi.drawio)
+![Tours de Hanoï]({assets}/images/hanoi.drawio)
 
 Ce problème se prête très bien à une résolution récursive. En effet, pour déplacer `n` disques de la tige `A` à la tige `C`, il suffit de déplacer `n-1` disques de la tige `A` à la tige `B`, puis de déplacer le disque restant de la tige `A` à la tige `C`, et enfin de déplacer les `n-1` disques de la tige `B` à la tige `C`.
 

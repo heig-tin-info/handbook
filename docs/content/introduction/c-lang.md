@@ -18,7 +18,7 @@ Cinquante ans plus tard, C est toujours l'un des langages de programmation les p
 
 Il faut retenir que **C** est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C.
 
-![Les pères fondateurs du C](../../assets/images/thompson-kernighan-ritchie.webp)
+![Les pères fondateurs du C]({assets}/images/thompson-kernighan-ritchie.webp)
 
 ## Standardisation
 
@@ -112,7 +112,7 @@ L'ensemble des outils nécessaire à créer un produit logiciel est appelé cha�
 
 Un environnement de développement intégré, ou [IDE](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement) pour *Integrated development environment* comporte généralement un éditeur de code ainsi que la [toolchain](https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_compilation) associée.
 
-![Représentation graphique des notions de compilateur, IDE, toolchain...](../../assets/images/toolchain.drawio)
+![Représentation graphique des notions de compilateur, IDE, toolchain...]({assets}/images/toolchain.drawio)
 
 À titre d'exemple on peut citer quelques outils bien connus des développeurs. Choisissez celui que vous pensez être le plus adapté à vos besoins, consultez l'internet, trouvez votre optimal :
 
@@ -247,7 +247,7 @@ Mis à part la dernière étape où il n'y a pas de retour en arrière possible,
 
 Le modèle en cascade suivant résume le cycle de développement d'un programme. Il s'agit d'un modèle simple, mais qu'il faut garder à l'esprit que ce soit pour le développement d'un produit logiciel que durant les travaux pratiques liés à ce cours.
 
-![Modèle en cascade](../../assets/images/waterfall.drawio)
+![Modèle en cascade]({assets}/images/waterfall.drawio)
 
 ## Cycle de compilation
 
@@ -258,7 +258,7 @@ Le langage C à une particularité que d'autres langages n'ont pas, c'est-à-dir
 
 Vient ensuite la phase d'édition des liens ou *linkage* lors de laquelle l'exécutable binaire est créé.
 
-![Cycle de compilation illustré](../../assets/images/build-cycle.drawio)
+![Cycle de compilation illustré]({assets}/images/build-cycle.drawio)
 
 Voyons plus en détail chacune de ces étapes.
 
@@ -273,7 +273,7 @@ La phase de *preprocessing* permet de générer un fichier intermédiaire en lan
 
 Avec `gcc` il est possible de demander que l'exécution du préprocesseur en utilisant l'option `-E`.
 
-![Processus de prépressing](../../assets/images/preprocessing.drawio)
+![Processus de prépressing]({assets}/images/preprocessing.drawio)
 
 ### Compilation (*build*)
 
@@ -281,10 +281,10 @@ La phase de compilation consiste en une analyse syntaxique du fichier à compile
 
 Avec `gcc` il est possible de ne demander que l'assemblage d'un code avec l'option `-S`.
 
-![Assemblage d'un programme C pré-processé en assembleur](../../assets/images/assembly.drawio)
+![Assemblage d'un programme C pré-processé en assembleur]({assets}/images/assembly.drawio)
 
 
-![Traduction d'un programme C pré-processé en objet binaire](../../assets/images/build.drawio)
+![Traduction d'un programme C pré-processé en objet binaire]({assets}/images/build.drawio)
 
 
 ### Édition de liens (*link*)
@@ -292,7 +292,7 @@ Avec `gcc` il est possible de ne demander que l'assemblage d'un code avec l'opti
 La phase d'édition de liens permet de rassembler le fichier binaire issu de la compilation et les autres fichiers binaires nécessaires au programme pour former un exécutable complet. Les autres fichiers binaires sont appelés des **librairies**. Elles peuvent appartenir au système (installée avec l'environnement de développement) ou provenir d'autres applications avec lesquelles votre programme doit interagir. Lors de l'édition de liens, des erreurs peuvent survenir et empêcher le
 déroulement complet de génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.
 
-![Édition des liens de plusieurs objets](../../assets/images/link.drawio)
+![Édition des liens de plusieurs objets]({assets}/images/link.drawio)
 
 ## Hello World!
 

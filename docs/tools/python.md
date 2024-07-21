@@ -1,6 +1,6 @@
 # Python
 
-![Un python informaticien](../assets/images/python.png)
+![Un python informaticien]({assets}/images/python.png)
 
 ## Introduction
 

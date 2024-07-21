@@ -12,7 +12,6 @@ struct MinHeap {
 static void swap(void **a, void **b) {
     void *temp = *a;
     *a = *b;
-    *b = temp;
 }
 
 static void heapify_up(MinHeap *heap, size_t index) {
@@ -87,10 +86,18 @@ size_t min_heap_size(MinHeap *heap) {
     return vector_size(heap->vector);
 }
 
-void min_heap_to_mermaid(MinHeap *heap, FILE *output) {
+void min_heap_to_mermaid(MinHeap *heap, FILE *output, void (print_element)(void *element, FILE *output)) {
     fprintf(output, "graph TD\n");
     for (size_t i = 0; i < vector_size(heap->vector); i++) {
-        fprintf(output, "  %zu((%d))\n", i, *(int *)vector_get(heap->vector, i));
+        fprintf(output, "  %zu((\"", i);
+        if (print_element) {
+            print_element(vector_get(heap->vector, i), output);
+        } else {
+            fprintf(output, "%d", *(int *)vector_get(heap->vector, i));
+        }
+        fprintf(output, "\"))\n");
+    }
+    for (size_t i = 0; i < vector_size(heap->vector); i++) {
         if (i > 0) {
             size_t parent = (i - 1) / 2;
             fprintf(output, "  %zu --> %zu\n", parent, i);

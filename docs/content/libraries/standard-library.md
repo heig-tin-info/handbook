@@ -1,6 +1,6 @@
 # Bibliothèques
 
-![Bibliothèque du Trinity College de Dublin](../../assets/images/library.jpg)
+![Bibliothèque du Trinity College de Dublin]({assets}/images/library.jpg)
 
 Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La `printf` est une de ces fonctionnalités et offerte par le header `<stdio.h>` faisant partie de la bibliothèque `libc6`.
 
@@ -134,7 +134,7 @@ La bibliothèque [ncurses](https://fr.wikipedia.org/wiki/Ncurses) traduction de 
 
 La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...
 
-![Exemple d'interface graphique écrite avec `ncurses`. Ici la configuration du noyau Linux.](../../assets/images/linux-menuconfig.png)
+![Exemple d'interface graphique écrite avec `ncurses`. Ici la configuration du noyau Linux.]({assets}/images/linux-menuconfig.png)
 
 L'écriture d'un programme Hello World avec cette bibliothèque pourrait être :
 

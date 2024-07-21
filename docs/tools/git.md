@@ -1,6 +1,6 @@
 # Git
 
-![Fanart Git](../assets/images/git-wallhaven.png)
+![Fanart Git]({assets}/images/git-wallhaven.png)
 
 ## Introduction
 

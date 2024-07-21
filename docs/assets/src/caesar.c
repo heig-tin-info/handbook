@@ -1,10 +1,8 @@
-#include <stdio.h>
-
 void caesar(char str[], unsigned key)
 {
     key %= 26;
 
-    for (size_t i = 0; str[i]; i++)
+    for (int i = 0; str[i]; i++)
     {
         char c = str[i];
 

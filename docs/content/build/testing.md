@@ -1,6 +1,6 @@
 # Qualité et Testabilité
 
-![Bogue de l'an 2000](../../assets/images/y2k-bug.jpg)
+![Bogue de l'an 2000]({assets}/images/y2k-bug.jpg)
 
 Surveiller et assurer la qualité d'un code est primordial dans toute institution et quelques soit le produit. Dans l'industrie automobile par exemple, un bogue qui serait découvert plusieurs années après la commercialisation d'un modèle d'automobile aurait des conséquences catastrophiques.
 

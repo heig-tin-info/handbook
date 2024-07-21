@@ -1,6 +1,6 @@
 # Préprocesseur
 
-![Illustration du mécanisme de pré-processing avant la compilation](../../assets/images/preprocessor.svg)
+![Illustration du mécanisme de pré-processing avant la compilation]({assets}/images/preprocessor.svg)
 
 Comme nous l'avons vu en introduction (c.f. {numref}`structured_text`), le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.
 

@@ -1,6 +1,6 @@
 # Fonctions
 
-![Margaret Hamilton, directrice projet AGC (1969), photo du MIT Museum](../../assets/images/hamilton.png){ width="50%" }
+![Margaret Hamilton, directrice projet AGC (1969), photo du MIT Museum]({assets}/images/hamilton.png){ width="50%" }
 
 Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.
 
@@ -16,7 +16,7 @@ Une fonction est donc un ensemble de code exécutable délimité du programme pr
 - D'une valeur de retour
 - De paramètres d'appel
 
-![Agencement de fonctions](../../assets/images/functions.svg)
+![Agencement de fonctions]({assets}/images/functions.svg)
 
 L'utilisation des fonctions permet :
 
@@ -33,7 +33,7 @@ En revanche, une fonction apporte quelques désavantages qui à l'échelle des o
 
 Dans le [Voyage de Chihiro](https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro) (千と千尋の神隠し) de Hayao Miyazaki, le vieux Kamaji (釜爺) travaille dans la chaudière des bains pour l'alimenter en charbon et préparer les décoctions d'herbes pour parfumer les bains des clients.
 
-![Le vieux Kamaji et ses bras extensibles.](../../assets/images/kamaji.jpg)
+![Le vieux Kamaji et ses bras extensibles.]({assets}/images/kamaji.jpg)
 
 Je vous propose de bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel il mélange les herbes ; ils sont à l'instar de l'[ALU](https://en.wikipedia.org/wiki/Arithmetic_logic_unit) d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie: le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaires aux registres du processeur.
 
@@ -89,7 +89,7 @@ En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à se s
 
 L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés :
 
-![Sauvegarde des registres du processeur et convention d'appel de fonction.](../../assets/images/calling-convention.drawio)
+![Sauvegarde des registres du processeur et convention d'appel de fonction.]({assets}/images/calling-convention.drawio)
 
 Ce coût est faible, très faible, un ordinateur fonctionnant à 3 GHz et une fonction complexe utilisant tous les registres disponibles, mettons 10 registres, consommera entre l'appel de la fonction et son retour 0.000'000'003 seconde, ça va, c'est raisonnable. Sauf que, si la fonction ne comporte qu'une seule opération comme ci-dessous, l'overhead sera aussi plus faible.
 

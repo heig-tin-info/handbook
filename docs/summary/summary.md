@@ -22,7 +22,7 @@ Ce sont ses paradigmes de programmation
 
 Le cycle de développement se compose toujours des phases: étude, écriture du cahier des charges, de l'écriture des tests, de la conception du logiciel, du codage à proprement parler et des validations finales. Le modèle en cascade est un bon résumé très utilisé dans l'industrie :
 
-:::{figure} ../../../assets/figures/dist/software-life-cycle/waterfall.*
+:::{figure} {assets}/figures/dist/software-life-cycle/waterfall.*
 Modèle en cascade
 :::
 
@@ -74,7 +74,7 @@ Un certain nombre de commandes sont utilisées durant ce cours et voici un résu
 Le diagramme de flux est beaucoup utilisé pour exprimer un algorithme comme celui d'Euclide pour
 chercher le plus grand diviseur commun.
 
-:::{figure} ../../../assets/figures/dist/algorithm/euclide-gcd.*
+:::{figure} {assets}/figures/dist/algorithm/euclide-gcd.*
 Algorithme de calcul du PGCD d'Euclide.
 :::
 
@@ -103,7 +103,7 @@ Les caractères de fin de ligne dépendent du système d'exploitation et sont ap
 
 ## Identificateurs
 
-:::{figure} ../../../assets/figures/dist/grammar/identifier.*
+:::{figure} {assets}/figures/dist/grammar/identifier.*
 Grammaire d'un identificateur C
 :::
 
@@ -301,14 +301,14 @@ Les valeurs signées sont exprimées en **complément à deux** c'est-à-dire qu
 
 La construction des types standards :
 
-:::{figure} ../../../assets/figures/dist/datatype/ansi-integers.*
+:::{figure} {assets}/figures/dist/datatype/ansi-integers.*
 :alt: "Entiers standardis\xE9s **C89**"
 :width: 100 %
 :::
 
 La construction des types portables :
 
-:::{figure} ../../../assets/figures/dist/datatype/c99-integers.*
+:::{figure} {assets}/figures/dist/datatype/c99-integers.*
 :alt: "Entiers standardis\xE9s **C99**"
 :width: 100 %
 :::
@@ -317,7 +317,7 @@ La construction des types portables :
 
 Un caractère est une valeur binaire codée sur 8-bit et dont l'interprétation est confiée à une table de correspondance nommée ASCII :
 
-:::{figure} ../../../assets/figures/dist/encoding/ascii.*
+:::{figure} {assets}/figures/dist/encoding/ascii.*
 Table ANSI INCITS 4-1986 (standard actuel)
 :::
 
@@ -471,7 +471,7 @@ while (i > 0) {
 | `exit-status` | Status de sortie d'un programme `$?`       |
 | `signaux`     | Interaction avec le système d'exploitation |
 
-:::{figure} ../../../assets/figures/dist/process/program.*
+:::{figure} {assets}/figures/dist/process/program.*
 Résumé des interactions avec un programme
 :::
 
@@ -509,7 +509,7 @@ Les sorties formatées utilisent `printf` dont le format est :
 
 : Type de formatage souhaité
 
-:::{figure} ../../../assets/figures/dist/string/formats.*
+:::{figure} {assets}/figures/dist/string/formats.*
 Formatage d'un marqueur
 :::
 

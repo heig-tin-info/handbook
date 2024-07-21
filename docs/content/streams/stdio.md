@@ -145,7 +145,7 @@ La construction d'un marqueur est loin d'être simple, mais heureusement on n'a 
 
 : Type de formatage souhaité
 
-![Formatage d'un marqueur](../../assets/images/formats.drawio)
+![Formatage d'un marqueur]({assets}/images/formats.drawio)
 
 ### Exemples
 
