@@ -1,14 +1,14 @@
-# Code de conduite
-
-![Code d'Hammurabi (1750 av. J.-C.)]({assets}/images/hammurabi.png)
+# Être développeur
 
 Être développeur logiciel que ce soit professionnellement ou comme loisir, ce n'est pas simplement écrire du code. Il y a l'art et la manière de le faire, il y a des règles à respecter, des consensus à suivre et des bonnes pratiques à adopter.
 
-J'ai vu trop souvent dans le milieu académique et professionnel, des soit disant experts ou professeurs qui inclulquent à leurs élèves ou collègues des pratiques dogmatiques basées sur des croyances personnelles ou des habitudes anciennes. L'informatique est une discipline avant tout basée sur la collaboration, l'écoute, l'introspection. Il est donc essentiel d'avoir l'esprit ouvert, et de faire preuve d'humilité.
+J'ai vu trop souvent dans le milieu académique et professionnel, des soit disant experts ou professeurs qui inclulquent à leurs élèves ou collègues des pratiques dogmatiques basées sur des croyances personnelles ou des habitudes anciennes. L'informatique est une discipline vivante basée avant tout sur la collaboration, l'écoute et l'introspection. Il est donc essentiel d'avoir l'esprit ouvert, et de faire preuve d'humilité.
 
 On ne développe pas sur des acquis et des croyances figées, mais sur des principes et des valeurs qui évoluent avec le temps et qui dépendent du milieu. Un développeur web ne développera pas de la même manière qu'un scientifique en Python ou un développeur embarqué.
 
-Les valeurs humaines fondamentales du développement logiciel sont :
+Pour des projets personnels vous développez dans votre coin mais dans une entreprise, vous faites partie d'une équipe. Le code que vous écrivez doit survivre à votre départ, il doit être lisible, maintenable, testable, évolutif. Il doit être conforme aux standards de l'entreprise, aux conventions de codage, aux bonnes pratiques, aux règles de sécurité, aux normes de qualité. Il doit être documenté, commenté, versionné, archivé. Il doit pouvoir être partagé, diffusé, échangé. Pour cela il existe des méthodes de travail bien rodées que nous allons voir dans ce cours.
+
+Néanmoins, les valeurs humaines fondamentales d'un développement logiciel sont bien loin des considérations techniques et méthodologiques. Elles sont les mêmes que celles qui régissent la société humaine depuis des millénaires. Elles sont les mêmes que celles qui ont permis à l'humanité de survivre et de prospérer. On peut citer parmi ces valeurs :
 
 - L'ouverture d'esprit
 - L'humilité
@@ -20,15 +20,35 @@ Les valeurs humaines fondamentales du développement logiciel sont :
 - L'entraide
 - Le partage
 
+!!! info "Code d'Hammurabi"
+
+    En 1750 av. J.-C., le roi Hammurabi de Babylone a promulgué le premier code de lois connu de l'histoire de l'humanité. Ce code, gravé sur une stèle de basalte, contient 282 lois qui régissent la vie quotidienne des habitants de la Mésopotamie. Il est considéré comme l'un des premiers exemples de justice équitable et de respect des droits de l'homme.
+
+    ![Code d'Hammurabi (1750 av. J.-C.)]({assets}/images/hammurabi.png)
+
+    Néanmoins, le terme équitable est à prendre avec des pincettes, car les lois de l'époque étaient souvent très sévères et punissaient les contrevenants par des châtiments corporels, des mutilations, des esclavages, des exécutions, etc. La loi du talion, "œil pour œil, dent pour dent", était souvent appliquée pour punir les criminels.
+
+    Ce que l'on doit retenir c'est que comme conventions sociales, les règles de l'informatique évoluent avec le temps et que les bonnes pratiques d'aujourd'hui ne seront pas celles de demain.
+
+    En d'autres termes, ce que je vous transmet aujourd'hui dans ce cours, n'est pas une vérité absolue, elle dépend de mon contexte, de mes expériences et de mes valeurs. Vous devez donc les prendre avec du recul, les remettre en question et faire preuve d'esprit critique.
+
 ## L'Anglais
 
 ![La langue une barrière]({assets}/images/english.png)
 
-En programmation, quel que soit le langage utilisé, la langue **anglaise** est omniprésente. D'une part les mots clés des langages de programmation sont majoritairement empruntés à l'anglais, mais souvent les outils de développement ne sont disponibles qu'en anglais. Il existe une raison à cela. Un article de journal publié dans une revue locale sera certainement lu par madame Machin et monsieur Bidule, mais n'aura aucun intérêt pour les habitants de l'antipode néo-zélandais. En programmation, le code se veut **réutilisable** pour économiser des coûts de développement. On réutilise ainsi volontiers des algorithmes écrits par un vénérable japonais, ou une bibliothèque de calcul matriciel développée en Amérique du Sud. Pour faciliter la mise en commun de ces différents blocs logiciels et surtout pour que chacun puisse dépanner le code des autres, il est essentiel qu'une langue commune soit choisie et l'anglais est le choix le plus naturel.
+En programmation, quel que soit le langage utilisé, la langue **anglaise** est omniprésente. D'une part, les mots clés des langages de programmation sont majoritairement empruntés à l'anglais, mais souvent les outils de développement ne sont disponibles qu'en anglais. Il existe une raison à cela. Un article de journal publié dans une revue locale sera certainement lu par madame Machin et monsieur Bidule, mais n'aura aucun intérêt pour les habitants de l'antipode néo-zélandais. En programmation, le code se veut **réutilisable** pour économiser des coûts de développement.
 
-Aussi dans cet ouvrage, l'anglais sera privilégié dans les exemples de code et les noms des symboles (variables, constantes ...), les termes techniques seront traduits lorsqu'il existe un consensus établi sinon l'anglicisme sera préféré. Il m'est d'ailleurs difficile, bien que ce cours soit écrit en français de parler de *feu d'alerte* en lieu et place de *warning*, car si l'un est la traduction ad hoc de l'autre, la terminologie n'a rien à voir et préfère, au risque d'un affront avec l'Académie, préserver les us et coutumes des développeurs logiciels.
+On réutilise ainsi volontiers des algorithmes écrits par un vénérable japonais, ou une bibliothèque de calcul matriciel développée en Amérique du Sud. Pour faciliter la mise en commun de ces différents blocs logiciels et surtout pour que chacun puisse dépanner le code des autres, il est essentiel qu'une langue commune soit choisie et l'anglais est le choix le plus naturel.
 
-Un autre point méritant d'être mentionné est la constante interaction d'un développeur avec internet pour y piocher des exemples, chercher des conseils, ou de l'aide pour utiliser des outils développés par d'autres. De nombreux sites internet, la vaste majorité en anglais, sont d'une aide précieuse pour le développeur. On peut ainsi citer :
+Aussi dans cet ouvrage, l'anglais sera privilégié dans les exemples de code et les noms des symboles (variables, constantes ...), les termes techniques seront traduits lorsqu'il existe un consensus établi sinon l'anglicisme sera préféré. Il m'est d'ailleurs difficile, bien que ce cours soit écrit en français de parler de *feu d'alerte* en lieu et place de *warning*, car si l'un est la traduction *ad hoc* de l'autre, la terminologie n'a rien à voir et préfère, au risque d'un affront avec l'Académie, préserver les us et coutumes des développeurs logiciels.
+
+Un autre point méritant d'être mentionné est la constante interaction d'un développeur avec internet pour y piocher des exemples, chercher des conseils, ou de l'aide pour utiliser des outils développés par d'autres. De nombreux sites internet, la vaste majorité en anglais, sont d'une aide précieuse pour le développeur.
+
+!!! tip
+
+    Ne négligez pas les cours de langue. Partez à l'étranger, lisez des livres en anglais, regardez des films en version originale, écoutez des podcasts, des conférences, des tutoriels en anglais. Cela vous ouvrira les portes de la connaissance.
+
+    En outre, sans cet atout, il vous sera plus difficile de trouver un emploi, les entreprises étant souvent internationales et les équipes de développement multiculturelles.
 
 ## Apprendre à pêcher
 
@@ -42,7 +62,7 @@ Le jeune homme tente de répéter les gestes de son père, mais il ne parvient p
 
 La morale de cette histoire est plus que jamais applicable en programmation, confier aux expérimentés l'écriture d'algorithmes compliqués, ou se contenter d'observer les réponses des exercices pour se dire: j'ai compris ce n'est pas si compliqué, est une erreur, car pêcher ou expliquer comment pêcher n'est pas la même chose.
 
-Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le développement logiciel et non un guide exhaustif du langage, car le standard C99/C11 est disponible sur internet ainsi que le K&R qui reste l'ouvrage de référence pour apprendre C. Il est donc inutile de paraphraser les exemples donnés quand internet apporte toutes les réponses, pour tous les publics du profane réservé au hacker passionné.
+Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le développement logiciel et non un guide exhaustif du langage, car le standard C99/C11 est disponible sur internet ainsi que le K&R qui reste l'ouvrage de référence pour apprendre le C. Il est donc inutile de paraphraser les exemples donnés quand internet apporte toutes les réponses, pour tous les publics du profane réservé au hacker passionné.
 
 ## Une affaire de consensus
 
@@ -59,13 +79,15 @@ Un programme se doit d'être le plus neutre possible, impartial et minimaliste. 
 
 La clé de la bonne attitude c'est d'être à l'écoute du consensus et de ne pas sombrer au [biais d'attention](https://en.wikipedia.org/wiki/Attentional_bias). Il faut non seulement être sensible au consensus local direct: son entreprise, son école, son équipe de travail, mais surtout au consensus planétaire dont l'accès ne peut se faire que par l'interaction directe avec la communauté de développeurs, soit par les forums de discussions (Reddit, stackoverflow), soit par le code lui-même. Vous avez un doute sur la bonne méthode pour écrire tel algorithme ou sur la façon dont votre programme devrait être structuré ? Plongez-vous dans le code des autres, multipliez vos expériences, observez les disparités et les oppositions, et apprenez à ne pas y être sensible.
 
-Vous verrez qu'au début, un programme ne vous semble lisible que s'il respecte vos habitudes, la taille de vos indentations préférées, la police de caractère qui vous sied le mieux, l'éditeur qui supporte les ligatures, car admettez-le `ﬁ` est infiniment plus lisible que `fi`. Par la suite, et à la relecture de cette section, vous apprendrez à faire fi de cette zone de confort qui vous était si cher et que l'important n'est plus la forme, mais le fond. Vous aurez comme [Néo](<https://fr.wikipedia.org/wiki/Neo_(Matrix)>), libéré votre esprit et serez capable de voir la matrice sans filtre, sans biais.
+Vous verrez qu'au début, un programme ne vous semble lisible que s'il respecte vos habitudes, la taille de vos indentations préférées, la police de caractère qui vous sied le mieux, l'éditeur qui supporte les ligatures...
+
+Par la suite, et à la relecture de cette section, vous apprendrez à faire fi de cette zone de confort qui vous était si cher et que l'important n'est plus la forme, mais le fond. Vous aurez comme [Néo](<https://fr.wikipedia.org/wiki/Neo_(Matrix)>), libéré votre esprit et serez capable de voir la matrice sans filtre ni biais.
 
 En somme, restez ouvert aux autres points de vue, cherchez à adopter le consensus majoritaire qui dynamise au mieux votre équipe de développement, qui s'encadre le mieux dans votre stratégie de croissance et de collaboration et surtout, abreuvez-vous de code, faites-en des indigestions, rêvez-en la nuit. Vous tradez du Bitcoin, allez lire [le code source](https://github.com/bitcoin/bitcoin), vous aimez Linux, plongez-vous dans le code source du [kernel](https://github.com/torvalds/linux), certains collègues ou amis vous ont parlé de Git, allez voir ses [entrailles](https://github.com/git/git)... Oui, tous ces projets sont écrits en C, n'est-ce pas merveilleux ?
 
 ## L'open source
 
-Au début de l'informatique, les programmes étaient distribués avec le code source, car les ordinateurs étaient rares et coûteux et que les utilisateurs étaient souvent des développeurs. Avec l'arrivée des ordinateurs personnels, les éditeurs de logiciels ont commencé à distribuer des programmes compilés, car les utilisateurs n'étaient plus des développeurs et que le code source était devenu un secret industriel. C'est ainsi que le logiciel propriétaire est né. Les éditeurs de logiciels ont profité de cette situation pour verrouiller leurs clients dans un écosystème propriétaire, les empêchant de modifier le logiciel, de le partager ou de le vendre.
+Au début de l'informatique, les programmes étaient distribués avec leur code source, car les ordinateurs étaient rares et coûteux et que les utilisateurs étaient souvent des développeurs. Avec l'arrivée des ordinateurs personnels, les éditeurs de logiciels ont commencé à distribuer des programmes compilés, car les utilisateurs n'étaient plus des développeurs et que le code source était devenu un secret industriel monétisable. C'est ainsi que le logiciel propriétaire est né. Les éditeurs de logiciels ont tiré parti de cette situation pour verrouiller leurs clients dans un écosystème propriétaire, les empêchant de modifier le logiciel, de le partager ou de le vendre.
 
 Dans les années 1980, Richard Stallman, un informaticien américain, a lancé le projet GNU pour créer un système d'exploitation libre, c'est-à-dire un système d'exploitation dont le code source est librement accessible, modifiable et redistribuable. Néanmoins la licence GPL (GNU Public License) qui protège le code source de GNU est très contraignante et ne permet pas de créer des logiciels propriétaires basés sur du code source GPL. C'est un frein pour les entreprises qui souhaitent protéger leur propriété intellectuelle.
 
@@ -83,7 +105,9 @@ Pourquoi ne pas faire d'open source ? C'est une question que vous vous poserez t
 
 ## La communauté
 
-Se passionner pour le développement logiciel c'est aussi se passionner pour la communauté des développeurs. Avant internet, les développeurs se rencontraient dans des clubs d'informatique, des associations d'utilisateurs, des conférences, des salons, des formations, des hackathons, des meetups, etc. Avec internet, les développeurs se rencontrent sur des forums, des listes de diffusion, des chats, des blogs, des réseaux sociaux, des plateformes de développement collaboratif, etc.
+Se passionner pour le développement logiciel c'est aussi se passionner pour la communauté des développeurs. Avant internet, les développeurs se rencontraient dans des clubs d'informatique, des associations d'utilisateurs, des conférences, des salons, des formations, des hackathons, des meetups, etc. Moi-même, à douze ans, je suis rentré au Mac Club de Genève. Un club d'informatique pour les passionnés de Macintosh. J'ai fait mes premiers pas sur internet avec des modem rudimentaires.
+
+Avec internet, les développeurs se rencontrent maintenant sur des forums (Stack Overflow, Reddit...), des listes de diffusion, des chats, des blogs, des réseaux sociaux, des plateformes de développement collaboratif, etc.
 
 GitHub a été créé en 2008 par Tom Preston-Werner, Chris Wanstrath, PJ Hyett et Scott Chacon pour faciliter le développement collaboratif de logiciels open source. GitHub est devenu la plateforme de développement collaboratif la plus populaire au monde, avec plus de 100 millions de dépôts de code source, plus de 40 millions de développeurs. On y trouve de tout, il suffit de chercher.
 
@@ -109,6 +133,26 @@ Voici quelques liens utiles :
 
 ## La revue de code
 
+Enfin, je voudrais terminer cette introduction par un point essentiel du développement logiciel : la revue de code, qui est trop souvent négligée.
+
 La revue de code est une pratique essentielle pour améliorer la qualité du code source, la productivité des développeurs, la sécurité des logiciels, la satisfaction des clients. La revue de code consiste à examiner le code source d'un développeur par un autre développeur pour détecter des erreurs, des anomalies, des incohérences, des inefficacités, des non-conformités, des risques, des opportunités. La revue de code peut être formelle ou informelle, manuelle ou automatique, individuelle ou collective, interne ou externe, systématique ou aléatoire, planifiée ou impromptue, etc.
 
 Dans les entreprises c'est un des plus gros problèmes. Les développeurs n'aiment pas qu'on critique leur code, les chefs de projet n'aiment pas perdre du temps à examiner le code, les clients n'aiment pas payer pour la revue de code, les managers n'aiment pas les conflits entre développeurs, les commerciaux n'aiment pas les retards de livraison, les juristes n'aiment pas les risques de litige. Les gens manquent d'humilité et d'ouverture d'esprit. Pourtant, s'ouvrir à la critique, cela permet de s'améliorer et d'apprendre.
+
+## Conclusion
+
+En résumé, devenir développeur logiciel, que ce soit en tant que professionnel ou par passion, est bien plus qu’une simple question d'écriture de code. C'est un art qui demande une compréhension profonde des principes, des bonnes pratiques et des valeurs fondamentales qui régissent cette discipline en constante évolution. Trop souvent, les dogmes académiques et les habitudes obsolètes polluent l'apprentissage et la pratique, au détriment de l'esprit collaboratif et critique indispensable à la réussite dans ce domaine.
+
+Le développement logiciel ne repose pas sur des acquis immuables, mais sur des principes adaptatifs et des valeurs humaines intemporelles telles que l'ouverture d'esprit, l'humilité, la curiosité, la rigueur, la patience, la persévérance, l'écoute, l'entraide et le partage. Ces valeurs, qui ont permis à l'humanité de prospérer, sont tout aussi essentielles dans le monde du développement logiciel.
+
+Il est crucial de comprendre que le code que vous écrivez aujourd'hui doit pouvoir être compris, maintenu et évolué par d'autres demain. Ainsi, il doit respecter les standards de l'entreprise, les conventions de codage, les bonnes pratiques et les règles de sécurité. Cela nécessite un engagement envers des méthodes de travail éprouvées, mais aussi une attitude de remise en question constante et d'ouverture à l'innovation.
+
+L'anglais, langue universelle de la programmation, est un outil indispensable pour naviguer dans cet univers globalisé. Il permet de partager des connaissances, d'accéder à des ressources et de collaborer avec des développeurs du monde entier. Ne sous-estimez pas l'importance de maîtriser cette langue pour votre carrière.
+
+Apprendre à pêcher plutôt qu'à se faire donner du poisson est une leçon clé dans l'apprentissage du développement logiciel. La pratique, la persévérance et l'expérimentation personnelle sont indispensables pour acquérir les compétences nécessaires et devenir autonome.
+
+L'informatique est aussi une affaire de consensus. Les guerres de croyances et les dogmes ne font que limiter la croissance et l'innovation. Adopter une attitude pragmatique et ouverte, en se basant sur le consensus de la communauté mondiale des développeurs, est essentiel pour progresser et s'épanouir dans ce métier.
+
+L'open source incarne parfaitement l'esprit de partage et de collaboration qui est au cœur du développement logiciel. Il permet non seulement de contribuer à des projets d'envergure mondiale, mais aussi de se faire un nom, d'apprendre des autres et de donner en retour.
+
+Enfin, la communauté des développeurs est une ressource inestimable. Participer activement à des forums, des plateformes collaboratives, des conférences et des meetups enrichit non seulement vos compétences, mais aussi votre réseau professionnel.

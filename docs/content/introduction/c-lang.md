@@ -1,14 +1,21 @@
-# Langage C
+# Le langage C
 
-Le langage C est un des premiers langages de programmation de haut niveau. Il est très proche de l'assembleur, le langage de bas niveau des processeurs, et permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation système en passant par les applications de bureau.
+Nous voici arrivé au sujet central de ce cours, le langage C. Ce chapitre est une introduction au langage C, à son histoire, à sa standardisation, à son utilisation et à son environnement de développement.
 
-Même s'il est très ancien, il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.
+Le langage C est un des premiers langages de programmation de haut niveau. Il est très proche de l'assembleur: le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation système complexes à la simple [machine à café][mcu]{ data-preview }.
 
+Même s'il est très ancien (1972), il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.
+
+À vrai dire, en 2024, il n'y a pas d'alternative viable au C pour programmer des applications embarquées, des systèmes d'exploitation ou des applications nécessitant des performances élevées.
+
+[](){ #c-history }
 ## Historique { data-search-keyword="thompson"}
 
 Le langage de programmation **C** est la suite naturelle du langage **B** créé dans la toute fin des années soixante par un grand pionnier de l'informatique moderne: [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson).
 
 Le langage C a été inventé en 1972 par [Brian Kernighan](https://fr.wikipedia.org/wiki/Brian_Kernighan) et [Dennis Ritchie](https://fr.wikipedia.org/wiki/Dennis_Ritchie). Ils sont aussi les concepteurs du système d'exploitation [UNIX](https://fr.wikipedia.org/wiki/Unix) et ont créé ce nouveau langage pour faciliter leurs travaux de développement logiciel. La saga continue avec [Bjarne Stroustrup](https://fr.wikipedia.org/wiki/Bjarne_Stroustrup) qui décide d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fera l'objet d'un cours à part entière. Ce C amélioré voit le jour en 1985.
+
+![Les pères fondateurs du C]({assets}/images/thompson-kernighan-ritchie.webp)
 
 Il faut attendre 1989 pour que le langage C fasse l'objet d'une normalisation par l'ANSI (*American National Standards Institute*). L'année suivante le comité ISO (*International Organization for Standardization*) ratifie le standard *ISO/IEC 9899:1990* communément appelé **C90**. Dès lors, le langage C est devenu un standard international et devient le langage dominant dans le monde de l'informatique.
 
@@ -17,8 +24,6 @@ Les années se succèdent et le standard évolue pour soit corriger certaines de
 Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés par les ingénieurs, car il allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances tels que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.
 
 Il faut retenir que **C** est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C.
-
-![Les pères fondateurs du C]({assets}/images/thompson-kernighan-ritchie.webp)
 
 ## Standardisation
 
@@ -61,9 +66,11 @@ Vous vous demandez probablement pourquoi l'industrie a-t-elle autant de retard s
 
         Au paragraphe §5.2.4.2.1-1 on peut lire que `ULLONG_MAX` est encodé sur 64-bits et donc que sa valeur est $2^{64}-1$ donc `18'446'744'073'709'551'615`.
 
-## Le C et les autres langages de programmation
+## Le C et les autres...
 
 Si ce cours ce concentre sur le C, ce n'est pas le seul langage de programmation et surtout ce n'est certainement pas le seul que vous apprendrez.
+
+Voici une liste non exhaustive de langages de programmation et de leur année de création. Cette liste est intéressante pour comprendre l'évolution des langages de programmation et leur utilisation:
 
 | Langage de programmation | Année | Utilisation               |
 | ------------------------ | ----- | ------------------------- |
@@ -89,91 +96,20 @@ L'index [TIOBE](https://www.tiobe.com/tiobe-index/) est un bon indicateur de la 
 
 En 2024, le top 10 des langages de programmation les plus populaires est le suivant :
 
-1. Python
-2. C++
-3. C
-4. Java
-5. C#
-6. JavaScript
-7. Go
-8. SQL
-9. Visual Basic
-10. Fortran
+| Top 10 | Langage de programmation |
+| ------ | ------------------------ |
+| 1      | Python                   |
+| 2      | C++                      |
+| 3      | C                        |
+| 4      | Java                     |
+| 5      | C#                       |
+| 6      | JavaScript               |
+| 7      | Go                       |
+| 8      | SQL                      |
+| 9      | Visual Basic             |
+| 10     | Fortran                  |
 
-Python est un langage de très haut niveau, simple a apprendre mais éloigné du matériel. C++ est un langage de programmation orientée objet, très puissant, mais complexe à apprendre. C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C.
-
-## Environnement de développement
-
-Un développeur logiciel passe son temps devant son écran à étudier, et écrire du code et bien qu'il pourrait utiliser un éditeur de texte tel que Microsoft Word ou Notepad, il préfèrera des outils apportant davantage d'interactivité et d'aide au développement. Les éditeurs de texte orienté programmation disposent d'outils puissances de complétion automatique de code et de coloration syntaxique. La touche `Tab` devient alors un allié précieux pour écrire du code rapidement.
-
-Un autre composant essentiel de l'environnement de développement est le **compilateur**. Il s'agit généralement d'un ensemble de programmes qui permettent de convertir le **code** écrit en un programme exécutable. Ce programme peut-être par la suite intégré dans un *smartphone*, dans un système embarqué sur un satellite, sur des cartes de prototypage comme un Raspberry PI, ou encore sur un ordinateur personnel.
-
-L'ensemble des outils nécessaire à créer un produit logiciel est appelé chaîne de compilation, plus communément appelée **toolchain**.
-
-Un environnement de développement intégré, ou [IDE](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement) pour *Integrated development environment* comporte généralement un éditeur de code ainsi que la [toolchain](https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_compilation) associée.
-
-![Représentation graphique des notions de compilateur, IDE, toolchain...]({assets}/images/toolchain.drawio)
-
-À titre d'exemple on peut citer quelques outils bien connus des développeurs. Choisissez celui que vous pensez être le plus adapté à vos besoins, consultez l'internet, trouvez votre optimal :
-
-[Microsoft Visual Studio](https://visualstudio.microsoft.com/)
-
-: Un **IDE** très puissant disponible sous Microsoft Windows exclusivement. Il supporte de nombreux langages de programmation comme C, C++, C# ou Python.
-
-
-[Code::Blocks](http://www.codeblocks.org/)
-
-: Un **IDE** libre et multi-plate-forme pour C et C++, une solution simple pour développer rapidement.
-
-
-[Visual Studio Code](https://code.visualstudio.com/)
-
-: Un **éditeur de code** *open-source* multi-plates-formes disponible sur Windows, macOS et Linux. Souvent abrégé *VsCode*.
-
-
-[GCC](https://gcc.gnu.org/)
-
-: Un **compilateur** *open-source* utilisé sous Linux et macOS.
-
-[CLANG](https://clang.llvm.org/)
-
-: Un **compilateur** *open-source* gagnant en popularité, une alternative à GCC.
-
-
-[Vim](https://www.vim.org/)
-
-: Un **éditeur de code** *open-source* multi-usage à la courbe d'apprentissage très raide et installé par défaut sur la plupart des distributions Unix/Linux. Il est l'évolution de *ed*, puis *ex* puis *vi* puis *vim*.
-
-
-[Ed](<https://en.wikipedia.org/wiki/Ed_(text_editor)>)
-
-: Prononcé "hidi", il s'agit du tout premier éditeur de texte développé en 1969 faisant partie des trois premiers éléments du système UNIX: l'assembleur, l'éditeur et le *shell*. Il n'est pas interactif, il n'a pas de coloration syntaxique, il est absolument obscur dans son fonctionnement, mais bientôt 50 ans après, il fait toujours partie de la norme POSIX et donc disponible sur tout système compatible. Bref, ne l'utilisez pas...
-
-Le résultat de l'étude annuelle de [Stackoverflow](https://survey.stackoverflow.co/2023/#overview) donne une idée de la popularité des éditeurs et IDE les plus utilisés par les développeurs :
-
-1. Visual Studio Code (73.3%)
-2. Visual Studio (28.4%)
-3. IntelliJ IDEA (26.8%)
-4. Notepad++ (24.5%)
-5. Vim (22.3%)
-
-!!! exercise Eclipse
-
-    Un ami vous parle d'un outil utilisé pour le développement logiciel nommé **Eclipse**. De quel type d'outil s'agit-il ?
-
-    ??? solution
-
-        [Eclipse](https://www.eclipse.org/ide/) est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
-
-??? exercise
-
-    Combien y a-t-il eu de questions posées en C sur le site Stack Overflow?
-
-    ??? solution
-
-        Il suffit pour cela de se rendre sur le site de `Stackoverflow <https://stackoverflow.com/tags/c>`__ et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
-
-        Seriez-vous capable de répondre à une question posée?
+Python est un langage de très haut niveau, simple a apprendre mais éloigné du matériel. C++ est un langage de programmation orientée objet, très puissant, mais complexe à apprendre. C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C. J'espère avoir réussi à vous convaincre.
 
 ## Programmation texte structurée
 
@@ -184,6 +120,8 @@ Le C comme la plupart des langages de programmation utilise du texte structuré,
 Les **compilateurs** sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.
 
 L'exemple suivant est un [pseudo-code](https://fr.wikipedia.org/wiki/Pseudo-code) utilisant une grammaire simple :
+
+()[]{#omelette}
 
 ```text
 POUR CHAQUE oeuf DANS le panier :
@@ -197,17 +135,17 @@ SERVIR(omelette_cuite)
 La structure de la phrase permettant de traiter tous les éléments d'un ensemble d'éléments peut alors s'écrire :
 
 ```text
-POUR CHAQUE <> DANS <>:
-    <>
+POUR CHAQUE 〰 DANS 〰:
+    〰
 ```
 
-Où les `<>` sont des marques substitutives ([placeholder](https://fr.wikipedia.org/wiki/Marque_substitutive)) qui seront remplacées par le développeur par ce qui convient.
+Où les `〰` sont des marques substitutives ([placeholder](https://fr.wikipedia.org/wiki/Marque_substitutive)) qui seront remplacées par le développeur par ce qui convient.
 
-Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. La grammaire du langage C utilisé dans ce cours peut ainsi s'exprimer en utilisant la forme Backus-Naur ou **BNF** disponible en annexe.
+Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. La [grammaire][grammar] du langage C utilisé dans ce cours peut ainsi s'exprimer en utilisant la forme Backus-Naur ou **BNF** disponible en annexe.
 
 ## Les paradigmes de programmation
 
-Chaque langage de programmation que ce soit C, C++, Python, ADA, COBOL et Lisp sont d'une manière générale assez proche les uns des autres. Nous citions par exemple le langage B, précurseur du C (c.f. {numref}`thompson`). Ces deux langages, et bien que leurs syntaxes soient différentes, ils demeurent assez proches, comme l'espagnol et l'italien qui partagent des racines latines. En programmation on dit que ces langages partagent le même [paradigme de programmation](<https://fr.wikipedia.org/wiki/Paradigme_(programmation)>).
+Chaque langage de programmation que ce soit C, C++, Python, ADA, COBOL et Lisp sont d'une manière générale assez proche les uns des autres. Nous citions par exemple le langage B, précurseur du C (c.f. [thompson]{c-history}). Ces deux langages, et bien que leurs syntaxes soient différentes, ils demeurent assez proches, comme l'espagnol et l'italien qui partagent des racines latines. En programmation on dit que ces langages partagent le même [paradigme de programmation](https://fr.wikipedia.org/wiki/Paradigme_(programmation)).
 
 Certains paradigmes sont plus adaptés que d'autres à la résolution de certains problèmes et de nombreux langages de programmation sont dit **multi-paradigmes**, c'est-à-dire qu'ils supportent différents paradigmes.
 
@@ -228,6 +166,33 @@ Le C++ quant à lui apporte les paradigmes suivants à C :
 
 Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la [programmation réflective](<https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)>).
 
+Ce que nous devons retenir c'est que le langage C est impératif et procédural, c'est à dire qu'il est basé sur des séquences d'instructions qui se lisent de haut en bas, lesquelles peuvent être regroupées en procédures. Si nous reprenons notre exemple de l'[omelette][omelette], si nous souhaitons réaliser une pâte à crèpes nous pourrions écrire :
+
+```text
+POUR REALISER un oeuf:
+    CHERCHER poule
+    oeuf 🠔 PONDRE(poule)
+
+POUR REALISER du lait:
+    CHERCHER vache
+    lait 🠔 TRAITRE(vache)
+
+POUR REALISER de la farine:
+    PLANTER blé
+    ATTENDRE 6 mois
+    moisson 🠔 MOISSONNER(blé)
+    farine 🠔 MOUDRE(moisson)
+
+POUR REALISER une pâte à crèpes:
+    oeuf 🠔 REALISER(oeuf)
+    jaune, blanc 🠔 CASSER(oeuf)
+    oeuf-liquide 🠔 MELANGER(jaune, blanc)
+    farine 🠔 REALISER(farine)
+    lait 🠔 REALISER(lait)
+    pâte 🠔 MELANGER(oeuf-liquide, farine, lait)
+```
+
+On a regrouper des instructions en procédures pour réaliser une pâte à crèpes. C'est ce que l'on appelle la programmation procédurale.
 
 ## Cycle de développement
 

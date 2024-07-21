@@ -33,6 +33,7 @@ theme:
     - header.autohide
     - navigation.footer # Adds previous and next buttons in the footer
     - navigation.instant # Dispatch through XHR, without full page reload
+    - navigation.instant.preview # [Insiders only]
     - navigation.instant.prefetch # [Insiders only]
     - navigation.instant.progress # [Insiders only]
     - navigation.path # [Insiders only]
@@ -223,11 +224,9 @@ watch:
 hooks:
   - hooks/links.py
   - hooks/unicode.py
-  #- hooks/breadcrumb.py
   - hooks/spantable.py
   - hooks/regex.py
   - hooks/french.py
-  #- hooks/latex.py
 extra_css:
   - css/french.css
   - css/callout.css

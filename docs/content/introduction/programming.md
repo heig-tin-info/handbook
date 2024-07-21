@@ -74,61 +74,41 @@ Soit un tableau de $N = 5$ valeurs à trier :
 
 $$T = {5, 3, 8, 4, 2}$$
 
-<!-- Table: Exemple de tri de bulles
-
-| Étape | $k$ | $s$ | $T$ |
-|-------|-----|-----|-----|
-| Initialisation | 0 | 0 | $\left\{\underline{5}, \underline{3}, 8, 4, 2\right\}$ |
-| $k + 1 > N$ ? non | 0 | 0 | $\left\{\underline{5}, \underline{3}, 8, 4, 2\right\}$ |
-| $T[k] > T[k + 1]$ ? oui | 0 | 1 | $\left\{\underline{5}, \underline{3}, 8, 4, 2\right\}$ |
-| Inverser et modifier $s$ et $k$ | 1 | 1 | $\left\{3, \underline{5}, \underline{8}, 4, 2\right\}$ |
-| $k + 1 > N$ ? non | 1 | 1 | $\left\{3, \underline{5}, \underline{8}, 4, 2\right\}$ |
-| $T[k] > T[k + 1]$ ? non | 1 | 1 | $\left\{3, \underline{5}, \underline{8}, 4, 2\right\}$ |
-| Incrémenter $k$ | 2 | 1 | $\left\{3, 5, \underline{8}, \underline{4}, 2\right\}$ |
-| $k + 1 > N$ ? non | 2 | 1 | $\left\{3, 5, \underline{8}, \underline{4}, 2\right\}$ |
-| $k + 1 > N$ ? non | 2 | 1 | $\left\{3, 5, \underline{8}, \underline{4}, 2\right\}$ |
-| $T[k] > T[k + 1]$ ? oui | 2 | 1 | $\left\{3, 5, \underline{8}, \underline{4}, 2\right\}$ |
-| Inverser et modifier $s$ et $k$ | 3 | 1 | $\left\{3, 5, 4, \underline{8}, \underline{2}\right\}$ |
-| $k + 1 > N$ ? non | 3 | 1 | $\left\{3, 5, \underline{4}, \underline{8}, 2\right\}$ |
-| $T[k] > T[k + 1]$ ? oui | 3 | 1 | $\left\{3, 5, 4, \underline{8}, \underline{2}\right\}$ |
-| Inverser et modifier $s$ et $k$ | 4 | 1 | $\left\{3, 5, 4, 2, \underline{8}\right\}$ |
-| $k + 1 > N$ ? oui | 4 | 1 | $\left\{3, 5, 4, 2, \underline{8}\right\}$ |
-| $s égal à 1$ ? oui | 4 | 1 | $\left\{3, 5, 4, 2, \underline{8}\right\}$ |
-| Initialisation | 0 | 0 | $\left\{\underline{3}, \underline{5}, 4, 2, 8\right\}$ |
-| ... | -->
-
 Le cycle se répète jusqu'à ce que le tableau soit trié. Si $s$ est égal à 0, il n'y a pas eu d'échange lors du parcours du tableau et le tableau est donc trié.
 
-```text
-Cycle 1:
-    {5, 3, 8, 4, 2}
-    {3, 5, 8, 4, 2}
-    {3, 5, 4, 8, 2}
-    {3, 5, 4, 2, 8}
-Cycle 2:
-    {3, 4, 5, 2, 8}
-    {3, 4, 2, 5, 8}
-Cycle 3:
-    {3, 4, 2, 5, 8}
-Cycle 4:
-    {3, 2, 4, 5, 8}
-Cycle 5:
-    {2, 3, 4, 5, 8}
-```
+![Étape par étape du tri à bulles.]({assets}/images/bubblesort-steps.drawio)
+
+Pour les cycles $3$ et $4$, nous ne montrons pas les étapes ou il n'y a pas eu d'échange. Au cinqième cycle, aucun échange n'est nécessaire, l'algorithme se termine.
+
+On peut compter le nombre de cycles assez facilement. Pour ce tableau de $N = 5$ valeurs, il y a $5$ cycles. Durant un cycle, il faut regarder $N - 1$ paires d'éléments. Donc pour un tableau de $N$ valeurs, il y a $N^2 - N$ comparaisons. Ce type d'algorithme est dit de complexité $O(N^2)$. Cela signifie que le nombre d'opérations à effectuer est proportionnel au carré du nombre d'éléments à trier. Nous verrons plus tard que la complexité d'un algorithme est un critère important. Nous verrons comment le calculer.
+
+### Conclusion
 
 Les algorithmes, il y en a de toutes sortes, des plus simples aux plus complexes. Ils sont utilisés dans de nombreux domaines, de la cryptographie à la bio-informatique en passant par la finance et la robotique.
 
+!!! tip
+
+    En tant que développeur vous devrez souvent écrire des algorithmes pour résoudre des problèmes. Souvent la meilleure approche est de prendre une feuille de papier, un crayon et de faire chauffer vos neurones. Il est crucial de bien comprendre le problème avant de se lancer dans l'écriture d'un algorithme. Les jeunes développeurs vont souvent au combat sans une reflexion préalable et passent leur temps à touiller leur code à la vaudoise. Prenez votre temps, réfléchissez, écrivez des exemples, faites des tests et vous verrez que la programmation deviendra un jeu d'enfant.
+
 ## Programmation
 
-La machine Jacquard est un [métier à tisser](https://fr.wikipedia.org/wiki/M%C3%A9tier_Jacquard) mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
+Parlons couture ! La machine Jacquard est un [métier à tisser](https://fr.wikipedia.org/wiki/M%C3%A9tier_Jacquard) mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
 
 ![Mécanisme Jacquard au Musée des arts et métiers de Paris.]({assets}/images/loom.jpg){ width="80%" }
 
-Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. L'automatisation d'un travail qui jadis était effectué manuellement causa une vague de chômage menant à la [Révolte des canuts](https://fr.wikipedia.org/wiki/R%C3%A9volte_des_canuts) en 1831.
+Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes.
 
-La [programmation](https://fr.wikipedia.org/wiki/Programmation_informatique) définit toute activité menant à l'écriture de programmes. En informatique, un programme est un ensemble ordonné d'instructions codées avec un langage donné et décrivant les étapes menant à la solution d'un problème. Il s'agit le plus souvent d'une écriture formelle d'un algorithme.
+!!! info "La revolte des canuts"
 
-Les informaticiens-tisserands responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons l'exemple d'un ouvrier spécialisé en [héraldique](https://fr.wikipedia.org/wiki/H%C3%A9raldique) et devant créer des motifs complexes de blasons. Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qui le maîtrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de Mayenne (c.f. figure ci-dessous) aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :
+    L'automatisation d'un travail qui jadis était effectué manuellement causa une vague de chômage menant à la [Révolte des canuts](https://fr.wikipedia.org/wiki/R%C3%A9volte_des_canuts) en 1831.
+
+La [programmation](https://fr.wikipedia.org/wiki/Programmation_informatique) définit toute activité menant à l'écriture de programmes. En informatique, un programme est un ensemble ordonné d'instructions codées avec un langage donné et décrivant les étapes menant à la solution d'un problème. Il s'agit le plus souvent d'une écriture formelle d'un algorithme par l'intermédiaire d'un langage de programmation.
+
+Les *informaticiens-tisserands* responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons par exemple un ouvrier spécialisé en [héraldique](https://fr.wikipedia.org/wiki/H%C3%A9raldique) et devant créer des motifs complexes de blasons.
+
+![Armoiries des ducs de Mayenne]({assets}/images/armoiries.svg){ width="250px" }
+
+Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qui le maîtrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de Mayenne (c.f. figure ci-dessous) aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :
 
 ```text
 Écartelé, en 1 et 4 :
@@ -159,20 +139,18 @@ Les informaticiens-tisserands responsables de la création des cartes perforées
         à la bordure endentée de gueules et d'or.
 ```
 
-![Armoiries des ducs de Mayenne]({assets}/images/armoiries.svg){ width="200px" }
-
 !!! info "De gueules"
 
     Notons que *de gueules* signifie *rouge*. Le [drapeau suisse](https://fr.wikipedia.org/wiki/Drapeau_et_armoiries_de_la_Suisse) est donc *de gueules, à la croix alésée d'argent*.
 
 ## Langage de programmation
 
-Traduire un algorithme en une suite d'ordres compréhensibles par une machine est donc le travail du programmeur. Il existe de nombreux langages de programmation mais la plupart se regroupe en deux catégories :
+Traduire un algorithme en une suite d'ordres compréhensibles par une machine est donc le travail du programmeur. Il existe de nombreux langages de programmation mais la plupart se regroupent en deux catégories :
 
 1. Les langages textuels qui utilisent du texte pour décrire les instructions.
 2. Les langages visuels qui utilisent des éléments graphiques pour décrire les instructions.
 
-L'être humain a appris depuis des millénaires à communiquer avec des symboles, il stoque son savoir des livres. Au début de l'ère de l'informatique, l'ordinateur ne pouvait communiquer que par du texte. Les premiers langages de programmation étaient donc textuels. Avec l'avènement des interfaces graphiques, les langages visuels ont vu le jour mais ils sont davantage réservés pour enseigner la programmation aux enfants ou pour faciliter la programmation de robots ou de jeux vidéos.
+L'être humain a appris depuis des millénaires à communiquer avec des symboles, il stoque son savoir dans des livres ou feu une époque sur des tablettes de cire. Au début de l'ère de l'informatique, l'ordinateur ne pouvait communiquer que par du texte. Les premiers langages de programmation étaient donc textuels. Avec l'avènement des interfaces graphiques, les langages visuels ont vu le jour mais ils sont davantage réservés pour enseigner la programmation aux enfants ou pour faciliter la programmation de robots ou de jeux vidéos.
 
 ??? info "Scratch"
 
@@ -224,22 +202,25 @@ Notons qu'à l'instar de notre diagramme de flux, un [calculateur] dispose aussi
 
 [calculateur]: #calculateur
 
-!!! info "Origine du mot ordinateur"
+??? info "Origine du mot ordinateur"
 
-    Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques Perret à la demande d'IBM France (c.f [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)).
+    Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques Perret à la demande d'IBM France (c.f [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)). Voici la lettre de Jacques Perret à IBM France :
 
-    > « Le 16 IV 1955
-    > Cher Monsieur,
-    > Que diriez-vous d’**ordinateur**? C’est un mot correctement formé, qui se trouve même dans le **Littré** comme adjectif désignant **Dieu** qui met de l’ordre dans le monde. Un mot de ce genre a l’avantage de donner aisément un verbe **ordiner**, un nom d’action **ordination**. L’inconvénient est que ordination désigne une cérémonie religieuse ; mais les deux champs de signification (religion et comptabilité) sont si éloignés et la cérémonie d’ordination connue, je crois, de si peu de personnes que l’inconvénient est peut-être mineur. D’ailleurs votre machine serait ordinateur (et non-ordination) et ce mot est tout à fait sorti de l’usage théologique. Systémateur serait un néologisme, mais qui ne me paraît pas offensant ; il permet systématisé ; — mais système ne me semble guère utilisable — Combinateur a l’inconvénient du sens péjoratif de combine ; combiner est usuel donc peu capable de devenir technique ; combination ne me paraît guère viable à cause de la proximité de combinaison. Mais les Allemands ont bien leurs combinats (sorte de trusts, je crois), si bien que le mot aurait peut-être des possibilités autres que celles qu’évoque combine.
-    >
-    > Congesteur, digesteur évoquent trop congestion et digestion. Synthétiseur ne me paraît pas un mot assez neuf pour désigner un objet spécifique, déterminé comme votre machine.
-    >
-    > En relisant les brochures que vous m’avez données, je vois que plusieurs de vos appareils sont désignés par des noms d’agent féminins (trieuse, tabulatrice). Ordinatrice serait parfaitement possible et aurait même l’avantage de séparer plus encore votre machine du vocabulaire de la théologie. Il y a possibilité aussi d’ajouter à un nom d’agent un complément : ordinatrice d’éléments complexes ou un élément de composition, par exemple : sélecto-systémateur. Sélecto-ordinateur a l’inconvénient de deux o en hiatus, comme électro-ordonnatrice.
-    >
-    > Il me semble que je pencherais pour **ordonnatrice électronique**. Je souhaite que ces suggestions stimulent, orientent vos propres facultés d’invention. N’hésitez pas à me donner un coup de téléphone si vous avez une idée qui vous paraisse requérir l’avis d’un philologue.
-    >
-    > Vôtre
-    > Jacques Perret »
+    « Le 16 IV 1955
+
+    Cher Monsieur,
+
+    Que diriez-vous d’**ordinateur**? C’est un mot correctement formé, qui se trouve même dans le **Littré** comme adjectif désignant **Dieu** qui met de l’ordre dans le monde. Un mot de ce genre a l’avantage de donner aisément un verbe **ordiner**, un nom d’action **ordination**. L’inconvénient est que ordination désigne une cérémonie religieuse ; mais les deux champs de signification (religion et comptabilité) sont si éloignés et la cérémonie d’ordination connue, je crois, de si peu de personnes que l’inconvénient est peut-être mineur. D’ailleurs votre machine serait ordinateur (et non-ordination) et ce mot est tout à fait sorti de l’usage théologique. Systémateur serait un néologisme, mais qui ne me paraît pas offensant ; il permet systématisé ; — mais système ne me semble guère utilisable — Combinateur a l’inconvénient du sens péjoratif de combine ; combiner est usuel donc peu capable de devenir technique ; combination ne me paraît guère viable à cause de la proximité de combinaison. Mais les Allemands ont bien leurs combinats (sorte de trusts, je crois), si bien que le mot aurait peut-être des possibilités autres que celles qu’évoque combine.
+
+    Congesteur, digesteur évoquent trop congestion et digestion. Synthétiseur ne me paraît pas un mot assez neuf pour désigner un objet spécifique, déterminé comme votre machine.
+
+    En relisant les brochures que vous m’avez données, je vois que plusieurs de vos appareils sont désignés par des noms d’agent féminins (trieuse, tabulatrice). Ordinatrice serait parfaitement possible et aurait même l’avantage de séparer plus encore votre machine du vocabulaire de la théologie. Il y a possibilité aussi d’ajouter à un nom d’agent un complément : ordinatrice d’éléments complexes ou un élément de composition, par exemple : sélecto-systémateur. Sélecto-ordinateur a l’inconvénient de deux o en hiatus, comme électro-ordonnatrice.
+
+    Il me semble que je pencherais pour **ordonnatrice électronique**. Je souhaite que ces suggestions stimulent, orientent vos propres facultés d’invention. N’hésitez pas à me donner un coup de téléphone si vous avez une idée qui vous paraisse requérir l’avis d’un philologue.
+
+    Vôtre
+
+    Jacques Perret »
 
 ## La machine de Turing
 
@@ -329,14 +310,34 @@ On peut essayer de traduire cet algorithme dans un langage formel :
     }
     ```
 
+[](){#teletype}
+## L'ordinateur d'antan
+
+![Téléscripteur Siemens T100]({assets}/images/siemens-t100.jpg)
+
+Le [téléscripteur](https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur) Siemens T100 est un exemple d'ordinateur des années 1960. Il était utilisé pour la transmission de messages télégraphiques. Il était composé d'un clavier et d'une imprimante. Il était capable de lire et d'écrire des messages sur une bande de papier. Il était programmé en utilisant des cartes perforées.
+
+On les appelait aussi **télétype** ou abrégé **TTY**. Ce terme est resté aujourd'hui pour désigner une console de terminal.
+
 ## L'ordinateur moderne
 
 Les ordinateurs modernes sont des machines complexes qui contiennent plusieurs composants. Les composants principaux d'un ordinateur sont :
 
-- Le processeur (CPU) : c'est le cerveau de l'ordinateur. Il exécute les ordres du programme.
-- La mémoire (RAM) : c'est l'espace de stockage temporaire des données et des instructions du programme.
-- Le disque *dur* (HDD/SSD) : c'est l'espace de stockage permanent des données.
-- Les périphériques d'entrée/sortie : ce sont les interfaces qui permettent à l'ordinateur de communiquer avec l'utilisateur (clavier, souris, écran, imprimante, etc.).
+Le processeur (CPU)
+
+: c'est le cerveau de l'ordinateur. Il exécute les ordres du programme.
+
+La mémoire (RAM)
+
+: c'est l'espace de stockage temporaire des données et des instructions du programme.
+
+Le disque *dur* (HDD/SSD)
+
+: c'est l'espace de stockage permanent des données.
+
+Les périphériques d'entrée/sortie
+
+: ce sont les interfaces qui permettent à l'ordinateur de communiquer avec l'utilisateur (clavier, souris, écran, imprimante, etc.).
 
 Contrairement à la machine de Turing, les ordinateurs sont équipées d'une mémoire à accès aléatoire qui permet d'accéder n'importe quel élément de la mémoire sans avoir à parcourir toute la bande. Également, ces ordinateurs disposent d'un processeur capable de calculer des opérations arithmétiques et logiques en un temps très court. Ces processeurs peuvent même calculer des fonctions trigonométriques, exponentielles et logarithmiques facilement. En reprenant notre programme d'addition binaire, il est beaucoup plus facile de l'écrire en C&nbsp;:
 
@@ -388,7 +389,7 @@ e8 00 00 00 00
 c3
 ```
 
-Ensuite, on peut écrire ce programme en mémoire avec des 1 et des 0 :
+*In fine*, ce programme sera écrit en mémoire avec des 1 et des 0 :
 
 ```text
 01001000100000111110110000011000101111110000000000000000000000000000000000110001
@@ -397,6 +398,22 @@ Ensuite, on peut écrire ce programme en mémoire avec des 1 et des 0 :
 01001000100011010111000000000001001100011100000011101000000000000000000000000000
 0000000000110001110000000100100010000011110001000001100011000011
 ```
+
+[](){#mcu}
+
+## Les systèmes à microcontrôleurs
+
+Les microcontrôleurs sont des ordinateurs complets intégrés dans un seul circuit intégré. Ils sont omniprésents dans notre vie quotidienne. Que ce soit la télévision, le téléphone portable, les machines à café, les voitures, les jouets, les montres où les appareils électroménagers, ils contiennent tous un ou plusieurs microcontrôleur.
+
+Ces derniers sont aussi programmés en implémentant des algorithmes. Le plus souvent ces algorithmes sont écrits en langage C car c'est un langage de programmation très proche du langage machine. Les microcontrôleurs sont souvent utilisés pour contrôler des systèmes en temps réel. Ils sont capables de lire des capteurs, de contrôler des actionneurs et de communiquer avec d'autres systèmes.
+
+![Machine à café Citiz de Nespresso]({assets}/images/citiz-cherry-red.png)
+
+Prenons l'exemple de cette machine à café. C'est une machine qui coûte environ 100 CHF. Elle est équipée d'un microcontrôleur à 30 centimes qui contrôle le chauffage, la pompe à eau et les leds. Le microcontrôleur est programmé pour lire les boutons de commande, contrôler les actionneurs et afficher des messages à l'utilisateur.
+
+![Schéma bloc de la machine à café Citiz]({assets}/images/citiz-diagram.drawio)
+
+Derrière se cache un programme, bien complexe. Si vous avez une de ces machines mettez là en service, vous verrez que s'il manque de l'eau vous aurez un message d'erreur. Au démarrage, les LEDs clignotent le temps que la machine chauffe. Une fois en température vous pouvez l'utiliser. Ce sont des algorithmes qui sont derrière tout cela.
 
 ## Historique
 
@@ -469,6 +486,16 @@ Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates cl�
     - 37888 processeurs graphiques MI250x (8 335 360 coeurs)
     - 22.7 MW (5 locomotives électriques ou 56'750 foyers européens)
     - 62.68 GFlops/watt
+
+## Conclusion
+
+Les algorithmes existent depuis fort longtemps et sont utilisés dans de nombreux domaines. Ils sont la base de la programmation et de l'informatique.
+
+Les hommes ont cherchés à pouvoir automatiser leurs tâches, d'abord avec des machines mécaniques comme le métier à tisser Jacquard. Puis, après l'invention de la microélectronique, il a été possible de complexifier ces machines pour en faire des ordinateurs.
+
+Pour les contrôler, les informaticiens écrivent des programmes qui implémentent des algorithmes. Ces programmes sont ensuite traduits en langage machine par un compilateur.
+
+Aujourd'hui, les superordinateurs sont capables de réaliser des milliards de milliards d'opérations par seconde, mais ils sont toujours programmés de la même manière : avec du texte.
 
 ## Exercices de révision
 

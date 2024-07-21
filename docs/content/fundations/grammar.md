@@ -1,3 +1,5 @@
+[](){ #grammar }
+
 # La grammaire
 
 Dans un langage formel, la grammaire est l'ensemble des règles qui régissent la construction des phrases. Elle est essentielle pour comprendre et produire un texte correctement. En français, la grammaire est complexe et comporte de nombreuses règles et exceptions.
