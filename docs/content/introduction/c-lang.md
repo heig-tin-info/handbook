@@ -72,25 +72,25 @@ Si ce cours ce concentre sur le C, ce n'est pas le seul langage de programmation
 
 Voici une liste non exhaustive de langages de programmation et de leur année de création. Cette liste est intéressante pour comprendre l'évolution des langages de programmation et leur utilisation:
 
-| Langage de programmation | Année | Utilisation               |
-| ------------------------ | ----- | ------------------------- |
-| Fortran                  | 1957  | Calcul scientifique       |
-| Lisp                     | 1958  | Intelligence artificielle |
-| Cobol                    | 1959  | Finance, banque           |
-| Basic                    | 1964  | Enseignement              |
-| Pascal                   | 1970  | Enseignement              |
-| C                        | 1972  | Systèmes embarqués        |
-| C++                      | 1985  | Applications lourdes      |
-| Perl                     | 1987  | Scripts                   |
-| Python                   | 1991  | Ingénierie, sciences      |
-| Ruby                     | 1995  | Scripts, Web              |
-| Java                     | 1995  | Applications lourdes      |
-| PHP                      | 1995  | Web                       |
-| C#                       | 2000  | Applications graphiques   |
-| Go                       | 2009  | Systèmes distribués       |
-| Rust                     | 2010  | Systèmes embarqués        |
-| Swift                    | 2014  | Applications mobiles      |
-| Zig                      | 2016  | Systèmes embarqués        |
+| Langage de programmation     | Année | Utilisation               |
+| ---------------------------- | ----- | ------------------------- |
+| [Fortran](wiki:fortran-lang) | 1957  | Calcul scientifique       |
+| [Lisp](wiki:lisp-lang)       | 1958  | Intelligence artificielle |
+| [Cobol](wiki:cobol-lang)     | 1959  | Finance, banque           |
+| [Basic](wiki:basic-lang)     | 1964  | Enseignement              |
+| [Pascal](wiki:pascal-lang)   | 1970  | Enseignement              |
+| [C](wiki:c-lang)             | 1972  | Systèmes embarqués        |
+| [C++](wiki:cpp-lang)         | 1985  | Applications lourdes      |
+| [Perl](wiki:perl-lang)       | 1987  | Scripts                   |
+| [Python](wiki:python-lang)   | 1991  | Ingénierie, sciences      |
+| [Ruby](wiki:ruby-lang)       | 1995  | Scripts, Web              |
+| [Java](wiki:java-lang)       | 1995  | Applications lourdes      |
+| [PHP](wiki:php-lang)         | 1995  | Web                       |
+| [C#](wiki:c-sharp)           | 2000  | Applications graphiques   |
+| [Go](wiki:go-lang)           | 2009  | Systèmes distribués       |
+| [Rust](wiki:rust-lang)       | 2010  | Systèmes embarqués        |
+| [Swift](wiki:swift-lang)     | 2014  | Applications mobiles      |
+| [Zig](wiki:zig-lang)         | 2016  | Systèmes embarqués        |
 
 L'index [TIOBE](https://www.tiobe.com/tiobe-index/) est un bon indicateur de la popularité des langages de programmation. Il est mis à jour chaque mois et permet de suivre l'évolution de la popularité des langages de programmation.
 
