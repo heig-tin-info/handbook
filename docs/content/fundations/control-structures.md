@@ -1,6 +1,8 @@
 # Structures de contrôle
 
-Les structures de contrôle appartiennent aux langages de programmation dits impératifs [structurés](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e). Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Voici les catégories de structures de contrôle :
+Les structures de contrôle appartiennent aux langages de programmation étant de [paradigme][paradigm] impératifs et [structurés](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e).
+
+Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Voici les catégories de structures de contrôle :
 
 1. Les séquences
 2. Les sauts (`jumps`)

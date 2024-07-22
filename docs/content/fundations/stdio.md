@@ -8,10 +8,10 @@ Les fonctions phares sont `printf` pour le formatage de chaîne de caractères e
 
 Les fonctions que nous allons aborder dans ce chapitre sont les suivantes :
 
-| Fonction             | Type   | Description                                                    |
-| -------------------- | ------ | -------------------------------------------------------------- |
-| [putchar](#putchar) | Sortie | Écrit un caractère sur la sortie standard                      |
-| [puts](#puts)       | Sortie | Écrit une chaîne de caractères sur la sortie standard          |
+| Fonction           | Type   | Description                                                    |
+| ------------------ | ------ | -------------------------------------------------------------- |
+| [putchar][putchar] | Sortie | Écrit un caractère sur la sortie standard                      |
+| [puts][puts]       | Sortie | Écrit une chaîne de caractères sur la sortie standard          |
 | [printf][printf]   | Sortie | Écrit une chaîne de caractères formatée sur la sortie standard |
 | [getchar][getchar] | Entrée | Lit un caractère sur l'entrée standard                         |
 | [gets][gets]       | Entrée | Lit une chaîne de caractères sur l'entrée standard             |
@@ -77,9 +77,9 @@ int main() {
 
 Notez ici qu'on utilise des guillemets doubles `"` pour les chaînes de caractères.
 
-[](){#printf}
 
-## Sorties formatées (`printf`)
+
+## Sorties formatées
 
 Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'exemple de la valeur `123`. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste :
 
@@ -114,6 +114,10 @@ Comme on ne sait pas à priori combien de caractères on aura, et que ces caract
         itoa(num, buffer);
     }
     ```
+
+[](){#printf}
+
+### Printf
 
 Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi `printf` rend l'opération bien plus aisée en utilisant des marques substitutives (*placeholder*). Ces spécifié débutent par le caractère `%` suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise `%d` pour formater un entier non signé.
 
@@ -239,9 +243,56 @@ On peut s'intéresser à comment `printf` fonctionne en interne. Le premier argu
     printf("%10s\n", 0x9f);
     ```
 
+## Entrées non formatées
+
+[](){#getchar}
+### Getchar
+
+La fonction `getchar` est une fonction de la bibliothèque standard C qui permet de lire un caractère sur l'entrée standard. Elle est définie dans la bibliothèque `stdio.h`. Elle retourne un entier qui correspond à la valeur ASCII du caractère lu.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int c;
+    while ((c = getchar()) != EOF) {
+        printf("Caractère lu : %c\n", c);
+    }
+}
+```
+
+Notez ici l'utilisaton de `EOF` qui est une constante définie dans la bibliothèque `stdio.h` et qui signifie *End Of File*. Elle est utilisée pour détecter la fin d'un fichier.
+
+Lorsque vous exécutez ce programme, vous pouvez saisir des caractères au clavier. Pour terminer la saisie, vous pouvez utiliser la combinaison de touches ++Ctrl+D++ sur Linux ou ++Ctrl+Z++ sur Windows.
+
+[](){#gets}
+### Gets
+
+La fonction `gets` est une fonction de la bibliothèque standard C qui permet de lire une chaîne de caractères sur l'entrée standard. Elle est définie dans la bibliothèque `stdio.h`.
+
+Elle est déconseillée car elle ne permet pas de spécifier la taille maximale de la chaîne à lire. Cela peut entraîner des débordements de mémoire si un utilisateur saisit une chaîne de caractères trop longue que le programme ne peut pas stocker.
+
+```c
+#include <stdio.h>
+
+int main() {
+    char str[128];
+    gets(str);
+    printf("Chaîne lue : %s\n", str);
+}
+```
+
+!!! warning
+
+    La fonction `gets` est déconseillée. Il est préférable d'utiliser la fonction `fgets` qui permet de spécifier la taille maximale de la chaîne à lire.
+
+## Entrées formatées
+
+Les fonctions de lecture de chaînes de caractères sont plus complexes que les fonctions d'écriture. En effet, il est nécessaire de spécifier le format de la chaîne à lire.
+
 [](){#scanf}
 
-## Entrées formatées (`scanf`)
+### Scanf
 
 À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou *parser* une chaîne de caractères, c'est-à-dire faire une [analyse syntaxique](https://fr.wikipedia.org/wiki/Analyse_syntaxique) de son contenu pour en extraire de l'information.
 
