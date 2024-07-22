@@ -1,44 +1,43 @@
-- Cours C
-  - Avant propos
+- Cours C:
+  - Avant propos:
     - Objectifs du cours
     - Enseignement à la HEIG-VD
     - Organisation de l'ouvrage
-  - Introduction
-    - La Programmation Informatique
+  - Introduction:
+    - La Programmation Informatique:
       - L'algorithmique
       - Langages de programmation
-      - L'ordinateur
+      - L'ordinateur:
         - Calculateur
         - Machine de Turing
         - Ordinateur moderne
         - Historique
-      - Le microcontrôleur
+      - Le microcontrôleur:
         - La machine à café
       - Exercices
-    - Être développeur
+    - Être développeur:
       - Le code de conduite
       - L'anglais
       - Apprendre par soi-même
       - Une affaire de consensus
       - L'open-source
       - La communauté
-      - La méthode de travail
+      - La méthode de travail:
         - Revue de code
         - Organisation d'un projet (introduction)
-    - Environnement de travail
-    - Le langage C
+    - Le langage C:
       - Historique / Balbutiements
       - Standardisation
       - Environnement de développement
       - Programmation texte structurée
       - Cycle de compilation
       - Hello-World
-    - Syntaxe
+    - Syntaxe:
       - L'alphabet
       - Fin de lignes
       - Mots clés
       - Identificateurs
-      - Variables
+      - Variables:
         - Déclaration
         - Constantes
         - Variables métasyntaxiques
@@ -46,48 +45,48 @@
       - Constantes littérales
       - Commentaires
     - La grammaire
-  - Numération
+  - Numération:
     - Le bit
     - Les préfixes
-    - Bases
+    - Bases:
       - Décimales
       - Binaires
       - Octales
       - Hexadécimales
       - Conversion de bases
-    - La représentation des nombres
+    - La représentation des nombres:
       - Ensembles (https://fr.wikipedia.org/wiki/Nombre#/media/Fichier:NumberSetinR2.svg)
       - Naturels
       - Relatifs
-      - Nombres décimaux
+      - Nombres décimaux:
         - Virgule fixe
-        - Virgule flottante
+        - Virgule flottante:
           - Simple précision
           - Double précision
           - La quadruple précision ?
       - Le format Q
-  - Élements du langage
-    - Types de données
+  - Élements du langage:
+    - Types de données:
       - Typage
       - Stockage et interprétation
       - Boutisme
-      - Nombres entiers bornés
+      - Nombres entiers bornés:
         - Signés
         - Non-signés
-      - Les caractères
+      - Les caractères:
         - ASCII
         - Unicode
         - Emoticônes
       - Les chaînes de caractères
       - Les booléens
       - Les énumérations
-      - Les types incomplets
+      - Les types incomplets:
         - VLQ
         - void
       - Transtypage
-    - Opérateurs
+    - Opérateurs:
       - l'ALU
-      - Types d'opérateurs
+      - Types d'opérateurs:
         - Opérateurs arithmétiques
         - Opérateurs relationnels
         - Opérateurs bit à bit
@@ -101,137 +100,136 @@
       - Priorités des opérateurs
       - Promotion implicite
       - Valeurs gauches
-    - Les fonctions d'entrées-sorties
+    - Les fonctions d'entrées-sorties:
       - `printf`
       - `scanf`
       - `getchar`
       - `putchar`
       - `gets`
       - `puts`
-    - Structures de contrôle
+    - Structures de contrôle:
       - Les séquences d'instructions
-      - Les branchements
-        - Branchements conditionnels
+      - Les branchements:
+        - Branchements conditionnels:
           - `if`, `else`
           - `switch`
-      - Les boucles
+      - Les boucles:
         - Boucle `while`
         - Boucle `do-while`
         - Boucle `for`
         - Boucles infinies
-      - Les sauts
+      - Les sauts:
         - `break`
         - `continue`
         - `goto`
         - `return`
-    - Le préprocesseur
+    - Le préprocesseur:
       - Comprendre le préprocesseur
-      - Les directives
-        - `#define`
-        - `#include`
-        - `#undef`
-        - `#ifdef`, `#ifndef`
-        - `#if`, `#elif`, `#else`
-        - `#error`, `#warning`
-        - `#pragma`
-        - `#line`
-        - `#`
+      - Les directives:
+        - define
+        - include
+        - undef
+        - ifdef, ifndef
+        - if, elif, else
+        - error, warning
+        - pragma
+        - line
       - Les macros
       - Les fichiers d'en-tête
       - Concaténation
-    - Les fonctions
-      - Fonctions
+    - Les fonctions:
+      - Fonctions:
         - Définition
         - Conventions d'appel
         - Stack
         - Prototypes
-    - Portée et visibilité
+    - Portée et visibilité:
       - Espace de nommage
       - Variable shadowing
       - Visibilité
-      - Qualificatifs de portée
-        - `static`
-        - `extern`
-        - `register`
-        - `auto`
-        - `const`
-        - `volatile`
-        - `restrict`
-        - `inline`
-  - Architecture matérielle
-    - L'ordinateur
+      - Qualificatifs de portée:
+        - static
+        - extern
+        - register
+        - auto
+        - const
+        - volatile
+        - restrict
+        - inline
+  - Architecture matérielle:
+    - L'ordinateur:
       - La RAM
       - La ROM
-      - Le CPU
+      - Le CPU:
         - Les registres
         - L'ALU
-      - La carte mère
+      - La carte mère:
         - Le chipset
         - Le BIOS
         - Les bus
-    - Les systèmes à microcontrôleurs
+    - Les systèmes à microcontrôleurs:
       - Les microcontrôleurs
       - Adaptation du style de programmation
       - Les interruptions
       - Les périphériques
       - Les ports
-    - Gestion de la mémoire
+    - Gestion de la mémoire:
       - Adressage
-  - Les types composés
+  - Les types composés:
     - Les tableaux
     - Les structures
     - Les champs de bits
     - Les unions
     - Les énumérations
     - Déclaration de types avec `typedef`
-  - Programmes et processus
-    - Architecture d'un programme
+  - Programmes et processus:
+    - Architecture d'un programme:
       - Le status de sortie
       - Les variables d'environnement
       - Les arguments
     - Les exécutables
     - Les signaux
-    - Les fichiers
+    - Les fichiers:
       - Les fichiers binaires
       - Les fichiers textes
       - Les fichiers tabulaires
-    - Les flux
+    - Les flux:
       - Pipes
       - Fin de fichier
       - Seek
-  - Les pointeurs
+  - Les pointeurs:
     - Adresses et valeurs
     - Aritmétique de pointeurs
     - Les pointeurs sur les tableaux
-    - Les pointeurs sur les structures
+    - Les pointeurs sur les structures:
       - Structures auto-référencées
     - Les pointeurs de fonctions
     - Allocation dynamique
-  - Les conteneurs de données
+  - Les conteneurs de données:
     - Les tableaux dynamiques
     - Les listes chaînées
     - Les piles
     - Les files
     - Les arbres
     - Les graphes
-  - Algorithmes
-    - L'algorithmique
+  - Algorithmes:
+    - Introduction
     - Méthodes de résolution
     - Algorithmes de recherche
     - Algorithmes de tris
-    - Récursion
+    - Récursion:
       - Programmation dynamique
       - Mémoïsation
-  - Programmes modulaires
+  - Programmes modulaires:
     - Principes élémentaires
-    - Compilation séparées
+    - Compilation séparées:
       - Variables partagées
     - Makefile
-  - Bibliotheques
+  - Bibliotheques:
     - Les bibliothèques standard
     - Les bibliothèques externes
     - Statique ou dynamique
-  - Gestion de projet
+  - Gestion de projet:
     - Équipe de développement
     - Organisation d'un projet
     - Cycle de développement
@@ -239,10 +237,11 @@
     - La qualité du code
     - Testabilité
     - La documentation
-  - Philosophie et attitude
-    - Rasoir d'Ockham
-    - Effet Dunning-Kruger
-    - Philosophie de conception
-    - L'odeur du code
+  - Philosophie et attitude:
+    - Philosophie:
+      - Rasoir d'Ockham
+      - Effet Dunning-Kruger
+      - Philosophie de conception
+      - L'odeur du code
     - Humour d'informaticien
   - Exercices

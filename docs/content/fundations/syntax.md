@@ -169,6 +169,8 @@ Ces mots clés font partie intégrante de la [grammaire][grammar] du langage et 
 
     Le Perl par exemple n'a environ que 20 mots clés, mais il est réputé pour être un langage difficile à apprendre. Le C++ dans sa version 2020 en a plus de 84.
 
+[](){#identifier}
+
 ## Identificateurs
 
 Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par une grammaire régulière qui peut être exprimée comme suit :

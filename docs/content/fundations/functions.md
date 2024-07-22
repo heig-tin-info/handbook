@@ -16,7 +16,7 @@ Une fonction est donc un ensemble de code exécutable délimité du programme pr
 - D'une valeur de retour
 - De paramètres d'appel
 
-![Agencement de fonctions]({assets}/images/functions.svg)
+![Agencement de fonctions]({assets}/images/functions.drawio)
 
 L'utilisation des fonctions permet :
 
@@ -43,12 +43,14 @@ Il profite de son temps libre, pendant que les bains sont fermés pour préparer
 AUTUMN_TONIC_TEA :
 
   MOVE  R1 @B4      # Déplace de la grande ortie du casier B4 au registre R1
-  MOVE  R2 @A8      # Déplace la menthe verte (Mentha spicata) du casier A8 au registre R2
+  MOVE  R2 @A8      # Déplace la menthe verte (Mentha spicata) du casier
+                    # A8 au registre R2
   MOVE  R3 @C7      # Déplace le gingembre du casier C7 au registre R3
   ...
   CHOP  R4 R3, FINE # Coupe très finement le gingembre et le place dans R4
   ...
-  LEAV  R2 R5       # Détache les feuilles des tiges de la menthe verte, place les feuilles en R5
+  LEAV  R2 R5       # Détache les feuilles des tiges de la menthe
+                    # verte, place les feuilles en R5
   ...
   ADD   R8 R1 R5    # Pilonne le contenu de R1 et R2 et place dans R8
   ADD   R8 R8 R4
@@ -168,24 +170,25 @@ Un **prototype** de fonction diffère de son **implémentation** par fait qu'il 
 La syntaxe d'écriture d'une fonction peut être assez compliquée et la source de vérité est issue de la grammaire du langage, qui n'est pas nécessairement accessible au profane. Or, depuis **C99**, une fonction prend la forme :
 
 ```
-<storage-class> <return-type> <function-name> ( <parameter-type> <parameter-name>, ... )
+<storage-class> <return-type> <function-name> (
+    <parameter-type> <parameter-name>, ... )
 ```
 
 `<storage-class>`
 
-> Classe de stockage, elle n'est pas utile à ce stade du cours, nous aborderons plus tard les mots clés `extern`, `static` et `inline`.
+: Classe de stockage, elle n'est pas utile à ce stade du cours, nous aborderons plus tard les mots clés `extern`, `static` et `inline`.
 
 `<return-type>`
 
-> Le type de retour de la fonction, s'agit-il d'un `int`, d'un `float` ? Le type de retour est anonyme, il n'a pas de nom et ce n'est pas nécessaire.
+: Le type de retour de la fonction, s'agit-il d'un `int`, d'un `float` ? Le type de retour est anonyme, il n'a pas de nom et ce n'est pas nécessaire.
 
 `<function-name>`
 
-> Il s'agit d'un identifiant [](){#identifiers} qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom: `compute_norm`, `make_coffee`, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que `main`, `display` ou `dot_product`.
+: Il s'agit d'un [identificateur][identifier] qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom: `compute_norm`, `make_coffee`, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que `main`, `display` ou `dot_product`.
 
 `<parameter-type> <parameter-name>`
 
-> La fonction peut prendre en paramètre zéro à plusieurs paramètres où chaque paramètre est défini par son type et son nom tel que: `double real, double imag` pour une fonction qui prendrait en paramètre un nombre complexe.
+: La fonction peut prendre en paramètre zéro à plusieurs paramètres où chaque paramètre est défini par son type et son nom tel que: `double real, double imag` pour une fonction qui prendrait en paramètre un nombre complexe.
 
 Après la fermeture de la parenthèse de la liste des paramètres, deux possibilités :
 

@@ -2,49 +2,27 @@
 
 ![Illustration du mécanisme de pré-processing avant la compilation]({assets}/images/preprocessor.svg)
 
-Comme nous l'avons vu en introduction (c.f. {numref}`structured_text`), le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.
+Comme nous l'avons vu en introduction (c.f. [Texte structuré][structured-text-programming]) le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.
 
-Le cœur de cette opération est appelé **préprocesseur**. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon (`#`), *hash* en anglais et utilisé récemment comme [hashtag](https://fr.wikipedia.org/wiki/Hashtag) sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif *pound* (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse (`♯`) présent sur les pavés numériques de téléphone.
+Le cœur de cette opération est appelé **préprocesseur**. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon `#` U+0023, *hash* en anglais et utilisé récemment comme [hashtag](https://fr.wikipedia.org/wiki/Hashtag) sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif *pound* (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse `♯` U+266F présent sur les pavés numériques de téléphone.
 
 Le vocabulaire du préprocesseur est le suivant :
 
-`#include`
+| Terme                                          | Description                                     |
+| ---------------------------------------------- | ----------------------------------------------- |
+| [`#include`][preprocessor-include]             | Inclus un fichier dans le fichier courant       |
+| [`#define`][preprocessor-define]               | Crée une définition (Macro)                     |
+| [`#undef`][preprocessor-undef]                 | Détruit une définition existante                |
+| [`#if defined`][preprocessor-ifdef]            | Teste si une définition existe                  |
+| [`#if` .. `#endif`][preprocessor-if]           | Test conditionnel                               |
+| [`#`][preprocessor-hash]                       | Opérateur de conversion en chaîne de caractères |
+| [`##`][preprocessor-hash-hash]                 | Opérateur de concaténation de chaînes           |
+| [`#error "error message"`][preprocessor-error] | Génère une erreur                               |
+| [`#pragma`][preprocessor-pragma]               | Directive spécifique au compilateur             |
 
-: Inclus un fichier dans le fichier courant
+Le préprocesseur C est indépendant du langage C, c'est-à-dire qu'il peut être exécuté sur n'importe quel type de fichier.
 
-`#define`
-
-: Crée une définition (Macro)
-
-`#undef`
-
-: Détruis une définition existante
-
-`#if defined`
-
-: Teste si une définition existe
-
-`#if` .. `#endif`
-
-: Test conditionnel (similaire à l'instruction `if` du langage C)
-
-`#`
-
-: Opérateur de conversion en chaîne de caractères
-
-`##`
-
-: Opérateur de concaténation de chaînes
-
-`#error "error message"`
-
-: Génère une erreur
-
-`#pragma`
-
-: Directive spécifique au compilateur.
-
-Le préprocesseur C est indépendant du langage C, c'est-à-dire qu'il peut être exécuté sur n'importe quel type de fichier. Prenons l'exemple d'une lettre générique d'un cabinet dentaire :
+Prenons l'exemple d'une lettre générique d'un cabinet dentaire :
 
 ```text
 #ifdef FEMALE
@@ -69,7 +47,7 @@ OWNER_NAME
 #endif
 ```
 
-Il est possible d'appeler le préprocesseur directement avec l'option `-E`. Des directives `define` peuvent être renseignées depuis la ligne de commande :
+Il est possible d'appeler le préprocesseur directement avec l'option `-E` de gcc. Des directives `define` peuvent être renseignées depuis la ligne de commande :
 
 ```console
 $ gcc -xc -E test.txt \
@@ -95,7 +73,7 @@ Notez que les instructions du préprocesseur (à l'exception des opérateurs de 
 
 ## Phases de traduction
 
-Le standard décrit 4 phases de pré-processing :
+Le standard décrit quatre phases de pré-processing :
 
 1. Remplacement des caractères spéciaux, décodage des trigraphes, traitement des fin de lignes.
 2. Fusionne les lignes utilisant un retour virtuel `\`.
@@ -129,6 +107,7 @@ Par convention, et selon le standard GNU, les extensions suivantes sont en vigue
 ## Inclusion de fichiers
 
 [](){ #preprocessor-include }
+
 ### #include
 
 La directive include peut prendre deux formes, l'inclusion locale et l'inclusion globale. Il s'agit d'ailleurs de l'une des questions les plus posées (c.f. [cette question](https://stackoverflow.com/questions/21593/what-is-the-difference-between-include-filename-and-include-filename).).
@@ -168,6 +147,7 @@ La directive `#include` est principalement utilisée pour inclure des fichiers d
 ## Définitions
 
 [](){ #preprocessor-define }
+
 ### #define
 
 Les définitions sont des symboles généralement écrits en majuscule et qui sont remplacés par le préprocesseur. Ces définitions peuvent être utiles pour définir des constantes globales qui sont définies à la compilation :
@@ -227,6 +207,16 @@ int c = a + b * a + b
 
 Pour se prémunir contre ces éventuelles coquilles, on protègera toujours les définitions avec des parenthèses `#define ADD (a + b)`.
 
+[](){ #preprocessor-ifdef }
+
+### #if defined
+
+[](){ #preprocessor-if }
+
+### #if
+
+[](){ #preprocessor-undef }
+
 ### #undef
 
 Un symbole défini soit par la ligne de commande `-DFOO=1`, soit par la directive `#define FOO 1` ne peut pas être redéfini. C'est pourquoi il est possible d'utiliser `#undef` pour supprimer une directive préprocesseur :
@@ -241,6 +231,8 @@ Un symbole défini soit par la ligne de commande `-DFOO=1`, soit par la directiv
 Généralement on évitera de faire appel à `#undef` car le bon programmeur aura forcé la définition d'une directive en amont pour contraindre le développement en aval.
 
 ## Débogage
+
+[](){ #preprocessor-error }
 
 ### #error
 
@@ -416,7 +408,9 @@ int main(void) {
 
     - Éviter l'utilisation de la pre/post incrémentation/décrémentation dans l'appel de macros.
 
-## Concaténation
+[](){ #preprocessor-hash-hash }
+
+## Concaténation de chaînes
 
 Parfois il est utile de vouloir concaténer deux symboles comme si ce n'était qu'un seul. Attention, il est nécessaire de passer par une macro pour que cela fonctionne :
 
@@ -434,6 +428,39 @@ $ gcc -E ww.c
 int foobar = 42;
 
 printf("%d", foobar);
+```
+
+L'usage le plus courant est de définir le *mangling* des noms de fonctions :
+
+```c
+#define MANGLE(name) prefix_ ## name ## _suffix
+
+void MANGLE(foo)(void) {
+    printf("Hello");
+}
+
+int main() {
+    MANGLE(foo)();
+}
+```
+
+En effet le langage C ne permet pas de définir des fonctions avec le même nom, même si elles ont des signatures différentes et même si elles sont dans deux fichiers séparés. Le *mangling* permet de contourner cette limitation.
+
+Par exemple si vous avez une bibliothèque qui permet de lire des fichiers XML, vous pourriez avoir une fonction `read` pour lire un fichier XML et une fonction `read` pour lire un fichier JSON. Si vous avez besoin des deux bibliothèques et que le nom des fonctions est le même, vous aurez un conflit.
+
+Les développeurs autorisent l'utilisateur de la bibliothèque, pour autant que l'utilisateur ait accès au code source, à renommer les fonctions.
+
+En utilisant le *mangling* vous pourriez définir `xml_read` et `json_read` pour éviter les conflits.
+
+[](){ #preprocessor-hash }
+
+## Conversion en chaîne
+
+Il est possible de convertir un symbole en chaîne de caractères avec l'opérateur `#` :
+
+```c
+#define STR(x) #x
+printf("%s", STR(42));
 ```
 
 ## Directives conditionnelles
@@ -520,6 +547,27 @@ Les commentaires C du type suivant sont aussi des directives du préprocesseur. 
     ```
 
 ## Usages avancés
+
+[](){ #preprocessor-pragma }
+
+### #pragma
+
+La directive `#pragma` est une directive spécifique à un compilateur. Elle permet de passer des options spécifiques au compilateur, elle n'est par conséquent pas standardisée. Par exemple, pour désactiver un warning :
+
+```c
+#pragma GCC diagnostic ignored "-Wformat"
+```
+
+On utilise également `#pragma` forcer l'alignement mémoire d'une structure :
+
+```c
+#pragma pack(push, 1)
+typedef struct {
+    char a;
+    int b;
+} MyStruct;
+#pragma pack(pop)
+```
 
 ### Simulation d'exceptions
 

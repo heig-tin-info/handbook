@@ -1,4 +1,5 @@
 [](){#algorithms-and-design}
+
 # Algorithmes et conception
 
 L'algorithmique est le domaine scientifique qui étudie les algorithmes, une suite finie et non ambiguë d'opérations ou d'instructions permettant de résoudre un problème ou de traiter des données.

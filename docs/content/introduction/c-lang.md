@@ -111,6 +111,8 @@ En 2024, le top 10 des langages de programmation les plus populaires est le suiv
 
 Python est un langage de très haut niveau, simple a apprendre mais éloigné du matériel. C++ est un langage de programmation orientée objet, très puissant, mais complexe à apprendre. C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C. J'espère avoir réussi à vous convaincre.
 
+[](){#structured-text-programming}
+
 ## Programmation texte structurée
 
 Le C comme la plupart des langages de programmation utilise du texte structuré, c'est-à-dire que le langage peut être défini par un **vocabulaire**, une **grammaire** et se compose d'un **alphabet**.
