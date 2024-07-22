@@ -2,13 +2,13 @@
 
 Les structures de contrôle appartiennent aux langages de programmation étant de [paradigme][paradigm] impératifs et [structurés](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e).
 
-Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Voici les catégories de structures de contrôle :
+Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Voici les catégories de structures de contrôle:
 
 1. Les séquences
 2. Les sauts (`jumps`)
 3. Les boucles (`loops`)
 
-Ces structures de contrôles sont toujours composées de :
+Ces structures de contrôles sont toujours composées de:
 
 - Séquences
 - Sélections
