@@ -13,15 +13,18 @@ def addclass(element, classname):
 def rowspan(soup):
     for table in soup.find_all('table'):
         cells_to_remove = []
+        apply = False
         for row in table.find_all('tr'):
             cols = row.find_all('td')
-            num_cols = len(cols)
 
             # Identify columns with rowspan
             spanned_cols = []
             for i, cell in enumerate(cols):
-                spanned_cols.append('@span' in cell.text)
-                cell.string = cell.text.replace('@span', '')
+                has_span = '@span' in cell.text
+                spanned_cols.append(has_span)
+                if has_span:
+                    cell.string = cell.text.replace('@span', '')
+                    apply = True
 
             # Process rowspan
             for i, cell in enumerate(cols):
@@ -38,19 +41,16 @@ def rowspan(soup):
                     next_row = next_row.find_next_sibling('tr')
 
                 cell['rowspan'] = span_rows
-                classes = cell.get('class', [])
 
                 next_col_is_spanned = i + 1 < len(spanned_cols) and not spanned_cols[i + 1]
                 prev_col_is_spanned = i - 1 >= 0 and not spanned_cols[i - 1]
                 if next_col_is_spanned:
-                    classes += ['ycr-rowspan--right']
+                    addclass(cell, 'ycr-rowspan--right')
                 if prev_col_is_spanned:
-                    classes += ['ycr-rowspan--left']
-
-                cell['class'] = classes
-
-        for cell in cells_to_remove:
-            cell.decompose()
+                    addclass(cell, 'ycr-rowspan--left')
+        if apply:
+            for cell in cells_to_remove:
+                cell.decompose()
     return soup
 
 
