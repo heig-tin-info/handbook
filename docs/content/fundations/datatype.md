@@ -26,19 +26,15 @@ Il pourrait s'agir :
 
 - de 4 caractères de 8-bits :
 
-    - `01000000` `@`
-    - `01001001` `I`
-    - `00001111` `\x0f`
-    - `11011011` `Û`
+    - `01000000` `@`,
+    - `01001001` `I`,
+    - `00001111` `\x0f`,
+    - `11011011` `Û`;
 
-- ou de 4 nombres de 8-bits: `64`, `73`, `15`, `219`,
-
-- ou de deux nombres de 16-bits `18752` et `56079`,
-
-- ou alors un seul nombre de 32-bit `3675212096`.
-
-- Peut-être est-ce le nombre `-40331460896358400.000000` lu en *little endian*,
-
+- ou de 4 nombres de 8-bits: `64`, `73`, `15`, `219`;
+- ou de deux nombres de 16-bits `18752` et `56079`;
+- ou alors un seul nombre de 32-bit `3675212096`;
+- peut-être est-ce le nombre `-40331460896358400.000000` lu en *little endian*;
 - ou encore `3.141592` lu en *big endian*.
 
 Qu'en pensez-vous ?
@@ -103,8 +99,8 @@ Voici quelques exemples des valeurs minimales et maximales possibles selon le no
 
 Table: Stockage d'un entier non signé sur différentes profondeurs
 
-| Profondeur | Minimum | Maximum                                         |
-| ---------- | ------- | ----------------------------------------------- |
+| Profondeur | Minimum | Maximum                                   |
+| ---------- | ------- | ----------------------------------------- |
 | 8 bits     | 0       | 255 ($2^8 - 1$)                           |
 | 16 bits    | 0       | 65'535 ($2^{16} - 1$)                     |
 | 32 bits    | 0       | 4'294'967'295 ($2^{32} - 1$)              |
@@ -128,7 +124,7 @@ Table: Stockage d'un entier signé sur différentes profondeurs
 | 16 bits    | -32'768        | +32'767        |
 | 32 bits    | -2'147'483'648 | +2'147'483'647 |
 
-En mémoire, ces nombres sont stockés en utilisant le [complément à deux](numeration.md#twos_complement) qui fait l'objet d'une section à part entière.
+En mémoire, ces nombres sont stockés en utilisant le [complément à deux][twos_complement] qui fait l'objet d'une section à part entière.
 
 ### Les entiers bornés
 
@@ -149,59 +145,52 @@ Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au
 
 Table: "Table des types entiers en C"
 
-| Type                       | Signe    | Profondeur       | Format   |
-| -------------------------- | -------- | ---------------- | -------- |
-| `char`                   | ?        | `CHAR_BIT`     | `%c`   |
-| `signed char`            | signed   | au moins 8 bits  | `%c`   |
-| `unsigned char`          | unsigned | au moins 8 bits  | `%c`   |
-|                            |          |                  |          |
-| `short`                  | signed   | au moins 16 bits | `%hi`  |
-| `short int`              |          |                  |          |
-| `signed short`           |          |                  |          |
-| `signed short int`       |          |                  |          |
-|                            |          |                  |          |
-| `unsigned short`         | unsigned | au moins 16 bits | `%hu`  |
-| `unsigned short int`     |          |                  |          |
-|                            |          |                  |          |
-| `unsigned`               | unsigned | au moins 32 bits | `%u`   |
-| `unsigned int`           |          |                  |          |
-|                            |          |                  |          |
-| `int`                    | signed   | au moins 32 bits | `%d`   |
-| `signed`                 |          |                  |          |
-| `signed int`             |          |                  |          |
-|                            |          |                  |          |
-| `unsigned`               | unsigned | au moins 32 bits | `%u`   |
-| `unsigned int`           |          |                  |          |
-|                            |          |                  |          |
-| `long`                   | signed   | au moins 32 bits | `%li`  |
-| `long int`               |          |                  |          |
-| `signed long`            |          |                  |          |
-| `signed long int`        |          |                  |          |
-|                            |          |                  |          |
-| `unsigned long`          | unsigned | au moins 32 bits | `%lu`  |
-| `unsigned long int`      |          |                  |          |
-|                            |          |                  |          |
-| `long long`              | signed   | au moins 64 bits | `%lli` |
-| `long long int`          |          |                  |          |
-| `signed long long`       |          |                  |          |
-| `signed long long int`   |          |                  |          |
-|                            |          |                  |          |
-| `unsigned long long`     | unsigned | au moins 64 bits | `%llu` |
-| `unsigned long long int` |          |                  |          |
+| Type                     | Signe          | Profondeur              | Format       |
+| ------------------------ | -------------- | ----------------------- | ------------ |
+| `char`                   | ?              | `CHAR_BIT`              | `%c`         |
+| `signed char`            | signed         | au moins 8 bits         | `%c`         |
+| `unsigned char`          | unsigned       | au moins 8 bits         | `%c`         |
+| `short`                  | signed @span   | au moins 16 bits  @span | `%hi` @span  |
+| `short int`              |                |                         |              |
+| `signed short`           |                |                         |              |
+| `signed short int`       |                |                         |              |
+| `unsigned short`         | unsigned @span | au moins 16 bits @span  | `%hu` @span  |
+| `unsigned short int`     |                |                         |              |
+| `unsigned`               | unsigned @span | au moins 32 bits @span  | `%u`  @span  |
+| `unsigned int`           |                |                         |              |
+| `int`                    | signed @span   | au moins 32 bits @span  | `%d` @span   |
+| `signed`                 |                |                         |              |
+| `signed int`             |                |                         |              |
+| `unsigned`               | unsigned @span | au moins 32 bits @span  | `%u` @span   |
+| `unsigned int`           |                |                         |              |
+| `long`                   | signed @span   | au moins 32 bits @span  | `%li` @span  |
+| `long int`               |                |                         |              |
+| `signed long`            |                |                         |              |
+| `signed long int`        |                |                         |              |
+| `unsigned long`          | unsigned @span | au moins 32 bits @span  | `%lu` @span  |
+| `unsigned long int`      |                |                         |              |
+| `long long`              | signed @span   | au moins 64 bits @span  | `%lli` @span |
+| `long long int`          |                |                         |              |
+| `signed long long`       |                |                         |              |
+| `signed long long int`   |                |                         |              |
+| `unsigned long long`     | unsigned @span | au moins 64 bits @span  | `%llu` @span |
+| `unsigned long long int` |                |                         |              |
 
 
 Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête `stdint.h`. Cette bibliothèque standard offre les types suivants :
 
 ![Flux de construction d'un entier standardisé]({assets}/images/c99-integers.drawio)
 
-#### Types réformés
+[](){#reformed-types}
+
+### Types réformés
 
 Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.
 
 Table: Entiers standard défini par stdint
 
-| Type         | Signe    | Profondeur | Format   |
-| ------------ | -------- | ---------- | -------- |
+| Type       | Signe    | Profondeur | Format |
+| ---------- | -------- | ---------- | ------ |
 | `uint8_t`  | unsigned | 8 bits     | `%c`   |
 | `int8_t`   | signed   | 8 bits     | `%c`   |
 | `uint16_t` | unsigned | 16 bits    | `%hu`  |
@@ -242,7 +231,7 @@ Les types rapides, moins utilisés vont automatiquement choisir le type adapté 
     uint16_t j = 1024 * 64;
     ```
 
-#### Modèle de donnée
+## Modèle de donnée
 
 Comme nous l'avons évoqué plus haut, la taille des entiers `short`, `int`, ... n'est pas précisément définie par le standard. On sait qu'un `int` contient **au moins** 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment consciencieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.
 
@@ -250,17 +239,25 @@ Admettons que ce développeur sans scrupule développe un programme complexe sur
 
 La première solution est de toujours utiliser les types proposés par `<stdint.h>` lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :
 
+Table: Modèle de données
 
-| Modèle de donnée | `short` | `int` | `long` | `long long` | `size_t` | Système d'exploitation                                                                                                    |
-| ---------------- | --------- | ------- | -------- | ------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **LP32**         | 16        | 16      | 32       |               | 32         | Windows 16-bits, Apple Macintosh (très vieux)                                                                             |
-| **ILP32**        | 16        | 32      | 32       | 64            | 32         | Windows x86, Linux/Unix 32-bits                                                                                           |
-| **LLP64**        | 16        | 32      | 32       | 64            | 64         | [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) x86-64, [MinGW](https://en.wikipedia.org/wiki/MinGW) |
-| **LP64**         | 16        | 32      | 64       | 64            | 64         | Unix, Linux, macOS, Cygwin                                                                                                |
-| **ILP64**        | 16        | 64      | 64       | 64            | 64         | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC)                                                         |
-| **SILP64**       | 64        | 64      | 64       | 64            | 64         | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur)                                                         |
+| Modèle | `short` | `int` | `long` | `long long` | `size_t` | Système d'exploitation                                                                                                    |
+| ---------------- | ------- | ----- | ------ | ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **LP32**         | 16      | 16    | 32     |             | 32       | Windows 16-bits, Apple Macintosh                                                                             |
+| **ILP32**        | 16      | 32    | 32     | 64          | 32       | Windows x86, Linux/Unix 32-bits                                                                                           |
+| **LLP64**        | 16      | 32    | 32     | 64          | 64       | [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) x86-64, [MinGW](https://en.wikipedia.org/wiki/MinGW) |
+| **LP64**         | 16      | 32    | 64     | 64          | 64       | Unix, Linux, macOS, Cygwin                                                                                                |
+| **ILP64**        | 16      | 64    | 64     | 64          | 64       | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC)                                                         |
+| **SILP64**       | 64      | 64    | 64     | 64          | 64       | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur)                                                         |
 
+Pour les ordinateurs modernes on peut faire l'hypothèse raisonnable que :
 
+- `char` est de 8-bits,
+- `short` est de 16-bits,
+- `int` est de 32-bits,
+- `long long` est de 64-bits,
+
+Pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les [types réformés][reformed-types] de `<stdint.h>`. Ainsi pour s'assurer qu'un type soit **au moins** de 32-bits, on utilisera `uint_least32_t`.
 ## Les caractères
 
 Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement représentés par des grandeurs exprimées sur 1 octet (8-bits):
@@ -337,7 +334,24 @@ Ceci est vrai mais encore faut-il que la police d'écriture utilisée par votre 
 
 ## Chaîne de caractères
 
-Une **chaîne de caractères** est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit `NUL` ou `\0`.
+Une **chaîne de caractères** est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit `NUL` ou `\0`. On appelle ce caractère le caractère de fin de chaîne. Il s'agit d'une sentinelle.
+
+!!! example "Les légumes et les choux"
+
+    Imaginez que l'on vous demande de vous placer dans un champ et de déterrer n'importe quel légume sauf un chou. Votre algorithme est :
+
+    ```mermaid
+    flowchart TD
+        start(Début) --> pick[Déterrer]
+        pick --> if{Choux?}
+        if --Non--> step[Avancer de 1 pas]
+        step --> pick
+        if --Oui--> stop(Fin)
+    ```
+
+    Si vous trouvez un chou, vous savez que vous êtes arrivés au bout du champ. Le chou fait office de sentinelle.
+
+    Sans sentinelle, vous êtes obligé de connaître à l'avance le nombre de pas à faire pour arriver au bout du champ. Vous devez donc stocker en mémoire cette information additionnelle ce qui n'est pas pratique.
 
 La chaîne de caractère `Hello` sera en mémoire stockée en utilisant les codes ASCII suivants.
 
@@ -359,6 +373,18 @@ char string[] = "Hello";
  0x05 00000000
 ```
 
+!!! note
+
+    On utilise le caractère nul `\0` pour plusieurs raisons:
+
+    1. Il est facilement reconnaissable.
+    2. Dans un test il vaut `false`.
+    3. Il n'est pas imprimable et n'appartient à aucun caractère spécial.
+
+!!! warning
+
+    Ne pas confondre le caractère nul `\0` avec le caractère `0`. Le premier est un caractère de fin de chaîne, le second est un caractère numérique qui vaut `0x30`.
+
 !!! exercise "Constantes littérales caractérielles"
 
     Indiquez si les constantes littérales suivantes sont valides ou invalides.
@@ -378,7 +404,7 @@ char string[] = "Hello";
     11. `"abcdef"`
     12. `"\abc\ndef"`
     13. `"\'\"\\"`
-    14. `"Hello \world !\n"`
+    14. `"hello \world!\n"`
 
     ///
 

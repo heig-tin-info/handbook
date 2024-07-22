@@ -903,19 +903,19 @@ Table: Priorité des opérateurs
 
 | Priorité | Opérateur                 | Description @flex                       | Associativité   |
 | -------- | ------------------------- | --------------------------------------- | --------------- |
-| 1 @span  | `++`, `--`                | Postfix incréments/décréments           | Gauche à Droite |
+| 1 @span  | `++`, `--`                | Postfix incréments/décréments           | Gauche à Droite @span |
 |          | `()`                      | Appel de fonction                       |                 |
 |          | `[]`                      | Indexage des tableaux                   |                 |
 |          | `.`                       | Élément d'une structure                 |                 |
 |          | `->`                      | Élément d'une structure                 |                 |
-| 2 @span  | `++`, `--`                | Préfixe incréments/décréments           | Droite à Gauche |
+| 2 @span  | `++`, `--`                | Préfixe incréments/décréments           | Droite à Gauche @span |
 |          | `+`, `-`                  | Signe                                   |                 |
 |          | `!`, `~`                  | NON logique et NON binaire              |                 |
 |          | `(type)`                  | [Cast (Transtypage)][operator-cast]{ data-preview }    |                 |
 |          | `*`                       | Indirection, déréférencement            |                 |
 |          | `&`                       | Adresse de...                           |                 |
 |          | `sizeof`                  | Taille de...                            |                 |
-| 3        | `*`, `/`, `%`             | Multiplication, Division, Mod           | Gauche à Droite |
+| 3        | `*`, `/`, `%`             | Multiplication, Division, Mod           | Gauche à Droite @span |
 | 4        | `+`, `-`                  | Addition, soustraction                  |                 |
 | 5        | `<<`, `>>`                | Décalages binaires                      |                 |
 | 6 @span  | `<`, `<=`                 | Comparaison plus petit que              |                 |
@@ -926,7 +926,7 @@ Table: Priorité des opérateurs
 | 10       | <code>&#124;</code>       | OU inclusif binaire                     |                 |
 | 11       | `&&`                      | ET logique                              |                 |
 | 12       | <code>&#124;&#124;</code> | OU logique                              |                 |
-| 13       | `?:`                      | [Opérateur ternaire][operator-ternary]{ data-preview } | Droite à Gauche |
+| 13       | `?:`                      | [Opérateur ternaire][operator-ternary]{ data-preview } | Droite à Gauche @span |
 | 14 @span | `=`                       | Assignation simple                      |                 |
 |          | `+=`, `-=`                | Assignation par somme/diff              |                 |
 |          | `*=`, `/=`, `%=`          | Assignation par produit/quotient/modulo |                 |
@@ -978,9 +978,8 @@ Une associativité à gauche pour l'opérateur `~` signifie que l'expression `a 
 
 Note qu'il ne faut pas confondre l'associativité *évaluée de gauche à droite* qui est une associativité à *gauche*.
 
-## Complément
 
-### Promotion de type
+## Promotion de type
 
 Nous avons vu au chapitre sur les types de données que les types C
 définis par défaut sont représentés en mémoire sur 1, 2, 4 ou 8 octets.
@@ -998,7 +997,7 @@ type `double`). Voici les règles de base :
 
 La **promotion** est l'action de promouvoir un type de donnée en un autre type de donnée plus général. On parle de promotion implicite des entiers lorsqu'un type est promu en un type plus grand automatiquement par le compilateur.
 
-### Lois de De Morgan
+## Lois de De Morgan
 
 Les [lois de De Morgan](https://fr.wikipedia.org/wiki/Lois_de_De_Morgan) sont des identités logiques formulées il y a près de deux siècles par Augustus De Morgan (1806-1871). À noter que l'on peut prononcer *də mɔʁ.gɑ̃* (de Mort Gant) ou *də mɔʁ.ɡan* (de Morgane).
 
@@ -1041,7 +1040,7 @@ En logique booléenne on exprime la négation par une barre p.ex. $\overline{P}$
         D \cdot E + \overline{D} + \overline{E}
         $$
 
-### Arrondi
+## Arrondis
 
 En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus délicate que l'on peut l'imaginer de prime abord.
 
@@ -1100,7 +1099,7 @@ Le fonctionnement de la fonction `round` n'est pas unanime entre les mathématic
 [](){#lvalue}
 [](){#rvalue}
 
-### Valeurs gauches
+## Valeurs gauches
 
 Une `valeur gauche` (`lvalue`) est une particularité de certains langages de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans `x = y`, `x` est une valeur gauche. Néanmoins, l'expression `x = y` est aussi une valeur gauche :
 
@@ -1129,7 +1128,7 @@ Voici quelques exemples de valeurs gauches :
 
 Par analogie une *rvalue* est une valeur qui ne peut se trouver à gauche d'une affectation. Ainsi `x + y` est une *rvalue* car elle ne peut être affectée. De même que `x++` est une *rvalue* car elle ne peut être affectée.
 
-### Optimisation
+## Optimisation
 
 Le compilateur est en règle général plus malin que le développeur. L'optimiseur de code (lorsque compilé avec `-O2` sous `gcc`), va regrouper certaines instructions, modifier l'ordre de certaines déclarations pour réduire soit l'empreinte mémoire du code, soit accélérer son exécution.
 
@@ -1149,7 +1148,7 @@ if (a % 2) {
 }
 ```
 
-### ISO/IEC 646
+## ISO/IEC 646
 
 La bibliothèque standard `<iso646.h>` appartient à la norme C90 et définit des macros pour les opérateurs logiques. Ces macros sont les suivantes :
 

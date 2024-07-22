@@ -128,6 +128,7 @@ Par convention, et selon le standard GNU, les extensions suivantes sont en vigue
 
 ## Inclusion de fichiers
 
+[](){ #preprocessor-include }
 ### #include
 
 La directive include peut prendre deux formes, l'inclusion locale et l'inclusion globale. Il s'agit d'ailleurs de l'une des questions les plus posées (c.f. [cette question](https://stackoverflow.com/questions/21593/what-is-the-difference-between-include-filename-and-include-filename).).
@@ -166,6 +167,7 @@ La directive `#include` est principalement utilisée pour inclure des fichiers d
 
 ## Définitions
 
+[](){ #preprocessor-define }
 ### #define
 
 Les définitions sont des symboles généralement écrits en majuscule et qui sont remplacés par le préprocesseur. Ces définitions peuvent être utiles pour définir des constantes globales qui sont définies à la compilation :

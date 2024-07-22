@@ -28,7 +28,7 @@ Chacune de ces étapes peut être réalisée séparément. Par exemple, pour com
 $ cat > main.c <<EOF
 #include <stdio.h>
 int main() {
-    printf("Hello, World!\n");
+    printf("hello, world!\n");
 }
 EOF
 

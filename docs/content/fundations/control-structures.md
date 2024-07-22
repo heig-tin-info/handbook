@@ -783,7 +783,7 @@ void unlock(int password)
     Un texte est passé à un programme par `stdin`. Comptez le nombre de caractères transmis.
 
     ```console
-    $ echo "Hello world" | count-this
+    $ echo "hello world" | count-this
     11
     ```
 

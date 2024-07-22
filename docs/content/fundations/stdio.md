@@ -1,69 +1,91 @@
 # Entrées Sorties
 
-Comme nous l'avons vu (c.f. {numref}`inputs_outputs`) un programme dispose de canaux d'entrées sorties `stdin`, `stdout` et `stderr`. Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formater les sorties et interpréter les entrées.
+Un programme informatique se compose d'entrées (`stdin`) et de sorties (`stdout` et `stderr`).
 
-La fonction phare est bien entendu `printf` pour le formatage de chaîne de caractères et `scanf` pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes :
+Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formater les sorties et interpréter les entrées.
 
-- depuis/vers les canaux standards `printf`, `scanf`
-- depuis/vers un fichier quelconque `fprintf`, `fscanf`
-- depuis/vers une chaîne de caractères `sprintf`, `sscanf`
+Les fonctions phares sont `printf` pour le formatage de chaîne de caractères et `scanf` pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes que nous verrons plus tard. La liste citée est non exhaustive, mais largement documentée ici: [`<stdio.h>`](http://man7.org/linux/man-pages/man3/stdio.3.html).
 
-La liste citée est non exhaustive, mais largement documentée ici: [`<stdio.h>`](http://man7.org/linux/man-pages/man3/stdio.3.html).
+Les fonctions que nous allons aborder dans ce chapitre sont les suivantes :
+
+| Fonction             | Type   | Description                                                    |
+| -------------------- | ------ | -------------------------------------------------------------- |
+| [putchar](#putchar) | Sortie | Écrit un caractère sur la sortie standard                      |
+| [puts](#puts)       | Sortie | Écrit une chaîne de caractères sur la sortie standard          |
+| [printf][printf]   | Sortie | Écrit une chaîne de caractères formatée sur la sortie standard |
+| [getchar][getchar] | Entrée | Lit un caractère sur l'entrée standard                         |
+| [gets][gets]       | Entrée | Lit une chaîne de caractères sur l'entrée standard             |
+| [scanf][scanf]     | Entrée | Lit une chaîne de caractères formatée sur l'entrée standard    |
 
 ## Sorties non formatées
 
-Si l'on souhaite simplement écrire du texte sur la sortie standard, deux fonctions sont disponibles :
+Ces fonctions sont très basiques et permettent d'écrire des caractères ou des chaînes de caractères sur la sortie standard.
 
-`putchar(char c)`
+[](){#putchar}
 
-: Pour imprimer un caractère unique: `putchar('c')`
+### Putchar
 
-`puts(char[] str)`
+Cette fonction prend en paramètre un **seul** caractère et l'écrit sur la sortie standard. Elle est définie dans la bibliothèque `stdio.h`.
 
-: Pour imprimer une chaîne de caractères
+```c
+#include <stdio.h>
 
-!!! exercise "Mot du jour"
+int main() {
+    putchar('H');
+    putchar('e');
+    putchar('l');
+    putchar('l');
+    putchar('o');
+    putchar('\n');
+}
+```
 
-    Écrire un programme qui retourne un mot parmi une liste de mot, de façon aléatoire.
+!!! warning
+
+    Attention à utiliser des apostrophes simples `'` pour les caractères. Si vous utilisez des guillemets doubles `"` vous obtiendrez une erreur de compilation.
+
+!!! note
+
+    On sait que les caractères sont des entiers, donc on peut écrire `putchar(65)` pour écrire le caractère `A`. Donc le programme suivant écrit la même chose que le précédent :
 
     ```c
-    #include <time.h>
-    #include <stdlib.h>
+    #include <stdio.h>
 
-    char *words[] = {"Albédo", "Bigre", "Maringouin", "Pluripotent", "Entrechat",
-        "Caracoler" "Palinodie", "Sémillante", "Atavisme", "Cyclothymie",
-        "Idiosyncratique", "Entéléchie"};
-
-    #if 0
-        srand(time(NULL));   // Initialization, should only be called once.
-        size_t r = rand() % sizeof(words) / sizeof(char*); // Generate random value
-    #endif
+    int main() {
+        putchar(72);
+        putchar(101);
+        putchar(108);
+        putchar(108);
+        putchar(111);
+        putchar('\n');
+    }
     ```
 
-    ??? solution
+[](){#puts}
 
-        ```c
-        #include <time.h>
-        #include <stdlib.h>
+### Puts
 
-        char *words[] = {
-            "Albédo", "Bigre", "Maringouin", "Pluripotent", "Entrechat",
-            "Caracoler" "Palinodie", "Sémillante", "Atavisme", "Cyclothymie",
-            "Idiosyncratique", "Entéléchie"};
+La fonction `puts` est une fonction de la bibliothèque standard C qui permet d'écrire une chaîne de caractères sur la sortie standard. Notons qu'elle ajoute automatiquement un retour à la ligne à la fin de la chaîne.
 
-        int main(void)
-        {
-            srand(time(NULL));
-            puts(words[rand() % (sizeof(words) / sizeof(char*))]);
-        }
-        ```
+```c
+#include <stdio.h>
 
-## Sorties formatées
+int main() {
+    puts("hello, world"); // Un retour à la ligne est ajouté automatiquement
+}
+```
+
+Notez ici qu'on utilise des guillemets doubles `"` pour les chaînes de caractères.
+
+[](){#printf}
+
+## Sorties formatées (`printf`)
 
 Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'exemple de la valeur `123`. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste :
 
 ```text
 Etape  Opération  Resultat  Reste
+-----  ---------  --------  -----
 1      123 / 10   12        3
 2      12 / 10    1         2
 3      1 / 10     0         1
@@ -71,27 +93,27 @@ Etape  Opération  Resultat  Reste
 
 Comme on ne sait pas à priori combien de caractères on aura, et que ces caractères sont fournis depuis le chiffre le moins significatif, il faudra inverser la chaîne de caractères produite.
 
-Voici un exemple possible d'implémentation :
+??? example "Iota"
 
-```c
---8<-- "docs/assets/src/iota.c"
-```
+    Voici un exemple possible d'implémentation :
 
-Cette implémentation pourrait être utilisée de la façon suivante :
+    ```c
+    --8<-- "docs/assets/src/iota.c"
+    ```
 
-```c
-#include <stdlib.h>
+    Cette implémentation pourrait être utilisée de la façon suivante :
 
-int main(void)
-{
-    int num = 123;
-    char buffer[10];
+    ```c
+    #include <stdlib.h>
 
-    itoa(num, buffer);
-}
-```
+    int main(void)
+    {
+        int num = 123;
+        char buffer[10];
 
-## printf
+        itoa(num, buffer);
+    }
+    ```
 
 Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi `printf` rend l'opération bien plus aisée en utilisant des marques substitutives (*placeholder*). Ces spécifié débutent par le caractère `%` suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise `%d` pour formater un entier non signé.
 
@@ -105,7 +127,7 @@ int main()
 }
 ```
 
-Le standard **C99** défini le prototype de `printf` comme étant :
+Le standard C défini le prototype de `printf` comme étant :
 
 ```c
 int printf(const char *restrict format, ...);
@@ -147,24 +169,64 @@ La construction d'un marqueur est loin d'être simple, mais heureusement on n'a 
 
 ![Formatage d'un marqueur]({assets}/images/formats.drawio)
 
-### Exemples
+Voici quelques exemples :
 
 Table: Exemple de formatage avec printf
 
-| Exemple                             | Sortie            | Taille |
-|-------------------------------------|-------------------|--------|
-| :code:`printf("%c", 'c')`           | :code:`c`         | 1      |
-| :code:`printf("%d", 1242)`          | :code:`1242`      | 4      |
-| :code:`printf("%10d", 42)`          | :code:`       42` | 10     |
-| :code:`printf("%07d", 42)`          | :code:`0000042`   | 7      |
-| :code:`printf("%+-5dfr", 23)`       | :code:`+23   fr`  | 6      |
-| :code:`printf("%5.3f", 314.15)`     | :code:`314.100`   | 7      |
-| :code:`printf("%*.*f", 4, 2, 102.1)`| :code:`102.10`    | 7      |
-| :code:`printf("%8x", 57005)`        | :code:`    dead`  | 6      |
-| :code:`printf("%s", "Hello")`       | :code:`Hello`     | 5      |
+| Exemple                            | Sortie      | Taille |
+| ---------------------------------- | ----------- | ------ |
+| `#!c printf("%c", 'c')`            | `c`         | 1      |
+| `#!c printf("%d", 1242)`           | `1242`      | 4      |
+| `#!c printf("%10d", 42)`           | `       42` | 10     |
+| `#!c printf("%07d", 42)`           | `0000042`   | 7      |
+| `#!c printf("%+-5dfr", 23)`        | `+23   fr`  | 6      |
+| `#!c printf("%5.3f", 314.15)`      | `314.100`   | 7      |
+| `#!c printf("%*.*f", 4, 2, 102.1)` | `102.10`    | 7      |
+| `#!c printf("%8x", 57005)`         | `    dead`  | 6      |
+| `#!c printf("%s", "Hello")`        | `Hello`     | 5      |
 
+On peut s'intéresser à comment `printf` fonctionne en interne. Le premier argument est une chaîne de caractère qui est le motif de formattage. Il peut contenir des caractères spéciaux *placeholder* qui seront interceptés par `printf` pour être remplacés par les arguments suivants après avoir été convertis.
 
-!!! exercise "Quelques bogues bien formatés"
+!!! example "Implémentation naïve de printf"
+
+    Pour bien comprendre, on peut imaginer une implémentation naïve de `printf` que nous appellerons `my_printf` et qui se basera sur une fonction de sortie non formatée `putchar`.
+
+    Cette fonction ne sera capable que de traiter les marqueurs `%d` et `%c`, c'est suffisant pour comprendre le principe. Également, elle prendra toujours deux arguments, donc une valeur à afficher, ceci pour ne pas s'encombrer de la gestion de la liste variable d'arguments qui est un sujet avancé.
+
+    ```c
+    void my_printf(char format[], int a) {
+        // On parcourt la chaîne de caractères tant que l'on ne rencontre
+        // pas le caractère de fin de chaîne
+        for (int i = 0; format[i] != '\0'; i++) {
+            // Si on rencontre un caractère %, on regarde le caractère suivant
+            if (format[i] == '%') {
+                // Est-ce que ce caractère est spécial ?
+                switch (format[++i]) {
+                    case 'd': {
+                        char str[32] = {0};
+                        my_itoa(int a, str);
+                        for (int j = 0; str[j] != '\0'; j++) {
+                            putchar(str[j]);
+                        }
+                        break;
+                    }
+                    case 'c':
+                        // Affiche le caractère en ASCII
+                        putchar(a);
+                        break;
+                    default:
+                        // On affiche le caractère tel quel,
+                        // ce qui permet d'afficher le caractère %
+                        putchar(format[i]);
+                }
+            } else {
+                putchar(format[i]);
+            }
+        }
+    }
+    ```
+
+!!! exercise
 
     Indiquez les erreurs dans les instructions suivantes :
 
@@ -177,7 +239,9 @@ Table: Exemple de formatage avec printf
     printf("%10s\n", 0x9f);
     ```
 
-## Entrées formatées
+[](){#scanf}
+
+## Entrées formatées (`scanf`)
 
 À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou *parser* une chaîne de caractères, c'est-à-dire faire une [analyse syntaxique](https://fr.wikipedia.org/wiki/Analyse_syntaxique) de son contenu pour en extraire de l'information.
 
@@ -215,8 +279,6 @@ Quel est votre nombre favori ? Saviez-vous que votre nombre favori, 23, est impa
 ```
 
 On observe ici un comportement différent, car le retour clavier lorsque la touche *enter* est pressée n'est pas transmis au programme, mais c'est le shell qui l'intercepte.
-
-### scanf
 
 Le format de `scanf` se rapproche de `printf` mais en plus simple. Le [man scanf](https://linux.die.net/man/3/scanf) ou même la page Wikipedia de [scanf](https://en.wikipedia.org/wiki/Scanf_format_string) renseigne sur son format.
 
@@ -378,31 +440,31 @@ Ensuite, `[^\n]`. Le marqueur `[`, terminé par `]` cherche à capturer une séq
 
     ??? solution
 
-        |`Q` | `i`    | `j`  | `n`  | Remarque                      |
-        |------|----------|--------|--------|-------------------------------|
-        |  1   | `1`    | `2`  | `2`  |                               |
-        |  2   | `1`    | `0`  | `1.` | `j` n'est pas lue car arrêt |
-        |      |          |        |        | prématuré sur `,`           |
-        |  3   | `-1`   | `-2` | `2`  |                               |
-        |  4   | `0`    | `0`  | `0.` | `i` n'est pas lue car arrêt |
-        |      |          |        |        | prématuré sur `-`           |
-        |  5   | `1`    | `0`  | `1.` |                               |
-        |  6   | `1`    | `2`  | `2`  |                               |
-        |  7   | `1`    | `23` | `2`  |                               |
-        |  8   | `1234` | `56` | `2`  |                               |
-        |  9   | `123`  | `789`| `2`  |                               |
-        |  10  | `0`    | `0`  | `0`  |                               |
-        |  11  | `1`    | `2`  | `2`  |                               |
-        |  12  | `1`    | `0`  | `1`  |                               |
-        |  13  | `1`    | `23` | `2`  |                               |
-        |  14  | `18`   | `42` | `2`  |                               |
-        |  15  | `10`   | `1`  | `2.` | Le chiffre 8 interdit en octal|
-        |      |          |        |        | provoque un arrêt             |
-        |      | `x`    | `n`  |        |                               |
-        |  16  | `123.` | `1`  |        |                               |
-        |  17  | `1.23` | `1`  |        |                               |
-        |  18  |`1.23E6`| `1`  |        |                               |
-        |  19  | `12`   | `1`  |        |                               |
+        | `Q` | `i`      | `j`   | `n`  | Remarque                       |
+        | --- | -------- | ----- | ---- | ------------------------------ |
+        | 1   | `1`      | `2`   | `2`  |                                |
+        | 2   | `1`      | `0`   | `1.` | `j` n'est pas lue car arrêt    |
+        |     |          |       |      | prématuré sur `,`              |
+        | 3   | `-1`     | `-2`  | `2`  |                                |
+        | 4   | `0`      | `0`   | `0.` | `i` n'est pas lue car arrêt    |
+        |     |          |       |      | prématuré sur `-`              |
+        | 5   | `1`      | `0`   | `1.` |                                |
+        | 6   | `1`      | `2`   | `2`  |                                |
+        | 7   | `1`      | `23`  | `2`  |                                |
+        | 8   | `1234`   | `56`  | `2`  |                                |
+        | 9   | `123`    | `789` | `2`  |                                |
+        | 10  | `0`      | `0`   | `0`  |                                |
+        | 11  | `1`      | `2`   | `2`  |                                |
+        | 12  | `1`      | `0`   | `1`  |                                |
+        | 13  | `1`      | `23`  | `2`  |                                |
+        | 14  | `18`     | `42`  | `2`  |                                |
+        | 15  | `10`     | `1`   | `2.` | Le chiffre 8 interdit en octal |
+        |     |          |       |      | provoque un arrêt              |
+        |     | `x`      | `n`   |      |                                |
+        | 16  | `123.`   | `1`   |      |                                |
+        | 17  | `1.23`   | `1`   |      |                                |
+        | 18  | `1.23E6` | `1`   |      |                                |
+        | 19  | `12`     | `1`   |      |                                |
 
 !!! exercise "Chaînes de formats"
 

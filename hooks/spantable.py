@@ -16,8 +16,16 @@ def rowspan(soup):
         for row in table.find_all('tr'):
             cols = row.find_all('td')
             num_cols = len(cols)
+
+            # Identify columns with rowspan
+            spanned_cols = []
             for i, cell in enumerate(cols):
-                if '@span' not in cell.text:
+                spanned_cols.append('@span' in cell.text)
+                cell.string = cell.text.replace('@span', '')
+
+            # Process rowspan
+            for i, cell in enumerate(cols):
+                if not spanned_cols[i]:
                     continue
                 span_rows = 1
                 next_row = row.find_next_sibling('tr')
@@ -30,12 +38,15 @@ def rowspan(soup):
                     next_row = next_row.find_next_sibling('tr')
 
                 cell['rowspan'] = span_rows
-                cell.string = cell.text.replace('@span', '')
                 classes = cell.get('class', [])
-                if (i == 0 and i < num_cols):
+
+                next_col_is_spanned = i + 1 < len(spanned_cols) and not spanned_cols[i + 1]
+                prev_col_is_spanned = i - 1 >= 0 and not spanned_cols[i - 1]
+                if next_col_is_spanned:
                     classes += ['ycr-rowspan--right']
-                if (i == num_cols - 1 and i > 0):
+                if prev_col_is_spanned:
                     classes += ['ycr-rowspan--left']
+
                 cell['class'] = classes
 
         for cell in cells_to_remove:
@@ -69,7 +80,7 @@ def separators(soup):
     for table in soup.find_all('table'):
         cols_idx = []
         for row in table.find_all('tr'):
-            for i, col in enumerate(row.find_all(['th'])):
+            for i, col in enumerate(row.find_all(['th', 'td'])):
                 if '@rb' in col.text:
                     col.string = col.text.replace('@rb', '')
                     cols_idx.append(i)

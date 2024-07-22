@@ -119,9 +119,9 @@ Le C comme la plupart des langages de programmation utilise du texte structuré,
 
 Les **compilateurs** sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.
 
-L'exemple suivant est un [pseudo-code](https://fr.wikipedia.org/wiki/Pseudo-code) utilisant une grammaire simple :
+[](){ #omelette }
 
-()[]{#omelette}
+L'exemple suivant est un [pseudo-code](https://fr.wikipedia.org/wiki/Pseudo-code) utilisant une grammaire simple :
 
 ```text
 POUR CHAQUE oeuf DANS le panier :
@@ -155,14 +155,27 @@ Ce qu'il est essentiel de retenir c'est qu'un langage de programmation peut ais�
 
 Le langage C répond aux paradigmes suivants :
 
-- [Impératif](https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative): programmation en séquences de commandes
-- [Structuré](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e): programmation impérative avec des structures de contrôle imbriquées
-- [Procédural](https://fr.wikipedia.org/wiki/Programmation_proc%C3%A9durale): programmation impérative avec appels de procédures
+[Impératif](https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative)
+
+: programmation en séquences de commandes, qui se lisent de haut en bas.
+
+[Structuré](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e)
+
+: programmation impérative avec des structures de contrôle imbriquées, comme les boucles et les conditions.
+
+[Procédural](https://fr.wikipedia.org/wiki/Programmation_proc%C3%A9durale)
+
+: programmation impérative avec appels de procédures qui regroupent des instructions.
 
 Le C++ quant à lui apporte les paradigmes suivants à C :
 
-- [Fonctionnel](https://fr.wikipedia.org/wiki/Programmation_fonctionnelle)
-- [Orienté objet](https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet)
+[Fonctionnel](https://fr.wikipedia.org/wiki/Programmation_fonctionnelle)
+
+: programmation basée sur l'appel de fonctions. Utilisé dans les langages Lisp, Haskell, Erlang.
+
+[Orienté objet](https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet)
+
+: programmation basée sur la définition de classes et d'objets. Utilisé dans les langages C++, Java, Python. Une classe associe des données a des actions qui manipulent ces données.
 
 Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la [programmation réflective](<https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)>).
 
@@ -216,10 +229,10 @@ Le modèle en cascade suivant résume le cycle de développement d'un programme.
 
 ## Cycle de compilation
 
-Le langage C à une particularité que d'autres langages n'ont pas, c'est-à-dire qu'il comporte une double grammaire. Le processus de compilation s'effectue donc en deux passes.
+Le langage C à une particularité que d'autres langages n'ont pas, c'est-à-dire qu'il comporte une double [grammaire][grammar]. Le processus de compilation s'effectue donc en deux passes.
 
-1. Préprocesseur
-2. Compilation du code
+1. Préprocesseur qui enlève les commentaires et inclut les fichiers nécessaires.
+2. Compilation du code source en fichiers objet.
 
 Vient ensuite la phase d'édition des liens ou *linkage* lors de laquelle l'exécutable binaire est créé.
 
@@ -231,10 +244,10 @@ Voyons plus en détail chacune de ces étapes.
 
 La phase de *preprocessing* permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le *preprocessing* réalise :
 
-- Le remplacement des définitions par leurs valeurs (`#define`),
-- Le remplacement des fichiers inclus par leurs contenus (`#include`),
-- La conservation ou la suppression des zones de compilation conditionnelles (`#if/#ifdef/#elif/#else/#endif`).
-- La suppression des commentaires (`/* ... */`, `// ...`)
+- Le remplacement des [définitions][preprocessor-define] par leurs valeurs (`#define`),
+- Le remplacement des [fichiers inclus][preprocessor-include] par leurs contenus (`#include`),
+- La conservation ou la suppression des zones de compilation conditionnelles (`#if`, `#ifdef`, `#elif`, `#else`, `#endif`).
+- La suppression des commentaires (`#!c /* ... */`, `#!c // ...`)
 
 Avec `gcc` il est possible de demander que l'exécution du préprocesseur en utilisant l'option `-E`.
 
@@ -248,9 +261,7 @@ Avec `gcc` il est possible de ne demander que l'assemblage d'un code avec l'opti
 
 ![Assemblage d'un programme C pré-processé en assembleur]({assets}/images/assembly.drawio)
 
-
 ![Traduction d'un programme C pré-processé en objet binaire]({assets}/images/build.drawio)
-
 
 ### Édition de liens (*link*)
 
@@ -287,10 +298,9 @@ La première étape est de s'assurer que le fichier `test.c` contient bien notre
 $ cat hello.c
 #include <stdio.h>
 
-int main(void)
+int main( )
 {
-    printf("hello, world\n");
-    return 0;
+    printf("hello, world");
 }
 ```
 
@@ -326,7 +336,7 @@ $ ls -l a.out
 -rwxr-xr-- 1 ycr iai 8.2K Jul 24 09:50 a.out*
 ```
 
-Décortiquons tout cela :
+Décortiquons tout cela:
 
 ```console
 -             Il s'agit d'un fichier
@@ -340,6 +350,16 @@ iai           Nom du groupe
 Jul 24 09:50  Date de création du fichier
 a.out         Nom du fichier
 ```
+
+!!! note
+
+    Les puristes peuvent se demander s'il faut écrire `hello, world`, `hello, world!` ou `Hello, world!\n`. Dans son livre, Brian Kernighan a choisi `hello, world\n` et c'est ce que nous avons repris ici.
+
+    Outre le caractère pinailleur de cette remarque qui prête attention aux détails, il peut être noté que la casse des caractères est importante en informatique. `Hello` n'est pas la même chose que `hello`, le stockage en mémoire n'est pas le même, et donc le résultat de l'exécution d'un programme peut être différent.
+
+    Il est donc essentiel d'avoir l'oeil sur ces détails, vous le verrez par la suite, vous développerez une certaine facilité à repérer les `;` manquants, les `{}` mal placées, les `==` qui devraient être `=`, etc.
+
+    Mais avant tout, c'est la cohérence de l'ensemble qui doit primer. Si vous avez choisi d'écrire `Hello, World!`, alors écrivez-le partout de la même manière, dans tous vos exemples, dans tous vos commentaires, dans toute votre documentation.
 
 ## Exercices de Révision
 

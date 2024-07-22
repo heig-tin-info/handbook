@@ -1480,24 +1480,6 @@ mkdocs = ">=1.4.0"
 requests = "*"
 
 [[package]]
-name = "mkdocs-i18n"
-version = "0.4.6"
-description = "MkDocs i18n plugin"
-optional = false
-python-versions = "<4,>=3.7"
-files = [
-    {file = "mkdocs-i18n-0.4.6.tar.gz", hash = "sha256:977736ac643e6a9fece2f331c72168dda298b09ed55049a9c3bb6be33e099af0"},
-    {file = "mkdocs_i18n-0.4.6-py3-none-any.whl", hash = "sha256:44054cd7de6150f8e03aa074fc46d9ea661e660c9df0aab802115dd30636bc08"},
-]
-
-[package.dependencies]
-mkdocs = ">=1.1"
-mkdocs-material = "*"
-
-[package.extras]
-test = ["bandit", "black", "bs4", "coverage", "expects", "flake8", "gitlint", "isort", "lxml", "mamba", "pylint"]
-
-[[package]]
 name = "mkdocs-jupyter"
 version = "0.24.8"
 description = "Use Jupyter in mkdocs websites"
@@ -1630,6 +1612,22 @@ mkdocs = ">=1.5.2"
 
 [package.extras]
 material = ["mkdocs-material (>=9.2.5)"]
+
+[[package]]
+name = "mkdocs-toc-sidebar-plugin"
+version = "0.1.0"
+description = "An MkDocs plugin"
+optional = false
+python-versions = ">=2.7"
+files = [
+    {file = "mkdocs-toc-sidebar-plugin-0.1.0.tar.gz", hash = "sha256:34cb65a8bcb60b07bdf43f76ff03eee6eb0af542df3bab0b4d63118533a24c5e"},
+    {file = "mkdocs_toc_sidebar_plugin-0.1.0-py2-none-any.whl", hash = "sha256:871826470435401671d067ef9727f5fd9df6506bd27a3648ac6a02fd41745589"},
+]
+
+[package.dependencies]
+beautifulsoup4 = ">=4.8.2"
+mkdocs = ">=1.0.4"
+mkdocs-material = ">=4.5.0"
 
 [[package]]
 name = "mkdocs-toggle-sidebar-plugin"
@@ -2055,13 +2053,13 @@ files = [
 
 [[package]]
 name = "pure-eval"
-version = "0.2.2"
+version = "0.2.3"
 description = "Safely evaluate AST nodes without side effects"
 optional = false
 python-versions = "*"
 files = [
-    {file = "pure_eval-0.2.2-py3-none-any.whl", hash = "sha256:01eaab343580944bc56080ebe0a674b39ec44a945e6d09ba7db3cb8cec289350"},
-    {file = "pure_eval-0.2.2.tar.gz", hash = "sha256:2b45320af6dfaa1750f543d714b6d1c520a1688dec6fd24d339063ce0aaa9ac3"},
+    {file = "pure_eval-0.2.3-py3-none-any.whl", hash = "sha256:1db8e35b67b3d218d818ae653e27f06c3aa420901fa7b081ca98cbedc874e0d0"},
+    {file = "pure_eval-0.2.3.tar.gz", hash = "sha256:5f4e983f40564c576c7c8635ae88db5956bb2229d7e9237d03b3c0b0190eaf42"},
 ]
 
 [package.extras]
@@ -2885,4 +2883,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "aad40bc8d2338382179215a8198dfb3893e94297a9aef2a84798e0a4041daf4f"
+content-hash = "e590ca0f4965e90c9d495ba133ea52bfaec1fcfb0618d6eb6d3596cd9ee62dfa"
