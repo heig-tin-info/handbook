@@ -2,18 +2,24 @@
 
 Les structures de contrôle appartiennent aux langages de programmation étant de [paradigme][paradigm] impératifs et [structurés](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e).
 
-Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Voici les catégories de structures de contrôle:
+Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. On peut citer les catégories suivantes:
 
-1. Les séquences
-2. Les sauts (`jumps`)
-3. Les boucles (`loops`)
+- Les séquences
 
-Ces structures de contrôles sont toujours composées de:
+    - [Les séquences de code][sequence-code] (`;`)
+    - [Les blocs de code][sequence-block] (`{}`)
+    - [Les points de séquences][sequence-point]
 
-- Séquences
-- Sélections
-- Répétitions
-- Appels de fonctions
+- Les sauts (`jumps`)
+
+    - [Conditionnels][conditional-jumps] (`if`, `switch`)
+    - [Inconditionnels][jumps] (`break`, `continue`, `goto`, `return`)
+
+- Les boucles (`loops`)
+
+    - [Boucle itérative][loop-for] sur une valeur connue `for`
+    - [Boucle sur condition][loop-while] `while`
+    - [Boucle sur condition avec test à la fin][loop-do-while] `do`...`while`
 
 Sans structure de contrôle, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènement extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement.
 
@@ -21,13 +27,40 @@ L'intelligence d'un programme réside dans sa capacité à prendre des décision
 
 ## Séquences
 
-En C, chaque instruction est séparée de la suivante par un point virgule `;` (`U+003B`):
+[](){#sequence-code}
+
+### Séquences de code
+
+En C, chaque instruction est séparée de la suivante par un point virgule `;` U+003B. On appelle ce caractère le délimiteur d'instruction.
 
 ```c
 k = 8; k *= 2;
 ```
 
-Une *séquence* est une suite d'instructions regroupées en un bloc matérialisé par des accolades `{}`:
+Ceci permet d'écrire un programme sur une seule ligne (sauf concernant les directives préprocesseur), mais il est généralement préférable de séparer les instructions sur plusieurs lignes pour améliorer la lisibilité du code.
+
+```c
+#include <stdio.h>
+int main() { char hello[] = "hello"; printf("%s, world", hello); return 42; }
+```
+
+Certaines instructions nécessitent un délimiteur pour être correctement interprétées par le compilateur. Par exemple le `do...while` doit être terminé par un point virgule :
+
+```c
+do {
+    printf("Hello, world\n");
+} while (0); // <== point virgule obligatoire
+```
+
+!!! tip "Le point virgule grec"
+
+    N'allez pas confondre le point virgule `;` (U+003B) avec le `;` (U+037E), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
+
+[](){#sequence-block}
+
+### Séquences de bloc
+
+Une séquence bloc est une suite d'instructions regroupées en un bloc matérialisé par des accolades `{}`:
 
 ```c
 {
@@ -36,55 +69,57 @@ Une *séquence* est une suite d'instructions regroupées en un bloc matérialis�
 }
 ```
 
-!!! note
+Il est possible d'ajouter autant de bloc que vous voulez, mais il est recommandé de ne pas imbriquer les blocs de manière excessive. Un bloc est une unité de code qui peut être traitée comme une seule instruction. Il est possible de déclarer des variables locales dans un bloc, ces variables n'étant accessibles que dans le bloc où elles sont déclarées.
 
-    N'allez pas confondre le point virgule `;` (U+003B) avec le `;` (U+037E), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
+```c
+{
+    int a = 1;
+    {
+        int b = 2;
+        {
+            int c = 3;
+        }
+        // c n'est pas accessible ici
+    }
+    // b et c ne sont pas accessibles ici
+}
+// a, b et c ne sont pas accessibles ici
+```
 
-!!! info "Points de séquences"
+[](){#sequence-point}
 
-    On appelle un point de séquence ou [sequence point](https://en.wikipedia.org/wiki/Sequence_point) exprimé dans l'annexe C du standard C99 chaque élément de code dont l'exécution est garantie avant la séquence suivante. Ce qu'il est important de retenir c'est :
+### Point de séquence
 
-    - l'appel d'une fonction est effectué après que tous ses arguments ont été évalués&nbsp;;
+    On appelle un point de séquence ou [sequence point](https://en.wikipedia.org/wiki/Sequence_point) décrite dans l'annexe du standard C que certains ordres d'évaluation sont garantis.
 
-    - la fin du premier opérande dans les opérations `&&`, `||`, `?` et `,`&nbsp;;
+    Les règles sont les suivantes :
 
-    - ceci permet de court-circuiter le calcul dans `a() && b()`. La condition `b()` n'est jamais évaluée si la condition `a()` est valide&nbsp;;
-
-    - avant et après des actions associées à un formatage d'entrée sortie.
+    1. l'appel d'une fonction est effectué après que tous ses arguments ont été évalués;
+    2. la fin du premier opérande dans les opérations `&&`, `||`, `?` et `,` qui permet de court-circuiter le calcul dans `a() && b()`. La condition `b()` n'est jamais évaluée si la condition `a()` est valide;
+    3. avant et après des actions associées à un formatage d'entrée sortie.
 
     L'opérateur d'assignation `=` n'est donc pas un point de séquence et l'exécution du code `(a = 2) + a + (a = 2)` est par conséquent indéterminée.
 
-!!! warning "Un point virgule peut tout changer"
+[](){#conditional-jumps}
 
-    L'erreur typique suivante est arrivée à tout programmeur débutant. Le `;` placé après le test `if` agis comme une instruction nulle si bien que la fusée sera lancée à tous les coups :
+## Les sauts conditionnels
 
-    ```c
-    if (countdown == 0);
-      launch_rocket();
-    ```
-
-    Le même type d'erreur peut apparaître avec une boucle, ici causant une boucle infinie :
-
-    ```c
-    while(i > 0);
-    {
-        i--;
-    }
-    ```
-
-## Les embranchements
-
-Les embranchements sont des instructions de prise de décision. Une prise de décision peut être binaire, lorsqu'il y a un choix *vrai* et un choix *faux*, ou multiple lorsque la condition est scalaire. En C il y en a trois type d'embranchements :
+Les embranchements sont des instructions de prise de décision. Une prise de décision est binaire lorsqu'il y a un choix *vrai* et un choix *faux*, ou multiple lorsque la condition est scalaire. En C il y en a deux types d'embranchements :
 
 1. `if`, `if else`
 2. `switch`
-3. L'instruction ternaire
+
+On peut représenter ces embranchements par des diagrammes de flux [BPMN](wiki:bpmn) (Business Process Modelling Notation) ou des [structogrammes](wiki:structogramme) NSD (Nassi-Shneiderman):
 
 ![Diagrammes BPMN]({assets}/images/branching-diagram.drawio)
 
-Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modelling Notation) et NSD (Nassi-Shneiderman)
+Les embranchements s'appuient naturellement sur les séquences puisque chaque branche est composée d'une séquence.
 
-Les embranchements s'appuient naturellement sur les séquences puisque chaque branche est composée d'une séquence regroupant le code la composant :
+[](){#if}
+
+### `if`
+
+L'instruction `if` traduite par *si* est la plus utilisée. L'exemple suivant illustre un embranchement binaire. Il affiche `odd` si le nombre est impair et `even` s'il est pair :
 
 ```c
 if (value % 2)
@@ -97,17 +132,84 @@ else
 }
 ```
 
-### if..else
+Notons que les blocs sont facultatifs. L'instruction `if` s'attend à une seule instruction, mais il est possible de regrouper plusieurs instructions dans un bloc `{}`. Il est recommandé de toujours utiliser les blocs pour éviter les erreurs de logique. Néanmoins le code suivant est valide :
 
-Le mot clé `if` est toujours suivi d'une condition entre parenthèses qui est évaluée. Si la condition est vraie, le premier bloc est exécuté, sinon, le second bloc situé après le `else` est exécuté.
+```c
+if (value % 2)
+    printf("odd\n");
+else
+    printf("even\n");
+```
 
-Les enchaînements possibles sont :
+De même que comme des `;` séparent les instructions, on peut aussi écrire:
 
-- `if`
-- `if` + `else`
-- `if` + `else if`
-- `if` + `else if` + `else if` + ...
-- `if` + `else if` + `else`
+```c
+if (value % 2) printf("odd\n"); else printf("even\n");
+```
+
+!!! info
+
+    Dans ce cas précis, l'instruction ternaire est plus élégante :
+
+    ```c
+    printf("%s\n", value % 2 ? "odd" : "even");
+    ```
+
+Le mot clé `else` est facultatif. Si l'on ne souhaite pas exécuter d'instruction lorsque la condition est fausse, il est possible de ne pas le spécifier.
+
+```c
+int a = 42;
+int b = 0;
+
+if (b == 0) {
+    printf("Division par zéro impossible\n");
+    exit(EXIT_FAILURE);
+}
+
+printf("a / b = %d\n", a / b);
+```
+
+En C il n'y pas d'instruction `if..else if` comme on peut le trouver dans d'autres langages de programmation (p.ex. Python). Faire suivre une sous-condition à `else` est néanmoins possible puisque `if` est une instruction comme une autre la preuve est donnée par la [grammaire][grammar] du langage:
+
+```text
+selection_statement
+    : IF '(' expression ')' statement
+    | IF '(' expression ')' statement ELSE statement
+    | SWITCH '(' expression ')' statement
+    ;
+```
+
+On voit que `if` peut être suivi d'un `statement` lequel peut être suivi d'un `ELSE` et d'un autre `statement`. Ces deux `statement` peuvent par conséquent être un `selection_statement` et donc être imbriqués.
+
+Voici un exemple d'imbriquement de conditions :
+
+```c
+if (value < 0) {
+    printf("La valeur est négative\n");
+}
+else {
+    if (value == 0) {
+        printf("La valeur est nulle\n");
+    }
+    else {
+        printf("La valeur est positive\n");
+    }
+}
+```
+
+Néanmoins comme il n'y a qu'une instruction `if` après le premier `else`, le bloc peut être omis. En outre, il est correct de faire figurer le `if` sur la même ligne que le `else` :
+
+```c
+if (value < 0) {
+    printf("La valeur est négative\n");
+}
+else if (value == 0) {
+    printf("La valeur est nulle\n");
+}
+else {
+    printf("La valeur est positive\n");
+}
+```
 
 Une condition n'est pas nécessairement unique, mais peut-être la concaténation logique de plusieurs conditions séparées :
 
@@ -124,7 +226,7 @@ else
 }
 ```
 
-Remarquons qu'au passage cet exemple peut être simplifié:
+Remarquons qu'au passage cet exemple peut être simplifié pour diminuer la [complexité cyclomatique](https://fr.wikipedia.org/wiki/Nombre_cyclomatique) :
 
 ```c
 is_valid = (0 < x && x < 10) || (100 < x && x < 110) || (200 < x && x < 210);
@@ -139,52 +241,56 @@ else
 }
 ```
 
-Notons quelques erreurs courantes :
+!!! warning "Point virgule en trop"
 
-- Il est courant de placer un point virgule derrière un `if`. Le point virgule correspondant à une instruction vide, c'est cette instruction qui sera exécutée si la condition du test est vraie.
+    Il est courant de placer un point virgule derrière un `if`. Le point virgule correspondant à une instruction vide, c'est cette instruction qui sera exécutée si la condition du test est vraie.
 
     ```c
     if (z == 0);
     printf("z est nul"); // ALWAYS executed
     ```
 
-- Le test de la valeur d'une variable s'écrit avec l'opérateur d'égalité `==` et non l'opérateur d'affectation `=`. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.
+!!! warning "Affectation dans un test"
+
+    Le test de la valeur d'une variable s'écrit avec l'opérateur d'égalité `==` et non l'opérateur d'affectation `=`. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.
 
     ```c
     if (z = 0)               // set z to zero !!
         printf("z est nul"); // NEVER executed
     ```
 
-- L'oubli des accolades pour déclarer un bloc d'instructions
+!!! warning "L'oubli des accolades"
+
+    Dans le cas ou vous souhaitez exécuter plusieurs instructions, vous devez impérativement déclarer un bloc d'instructions. Si vous omettez les accolades, seule la première instruction sera exécutée puisque la séquence se termine par un point virgule ou un bloc.
 
     ```c
     if (z == 0)
         printf("z est nul");
-        is_valid = false;
-    else
-        printf("OK");
+        is_valid = false;  // Ne fait par partie du bloc et s'exécute toujours
     ```
 
-L'instruction `if` permet également l'embranchement multiple, lorsque les conditions ne peuvent pas être regroupées :
+!!! example
 
-```c
-if (value % 2)
-{
-    printf("La valeur est impaire.");
-}
-else if (value > 500)
-{
-    printf("La valeur est paire et supérieure à 500.");
-}
-else if (!(value % 5))
-{
-    printf("La valeur est paire, inférieur à 500 et divisible par 5.");
-}
-else
-{
-    printf("La valeur ne satisfait aucune condition établie.");
-}
-```
+    On peut utiliser des conditions multiples pour déterminer le comportement d'un programme. Par exemple, le programme suivant affiche un message différent en fonction de la valeur de `value` :
+
+    ```c
+    if (value % 2)
+    {
+        printf("La valeur est impaire.");
+    }
+    else if (value > 500)
+    {
+        printf("La valeur est paire et supérieure à 500.");
+    }
+    else if (!(value % 5))
+    {
+        printf("La valeur est paire, inférieur à 500 et divisible par 5.");
+    }
+    else
+    {
+        printf("La valeur ne satisfait aucune condition établie.");
+    }
+    ```
 
 !!! exercise "Et si?"
 
@@ -244,32 +350,7 @@ else
             printf("i vaut 8\n");
         ```
 
-!!! note
-
-    Notons que formellement, la grammaire C ne connait pas `else if` il s'agit d'une construction implicite dans laquelle un `if` ou `if..else` est la condition du `else` parent. Hiérarchiquement, on devrait écrire :
-
-```c
-if (x)
-    a = 1;
-else
-    if (y)
-        a = 2;
-    else
-        if (z)
-            a = 3;
-        else
-            a = 4;
-```
-
-Pour preuve, il suffit de jeter un oeil à la grammaire C :
-
-```text
-selection_statement
-    : IF '(' expression ')' statement
-    | IF '(' expression ')' statement ELSE statement
-    | SWITCH '(' expression ')' statement
-    ;
-```
+[](){#switch}
 
 ### `switch`
 
@@ -357,6 +438,8 @@ Une boucle est une structure itérative permettant de répéter l'exécution d'u
 
 ![Aperçu des trois structure de boucles]({assets}/images/for.drawio)
 
+[](){#loop-while}
+
 ### while
 
 La structure `while` répète une séquence **tant que** la condition est vraie.
@@ -385,6 +468,8 @@ Séquentiellement une boucle `while` teste la condition, puis exécute la séque
     6. `i = 1; while ( i < 9 ) { printf ( "%i\n", i += 2 ); break; }`
     7. `i = 0; while ( i < 10 ) { continue; printf ( "%i\n", i += 2 ); }`
 
+[](){#loop-do-while}
+
 ### do..while
 
 De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle `do`...`while` permet justement ceci :
@@ -399,6 +484,8 @@ do {
 ```
 
 Contrairement à la boucle `while`, la séquence est ici exécutée **au moins une fois**.
+
+[](){#loop-for}
 
 ### for
 
@@ -556,6 +643,7 @@ int main(void)
 }
 ```
 
+[](){#jumps}
 ## Les sauts
 
 Il existe 4 instructions en C permettant de contrôler le déroulement de
