@@ -19,8 +19,13 @@ jobs:
         with:
           fetch-depth: 0
       - name: Configure Git Credentials
+        env:
+          GH_TOKEN: ${{ secrets.MKDOCS_MATERIALS_INSIDER_PAT }}
         run: |
-          git config --global url."https://${{ secrets.MKDOCS_MATERIALS_INSIDER_PAT }}:@github.com/".insteadOf "https://github.com/"
+          mkdir -p ~/.ssh
+          echo "${GH_TOKEN}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - uses: actions/setup-python@v5
@@ -66,7 +71,6 @@ jobs:
           key: ${{ runner.os }}-drawio-exporter-${{env.drawio_arch}}-${{ env.drawio_version }}
       - name: Install Python dependencies
         run: |
-          poetry config http-basic.github ${{ secrets.MKDOCS_MATERIALS_INSIDER_PAT }}
           poetry install
 
       - name: Build Documentation with MkDocs
