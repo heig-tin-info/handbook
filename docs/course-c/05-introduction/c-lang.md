@@ -1,8 +1,8 @@
 # Le langage C
 
-Nous voici arrivé au sujet central de ce cours, le langage C. Ce chapitre est une introduction au langage C, à son histoire, à sa standardisation, à son utilisation et à son environnement de développement.
+Nous voici arrivés au sujet central de ce cours, le langage C. Ce chapitre est une introduction au langage C, à son histoire, à sa standardisation, à son utilisation et à son environnement de développement.
 
-Le langage C est un des premiers langages de programmation de haut niveau. Il est très proche de l'assembleur: le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation système complexes à la simple [machine à café][mcu]{ data-preview }.
+Le langage C est un des premiers langages de programmation de haut niveau. Il est très proche de l'assembleur: le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation de système complexe à la simple [machine à café][mcu]{ data-preview }.
 
 Même s'il est très ancien (1972), il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.
 
@@ -21,7 +21,7 @@ Il faut attendre 1989 pour que le langage C fasse l'objet d'une normalisation pa
 
 Les années se succèdent et le standard évolue pour soit corriger certaines de ses faiblesses soit pour apporter de nouvelles fonctionnalités.
 
-Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés par les ingénieurs, car il allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances tels que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.
+Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés par les ingénieurs, car il allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances telles que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.
 
 Il faut retenir que **C** est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C.
 
@@ -29,9 +29,9 @@ Il faut retenir que **C** est un langage simple et efficace. Votre machine à ca
 
 Le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.
 
-Le standard le plus couramment utilisé en 2024 est encore [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf). C11 le remplace peu à peu dans l'industrie mais la saga continue avec C17, C18 et C23 qui sont des évolutions.
+Le standard le plus couramment utilisé en 2024 est encore [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf). C11 le remplace peu à peu dans l'industrie, mais la saga continue avec C17, C18 et C23 qui sont des évolutions.
 
-Table: Normes internationales du language C
+Table: Normes internationales du langage C
 
 | Notation courte | Standard international                                       | Date |
 | --------------- | ------------------------------------------------------------ | ---- |
@@ -54,9 +54,9 @@ En substance, **C18** n'apporte pas de nouvelles fonctionnalités au langage, ma
 
 Le standard est lourd, difficile à lire et avec 552 pages pour C99, vous n'aurez probablement jamais le moindre plaisir à y plonger les yeux qui se rempliront de larmes à chaque lecture.
 
-Armez-vous de mouchoirs car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà ?
+Armez-vous de mouchoirs, car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà ?
 
-Vous vous demandez probablement pourquoi l'industrie a-t-elle autant de retard sur le dernier standard. Lorsque qu'Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglées par des validations strictes qui décrivent les standards utilisés. Migrer vers un standard plus récent est une aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée qu'on enverra sur Mars n'aura pas d'issue fatale. Ces validations sont longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèle à un ancien standard.
+Vous vous demandez probablement pourquoi l'industrie a-t-elle autant de retard sur le dernier standard. Lorsque Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglés par des validations strictes qui décrivent les standards utilisés. Migrer vers un standard plus récent est une aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée qu'on enverra sur Mars n'aura pas d'issue fatale. Ces validations sont longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèles à un ancien standard.
 
 !!! exercise
 
@@ -68,7 +68,7 @@ Vous vous demandez probablement pourquoi l'industrie a-t-elle autant de retard s
 
 ## Le C et les autres...
 
-Si ce cours ce concentre sur le C, ce n'est pas le seul langage de programmation et surtout ce n'est certainement pas le seul que vous apprendrez.
+Si ce cours se concentre sur le C, ce n'est pas le seul langage de programmation et surtout ce n'est certainement pas le seul que vous apprendrez.
 
 Voici une liste non exhaustive de langages de programmation et de leur année de création. Cette liste est intéressante pour comprendre l'évolution des langages de programmation et leur utilisation:
 
@@ -109,7 +109,7 @@ En 2024, le top 10 des langages de programmation les plus populaires est le suiv
 | 9      | Visual Basic             |
 | 10     | Fortran                  |
 
-Python est un langage de très haut niveau, simple a apprendre mais éloigné du matériel. C++ est un langage de programmation orientée objet, très puissant, mais complexe à apprendre. C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C. J'espère avoir réussi à vous convaincre.
+Python est un langage de très haut niveau, simple à apprendre, mais éloigné du matériel. C++ est un langage de programmation orientée objet, très puissant, mais complexe à apprendre. C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C. J'espère avoir réussi à vous convaincre.
 
 [](){#structured-text-programming}
 
@@ -175,7 +175,7 @@ Le C++ quant à lui apporte les paradigmes suivants à C :
 
 [Fonctionnel](https://fr.wikipedia.org/wiki/Programmation_fonctionnelle)
 
-: programmation basée sur l'appel de fonctions. Utilisé dans les langages Lisp, Haskell, Erlang.
+: programmation basée sur l'appel de fonction. Utilisé dans les langages Lisp, Haskell, Erlang.
 
 [Orienté objet](https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet)
 
@@ -183,7 +183,7 @@ Le C++ quant à lui apporte les paradigmes suivants à C :
 
 Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la [programmation réflective](<https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)>).
 
-Ce que nous devons retenir c'est que le langage C est impératif et procédural, c'est à dire qu'il est basé sur des séquences d'instructions qui se lisent de haut en bas, lesquelles peuvent être regroupées en procédures. Si nous reprenons notre exemple de l'[omelette][omelette], si nous souhaitons réaliser une pâte à crèpes nous pourrions écrire :
+Ce que nous devons retenir c'est que le langage C est impératif et procédural, c'est-à-dire qu'il est basé sur des séquences d'instructions qui se lisent de haut en bas, lesquelles peuvent être regroupées en procédures. Si nous reprenons notre exemple de l'[omelette][omelette], si nous souhaitons réaliser une pâte à crêpes nous pourrions écrire :
 
 ```text
 POUR REALISER un oeuf:
@@ -209,7 +209,7 @@ POUR REALISER une pâte à crèpes:
     pâte 🠔 MELANGER(oeuf-liquide, farine, lait)
 ```
 
-On a regrouper des instructions en procédures pour réaliser une pâte à crèpes. C'est ce que l'on appelle la programmation procédurale.
+On a regroupé des instructions en procédures pour réaliser une pâte à crêpes. C'est ce que l'on appelle la programmation procédurale.
 
 ## Cycle de développement
 
@@ -317,14 +317,14 @@ $ gcc hello.c
 Il ne s'est rien passé, c'est une bonne nouvelle. La philosophie Unix est qu'un programme soit le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur.
 
 
-On s'attend donc à trouver dans le répertoire courant, notre fichier source ainsi que le résultat de la compilation. Utilisons le programme [ls](https://fr.wikipedia.org/wiki/Ls) pour le vérifier
+On s'attend donc à trouver dans le répertoire courant, notre fichier source ainsi que le résultat de la compilation. Utilisons le programme [ls](https://fr.wikipedia.org/wiki/Ls) pour le vérifier.
 
 ```bash
 $ ls
 hello.c       a.out
 ```
 
-Très bien ! À présent, exécutons le programme en prenant soin de préfixer le nom par `./` car étant un programme local `a.out` ne peut pas être accédé directement. Imaginons qu'un fourbe hacker ait décidé de créer dans ce répertoire un programme nommé `ls` qui efface toutes vos données. La ligne de commande ci-dessus aurait eu un effet désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement nommé.
+Très bien ! À présent, exécutons le programme en prenant soin de préfixer le nom par, `./` car étant un programme local `a.out` ne peut pas être accédé directement. Imaginons qu'un fourbe hackeur ait décidé de créer dans ce répertoire un programme nommé `ls` qui efface toutes vos données. La ligne de commande ci-dessus aurait eu un effet désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement nommé.
 
 ```console
 $ ./a.out

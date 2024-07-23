@@ -30,9 +30,9 @@ Il est des circonstances ou un programme ne sait pas combien de mémoire il a be
 
 L'approche la plus naïve serait d'anticiper le cas le plus défavorable. Le dictionnaire Littré comporte environ 132'000 mots tandis que le Petit Larousse Illustré 80'000 mots environ. Pour se donner une bonne marge de manœuvre et anticiper les anglicismes et les noms propres. Il suffirait de réserver un tableau de 1 million de mots de 10 caractères soit un peu plus de 100 MiB de mémoire quand bien même le fichier qui serait lu ne comporterait que 2 mots: `Hello World!`.
 
-L'approche correcte est d'allouer la mémoire au moment ou on en a besoin, c'est ce que l'on appelle l'[allocation dynamique](<https://fr.wikipedia.org/wiki/Tas_(allocation_dynamique)>).
+L'approche correcte est d'allouer la mémoire au moment où on en a besoin, c'est ce que l'on appelle l'[allocation dynamique](<https://fr.wikipedia.org/wiki/Tas_(allocation_dynamique)>).
 
-Lorsqu'un programme à besoin de mémoire, il peut générer un appel système pour demander au système d'exploitation le besoin de disposer de plus de mémoire. En pratique on utilise deux fonctions de la bibliothèque standard `<stdlib.h>`:
+Lorsqu'un programme a besoin de mémoire, il peut générer un appel système pour demander au système d'exploitation le besoin de disposer de plus de mémoire. En pratique on utilise deux fonctions de la bibliothèque standard `<stdlib.h>`:
 
 `void *malloc(size_t size)`
 
@@ -91,7 +91,7 @@ int main(void) {
 }
 ```
 
-Lors d'un appel de fonction, le compilateur ajoute avant la première instruction du code caché permettant d'empiler sur un espace mémoire dédié (*stack*) les variables locales dont il a besoin ainsi que certaines informations tel que l'adresse mémoire de retour.
+Lors d'un appel de fonction, le compilateur ajoute avant la première instruction du code caché permettant d'empiler sur un espace mémoire dédié (*stack*) les variables locales dont il a besoin ainsi que certaines informations telles que l'adresse mémoire de retour.
 
 ## Allocation dynamique sur le tas
 
@@ -232,7 +232,7 @@ programme doit y placer. Si cela se produit, il y a corruption de la
 mémoire puisque la pile 'déborde' et que vous dépassez la zone qui lui
 est dédiée.
 
-Les événements suivants peuvent générer des débordements de pile :
+Les événements suivants peuvent générer des débordements de piles :
 
 - trop de variables locales (par exemple un grand tableau),
 - trop d'appels de fonctions en cascade,

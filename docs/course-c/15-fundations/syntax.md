@@ -249,7 +249,7 @@ Une variable est définie par :
 - Son **type** (*type*), qui est la convention d'interprétation du contenu binaire en mémoire.
 - Sa **valeur** (*value*), qui est le contenu interprété connaissant son **type**.
 - Son **adresse** (*address*) qui est l'emplacement mémoire ou la représentation binaire sera enregistrée.
-- Sa **portée** (*scope*) qui est la portion de code ou le symbole est défini et accessible.
+- Sa **portée** (*scope*) qui est la portion de code ou le symbole est définie et accessible.
 - Sa **visibilité** (*visibility*) qui ne peut être que *public* en C.
 
 !!! example
@@ -348,7 +348,7 @@ Il existe autant de conventions de nommage qu'il y a de développeurs, mais un c
 - Le nom doit être concis et précis et ne pas laisser place à une quelconque ambiguïté.
 - Le nom doit participer à l'autodocumentation du code et permettre à un lecteur de comprendre facilement le programme qu'il lit.
 
-Selon les standards adoptés chaque société on trouve ceux qui préfèrent nommer les variables en utilisant un *underscore* (`_`) comme séparateur et ceux qui préfèrent nommer une variable en utilisant des majuscules comme séparateurs de mots.
+Selon les standards adoptés, chaque société on trouve ceux qui préfèrent nommer les variables en utilisant un *underscore* (`_`) comme séparateur et ceux qui préfèrent nommer une variable en utilisant des majuscules comme séparateurs de mots.
 
 Table: Conventions de nommage
 
@@ -437,7 +437,7 @@ Nous le verrons dans le chapitre sur la [numération][numeration], les valeurs n
 
 Aussi, on utilisera un préfixe devant un nombre `0x` pour indiquer qu'il est en hexadécimal, `0b` pour indiquer qu'il est en binaire et `0` pour indiquer qu'il est en octal. Sans préfixe il s'agit d'un nombre décimal (base 10).
 
-On utilisera un suffixe `u` pour indiquer que le nombre est non signé (admettant pas de valeurs négatives) et `l` pour indiquer qu'il est long ou `ll` pour indiquer qu'il est très long.
+On utilisera un suffixe `u` pour indiquer que le nombre est non signé (n’admettant pas de valeurs négatives) et `l` pour indiquer qu'il est long ou `ll` pour indiquer qu'il est très long.
 
 Quant aux guillemets simples `'`, ils sont utilisés pour délimiter un caractère de la table ASCII.
 
@@ -496,7 +496,7 @@ a = 42;
 a = b;
 ```
 
-Mathématiquement, la valeur de `b` devrait être égale à 42 ce qui n'est pas le cas en C où il faut lire, séquentiellement l'exécution du code, car oui, C est un langage **impératif**. Ainsi, dans l'ordre on lit :
+Mathématiquement, la valeur de `b` devrait être égale à 42 ce qui n'est pas le cas en C où il faut lire, séquentiellement l'exécution du code, car oui, C est un langage **impératif**. Ainsi, dans l'ordre, on lit :
 
 1. J'assigne la valeur 42 à la variable symbolisée par `a`
 2. Puis, j'assigne la valeur de la variable `b` au contenu de `a`.

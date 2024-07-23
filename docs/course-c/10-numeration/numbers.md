@@ -33,7 +33,7 @@ Les ensembles de nombres sont :
 
     En pratique dans une carrière d'ingénieur, vous n'aurez jamais à manipuler ni des quaternions, ni octonions ou sédénions. Les nombres complexes sont néanmoins une extension des nombres réels qui sont utilisés en physique et en mathématiques.
 
-Un nombre arbitraire n'est pas directement associé à une quantité d'information. Le nombre $\pi$ est irrationnel, c'est à dire qu'il ne se termine jamais et ne se répète jamais. Il est donc impossible de stocker $\pi$ en mémoire, car il faudrait une quantité infinie de bits pour le représenter.
+Un nombre arbitraire n'est pas directement associé à une quantité d'information. Le nombre $\pi$ est irrationnel, c'est-à-dire qu'il ne se termine jamais et ne se répète jamais. Il est donc impossible de stocker $\pi$ en mémoire, car il faudrait une quantité infinie de bits pour le représenter.
 
 Archimère disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (Donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : Donnez moi un nombre et je vous construirai l'univers ! Bien entendu la quantité d'information dans l'univers est colossale, elle croît avec l'entropie et donc avec le temps qui passe.
 
@@ -47,7 +47,7 @@ Archimère disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινά
 
 Les mémoires des ordinateurs ne sont pas infinies, elles sont limitées par la quantité de transistors qui les composent. Il n'est donc pas possible d'y stocker n'importe quel nombre. $\pi$ ne peut pas être stocké en mémoire, mais une approximation de $\pi$ peut l'être.
 
-Aussi, l'informatique impose certaines limitations sur les nombres que l'on peut manipuler. Les nombres entiers sont les plus simples à manipuler, mais ils sont limités par la taille de la mémoire et la manière dont on les enregistres en mémoire. C'est ce que nous allons voir.
+Aussi, l'informatique impose certaines limitations sur les nombres que l'on peut manipuler. Les nombres entiers sont les plus simples à manipuler, mais ils sont limités par la taille de la mémoire et la manière dont on les enregistre en mémoire. C'est ce que nous allons voir.
 
 ## Entiers naturels
 
@@ -84,9 +84,9 @@ Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible 
 
 Une approche naïve serait de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. Un peu comme si vous aviez deux boîtes chez vous, l'une pour les choses qui se mangent (le frigo) et une pour les choses qui ne se mangent plus (la poubelle).
 
-L'ennui pour les **variables** c'est que le contenu peut changer et qu'un nombre négatif pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meileure méthode.
+L'ennui pour les **variables** c'est que le contenu peut changer et qu'un nombre négatif pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meilleure méthode.
 
-On pourrait alors renseigner la nature du nombre, c'est à dire son signe avec sa valeur.
+On pourrait alors renseigner la nature du nombre, c'est-à-dire son signe avec sa valeur.
 
 ### Bit de signe
 
@@ -116,7 +116,7 @@ En termes de calcul, l'addition ne fonctionne plus si on raisonne sur les bits. 
  0     1     2     3     0    -1    -2    -3
 ```
 
-Il faudrait donc trouver une méthode qui permetterait de conserver la possibilité de faire les opérations directement en binaire. En d'autres termes on aimerait pouvoir calculer en base deux sans se soucier du signe :
+Il faudrait donc trouver une méthode qui permettrait de conserver la possibilité de faire les opérations directement en binaire. En d'autres termes on aimerait pouvoir calculer en base deux sans se soucier du signe :
 
 ```text
   00000010 (2)
@@ -154,7 +154,7 @@ $y$
 
 : La valeur à complémenter.
 
-Ainsi, il est facile d'écrire le complément à neuf d'un nombre en base dix car on s'arrange pour que chaque chiffre composant le nombre on trouve un autre chiffre dont la somme est égale à neuf.
+Ainsi, il est facile d'écrire le complément à neuf d'un nombre en base dix, car on s'arrange pour que chaque chiffre composant le nombre on trouve un autre chiffre dont la somme est égale à neuf.
 
 ```
 0 1 2 3 4 5 6 7 8 9
@@ -206,9 +206,9 @@ En résumé, la méthode du complément à 1 :
 
 Le complément à deux n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles et de 2 (`0` et `1`). On ne peut pas trouver un chiffre tel que la somme fasse `2`. C'est la même idée que de demander le complément à 10 en base 10.
 
-Pour réaliser ce complément à deux (complément à un plus un) il y a deux étapes :
+Pour réaliser ce complément à deux (complément à un plus un), il y a deux étapes :
 
-1. Calculer le complément à un du nombre d'entrée.
+1. Calculer le complément à un du nombre d'entrées.
 2. Ajouter 1 au résultat.
 
 Oui, et alors, en quoi cela change la donne ? Surprenamment, on résout tous les problèmes amenés par le complément à un :
@@ -236,7 +236,7 @@ Les avantages :
 2. Le problème du double zéro est résolu.
 3. On gagne une valeur négative `[-128..+127]` contre `[-127..+127] avec les méthodes précédemment étudiées`.
 
-Vous l'aurez compris, le complément à deux est le mécanisme le plus utilisé dans les ordinateurs moderne pour représenté les nombres entiers négatifs.
+Vous l'aurez compris, le complément à deux est le mécanisme le plus utilisé dans les ordinateurs modernes pour représenter les nombres entiers négatifs.
 
 ## Les nombres réels
 
@@ -245,7 +245,7 @@ Mathématiquement, les [nombres réels](https://fr.wikipedia.org/wiki/Nombre_r%C
 Au début de l'ère des ordinateurs, il n'était possible de stocker que des nombres entiers, mais
 le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La transition s'est faite progressivement, d'abord par l'apparition de la [virgule fixe](https://fr.wikipedia.org/wiki/Virgule_fixe), puis par la [virgule flottante](https://fr.wikipedia.org/wiki/Virgule_flottante).
 
-Le premier ordinateur avec une capacité de calcul en virgule flottante date de 1942 (ni vous ni moi n'étions probablement né) avec le [Zuse's Z4](https://fr.wikipedia.org/wiki/Zuse_4), du nom de son inventeur [Konrad Zuse](https://fr.wikipedia.org/wiki/Konrad_Zuse).
+Le premier ordinateur avec une capacité de calcul en virgule flottante date de 1942 (ni vous ni moi n'étions probablement nés) avec le [Zuse's Z4](https://fr.wikipedia.org/wiki/Zuse_4), du nom de son inventeur [Konrad Zuse](https://fr.wikipedia.org/wiki/Konrad_Zuse).
 
 ### Virgule fixe
 
@@ -512,7 +512,7 @@ Pour convertir un nombre **Q4.12** en sa valeur réelle il faut :
 2.    12867 / 2**12 = 3.141357421875
 ```
 
-On note une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : $1 / 2^12 = 0.00024$. Il convient alors d'arrondir le nombre à la troisième décimale soit 3.141.
+On note une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : $1 / 2^12 = 0.00024$. Il convient alors d'arrondir le nombre à la troisième décimale, soit 3.141.
 
 Les opérations arithmétiques sont possibles facilement entre des nombres de mêmes types.
 
@@ -596,7 +596,7 @@ Soit deux nombres 0.9 et 3.141 :
 └─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
 ```
 
-Multiplier ces deux valeurs revient à une multiplication sur 2 fois la taille. Le résultat doit être obtenu sur 32-bits sachant que les nombre **Q** s'additionnent comme **Q4.12** x **Q4.12** donnera **Q8.24**.
+Multiplier ces deux valeurs revient à une multiplication sur 2 fois la taille. Le résultat doit être obtenu sur 32-bits sachant que les nombres **Q** s'additionnent comme **Q4.12** x **Q4.12** donnera **Q8.24**.
 
 On voit immédiatement que la partie entière vaut 2, donc 90% de 3.14 donnera une valeur en dessous de 3. Pour reconstruire une valeur **Q8.8** il convient de supprimer les 16-bits de poids faible.
 

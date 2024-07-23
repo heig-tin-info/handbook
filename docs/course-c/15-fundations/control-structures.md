@@ -1,6 +1,6 @@
 # Structures de contrôle
 
-Les structures de contrôle appartiennent aux langages de programmation étant de [paradigme][paradigm] impératifs et [structurés](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e).
+Les structures de contrôle appartiennent aux langages de programmation étant de [paradigme][paradigm] impératif et [structuré](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e).
 
 Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. On peut citer les catégories suivantes:
 
@@ -21,7 +21,7 @@ Elles permettent de modifier l'ordre des opérations lors de l'exécution du cod
     - [Boucle sur condition][loop-while] `while`
     - [Boucle sur condition avec test à la fin][loop-do-while] `do`...`while`
 
-Sans structure de contrôle, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènement extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement.
+Sans structure de contrôle, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènements extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement.
 
 L'intelligence d'un programme réside dans sa capacité à prendre des décisions en fonction de l'état du système et des données qu'il manipule. Les structures de contrôle permettent de définir ces décisions, un peu comme un livre dont vous êtes le héros où chaque choix vous mène à une page différente par un saut.
 
@@ -31,7 +31,7 @@ L'intelligence d'un programme réside dans sa capacité à prendre des décision
 
 ### Séquences de code
 
-En C, chaque instruction est séparée de la suivante par un point virgule `;` U+003B. On appelle ce caractère le délimiteur d'instruction.
+En C, chaque instruction est séparée de la suivante par un point-virgule `;` U+003B. On appelle ce caractère le délimiteur d'instruction.
 
 ```c
 k = 8; k *= 2;
@@ -44,7 +44,7 @@ Ceci permet d'écrire un programme sur une seule ligne (sauf concernant les dire
 int main() { char hello[] = "hello"; printf("%s, world", hello); return 42; }
 ```
 
-Certaines instructions nécessitent un délimiteur pour être correctement interprétées par le compilateur. Par exemple le `do...while` doit être terminé par un point virgule :
+Certaines instructions nécessitent un délimiteur pour être correctement interprétées par le compilateur. Par exemple le `do...while` doit être terminé par un point-virgule :
 
 ```c
 do {
@@ -52,7 +52,7 @@ do {
 } while (0); // <== point virgule obligatoire
 ```
 
-!!! tip "Le point virgule grec"
+!!! tip "Le point-virgule grec"
 
     N'allez pas confondre le point virgule `;` (U+003B) avec le `;` (U+037E), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
 
@@ -69,7 +69,7 @@ Une séquence bloc est une suite d'instructions regroupées en un bloc matérial
 }
 ```
 
-Il est possible d'ajouter autant de bloc que vous voulez, mais il est recommandé de ne pas imbriquer les blocs de manière excessive. Un bloc est une unité de code qui peut être traitée comme une seule instruction. Il est possible de déclarer des variables locales dans un bloc, ces variables n'étant accessibles que dans le bloc où elles sont déclarées.
+Il est possible d'ajouter autant de blocs que vous voulez, mais il est recommandé de ne pas imbriquer les blocs de manière excessive. Un bloc est une unité de code qui peut être traitée comme une seule instruction. Il est possible de déclarer des variables locales dans un bloc, ces variables n'étant accessibles que dans le bloc où elles sont déclarées.
 
 ```c
 {
@@ -169,7 +169,7 @@ if (b == 0) {
 printf("a / b = %d\n", a / b);
 ```
 
-En C il n'y pas d'instruction `if..else if` comme on peut le trouver dans d'autres langages de programmation (p.ex. Python). Faire suivre une sous-condition à `else` est néanmoins possible puisque `if` est une instruction comme une autre la preuve est donnée par la [grammaire][grammar] du langage:
+En C il n'y a pas d'instruction `if..else if` comme on peut le trouver dans d'autres langages de programmation (p. ex. Python). Faire suivre une sous condition à `else` est néanmoins possible puisque `if` est une instruction comme une autre la preuve est donnée par la [grammaire][grammar] du langage:
 
 ```text
 selection_statement
@@ -197,7 +197,7 @@ else {
 }
 ```
 
-Néanmoins comme il n'y a qu'une instruction `if` après le premier `else`, le bloc peut être omis. En outre, il est correct de faire figurer le `if` sur la même ligne que le `else` :
+Néanmoins, comme il n'y a qu'une instruction `if` après le premier `else`, le bloc peut être omis. En outre, il est correct de faire figurer le `if` sur la même ligne que le `else` :
 
 ```c
 if (value < 0) {
@@ -354,7 +354,7 @@ else
 
 ### `switch`
 
-L'instruction `switch` n'est pas fondamentale et certain langage de programmation comme Python ne la connaisse pas. Elle permet essentiellement de simplifier l'écriture pour minimiser les répétitions. On l'utilise lorsque les conditions multiples portent toujours sur la même variable. Par exemple, le code suivant peut être réécrit plus simplement en utilisant un `switch` :
+L'instruction `switch` n'est pas fondamentale et certains langages de programmation comme Python ne la connaissaient pas. Elle permet essentiellement de simplifier l'écriture pour minimiser les répétitions. On l'utilise lorsque les conditions multiples portent toujours sur la même variable. Par exemple, le code suivant peut être réécrit plus simplement en utilisant un `switch` :
 
 ```c
 if (defcon == 1)
@@ -371,7 +371,7 @@ else
     printf("ERREUR: Niveau d'alerte DEFCON invalide");
 ```
 
-Voici l'expression utilisant `switch`. Notez que chaque condition est plus clair :
+Voici l'expression utilisant `switch`. Notez que chaque condition est plus claire :
 
 ```c
 switch (defcon)
@@ -396,9 +396,9 @@ switch (defcon)
 }
 ```
 
-La valeur par défaut `default` est optionnelle mais recommandée pour traiter les cas d'erreurs possibles.
+La valeur par défaut `default` est optionnelle, mais recommandée pour traiter les cas d'erreurs possibles.
 
-La structure d'un `switch` est composée d'une condition `switch (condition)` suivie d'une séquence `{}`. Les instructions de cas `case 42:` sont appelés *labels*. Notez la présence de l'instruction `break` qui est nécessaire pour terminer l'exécution de chaque condition. Par ailleurs, les labels peuvent être chaînés sans instructions intermédiaires ni `break`:
+La structure d'un `switch` est composée d'une condition `switch (condition)` suivie d'une séquence `{}`. Les instructions de cas `case 42:` sont appelées *labels*. Notez la présence de l'instruction `break` qui est nécessaire pour terminer l'exécution de chaque condition. Par ailleurs, les labels peuvent être chaînés sans instructions intermédiaires ni `break`:
 
 ```c
 switch (coffee)
@@ -423,7 +423,7 @@ switch (coffee)
 Notons quelques observations :
 
 - La structure `switch` bien qu'elle puisse toujours être remplacée par une structure `if..else if` est généralement plus élégante et plus lisible. Elle évite par ailleurs de répéter la condition plusieurs fois (c.f. {numref}`DRY`).
-- Le compilateur est mieux à même d'optimiser un choix multiple lorsque les valeurs scalaires de la condition triées se suivent directement e.g. `{12, 13, 14, 15}`.
+- Le compilateur est mieux à même d'optimiser un choix multiple lorsque les valeurs scalaires de la condition triées se suivent directement p. ex`{12, 13, 14, 15}`.
 - L'ordre des cas d'un `switch` n'a pas d'importance, le compilateur peut même choisir de réordonner les cas pour optimiser l'exécution.
 
 ## Les boucles
@@ -436,7 +436,7 @@ Une boucle est une structure itérative permettant de répéter l'exécution d'u
 - `#!c while`
 - `#!c do` .. `#!c while`
 
-![Aperçu des trois structure de boucles]({assets}/images/for.drawio)
+![Aperçu des trois structures de boucles]({assets}/images/for.drawio)
 
 [](){#loop-while}
 
@@ -606,7 +606,7 @@ while (true) { }
 do { } while (true);
 ```
 
-Notions que l'expression `while (1)` que l'on rencontre fréquemment dans des exemples est faux syntaxiquement. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire `1` devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire `while (1 == 1)` ou simplement `while (true)`.
+Notions que l'expression `while (1)` que l'on rencontre fréquemment dans des exemples est fausse syntaxiquement. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire `1` devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire `while (1 == 1)` ou simplement `while (true)`.
 
 On préférera néanmoins l'écriture `for (;;)` qui ne fait pas intervenir de conditions extérieures, car, avant **C99** définir la valeur `true` était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :
 
@@ -616,7 +616,7 @@ _Bool true = 0;
 while (true) { /* ... */ }
 ```
 
-Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c.f. {numref}`signals`). On rajoute alors une condition de sortie à la boucle principale :
+Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c. f. {numref}`signals`). On rajoute alors une condition de sortie à la boucle principale :
 
 ```c
 #include <stdlib.h>

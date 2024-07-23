@@ -212,7 +212,7 @@ int main() {
 }
 ```
 
-On notera que les 4 lignes où `i` successivement assigné à 1 et 0 sont inutiles, car dans tous les cas, la valeur 0 sera affichée. Si le programme est compilé on obtiens le listing suivant :
+On notera que les 4 lignes où `i` successivement assigné à 1 et 0 sont inutiles, car dans tous les cas, la valeur 0 sera affichée. Si le programme est compilé, on obtient le listing suivant :
 
 ```sh
 $ gcc main.c

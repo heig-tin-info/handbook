@@ -98,7 +98,7 @@ Parlons couture ! La machine Jacquard est un [métier à tisser](https://fr.wiki
 
 Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes.
 
-!!! info "La revolte des canuts"
+!!! info "La révolte des canuts"
 
     L'automatisation d'un travail qui jadis était effectué manuellement causa une vague de chômage menant à la [Révolte des canuts](https://fr.wikipedia.org/wiki/R%C3%A9volte_des_canuts) en 1831.
 
@@ -145,12 +145,12 @@ Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qu
 
 ## Langage de programmation
 
-Traduire un algorithme en une suite d'ordres compréhensibles par une machine est donc le travail du programmeur. Il existe de nombreux langages de programmation mais la plupart se regroupent en deux catégories :
+Traduire un algorithme en une suite d'ordres compréhensibles par une machine est donc le travail du programmeur. Il existe de nombreux langages de programmation, mais la plupart se regroupent en deux catégories :
 
 1. Les langages textuels qui utilisent du texte pour décrire les instructions.
 2. Les langages visuels qui utilisent des éléments graphiques pour décrire les instructions.
 
-L'être humain a appris depuis des millénaires à communiquer avec des symboles, il stoque son savoir dans des livres ou feu une époque sur des tablettes de cire. Au début de l'ère de l'informatique, l'ordinateur ne pouvait communiquer que par du texte. Les premiers langages de programmation étaient donc textuels. Avec l'avènement des interfaces graphiques, les langages visuels ont vu le jour mais ils sont davantage réservés pour enseigner la programmation aux enfants ou pour faciliter la programmation de robots ou de jeux vidéos.
+L'être humain a appris depuis des millénaires à communiquer avec des symboles, il stocke son savoir dans des livres ou feu une époque sur des tablettes de cire. Au début de l'ère de l'informatique, l'ordinateur ne pouvait communiquer que par du texte. Les premiers langages de programmation étaient donc textuels. Avec l'avènement des interfaces graphiques, les langages visuels ont vu le jour, mais ils sont davantage réservés pour enseigner la programmation aux enfants ou pour faciliter la programmation de robots ou de jeux vidéos.
 
 ??? info "Scratch"
 
@@ -187,14 +187,14 @@ Pour ce cours, et pour l'enseignement de la programmation en général, nous uti
 
 ## Calculateur
 
-Un calculateur du latin *calculare*: calculer avec des cailloux, originellement appelé [abaque](<https://fr.wikipedia.org/wiki/Abaque_(calcul)>) était un dispositif permettant de faciliter les calculs mathématiques.
+Un calculateur du latin *calculare*: calculer avec des cailloux, originellement appelés [abaque,](<https://fr.wikipedia.org/wiki/Abaque_(calcul)>) était un dispositif permettant de faciliter les calculs mathématiques.
 
 Les [os d'Ishango](https://fr.wikipedia.org/wiki/Os_d%27Ishango) datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
 
 Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur, car même une calculatrice de poche doit gérer en plus des calculs un certain nombre de périphériques comme :
 
 - l'interface de saisie ([pavé numérique]);
-- l'affichage du résultat (écran à cristaux liquide).
+- l'affichage du résultat (écran à cristaux liquides).
 
 [pavé numérique]: https://fr.wikipedia.org/wiki/Pav%C3%A9_num%C3%A9rique
 
@@ -228,7 +228,7 @@ Comment pourrait-on introduire les notions d'ordinateur, de programmes et d'algo
 
 La machine de Turing est un modèle théorique d'un ordinateur. Elle est composée d'une bande infinie divisée en cases, d'une tête de lecture/écriture et d'un ensemble fini d'états. La machine de Turing est capable de lire et d'écrire des symboles sur la bande, de se déplacer à gauche ou à droite et de changer d'état. Elle est capable de simuler n'importe quel algorithme. La machine de Turing est un modèle abstrait qui a permis de définir la notion de calculabilité et de démontrer des résultats fondamentaux en informatique théorique.
 
-Lorsque l'on parle d'un ordinateur Turing-complet, on fait référence à un ordinateur capable de simuler n'importe quel algorithme. Tous les ordinateurs modernes sont Turing-complets. Selon le modèle, ces ordinateurs se composent d'un programme et d'une mémoire. Le programme est une suite d'instructions qui sont exécutées par le processeur. La mémoire est un espace de stockage qui contient les données et les instructions du programme.
+Lorsque l'on parle d'un ordinateur Turing complet, on fait référence à un ordinateur capable de simuler n'importe quel algorithme. Tous les ordinateurs modernes sont Turing complets. Selon le modèle, ces ordinateurs se composent d'un programme et d'une mémoire. Le programme est une suite d'instructions qui sont exécutées par le processeur. La mémoire est un espace de stockage qui contient les données et les instructions du programme.
 
 Prenons l'exemple d'un programme visant à additionner `1` à un nombre `n` en binaire. L'algorithme peut être exprimé comme suit :
 
@@ -339,7 +339,7 @@ Les périphériques d'entrée/sortie
 
 : ce sont les interfaces qui permettent à l'ordinateur de communiquer avec l'utilisateur (clavier, souris, écran, imprimante, etc.).
 
-Contrairement à la machine de Turing, les ordinateurs sont équipées d'une mémoire à accès aléatoire qui permet d'accéder n'importe quel élément de la mémoire sans avoir à parcourir toute la bande. Également, ces ordinateurs disposent d'un processeur capable de calculer des opérations arithmétiques et logiques en un temps très court. Ces processeurs peuvent même calculer des fonctions trigonométriques, exponentielles et logarithmiques facilement. En reprenant notre programme d'addition binaire, il est beaucoup plus facile de l'écrire en C&nbsp;:
+Contrairement à la machine de Turing, les ordinateurs sont équipés d'une mémoire à accès aléatoire qui permet d'accéder n'importe quel élément de la mémoire sans avoir à parcourir toute la bande. Également, ces ordinateurs disposent d'un processeur capable de calculer des opérations arithmétiques et logiques en un temps très court. Ces processeurs peuvent même calculer des fonctions trigonométriques, exponentielles et logarithmiques facilement. En reprenant notre programme d'addition binaire, il est beaucoup plus facile de l'écrire en C&nbsp;:
 
 ```c
 #include <stdio.h>
@@ -403,7 +403,7 @@ c3
 
 ## Les systèmes à microcontrôleurs
 
-Les microcontrôleurs sont des ordinateurs complets intégrés dans un seul circuit intégré. Ils sont omniprésents dans notre vie quotidienne. Que ce soit la télévision, le téléphone portable, les machines à café, les voitures, les jouets, les montres où les appareils électroménagers, ils contiennent tous un ou plusieurs microcontrôleur.
+Les microcontrôleurs sont des ordinateurs complets intégrés dans un seul circuit intégré. Ils sont omniprésents dans notre vie quotidienne. Que ce soit la télévision, le téléphone portable, les machines à café, les voitures, les jouets, les montres ou les appareils électroménagers, ils contiennent tous un ou plusieurs microcontrôleurs.
 
 Ces derniers sont aussi programmés en implémentant des algorithmes. Le plus souvent ces algorithmes sont écrits en langage C car c'est un langage de programmation très proche du langage machine. Les microcontrôleurs sont souvent utilisés pour contrôler des systèmes en temps réel. Ils sont capables de lire des capteurs, de contrôler des actionneurs et de communiquer avec d'autres systèmes.
 
@@ -413,7 +413,7 @@ Prenons l'exemple de cette machine à café. C'est une machine qui coûte enviro
 
 ![Schéma bloc de la machine à café Citiz]({assets}/images/citiz-diagram.drawio)
 
-Derrière se cache un programme, bien complexe. Si vous avez une de ces machines mettez là en service, vous verrez que s'il manque de l'eau vous aurez un message d'erreur. Au démarrage, les LEDs clignotent le temps que la machine chauffe. Une fois en température vous pouvez l'utiliser. Ce sont des algorithmes qui sont derrière tout cela.
+Derrière se cache un programme, bien complexe. Si vous avez une de ces machines mettez là en service, vous verrez que s'il manque de l'eau vous aurez un message d'erreur. Au démarrage, les LEDs clignotent le temps que la machine chauffe. Une fois en température, vous pouvez l'utiliser. Ce sont des algorithmes qui sont derrière tout cela.
 
 ## Historique
 
@@ -491,7 +491,7 @@ Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates cl�
 
 Les algorithmes existent depuis fort longtemps et sont utilisés dans de nombreux domaines. Ils sont la base de la programmation et de l'informatique.
 
-Les hommes ont cherchés à pouvoir automatiser leurs tâches, d'abord avec des machines mécaniques comme le métier à tisser Jacquard. Puis, après l'invention de la microélectronique, il a été possible de complexifier ces machines pour en faire des ordinateurs.
+Les hommes ont cherché à pouvoir automatiser leurs tâches, d'abord avec des machines mécaniques comme le métier à tisser Jacquard. Puis, après l'invention de la microélectronique, il a été possible de complexifier ces machines pour en faire des ordinateurs.
 
 Pour les contrôler, les informaticiens écrivent des programmes qui implémentent des algorithmes. Ces programmes sont ensuite traduits en langage machine par un compilateur.
 

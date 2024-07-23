@@ -141,7 +141,7 @@ Il définit que la fonction `printf` prend en paramètre un format suivi de `...
 
 La fonction retourne le nombre de caractères formatés ou `-1` en cas d'erreur.
 
-La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaître et la page Wikipedia [printf format string](https://en.wikipedia.org/wiki/Printf_format_string) est d'une grande aide. Le format de construction est le suivant :
+La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaître et la page Wikipédia [printf format string](https://en.wikipedia.org/wiki/Printf_format_string) est d'une grande aide. Le format de construction est le suivant :
 
 ```c
 %[parameter][flags][width][.precision][length]type
@@ -189,7 +189,7 @@ Table: Exemple de formatage avec printf
 | `#!c printf("%8x", 57005)`         | `    dead`  | 6      |
 | `#!c printf("%s", "Hello")`        | `Hello`     | 5      |
 
-On peut s'intéresser à comment `printf` fonctionne en interne. Le premier argument est une chaîne de caractère qui est le motif de formattage. Il peut contenir des caractères spéciaux *placeholder* qui seront interceptés par `printf` pour être remplacés par les arguments suivants après avoir été convertis.
+On peut s'intéresser à comment `printf` fonctionne en interne. Le premier argument est une chaîne de caractère qui est le motif de formatage. Il peut contenir des caractères spéciaux *placeholder* qui seront interceptés par `printf` pour être remplacés par les arguments suivants après avoir été convertis.
 
 !!! example "Implémentation naïve de printf"
 
@@ -261,7 +261,7 @@ int main() {
 }
 ```
 
-Notez ici l'utilisaton de `EOF` qui est une constante définie dans la bibliothèque `stdio.h` et qui signifie *End Of File*. Elle est utilisée pour détecter la fin d'un fichier.
+Notez ici l'utilisation de `EOF` qui est une constante définie dans la bibliothèque `stdio.h` et qui signifie *End Of File*. Elle est utilisée pour détecter la fin d'un fichier.
 
 Lorsque vous exécutez ce programme, vous pouvez saisir des caractères au clavier. Pour terminer la saisie, vous pouvez utiliser la combinaison de touches ++Ctrl+D++ sur Linux ou ++Ctrl+Z++ sur Windows.
 
@@ -270,7 +270,7 @@ Lorsque vous exécutez ce programme, vous pouvez saisir des caractères au clavi
 
 La fonction `gets` est une fonction de la bibliothèque standard C qui permet de lire une chaîne de caractères sur l'entrée standard. Elle est définie dans la bibliothèque `stdio.h`.
 
-Elle est déconseillée car elle ne permet pas de spécifier la taille maximale de la chaîne à lire. Cela peut entraîner des débordements de mémoire si un utilisateur saisit une chaîne de caractères trop longue que le programme ne peut pas stocker.
+Elle est déconseillée, car elle ne permet pas de spécifier la taille maximale de la chaîne à lire. Cela peut entraîner des débordements de mémoire si un utilisateur saisit une chaîne de caractères trop longue que le programme ne peut pas stocker.
 
 ```c
 #include <stdio.h>
@@ -331,7 +331,7 @@ Quel est votre nombre favori ? Saviez-vous que votre nombre favori, 23, est impa
 
 On observe ici un comportement différent, car le retour clavier lorsque la touche *enter* est pressée n'est pas transmis au programme, mais c'est le shell qui l'intercepte.
 
-Le format de `scanf` se rapproche de `printf` mais en plus simple. Le [man scanf](https://linux.die.net/man/3/scanf) ou même la page Wikipedia de [scanf](https://en.wikipedia.org/wiki/Scanf_format_string) renseigne sur son format.
+Le format de `scanf` se rapproche de `printf` mais en plus simple. Le [man scanf](https://linux.die.net/man/3/scanf) ou même la page Wikipédia de [scanf](https://en.wikipedia.org/wiki/Scanf_format_string) renseigne sur son format.
 
 Cette fonction tient son origine une nouvelle fois de [ALGOL 68](https://en.wikipedia.org/wiki/ALGOL_68) (`readf`), elle est donc très ancienne.
 

@@ -858,9 +858,9 @@ Imaginons pour comprendre qu'un casier mémoire sur une architecture 32-bits est
     A         B         C         D
 ```
 
-On constate que la valeur `d` est à cheval entre deux casiers. De même que la valeur `i` est répartie sur trois casiers au lieu de deux. Le processeur communique avec la mémoire en  utilisant des *bus mémoire*, ils sont l'analogie d'une autoroute qui ne peut accueillir que des voitures, chacune ne pouvant transporter que 4 passagers. Un passager ne peut pas arpenter l'autoroute sans voiture. Le processeur est la gare de triage et s'occupe de réassembler les passagers, et l'opération consistant à demander à un passager de sortir de la voiture `B` pour s'installer dans une autre, ou même se déplacer de la place conducteur à la place du passager arrière prend du temps.
+On constate que la valeur `d` est à cheval entre deux casiers. De même que la valeur `i` est répartie sur trois casiers au lieu de deux. Le processeur communique avec la mémoire en  utilisant des *bus mémoire*, ils sont l'analogie d'une autoroute qui ne peut accueillir que des voitures, chacune ne pouvant transporter que 4 passagers. Un passager ne peut pas arpenter l'autoroute sans voiture. Le processeur est la gare de triage et s'occupe de réassembler les passagers, et l'opération consistant à demander à un passager de sortir de la voiture `B` pour s'installer dans une autre, ou même se déplacer de la place du conducteur à la place du passager arrière prend du temps.
 
-Le compilateur sera donc obligé de faire du zèle pour accéder à d. Formellement l'accès à `d` pourrait s'écrire ainsi :
+Le compilateur sera donc obligé de faire du zèle pour accéder à d. formellement l'accès à `d` pourrait s'écrire ainsi :
 
 ```c
 int32_t d = (data[0] << 8) | (data[1] & 0x0F);

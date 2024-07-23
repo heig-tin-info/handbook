@@ -112,7 +112,7 @@ Inventé par [Charles XII de Suède](https://fr.wikipedia.org/wiki/Charles_XII) 
 
 Notons que l'utilisation des 8 premiers symboles du système indo-arabe est une convention d'usage bien pratique, car tout humain occidental est familier de ces symboles. L'inconvénient est qu'un nombre écrit en octal pourrait être confondu avec un nombre écrit en décimal.
 
-Comme pour le système décimal, un nombre octal peut également être décomposé en puissance successives :
+Comme pour le système décimal, un nombre octal peut également être décomposé en puissance successive :
 
 $$
 1607_{8} = 1 \cdot 8^{3} + 6 \cdot 8^{2} + 0 \cdot 8^{1} + 7 \cdot 8^{0}
@@ -168,7 +168,7 @@ Il est très pratique en électronique et en informatique d'utiliser ce système
 
 L'ingénieur qui se respecte doit connaître par cœur la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplication (qu'il connaît d'ailleurs parfaitement, n'est-ce pas ?)
 
-Table: Correspondance binaire, octal, hexadécimal
+Table: Correspondance binaire, octale, hexadécimale
 
 | Binaire    | Hexadécimal | Octal  | Décimal |
 |------------|-------------|--------|---------|
@@ -227,7 +227,7 @@ Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadé
 
 - `é` de *équipage* est encodé avec `\xc3\xa9` ce qui est le caractère Unicode {unicode}`U+0065`
 - `é` de *ailé* est encodé avec `e\xcc\x81`, soit le caractère e suivi du diacritique `´` {unicode}`U+0301`
-- Une espace fine insécable `\xe2\x80\xaf` est utilisée avant les `!`, ce qui est le caractère unicode {unicode}`U+202F`, conformément à la recommandation de l'Académie française.
+- Une espace fine insécable `\xe2\x80\xaf` est utilisée avant les `!`, ce qui est le caractère Unicode {unicode}`U+202F`, conformément à la recommandation de l'Académie française.
 
 Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur, il concerne probablement les deux manières distinctes utilisées pour encoder le `é`.
 

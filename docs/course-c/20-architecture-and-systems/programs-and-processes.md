@@ -286,7 +286,7 @@ $ echo $?
 
 ## Entrées sorties standards
 
-Le fichier d'en-tête `stdio.h` ([man stdio](http://man7.org/linux/man-pages/man3/stdio.3.html)) permet de simplifier l'interaction avec les fichiers. Sous Linux et MacOS principalement, mais d'une certaine manière également sous Windows, les canaux d'échanges entre un programme et son hôte (*shell*, gestionnaire de fenêtre, autre programme), se font par l'intermédiaire de fichiers particuliers nommés `stdin`, `stdout` et `stderr`.
+Le fichier d'en-tête `stdio.h` ([man stdio](http://man7.org/linux/man-pages/man3/stdio.3.html)) permet de simplifier l'interaction avec les fichiers. Sous Linux et macOS principalement, mais d'une certaine manière également sous Windows, les canaux d'échanges entre un programme et son hôte (*shell*, gestionnaire de fenêtre, autre programme), se font par l'intermédiaire de fichiers particuliers nommés `stdin`, `stdout` et `stderr`.
 
 La fonction de base est `putchar` qui écrit un caractère sur `stdout`:
 

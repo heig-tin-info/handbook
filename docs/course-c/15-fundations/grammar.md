@@ -6,7 +6,7 @@ Dans un langage formel, la grammaire est l'ensemble des règles qui régissent l
 
 En programmation informatique, la grammaire est également très importante. Elle définit la syntaxe du langage de programmation, c'est-à-dire la manière dont les instructions doivent être écrites pour être comprises par l'ordinateur. Une erreur de syntaxe peut empêcher un programme de fonctionner correctement, voire de compiler.
 
-L'ordinateur ne lit pas une phrase comme vous, elle ne peut pas ignorer les fautes de frappe, les erreurs de syntaxe ou les erreurs d'accord car le compilateur doit être capable d'interpreter le code source sans aucune ambiguïté.
+L'ordinateur ne lit pas une phrase comme vous, elle ne peut pas ignorer les fautes de frappe, les erreurs de syntaxe ou les erreurs d'accord, car le compilateur doit être capable d'interpréter le code source sans aucune ambiguïté.
 
 La grammaire d'un langage de programmation est généralement définie par un document appelé "grammaire formelle". Elle va définir les composants des éléments de votre code. Prenons par exemple le programme suivant :
 
@@ -260,11 +260,11 @@ La grammaire formelle du langage C est très complexe et comporte de nombreuses 
                       | "return" {<expression>}? ;
     ```
 
-Un compilateur, va tout d'abord convertir votre code source en un arbre de syntaxe abstraite (AST) qui va représenter la structure de votre programme. C'est grosso modo la figure montrée plus haut.
+Un compilateur va tout d'abord convertir votre code source en un arbre de syntaxe abstraite (AST) qui va représenter la structure de votre programme. C'est grosso modo la figure montrée plus haut.
 
 Ensuite, il va vérifier que cet arbre respecte les règles du standard C. Si ce n'est pas le cas, il va vous renvoyer une erreur de compilation.
 
-Si cela passe cette étape, il va ensuite pouvoir assembler votre programme en convertissant cette représentation interne en du code assembleur.
+Si cela passe à cette étape, il va ensuite pouvoir assembler votre programme en convertissant cette représentation interne en du code assembleur.
 
 Ce dernier peut ensuite être optimisé pour être plus rapide ou plus petit.
 

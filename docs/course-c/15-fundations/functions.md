@@ -78,7 +78,7 @@ herb slice(herb a);
 
 Kamaji entrepose temporairement les feuilles de menthe verte dans R5 et lorsqu'il en a besoin, plus tard, après avoir découpé les fleurs de [molène](<https://fr.wikipedia.org/wiki/Mol%C3%A8ne_(plante)>) que R5 contient des tiges d'une autre plante.
 
-Dans les conventions d'appel, il faut donc également donner la responsabilité à quelqu'un de ne pas utiliser certains casiers, ou alors d'en sauvegarder ou de restaurer le contenu au début et à la fin de la recette. Dans les conventions d'appel, il y en réalité plusieurs catégories de registres :
+Dans les conventions d'appel, il faut donc également donner la responsabilité à quelqu'un de ne pas utiliser certains casiers, ou alors d'en sauvegarder ou de restaurer le contenu au début et à la fin de la recette. Dans les conventions d'appel, il y a en réalité plusieurs catégories de registres :
 
 - ceux utilisés pour les paramètres de la fonction,
 - ceux utilisés pour les valeurs de retour,
@@ -103,7 +103,7 @@ int add(int a, int b) {
 
 ### Stack
 
-En français la [pile d'exécution](https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution), est un emplacement mémoire utilisé pour sauvegarder les registres du processeur entre les appels de fonctions, sauvegarder les adresses de retour des fonctions qui sont analogue à sauvegarder le numéro de page du livre de recettes: p 443. Recette du Bras de Vénus: commencer par réaliser une génoise de 300g (p. 225). Une fois la génoise terminée, il faut se rappeler de retourner à la page 443. Enfin le *stack* est utilisé pour mémoriser les paramètres des fonctions supplémentaires qui ne tiendraient pas dans les registres d'entrées. La convention d'appel de la plupart des architectures prévoie généralement 3 registres pour les paramètres d'entrées, si bien qu'une fonction à 4 paramètres, pourrait bien aussi utiliser le *stack*:
+En français la [pile d'exécution](https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution), est un emplacement mémoire utilisé pour sauvegarder les registres du processeur entre les appels de fonctions, sauvegarder les adresses de retour des fonctions qui sont analogue à sauvegarder le numéro de page du livre de recettes: p 443. Recette du Bras de Vénus: commencer par réaliser une génoise de 300g (p. 225). Une fois la génoise terminée, il faut se rappeler de retourner à la page 443. Enfin le *stack* est utilisé pour mémoriser les paramètres des fonctions supplémentaires qui ne tiendraient pas dans les registres d'entrées. La convention d'appel de la plupart des architectures prévoit généralement 3 registres pour les paramètres d'entrées, si bien qu'une fonction à 4 paramètres pourrait bien aussi utiliser le *stack*:
 
 ```c
 double quaternion_norm(double a1, double b1, double c1, double d1);
@@ -163,7 +163,7 @@ int make_coffee(void) {
 }
 ```
 
-Un **prototype** de fonction diffère de son **implémentation** par fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les conventions d'appel [](){#calling_conventions} de la fonction.
+Un **prototype** de fonction diffère de son **implémentation** par le fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les conventions d'appel [](){#calling_conventions} de la fonction.
 
 ## Syntaxe
 
@@ -244,7 +244,7 @@ En plus de cela, les [paramètres](<https://fr.wikipedia.org/wiki/Param%C3%A8tre
 - Par valeur
 - Par référence
 
-En C, fondamentalement, tous les paramètres sont passés par valeur, c'est-à-dire que la valeur d'une variable est copiée à l'appel de la fonction. Dans l'exemple suivant, la valeur affichée sera bel et bien `33` et non `42`
+En C, fondamentalement, tous les paramètres sont passés par valeur, c'est-à-dire que la valeur d'une variable est copiée à l'appel de la fonction. Dans l'exemple suivant, la valeur affichée sera bel et bien `33` et non. `42`
 
 ```c
 void alter(int a) {
@@ -281,11 +281,11 @@ Retenez simplement que lors d'un passage par référence, on cherche à rendre l
 ## Exemples de fonctions
 
 [](){#fib-iterative}
-### Suite de fibonacci
+### Suite de Fibonacci
 
-La suite de fibonacci est une suite d'entiers dans laquelle chaque terme est la somme des deux termes précédents. La suite commence par 0 et 1. La suite commence donc par 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+La suite de Fibonacci est une suite d'entiers dans laquelle chaque terme est la somme des deux termes précédents. La suite commence par 0 et 1. La suite commence donc par 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 
-Voici une implémentation de la suite de fibonacci en utilisant une approche itérative :
+Voici une implémentation de la suite de Fibonacci en utilisant une approche itérative :
 
 ```c
 int fib(int n)

@@ -14,7 +14,7 @@ Les types de données ne se bornent pas qu'aux informations numériques, il exis
 
 ## Stockage et interprétation
 
-Rappelez-vous qu'un ordinateur ne peut stocker l'information que sous forme binaire et qu'il n'est à même de manipuler ces informations que par paquets de bytes. Aussi un ordinateur 64-bits manipulera avec aisance des paquets de 64-bits, mais plus difficilement des paquets de 32-bits. Ajoutons qu'il existe encore des microcontrôleurs 8-bits utilisés dans des dispositifs à faible consommation et qui peinent à manipuler des types de plus grande taille. Stocker une température avec une trop grande précision et effectuer des opérations mathématiques sur toute la précision serait une erreur, car le microcontrôleur n'est simplement pas adapté à manipuler ce type d'information.
+Rappelez-vous qu'un ordinateur ne peut stocker l'information que sous forme binaire et qu'il n'est à même de manipuler ces informations que par paquets d’octets. Aussi un ordinateur 64-bits manipulera avec aisance des paquets de 64-bits, mais plus difficilement des paquets de 32-bits. Ajoutons qu'il existe encore des microcontrôleurs 8-bits utilisés dans des dispositifs à faible consommation et qui peinent à manipuler des types de plus grande taille. Stocker une température avec une trop grande précision et effectuer des opérations mathématiques sur toute la précision serait une erreur, car le microcontrôleur n'est simplement pas adapté à manipuler ce type d'information.
 
 Considérons le paquet de 32-bit suivant, êtes-vous à même d'en donner une signification?
 
@@ -250,7 +250,7 @@ Table: Modèle de données
 | **ILP64**        | 16      | 64    | 64     | 64          | 64       | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC)                                                         |
 | **SILP64**       | 64      | 64    | 64     | 64          | 64       | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur)                                                         |
 
-Pour les ordinateurs modernes on peut faire l'hypothèse raisonnable que :
+Pour les ordinateurs modernes, on peut faire l'hypothèse raisonnable que :
 
 - `char` est de 8-bits,
 - `short` est de 16-bits,
@@ -286,7 +286,7 @@ Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouv
 
 Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.
 
-Pour tenter de remédier à ce standard incompatible entre les pays Microsoft a proposé un standard nommé [Windows-1252](https://fr.wikipedia.org/wiki/Windows-1252) s'inspirant de [ISO-8859-1](https://fr.wikipedia.org/wiki/ISO/CEI_8859-1). En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...
+Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a proposé un standard nommé [Windows-1252](https://fr.wikipedia.org/wiki/Windows-1252) s'inspirant de [ISO-8859-1](https://fr.wikipedia.org/wiki/ISO/CEI_8859-1). En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...
 
 ### Unicode
 
@@ -298,7 +298,7 @@ Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du 
 
 Cette tendance est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
 
-L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en introduction [](){#thompson} est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination unicode {unicode}`U+0939` et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
+L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en introduction, [](){#thompson} est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination Unicode {unicode}`U+0939` et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
 
 En programmation C, un caractère `char` ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.
 
@@ -328,9 +328,9 @@ int main(void) {
 
 Les emojis sont des caractères spéciaux qui ont été introduits en 2010 par le standard Unicode 6.0. Ils sont donc codés sur 4 octets et permettent de représenter des émotions, des objets, des animaux, des symboles, etc.
 
-Les émoticônes que vous pouvez envoyer à votre grand-mère sont donc des caractères Unicode et non des images. Si vous dites à votre grand maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère `U+2764` qui est le caractère `❤`. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.
+Les émoticônes que vous pouvez envoyer à votre grand-mère sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère `U+2764` qui est le caractère `❤`. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.
 
-Ceci est vrai mais encore faut-il que la police d'écriture utilisée par votre chère grand maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère `�` qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.
+Ceci est vrai, mais encore faut-il que la police d'écriture utilisée par votre chère grand-maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère `�` qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.
 
 ## Chaîne de caractères
 
@@ -534,7 +534,7 @@ Un **type incomplet** est un qualificatif de type de donnée décrivant un objet
 
 Dans certains systèmes, on peut stocker des nombres entiers à taille variables. C'est à dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers [VLQ](https://en.wikipedia.org/wiki/Variable-length_quantity) utilisés dans le protocole MIDI.
 
-On peut stocker un nombre VLQ en mémoire mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.
+On peut stocker un nombre VLQ en mémoire, mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée, mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.
 
 ### Type vide (*void*)
 

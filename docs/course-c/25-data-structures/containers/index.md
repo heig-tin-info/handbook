@@ -222,7 +222,7 @@ Il est possible de représenter schématiquement ce buffer comme un cercle et se
 
 ![Exemple d'un tampon circulaire]({assets}/images/ring.drawio)
 
-Le nombre d'éléments dans le buffer est la différence entre le pointeur de tête et le pointeur de queue, modulo la taille du buffer. Néanmoins, l'opérateur `%` en C ne fonctionne que sur des nombres positifs et ne retourne pas le résidu positif le plus petit. En sommes, `-2 % 5` devrait donner `3`, ce qui est le cas en Python, mais en C, en C++ ou en PHP la valeur retournée est `-2`. Le modulo vrai, mathématiquement correct peut être calculé ainsi :
+Le nombre d'éléments dans le buffer est la différence entre le pointeur de tête et le pointeur de queue, modulo la taille du buffer. Néanmoins, l'opérateur `%` en C ne fonctionne que sur des nombres positifs et ne retourne pas le résidu positif le plus petit. En sommes, `-2 % 5` devrait donner `3`, ce qui est le cas en Python, mais en C, en C++ ou en PHP la valeur retournée est `-2`. Le modulo vrai, mathématiquement correct, peut être calculé ainsi :
 
 ```c
 ((A % M) + M) % M

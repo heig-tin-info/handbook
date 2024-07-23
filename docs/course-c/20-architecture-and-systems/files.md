@@ -94,7 +94,7 @@ $ gcc example.c
 | 00000750  c8 00 00 00 58 ff ff ff  e8 00 00 00 c8 ff ff ff | ....X........... |
 ```
 
-Sous un système POSIX, il n'existe aucune distinction formelle entre un fichier binaire et un fichier texte. En revanche sous Windows il existe une subtile différence concernant surtout le caractère de fin de ligne. La commande `copy a.txt + b.txt c.txt` considère des fichiers textes et ajoutera automatiquement une fin de ligne entre chaque partie concaténée, mais celle-ci `copy /b a.bin + b.bin c.bin` ne le fera pas.
+Sous un système POSIX, il n'existe aucune distinction formelle entre un fichier binaire et un fichier texte. En revanche sous Windows, il existe une subtile différence concernant surtout le caractère de fin de ligne. La commande `copy a.txt + b.txt c.txt` considère des fichiers textes et ajoutera automatiquement une fin de ligne entre chaque partie concaténée, mais celle-ci `copy /b a.bin + b.bin c.bin` ne le fera pas.
 
 ## Ouverture d'un fichier
 
@@ -401,7 +401,7 @@ int main(void) {
 }
 ```
 
-Pour mémoire `strace` permet de capturer les appels système du programme passé en argument et de les afficher. Deux particularités de la commande exécutée sont `2>&1` qui redirige `stderr` vers `stdout` afin de pouvoir rediriger le flux vers `grep`. Ensuite `grep` permet de filtrer la sortie pour n'afficher que les lignes contenant `open`, `read`, `write` ou `close`:
+Pour mémoire, `strace` permet de capturer les appels système du programme passé en argument et de les afficher. Deux particularités de la commande exécutée sont `2>&1` qui redirige `stderr` vers `stdout` afin de pouvoir rediriger le flux vers `grep`. Ensuite `grep` permet de filtrer la sortie pour n'afficher que les lignes contenant `open`, `read`, `write` ou `close`:
 
 ```console
 $ echo k | strace ./a.out 2>&1 | grep -P 'open|read|write|close'

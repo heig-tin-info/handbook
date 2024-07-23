@@ -24,9 +24,9 @@ Si l'on souhaite représenter l'état d'un meuble beaucoup plus grand, par exemp
 
 Les informaticiens ont l'habitude de regrouper les bits par 8 pour former un **octet**. Un octet peut donc représenter $256$ valeurs différentes. Un octet est souvent appelé un **byte** en anglais, mais ce terme est ambigu, car il peut également désigner un groupe de bits de taille variable.
 
-Lorsque vous achetez un disque de stockage pour votre ordinateur, vous pouvez par exemple lire sur l'emballage que le disque a une capacité de 1 To (Téra-octet). Un Téra-octet est égal à $2^{40}$ octets, soit $1'099'511'627'776$ octets. Un octet égant égal à 8 bits, donc un Téra-octet est égal à $8'796'093'022'208$ bits. À titre d'information l'entièreté de Wikipedia en pèse environ 22 Go (Giga-octet). On peut donc dire que notre disque de 1 To permettrait de stocker 45 copies de Wikipedia.
+Lorsque vous achetez un disque de stockage pour votre ordinateur, vous pouvez par exemple lire sur l'emballage que le disque a une capacité de 1 To (Téra-octet). Un Téra-octet est égal à $2^{40}$ octets, soit $1'099'511'627'776$ octets. Un octet égant égal à 8 bits, donc un Téra-octet est égal à $8'796'093'022'208$ bits. À titre d'information l'entièreté de Wikipédia en pèse environ 22 Go (Giga-octet). On peut donc dire que notre disque de 1 To permettrait de stocker 45 copies de Wikipédia.
 
-Pour représenter l'état de Wikipedia, il suffirait donc d'avoir $10'225'593'776'312$ pommes et de l'armoire appropriée.
+Pour représenter l'état de Wikipédia, il suffirait donc d'avoir $10'225'593'776'312$ pommes et de l'armoire appropriée.
 
 !!! exercise "Pile ou face"
 

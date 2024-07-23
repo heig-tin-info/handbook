@@ -10,23 +10,23 @@ Votre ordinateur démarre et vous verrez apparaître très probablement soit :
 
 C'est votre système d'exploitation et peu importe lequel vous avez, la bonne nouvelle c'est que vous pourrez écrire vos premiers programmes avec n'importe lequel de ces systèmes d'exploitation.
 
-## Editeur de code source
+## Éditeur de code source
 
-Pour écrire un programme vous aurez besoin d'un *editeur de code*, c'est un programme qui vous permet d'écrire du texte et de le sauvegarder dans un fichier. Il en existe des centaines !
+Pour écrire un programme, vous aurez besoin d'un *éditeur de code*, c'est un programme qui vous permet d'écrire du texte et de le sauvegarder dans un fichier. Il en existe des centaines !
 
 Si vous prenez une Doloréane munie d'un convecteur temporel, et que vous dépassez les 88 miles à l'heure, vous vous rendre en 1973 et vous pourrez utiliser un éditeur de code qui s'appelle `ed`.
 
 ![ED]({assets}/images/ed.jpg)
 
-C'est un editeur qui a été écrit à l'époque des [télétypes][teletype] et qui, curieusement, est encore intégré au standard POSIX. Il est par conséquent toujours disponible sur nos systèmes d'exploitation modernes. Il faut noter qu'à cette époque il n'y avait pas d'écran, et que l'on utilisait des imprimantes pour afficher le texte. L'éditeur n'est donc pas très interactif, mais il a le mérite d'exister.
+C'est un éditeur qui a été écrit à l'époque des [télétypes][teletype] et qui, curieusement, est encore intégré au standard POSIX. Il est par conséquent toujours disponible sur nos systèmes d'exploitation modernes. Il faut noter qu'à cette époque il n'y avait pas d'écran, et que l'on utilisait des imprimantes pour afficher le texte. L'éditeur n'est donc pas très interactif, mais il a le mérite d'exister.
 
-En 1991, naît un éditeur de code qui va révolutionner le monde de la programmation, il s'appelle `vim`. C'est un éditeur de code qui est très puissant, mais qui a une courbe d'apprentissage assez velue. Il est toujours très utilisé de nos jours, et il est disponible sur tous les systèmes d'exploitation. Vous seriez surpris de voir le nombre de programmeurs qui l'utilisent encore. C'est un éditeur modal, c'est-à-dire qu'il a plusieurs modes, un mode pour écrire du texte, un mode pour éditer du texte, un mode pour naviguer dans le texte, etc.
+En 1991 naît un éditeur de code qui va révolutionner le monde de la programmation, il s'appelle `vim`. C'est un éditeur de code qui est très puissant, mais qui a une courbe d'apprentissage assez velue. Il est toujours très utilisé de nos jours, et il est disponible sur tous les systèmes d'exploitation. Vous seriez surpris de voir le nombre de programmeurs qui l'utilisent encore. C'est un éditeur modal, c'est-à-dire qu'il a plusieurs modes, un mode pour écrire du texte, un mode pour éditer du texte, un mode pour naviguer dans le texte, etc.
 
 Puisque nous nommons Vim, nous devons aussi nommer Emacs. Le rival de Vim. Emacs est un éditeur de code qui est aussi très puissant. Il est aussi très utilisé de nos jours, et il est disponible sur tous les systèmes d'exploitation.
 
 ![Guerre d'éditeurs]({assets}/images/vim-vs-emacs.png)
 
-Nous ferons l'impasse sur d'autres éditeurs qui ont été populaires en leurs temps mais qui sont technologiquement dépassés : TextPad, UltraEdit, Sublime Text, Atom, NotePad++... Le grand gagnant de ces dernières années est Visual Studio Code, un éditeur de code qui est très puissant, qui est très utilisé de nos jours, et qui est disponible sur tous les systèmes d'exploitation.
+Nous ferons l'impasse sur d'autres éditeurs qui ont été populaires en leurs temps, mais qui sont technologiquement dépassés : TextPad, UltraEdit, Sublime Text, Atom, NotePad++... Le grand gagnant de ces dernières années est Visual Studio Code, un éditeur de code qui est très puissant, qui est très utilisé de nos jours, et qui est disponible sur tous les systèmes d'exploitation.
 
 Le résultat de l'étude annuelle 2023 de [Stackoverflow](https://survey.stackoverflow.co/2023/#overview) donne une idée de la popularité des éditeurs et IDE les plus utilisés par les développeurs :
 
@@ -50,7 +50,7 @@ Coloration Synatxique (*syntax highlighting*)
 
 Correspondance des parenthèses (*brace matching*)
 
-: L'éditeur de code vous permet de voir la correspondance des parenthèses, accolades, crochets, etc. Cela permet de voir en un tourne-main si vous avez oublié une parenthèse.
+: L'éditeur de code vous permet de voir la correspondance des parenthèses, accolades, crochets, etc. Cela permet de voir en un tournemain si vous avez oublié une parenthèse.
 
 Indentation automatique (*auto-indent*)
 
@@ -64,9 +64,9 @@ Structure du code (*outline*)
 
 : L'éditeur de code vous permet de voir dans une fenêtre séparée les éléments de votre code. Cela permet de naviguer rapidement dans votre code.
 
-Navigation hiérachique (*go to definition*)
+Navigation hiérarchique (*go to definition*)
 
-: L'éditeur de code vous permet de naviguer rapidement dans votre code. En cliquant sur un mot-clé, vous pouvez vous rendre à la définition de ce mot-clé. Habituellement ++alt+arrow-left++ vous permet de revenir en arrière là ou vous étiez.
+: L'éditeur de code vous permet de naviguer rapidement dans votre code. En cliquant sur un mot-clé, vous pouvez vous rendre à la définition de ce mot-clé. Habituellement ++alt+arrow-left++ vous permet de revenir en arrière là où vous étiez.
 
 Expressions régulières (*regular expressions*)
 
@@ -78,7 +78,7 @@ Multicurseurs (*multi-cursor*)
 
 Complétion automatique (*auto-completion*)
 
-: L'éditeur de code vous permet de compléter automatiquement le code en utilisant la touche ++tab++. Il utilise une technologie nommé *IntelliSense* qui, en ayant connaissances des mots-clés du langage de programmation et de ce que vous avez déjà écrit, vous propose les possibilités de complétion.
+: L'éditeur de code vous permet de compléter automatiquement le code en utilisant la touche ++tab++. Il utilise une technologie nommée *IntelliSense* qui, en ayant connaissance des mots-clés du langage de programmation et de ce que vous avez déjà écrit, vous propose les possibilités de complétion.
 
 Intelligence artificielle (*AI*)
 
@@ -114,7 +114,7 @@ En C, les compilateurs les plus populaires et qui respectent les normes sont GCC
 
 Un **IDE** est un *Integrated Development Environment*, c'est un environnement de développement intégré. C'est un programme qui vous permet d'écrire du code, de le compiler, de le déboguer, de le tester, de le déployer, etc.
 
-Tous les éditeurs ne sont pas des IDE, mais tous les IDE sont des éditeurs. En fin de compte, un IDE est un éditeur qui a des fonctionnalités supplémentaires tel que:
+Tous les éditeurs ne sont pas des IDE, mais tous les IDE sont des éditeurs. En fin de compte, un IDE est un éditeur qui a des fonctionnalités supplémentaires telles que:
 
 - Un compilateur
 - Un débogueur

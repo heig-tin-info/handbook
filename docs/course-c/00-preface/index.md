@@ -2,9 +2,9 @@
 
 ## Quel programmeur ?
 
-Les cursus académiques en écoles d'ingénieurs sont souvent cloisonnées. Il existe une démarcation franche entre les facultés d'informatique et celle d'électronique. On observe en cotoyant ces profiles aux pédigrées différents, une culture du métier très différente. Les informaticiens disposent d'un excellent esprit d'abstraction, on connaissances du fonctionnement interne d'un système d'exploitation et possèdent de larges connaissances en programmation. Néanmoins, ils manquent d'une assise pratique avec le matériel électronique et les limites imposées par des architectures matérielles légères. Les électroniciens, quant à eux, ont une connaissance approfondie dans le bas niveau. Ils ont une vision pratique des systèmes et des contraintes matérielles. Cependant, ils manquent souvent de connaissances en programmation et en algorithmique.
+Les cursus académiques en écoles d'ingénieurs sont souvent cloisonnés. Il existe une démarcation franche entre les facultés d'informatique et celles d'électronique. On observe en côtoyant ces profils aux pédigrées différents, une culture du métier très différente. Les informaticiens disposent d'un excellent esprit d'abstraction, ont connaissance du fonctionnement interne d'un système d'exploitation et possèdent de larges connaissances en programmation. Néanmoins, ils manquent d'une assise pratique avec le matériel électronique et les limites imposées par des architectures matérielles légères. Les électroniciens, quant à eux, ont une connaissance approfondie dans le bas niveau. Ils ont une vision pratique des systèmes et des contraintes matérielles. Cependant, ils manquent souvent de connaissances en programmation et en algorithmique.
 
-Ces deux profiles bien que complémentaires ont souvent du mal à se comprendre. Les informaticiens trouvent les électroniciens trop terre-à-terre et les électroniciens trouvent les informaticiens trop abstraits. Des digergeances d'opinions peuvent naître de ces différences de culture, notament dans des notions communes dont les définitions varient. Par exemple, la notion de temps réel n'est pas la même pour un informaticien que pour un électronicien. Pour un informaticien, le temps réel est un système qui répond dans un délai déterminé pour un utilisateur ($\approx 100~ms$). Pour un électronicien, le temps réel est un système qui répond dans un délai déterminé et qui est déterministe ($\approx 100~\mu s$).
+Ces deux profiles bien que complémentaires ont souvent du mal à se comprendre. Les informaticiens trouvent les électroniciens trop terre-à-terre et les électroniciens trouvent les informaticiens trop abstraits. Des digergeances d'opinions peuvent naître de ces différences de culture, notamment dans des notions communes dont les définitions varient. Par exemple, la notion de temps réel n'est pas la même pour un informaticien que pour un électronicien. Pour un informaticien, le temps réel est un système qui répond dans un délai déterminé pour un utilisateur ($\approx 100~ms$). Pour un électronicien, le temps réel est un système qui répond dans un délai déterminé et qui est déterministe ($\approx 100~\mu s$).
 Un autre exemple est la complexité algorithmique. Pour un informaticien, la complexité algorithmique est une mesure de la performance d'un algorithme en termes généraux. Un accès à un dictionnaire est en $O(1)$, même s'il faut calculer un `sha256` qui est une formalité sur un ordinateur. Pour un électronicien, il lui est impossible de faire un `sha256` sur un microcontrôleur 8 bits et il s'intéressera à des optimisations profondes de l'algorithme, quitte à le rendre moins générique et modulaire.
 
 Cet ouvrage a pour but de rapprocher ces deux cultures en donnant aux électroniciens les bases de la "vraie" informatique, de la programmation et de sa culture en rendant accessibles des concepts complexes tels que les arbres ou les graphes.
@@ -21,7 +21,7 @@ Le contenu concerne les cours d'informatique 1 et 2 de l'enseignement de base du
 
 ## Cours d'informatique cursus bachelor
 
-Ce cours d'informatique à la HEIG-VD est donné par le département TIN dans les cours du cursus Bachelor en Génie Électrique. Il concerne tout particulièrement les étudiants des cours suivants&nbsp;:
+Ce cours d'informatique à la HEIG-VD est donné par le département TIN dans les cours du cursus Bachelor en Génie électrique. Il concerne tout particulièrement les étudiants des cours suivants&nbsp;:
 
 - Informatique 1 (INFO1) - 101 Première année
 - Informatique 2 (INFO2) - 102 Première année
@@ -115,6 +115,21 @@ Des encadrés sont utilisés pour mettre en avant des informations complémentai
 
 ///
 
+## Anglicismes
+
+Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exercice difficile. Il est parfois moins lourd de parler de *hardware* que de *matériel informatique*. Certains termes n'ont pas de traduction en français. Par exemple, le terme *set* appliqué à un ensemble de données n'a pas de traduction crédible en français. Voici quelques termes qui seront utilisés dans cet ouvrage:
+
+| Anglais | Français | Préférence |
+|---------|----------|------------|
+| *hardware* | matériel informatique | *hardware* |
+| *software* | logiciel informatique | *software* |
+| *byte* | octet | *byte* |
+| *set* | ensemble | *set* |
+| *pipe* | tube | *pipe* |
+| *stream* | flux de données | *stream* |
+
+Notons que *byte* et *octet* ne sont pas exactement synonymes. Un *byte* est un ensemble généralement admis de 8 bits mais dont la taille a pu varier selon les années, alors qu'un *octet* est un ensemble de 8 bits sans exception. En pratique, les deux termes sont souvent utilisés de manière interchangeable. En anglais il n'existe pas de mot pour *octet*.
+
 ## Copyright et références
 
 Le contenu de ce livre est sous licence [Creative Commons](https://creativecommons.org/licenses/by-sa/4.0/). Vous êtes libre de partager et d'adapter ce contenu pour toute utilisation, même commerciale, à condition de citer l'auteur et de partager vos travaux dérivés sous la même licence.
@@ -126,3 +141,5 @@ De nombreuses références et sources de ce livre sont issues de Wikipedia, de l
 Ce livre est écrit en [Markdown](wiki:markdown) et généré en HTML par [MkDocs](https://www.mkdocs.org/). Le thème utilisé est [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). Les sources sont disponibles sur [GitHub](wiki:github) et l'hébergement est assuré par [GitHub Pages](https://pages.github.com/).
 
 La plupart des illustrations sont réalisées avec [Draw.io](https://www.draw.io/), un outil de dessin vectoriel en ligne. Les schémas sont rendus dans le navigateur avec `GraphViewer`. Les diagrammes utilisent la technologie [Mermaid](https://mermaid-js.github.io/mermaid/#/). Les autres sources d'images sont issues en grande partie de [Wikimedia Commons](https://commons.wikimedia.org/) et [Wikipedia](https://www.wikipedia.org/).
+
+L'orthographe et la grammaire ont été revues avec [Antidote](https://www.antidote.info/).
