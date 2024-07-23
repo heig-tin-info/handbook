@@ -24,10 +24,19 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
-          git config url."https://${GH_TOKEN}@github.com/".insteadOf "git@github.com:"
-          git clone https://${GH_TOKEN}@github.com/heig-tin-info/mkdocs-material-insiders.git foo
-          git clone git@github.com:heig-tin-info/mkdocs-material-insiders.git bar
+          git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "git@github.com:"
 
+      - name: Verify Git Configuration
+        run: |
+          git config --list
+
+      - name: Clone repository with HTTPS URL
+        run: |
+          git clone https://${GH_TOKEN}@github.com/heig-tin-info/mkdocs-material-insiders.git foo
+
+      - name: Clone repository with SSH URL
+        run: |
+          git clone git@github.com:heig-tin-info/mkdocs-material-insiders.git bar
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
