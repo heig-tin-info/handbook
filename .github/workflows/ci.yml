@@ -24,7 +24,7 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
-          git config url."https://${GH_TOKEN}@github.com/".insteadOf "ssh://git@github.com/"
+          git config url."https://${GH_TOKEN}@github.com/".insteadOf "git@github.com/"
           git clone https://${GH_TOKEN}@github.com/heig-tin-info/mkdocs-material-insiders.git foo
           git clone git@github.com:heig-tin-info/mkdocs-material-insiders.git bar
 
