@@ -25,14 +25,6 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
           git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "git@github.com:"
-
-      - name: Verify Git Configuration
-        run: |
-          git config --list
-
-      - name: Clone repository with SSH URL
-        run: |
-          git clone git@github.com:heig-tin-info/mkdocs-material-insiders.git bar
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
@@ -53,7 +45,7 @@ jobs:
       - name: Install pandoc
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc
+          sudo apt-get install -y pandoc pngquant
       - name: Setup Poetry
         uses: abatilo/actions-poetry@v2
       - name: Install Draw.io Desktop
@@ -79,4 +71,6 @@ jobs:
           poetry install
 
       - name: Build Documentation with MkDocs
+        env:
+          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
         run: CI=true xvfb-run -a poetry run mkdocs gh-deploy --force
