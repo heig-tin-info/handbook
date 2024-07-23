@@ -31,16 +31,20 @@ from pathlib import Path
 
 log = logging.getLogger('mkdocs')
 
-RE = re.compile(r"(\[[^\]]+\]\(){assets}([^\)]+\))")
+RE = re.compile(r"(\[[^\]]+\]\(){assets}/([^\)]+)\)")
 
 @mkdocs.plugins.event_priority(100)
 def on_page_markdown(markdown, page, config, files):
-    project = Path() / 'docs'
-    page_url = (project / Path(page.file.url)).resolve().parent
-    assets_dir = (project / 'assets').resolve()
-    relpath = os.path.relpath(assets_dir, page_url)
+    project_dir = Path(config.config_file_path).parent / config['docs_dir']
+    page_parent = Path(page.file.abs_src_path).parent
+    assets_dir = (project_dir / 'assets').resolve()
+    relpath = Path(os.path.relpath(assets_dir, page_parent))
 
     def replace(match):
-        return f"{match.group(1)}{relpath}{match.group(2)}"
+        asset = relpath / match.group(2)
+        if not (page_parent / asset).exists():
+            log.error(f"Asset not found: {asset} ({(page_parent / asset).resolve()})")
+            return match.group(0)
+        return f"{match.group(1)}{asset})"
 
     return RE.sub(replace, markdown)

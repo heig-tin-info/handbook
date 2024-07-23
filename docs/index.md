@@ -9,7 +9,7 @@ hide:
   - toc
 ---
 
-Bienvenue sur le cours de programmation en C.
+Bienvenue sur le cours de programmation
 
 ## Préface
 

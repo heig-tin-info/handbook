@@ -4,7 +4,7 @@ import re
 
 log = logging.getLogger('mkdocs')
 
-RE_ADMONITION = re.compile(r'^(!!! ?)([\w\-]+(?: +[\w\-]+)*)(?: +"(.*?)")? *$')
+RE_ADMONITION = re.compile(r'^(?P<pre>!!!\s*(?P<type>[\w\-]+)(?P<extra>(?: +[\w\-]+)*))(?: +"(?P<title>.*?)")? *$')
 RE_PUNCT = re.compile(r'(<code>.*?</code>|<[^>]+>)', re.DOTALL)
 
 translations = {}
@@ -19,13 +19,14 @@ def on_page_markdown(markdown, page, config, files):
     out = []
     for line in markdown.splitlines():
         m = RE_ADMONITION.match(line)
+
         if m:
-            type = m.group(2)
+            type = m.group('type')
             if (
-                m.group(3) is None or m.group(3).strip() == ''
+                m.group('title') is None or m.group('title').strip() == ''
             ) and type in translations:
                 title = translations[type]
-                line = m.group(1) + m.group(2) + f' "{title}"'
+                line = m.group('pre') + f' "{title}"'
         out.append(line)
     markdown = "\n".join(out)
     return markdown

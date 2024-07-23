@@ -231,15 +231,15 @@ Ci-dessous une possible utilisation de cette fonction :
 
 ### Windows
 
-Windows utilise à l'instar de `RDOS` ou [OpenVMS](https://en.wikipedia.org/wiki/OpenVMS), le caractère *slash* pour identifier ses options. Alors que sous POSIX l'affichage de la liste des fichiers s'écrira peut-être `ls -l -s D*`, sous Windows on utilisera `dir /q d* /o:s`.
+Windows utilise à l'instar de `RDOS` ou [OpenVMS](wiki:openvms), le caractère *slash* pour identifier ses options. Alors que sous POSIX l'affichage de la liste des fichiers s'écrira peut-être `ls -l -s D*`, sous Windows on utilisera `dir /q d* /o:s`.
 
 ## Fonction main
 
-Le standard définit une fonction nommée `main` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction `main` a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le [BIOS](https://en.wikipedia.org/wiki/BIOS) a chargé le système d'exploitation en mémoire. Dès lors la fonction `main` de notre programme [Hello World](../introduction/c-lang.md#hello-world) n'est pas la première, mais est appelé.
+Le standard définit une fonction nommée `main` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction `main` a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le [BIOS](wiki:bios) a chargé le système d'exploitation en mémoire. Dès lors la fonction `main` de notre programme [Hello World][hello-world] n'est pas la première, mais est appelé.
 
 ### Qui appelle main ?
 
-Un exécutable binaire à un format particulier appelé **ELF** ([Executable and Linkable Format](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format)) qui contient un **point d'entrée** qui sera l'adresse mémoire de début du programme. Sous un système POSIX ce point d'entrée est nommé `_init`. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la **pile** du programme :
+Un exécutable binaire à un format particulier appelé **ELF** ([Executable and Linkable Format](wiki:Executable_and_Linkable_Format)) qui contient un **point d'entrée** qui sera l'adresse mémoire de début du programme. Sous un système POSIX ce point d'entrée est nommé `_init`. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la **pile** du programme :
 
 - Le nombre d'arguments `argc`
 - La liste des arguments `argv`
@@ -260,7 +260,7 @@ int __libc_start_main(int (*main) (int, char**, char**),
 
 ### Valeur de retour
 
-La fonction `main` renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme ([exit status](https://en.wikipedia.org/wiki/Exit_status)). Sous POSIX et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante :
+La fonction `main` renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme ([exit status](wiki:Exit_status)). Sous POSIX et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante :
 
 `0`
 
@@ -333,7 +333,7 @@ $ cat data.txt
 Obawbhe
 ```
 
-Dans cet exemple ci-dessus, le programme `echo` prend en argument la chaîne de caractère `Bonjour` qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme `tr` qui effectue une opération de [ROT13](https://fr.wikipedia.org/wiki/ROT13) et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier `data.txt`.
+Dans cet exemple ci-dessus, le programme `echo` prend en argument la chaîne de caractère `Bonjour` qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme `tr` qui effectue une opération de [ROT13](wiki:ROT13) et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier `data.txt`.
 La commande suivante `cat` lis le contenu du fichier dont le nom est passé en argument et écrit le contenu sur la sortie standard.
 
 Dans le cas où un de ces programmes génère une alerte (*warning*), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie: `stdout` pour la sortie standard et `stderr` pour les messages de diagnostic et les erreurs.

@@ -1,8 +1,8 @@
-# Structures de données
+# Conteneurs de données
 
 ## Types de données abstraits
 
-Un [type de donnée abstrait](https://fr.wikipedia.org/wiki/Type_abstrait) (**ADT** pour Abstract Data Type) cache généralement une structure dont le contenu n'est pas connu de l'utilisateur final. Ceci est rendu possible par le standard (C99 §6.2.5) par l'usage de types incomplets.
+Un [type de donnée abstrait](wiki:abstract-type) (**ADT** pour Abstract Data Type) cache généralement une structure dont le contenu n'est pas connu de l'utilisateur final. Ceci est rendu possible par le standard (C99 §6.2.5) par l'usage de types incomplets.
 
 Pour mémoire, un type incomplet décrit un objet dont on ne connaît pas sa taille en mémoire.
 
