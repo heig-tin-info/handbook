@@ -1,6 +1,6 @@
 [](){#algorithms-and-design}
 
-# Algorithmes et conception
+# Introduction
 
 L'algorithmique est le domaine scientifique qui étudie les algorithmes, une suite finie et non ambiguë d'opérations ou d'instructions permettant de résoudre un problème ou de traiter des données.
 
@@ -212,20 +212,6 @@ for (size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++)
 - Machines d'états ([UML state machine](https://en.wikipedia.org/wiki/UML_state_machine))
 - [BPMN](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation) (*Business Process Model and Notation*)
 
-
-## Algorithmes utilitaires
-
-### Slurp
-
-Souvent on a besoin de lire l'entrée standard en entier dans une chaîne de caractère. Il faut convertir le flux d'entrée en une chaîne de caractère. Cependant, comme l'entrée standard n'est pas *seekable*, il faut lire le flux caractère par caractère. Une implémentation possible se repose sur le concept des tableaux dynamiques.
-
-```c title="slurp.h"
---8<-- "docs/assets/src/slurp/slurp.h"
-```
-
-```c title="slurp.c"
---8<-- "docs/assets/src/slurp/slurp.c"
-```
 
 ## Type d'algorithmes
 

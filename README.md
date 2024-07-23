@@ -1,5 +1,6 @@
 # Handbook
 
+
 Cours d'informatique pour les étudiants de la HEIG-VD, département TIN.
 
 Ce cours couvre les bases de l'informatique, de l'architecture des ordinateurs à la programmation en C.
@@ -21,20 +22,10 @@ poetry run mike deploy --push --update-aliases 0.1 latest
 
 ## To-Do
 
-- [ ] CI cannot get insiders version of mkdocs.
 - [ ] Build another nav with only the required sections for INFO1, INFO2.
-- [x] Drawio and SVG size is not correct
-- [x] Drawio export doesn't accept attributes {width=100%}
-  - Fixed by rendering the drawio frontend with a mygraph parser
-- [x] When I enable navigation.tabs, I dont see the fold/unfold
-  - Fixed by not enabling the navigation.sections
 - [ ] Label for tables are cropped, should be placed above tables
 - [ ] Exercise plugin cause code to be renamed exercise
-- [ ] Center mermaid diagrams
-- [ ] Allow to click on drawio image to see it full screen
 - [ ] Optimize plugins with a beautiful soup parser
-- [ ] Find a way to add unbreakable space before semi-colon in paragraphs
-- [ ] Update drawio plugin to use theme colors.
 - [ ] Make all figures compatible with both light/dark theme
 - [ ] Tables
   - [ ] Caption above table
@@ -48,17 +39,30 @@ poetry run mike deploy --push --update-aliases 0.1 latest
   - [ ] Code execution
   - [ ] Fill the gap
 - [ ] Generate PDF with LaTeX
-- [x] Center tables
-- [x] Two columns for itemize ?
 - [ ] Two/Three columns for exercises ?
 - [ ] Exercises style bullet is wrong
+- [x] Find a way to add unbreakable space before semi-colon in paragraphs
+- [x] Center mermaid diagrams
+- [x] Center tables
+- [x] Two columns for itemize ?
+- [x] Drawio
+  - [x] Allow to click on drawio image to see it full screen
+  - [x] Drawio and SVG size is not correct
+  - [x] Update drawio plugin to use theme colors.
+  - [x] Drawio export doesn't accept attributes {width=100%}
+  - Fixed by rendering the drawio frontend with a mygraph parser
+- [x] When I enable navigation.tabs, I dont see the fold/unfold
+  - Fixed by not enabling the navigation.sections
+- [x] CI cannot get insiders version of mkdocs.
+  - Fixed by adding git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "git@github.com:"
+- [x] Tables
+  - [x] Rowspan
 
 ### Custom extensions
 
 - [ ] Flexible table
   - [ ] Full Width
   - [ ] X column
-  - [ ] Rowspan
 
 ### Content
 
