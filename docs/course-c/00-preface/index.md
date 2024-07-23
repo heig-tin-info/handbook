@@ -1,8 +1,5 @@
 # Préface
 
-![Test]({assets}/images/test.drawio)
-
-
 ## Quel programmeur ?
 
 Les cursus académiques en écoles d'ingénieurs sont souvent cloisonnés. Il existe une démarcation franche entre les facultés d'informatique et celles d'électronique. On observe en côtoyant ces profils aux pédigrées différents, une culture du métier très différente. Les informaticiens disposent d'un excellent esprit d'abstraction, ont connaissance du fonctionnement interne d'un système d'exploitation et possèdent de larges connaissances en programmation. Néanmoins, ils manquent d'une assise pratique avec le matériel électronique et les limites imposées par des architectures matérielles légères. Les électroniciens, quant à eux, ont une connaissance approfondie dans le bas niveau. Ils ont une vision pratique des systèmes et des contraintes matérielles. Cependant, ils manquent souvent de connaissances en programmation et en algorithmique.
