@@ -47,7 +47,11 @@ def on_page_markdown(markdown, page, config, files):
         if not isinstance(links['wikipedia'], dict):
             links['wikipedia'] = {}
         if keyword not in links['wikipedia']:
-            url, title = get_wiki_link(keyword, 'fr')
+            result = get_wiki_link(keyword, 'fr')
+            if result is None:
+                log.error(f"Unable to find wikipedia link for keyword: {keyword}")
+                return link.group(0)
+            url, title = result
             if url is not None:
                 links['wikipedia'][keyword] = url
                 log.warning(f"New wiki link discovered: {keyword}, guessing to be {title}")

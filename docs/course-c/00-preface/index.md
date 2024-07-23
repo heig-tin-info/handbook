@@ -127,8 +127,12 @@ Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exer
 | *set* | ensemble | *set* |
 | *pipe* | tube | *pipe* |
 | *stream* | flux de données | *stream* |
+| *listing* | extrait de code | *listing* |
+| *process* | processus | processus |
 
 Notons que *byte* et *octet* ne sont pas exactement synonymes. Un *byte* est un ensemble généralement admis de 8 bits mais dont la taille a pu varier selon les années, alors qu'un *octet* est un ensemble de 8 bits sans exception. En pratique, les deux termes sont souvent utilisés de manière interchangeable. En anglais il n'existe pas de mot pour *octet*.
+
+Les termes anglais sont généralement indiqués en italique.
 
 ## Copyright et références
 

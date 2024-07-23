@@ -52,7 +52,9 @@ La localisation d'un fichier au sein d'un système de fichier peut être soit **
 - Slash `/` sous POSIX
 - Antislash `\` sous Windows
 
-Le chemin `/usr/bin/.././bin/../../home/john/documents` est correct, mais il n'est pas [canonique](<https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)>). La forme canonique est `/home/john/documents`. Un chemin peut être relatif s'il ne commence pas par un `/`: `../bin`. Sous Windows c'est pareil, mais la racine différemment selon le type de média `C:\`, `\\network`, ...
+Le chemin `/usr/bin/.././bin/../../home/john/documents` est correct, mais il n'est pas [canonique](https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)), on dit qu'il n'est pas résolu. La forme canonique est `/home/john/documents`.
+
+Un chemin peut être relatif s'il ne commence **pas** par un `/`: `../bin`. Sous Windows du même acabit, mais la racine différemment selon le type de média `C:\`, `\\network`, ...
 
 Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier, donc le chemin peut être soit relatif, soit absolu.
 

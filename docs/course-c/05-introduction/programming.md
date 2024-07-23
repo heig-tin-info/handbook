@@ -401,6 +401,8 @@ c3
 
 [](){#mcu}
 
+[](){#coffee-maker}
+
 ## Les systèmes à microcontrôleurs
 
 Les microcontrôleurs sont des ordinateurs complets intégrés dans un seul circuit intégré. Ils sont omniprésents dans notre vie quotidienne. Que ce soit la télévision, le téléphone portable, les machines à café, les voitures, les jouets, les montres ou les appareils électroménagers, ils contiennent tous un ou plusieurs microcontrôleurs.

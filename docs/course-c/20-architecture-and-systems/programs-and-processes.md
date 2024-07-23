@@ -1,24 +1,22 @@
 # Programmes et Processus
 
-![Programmeuse en tenue décontractée à côté de 62'500 cartes perforées]({assets}/images/vintage-programmer.jpg){width="60%"}
-
 ## Qu'est-ce qu'un programme?
 
-Un [programme informatique](https://fr.wikipedia.org/wiki/Programme_informatique) est un ensemble d'opérations destinées à être exécutées par un ordinateur.
+Un [programme informatique](wiki:computer-program) est un ensemble d'opérations destinées à être exécutées par un ordinateur. Un programme peut se décliner sous plusieurs formes :
 
-Un programme peut se décliner sous plusieurs formes :
+- Le code source (C, C++, Python, Java, etc.)
+- Le *listing* assembleur (`.s`, `.asm`)
+- L'exécutable binaire (ELF, `.exe`, `.out`, `.dll`, `.so`, etc.)
 
-- Code source
-- Listing assembleur
-- Exécutable binaire
+Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les [systèmes d'exploitation](wiki:operating-system) tels que Windows sont dits [multitâches](wiki:multitasking), il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.
 
-Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les [systèmes d'exploitation](https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation) tels que Windows sont dits [multitâches](https://fr.wikipedia.org/wiki/Multit%C3%A2che), il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.
+![Programmeuse en tenue décontractée à côté de 62'500 cartes perforées]({assets}/images/vintage-programmer.jpg){width="60%"}
 
 ### Code source
 
-Le **code source** est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes [Ladder](https://fr.wikipedia.org/wiki/Langage_Ladder) utilisés dans les automates programmables et respectant la norme [IEC 61131-3](https://fr.wikipedia.org/wiki/CEI_61131-3), ou [LabView](https://en.wikipedia.org/wiki/LabVIEW) un outil de développement graphique.
+Le **code source** est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes [Ladder](wiki:ladder-language) utilisés dans les automates programmables et respectant la norme [IEC 61131-3](wiki:iec-61131-3), ou [LabView](wiki:labview) un outil de développement graphique.
 
-Le plus souvent le code source est organisé en une [arborescence](https://fr.wikipedia.org/wiki/Arborescence) de fichiers. Des programmes complexes comme le noyau Linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.
+Le plus souvent le code source est organisé en une [arborescence](wiki:arborescence) de fichiers. Des programmes complexes comme le noyau Linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.
 
 ### Exécutable binaire
 
