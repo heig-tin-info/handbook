@@ -1,4 +1,7 @@
 # Correspondance Wikipedia links
+# Commands are    :
+#   mkdocs refresh-links (fetches the latest links from the web, retrieve the thumbnails and update the links.yml file)
+#   validated false will raise a warning in the console inviting you to check the link.
 wikipedia:
   c-sharp: https://fr.wikipedia.org/wiki/C_Sharp
   go: https://fr.wikipedia.org/wiki/Go_(langage)
@@ -22,3 +25,16 @@ wikipedia:
   zig-lang: https://fr.wikipedia.org/wiki/Zig_(langage)
   bpmn: https://fr.wikipedia.org/wiki/Business_process_model_and_notation
   structogramme: https://fr.wikipedia.org/wiki/Structogramme
+  # We could use the following format to provide more information and allow offline access
+  test:
+    url: https://fr.wikipedia.org/wiki/Test_(informatique)
+    title: Test (informatique)
+    validated: true
+    updated-at: 2021-09-01T00:00:00Z
+    summary: |
+      Un test informatique est une procédure qui permet de vérifier le bon fonctionnement d'un programme informatique. Il s'agit de vérifier que le programme répond bien aux spécifications qui lui sont données. Les tests sont souvent automatisés pour être exécutés régulièrement et rapidement.
+    thumbnail:
+      url: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Check_mark.svg/1200px-Check_mark.svg.png
+      width: 1200
+      height: 1200

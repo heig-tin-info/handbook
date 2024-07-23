@@ -156,7 +156,7 @@
         - volatile
         - restrict
         - inline
-  - Architecture matérielle:
+  - Architecture et systèmes:
     - L'ordinateur:
       - La RAM
       - La ROM
@@ -175,68 +175,105 @@
       - Les ports
     - Gestion de la mémoire:
       - Adressage
-  - Les types composés:
-    - Les tableaux
-    - Les structures
-    - Les champs de bits
-    - Les unions
-    - Les énumérations
-    - Déclaration de types avec `typedef`
-  - Programmes et processus:
-    - Architecture d'un programme:
-      - Le status de sortie
-      - Les variables d'environnement
-      - Les arguments
-    - Les exécutables
-    - Les signaux
-    - Les fichiers:
-      - Les fichiers binaires
-      - Les fichiers textes
-      - Les fichiers tabulaires
-    - Les flux:
-      - Pipes
-      - Fin de fichier
-      - Seek
-  - Les pointeurs:
-    - Adresses et valeurs
-    - Aritmétique de pointeurs
-    - Les pointeurs sur les tableaux
-    - Les pointeurs sur les structures:
-      - Structures auto-référencées
-    - Les pointeurs de fonctions
-    - Allocation dynamique
-  - Les conteneurs de données:
-    - Les tableaux dynamiques
-    - Les listes chaînées
-    - Les piles
-    - Les files
-    - Les arbres
-    - Les graphes
-  - Algorithmes:
-    - Introduction
-    - Méthodes de résolution
-    - Algorithmes de recherche
-    - Algorithmes de tris
-    - Récursion:
-      - Programmation dynamique
-      - Mémoïsation
+    - Programmes et processus:
+      - Architecture d'un programme:
+        - Le status de sortie
+        - Les variables d'environnement
+        - Les arguments
+      - Les exécutables
+      - Les signaux
+      - Les fichiers:
+        - Les fichiers binaires
+        - Les fichiers textes
+        - Les fichiers tabulaires
+      - Les flux:
+        - Pipes
+        - Fin de fichier
+        - Seek
+  - Structures de données et pointeurs:
+    - Les types composés:
+      - Les tableaux
+      - Les structures
+      - Les champs de bits
+      - Les unions
+      - Les énumérations
+      - Déclaration de types avec `typedef`
+    - Les pointeurs:
+      - Adresses et valeurs
+      - Aritmétique de pointeurs
+      - Les pointeurs sur les tableaux
+      - Les pointeurs sur les structures:
+        - Structures auto-référencées
+      - Les pointeurs de fonctions
+      - Allocation dynamique
+    - Les conteneurs de données:
+      - Les tableaux dynamiques
+      - Les listes chaînées
+      - Les piles
+      - Les files
+      - Les arbres
+        - Les arbres binaires
+        - Les arbres binaires de recherche
+        - Les arbres AVL
+        - Les arbres rouges-noirs
+      - Les graphes
   - Programmes modulaires:
-    - Principes élémentaires
+    - Introduction
     - Compilation séparées:
       - Variables partagées
+      - Les fichiers d'en-tête
+    - Bibliothèques statiques et dynamiques
     - Makefile
   - Bibliotheques:
     - Les bibliothèques standard
     - Les bibliothèques externes
-    - Statique ou dynamique
+  - Algorithmes et conception:
+    - Introduction
+      - Complexité algorithmique:
+        - Notation de Landau
+        - Complexité temporelle
+        - Complexité spatiale
+      - Machines d'états
+      - Diagrammes visuels
+    - Algorithmes utilitaires
+      - slurp
+      - split
+      - join
+      - grep
+      - parsing d'arguments
+    - Algorithmes de recherche
+      - Recherche séquentielle
+      - Recherche dichotomique
+      - Performances
+    - Algorithmes de tris
+      - Introduction
+      - HeapSort
+      - QuickSort
+      - CountingSort
+      - Stabilité des tris
+    - Récursion:
+      - Programmation dynamique
+      - Mémoïsation
+      - Récursion terminale
+      - Algorithmes de graphes
+        - Parcours en largeur
+        - Parcours en profondeur
+        - Dijkstra
+        - Bellman-Ford
+        - Floyd-Warshall
   - Gestion de projet:
-    - Équipe de développement
+    - Travail en équipe:
+      - Équipe de développement
+      - Équipe de test
+      - Équipe de support
     - Organisation d'un projet
-    - Cycle de développement
-    - CI/CD
+      - Gestion de versions
+      - Dotfiles
+    - Intégration continue
+      - CI/CD
     - La qualité du code
-    - Testabilité
-    - La documentation
+      - Testabilité
+      - La documentation
   - Philosophie et attitude:
     - Philosophie:
       - Rasoir d'Ockham
