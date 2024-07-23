@@ -13,31 +13,31 @@
         <meta name="author" content="Yves Chevallier">
       
       
-        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/40-algorithms/algorithms/huffman/">
+        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/45-project-management/software-project/">
       
       
-        <link rel="prev" href="../fast-inverse-square-root/">
+        <link rel="prev" href="../teamwork/">
       
       
-        <link rel="next" href="../rabin-karp/">
+        <link rel="next" href="../testing/">
       
       
         
       
       
-      <link rel="icon" href="../../../../assets/icons/favicon.ico">
+      <link rel="icon" href="../../../assets/icons/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29+insiders-4.53.11">
     
     
       
-        <title>Codage de Huffman - Le C pour l'ingénieur</title>
+        <title>Organisation d'un projet - Le C pour l'ingénieur</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.cc8ffde5.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cc8ffde5.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
   
@@ -112,17 +112,17 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/_markdown_exec_pyodide.css">
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
     
-      <link rel="stylesheet" href="../../../../css/french.css">
+      <link rel="stylesheet" href="../../../css/french.css">
     
-      <link rel="stylesheet" href="../../../../css/callout.css">
+      <link rel="stylesheet" href="../../../css/callout.css">
     
-      <link rel="stylesheet" href="../../../../css/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
     
-      <link rel="stylesheet" href="../../../../css/tables.css">
+      <link rel="stylesheet" href="../../../css/tables.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -138,7 +138,7 @@
 
     
     
-   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -147,7 +147,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -166,7 +166,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#codage-de-huffman" class="md-skip">
+        <a href="#organisation-dun-projet" class="md-skip">
           Aller au contenu
         </a>
       
@@ -182,7 +182,7 @@
   <nav class="md-header__inner md-grid" aria-label="En-tête">
     <a href="https://heig-tin-info.github.io/handbook" title="Le C pour l&#39;ingénieur" class="md-header__button md-logo" aria-label="Le C pour l'ingénieur" data-md-component="logo">
       
-  <img src="../../../../assets/logos/heig-vd-white.svg" alt="logo">
+  <img src="../../../assets/logos/heig-vd-white.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -199,7 +199,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Codage de Huffman
+              Organisation d'un projet
             
           </span>
         </div>
@@ -313,7 +313,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -342,7 +342,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../00-preface/" class="md-tabs__link">
+        <a href="../../00-preface/" class="md-tabs__link">
           
   
     
@@ -365,7 +365,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../tools/environment/" class="md-tabs__link">
+        <a href="../../../tools/environment/" class="md-tabs__link">
           
   
     
@@ -385,7 +385,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../appendix/bibliography/" class="md-tabs__link">
+        <a href="../../../appendix/bibliography/" class="md-tabs__link">
           
   
     
@@ -422,7 +422,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://heig-tin-info.github.io/handbook" title="Le C pour l&#39;ingénieur" class="md-nav__button md-logo" aria-label="Le C pour l'ingénieur" data-md-component="logo">
       
-  <img src="../../../../assets/logos/heig-vd-white.svg" alt="logo">
+  <img src="../../../assets/logos/heig-vd-white.svg" alt="logo">
 
     </a>
     Le C pour l'ingénieur
@@ -449,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -575,7 +575,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../00-preface/" class="md-nav__link ">
+            <a href="../../00-preface/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -679,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05-introduction/programming/" class="md-nav__link">
+      <a href="../../05-introduction/programming/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -706,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05-introduction/code-of-conduct/" class="md-nav__link">
+      <a href="../../05-introduction/code-of-conduct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -733,7 +733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05-introduction/me-and-my-computer/" class="md-nav__link">
+      <a href="../../05-introduction/me-and-my-computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -760,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05-introduction/c-lang/" class="md-nav__link">
+      <a href="../../05-introduction/c-lang/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10-numeration/introduction/" class="md-nav__link">
+      <a href="../../10-numeration/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -878,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10-numeration/bases/" class="md-nav__link">
+      <a href="../../10-numeration/bases/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -905,7 +905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10-numeration/numbers/" class="md-nav__link">
+      <a href="../../10-numeration/numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1008,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/syntax/" class="md-nav__link">
+      <a href="../../15-fundations/syntax/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1035,7 +1035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/datatype/" class="md-nav__link">
+      <a href="../../15-fundations/datatype/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1062,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/operators/" class="md-nav__link">
+      <a href="../../15-fundations/operators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1089,7 +1089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/stdio/" class="md-nav__link">
+      <a href="../../15-fundations/stdio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/control-structures/" class="md-nav__link">
+      <a href="../../15-fundations/control-structures/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1143,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/preprocessor/" class="md-nav__link">
+      <a href="../../15-fundations/preprocessor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1170,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/functions/" class="md-nav__link">
+      <a href="../../15-fundations/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1197,7 +1197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/scope/" class="md-nav__link">
+      <a href="../../15-fundations/scope/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1224,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/grammar/" class="md-nav__link">
+      <a href="../../15-fundations/grammar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1319,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/computer/" class="md-nav__link">
+      <a href="../../20-architecture-and-systems/computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1346,7 +1346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/mcu/" class="md-nav__link">
+      <a href="../../20-architecture-and-systems/mcu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,7 +1373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/memory-management/" class="md-nav__link">
+      <a href="../../20-architecture-and-systems/memory-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1400,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/programs-and-processes/" class="md-nav__link">
+      <a href="../../20-architecture-and-systems/programs-and-processes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1427,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/files/" class="md-nav__link">
+      <a href="../../20-architecture-and-systems/files/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1518,7 +1518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/composed-types/" class="md-nav__link">
+      <a href="../../25-data-structures/composed-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1545,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/pointers/" class="md-nav__link">
+      <a href="../../25-data-structures/pointers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1599,7 +1599,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../25-data-structures/containers/" class="md-nav__link ">
+            <a href="../../25-data-structures/containers/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1642,7 +1642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/containers/trees/" class="md-nav__link">
+      <a href="../../25-data-structures/containers/trees/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1669,7 +1669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/containers/maps/" class="md-nav__link">
+      <a href="../../25-data-structures/containers/maps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1696,7 +1696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/containers/graphs/" class="md-nav__link">
+      <a href="../../25-data-structures/containers/graphs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1764,7 +1764,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../30-modular-programming/" class="md-nav__link ">
+            <a href="../../30-modular-programming/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1807,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../30-modular-programming/translation-units/" class="md-nav__link">
+      <a href="../../30-modular-programming/translation-units/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1834,7 +1834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../30-modular-programming/libraries/" class="md-nav__link">
+      <a href="../../30-modular-programming/libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1925,7 +1925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../35-libraries/introduction/" class="md-nav__link">
+      <a href="../../35-libraries/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1952,7 +1952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../35-libraries/standard-library/" class="md-nav__link">
+      <a href="../../35-libraries/standard-library/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1979,7 +1979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../35-libraries/third-party-libraries/" class="md-nav__link">
+      <a href="../../35-libraries/third-party-libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2011,10 +2011,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2026,17 +2024,21 @@
       
         
       
+        
+      
+        
+      
     
     
       
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
         
           
           <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
@@ -2045,7 +2047,7 @@
   <span class="md-ellipsis">
     
   
-    Algorithmique
+    Algorithmes et Conception
   
 
     
@@ -2056,12 +2058,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_9">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Algorithmique
+    Algorithmes et Conception
   
 
           </label>
@@ -2074,13 +2076,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../40-algorithms/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Algorithms
+    Introduction
   
 
     
@@ -2101,7 +2103,34 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recursion/" class="md-nav__link">
+      <a href="../../40-algorithms/utilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithmes utilitaires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/recursion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2125,22 +2154,10 @@
                 
   
   
-    
   
   
-  
     
     
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -2150,14 +2167,256 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_4" >
         
           
-          <label class="md-nav__link" for="__nav_2_9_3" id="__nav_2_9_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_9_4" id="__nav_2_9_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Searching
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Searching
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/searching/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithmes de recherche
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9_5" id="__nav_2_9_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithmes de tris
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithmes de tris
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/sorting/count-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Counting Sort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/sorting/heap-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Heap Sort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/sorting/quick-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Sort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9_6" id="__nav_2_9_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2174,8 +2433,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_9_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2192,7 +2451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fast-exp/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/fast-exp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2219,13 +2478,222 @@
   
   
     <li class="md-nav__item">
-      <a href="../fast-inverse-square-root/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/fast-inverse-square-root/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
     Racine carrée inverse rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/huffman/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Codage de Huffman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/rabin-karp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithme de Rabin-Karp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/random/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Générateur congruentiel linéaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/shunting-yard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithme de Shunting Yard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion de projets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestion de projets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../teamwork/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail en équipe
   
 
     
@@ -2261,7 +2729,7 @@
   <span class="md-ellipsis">
     
   
-    Codage de Huffman
+    Organisation d'un projet
   
 
     
@@ -2278,7 +2746,7 @@
   <span class="md-ellipsis">
     
   
-    Codage de Huffman
+    Organisation d'un projet
   
 
     
@@ -2304,22 +2772,61 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comment-ca-marche" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comment ça marche ?
+        Introduction
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Comment ça marche ?">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-dun-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure d'un projet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure d'un projet">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#nombre-doccurences" class="md-nav__link">
+  <a href="#readmemd" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nombre d'occurences
+        README.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilisation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Utilisation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dotfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dotfiles
       
     </span>
   </a>
@@ -2327,10 +2834,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fusion" class="md-nav__link">
+  <a href="#makefile" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fusion
+        Makefile
       
     </span>
   </a>
@@ -2338,10 +2845,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generation-des-codes" class="md-nav__link">
+  <a href="#organisation-des-fichiers-sources" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Génération des codes
+        Organisation des fichiers sources
       
     </span>
   </a>
@@ -2349,10 +2856,60 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#encodage-du-texte" class="md-nav__link">
+  <a href="#repertoire-de-construction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Encodage du texte
+        Répertoire de construction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#en-tetes-de-fichiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        En-têtes de fichiers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-de-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion de configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestion de configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables-denvironnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables d'environnement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fichier-den-tete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fichier d'en-tête
       
     </span>
   </a>
@@ -2380,301 +2937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rabin-karp/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Algorithme de Rabin-Karp
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../random/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Générateur congruentiel linéaire
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../shunting-yard/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Algorithme de Shunting Yard
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_9_4" id="__nav_2_9_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    
-  
-    Algorithmes de tris
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_9_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Algorithmes de tris
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../sorting/count-sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Counting Sort
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../sorting/heap-sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Heap Sort
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../sorting/quick-sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Quick Sort
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    
-  
-    Gestion de projets
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_10">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Gestion de projets
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../45-project-management/testing/" class="md-nav__link">
+      <a href="../testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2763,7 +3026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../50-philosophy/philosophy/" class="md-nav__link">
+      <a href="../../50-philosophy/philosophy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2790,7 +3053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../50-philosophy/funny/" class="md-nav__link">
+      <a href="../../50-philosophy/funny/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2846,7 +3109,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../90-exercises/" class="md-nav__link ">
+            <a href="../../90-exercises/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2971,7 +3234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/environment/" class="md-nav__link">
+      <a href="../../../tools/environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2998,7 +3261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/filesystem/" class="md-nav__link">
+      <a href="../../../tools/filesystem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3025,7 +3288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/gcc/" class="md-nav__link">
+      <a href="../../../tools/gcc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3052,7 +3315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/git/" class="md-nav__link">
+      <a href="../../../tools/git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3079,7 +3342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/make/" class="md-nav__link">
+      <a href="../../../tools/make/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3106,7 +3369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/vscode/" class="md-nav__link">
+      <a href="../../../tools/vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3133,7 +3396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/python/" class="md-nav__link">
+      <a href="../../../tools/python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3212,7 +3475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/utilities/binutils/" class="md-nav__link">
+      <a href="../../../tools/utilities/binutils/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3247,7 +3510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/bash/" class="md-nav__link">
+      <a href="../../../tools/bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3274,7 +3537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/config/" class="md-nav__link">
+      <a href="../../../tools/config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3301,7 +3564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/gdb/" class="md-nav__link">
+      <a href="../../../tools/gdb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3399,7 +3662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/bibliography/" class="md-nav__link">
+      <a href="../../../appendix/bibliography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3426,7 +3689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/glossary/" class="md-nav__link">
+      <a href="../../../appendix/glossary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3453,7 +3716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/grammar/" class="md-nav__link">
+      <a href="../../../appendix/grammar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3480,7 +3743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/laboratories/" class="md-nav__link">
+      <a href="../../../appendix/laboratories/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3507,7 +3770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/unit/" class="md-nav__link">
+      <a href="../../../appendix/unit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3534,7 +3797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/colophon/" class="md-nav__link">
+      <a href="../../../appendix/colophon/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3561,7 +3824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/refcards/" class="md-nav__link">
+      <a href="../../../appendix/refcards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3615,22 +3878,61 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comment-ca-marche" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comment ça marche ?
+        Introduction
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Comment ça marche ?">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-dun-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure d'un projet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure d'un projet">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#nombre-doccurences" class="md-nav__link">
+  <a href="#readmemd" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nombre d'occurences
+        README.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilisation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Utilisation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dotfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dotfiles
       
     </span>
   </a>
@@ -3638,10 +3940,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fusion" class="md-nav__link">
+  <a href="#makefile" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fusion
+        Makefile
       
     </span>
   </a>
@@ -3649,10 +3951,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generation-des-codes" class="md-nav__link">
+  <a href="#organisation-des-fichiers-sources" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Génération des codes
+        Organisation des fichiers sources
       
     </span>
   </a>
@@ -3660,10 +3962,60 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#encodage-du-texte" class="md-nav__link">
+  <a href="#repertoire-de-construction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Encodage du texte
+        Répertoire de construction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#en-tetes-de-fichiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        En-têtes de fichiers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-de-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion de configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestion de configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables-denvironnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables d'environnement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fichier-den-tete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fichier d'en-tête
       
     </span>
   </a>
@@ -3699,7 +4051,7 @@
         
   
     <li class="md-path__item">
-      <a href="../../../.." class="md-path__link">
+      <a href="../../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -3720,7 +4072,7 @@
     
     
       <li class="md-path__item">
-        <a href="../../../00-preface/" class="md-path__link">
+        <a href="../../00-preface/" class="md-path__link">
           
   <span class="md-ellipsis">
     Cours C
@@ -3740,27 +4092,10 @@
     
     
       <li class="md-path__item">
-        <a href="../" class="md-path__link">
+        <a href="../teamwork/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Algorithmique
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../fast-exp/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Quelques algorithmes
+    Gestion de projets
   </span>
 
         </a>
@@ -3779,7 +4114,7 @@
 
 
   
-    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/40-algorithms/algorithms/huffman.md" title="Editer cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/45-project-management/software-project.md" title="Editer cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
     </a>
@@ -3788,135 +4123,256 @@
     
       
     
-    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/40-algorithms/algorithms/huffman.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/45-project-management/software-project.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
     </a>
   
 
 
-<h1 id="codage-de-huffman">Codage de Huffman<a class="headerlink" href="#codage-de-huffman" title="Permanent link">¶</a></h1>
-<p>Le codage de Huffman est un algorithme de compression sans perte qui permet de réduire la taille des fichiers en utilisant des codes de longueur variable pour représenter les caractères. L'algorithme repose sur l'idée que les caractères les plus fréquents dans un texte peuvent être représentés par des codes plus courts, tandis que les caractères les moins fréquents sont représentés par des codes plus longs.</p>
-<p>Il est utilisé dans de nombreux formats de fichiers comme le format <a href="https://fr.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a>, <a href="https://fr.wikipedia.org/wiki/JPEG">JPEG</a> et <a href="https://fr.wikipedia.org/wiki/MPEG-1/2_Audio_Layer_3">MP3</a>.</p>
-<p>Prenons le texte <code>ABRACADABRA</code>. Il y a des lettres qui reviennent plus souvent que d'autres et des lettres de l'alphabet qui sont absente. Pourquoi donc représenter chaque caractère sur 1 octet&thinsp;? On pourrait utiliser un code de longueur variable. Par exemple, la lettre <code>A</code> pourrait être représentée par <code>0</code>, la lettre <code>B</code> par <code>10</code> et la lettre <code>R</code> par <code>11</code>. Il faudrait également définir une table de correspondance pour décoder le texte. C'est le principe de l'abre de Huffman.</p>
-<h2 id="comment-ca-marche">Comment ça marche&thinsp;?<a class="headerlink" href="#comment-ca-marche" title="Permanent link">¶</a></h2>
-<p>Pour notre entrée <code>ABRACADABRA</code>, nous allons suivre les étapes suivantes&thinsp;:</p>
-<h3 id="nombre-doccurences">Nombre d'occurences<a class="headerlink" href="#nombre-doccurences" title="Permanent link">¶</a></h3>
-<p>On commence par compter la fréquence de chaque caractère. On obtient&thinsp;:</p>
-<table>
-<thead>
-<tr>
-<th>Caractère</th>
-<th>Fréquence</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A</td>
-<td>5</td>
-</tr>
-<tr>
-<td>B</td>
-<td>2</td>
-</tr>
-<tr>
-<td>R</td>
-<td>2</td>
-</tr>
-<tr>
-<td>C</td>
-<td>1</td>
-</tr>
-<tr>
-<td>D</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p>Chaque élément est un noeuf qui est placé dans une file de priorité (<em>min-heap</em>) où la priorité est la fréquence du caractère. Voici le pseudo code du tas minimum&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>Min-Heap : [(1, 'C'), (1, 'D'), (2, 'B'), (2, 'R'), (5, 'A')]
+<h1 id="organisation-dun-projet">Organisation d'un projet<a class="headerlink" href="#organisation-dun-projet" title="Permanent link">¶</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
+<p>Dans ce chapitre, nous allons voir comment organiser un projet logiciel. Nous allons voir comment structurer un projet, comment gérer les dépendances, comment gérer les tests unitaires et comment gérer les tests fonctionnels.</p>
+<h2 id="structure-dun-projet">Structure d'un projet<a class="headerlink" href="#structure-dun-projet" title="Permanent link">¶</a></h2>
+<p>La structure d'un projet logiciel est un élément important pour sa maintenabilité. Une bonne structure permet de retrouver facilement les fichiers sources, les fichiers d'en-tête, les tests, etc.</p>
+<p>Si votre projet est accessible par d'autres développeurs, il y a certaines conventions à respecter pour que tout le monde puisse s'y retrouver.</p>
+<p>Tout commence avec un dossier racine. Ce dossier racine contient tous les fichiers sources, les fichiers d'en-tête, les tests, les dépendances, etc. Encore faut-il bien nommer ce projet. Un nom de projet doit être court, explicite et unique. Il est recommandé de ne pas utiliser d'espaces, de caractères spéciaux ou de majuscules.</p>
+<div class="admonition note">
+<p class="admonition-title">Les Majuscules</p>
+<p>Les noms de fichiers et de dossiers sont sensibles à la casse sur les systèmes <abbr title="Portable Operating System Interface">POSIX</abbr> mais pas sous Windows. Cela crée certains problèmes de compatibilité entre les systèmes d'exploitation.</p>
+<p>D'autre part, l'usage des majuscules peut créer des ambiguïtés. Par exemple, <code>NomDuFichier</code> et <code>nomdufichier</code> sont deux noms différents. Comment allez-vous expliquer par téléphone à un collègue que le fichier s'écrit de cette manière&thinsp;? L'ennui c'est les acronymes. Par exemple, <code>XMLParser</code>, <code>XmlParser</code> ou <code>XMLparser</code> ? Vous aurez tendance à choisir la troisième solution pour que <code>XML</code> ressort bien mais vous êtes incohérent puisque vous avez pas utilisé de majuscul pour <code>Parser</code>.</p>
+<p>Le problème est bien résolu avec l'utilisation d'underscores ou de tirets (notation kekbab-case ou snake_case). Par exemple, <code>xml_parser</code> est plus lisible et plus facile à expliquer.</p>
+<p>Une convention en voque est de nommer les fichiers en minuscules et d'utiliser des tirets pour séparer les mots. Par exemple, <code>xml-parser</code>. C'est la convention utilisée sur GitHub pour le nom des dépôts.</p>
+</div>
+<p>Voici une structure de projet classique&thinsp;:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>projet/
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>├── src/
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>│   ├── main.c
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>│   ├── foo.c
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>│   └── bar.c
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>├── include/
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>│   ├── foo.h
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>│   └── bar.h
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>├── tests/
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>│   ├── test_foo.c
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>│   └── test_bar.c
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>├── Makefile
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>└── README.md
 </span></code></pre></div>
-<h3 id="fusion">Fusion<a class="headerlink" href="#fusion" title="Permanent link">¶</a></h3>
-<p>On va fusionner les deux noeuds de plus faible fréquence, c'est facile parce qu'un <em>min-heap</em> nous permet de récupérer les deux éléments de plus faible fréquence en temps constant. Après fusion, on obtient une chaîne de caractère qui représente les deux noeuds fusionnés. On ajoute ce nouveau noeud à la file de priorité en prenant en compte la fréquence totale des deux noeuds fusionnés.</p>
-<p>Notons que qu'en cas de priorité égale, on peut choisir arbitrairement l'ordre des noeuds.</p>
-<p>Les noeuds <code>C</code> et <code>D</code> sont les deux noeuds de plus faible fréquence. On les fusionne pour obtenir <code>CD</code> qui a une priorité de <code>2</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>Min-Heap : [(2, 'CD'), (2, 'B'), (2, 'R'), (5, 'A')]
+<p>Le point d'entrée pour le développeur c'est le fichier <code>README.md</code>. Ce fichier contient une description du projet, des instructions pour l'installation, des instructions pour la compilation, des instructions pour les tests, etc.</p>
+<h3 id="readmemd">README.md<a class="headerlink" href="#readmemd" title="Permanent link">¶</a></h3>
+<p>Jadis, le fichier <code>README</code> était un fichier texte simple. Aujourd'hui, c'est un fichier <code>Markdown</code>. Le <code>Markdown</code> est un langage de balisage léger créé en 2004 par John Gruber et Aaron Swartz. Il est facile à lire et à écrire. Il est utilisé sur de très nombreux supports&thinsp;: GitHub, GitLab, Bitbucket, Reddit, Stack Overflow, etc. C'est d'ailleurs le format utilisé pour rédiger cet ouvrage.</p>
+<p>Voici un exemple de fichier <code>README.md</code> :</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="gh"># Nom du Projet</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>Description du projet.
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="gu">## Installation</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>Comment installer le projet :
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>```bash
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>git clone http://...
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>cd projet
+</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>make
 </span></code></pre></div>
-<pre class="mermaid"><code>graph TD
-CD("CD (2)") --&gt; C("C (1)")
-CD --&gt; D("D (1)")</code></pre>
-<p>Il nous reste des noeuuds à fusionner. On fusionne les noeuds <code>CD</code> et <code>B</code> pour obtenir <code>CDB</code> qui a une priorité de <code>4</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>Min-Heap : [(2, 'R'), (4, 'CDB'), (5, 'A')]
+<h2 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Permanent link">¶</a></h2>
+<p>Comment utiliser le projet&thinsp;:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>./projet
 </span></code></pre></div>
-<pre class="mermaid"><code>graph TD
-    CDB("CDB (4)") --&gt; CD("CD (2)")
-    CDB --&gt; B("B (2)")
-    CD --&gt; C("C (1)")
-    CD --&gt; D("D (1)")</code></pre>
-<p>On continue car il nous reste des noeuds à fusionner. On fusionne les noeuds <code>CDB</code> et <code>R</code> pour obtenir <code>CDBR</code> qui a une priorité de <code>6</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>Min-Heap : [(5, 'A'), (6, 'RCDB')]
+<p>Le fichier <code>README.md</code> est un fichier important. Il doit être à jour et bien rédigé car c'est la première chose que l'on voit lorsqu'on arrive sur le dépôt du projet. Il doit permettre à l'utilisateur rapidement&thinsp;:</p>
+<ol>
+<li>Que fait le projet et quelle est son utilité&thinsp;?</li>
+<li>Est-ce que ce projet est fait pour moi&thinsp;?</li>
+<li>Comment l'installer&thinsp;?</li>
+<li>Comment l'utiliser&thinsp;?</li>
+<li>Comment contribuer&thinsp;?</li>
+</ol>
+<h3 id="dotfiles">Dotfiles<a class="headerlink" href="#dotfiles" title="Permanent link">¶</a></h3>
+<p>Dans un système <abbr title="Portable Operating System Interface">POSIX</abbr>, les fichiers commençant par un point sont des fichiers cachés. C'est une convention utilisée pour les fichiers de configuration. Ces fichiers sont appelés <code>dotfiles</code>.</p>
+<p>On va trouver toute une panoplie de fichiers de configuration dans un projet logiciel tel que&thinsp;:</p>
+<ul>
+<li><code>.gitignore</code> : liste des fichiers à ignorer par Git.</li>
+<li><code>.editorconfig</code> : conventions de codage pour les éditeurs de texte.</li>
+<li><code>.github/</code> : dossier contenant l'intégration continue, les actions GitHub, etc.</li>
+<li><code>.env</code> : variables d'environnement pour le projet.</li>
+</ul>
+<h3 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">¶</a></h3>
+<p>Le <code>Makefile</code> est un fichier de configuration pour le programme <code>make</code>. C'est généralement le point d'entrée pour construire un projet. Si vous trouvez un <code>Makefile</code>, vous savez que vous pourrez très probablement simplement utiliser la commande <code>make</code> pour construire le projet.</p>
+<p>Néanmoins, parfois le <code>Makefile</code> n'est pas suffisant car votre projet est plus complexe et dépend de plusieurs bibliothèques tierces qui peuvent être fastidieuses à installer. C'est là qu'interviennent les gestionnaires de dépendances que nous verrons plus tard.</p>
+<p>Alternativement, on peut trouver simplement un script <code>build.sh</code> ou <code>build.bat</code> pour construire le projet que vous appelerer avec <code>./build.sh</code> ou <code>.\build.bat</code>.</p>
+<h3 id="organisation-des-fichiers-sources">Organisation des fichiers sources<a class="headerlink" href="#organisation-des-fichiers-sources" title="Permanent link">¶</a></h3>
+<p>Lorsque le projet dépasse 5 à 10 fichiers, il est habituel de les déplacer dans un dossier pour ne pas encombrer la racine du projet. On crée un dossier <code>src</code> pour les fichiers sources qui va contenir tous les fichiers <code>.c</code>.</p>
+<p>Faut-il séparer les fichiers sources des fichiers d'en-tête&thinsp;? C'est une question de goût. Certains développeurs préfèrent tout mettre dans un seul dossier <code>src</code> pour simplifier la navigation. D'autres préfèrent séparer les fichiers sources des fichiers d'en-tête. Cela permet de mieux organiser le projet et de mieux gérer les dépendances. Il n'y a pas de consensus établi mais on peut noter plusieurs points.</p>
+<p>Lorsqu'un projet est destiné à devenir une bibliothèque partagée, vous devez fournir les fichiers d'en-tête pour que les autres développeurs puissent utiliser votre bibliothèque. S'ils sont séparés, c'est plus facile de les extraire et les distribuer.</p>
+<p>Néanmoins, séplacer les fichiers d'en-tête dans un dossier <code>include</code> nécessite d'informer le compilateur de l'emplacement des fichiers d'en-tête. C'est généralement fait avec l'option <code>-I</code> de GCC&thinsp;:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>gcc<span class="w"> </span>-Iinclude<span class="w"> </span>-c<span class="w"> </span>src/*.c
 </span></code></pre></div>
-<pre class="mermaid"><code>graph TD
-    RCDB("RCDB (6)") --&gt; R("R (2)")
-    RCDB --&gt; CDB("CDB (4)")
-    CDB --&gt; CD("CD (2)")
-    CDB --&gt; B("B (2)")
-    CD --&gt; C("C (1)")
-    CD --&gt; D("D (1)")</code></pre>
-<p>Enfin, on fusionne les noeuds <code>RCDB</code> et <code>A</code> pour obtenir <code>ACDBR</code> qui a une priorité de <code>11</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>Min-Heap : [(11, 'ARCDB')]
+<h3 id="repertoire-de-construction">Répertoire de construction<a class="headerlink" href="#repertoire-de-construction" title="Permanent link">¶</a></h3>
+<p>Lorsque vous compilez un projet, vous allez générer des fichiers intermédiaires (fichiers objets) et des fichiers finaux (exécutables, bibliothèques). Selon le projet il peut y avoir beaucoup de fichiers. Afin d'éviter de ne voir ces fichiers dans votre explorateur de fichiers, on crée un dossier <code>build</code> pour les stocker.</p>
+<p>Ceci est une convention. Vous pouvez choisir un autre nom pour ce dossier. Par exemple, <code>bin</code>, <code>out</code>, <code>dist</code>, etc.</p>
+<p>Néanmoins, il faut d'une part penser à ajouter ce dossier dans le <code>.gitignore</code> pour ne pas le versionner, mais également modifier la configuration de votre compilateur pour qu'il place les fichiers objets dans ce dossier&thinsp;:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>build
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>gcc<span class="w"> </span>-Iinclude<span class="w"> </span>-c<span class="w"> </span>src/*.c<span class="w"> </span>-o<span class="w"> </span>build/*.o
 </span></code></pre></div>
-<pre class="mermaid"><code>graph TD
-    ARCDB("ARCDB (11)") --&gt; A("A (5)")
-    ARCDB --&gt; RCDB("RCDB (6)")
-    RCDB --&gt; R("R (2)")
-    RCDB --&gt; CDB("CDB (4)")
-    CDB --&gt; CD("CD (2)")
-    CDB --&gt; B("B (2)")
-    CD --&gt; C("C (1)")
-    CD --&gt; D("D (1)")</code></pre>
-<h3 id="generation-des-codes">Génération des codes<a class="headerlink" href="#generation-des-codes" title="Permanent link">¶</a></h3>
-<p>Pour générer les codes, on parcourt l'arbre de Huffman en partant de la racine. On ajoute un <code>0</code> à chaque fois qu'on descend à gauche et un <code>1</code> à chaque fois qu'on descend à droite. Les noeuds fusionnés sont des noeuds internes, on ne les prend pas en compte.</p>
-<table>
-<thead>
-<tr>
-<th>Caractère</th>
-<th>Code</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A</td>
-<td>0</td>
-</tr>
-<tr>
-<td>R</td>
-<td>10</td>
-</tr>
-<tr>
-<td>B</td>
-<td>111</td>
-</tr>
-<tr>
-<td>C</td>
-<td>1100</td>
-</tr>
-<tr>
-<td>D</td>
-<td>1101</td>
-</tr>
-</tbody>
-</table>
-<h3 id="encodage-du-texte">Encodage du texte<a class="headerlink" href="#encodage-du-texte" title="Permanent link">¶</a></h3>
-<p>Une fois les codes générés, on peut encoder le texte en remplaçant chaque caractère par son code.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>A B   R  A C    A C    A B   R  A
-</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>0 111 10 0 1100 0 1100 0 111 10 0
+<h2 id="en-tetes-de-fichiers">En-têtes de fichiers<a class="headerlink" href="#en-tetes-de-fichiers" title="Permanent link">¶</a></h2>
+<p>Historiquement, les développeurs C utilisait l'outil <a href="https://fr.wikipedia.org/wiki/Doxygen">Doxygen</a> pour générer de la documentation à partir des commentaires dans le code source. Cela a donné naissance à une convention pour les commentaires de documentation qui est souvent utilisée de manière abusive.</p>
+<p>Aujourd'hui, avec les éditeurs modernes, il est plus facile de naviguer dans le code source et de trouver des informations sur les fonctions et les structures. Les commentaires de documentation sont souvent redondants et inutiles, ils polluent plus qu'ils n'aident. Néanmoins, je peux vous donner un exemple de commentaires de documentation pour un fichier d'en-tête&thinsp;:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/**</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cm"> * @brief Définition des fonctions pour manipuler des nombres</span>
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="cm"> * @file numbers.h</span>
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="cm"> * @date 2024-09-01</span>
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="cm"> * @author John Doe</span>
+</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="cm"> * @version 1.0</span>
+</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="cm"> * @copyright Copyright (c) 2021</span>
+</span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="cm"> *</span>
+</span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="cm"> * Description détaillée.</span>
+</span><span id="__span-5-10"><a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="cm"> */</span>
+</span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="cm">/*********************************************************/</span>
+</span><span id="__span-5-13"><a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="cm">/*                       INCLUDES                        */</span>
+</span><span id="__span-5-14"><a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="cm">/*********************************************************/</span>
+</span><span id="__span-5-15"><a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-5-16"><a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a>
+</span><span id="__span-5-17"><a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="cm">/*********************************************************/</span>
+</span><span id="__span-5-18"><a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="cm">/*                       STRUCTURES                      */</span>
+</span><span id="__span-5-19"><a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="cm">/*********************************************************/</span>
+</span><span id="__span-5-20"><a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-21"><a href="#__codelineno-5-21" id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">//!&lt; Abscisse du point.</span>
+</span><span id="__span-5-22"><a href="#__codelineno-5-22" id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">//!&lt; Ordonnée du point.</span>
+</span><span id="__span-5-23"><a href="#__codelineno-5-23" id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="p">}</span><span class="w"> </span><span class="n">Point</span><span class="p">;</span><span class="w"> </span><span class="c1">//!&lt; Structure point.</span>
+</span><span id="__span-5-24"><a href="#__codelineno-5-24" id="__codelineno-5-24" name="__codelineno-5-24"></a>
+</span><span id="__span-5-25"><a href="#__codelineno-5-25" id="__codelineno-5-25" name="__codelineno-5-25"></a><span class="cm">/*********************************************************/</span>
+</span><span id="__span-5-26"><a href="#__codelineno-5-26" id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="cm">/*                       FONCTIONS                       */</span>
+</span><span id="__span-5-27"><a href="#__codelineno-5-27" id="__codelineno-5-27" name="__codelineno-5-27"></a><span class="cm">/*********************************************************/</span>
+</span><span id="__span-5-28"><a href="#__codelineno-5-28" id="__codelineno-5-28" name="__codelineno-5-28"></a>
+</span><span id="__span-5-29"><a href="#__codelineno-5-29" id="__codelineno-5-29" name="__codelineno-5-29"></a><span class="cm">/**</span>
+</span><span id="__span-5-30"><a href="#__codelineno-5-30" id="__codelineno-5-30" name="__codelineno-5-30"></a><span class="cm"> * @brief Fonction d'addition de deux entiers.</span>
+</span><span id="__span-5-31"><a href="#__codelineno-5-31" id="__codelineno-5-31" name="__codelineno-5-31"></a><span class="cm"> * @param a Premier entier.</span>
+</span><span id="__span-5-32"><a href="#__codelineno-5-32" id="__codelineno-5-32" name="__codelineno-5-32"></a><span class="cm"> * @param b Deuxième entier.</span>
+</span><span id="__span-5-33"><a href="#__codelineno-5-33" id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="cm"> * @return La somme des deux entiers.</span>
+</span><span id="__span-5-34"><a href="#__codelineno-5-34" id="__codelineno-5-34" name="__codelineno-5-34"></a><span class="cm"> *</span>
+</span><span id="__span-5-35"><a href="#__codelineno-5-35" id="__codelineno-5-35" name="__codelineno-5-35"></a><span class="cm"> * Cette fonction permet d'additionner deux entiers.</span>
+</span><span id="__span-5-36"><a href="#__codelineno-5-36" id="__codelineno-5-36" name="__codelineno-5-36"></a><span class="cm"> */</span>
+</span><span id="__span-5-37"><a href="#__codelineno-5-37" id="__codelineno-5-37" name="__codelineno-5-37"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-38"><a href="#__codelineno-5-38" id="__codelineno-5-38" name="__codelineno-5-38"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-5-39"><a href="#__codelineno-5-39" id="__codelineno-5-39" name="__codelineno-5-39"></a><span class="p">}</span>
+</span><span id="__span-5-40"><a href="#__codelineno-5-40" id="__codelineno-5-40" name="__codelineno-5-40"></a>
+</span><span id="__span-5-41"><a href="#__codelineno-5-41" id="__codelineno-5-41" name="__codelineno-5-41"></a><span class="cm">/*********************************************************/</span>
+</span><span id="__span-5-42"><a href="#__codelineno-5-42" id="__codelineno-5-42" name="__codelineno-5-42"></a><span class="cm">/*                       FIN                             */</span>
+</span><span id="__span-5-43"><a href="#__codelineno-5-43" id="__codelineno-5-43" name="__codelineno-5-43"></a><span class="cm">/*********************************************************/</span>
 </span></code></pre></div>
-<p>Comme les données sont nécessairement alignées sur des octets en mémoire, il est possible que le dernier octet contienne des bits inutilisés, on les remplace par des zéros.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>01111001'10001100'01111000
-</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>                         - Remplissage (padding)
+<p>Nous pouvons maintenant discuter de la pertinence de ces commentaires. Intéressons-nous tout d'abord à l'en-tête du fichier&thinsp;:</p>
+<dl>
+<dt><code>@file</code></dt>
+<dd>
+<p>Le nom du fichier est en redondance avec le vrai nom du fichier. Si vous renommez le fichier, vous devrez également changer ce commentaire. C'est d'une part une source d'erreur mais surtout pour Git, cela implique que le fichier n'est pas simplement renommé mais supprimé et recréé. Cela peut poser des problèmes de fusion et d'accès à l'historique. Aussi, si vous utilisez Git, cette information est parfaitement inutile.</p>
+</dd>
+<dt><code>@date</code></dt>
+<dd>
+<p>La date est inutile car si vous avez besoin de la date, vous pouvez utiliser Git pour voir la date de la dernière modification du fichier. D'autre part, il est courant qu'un fichier soit modifié sans que la date soit mise à jour. Cela peut être une source de confusion.</p>
+</dd>
+<dt><code>@author</code></dt>
+<dd>
+<p>Si vous utilisez Git, vous possédez déjà cette information et de manière beaucoup plus fine. Vous pouvez voir qui a modifié chaque ligne du fichier. Gérer cette information dans le fichier c'est également s'astreindre à ajouter son nom, même si vous n'avez ajouté qu'une ligne. Et puis, si vous aimez tant le fichier que vous venez tant à le modifier que vous avez changé toutes les lignes, devez-vous supprimer le nom du vrai auteur pour mettre le vôtre&thinsp;? C'est une source de conflit, est c'est beaucoup plus simple de laisser Git gérer cette information.</p>
+</dd>
+<dt><code>@version</code></dt>
+<dd>
+<p>Même rengaine et même punition. Si vous utilisez Git, vous avez déjà cette information. Git gère les version avec les tags et les branches. Vous pouvez voir l'historique des modifications et les différences entre les versions. D'autre part, pour les même raisons qu'évoquées, à chaque nouvelle version de votre projet, vous devez modifier ce commentaire dans tous les fichiers. Cela implique que tous ces fichiers vont changer et vous allez vous perdre dans l'historique.</p>
+</dd>
+<dt><code>@brief</code></dt>
+<dd>
+<p>Enfin une information utile. C'est une excellente pratique que d'avoir une description courte du fichier. Néanmoins avec Doxygen il existe l'option <code>JAVADOC_AUTOBRIEF</code> qui permet de générer automatiquement le <code>@brief</code> à partir de la première phrase du commentaire si elle se termine par un point. C'est une option à activer pour éviter de répéter la même chose.</p>
+</dd>
+<dt><code>@copyright</code></dt>
+<dd>
+<p>C'est une information importante. Elle permet de savoir comment le fichier peut être utilisé. Néanmoins, il est rare que pour un projet donné, le copyright et la licence changent d'un fichier à l'autre, il est donc plus judicieux de mettre cette information dans le <code>README</code> ou mieux dans un fichier <code>LICENSE</code>.</p>
+</dd>
+</dl>
+<p>Maintenant que nous avons balayé l'en-tête, concentrons-nous sur la fonction <code>add</code>. Cette fonction fait 3 lignes et le commentaire 8 lignes. Est-ce réellement nécessaire de documenter une fonction que tout le monde peut comprendre&thinsp;?</p>
+<p>La réponse n'est pas si simple. Si vous publier le code source avec votre bibliothèque, la réponse est non car n'importe qui pourra la comprendre. Néanmoins votre bibliothèque est publiée sans le code source, la seule chose que votre utlisateur aura c'est le fichier d'en-tête (<code>.h</code>) :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Bien entendu il est nécessaire d'encoder également la table de Huffmann pour pouvoir décoder le texte. Une méthode courante est d'encoder directement la table de Huffmann dans le fichier compressé.</p>
+<p>C'est peut-être un peu court et un complément d'information pourrait être utile. Mais faut-il documenter tous les paramètres&thinsp;? Si le <em>brief</em> dit que la fonction additionne deux entiers, et que vous avez accès aux types des paramètres, est-ce vraiment nécessaire de documenter les paramètres&thinsp;? La réponse est non. Je le répète souvent, un commentaire est fait pour expliquer le pourquoi, pas le comment. Si vous avez besoin de documenter le comment, c'est que votre code n'est pas assez clair. On pourrait par exemple réécrire la fonction de la manière suivante&thinsp;:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add_two_integers_together</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
+</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Je vous l'accorde, c'est un peu long, mais ça à le mérire d'être parfaitement clair.</p>
+<p>Questionnons maintenant les séparateurs de contenu. Lorsque vous débutez en programmation, vous avez tendance à vous faire mousser un peu en écrivant plus que le nécessaire, écrire des commentaires c'est sans risque et cela rallonge votre beau programme. Alors pour bien structurer votre code, vous avez mis des séparateurs de contenu. Néanmoins ils n'apportent pas grand chose. En Python par exemple, la norme propose d'ajouter deux retour à la ligne entre chaque fonction. C'est une convention qui est largement suffisante pour séparer les différents éléments du code.</p>
+<p>Enfin, la dernière question est de savoir si le commentaire de la structure <code>Point</code> est utile. Pour cette structure qui est très simple, on pourrait se passer de commentaires, mais dans le cas ou les éléments nécessitent d'être expliqués, c'est la notation Doxygen qui peut être discutée.</p>
+<p>Doxygen utilise la notation <code class="language-c highlight"><span class="c1">//!</span></code> pour les commentaires de documentation. C'est une notation spéciale qui a la facheuse tendance s'afficher en rouge vif dans certains éditeurs de texte. Si vous n'utilisez pas Doxygen, il est préférable de ne pas utiliser cette notation. Il est préférable de rester sur la notation <code class="language-c highlight"><span class="c1">//</span></code> qui est plus universelle.</p>
+<p>Après ces longues explications, je vous propose de vous redonner l'exemple simplifié&thinsp;:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/**</span>
+</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="cm"> * Définition des fonctions pour manipuler des nombres</span>
+</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="cm"> *</span>
+</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="cm"> * Description détaillée.</span>
+</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="cm"> */</span>
+</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">//!&lt; Abscisse du point.</span>
+</span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">//!&lt; Ordonnée du point.</span>
+</span><span id="__span-8-11"><a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="p">}</span><span class="w"> </span><span class="n">Point</span><span class="p">;</span><span class="w"> </span><span class="c1">//!&lt; Structure point.</span>
+</span><span id="__span-8-12"><a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a>
+</span><span id="__span-8-13"><a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add_two_integers</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-14"><a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-8-15"><a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Le commentaire de trop</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/*********************************************************/</span>
+</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="cm">/*                    FIN DU FICHIER                     */</span>
+</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="cm">/*********************************************************/</span>
+</span></code></pre></div>
+<p>Diable&thinsp;! Pourquoi trouve-t-on toujours un commentaire <code>FIN</code> à la fin des fichiers&thinsp;? C'est une pratique qui remonte à l'époque des cartes perforées. Les cartes perforées étaient utilisées pour stocker les programmes. Chaque carte avait un numéro de ligne et un numéro de colonne. Pour éviter de mélanger les cartes, on mettait un commentaire <code>FIN</code> à la fin de chaque carte. C'est une pratique ancestrale qui a perduré jusqu'à aujourd'hui. Les développeurs répètent inlassablement ces habitudes sans toutefois les remettre en question.</p>
+<p>Aujourd'hui, un fichier est fini au sens que lorsqu'on en atteint la fin, on le sait. Il n'est alors pas pertinent de le préciser.</p>
+<p>C'est un peu la même chose que ces pages dans les livres laissées blanches, ou presque, avec un commentaire <em>"Cette page a été intentionnellement laissée blanche"</em> qui remontait à l'époque de l'impression en offset. Lorsqu'on imprimait un livre, on imprimait les pages par feuille de 16 pages. Si le livre faisait 200 pages, il fallait ajouter 4 pages blanches à la fin pour que l'impression soit correcte. Aujourd'hui, les livres sont imprimés en numérique et il n'y a plus besoin de ces pages blanches.</p>
+</div>
+<h2 id="gestion-de-configuration">Gestion de configuration<a class="headerlink" href="#gestion-de-configuration" title="Permanent link">¶</a></h2>
+<p>La gestion de configuration est un élément important pour un projet logiciel. Elle permet de stocker des informations qui peuvent varier d'un environnement à un autre. Par exemple, les informations de connexion à une base de données, les clés d'API, les adresses IP, etc.</p>
+<p>Il existe plusieurs solutions pour gérer la configuration d'un projet&thinsp;:</p>
+<ul>
+<li>Les variables d'environnement.</li>
+<li>Les fichiers de configuration.</li>
+</ul>
+<h3 id="variables-denvironnement">Variables d'environnement<a class="headerlink" href="#variables-denvironnement" title="Permanent link">¶</a></h3>
+<p>Les variables d'environnement sont des variables stockées dans l'environnement d'exécution d'un programme. Elles sont accessibles par le programme et peuvent être modifiées par l'utilisateur. Ces variables sont propagées à tous les processus enfants pour autant qu'elles ait été exportées. Elles peuvent être utile dans un projet pour stocker des informations sensibles qui ne devraient pas être versionnées.</p>
+<p>Prenons l'exemple d'une clé d'API. Cette clé vous permet d'accéder à un service tiers depuis votre programme. Chaque utilisateur de votre programme doit avoir sa propre clé d'API. Si vous stockez cette clé dans le code source, vous risquez de la versionner et de la rendre publique. Si vous stockez cette clé dans un fichier de configuration, vous risquez de le versionner et de le rendre public également. Une bonne solution est de stocker cette clé dans une variable d'environnement.</p>
+<p>Il se peut d'ailleurs que votre projet nécessite plusieurs variables d'environnement. On utilise couramment un fichier <code>.env.example</code> pour lister les variables d'environnement nécessaires au projet. Ce fichier est versionné et contient des valeurs par défaut. L'utilisateur doit copier ce fichier en <code>.env</code> et renseigner les valeurs.</p>
+<div class="language-bash highlight"><span class="filename">.env.example</span><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nv">API_KEY</span><span class="o">=</span>your_api_key
+</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nv">DATABASE_URL</span><span class="o">=</span>your_database_url
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="nv">API_KEY</span><span class="o">=</span><span class="m">1234567890</span>
+</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="nv">DATABASE_URL</span><span class="o">=</span>postgres://user:password@localhost:5432/database
+</span></code></pre></div>
+<p>Pour déployer votre environnement de développement, vous devez exporter ces variables d'environnement. Vous pouvez le faire dans votre terminal ou dans un fichier de configuration de votre terminal (<code>.bashrc</code>, <code>.zshrc</code>, etc.).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nb">export</span><span class="w"> </span><span class="k">$(</span>cat<span class="w"> </span>.env<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="k">)</span>
+</span></code></pre></div>
+<p>Sous Windows vous pouvez utiliser la commande <code>set</code> :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>for /f "delims== tokens=1,2" %i in (.env) do set %i=%j
+</span></code></pre></div>
+<p>Ces commandes sont généralement intégrées dans un script <code>start.sh</code> ou <code>start.bat</code> pour démarrer votre projet, ou alors directement dans le <code>Makefile</code>.</p>
+<h3 id="fichier-den-tete">Fichier d'en-tête<a class="headerlink" href="#fichier-den-tete" title="Permanent link">¶</a></h3>
+<p>On trouve très souvent dans un projet C un fichier d'en-tête <code>.h</code> qui contient des définitions de configuration. Par exemple, un fichier <code>config.h</code> qui contient des constantes, des macros, des structures, etc.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#ifndef CONFIG_H</span>
+</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="cp">#define CONFIG_H</span>
+</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="cp">#define VERSION "1.0.0"</span>
+</span><span id="__span-14-5"><a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="cp">#define AUTHOR "John Doe"</span>
+</span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="cp">#define USE_FEATURE_A</span>
+</span><span id="__span-14-8"><a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="cp">#define USE_FEATURE_B</span>
+</span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a>
+</span><span id="__span-14-10"><a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="cp">#define API_KEY "your_api_key"</span>
+</span><span id="__span-14-11"><a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="cp">#define DATABASE_URL "your_database_url"</span>
+</span></code></pre></div>
+<p>Ce fichier est inclus dans les fichiers sources qui ont besoin de ces informations. Il est versionné et donc ne devrait pas contenir d'informations sensibles. Si vous avez des informations sensibles, vous pouvez les stocker dans un fichier <code>.env</code> et les exporter dans les variables d'environnement. Ces variables peuvent être utilisée dans votre Makefile pour déclarer des variables de compilation.</p>
+<div class="language-makefile highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">include .env</span>
+</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="nv">CFLAGS</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span>-DAPI_KEY<span class="o">=</span><span class="se">\"</span><span class="k">$(</span>API_KEY<span class="k">)</span><span class="se">\"</span>
+</span><span id="__span-15-4"><a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="nv">CFLAGS</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span>-DDATABASE_URL<span class="o">=</span><span class="se">\"</span><span class="k">$(</span>DATABASE_URL<span class="k">)</span><span class="se">\"</span>
+</span></code></pre></div>
 
 
 
@@ -3949,7 +4405,7 @@ CD --&gt; D("D (1)")</code></pre>
     <span class="md-icon" title="Créé">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 21, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 23, 2024</span>
   </span>
 
     
@@ -4064,7 +4520,7 @@ CD --&gt; D("D (1)")</code></pre>
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../fast-inverse-square-root/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Racine carrée inverse rapide">
+          <a href="../teamwork/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Travail en équipe">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -4074,20 +4530,20 @@ CD --&gt; D("D (1)")</code></pre>
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Racine carrée inverse rapide
+                Travail en équipe
               </div>
             </div>
           </a>
         
         
           
-          <a href="../rabin-karp/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Algorithme de Rabin-Karp">
+          <a href="../testing/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Qualité et Testabilité">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Algorithme de Rabin-Karp
+                Qualité et Testabilité
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4142,24 +4598,24 @@ CD --&gt; D("D (1)")</code></pre>
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
-        <script src="../../../../assets/_markdown_exec_pyodide.js"></script>
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
       
-        <script src="../../../../js/mkdocs-charts-plugin.js"></script>
+        <script src="../../../js/mkdocs-charts-plugin.js"></script>
       
-        <script src="../../../../js/viewer.min.js"></script>
+        <script src="../../../js/viewer.min.js"></script>
       
-        <script src="../../../../js/drawio.js"></script>
+        <script src="../../../js/drawio.js"></script>
       
-        <script src="../../../../js/wiki-tips.js"></script>
+        <script src="../../../js/wiki-tips.js"></script>
       
-        <script src="../../../../js/feedback.js"></script>
+        <script src="../../../js/feedback.js"></script>
       
-        <script src="../../../../js/mathjax.js"></script>
+        <script src="../../../js/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

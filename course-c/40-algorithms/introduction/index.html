@@ -13,31 +13,31 @@
         <meta name="author" content="Yves Chevallier">
       
       
-        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/40-algorithms/algorithms/fast-exp/">
+        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/40-algorithms/introduction/">
       
       
-        <link rel="prev" href="../../recursion/">
+        <link rel="prev" href="../../35-libraries/third-party-libraries/">
       
       
-        <link rel="next" href="../fast-inverse-square-root/">
+        <link rel="next" href="../utilities/">
       
       
         
       
       
-      <link rel="icon" href="../../../../assets/icons/favicon.ico">
+      <link rel="icon" href="../../../assets/icons/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29+insiders-4.53.11">
     
     
       
-        <title>Exponentiation rapide - Le C pour l'ingénieur</title>
+        <title>Introduction - Le C pour l'ingénieur</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.cc8ffde5.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cc8ffde5.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
   
@@ -112,17 +112,17 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/_markdown_exec_pyodide.css">
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
     
-      <link rel="stylesheet" href="../../../../css/french.css">
+      <link rel="stylesheet" href="../../../css/french.css">
     
-      <link rel="stylesheet" href="../../../../css/callout.css">
+      <link rel="stylesheet" href="../../../css/callout.css">
     
-      <link rel="stylesheet" href="../../../../css/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
     
-      <link rel="stylesheet" href="../../../../css/tables.css">
+      <link rel="stylesheet" href="../../../css/tables.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -138,7 +138,7 @@
 
     
     
-   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -147,7 +147,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -166,7 +166,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exponentiation-rapide" class="md-skip">
+        <a href="#introduction" class="md-skip">
           Aller au contenu
         </a>
       
@@ -182,7 +182,7 @@
   <nav class="md-header__inner md-grid" aria-label="En-tête">
     <a href="https://heig-tin-info.github.io/handbook" title="Le C pour l&#39;ingénieur" class="md-header__button md-logo" aria-label="Le C pour l'ingénieur" data-md-component="logo">
       
-  <img src="../../../../assets/logos/heig-vd-white.svg" alt="logo">
+  <img src="../../../assets/logos/heig-vd-white.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -199,7 +199,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exponentiation rapide
+              Introduction
             
           </span>
         </div>
@@ -313,7 +313,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -342,7 +342,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../00-preface/" class="md-tabs__link">
+        <a href="../../00-preface/" class="md-tabs__link">
           
   
     
@@ -365,7 +365,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../tools/environment/" class="md-tabs__link">
+        <a href="../../../tools/environment/" class="md-tabs__link">
           
   
     
@@ -385,7 +385,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../appendix/bibliography/" class="md-tabs__link">
+        <a href="../../../appendix/bibliography/" class="md-tabs__link">
           
   
     
@@ -422,7 +422,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://heig-tin-info.github.io/handbook" title="Le C pour l&#39;ingénieur" class="md-nav__button md-logo" aria-label="Le C pour l'ingénieur" data-md-component="logo">
       
-  <img src="../../../../assets/logos/heig-vd-white.svg" alt="logo">
+  <img src="../../../assets/logos/heig-vd-white.svg" alt="logo">
 
     </a>
     Le C pour l'ingénieur
@@ -449,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -575,7 +575,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../00-preface/" class="md-nav__link ">
+            <a href="../../00-preface/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -679,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05-introduction/programming/" class="md-nav__link">
+      <a href="../../05-introduction/programming/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -706,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05-introduction/code-of-conduct/" class="md-nav__link">
+      <a href="../../05-introduction/code-of-conduct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -733,7 +733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05-introduction/me-and-my-computer/" class="md-nav__link">
+      <a href="../../05-introduction/me-and-my-computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -760,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05-introduction/c-lang/" class="md-nav__link">
+      <a href="../../05-introduction/c-lang/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10-numeration/introduction/" class="md-nav__link">
+      <a href="../../10-numeration/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -878,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10-numeration/bases/" class="md-nav__link">
+      <a href="../../10-numeration/bases/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -905,7 +905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10-numeration/numbers/" class="md-nav__link">
+      <a href="../../10-numeration/numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1008,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/syntax/" class="md-nav__link">
+      <a href="../../15-fundations/syntax/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1035,7 +1035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/datatype/" class="md-nav__link">
+      <a href="../../15-fundations/datatype/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1062,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/operators/" class="md-nav__link">
+      <a href="../../15-fundations/operators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1089,7 +1089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/stdio/" class="md-nav__link">
+      <a href="../../15-fundations/stdio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/control-structures/" class="md-nav__link">
+      <a href="../../15-fundations/control-structures/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1143,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/preprocessor/" class="md-nav__link">
+      <a href="../../15-fundations/preprocessor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1170,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/functions/" class="md-nav__link">
+      <a href="../../15-fundations/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1197,7 +1197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/scope/" class="md-nav__link">
+      <a href="../../15-fundations/scope/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1224,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/grammar/" class="md-nav__link">
+      <a href="../../15-fundations/grammar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1319,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/computer/" class="md-nav__link">
+      <a href="../../20-architecture-and-systems/computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1346,7 +1346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/mcu/" class="md-nav__link">
+      <a href="../../20-architecture-and-systems/mcu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,7 +1373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/memory-management/" class="md-nav__link">
+      <a href="../../20-architecture-and-systems/memory-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1400,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/programs-and-processes/" class="md-nav__link">
+      <a href="../../20-architecture-and-systems/programs-and-processes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1427,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/files/" class="md-nav__link">
+      <a href="../../20-architecture-and-systems/files/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1518,7 +1518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/composed-types/" class="md-nav__link">
+      <a href="../../25-data-structures/composed-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1545,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/pointers/" class="md-nav__link">
+      <a href="../../25-data-structures/pointers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1599,7 +1599,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../25-data-structures/containers/" class="md-nav__link ">
+            <a href="../../25-data-structures/containers/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1642,7 +1642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/containers/trees/" class="md-nav__link">
+      <a href="../../25-data-structures/containers/trees/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1669,7 +1669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/containers/maps/" class="md-nav__link">
+      <a href="../../25-data-structures/containers/maps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1696,7 +1696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/containers/graphs/" class="md-nav__link">
+      <a href="../../25-data-structures/containers/graphs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1764,7 +1764,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../30-modular-programming/" class="md-nav__link ">
+            <a href="../../30-modular-programming/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1807,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../30-modular-programming/translation-units/" class="md-nav__link">
+      <a href="../../30-modular-programming/translation-units/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1834,7 +1834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../30-modular-programming/libraries/" class="md-nav__link">
+      <a href="../../30-modular-programming/libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1925,7 +1925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../35-libraries/introduction/" class="md-nav__link">
+      <a href="../../35-libraries/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1952,7 +1952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../35-libraries/standard-library/" class="md-nav__link">
+      <a href="../../35-libraries/standard-library/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1979,7 +1979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../35-libraries/third-party-libraries/" class="md-nav__link">
+      <a href="../../35-libraries/third-party-libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2026,6 +2026,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -2045,7 +2049,7 @@
   <span class="md-ellipsis">
     
   
-    Algorithmique
+    Algorithmes et Conception
   
 
     
@@ -2061,7 +2065,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Algorithmique
+    Algorithmes et Conception
   
 
           </label>
@@ -2071,16 +2075,161 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
     
   
-    Algorithms
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#complexite-dun-algorithme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complexité d'un algorithme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#machines-detats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Machines d'états
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrammes-visuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrammes visuels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-dalgorithmes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type d'algorithmes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type d'algorithmes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algorithmes-en-ligne-incremental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Algorithmes en ligne (incrémental)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices-de-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercices de révision
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithmes utilitaires
   
 
     
@@ -2101,7 +2250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recursion/" class="md-nav__link">
+      <a href="../recursion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2125,22 +2274,10 @@
                 
   
   
-    
   
   
-  
     
     
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -2150,20 +2287,20 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_4" >
         
           
-          <label class="md-nav__link" for="__nav_2_9_3" id="__nav_2_9_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_9_4" id="__nav_2_9_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
     
   
-    Quelques algorithmes
+    Searching
   
 
     
@@ -2174,12 +2311,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_9_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9_4">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Quelques algorithmes
+    Searching
   
 
           </label>
@@ -2189,161 +2326,16 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Exponentiation rapide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
-      <a href="../fast-inverse-square-root/" class="md-nav__link">
+      <a href="../searching/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Racine carrée inverse rapide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../huffman/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Codage de Huffman
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../rabin-karp/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Algorithme de Rabin-Karp
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../random/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Générateur congruentiel linéaire
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../shunting-yard/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Algorithme de Shunting Yard
+    Algorithmes de recherche
   
 
     
@@ -2390,10 +2382,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_5" >
         
           
-          <label class="md-nav__link" for="__nav_2_9_4" id="__nav_2_9_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_9_5" id="__nav_2_9_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2410,8 +2402,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_9_4">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2428,7 +2420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sorting/count-sort/" class="md-nav__link">
+      <a href="../sorting/count-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2455,7 +2447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sorting/heap-sort/" class="md-nav__link">
+      <a href="../sorting/heap-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2482,7 +2474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sorting/quick-sort/" class="md-nav__link">
+      <a href="../sorting/quick-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2510,6 +2502,238 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9_6" id="__nav_2_9_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Quelques algorithmes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quelques algorithmes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/fast-exp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Exponentiation rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/fast-inverse-square-root/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Racine carrée inverse rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/huffman/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Codage de Huffman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/rabin-karp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithme de Rabin-Karp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/random/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Générateur congruentiel linéaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/shunting-yard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithme de Shunting Yard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2526,6 +2750,10 @@
   
     
     
+      
+        
+      
+        
       
         
       
@@ -2577,7 +2805,61 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../45-project-management/testing/" class="md-nav__link">
+      <a href="../../45-project-management/teamwork/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail en équipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-project-management/software-project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Organisation d'un projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-project-management/testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2666,7 +2948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../50-philosophy/philosophy/" class="md-nav__link">
+      <a href="../../50-philosophy/philosophy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2693,7 +2975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../50-philosophy/funny/" class="md-nav__link">
+      <a href="../../50-philosophy/funny/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2749,7 +3031,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../90-exercises/" class="md-nav__link ">
+            <a href="../../90-exercises/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2874,7 +3156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/environment/" class="md-nav__link">
+      <a href="../../../tools/environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2901,7 +3183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/filesystem/" class="md-nav__link">
+      <a href="../../../tools/filesystem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2928,7 +3210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/gcc/" class="md-nav__link">
+      <a href="../../../tools/gcc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2955,7 +3237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/git/" class="md-nav__link">
+      <a href="../../../tools/git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2982,7 +3264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/make/" class="md-nav__link">
+      <a href="../../../tools/make/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3009,7 +3291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/vscode/" class="md-nav__link">
+      <a href="../../../tools/vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3036,7 +3318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/python/" class="md-nav__link">
+      <a href="../../../tools/python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3115,7 +3397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/utilities/binutils/" class="md-nav__link">
+      <a href="../../../tools/utilities/binutils/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3150,7 +3432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/bash/" class="md-nav__link">
+      <a href="../../../tools/bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3177,7 +3459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/config/" class="md-nav__link">
+      <a href="../../../tools/config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3204,7 +3486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/gdb/" class="md-nav__link">
+      <a href="../../../tools/gdb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3302,7 +3584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/bibliography/" class="md-nav__link">
+      <a href="../../../appendix/bibliography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3329,7 +3611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/glossary/" class="md-nav__link">
+      <a href="../../../appendix/glossary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3356,7 +3638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/grammar/" class="md-nav__link">
+      <a href="../../../appendix/grammar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3383,7 +3665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/laboratories/" class="md-nav__link">
+      <a href="../../../appendix/laboratories/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3410,7 +3692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/unit/" class="md-nav__link">
+      <a href="../../../appendix/unit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3437,7 +3719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/colophon/" class="md-nav__link">
+      <a href="../../../appendix/colophon/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3464,7 +3746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/refcards/" class="md-nav__link">
+      <a href="../../../appendix/refcards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3511,6 +3793,86 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#complexite-dun-algorithme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complexité d'un algorithme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#machines-detats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Machines d'états
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrammes-visuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrammes visuels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-dalgorithmes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type d'algorithmes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type d'algorithmes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algorithmes-en-ligne-incremental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Algorithmes en ligne (incrémental)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices-de-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercices de révision
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3533,7 +3895,7 @@
         
   
     <li class="md-path__item">
-      <a href="../../../.." class="md-path__link">
+      <a href="../../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -3554,7 +3916,7 @@
     
     
       <li class="md-path__item">
-        <a href="../../../00-preface/" class="md-path__link">
+        <a href="../../00-preface/" class="md-path__link">
           
   <span class="md-ellipsis">
     Cours C
@@ -3574,27 +3936,10 @@
     
     
       <li class="md-path__item">
-        <a href="../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Algorithmique
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-    
-    
-      <li class="md-path__item">
         <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    Quelques algorithmes
+    Algorithmes et Conception
   </span>
 
         </a>
@@ -3613,7 +3958,7 @@
 
 
   
-    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/40-algorithms/algorithms/fast-exp.md" title="Editer cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/40-algorithms/introduction.md" title="Editer cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
     </a>
@@ -3622,39 +3967,299 @@
     
       
     
-    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/40-algorithms/algorithms/fast-exp.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/40-algorithms/introduction.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
     </a>
   
 
 
-<h1 id="exponentiation-rapide">Exponentiation rapide<a class="headerlink" href="#exponentiation-rapide" title="Permanent link">¶</a></h1>
-<p>Cet algorithme permet de calculer rapidement des puissances entières (<span class="arithmatex">\(a^n\)</span>). La méthode naïve consiste à calculer les puissances avec une boucle&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">pow</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
-</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">}</span>
+<p><a href="" id="algorithms-and-design"></a></p>
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h1>
+<p>L'algorithmique est le domaine scientifique qui étudie les algorithmes, une suite finie et non ambiguë d'opérations ou d'instructions permettant de résoudre un problème ou de traiter des données.</p>
+<p>Un algorithme peut être également considéré comme étant n'importe quelle séquence d'opérations pouvant être simulées par un système <a href="https://fr.wikipedia.org/wiki/Turing-complet">Turing-complet</a>. Un système est déclaré Turing-complet s'il peut simuler n'importe quelle <a href="https://fr.wikipedia.org/wiki/Machine_de_Turing">machine de Turing</a>. For heureusement, le langage C est Turing-complet puisqu'il possède tous les ingrédients nécessaires à la simulation de ces machines, soit compter, comparer, lire, écrire...</p>
+<p>Dans le cas qui concerne cet ouvrage, un algorithme est une recette exprimée en une liste d'instructions et permettant de résoudre un problème informatique. Cette recette contient à peu de choses près les éléments programmatiques que nous avons déjà entre aperçus&thinsp;: des structures de contrôle, des variables, etc.</p>
+<p>Généralement un algorithme peut être exprimé graphiquement en utilisant un organigramme (<em>flowchart</em>) ou un structogramme (<em>Nassi-Shneiderman diagram</em>) afin de s'affranchir du langage de programmation cible.</p>
+<p>La <strong>conception</strong> aussi appelée <a href="https://fr.wikipedia.org/wiki/Architecture_logicielle">Architecture logicielle</a> est l'art de penser un programme avant son implémentation. La phase de conception fait bien souvent appel à des algorithmes.</p>
+<p>Pour être qualifiées d'algorithmes, certaines propriétés doivent être respectées&thinsp;:</p>
+<ol>
+<li><strong>Entrées</strong>, un algorithme doit posséder 0 ou plus d'entrées en provenance de l'extérieur de l'algorithme.</li>
+<li><strong>Sorties</strong>, un algorithme doit posséder au moins une sortie.</li>
+<li><strong>Rigueur</strong>, chaque étape d'un algorithme doit être claire et bien définie.</li>
+<li><strong>Finitude</strong>, un algorithme doit comporter un nombre fini d'étapes.</li>
+<li><strong>Répétable</strong>, un algorithme doit fournir un résultat répétable.</li>
+</ol>
+<h2 id="complexite-dun-algorithme">Complexité d'un algorithme<a class="headerlink" href="#complexite-dun-algorithme" title="Permanent link">¶</a></h2>
+<p>Il est souvent utile de savoir quelle est la performance d'un algorithme afin de le comparer à un autre algorithme équivalent. Il existe deux indicateurs&thinsp;:</p>
+<ul>
+<li>La complexité en temps&thinsp;: combien de temps CPU consomme un algorithme pour s'exécuter.</li>
+<li>La complexité en mémoire&thinsp;: combien de mémoire tampon consomme un algorithme pour s'exécuter.</li>
+</ul>
+<p>Bien évidemment, la complexité d'un algorithme dépend des données en entrée. Par exemple si on vous donne à corriger un examen de 100 copies, et le protocol de correction associé, votre temps de travail dépendra du nombre de copies à corriger, je sais de quoi je parle...</p>
+<p>La complexité en temps et en mémoire d'un algorithme est souvent exprimée en utilisant la notation en O (<em>big O notation</em>). Cette notation a été ontroduite par le mathématicien et informaticien allemand Paul Bachmann en 1984 dans son ouvrage <em>Analytische Zahlentheorie</em>. Cependant, c'est le mathématicien austro-hongrois Edmund Landau qui a popularisé cette notation dans le contexte de la théorie des nombres.</p>
+<p>En substance, la complexité en temps d'un algorithme qui demanderait 10 étapes pour être résolu s'écrirait&thinsp;:</p>
+<div class="arithmatex">\[
+O(10)
+\]</div>
+<p>Un algorithme qui ferait une recherche dichotomique sur un tableau de <span class="arithmatex">\(n\)</span> éléments à une complexité <span class="arithmatex">\(O(log(n))\)</span>. La recherche dichotomique c'est comme chercher un mot dans un dictionnaire. Vous ouvrez le dictionnaire à la moitié, si le mot est avant, vous répétez l'opération sur la première moitié, sinon sur la seconde. Vous répétez l'opération jusqu'à trouver le mot. À chaque étape vous éliminez la moitié restante des mots du dictionnaire. Si le dictionnaire contient 100'000 mots, vous aurez trouvé le mot en&thinsp;:</p>
+<div class="arithmatex">\[
+\log_2(100'000) = 16.6
+\]</div>
+<p>étapes. C'est bien plus rapide que de parcourir le dictionnaire de manière linéaire, en tournant les pages une à une.</p>
+<p>Prenons un algoritme qui prend un certain temps pour s'exécuter. L'algorithme <span class="arithmatex">\(A\)</span> prend <span class="arithmatex">\(f(n)\)</span> unités de temps pour une entrée de taille <span class="arithmatex">\(n\)</span>. On peut dire que <span class="arithmatex">\(A\)</span> est en <span class="arithmatex">\(O(g(n))\)</span> si <span class="arithmatex">\(f(n) \leq c \cdot g(n)\)</span> pour tout <span class="arithmatex">\(n \geq n_0\)</span>, où <span class="arithmatex">\(c\)</span> est une constante et <span class="arithmatex">\(n_0\)</span> est un entier.</p>
+<p>Il existe différents indicateurs de Landau&thinsp;:</p>
+<dl>
+<dt><strong>Notation Big O (O)</strong> :</dt>
+<dd>
+<p>Utilisée pour décrire une borne supérieure asymptotique. Cela signifie qu'une fonction <span class="arithmatex">\( f(n) \)</span> est en <span class="arithmatex">\( O(g(n)) \)</span> s'il existe des constantes <span class="arithmatex">\( c &gt&thinsp;; 0 \)</span> et <span class="arithmatex">\( n_0 \)</span> telles que <span class="arithmatex">\( f(n) \leq c \cdot g(n) \)</span> pour tout <span class="arithmatex">\( n \geq n_0 \)</span>. En d'autres termes, <span class="arithmatex">\( g(n) \)</span> est une limite supérieure sur le comportement de <span class="arithmatex">\( f(n) \)</span> pour de grandes valeurs de <span class="arithmatex">\( n \)</span>.</p>
+</dd>
+<dd>
+<p>Big O est souvent utilisée pour décrire le pire cas.</p>
+</dd>
+<dt><strong>Notation Big Omega (Ω)</strong> :</dt>
+<dd>
+<p>Utilisée pour décrire une borne inférieure asymptotique. Cela signifie qu'une fonction <span class="arithmatex">\( f(n) \)</span> est en <span class="arithmatex">\( \Omega(g(n)) \)</span> s'il existe des constantes <span class="arithmatex">\( c &gt&thinsp;; 0 \)</span> et <span class="arithmatex">\( n_0 \)</span> telles que <span class="arithmatex">\( f(n) \geq c \cdot g(n) \)</span> pour tout <span class="arithmatex">\( n \geq n_0 \)</span>. En d'autres termes, <span class="arithmatex">\( g(n) \)</span> est une limite inférieure sur le comportement de <span class="arithmatex">\( f(n) \)</span> pour de grandes valeurs de <span class="arithmatex">\( n \)</span>.</p>
+</dd>
+<dd>
+<p>Big Omega est souvent utilisée pour décrire le meilleur cas.</p>
+</dd>
+<dt><strong>Notation Big Theta (Θ)</strong> :</dt>
+<dd>
+<p>Utilisée pour décrire une borne asymptotique stricte. Cela signifie qu'une fonction <span class="arithmatex">\( f(n) \)</span> est en <span class="arithmatex">\( \Theta(g(n)) \)</span> s'il existe des constantes <span class="arithmatex">\( c_1, c_2 &gt&thinsp;; 0 \)</span> et <span class="arithmatex">\( n_0 \)</span> telles que <span class="arithmatex">\( c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \)</span> pour tout <span class="arithmatex">\( n \geq n_0 \)</span>. En d'autres termes, <span class="arithmatex">\( g(n) \)</span> est une approximation asymptotique exacte de <span class="arithmatex">\( f(n) \)</span>.</p>
+</dd>
+<dd>
+<p>Big Theta est utilisée pour décrire un comportement asymptotique précis, souvent interprété comme le cas moyen.</p>
+</dd>
+</dl>
+<div class="admonition example">
+<p class="admonition-title">Identifier les valeurs paires et impaires</p>
+<p>À titre d'exemple, le programme suivant qui se charge de remplacer les valeurs paires d'un tableau par un <span class="arithmatex">\(0\)</span> et les valeurs impaires par un <span class="arithmatex">\(1\)</span> à une complexité en temps de <span class="arithmatex">\(O(n)\)</span> où <code>n</code> est le nombre d'éléments du tableau.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">discriminate</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">{</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>La complexité de cet algorithme est <span class="arithmatex">\(O(n)\)</span>. Il est possible de faire mieux en <span class="arithmatex">\(O(n log n)\)</span>.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">bin_pow</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bin_pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
-</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">}</span>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Somme des entiers</p>
+<p>Si on vous demande d'écrire un algorithme permettant de connaître la somme des entiers de <span class="arithmatex">\(1\)</span> à <span class="arithmatex">\(n\)</span>, vous pourriez écrire un algorithme en <span class="arithmatex">\(O(n)\)</span> :</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">C</label><label for="__tabbed_1_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Comme évoqué plus haut, un algorithme récursif est souvent moins performant que sa variante itérative. Voici l'implémentation itérative&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">bin_pow</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
-</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
-</span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">        </span><span class="n">b</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-</span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
-</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="p">}</span>
+</div>
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
 </span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Ensuite vous vous posez la question de savoir si vous pouvez faire mieux. En effet, il existe une formule mathématique permettant de calculer la somme des entiers de <span class="arithmatex">\(1\)</span> à <span class="arithmatex">\(n\)</span> :</p>
+<div class="arithmatex">\[
+\sum_{i=1}^{n} i = \frac{n \cdot (n + 1)}{2}
+\]</div>
+<p>Cette formule est en <span class="arithmatex">\(O(1)\)</span>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">C</label><label for="__tabbed_2_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>D'une manière générale, la plupart des algorithmes que l'ingénieur écrira appartiendront à ces catégories exprimées du meilleur au plus mauvais&thinsp;:</p>
+<table id="_table-1">
+<caption style="caption-side:bottom">Table 1&thinsp;: Temps pour différentes complexités d'algorithmes</caption><thead>
+<tr>
+<th>Complexité</th>
+<th><span class="arithmatex">\(n = 100000\)</span></th>
+<th>i7 (100'000 MIPS)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(O(log(n))\)</span></td>
+<td>11</td>
+<td>0.11 ns</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+<td>100'000</td>
+<td>1 us</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(O(n log(n))\)</span></td>
+<td>1'100'000</td>
+<td>11 us</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(O(n^2)\)</span></td>
+<td>10'000'000'000</td>
+<td>100 ms (un battement de cil)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(O(2^n)\)</span></td>
+<td>très très grand</td>
+<td>Le soleil devenu géante rouge</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>aura ingurgité la terre</td>
+</tr>
+<tr>
+<td>$O(n&thinsp;!)`</td>
+<td>trop trop grand</td>
+<td>La galaxie ne sera plus que poussière</td>
+</tr>
+</tbody>
+</table>
+<p>Les différentes complexités peuvent être résumées sur la figure suivante&thinsp;:</p>
+<p><figure id="_figure-1"><img alt="Différentes complexités d'algorithmes" class="drawio-diagram" src="../../../assets/images/complexity.drawio"/><figcaption>Figure 1&thinsp;: Différentes complexités d'algorithmes</figcaption></figure></p>
+<p>Un algorithme en <span class="arithmatex">\(O(n^2)\)</span>, doit éveiller chez le développeur la volonté de voir s'il n'y a pas moyen d'optimiser l'algorithme en réduisant sa complexité, souvent on s'aperçoit qu'un algorithme peut être optimisé et s'intéresser à sa complexité est un excellent point d'entrée.</p>
+<p>Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyons par exemple les deux algorithmes suivants&thinsp;:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAX_INT</span><span class="p">;</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MIN_INT</span><span class="p">;</span>
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">min</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">        </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">min</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">        </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-5-10"><a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAX_INT</span><span class="p">;</span>
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MIN_INT</span><span class="p">;</span>
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="p">{</span>
+</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">min</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">        </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="p">}</span>
+</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-6-12"><a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="p">{</span>
+</span><span id="__span-6-13"><a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">min</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-14"><a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">        </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-6-15"><a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-16"><a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition exercise">
+<p class="admonition-title">Triangle évanescent</p>
+<p>Quel serait l'algorithme permettant d'afficher&thinsp;:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="o">*****</span>
+</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="o">****</span>
+</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="o">***</span>
+</span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="o">**</span>
+</span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="o">*</span>
+</span></code></pre></div>
+<p>et dont la taille peut varier&thinsp;?</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">L'entier manquant</p>
+<p>On vous donne un gros fichier de 3'000'000'000 entiers positifs 32-bits, il vous faut générer un entier qui n'est pas dans la liste. Le hic, c'est que vous n'avez que 500 MiB de mémoire de travail. Quel algorithme proposez-vous&thinsp;?</p>
+<p>Une fois le travail terminé, votre manager vient vous voir pour vous annoncer que le cahier des charges a été modifié. Le client dit qu'il n'a que 10 MiB. Pensez-vous pouvoir résoudre le problème quand même&thinsp;?</p>
+</div>
+<h2 id="machines-detats">Machines d'états<a class="headerlink" href="#machines-detats" title="Permanent link">¶</a></h2>
+<h2 id="diagrammes-visuels">Diagrammes visuels<a class="headerlink" href="#diagrammes-visuels" title="Permanent link">¶</a></h2>
+<ul>
+<li>Diagrammes en flux</li>
+<li>Structogrammes</li>
+<li>Diagramme d'activités</li>
+<li>Machines d'états (<a href="https://en.wikipedia.org/wiki/UML_state_machine">UML state machine</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation">BPMN</a> (<em>Business Process Model and Notation</em>)</li>
+</ul>
+<h2 id="type-dalgorithmes">Type d'algorithmes<a class="headerlink" href="#type-dalgorithmes" title="Permanent link">¶</a></h2>
+<h3 id="algorithmes-en-ligne-incremental">Algorithmes en ligne (incrémental)<a class="headerlink" href="#algorithmes-en-ligne-incremental" title="Permanent link">¶</a></h3>
+<p>Un algorithme incrémental ou <a href="https://fr.wikipedia.org/wiki/Algorithme_online">online</a> est un algorithme qui peut s'exécuter sur un flux de données continu en entrée. C'est-à-dire qu'il est en mesure de prendre des décisions sans avoir besoin d'une visibilité complète sur le set de données.</p>
+<p>Un exemple typique est le <a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_secr%C3%A9taire">problème de la secrétaire</a>. On souhaite recruter une nouvelle secrétaire et le recruteur voit défiler les candidats. Il doit décider à chaque entretien s'il engage ou non le candidat et ne peut pas attendre la fin du processus d'entretiens pour obtenir le score attribué à chaque candidat. Il ne peut comparer la performance de l'un qu'à celle de deux déjà entrevus. L'objectif est de trouver la meilleure stratégie.</p>
+<p>La solution à ce problème est de laisser passer 37% des candidats sans les engager. Ceci correspond à une proportion de <span class="arithmatex">\(1/e\)</span>. Ensuite il suffit d'attendre un ou une candidate meilleure que tous ceux/celles du premier échantillon.</p>
+<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¶</a></h2>
+<div class="admonition exercise">
+<p class="admonition-title">Intégrateur de Kahan</p>
+<p>L'intégrateur de Kahan (<code>Kahan summation algorithm &lt;https://en.wikipedia.org/wiki/Kahan_summation_algorithm&gt;</code>__) est une solution élégante pour pallier à la limite de résolution des types de données.</p>
+<p>L'algorithme pseudo-code peut être exprimé comme&thinsp;:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>function kahan_sum(input)
+</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>    var sum = 0.0
+</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>    var c = 0.0
+</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>    for i = 1 to input.length do
+</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>        var y = input[i] - c
+</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>        var t = sum + y
+</span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>        c = (t - sum) - y
+</span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>        sum = t
+</span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>    next i
+</span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>    return sum
+</span></code></pre></div>
+<ol>
+<li>
+<p>Implémenter cet algorithme en C compte tenu du prototype&thinsp;:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">float</span><span class="w"> </span><span class="nf">kahan_sum</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">sum</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>Expliquer comment fonctionne cet algorithme.</p>
+</li>
+<li>Donner un exemple montrant l'avantage de cet algorithme sur une simple somme.</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Robot aspirateur affamé</p>
+<p>Un robot aspirateur souhaite se rassasier et cherche le frigo, le problème c'est qu'il ne sait pas où il est. Elle serait la stratégie de recherche du robot pour se rendre à la cuisine&thinsp;?</p>
+<p>Le robot dispose de plusieurs fonctionnalités&thinsp;:</p>
+<ul>
+<li>Avancer</li>
+<li>Tourner à droite de 90°</li>
+<li>Détection de sa position absolue p. ex. <code>P5</code></li>
+</ul>
+<p>Élaborer un algorithme de recherche.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>    │ A │ B │ C │ D │ E │ F │ G │ H │ I │ J │ K │ L │ M │ O │ P │ Q │
+</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>──┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>1 ┃                     x ┃       ┃               ┃               ┃
+</span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>──┃             F1: Frigo ┃       ┃               ┃               ┃
+</span><span id="__span-10-5"><a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>2 ┃       ┃               ┃       ┃               ┃               ┃
+</span><span id="__span-10-6"><a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>──┃       ┃               ┃       ┃               ┃               ┃
+</span><span id="__span-10-7"><a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a>3 ┃       ┃               ┃       ┃               ┃               ┃
+</span><span id="__span-10-8"><a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a>──┃       ┃               ┃       ┃               ┃               ┃
+</span><span id="__span-10-9"><a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a>4 ┃       ┃               ┃       ┃               ┃               ┃
+</span><span id="__span-10-10"><a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a>──┃       ┃               ┃       ┃               ┃               ┃
+</span><span id="__span-10-11"><a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a>5 ┃       ┃               ┃       ┃               ┃      &lt;--o     ┃
+</span><span id="__span-10-12"><a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a>──┃       ┣━━━━━━━   ━━━━━┫       ┃               ┃     P5: Robot ┃
+</span><span id="__span-10-13"><a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a>6 ┃       ┃               ┃       ┃               ┃               ┃
+</span><span id="__span-10-14"><a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a>──┃       ┃               ┃       ┃               ┃               ┃
+</span><span id="__span-10-15"><a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a>7 ┃                       ┃       ┃               ┃               ┃
+</span><span id="__span-10-16"><a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a>──┃                       ┃       ┃               ┃               ┃
+</span><span id="__span-10-17"><a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a>8 ┃       ┃               ┃       ┃               ┃               ┃
+</span><span id="__span-10-18"><a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a>──┣━━━━━━━┻━━━━━━━    ━━━━┛   ━━━━┛   ━━━━━━━━━━━━┛   ━━━━┳━━━━━━━┫
+</span><span id="__span-10-19"><a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a>9 ┃                                                       ┃       ┃
+</span><span id="__span-10-20"><a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a>──┃                                                       ┃       ┃
+</span><span id="__span-10-21"><a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a>10┃                                                               ┃
+</span><span id="__span-10-22"><a href="#__codelineno-10-22" id="__codelineno-10-22" name="__codelineno-10-22"></a>──┃                                                               ┃
+</span><span id="__span-10-23"><a href="#__codelineno-10-23" id="__codelineno-10-23" name="__codelineno-10-23"></a>11┃                                                       ┃       ┃
+</span><span id="__span-10-24"><a href="#__codelineno-10-24" id="__codelineno-10-24" name="__codelineno-10-24"></a>──┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━┛
+</span></code></pre></div>
+</div>
 
 
 
@@ -3687,7 +4292,7 @@
     <span class="md-icon" title="Créé">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 21, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2024</span>
   </span>
 
     
@@ -3802,7 +4407,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../../recursion/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Récursivité">
+          <a href="../../35-libraries/third-party-libraries/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Third party libraries">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -3812,20 +4417,20 @@
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Récursivité
+                Third party libraries
               </div>
             </div>
           </a>
         
         
           
-          <a href="../fast-inverse-square-root/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Racine carrée inverse rapide">
+          <a href="../utilities/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Algorithmes utilitaires">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Racine carrée inverse rapide
+                Algorithmes utilitaires
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3880,24 +4485,24 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
-        <script src="../../../../assets/_markdown_exec_pyodide.js"></script>
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
       
-        <script src="../../../../js/mkdocs-charts-plugin.js"></script>
+        <script src="../../../js/mkdocs-charts-plugin.js"></script>
       
-        <script src="../../../../js/viewer.min.js"></script>
+        <script src="../../../js/viewer.min.js"></script>
       
-        <script src="../../../../js/drawio.js"></script>
+        <script src="../../../js/drawio.js"></script>
       
-        <script src="../../../../js/wiki-tips.js"></script>
+        <script src="../../../js/wiki-tips.js"></script>
       
-        <script src="../../../../js/feedback.js"></script>
+        <script src="../../../js/feedback.js"></script>
       
-        <script src="../../../../js/mathjax.js"></script>
+        <script src="../../../js/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
