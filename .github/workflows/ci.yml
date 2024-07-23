@@ -72,5 +72,5 @@ jobs:
 
       - name: Build Documentation with MkDocs
         env:
-          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
+          GH_TOKEN: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
         run: CI=true xvfb-run -a poetry run mkdocs gh-deploy --force
