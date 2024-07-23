@@ -119,10 +119,12 @@ plugins:
 
   # - tags:
   #     tags_file: tags.md
-  - drawio-exporter:
-      cache_dir: .drawio_cache
-      embed_format: '{content}'
-  - glightbox
+  # - drawio-exporter:
+  #     cache_dir: .drawio_cache
+  #     embed_format: '{content}'
+  - glightbox:
+      skip_classes:
+        - drawio-diagram
   - markdown-exec
   # - extract_listings:
   #     listings_file: listings.md
@@ -222,6 +224,7 @@ watch:
   - includes
   - overrides
 hooks:
+  - hooks/drawio.py
   - hooks/links.py
   - hooks/unicode.py
   - hooks/spantable.py
@@ -234,6 +237,8 @@ extra_css:
   - css/extra.css
   - css/tables.css
 extra_javascript:
+  - js/viewer.min.js
+  - js/drawio.js
   - js/wiki-tips.js
   - js/feedback.js
   - js/mathjax.js
