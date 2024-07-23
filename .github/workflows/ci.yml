@@ -30,10 +30,6 @@ jobs:
         run: |
           git config --list
 
-      - name: Clone repository with HTTPS URL
-        run: |
-          git clone https://${GH_TOKEN}@github.com/heig-tin-info/mkdocs-material-insiders.git foo
-
       - name: Clone repository with SSH URL
         run: |
           git clone git@github.com:heig-tin-info/mkdocs-material-insiders.git bar
