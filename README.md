@@ -21,10 +21,13 @@ poetry run mike deploy --push --update-aliases 0.1 latest
 
 ## To-Do
 
-- [ ] Drawio and SVG size is not correct
-- [ ] Drawio export doesn't accept attributes {width=100%}
+- [ ] CI cannot get insiders version of mkdocs.
 - [ ] Build another nav with only the required sections for INFO1, INFO2.
-- [ ] When I enable navigation.tabs, I dont see the fold/unfold
+- [x] Drawio and SVG size is not correct
+- [x] Drawio export doesn't accept attributes {width=100%}
+  - Fixed by rendering the drawio frontend with a mygraph parser
+- [x] When I enable navigation.tabs, I dont see the fold/unfold
+  - Fixed by not enabling the navigation.sections
 - [ ] Label for tables are cropped, should be placed above tables
 - [ ] Exercise plugin cause code to be renamed exercise
 - [ ] Center mermaid diagrams

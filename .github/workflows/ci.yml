@@ -65,7 +65,9 @@ jobs:
           path: /home/runner/work/handbook/handbook/docs/drawio-exporter/
           key: ${{ runner.os }}-drawio-exporter-${{env.drawio_arch}}-${{ env.drawio_version }}
       - name: Install Python dependencies
-        run: poetry install
+        run: |
+          poetry config http-basic.github ${{ secrets.MKDOCS_MATERIALS_INSIDER_PAT }}
+          poetry install
 
       - name: Build Documentation with MkDocs
         run: CI=true xvfb-run -a poetry run mkdocs gh-deploy --force
