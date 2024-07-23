@@ -16,14 +16,17 @@
         <link rel="canonical" href="https://heig-tin-info.github.io/handbook/summary/summary/">
       
       
-        <link rel="prev" href="../../content/streams/stdio/">
+        <link rel="prev" href="../../course-c/90-exercises/">
       
       
         <link rel="next" href="../../tools/bash/">
       
       
+        
+      
+      
       <link rel="icon" href="../../assets/icons/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29+insiders-4.53.11">
     
     
       
@@ -31,10 +34,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.76a95c52.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cc8ffde5.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
   
@@ -91,7 +94,7 @@
     
   
   
-  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.217 6.962A3.75 3.75 0 0 1 0 3.25v-.5C0 1.784.784 1 1.75 1h1.356c.228-.585.796-1 1.462-1h6.864c.647 0 1.227.397 1.462 1h1.356c.966 0 1.75.784 1.75 1.75v.5a3.75 3.75 0 0 1-3.217 3.712 5.014 5.014 0 0 1-2.771 3.117l.144 1.446c.005.05.03.12.114.204.086.087.217.17.373.227.283.103.618.274.89.568.285.31.467.723.467 1.226v.75h1.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H4v-.75c0-.503.182-.916.468-1.226.27-.294.606-.465.889-.568.139-.048.266-.126.373-.227.084-.085.109-.153.114-.204l.144-1.446a5.015 5.015 0 0 1-2.77-3.117ZM4.5 1.568V5.5a3.5 3.5 0 1 0 7 0V1.568a.068.068 0 0 0-.068-.068H4.568a.068.068 0 0 0-.068.068Zm2.957 8.902-.12 1.204c-.093.925-.858 1.47-1.467 1.691a.766.766 0 0 0-.3.176c-.037.04-.07.093-.07.21v.75h5v-.75c0-.117-.033-.17-.07-.21a.766.766 0 0 0-.3-.176c-.609-.221-1.374-.766-1.466-1.69l-.12-1.204a5.064 5.064 0 0 1-1.087 0ZM13 2.5v2.872a2.25 2.25 0 0 0 1.5-2.122v-.5a.25.25 0 0 0-.25-.25H13Zm-10 0H1.75a.25.25 0 0 0-.25.25v.5c0 .98.626 1.813 1.5 2.122Z"/></svg>');--md-admonition-icon--hint:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg>');--md-admonition-icon--foobar:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg>');--md-admonition-icon--reload:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z"/></svg>');}</style>
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.637 2.363h-.001l1.676.335c.09.018.164.084.19.173a.25.25 0 0 1-.062.249l-1.373 1.374a.876.876 0 0 1-.619.256H12.31L9.45 7.611A1.5 1.5 0 1 1 6.5 8a1.501 1.501 0 0 1 1.889-1.449l2.861-2.862V2.552c0-.232.092-.455.256-.619L12.88.559a.25.25 0 0 1 .249-.062c.089.026.155.1.173.19Z"/><path d="M2 8a6 6 0 1 0 11.769-1.656.751.751 0 1 1 1.442-.413 7.502 7.502 0 0 1-12.513 7.371A7.501 7.501 0 0 1 10.069.789a.75.75 0 0 1-.413 1.442A6.001 6.001 0 0 0 2 8Z"/><path d="M5 8a3.002 3.002 0 0 0 4.699 2.476 3 3 0 0 0 1.28-2.827.748.748 0 0 1 1.045-.782.75.75 0 0 1 .445.61A4.5 4.5 0 1 1 8.516 3.53a.75.75 0 1 1-.17 1.49A3 3 0 0 0 5 8Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.217 6.962A3.75 3.75 0 0 1 0 3.25v-.5C0 1.784.784 1 1.75 1h1.356c.228-.585.796-1 1.462-1h6.864c.647 0 1.227.397 1.462 1h1.356c.966 0 1.75.784 1.75 1.75v.5a3.75 3.75 0 0 1-3.217 3.712 5.014 5.014 0 0 1-2.771 3.117l.144 1.446c.005.05.03.12.114.204.086.087.217.17.373.227.283.103.618.274.89.568.285.31.467.723.467 1.226v.75h1.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H4v-.75c0-.503.182-.916.468-1.226.27-.294.606-.465.889-.568.139-.048.266-.126.373-.227.084-.085.109-.153.114-.204l.144-1.446a5.015 5.015 0 0 1-2.77-3.117ZM4.5 1.568V5.5a3.5 3.5 0 1 0 7 0V1.568a.068.068 0 0 0-.068-.068H4.568a.068.068 0 0 0-.068.068Zm2.957 8.902-.12 1.204c-.093.925-.858 1.47-1.467 1.691a.766.766 0 0 0-.3.176c-.037.04-.07.093-.07.21v.75h5v-.75c0-.117-.033-.17-.07-.21a.766.766 0 0 0-.3-.176c-.609-.221-1.374-.766-1.466-1.69l-.12-1.204a5.064 5.064 0 0 1-1.087 0ZM13 2.5v2.872a2.25 2.25 0 0 0 1.5-2.122v-.5a.25.25 0 0 0-.25-.25H13Zm-10 0H1.75a.25.25 0 0 0-.25.25v.5c0 .98.626 1.813 1.5 2.122Z"/></svg>');--md-admonition-icon--hint:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg>');--md-admonition-icon--foobar:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg>');--md-admonition-icon--reload:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z"/></svg>');}</style>
 
 
 
@@ -111,6 +114,10 @@
     
       <link rel="stylesheet" href="../../assets/_markdown_exec_pyodide.css">
     
+      <link rel="stylesheet" href="../../css/french.css">
+    
+      <link rel="stylesheet" href="../../css/callout.css">
+    
       <link rel="stylesheet" href="../../css/extra.css">
     
       <link rel="stylesheet" href="../../css/tables.css">
@@ -129,7 +136,6 @@
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
 
-    
     
     
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
@@ -332,7 +338,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../content/frontmatter/heig-vd/" class="md-tabs__link">
+        <a href="../../course-c/00-preface/" class="md-tabs__link">
           
   
     
@@ -443,8 +449,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -488,8 +500,6 @@
     
     
       
-      
-        
       
     
     
@@ -504,8 +514,14 @@
             
   
   <span class="md-ellipsis">
+    
+  
     Cours C
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -514,7 +530,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Cours C
+            
+  
+    Cours C
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -528,14 +548,12 @@
     
       
         
-      
+          
         
       
     
     
       
-      
-        
       
     
     
@@ -546,64 +564,37 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
         
           
-          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../course-c/00-preface/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
-    Avant-propos
-  </span>
+    
+  
+    Préface
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
-            Avant-propos
+            
+  
+    Préface
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../content/frontmatter/heig-vd/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Enseignement à la HEIG-VD
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../content/frontmatter/organization/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Introduction
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
           </ul>
@@ -629,11 +620,11 @@
       
         
       
-    
-    
-      
-      
         
+      
+    
+    
+      
       
     
     
@@ -648,8 +639,14 @@
             
   
   <span class="md-ellipsis">
+    
+  
     Introduction
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -658,7 +655,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
-            Introduction
+            
+  
+    Introduction
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -669,12 +670,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/introduction/programming/" class="md-nav__link">
+      <a href="../../course-c/05-introduction/programming/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
+    
+  
     Programmation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -690,12 +697,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/introduction/code-of-conduct/" class="md-nav__link">
+      <a href="../../course-c/05-introduction/code-of-conduct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Code de conduite
+    
+  
+    Être développeur
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -711,12 +724,45 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/introduction/c-lang/" class="md-nav__link">
+      <a href="../../course-c/05-introduction/me-and-my-computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Langage C
+    
+  
+    Moi et mon ordinateur
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/05-introduction/c-lang/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Le langage C
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -748,19 +794,9 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
     
     
       
-      
-        
       
     
     
@@ -775,8 +811,14 @@
             
   
   <span class="md-ellipsis">
-    Les bases
+    
+  
+    Numération
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -785,7 +827,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
-            Les bases
+            
+  
+    Numération
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -796,12 +842,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/fundations/foundations/" class="md-nav__link">
+      <a href="../../course-c/10-numeration/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Généralités du langage
+    
+  
+    Introduction
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -817,12 +869,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/fundations/numeration/" class="md-nav__link">
+      <a href="../../course-c/10-numeration/bases/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Numération
+    
+  
+    Bases
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -838,96 +896,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/fundations/datatype/" class="md-nav__link">
+      <a href="../../course-c/10-numeration/numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Types de données
+    
+  
+    Nombres
+  
+
+    
   </span>
   
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../content/fundations/operators/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Opérateurs
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../content/fundations/control-structures/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Structures de contrôle
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../content/fundations/preprocessor/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Préprocesseur
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../content/fundations/grammar/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    La grammaire
-  </span>
   
 
       </a>
@@ -955,11 +935,25 @@
       
         
       
-    
-    
-      
+        
       
         
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
       
     
     
@@ -974,8 +968,14 @@
             
   
   <span class="md-ellipsis">
-    Système d'exploitation
+    
+  
+    Éléments du langage
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -984,7 +984,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
-            Système d'exploitation
+            
+  
+    Éléments du langage
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -995,12 +999,234 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/operating-system/processus/" class="md-nav__link">
+      <a href="../../course-c/15-fundations/syntax/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Programmes et Processus
+    
+  
+    Syntaxe
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/15-fundations/datatype/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Types de données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/15-fundations/operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Opérateurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/15-fundations/stdio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrées Sorties
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/15-fundations/control-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Structures de contrôle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/15-fundations/preprocessor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Préprocesseur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/15-fundations/functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fonctions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/15-fundations/scope/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Portée et visibilité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/15-fundations/grammar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Grammar
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -1032,11 +1258,13 @@
       
         
       
-    
-    
-      
+        
       
         
+      
+    
+    
+      
       
     
     
@@ -1051,8 +1279,14 @@
             
   
   <span class="md-ellipsis">
-    Architecture
+    
+  
+    Architecture et Systèmes
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1061,7 +1295,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
-            Architecture
+            
+  
+    Architecture et Systèmes
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1072,12 +1310,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/architecture/architecture/" class="md-nav__link">
+      <a href="../../course-c/20-architecture-and-systems/computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
+    
+  
     L'ordinateur
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1093,12 +1337,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/architecture/functions/" class="md-nav__link">
+      <a href="../../course-c/20-architecture-and-systems/mcu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Fonctions
+    
+  
+    Systèmes à microcontrôleurs
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1114,12 +1364,72 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/architecture/scopes/" class="md-nav__link">
+      <a href="../../course-c/20-architecture-and-systems/memory-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Portée et visibilité
+    
+  
+    Gestion de la mémoire
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/20-architecture-and-systems/programs-and-processes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmes et Processus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/20-architecture-and-systems/files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fichiers
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -1149,11 +1459,11 @@
       
         
       
-    
-    
-      
-      
         
+      
+    
+    
+      
       
     
     
@@ -1168,8 +1478,14 @@
             
   
   <span class="md-ellipsis">
-    Gestion de la mémoire
+    
+  
+    Structures de données
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1178,7 +1494,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
-            Gestion de la mémoire
+            
+  
+    Structures de données
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1189,12 +1509,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/memory-management/memory-management/" class="md-nav__link">
+      <a href="../../course-c/25-data-structures/composed-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Gestion de la mémoire
+    
+  
+    Types composites
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1210,15 +1536,180 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/memory-management/pointers/" class="md-nav__link">
+      <a href="../../course-c/25-data-structures/pointers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
+    
+  
     Pointeurs
+  
+
+    
   </span>
+  
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../course-c/25-data-structures/containers/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Conteneurs de données
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6_3" id="__nav_2_6_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Conteneurs de données
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/25-data-structures/containers/trees/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Arbres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/25-data-structures/containers/maps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tableaux de hachage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/25-data-structures/containers/graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Graphes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1242,14 +1733,16 @@
     
       
         
+          
+        
+      
+        
       
         
       
     
     
       
-      
-        
       
     
     
@@ -1260,23 +1753,43 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
         
           
-          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../course-c/30-modular-programming/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
-    Entrées sorties
-  </span>
+    
+  
+    Programmation Modulaire¨
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_7">
             <span class="md-nav__icon md-icon"></span>
-            Entrées sorties
+            
+  
+    Programmation Modulaire¨
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -1285,12 +1798,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/streams/files/" class="md-nav__link">
+      <a href="../../course-c/30-modular-programming/translation-units/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Fichiers
+    
+  
+    Compilation séparée
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1306,12 +1825,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/streams/stdio/" class="md-nav__link">
+      <a href="../../course-c/30-modular-programming/libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Entrées Sorties
+    
+  
+    Bibliothèques logicielles
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1343,13 +1868,9 @@
       
         
       
-        
-      
     
     
       
-      
-        
       
     
     
@@ -1364,8 +1885,14 @@
             
   
   <span class="md-ellipsis">
-    Structures de données
+    
+  
+    Bibliothèques
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1374,7 +1901,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_8">
             <span class="md-nav__icon md-icon"></span>
-            Structures de données
+            
+  
+    Bibliothèques
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1385,12 +1916,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/data-structures/composite-datatypes/" class="md-nav__link">
+      <a href="../../course-c/35-libraries/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Types composites
+    
+  
+    Bibliothèques
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1406,12 +1943,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/data-structures/data-structures/" class="md-nav__link">
+      <a href="../../course-c/35-libraries/standard-library/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Structures de données
+    
+  
+    Standard library
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1427,33 +1970,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/data-structures/map/" class="md-nav__link">
+      <a href="../../course-c/35-libraries/third-party-libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Tableaux de hachage
-  </span>
+    
+  
+    Third party libraries
   
 
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../content/data-structures/trees/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Arbres
+    
   </span>
+  
   
 
       </a>
@@ -1481,11 +2009,15 @@
       
         
       
-    
-    
-      
+        
       
         
+      
+        
+      
+    
+    
+      
       
     
     
@@ -1500,8 +2032,14 @@
             
   
   <span class="md-ellipsis">
-    Bibliothèques
+    
+  
+    Algorithmique
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1510,7 +2048,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_9">
             <span class="md-nav__icon md-icon"></span>
-            Bibliothèques
+            
+  
+    Algorithmique
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1521,12 +2063,269 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/libraries/standard-library/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/algorithms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Bibliothèques
+    
+  
+    Algorithms
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/40-algorithms/recursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Récursivité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9_3" id="__nav_2_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Quelques algorithmes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quelques algorithmes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/40-algorithms/algorithms/fast-exp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Exponentiation rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/40-algorithms/algorithms/fast-inverse-square-root/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Racine carrée inverse rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/40-algorithms/algorithms/huffman/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Codage de Huffman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/40-algorithms/algorithms/rabin-karp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithme de Rabin-Karp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/40-algorithms/algorithms/random/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Générateur congruentiel linéaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/40-algorithms/algorithms/shunting-yard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithme de Shunting Yard
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -1562,7 +2361,154 @@
     
       
       
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9_4" id="__nav_2_9_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithmes de tris
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithmes de tris
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/40-algorithms/sorting/count-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Counting Sort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/40-algorithms/sorting/heap-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Heap Sort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-c/40-algorithms/sorting/quick-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Sort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
       
     
     
@@ -1577,8 +2523,14 @@
             
   
   <span class="md-ellipsis">
-    Algorithmique
+    
+  
+    Gestion de projets
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1587,7 +2539,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_10">
             <span class="md-nav__icon md-icon"></span>
-            Algorithmique
+            
+  
+    Gestion de projets
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1598,54 +2554,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/algorithms/algorithms/" class="md-nav__link">
+      <a href="../../course-c/45-project-management/testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Algorithmes et conception
+    
+  
+    Qualité et Testabilité
+  
+
+    
   </span>
   
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../content/algorithms/recursion/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Récursivité
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../content/algorithms/sorting/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Algorithmes de tris
-  </span>
   
 
       </a>
@@ -1678,8 +2598,6 @@
     
     
       
-      
-        
       
     
     
@@ -1694,8 +2612,14 @@
             
   
   <span class="md-ellipsis">
-    Flux de développement
+    
+  
+    Philosophe et attitude
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1704,7 +2628,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_11">
             <span class="md-nav__icon md-icon"></span>
-            Flux de développement
+            
+  
+    Philosophe et attitude
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1715,12 +2643,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/build/testing/" class="md-nav__link">
+      <a href="../../course-c/50-philosophy/philosophy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Qualité et Testabilité
+    
+  
+    Philosophie
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1736,12 +2670,18 @@
   
   
     <li class="md-nav__item">
-      <a href="../../content/build/translation-units/" class="md-nav__link">
+      <a href="../../course-c/50-philosophy/funny/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Compilation séparée
+    
+  
+    Humour d'informaticien
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1768,14 +2708,12 @@
     
       
         
-      
+          
         
       
     
     
       
-      
-        
       
     
     
@@ -1786,65 +2724,38 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
         
           
-          <label class="md-nav__link" for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../course-c/90-exercises/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
-    Philosophe et attitude
-  </span>
+    
+  
+    Exercices
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_12">
             <span class="md-nav__icon md-icon"></span>
-            Philosophe et attitude
+            
+  
+    Exercices
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
               
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../content/philosophy/funny/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Humour d'informaticien
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../content/philosophy/philosophy/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Philosophie
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
             
           </ul>
         </nav>
@@ -1895,8 +2806,6 @@
     
     
       
-      
-        
       
     
     
@@ -1911,8 +2820,14 @@
             
   
   <span class="md-ellipsis">
+    
+  
     Outils
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1921,7 +2836,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Outils
+            
+  
+    Outils
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1936,8 +2855,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     L'environnement de travail
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1957,8 +2882,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Système de fichier
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1978,8 +2909,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Compilateur C/C++
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1999,8 +2936,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Git
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2020,8 +2963,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Make
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2041,8 +2990,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Visual Studio Code
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2062,8 +3017,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2087,8 +3048,6 @@
     
       
       
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2102,8 +3061,14 @@
             
   
   <span class="md-ellipsis">
+    
+  
     Utilitaires
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2112,7 +3077,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_8">
             <span class="md-nav__icon md-icon"></span>
-            Utilitaires
+            
+  
+    Utilitaires
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2127,8 +3096,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Binutils
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2156,8 +3131,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Bash (Ligne de commande)
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2177,8 +3158,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Fichiers de configuration
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2198,8 +3185,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     GDB (GNU Debugger)
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2242,8 +3235,6 @@
     
       
       
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2257,8 +3248,14 @@
             
   
   <span class="md-ellipsis">
+    
+  
     Annexes
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2267,7 +3264,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Annexes
+            
+  
+    Annexes
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2282,8 +3283,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Bibliographie
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2303,8 +3310,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Glossaire
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2324,8 +3337,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Grammaire C
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2345,8 +3364,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Laboratoires
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2366,8 +3391,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Fiches d'unités de cours
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2387,8 +3418,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Colophon
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2408,8 +3445,14 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Cartes de référence
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2454,7 +3497,9 @@
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      
+        Introduction
+      
     </span>
   </a>
   
@@ -2463,7 +3508,9 @@
         <li class="md-nav__item">
   <a href="#cycle-de-developpement" class="md-nav__link">
     <span class="md-ellipsis">
-      Cycle de développement
+      
+        Cycle de développement
+      
     </span>
   </a>
   
@@ -2472,7 +3519,9 @@
         <li class="md-nav__item">
   <a href="#cycle-de-compilation" class="md-nav__link">
     <span class="md-ellipsis">
-      Cycle de compilation
+      
+        Cycle de compilation
+      
     </span>
   </a>
   
@@ -2481,7 +3530,9 @@
         <li class="md-nav__item">
   <a href="#make" class="md-nav__link">
     <span class="md-ellipsis">
-      Make
+      
+        Make
+      
     </span>
   </a>
   
@@ -2490,7 +3541,9 @@
         <li class="md-nav__item">
   <a href="#linuxposix" class="md-nav__link">
     <span class="md-ellipsis">
-      Linux/POSIX
+      
+        Linux/POSIX
+      
     </span>
   </a>
   
@@ -2500,7 +3553,9 @@
           <li class="md-nav__item">
   <a href="#programmation" class="md-nav__link">
     <span class="md-ellipsis">
-      Programmation
+      
+        Programmation
+      
     </span>
   </a>
   
@@ -2514,7 +3569,9 @@
         <li class="md-nav__item">
   <a href="#diagramme-de-flux" class="md-nav__link">
     <span class="md-ellipsis">
-      Diagramme de flux
+      
+        Diagramme de flux
+      
     </span>
   </a>
   
@@ -2524,7 +3581,9 @@
           <li class="md-nav__item">
   <a href="#langage-c" class="md-nav__link">
     <span class="md-ellipsis">
-      Langage C
+      
+        Langage C
+      
     </span>
   </a>
   
@@ -2538,7 +3597,9 @@
         <li class="md-nav__item">
   <a href="#caracteres-non-imprimables" class="md-nav__link">
     <span class="md-ellipsis">
-      Caractères non imprimables
+      
+        Caractères non imprimables
+      
     </span>
   </a>
   
@@ -2547,7 +3608,9 @@
         <li class="md-nav__item">
   <a href="#fin-de-lignes" class="md-nav__link">
     <span class="md-ellipsis">
-      Fin de lignes
+      
+        Fin de lignes
+      
     </span>
   </a>
   
@@ -2556,7 +3619,9 @@
         <li class="md-nav__item">
   <a href="#identificateurs" class="md-nav__link">
     <span class="md-ellipsis">
-      Identificateurs
+      
+        Identificateurs
+      
     </span>
   </a>
   
@@ -2565,7 +3630,9 @@
         <li class="md-nav__item">
   <a href="#variable" class="md-nav__link">
     <span class="md-ellipsis">
-      Variable
+      
+        Variable
+      
     </span>
   </a>
   
@@ -2574,7 +3641,9 @@
         <li class="md-nav__item">
   <a href="#constantes-litterales" class="md-nav__link">
     <span class="md-ellipsis">
-      Constantes littérales
+      
+        Constantes littérales
+      
     </span>
   </a>
   
@@ -2583,7 +3652,9 @@
         <li class="md-nav__item">
   <a href="#commentaires" class="md-nav__link">
     <span class="md-ellipsis">
-      Commentaires
+      
+        Commentaires
+      
     </span>
   </a>
   
@@ -2592,7 +3663,9 @@
         <li class="md-nav__item">
   <a href="#fonction-main" class="md-nav__link">
     <span class="md-ellipsis">
-      Fonction main
+      
+        Fonction main
+      
     </span>
   </a>
   
@@ -2602,7 +3675,9 @@
           <li class="md-nav__item">
   <a href="#numeration" class="md-nav__link">
     <span class="md-ellipsis">
-      Numération
+      
+        Numération
+      
     </span>
   </a>
   
@@ -2611,7 +3686,9 @@
           <li class="md-nav__item">
   <a href="#operateurs" class="md-nav__link">
     <span class="md-ellipsis">
-      Opérateurs
+      
+        Opérateurs
+      
     </span>
   </a>
   
@@ -2625,7 +3702,9 @@
         <li class="md-nav__item">
   <a href="#valeur-gauche" class="md-nav__link">
     <span class="md-ellipsis">
-      Valeur gauche
+      
+        Valeur gauche
+      
     </span>
   </a>
   
@@ -2635,7 +3714,9 @@
           <li class="md-nav__item">
   <a href="#types-de-donnees" class="md-nav__link">
     <span class="md-ellipsis">
-      Types de données
+      
+        Types de données
+      
     </span>
   </a>
   
@@ -2649,7 +3730,9 @@
         <li class="md-nav__item">
   <a href="#caracteres" class="md-nav__link">
     <span class="md-ellipsis">
-      Caractères
+      
+        Caractères
+      
     </span>
   </a>
   
@@ -2658,7 +3741,9 @@
         <li class="md-nav__item">
   <a href="#chaine-de-caractere" class="md-nav__link">
     <span class="md-ellipsis">
-      Chaîne de caractère
+      
+        Chaîne de caractère
+      
     </span>
   </a>
   
@@ -2667,7 +3752,9 @@
         <li class="md-nav__item">
   <a href="#booleens" class="md-nav__link">
     <span class="md-ellipsis">
-      Booléens
+      
+        Booléens
+      
     </span>
   </a>
   
@@ -2676,7 +3763,9 @@
         <li class="md-nav__item">
   <a href="#promotion-implicite" class="md-nav__link">
     <span class="md-ellipsis">
-      Promotion implicite
+      
+        Promotion implicite
+      
     </span>
   </a>
   
@@ -2685,7 +3774,9 @@
         <li class="md-nav__item">
   <a href="#transtypage" class="md-nav__link">
     <span class="md-ellipsis">
-      Transtypage
+      
+        Transtypage
+      
     </span>
   </a>
   
@@ -2695,7 +3786,9 @@
           <li class="md-nav__item">
   <a href="#structure-de-controle" class="md-nav__link">
     <span class="md-ellipsis">
-      Structure de contrôle
+      
+        Structure de contrôle
+      
     </span>
   </a>
   
@@ -2709,7 +3802,9 @@
         <li class="md-nav__item">
   <a href="#sequence" class="md-nav__link">
     <span class="md-ellipsis">
-      Séquence
+      
+        Séquence
+      
     </span>
   </a>
   
@@ -2718,7 +3813,9 @@
         <li class="md-nav__item">
   <a href="#si-sinon" class="md-nav__link">
     <span class="md-ellipsis">
-      Si, sinon
+      
+        Si, sinon
+      
     </span>
   </a>
   
@@ -2727,7 +3824,9 @@
         <li class="md-nav__item">
   <a href="#si-sinon-si-sinon" class="md-nav__link">
     <span class="md-ellipsis">
-      Si, sinon si, sinon
+      
+        Si, sinon si, sinon
+      
     </span>
   </a>
   
@@ -2736,7 +3835,9 @@
         <li class="md-nav__item">
   <a href="#boucle-for" class="md-nav__link">
     <span class="md-ellipsis">
-      Boucle For
+      
+        Boucle For
+      
     </span>
   </a>
   
@@ -2745,7 +3846,9 @@
         <li class="md-nav__item">
   <a href="#boucle-while" class="md-nav__link">
     <span class="md-ellipsis">
-      Boucle While
+      
+        Boucle While
+      
     </span>
   </a>
   
@@ -2755,7 +3858,9 @@
           <li class="md-nav__item">
   <a href="#programmes-et-processus" class="md-nav__link">
     <span class="md-ellipsis">
-      Programmes et Processus
+      
+        Programmes et Processus
+      
     </span>
   </a>
   
@@ -2764,7 +3869,9 @@
           <li class="md-nav__item">
   <a href="#entrees-sorties" class="md-nav__link">
     <span class="md-ellipsis">
-      Entrées Sorties
+      
+        Entrées Sorties
+      
     </span>
   </a>
   
@@ -2778,7 +3885,9 @@
         <li class="md-nav__item">
   <a href="#printf" class="md-nav__link">
     <span class="md-ellipsis">
-      printf
+      
+        printf
+      
     </span>
   </a>
   
@@ -2788,7 +3897,9 @@
           <li class="md-nav__item">
   <a href="#techniques-de-programmation" class="md-nav__link">
     <span class="md-ellipsis">
-      Techniques de programmation
+      
+        Techniques de programmation
+      
     </span>
   </a>
   
@@ -2802,7 +3913,9 @@
         <li class="md-nav__item">
   <a href="#masque-binaire" class="md-nav__link">
     <span class="md-ellipsis">
-      Masque binaire
+      
+        Masque binaire
+      
     </span>
   </a>
   
@@ -2811,7 +3924,9 @@
         <li class="md-nav__item">
   <a href="#permuter-deux-variables-sans-valeur-intermediaire" class="md-nav__link">
     <span class="md-ellipsis">
-      Permuter deux variables sans valeur intermédiaire
+      
+        Permuter deux variables sans valeur intermédiaire
+      
     </span>
   </a>
   
@@ -2827,9 +3942,57 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Summary
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
+
 
   
     <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/summary/summary.md" title="Editer cette page" class="md-content__button md-icon">
@@ -2848,14 +4011,11 @@
   
 
 
-<div class="breadcrumb"><span>Summary</span>
-<svg class="breadcrumb-caret" viewbox="0 0 256 512" xmlns="http://www.w3.org/2000/svg">
-<path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
-</svg><a href="summary/summary/">Résumé</a></div><h1 id="resume">Résumé<a class="headerlink" href="#resume" title="Permanent link">¶</a></h1>
+<h1 id="resume">Résumé<a class="headerlink" href="#resume" title="Permanent link">¶</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
 <p>Le langage C a créé en <strong>1972</strong> par <a href="https://fr.wikipedia.org/wiki/Brian_Kernighan">Brian Kernighan</a> et <a href="https://fr.wikipedia.org/wiki/Dennis_Ritchie">Dennis Ritchie</a> est s'est dès lors imposé comme le standard industriel pour la programmation embarquée et pour tout développement nécessitant de hautes performances.</p>
 <p>Le langage est standardisé par l'ISO (standardisation internationale) et le standard le plus couramment utilisé en 2019 est encore <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a>.</p>
-<p>Il faut retenir que le C est un langage dit :</p>
+<p>Il faut retenir que le C est un langage dit&thinsp;:</p>
 <ul>
 <li><a href="https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative">Impératif</a>: programmation en séquences de commandes</li>
 <li><a href="https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e">Structuré</a>: programmation impérative avec des structures de contrôle imbriquées</li>
@@ -2863,12 +4023,12 @@
 </ul>
 <p>Ce sont ses paradigmes de programmation</p>
 <h2 id="cycle-de-developpement">Cycle de développement<a class="headerlink" href="#cycle-de-developpement" title="Permanent link">¶</a></h2>
-<p>Le cycle de développement se compose toujours des phases: étude, écriture du cahier des charges, de l'écriture des tests, de la conception du logiciel, du codage à proprement parler et des validations finales. Le modèle en cascade est un bon résumé très utilisé dans l'industrie :</p>
-<p>:::{figure} ../../../assets/figures/dist/software-life-cycle/waterfall.*
+<p>Le cycle de développement se compose toujours des phases&thinsp;: étude, écriture du cahier des charges, de l'écriture des tests, de la conception du logiciel, du codage à proprement parler et des validations finales. Le modèle en cascade est un bon résumé très utilisé dans l'industrie&thinsp;:</p>
+<p>:::{figure} {assets}/figures/dist/software-life-cycle/waterfall.*
 Modèle en cascade
 :::</p>
 <h2 id="cycle-de-compilation">Cycle de compilation<a class="headerlink" href="#cycle-de-compilation" title="Permanent link">¶</a></h2>
-<p>Faire évoluer un logiciel est aussi un processus itératif :</p>
+<p>Faire évoluer un logiciel est aussi un processus itératif&thinsp;:</p>
 <ul>
 <li>Editer le code avec un éditeur comme <code>vi</code> ou <code>vscode</code></li>
 <li>
@@ -2889,7 +4049,7 @@ $ gcc -o foobar foo.o bar.o -lm</code></dd>
 <li>Tests</li>
 </ul>
 <h2 id="make">Make<a class="headerlink" href="#make" title="Permanent link">¶</a></h2>
-<p>Souvent, pour s'éviter de répéter les mêmes commandes les développeurs utilisent un outil comme <code>make</code> qui tire des règles de compilations d'un fichier nommé <code>Makefile</code>. Cet outil permet d'automatiquement recompiler les fichiers qui ne sont plus à jour et régénérer automatiquement l'exécutable. Certaines recettes de <code>make</code> sont souvent utilisées comme :</p>
+<p>Souvent, pour s'éviter de répéter les mêmes commandes les développeurs utilisent un outil comme <code>make</code> qui tire des règles de compilations d'un fichier nommé <code>Makefile</code>. Cet outil permet d'automatiquement recompiler les fichiers qui ne sont plus à jour et régénérer automatiquement l'exécutable. Certaines recettes de <code>make</code> sont souvent utilisées comme&thinsp;:</p>
 <ul>
 <li><code>make all</code> Pour compiler tout le projet</li>
 <li><code>make clean</code> Pour supprimer tous les fichiers intermédiaires générés</li>
@@ -2941,7 +4101,7 @@ $ gcc -o foobar foo.o bar.o -lm</code></dd>
 <h2 id="diagramme-de-flux">Diagramme de flux<a class="headerlink" href="#diagramme-de-flux" title="Permanent link">¶</a></h2>
 <p>Le diagramme de flux est beaucoup utilisé pour exprimer un algorithme comme celui d'Euclide pour
 chercher le plus grand diviseur commun.</p>
-<p>:::{figure} ../../../assets/figures/dist/algorithm/euclide-gcd.*
+<p>:::{figure} {assets}/figures/dist/algorithm/euclide-gcd.*
 Algorithme de calcul du PGCD d'Euclide.
 :::</p>
 <h3 id="langage-c">Langage C<a class="headerlink" href="#langage-c" title="Permanent link">¶</a></h3>
@@ -3013,7 +4173,7 @@ Algorithme de calcul du PGCD d'Euclide.
 <tr>
 <td><code>\r</code></td>
 <td><code>CR</code></td>
-<td>Anciens Macintoshs (\&lt; 2000)</td>
+<td>Anciens Macintoshs (\&lt&thinsp;; 2000)</td>
 </tr>
 <tr>
 <td><code>\n</code></td>
@@ -3023,35 +4183,35 @@ Algorithme de calcul du PGCD d'Euclide.
 </tbody>
 </table>
 <h2 id="identificateurs">Identificateurs<a class="headerlink" href="#identificateurs" title="Permanent link">¶</a></h2>
-<p>:::{figure} ../../../assets/figures/dist/grammar/identifier.*
+<p>:::{figure} {assets}/figures/dist/grammar/identifier.*
 Grammaire d'un identificateur C
 :::</p>
-<p>Le format des identificateurs peut également être exprimé par une expression régulière :</p>
+<p>Le format des identificateurs peut également être exprimé par une expression régulière&thinsp;:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>^[a-zA-Z_][a-zA-Z0-9_]*$
 </span></code></pre></div>
 <h2 id="variable">Variable<a class="headerlink" href="#variable" title="Permanent link">¶</a></h2>
-<p>Une variable possède 6 paramètres: <strong>nom</strong>, <strong>type</strong>, <strong>valeur</strong>, <strong>adresse</strong>, <strong>portée</strong>, <strong>visibilité</strong>.</p>
-<p>Elle peut être: <strong>globale</strong> et dans ce cas elle est automatiquement initialisée à 0 :</p>
+<p>Une variable possède 6 paramètres&thinsp;: <strong>nom</strong>, <strong>type</strong>, <strong>valeur</strong>, <strong>adresse</strong>, <strong>portée</strong>, <strong>visibilité</strong>.</p>
+<p>Elle peut être&thinsp;: <strong>globale</strong> et dans ce cas elle est automatiquement initialisée à 0&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 </span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Ou elle peut être locale et dans ce cas il est nécessaire de l'initialiser à une valeur :</p>
+<p>Ou elle peut être locale et dans ce cas il est nécessaire de l'initialiser à une valeur&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 </span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Il est possible de déclarer plusieurs variables d'un même type sur la même ligne :</p>
+<p>Il est possible de déclarer plusieurs variables d'un même type sur la même ligne&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Les conventions de nommage pour une variable sont: <code>camelCase</code> et <code>snake_case</code>, certains utilisent la notation <code>PascalCase</code>.</p>
+<p>Les conventions de nommage pour une variable sont&thinsp;: <code>camelCase</code> et <code>snake_case</code>, certains utilisent la notation <code>PascalCase</code>.</p>
 <p>Les termes <code>toto</code>, <code>tata</code>, <code>foo</code>, <code>bar</code> sont souvent utilisés comme noms génériques et sont appelés termes <em>métasyntaxiques</em>.</p>
 <h2 id="constantes-litterales">Constantes littérales<a class="headerlink" href="#constantes-litterales" title="Permanent link">¶</a></h2>
-<p>Une constante littérale est une grandeur exprimant une valeur donnée qui n'est pas calculée à l'exécution :</p>
+<p>Une constante littérale est une grandeur exprimant une valeur donnée qui n'est pas calculée à l'exécution&thinsp;:</p>
 <table>
 <thead>
 <tr>
@@ -3109,7 +4269,7 @@ Grammaire d'un identificateur C
 </tbody>
 </table>
 <h2 id="commentaires">Commentaires<a class="headerlink" href="#commentaires" title="Permanent link">¶</a></h2>
-<p>Il existe deux types de commentaires :</p>
+<p>Il existe deux types de commentaires&thinsp;:</p>
 <ul>
 <li>Les commentaires de lignes (depuis <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>)</li>
 </ul>
@@ -3122,7 +4282,7 @@ Grammaire d'un identificateur C
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cm">   Multi-line comment */</span>
 </span></code></pre></div>
 <h2 id="fonction-main">Fonction main<a class="headerlink" href="#fonction-main" title="Permanent link">¶</a></h2>
-<p>La fonction main peut s'érire sous deux formes :</p>
+<p>La fonction main peut s'érire sous deux formes&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">}</span>
@@ -3136,7 +4296,7 @@ Grammaire d'un identificateur C
 <ul>
 <li>
 <dl>
-<dt>Une valeur <strong>entière</strong> et <strong>non signée</strong> est exprimée sous la forme binaire pure :</dt>
+<dt>Une valeur <strong>entière</strong> et <strong>non signée</strong> est exprimée sous la forme binaire pure&thinsp;:</dt>
 <dd><code>text
 ┌─┬─┬─┬─┬─┬─┬─┬─┐
 │0│1│0│1│0│0│1│1│ = 0b1010011 = 83
@@ -3145,7 +4305,7 @@ Grammaire d'un identificateur C
 </li>
 <li>
 <dl>
-<dt>Une valeur <strong>entière</strong> et <strong>signée</strong> est exprimée en complément à deux :</dt>
+<dt>Une valeur <strong>entière</strong> et <strong>signée</strong> est exprimée en complément à deux&thinsp;:</dt>
 <dd><code>text
 ┌─┬─┬─┬─┬─┬─┬─┬─┐     ┌─┬─┬─┬─┬─┬─┬─┬─┐
 │1│1│0│1│0│0│1│1│ = ! │0│0│1│0│1│1│0│0│ = (-1) * (0b101100 + 1) = -45
@@ -3166,12 +4326,12 @@ Grammaire d'un identificateur C
 </li>
 </ul>
 <h3 id="operateurs">Opérateurs<a class="headerlink" href="#operateurs" title="Permanent link">¶</a></h3>
-<p>Les opérateurs appliquent une opération entre une ou plusieurs valeurs :</p>
+<p>Les opérateurs appliquent une opération entre une ou plusieurs valeurs&thinsp;:</p>
 <ul>
 <li>Les opérateurs <strong>unaire</strong> s'appliquent à un seul opérande (<code>!12</code>, <code>~23</code>)</li>
 <li>Les opérateurs standards s'appliquent à deux opérandes (<code>12 ^ 32</code>)</li>
 </ul>
-<p>Les opérateurs ont une priorité et une direction d'associativité:</p>
+<p>Les opérateurs ont une priorité et une direction d'associativité&thinsp;:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>u = ++a + b * c++ &gt;&gt; 3 ^ 2
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>Rang  Opérateur  Associativité
@@ -3184,16 +4344,16 @@ Grammaire d'un identificateur C
 </span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a> 9    ^          --&gt;
 </span><span id="__span-8-11"><a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>14    =          --&gt;
 </span></code></pre></div>
-<p>Donc la priorité de ces opérations sera :</p>
+<p>Donc la priorité de ces opérations sera&thinsp;:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>(u = ((((++a) + (b * (c++))) &gt;&gt; 3) ^ 2))
 </span></code></pre></div>
-<p>Dans le cas des opérateurs de pré et post incrémentation, ils sont en effet les plus prioritaires mais leur action est décalée dans le temps au précédent/suivant point de séquence. C'est-à-dire :</p>
+<p>Dans le cas des opérateurs de pré et post incrémentation, ils sont en effet les plus prioritaires mais leur action est décalée dans le temps au précédent/suivant point de séquence. C'est-à-dire&thinsp;:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>a += 1;
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>(u = (((a + (b * c)) &gt;&gt; 3) ^ 2));
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>c += 1;
 </span></code></pre></div>
 <h2 id="valeur-gauche">Valeur gauche<a class="headerlink" href="#valeur-gauche" title="Permanent link">¶</a></h2>
-<p>Une valeur gauche <em>lvalue</em> défini ce qui peut se trouver à gauche d'une affectation. C'est un terme qui apparaît souvent dans les erreurs de compilation. L'exemple suivant retourne l'erreur: <em>lvalue required as increment operand</em> car le résultat de <code>a + b</code> n'a pas d'emplacement mémoire et il n'est pas possible de l'assigner à quelque chose pour effectuer l'opération de pré-incrémentation.</p>
+<p>Une valeur gauche <em>lvalue</em> défini ce qui peut se trouver à gauche d'une affectation. C'est un terme qui apparaît souvent dans les erreurs de compilation. L'exemple suivant retourne l'erreur&thinsp;: <em>lvalue required as increment operand</em> car le résultat de <code>a + b</code> n'a pas d'emplacement mémoire et il n'est pas possible de l'assigner à quelque chose pour effectuer l'opération de pré-incrémentation.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Dans cet exemple <code>c</code> est une valeur gauche</p>
@@ -3252,23 +4412,23 @@ de donnée <strong>LP64</strong></p>
 </span><span id="__span-12-8"><a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Les valeurs signées sont exprimées en <strong>complément à deux</strong> c'est-à-dire que les valeurs maximales et minimales sont pour un entier 8-bit de <code>-128</code> à <code>+128</code>.</p>
-<p>La construction des types standards :</p>
-<p>:::{figure} ../../../assets/figures/dist/datatype/ansi-integers.*
-:alt: "Entiers standardis\xE9s <strong>C89</strong>"
-:width: 100 %
+<p>La construction des types standards&thinsp;:</p>
+<p>:::{figure} {assets}/figures/dist/datatype/ansi-integers.*
+:alt&thinsp;: "Entiers standardis\xE9s <strong>C89</strong>"
+:width&thinsp;: 100 %
 :::</p>
-<p>La construction des types portables :</p>
-<p>:::{figure} ../../../assets/figures/dist/datatype/c99-integers.*
-:alt: "Entiers standardis\xE9s <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>"
-:width: 100 %
+<p>La construction des types portables&thinsp;:</p>
+<p>:::{figure} {assets}/figures/dist/datatype/c99-integers.*
+:alt&thinsp;: "Entiers standardis\xE9s <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>"
+:width&thinsp;: 100 %
 :::</p>
 <h2 id="caracteres">Caractères<a class="headerlink" href="#caracteres" title="Permanent link">¶</a></h2>
-<p>Un caractère est une valeur binaire codée sur 8-bit et dont l'interprétation est confiée à une table de correspondance nommée ASCII :</p>
-<p>:::{figure} ../../../assets/figures/dist/encoding/ascii.*
+<p>Un caractère est une valeur binaire codée sur 8-bit et dont l'interprétation est confiée à une table de correspondance nommée ASCII&thinsp;:</p>
+<p>:::{figure} {assets}/figures/dist/encoding/ascii.*
 Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1986 (standard actuel)
 :::</p>
 <p>Seul ces valeurs sont garanties d'être stockées sur 8-bit. Pour les caractères accentués ou les émoticônes, la manière dont ils sont codés en mémoire dépend de l'encodage des caractères. Souvent on utilise le type d'encodage <strong>utf-8</strong>.</p>
-<p>Les écritures suivantes sont donc strictement identiques :</p>
+<p>Les écritures suivantes sont donc strictement identiques&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'a'</span><span class="p">;</span>
@@ -3282,14 +4442,14 @@ Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1
 </span></code></pre></div>
 <p>La taille en mémoire de cette chaîne de caractère est de 6 <em>bytes</em>, 5 caractères et un caractère de terminaison.</p>
 <h2 id="booleens">Booléens<a class="headerlink" href="#booleens" title="Permanent link">¶</a></h2>
-<p>En C la valeur <code>0</code> est considérée comme fausse (<em>false</em>) et une valeur différente de <code>0</code> est considérée comme vraie (<em>true</em>). Toutes les assertions suivantes sont vraies :</p>
+<p>En C la valeur <code>0</code> est considérée comme fausse (<em>false</em>) et une valeur différente de <code>0</code> est considérée comme vraie (<em>true</em>). Toutes les assertions suivantes sont vraies&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <p>Pour utiliser les mots clés <code>true</code> et <code>false</code> il faut utiliser la bibliothèque <code>&lt;stdbool.h&gt;</code></p>
 <h2 id="promotion-implicite">Promotion implicite<a class="headerlink" href="#promotion-implicite" title="Permanent link">¶</a></h2>
-<p>Un type est automatiquement et tacitement promu dans le type le plus général :</p>
+<p>Un type est automatiquement et tacitement promu dans le type le plus général&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
@@ -3299,7 +4459,7 @@ Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1
 </span><span id="__span-16-7"><a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="c1">// Résultat promu en `long long`</span>
 </span><span id="__span-16-8"><a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="c1">// Résultat promu en `int`</span>
 </span></code></pre></div>
-<p>Attention aux valeurs en virgule flottante :</p>
+<p>Attention aux valeurs en virgule flottante&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>
@@ -3308,15 +4468,15 @@ Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1
 </span><span id="__span-17-6"><a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="n">b</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">  </span><span class="c1">// Résultat en type double (promotion)</span>
 </span></code></pre></div>
 <h2 id="transtypage">Transtypage<a class="headerlink" href="#transtypage" title="Permanent link">¶</a></h2>
-<p>Préfixer une variable ou une valeur avec <code>(int)</code> comme dans: <code>(int)a</code> permet de convertir explicitement cette variable dans le type donné.</p>
+<p>Préfixer une variable ou une valeur avec <code>(int)</code> comme dans&thinsp;: <code>(int)a</code> permet de convertir explicitement cette variable dans le type donné.</p>
 <p>Le transtypage peut être implicite par exemple dans <code>int a = 4.5</code></p>
-<p>Ou plus spécifiquement dans :</p>
+<p>Ou plus spécifiquement dans&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// Promotion implicite de `float` en `double`</span>
 </span></code></pre></div>
 <h3 id="structure-de-controle">Structure de contrôle<a class="headerlink" href="#structure-de-controle" title="Permanent link">¶</a></h3>
 <h2 id="sequence">Séquence<a class="headerlink" href="#sequence" title="Permanent link">¶</a></h2>
-<p>Une séquence est déterminée par un bloc de code entre accolades :</p>
+<p>Une séquence est déterminée par un bloc de code entre accolades&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="p">{</span>
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
@@ -3400,12 +4560,12 @@ Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1
 </tr>
 </tbody>
 </table>
-<p>:::{figure} ../../../assets/figures/dist/process/program.*
+<p>:::{figure} {assets}/figures/dist/process/program.*
 Résumé des interactions avec un programme
 :::</p>
 <h3 id="entrees-sorties">Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Permanent link">¶</a></h3>
 <h2 id="printf"><code>printf</code><a class="headerlink" href="#printf" title="Permanent link">¶</a></h2>
-<p>Les sorties formatées utilisent <code>printf</code> dont le format est :</p>
+<p>Les sorties formatées utilisent <code>printf</code> dont le format est&thinsp;:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a>%[parameter][flags][width][.precision][length]type
 </span></code></pre></div>
 <dl>
@@ -3415,7 +4575,7 @@ Résumé des interactions avec un programme
 </dd>
 <dt><code>flags</code> (optionnel)</dt>
 <dd>
-<p>Modificateurs: préfixe, signe plus, alignement à gauche ...</p>
+<p>Modificateurs&thinsp;: préfixe, signe plus, alignement à gauche ...</p>
 </dd>
 <dt><code>width</code> (optionnel)</dt>
 <dd>
@@ -3434,18 +4594,18 @@ Résumé des interactions avec un programme
 <p>Type de formatage souhaité</p>
 </dd>
 </dl>
-<p>:::{figure} ../../../assets/figures/dist/string/formats.*
+<p>:::{figure} {assets}/figures/dist/string/formats.*
 Formatage d'un marqueur
 :::</p>
 <h3 id="techniques-de-programmation">Techniques de programmation<a class="headerlink" href="#techniques-de-programmation" title="Permanent link">¶</a></h3>
 <h2 id="masque-binaire">Masque binaire<a class="headerlink" href="#masque-binaire" title="Permanent link">¶</a></h2>
-<p>Pour tester si un bit est à un :</p>
+<p>Pour tester si un bit est à un&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x040</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Pour forcer un bit à zéro :</p>
+<p>Pour forcer un bit à zéro&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="n">c</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="mh">0x02</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Pour forcer un bit à un :</p>
+<p>Pour forcer un bit à un&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="n">c</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mh">0x02</span><span class="p">;</span>
 </span></code></pre></div>
 <h2 id="permuter-deux-variables-sans-valeur-intermediaire">Permuter deux variables sans valeur intermédiaire<a class="headerlink" href="#permuter-deux-variables-sans-valeur-intermediaire" title="Permanent link">¶</a></h2>
@@ -3475,7 +4635,7 @@ Formatage d'un marqueur
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 21, 2024</span>
   </span>
 
     
@@ -3505,29 +4665,6 @@ Formatage d'un marqueur
   </span>
 
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributeurs">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
-          
-          <img src="https://avatars.githubusercontent.com/u/52489316?v=4&size=72" alt="yves-chevallier">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -3600,7 +4737,7 @@ Formatage d'un marqueur
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../../content/streams/stdio/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Entrées Sorties">
+          <a href="../../course-c/90-exercises/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Exercices de révision">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -3610,7 +4747,7 @@ Formatage d'un marqueur
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Entrées Sorties
+                Exercices de révision
               </div>
             </div>
           </a>
@@ -3646,7 +4783,7 @@ Formatage d'un marqueur
   
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
+      Material for MkDocs Insiders
     </a>
   
 </div>
@@ -3678,22 +4815,24 @@ Formatage d'un marqueur
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
         <script src="../../assets/_markdown_exec_pyodide.js"></script>
       
         <script src="../../js/mkdocs-charts-plugin.js"></script>
       
+        <script src="../../js/viewer.min.js"></script>
+      
+        <script src="../../js/drawio.js"></script>
+      
+        <script src="../../js/wiki-tips.js"></script>
+      
         <script src="../../js/feedback.js"></script>
       
-        <script src="../../js/tablesort.js"></script>
-      
         <script src="../../js/mathjax.js"></script>
-      
-        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

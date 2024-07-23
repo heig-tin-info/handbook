@@ -13,4 +13,4 @@ int min_heap_insert(MinHeap *heap, void *element);
 void *min_heap_extract_min(MinHeap *heap);
 size_t min_heap_size(MinHeap *heap);
 
-void min_heap_to_mermaid(MinHeap *heap, FILE *output);
+void min_heap_to_mermaid(MinHeap *heap, FILE *output, void (print_element)(void *element, FILE *output));
