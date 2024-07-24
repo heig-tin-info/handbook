@@ -118,8 +118,7 @@ plugins:
   #           tip: Astuce
   #           warning: Avertissement
 
-  # - tags:
-  #     tags_file: tags.md
+  - tags
   # - drawio-exporter:
   #     cache_dir: .drawio_cache
   #     embed_format: '{content}'
@@ -200,6 +199,10 @@ extra:
     example: Exemple
     cite: Citation
     bug: Bogue
+  tags:
+    foo: Bob
+    bar: Alice
+    baz: Eve
   analytics:
     provider: google
     property: G-FVF0WYPMYM

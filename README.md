@@ -22,6 +22,8 @@ poetry run mike deploy --push --update-aliases 0.1 latest
 
 ## To-Do
 
+- [ ] Use additional inline macro values defined in the config.yml, such as the homepage url, the version...
+- [ ] Add tags anywhere (inline tags) to summary concepts
 - [ ] Build another nav with only the required sections for INFO1, INFO2.
 - [ ] Label for tables are cropped, should be placed above tables
 - [ ] Exercise plugin cause code to be renamed exercise
@@ -288,3 +290,82 @@ plugins:
     sidebar: true
     admonition:
       - exercise
+```
+
+## Mkdocs event flow
+
+`on_startup`
+
+: The startup event runs once at the very beginning of an mkdocs invocation.
+
+`on_config`
+
+: The config event is the first event called on build and is run immediately after the user configuration is loaded and validated. Any alterations to the config should be made here.
+
+`on_pre_build`
+
+: The pre_build event does not alter any variables. Use this event to call pre-build scripts.
+
+`on_files`
+
+: The files event is called after the files collection is populated from the docs_dir. Use this event to add, remove, or alter files in the collection. Note that Page objects have not yet been associated with the file objects in the collection. Use Page Events to manipulate page specific data.
+
+`on_nav`
+
+: The nav event is called after the site navigation is created and can be used to alter the site navigation.
+
+`on_pre_page`
+
+: The pre_page event is called before any actions are taken on the subject page and can be used to alter the Page instance.
+
+`on_page_read_source`
+
+: Deprecated
+
+`on_page_markdown`
+
+: The page_markdown event is called after the page's markdown is loaded from file and can be used to alter the Markdown source text. The meta- data has been stripped off and is available as page.meta at this point.
+
+`on_page_content`
+
+: The page_content event is called after the Markdown text is rendered to HTML (but before being passed to a template) and can be used to alter the HTML body of the page.
+
+`on_env`
+
+: The env event is called after the Jinja template environment is created and can be used to alter the Jinja environment.
+
+`on_page_context`
+
+: The page_context event is called after the context for a page is created and can be used to alter the context for that specific page only.
+
+`on_post_page`
+
+: The post_page event is called after the template is rendered, but before it is written to disc and can be used to alter the output of the page. If an empty string is returned, the page is skipped and nothing is written to disc.
+
+`on_post_build`
+
+: The post_build event does not alter any variables. Use this event to call post-build scripts.
+
+`on_build_error`
+
+: The build_error event is called after an exception of any kind is caught by MkDocs during the build process. Use this event to clean things up before MkDocs terminates. Note that any other events which were scheduled to run after the error will have been skipped. See Handling Errors for more details.
+
+`on_serve`
+
+: The serve event is only called when the serve command is used during development. It runs only once, after the first build finishes. It is passed the Server instance which can be modified before it is activated. For example, additional files or directories could be added to the list of "watched" files for auto-reloading.
+
+`on_shutdown`
+
+: The shutdown event runs once at the very end of an mkdocs invocation, before exiting.
+
+To ensure LaTeX conversion it might be easier to process the html file directly with a beautiful soup parser, than processing the markdown file which doesn't have a native support for all extensions.
+
+However, this would require that none of the plugins would alter the raw html content with template specific things (such as mermaid, image boxes...). For custom plugins, it is there preferable to use `on_post_page` event to alter content that is for the online version.
+
+## References
+
+- [PyMdown Extensions](https://facelessuser.github.io/pymdown-extensions)
+- [MkDocs](https://www.mkdocs.org/)
+- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+- [Mermaid](https://mermaid.js.org/)
+- [Draw.io](https://www.draw.io/)

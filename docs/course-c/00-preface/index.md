@@ -140,6 +140,10 @@ Le contenu de ce livre est sous licence [Creative Commons](https://creativecommo
 
 De nombreuses références et sources de ce livre sont issues de Wikipedia, de la documentation officielle de la norme C, de StackOverflow, de forums de discussion et de blogs.
 
+## Comment contribuer ?
+
+Vous avez remarqué une erreur, une faute de frappe ou une information manquante ? Vous auriez désiré une explication plus détaillée sur un sujet ? Vous pouvez contribuer à l'amélioration de ce livre en soumettant une [issue](https://github.com/heig-tin-info/handbook/issues). Alternativement, vous pouvez faire un *fork* du projet et proposer une *pull request*.
+
 ## Colophon
 
 Ce livre est écrit en [Markdown](wiki:markdown) et généré en HTML par [MkDocs](https://www.mkdocs.org/). Le thème utilisé est [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). Les sources sont disponibles sur [GitHub](wiki:github) et l'hébergement est assuré par [GitHub Pages](https://pages.github.com/).
