@@ -1,8 +1,24 @@
-# Example
+# All Markdown Features
 
-Lorem ipsum dolor sit^amet^, consectetur adipiscing elit. ~~Sed non risus~~. Suspendisse *lectus* tortor, **dignissim** sit amet, adipiscing nec, ultricies sed, dolor. H~2~O. Cras elementum 36 cm^3^. {++ ultrices ++} diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est {==eleifend mi==}, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. `Pellentesque congue`. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac `#!c mauris sed` pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit[^1].
+## Headers
 
-[^1]: This is a footnote.
+Here are some headers
+
+### H3
+
+I am a paragraph
+
+#### H4
+
+I am a paragraph
+
+##### H5
+
+I am a paragraph
+
+###### H6
+
+I am a paragraph
 
 ## Lists
 
@@ -80,47 +96,15 @@ We can treat abbreviations as glossaries entries.
 \usepackage[utf8]{inputenc}
 \usepackage[acronym]{glossaries}
 
+% Should be generated at the end of all files
 \makeglossaries
-
-\newglossaryentry{latex}
-{
-        name=latex,
-        description={Is a mark up language specially suited for
-scientific documents}
-}
-
-\newglossaryentry{maths}
-{
-        name=mathematics,
-        description={Mathematics is what mathematicians do}
-}
-
-\newglossaryentry{formula}
-{
-        name=formula,
-        description={A mathematical expression}
-}
-
 \newacronym{gcd}{GCD}{Greatest Common Divisor}
 
-\newacronym{lcm}{LCM}{Least Common Multiple}
-
 \begin{document}
-
-The \Gls{latex} typesetting markup language is specially suitable
-for documents that include \gls{maths}. \Glspl{formula} are
-rendered properly an easily once one gets used to the commands.
-
-Given a set of numbers, there are elementary methods to compute
-its \acrlong{gcd}, which is abbreviated \acrshort{gcd}. This
-process is similar to that used for the \acrfull{lcm}.
-
+\acrshort{gcd} % replace with \gls{gcd} for long form
 \clearpage
-
 \printglossary[type=\acronymtype]
-
 \printglossary
-
 \end{document}
 ```
 
