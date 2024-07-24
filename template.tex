@@ -1,0 +1,27 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+
+\newcommand*\keystroke[1]{%
+  \tikz[baseline=(key.base)]
+    \node[%
+      draw,
+      fill=white,
+      drop shadow={shadow xshift=0.25ex,shadow yshift=-0.25ex,fill=black,opacity=0.75},
+      rectangle,
+      rounded corners=2pt,
+      inner sep=1pt,
+      line width=0.5pt,
+      font=\scriptsize\sffamily
+    ](key) {#1\strut}
+  ;
+}
+
+\begin{document}
+  The quick brown fox jumps over the lazy dog.
+  \keystroke{Strg} The quick brown fox jumps over the lazy dog.
+  \keystroke{Ctrl} The quick brown fox jumps over the lazy dog.
+  \keystroke{Page $\uparrow$} \keystroke{Esc} \keystroke{F1}
+\end{document}
