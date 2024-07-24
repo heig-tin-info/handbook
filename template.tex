@@ -1,7 +1,107 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+\documentclass[a4paper]{article}
+\usepackage{xcolor}
 \usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{stackengine}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage{unicode-math} % For using Unicode math symbols
+\usepackage[most]{tcolorbox}
+\usepackage{fontawesome5}
+\usepackage{parskip}
+\usepackage{stackengine}
+\usepackage{minted}
+\usepackage[acronym]{glossaries}
+\usepackage{fvextra} % Pour une meilleure gestion des verbatim inline
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+
+\tcbuselibrary{listingsutf8}
+
+\newtcblisting{pythoncode}[2][]{colback=gray!5!white, colframe=gray!75!black,
+    listing only, listing options={style=python, breaklines=true, basicstyle=\ttfamily, numbers=left, numberstyle=\tiny}, title=#2, #1}
+
+
+\newtcolorbox{callout}[2][]{
+    breakable,
+    sharp corners,
+    skin=enhancedmiddle
+    jigsaw,
+    parbox=false,
+    boxrule=0mm,
+    leftrule=2mm,
+    boxsep=0mm,
+    arc=0mm,
+    outer arc=0mm,
+    attach title to upper,
+    after title={.\ },
+    coltitle=black,
+    colback=gray!10,
+    colframe=black,
+    title={\faLaptopCode\quad #2},
+    fonttitle=\bfseries,
+    #1
+}
+
+\usetikzlibrary{shadows}
+
+\newcommand*\kbd[1]{%
+  \tikz[baseline=(key.base)]
+    \node[%
+      draw,
+      fill=white,
+      drop shadow={shadow xshift=0.25ex,shadow yshift=-0.25ex,fill=black,opacity=0.75},
+      rectangle,
+      rounded corners=2pt,
+      inner sep=1pt,
+      line width=0.5pt,
+      font=\scriptsize\sffamily
+    ](key) {#1\strut}
+  ;
+}
+
+\makeatletter
+
+% here is a macro expanding to the name of the language
+% (handy if you decide to change it further down the road)
+\newcommand\language@yaml{yaml}
+
+\expandafter\expandafter\expandafter\lstdefinelanguage
+\expandafter{\language@yaml}
+{
+  keywords={true,false,null,y,n},
+  keywordstyle=\color{darkgray}\bfseries,
+  basicstyle=\YAMLkeystyle,                                 % assuming a key comes first
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\YAMLvaluestyle\ttfamily,
+  moredelim=[l][\color{orange}]{\&},
+  moredelim=[l][\color{magenta}]{*},
+  moredelim=**[il][\YAMLcolonstyle{:}\YAMLvaluestyle]{:},   % switch to value style at :
+  morestring=[b]',
+  morestring=[b]",
+  literate =    {---}{{\ProcessThreeDashes}}3
+                {>}{{\textcolor{red}\textgreater}}1
+                {|}{{\textcolor{red}\textbar}}1
+                {\ -\ }{{\mdseries\ -\ }}3,
+}
+
+% switch to key style at EOL
+\lst@AddToHook{EveryLine}{\ifx\lst@language\language@yaml\YAMLkeystyle\fi}
+\makeatother
+
+\newcommand\correctchoice{\stackinset{c}{}{c}{}{$\times$}{$\bigcirc$}}
+\newcommand\choice{$\bigcirc$}
+
+
+% Définir une nouvelle commande pour surligner le texte avec un encadré
+\newtcbox{\hl}{on line, boxrule=0.5pt, colframe=black, colback=yellow!30, sharp corners, boxsep=0pt, left=2pt, right=2pt, top=2pt, bottom=2pt}
+
 \usetikzlibrary{shadows}
 
 \newcommand*\keystroke[1]{%
@@ -20,8 +120,3 @@
 }
 
 \begin{document}
-  The quick brown fox jumps over the lazy dog.
-  \keystroke{Strg} The quick brown fox jumps over the lazy dog.
-  \keystroke{Ctrl} The quick brown fox jumps over the lazy dog.
-  \keystroke{Page $\uparrow$} \keystroke{Esc} \keystroke{F1}
-\end{document}
