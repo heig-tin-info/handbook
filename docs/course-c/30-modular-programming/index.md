@@ -1,3 +1,0 @@
-# Introduction
-
-La programmation modulaire est une méthode de conception de logiciels qui consiste à diviser un programme en modules indépendants. Chaque module est une unité de code qui peut être compilée séparément et réutilisée dans d'autres programmes. La programmation modulaire permet de simplifier la conception, la maintenance et l'évolution des logiciels en les divisant en petites parties cohérentes et réutilisables.

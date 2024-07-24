@@ -1,5 +1,0 @@
-# Bibliothèques logicielles
-
-## Statiques
-
-## Dynamiques
