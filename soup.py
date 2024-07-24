@@ -1,3 +1,32 @@
+"""
+TO-DO
+
+- [ ] Remove [^1] and footnotes support
+- [ ] Nested items in lists
+- [ ] Admonitions (with callouts types)
+- [ ] Unicode 1/4... not supported, replacing with math? (\usepackage{units} and (\nicefrac)?
+  - [ ] +/-
+  - [ ] -->
+  - [ ] <--
+  - [ ] <-->
+- [ ] Checkbox support, use \item[\correctchoice] or \item[\choice]
+- [ ] Abbreviations
+- [ ] Use pygments instead of listings? \begin{minted}[linenos, frame=lines, framesep=2mm]{python}
+- [ ] Tables
+- [ ] Record images to be converted
+- [ ] Find a way to make Mermaid work
+
+Once it works
+
+- [ ] Generate latex for all markdown files
+- [ ] Convert drawio into svg. Use library using frontend with node?
+- [ ] Convert all images
+- [ ] Copy all images to the output folder
+- [ ] Generate nav document with all imports
+- [ ] Generate the PDF
+
+"""
+
 from bs4 import BeautifulSoup
 import textwrap
 html = open('doc.html').read()
@@ -38,6 +67,36 @@ def render_codeblock(code, language, options):
 def render_codeinline(code, language, options):
     return Template(r"""\lstinline\BLOCK{if language}[language=\VAR{language}]\BLOCK{endif}|\VAR{code}|
     """).render(code=code, language=language, options=options)
+
+def get_table_styles(cell):
+    if not cell:
+        return ''
+    style = cell.get('style', '')
+    if 'text-align: right' in style:
+        return 'r'
+    if 'text-align: center' in style:
+        return 'c'
+    return 'l'
+
+
+def extract_table(table):
+    if not table or table.name != 'table':
+        return
+    table_data = []
+    styles = []
+    for row in table.find_all('tr'):
+        row_data = []
+        row_styles = []
+        cells = row.find_all(['td', 'th'])
+        for cell in cells:
+            row_data.append(cell.get_text().strip())
+            row_styles.append(get_table_styles(cell))
+        table_data.append(row_data)
+        styles.append(row_styles)
+
+    print(table_data)
+    print(styles)
+    return table_data, styles
 
 def get_code_language(element):
     classes = element.get('class', [])
@@ -125,9 +184,26 @@ for inline in soup.find_all(['dl']):
         dd.replace_with(f"{dd.get_text()}\n")
     inline.replace_with(f"\\begin{{description}}\n{inline.get_text()}\\end{{description}}\n")
 
+for table in soup.find_all(['table']):
+    table_data, styles = extract_table(table)
+    if table_data:
+        latex_table = "\\begin{tabular}{" + "l" * len(table_data[0]) + "}\n"
+        for row in table_data:
+            latex_table += ' & '.join(row) + " \\\\\n"
+        latex_table += "\\end{tabular}\n"
+        table.replace_with(latex_table)
 
+# Admonitions with callout
+# for admonition in soup.find_all(['div'], class_='admonition'):
+#     title = admonition.find('p').get_text()
+#     content = admonition.find('div').get_text()
+#     admonition.replace_with(f"\\begin{{admonition}}{{{title}}}\n{content}\n\\end{{admonition}}")
+
+# Tabbed-set with inline code ?
 latex = str(soup)
 
+# Replace all multiple empty lines with a single empty line ? How to avoid code ?
 latex.replace(' ', '~')
 
+# Use latexindent -w output.tex to format the output
 open('output.tex', 'w').write(latex)
