@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[many,minted]{tcolorbox}% version 3.03 or better
+
+\newtcblisting[auto counter,number within=section,
+  list inside=mypyg]{listingsbox}[3][]{%
+  listing only,
+  enhanced,
+  colframe=gray!40,
+  colback=gray!10,
+  boxrule=0.5pt,
+  arc=0.5mm,
+  outer arc=0.5mm,
+  minted language=#2,
+  minted options={%
+    tabsize=4,
+    linenos,
+    highlightlines={2-3},
+    breaklines,
+    xleftmargin=0.75em,
+    fontsize=\footnotesize,
+    highlightcolor=gray!50,
+  },
+  coltitle=black,
+  %title={Extrait \thetcbcounter: #3},
+  %list entry={\protect\numberline{\thetcbcounter}#3},
+  #1
+}
+
+\begin{document}
+
+\section{Test}
+
+\begin{listingsbox}{python}{A nice title}
+def fib(n):
+if n <= 1:
+    return n
+return fib(n-1) + fib(n-2)
+\end{listingsbox}
+
+\begin{listingsbox}{python}{}
+def fib(n):
+if n <= 1:
+    return n
+return fib(n-1) + fib(n-2)
+\end{listingsbox}
+
+\begin{listingsbox}{cpp}{Something else}
+int main()
+{
+    printf("Hello, World!\n");
+    return 0;
+}
+\end{listingsbox}
+
+\begin{listingsbox}{cpp}{}
+int main()
+{
+    printf("Hello, World!\n");
+    return 0;
+}
+\end{listingsbox}
+
+\tcblistof{mypyg}{Extraits de code}
+
+\end{document}

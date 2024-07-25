@@ -61,7 +61,7 @@ def render_heading(title, level):
     return Template(r"\\VAR{tag}{\VAR{title}}").render(tag=tag, title=title)
 
 
-def render_codeblock(code, language, **kwargs):
+def render_minted(code, language, **kwargs):
     options = []
     if kwargs.get('filename'):
         options.append(f"caption={kwargs['filename'].get_text()}")
@@ -185,170 +185,182 @@ def convert_ol_to_latex(ol):
     return "\\begin{enumerate}\n" + '\n'.join(items) + "\n\\end{enumerate}"
 
 for element in soup.find_all('div', class_='highlight'):
-    filename = element.find('span', class_='filename')
-    lang = get_code_language(element)
-    lineno = False
-    highlighted_lines = []
+    for span in element.find_all('span'):
+        pan.replace_with(span.get_text())
 
-    # Has line numbers
-    if (table := element.find('table', class_='highlighttable')):
-        code = '\n'.join([row.get_text()
-                          for row in table.find_all('td', class_='code')])
-        lineno = True
-    else:
-        code = element.get_text()
+        # cat = span.get('class', [])
+        # if len(cat) == 1:
+        #     match cat[0]:
+        #         case 'p':
+        #             span.replace_with(span.get_text()+"\n")
+        #         case _:
+        #             span.replace_with(span.get_text())
+    # text = ''.join(element.stripped_strings)
+    # element.replace_with(f":::{text}:::")
+    # filename = element.find('span', class_='filename')
+    # lang = get_code_language(element)
+    # lineno = False
+    # highlighted_lines = []
 
-    # Has highlighted lines
-    if element.find('span', class_='hll'):
-        span_elements = soup.find_all('span', id=re.compile(r'^__span-'))
-        for i, line in enumerate(span_elements):
-            if line.find('span', class_='hll'):
-                highlighted_lines.append(i + 1)
-    element.replace_with(render_codeblock(code, lang, filename=filename,
-                                          lineno=lineno,
-                                          highlighted_lines=highlighted_lines))
+    # # Has line numbers
+    # if (table := element.find('table', class_='highlighttable')):
+    #     code = '\n'.join([row.get_text()
+    #                       for row in table.find_all('td', class_='code')])
+    #     lineno = True
+    # else:
+    #     code = element.get_text()
 
-for inline in soup.find_all(['abbr', 'span','sub', 'ins', 'del', 'kbd', 'mark', 'span', 'strong', 'em', 'code', 'a', 'sup']):
-    text = inline.get_text()
-    match inline.name:
-        case 'abbr':
-            tag = inline.get('title', '')
-            text = inline.get_text()
-            inline.replace_with(f"\\gls{{{tag}}}")
-            acronyms.append((text, tag))
-        case 'a':
-            # Remove Permanent link
-            if 'headerlink' in inline.get('class', []):
-                inline.extract()
-        case 'sub':
-            inline.replace_with(f"\\textsubscript{{{text}}}")
-        case 'strong':
-            inline.replace_with(f"\\textbf{{{text}}}")
-        case 'em':
-            inline.replace_with(f"\\emph{{{text}}}")
-        case 'sup':
-            inline.replace_with(f"\\textsuperscript{{{text}}}")
-        case 'mark':
-            inline.replace_with(f"\\hl{{{text}}}")
-        case 'del':
-            inline.replace_with(f"\\sout{{{text}}}")
-        case 'ins':
-            inline.replace_with(f"\\uline{{{text}}}")
-        case 'kbd':
-            inline.replace_with(f"\\kbd{{{text}}}")
-        case 'code':
-            text = inline.get_text()
-            if language := get_code_language(inline):
-                inline.replace_with(render_codeinline(text, language, {}))
-            else:
-                inline.replace_with(f"\\texttt{{{text}}}")
-        case 'span':
-            classes = inline.get('class', [])
-            if 'twemoji' in classes:
-                if inline.children:
-                    svg = next(inline.children)
-                    if svg and svg.name == 'svg':
-                        svg_code = svg.prettify()
-                        filename = sha256(svg_code.encode()).hexdigest() + '.svg'
-                        open(filename, 'w').write(svg_code)
+    # # Has highlighted lines
+    # if element.find('span', class_='hll'):
+    #     span_elements = soup.find_all('span', id=re.compile(r'^__span-'))
+    #     for i, line in enumerate(span_elements):
+    #         if line.find('span', class_='hll'):
+    #             highlighted_lines.append(i + 1)
+    # element.replace_with(render_codeblock(code, lang, filename=filename,
+    #                                       lineno=lineno,
+    #                                       highlighted_lines=highlighted_lines))
 
-                        # Should convert to pdf: inkscape *.svg --export-area-drawing --export-type=pdf
-                        inline.replace_with(f"\\includegraphics[width=1em]{{{filename.replace('.svg', '.pdf')}}}")
-            elif 'arithmatex' in classes:
-                text = inline.get_text()
-                inline.replace_with(f"${text[2:-2]}$")
+# for inline in soup.find_all(['abbr', 'span','sub', 'ins', 'del', 'kbd', 'mark', 'span', 'strong', 'em', 'code', 'a', 'sup']):
+#     text = inline.get_text()
+#     match inline.name:
+#         case 'abbr':
+#             tag = inline.get('title', '')
+#             text = inline.get_text()
+#             inline.replace_with(f"\\gls{{{tag}}}")
+#             acronyms.append((text, tag))
+#         case 'a':
+#             # Remove Permanent link
+#             if 'headerlink' in inline.get('class', []):
+#                 inline.extract()
+#         case 'sub':
+#             inline.replace_with(f"\\textsubscript{{{text}}}")
+#         case 'strong':
+#             inline.replace_with(f"\\textbf{{{text}}}")
+#         case 'em':
+#             inline.replace_with(f"\\emph{{{text}}}")
+#         case 'sup':
+#             inline.replace_with(f"\\textsuperscript{{{text}}}")
+#         case 'mark':
+#             inline.replace_with(f"\\hl{{{text}}}")
+#         case 'del':
+#             inline.replace_with(f"\\sout{{{text}}}")
+#         case 'ins':
+#             inline.replace_with(f"\\uline{{{text}}}")
+#         case 'kbd':
+#             inline.replace_with(f"\\kbd{{{text}}}")
+#         case 'code':
+#             text = inline.get_text()
+#             if language := get_code_language(inline):
+#                 inline.replace_with(render_codeinline(text, language, {}))
+#             else:
+#                 inline.replace_with(f"\\texttt{{{text}}}")
+#         case 'span':
+#             classes = inline.get('class', [])
+#             if 'twemoji' in classes:
+#                 if inline.children:
+#                     svg = next(inline.children)
+#                     if svg and svg.name == 'svg':
+#                         svg_code = svg.prettify()
+#                         filename = sha256(svg_code.encode()).hexdigest() + '.svg'
+#                         open(filename, 'w').write(svg_code)
 
-for inline in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):
-    title = inline.get_text()
-    level = int(inline.name[1:]) - 1
-    inline.replace_with(render_heading(title, level))
+#                         # Should convert to pdf: inkscape *.svg --export-area-drawing --export-type=pdf
+#                         inline.replace_with(f"\\includegraphics[width=1em]{{{filename.replace('.svg', '.pdf')}}}")
+#             elif 'arithmatex' in classes:
+#                 text = inline.get_text()
+#                 inline.replace_with(f"${text[2:-2]}$")
+
+# for inline in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):
+#     title = inline.get_text()
+#     level = int(inline.name[1:]) - 1
+#     inline.replace_with(render_heading(title, level))
 
 # All p without a class
-for inline in soup.find_all('p', class_=False):
-    inline.replace_with(f"{inline.get_text()}\n")
+# for inline in soup.find_all('p', class_=False):
+#     inline.replace_with(f"{inline.get_text()}\n")
 
-for inline in soup.find_all(['div'], class_='arithmatex'):
-    inline.replace_with(f"\n{inline.get_text()}\n")
+# for inline in soup.find_all(['div'], class_='arithmatex'):
+#     inline.replace_with(f"\n{inline.get_text()}\n")
 
-ul_elements = soup.find_all('ul')
-for ul in reversed(ul_elements):
-    ul.replace_with(BeautifulSoup(convert_ul_to_latex(ul), 'html.parser'))
+# ul_elements = soup.find_all('ul')
+# for ul in reversed(ul_elements):
+#     ul.replace_with(BeautifulSoup(convert_ul_to_latex(ul), 'html.parser'))
 
-ol_elements = soup.find_all('ol')
-for ol in reversed(ol_elements):
-    ol.replace_with(BeautifulSoup(convert_ol_to_latex(ol), 'html.parser'))
+# ol_elements = soup.find_all('ol')
+# for ol in reversed(ol_elements):
+#     ol.replace_with(BeautifulSoup(convert_ol_to_latex(ol), 'html.parser'))
 
-for inline in soup.find_all(['dl']):
-    for dt in inline.find_all('dt'):
-        dt.replace_with(f"\\item[{dt.get_text()}]")
-    for dd in inline.find_all('dd'):
-        dd.replace_with(f"{dd.get_text()}\n")
-    inline.replace_with(f"\\begin{{description}}\n{inline.get_text()}\\end{{description}}\n")
+# for inline in soup.find_all(['dl']):
+#     for dt in inline.find_all('dt'):
+#         dt.replace_with(f"\\item[{dt.get_text()}]")
+#     for dd in inline.find_all('dd'):
+#         dd.replace_with(f"{dd.get_text()}\n")
+#     inline.replace_with(f"\\begin{{description}}\n{inline.get_text()}\\end{{description}}\n")
 
-for table in soup.find_all(['table']):
-    table_data, styles = extract_table(table)
-    if table_data:
-        latex_table = "\\begin{tabular}{" + "l" * len(table_data[0]) + "}\n"
-        for row in table_data:
-            latex_table += ' & '.join(row) + " \\\\\n"
-        latex_table += "\\end{tabular}\n"
-        table.replace_with(latex_table)
+# for table in soup.find_all(['table']):
+#     table_data, styles = extract_table(table)
+#     if table_data:
+#         latex_table = "\\begin{tabular}{" + "l" * len(table_data[0]) + "}\n"
+#         for row in table_data:
+#             latex_table += ' & '.join(row) + " \\\\\n"
+#         latex_table += "\\end{tabular}\n"
+#         table.replace_with(latex_table)
 
-# Admonitions with callout
-for admonition in soup.find_all(['div'], class_='admonition'):
-    classes = admonition.get('class', [])
-    filtered_classes = [cls for cls in classes if cls not in ['admonition', 'annotate', 'inline', 'end', 'left', 'right']]
-    if len(filtered_classes) > 1:
-        raise(f"Multiple classes in admonition: {filtered_classes}")
-    admonition_type = filtered_classes[0]
-    admonition_title = admonition.find('p', class_='admonition-title')
-    if title:
-        title = admonition_title.get_text()
-        admonition_title.extract()
-    # elif summary := admonition.find('summary'):
-    #     title = summary.get_text()
-    #     summary.extract()
-    content = admonition.get_text()
-    admonition.replace_with(f"\\begin{{callout}}{{{title}}}{{{admonition_type}}}\n{content}\n\\end{{callout}}\n")
+# # Admonitions with callout
+# for admonition in soup.find_all(['div'], class_='admonition'):
+#     classes = admonition.get('class', [])
+#     filtered_classes = [cls for cls in classes if cls not in ['admonition', 'annotate', 'inline', 'end', 'left', 'right']]
+#     if len(filtered_classes) > 1:
+#         raise(f"Multiple classes in admonition: {filtered_classes}")
+#     admonition_type = filtered_classes[0]
+#     admonition_title = admonition.find('p', class_='admonition-title')
+#     if title:
+#         title = admonition_title.get_text()
+#         admonition_title.extract()
+#     # elif summary := admonition.find('summary'):
+#     #     title = summary.get_text()
+#     #     summary.extract()
+#     content = admonition.get_text()
+#     admonition.replace_with(f"\\begin{{callout}}{{{title}}}{{{admonition_type}}}\n{content}\n\\end{{callout}}\n")
 
-for admonition in soup.find_all(['details']):
-    classes = admonition.get('class', [])
-    if len(classes) > 1:
-        raise(f"Multiple classes in admonition: {classes}")
-    admonition_type = classes[0]
-    admonition_title = admonition.find('summary')
-    if title:
-        title = admonition_title.get_text()
-        admonition_title.extract()
-    content = admonition.get_text()
-    admonition.replace_with(f"\\begin{{callout}}{{{title}}}{{{admonition_type}}}\n{content}\n\\end{{callout}}\n")
+# for admonition in soup.find_all(['details']):
+#     classes = admonition.get('class', [])
+#     if len(classes) > 1:
+#         raise(f"Multiple classes in admonition: {classes}")
+#     admonition_type = classes[0]
+#     admonition_title = admonition.find('summary')
+#     if title:
+#         title = admonition_title.get_text()
+#         admonition_title.extract()
+#     content = admonition.get_text()
+#     admonition.replace_with(f"\\begin{{callout}}{{{title}}}{{{admonition_type}}}\n{content}\n\\end{{callout}}\n")
 
-for tabbed_set in soup.find_all('div', class_='tabbed-set'):
-    labels = []
-    for tabbed_labels in tabbed_set.find_all('label'):
-        labels.append(f"\\textbf{{{tabbed_labels.get_text()}}}")
-    for i, tabbed_block in enumerate(tabbed_set.find_all('div', class_='tabbed-block')):
-        content = tabbed_block.get_text()
-        tabbed_block.replace_with(f"{labels[i]}:\n{content}\n")
-    tabbed_set.replace_with(tabbed_set.get_text())
+# for tabbed_set in soup.find_all('div', class_='tabbed-set'):
+#     labels = []
+#     for tabbed_labels in tabbed_set.find_all('label'):
+#         labels.append(f"\\textbf{{{tabbed_labels.get_text()}}}")
+#     for i, tabbed_block in enumerate(tabbed_set.find_all('div', class_='tabbed-block')):
+#         content = tabbed_block.get_text()
+#         tabbed_block.replace_with(f"{labels[i]}:\n{content}\n")
+#     tabbed_set.replace_with(tabbed_set.get_text())
 
 
-# Mermaid
-for mermaid in soup.find_all('pre', class_='mermaid'):
-    code = mermaid.get_text()
-    mermaid.replace_with(render_codeblock(code, 'text'))
+# # Mermaid
+# for mermaid in soup.find_all('pre', class_='mermaid'):
+#     code = mermaid.get_text()
+#     mermaid.replace_with(render_codeblock(code, 'text'))
 
 latex = str(soup)
 
-# Add acronyms
-for tag, acronym in acronyms:
-    latex += f"\\newacronym{{{tag}}}{{{tag}}}{{{acronym}}}\n"
+# # Add acronyms
+# for tag, acronym in acronyms:
+#     latex += f"\\newacronym{{{tag}}}{{{tag}}}{{{acronym}}}\n"
 
-# Replace all html
-latex = latex.replace('&gt;', '>').replace('&lt;', '<').replace('&amp;', '&')
+# # Replace all html
+# latex = latex.replace('&gt;', '>').replace('&lt;', '<').replace('&amp;', '&')
 
-# Replace all multiple empty lines with a single empty line ? How to avoid code ?
-latex = latex.replace(' ', '~')
+# # Replace all multiple empty lines with a single empty line ? How to avoid code ?
+# latex = latex.replace(' ', '~')
 
 # Use latexindent -w output.tex to format the output
 open('output.tex', 'w').write(latex)

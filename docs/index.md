@@ -112,8 +112,13 @@ We can treat abbreviations as glossaries entries.
 
 Some Python Code:
 
-```python
-print("Hello, World!")
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
 ```
 
 Code with a title:
@@ -129,9 +134,13 @@ int main() {
 
 Code with line numbers:
 
-```lisp linenums="1"
-(defun hello-world ()
-  (format t "Hello, World!~%"))
+```c linenums="1"
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
 ```
 
 Code with highlighting:

@@ -1,0 +1,12 @@
+\BlOCK{set number_to_words = {
+    1: r'\section',
+    2: r'\subsection',
+    3: r'\subsubsection',
+    4: r'\paragraph',
+    5: r'\subparagraph'
+}}
+\BLOCK{if level in number_to_words}
+\VAR{number_to_words[level]}{\VAR{title}}
+\BLOCK{else}
+\textbf{\VAR{title}}
+\BLOCK{endif}

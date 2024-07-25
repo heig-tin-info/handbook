@@ -70,4 +70,4 @@ def on_env(env, config, files):
     for file in files:
         if file.src_path.endswith('.md'):
             html = file.page.content
-            soup = BeautifulSoup(html, 'html.parser')
+            open('intermediate.html', 'w').write(html)
