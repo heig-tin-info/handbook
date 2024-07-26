@@ -16,7 +16,7 @@ log = logging.getLogger(__name__)
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 
-def fetch_image(url):
+def fetch_image(url, output_path=Path()):
     response = requests.get(url)
     if response.status_code != 200:
         raise ValueError(f"Failed to fetch image: {response.status_code}")
@@ -26,21 +26,22 @@ def fetch_image(url):
     if not extension:
         raise ValueError(f"Unknown mime type: {mime_type}")
     content = response.content
-    with open(f"{sha256(content).hexdigest()}{extension}", 'wb') as fp:
+    filename = output_path / (sha256(content).hexdigest() + extension)
+    with open(filename, 'wb') as fp:
         fp.write(content)
-    return fp.name
+    return filename
 
 def get_class(element, regex):
     return next((c for c in element.get('class', []) if regex.match(c)), None)
 
-def svg2pdf(svg):
+def svg2pdf(svg, output_path=Path()):
     # Create temporary svg file
     filename = Path(sha256(svg.encode()).hexdigest() + '.svg')
     svgpath = Path(os.path.join(tempfile.mkdtemp(), filename))
     with open(svgpath, 'w') as fp:
         fp.write(svg)
 
-    pdfpath = filename.with_suffix('.pdf')
+    pdfpath = output_path / filename.with_suffix('.pdf')
 
     inkscape_version = subprocess.check_output(
         ['inkscape', '--version'], universal_newlines=True)
@@ -62,8 +63,9 @@ def svg2pdf(svg):
             'inkscape',
             '--export-area-drawing',
             '--export-dpi', '300',
-            '--export-pdf', pdfpath,
-            '--export-latex', svgpath
+            '--export-pdf',
+            pdfpath,
+            svgpath
             ]
     else:
         command = [
@@ -71,8 +73,8 @@ def svg2pdf(svg):
             '--export-area-drawing',
             '--export-dpi', '300',
             '--export-type=pdf',
-            '--export-latex',
-            '--export-filename', pdfpath
+            '--export-filename',
+            pdfpath
             ]
 
     log.debug('Running command:')
@@ -151,8 +153,11 @@ class LaTeXFormatter:
             Path(filename).stem: self.env.get_template(filename)
             for filename in os.listdir(template_dir)
         }
-
+        self.output_path = Path()
         self.acronyms = {}
+
+    def set_output_path(self, path):
+        self.output_path = path
 
     def __getattr__(self, method):
 
@@ -173,7 +178,7 @@ class LaTeXFormatter:
         return render_template
 
     def svg(self, svg):
-        pdfpath = svg2pdf(svg)
+        pdfpath = svg2pdf(svg, self.output_path)
         return f"\\includegraphics[width=1em]{{{pdfpath }}}"
 
     def codeblock(self, code, language='text', filename=None, lineno=False,
@@ -201,7 +206,7 @@ class LaTeXFormatter:
 
     def figure(self, caption, path):
         if (path.startswith('http')):
-            path = fetch_image(path)
+            path = fetch_image(path, self.output_path)
         return self.templates['figure'].render(caption=caption, path=path)
 
     def get_glossary(self):
@@ -210,8 +215,9 @@ class LaTeXFormatter:
         return self.templates['glossary'].render(glossary=acronyms)
 
 class LaTeXRenderer:
-    def __init__(self):
+    def __init__(self, output_path=Path('build')):
         self.formatter = LaTeXFormatter()
+        self.formatter.set_output_path(output_path)
 
     def extract_code_inline(self, soup):
         if soup.name != 'code' and 'highlight' not in soup.get('class', []):
@@ -311,11 +317,6 @@ class LaTeXRenderer:
             table_data.append(row_data)
             styles.append(row_styles)
 
-        print({
-            'columns': styles[0],
-            'rows': table_data
-        })
-
         return {
             'columns': styles[0],
             'rows': table_data
@@ -414,7 +415,7 @@ class LaTeXRenderer:
 
         return str
 
-    def render(self, html, base_level=0):
+    def render(self, html, output_path, base_level=0):
         soup = BeautifulSoup(html, 'html.parser')
 
 
@@ -488,7 +489,6 @@ class LaTeXRenderer:
             for el in soup.find_all(['dt', 'dd']):
                 if el.name == 'dt':
                     title = el.get_text()
-                    print(f"Title: {title}")
                 elif el.name == 'dd':
                     content = el.get_text()
                     items.append((title, content))
