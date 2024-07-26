@@ -310,7 +310,15 @@ tags on separate lines and adding new lines between the tags and the content.
 - H~2~O
 - A^T^A
 
-Keyboard keys such as ++ctrl+alt+del++ should be supported.
+Keyboard keys such as ++ctrl+alt+del++ should be supported also
+
+- ++ctrl+5++
+- ++shift+f1++
+- ++alt+ctrl+shift+j++
+- ++blackslash+double-quote++
+- ++arrow-up++, ++arrow-down++, ++arrow-left++, ++arrow-right++
+- ++page-up++, ++page-down++, ++home++, ++end++
+- ++insert++, ++delete++, ++backspace++, ++tab++
 
 ## SmartSymbols
 

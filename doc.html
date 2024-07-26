@@ -1,73 +1,312 @@
+<h1 id="all-markdown-features">All Markdown Features<a class="headerlink" href="#all-markdown-features" title="Permanent link">¶</a></h1>
+<h2 id="headers">Headers<a class="headerlink" href="#headers" title="Permanent link">¶</a></h2>
+<p>Here are some headers</p>
+<h3 id="h3">H3<a class="headerlink" href="#h3" title="Permanent link">¶</a></h3>
+<p>I am a paragraph</p>
+<h4 id="h4">H4<a class="headerlink" href="#h4" title="Permanent link">¶</a></h4>
+<p>I am a paragraph</p>
+<h5 id="h5">H5<a class="headerlink" href="#h5" title="Permanent link">¶</a></h5>
+<p>I am a paragraph</p>
+<h6 id="h6">H6<a class="headerlink" href="#h6" title="Permanent link">¶</a></h6>
+<p>I am a paragraph</p>
+<h2 id="lists">Lists<a class="headerlink" href="#lists" title="Permanent link">¶</a></h2>
+<h3 id="unordered-list">Unordered list<a class="headerlink" href="#unordered-list" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>Nulla et rhoncus turpis. Mauris ultricies elementum leo. Duis efficitur
+  accumsan nibh eu mattis. Vivamus tempus velit eros, porttitor placerat nibh
+  lacinia sed. Aenean in finibus diam.</p>
+<ul>
+<li>Duis mollis est eget nibh volutpat, fermentum aliquet dui mollis.</li>
+<li>Nam vulputate tincidunt fringilla.</li>
+<li>Nullam dignissim ultrices urna non auctor.</li>
+</ul>
+</li>
+</ul>
+<h3 id="ordered-list">Ordered list<a class="headerlink" href="#ordered-list" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p>Vivamus id mi enim. Integer id turpis sapien. Ut condimentum lobortis
+    sagittis. Aliquam purus tellus, faucibus eget urna at, iaculis venenatis
+    nulla. Vivamus a pharetra leo.</p>
+<ol>
+<li>
+<p>Vivamus venenatis porttitor tortor sit amet rutrum. Pellentesque aliquet
+    quam enim, eu volutpat urna rutrum a. Nam vehicula nunc mauris, a
+    ultricies libero efficitur sed.</p>
+</li>
+<li>
+<p>Morbi eget dapibus felis. Vivamus venenatis porttitor tortor sit amet
+    rutrum. Pellentesque aliquet quam enim, eu volutpat urna rutrum a.</p>
+<ol>
+<li>Mauris dictum mi lacus</li>
+<li>Ut sit amet placerat ante</li>
+<li>Suspendisse ac eros arcu</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="definition-list">Definition list<a class="headerlink" href="#definition-list" title="Permanent link">¶</a></h3>
+<dl>
+<dt><code>Lorem ipsum dolor sit amet</code></dt>
+<dd>
+<p>Sed sagittis eleifend rutrum. Donec vitae suscipit est. Nullam tempus
+tellus non sem sollicitudin, quis rutrum leo facilisis.</p>
+</dd>
+<dt><code>Cras arcu libero</code></dt>
+<dd>
+<p>Aliquam metus eros, pretium sed nulla venenatis, faucibus auctor ex. Proin
+ut eros sed sapien ullamcorper consequat. Nunc ligula ante.</p>
+<p>Duis mollis est eget nibh volutpat, fermentum aliquet dui mollis.
+Nam vulputate tincidunt fringilla.
+Nullam dignissim ultrices urna non auctor.</p>
+</dd>
+</dl>
+<h3 id="task-list">Task list<a class="headerlink" href="#task-list" title="Permanent link">¶</a></h3>
+<ul>
+<li>[x] Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+<li>[ ] Vestibulum convallis sit amet nisi a tincidunt<ul>
+<li>[x] In hac habitasse platea dictumst</li>
+<li>[x] In scelerisque nibh non dolor mollis congue sed et metus</li>
+<li>[ ] Praesent sed risus massa</li>
+</ul>
+</li>
+<li>[ ] Aenean pretium efficitur erat, donec pharetra, ligula non scelerisque</li>
+</ul>
+<h2 id="math">Math<a class="headerlink" href="#math" title="Permanent link">¶</a></h2>
+<p>The homomorphism <span class="arithmatex">\(f\)</span> is injective if and only if its kernel is only the
+singleton set <span class="arithmatex">\(e_G\)</span>, because otherwise <span class="arithmatex">\(\exists a,b\in G\)</span> with <span class="arithmatex">\(a\neq b\)</span> such
+that <span class="arithmatex">\(f(a)=f(b)\)</span>.</p>
+<div class="arithmatex">\[ x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]</div>
+<h2 id="abbreviations">Abbreviations<a class="headerlink" href="#abbreviations" title="Permanent link">¶</a></h2>
+<p>The <abbr title="Hyper Text Markup Language">HTML</abbr> specification is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.</p>
+<p>We can treat abbreviations as glossaries entries.</p>
+<div class="language-latex highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">\usepackage</span><span class="na">[acronym]</span><span class="nb">{</span>glossaries<span class="nb">}</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c">% Should be generated at the end of all files</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">\makeglossaries</span>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">\newacronym</span><span class="nb">{</span>gcd<span class="nb">}{</span>GCD<span class="nb">}{</span>Greatest Common Divisor<span class="nb">}</span>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">\acrshort</span><span class="nb">{</span>gcd<span class="nb">}</span> <span class="c">% replace with \gls{gcd} for long form</span>
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">\clearpage</span>
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">\printglossary</span><span class="na">[type=\acronymtype]</span>
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">\printglossary</span>
+</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</span></code></pre></div>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">¶</a></h2>
 <p>Some Python Code&thinsp;:</p>
-<div class="language-c highlight">
-    <pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello, World!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="p">}</span>
-</span></code></pre>
-</div>
+</span></code></pre></div>
 <p>Code with a title&thinsp;:</p>
-<div class="language-c highlight"><span class="filename">hello.c</span>
-    <pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="language-c highlight"><span class="filename">hello.c</span><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello, World!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="p">}</span>
-</span></code></pre>
-</div>
+</span></code></pre></div>
 <p>Code with line numbers&thinsp;:</p>
-<div class="language-c highlight">
-    <table class="highlighttable">
-        <tr>
-            <td class="linenos">
-                <div class="linenodiv">
-                    <pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
 <span class="normal"><a href="#__codelineno-3-3">3</a></span>
 <span class="normal"><a href="#__codelineno-3-4">4</a></span>
 <span class="normal"><a href="#__codelineno-3-5">5</a></span>
-<span class="normal"><a href="#__codelineno-3-6">6</a></span></pre>
-                </div>
-            </td>
-            <td class="code">
-                <div>
-                    <pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello, World!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="p">}</span>
-</span></code></pre>
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
+</span></code></pre></div></td></tr></table></div>
 <p>Code with highlighting&thinsp;:</p>
-<div class="language-python highlight">
-    <pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>
-        <span class="hll"><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="hll"><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
 </span></span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="hll">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
 </span></span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">):</span>
 </span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>            <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
 </span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>                <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-</span></code></pre>
-</div>
-<p>The <code class="language-python highlight"><span class="nb">range</span><span class="p">()</span></code> function is
-    used to generate a sequence of numbers, also the <code
-        class="language-c highlight"><span class="n">printf</span><span class="p">()</span></code> function is used to
-    print a formatted string.</p>
+</span></code></pre></div>
+<p>The <code class="language-python highlight"><span class="nb">range</span><span class="p">()</span></code> function is used to generate a sequence of numbers, also the <code class="language-c highlight"><span class="n">printf</span><span class="p">()</span></code> function is used to print a formatted string.</p>
 <p>Embedding external files</p>
-<div class="language-c highlight">
-    <pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 </span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">{</span>
 </span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"hello, world</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="p">}</span>
-</span></code></pre>
+</span></code></pre></div>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">¶</a></h2>
+<p>You can go to <a href="https://www.wikipedia.org/" id="anchor">Wikipédia</a> for more information.</p>
+<h2 id="figure">Figure<a class="headerlink" href="#figure" title="Permanent link">¶</a></h2>
+<p>Here a nice figure&thinsp;:</p>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS2nGWbCC1qMTEBAGp64bfy3Rin2tJ7lbsQdlp_eW1f9OK4xhry"><img alt="Armadillo" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS2nGWbCC1qMTEBAGp64bfy3Rin2tJ7lbsQdlp_eW1f9OK4xhry"/></a><figcaption>Figure 1&thinsp;: Armadillo</figcaption></figure></p>
+<h2 id="table">Table<a class="headerlink" href="#table" title="Permanent link">¶</a></h2>
+<p>This is a table&thinsp;:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">This</th>
+<th style="text-align: right;">is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">a</td>
+<td style="text-align: right;">table</td>
+</tr>
+</tbody>
+</table>
+<h2 id="admonitions">Admonitions<a class="headerlink" href="#admonitions" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a note</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a warning with a title</p>
+</div>
+<details class="question">
+<summary>Question</summary>
+<p>This is a collapsible question</p>
+</details>
+<details class="question" open="open">
+<summary>Question</summary>
+<p>This is a collapsible question expanded</p>
+</details>
+<div class="admonition info inline end">
+<p class="admonition-title">Lorem</p>
+<p>This is an inline note</p>
+</div>
+<h2 id="content-tabs">Content tabs<a class="headerlink" href="#content-tabs" title="Permanent link">¶</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Tab 1</label><label for="__tabbed_1_2">Tab 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Foobar</p>
+</div>
+<div class="tabbed-block">
+<p>Foobar</p>
+</div>
+</div>
+</div>
+<h2 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">¶</a></h2>
+<p>One should replace Annotations with footnotes.</p>
+<p class="annotate">Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.</p>
+<ol>
+<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"/> I'm an annotation&thinsp;! I can contain <code>code</code>, <strong>formatted
+    text</strong>, images, ... basically anything that can be expressed in Markdown.</li>
+</ol>
+<div class="admonition note annotate">
+<p class="admonition-title">Phasellus posuere in sem ut cursus (1)</p>
+<p>Lorem ipsum dolor sit amet, (2) consectetur adipiscing elit. Nulla et
+euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo
+purus auctor massa, nec semper lorem quam in massa.</p>
+</div>
+<ol>
+<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"/> I'm an annotation&thinsp;!</li>
+<li><img alt="🙋‍♀️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f64b-200d-2640-fe0f.svg" title=":woman_raising_hand:"/> I'm an annotation as well&thinsp;!</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Tab 1</label><label for="__tabbed_2_2">Tab 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p class="annotate">Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.</p>
+<ol>
+<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"/> I'm an annotation&thinsp;!</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p class="annotate">Phasellus posuere in sem ut cursus (1)</p>
+<ol>
+<li><img alt="🙋‍♀️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f64b-200d-2640-fe0f.svg" title=":woman_raising_hand:"/> I'm an annotation as well&thinsp;!</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="language-yaml annotate highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="l l-Scalar l-Scalar-Plain">Code block annotations are also possible</span>
+</span></code></pre></div>
+<h2 id="icons">Icons<a class="headerlink" href="#icons" title="Permanent link">¶</a></h2>
+<p>One method is to parse with MkDocs all the icons, get the svg, include them in place in the latex.</p>
+<div class="language-latex highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>Lorem <span class="k">\includegraphics</span><span class="na">[height=1em]</span><span class="nb">{</span>icon-material-check.pdf<span class="nb">}</span> ipsum
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"></path></svg></span>     Fetch resource</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.41 13.41 6 19l1.41-1.42L1.83 12m20.41-6.42L11.66 16.17 7.5 12l-1.43 1.41L11.66 19l12-12M18 7l-1.41-1.42-6.35 6.35 1.42 1.41L18 7Z"></path></svg></span> Update resource</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg></span>     Delete resource</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mermaid-charts">Mermaid charts<a class="headerlink" href="#mermaid-charts" title="Permanent link">¶</a></h2>
+<p>You should install mermaid on you system</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>minlag/mermaid-cli
+</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-u<span class="w"> </span><span class="sb">`</span>id<span class="w"> </span>-u<span class="sb">`</span>:<span class="sb">`</span>id<span class="w"> </span>-g<span class="sb">`</span><span class="w"> </span>-v<span class="w"> </span>/path/to/diagrams:/data<span class="w"> </span>minlag/mermaid-cli<span class="w"> </span>-i<span class="w"> </span>diagram.mmd<span class="w"> </span>-o<span class="w"> </span>diagram.svg
+</span></code></pre></div>
+<p>The best option is to convert svg into pdf using inkscape unfortunately the result doesn't work well. I currently don't know how to do it.</p>
+<pre class="mermaid"><code>graph LR
+  A[Start] --&gt; B{Error?};
+  B --&gt;|Yes| C[Hmm...];
+  C --&gt; D[Debug];
+  D --&gt; B;
+  B ----&gt;|No| E[Yay!];</code></pre>
+<h2 id="footnotes">Footnotes<a class="headerlink" href="#footnotes" title="Permanent link">¶</a></h2>
+<p>Lorem ipsum<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> dolor sit amet, consectetur adipiscing elit.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<h2 id="formatting">Formatting<a class="headerlink" href="#formatting" title="Permanent link">¶</a></h2>
+<p>Text can be <del class="critic">deleted</del> and replacement text <ins class="critic">added</ins>. This can also be
+combined into <del class="critic">one</del><ins class="critic">a single</ins> operation. <mark class="critic">Highlighting</mark> is also
+possible <span class="critic comment">and comments can be added inline</span>.</p>
+<mark class="critic block">
+<p>Formatting can also be applied to blocks by putting the opening and closing
+tags on separate lines and adding new lines between the tags and the content.</p>
+</mark>
+<ul>
+<li><mark>This was marked (highlight)</mark></li>
+<li><ins>This was inserted (underline)</ins></li>
+<li><del>This was deleted (strikethrough)</del></li>
+<li>H<sub>2</sub>O</li>
+<li>A<sup>T</sup>A</li>
+</ul>
+<p>Keyboard keys such as <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-delete">Del</kbd></span> should be supported also</p>
+<ul>
+<li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-5">5</kbd></span></li>
+<li><span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-f1">F1</kbd></span></li>
+<li><span class="keys"><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-j">J</kbd></span></li>
+<li>++blackslash+double-quote++</li>
+<li><span class="keys"><kbd class="key-arrow-up">Up</kbd></span>, <span class="keys"><kbd class="key-arrow-down">Down</kbd></span>, <span class="keys"><kbd class="key-arrow-left">Left</kbd></span>, <span class="keys"><kbd class="key-arrow-right">Right</kbd></span></li>
+<li><span class="keys"><kbd class="key-page-up">Page Up</kbd></span>, <span class="keys"><kbd class="key-page-down">Page Down</kbd></span>, <span class="keys"><kbd class="key-home">Home</kbd></span>, <span class="keys"><kbd class="key-end">End</kbd></span></li>
+<li><span class="keys"><kbd class="key-insert">Ins</kbd></span>, <span class="keys"><kbd class="key-delete">Del</kbd></span>, <span class="keys"><kbd class="key-backspace">Backspace</kbd></span>, <span class="keys"><kbd class="key-tab">Tab</kbd></span></li>
+</ul>
+<h2 id="smartsymbols">SmartSymbols<a class="headerlink" href="#smartsymbols" title="Permanent link">¶</a></h2>
+<p>We could use ™, ©, ®, ±  → ← ↔  ½ ¼ ¾ ⅓ ⅔ ⅛ ⅜ ⅝ ⅞ ⅕ ⅖ ⅗ ⅘ ⅙ ⅚ 1/7 1/9 1/10 from PyMdown Extensions SmartSymbols.</p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:2">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+</ol>
 </div>

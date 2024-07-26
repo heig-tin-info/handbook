@@ -34,7 +34,7 @@ soup = BeautifulSoup(html, 'html.parser')
 from IPython import embed
 from hashlib import sha256
 from jinja2 import Environment
-
+import html
 jinja_env = Environment(
     block_start_string=r'\BLOCK{',
     block_end_string=r'}',

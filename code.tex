@@ -1,64 +1,72 @@
 \documentclass{article}
+\usepackage{fontspec}
 \usepackage[many,minted]{tcolorbox}% version 3.03 or better
 
+\setmonofont{FiraMono}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  Scale=0.9,
+]
+
+\usemintedstyle{tango}
 \newtcblisting[auto counter,number within=section,
-  list inside=mypyg]{listingsbox}[3][]{%
+  list inside=mypyg]{code}[4][]{%
   listing only,
   enhanced,
   colframe=gray!40,
   colback=gray!10,
   boxrule=0.5pt,
   arc=0.5mm,
+  toptitle=0.25em,
+  bottomtitle=0.1em,
+  lefttitle=0.5em,
   outer arc=0.5mm,
   minted language=#2,
   minted options={%
     tabsize=4,
-    linenos,
-    highlightlines={2-3},
     breaklines,
-    xleftmargin=0.75em,
+    xleftmargin=-0.75em,
     fontsize=\footnotesize,
-    highlightcolor=gray!50,
+    highlightcolor=gray!30,
+    #4
   },
   coltitle=black,
-  %title={Extrait \thetcbcounter: #3},
-  %list entry={\protect\numberline{\thetcbcounter}#3},
+  title={#3},
+  list entry={\protect\numberline{\thetcbcounter}#3},
   #1
 }
 
 \begin{document}
 
-\section{Test}
+\section{Code}
 
-\begin{listingsbox}{python}{A nice title}
+\subsection{With Title}
+\begin{code}{python}{fibonacci.py}{}
 def fib(n):
 if n <= 1:
     return n
 return fib(n-1) + fib(n-2)
-\end{listingsbox}
+\end{code}
 
-\begin{listingsbox}{python}{}
+\subsection{With Line Numbers and highlight}
+\begin{code}{python}{}{linenos, highlightlines={2-3}}
 def fib(n):
 if n <= 1:
     return n
 return fib(n-1) + fib(n-2)
-\end{listingsbox}
+\end{code}
 
-\begin{listingsbox}{cpp}{Something else}
-int main()
-{
-    printf("Hello, World!\n");
-    return 0;
-}
-\end{listingsbox}
+\subsection{Boxchars}
 
-\begin{listingsbox}{cpp}{}
-int main()
-{
-    printf("Hello, World!\n");
-    return 0;
-}
-\end{listingsbox}
+\begin{code}{text}{Boxchars}{}
+  ┌─┬─┬─┬─┬─┬─┬─┬─┐
+  │0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
+  └─┴─┴─┴─┴─┴─┴─┴─┘
+            ┌─┬─┬─┐
+            │0│1│1│ / 2^3     ----> 83 / 8 = 10.375
+            └─┴─┴─┘
+\end{code}
 
 \tcblistof{mypyg}{Extraits de code}
 
