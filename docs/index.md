@@ -49,6 +49,19 @@ I am a paragraph
         2.  Ut sit amet placerat ante
         3.  Suspendisse ac eros arcu
 
+### Heterogeneous list
+
+1. Foo
+2. Bar
+
+    - Baz
+    - Quux
+
+        1. Alpha
+        2. Beta
+
+3. Foobar
+
 ### Definition list
 
 `Lorem ipsum dolor sit amet`
@@ -169,7 +182,7 @@ You can go to [Wikipédia](https://www.wikipedia.org/){#anchor} for more informa
 
 Here a nice figure:
 
-![Armadillo](https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS2nGWbCC1qMTEBAGp64bfy3Rin2tJ7lbsQdlp_eW1f9OK4xhry)
+![A **beautiful** Armadillo](https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS2nGWbCC1qMTEBAGp64bfy3Rin2tJ7lbsQdlp_eW1f9OK4xhry)
 
 ## Table
 

@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 import os
 import logging
 from jinja2 import Environment, FileSystemLoader
@@ -253,7 +253,7 @@ class LaTeXRenderer:
 
     def render_inlines(self, soup):
         tags = [
-            'abbr', 'span', 'sub', 'ins', 'del', 'kbd', 'mark',
+            'pre', 'abbr', 'span', 'sub', 'ins', 'del', 'kbd', 'mark',
             'span', 'strong', 'em', 'code', 'a', 'sup']
         for inline in soup.find_all(tags):
             text = inline.get_text()
@@ -277,12 +277,21 @@ class LaTeXRenderer:
                     description = inline.get('title', '')
                     inline.replace_with(self.formatter.acronym(tag, description))
                 case 'a':
-                    inline.replace_with('')
+                    if 'headerlink' in inline.get('class', []):
+                        inline.extract()
+                    elif 'glightbox' in inline.get('class', []):
+                        inline.unwrap()
 
                 case 'code':
                     language = get_code_language(inline)
                     inline.replace_with(
                         self.formatter.codeinline(text=text, language=language))
+
+                case 'pre':
+                    if 'mermaid' in inline.get('class', []):
+                        code = inline.find('code').get_text()
+                        inline.replace_with(self.formatter.mermaid(code))
+
                 case 'span':
                     classes = inline.get('class', [])
                     if 'twemoji' in classes:
@@ -341,18 +350,28 @@ class LaTeXRenderer:
             ref = inline.get('id', None)
             inline.replace_with(self.formatter.heading(title, level=level, ref=ref))
 
-        # Lists
-        for ul in soup.find_all('ul'):
-            items = []
-            for li in ul.find_all('li'):
-                items.append(li.get_text())
-            ul.replace_with(self.formatter.unordered_list(items=items))
+        # Lists must be processed deep first
+        def get_depth(element):
+            depth = 0
+            while element.parent is not None:
+                element = element.parent
+                depth += 1
+            return depth
 
-        for ol in soup.find_all('ol'):
+        def find_all_dfs(soup, *args, **kwargs):
             items = []
-            for li in ul.find_all('li'):
-                items.append(li.get_text())
-            ol.replace_with(self.formatter.ordered_list(items=items))
+            for el in soup.find_all(*args, **kwargs):
+                level = get_depth(el)
+                items.append((level, el))
+            return [item for _, item in sorted(items, key=lambda x: x[0], reverse=True)]
+
+        for el in find_all_dfs(soup, ['ol', 'ul']):
+            items = [li.get_text() for li in el.find_all('li')]
+            match el.name:
+                case 'ul':
+                    el.replace_with(self.formatter.unordered_list(items=items))
+                case 'ol':
+                    el.replace_with(self.formatter.ordered_list(items=items))
 
         for dl in soup.find_all(['dl']):
             items = []
@@ -369,15 +388,19 @@ class LaTeXRenderer:
         for math_block in soup.find_all(['div'], class_='arithmatex'):
             math_block.replace_with(f"\n{math_block.get_text()}\n")
 
+        for figure in soup.find_all(['figure']):
+            image = figure.find('img')
+            if not image:
+                raise ValueError(f"Missing image in figure {figure}")
+            image_src = image.get('src')
+            caption = figure.find('figcaption')
+            caption_text = caption.get_text() if caption else image.get('alt', '')
+            figure.replace_with(self.formatter.figure(caption=caption_text, path=image_src))
+
         for table in soup.find_all(['table']):
             data = self.extract_table(table)
             if data:
                 table.replace_with(self.formatter.table(**data))
-
-        # Mermaid
-        for mermaid in soup.find_all('pre', class_='mermaid'):
-            code = mermaid.get_text()
-            mermaid.replace_with(self.formatter.mermaid(code))
 
         # Emoji
         for emoji in soup.find_all('img', class_='twemoji'):
@@ -394,19 +417,35 @@ class LaTeXRenderer:
             if len(filtered_classes) > 1:
                 raise ValueError(f"Multiple classes in admonition: {filtered_classes}")
             admonition_type = filtered_classes[0]
-            admonition_title = admonition.find('p', class_='admonition-title')
+            title = admonition.find('p', class_='admonition-title')
             if title:
-                title = admonition_title.get_text()
-
+                title = title.get_text()
             content = admonition.get_text()
+
             admonition.replace_with(
                 self.formatter.callout(content,
-                                          title=admonition_title,
-                                          type=admonition_type))
+                                       title=title,
+                                       type=admonition_type))
+
+        # Links
+        for a in soup.find_all('a'):
+            if a.get('href', '').startswith('http'):
+                a.replace_with(self.formatter.url(a.get_text(), url=a.get('href')))
+            else:
+                a.replace_with(f"\\href{{{a.get('href')}}}{{{a.get_text()}}}")
+
+        def has_children(element):
+            for child in element.children:
+                if isinstance(child, Tag):
+                    return True
+            return False
 
         # Eventually get rid of the p tags
-        for p in soup.find_all('p'):
-            p.replace_with(f"{p.get_text()}\n")
+        for p in find_all_dfs(soup, 'p', class_=[]):
+            if has_children(p):
+                raise ValueError(f"Unexpected children in p tag: {p}")
+
+            p.replace_with(f"\n{p.get_text()}\n")
 
         document = unescape(str(soup).replace('&thinsp;', '~'))
 

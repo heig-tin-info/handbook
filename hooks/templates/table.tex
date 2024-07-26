@@ -6,17 +6,17 @@
 } -}
 \begin{tabular}{\BLOCK{- for s in columns}\VAR{style[column]}\BLOCK{- endfor}}
 \toprule
-\BLOCK{- for row in rows -}
+\BLOCK{for row in rows -}
 \BLOCK{- if loop.first -}
 \BLOCK{- for col in row -}
-   \textbf{\VAR{col}}\BLOCK{- if not loop.last -} & \BLOCK{- else -} \\\BLOCK{- endif}
-\BLOCK{- endfor -}
+   \textbf{\VAR{col}}\BLOCK{- if not loop.last} & \BLOCK{else} \\\BLOCK{- endif}
+\BLOCK{- endfor}
 \middlerule
-\BLOCK{- else -}
+\BLOCK{else -}
 \BLOCK{- for col in row -}
-   \VAR{col}\BLOCK{- if not loop.last -}&\BLOCK{- else -}\\\BLOCK{- endif}
+   \VAR{col}\BLOCK{- if not loop.last} & \BLOCK{else} \\\BLOCK{- endif}
 \BLOCK{- endfor -}
 \BLOCK{- endif -}
-\BLOCK{- endfor -}
+\BLOCK{- endfor}
 \bottomrule
 \end{tabular}
