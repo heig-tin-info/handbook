@@ -1,5 +1,6 @@
-\documentclass[a4paper]{article}
+\documentclass[11pt,a4paper,twoside]{article}
 \usepackage{fontspec}
+\usepackage{polyglossia}
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{textcomp} % For ©, ™
@@ -9,6 +10,7 @@
 \usepackage{wasysym} % For fractions
 \usepackage{nicefrac}
 \usepackage{hyperref}
+\usepackage{fancyhdr}
 \usepackage{ulem}
 \usepackage{lipsum}
 \usepackage{graphicx}
@@ -17,13 +19,31 @@
 \usepackage{parskip}
 \usepackage{stackengine}
 \usepackage{booktabs}
-
 \usepackage[many,minted]{tcolorbox}% version 3.03 or better
-
 \usepackage{minted}
 \usepackage[acronym]{glossaries}
 \usepackage{fvextra} % Pour une meilleure gestion des verbatim inline
 \usepackage{titlesec} % Pour la personnalisation des titres
+\usepackage{enumitem} % Pour personnaliser les listes
+
+\RequirePackage[
+  a4paper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=3cm,
+  right=4cm,
+  headheight=6mm,
+  headsep=5mm,
+  marginparwidth=3cm,
+  marginparsep=4mm,
+  heightrounded,
+  includehead]{geometry}
+
+\setmainlanguage{french}
+\setotherlanguage{english}
+
+% Redéfinir l'itemize pour utiliser des demi-cadratins (en-dash) comme puces
+\setlist[itemize,1]{label=--}
 
 % Redéfinir \paragraph et \subparagraph pour qu'ils soient numérotés et aient des sauts de ligne
 \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
@@ -35,15 +55,45 @@
 % Pour numérotation des paragraphes et subparagraphes
 \setcounter{secnumdepth}{5}
 
+\fancypagestyle{headings}{
+\fancyhf{}
+\fancyhead[LO]{\textsl{\rightmark}}
+\fancyhead[RE]{\textsl{\leftmark}}
+\ifdefined\@confidential
+\fancyfoot[LE]{\MakeUppercase{\@confidential}}
+\fancyfoot[RO]{\MakeUppercase{\@confidential}}
+\fi
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+\pagestyle{headings}
+
+
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-2.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.0ex \@plus.2ex}%
+                                   {\normalfont\Large\bfseries\itshape}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-2.5ex\@plus -1ex \@minus -.2ex}%
+                                     {1.0ex \@plus .2ex}%
+                                     {\normalfont\large\bfseries\itshape}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                                     {-2.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.0ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries\itshape}}
+
 \definecolor{darkblue}{rgb}{0.0, 0.0, 0.5}
 
-\hypersetup{
-    colorlinks=true, % Mettre les liens en couleur
-    linkcolor=darkblue, % Couleur des liens internes
-    filecolor=darkblue, % Couleur des liens vers les fichiers locaux
-    urlcolor=darkblue, % Couleur des liens URL
-    citecolor=darkblue % Couleur des liens de citation
-}
+\definecolor{linkcolor}{RGB}{219, 48, 122}
+\RequirePackage[
+  colorlinks=true,
+  plainpages=true,
+  linkcolor=black,
+  citecolor=black,
+  plainpages=false,
+  unicode=true,
+  urlcolor=linkcolor]{hyperref}
 
 \setmonofont{FiraMono}[
   Extension=.otf,
@@ -51,6 +101,9 @@
   BoldFont=*-Bold,
   Scale=0.9,
 ]
+
+\setlength{\parindent}{0pt}
+\setlength\parskip{\medskipamount}
 
 \usemintedstyle{tango}
 \newtcblisting[auto counter,number within=section,
@@ -108,25 +161,133 @@
   #1
 }
 
-\newtcolorbox{callout}[2][]{
+\definecolor{calloutNoteBg}{HTML}{ECF3FF}
+\definecolor{calloutNoteFrame}{HTML}{448AFF}
+
+\definecolor{calloutAbstractBg}{HTML}{E5F7FF}
+\definecolor{calloutAbstractFrame}{HTML}{00B0FF}
+
+\definecolor{calloutInfoBg}{HTML}{E5F8FB}
+\definecolor{calloutInfoFrame}{HTML}{00B8D4}
+
+\definecolor{calloutTipBg}{HTML}{E5F8F6}
+\definecolor{calloutTipFrame}{HTML}{00BFA5}
+
+\definecolor{calloutSuccessBg}{HTML}{E5F9ED}
+\definecolor{calloutSuccessFrame}{HTML}{00C853}
+
+\definecolor{calloutQuestionBg}{HTML}{EFFCE7}
+\definecolor{calloutQuestionFrame}{HTML}{64DD17}
+
+\definecolor{calloutWarningBg}{HTML}{FFF4E5}
+\definecolor{calloutWarningFrame}{HTML}{FF9E1D}
+
+\definecolor{calloutFailureBg}{HTML}{FFEDED}
+\definecolor{calloutFailureFrame}{HTML}{FF5252}
+
+\definecolor{calloutDangerBg}{HTML}{FFE7EC}
+\definecolor{calloutDangerFrame}{HTML}{FF1744}
+
+\definecolor{calloutBugBg}{HTML}{FEE5EE}
+\definecolor{calloutBugFrame}{HTML}{F50057}
+
+\definecolor{calloutExampleBg}{HTML}{F2EDFF}
+\definecolor{calloutExampleFrame}{HTML}{7C4DFF}
+
+\definecolor{calloutQuoteBg}{HTML}{F5F5F5}
+\definecolor{calloutQuoteFrame}{HTML}{9E9E9E}
+
+\definecolor{calloutExerciseBg}{HTML}{F5F5F5}
+\definecolor{calloutExerciseFrame}{HTML}{9E9E9E}
+
+
+% Définir les styles pour différents types de callout
+\tcbset{
+    callout note/.style={
+        colbacktitle=calloutNoteBg,
+        colframe=calloutNoteFrame,
+        title={\textcolor{calloutNoteFrame}{\faBookmark}\kern0.5em \textbf{Note :}},
+    },
+    callout abstract/.style={
+        colbacktitle=calloutAbstractBg,
+        colframe=calloutAbstractFrame,
+        title={\textcolor{calloutAbstractFrame}{\faLaptopCode}\kern0.5em \textbf{Résumé :}},
+    },
+    callout info/.style={
+        colbacktitle=calloutInfoBg,
+        colframe=calloutInfoFrame,
+        title={\textcolor{calloutInfoFrame}{\faBook}\kern0.5em \textbf{Information :}},
+    },
+    callout tip/.style={
+        colbacktitle=calloutTipBg,
+        colframe=calloutTipFrame,
+        title={\textcolor{calloutTipFrame}{\faLightbulb}\kern0.5em \textbf{Astuce :}},
+    },
+    callout success/.style={
+        colbacktitle=calloutSuccessBg,
+        colframe=calloutSuccessFrame,
+        title={\textcolor{calloutSuccessFrame}{\faCheck}\kern0.5em \textbf{Succès :}},
+    },
+    callout warning/.style={
+        colbacktitle=calloutWarningBg,
+        colframe=calloutWarningFrame,
+        title={\textcolor{calloutWarningFrame}{\faExclamationTriangle}\kern0.5em \textbf{Avertissement :}},
+    },
+    callout failure/.style={
+        colbacktitle=calloutFailureBg,
+        colframe=calloutFailureFrame,
+        title={\textcolor{calloutFailureFrame}{\faExclamationTriangle}\kern0.5em \textbf{Échec :}},
+    },
+    callout danger/.style={
+        colbacktitle=calloutDangerBg,
+        colframe=calloutDangerFrame,
+        title={\textcolor{calloutDangerFrame}{\faExclamationTriangle}\kern0.5em \textbf{Danger :}},
+    },
+    callout bug/.style={
+        colbacktitle=calloutBugBg,
+        colframe=calloutBugFrame,
+        title={\textcolor{calloutBugFrame}{\faBug}\kern0.5em \textbf{Bogue :}},
+    },
+    callout example/.style={
+        colbacktitle=calloutExampleBg,
+        colframe=calloutExampleFrame,
+        title={\textcolor{calloutExampleFrame}{\faChalkboardTeacher}\kern0.5em \textbf{Exemple :}},
+    },
+    callout quote/.style={
+        colbacktitle=calloutQuoteBg,
+        colframe=calloutQuoteFrame,
+        title={\textcolor{calloutQuoteFrame}{\faQuestionCircle}\kern0.5em \textbf{Citation :}},
+    },
+    callout question/.style={
+        colbacktitle=calloutQuestionBg,
+        colframe=calloutQuestionFrame,
+        title={\textcolor{calloutQuestionFrame}{\faQuestionCircle}\kern0.5em \textbf{Question :}},
+    },
+    callout exercise/.style={
+        colbacktitle=calloutExerciseBg,
+        colframe=calloutExerciseFrame,
+        title={\textcolor{calloutExerciseFrame}{\faChess}\kern0.5em \textbf{Exercice :}},
+    },
+    callout default/.style={
+        colbacktitle=gray!40!white,
+        title={\textcolor{black}{\faComment}\kern0.5em \textbf{Note :}},
+    }
+}
+
+\newtcolorbox{callout}[2][]{%
     breakable,
-    sharp corners,
-    skin=enhancedmiddle
-    jigsaw,
-    parbox=false,
-    boxrule=0mm,
-    leftrule=2mm,
-    boxsep=0mm,
-    arc=0mm,
-    outer arc=0mm,
-    attach title to upper,
-    after title={.\ },
-    coltitle=black,
-    colback=gray!10,
+    boxsep=1.5mm,
+    arc=0.5mm,
+    outer arc=0.5mm,
+    colback=white,
     colframe=black,
-    title={\faLaptopCode\quad #2},
-    fonttitle=\bfseries,
-    #1
+    boxrule=0.7pt,
+    titlerule=0mm,
+    lefttitle=1mm,
+    leftupper=1mm,
+    coltitle=black,
+    #1,
+    after title={~#2}
 }
 
 \usetikzlibrary{shadows}
@@ -142,7 +303,6 @@
       inner ysep=0.1em,
       inner xsep=0.5em,
       line width=0.5pt,
-
       font=\scriptsize\sffamily
     ](key) {#1\strut}
   ;
