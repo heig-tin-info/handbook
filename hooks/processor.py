@@ -17,6 +17,7 @@ log = logging.getLogger(__name__)
 SCRIPT_DIR = Path(__file__).resolve().parent
 
 def fetch_image(url, output_path=Path()):
+    log.info(f"Fetching image {url}...")
     response = requests.get(url)
     if response.status_code != 200:
         raise ValueError(f"Failed to fetch image: {response.status_code}")
@@ -35,6 +36,7 @@ def get_class(element, regex):
     return next((c for c in element.get('class', []) if regex.match(c)), None)
 
 def svg2pdf(svg, output_path=Path()):
+    log.info("Converting SVG to PDF...")
     # Create temporary svg file
     filename = Path(sha256(svg.encode()).hexdigest() + '.svg')
     svgpath = Path(os.path.join(tempfile.mkdtemp(), filename))
@@ -220,8 +222,8 @@ class LaTeXRenderer:
         self.formatter.set_output_path(output_path)
 
     def extract_code_inline(self, soup):
-        if soup.name != 'code' and 'highlight' not in soup.get('class', []):
-            raise ValueError(f"Expected code block, got {soup.name} {soup.get('class', [])}")
+        if soup.name != 'code':
+            raise ValueError(f"Expected code block, got {soup.name}")
 
         language = get_code_language(soup)
         listing = []
@@ -356,8 +358,12 @@ class LaTeXRenderer:
 
                 case 'pre':
                     if 'mermaid' in inline.get('class', []):
-                        code = inline.find('code').get_text()
-                        inline.replace_with(self.formatter.mermaid(code))
+                        code = inline.find('code')
+                        if not code:
+                            log.warning(f"Missing code in mermaid pre {self.get_route(inline)}")
+                        else:
+                            code = code.get_text()
+                            inline.replace_with(self.formatter.mermaid(code))
 
                 case 'span':
                     classes = inline.get('class', [])
@@ -425,7 +431,7 @@ class LaTeXRenderer:
                 el.replace_with(self.formatter.codeblock(**code))
 
         # Code inline
-        for el in soup.find_all('code', class_=['highlight']):
+        for el in soup.find_all('code'):
             if code := self.extract_code_inline(el):
                 el.replace_with(
                     self.formatter.codeinline(**code))
@@ -452,6 +458,11 @@ class LaTeXRenderer:
             level = int(inline.name[1:]) + base_level
             ref = inline.get('id', None)
             inline.replace_with(self.formatter.heading(title, level=level, ref=ref))
+
+        # Autorefs with key data-autorefs-identifier
+        for autoref in soup.find_all('span', attrs={'data-autorefs-identifier': True}):
+            identifier = autoref.get('data-autorefs-identifier')
+            autoref.replace_with(self.formatter.ref(autoref.get_text(), ref=identifier))
 
         # Get footnotes
         footnotes = {}
