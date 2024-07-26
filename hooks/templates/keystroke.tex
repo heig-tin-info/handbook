@@ -4,10 +4,12 @@
     'delete': 'Del',
     'enter': 'Enter',
     'shift': 'Shift',
-    'arrow-up': '↑',
-    'arrow-down': '↓',
-    'arrow-left': '←',
-    'arrow-right': '→',
+    'arrow-up': '\\(\\uparrow\\)',
+    'arrow-down': '\\(\\downarrow\\)',
+    'arrow-left': '\\(\\leftarrow\\)',
+    'arrow-right': '\\(\\rightarrow\\)',
+    'backslash': '\\textbackslash',
+    'double-quote': '"',
     'backspace': 'Backspace',
     'tab': 'Tab',
     'esc': 'Esc',
@@ -36,5 +38,5 @@
 \BLOCK{- else -}
 \keystroke{\VAR{key|upper}}
 \BLOCK{- endif -}
-\BLOCK{- if not loop.last -} + \BLOCK{- endif -}
+\BLOCK{- if not loop.last -}~+~\BLOCK{- endif -}
 \BLOCK{- endfor -}

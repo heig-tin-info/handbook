@@ -328,7 +328,7 @@ Keyboard keys such as ++ctrl+alt+del++ should be supported also
 - ++ctrl+5++
 - ++shift+f1++
 - ++alt+ctrl+shift+j++
-- ++blackslash+double-quote++
+- ++backslash+double-quote++
 - ++arrow-up++, ++arrow-down++, ++arrow-left++, ++arrow-right++
 - ++page-up++, ++page-down++, ++home++, ++end++
 - ++insert++, ++delete++, ++backspace++, ++tab++

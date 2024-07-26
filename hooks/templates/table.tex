@@ -4,14 +4,21 @@
     'center': 'c',
     'justify': 'p'
 } -}
-\begin{tabular}{\BLOCK{- for s in columns}\VAR{style[column]}\BLOCK{- endfor}}
+\BLOCK{- if caption -}
+\begin{table}[H]
+\centering
+\caption{\VAR{caption}}
+\BLOCK{else}
+\begin{center}
+\BLOCK{- endif}
+\begin{tabular}{\BLOCK{- for column in columns}\VAR{style[column]}\BLOCK{- endfor}}
 \toprule
 \BLOCK{for row in rows -}
 \BLOCK{- if loop.first -}
 \BLOCK{- for col in row -}
    \textbf{\VAR{col}}\BLOCK{- if not loop.last} & \BLOCK{else} \\\BLOCK{- endif}
 \BLOCK{- endfor}
-\middlerule
+\midrule
 \BLOCK{else -}
 \BLOCK{- for col in row -}
    \VAR{col}\BLOCK{- if not loop.last} & \BLOCK{else} \\\BLOCK{- endif}
@@ -20,3 +27,8 @@
 \BLOCK{- endfor}
 \bottomrule
 \end{tabular}
+\BLOCK{- if caption -}
+\end{table}
+\BLOCK{- else}
+\end{center}
+\BLOCK{- endif}

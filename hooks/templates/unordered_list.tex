@@ -1,11 +1,5 @@
 \begin{itemize}
 \BLOCK{for item in items -}
-\BLOCK{- if item.startswith('[x]') -}
-    \item[\correctchoice] \VAR{item[4:] }
-\BLOCK{elif item.startswith('[ ]') -}
-    \item[\choice] \VAR{item[4:]}
-\BLOCK{else -}
     \item \VAR{item}
-\BLOCK{endif -}
 \BLOCK{endfor}
 \end{itemize}

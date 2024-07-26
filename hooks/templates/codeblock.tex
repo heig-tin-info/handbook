@@ -1,4 +1,4 @@
-\begin{code}{\VAR{language|default('text')}}{\VAR{filename|default('')}}{
+\begin{code}{\VAR{language|default('text')}}{\BLOCK{if filename}\VAR{filename}\BLOCK{endif}}{
     \BLOCK{- if linenos}linenos \BLOCK{endif -}
     \BLOCK{- if highlight }, highlightlines={\VAR{','.join(highlight)}}\BLOCK{endif -}
 }
