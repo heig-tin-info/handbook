@@ -63,18 +63,15 @@ class LaTeXString(ProcessingInstruction):
         super().__init__(value)
 
 
-
 class LaTeXRenderer:
     def __init__(self, output_path=Path('build')):
         self.formatter = LaTeXFormatter()
-        self.output_path = Path(output_path)
+        self.output_path = Path(output_path) / 'assets'
         self.output_path.mkdir(parents=True, exist_ok=True)
-
-        # Generated files
-        self.files = {}  # output : filanme or content
 
         # Metadata
         self.abbreviations = {}
+        self.acronyms = {}
         self.glossary = {}
 
     def get_filename_from_content(self, content: str):
@@ -295,10 +292,15 @@ class LaTeXRenderer:
 
     def render_abbreviation(self, soup: Tag):
         for abbr in soup.find_all('abbr'):
-            title = escape_latex_chars(abbr.get('title'))
-            abbreviation = self.get_safe_text(abbr)
-            self.abbreviations[abbreviation] = title
-            abbr.replace_with(self.formatter.abbreviation(abbreviation, title))
+            text = escape_latex_chars(abbr.get('title'))
+            short = self.get_safe_text(abbr)
+            short = escape_latex_chars(short)
+
+            # Discard any special characters not allowed in glossary references
+            tag = 'acr:' + re.sub(r'[^a-zA-Z0-9]', '', short).lower()
+
+            self.acronyms[tag] = (short, text)
+            abbr.replace_with(self.formatter.abbreviation(short, text))
 
     def render_emoji(self, soup: Tag):
         """ Twemoji can be rendered as inline SVG or CDN link.

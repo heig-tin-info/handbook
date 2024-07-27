@@ -30,7 +30,7 @@ Second pass:
 ```html
 <strong><latex>\emph{Foo\&}</latex> bar&</strong>
 <em>Foo& <latex>bar\&</latex></em>
-
+```
 
 ## Strategy
 
@@ -38,7 +38,23 @@ Second pass:
 - Eventually, all NavigableString will be replaced with LaTeXString
 
 ```python
-latekize(soup)
+
+class LaTeXString(NavigableString):
+    def __init__(self, value, escape=False):
+        if escape:
+            value = self._escape_latex(value)
+        super().__init__(value)
+
+def latekize(soup):
+    mergable = True
+    for tag in soup:
+        if type(tag) is NavigableString:
+            tag.replace_with(LaTeXString(tag, escape=True))
+        if not isinstance(tag, LaTeXString):
+            mergable = False
+
+    if mergable:
+        soup.replace_with(LaTeXString(soup))
 ```
 
 Will iterate over the soup, if all are either NavigableString or LaTeXString,
@@ -47,6 +63,10 @@ then the entire soup will be replaced with a LaTeXString.
 
 ## Features
 
+### Inline
+
+- `unformatted inline code` (minted inline)
+- `#!python formatted inline block` (minted inline)
 - **bold** (strong)
 - *italic* (emphasis)
 - ***bold italic*** (strong emphasis)
@@ -58,5 +78,7 @@ then the entire soup will be replaced with a LaTeXString.
   - {~~highlighted~>none~~} (added/changed)
   - {==marked==} (highlighted)
   - {>>comment<<} (comment)
-- `unformatted inline code` (minted inline)
-- `#!python formatted inline block` (minted inline)
+- Emoji
+  - :smile: (smile)
+  - :smiley: (smiley)
+-

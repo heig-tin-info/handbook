@@ -8,10 +8,34 @@ import urllib.parse
 from typing import Union
 import re
 
-SCRIPT_DIR = Path(__file__).resolve().parent
+TEMPLATE_DIR = Path(__file__).parent / 'templates'
+
+
+def optimize_list(numbers):
+    """Optimize a list of numbers to a list of ranges.
+    >>> optimize_list([1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 14, 15, 16])
+    ['1-6', '8-10', '12', '14-16']
+    """
+    if not numbers:
+        return []
+
+    numbers = sorted(numbers)
+    optimized = []
+    start = end = numbers[0]
+
+    for num in numbers[1:]:
+        if num == end + 1:
+            end = num
+        else:
+            optimized.append(f"{start}-{end}" if start != end else str(start))
+            start = end = num
+
+    optimized.append(f"{start}-{end}" if start != end else str(start))
+    return optimized
+
 
 class LaTeXFormatter:
-    def __init__(self, template_dir=SCRIPT_DIR / 'templates', output_path=Path()):
+    def __init__(self, template_dir=TEMPLATE_DIR):
         # Easier to use LaTeX syntax for templates
         self.env = Environment(
             block_start_string=r'\BLOCK{',
@@ -27,18 +51,6 @@ class LaTeXFormatter:
             Path(filename).stem: self.env.get_template(filename)
             for filename in os.listdir(template_dir)
         }
-
-        # Output path for all media files
-        self.output_path = output_path
-
-        # Metadata
-        self.acronyms = {}
-
-    def set_output_path(self, path: Union[str, Path]):
-        """Set the output path for all media files. """
-        self.output_path = Path(path)
-
-
 
     def __getattr__(self, method):
         """Proxy method calls to the corresponding template
@@ -82,25 +94,6 @@ class LaTeXFormatter:
             linenos=lineno,
             filename=filename,
             highlight=optimize_list(highlight),  # e.g. 1,2,3 -> 1-3
-        )
-
-    def handle_acronym(self, short, text):
-        """Handle acronyms by creating a glossary entry. """
-        # Discard any special characters not allowed in glossary references
-        tag = 'acr:' + re.sub(r'[^a-zA-Z0-9]', '', short).lower()
-        text = escape_latex_chars(text)
-        short = escape_latex_chars(short)
-
-        self.acronyms[tag] = (short, text)
-        return self.templates['acronym'].render(text=text, tag=tag)
-
-    def keystroke(self, keys):
-        return self.templates['keystroke'].render(keys=keys)
-
-    def mermaid(self, code):
-        return self.templates['codeblock'].render(
-            code=code,
-            language='text'
         )
 
     def url(self, text, url):

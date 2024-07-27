@@ -1,61 +1,118 @@
+""" This module contains functions to convert various formats to PDF. """
+import re
 import os
 import subprocess
+from typing import Union
 from hashlib import sha256
 from pathlib import Path
-import shutil
 import logging
+import shutil
+import mimetypes
 import tempfile
-from PIL import Image
 import cairosvg
-import re
-from typing import Union
+import requests
+from PIL import Image
 
 log = logging.getLogger('mkdocs')
 
 
-def mermaid2pdf(content, output_path=Path()):
-    """Converts Mermaid content to PDF using the mermaid-cli docker image."""
+def get_filename_from_content(content: str, output_path: Path) -> Path:
+    """Generate a filename from content.
+    This renderer, store assets with files sometime
+    generated from content. This function will generate
+    a unique filename based on the content.
+    """
+    digest = sha256(content.encode()).hexdigest()
+    return output_path / digest
 
-    filename = (output_path / sha256(content.encode()).hexdigest()).with_suffix('.mmd')
-    with open(filename, 'w', encoding='utf-8') as fp:
-        fp.write(content)
 
-    pdfpath = output_path / filename.with_suffix('.pdf')
+def fetch_image(url: str, output_path: Path) -> Path:
+    """Fetch an image from an URL and store it in the output path.
+    If the image already exists, it will not be fetched again.
+    """
+    response = requests.head(url, timeout=10)
+    if response.status_code != 200:
+        raise ValueError(f"Failed to fetch image: {response.status_code}")
 
-    command = [
-        'docker',
-        'run',
-        '--rm',
-        '-u', f'{os.getpid()}:{os.getgid()}',
-        '-v', f'{output_path}:/data',
-        'minlag/mermaid-cli',
-        '-i', f'{filename}',
-        '-f',
-        '-o', f'{pdfpath}'
-    ]
+    mime_type = response.headers['Content-Type']
+    etag = response.headers.get('ETag')
+    extension = mimetypes.guess_extension(mime_type)
+    if not extension:
+        raise ValueError(f"Unknown mime type: {mime_type}")
 
-    completed_process = subprocess.run(command,
-                                       check=False,
-                                       stderr=subprocess.PIPE)
+    filename = get_filename_from_content(
+        f"ETag:{etag}\0{url}", output_path).with_suffix(extension + '.pdf')
 
-    for line in completed_process.stderr.splitlines():
-        log.error("mermaid: %s", {line.decode()})
+    if filename.exists():
+        return filename
 
-    if completed_process.returncode != 0:
-        log.error('Return code %s', completed_process.returncode)
-        return None
+    # Fetch file
+    response = requests.get(url, timeout=10)
+    if response.status_code != 200:
+        raise ValueError(f"Failed to fetch image: {response.status_code}")
 
-    os.remove(filename)
+    filename.write_bytes(response.content)
+
+    return filename
+
+
+def mermaid2pdf(content: str, output_path: Path) -> Path:
+    """Converts Mermaid content to PDF using the
+    mermaid-cli docker image."""
+
+    pdfpath = get_filename_from_content(
+        content, output_path).with_suffix('.mermaid.pdf')
+
+    # Get temp file
+    with tempfile.NamedTemporaryFile(delete=False, suffix='.mmd') as fp:
+        fp.write(content.encode())
+
+        input_path = Path(fp.name)
+        output_path = input_path.with_suffix('.pdf')
+
+        command = [
+            'docker',
+            'run',
+            '--rm',
+            '-u', f'{os.getpid()}:{os.getgid()}',
+            '-v', f'{input_path.parent}:/data',
+            'minlag/mermaid-cli',
+            '-i', f'{fp.name}',
+            '-f',
+            '-o', f'{output_path.name}'
+        ]
+
+        completed_process = subprocess.run(
+            command,
+            check=False,
+            stderr=subprocess.PIPE)
+
+        for line in completed_process.stderr.splitlines():
+            log.error("mermaid: %s", {line.decode()})
+
+        if completed_process.returncode != 0:
+            log.error('Return code %s', completed_process.returncode)
+            return None
+
+        shutil.move(output_path, pdfpath)
 
     return pdfpath
 
-def drawio2pdf(filename, output_path=Path()):
-    log.info("Converting Draw.io to PDF...")
 
-    pdfpath = output_path / get_filename(filename).with_suffix('.pdf')
+def up_to_date(source: Path, destination: Path) -> bool:
+    """Check if a file is up to date."""
+    return destination.exists() and \
+        destination.stat().st_mtime >= source.stat().st_mtime
+
+
+def drawio2pdf(filename: Path, output_path: Path) -> Path:
+
+    pdfpath = get_filename_from_content(
+        filename.read_bytes(), output_path).with_suffix('.drawio.pdf')
+
     intermediate = output_path / filename.with_suffix('.pdf').name
     # If destination path is older than source, recompile
-    if not pdfpath.exists() or pdfpath.stat().st_mtime < filename.stat().st_mtime:
+    if up_to_date(filename, pdfpath):
         command = [
             'drawio',
             '--export',
@@ -64,10 +121,12 @@ def drawio2pdf(filename, output_path=Path()):
             '--output', f'{output_path}',
             f"{filename}"
             ]
-        log.info(f"Running {''.join(str(e) for e in command)}")
+
+        log.info("Running %s", ''.join(str(e) for e in command))
 
         # Recompile the svg file
-        completed_process = subprocess.run(command, stderr=subprocess.PIPE)
+        completed_process = subprocess.run(command,
+                                           stderr=subprocess.PIPE, check=False)
         for line in completed_process.stderr.splitlines():
             ignore = [
                 'Could not create a backing OpenGL context',
@@ -80,11 +139,13 @@ def drawio2pdf(filename, output_path=Path()):
                 'libGL error: failed to load driver: swrast',
                 'libGL error: MESA-LOADER: failed to open swrast',
             ]
-            if not any([i in line.decode() for i in ignore]) and len(line.decode()) > 3:
-                log.error(f"drawio: {line.decode()}")
+            if not any([i in line.decode() for i in ignore]) \
+               and len(line.decode()) > 3:
+                log.error("drawio: %s", line.decode())
 
         if completed_process.returncode != 0:
-            log.error(f'Could not process {filename}, eturn code {completed_process.returncode}')
+            log.error("Could not process %s, return code %s",
+                      filename, completed_process.returncode)
         else:
             # Drawio cannot output to a specific file,
             # so we need to move it manually :(
@@ -93,43 +154,37 @@ def drawio2pdf(filename, output_path=Path()):
 
     return pdfpath
 
+
 def image2pdf(filename, output_path=Path()):
-    log.info("Converting webp to PDF...")
+    """Convert an existing image to PDF."""
+    if not filename.exists():
+        raise ValueError(f"File does not exist: {filename}")
 
-    pdfpath = output_path / get_filename(filename).with_suffix('.pdf')
+    pdfpath = get_filename_from_content(
+        filename.name, output_path).with_suffix('.pdf')
 
-    if not pdfpath.exists() or pdfpath.stat().st_mtime < filename.stat().st_mtime:
-        log.debug('Running command:')
+    if up_to_date(filename, pdfpath):
         image = Image.open(filename)
         image.save(pdfpath, 'PDF')
 
     return pdfpath
 
-def svg2pdf(svg: Union[str, Path], output_path=Path()) -> Path:
-    log.info("Converting SVG to PDF...")
 
-
-    if isinstance(svg, str):
-        filename = output_path / get_filename(svg).with_suffix('.pdf')
-        svgpath = Path(os.path.join(tempfile.mkdtemp(), filename))
-        with open(svgpath, 'w') as fp:
-            fp.write(svg)
-        svg = svgpath
-    elif isinstance(svg, Path):
-        filename = svg
+def svg2pdf_cairo(svg: Union[str, Path], output_path=Path()) -> Path:
+    if isinstance(svg, Path):
+        svgpath = svg
         svg = svg.read_bytes()
-    else:
-        raise ValueError(f"Unknown type {type(svg)}")
 
-    pdfpath = output_path / get_filename(svg).with_suffix('.pdf')
+    pdfpath = get_filename_from_content(
+        svg, output_path).with_suffix('.pdf')
 
-    if not pdfpath.exists() or pdfpath.stat().st_mtime < filename.stat().st_mtime:
+    if not up_to_date(svgpath, pdfpath):
         cairosvg.svg2pdf(bytestring=svg, write_to=str(pdfpath))
 
     return pdfpath
 
 
-def svg2pdf_old(svg, output_path=Path()):
+def svg2pdf_inkscape(svg, output_path=Path()):
     log.info("Converting SVG to PDF...")
     # Create temporary svg file
     filename = Path(sha256(svg.encode()).hexdigest() + '.svg')
@@ -184,3 +239,6 @@ def svg2pdf_old(svg, output_path=Path()):
         log.debug('Command succeeded')
 
     return pdfpath
+
+
+svg2pdf = svg2pdf_cairo
