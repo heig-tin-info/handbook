@@ -9,7 +9,6 @@
 \usepackage{gensymb} % For ±
 \usepackage{wasysym} % For fractions
 \usepackage{nicefrac}
-\usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage{ulem}
 \usepackage{lipsum}
@@ -26,7 +25,18 @@
 \usepackage{titlesec} % Pour la personnalisation des titres
 \usepackage{enumitem} % Pour personnaliser les listes
 
-\RequirePackage[
+\definecolor{darkblue}{rgb}{0.0, 0.0, 0.5}
+\definecolor{linkcolor}{RGB}{219, 48, 122}
+
+\usepackage[
+  colorlinks=true,
+  plainpages=true,
+  linkcolor=black,
+  citecolor=black,
+  plainpages=false,
+  unicode=true,
+  urlcolor=linkcolor]{hyperref}
+\usepackage[
   a4paper,
   top=2.5cm,
   bottom=2.5cm,
@@ -41,6 +51,15 @@
 
 \setmainlanguage{french}
 \setotherlanguage{english}
+
+\setmonofont{FiraMono}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  Scale=0.9,
+]
+
+\graphicspath{{images/}}
 
 % Redéfinir l'itemize pour utiliser des demi-cadratins (en-dash) comme puces
 \setlist[itemize,1]{label=--}
@@ -67,99 +86,27 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}}
 
-\pagestyle{headings}
+% \pagestyle{headings}
 
 
-\renewcommand\section{\@startsection {section}{1}{\z@}%
-                                   {-2.5ex \@plus -1ex \@minus -.2ex}%
-                                   {2.0ex \@plus.2ex}%
-                                   {\normalfont\Large\bfseries\itshape}}
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-                                     {-2.5ex\@plus -1ex \@minus -.2ex}%
-                                     {1.0ex \@plus .2ex}%
-                                     {\normalfont\large\bfseries\itshape}}
-\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
-                                     {-2.25ex\@plus -1ex \@minus -.2ex}%
-                                     {1.0ex \@plus .2ex}%
-                                     {\normalfont\normalsize\bfseries\itshape}}
+% \renewcommand\section{\@startsection {section}{1}{\z@}%
+%                                    {-2.5ex \@plus -1ex \@minus -.2ex}%
+%                                    {2.0ex \@plus.2ex}%
+%                                    {\normalfont\Large\bfseries\itshape}}
+% \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+%                                      {-2.5ex\@plus -1ex \@minus -.2ex}%
+%                                      {1.0ex \@plus .2ex}%
+%                                      {\normalfont\large\bfseries\itshape}}
+% \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+%                                      {-2.25ex\@plus -1ex \@minus -.2ex}%
+%                                      {1.0ex \@plus .2ex}%
+%                                      {\normalfont\normalsize\bfseries\itshape}}
 
-\definecolor{darkblue}{rgb}{0.0, 0.0, 0.5}
-
-\definecolor{linkcolor}{RGB}{219, 48, 122}
-\RequirePackage[
-  colorlinks=true,
-  plainpages=true,
-  linkcolor=black,
-  citecolor=black,
-  plainpages=false,
-  unicode=true,
-  urlcolor=linkcolor]{hyperref}
-
-\setmonofont{FiraMono}[
-  Extension=.otf,
-  UprightFont=*-Regular,
-  BoldFont=*-Bold,
-  Scale=0.9,
-]
 
 \setlength{\parindent}{0pt}
 \setlength\parskip{\medskipamount}
 
-\usemintedstyle{tango}
-\newtcblisting[auto counter,number within=section,
-  list inside=mypyg]{code}[4][]{%
-  listing only,
-  enhanced,
-  colframe=gray!40,
-  colback=gray!10,
-  boxrule=0.5pt,
-  arc=0.5mm,
-  toptitle=0.25em,
-  bottomtitle=0.1em,
-  lefttitle=0.5em,
-  outer arc=0.5mm,
-  minted language=#2,
-  minted options={%
-    tabsize=4,
-    breaklines,
-    xleftmargin=-0.75em,
-    fontsize=\footnotesize,
-    highlightcolor=gray!30,
-    #4
-  },
-  coltitle=black,
-  title={#3},
-  list entry={\protect\numberline{\thetcbcounter}#3},
-  #1
-}
 
-
-\newtcolorbox{goodbox}[1][]{
-  colback=green!20,
-  colframe=green!50!black,
-  boxrule=0.5pt,
-  arc=4mm,
-  auto outer arc,
-  #1
-}
-
-\newtcolorbox{badbox}[1][]{
-  colback=red!20,
-  colframe=red!50!black,
-  boxrule=0.5pt,
-  arc=4mm,
-  auto outer arc,
-  #1
-}
-
-\newtcolorbox{commentbox}[1][]{
-  colback=gray!20,
-  colframe=gray!50!black,
-  boxrule=0.5pt,
-  arc=4mm,
-  auto outer arc,
-  #1
-}
 
 \definecolor{calloutNoteBg}{HTML}{ECF3FF}
 \definecolor{calloutNoteFrame}{HTML}{448AFF}
@@ -288,6 +235,61 @@
     coltitle=black,
     #1,
     after title={~#2}
+}
+
+\usemintedstyle{tango}
+\newtcblisting[auto counter,number within=section,
+  list inside=mypyg]{code}[4][]{%
+  listing only,
+  enhanced,
+  colframe=gray!40,
+  colback=gray!10,
+  boxrule=0.5pt,
+  arc=0.5mm,
+  toptitle=0.25em,
+  bottomtitle=0.1em,
+  lefttitle=0.5em,
+  outer arc=0.5mm,
+  minted language=#2,
+  minted options={%
+    tabsize=4,
+    breaklines,
+    xleftmargin=-0.75em,
+    fontsize=\footnotesize,
+    highlightcolor=gray!30,
+    #4
+  },
+  coltitle=black,
+  title={#3},
+  list entry={\protect\numberline{\thetcbcounter}#3},
+  #1
+}
+
+\newtcolorbox{goodbox}[1][]{
+  colback=green!20,
+  colframe=green!50!black,
+  boxrule=0.5pt,
+  arc=4mm,
+  auto outer arc,
+  #1
+}
+
+\newtcolorbox{badbox}[1][]{
+  colback=red!20,
+  colframe=red!50!black,
+  boxrule=0.5pt,
+  arc=4mm,
+  auto outer arc,
+  #1
+}
+
+\newtcolorbox{commentbox}[1][]{
+  colback=gray!20,
+  colframe=gray!50!black,
+  boxrule=0.5pt,
+  arc=4mm,
+  auto outer arc,
+  #1
 }
 
 \usetikzlibrary{shadows}

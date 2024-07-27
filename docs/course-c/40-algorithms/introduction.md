@@ -227,7 +227,7 @@ La solution à ce problème est de laisser passer 37% des candidats sans les eng
 
 !!! exercise "Intégrateur de Kahan"
 
-    L'intégrateur de Kahan (`Kahan summation algorithm <https://en.wikipedia.org/wiki/Kahan_summation_algorithm>`__) est une solution élégante pour pallier à la limite de résolution des types de données.
+    L'intégrateur de Kahan ([Kahan summation algorithm](https://en.wikipedia.org/wiki/Kahan_summation_algorithm)) est une solution élégante pour pallier à la limite de résolution des types de données.
 
     L'algorithme pseudo-code peut être exprimé comme :
 

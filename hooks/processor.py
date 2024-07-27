@@ -9,33 +9,163 @@ from hashlib import sha256
 import subprocess
 import re
 import requests
+import shutil
 import mimetypes
+import urllib.parse
+import cairosvg
+from IPython import embed
 from html import unescape
+from PIL import Image
+from typing import Union
 
-log = logging.getLogger(__name__)
+log = logging.getLogger(f"mkdocs.plugins.latex")
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 
+def escape_all_latex_chars(text):
+    mapping = [
+        ('&', r'\&'),
+        ('%', r'\%'),
+        ('#', r'\#'),
+        ('$', r'\$'),
+        ('_', r'\_'),
+        ('\\', r'\textbackslash'),
+    ]
+    return ''.join([c if c not in dict(mapping) else dict(mapping)[c] for c in text])
+
+def escape_latex_chars(text):
+    mapping = [
+        ('&', r'\&'),
+        ('%', r'\%'),
+        ('#', r'\#'),
+        #('$', r'\$'),
+        #('_', r'\_'),
+        #('\\', r'\textbackslash'),
+    ]
+    return ''.join([c if c not in dict(mapping) else dict(mapping)[c] for c in text])
+
 def fetch_image(url, output_path=Path()):
     log.info(f"Fetching image {url}...")
-    response = requests.get(url)
+
+    # Check if the url is valid
+    response = requests.head(url, timeout=10)
     if response.status_code != 200:
         raise ValueError(f"Failed to fetch image: {response.status_code}")
 
     mime_type = response.headers['Content-Type']
+    etag = response.headers.get('ETag')
     extension = mimetypes.guess_extension(mime_type)
     if not extension:
         raise ValueError(f"Unknown mime type: {mime_type}")
-    content = response.content
-    filename = output_path / (sha256(content).hexdigest() + extension)
+
+    filename = (output_path / sha256(f"ETag:{etag}\0{url}".encode()).hexdigest()).with_suffix(extension)
+
+    if filename.exists():
+        return filename
+
+    # Fetch file
+    response = requests.get(url, timeout=10)
+    if response.status_code != 200:
+        raise ValueError(f"Failed to fetch image: {response.status_code}")
+
     with open(filename, 'wb') as fp:
-        fp.write(content)
+        fp.write(response.content)
     return filename
 
 def get_class(element, regex):
     return next((c for c in element.get('class', []) if regex.match(c)), None)
 
-def svg2pdf(svg, output_path=Path()):
+def drawio2pdf(filename, output_path=Path()):
+    log.info("Converting Draw.io to PDF...")
+
+    pdfpath = output_path / get_filename(filename).with_suffix('.pdf')
+    intermediate = output_path / filename.with_suffix('.pdf').name
+    # If destination path is older than source, recompile
+    if not pdfpath.exists() or pdfpath.stat().st_mtime < filename.stat().st_mtime:
+        command = [
+            'drawio',
+            '--export',
+            '--format', 'pdf',
+            '--crop',
+            '--output', f'{output_path}',
+            f"{filename}"
+            ]
+        log.info(f"Running {''.join(str(e) for e in command)}")
+
+        # Recompile the svg file
+        completed_process = subprocess.run(command, stderr=subprocess.PIPE)
+        for line in completed_process.stderr.splitlines():
+            ignore = [
+                'Could not create a backing OpenGL context',
+                'failed with error EGL_NOT_INITIALIZED',
+                'Initialization of all EGL display types failed',
+                'GLDisplayEGL::Initialize failed',
+                'Exiting GPU process due to errors during initialization',
+                "'font-feature-settings' is not a valid property name",
+                'ContextResult::kTransientFailure: Failed to send',
+                'libGL error: failed to load driver: swrast',
+                'libGL error: MESA-LOADER: failed to open swrast',
+            ]
+            if not any([i in line.decode() for i in ignore]) and len(line.decode()) > 3:
+                log.error(f"drawio: {line.decode()}")
+
+        if completed_process.returncode != 0:
+            log.error(f'Could not process {filename}, eturn code {completed_process.returncode}')
+        else:
+            # Drawio cannot output to a specific file,
+            # so we need to move it manually :(
+            shutil.move(intermediate, pdfpath)
+            log.debug('Command succeeded')
+
+    return pdfpath
+
+def get_filename(filename: Union[str, Path]):
+    if isinstance(filename, bytes):
+        digest = sha256(filename).hexdigest()
+        return Path(digest + '.unknown')
+    else:
+        if not filename.exists():
+            raise ValueError(f"File not found: {filename}")
+        digest = sha256(filename.read_bytes()).hexdigest()
+        return Path(digest + filename.suffix)
+
+def image2pdf(filename, output_path=Path()):
+    log.info("Converting webp to PDF...")
+
+    pdfpath = output_path / get_filename(filename).with_suffix('.pdf')
+
+    if not pdfpath.exists() or pdfpath.stat().st_mtime < filename.stat().st_mtime:
+        log.debug('Running command:')
+        image = Image.open(filename)
+        image.save(pdfpath, 'PDF')
+
+    return pdfpath
+
+def svg2pdf(svg: Union[str, Path], output_path=Path()) -> Path:
+    log.info("Converting SVG to PDF...")
+
+
+    if isinstance(svg, str):
+        filename = output_path / get_filename(svg).with_suffix('.pdf')
+        svgpath = Path(os.path.join(tempfile.mkdtemp(), filename))
+        with open(svgpath, 'w') as fp:
+            fp.write(svg)
+        svg = svgpath
+    elif isinstance(svg, Path):
+        filename = svg
+        svg = svg.read_bytes()
+    else:
+        raise ValueError(f"Unknown type {type(svg)}")
+
+    pdfpath = output_path / get_filename(svg).with_suffix('.pdf')
+
+    if not pdfpath.exists() or pdfpath.stat().st_mtime < filename.stat().st_mtime:
+        cairosvg.svg2pdf(bytestring=svg, write_to=str(pdfpath))
+
+    return pdfpath
+
+
+def svg2pdf_old(svg, output_path=Path()):
     log.info("Converting SVG to PDF...")
     # Create temporary svg file
     filename = Path(sha256(svg.encode()).hexdigest() + '.svg')
@@ -193,9 +323,14 @@ class LaTeXFormatter:
             filename=filename
         )
 
-    def acronym(self, tag, text):
-        self.acronyms[tag] = text
-        return self.templates['acronym'].render(text=text, tag=tag.lower())
+    def acronym(self, short, text):
+        # Discard any special characters
+        tag = 'acr:' + re.sub(r'[^a-zA-Z0-9]', '', short).lower()
+        text = escape_latex_chars(text)
+        short = escape_latex_chars(short)
+
+        self.acronyms[tag] = (short, text)
+        return self.templates['acronym'].render(text=text, tag=tag)
 
     def keystroke(self, keys):
         return self.templates['keystroke'].render(keys=keys)
@@ -206,33 +341,57 @@ class LaTeXFormatter:
             language='text'
         )
 
-    def figure(self, caption, path):
-        if (path.startswith('http')):
+    def url(self, text, url):
+        url = escape_latex_chars(urllib.parse.quote(url, safe=':/?&='))
+        return self.templates['url'].render(text=text, url=url)
+
+    def figure(self, caption: str, path: Path):
+        extensions = ['.bmp', '.eps', '.gif', '.ico', '.jpg', '.jpeg', '.jp2',
+                      '.msp', '.pcx', '.png', '.ppm', '.pgm', '.pbm', '.pnm',
+                      '.sgi', '.rgb', '.rgba', '.bw', '.spi', '.tiff', '.tif',
+                      '.webp', '.xbm', '.tga']
+
+        if (str(path).startswith('http')):
             path = fetch_image(path, self.output_path)
-        return self.templates['figure'].render(caption=caption, path=path)
+        elif path.suffix == '.drawio':
+            path = drawio2pdf(path, self.output_path)
+        elif path.suffix == '.svg':
+            path = svg2pdf(path, self.output_path)
+        elif path.suffix in extensions:
+            path = image2pdf(path, self.output_path)
+        else:
+            new_path = self.output_path / (sha256(path.read_bytes()).hexdigest() + path.suffix)
+            shutil.copy(path, new_path)
+            path = new_path
+
+        return self.templates['figure'].render(caption=caption, path=path.name)
 
     def get_glossary(self):
-        acronyms = [(tag.lower(), tag, text) for tag, text in self.acronyms.items()]
+        acronyms = [(tag, short, text) for tag, (short, text) in self.acronyms.items()]
 
         return self.templates['glossary'].render(glossary=acronyms)
 
 class LaTeXRenderer:
     def __init__(self, output_path=Path('build')):
         self.formatter = LaTeXFormatter()
-        self.formatter.set_output_path(output_path)
+        self.formatter.set_output_path(output_path / 'images')
+
+        # Mkdir if not exists
+        self.formatter.output_path.mkdir(parents=True, exist_ok=True)
 
     def extract_code_inline(self, soup):
         if soup.name != 'code':
             raise ValueError(f"Expected code block, got {soup.name}")
 
         language = get_code_language(soup)
-        listing = []
-        for code in soup.find_all("code"):
-            for i, span_line in enumerate(code.find_all('span', id=lambda x: x and x.startswith('__'))):
-                listing.append(''.join([span.get_text() for span in span_line.find_all('span')]))
+        language = language if language else 'text'
+        # listing = []
+        # for code in soup.find_all("code"):
+        #     for i, span_line in enumerate(code.find_all('span', id=lambda x: x and x.startswith('__'))):
+        #         listing.append(''.join([span.get_text() for span in span_line.find_all('span')]))
         return {
             'language': language,
-            'code': '\n'.join(listing)
+            'text': soup.get_text()
         }
 
     def extract_code_block(self, soup):
@@ -421,7 +580,7 @@ class LaTeXRenderer:
 
         return str
 
-    def render(self, html, output_path, base_level=0):
+    def render(self, html, output_path, file_path, base_level=0):
         soup = BeautifulSoup(html, 'html.parser')
 
 
@@ -435,6 +594,14 @@ class LaTeXRenderer:
             if code := self.extract_code_inline(el):
                 el.replace_with(
                     self.formatter.codeinline(**code))
+
+        # Regex101 links
+        # <a href="https://regex101.com/?regex='([^']|\\[nrftvba'])'&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/'([^']|\\[nrftvba'])'/</a>
+        for a in soup.find_all('a', class_=['ycr-regex']):
+            regex = escape_all_latex_chars(a.get_text())
+            href = a.get('href')
+            url = escape_all_latex_chars(urllib.parse.quote(href, safe=':/?&='))
+            a.replace_with(self.formatter.regex(regex, url=url))
 
         # Keystrokes
         for span in soup.find_all('span', class_='keys'):
@@ -534,6 +701,15 @@ class LaTeXRenderer:
             if not image:
                 raise ValueError(f"Missing image in figure {figure}")
             image_src = image.get('src')
+            if not image_src:
+                raise ValueError(f"Missing src in image {image}")
+            if not image_src.startswith('http'):
+                if file_path.name == 'index.md':
+                    file_path = file_path.parent
+                image_src = (file_path / image_src).resolve()
+                if not image_src.exists():
+                    raise ValueError(f"Image not found: {image_src}")
+
             caption = figure.find('figcaption')
             caption_text = caption.get_text() if caption else image.get('alt', '')
             figure.replace_with(self.formatter.figure(caption=caption_text, path=image_src))
@@ -605,8 +781,11 @@ class LaTeXRenderer:
                 raise ValueError(f"Unexpected children in p tag: {p}")
 
             text = self.render_smart_symbols(p.get_text())
+            text = escape_latex_chars(text)
+
             p.replace_with(f"{text}\n")
 
         document = unescape(str(soup).replace('&thinsp;', '~').replace(' ', '~'))
 
-        return self.formatter.template(content=document, glossary=self.formatter.get_glossary())
+        #return self.formatter.template(content=document, glossary=self.formatter.get_glossary())
+        return document

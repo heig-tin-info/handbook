@@ -32,9 +32,25 @@ def on_page_markdown(markdown, page, config, files):
     return markdown
 
 
-def on_page_content(html, page, config, files):
-    return ''.join([
+RE_PUNCT = re.compile(r'([!?:;])')
+RE_IGNORE = re.compile(r'&\w+;|\w://')
+
+def process_html(html):
+    parts = RE_IGNORE.split(html)
+    entities = RE_IGNORE.findall(html)
+
+    processed_parts = [
         re.sub(r'(?<=\w) ?([!?:;])', r'&thinsp;\1', part)
-        if not re.fullmatch(RE_PUNCT, part) else part
-        for part in RE_PUNCT.split(html)
-    ])
+        if not RE_PUNCT.fullmatch(part) else part
+        for part in parts
+    ]
+
+    # Reconstruct the html with entities
+    result = processed_parts[0]
+    for entity, part in zip(entities, processed_parts[1:]):
+        result += entity + part
+
+    return result
+
+def on_page_content(html, page, config, files):
+    return process_html(html)
