@@ -1,21 +1,29 @@
-from bs4 import BeautifulSoup  # pip install beautifulsoup4
+from bs4 import BeautifulSoup, NavigableString
 
-html = open("doc.html").read()
+html = r"""
+<strong><em>Foo&</em> bar&</strong>
+<em>Foo& <strong>bar&</strong></em>
+"""
 
 soup = BeautifulSoup(html, 'html.parser')
 
-def extract_code(soup):
-    code_texts = []
-    for code in soup.find_all("code"):
-        lines = []
-        for line in code.find_all('span', recursive=False):
-            line_text = line.get_text()
-            lines.append(line_text)
-        code_texts.append("".join(lines))
-    return code_texts
+class LaTeXString(NavigableString):
+    def __init__(self, value, escape=False):
+        if escape:
+            value = self._escape_latex(value)
+        super().__init__(value)
 
-extracted_code = extract_code(soup)
-for code in extracted_code:
-    print(":::")
-    print(code)
-    print(":::")
+class Tag:
+    def __init__(self, soup):
+        self.soup = soup
+
+    def append(self, tag):
+        self.children.append(tag)
+
+    def __repr__(self):
+        return f'<{self.name}>'
+def walk(soup):
+    for tag in soup.children:
+        if tag.name:
+            yield tag
+            yield from walk(tag)
