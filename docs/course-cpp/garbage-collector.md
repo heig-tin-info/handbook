@@ -1,4 +1,4 @@
-## Collecteur de déchets (*garbage collector*)
+# Collecteur de déchets (*garbage collector*)
 
 Le C est un langage primitif qui ne gère pas automatiquement la libération des ressources allouées dynamiquement. L'exemple suivant est évocateur :
 
