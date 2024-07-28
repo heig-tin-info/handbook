@@ -1,7 +1,6 @@
 import os
 from jinja2 import Environment, FileSystemLoader
 from pathlib import Path
-from .utils import escape_latex_chars, fetch_image, optimize_list, svg2pdf, image2pdf, drawio2pdf
 from hashlib import sha256
 import shutil
 import urllib.parse
@@ -73,10 +72,6 @@ class LaTeXFormatter:
                                  f"{len(args)}, use keyword arguments instead")
             if args:
                 kwargs['text'] = args[0]
-
-            # For all templates, content must be escaped
-            kwargs = {k: escape_latex_chars(v) for k, v in kwargs.items()}
-
             return template.render(**kwargs)
         return render_template
 

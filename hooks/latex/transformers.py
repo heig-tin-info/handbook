@@ -12,17 +12,20 @@ import tempfile
 import cairosvg
 import requests
 from PIL import Image
-
+from IPython import embed
 log = logging.getLogger('mkdocs')
 
+pillow_supported_types = Image.registered_extensions().keys()
 
-def get_filename_from_content(content: str, output_path: Path) -> Path:
+def get_filename_from_content(content: Union[str, bytes], output_path: Path) -> Path:
     """Generate a filename from content.
     This renderer, store assets with files sometime
     generated from content. This function will generate
     a unique filename based on the content.
     """
-    digest = sha256(content.encode()).hexdigest()
+    if isinstance(content, str):
+        content = content.encode()
+    digest = sha256(content).hexdigest()
     return output_path / digest
 
 
@@ -51,7 +54,16 @@ def fetch_image(url: str, output_path: Path) -> Path:
     if response.status_code != 200:
         raise ValueError(f"Failed to fetch image: {response.status_code}")
 
-    filename.write_bytes(response.content)
+    # SVG case
+    if extension == '.svg':
+        filename = svg2pdf(response.content, output_path)
+        return filename
+    elif extension in pillow_supported_types:
+        image = Image.frombytes(response.content)
+        filename.write_bytes(image.tobytes())
+    else:
+        raise ValueError(f"Unsupported image type: {extension}, cannot be converted to PDF")
+
 
     return filename
 
@@ -170,17 +182,43 @@ def image2pdf(filename, output_path=Path()):
     return pdfpath
 
 
+RE_VIEWBOX = re.compile(
+    r'viewbox="(\d+) (\d+) (?P<width>\d+) (?P<height>\d+)"', re.IGNORECASE)
+
+def add_size_to_svg(svg: str) -> tuple:
+    if isinstance(svg, bytes):
+        svg = svg.decode('utf-8')
+
+    def add_dimensions(match):
+        svg_tag = match.group()
+
+        if (match := RE_VIEWBOX.search(svg_tag)):
+            width = int(match.group('width'))
+            height = int(match.group('height'))
+        else: # No viewbox
+            raise ValueError('No viewbox found in SVG')
+
+        if 'width' not in svg_tag:
+            svg_tag = re.sub(r'>$',
+                             f' width="{width}" height="{height}">', svg_tag)
+        return svg_tag
+
+    svg = re.sub(r'<svg[^>]*>', add_dimensions, svg)
+
+    return svg
+
 def svg2pdf_cairo(svg: Union[str, Path], output_path=Path()) -> Path:
     if isinstance(svg, Path):
-        svgpath = svg
-        svg = svg.read_bytes()
+        svg = svg.read_text()
 
     pdfpath = get_filename_from_content(
         svg, output_path).with_suffix('.pdf')
 
-    if not up_to_date(svgpath, pdfpath):
-        cairosvg.svg2pdf(bytestring=svg, write_to=str(pdfpath))
+    svg = add_size_to_svg(svg)
 
+    if not pdfpath.exists():
+        cairosvg.svg2pdf(bytestring=svg,
+                         write_to=str(pdfpath))
     return pdfpath
 
 

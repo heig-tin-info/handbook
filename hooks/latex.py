@@ -6,7 +6,7 @@ import mkdocs
 from pathlib import Path
 from IPython import embed
 from mkdocs.structure.nav import Section
-from processor import LaTeXRenderer
+from latex.renderer import LaTeXRenderer
 import ipdb
 import sys
 def excepthook(type, value, traceback):
@@ -88,8 +88,10 @@ def on_env(env, config, files):
             with open(path.with_suffix('.html'), 'w') as f:
                 f.write(html)
 
+    glossary = []
+
     # Build index
     index = renderer.formatter.template(content=book_nav,
-                                        glossary=renderer.formatter.get_glossary())
+                                        glossary=glossary)
     with open(latex_dir / 'index.tex', 'w') as f:
         f.write(index)
