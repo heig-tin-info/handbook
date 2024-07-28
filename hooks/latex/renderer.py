@@ -7,6 +7,7 @@ from urllib.parse import quote
 from hashlib import sha256
 import requests
 import mimetypes
+from html import unescape
 from IPython import embed
 from .transformers import fetch_image, image2pdf, svg2pdf
 
@@ -150,14 +151,18 @@ class LaTeXRenderer:
         """Replace all NavigableString to escape LaTeX special characters.
         This should not be on code blocks, only on text elements.
         """
-        for el in soup.descendants:
+        for el in soup.find_all(string=True):
+            if not isinstance(el, NavigableString):
+                continue
             # pylint: disable=unidiomatic-typecheck (Exact match)
-            if type(el) is NavigableString:
-                # First escape all special characters
-                text = LaTeXString(el.get_text(), escape=True)
-                # Then replace litterals
-                text = LaTeXString(self.render_litterals(text))
-                el.replace_with(text)
+            #print(el)
+            if not isinstance(el, LaTeXString):
+                print(el.get_text())
+            #     # First escape all special characters
+                # text = LaTeXString(el.get_text(), escape=True)
+                # # Then replace litterals
+                # text = LaTeXString(self.render_litterals(text))
+                el.replace_with(LaTeXString(el.get_text()))
         return soup
 
     def render_regex(self, soup: Tag):
@@ -213,11 +218,13 @@ class LaTeXRenderer:
         are code elements, they can be merged.
         """
         for el in soup.find_all('div', class_=['highlight']):
-            language = self.get_code_language(soup)
+            language = self.get_code_language(el)
             lineno = bool(soup.find(class_='linenos'))
 
-            if el := soup.find(class_='filename'):
-                filename = self.render_inlines(el)
+            filename = None
+            if el_filename := soup.find(class_='filename'):
+                self.render_inlines(el_filename)
+                filename = el_filename.get_text()
 
             code = soup.find("code")
 
@@ -249,9 +256,9 @@ class LaTeXRenderer:
             title = self.get_safe_text(el)
             level = int(el.name[1:]) + base_level
             ref = el.get('id', None)
-            el.replace_with(self.formatter.heading(
+            el.replace_with(LaTeXString(self.formatter.heading(
                 title,
-                level=level, ref=ref))
+                level=level, ref=ref)))
         return soup
 
     def render_autoref(self, soup: Tag):
@@ -259,7 +266,7 @@ class LaTeXRenderer:
             identifier = el.get('data-autorefs-identifier')
             self.render_inlines(el)
             text = self.get_safe_text(el)
-            el.replace_with(self.formatter.ref(text, ref=identifier))
+            el.replace_with(LaTeXString(self.formatter.ref(text, ref=identifier)))
         return soup
 
     def render_math(self, soup: Tag):
@@ -268,13 +275,14 @@ class LaTeXRenderer:
         <span class="arithmatex">...</span>
         """
         for el in soup.find_all('span', class_=['arithmatex']):
-            el.replace_with(LaTeXString(el.get_text()))
+            text = self.get_safe_text(el)
+            el.replace_with(LaTeXString(text))
         return soup
 
     def render_math_block(self, soup: Tag):
         for math_block in soup.find_all(['div'], class_='arithmatex'):
             text = self.get_safe_text(math_block)
-            math_block.replace_with(f"\n{text}\n")
+            math_block.replace_with(LaTeXString(f"\n{text}\n"))
         return soup
 
     def render_abbreviation(self, soup: Tag):
@@ -287,7 +295,7 @@ class LaTeXRenderer:
             tag = 'acr:' + re.sub(r'[^a-zA-Z0-9]', '', short).lower()
 
             self.acronyms[tag] = (short, text)
-            abbr.replace_with(self.formatter.abbreviation(short, text))
+            abbr.replace_with(self.formatter.acronym(tag))
         return soup
 
     def render_emoji(self, soup: Tag):
@@ -483,7 +491,7 @@ class LaTeXRenderer:
                     raise ValueError(f"Image not found: {image_src}")
                 filename = image2pdf(image_src, self.output_path)
             else:
-                filename = self.fetch_image(image_src)
+                filename = fetch_image(image_src, self.output_path)
 
             caption = figure.find('figcaption')
             self.render_inlines(caption)
@@ -606,22 +614,22 @@ class LaTeXRenderer:
         # Remove unwanted html elements such as headerlink and backrefs
         self.discard_unwanted(soup)
 
-        # # Contains a lot of tags, also spacing is important
-        # # Must be rendered first.
-        # self.render_codeblock(soup)
+        # Contains a lot of tags, also spacing is important
+        # Must be rendered first.
+        self.render_codeblock(soup)
 
-        # # Mermaid diagrams are rendered front-end, they are not
-        # # they are inserted as <code> elements.
-        # self.render_mermaid(soup)
+        # Mermaid diagrams are rendered front-end, they are not
+        # they are inserted as <code> elements.
+        self.render_mermaid(soup)
 
-        # # Formatted highlighted inline <code> can also contain
-        # # spans and special characters.
-        # self.render_codeinline(soup)
+        # Formatted highlighted inline <code> can also contain
+        # spans and special characters.
+        self.render_codeinline(soup)
 
-        # # Math are just LaTeX strings, they are easy to render
-        # # but, they should not be escaped.
-        # self.render_math(soup)
-        # self.render_math_block(soup)
+        # Math are just LaTeX strings, they are easy to render
+        # but, they should not be escaped.
+        self.render_math(soup)
+        self.render_math_block(soup)
 
         # # YCR-Regex are inline regex that points to regex101
         # # The they need to be rendered before escaping.
@@ -631,26 +639,29 @@ class LaTeXRenderer:
         # They are converted to inline images.
         self.render_emoji(soup)
 
+        ## Keystrokes
+        self.render_keystrokes(soup)
+
         self.render_heading(soup, base_level)
         # self.render_autoref(soup)
         # self.render_footnotes(soup)
         # self.render_links(soup)
 
-        # # All navigables strings can safely be escaped
-        # # This render litterals as well (Smart Symbols)
-        # self.render_navigable_string(soup)
+        # All navigables strings can safely be escaped
+        # This render litterals as well (Smart Symbols)
+        self.render_navigable_string(soup)
 
-        # self.render_abbreviation(soup)
+        self.render_abbreviation(soup)
 
         self.render_list(soup)
-        # self.render_description_list(soup)
-        # self.render_tabbed(soup)
-        # self.render_figure(soup, file_path)
-        # self.render_table(soup)
+        self.render_description_list(soup)
+        self.render_tabbed(soup)
+        self.render_figure(soup, file_path)
+        self.render_table(soup)
         self.render_admonition(soup)
 
         # Inlines are bold, italic, critics, etc.
         self.render_inlines(soup)
         self.render_format(soup)
         self.render_paragraph(soup)
-        return str(soup)
+        return unescape(str(soup))

@@ -11,6 +11,7 @@ import mimetypes
 import tempfile
 import cairosvg
 import requests
+from io import BytesIO
 from PIL import Image
 from IPython import embed
 log = logging.getLogger('mkdocs')
@@ -59,8 +60,8 @@ def fetch_image(url: str, output_path: Path) -> Path:
         filename = svg2pdf(response.content, output_path)
         return filename
     elif extension in pillow_supported_types:
-        image = Image.frombytes(response.content)
-        filename.write_bytes(image.tobytes())
+        image = Image.open(BytesIO(response.content))
+        image.convert('RGB').save(filename, 'PDF')
     else:
         raise ValueError(f"Unsupported image type: {extension}, cannot be converted to PDF")
 

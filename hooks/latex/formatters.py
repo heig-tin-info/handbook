@@ -95,27 +95,6 @@ class LaTeXFormatter:
         url = escape_latex_chars(urllib.parse.quote(url, safe=':/?&='))
         return self.templates['url'].render(text=text, url=url)
 
-    def figure(self, caption: str, path: Path):
-        extensions = ['.bmp', '.eps', '.gif', '.ico', '.jpg', '.jpeg', '.jp2',
-                      '.msp', '.pcx', '.png', '.ppm', '.pgm', '.pbm', '.pnm',
-                      '.sgi', '.rgb', '.rgba', '.bw', '.spi', '.tiff', '.tif',
-                      '.webp', '.xbm', '.tga']
-
-        if (str(path).startswith('http')):
-            path = fetch_image(path, self.output_path)
-        elif path.suffix == '.drawio':
-            path = drawio2pdf(path, self.output_path)
-        elif path.suffix == '.svg':
-            path = svg2pdf(path, self.output_path)
-        elif path.suffix in extensions:
-            path = image2pdf(path, self.output_path)
-        else:
-            new_path = self.output_path / (sha256(path.read_bytes()).hexdigest() + path.suffix)
-            shutil.copy(path, new_path)
-            path = new_path
-
-        return self.templates['figure'].render(caption=caption, path=path.name)
-
     def get_glossary(self):
         acronyms = [(tag, short, text) for tag, (short, text) in self.acronyms.items()]
 
