@@ -1,6 +1,6 @@
 \begin{figure}[ht]
 \centering
-\label{\VAR{label}}
+\BLOCK{if label}\label{\VAR{label}}\BLOCK{endif}
 \includegraphics[width=\textwidth]{\VAR{path}}
-\caption{\VAR{caption}}
+\BLOCK{if caption}\caption{\VAR{caption}}\BLOCK{endif}
 \end{figure}

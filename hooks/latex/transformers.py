@@ -69,6 +69,19 @@ def fetch_image(url: str, output_path: Path) -> Path:
     return filename
 
 
+def image2pdf(filename, output_path=Path()):
+    log.info("Converting webp to PDF...")
+
+    pdfpath = get_filename_from_content(
+        filename, output_path).with_suffix('.pdf')
+
+    if not up_to_date(filename, pdfpath):
+        log.debug('Running command:')
+        image = Image.open(filename)
+        image.save(pdfpath, 'PDF')
+
+    return pdfpath
+
 def mermaid2pdf(content: str, output_path: Path) -> Path:
     """Converts Mermaid content to PDF using the
     mermaid-cli docker image."""

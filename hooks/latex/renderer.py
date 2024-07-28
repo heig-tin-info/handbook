@@ -5,11 +5,13 @@ from typing import Union
 import re
 from urllib.parse import quote
 from hashlib import sha256
-import requests
-import mimetypes
 from html import unescape
 from IPython import embed
-from .transformers import fetch_image, image2pdf, svg2pdf
+from .transformers import fetch_image, image2pdf, svg2pdf, mermaid2pdf
+import logging
+
+log = logging.getLogger('mkdocs')
+
 
 def get_class(element, pattern: Union[str, re.Pattern]):
     if isinstance(pattern, str):
@@ -30,19 +32,6 @@ def find_all_dfs(soup: Tag, *args, **kwargs):
         level = get_depth(el)
         items.append((level, el))
     return [item for _, item in sorted(items, key=lambda x: x[0], reverse=True)]
-
-
-def image2pdf(filename, output_path=Path()):
-    log.info("Converting webp to PDF...")
-
-    pdfpath = output_path / get_filename(filename).with_suffix('.pdf')
-
-    if not pdfpath.exists() or pdfpath.stat().st_mtime < filename.stat().st_mtime:
-        log.debug('Running command:')
-        image = Image.open(filename)
-        image.save(pdfpath, 'PDF')
-
-    return pdfpath
 
 def escape_latex_chars(text):
     mapping = [
@@ -129,7 +118,7 @@ class LaTeXRenderer:
             el.extract()
 
         # Glighbox plugin wraps images in a span, we don't need it
-        for el in soup.find_all('span', class_=['glightbox']):
+        for el in soup.find_all('a', class_=['glightbox']):
             el.unwrap()
         return soup
 
@@ -235,10 +224,9 @@ class LaTeXRenderer:
                 raise ValueError("No code block found in mermaid")
 
             diagram = self.get_safe_text(code)
-            filename = self.get_filename_from_content(diagram) / '.mmd.pdf'
-            self.files[filename] = diagram
+            filename = mermaid2pdf(diagram, self.output_path)
 
-            self.apply(el, 'image', filename=filename)
+            self.apply(el, 'figure', path=filename)
         return soup
 
     def render_codeblock(self, soup: Tag, **kwargs):
@@ -571,6 +559,8 @@ class LaTeXRenderer:
     def render_admonition(self, soup: Tag, **kwargs):
         # Admonitions with callout
         for admonition in soup.find_all(['div'], class_='admonition'):
+            if not admonition.parent:
+                continue
             admonition = self.render_inlines(admonition)
 
             classes = admonition.get('class', [])
@@ -584,6 +574,9 @@ class LaTeXRenderer:
                 title = self.get_safe_text(title_node)
                 title_node.extract()
 
+            # Can be nested
+            admonition = self.render_admonition(admonition)
+
             content = self.get_safe_text(admonition)
 
             self.apply(admonition, 'callout', content,
@@ -591,6 +584,8 @@ class LaTeXRenderer:
 
         # Foldable admonitions are implemented with details/summary
         for admonition in soup.find_all(['details']):
+            if not admonition.parent:
+                continue
             self.render_inlines(admonition)
             classes = admonition.get('class', [])
             if len(classes) > 1:
@@ -601,6 +596,7 @@ class LaTeXRenderer:
                 title = self.get_safe_text(summary)
                 summary.extract()
 
+            admonition = self.render_admonition(admonition)
             content = self.get_safe_text(admonition)
 
             self.apply(admonition, 'callout', content,
@@ -610,6 +606,7 @@ class LaTeXRenderer:
     def render_links(self, soup: Tag, **kwargs):
         for a in soup.find_all('a'):
             self.render_inlines(a)
+            self.render_abbreviation(a)
             text = self.get_safe_text(a)
             href = escape_latex_chars(quote(a.get('href')))
             if a.get('href', '').startswith('http'):

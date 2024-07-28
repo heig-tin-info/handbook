@@ -1,30 +1,11 @@
 # Summary of all Markdown Features
 
-## CommonMark
+??? exercise
 
-### Fenced Code Blocks
+    Combien y a-t-il eu de questions posées en C sur le site Stack Overflow?
 
-```
-<
-->
-```
+    ??? solution
 
-```ruby
-def foo(x)
-  return 3
-end
-```
+        Il suffit pour cela de se rendre sur le site de [Stackoverflow](https://stackoverflow.com/tags/c) et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
 
-### Admonitions
-
-!!! note
-
-    This is a note A & B
-
-!!! warning
-
-    This is a warning
-
-!!! danger "This is a danger A & B"
-
-    This is a danger
+        Seriez-vous capable de répondre à une question posée?
