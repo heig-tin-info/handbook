@@ -74,6 +74,39 @@ class LaTeXRenderer:
         self.output_path = Path(output_path) / 'assets'
         self.output_path.mkdir(parents=True, exist_ok=True)
 
+        # Rendering order
+        self.renderering_order = [
+            # AST Simplification
+            self.discard_unwanted,
+
+            # Prior escaping LaTeX special characters
+            self.render_codeblock,
+            self.render_mermaid,
+            self.render_codeinline,
+            self.render_math,
+            self.render_math_block,
+            self.render_regex,
+            self.render_emoji,
+            self.render_keystrokes,
+            self.render_heading,
+            self.render_autoref,
+            self.render_footnotes,
+            self.render_links,
+
+            # After escaping LaTeX special characters
+            self.render_navigable_string,
+            self.render_abbreviation,
+            self.render_list,
+            self.render_description_list,
+            self.render_tabbed,
+            self.render_figure,
+            self.render_table,
+            self.render_admonition,
+            self.render_inlines,
+            self.render_format,
+            self.render_paragraph
+        ]
+
         # Metadata
         self.abbreviations = {}
         self.acronyms = {}
@@ -90,7 +123,7 @@ class LaTeXRenderer:
         digest = sha256(content.encode()).hexdigest()
         return self.output_path / digest
 
-    def discard_unwanted(self, soup: Tag):
+    def discard_unwanted(self, soup: Tag, **kwargs):
         # Headerlink and Footnote-backref only useful on HTML
         for el in soup.find_all('a', class_=['headerlink', 'footnote-backref']):
             el.extract()
@@ -123,6 +156,13 @@ class LaTeXRenderer:
                     for c in soup.get('class', [])
                     if c.startswith(prefix)), 'text') or 'text'
 
+    def apply(self, element: PageElement, template, *args, **kwargs):
+        latex = getattr(self.formatter, template)(*args, **kwargs)
+        node = NavigableString(latex)
+        node.processed = True
+        element.replace_with(node)
+        return node
+
     def render_litterals(self, s: str):
         """ Markdown SmartSymbols extension offers support
         for litteral, they are not all supported in LaTeX. So they
@@ -147,25 +187,20 @@ class LaTeXRenderer:
 
         return s
 
-    def render_navigable_string(self, soup: Tag):
+    def render_navigable_string(self, soup: Tag, **kwargs):
         """Replace all NavigableString to escape LaTeX special characters.
         This should not be on code blocks, only on text elements.
         """
         for el in soup.find_all(string=True):
-            if not isinstance(el, NavigableString):
-                continue
-            # pylint: disable=unidiomatic-typecheck (Exact match)
-            #print(el)
-            if not isinstance(el, LaTeXString):
-                print(el.get_text())
-            #     # First escape all special characters
-                # text = LaTeXString(el.get_text(), escape=True)
-                # # Then replace litterals
-                # text = LaTeXString(self.render_litterals(text))
-                el.replace_with(LaTeXString(el.get_text()))
+            if not getattr(el, 'processed', False):
+                # Escape LaTeX string only once
+                text = el.get_text()
+                text = escape_latex_chars(text)
+                el.replace_with(text)
+
         return soup
 
-    def render_regex(self, soup: Tag):
+    def render_regex(self, soup: Tag, **kwargs):
         """Replace all regex elements with LaTeX formatted strings.
         This is not markdown standard, YCR uses the syntax `:regex:...`
         plugin will replace with:
@@ -174,12 +209,12 @@ class LaTeXRenderer:
             class="ycr-regex" target="_blank">/.../</a>
         """
         for a in soup.find_all('a', class_=['ycr-regex']):
-            a.replace_with(self.formatter.regex(
-                regex=self.get_safe_text(a),
-                url=quote(a.get('href', ''), safe=':/?&=')))
+            self.apply(a, 'regex',
+                       regex=self.get_safe_text(a),
+                       url=quote(a.get('href', ''), safe=':/?&='))
         return soup
 
-    def render_codeinline(self, soup: Tag):
+    def render_codeinline(self, soup: Tag, **kwargs):
         """Extract code from a <code> object."""
         for el in soup.find_all('code'):
             if get_class(el, 'highlight'):
@@ -188,12 +223,10 @@ class LaTeXRenderer:
                 code = self.get_safe_text(el)
             language = self.get_code_language(el)
 
-            el.replace_with(
-                LaTeXString(
-                    self.formatter.codeinline(code, language=language)))
+            self.apply(el, 'codeinline', code, language=language)
         return soup
 
-    def render_mermaid(self, soup: Tag):
+    def render_mermaid(self, soup: Tag, **kwargs):
         """Extract mermaid diagrams from a <code> object
         to be rendered as images."""
         for el in soup.find_all('pre', class_=['mermaid']):
@@ -205,10 +238,10 @@ class LaTeXRenderer:
             filename = self.get_filename_from_content(diagram) / '.mmd.pdf'
             self.files[filename] = diagram
 
-            el.replace_with(self.formatter.image(filename))
+            self.apply(el, 'image', filename=filename)
         return soup
 
-    def render_codeblock(self, soup: BeautifulSoup):
+    def render_codeblock(self, soup: Tag, **kwargs):
         """Extract code block from a <div class="highlight"> object.
         Assumptions:
         - Filename may be in a span with class 'filename'
@@ -238,38 +271,33 @@ class LaTeXRenderer:
                 if hl := span_line.find('span', class_='hll'):
                     highlight.append(i + 1)
                     span_line = hl
-                tokens = span_line.find_all('span')
-                listing.append(''.join([span.get_text() for span in tokens]))
+                #tokens = span_line.find_all('span')
+                listing.append(span_line.get_text())
 
-            el.replace_with(LaTeXString(self.formatter.codeblock(
-                code='\n'.join(listing),
-                language=language,
-                lineno=lineno,
-                filename=filename,
-                highlight=highlight
-            )))
+            self.apply(el, 'codeblock', code=''.join(listing),
+                       language=language, lineno=lineno, filename=filename,
+                       highlight=highlight)
         return soup
 
-    def render_heading(self, soup: Tag, base_level=0):
+    def render_heading(self, soup: Tag, **kwargs):
+        base_level = kwargs.get('base_level', 0)
         for el in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):
             self.render_inlines(el)
             title = self.get_safe_text(el)
             level = int(el.name[1:]) + base_level
             ref = el.get('id', None)
-            el.replace_with(LaTeXString(self.formatter.heading(
-                title,
-                level=level, ref=ref)))
+            self.apply(el, 'heading', title, level=level, ref=ref)
         return soup
 
-    def render_autoref(self, soup: Tag):
+    def render_autoref(self, soup: Tag, **kwargs):
         for el in soup.find_all('span', attrs={'data-autorefs-identifier': True}):
             identifier = el.get('data-autorefs-identifier')
             self.render_inlines(el)
             text = self.get_safe_text(el)
-            el.replace_with(LaTeXString(self.formatter.ref(text, ref=identifier)))
+            self.apply(el, 'ref', text, ref=identifier)
         return soup
 
-    def render_math(self, soup: Tag):
+    def render_math(self, soup: Tag, **kwargs):
         """Replace all math elements.
 
         <span class="arithmatex">...</span>
@@ -279,13 +307,13 @@ class LaTeXRenderer:
             el.replace_with(LaTeXString(text))
         return soup
 
-    def render_math_block(self, soup: Tag):
+    def render_math_block(self, soup: Tag, **kwargs):
         for math_block in soup.find_all(['div'], class_='arithmatex'):
             text = self.get_safe_text(math_block)
             math_block.replace_with(LaTeXString(f"\n{text}\n"))
         return soup
 
-    def render_abbreviation(self, soup: Tag):
+    def render_abbreviation(self, soup: Tag, **kwargs):
         for abbr in soup.find_all('abbr'):
             text = escape_latex_chars(abbr.get('title'))
             short = self.get_safe_text(abbr)
@@ -295,10 +323,10 @@ class LaTeXRenderer:
             tag = 'acr:' + re.sub(r'[^a-zA-Z0-9]', '', short).lower()
 
             self.acronyms[tag] = (short, text)
-            abbr.replace_with(self.formatter.acronym(tag))
+            self.apply(abbr, 'acronym', tag)
         return soup
 
-    def render_emoji(self, soup: Tag):
+    def render_emoji(self, soup: Tag, **kwargs):
         """ Twemoji can be rendered as inline SVG or CDN link.
 
         <img alt="🙋‍♂️" class="twemoji" src="img.svg" title=":man_raising_hand:"/>
@@ -314,7 +342,7 @@ class LaTeXRenderer:
             if not src.startswith('http'):
                 raise ValueError(f"Expected URL, got {src}")
             filename = fetch_image(src, self.output_path)
-            img.replace_with(self.formatter.icon(filename))
+            self.apply(img, 'icon', filename)
 
         for span in soup.find_all('span', class_=['twemoji']):
             svg = span.find('svg')
@@ -322,26 +350,26 @@ class LaTeXRenderer:
                 raise ValueError("Expected SVG element in twemoji")
             svgdata = str(svg)
             filename = svg2pdf(svgdata, self.output_path)
-            span.replace_with(self.formatter.icon(filename))
+            self.apply(span, 'icon', filename)
         return soup
 
-    def render_critics(self, soup: Tag):
+    def render_critics(self, soup: Tag, **kwargs):
         """Critics from CriticMarkup are rendered as follows"""
 
         # Strikethrough with red background
         for el in soup.find_all('del', class_=['critic']):
             self.render_inlines(el)
-            el.replace_with(self.formatter.deletion(self.get_safe_text(el)))
+            self.apply(el, 'deletion', self.get_safe_text(el))
 
         # Underline with green background
         for el in soup.find_all('ins', class_=['critic']):
             self.render_inlines(el)
-            el.replace_with(self.formatter.addition(self.get_safe_text(el)))
+            self.apply(el, 'addition', self.get_safe_text(el))
 
         # Gray with /* */ comment
         for el in soup.find_all('span', class_=['critic', 'comment']):
             self.render_inlines(el)
-            el.replace_with(self.formatter.comment(self.get_safe_text(el)))
+            self.apply(el, 'comment', self.get_safe_text(el))
 
         # Substitution
         for el in soup.find_all('span', class_=['critic', 'subst']):
@@ -350,10 +378,10 @@ class LaTeXRenderer:
         # Highlight
         for el in soup.find_all('mark', class_=['critic']):
             self.render_inlines(el)
-            el.replace_with(self.formatter.highlight(self.get_safe_text(el)))
+            self.apply(el, 'highlight', self.get_safe_text(el))
         return soup
 
-    def render_keystrokes(self, soup: Tag):
+    def render_keystrokes(self, soup: Tag, **kwargs):
         for span in soup.find_all('span', class_='keys'):
             keys = []
             for key in span.find_all(['kbd']):
@@ -362,18 +390,18 @@ class LaTeXRenderer:
                     keys.append(key_class[4:])
                 else:
                     keys.append(self.get_safe_text(key))
-            span.replace_with(self.formatter.keystroke(keys))
+            self.apply(span, 'keystroke', keys)
         return soup
 
-    def render_format(self, soup: Tag):
+    def render_format(self, soup: Tag, **kwargs):
         mapper = {
-            'del': self.formatter.strikethrough,
-            'em': self.formatter.italic,
-            'ins': self.formatter.underline,
-            'mark': self.formatter.highlight,
-            'strong': self.formatter.strong,
-            'sub': self.formatter.subscript,
-            'sup': self.formatter.superscript,
+            'del': 'strikethrough',
+            'em': 'italic',
+            'ins': 'underline',
+            'mark': 'highlight',
+            'strong': 'strong',
+            'sub': 'subscript',
+            'sup': 'superscript',
         }
 
         for el in soup.find_all(mapper.keys(), class_=False):
@@ -386,10 +414,10 @@ class LaTeXRenderer:
 
             el = self.render_inlines(el)
             text = self.get_safe_text(el)
-            el.replace_with(mapper[el.name](text))
+            self.apply(el, mapper[el.name], text)
         return soup
 
-    def render_footnotes(self, soup: Tag):
+    def render_footnotes(self, soup: Tag, **kwargs):
         footnotes = {}
         for el in soup.find_all(['div'], class_='footnote'):
             for li in el.find_all('li'):
@@ -402,10 +430,10 @@ class LaTeXRenderer:
 
         for el in soup.find_all('sup', id=True):
             footnote_id = re.sub(r'^fnref:(\d+)', r'\1', el.get('id', ''))
-            el.replace_with(self.formatter.footnote(footnotes[footnote_id]))
+            self.apply(el, 'footnote', footnotes[footnote_id])
         return soup
 
-    def render_list(self, soup: Tag):
+    def render_list(self, soup: Tag, **kwargs):
         def is_checkbox(item):
             if item.startswith('[ ]'):
                 return -1
@@ -429,15 +457,15 @@ class LaTeXRenderer:
 
             match el.name:
                 case 'ol':
-                    el.replace_with(self.formatter.ordered_list(items=items))
+                    self.apply(el, 'ordered_list', items=items)
                 case 'ul':
                     if has_checkbox:
-                        el.replace_with(self.formatter.choices(items=zip(checkboxes, items)))
+                        self.apply(el, 'choices', items=zip(checkboxes, items))
                     else:
-                        el.replace_with(self.formatter.unordered_list(items=items))
+                        self.apply(el, 'unordered_list', items=items)
         return soup
 
-    def render_description_list(self, soup: Tag):
+    def render_description_list(self, soup: Tag, **kwargs):
         for dl in soup.find_all(['dl']):
             items = []
             title = None
@@ -449,10 +477,10 @@ class LaTeXRenderer:
                     content = self.get_safe_text(el)
                     items.append((title, content))
 
-            dl.replace_with(self.formatter.description_list(items=items))
+            self.apply(dl, 'description_list', items=items)
         return soup
 
-    def render_tabbed(self, soup: Tag):
+    def render_tabbed(self, soup: Tag, **kwargs):
         for div in soup.find_all(['div'], class_='tabbed-set'):
             # Get titles
             titles = []
@@ -465,7 +493,7 @@ class LaTeXRenderer:
             for i, tab in enumerate(tabbed_content.find_all(['div'], class_='tabbed-block')):
                 self.render_inlines(tab)
                 content = self.get_safe_text(tab)
-                tab.replace_with(self.formatter.tabbed(content, title=titles[i]))
+                self.apply(tab, 'tabbed', content=content, title=titles[i])
             tabbed_content.unwrap()
 
             for el in div.find_all(['input'], recursive=False):
@@ -475,7 +503,9 @@ class LaTeXRenderer:
             div.unwrap()
         return soup
 
-    def render_figure(self, soup: Tag, file_path: Path):
+    def render_figure(self, soup: Tag, **kwargs):
+        file_path = kwargs.get('file_path', Path())
+
         for figure in soup.find_all(['figure']):
             image = figure.find('img')
             if not image:
@@ -497,8 +527,8 @@ class LaTeXRenderer:
             self.render_inlines(caption)
             caption_text = self.get_safe_text(caption) \
                 if caption else image.get('alt', '')
-            figure.replace_with(self.formatter.figure(
-                caption=caption_text, path=filename))
+            self.apply(figure, 'figure',
+                       caption=caption_text, filename=filename)
         return soup
 
     def get_table_styles(self, cell):
@@ -511,7 +541,7 @@ class LaTeXRenderer:
             return 'center'
         return 'left'
 
-    def render_table(self, soup: Tag):
+    def render_table(self, soup: Tag, **kwargs):
         """Extract table from a <table> object.
         Format is
         {
@@ -536,11 +566,9 @@ class LaTeXRenderer:
                 table_data.append(row_data)
                 styles.append(row_styles)
 
-            table.replace_with(self.formatter.table(
-                columns=styles[0],
-                rows=table_data))
+            self.apply(table, 'table', columns=styles[0], rows=table_data)
 
-    def render_admonition(self, soup: Tag):
+    def render_admonition(self, soup: Tag, **kwargs):
         # Admonitions with callout
         for admonition in soup.find_all(['div'], class_='admonition'):
             admonition = self.render_inlines(admonition)
@@ -558,10 +586,8 @@ class LaTeXRenderer:
 
             content = self.get_safe_text(admonition)
 
-            admonition.replace_with(
-                self.formatter.callout(content,
-                                       title=title,
-                                       type=admonition_type))
+            self.apply(admonition, 'callout', content,
+                       title=title, type=admonition_type)
 
         # Foldable admonitions are implemented with details/summary
         for admonition in soup.find_all(['details']):
@@ -577,24 +603,23 @@ class LaTeXRenderer:
 
             content = self.get_safe_text(admonition)
 
-            admonition.replace_with(
-                self.formatter.callout(content,
-                                       title=title,
-                                       type=admonition_type))
+            self.apply(admonition, 'callout', content,
+                       title=title, type=admonition_type)
         return soup
 
-    def render_links(self, soup: Tag):
+    def render_links(self, soup: Tag, **kwargs):
         for a in soup.find_all('a'):
             self.render_inlines(a)
             text = self.get_safe_text(a)
             href = escape_latex_chars(quote(a.get('href')))
             if a.get('href', '').startswith('http'):
-                a.replace_with(self.formatter.url(text, url=href))
+                self.apply(a, 'href', text=text, url=href)
             else:
-                a.replace_with(f"\\href{{{href}}}{{{text}}}")
+                # Local link?
+                self.apply(a, 'href', text=text, url=href)
         return soup
 
-    def render_inlines(self, soup: Tag):
+    def render_inlines(self, soup: Tag, **kwargs):
         """Replace all inline elements."""
 
         self.render_critics(soup)
@@ -602,7 +627,7 @@ class LaTeXRenderer:
         self.render_paragraph(soup)
         return soup
 
-    def render_paragraph(self, soup: Tag):
+    def render_paragraph(self, soup: Tag, **kwargs):
         for p in soup.find_all('p', class_=False):
             self.render_inlines(p)
             text = self.get_safe_text(p)
@@ -611,57 +636,13 @@ class LaTeXRenderer:
     def render(self, html, output_path, file_path, base_level=0):
         soup = BeautifulSoup(html, 'html.parser')
 
-        # Remove unwanted html elements such as headerlink and backrefs
-        self.discard_unwanted(soup)
+        kwargs = {
+            'file_path': file_path,
+            'output_path': output_path,
+            'base_level': base_level
+        }
 
-        # Contains a lot of tags, also spacing is important
-        # Must be rendered first.
-        self.render_codeblock(soup)
+        for render in self.renderering_order:
+            render(soup, **kwargs)
 
-        # Mermaid diagrams are rendered front-end, they are not
-        # they are inserted as <code> elements.
-        self.render_mermaid(soup)
-
-        # Formatted highlighted inline <code> can also contain
-        # spans and special characters.
-        self.render_codeinline(soup)
-
-        # Math are just LaTeX strings, they are easy to render
-        # but, they should not be escaped.
-        self.render_math(soup)
-        self.render_math_block(soup)
-
-        # # YCR-Regex are inline regex that points to regex101
-        # # The they need to be rendered before escaping.
-        # self.render_regex(soup)
-
-        # Emoji (Twemoji) are inline SVG or CDN links
-        # They are converted to inline images.
-        self.render_emoji(soup)
-
-        ## Keystrokes
-        self.render_keystrokes(soup)
-
-        self.render_heading(soup, base_level)
-        # self.render_autoref(soup)
-        # self.render_footnotes(soup)
-        # self.render_links(soup)
-
-        # All navigables strings can safely be escaped
-        # This render litterals as well (Smart Symbols)
-        self.render_navigable_string(soup)
-
-        self.render_abbreviation(soup)
-
-        self.render_list(soup)
-        self.render_description_list(soup)
-        self.render_tabbed(soup)
-        self.render_figure(soup, file_path)
-        self.render_table(soup)
-        self.render_admonition(soup)
-
-        # Inlines are bold, italic, critics, etc.
-        self.render_inlines(soup)
-        self.render_format(soup)
-        self.render_paragraph(soup)
         return unescape(str(soup))
