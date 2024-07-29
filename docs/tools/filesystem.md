@@ -167,7 +167,7 @@ Enfin, si je souhaite me déplacer dans l'arborescence, je peux utiliser la comm
 
     On voit que Microsoft a appris de ses erreurs et a introduit `pwd` et `ls` dans PowerShell. C'est une bonne chose car ces commandes sont très utiles. PowerShell est un shell plus moderne que CMD et plus puissant. Il est basé sur le framework .NET et permet d'interagir avec des objets .NET.
 
-!!! warning "Attention"
+!!! warning
 
     Les commandes `rm`, `mv`, `cp` sont très dangereuses. Elles peuvent détruire des données. Il est important de faire attention à ce que vous faites. Il est recommandé de faire des sauvegardes régulières de vos données.
 

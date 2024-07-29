@@ -20,7 +20,7 @@ Sous le capôt, on peut voir les puces de mémoire&nbsp;:
 
 ![Crucial DDR4 16 GB]({assets}/images/sdram.webp)
 
-Cette mémoire dispose de 16 Gibioctets de mémoire, soit 16 x 2^30 = 17179869184 octets. Chaque octet est composé de 8 bits, soit 17179869184 x 8 = 137438953472 bits. Comme nous voyons 4 puces de mémoire, chaque puce contient 4 Gibioctets.
+Cette mémoire dispose de 16 Gibioctets de mémoire, soit $16 \times 2^30 = 17179869184$ octets. Chaque octet est composé de $8$ bits, soit $17179869184 \times 8 = 137438953472$ bits. Comme nous voyons $4$ puces de mémoire, chaque puce contient $4$ Gibioctets.
 
 Généralement, ces mémoires sont vendues en nombre de bits, soit ici 32 Gibibits.
 

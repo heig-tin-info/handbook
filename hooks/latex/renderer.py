@@ -250,7 +250,7 @@ class LaTeXRenderer:
                 code = self.get_safe_text(el)
             language = self.get_code_language(el)
 
-            code = code.replace('&', '\\&')
+            code = code.replace('&', '\\&').replace('%', '\\%').replace('#', '\\#')
 
             self.apply(el, 'codeinline', code, language=language,
                        delimiter=find_safe_delimiter(code))

@@ -305,50 +305,60 @@ else
 
     Compte tenu de la déclaration `int i = 8;`, indiquer pour chaque expression si elles impriment ou non `i vaut 8`:
 
-    1. ```c
+    1. &#32;
+       ```c
        if (!(i < 8) && !(i > 8)) then
            printf("i vaut 8\n");
        ```
 
-    2. ```c
+    2. &#32;
+       ```c
        if (!(i < 8) && !(i > 8))
            printf("i vaut 8");
            printf("\n");
        ```
 
-    3. ```c
+    3. &#32;
+       ```c
        if !(i < 8) && !(i > 8)
            printf("i vaut 8\n");
        ```
-    4. ```c
+    4. &#32;
+       ```c
        if (!(i < 8) && !(i > 8))
            printf("i vaut 8\n");
        ```
 
-    5. ```c
+    5. &#32;
+       ```c
        if (i = 8) printf("i vaut 8\n");
        ```
 
-    6. ```c
+    6. &#32;
+       ```c
        if (i & (1 << 3)) printf("i vaut 8\n");
        ```
 
-    7. ```c
+    7. &#32;
+       ```c
        if (i ^ 8) printf("i vaut 8\n");
        ```
 
-    8. ```c
+    8. &#32;
+       ```c
        if (i - 8) printf("i vaut 8\n");
        ```
 
-    9. ```c
+    9. &#32;
+       ```c
        if (i == 1 << 3) printf ("i vaut 8\n");
        ```
 
-    10. ```c
-        if (!((i < 8) || (i > 8)))
-            printf("i vaut 8\n");
-        ```
+    10. &#32;
+       ```c
+       if (!((i < 8) || (i > 8)))
+           printf("i vaut 8\n");
+       ```
 
 [](){#switch}
 
