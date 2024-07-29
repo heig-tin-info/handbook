@@ -13,6 +13,8 @@ import cairosvg
 import requests
 from io import BytesIO
 from PIL import Image
+from math import ceil
+import pillow_avif
 from IPython import embed
 log = logging.getLogger('mkdocs')
 
@@ -76,11 +78,12 @@ def image2pdf(filename, output_path=Path()):
         filename, output_path).with_suffix('.pdf')
 
     if not up_to_date(filename, pdfpath):
-        log.debug('Running command:')
+        log.info('   Converting %s to PDF...', filename)
         image = Image.open(filename)
         image.save(pdfpath, 'PDF')
 
     return pdfpath
+
 
 def mermaid2pdf(content: str, output_path: Path) -> Path:
     """Converts Mermaid content to PDF using the
@@ -91,6 +94,8 @@ def mermaid2pdf(content: str, output_path: Path) -> Path:
 
     if pdfpath.exists():
         return pdfpath
+
+    log.info('   Converting mermaid diagram to PDF...')
 
     # Get temp file
     with tempfile.NamedTemporaryFile(delete=False, suffix='.mmd') as fp:
@@ -144,7 +149,9 @@ def drawio2pdf(filename: Path, output_path: Path) -> Path:
 
     intermediate = output_path / filename.with_suffix('.pdf').name
     # If destination path is older than source, recompile
-    if up_to_date(filename, pdfpath):
+    if not up_to_date(filename, pdfpath):
+        log.info('   Converting %s to PDF...', filename)
+
         command = [
             'drawio',
             '--export',
@@ -170,6 +177,7 @@ def drawio2pdf(filename: Path, output_path: Path) -> Path:
                 'ContextResult::kTransientFailure: Failed to send',
                 'libGL error: failed to load driver: swrast',
                 'libGL error: MESA-LOADER: failed to open swrast',
+                'Failed to connect to the bus'
             ]
             if not any([i in line.decode() for i in ignore]) \
                and len(line.decode()) > 3:
@@ -195,7 +203,7 @@ def image2pdf(filename, output_path=Path()):
     pdfpath = get_filename_from_content(
         filename.name, output_path).with_suffix('.pdf')
 
-    if up_to_date(filename, pdfpath):
+    if not up_to_date(filename, pdfpath):
         image = Image.open(filename)
         image.save(pdfpath, 'PDF')
 
@@ -203,7 +211,7 @@ def image2pdf(filename, output_path=Path()):
 
 
 RE_VIEWBOX = re.compile(
-    r'viewbox="(\d+) (\d+) (?P<width>\d+) (?P<height>\d+)"', re.IGNORECASE)
+    r'viewbox="0 0 (?P<width>\d+(?:\.\d+)?) (?P<height>\d+(?:\.\d+)?)"', re.IGNORECASE)
 
 def add_size_to_svg(svg: str) -> tuple:
     if isinstance(svg, bytes):
@@ -213,9 +221,11 @@ def add_size_to_svg(svg: str) -> tuple:
         svg_tag = match.group()
 
         if (match := RE_VIEWBOX.search(svg_tag)):
-            width = int(match.group('width'))
-            height = int(match.group('height'))
-        else: # No viewbox
+            height = ceil(float(match.group('height')))
+            width = ceil(float(match.group('width')))
+        elif 'width' in svg_tag and 'height' in svg_tag:
+            return svg_tag
+        else:
             raise ValueError('No viewbox found in SVG')
 
         if 'width' not in svg_tag:
@@ -234,7 +244,11 @@ def svg2pdf_cairo(svg: Union[str, Path], output_path=Path()) -> Path:
     pdfpath = get_filename_from_content(
         svg, output_path).with_suffix('.pdf')
 
+    open('before.svg', 'w').write(svg)
+
     svg = add_size_to_svg(svg)
+
+    open('after.svg', 'w').write(svg)
 
     if not pdfpath.exists():
         cairosvg.svg2pdf(bytestring=svg,

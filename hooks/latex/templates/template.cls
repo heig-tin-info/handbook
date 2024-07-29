@@ -316,7 +316,7 @@
 \newcommand\correctchoice{\stackinset{c}{}{c}{}{$\times$}{$\bigcirc$}}
 \newcommand\choice{$\bigcirc$}
 
-\VAR{glossary}
+\VAR{acronyms}
 
 \begin{document}
 

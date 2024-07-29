@@ -7,11 +7,17 @@ from urllib.parse import quote
 from hashlib import sha256
 from html import unescape
 from IPython import embed
-from .transformers import fetch_image, image2pdf, svg2pdf, mermaid2pdf
+from .transformers import fetch_image, image2pdf, svg2pdf, mermaid2pdf, drawio2pdf
 import logging
-
+from urllib.parse import urlparse
 log = logging.getLogger('mkdocs')
 
+def is_valid_url(url):
+    try:
+        result = urlparse(url)
+        return all([result.scheme, result.netloc])
+    except ValueError:
+        return False
 
 def get_class(element, pattern: Union[str, re.Pattern]):
     if isinstance(pattern, str):
@@ -490,7 +496,6 @@ class LaTeXRenderer:
         return soup
 
     def render_figure(self, soup: Tag, **kwargs):
-        file_path = kwargs.get('file_path', Path())
 
         for figure in soup.find_all(['figure']):
             image = figure.find('img')
@@ -499,22 +504,29 @@ class LaTeXRenderer:
             image_src = image.get('src')
             if not image_src:
                 raise ValueError(f"Missing src in image {image}")
-            if not image_src.startswith('http'):
+            if is_valid_url(image_src):
+                filename = fetch_image(image_src, self.output_path)
+            else:
+                file_path = kwargs.get('file_path', Path())
                 if file_path.name == 'index.md':
                     file_path = file_path.parent
                 image_src = (file_path / image_src).resolve()
                 if not image_src.exists():
                     raise ValueError(f"Image not found: {image_src}")
-                filename = image2pdf(image_src, self.output_path)
-            else:
-                filename = fetch_image(image_src, self.output_path)
+                match image_src.suffix:
+                    case '.svg':
+                        filename = svg2pdf(image_src, self.output_path)
+                    case '.drawio':
+                        filename = drawio2pdf(image_src, self.output_path)
+                    case _:
+                        filename = image2pdf(image_src, self.output_path)
 
             caption = figure.find('figcaption')
             self.render_inlines(caption)
             caption_text = self.get_safe_text(caption) \
                 if caption else image.get('alt', '')
             self.apply(figure, 'figure',
-                       caption=caption_text, filename=filename)
+                       caption=caption_text, path=filename.name)
         return soup
 
     def get_table_styles(self, cell):
@@ -653,6 +665,11 @@ class LaTeXRenderer:
         for render in self.renderering_order[index:]:
             render(soup, **kwargs)
         return soup
+
+    def get_list_acronyms(self):
+        acronyms = [(tag, short, text)
+                    for tag, (short, text) in self.acronyms.items()]
+        return self.formatter.list_acronyms(acronyms)
 
     def render(self, html, output_path, file_path, base_level=0):
         soup = BeautifulSoup(html, 'html.parser')

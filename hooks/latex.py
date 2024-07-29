@@ -59,7 +59,7 @@ def on_nav(nav, config, files):
                 files_to_process.append((child.file, level))
                 # Replace md with tex
                 tex_path = child.file.src_path.replace('.md', '.tex')
-                latex.append(f'\input{{{tex_path}}}')
+                latex.append(f'\\input{{{tex_path}}}')
             else:
                 latex.append('\n')
                 latex.append(renderer.formatter.heading(child.title, level=level))
@@ -82,17 +82,18 @@ def on_env(env, config, files):
 
             html = file.page.content
 
-            with open(path.with_suffix('.html'), 'w') as f:
+            with open(path.with_suffix('.html'), 'w', encoding='utf-8') as f:
                 f.write(html)
 
-            latex = renderer.render(html, latex_dir, project_dir / file.src_path, level)
-            with open(path, 'w') as f:
-                f.write(latex)
+            latex = renderer.render(
+                html,
+                latex_dir, project_dir / file.src_path,
+                level)
 
-    glossary = []
+            path.write_text(latex)
 
-    # Build index
+    # Build index page
     index = renderer.formatter.template(content=book_nav,
-                                        glossary=glossary)
-    with open(latex_dir / 'index.tex', 'w') as f:
-        f.write(index)
+                                        acronyms=renderer.get_list_acronyms())
+
+    (latex_dir / 'index.tex').write_text(index)
