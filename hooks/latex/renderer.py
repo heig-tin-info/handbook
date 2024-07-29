@@ -45,17 +45,6 @@ def escape_latex_chars(text):
     return ''.join([c if c not in dict(mapping) else dict(mapping)[c]
                     for c in text])
 
-class LaTeXString(NavigableString):
-    """Same as NavigableString, but escapes LaTeX special characters.
-    Replaced NavigableString with LaTeXString indicates that the string
-    is ready to be rendered in LaTeX."""
-    def __new__(cls, value, escape=False):
-        if escape:
-            value = escape_latex_chars(value)
-        return super().__new__(cls, value)
-
-    def get_text(self, separator='', strip=False):
-        return str(self)
 
 class LaTeXRenderer:
     def __init__(self, output_path=Path('build')):
@@ -67,6 +56,8 @@ class LaTeXRenderer:
         self.renderering_order = [
             # AST Simplification
             self.discard_unwanted,
+            self.render_hr,
+            self.render_br,
 
             # Prior escaping LaTeX special characters
             self.render_codeblock,
@@ -87,12 +78,15 @@ class LaTeXRenderer:
             self.render_abbreviation,
             self.render_list,
             self.render_description_list,
-            self.render_tabbed,
             self.render_figure,
             self.render_table,
             self.render_admonition,
             self.render_inlines,
             self.render_format,
+
+            # At last
+            self.render_tabbed,
+            self.render_columns,
             self.render_paragraph
         ]
 
@@ -292,13 +286,17 @@ class LaTeXRenderer:
         """
         for el in soup.find_all('span', class_=['arithmatex']):
             text = self.get_safe_text(el)
-            el.replace_with(LaTeXString(text))
+            node = NavigableString(text)
+            node.processed = True
+            el.replace_with(node)
         return soup
 
     def render_math_block(self, soup: Tag, **kwargs):
         for math_block in soup.find_all(['div'], class_='arithmatex'):
             text = self.get_safe_text(math_block)
-            math_block.replace_with(LaTeXString(f"\n{text}\n"))
+            node = NavigableString(f"\n{text}\n")
+            node.processed = True
+            math_block.replace_with(node)
         return soup
 
     def render_abbreviation(self, soup: Tag, **kwargs):
@@ -481,7 +479,7 @@ class LaTeXRenderer:
             for i, tab in enumerate(tabbed_content.find_all(['div'], class_='tabbed-block')):
                 self.render_inlines(tab)
                 content = self.get_safe_text(tab)
-                self.apply(tab, 'tabbed', content=content, title=titles[i])
+                self.apply(tab, 'tabbed', content, title=titles[i])
             tabbed_content.unwrap()
 
             for el in div.find_all(['input'], recursive=False):
@@ -561,7 +559,6 @@ class LaTeXRenderer:
         for admonition in soup.find_all(['div'], class_='admonition'):
             if not admonition.parent:
                 continue
-            admonition = self.render_inlines(admonition)
 
             classes = admonition.get('class', [])
             filtered_classes = [cls for cls in classes if cls not in [
@@ -574,9 +571,7 @@ class LaTeXRenderer:
                 title = self.get_safe_text(title_node)
                 title_node.extract()
 
-            # Can be nested
-            admonition = self.render_admonition(admonition)
-
+            admonition = self.render_after(self.render_admonition, admonition)
             content = self.get_safe_text(admonition)
 
             self.apply(admonition, 'callout', content,
@@ -586,7 +581,6 @@ class LaTeXRenderer:
         for admonition in soup.find_all(['details']):
             if not admonition.parent:
                 continue
-            self.render_inlines(admonition)
             classes = admonition.get('class', [])
             if len(classes) > 1:
                 raise ValueError(f"Multiple classes in details: {classes}")
@@ -596,7 +590,7 @@ class LaTeXRenderer:
                 title = self.get_safe_text(summary)
                 summary.extract()
 
-            admonition = self.render_admonition(admonition)
+            admonition = self.render_after(self.render_admonition, admonition)
             content = self.get_safe_text(admonition)
 
             self.apply(admonition, 'callout', content,
@@ -616,9 +610,17 @@ class LaTeXRenderer:
                 self.apply(a, 'href', text=text, url=href)
         return soup
 
+    def render_columns(self, soup: Tag, **kwargs):
+        for div in soup.find_all(['div'], class_='two-column-list'):
+            self.apply(div, 'multicolumn', self.get_safe_text(div), columns=2)
+
+        for div in soup.find_all(['div'], class_='three-column-list'):
+            self.apply(div, 'multicolumn', self.get_safe_text(div), columns=3)
+
     def render_inlines(self, soup: Tag, **kwargs):
         """Replace all inline elements."""
 
+        self.render_abbreviation(soup)
         self.render_critics(soup)
         self.render_format(soup)
         self.render_paragraph(soup)
@@ -629,6 +631,28 @@ class LaTeXRenderer:
             self.render_inlines(p)
             text = self.get_safe_text(p)
             p.replace_with(text + '\n')
+
+    def render_grid_cards(self, soup: Tag, **kwargs):
+        for div in soup.find_all(['div'], class_='grid-cards'):
+            div.unwrap()
+
+    def render_hr(self, soup: Tag, **kwargs):
+        for el in soup.find_all('hr'):
+            el.extract()
+        return soup
+
+    def render_br(self, soup: Tag, **kwargs):
+        for el in soup.find_all('br'):
+            node = NavigableString('\\newline\n')
+            node.processed = True
+            el.replace_with(node)
+        return soup
+
+    def render_after(self, function, soup: Tag, **kwargs):
+        index = self.renderering_order.index(function)
+        for render in self.renderering_order[index:]:
+            render(soup, **kwargs)
+        return soup
 
     def render(self, html, output_path, file_path, base_level=0):
         soup = BeautifulSoup(html, 'html.parser')
@@ -642,4 +666,4 @@ class LaTeXRenderer:
         for render in self.renderering_order:
             render(soup, **kwargs)
 
-        return unescape(str(soup))
+        return unescape(str(soup).replace(' ', '~'))

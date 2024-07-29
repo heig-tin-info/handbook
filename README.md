@@ -10,6 +10,7 @@ La version web est disponible sur cette [page](https://heig-tin-info.github.io/h
 ## Développement
 
 ```bash
+pip install cairosvg
 poetry install
 poetry run mkdocs serve
 ```

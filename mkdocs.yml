@@ -12,7 +12,7 @@ copyright: Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier
 repo_name: heig-tin-info/handbook
 repo_url: https://github.com/heig-tin-info/handbook
 edit_uri: edit/master/docs/
-docs_dir: docs
+docs_dir: !ENV [DOCS, docs]
 
 theme:
   name: material

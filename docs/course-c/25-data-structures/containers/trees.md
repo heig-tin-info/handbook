@@ -9,7 +9,7 @@ Voici un exemple d'arbre, il représente par exemple une structure de documents 
 On appelle ce type d'arbre un **arbre n-aire dirigé**. C'est-à-dire que chaque nœud peut avoir plusieurs enfants. L'arbre est dirigé car il y a un sens de la racine vers les feuilles. Il y a donc des flèches qui indiquent le sens de la hiérarchie.
 
 ```mermaid
-graph LR;
+graph LR
     C(C:)
 
     C --> Program_Files(Program Files)
@@ -65,7 +65,7 @@ Le C étant un langage très bas niveau, il n'y a pas de structure de données a
 Voici l'exemple d'un arbre binaire. Chaque nœud est composé de deux enfants sauf pour les feuilles qui n'ont pas d'enfants. Le nœud `40` n'a lui que 1 enfant : l'enfant de droite.
 
 ```mermaid
-graph TD;
+graph TD
     classDef ghost display: none;
 
     50((50))
@@ -100,7 +100,7 @@ Un arbre peut être **équilibré** ou **déséquilibré**. Un arbre est équili
 Voici l'exemple d'un arbre déséquilibré :
 
 ```mermaid
-graph LR;
+graph LR
     classDef ghost display: none;
 
     50((42))
@@ -170,7 +170,7 @@ int a[] = {1, 3, 6, 5, 9, 8};
 ```
 
 ```mermaid
-graph TD;
+graph TD
     1((1)) --> 3((3))
     1((1)) --> 6((6))
     3((3)) --> 5((5))
@@ -181,7 +181,7 @@ graph TD;
 On souhaite rajouter l'élément `2`. On commence par l'ajouter à la fin:
 
 ```mermaid
-graph TD;
+graph TD
     1((1)) --> 3((3))
     1((1)) --> 6((6))
     3((3)) --> 5((5))
@@ -193,7 +193,7 @@ graph TD;
 On compare la valeur de `2` avec celle de son parent `6`. Comme `2` est plus petit que `6`, on échange les valeurs:
 
 ```mermaid
-graph TD;
+graph TD
     1((1)) --> 3((3))
     1((1)) --> 2((2))
     3((3)) --> 5((5))

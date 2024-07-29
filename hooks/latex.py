@@ -81,12 +81,13 @@ def on_env(env, config, files):
             path.parent.mkdir(parents=True, exist_ok=True)
 
             html = file.page.content
-            latex = renderer.render(html, latex_dir, project_dir / file.src_path, level)
-            with open(path, 'w') as f:
-                f.write(latex)
 
             with open(path.with_suffix('.html'), 'w') as f:
                 f.write(html)
+
+            latex = renderer.render(html, latex_dir, project_dir / file.src_path, level)
+            with open(path, 'w') as f:
+                f.write(latex)
 
     glossary = []
 

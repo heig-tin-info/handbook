@@ -32,16 +32,16 @@ def on_page_markdown(markdown, page, config, files):
     return markdown
 
 
-RE_PUNCT = re.compile(r'([!?:;])')
-RE_IGNORE = re.compile(r'&\w+;|\w://')
+RE_PUNCT = re.compile(r'(?<=\w) ?([!?:;])')
+RE_IGNORE = re.compile(r'<code>[^<]+</code>|<[^>]+>|&\w+;|\w://|[!?:;]\w')
 
 def process_html(html):
     parts = RE_IGNORE.split(html)
     entities = RE_IGNORE.findall(html)
 
     processed_parts = [
-        re.sub(r'(?<=\w) ?([!?:;])', r'&thinsp;\1', part)
-        if not RE_PUNCT.fullmatch(part) else part
+        RE_PUNCT.sub(r'&thinsp;\1', part)
+        if not RE_IGNORE.fullmatch(part) else part
         for part in parts
     ]
 

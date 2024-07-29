@@ -89,25 +89,29 @@ def mermaid2pdf(content: str, output_path: Path) -> Path:
     pdfpath = get_filename_from_content(
         content, output_path).with_suffix('.mermaid.pdf')
 
+    if pdfpath.exists():
+        return pdfpath
+
     # Get temp file
     with tempfile.NamedTemporaryFile(delete=False, suffix='.mmd') as fp:
         fp.write(content.encode())
+        fp.close()
 
         input_path = Path(fp.name)
         output_path = input_path.with_suffix('.pdf')
-
         command = [
             'docker',
             'run',
             '--rm',
-            '-u', f'{os.getpid()}:{os.getgid()}',
+            '-u', f'{os.getuid()}:{os.getgid()}',
             '-v', f'{input_path.parent}:/data',
             'minlag/mermaid-cli',
-            '-i', f'{fp.name}',
+            '-i', f'{input_path.name}',
             '-f',
             '-o', f'{output_path.name}'
         ]
 
+        log.info("Running %s", ' '.join(str(e) for e in command))
         completed_process = subprocess.run(
             command,
             check=False,
@@ -119,6 +123,8 @@ def mermaid2pdf(content: str, output_path: Path) -> Path:
         if completed_process.returncode != 0:
             log.error('Return code %s', completed_process.returncode)
             return None
+
+        fp.delete = True
 
         shutil.move(output_path, pdfpath)
 

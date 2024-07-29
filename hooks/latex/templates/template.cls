@@ -15,6 +15,7 @@
 \usepackage{graphicx}
 \usepackage{unicode-math} % For using Unicode math symbols
 \usepackage{fontawesome5}
+\usepackage{multicol}
 \usepackage{parskip}
 \usepackage{stackengine}
 \usepackage{booktabs}
