@@ -234,7 +234,7 @@ Les avantages :
 
 1. Les opérations sont triviales.
 2. Le problème du double zéro est résolu.
-3. On gagne une valeur négative `[-128..+127]` contre `[-127..+127] avec les méthodes précédemment étudiées`.
+3. On gagne une valeur négative `[-128..+127]` contre `[-127..+127]` avec les méthodes précédemment étudiées.
 
 Vous l'aurez compris, le complément à deux est le mécanisme le plus utilisé dans les ordinateurs modernes pour représenter les nombres entiers négatifs.
 

@@ -10,7 +10,7 @@
 \usepackage{wasysym} % For fractions
 \usepackage{nicefrac}
 \usepackage{fancyhdr}
-\usepackage{ulem}
+\usepackage[normallem]{ulem}
 \usepackage{lipsum}
 \usepackage{graphicx}
 \usepackage{unicode-math} % For using Unicode math symbols
@@ -259,7 +259,7 @@
   listing only,
   enhanced,
   colframe=gray!40,
-  colback=gray!10,
+  colback=white,
   boxrule=0.5pt,
   arc=0.5mm,
   toptitle=0.25em,

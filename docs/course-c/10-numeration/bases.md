@@ -27,7 +27,11 @@ Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche �
 
 Le système décimal est le système de numération utilisant la base **dix** et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
 
-L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique `(1000+100+100+100+100+100+1+1+1+1+1+1)`. Il s'agit d'une numération additive.
+L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique de :
+
+$$ 1000+100+100+100+100+100+1+1+1+1+1+1$$
+
+Il s'agit d'une numération additive.
 
 ![1506 en écriture hiéroglyphique](../../assets/images/hieroglyph.drawio){width="20%"}
 
