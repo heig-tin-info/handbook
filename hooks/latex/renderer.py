@@ -9,8 +9,25 @@ from html import unescape
 from IPython import embed
 from .transformers import fetch_image, image2pdf, svg2pdf, mermaid2pdf, drawio2pdf
 import logging
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse, urlunparse
+
 log = logging.getLogger('mkdocs')
+
+def resolve_asset_path(file_path, path):
+    if file_path.name == 'index.md':
+        file_path = file_path.parent
+    path = (file_path / path).resolve()
+    if not path.exists():
+        return None
+    return path
+
+def safe_quote(url):
+    parsed_url = urlparse(url)
+    encoded_path = quote(parsed_url.path)
+    encoded_query = quote(parsed_url.query)
+    encoded_fragment = quote(parsed_url.fragment)
+    return urlunparse((parsed_url.scheme, parsed_url.netloc, encoded_path, parsed_url.params, encoded_query, encoded_fragment))
+
 
 def is_valid_url(url):
     try:
@@ -67,11 +84,14 @@ class LaTeXRenderer:
 
             # Prior escaping LaTeX special characters
             self.render_codeblock,
-            self.render_mermaid,
+
             self.render_codeinline,
             self.render_math,
             self.render_math_block,
             self.render_regex,
+
+            self.render_navigable_string,
+
             self.render_emoji,
             self.render_keystrokes,
             self.render_heading,
@@ -80,13 +100,14 @@ class LaTeXRenderer:
             self.render_links,
 
             # After escaping LaTeX special characters
-            self.render_navigable_string,
             self.render_abbreviation,
             self.render_list,
             self.render_description_list,
+
+            self.render_admonition,
+            self.render_mermaid,
             self.render_figure,
             self.render_table,
-            self.render_admonition,
             self.render_inlines,
             self.render_format,
 
@@ -100,6 +121,7 @@ class LaTeXRenderer:
         self.abbreviations = {}
         self.acronyms = {}
         self.glossary = {}
+        self.snippets = {}
 
         self.level = 0
 
@@ -181,12 +203,16 @@ class LaTeXRenderer:
         This should not be on code blocks, only on text elements.
         """
         for el in soup.find_all(string=True):
-            if not getattr(el, 'processed', False):
-                # Escape LaTeX string only once
-                text = el.get_text()
-                text = escape_latex_chars(text)
-                el.replace_with(text)
+            if el.find_parent('code'):
+                continue  # Skip
 
+            if getattr(el, 'processed', False):
+                continue  # Skip
+
+            # Escape LaTeX string only once
+            text = el.get_text()
+            text = escape_latex_chars(text)
+            el.replace_with(text)
         return soup
 
     def render_regex(self, soup: Tag, **kwargs):
@@ -200,19 +226,34 @@ class LaTeXRenderer:
         for a in soup.find_all('a', class_=['ycr-regex']):
             self.apply(a, 'regex',
                        regex=self.get_safe_text(a),
-                       url=quote(a.get('href', ''), safe=':/?&='))
+                       url=safe_quote(a.get('href', '')))
         return soup
 
     def render_codeinline(self, soup: Tag, **kwargs):
         """Extract code from a <code> object."""
+
+        def find_safe_delimiter(text):
+            delimiters = ['|', '@', '?', '~']
+            for delimiter in delimiters:
+                if text.count(delimiter) % 2 == 0:
+                    return delimiter
+            raise ValueError("No safe delimiter found")
+
         for el in soup.find_all('code'):
+            # Skip mermaid
+            if el.find_parent('pre', class_='mermaid'):
+                continue
+
             if get_class(el, 'highlight'):
                 code = ''.join([e.get_text() for e in el.find_all('span')])
             else:
                 code = self.get_safe_text(el)
             language = self.get_code_language(el)
 
-            self.apply(el, 'codeinline', code, language=language)
+            code = code.replace('&', '\\&')
+
+            self.apply(el, 'codeinline', code, language=language,
+                       delimiter=find_safe_delimiter(code))
         return soup
 
     def render_mermaid(self, soup: Tag, **kwargs):
@@ -226,7 +267,10 @@ class LaTeXRenderer:
             diagram = self.get_safe_text(code)
             filename = mermaid2pdf(diagram, self.output_path)
 
-            self.apply(el, 'figure', path=filename)
+            template = 'figure_tcolorbox' if \
+                kwargs.get('tcolorbox', False) else 'figure'
+            self.apply(el, template,
+                       path=filename.name)
         return soup
 
     def render_codeblock(self, soup: Tag, **kwargs):
@@ -496,7 +540,6 @@ class LaTeXRenderer:
         return soup
 
     def render_figure(self, soup: Tag, **kwargs):
-
         for figure in soup.find_all(['figure']):
             image = figure.find('img')
             if not image:
@@ -507,25 +550,24 @@ class LaTeXRenderer:
             if is_valid_url(image_src):
                 filename = fetch_image(image_src, self.output_path)
             else:
-                file_path = kwargs.get('file_path', Path())
-                if file_path.name == 'index.md':
-                    file_path = file_path.parent
-                image_src = (file_path / image_src).resolve()
-                if not image_src.exists():
+                filepath = resolve_asset_path(kwargs.get('file_path', Path()), image_src)
+                if not filepath:
                     raise ValueError(f"Image not found: {image_src}")
-                match image_src.suffix:
+                match filepath.suffix:
                     case '.svg':
-                        filename = svg2pdf(image_src, self.output_path)
+                        filename = svg2pdf(filepath, self.output_path)
                     case '.drawio':
-                        filename = drawio2pdf(image_src, self.output_path)
+                        filename = drawio2pdf(filepath, self.output_path)
                     case _:
-                        filename = image2pdf(image_src, self.output_path)
+                        filename = image2pdf(filepath, self.output_path)
 
             caption = figure.find('figcaption')
             self.render_inlines(caption)
             caption_text = self.get_safe_text(caption) \
                 if caption else image.get('alt', '')
-            self.apply(figure, 'figure',
+            template = 'figure_tcolorbox' if \
+                kwargs.get('tcolorbox', False) else 'figure'
+            self.apply(figure, template,
                        caption=caption_text, path=filename.name)
         return soup
 
@@ -583,7 +625,15 @@ class LaTeXRenderer:
                 title = self.get_safe_text(title_node)
                 title_node.extract()
 
-            admonition = self.render_after(self.render_admonition, admonition)
+            # Treat figures in admonitions differently
+            # Tcolorbox does not support figure environments
+            admonition = self.render_figure(admonition,
+                                            tcolorbox=True, **kwargs)
+            admonition = self.render_mermaid(admonition, tcolorbox=True, **kwargs)
+
+
+            admonition = self.render_after(self.render_admonition,
+                                           admonition, **kwargs)
             content = self.get_safe_text(admonition)
 
             self.apply(admonition, 'callout', content,
@@ -602,7 +652,13 @@ class LaTeXRenderer:
                 title = self.get_safe_text(summary)
                 summary.extract()
 
-            admonition = self.render_after(self.render_admonition, admonition)
+            # Treat figures in admonitions differently
+            # Tcolorbox does not support figure environments
+            admonition = self.render_figure(admonition,
+                                            tcolorbox=True, **kwargs)
+            admonition = self.render_mermaid(admonition, tcolorbox=True, **kwargs)
+
+            admonition = self.render_after(self.render_admonition, admonition, **kwargs)
             content = self.get_safe_text(admonition)
 
             self.apply(admonition, 'callout', content,
@@ -610,16 +666,24 @@ class LaTeXRenderer:
         return soup
 
     def render_links(self, soup: Tag, **kwargs):
-        for a in soup.find_all('a'):
-            self.render_inlines(a)
-            self.render_abbreviation(a)
-            text = self.get_safe_text(a)
-            href = escape_latex_chars(quote(a.get('href')))
-            if a.get('href', '').startswith('http'):
-                self.apply(a, 'href', text=text, url=href)
+        for el in soup.find_all('a'):
+            self.render_inlines(el)
+            self.render_abbreviation(el)
+            text = self.get_safe_text(el)
+            href = el.get('href', '')
+            if href.startswith('http'):
+                href = escape_latex_chars(safe_quote(el.get('href')))
+                self.apply(el, 'href', text=text, url=href)
+            elif href.startswith('#'):
+                self.apply(el, 'ref', text=text, ref=href[1:])
+            elif href == '' and el.get('id'):
+                self.apply(el, 'ref', text=text, ref=el.get('id'))
+            elif path := resolve_asset_path(kwargs.get('file_path', Path()), href):
+                digest = sha256(href.encode()).hexdigest()
+                self.snippets[digest] = path
+                self.apply(el, 'ref', text='extrait', path=digest)
             else:
-                # Local link?
-                self.apply(a, 'href', text=text, url=href)
+                raise NotImplementedError("Local links not implemented")
         return soup
 
     def render_columns(self, soup: Tag, **kwargs):

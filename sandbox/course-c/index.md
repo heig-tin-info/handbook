@@ -1,33 +1,49 @@
-# Summary of all Markdown Features
+# Bases
 
-## Les préfixes
+```c
+0 1 2 3 4 5 6 7 8 9
+```
 
-On l'a vu, le nombre de bits peut être très grand et même divisé par 8 pour obtenir un nombre d'octets, il est difficile avec des nombres simples de représenter ces quantités. C'est pourquoi on utilise des préfixes.
+Une base désigne la valeur dont les puissances successives interviennent dans l'écriture des nombres dans la numération positionnelle, laquelle est un procédé par lequel l'écriture des nombres est composée de chiffres ou symboles reliés à leur position voisine par un multiplicateur, appelé base du système de numération.
 
-Avec le système international d'unités, on utilise des préfixes pour exprimer des multiples de 10. Par exemple, un kilogramme est égal à 1000 grammes. La tonne est égale à 1000 kilogrammes.
+Sans cette connaissance à priori du système de numération utilisé, il vous est impossible d'interpréter ces nombres :
 
-En informatique, comme on utilise un système binaire en puissance de deux, rajouter un bit double la quantité d'information. On utilise donc des préfixes pour exprimer des multiples de 2. Un kilo-octet est égal à 1000 octets $10^3$, <div class="grid cards">
-<ul>
-<li>
-<p><strong>DRY</strong> <span data-autorefs-identifier="dry" data-preview="data-preview">Ne vous répétez pas.</span></p>
-<hr/>
-<p><em>Do not repeat yourself.</em></p>
-</li>
-<li>
-<p><strong>KISS</strong> <span data-autorefs-identifier="kiss" data-preview="data-preview">Restez simple, stupide.</span></p>
-<hr/>
-<p><em>Keep it simple, stupid.</em></p>
-<hr/>
-</li>
-<li>
-<p><strong>SSOT</strong> <span data-autorefs-identifier="ssot" data-preview="data-preview">Une seule source de vérité.</span></p>
-<hr/>
-<p><em>Single source of truth.</em></p>
-</li>
-<li>
-<p><strong>YAGNI</strong> <span data-autorefs-identifier="yagni" data-preview="data-preview">Vous n'en aurez pas besoin.</span></p>
-<hr/>
-<p><em>You ain't gonna need it.</em></p>
-</li>
-</ul>
-</div>
+```
+69128
+11027
+j4b12
+>>!!0
+九千十八
+九千 零十八
+```
+
+```c
+0 1 2 3 4 5 6 7 8 9
+```
+
+Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche à droite) la base du système de numération utilisé est essentielle pour décoder ces nombres. Cette base définit combien de symboles différents possibles peuvent être utilisés pour coder une position.
+
+!!! exercise "Symboles binaires"
+
+    Dans la notation binaire, composés de 1 et de 0, combien de symboles existent et combien de positions y-a-t-il dans le nombre `11001` ?
+
+    ??? solution
+
+        Le nombre `11001` est composé de 5 positions et de deux symboles possibles par position : `1` et `0`. La quantité d'information est donc e 5 bits.
+
+```c
+0 1 2 3 4 5 6 7 8 9
+```
+
+## Système décimal
+
+Le système décimal est le système de numération utilisant la base **dix** et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
+
+L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique `(1000+100+100+100+100+100+1+1+1+1+1+1)`. Il s'agit d'une numération additive.
+
+
+Notre système de représentation des nombres décimaux est le système de numération indo-arabe qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf :
+
+```c
+0 1 2 3 4 5 6 7 8 9
+```

@@ -28,7 +28,7 @@ Les ensembles de nombres sont :
     A chaque fois que s'éloigne du réel (et c'est une manière amusante de le dire), on perd des propriétés intéressantes. Les nombres complexes ne sont pas ordonnés, les quaternions ne sont pas commutatifs, les octonions ne sont pas associatifs, et les sédénions ne sont même pas alternatifs. Un nombre alternatif est un nombre pour lequel la formule suivante est vérifiée :
 
     $$
-    (a \cdot a) \cdot b = a \cdot (a \cdot b)$
+    (a \cdot a) \cdot b = a \cdot (a \cdot b)
     $$
 
     En pratique dans une carrière d'ingénieur, vous n'aurez jamais à manipuler ni des quaternions, ni octonions ou sédénions. Les nombres complexes sont néanmoins une extension des nombres réels qui sont utilisés en physique et en mathématiques.
@@ -362,33 +362,33 @@ Le type `float` aussi dit à précision simple utilise un espace de stockage de 
 La valeur de 1.0 est encodée :
 
 $$
-\begin{align*}
+\begin{aligned}
 0\:01111111\:00000000000000000000000_2 &= \text{3f80}\: \text{0000}_{16} \\
 &= (-1)^0 \cdot 2^{127-127} \cdot \frac{(2^{23} + 0)}{2^{23}} \\
 &= 2^{0} \cdot 1.0 = 1.0
-\end{align*}
+\end{aligned}
 $$
 
 La valeur maximale exprimable :
 
 $$
-\begin{align*}
+\begin{aligned}
 0\:11111110\:11111111111111111111111_2 &= \text{7f7f}\: \text{ffff}_{16} \\
 &= (-1)^0 \cdot 2^{254-127} \cdot \frac{(2^{23} + 838'607)}{2^{23}} \\
 &≈ 2^{127} \cdot 1.9999998807 \\
 &≈ 3.4028234664 \cdot 10^{38}
-\end{align*}
+\end{aligned}
 $$
 
 La valeur de $-\pi$ (pi) est :
 
 $$
-\begin{align*}
+\begin{aligned}
 1\:10000000\:10010010000111111011011_2 &= \text{4049}\: \text{0fdb}_{16} \\
 &= (-1)^1 \cdot 2^{128-127} \cdot \frac{(2^{23} + 4'788'187)}{2^{23}} \\
 &≈ -1 \cdot 2^{1} \cdot 1.5707963 \\
 &≈ -3.14159274101
-\end{align*}
+\end{aligned}
 $$
 
 Vient s'ajouter les valeurs particulières suivantes :

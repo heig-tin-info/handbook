@@ -1004,10 +1004,10 @@ Les [lois de De Morgan](https://fr.wikipedia.org/wiki/Lois_de_De_Morgan) sont de
 En logique classique, la négation d'une conjonction implique la disjonction des négations et la conjonction de négations implique la négation d'une disjonction. On peut donc écrire les relations suivantes :
 
 $$
-\begin{align*}
+\begin{aligned}
 & \overline{P \land Q} &\Rightarrow~& \overline{P} \lor \overline{Q} \\
 & \overline{P} \land \overline{Q} &\Rightarrow~& \overline{P \lor Q}
-\end{align*}
+\end{aligned}
 $$
 
 Ces opérations logiques sont très utiles en programmation où elles permettent de simplifier certains algorithmes.

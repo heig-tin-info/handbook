@@ -21,6 +21,7 @@
 \usepackage{booktabs}
 \usepackage[many,minted]{tcolorbox}% version 3.03 or better
 \usepackage{minted}
+\usepackage{capt-of}
 \usepackage[acronym]{glossaries}
 \usepackage{fvextra} % Pour une meilleure gestion des verbatim inline
 \usepackage{titlesec} % Pour la personnalisation des titres
@@ -60,7 +61,7 @@
   Scale=0.9,
 ]
 
-\graphicspath{{images/}}
+\graphicspath{{assets/}}
 
 % Redéfinir l'itemize pour utiliser des demi-cadratins (en-dash) comme puces
 \setlist[itemize,1]{label=--}
@@ -186,6 +187,16 @@
         colframe=calloutFailureFrame,
         title={\textcolor{calloutFailureFrame}{\faExclamationTriangle}\kern0.5em \textbf{Échec :}},
     },
+    callout important/.style={
+        colbacktitle=calloutDangerBg,
+        colframe=calloutDangerFrame,
+        title={\textcolor{calloutDangerFrame}{\faExclamationTriangle}\kern0.5em \textbf{Danger :}},
+    },
+    callout hint/.style={
+        colbacktitle=calloutTipBg,
+        colframe=calloutTipFrame,
+        title={\textcolor{calloutTipFrame}{\faLightbulb}\kern0.5em \textbf{Astuce :}},
+    },
     callout danger/.style={
         colbacktitle=calloutDangerBg,
         colframe=calloutDangerFrame,
@@ -215,6 +226,10 @@
         colbacktitle=calloutExerciseBg,
         colframe=calloutExerciseFrame,
         title={\textcolor{calloutExerciseFrame}{\faChess}\kern0.5em \textbf{Exercice :}},
+    },
+    callout solution/.style={
+        colbacktitle=gray!40!white,
+        title={\textcolor{black}{\faComment}\kern0.5em \textbf{Solution :}},
     },
     callout default/.style={
         colbacktitle=gray!40!white,
