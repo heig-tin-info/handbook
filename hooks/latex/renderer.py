@@ -291,7 +291,7 @@ class LaTeXRenderer:
                 self.render_inlines(el_filename)
                 filename = el_filename.get_text()
 
-            code = soup.find("code")
+            code = el.find("code")
 
             if not code:
                 raise ValueError("No code block found in codeblock")
