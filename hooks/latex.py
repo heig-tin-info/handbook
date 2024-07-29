@@ -50,7 +50,7 @@ def on_nav(nav, config, files):
         if section.title == book:
             break
 
-    level = 0
+    level = -1
     latex = []
 
     def get_nav(section: Section, level):
@@ -75,7 +75,7 @@ def on_env(env, config, files):
     project_dir = Path(config.config_file_path).parent / config['docs_dir']
 
     for file, level in files_to_process:
-        log.info(f'Processing LaTeX {file.src_path}...')
+        log.info(f'Processing LaTeX {file.src_path} (level {level})...')
         if file.src_path.endswith('.md'):
             path = latex_dir / file.src_path.replace('.md', '.tex')
             path.parent.mkdir(parents=True, exist_ok=True)
