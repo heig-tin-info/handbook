@@ -64,7 +64,7 @@ Table: Exemple de calcul du PGCD entre 42 et 30
 
 Un autre algorithme célèbre est l'algorithme de tri de [Bulles](https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles). Il s'agit d'un algorithme de tri simple qui consiste à comparer les éléments adjacents et à les permuter si nécessaire.
 
-Dans la vie de tous les jours, imaginez que vous ayez un jeu de 54 cartes à jouer mélangé et vous souhaitez trier le jeu par valeurs (as, 2, 3, ..., Valet, Dame, Roi). Vous commencez par déposer les cartes les unes à côté des autres et pour trier le jeu vous vous allez intervertir deux cartes jusqu'à ce que le jeu soit trié.
+Dans la vie de tous les jours, imaginez que vous ayez un jeu de 54 cartes à jouer mélangé et vous souhaitez trier le jeu par valeurs (As, 2, 3,...Valet, Dame, Roi). Vous commencez par déposer les cartes les unes à côté des autres et pour trier le jeu vous vous allez intervertir deux cartes jusqu'à ce que le jeu soit trié.
 
 Voici un diagramme de flux de l'algorithme de tri de bulles :
 

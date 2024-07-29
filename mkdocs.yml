@@ -104,7 +104,9 @@ plugins:
         - git-revision-date-localized:
             enable_creation_date: true
         - git-authors
-  - caption
+  - caption:
+      # figure:
+      #   enable: false
   - charts
   - autorefs
   #- toggle-sidebar  # Seems buggy

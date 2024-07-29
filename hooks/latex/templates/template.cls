@@ -10,7 +10,7 @@
 \usepackage{wasysym} % For fractions
 \usepackage{nicefrac}
 \usepackage{fancyhdr}
-\usepackage[normallem]{ulem}
+\usepackage[normalem]{ulem}
 \usepackage{lipsum}
 \usepackage{graphicx}
 \usepackage{unicode-math} % For using Unicode math symbols
@@ -26,6 +26,14 @@
 \usepackage{fvextra} % Pour une meilleure gestion des verbatim inline
 \usepackage{titlesec} % Pour la personnalisation des titres
 \usepackage{enumitem} % Pour personnaliser les listes
+\usepackage{etoolbox}
+
+
+\preto\paragraph{\checkspace}
+
+\newcommand{\checkspace}{%
+  \Needspace{0.2\textheight}
+}
 
 \definecolor{darkblue}{rgb}{0.0, 0.0, 0.5}
 \definecolor{linkcolor}{RGB}{219, 48, 122}
@@ -58,7 +66,7 @@
   Extension=.otf,
   UprightFont=*-Regular,
   BoldFont=*-Bold,
-  Scale=0.9,
+  Scale=0.8,
 ]
 
 \graphicspath{{assets/}}
@@ -149,91 +157,96 @@
 \definecolor{calloutExerciseBg}{HTML}{F5F5F5}
 \definecolor{calloutExerciseFrame}{HTML}{9E9E9E}
 
+\newcounter{exercisecounter}[chapter]
+\renewcommand{\theexercisecounter}{\thechapter.\arabic{exercisecounter}}
 
 % Définir les styles pour différents types de callout
 \tcbset{
     callout note/.style={
         colbacktitle=calloutNoteBg,
         colframe=calloutNoteFrame,
-        title={\textcolor{calloutNoteFrame}{\faBookmark}\kern0.5em \textbf{Note :}},
+        title={\textcolor{calloutNoteFrame}{\faBookmark}\kern0.5em},
     },
     callout abstract/.style={
         colbacktitle=calloutAbstractBg,
         colframe=calloutAbstractFrame,
-        title={\textcolor{calloutAbstractFrame}{\faLaptopCode}\kern0.5em \textbf{Résumé :}},
+        title={\textcolor{calloutAbstractFrame}{\faLaptopCode}\kern0.5em},
     },
     callout info/.style={
         colbacktitle=calloutInfoBg,
         colframe=calloutInfoFrame,
-        title={\textcolor{calloutInfoFrame}{\faBook}\kern0.5em \textbf{Information :}},
+        title={\textcolor{calloutInfoFrame}{\faBook}\kern0.5em},
     },
     callout tip/.style={
         colbacktitle=calloutTipBg,
         colframe=calloutTipFrame,
-        title={\textcolor{calloutTipFrame}{\faLightbulb}\kern0.5em \textbf{Astuce :}},
+        title={\textcolor{calloutTipFrame}{\faLightbulb}\kern0.5em},
     },
     callout success/.style={
         colbacktitle=calloutSuccessBg,
         colframe=calloutSuccessFrame,
-        title={\textcolor{calloutSuccessFrame}{\faCheck}\kern0.5em \textbf{Succès :}},
+        title={\textcolor{calloutSuccessFrame}{\faCheck}\kern0.5em},
     },
     callout warning/.style={
         colbacktitle=calloutWarningBg,
         colframe=calloutWarningFrame,
-        title={\textcolor{calloutWarningFrame}{\faExclamationTriangle}\kern0.5em \textbf{Avertissement :}},
+        title={\textcolor{calloutWarningFrame}{\faExclamationTriangle}\kern0.5em},
     },
     callout failure/.style={
         colbacktitle=calloutFailureBg,
         colframe=calloutFailureFrame,
-        title={\textcolor{calloutFailureFrame}{\faExclamationTriangle}\kern0.5em \textbf{Échec :}},
+        title={\textcolor{calloutFailureFrame}{\faExclamationTriangle}\kern0.5em},
     },
     callout important/.style={
         colbacktitle=calloutDangerBg,
         colframe=calloutDangerFrame,
-        title={\textcolor{calloutDangerFrame}{\faExclamationTriangle}\kern0.5em \textbf{Danger :}},
+        title={\textcolor{calloutDangerFrame}{\faExclamationTriangle}\kern0.5em },
     },
     callout hint/.style={
         colbacktitle=calloutTipBg,
         colframe=calloutTipFrame,
-        title={\textcolor{calloutTipFrame}{\faLightbulb}\kern0.5em \textbf{Astuce :}},
+        title={\textcolor{calloutTipFrame}{\faLightbulb}\kern0.5em},
     },
     callout danger/.style={
         colbacktitle=calloutDangerBg,
         colframe=calloutDangerFrame,
-        title={\textcolor{calloutDangerFrame}{\faExclamationTriangle}\kern0.5em \textbf{Danger :}},
+        title={\textcolor{calloutDangerFrame}{\faExclamationTriangle}\kern0.5em},
     },
     callout bug/.style={
         colbacktitle=calloutBugBg,
         colframe=calloutBugFrame,
-        title={\textcolor{calloutBugFrame}{\faBug}\kern0.5em \textbf{Bogue :}},
+        title={\textcolor{calloutBugFrame}{\faBug}\kern0.5em},
     },
     callout example/.style={
         colbacktitle=calloutExampleBg,
         colframe=calloutExampleFrame,
-        title={\textcolor{calloutExampleFrame}{\faChalkboardTeacher}\kern0.5em \textbf{Exemple :}},
+        title={\textcolor{calloutExampleFrame}{\faChalkboardTeacher}\kern0.5em },
     },
     callout quote/.style={
         colbacktitle=calloutQuoteBg,
         colframe=calloutQuoteFrame,
-        title={\textcolor{calloutQuoteFrame}{\faQuestionCircle}\kern0.5em \textbf{Citation :}},
+        title={\textcolor{calloutQuoteFrame}{\faQuestionCircle}\kern0.5em },
     },
     callout question/.style={
         colbacktitle=calloutQuestionBg,
         colframe=calloutQuestionFrame,
-        title={\textcolor{calloutQuestionFrame}{\faQuestionCircle}\kern0.5em \textbf{Question :}},
+        title={\textcolor{calloutQuestionFrame}{\faQuestionCircle}\kern0.5em },
     },
     callout exercise/.style={
         colbacktitle=calloutExerciseBg,
         colframe=calloutExerciseFrame,
-        title={\textcolor{calloutExerciseFrame}{\faChess}\kern0.5em \textbf{Exercice :}},
+        title={\textcolor{calloutExerciseFrame}{\faChess}
+            \refstepcounter{exercisecounter}
+            \textbf{Exercice \theexercisecounter:}
+        }
     },
     callout solution/.style={
         colbacktitle=gray!40!white,
-        title={\textcolor{black}{\faComment}\kern0.5em \textbf{Solution :}},
+        title={\textcolor{black}{\faComment}\kern0.5em},
     },
     callout default/.style={
         colbacktitle=gray!40!white,
-        title={\textcolor{black}{\faComment}\kern0.5em \textbf{Note :}},
+        title={\textcolor{black}{\faComment}\kern0.5em},
     }
 }
 
@@ -253,7 +266,9 @@
     after title={~#2}
 }
 
-\usemintedstyle{tango}
+\setminted{style=trac}
+\setmintedinline{style=trac} % ,bgcolor=gray!20
+
 \newtcblisting[auto counter,number within=section,
   list inside=mypyg]{code}[4][]{%
   listing only,
@@ -280,6 +295,19 @@
   list entry={\protect\numberline{\thetcbcounter}#3},
   #1
 }
+
+\NewTotalTCBox{\cde}{mv}{
+  on line,
+  boxsep=0pt,
+  left=1.5pt,
+  right=1.5pt,
+  top=1pt,
+  bottom=1pt,
+  colframe=gray!20,
+  colback=gray!20,
+  rounded corners,
+  boxrule=0pt,
+}{\mintinline{#1}{#2}}
 
 \newtcolorbox{goodbox}[1][]{
   colback=green!20,
@@ -335,6 +363,21 @@
 
 \begin{document}
 
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+
 \VAR{content}
+
+\backmatter
+
+\listoffigures
+
+\listoftables
+
+\printglossary[type=\acronymtype]
+
 
 \end{document}

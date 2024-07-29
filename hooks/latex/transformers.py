@@ -84,6 +84,16 @@ def image2pdf(filename, output_path=Path()):
 
     return pdfpath
 
+def get_docker_command(wdir: Path) -> list:
+    return [
+        'docker',
+        'run',
+        '-u', f'{os.getuid()}:{os.getgid()}',
+        '-e', 'HOME=/data/home',
+        '-w', '/data',
+        '-v', '/etc/passwd:/etc/passwd:ro',
+        '-v', f'{wdir.absolute()}:/data',
+    ]
 
 def mermaid2pdf(content: str, output_path: Path) -> Path:
     """Converts Mermaid content to PDF using the
@@ -104,12 +114,7 @@ def mermaid2pdf(content: str, output_path: Path) -> Path:
 
         input_path = Path(fp.name)
         output_path = input_path.with_suffix('.pdf')
-        command = [
-            'docker',
-            'run',
-            '--rm',
-            '-u', f'{os.getuid()}:{os.getgid()}',
-            '-v', f'{input_path.parent}:/data',
+        command = get_docker_command(input_path.parent) + [
             'minlag/mermaid-cli',
             '-i', f'{input_path.name}',
             '-f',
@@ -152,16 +157,18 @@ def drawio2pdf(filename: Path, output_path: Path) -> Path:
     if not up_to_date(filename, pdfpath):
         log.info('   Converting %s to PDF...', filename)
 
-        command = [
-            'drawio',
+        pwd = Path().absolute()
+
+        command = get_docker_command(pwd) + [
+            'rlespinasse/drawio-desktop-headless',
             '--export',
             '--format', 'pdf',
             '--crop',
             '--output', f'{output_path}',
-            f"{filename}"
-            ]
+            f"{filename.relative_to(pwd)}"
+        ]
 
-        log.info("Running %s", ''.join(str(e) for e in command))
+        log.info("Running %s", ' '.join(str(e) for e in command))
 
         # Recompile the svg file
         completed_process = subprocess.run(command,

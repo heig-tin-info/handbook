@@ -89,6 +89,7 @@ class LaTeXRenderer:
             self.render_math,
             self.render_math_block,
             self.render_regex,
+            self.render_unicode,
 
             self.render_navigable_string,
 
@@ -122,6 +123,8 @@ class LaTeXRenderer:
         self.acronyms = {}
         self.glossary = {}
         self.snippets = {}
+        self.solutions = []
+        self.exercise_counter = 0
 
         self.level = 0
 
@@ -215,6 +218,15 @@ class LaTeXRenderer:
             el.replace_with(text)
         return soup
 
+    def render_unicode(self, soup: Tag, **kwargs):
+        """Display a unicode char code."""
+        for a in soup.find_all('a', class_=['ycr-unicode']):
+            code = f"U+{self.get_safe_text(a)}"
+            self.apply(a, 'href',
+                       code,
+                       url=safe_quote(a.get('href', '')))
+        return soup
+
     def render_regex(self, soup: Tag, **kwargs):
         """Replace all regex elements with LaTeX formatted strings.
         This is not markdown standard, YCR uses the syntax `:regex:...`
@@ -224,8 +236,10 @@ class LaTeXRenderer:
             class="ycr-regex" target="_blank">/.../</a>
         """
         for a in soup.find_all('a', class_=['ycr-regex']):
+            code = self.get_safe_text(a)
+            code = code.replace('&', '\\&').replace('%', '\\%').replace('#', '\\#')
             self.apply(a, 'regex',
-                       regex=self.get_safe_text(a),
+                       code,
                        url=safe_quote(a.get('href', '')))
         return soup
 
@@ -316,7 +330,7 @@ class LaTeXRenderer:
         for el in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):
             self.render_inlines(el)
             title = self.get_safe_text(el)
-            level = int(el.name[1:]) + base_level
+            level = int(el.name[1:]) + base_level - 1
             ref = el.get('id', None)
             self.apply(el, 'heading', title, level=level, ref=ref)
         return soup
@@ -593,6 +607,12 @@ class LaTeXRenderer:
         }
         """
         for table in soup.find_all(['table']):
+            if caption_element := table.find('caption'):
+                caption = self.get_safe_text(caption_element)
+                caption_element.extract()
+            else:
+                caption = None
+
             table_data = []
             styles = []
             for row in table.find_all('tr'):
@@ -606,7 +626,7 @@ class LaTeXRenderer:
                 table_data.append(row_data)
                 styles.append(row_styles)
 
-            self.apply(table, 'table', columns=styles[0], rows=table_data)
+            self.apply(table, 'table', columns=styles[0], rows=table_data, caption=caption)
 
     def render_admonition(self, soup: Tag, **kwargs):
         # Admonitions with callout
@@ -624,6 +644,15 @@ class LaTeXRenderer:
             if title_node := admonition.find('p', class_='admonition-title'):
                 title = self.get_safe_text(title_node)
                 title_node.extract()
+
+
+            # Exercise solution
+            # if solution_el := admonition.find('div', class_=['details', 'solution']):
+            #     if solution_el.find('summary'):
+            #         solution_el.find('summary').extract()
+            #     solution = self.get_safe_text(solution_el)
+            #     self.solutions.append((title, solution))
+            #     admonition_type = 'solution'
 
             # Treat figures in admonitions differently
             # Tcolorbox does not support figure environments
@@ -675,9 +704,9 @@ class LaTeXRenderer:
                 href = escape_latex_chars(safe_quote(el.get('href')))
                 self.apply(el, 'href', text=text, url=href)
             elif href.startswith('#'):
-                self.apply(el, 'ref', text=text, ref=href[1:])
+                self.apply(el, 'label', href[1:])
             elif href == '' and el.get('id'):
-                self.apply(el, 'ref', text=text, ref=el.get('id'))
+                self.apply(el, 'label', el.get('id'))
             elif path := resolve_asset_path(kwargs.get('file_path', Path()), href):
                 digest = sha256(href.encode()).hexdigest()
                 self.snippets[digest] = path
@@ -746,5 +775,9 @@ class LaTeXRenderer:
 
         for render in self.renderering_order:
             render(soup, **kwargs)
+
+        # Unwrap remaining div
+        for div in soup.find_all(['div']):
+            div.unwrap()
 
         return unescape(str(soup).replace(' ', '~'))
