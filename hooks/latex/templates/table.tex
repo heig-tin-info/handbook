@@ -7,6 +7,9 @@
 \BLOCK{- if caption -}
 \begin{table}[H]
 \centering
+\BLOCK{if label -}
+\label{\VAR{label}}
+\BLOCK{- endif}
 \caption{\VAR{caption}}
 \BLOCK{else}
 \begin{center}

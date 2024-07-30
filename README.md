@@ -23,6 +23,13 @@ poetry run mike deploy --push --update-aliases 0.1 latest
 
 ## To-Do
 
+- [ ] LaTeX
+  - [ ] Fetch solution to exercises and display them later in document
+  - [ ] Number exercises with a counter
+  - [ ] Support unicode chars in LaTeX (Use lualatex?)
+  - [ ] Auto number tables?
+  - [ ] \leavevmode only if item is right before code block
+
 - [ ] Use additional inline macro values defined in the config.yml, such as the homepage url, the version...
 - [ ] Add tags anywhere (inline tags) to summary concepts
 - [ ] Build another nav with only the required sections for INFO1, INFO2.

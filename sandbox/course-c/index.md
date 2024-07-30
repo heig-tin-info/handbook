@@ -1,57 +1,21 @@
-# Bases
+# Bases {#my-heading}
+
+Figure: Les petits biscuits **caption** {#my-figure}
+
+![](https://dummyimage.com/600x200/000/fff)
+
+Table: table **caption** {#my-table}
+
+| heading 1 | heading 2 |
+| --------- | --------- |
+| content 1 | content 2 |
+| content 3 | content 4 |
 
 
-1. &#32;
-```c
-if (!(i < 8) && !(i > 8)) then
-    printf("i vaut 8\n");
-```
 
-1. &#32;
-```c
-if (!(i < 8) && !(i > 8))
-    printf("i vaut 8");
-    printf("\n");
-```
 
-1. &#32;
-```c
-if !(i < 8) && !(i > 8)
-    printf("i vaut 8\n");
-```
-1. &#32;
-```c
-if (!(i < 8) && !(i > 8))
-    printf("i vaut 8\n");
-```
+## Lorem ipsum
 
-1. &#32;
-```c
-if (i = 8) printf("i vaut 8\n");
-```
-
-1. &#32;
-```c
-if (i & (1 << 3)) printf("i vaut 8\n");
-```
-
-1. &#32;
-```c
-if (i ^ 8) printf("i vaut 8\n");
-```
-
-1. &#32;
-```c
-if (i - 8) printf("i vaut 8\n");
-```
-
-1. &#32;
-```c
-if (i == 1 << 3) printf ("i vaut 8\n");
-```
-
-1.  &#32;
-```c
-if (!((i < 8) || (i > 8)))
-    printf("i vaut 8\n");
-```
+- Figure reference: [Figure](#my-figure)
+- Table reference: [Table](#my-table)
+- Heading: [Heading][my-heading]

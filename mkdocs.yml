@@ -104,11 +104,17 @@ plugins:
         - git-revision-date-localized:
             enable_creation_date: true
         - git-authors
-  - caption:
-      # figure:
-      #   enable: false
-  - charts
   - autorefs
+  - caption:
+      figure:
+        reference_text: ''
+        caption_prefix: ''
+      table:
+        reference_text: ''
+        caption_prefix: ''
+      #   enable: false
+  #- charts
+
   #- toggle-sidebar  # Seems buggy
   - awesome-pages
 

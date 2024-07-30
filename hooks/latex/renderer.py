@@ -579,10 +579,15 @@ class LaTeXRenderer:
             self.render_inlines(caption)
             caption_text = self.get_safe_text(caption) \
                 if caption else image.get('alt', '')
+
+            label = None
+            if label_id := figure.get('id'):
+                label = f"{label_id}"
+
             template = 'figure_tcolorbox' if \
                 kwargs.get('tcolorbox', False) else 'figure'
             self.apply(figure, template,
-                       caption=caption_text, path=filename.name)
+                       caption=caption_text, path=filename.name, label=label)
         return soup
 
     def get_table_styles(self, cell):
@@ -608,10 +613,15 @@ class LaTeXRenderer:
         """
         for table in soup.find_all(['table']):
             if caption_element := table.find('caption'):
+                caption_element = self.render_inlines(caption_element, **kwargs)
                 caption = self.get_safe_text(caption_element)
                 caption_element.extract()
             else:
                 caption = None
+
+            label = None
+            if label_id := table.get('id'):
+                label = f"{label_id}"
 
             table_data = []
             styles = []
@@ -626,7 +636,7 @@ class LaTeXRenderer:
                 table_data.append(row_data)
                 styles.append(row_styles)
 
-            self.apply(table, 'table', columns=styles[0], rows=table_data, caption=caption)
+            self.apply(table, 'table', columns=styles[0], rows=table_data, caption=caption, label=label)
 
     def render_admonition(self, soup: Tag, **kwargs):
         # Admonitions with callout
@@ -694,6 +704,12 @@ class LaTeXRenderer:
                        title=title, type=admonition_type)
         return soup
 
+    def render_autoref(self, soup: Tag, **kwargs):
+        for el in soup.find_all('autoref', attrs={'identifier': True}):
+            tag = el.get('identifier')
+            text = self.get_safe_text(el)
+            self.apply(el, 'ref', text, ref=tag)
+
     def render_links(self, soup: Tag, **kwargs):
         for el in soup.find_all('a'):
             self.render_inlines(el)
@@ -704,7 +720,7 @@ class LaTeXRenderer:
                 href = escape_latex_chars(safe_quote(el.get('href')))
                 self.apply(el, 'href', text=text, url=href)
             elif href.startswith('#'):
-                self.apply(el, 'label', href[1:])
+                self.apply(el, 'ref', text, ref=href[1:])
             elif href == '' and el.get('id'):
                 self.apply(el, 'label', el.get('id'))
             elif path := resolve_asset_path(kwargs.get('file_path', Path()), href):
