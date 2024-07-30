@@ -6,3 +6,7 @@ serve:
 
 poetry.lock: pyproject.toml
 	poetry lock
+
+build:
+	poetry run mkdocs build
+	latexmk --shell-escape -pdf -lualatex -cd build/index.tex

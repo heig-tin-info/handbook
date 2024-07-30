@@ -54,7 +54,7 @@ La localisation d'un fichier au sein d'un système de fichier peut être soit **
 
 Le chemin `/usr/bin/.././bin/../../home/john/documents` est correct, mais il n'est pas [canonique](https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)), on dit qu'il n'est pas résolu. La forme canonique est `/home/john/documents`.
 
-Un chemin peut être relatif s'il ne commence **pas** par un `/`: `../bin`. Sous Windows du même acabit, mais la racine différemment selon le type de média `C:\`, `\\network`, ...
+Un chemin peut être relatif s'il ne commence **pas** par un `/`: `../bin`. Sous Windows du même acabit, mais la racine différemment selon le type de média `C:\`, `\\network`...
 
 Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier, donc le chemin peut être soit relatif, soit absolu.
 
@@ -62,8 +62,13 @@ Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rappo
 
 Sous Windows (PowerShell) ou un système **POSIX** (Bash/Sh/Zsh), la navigation dans une arborescence peut être effectuée en ligne de commande à l'aide des commandes (programmes) suivants :
 
-- `ls` est un raccourci du nom *list*, ce programme permet d'afficher sur la sortie standard le contenu d'un répertoire.
-- `cd` pour *change directory* permets de naviguer dans l'arborescence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.
+`ls`
+
+: est un raccourci du nom *list*, ce programme permet d'afficher sur la sortie standard le contenu d'un répertoire.
+
+`cd`
+
+: pour *change directory* permets de naviguer dans l'arborescence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.
 
 ## Format d'un fichier
 
@@ -219,6 +224,8 @@ La navigation dans un fichier n'est possible que si le fichier est *seekable*. G
 
 ### fseek
 
+La fonction `fseek` permet de déplacer le curseur dans un fichier ouvert. La signature de la fonction est la suivante :
+
 ```c
 int fseek(FILE *stream, long int offset, int whence)
 ```
@@ -236,6 +243,24 @@ Le manuel [man fseek](http://man7.org/linux/man-pages/man3/fseek.3.html) indique
 `SEEK_END`
 
 : Positionne le curseur à la fin du fichier.
+
+
+Si un fichier est seekable, il est possible de se déplacer dans le fichier. Par exemple, pour lire le dernier caractère d'un fichier :
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    FILE *fp = fopen("toto", "r");
+
+    if (fp == NULL) return -1;
+
+    fseek(fp, -1, SEEK_END);
+    char c = fgetc
+    printf("%c\n", c);
+}
+```
 
 ### ftell
 
@@ -257,69 +282,58 @@ L'appel `rewind()` est équivalent à `(void) fseek(stream, 0L, SEEK_SET)` et pe
 
 ## Lecture / Écriture
 
-La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues `printf` et `scanf` pour les flux standards (*stdout*, *stderr*), mais en utilisant les pendants fichiers :
+La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues `printf` et `scanf` pour les flux standards (*stdout*, *stderr*), mais en utilisant les variantes préfixées de `f` :
 
-`int fscanf(FILE *stream, const char *format, ...)`
+| Fonction | Description |
+| -------- | ----------- |
+| `#!c int fscanf(FILE *stream, const char *format, ...)` | Lecture formattée |
+| `#!c int fprintf(FILE *stream, const char *format, ...)` | Écriture formattée |
+| `#!c int fgetc(FILE *stream)` | Lecture d'un caractère |
+| `#!c int fputc(FILE *stream, char char)` | Écriture d'un caractère |
+| `#!c char *fgets(char * restrict s, int n, FILE * restrict stream)` | Lecture d'une ligne |
+| `#!c int fputs(const char * restrict s, FILE * restrict stream)` | Écriture d'une ligne |
 
-: Équivalent à `scanf` mais pour les fichiers
-
-`int fprintf(FILE *stream, const char *format, ...)`
-
-: Équivalent à `printf` mais pour les fichiers
-
-`int fgetc(FILE *stream)`
-
-: Équivalent à `getchar` (ISO/IEC 9899 §7.19.7.6-2)
-
-`int fputc(FILE *stream, char char)`
-
-: Équivalent à `putchar` (ISO/IEC 9899 §7.19.7.9-2)
-
-`char *fgets(char * restrict s, int n, FILE * restrict stream)`
-
-: Équivalent à `gets`
-
-`int fputs(const char * restrict s, FILE * restrict stream)`
-
-: Équivalent à `puts`
-
-Bref... Vous avez compris.
+L'utilisation avec `stdin` et `stdout` comme descripteur de fichier est possible, mais il est préférable dans ce cas d'utiliser les fonctions `scanf` et `printf` qui ont les mêmes fonctionnalités.
 
 Les nouvelles fonctions à connaître sont les suivantes :
 
-`size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)`
+```c
+size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
+```
 
-: Lecture arbitraire de `nmemb * size` bytes depuis le flux `stream` dans le buffer `ptr`:
+Elle permet une lecture arbitraire de `nmemb * size` bytes depuis le flux `stream` dans le buffer `ptr`:
 
-: ```c
-  int32_t buffer[12] = {0};
-  fread(buffer, 2, sizeof(int32_t), stdin);
-  printf("%x\n%x\n", buffer[0], buffer[1]);
-  ```
+```c
+int32_t buffer[12] = {0};
+fread(buffer, 2, sizeof(int32_t), stdin);
+printf("%x\n%x\n", buffer[0], buffer[1]);
+```
 
-: ```console
-  $ echo -e "0123abcdefgh" | ./a.out
-  33323130
-  64636261
-  ```
+Exemple d'utilisation :
+
+```console
+$ echo -e "0123abcdefgh" | ./a.out
+33323130
+64636261
+```
 
 On notera au passage la nature *little-endian* du système.
 
-`size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)`
+La seconde fonction est :
 
-: La fonction est similaire à `fread` mais pour écrire sur un flux.
+```c
+size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)
+```
+
+La fonction est similaire à `fread` mais pour écrire sur un flux des données brutes.
 
 ## Buffer de fichier
 
 Pour améliorer les performances, C99 prévoit (§7.19.3-3), un espace tampon pour les descripteurs de fichiers qui peuvent être :
 
-`unbuffered` (`_IONBF`)
-
-: Pas de buffer, les caractères lus ou écrits sont acheminés le plus vite possible de la source à la destination.
-
-`fully buffered` (`_IOFBF`)
-
-`line buffered` (`_IO_LBF`)
+1. `unbuffered` (`_IONBF`) : Pas de buffer, les caractères lus ou écrits sont acheminés le plus vite possible de la source à la destination.
+2. `fully buffered` (`_IOFBF`) : Le buffer est rempli à chaque lecture ou écriture, puis vidé.
+3. `line buffered` (`_IO_LBF`) : Le buffer est rempli à chaque retour à la ligne.
 
 Il faut comprendre qu'à chaque instant un programme souhaite écrire dans un fichier, il doit générer un appel système et donc interrompre le noyau. Un programme qui écrirait caractère par caractère sur la sortie standard agirait de la même manière qu'un employé des postes qui irait distribuer son courrier en ne prenant qu'une enveloppe à la fois, de la centrale de distribution au destinataire.
 
@@ -382,11 +396,13 @@ La fonction `fflush` force l'écriture malgré l'utilisation d'un buffer.
 
 Historiquement les descripteurs de fichiers sont appelés `FILE` alors qu'ils sont préférablement appelés `streams` en C++. Un fichier au même titre que `stdin`, `stdout` et `stderr` sont des flux de données. La norme POSIX, décrit que par défaut les flux :
 
-- `0`. `STDIN`,
-- `1`. `STDOUT`,
-- `2`. `STDERR`,
+| Flux   | Numéro | Description |
+| ------ | --- | ----------- |
+| `stdin`  | 0 | Flux d'entrée standard |
+| `stdout` | 1 | Flux de sortie standard |
+| `stderr` | 2 | Flux d'erreur standard |
 
-sont ouverts au début du programme. Le premier fichier ouvert par exemple avec `fopen` sera très probablement assigné à l'identifiant `3`.
+Ces trois descripteurs de fichiers sont ouverts au début du programme. Le premier fichier ouvert par exemple avec `fopen` sera très probablement assigné à l'identifiant `3`, le suivant à `4`, etc.
 
 Pour se convaincre de cela, on peut exécuter l'exemple suivant avec le programme `strace`:
 

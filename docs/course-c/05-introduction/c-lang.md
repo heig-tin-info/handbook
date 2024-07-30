@@ -72,6 +72,8 @@ Si ce cours se concentre sur le C, ce n'est pas le seul langage de programmation
 
 Voici une liste non exhaustive de langages de programmation et de leur année de création. Cette liste est intéressante pour comprendre l'évolution des langages de programmation et leur utilisation:
 
+Table: Langages de programmation et leur année de création
+
 | Langage de programmation     | Année | Utilisation               |
 | ---------------------------- | ----- | ------------------------- |
 | [Fortran](wiki:fortran-lang) | 1957  | Calcul scientifique       |
@@ -95,6 +97,8 @@ Voici une liste non exhaustive de langages de programmation et de leur année de
 L'index [TIOBE](https://www.tiobe.com/tiobe-index/) est un bon indicateur de la popularité des langages de programmation. Il est mis à jour chaque mois et permet de suivre l'évolution de la popularité des langages de programmation.
 
 En 2024, le top 10 des langages de programmation les plus populaires est le suivant :
+
+Table: Top 10 des langages de programmation en 2024
 
 | Top 10 | Langage de programmation |
 | ------ | ------------------------ |

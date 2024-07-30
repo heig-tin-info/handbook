@@ -93,8 +93,8 @@ def on_env(env, config, files):
             path.write_text(latex)
 
     # Build index page
-    index = renderer.formatter.template(content=book_nav,
-                                        acronyms=renderer.get_list_acronyms(),
-                                        solutions=renderer.get_list_solutions())
-
+    index = renderer.formatter.template(content=book_nav)
     (latex_dir / 'index.tex').write_text(index)
+
+    Path('build/acronyms.tex').write_text(renderer.get_list_acronyms())
+    Path('build/solutions.tex').write_text(renderer.get_list_solutions())

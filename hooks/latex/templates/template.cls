@@ -287,8 +287,8 @@
   breakable,
   listing only,
   enhanced,
-  colframe=gray!20,
-  colback=gray!20,
+  colframe=gray!20!white,
+  colback=gray!20!white,
   boxrule=0.5pt,
   arc=0.7mm,
   toptitle=0.25em,
@@ -368,14 +368,56 @@
   ;
 }
 
+% Table of contents depth
+\setcounter{tocdepth}{2}
+
+% Description item and text are displayed by default on the same line
+% this is not very readable. This command changes the style to display
+% the description text on the next line.
+% https://tex.stackexchange.com/a/430454/85416
+\setlist[description]{
+    style=nextline,
+    labelindent=0pt,
+    leftmargin=1cm,
+    itemindent=\dimexpr-5pt-\labelsep\relax
+}
+
+% Workaround for mintedinline in item
+% https://tex.stackexchange.com/a/723530/85416
+\NewDocumentCommand{\minteditem}{mv}{%
+  \item[\mintinline{#1}{#2}]%
+}
+
 \newtcbox{\hl}{on line, boxrule=0.5pt, colframe=black, colback=yellow!30, sharp corners, boxsep=0pt, left=2pt, right=2pt, top=2pt, bottom=2pt}
 
 \newcommand\correctchoice{\stackinset{c}{}{c}{}{$\times$}{$\bigcirc$}}
 \newcommand\choice{$\bigcirc$}
 
-\VAR{acronyms}
+\input{acronyms.tex}
 
 \begin{document}
+
+\begin{titlepage}
+  \begin{center}
+   {\huge\bfseries Le C pour l'ingénieur\\}
+   \vspace{1.5cm}
+   {\Large\bfseries Prof. Yves Chevallier}\\[5pt]
+   yves.chevallier@heig-vd.ch\\[14pt]
+   \vspace{2cm}
+  {Cours d'informatique pour} \\[5pt]
+  \emph{{La Haute École d'Ingénieurie et de Gestion du canton de Vaud}}\\[2cm]
+
+   \vfill
+
+  {Département des technologies industrielles (TIN)}\\[5pt]
+  {Route de Cheseaux, 1}\\[5pt]
+  {CH-1401 Yverdon-les-Bains,
+   Suisse}\\
+   \vfill
+  {\today}
+  \end{center}
+\end{titlepage}
+\clearpage
 
 \frontmatter
 
@@ -387,7 +429,7 @@
 
 \backmatter
 
-\VAR{solutions}
+\input{solutions.tex}
 
 \listoffigures
 

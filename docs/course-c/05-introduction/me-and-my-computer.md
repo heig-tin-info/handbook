@@ -4,9 +4,9 @@ Vous êtes devant votre ordinateur, vous avez en théorie un clavier devant vous
 
 Votre ordinateur démarre et vous verrez apparaître très probablement soit :
 
-- Une pomme croquée (Apple)
-- Une fenêtre à carreaux (Windows)
-- Un manchot Adélie (Linux)
+- une pomme croquée (Apple);
+- une fenêtre à carreaux (Windows);
+- un manchot Adélie (Linux).
 
 C'est votre système d'exploitation et peu importe lequel vous avez, la bonne nouvelle c'est que vous pourrez écrire vos premiers programmes avec n'importe lequel de ces systèmes d'exploitation.
 

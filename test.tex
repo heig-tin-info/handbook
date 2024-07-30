@@ -1,24 +1,19 @@
 \documentclass{article}
-\usepackage{fontspec}
-\usepackage[french,english]{babel}
-
-\directlua{luaotfload.add_fallback
-   ("fontfallback",
-    {
-      "NotoColorEmoji:mode=harf;",
-      "Symbola:mode=harf;",
-      "NotoNaskhArabic:mode=harf;",
-      "NotoSerifHebrew:mode=harf;",
-      "NotoSerifDevanagari:mode=harf;",
-      "NotoSerifTamil:mode=harf;",
-      "NotoSerifTibetan:mode=harf;"
-    }
-   )}
-
-\setmainfont{Latin Modern Roman}[
-  RawFeature={fallback=fontfallback}
-]
+\usepackage{enumitem}
 
 \begin{document}
-Hey �
+
+\setlist[description]{
+    style=nextline,
+    labelindent=0pt,
+    leftmargin=1cm,
+    itemindent=\dimexpr-5pt-\labelsep\relax
+}
+
+\begin{description}
+    \item[\textbf{Item 1}] Description de l'item 1 qui commence à la ligne et est indentée.
+    \item[\textbf{Item 2}] Description de l'item 2 qui commence à la ligne et est indentée.
+    \item[\textbf{Exemple}] Description d'un item avec un label plus long.
+\end{description}
+
 \end{document}

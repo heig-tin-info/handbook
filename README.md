@@ -10,7 +10,13 @@ La version web est disponible sur cette [page](https://heig-tin-info.github.io/h
 ## Développement
 
 ```bash
-pip install cairosvg
+sudo apt install -y fonts-symbolia fonts-noto
+sudo apt install -y pipx
+pipx install poetry
+sudo fc-cache -fv
+```
+
+```bash
 poetry install
 poetry run mkdocs serve
 ```
@@ -24,12 +30,16 @@ poetry run mike deploy --push --update-aliases 0.1 latest
 ## To-Do
 
 - [ ] LaTeX
+  - [ ] Image with width should be included with the correct size
+  - [ ] Implement local links to code, copy them in appencies
+  - [ ] Table des opérateurs, find a way
+  - [ ] Autres tables, largeur, ajuster au contenu ? tabularx ?
   - [ ] Replace weavydash with 〜 ?
-  - [ ] Fetch solution to exercises and display them later in document
-  - [ ] Number exercises with a counter
-  - [ ] Support unicode chars in LaTeX (Use lualatex?)
-  - [ ] Auto number tables?
-  - [ ] \leavevmode only if item is right before code block
+  - [x] Fetch solution to exercises and display them later in document
+  - [x] Number exercises with a counter
+  - [x] Support unicode chars in LaTeX (Use lualatex?)
+  - [x] Auto number tables?
+  - [x] \leavevmode only if item is right before code block
 
 - [ ] Use additional inline macro values defined in the config.yml, such as the homepage url, the version...
 - [ ] Add tags anywhere (inline tags) to summary concepts

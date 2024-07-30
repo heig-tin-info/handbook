@@ -342,6 +342,12 @@ class LaTeXRenderer:
         return soup
 
     def render_autoref(self, soup: Tag, **kwargs):
+
+        for el in soup.find_all('autoref', attrs={'identifier': True}):
+            tag = el.get('identifier')
+            text = self.get_safe_text(el)
+            self.apply(el, 'ref', text, ref=tag)
+
         for el in soup.find_all('span', attrs={'data-autorefs-identifier': True}):
             identifier = el.get('data-autorefs-identifier')
             self.render_inlines(el)
@@ -580,7 +586,7 @@ class LaTeXRenderer:
             for i, tab in enumerate(tabbed_content.find_all(['div'], class_='tabbed-block')):
                 heading = soup.new_tag(f'h{min(level + 1, 6)}')
                 heading.string = titles[i]
-                tab.insert_before(heading)
+                tab.insert_before(f"\n\\textbf{{{titles[i]}}}\\par\n")
                 tab.unwrap()
 
             tabbed_content.unwrap()
@@ -694,25 +700,21 @@ class LaTeXRenderer:
         solution_label = f"sol:{self.exercise_counter}"
         label = f"ex:{self.exercise_counter}"
 
+        solution = ''
         if solution_el := soup.find('details', class_=['solution']):
             if solution_el.find('summary'):
                 solution_el.find('summary').extract()
             solution_el = self.render_inlines(solution_el)
-            solution = self.get_safe_text(solution_el)
-            solution = f"\\label{{{solution_label}}}\n{solution}"
-
-            self.solutions.append((self.exercise_counter, title, label, solution))
+            solution += self.get_safe_text(solution_el)
             self.apply(solution_el, 'label', label)
-            title = f"\\hyperref[{solution_label}]{{{title}}}"
 
         # Add answer if found
         if answer:
-            solution = answer
-            solution = f"\\label{{{solution_label}}}\n{solution}"
+            solution += answer
 
+        if solution:
+            solution += f"\\label{{{solution_label}}}\n{solution}"
             self.solutions.append((self.exercise_counter, title, label, solution))
-            soup.append(NavigableString(f"\\label{{{solution_label}}}\n"))
-
             title = f"\\hyperref[{solution_label}]{{{title}}}"
 
         return soup, title
@@ -777,12 +779,6 @@ class LaTeXRenderer:
                        title=title, type=admonition_type)
         return soup
 
-    def render_autoref(self, soup: Tag, **kwargs):
-        for el in soup.find_all('autoref', attrs={'identifier': True}):
-            tag = el.get('identifier')
-            text = self.get_safe_text(el)
-            self.apply(el, 'ref', text, ref=tag)
-
     def render_links(self, soup: Tag, **kwargs):
         for el in soup.find_all('a'):
             self.render_inlines(el)
@@ -814,6 +810,7 @@ class LaTeXRenderer:
     def render_inlines(self, soup: Tag, **kwargs):
         """Replace all inline elements."""
 
+        self.render_autoref(soup)
         self.render_columns(soup)
         self.render_table(soup)
         self.render_abbreviation(soup)
@@ -824,7 +821,7 @@ class LaTeXRenderer:
 
     def render_paragraph(self, soup: Tag, **kwargs):
         for p in soup.find_all('p', class_=False):
-            self.render_inlines(p)
+            p = self.render_inlines(p)
             text = self.get_safe_text(p)
             p.replace_with(text + '\n')
 
@@ -858,6 +855,22 @@ class LaTeXRenderer:
     def get_list_solutions(self):
         return self.formatter.exercises_solutions(self.solutions)
 
+    def monkeypatch_item(self, latex: str):
+        """Verbatim material should not go in the argument to other commands.
+        In some cases mintinline works, but you cannot expect it always does.
+
+        Solution: reduce to a case where mintinline works inside arguments,
+        because the code has already been absorbed verbatim.
+        """
+        latex = re.sub(r'(\\item\[\\mintinline)(\{[^\}]+\}|.*?|)(\])', r'\\minteditem\2', latex)
+        return latex
+
+    def monkeypatch_caption(self, latex: str):
+        """Caption plugin defines labels for each figures, they are note
+        meant to be cross-documents and we don't really use them in LaTeX.
+        """
+        return re.sub(r'\\label\{_(?:figure|table)-\d+\}', '', latex)
+
     def render(self, html, output_path, file_path, base_level=0):
         soup = BeautifulSoup(html, 'html.parser')
 
@@ -874,4 +887,8 @@ class LaTeXRenderer:
         for div in soup.find_all(['div']):
             div.unwrap()
 
-        return unescape(str(soup).replace(' ', '~'))
+        latex = unescape(str(soup).replace(' ', '~'))
+
+        latex = self.monkeypatch_item(latex)
+        latex = self.monkeypatch_caption(latex)
+        return latex

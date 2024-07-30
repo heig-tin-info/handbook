@@ -241,56 +241,56 @@ else
 }
 ```
 
-!!! warning "Point virgule en trop"
+### Point virgule en trop
 
-    Il est courant de placer un point virgule derrière un `if`. Le point virgule correspondant à une instruction vide, c'est cette instruction qui sera exécutée si la condition du test est vraie.
+Il est courant de placer un point virgule derrière un `if`. Le point virgule correspondant à une instruction vide, c'est cette instruction qui sera exécutée si la condition du test est vraie.
 
-    ```c
-    if (z == 0);
-    printf("z est nul"); // ALWAYS executed
-    ```
+```c
+if (z == 0);
+printf("z est nul"); // ALWAYS executed
+```
 
-!!! warning "Affectation dans un test"
+### Affectation dans un test
 
-    Le test de la valeur d'une variable s'écrit avec l'opérateur d'égalité `==` et non l'opérateur d'affectation `=`. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.
+Le test de la valeur d'une variable s'écrit avec l'opérateur d'égalité `==` et non l'opérateur d'affectation `=`. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.
 
-    ```c
-    if (z = 0)               // set z to zero !!
-        printf("z est nul"); // NEVER executed
-    ```
+```c
+if (z = 0)               // set z to zero !!
+    printf("z est nul"); // NEVER executed
+```
 
-!!! warning "L'oubli des accolades"
+### L'oubli des accolades
 
-    Dans le cas ou vous souhaitez exécuter plusieurs instructions, vous devez impérativement déclarer un bloc d'instructions. Si vous omettez les accolades, seule la première instruction sera exécutée puisque la séquence se termine par un point virgule ou un bloc.
+Dans le cas ou vous souhaitez exécuter plusieurs instructions, vous devez impérativement déclarer un bloc d'instructions. Si vous omettez les accolades, seule la première instruction sera exécutée puisque la séquence se termine par un point virgule ou un bloc.
 
-    ```c
-    if (z == 0)
-        printf("z est nul");
-        is_valid = false;  // Ne fait par partie du bloc et s'exécute toujours
-    ```
+```c
+if (z == 0)
+    printf("z est nul");
+    is_valid = false;  // Ne fait par partie du bloc et s'exécute toujours
+```
 
-!!! example
+### Exemple
 
-    On peut utiliser des conditions multiples pour déterminer le comportement d'un programme. Par exemple, le programme suivant affiche un message différent en fonction de la valeur de `value` :
+On peut utiliser des conditions multiples pour déterminer le comportement d'un programme. Par exemple, le programme suivant affiche un message différent en fonction de la valeur de `value` :
 
-    ```c
-    if (value % 2)
-    {
-        printf("La valeur est impaire.");
-    }
-    else if (value > 500)
-    {
-        printf("La valeur est paire et supérieure à 500.");
-    }
-    else if (!(value % 5))
-    {
-        printf("La valeur est paire, inférieur à 500 et divisible par 5.");
-    }
-    else
-    {
-        printf("La valeur ne satisfait aucune condition établie.");
-    }
-    ```
+```c
+if (value % 2)
+{
+    printf("La valeur est impaire.");
+}
+else if (value > 500)
+{
+    printf("La valeur est paire et supérieure à 500.");
+}
+else if (!(value % 5))
+{
+    printf("La valeur est paire, inférieur à 500 et divisible par 5.");
+}
+else
+{
+    printf("La valeur ne satisfait aucune condition établie.");
+}
+```
 
 !!! exercise "Et si?"
 
@@ -442,11 +442,15 @@ Notons quelques observations :
 
 Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :
 
-- `#!c for`
-- `#!c while`
-- `#!c do` .. `#!c while`
+1. `#!c for`
+2. `#!c while`
+3. `#!c do` .. `#!c while`
+
+Elles peuvent être représentées par les diagrammes de flux suivants :
 
 ![Aperçu des trois structures de boucles]({assets}/images/for.drawio)
+
+On observe que quelque soit la structure de boucle, une condition de maintien est nécessaire. Cette condition est évaluée avant ou après l'exécution de la séquence. Si la condition est fausse, la séquence est interrompue et le programme continue son exécution.
 
 [](){#loop-while}
 

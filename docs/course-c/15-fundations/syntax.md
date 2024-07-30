@@ -63,22 +63,22 @@ La ponctuation utilise les 29 symboles graphiques suivants :
 ! # % ^ & * ( _ ) - + = ~ [ ] ' | \ ; : " { } , . < > / ?
 ```
 
-??? info "La machine à écrire"
+## La machine à écrire
 
-    ![Machine à écrire Hermès 3000 hébraïque]({assets}/images/hermes-3000.webp){width=50%}
+Peut-être avez-vous déjà été confronté à une machine à écrire mécanique. Elles disposent d'un levier sur la gauche du chariot qui a deux fonctionnalités. D'une part il permet de faire revenir le chariot au début de la ligne, mais également de faire avancer le papier d'une ligne. C'est ce levier qui a donné son nom au caractère de retour à la ligne `CR` pour *Carriage Return*. Quant au caractère de nouvelle ligne `LF` pour *Line Feed*, il est associé à la rotation du cylindre qui porte la feuille de papier.
 
-    Peut-être avez-vous déjà été confronté à une machine à écrire mécanique. Elles disposent d'un levier sur la gauche du chariot qui a deux fonctionnalités. D'une part il permet de faire revenir le chariot au début de la ligne, mais également de faire avancer le papier d'une ligne. C'est ce levier qui a donné son nom au caractère de retour à la ligne `CR` pour *Carriage Return*. Quant au caractère de nouvelle ligne `LF` pour *Line Feed*, il est associé à la rotation du cylindre qui porte la feuille de papier.
+![Machine à écrire Hermès 3000 hébraïque]({assets}/images/hermes-3000.webp){width=50%}
 
-    Historiquement il y a donc bien une distinction entre les deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens.
+Historiquement il y a donc bien une distinction entre les deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens.
 
-    Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de souligement (tiret bas, ou *underscore*) `_` pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère `-` pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin pour ajouter un accent circonflexe, il fallait utiliser la touche `^` pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.
+Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de souligement (tiret bas, ou *underscore*) `_` pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère `-` pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin pour ajouter un accent circonflexe, il fallait utiliser la touche `^` pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.
 
-    Ces subtilités de la machine à écrire ont été partiellement reprises dans le format [Unicode][unicode]. Aussi pour écrire un accent aigu, il y a aujourd'hui plusieurs façons de le faire.
+Ces subtilités de la machine à écrire ont été partiellement reprises dans le format [Unicode][unicode]. Aussi pour écrire un accent aigu, il y a aujourd'hui plusieurs façons de le faire.
 
-    1. Utiliser le caractère `e` U+0065 suivi du caractère `´` U+0301 aussi appelé *combining acute accent* pour obtenir `é`.
-    2. Utiliser le caractère `é` U+00E9 directement.
+1. Utiliser le caractère `e` U+0065 suivi du caractère `´` U+0301 aussi appelé *combining acute accent* pour obtenir `é`.
+2. Utiliser le caractère `é` U+00E9 directement.
 
-    Ces héritages historiques font qu'il est difficile aujourd'hui de traiter sans bogue les textes multilingues. Les cas particuliers sont nombreux et bien souvent, les informaticiens utilisent des bibliothèques logicielles pour gérer ces cas particuliers.
+Ces héritages historiques font qu'il est difficile aujourd'hui de traiter sans bogue les textes multilingues. Les cas particuliers sont nombreux et bien souvent, les informaticiens utilisent des bibliothèques logicielles pour gérer ces cas particuliers.
 
 Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la commission responsable de standardiser C a intégré au standard les **trigraphes** et plus tard les **digraphes** qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi `<:` est le digraphe de `[` et `??<` est le trigraphe de `{`. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables. Par ailleurs, le standard C et C++ songent à les retirer.
 
@@ -245,17 +245,15 @@ Une variable est définie par :
 - Sa **portée** (*scope*) qui est la portion de code ou le symbole est définie et accessible.
 - Sa **visibilité** (*visibility*) qui ne peut être que *public* en C.
 
-!!! example
+Pour mieux comprendre ce concept fondamental, imaginons la plage de Donnant à Belle-Île-en-Mer. Quelqu'un a écrit sur le sable, bien visible depuis la colline adjacente, le mot `COIN`. L'identificateur c'est `Donnant`, la valeur c'est `COIN`, le type permet de savoir comment interpréter la valeur. Cela peut s'agir d'une pièce de monnaie en anglais, du coin d'une table en français ou du lapin en neerlandais.
 
-    Pour mieux comprendre, imaginons la plage de Donnant à Belle-Île-en-Mer. Quelqu'un a écrit sur le sable, bien visible depuis la colline adjacente, le mot `COIN`. L'identificateur c'est `Donnant`, la valeur c'est `COIN`, le type permet de savoir comment interpréter la valeur. Cela peut s'agir d'une pièce de monnaie en anglais, du coin d'une table en français ou du lapin en neerlandais.
+L'**adresse** est l'emplacement exact de la plage où le mot a été écrit (47.32638670571° N, 3.2363350691522° W), la portée est la plage de Donnant et la visibilité est la colline adjacente.
 
-    L'**adresse** est l'emplacement exact de la plage où le mot a été écrit (47.32638670571° N, 3.2363350691522° W), la portée est la plage de Donnant et la visibilité est la colline adjacente.
+On voit que sans connaître le **type** de la variable, il est impossible de savoir comment interpréter sa **valeur**.
 
-    On voit que sans connaître le **type** de la variable, il est impossible de savoir comment interpréter sa **valeur**.
+![La plage de Donnant]({assets}/images/donnant.png)
 
-    ![La plage de Donnant]({assets}/images/donnant.png)
-
-    En pratique l'adresse sera plutôt de la forme `0x7fffbf7f1b4c`, la valeur serait plutôt `0100001101001111010010010100111000000000` et le type serait une chaîne de caractères `char[]`.
+En pratique l'adresse sera plutôt de la forme `0x7fffbf7f1b4c`, la valeur serait plutôt `0100001101001111010010010100111000000000` et le type serait une chaîne de caractères `char[]`.
 
 !!! info "Variables initialisées"
 

@@ -259,7 +259,7 @@ Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami 
 
 !!! exercise "Albatros"
 
-    Tentez de récupérer vous même le fichier :download:`albatros <{assets}/src/albatros.txt>` et d'afficher le même résultat que ci-dessus depuis un terminal de commande Linux.
+    Tentez de récupérer vous même le poème l'[Albatros]({assets}/src/albatros.txt) de Baudelaire et d'afficher le même résultat que ci-dessus depuis un terminal de commande Linux.
 
     ```bash
     $ wget https://.../albatros.txt

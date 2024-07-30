@@ -72,13 +72,11 @@ def fetch_image(url: str, output_path: Path) -> Path:
 
 
 def image2pdf(filename, output_path=Path()):
-    log.info("Converting webp to PDF...")
-
     pdfpath = get_filename_from_content(
         filename, output_path).with_suffix('.pdf')
 
     if not up_to_date(filename, pdfpath):
-        log.info('   Converting %s to PDF...', filename)
+        log.info('Converting %s to PDF...', filename)
         image = Image.open(filename)
         image.save(pdfpath, 'PDF')
 
@@ -105,7 +103,7 @@ def mermaid2pdf(content: str, output_path: Path) -> Path:
     if pdfpath.exists():
         return pdfpath
 
-    log.info('   Converting mermaid diagram to PDF...')
+    log.info('Converting mermaid diagram to PDF...')
 
     # Get temp file
     with tempfile.NamedTemporaryFile(delete=False, suffix='.mmd') as fp:
@@ -118,10 +116,11 @@ def mermaid2pdf(content: str, output_path: Path) -> Path:
             'minlag/mermaid-cli',
             '-i', f'{input_path.name}',
             '-f',
+            '-t', 'neutral',
             '-o', f'{output_path.name}'
         ]
 
-        log.info("Running %s", ' '.join(str(e) for e in command))
+        log.debug("Running %s", ' '.join(str(e) for e in command))
         completed_process = subprocess.run(
             command,
             check=False,
@@ -155,20 +154,19 @@ def drawio2pdf(filename: Path, output_path: Path) -> Path:
     intermediate = output_path / filename.with_suffix('.pdf').name
     # If destination path is older than source, recompile
     if not up_to_date(filename, pdfpath):
-        log.info('   Converting %s to PDF...', filename)
+        log.info('Converting %s to PDF...', filename)
 
         pwd = Path().absolute()
-
         command = get_docker_command(pwd) + [
             'rlespinasse/drawio-desktop-headless',
             '--export',
             '--format', 'pdf',
-            '--crop',
+            #'--crop',
             '--output', f'{output_path}',
             f"{filename.relative_to(pwd)}"
         ]
 
-        log.info("Running %s", ' '.join(str(e) for e in command))
+        log.debug("Running %s", ' '.join(str(e) for e in command))
 
         # Recompile the svg file
         completed_process = subprocess.run(command,

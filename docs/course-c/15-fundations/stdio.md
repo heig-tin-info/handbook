@@ -44,22 +44,20 @@ int main() {
 
     Attention à utiliser des apostrophes simples `'` pour les caractères. Si vous utilisez des guillemets doubles `"` vous obtiendrez une erreur de compilation.
 
-!!! note
+On sait que les caractères sont des entiers, donc on peut écrire `putchar(65)` pour écrire le caractère `A`. Donc le programme suivant écrit la même chose que le précédent :
 
-    On sait que les caractères sont des entiers, donc on peut écrire `putchar(65)` pour écrire le caractère `A`. Donc le programme suivant écrit la même chose que le précédent :
+```c
+#include <stdio.h>
 
-    ```c
-    #include <stdio.h>
-
-    int main() {
-        putchar(72);
-        putchar(101);
-        putchar(108);
-        putchar(108);
-        putchar(111);
-        putchar('\n');
-    }
-    ```
+int main() {
+    putchar(72);
+    putchar(101);
+    putchar(108);
+    putchar(108);
+    putchar(111);
+    putchar('\n');
+}
+```
 
 [](){#puts}
 
@@ -93,27 +91,25 @@ Etape  Opération  Resultat  Reste
 
 Comme on ne sait pas à priori combien de caractères on aura, et que ces caractères sont fournis depuis le chiffre le moins significatif, il faudra inverser la chaîne de caractères produite.
 
-??? example "Iota"
+Voici un exemple possible d'implémentation :
 
-    Voici un exemple possible d'implémentation :
+```c
+--8<-- "docs/assets/src/iota.c"
+```
 
-    ```c
-    --8<-- "docs/assets/src/iota.c"
-    ```
+Cette implémentation pourrait être utilisée de la façon suivante :
 
-    Cette implémentation pourrait être utilisée de la façon suivante :
+```c
+#include <stdlib.h>
 
-    ```c
-    #include <stdlib.h>
+int main(void)
+{
+    int num = 123;
+    char buffer[10];
 
-    int main(void)
-    {
-        int num = 123;
-        char buffer[10];
-
-        itoa(num, buffer);
-    }
-    ```
+    itoa(num, buffer);
+}
+```
 
 [](){#printf}
 
@@ -191,44 +187,43 @@ Table: Exemple de formatage avec printf
 
 On peut s'intéresser à comment `printf` fonctionne en interne. Le premier argument est une chaîne de caractère qui est le motif de formatage. Il peut contenir des caractères spéciaux *placeholder* qui seront interceptés par `printf` pour être remplacés par les arguments suivants après avoir été convertis.
 
-!!! example "Implémentation naïve de printf"
 
-    Pour bien comprendre, on peut imaginer une implémentation naïve de `printf` que nous appellerons `my_printf` et qui se basera sur une fonction de sortie non formatée `putchar`.
+Pour bien comprendre, on peut imaginer une implémentation naïve de `printf` que nous appellerons `my_printf` et qui se basera sur une fonction de sortie non formatée `putchar`.
 
-    Cette fonction ne sera capable que de traiter les marqueurs `%d` et `%c`, c'est suffisant pour comprendre le principe. Également, elle prendra toujours deux arguments, donc une valeur à afficher, ceci pour ne pas s'encombrer de la gestion de la liste variable d'arguments qui est un sujet avancé.
+Cette fonction ne sera capable que de traiter les marqueurs `%d` et `%c`, c'est suffisant pour comprendre le principe. Également, elle prendra toujours deux arguments, donc une valeur à afficher, ceci pour ne pas s'encombrer de la gestion de la liste variable d'arguments qui est un sujet avancé.
 
-    ```c
-    void my_printf(char format[], int a) {
-        // On parcourt la chaîne de caractères tant que l'on ne rencontre
-        // pas le caractère de fin de chaîne
-        for (int i = 0; format[i] != '\0'; i++) {
-            // Si on rencontre un caractère %, on regarde le caractère suivant
-            if (format[i] == '%') {
-                // Est-ce que ce caractère est spécial ?
-                switch (format[++i]) {
-                    case 'd': {
-                        char str[32] = {0};
-                        my_itoa(int a, str);
-                        for (int j = 0; str[j] != '\0'; j++) {
-                            putchar(str[j]);
-                        }
-                        break;
+```c
+void my_printf(char format[], int a) {
+    // On parcourt la chaîne de caractères tant que l'on ne rencontre
+    // pas le caractère de fin de chaîne
+    for (int i = 0; format[i] != '\0'; i++) {
+        // Si on rencontre un caractère %, on regarde le caractère suivant
+        if (format[i] == '%') {
+            // Est-ce que ce caractère est spécial ?
+            switch (format[++i]) {
+                case 'd': {
+                    char str[32] = {0};
+                    my_itoa(int a, str);
+                    for (int j = 0; str[j] != '\0'; j++) {
+                        putchar(str[j]);
                     }
-                    case 'c':
-                        // Affiche le caractère en ASCII
-                        putchar(a);
-                        break;
-                    default:
-                        // On affiche le caractère tel quel,
-                        // ce qui permet d'afficher le caractère %
-                        putchar(format[i]);
+                    break;
                 }
-            } else {
-                putchar(format[i]);
+                case 'c':
+                    // Affiche le caractère en ASCII
+                    putchar(a);
+                    break;
+                default:
+                    // On affiche le caractère tel quel,
+                    // ce qui permet d'afficher le caractère %
+                    putchar(format[i]);
             }
+        } else {
+            putchar(format[i]);
         }
     }
-    ```
+}
+```
 
 !!! exercise
 
@@ -468,26 +463,26 @@ Ensuite, `[^\n]`. Le marqueur `[`, terminé par `]` cherche à capturer une séq
     float x = 0;
     ```
 
-    1. `n = scanf("%1d%1d", &i, &j);`, `12\n`
-    2. `n = scanf("%d%d", &i, &j);`, `1 , 2\n`
-    3. `n = scanf("%d%d", &i, &j);`, `-1   -2\n`
-    4. `n = scanf("%d%d", &i, &j);`, `-  1  -  2\n`
-    5. `n = scanf("%d,%d", &i, &j);`, `1  ,  2\n`
-    6. `n = scanf("%d ,%d", &i, &j);`, `1  ,  2\n`
-    7. `n = scanf("%4d %2d", &i, &j);`, `1 234\n`
-    8. `n = scanf("%4d %2d", &i, &j);`, `1234567\n`
-    9. `n = scanf("%d%*d%d", &i, &j);`, `123 456 789\n`
-    10. `n = scanf("i=%d , j=%d", &i, &j);`, `1 , 2\n`
-    11. `n = scanf("i=%d , j=%d", &i, &j);`, `i=1, j=2\n`
-    12. `n = scanf("%d%d", &i, &j);`, `1.23 4.56\n`
-    13. `n = scanf("%d.%d", &i, &j);`, `1.23 4.56\n`
-    14. `n = scanf("%x%x", &i, &j);`, `12 2a\n`
-    15. `n = scanf("%x%x", &i, &j);`, `0x12 0X2a\n`
-    16. `n = scanf("%o%o", &i, &j);`, `12 018\n`
-    17. `n = scanf("%f", &x);`, `123\n`
-    18. `n = scanf("%f", &x);`, `1.23\n`
-    19. `n = scanf("%f", &x);`, `123E4\n`
-    20. `n = scanf("%e", &x);`, `12\n`
+    1. `#!c n = scanf("%1d%1d", &i, &j);`, `12\n`
+    2. `#!c n = scanf("%d%d", &i, &j);`, `1 , 2\n`
+    3. `#!c n = scanf("%d%d", &i, &j);`, `-1   -2\n`
+    4. `#!c n = scanf("%d%d", &i, &j);`, `-  1  -  2\n`
+    5. `#!c n = scanf("%d,%d", &i, &j);`, `1  ,  2\n`
+    6. `#!c n = scanf("%d ,%d", &i, &j);`, `1  ,  2\n`
+    7. `#!c n = scanf("%4d %2d", &i, &j);`, `1 234\n`
+    8. `#!c n = scanf("%4d %2d", &i, &j);`, `1234567\n`
+    9. `#!c n = scanf("%d%*d%d", &i, &j);`, `123 456 789\n`
+    10. `#!c n = scanf("i=%d , j=%d", &i, &j);`, `1 , 2\n`
+    11. `#!c n = scanf("i=%d , j=%d", &i, &j);`, `i=1, j=2\n`
+    12. `#!c n = scanf("%d%d", &i, &j);`, `1.23 4.56\n`
+    13. `#!c n = scanf("%d.%d", &i, &j);`, `1.23 4.56\n`
+    14. `#!c n = scanf("%x%x", &i, &j);`, `12 2a\n`
+    15. `#!c n = scanf("%x%x", &i, &j);`, `0x12 0X2a\n`
+    16. `#!c n = scanf("%o%o", &i, &j);`, `12 018\n`
+    17. `#!c n = scanf("%f", &x);`, `123\n`
+    18. `#!c n = scanf("%f", &x);`, `1.23\n`
+    19. `#!c n = scanf("%f", &x);`, `123E4\n`
+    20. `#!c n = scanf("%e", &x);`, `12\n`
 
     ??? solution
 
