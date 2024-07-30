@@ -241,7 +241,7 @@ La première solution est de toujours utiliser les types proposés par `<stdint.
 
 Table: Modèle de données
 
-| Modèle | `short` | `int` | `long` | `long long` | `size_t` | Système d'exploitation                                                                                                    |
+| Modèle | short | int | long | long long | size_t | Système d'exploitation                                                                                                    |
 | ---------------- | ------- | ----- | ------ | ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
 | **LP32**         | 16      | 16    | 32     |             | 32       | Windows 16-bits, Apple Macintosh                                                                             |
 | **ILP32**        | 16      | 32    | 32     | 64          | 32       | Windows x86, Linux/Unix 32-bits                                                                                           |
@@ -298,7 +298,7 @@ Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du 
 
 Cette tendance est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
 
-L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en introduction, [](){#thompson} est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination Unicode {unicode}`U+0939` et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
+L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en introduction, [](){#thompson} est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination Unicode U+0939 et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
 
 En programmation C, un caractère `char` ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.
 
@@ -328,9 +328,9 @@ int main(void) {
 
 Les emojis sont des caractères spéciaux qui ont été introduits en 2010 par le standard Unicode 6.0. Ils sont donc codés sur 4 octets et permettent de représenter des émotions, des objets, des animaux, des symboles, etc.
 
-Les émoticônes que vous pouvez envoyer à votre grand-mère sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère `U+2764` qui est le caractère `❤`. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.
+Les émoticônes que vous pouvez envoyer à votre grand-mère sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère U+2764 qui est le caractère `❤`. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.
 
-Ceci est vrai, mais encore faut-il que la police d'écriture utilisée par votre chère grand-maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère `�` qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.
+Ceci est vrai, mais encore faut-il que la police d'écriture utilisée par votre chère grand-maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère � qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.
 
 ## Chaîne de caractères
 
@@ -569,6 +569,8 @@ assez grand pour  contenir un `int`.
 
 Aussi, la plupart des types de taille inférieure à `int` sont automatiquement et implicitement promus en `int`. Le résultat de `a + b` lorsque `a` et `b` sont des `char` sera automatiquement un `int`.
 
+Table: Promotion numérique
+
 | Type source | Type cible |
 | ----------- | ---------- |
 | char        | int        |
@@ -799,17 +801,23 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
     Pour chaque exemple, donner la valeur des variables après exécution du code.
 
-    1. ```c
+    1. &#32;
+
+        ```c
         unsigned short i = 32767;
         i++;
         ```
 
-    2. ```c
+    1. &#32;
+
+        ```c
         short i = 32767;
         i++;
         ```
 
-    3. ```c
+    1. &#32;
+
+        ```c
         short i = 0;
         i = i--;
         i = --i;

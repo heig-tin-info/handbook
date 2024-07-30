@@ -15,7 +15,7 @@ j4b12
 
 Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche à droite) la base du système de numération utilisé est essentielle pour décoder ces nombres. Cette base définit combien de symboles différents possibles peuvent être utilisés pour coder une position.
 
-!!! exercise Symboles binaires
+!!! exercise "Symboles binaires"
 
     Dans la notation binaire, composés de 1 et de 0, combien de symboles existent et combien de positions y-a-t-il dans le nombre `11001` ?
 
@@ -27,7 +27,11 @@ Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche �
 
 Le système décimal est le système de numération utilisant la base **dix** et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
 
-L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique `(1000+100+100+100+100+100+1+1+1+1+1+1)`. Il s'agit d'une numération additive.
+L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique de :
+
+$$ 1000+100+100+100+100+100+1+1+1+1+1+1$$
+
+Il s'agit d'une numération additive.
 
 ![1506 en écriture hiéroglyphique](../../assets/images/hieroglyph.drawio){width="20%"}
 
@@ -225,9 +229,9 @@ $ hexdump -C albatros.txt
 
 Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadécimal, chaque caractère encodé sur 8 bits étant symbolisés par deux caractères hexadécimaux, et à droite le texte où chaque caractère non imprimable est remplacé par un point. On observe notamment ici que :
 
-- `é` de *équipage* est encodé avec `\xc3\xa9` ce qui est le caractère Unicode {unicode}`U+0065`
-- `é` de *ailé* est encodé avec `e\xcc\x81`, soit le caractère e suivi du diacritique `´` {unicode}`U+0301`
-- Une espace fine insécable `\xe2\x80\xaf` est utilisée avant les `!`, ce qui est le caractère Unicode {unicode}`U+202F`, conformément à la recommandation de l'Académie française.
+- `é` de *équipage* est encodé avec `\xc3\xa9` ce qui est le caractère Unicode U+0065
+- `é` de *ailé* est encodé avec `e\xcc\x81`, soit le caractère e suivi du diacritique `´` U+0301
+- Une espace fine insécable `\xe2\x80\xaf` est utilisée avant les `!`, ce qui est le caractère Unicode U+202F, conformément à la recommandation de l'Académie française.
 
 Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur, il concerne probablement les deux manières distinctes utilisées pour encoder le `é`.
 
@@ -245,7 +249,7 @@ Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami 
 
     ??? solution
 
-        ```c
+        ```text
         0xaaaa    ≡ 43690
         0b1100101 ≡   101
         0x1010    ≡  4112
@@ -354,6 +358,4 @@ n = 209
             1 \cdot 4^4 + 2 \cdot 4^3 + 0 \cdot 4^2 + 3 \cdot 4^1 + 0 \cdot 4^0 = 396_{10}
         $$
 
-        !!! hint
-
-            Depuis un terminal Python vous pouvez simplement utiliser `int("12030", 4)`
+        Notons que depuis un terminal Python vous pouvez simplement utiliser `int("12030", 4)`

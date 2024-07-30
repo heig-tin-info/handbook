@@ -28,7 +28,7 @@ Les ensembles de nombres sont :
     A chaque fois que s'éloigne du réel (et c'est une manière amusante de le dire), on perd des propriétés intéressantes. Les nombres complexes ne sont pas ordonnés, les quaternions ne sont pas commutatifs, les octonions ne sont pas associatifs, et les sédénions ne sont même pas alternatifs. Un nombre alternatif est un nombre pour lequel la formule suivante est vérifiée :
 
     $$
-    (a \cdot a) \cdot b = a \cdot (a \cdot b)$
+    (a \cdot a) \cdot b = a \cdot (a \cdot b)
     $$
 
     En pratique dans une carrière d'ingénieur, vous n'aurez jamais à manipuler ni des quaternions, ni octonions ou sédénions. Les nombres complexes sont néanmoins une extension des nombres réels qui sont utilisés en physique et en mathématiques.
@@ -37,7 +37,7 @@ Un nombre arbitraire n'est pas directement associé à une quantité d'informati
 
 Archimère disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (Donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : Donnez moi un nombre et je vous construirai l'univers ! Bien entendu la quantité d'information dans l'univers est colossale, elle croît avec l'entropie et donc avec le temps qui passe.
 
-!!! info Minecraft
+!!! info "Minecraft"
 
     Dans Minecraft, lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un monde aléatoire. Cette graine est un nombre fini qui sert de base à l'algorithme de génération de monde. Si vous utilisez la même graine, vous obtiendrez le même monde.
 
@@ -234,7 +234,7 @@ Les avantages :
 
 1. Les opérations sont triviales.
 2. Le problème du double zéro est résolu.
-3. On gagne une valeur négative `[-128..+127]` contre `[-127..+127] avec les méthodes précédemment étudiées`.
+3. On gagne une valeur négative `[-128..+127]` contre `[-127..+127]` avec les méthodes précédemment étudiées.
 
 Vous l'aurez compris, le complément à deux est le mécanisme le plus utilisé dans les ordinateurs modernes pour représenter les nombres entiers négatifs.
 
@@ -338,12 +338,14 @@ $f_k$
 
 Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante ([FPU](https://en.wikipedia.org/wiki/Floating-point_unit) pour *Floating point unit*) sont les suivants :
 
+Table: Formats de nombres en virgule flottante
+
 | IEEE-754   | Exposant | Mantisse | Signe |
 | ---------- | -------- | -------- | ----- |
 | `binary32` | 8 bits   | 23 bits  | 1 bit |
 | `binary64` | 11 bits  | 52 bits  | 1 bit |
 
-Prenons le temps de faire quelques observations.
+Prenons le temps de faire quelques observations :
 
 - Une valeur encodée en virgule flottante sera toujours une approximation d'une grandeur réelle.
 - La précision est d'autant plus grande que le nombre de bits de la mantisse est grand.
@@ -362,33 +364,33 @@ Le type `float` aussi dit à précision simple utilise un espace de stockage de 
 La valeur de 1.0 est encodée :
 
 $$
-\begin{align*}
+\begin{aligned}
 0\:01111111\:00000000000000000000000_2 &= \text{3f80}\: \text{0000}_{16} \\
 &= (-1)^0 \cdot 2^{127-127} \cdot \frac{(2^{23} + 0)}{2^{23}} \\
 &= 2^{0} \cdot 1.0 = 1.0
-\end{align*}
+\end{aligned}
 $$
 
 La valeur maximale exprimable :
 
 $$
-\begin{align*}
+\begin{aligned}
 0\:11111110\:11111111111111111111111_2 &= \text{7f7f}\: \text{ffff}_{16} \\
 &= (-1)^0 \cdot 2^{254-127} \cdot \frac{(2^{23} + 838'607)}{2^{23}} \\
 &≈ 2^{127} \cdot 1.9999998807 \\
 &≈ 3.4028234664 \cdot 10^{38}
-\end{align*}
+\end{aligned}
 $$
 
 La valeur de $-\pi$ (pi) est :
 
 $$
-\begin{align*}
+\begin{aligned}
 1\:10000000\:10010010000111111011011_2 &= \text{4049}\: \text{0fdb}_{16} \\
 &= (-1)^1 \cdot 2^{128-127} \cdot \frac{(2^{23} + 4'788'187)}{2^{23}} \\
 &≈ -1 \cdot 2^{1} \cdot 1.5707963 \\
 &≈ -3.14159274101
-\end{align*}
+\end{aligned}
 $$
 
 Vient s'ajouter les valeurs particulières suivantes :

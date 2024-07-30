@@ -436,7 +436,7 @@ Notons que l'écriture suivante est similaire, car un tableau multidimensionnel 
 char game[][3] = {'o', 'x', 'x', 'x', 'o', 'o', 'x', 'o', 'x'};
 ```
 
-!!! exercise Détectives privés
+!!! exercise "Détectives privés"
 
     Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :
 

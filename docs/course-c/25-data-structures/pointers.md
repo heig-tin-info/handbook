@@ -40,11 +40,11 @@ Entre-temps, le vicomte qui est paresseux s'est équipé d'un téléscripteur ca
 printf("%s", *gps_position);
 ```
 
-S'il avait oublié l'astérisque (`*`, {unicode}`U+002A`) dans cette dernière ligne, il n'aurait pas vu le message espéré, mais simplement `0123` qui correspond au contenu à l'adresse mémoire ou se trouve l'adresse du message (et non le message).
+S'il avait oublié l'astérisque (`*`, U+002A) dans cette dernière ligne, il n'aurait pas vu le message espéré, mais simplement `0123` qui correspond au contenu à l'adresse mémoire ou se trouve l'adresse du message (et non le message).
 
 L'astérisque agit donc comme un **déréférencement**, autrement dit, la demande expresse faite au dévoué facteur d'aller à l'adresse donnée récupérer le contenu du message.
 
-Oui, mais, on utilise un astérisque pour déréférencer, mais dans l'exemple précédant on a utilisé l'esperluette (`&`, {unicode}`U+0026`): `&castello_wall`, pourquoi ? L'esperluette quand elle préfixe une variable peut être traduite par **l'adresse de**. Cela revient à l'étape pendant laquelle la marquise a mesuré la position GPS du mur sur à Tarente.
+Oui, mais, on utilise un astérisque pour déréférencer, mais dans l'exemple précédant on a utilisé l'esperluette (`&`, U+0026): `&castello_wall`, pourquoi ? L'esperluette quand elle préfixe une variable peut être traduite par **l'adresse de**. Cela revient à l'étape pendant laquelle la marquise a mesuré la position GPS du mur sur à Tarente.
 
 Il manque encore une chose, il y a aussi une astérisque sur `(*gps_position)[]`. Cela vaudrait-il dire qu’on déréférence la position GPS pour affecter l'adresse du mur ? Non, pas du tout... Et c'est d'ailleurs à cette étape que les novices perdent le fil. Où en étais-je ?
 

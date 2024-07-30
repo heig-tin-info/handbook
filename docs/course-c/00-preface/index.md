@@ -29,22 +29,43 @@ Ce cours d'informatique à la HEIG-VD est donné par le département TIN dans le
 
 ## Organisation de l'ouvrage
 
+/// html | div[class="latex-ignore"]
+
 ### Raccourcis clavier
 
 Pour améliorer votre navigation sur ce site, voici quelques raccourcis clavier que vous pouvez utiliser:
 
-* ++f++ , ++s++ , ++slash++ : Ouvre la barre de recherche
-* ++p++ , ++comma++ : Va à la page précédente
-* ++n++ , ++period++ : Va à la page suivante
-* ++b++ : Afficher/cacher les tables des matières
-* ++m++ : Afficher/cacher le menu
-* ++h++ : Afficher/cacher la table des matières
+++f++, ++s++, ++slash++
+
+: Ouvre la barre de recherche
+
+++p++, ++comma++
+
+: Va à la page précédente
+
+++n++, ++period++
+
+: Va à la page suivante
+
+++b++
+
+: Afficher/cacher les tables des matières
+
+++m++
+
+: Afficher/cacher le menu
+
+++h++
+
+: Afficher/cacher la table des matières
+
+///
 
 ### Conventions d'écriture
 
 #### Symbole d'égalité
 
-Nous verrons que le signe d'égalité `=` peut aisément être confondu avec l'opérateur d'affectation (également) `=` utilisé en C. Dans certains exemples où l'on montre une égalité entre différentes écritures, le signe d'égalité triple U+2261 sera utilisé pour dissiper toute ambiguïté éventuelle:
+Nous verrons que le signe d'égalité `=` peut aisément être confondu avec l'opérateur d'affectation du langage C qui s'écrit de la même manière. Dans certains exemples où l'on montre une égalité entre différentes écritures, le signe d'égalité triple U+2261 sera utilisé pour dissiper toute ambiguïté éventuelle:
 
 ```
 'a' ≡ 0b1100001 ≡ 97 ≡ 0x61 ≡ 00141
@@ -108,16 +129,18 @@ Des encadrés sont utilisés pour mettre en avant des informations complémentai
 
     Limitations ou bugs possibles d'une méthode proposée.
 
-!!! exercise inline
+!!! exercise inline "Quelle icône ?"
 
-    Exercice de réflexion pour mettre en pratique les connaissances acquises.
-
+    Quelle icône est utilisée pour les exercices ?
 
 ///
 
 ## Anglicismes
 
-Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exercice difficile. Il est parfois moins lourd de parler de *hardware* que de *matériel informatique*. Certains termes n'ont pas de traduction en français. Par exemple, le terme *set* appliqué à un ensemble de données n'a pas de traduction crédible en français. Voici quelques termes qui seront utilisés dans cet ouvrage:
+Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exercice difficile. Il est parfois moins lourd de parler de *hardware* que de *matériel informatique*. Certains termes n'ont pas de traduction en français. Par exemple, le terme *set* appliqué à un ensemble de données n'a pas de traduction crédible en français. La table [][anglisismes] quelques termes qui seront utilisés dans cet ouvrage:
+
+Table: Anglicismes
+
 
 | Anglais | Français | Préférence |
 |---------|----------|------------|
@@ -129,6 +152,8 @@ Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exer
 | *stream* | flux de données | *stream* |
 | *listing* | extrait de code | *listing* |
 | *process* | processus | processus |
+
+[](){#anglisismes}
 
 Notons que *byte* et *octet* ne sont pas exactement synonymes. Un *byte* est un ensemble généralement admis de 8 bits mais dont la taille a pu varier selon les années, alors qu'un *octet* est un ensemble de 8 bits sans exception. En pratique, les deux termes sont souvent utilisés de manière interchangeable. En anglais il n'existe pas de mot pour *octet*.
 
@@ -149,5 +174,7 @@ Vous avez remarqué une erreur, une faute de frappe ou une information manquante
 Ce livre est écrit en [Markdown](wiki:markdown) et généré en HTML par [MkDocs](https://www.mkdocs.org/). Le thème utilisé est [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). Les sources sont disponibles sur [GitHub](wiki:github) et l'hébergement est assuré par [GitHub Pages](https://pages.github.com/).
 
 La plupart des illustrations sont réalisées avec [Draw.io](https://www.draw.io/), un outil de dessin vectoriel en ligne. Les schémas sont rendus dans le navigateur avec `GraphViewer`. Les diagrammes utilisent la technologie [Mermaid](https://mermaid-js.github.io/mermaid/#/). Les autres sources d'images sont issues en grande partie de [Wikimedia Commons](https://commons.wikimedia.org/) et [Wikipedia](https://www.wikipedia.org/).
+
+La génération de l'ouvrage en PDF est utilise son propre convertisseur vers LaTeX. Les extraits de code sources sont colorés avec [Pygments](https://pygments.org/) en utilisant le paquet [minted](https://ctan.org/pkg/minted).
 
 L'orthographe et la grammaire ont été revues avec [Antidote](https://www.antidote.info/).

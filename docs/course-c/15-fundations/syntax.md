@@ -12,37 +12,30 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 0 1 2 3 4 5 6 7 8 9
 ```
 
-??? note "Autres alphabets"
+Pour comparaison, le système d'écriture coréen (Hangul) est alphasyllabique, c'est-à-dire que chaque caractère représente une syllabe. Les lettres de base sont composées de 14 consonnes de base et 10 voyelles. Quant aux chiffres ils sont les mêmes qu'en occident.
 
-    Le système d'écriture coréen (Hangul) est alphasyllabique, c'est-à-dire que chaque caractère représente une syllabe. Les lettres de base sont composées de 14 consonnes de base et 10 voyelles. Quant aux chiffres ils sont les mêmes qu'en occident.
+```text
+ㄱ (g), ㄴ (n), ㄷ (d), ㄹ (r/l), ㅁ (m), ㅂ (b), ㅅ (s), ㅇ (ng), ㅈ (j), ㅊ (ch), ㅋ (k), ㅌ (t), ㅍ (p), ㅎ (h)
+ㅏ (a), ㅑ (ya), ㅓ (eo), ㅕ (yeo), ㅗ (o), ㅛ (yo), ㅜ (u), ㅠ (yu), ㅡ (eu), ㅣ (i)
+```
 
-    ```text
-    ㄱ (g), ㄴ (n), ㄷ (d), ㄹ (r/l), ㅁ (m), ㅂ (b), ㅅ (s), ㅇ (ng), ㅈ (j), ㅊ (ch), ㅋ (k), ㅌ (t), ㅍ (p), ㅎ (h)
+Les japonais quant à eux utilisent trois systèmes d'écriture, le Hiragana, le Katakana et le Kanji. Les deux premiers sont des syllabaires et le dernier est un système d'écriture logographique. Le Hiragana et Katakana ont tous deux 46 caractères de base. Voici l'exemple du Katakana:
 
-    ㅏ (a), ㅑ (ya), ㅓ (eo), ㅕ (yeo), ㅗ (o), ㅛ (yo), ㅜ (u), ㅠ (yu), ㅡ (eu), ㅣ (i)
-    ```
+```text
+あ (a),  い (i),   う (u),   え (e),  お (o)
+か (ka), き (ki),  く (ku),  け (ke), こ (ko)
+さ (sa), し (shi), す (su),  せ (se), そ (so)
+た (ta), ち (chi), つ (tsu), て (te), と (to)
+な (na), に (ni),  ぬ (nu),  ね (ne), の (no)
+は (ha), ひ (hi),  ふ (fu),  へ (he), ほ (ho)
+ま (ma), み (mi),  む (mu),  め (me), も (mo)
+や (ya), ゆ (yu),  よ (yo)
+ら (ra), り (ri),  る (ru),  れ (re), ろ (ro)
+わ (wa), を (wo)
+ん (n)
+```
 
-    Les japonais utilisent trois systèmes d'écriture, le Hiragana, le Katakana et le Kanji. Les deux premiers sont des syllabaires et le dernier est un système d'écriture logographique. Le Hiragana et Katakana ont tous deux 46 caractères de base. Voici l'exemple du Katakana:
-
-    ```text
-    あ (a), い (i), う (u), え (e), お (o)
-    か (ka), き (ki), く (ku), け (ke), こ (ko)
-    さ (sa), し (shi), す (su), せ (se), そ (so)
-    た (ta), ち (chi), つ (tsu), て (te), と (to)
-    な (na), に (ni), ぬ (nu), ね (ne), の (no)
-    は (ha), ひ (hi), ふ (fu), へ (he), ほ (ho)
-    ま (ma), み (mi), む (mu), め (me), も (mo)
-    や (ya), ゆ (yu), よ (yo)
-    ら (ra), り (ri), る (ru), れ (re), ろ (ro)
-    わ (wa), を (wo)
-    ん (n)
-    ```text
-
-    L'alphabet latin est tout particulièrement adapté à la programmation car, d'une part ce fut le premier alphabet à être utilisé pour l'écriture de programmes informatiques et d'autre part, il reste assez simple pour être utilisé par des machines.
-
-    On peut noter en outre que les pays qui utilisent leur propre alphabet doivent impérativement apprendre et maîtriser l'alphabet latin pour pouvoir programmer. Ceci implique qu'ils doivent également disposer d'un clavier latin pour pouvoir saisir leur code.
-
-    Nous avons donc de la chance au coeur de l'Europe de ne pas devoir jongler avec plusieurs alphabets pour écrire du code...
+On notera que l'alphabet latin est tout particulièrement adapté à la programmation car, d'une part ce fut le premier alphabet à être utilisé pour l'écriture de programmes informatiques et d'autre part, il reste assez simple pour être utilisé par des machines. On peut noter en outre que les pays qui utilisent leur propre alphabet doivent impérativement apprendre et maîtriser l'alphabet latin pour pouvoir programmer. Ceci implique qu'ils doivent également disposer d'un clavier latin pour pouvoir saisir leur code. Nous avons donc privilégiés nous francophones de ne pas devoir jongler avec plusieurs alphabets pour écrire du code...
 
 Outre ces caractères, la séparation des symboles est assurée par [une espace](<https://fr.wikipedia.org/wiki/Espace_(typographie)>), une tabulation horizontale, une tabulation verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le [pied-de-mouche](https://fr.wikipedia.org/wiki/Pied-de-mouche) `¶` U+00B6 pour indiquer les fins de paragraphes qui sont également des caractères non imprimables.
 

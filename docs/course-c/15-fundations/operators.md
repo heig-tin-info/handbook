@@ -624,7 +624,7 @@ Un opérateur d'affectation implique que la valeur à gauche de l'égalité soit
     - [ ] Oui car la destination est une *lvalue*
     - [x] Non car la destination est une *rvalue*
 
-    !!! solution
+    ??? solution
 
         L'opération `+` entre deux nombre retourne une *rvalue* et ne peut donc pas être affecté. L'expression est donc invalide.
 
@@ -847,7 +847,7 @@ assert(3 == (1, 2, 3))
 
 L'opérateur agit également comme un Point de séquence [](){#sequence_point}, c'est-à-dire que l'ordre des étapes est respecté.
 
-!!! exercise Opérateur séquentiel
+!!! exercise "Opérateur séquentiel"
 
     Que sera-t-il affiché à l'écran ?
 
@@ -1004,10 +1004,10 @@ Les [lois de De Morgan](https://fr.wikipedia.org/wiki/Lois_de_De_Morgan) sont de
 En logique classique, la négation d'une conjonction implique la disjonction des négations et la conjonction de négations implique la négation d'une disjonction. On peut donc écrire les relations suivantes :
 
 $$
-\begin{align*}
+\begin{aligned}
 & \overline{P \land Q} &\Rightarrow~& \overline{P} \lor \overline{Q} \\
 & \overline{P} \land \overline{Q} &\Rightarrow~& \overline{P \lor Q}
-\end{align*}
+\end{aligned}
 $$
 
 Ces opérations logiques sont très utiles en programmation où elles permettent de simplifier certains algorithmes.

@@ -70,7 +70,11 @@ Navigation hiérarchique (*go to definition*)
 
 Expressions régulières (*regular expressions*)
 
-: L'éditeur de code vous permet de rechercher ou remplacer des éléments en utilisant des expressions régulières. Par exemple si vous voulez inverser l'ordre des mots écrits `M. Yves Chevallier` par `M. Chevallier Yves`, vous pouvez utiliser l'expression régulière `/(M.|Mme.)\s+([^ ]+)\s+([^ ]+)/` et la remplacer par `$1 $3 $2`.
+:   L'éditeur de code vous permet de rechercher ou remplacer des éléments en utilisant des expressions régulières. Par exemple si vous voulez inverser l'ordre des mots écrits `M. Yves Chevallier` par `M. Chevallier Yves`, vous pouvez utiliser l'expression régulière:
+
+    ```text
+    /(M.|Mme.)\s+([^ ]+)\s+([^ ]+)/\1 \3 \2/
+    ```
 
 Multicurseurs (*multi-cursor*)
 
@@ -130,7 +134,7 @@ L'ensemble des outils nécessaire à créer un produit logiciel est appelé cha�
 ![Représentation graphique des notions de compilateur, IDE, toolchain...]({assets}/images/toolchain.drawio)
 
 
-!!! exercise Eclipse
+!!! exercise "Eclipse"
 
     Un ami vous parle d'un outil utilisé pour le développement logiciel nommé **Eclipse**. De quel type d'outil s'agit-il ?
 
@@ -138,12 +142,12 @@ L'ensemble des outils nécessaire à créer un produit logiciel est appelé cha�
 
         [Eclipse](https://www.eclipse.org/ide/) est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
 
-??? exercise
+!!! exercise "Stack Overflow"
 
     Combien y a-t-il eu de questions posées en C sur le site Stack Overflow?
 
     ??? solution
 
-        Il suffit pour cela de se rendre sur le site de `Stackoverflow <https://stackoverflow.com/tags/c>`__ et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
+        Il suffit pour cela de se rendre sur le site de [Stackoverflow](https://stackoverflow.com/tags/c) et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
 
         Seriez-vous capable de répondre à une question posée?

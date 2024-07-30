@@ -56,7 +56,7 @@ Le standard est lourd, difficile à lire et avec 552 pages pour C99, vous n'aure
 
 Armez-vous de mouchoirs, car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà ?
 
-Vous vous demandez probablement pourquoi l'industrie a-t-elle autant de retard sur le dernier standard. Lorsque Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglés par des validations strictes qui décrivent les standards utilisés. Migrer vers un standard plus récent est une aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée qu'on enverra sur Mars n'aura pas d'issue fatale. Ces validations sont longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèles à un ancien standard.
+Vous vous demandez probablement : "pourquoi l'industrie a-t-elle autant de retard sur le dernier standard?" Lorsque Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglés par des validations strictes qui décrivent les standards utilisés. Migrer vers un standard plus récent est une aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée qu'on enverra sur Mars n'aura pas d'issue fatale. Ces validations sont longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèles à un ancien standard.
 
 !!! exercise
 
@@ -388,7 +388,7 @@ a.out         Nom du fichier
     - [x] C17
     - [ ] C23
 
-    !!! solution
+    ??? solution
 
         Le standard industriel, malgré que nous soyons en 2024 est toujours
         **ISO/IEC 9899:2017**, car peu de changements majeurs ont été apportés
@@ -405,7 +405,7 @@ a.out         Nom du fichier
     - [x] Impératif
     - [ ] Déclaratif
 
-    !!! solution
+    ??? solution
 
         C supporte les paradigmes impératifs, structurés et procédural.
 
@@ -441,6 +441,6 @@ a.out         Nom du fichier
     - [ ] Un programme de copie de fichiers
     - [ ] Un programme de recherche de fichiers
 
-    !!! solution
+    ??? solution
 
         `cat` est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier `hello.c` est bel et bien celui attendu.

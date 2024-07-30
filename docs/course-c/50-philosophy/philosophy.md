@@ -6,7 +6,7 @@ La philosophie d'un bon développeur repose sur plusieurs principes de programma
 
 ![Illustration humoristique du rasoir d'Ockham]({assets}/images/razor.jpg)
 
-Le [rasoir d'Ockham](https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham) expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise [Shadok](https://en.wikipedia.org/wiki/Les_Shadoks)&nbsp;: *"Pourquoi faire simple quand on peut faire compliqué ?"*
+Le [rasoir d'Ockham](https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham) expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise [Shadok](https://en.wikipedia.org/wiki/Les_Shadoks) : "Pourquoi faire simple quand on peut faire compliqué ?"
 
 En philosophie un [rasoir](<https://fr.wikipedia.org/wiki/Rasoir_(philosophie)>) est un principe qui permet de *raser* des explications improbables d'un phénomène. Ce principe tient son nom de Guillaume d'Ockham (XIVe siècle) alors qu'il date probablement d'Empédocle (Ἐμπεδοκλῆς) vers 450 av. J.-C.
 
@@ -185,7 +185,7 @@ Le [Zen de Python](https://fr.wikipedia.org/wiki/Zen_de_Python) est un ensemble 
 
 Voici le texte original anglais :
 
-!!! cite "Zen of Python par Tim Peters"
+!!! quote "Zen of Python par Tim Peters"
 
     Beautiful is better than ugly.<br>
     Explicit is better than implicit.<br>

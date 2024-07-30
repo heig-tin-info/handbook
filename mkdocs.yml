@@ -12,6 +12,7 @@ copyright: Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier
 repo_name: heig-tin-info/handbook
 repo_url: https://github.com/heig-tin-info/handbook
 edit_uri: edit/master/docs/
+docs_dir: !ENV [DOCS, docs]
 
 theme:
   name: material
@@ -103,9 +104,17 @@ plugins:
         - git-revision-date-localized:
             enable_creation_date: true
         - git-authors
-  - caption
-  - charts
   - autorefs
+  - caption:
+      figure:
+        reference_text: ''
+        caption_prefix: ''
+      table:
+        reference_text: ''
+        caption_prefix: ''
+      #   enable: false
+  #- charts
+
   #- toggle-sidebar  # Seems buggy
   - awesome-pages
 
@@ -176,6 +185,7 @@ markdown_extensions:
   - pymdownx.blocks.html
   - pymdownx.magiclink
   - admonition
+  - footnotes
   - material.extensions.preview
   - pymdownx.arithmatex:
       generic: true

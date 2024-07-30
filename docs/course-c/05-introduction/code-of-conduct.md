@@ -8,17 +8,7 @@ On ne développe pas sur des acquis et des croyances figées, mais sur des princ
 
 Pour des projets personnels, vous développez dans votre coin, mais dans une entreprise, vous faites partie d'une équipe. Le code que vous écrivez doit survivre à votre départ, il doit être lisible, maintenable, testable, évolutif. Il doit être conforme aux standards de l'entreprise, aux conventions de codage, aux bonnes pratiques, aux règles de sécurité, aux normes de qualité. Il doit être documenté, commenté, versionné, archivé. Il doit pouvoir être partagé, diffusé, échangé. Pour cela il existe des méthodes de travail bien rodées que nous allons voir dans ce cours.
 
-Néanmoins, les valeurs humaines fondamentales d'un développement logiciel sont bien loin des considérations techniques et méthodologiques. Elles sont les mêmes que celles qui régissent la société humaine depuis des millénaires. Elles sont les mêmes que celles qui ont permis à l'humanité de survivre et de prospérer. On peut citer parmi ces valeurs :
-
-- L'ouverture d'esprit
-- L'humilité
-- La curiosité
-- La rigueur
-- La patience
-- La persévérance
-- L'écoute
-- L'entraide
-- Le partage
+Néanmoins, les valeurs humaines fondamentales d'un développement logiciel sont bien loin des considérations techniques et méthodologiques. Elles sont les mêmes que celles qui régissent la société humaine depuis des millénaires. Elles sont les mêmes que celles qui ont permis à l'humanité de survivre et de prospérer. On peut citer parmi ces valeurs : l'ouverture d'esprit, l'humilité, la curiosité, la rigueur, la patience, la persévérance, l'écoute, l'entraide et le partage.
 
 !!! info "Code d'Hammurabi"
 

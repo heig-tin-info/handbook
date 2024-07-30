@@ -154,7 +154,7 @@ used stack: 6144 kiB
 Segmentation fault (stack overflow)
 ```
 
-!!! attention "Attention"
+!!! warning
     Avant d'implémenter une fonction récursive, il est important de vérifier que la profondeur de la récursivité ne dépasse pas la taille du stack.
 
     Limitez l'utilisation du stack en utilisant soit des variables globales, soit des variables statiques, soit des allocations dynamiques.

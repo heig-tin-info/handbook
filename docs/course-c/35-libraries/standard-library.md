@@ -52,7 +52,7 @@ Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilis�
 
 : Accès au fonctions lecture et de conversion de date et d'heure.
 
-!!! exercise Arc-cosinus
+!!! exercise "Arc-cosinus"
 
     La fonction Arc-Cosinus `acos` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension `.h`.
 
