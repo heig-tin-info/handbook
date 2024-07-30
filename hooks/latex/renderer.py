@@ -269,7 +269,8 @@ class LaTeXRenderer:
                 code = self.get_safe_text(el)
             language = self.get_code_language(el)
 
-            code = code.replace('&', '\\&').replace('%', '\\%').replace('#', '\\#')
+            code = code.replace('&', '\\&').replace('%', '\\%')
+            #.replace('#', '\\#')
 
             self.apply(el, 'codeinline', code, language=language,
                        delimiter=find_safe_delimiter(code))
@@ -303,10 +304,10 @@ class LaTeXRenderer:
         """
         for el in soup.find_all('div', class_=['highlight']):
             language = self.get_code_language(el)
-            lineno = bool(soup.find(class_='linenos'))
+            lineno = bool(el.find(class_='linenos'))
 
             filename = None
-            if el_filename := soup.find(class_='filename'):
+            if el_filename := el.find(class_='filename'):
                 self.render_inlines(el_filename)
                 filename = el_filename.get_text()
 

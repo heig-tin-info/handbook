@@ -241,7 +241,7 @@ La première solution est de toujours utiliser les types proposés par `<stdint.
 
 Table: Modèle de données
 
-| Modèle | `short` | `int` | `long` | `long long` | `size_t` | Système d'exploitation                                                                                                    |
+| Modèle | short | int | long | long long | size_t | Système d'exploitation                                                                                                    |
 | ---------------- | ------- | ----- | ------ | ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
 | **LP32**         | 16      | 16    | 32     |             | 32       | Windows 16-bits, Apple Macintosh                                                                             |
 | **ILP32**        | 16      | 32    | 32     | 64          | 32       | Windows x86, Linux/Unix 32-bits                                                                                           |
@@ -330,7 +330,7 @@ Les emojis sont des caractères spéciaux qui ont été introduits en 2010 par l
 
 Les émoticônes que vous pouvez envoyer à votre grand-mère sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère U+2764 qui est le caractère `❤`. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.
 
-Ceci est vrai, mais encore faut-il que la police d'écriture utilisée par votre chère grand-maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère `�` qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.
+Ceci est vrai, mais encore faut-il que la police d'écriture utilisée par votre chère grand-maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère � qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.
 
 ## Chaîne de caractères
 
@@ -569,6 +569,8 @@ assez grand pour  contenir un `int`.
 
 Aussi, la plupart des types de taille inférieure à `int` sont automatiquement et implicitement promus en `int`. Le résultat de `a + b` lorsque `a` et `b` sont des `char` sera automatiquement un `int`.
 
+Table: Promotion numérique
+
 | Type source | Type cible |
 | ----------- | ---------- |
 | char        | int        |
@@ -799,17 +801,23 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
     Pour chaque exemple, donner la valeur des variables après exécution du code.
 
-    1. ```c
+    1. &#32;
+
+        ```c
         unsigned short i = 32767;
         i++;
         ```
 
-    2. ```c
+    1. &#32;
+
+        ```c
         short i = 32767;
         i++;
         ```
 
-    3. ```c
+    1. &#32;
+
+        ```c
         short i = 0;
         i = i--;
         i = --i;

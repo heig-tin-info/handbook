@@ -624,7 +624,7 @@ Un opérateur d'affectation implique que la valeur à gauche de l'égalité soit
     - [ ] Oui car la destination est une *lvalue*
     - [x] Non car la destination est une *rvalue*
 
-    !!! solution
+    ??? solution
 
         L'opération `+` entre deux nombre retourne une *rvalue* et ne peut donc pas être affecté. L'expression est donc invalide.
 

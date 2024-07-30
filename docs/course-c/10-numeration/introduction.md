@@ -52,6 +52,8 @@ En informatique, comme on utilise un système binaire en puissance de deux, rajo
 
 === "Préfixes standards"
 
+    Table: Préfixes standards
+
     | Préfixe | Symbole | $10^n$    |
     |---------|---------|-----------|
     | Kilo    | K       | $10^3$    |
@@ -64,6 +66,8 @@ En informatique, comme on utilise un système binaire en puissance de deux, rajo
     | Yotta   | Y       | $10^{24}$ |
 
 === "Préfixes binaires"
+
+    Table: Préfixes binaires
 
     | Préfixe | Symbole | $2^{10n}$ |
     |---------|---------|-----------|

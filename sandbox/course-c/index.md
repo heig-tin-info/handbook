@@ -2,39 +2,43 @@
 
 ## Exercices de révision
 
-Table: Modèle de données
+\begin{description}
+\item[\mintinline{text}|<storage-class>|]
+Classe de stockage, elle n'est pas utile à ce stade du cours, nous aborderons plus tard les mots clés \mintinline{text}|extern|, \mintinline{text}|static| et \mintinline{text}|inline|.
 
-| Modèle | `short` | `int` | `long` | `long long` | `size_t` | Système d'exploitation                                                                                                    |
-| ---------------- | ------- | ----- | ------ | ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **LP32**         | 16      | 16    | 32     |             | 32       | Windows 16-bits, Apple Macintosh                                                                             |
-| **ILP32**        | 16      | 32    | 32     | 64          | 32       | Windows x86, Linux/Unix 32-bits                                                                                           |
-| **LLP64**        | 16      | 32    | 32     | 64          | 64       | [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) x86-64, [MinGW](https://en.wikipedia.org/wiki/MinGW) |
-| **LP64**         | 16      | 32    | 64     | 64          | 64       | Unix, Linux, macOS, Cygwin                                                                                                |
-| **ILP64**        | 16      | 64    | 64     | 64          | 64       | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC)                                                         |
-| **SILP64**       | 64      | 64    | 64     | 64          | 64       | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur)                                                         |
 
-??? note "Autres alphabets"
+\item[\mintinline{text}|<return-type>|]
+Le type de retour de la fonction, s'agit-il d'un \mintinline{text}|int|, d'un \mintinline{text}|float| ? Le type de retour est anonyme, il n'a pas de nom et ce n'est pas nécessaire.
 
-    Le système d'écriture coréen (Hangul) est alphasyllabique, c'est-à-dire que chaque caractère représente une syllabe. Les lettres de base sont composées de 14 consonnes de base et 10 voyelles. Quant aux chiffres ils sont les mêmes qu'en occident.
 
-    ```text
-    ㄱ (g), ㄴ (n), ㄷ (d), ㄹ (r/l), ㅁ (m), ㅂ (b), ㅅ (s), ㅇ (ng), ㅈ (j), ㅊ (ch), ㅋ (k), ㅌ (t), ㅍ (p), ㅎ (h)
+\item[\mintinline{text}|<function-name>|]
+Il s'agit d'un identificateur (c.f. \ref{identifier}) qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom~: \mintinline{text}|compute_norm|, \mintinline{text}|make_coffee|, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que \mintinline{text}|main|, \mintinline{text}|display| ou \mintinline{text}|dot_product|.
 
-    ㅏ (a), ㅑ (ya), ㅓ (eo), ㅕ (yeo), ㅗ (o), ㅛ (yo), ㅜ (u), ㅠ (yu), ㅡ (eu), ㅣ (i)
-    ```
 
-    Les japonais utilisent trois systèmes d'écriture, le Hiragana, le Katakana et le Kanji. Les deux premiers sont des syllabaires et le dernier est un système d'écriture logographique. Le Hiragana et Katakana ont tous deux 46 caractères de base. Voici l'exemple du Katakana:
+\item[\mintinline{text}|<parameter-type> <parameter-name>|]
+La fonction peut prendre en paramètre zéro à plusieurs paramètres où chaque paramètre est défini par son type et son nom tel que~: \mintinline{text}|double real, double imag| pour une fonction qui prendrait en paramètre un nombre complexe.
 
-    ```text
-    あ (a), い (i), う (u), え (e), お (o)
-    か (ka), き (ki), く (ku), け (ke), こ (ko)
-    さ (sa), し (shi), す (su), せ (se), そ (so)
-    た (ta), ち (chi), つ (tsu), て (te), と (to)
-    な (na), に (ni), ぬ (nu), ね (ne), の (no)
-    は (ha), ひ (hi), ふ (fu), へ (he), ほ (ho)
-    ま (ma), み (mi), む (mu), め (me), も (mo)
-    や (ya), ゆ (yu), よ (yo)
-    ら (ra), り (ri), る (ru), れ (re), ろ (ro)
-    わ (wa), を (wo)
-    ん (n)
-    ```text
+
+\item[Prototype]
+On clos la déclaration avec un \mintinline{text}|;|
+
+
+\item[Implémentation]
+On poursuit avec l'implémentation du code \mintinline{text}|{ ... }|
+
+
+
+\end{description}
+Après la fermeture de la parenthèse de la liste des paramètres, deux possibilités~:
+
+\begin{description}
+\item[Prototype]
+On clos la déclaration avec un \mintinline{text}|;|
+
+
+\item[Implémentation]
+On poursuit avec l'implémentation du code \mintinline{text}|{ ... }|
+
+
+
+\end{description}

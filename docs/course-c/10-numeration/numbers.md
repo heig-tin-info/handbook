@@ -338,12 +338,14 @@ $f_k$
 
 Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante ([FPU](https://en.wikipedia.org/wiki/Floating-point_unit) pour *Floating point unit*) sont les suivants :
 
+Table: Formats de nombres en virgule flottante
+
 | IEEE-754   | Exposant | Mantisse | Signe |
 | ---------- | -------- | -------- | ----- |
 | `binary32` | 8 bits   | 23 bits  | 1 bit |
 | `binary64` | 11 bits  | 52 bits  | 1 bit |
 
-Prenons le temps de faire quelques observations.
+Prenons le temps de faire quelques observations :
 
 - Une valeur encodée en virgule flottante sera toujours une approximation d'une grandeur réelle.
 - La précision est d'autant plus grande que le nombre de bits de la mantisse est grand.

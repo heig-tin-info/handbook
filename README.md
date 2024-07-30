@@ -24,6 +24,7 @@ poetry run mike deploy --push --update-aliases 0.1 latest
 ## To-Do
 
 - [ ] LaTeX
+  - [ ] Replace weavydash with 〜 ?
   - [ ] Fetch solution to exercises and display them later in document
   - [ ] Number exercises with a counter
   - [ ] Support unicode chars in LaTeX (Use lualatex?)

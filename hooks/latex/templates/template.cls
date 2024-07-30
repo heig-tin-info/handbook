@@ -26,8 +26,11 @@
 \usepackage{titlesec} % Pour la personnalisation des titres
 \usepackage{enumitem} % Pour personnaliser les listes
 \usepackage{etoolbox}
-\usepackage[french,english,greek,bidi=basic]{babel}
+\usepackage[french]{babel}
 \usepackage{kotex}
+\usepackage{caption}
+
+\captionsetup[table]{skip=10pt}
 
 \directlua{luaotfload.add_fallback
    ("fontfallback",
@@ -54,14 +57,8 @@
   RawFeature={fallback=fontfallback}
 ]
 
-% \preto\paragraph{\checkspace}
-
-% \newcommand{\checkspace}{%
-%   \Needspace{0.2\textheight}
-% }
-
-\definecolor{darkblue}{rgb}{0.0, 0.0, 0.5}
-\definecolor{linkcolor}{RGB}{219, 48, 122}
+\definecolor{linkcolor}{RGB}{34, 18, 104}
+\definecolor{urlcolor}{RGB}{104, 18, 55}
 
 \usepackage[
   colorlinks=true,
@@ -70,7 +67,8 @@
   citecolor=black,
   plainpages=false,
   unicode=true,
-  urlcolor=linkcolor]{hyperref}
+  urlcolor=urlcolor]{hyperref}
+
 \usepackage[
   a4paper,
   top=2.5cm,
@@ -282,21 +280,21 @@
 }
 
 \setminted{style=trac}
-\setmintedinline{style=trac} % ,bgcolor=gray!20
+\setmintedinline{style=trac} %,bgcolor=gray!20}
 
 \newtcblisting[auto counter,number within=section,
   list inside=mypyg]{code}[4][]{%
   breakable,
   listing only,
   enhanced,
-  colframe=gray!40,
-  colback=white,
+  colframe=gray!20,
+  colback=gray!20,
   boxrule=0.5pt,
-  arc=0.5mm,
+  arc=0.7mm,
   toptitle=0.25em,
   bottomtitle=0.1em,
   lefttitle=0.5em,
-  outer arc=0.5mm,
+  outer arc=0.7mm,
   minted language=#2,
   minted options={%
     tabsize=4,

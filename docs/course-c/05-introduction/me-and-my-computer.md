@@ -70,7 +70,11 @@ Navigation hiérarchique (*go to definition*)
 
 Expressions régulières (*regular expressions*)
 
-: L'éditeur de code vous permet de rechercher ou remplacer des éléments en utilisant des expressions régulières. Par exemple si vous voulez inverser l'ordre des mots écrits `M. Yves Chevallier` par `M. Chevallier Yves`, vous pouvez utiliser l'expression régulière `/(M.|Mme.)\s+([^ ]+)\s+([^ ]+)/` et la remplacer par `$1 $3 $2`.
+:   L'éditeur de code vous permet de rechercher ou remplacer des éléments en utilisant des expressions régulières. Par exemple si vous voulez inverser l'ordre des mots écrits `M. Yves Chevallier` par `M. Chevallier Yves`, vous pouvez utiliser l'expression régulière:
+
+    ```text
+    /(M.|Mme.)\s+([^ ]+)\s+([^ ]+)/\1 \3 \2/
+    ```
 
 Multicurseurs (*multi-cursor*)
 
@@ -138,7 +142,7 @@ L'ensemble des outils nécessaire à créer un produit logiciel est appelé cha�
 
         [Eclipse](https://www.eclipse.org/ide/) est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
 
-??? exercise
+!!! exercise "Stack Overflow"
 
     Combien y a-t-il eu de questions posées en C sur le site Stack Overflow?
 

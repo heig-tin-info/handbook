@@ -388,7 +388,7 @@ a.out         Nom du fichier
     - [x] C17
     - [ ] C23
 
-    !!! solution
+    ??? solution
 
         Le standard industriel, malgré que nous soyons en 2024 est toujours
         **ISO/IEC 9899:2017**, car peu de changements majeurs ont été apportés
@@ -405,7 +405,7 @@ a.out         Nom du fichier
     - [x] Impératif
     - [ ] Déclaratif
 
-    !!! solution
+    ??? solution
 
         C supporte les paradigmes impératifs, structurés et procédural.
 
@@ -441,6 +441,6 @@ a.out         Nom du fichier
     - [ ] Un programme de copie de fichiers
     - [ ] Un programme de recherche de fichiers
 
-    !!! solution
+    ??? solution
 
         `cat` est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier `hello.c` est bel et bien celui attendu.
