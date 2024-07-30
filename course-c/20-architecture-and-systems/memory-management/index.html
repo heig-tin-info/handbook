@@ -4231,11 +4231,11 @@
 </dd>
 </dl>
 <p>L'allocation se fait sur le <code>tas</code> (<em>heap</em>) qui est de taille variable. À chaque fois qu'un espace mémoire est demandé, <code>malloc</code> recherche dans le segment un espace vide de taille suffisante, s'il ne parvient pas, il exécute l'appel système <a href="https://en.wikipedia.org/wiki/Sbrk">sbrk</a> qui permet de déplacer la frontière du segment mémoire et donc d'agrandir le segment.</p>
-<p><figure id="_figure-1"><img alt="Allocation et libération mémoire" class="drawio-diagram" src="../../../assets/images/malloc.drawio"/><figcaption>Figure 1&thinsp;: Allocation et libération mémoire</figcaption></figure></p>
+<p><figure id="_figure-1"><img alt="Allocation et libération mémoire" class="drawio-diagram" src="../../../assets/images/malloc.drawio"/><figcaption> Allocation et libération mémoire</figcaption></figure></p>
 <h2 id="memoire-de-programme">Mémoire de programme<a class="headerlink" href="#memoire-de-programme" title="Permanent link">¶</a></h2>
 <p>Les segments mémoires sont une construction de la bibliothèque standard, selon la bibliothèque utilisée et à fortiori le système d'exploitation utilisé, l'agencement mémoire peut varier.</p>
 <p>Néanmoins une bonne représentation est la suivante&thinsp;:</p>
-<p><figure id="_figure-2"><img alt="Organisation de mémoire d'un programme" class="drawio-diagram" src="../../../assets/images/program-memory.drawio"/><figcaption>Figure 2&thinsp;: Organisation de mémoire d'un programme</figcaption></figure></p>
+<p><figure id="_figure-2"><img alt="Organisation de mémoire d'un programme" class="drawio-diagram" src="../../../assets/images/program-memory.drawio"/><figcaption> Organisation de mémoire d'un programme</figcaption></figure></p>
 <p>On observe que le tas et la pile vont à leur rencontre, et que lorsqu'ils se percutent c'est le crash avec l'erreur bien connue <a href="https://fr.wikipedia.org/wiki/D%C3%A9passement_de_pile">stack overflow</a>.</p>
 <h2 id="la-pile">La pile<a class="headerlink" href="#la-pile" title="Permanent link">¶</a></h2>
 <p>Lorsqu'un programme s'exécute, l'ordre dont les fonctions s'exécutent n'est pas connu à priori. L'ordre d'exécution des fonctions dans l'exemple suivant est inconnu par le programme et donc les éventuelles variables locales utilisées par ces fonctions doivent dynamiquement être allouées.</p>
@@ -4390,14 +4390,14 @@ de spécifier la taille de la pile&thinsp;; c'est une de ses nombreuses options.
 <h2 id="fragmentation-memoire">Fragmentation mémoire<a class="headerlink" href="#fragmentation-memoire" title="Permanent link">¶</a></h2>
 <p>On peut observer à la figure {numref}<code>fig-allocation</code> qu'après un appel successif de <code>malloc</code> et de <code>free</code> des espaces mémoire non utilisés peuvent apparaître entre des régions utilisées. Ces <em>trous</em> sont appelés fragmentation mémoire.</p>
 <p>Dans la figure suivante, on suit l'évolution de l'utilisation du <em>heap</em> au cours de la vie d'un programme. Au début ➀, la mémoire est libre. Tant que de la mémoire est allouée sans libération (<code>free</code>), aucun problème de fragmentation ➁. Néanmoins, après un certain temps la mémoire devient fragmentée ➂&thinsp;; il reste dans cet exemple 2 emplacements de taille 2, un emplacement de taille 5 et un emplacement de taille 8. Il est donc impossible de réserver un espace de taille 9 malgré que l'espace cumulé libre est suffisant.</p>
-<p><figure id="_figure-3"><img alt="Fragmentation mémoire" class="drawio-diagram" src="../../../assets/images/fragmentation.drawio"/><figcaption>Figure 3&thinsp;: Fragmentation mémoire</figcaption></figure></p>
+<p><figure id="_figure-3"><img alt="Fragmentation mémoire" class="drawio-diagram" src="../../../assets/images/fragmentation.drawio"/><figcaption> Fragmentation mémoire</figcaption></figure></p>
 <p>Dans une petite architecture, l'allocation et la libération fréquente d'espaces mémoire de taille arbitraire sont malvenues. Une fois que la fragmentation mémoire est installée, il n'existe aucun moyen de soigner le mal si ce n'est au travers de l'ultime solution de l'informatique&thinsp;: <a href="https://www.youtube.com/watch?v=nn2FB1P_Mn8">éteindre puis redémarrer</a>.</p>
 <h3 id="mmu">MMU<a class="headerlink" href="#mmu" title="Permanent link">¶</a></h3>
 <p>Les systèmes d'exploitation modernes (Windows, Linux, macOS...) utilisent tous un dispositif matériel nommé <a href="https://en.wikipedia.org/wiki/Memory_management_unit">MMU</a> pour <em>Memory Management Unit</em>. La MMU est responsable de créer un espace mémoire <strong>virtuel</strong> entre l'espace physique. Cela crée une indirection supplémentaire, mais permet de réorganiser la mémoire physique sans compromettre le système.</p>
 <p>En pratique l'espace de mémoire virtuelle est toujours beaucoup plus grand que l'espace physique. Cela permet de s'affranchir dans une large mesure de problèmes de fragmentation, car si l'espace virtuel est suffisamment grand, il y aura statistiquement plus de chance d'y trouver un emplacement non utilisé.</p>
 <p>La programmation sur de petites architectures matérielles (microcontrôleurs, DSP) ne possède pas de MMU et dès lors l'allocation dynamique est généralement à proscrire à moins qu'elle soit faite en connaissance de cause et en utilisant des mécanismes comme les <em>memory pool</em>.</p>
 <p>Dans la figure ci-dessous. La mémoire physique est représentée à droite en termes de pages mémoires physiques (<em>Physical Pages</em> ou <strong>PP</strong>). Il s'agit de blocs mémoires contigus d'une taille fixe, par exemple 64 kb. Chaque page physique est mappée dans une table propre à chaque processus (programme exécutable). On y retrouve quelques propriétés utiles à savoir, est-ce que la page mémoire est accessible en écriture, est-ce qu'elle peut contenir du code exécutable&thinsp;? Une propriété peut indiquer par exemple si la page mémoire est valide. Chacune de ces entrées est considérée comme une page mémoire virtuelle (<em>virtual page</em> <strong>VP</strong>).</p>
-<p><figure id="_figure-4"><img alt="Mémoire virtuelle" class="drawio-diagram" src="../../../assets/images/mmu.drawio"/><figcaption>Figure 4&thinsp;: Mémoire virtuelle</figcaption></figure></p>
+<p><figure id="_figure-4"><img alt="Mémoire virtuelle" class="drawio-diagram" src="../../../assets/images/mmu.drawio"/><figcaption> Mémoire virtuelle</figcaption></figure></p>
 <h4 id="erreurs-de-segmentation-segmentation-fault">Erreurs de segmentation (<em>segmentation fault</em>)<a class="headerlink" href="#erreurs-de-segmentation-segmentation-fault" title="Permanent link">¶</a></h4>
 <p>Lorsqu'un programme tente d'accéder à un espace mémoire qui n'est pas mappé dans la MMU, ou que cet espace mémoire ne permet pas le type d'accès souhaité&thinsp;: par exemple une écriture dans une page en lecture seule. Le système d'exploitation tue le processus avec une erreur <em>Segmentation Fault</em>. C'est la raison pour laquelle, il n'est pas systématique d'avoir une erreur de segmentation en cas de jardinage mémoire. Tant que les valeurs modifiées sont localisées au sein d'un bloc mémoire autorisé, il n'y aura pas d'erreur.</p>
 <p>L'erreur de segmentation est donc générée par le système d'exploitation en levant le signal <strong>SIGSEGV</strong> (Violation d'accès à un segment mémoire, ou erreur de segmentation).</p>
@@ -4636,8 +4636,6 @@ de spécifier la taille de la pile&thinsp;; c'est une de ses nombreuses options.
       <script src="../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
         <script src="../../../assets/_markdown_exec_pyodide.js"></script>
-      
-        <script src="../../../js/mkdocs-charts-plugin.js"></script>
       
         <script src="../../../js/viewer.min.js"></script>
       

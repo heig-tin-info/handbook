@@ -3919,7 +3919,7 @@
 
 
 <h1 id="bibliotheques">Bibliothèques<a class="headerlink" href="#bibliotheques" title="Permanent link">¶</a></h1>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/library.jpg"><img alt="Bibliothèque du Trinity College de Dublin" src="../../../assets/images/library.jpg"/></a><figcaption>Figure 1&thinsp;: Bibliothèque du Trinity College de Dublin</figcaption></figure></p>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/library.jpg"><img alt="Bibliothèque du Trinity College de Dublin" src="../../../assets/images/library.jpg"/></a><figcaption> Bibliothèque du Trinity College de Dublin</figcaption></figure></p>
 <p>Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La <code>printf</code> est une de ces fonctionnalités et offerte par le header <code>&lt;stdio.h&gt;</code> faisant partie de la bibliothèque <code>libc6</code>.</p>
 <p>L'anglicisme <em>library</em>, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme <code>&lt;stdlib.h&gt;</code> étant la concaténation de <em>standard library</em> par exemple. Notez que librairie n'est pas la traduction correcte de <em>library</em> qui est un <a href="https://fr.wikipedia.org/wiki/Faux-ami">faux ami</a>.</p>
 <p>Une <em>library</em>, à l'instar d'une bibliothèque, contient du contenu (livre écrit dans une langue donnée) et un index (registre). En informatique il s'agit d'un fichier binaire compilé pour une architecture donnée ainsi qu'un ou plusieurs fichiers d'en-tête (<em>header</em>) contenant les définitions de cette bibliothèque.</p>
@@ -3988,7 +3988,7 @@
 </span></code></pre></div>
 <p>Puis on compile&thinsp;:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>gmp.c
-</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="go">gmp.c:1:10: fatal error: gmp.h: No such file or directory</span>
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="go">gmp.c:1:10&thinsp;: fatal error&thinsp;: gmp.h&thinsp;: No such file or directory</span>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="gp">#</span>include<span class="w"> </span>&lt;gmp.h&gt;
 </span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="go">        ^~~~~~~</span>
 </span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="go">compilation terminated.</span>
@@ -4007,17 +4007,17 @@
 </dl>
 <p>Deuxième tentative&thinsp;:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>gmp.c
-</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="go">/tmp/cc2FxDSy.o: In function `main':</span>
-</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="go">gmp.c:(.text+0x6f): undefined reference to `__gmpz_init'</span>
-</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="go">gmp.c:(.text+0x80): undefined reference to `__gmpz_set_ui'</span>
-</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="go">gmp.c:(.text+0x96): undefined reference to `__gmpz_set_str'</span>
-</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="go">gmp.c:(.text+0xb3): undefined reference to `__gmpz_out_str'</span>
-</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="go">gmp.c:(.text+0xd5): undefined reference to `__gmpz_add_ui'</span>
-</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="go">gmp.c:(.text+0xf2): undefined reference to `__gmpz_out_str'</span>
-</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="go">gmp.c:(.text+0x113): undefined reference to `__gmpz_mul'</span>
-</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="go">gmp.c:(.text+0x130): undefined reference to `__gmpz_out_str'</span>
-</span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="go">gmp.c:(.text+0x146): undefined reference to `__gmpz_clear'</span>
-</span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="go">collect2: error: ld returned 1 exit status</span>
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="go">/tmp/cc2FxDSy.o&thinsp;: In function `main':</span>
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="go">gmp.c&thinsp;:(.text+0x6f): undefined reference to `__gmpz_init'</span>
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="go">gmp.c&thinsp;:(.text+0x80): undefined reference to `__gmpz_set_ui'</span>
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="go">gmp.c&thinsp;:(.text+0x96): undefined reference to `__gmpz_set_str'</span>
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="go">gmp.c&thinsp;:(.text+0xb3): undefined reference to `__gmpz_out_str'</span>
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="go">gmp.c&thinsp;:(.text+0xd5): undefined reference to `__gmpz_add_ui'</span>
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="go">gmp.c&thinsp;:(.text+0xf2): undefined reference to `__gmpz_out_str'</span>
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="go">gmp.c&thinsp;:(.text+0x113): undefined reference to `__gmpz_mul'</span>
+</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="go">gmp.c&thinsp;:(.text+0x130): undefined reference to `__gmpz_out_str'</span>
+</span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="go">gmp.c&thinsp;:(.text+0x146): undefined reference to `__gmpz_clear'</span>
+</span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="go">collect2&thinsp;: error&thinsp;: ld returned 1 exit status</span>
 </span></code></pre></div>
 <p>Cette fois-ci on peut lire que le compilateur à fait sont travail, mais ne parvient pas à trouver les symboles des fonctions que l'on utilise p.ex. <code>__gmpz_add_ui</code>. C'est normal parce que l'on n'a pas renseigné la bibliothèque à utiliser.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>gmp.c<span class="w"> </span>-lgmp
@@ -4047,7 +4047,7 @@
 <h2 id="exemple-ncurses">Exemple&thinsp;: ncurses<a class="headerlink" href="#exemple-ncurses" title="Permanent link">¶</a></h2>
 <p>La bibliothèque <a href="https://fr.wikipedia.org/wiki/Ncurses">ncurses</a> traduction de <em>nouvelles malédictions</em> est une évolution de <a href="https://fr.wikipedia.org/wiki/Curses">curses</a> développé originellement par <a href="https://en.wikipedia.org/wiki/Ken_Arnold">Ken Arnold</a> . Il s'agit d'une bibliothèque pour la création d'interfaces graphique en ligne de commande, toujours très utilisée.</p>
 <p>La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...</p>
-<p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/linux-menuconfig.png"><img alt="Exemple d'interface graphique écrite avec ncurses. Ici la configuration du noyau Linux." src="../../../assets/images/linux-menuconfig.png"/></a><figcaption>Figure 2&thinsp;: Exemple d'interface graphique écrite avec ncurses. Ici la configuration du noyau Linux.</figcaption></figure></p>
+<p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/linux-menuconfig.png"><img alt="Exemple d'interface graphique écrite avec ncurses. Ici la configuration du noyau Linux." src="../../../assets/images/linux-menuconfig.png"/></a><figcaption> Exemple d'interface graphique écrite avec ncurses. Ici la configuration du noyau Linux.</figcaption></figure></p>
 <p>L'écriture d'un programme Hello World avec cette bibliothèque pourrait être&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ncurses.h&gt;</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
@@ -4145,9 +4145,9 @@
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="go">sreehtvarhk</span>
 </span></code></pre></div>
 <p>Car sinon c'est l'erreur&thinsp;:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="gp">$ </span><span class="nv">LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="w"> </span>.<span class="k">)</span><span class="w"> </span>./a.out<span class="w"> </span>Hey?
-</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="go">./a.out: error while loading shared libraries: libcaesar.so :</span>
-</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="go">cannot open shared object file: No such file or directory</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="gp">$ </span><span class="nv">LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="w"> </span>.<span class="k">)</span><span class="w"> </span>./a.out<span class="w"> </span>Hey&thinsp;?
+</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="go">./a.out&thinsp;: error while loading shared libraries&thinsp;: libcaesar.so&thinsp;:</span>
+</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="go">cannot open shared object file&thinsp;: No such file or directory</span>
 </span></code></pre></div>
 
 
@@ -4380,8 +4380,6 @@
       <script src="../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
         <script src="../../../assets/_markdown_exec_pyodide.js"></script>
-      
-        <script src="../../../js/mkdocs-charts-plugin.js"></script>
       
         <script src="../../../js/viewer.min.js"></script>
       

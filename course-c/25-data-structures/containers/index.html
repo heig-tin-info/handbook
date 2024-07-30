@@ -4011,7 +4011,7 @@
 </span><span id="__span-1-23"><a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Évidemment, on ne souhaite pas qu'un petit malin compromette ce compteur en écrivant maladroitement&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">foo</span><span class="o">-&gt;</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">// Hacked this !</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">foo</span><span class="o">-&gt;</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">// Hacked this&thinsp;!</span>
 </span></code></pre></div>
 <p>Pour s'en protéger, on a recours à la compilation séparée (voir chapitre {ref}<code>TranslationUnits</code>) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <code>foobar.h</code> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#pragma once</span>
@@ -4064,7 +4064,7 @@
 <p>Un tableau dynamique est représenté en mémoire comme un contenu séquentiel qui possède un début et une fin. On appelle son début la <strong>tête</strong> ou <em>head</em> et la fin du tableau, sa <strong>queue</strong> ou <em>tail</em>. Selon que l'on souhaite ajouter des éléments au début ou à la fin du tableau, la complexité n'est pas la même.</p>
 <p>Nous définirons par la suite le vocabulaire suivant&thinsp;:</p>
 <table id="_table-1">
-<caption style="caption-side:bottom">Table 1&thinsp;: Vocabulaire des actions sur un tableau dynamique</caption><thead>
+<caption style="caption-side:bottom"> Vocabulaire des actions sur un tableau dynamique</caption><thead>
 <tr>
 <th>Action</th>
 <th>Terme technique</th>
@@ -4091,7 +4091,7 @@
 </table>
 <p>Nous comprenons rapidement qu'il est plus compliqué d'ajouter ou de supprimer un élément depuis la tête du tableau, car il est nécessaire ensuite de déplacer chaque élément (l'élément 0 devient l'élément 1, l'élément 1 devient l'élément 2...).</p>
 <p>Un tableau dynamique peut être représenté par la figure suivante&thinsp;:</p>
-<p><figure id="_figure-1"><img alt="Tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array.drawio"/><figcaption>Figure 1&thinsp;: Tableau dynamique</figcaption></figure></p>
+<p><figure id="_figure-1"><img alt="Tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array.drawio"/><figcaption> Tableau dynamique</figcaption></figure></p>
 <p>Un espace mémoire est réservé dynamiquement sur le tas. Comme <code>malloc</code> ne retourne pas la taille de l'espace mémoire alloué, mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 <code>int32_t</code> représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par <code>malloc</code> n'est généralement pas vide, mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau, il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.</p>
 <p>Les composants de cette structure de donnée sont donc&thinsp;:</p>
 <ul>
@@ -4101,17 +4101,17 @@
 <li>Un espace mémoire alloué par <code>malloc</code> et contenant des données.</li>
 </ul>
 <p>L'opération <code>pop</code> retire l'élément de la fin du tableau. Le nombre d'éléments est donc ajusté en conséquence.</p>
-<p><figure id="_figure-2"><img alt="Suppression d'un élément dans un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-pop.drawio"/><figcaption>Figure 2&thinsp;: Suppression d'un élément dans un tableau dynamique</figcaption></figure></p>
+<p><figure id="_figure-2"><img alt="Suppression d'un élément dans un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-pop.drawio"/><figcaption> Suppression d'un élément dans un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elements</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="o">--</span><span class="n">elements</span><span class="p">];</span>
 </span></code></pre></div>
 <p>L'opération <code>push</code> ajoute un élément à la fin du tableau.</p>
-<p><figure id="_figure-3"><img alt="Ajout d'un élément dans un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-push.drawio"/><figcaption>Figure 3&thinsp;: Ajout d'un élément dans un tableau dynamique</figcaption></figure></p>
+<p><figure id="_figure-3"><img alt="Ajout d'un élément dans un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-push.drawio"/><figcaption> Ajout d'un élément dans un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elements</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">capacity</span><span class="p">)</span><span class="w"> </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">data</span><span class="p">[</span><span class="n">elements</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 </span></code></pre></div>
 <p>L'opération <code>shift</code> retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque élément qu'il contient.</p>
-<p><figure id="_figure-4"><img alt="Suppression du premier élément dans un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-shift.drawio"/><figcaption>Figure 4&thinsp;: Suppression du premier élément dans un tableau dynamique</figcaption></figure></p>
+<p><figure id="_figure-4"><img alt="Suppression du premier élément dans un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-shift.drawio"/><figcaption> Suppression du premier élément dans un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elements</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">capacity</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span>
@@ -4125,7 +4125,7 @@
 </span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="n">capacity</span><span class="o">--</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Enfin, l'opération <code>unshift</code> ajoute un élément depuis le début du tableau&thinsp;:</p>
-<p><figure id="_figure-5"><img alt="Ajout d'un élément en début d'un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-unshift.drawio"/><figcaption>Figure 5&thinsp;: Ajout d'un élément en début d'un tableau dynamique</figcaption></figure></p>
+<p><figure id="_figure-5"><img alt="Ajout d'un élément en début d'un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-unshift.drawio"/><figcaption> Ajout d'un élément en début d'un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elements</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">--</span><span class="p">)</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
@@ -4140,7 +4140,7 @@
 <p>Lorsqu'un élément est supprimé du buffer, le pointeur de fin est incrémenté. Lorsqu'un élément est ajouté, le pointeur de début est incrémenté.</p>
 <p>Pour permettre la circulation, les indices sont calculés modulo la taille du buffer.</p>
 <p>Il est possible de représenter schématiquement ce buffer comme un cercle et ses deux pointeurs&thinsp;:</p>
-<p><figure id="_figure-6"><img alt="Exemple d'un tampon circulaire" class="drawio-diagram" src="../../../assets/images/ring.drawio"/><figcaption>Figure 6&thinsp;: Exemple d'un tampon circulaire</figcaption></figure></p>
+<p><figure id="_figure-6"><img alt="Exemple d'un tampon circulaire" class="drawio-diagram" src="../../../assets/images/ring.drawio"/><figcaption> Exemple d'un tampon circulaire</figcaption></figure></p>
 <p>Le nombre d'éléments dans le buffer est la différence entre le pointeur de tête et le pointeur de queue, modulo la taille du buffer. Néanmoins, l'opérateur <code>%</code> en C ne fonctionne que sur des nombres positifs et ne retourne pas le résidu positif le plus petit. En sommes, <code>-2 % 5</code> devrait donner <code>3</code>, ce qui est le cas en Python, mais en C, en C++ ou en PHP la valeur retournée est <code>-2</code>. Le modulo vrai, mathématiquement correct, peut être calculé ainsi&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="p">((</span><span class="n">A</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">M</span>
 </span></code></pre></div>
@@ -4201,7 +4201,7 @@
 </span><span id="__span-15-6"><a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
 </span></code></pre></div>
 <p>Considérons les dix premiers éléments de la séquence de nombre <a href="https://oeis.org/A130826">A130826</a> dans un tableau statique. Ensuite, répartissons ces valeurs aléatoirement dans notre tableau <code>elements</code> déclaré plus haut entre les indices 0 et 19.</p>
-<p><figure id="_figure-7"><img alt="Construction d'une liste chainée à l'aide d'un tableau" class="drawio-diagram" src="../../../assets/images/static-linked-list.drawio"/><figcaption>Figure 7&thinsp;: Construction d'une liste chainée à l'aide d'un tableau</figcaption></figure></p>
+<p><figure id="_figure-7"><img alt="Construction d'une liste chainée à l'aide d'un tableau" class="drawio-diagram" src="../../../assets/images/static-linked-list.drawio"/><figcaption> Construction d'une liste chainée à l'aide d'un tableau</figcaption></figure></p>
 <p>On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire, car il est possible facilement de chercher l'élément suivant de la liste avec cette relation&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="n">current</span><span class="p">.</span><span class="n">index_next_element</span><span class="p">]</span>
@@ -4252,7 +4252,7 @@
 <p>Les listes chaînées réduisent la complexité liée à la manipulation d'éléments dans une liste. L'empreinte mémoire d'une liste chaînée est plus grande qu'avec un tableau, car à chaque élément de donnée est associé un pointeur vers l'élément suivant ou précédent.</p>
 <p>Ce surcoût est souvent part du compromis entre la complexité d'exécution du code et la mémoire utilisée par ce programme.</p>
 <table id="_table-2">
-<caption style="caption-side:bottom">Table 2&thinsp;: Coût des opérations dans des structures de données récursives</caption><thead>
+<caption style="caption-side:bottom"> Coût des opérations dans des structures de données récursives</caption><thead>
 <tr>
 <th>Structure de donnée</th>
 <th>Pire cas</th>
@@ -4290,7 +4290,7 @@
 qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.</p>
 <p>Il est indispensable de bien identifier le dernier élément de la liste grâce à son pointeur associé
 à la valeur <code>NULL</code>.</p>
-<p><figure id="_figure-8"><img alt="Liste chaînée simple" class="drawio-diagram" src="../../../assets/images/list.drawio"/><figcaption>Figure 8&thinsp;: Liste chaînée simple</figcaption></figure></p>
+<p><figure id="_figure-8"><img alt="Liste chaînée simple" class="drawio-diagram" src="../../../assets/images/list.drawio"/><figcaption> Liste chaînée simple</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>
@@ -4357,11 +4357,11 @@ le nombre d'éléments jusqu'à ce que le pointeur <em>next</em> soit égal à <
 </span></code></pre></div>
 <h4 id="detection-des-boucles">Détection des boucles<a class="headerlink" href="#detection-des-boucles" title="Permanent link">¶</a></h4>
 <p>Attention, la technique précédente ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant&thinsp;:</p>
-<p><figure id="_figure-9"><img alt="Boucle dans une liste chaînée" class="drawio-diagram" src="../../../assets/images/loop.drawio"/><figcaption>Figure 9&thinsp;: Boucle dans une liste chaînée</figcaption></figure></p>
+<p><figure id="_figure-9"><img alt="Boucle dans une liste chaînée" class="drawio-diagram" src="../../../assets/images/loop.drawio"/><figcaption> Boucle dans une liste chaînée</figcaption></figure></p>
 <p>La liste se terminant par une boucle, il n'y aura jamais d'élément de fin et le nombre d'éléments
 calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment donc les compter&thinsp;?</p>
 <p>Il existe un algorithme nommé détection de cycle de Robert W. Floyd aussi appelé <em>algorithme du lièvre et de la tortue</em>. Il consiste à avoir deux pointeurs qui parcourent la liste chaînée. L'un avance deux fois plus vite que le second.</p>
-<p><figure id="_figure-10"><img alt="Algorithme de détection de cycle de Robert W. Floyd" class="drawio-diagram" src="../../../assets/images/floyd.drawio"/><figcaption>Figure 10&thinsp;: Algorithme de détection de cycle de Robert W. Floyd</figcaption></figure></p>
+<p><figure id="_figure-10"><img alt="Algorithme de détection de cycle de Robert W. Floyd" class="drawio-diagram" src="../../../assets/images/floyd.drawio"/><figcaption> Algorithme de détection de cycle de Robert W. Floyd</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="nf">compute_length</span><span class="p">(</span><span class="n">Element</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">)</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="p">{</span>
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -4451,7 +4451,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <p>L'avantage principal étant le gain de place en mémoire.</p>
 <h2 id="liste-chainee-deroulee-unrolled-linked-list">Liste chaînée déroulée (Unrolled linked list)<a class="headerlink" href="#liste-chainee-deroulee-unrolled-linked-list" title="Permanent link">¶</a></h2>
 <p>Une liste chaînée déroulée rassemble les avantages d'un tableau et d'une liste chaînée. Elle permet d'accroître les performances en réduisant l'overhead de réservation mémoire avec <code>malloc</code>.</p>
-<p><figure id="_figure-11"><img alt="Liste chaînée déroulée" class="drawio-diagram" src="../../../assets/images/unrolled-linked-list.drawio"/><figcaption>Figure 11&thinsp;: Liste chaînée déroulée</figcaption></figure></p>
+<p><figure id="_figure-11"><img alt="Liste chaînée déroulée" class="drawio-diagram" src="../../../assets/images/unrolled-linked-list.drawio"/><figcaption> Liste chaînée déroulée</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span>
 </span><span id="__span-25-3"><a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="p">;</span><span class="w">  </span><span class="c1">// Nombre d'éléments</span>
@@ -4549,7 +4549,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span></code></pre></div>
 <p>Le tableau suivant résume les performances obtenues pour les différentes structures de données que nous avons vues dans ce chapitre&thinsp;:</p>
 <table id="_table-3">
-<caption style="caption-side:bottom">Table 3&thinsp;: Comparaison des performances des structures récursives</caption><thead>
+<caption style="caption-side:bottom"> Comparaison des performances des structures récursives</caption><thead>
 <tr>
 <th>Action</th>
 <th>Tableau</th>
@@ -4849,8 +4849,6 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
       <script src="../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
         <script src="../../../assets/_markdown_exec_pyodide.js"></script>
-      
-        <script src="../../../js/mkdocs-charts-plugin.js"></script>
       
         <script src="../../../js/viewer.min.js"></script>
       

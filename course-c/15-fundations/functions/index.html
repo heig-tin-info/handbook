@@ -4087,7 +4087,7 @@
 
 
 <h1 id="fonctions">Fonctions<a class="headerlink" href="#fonctions" title="Permanent link">¶</a></h1>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/hamilton.png"><img alt="Margaret Hamilton, directrice projet AGC (1969), photo du MIT Museum" src="../../../assets/images/hamilton.png" width="50%"/></a><figcaption>Figure 1&thinsp;: Margaret Hamilton, directrice projet AGC (1969), photo du MIT Museum</figcaption></figure></p>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/hamilton.png"><img alt="Margaret Hamilton, directrice projet AGC (1969), photo du MIT Museum" src="../../../assets/images/hamilton.png" width="50%"/></a><figcaption> Margaret Hamilton, directrice projet AGC (1969), photo du MIT Museum</figcaption></figure></p>
 <p>Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.</p>
 <p>À l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du <a href="https://github.com/chrislgarry/Apollo-11">Apollo Guidance Computer</a> ont été publiées sur GitHub. Le langage est l'assembler <a href="https://www.ibiblio.org/apollo/yaYUL.html">yaYUL</a> dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.</p>
 <p>Néanmoins, dans ce langage assembleur étrange, le code reste <strong>monolithique</strong> et toutes les variables sont globales.</p>
@@ -4098,7 +4098,7 @@
 <li>D'une valeur de retour</li>
 <li>De paramètres d'appel</li>
 </ul>
-<p><figure id="_figure-2"><img alt="Agencement de fonctions" class="drawio-diagram" src="../../../assets/images/functions.drawio"/><figcaption>Figure 2&thinsp;: Agencement de fonctions</figcaption></figure></p>
+<p><figure id="_figure-2"><img alt="Agencement de fonctions" class="drawio-diagram" src="../../../assets/images/functions.drawio"/><figcaption> Agencement de fonctions</figcaption></figure></p>
 <p>L'utilisation des fonctions permet&thinsp;:</p>
 <ul>
 <li>De décomposer un programme complexe en tâches plus simples</li>
@@ -4111,10 +4111,10 @@
 <p>En revanche, une fonction apporte quelques désavantages qui à l'échelle des ordinateurs moderne sont parfaitement négligeables. L'appel à une fonction ou sous-routine requiert du <a href="https://fr.wikipedia.org/wiki/Sous-programme">housekeeping</a>, qui se compose d'un prélude et d'un aboutissant et dans lequel le <a href="https://fr.wikipedia.org/wiki/Commutation_de_contexte">contexte</a> doit être sauvegardé.</p>
 <h2 id="conventions-dappel">Conventions d'appel<a class="headerlink" href="#conventions-dappel" title="Permanent link">¶</a></h2>
 <p>Dans le <a href="https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro">Voyage de Chihiro</a> (千と千尋の神隠し) de Hayao Miyazaki, le vieux Kamaji (釜爺) travaille dans la chaudière des bains pour l'alimenter en charbon et préparer les décoctions d'herbes pour parfumer les bains des clients.</p>
-<p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/kamaji.jpg"><img alt="Le vieux Kamaji et ses bras extensibles." src="../../../assets/images/kamaji.jpg"/></a><figcaption>Figure 3&thinsp;: Le vieux Kamaji et ses bras extensibles.</figcaption></figure></p>
+<p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/kamaji.jpg"><img alt="Le vieux Kamaji et ses bras extensibles." src="../../../assets/images/kamaji.jpg"/></a><figcaption> Le vieux Kamaji et ses bras extensibles.</figcaption></figure></p>
 <p>Je vous propose de bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel il mélange les herbes&thinsp;; ils sont à l'instar de l'<a href="https://en.wikipedia.org/wiki/Arithmetic_logic_unit">ALU</a> d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie&thinsp;: le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaires aux registres du processeur.</p>
 <p>Il profite de son temps libre, pendant que les bains sont fermés pour préparer certains mélanges d'herbes les plus populaires et il place ce stock dans un casier du mur. Préparer un mélange est très similaire à un programme informatique dans lequel une suite d'opération représente une recette donnée. Le vieux Kamaji à une très grande mémoire, et il ne dispose pas de livre de recettes, mais vous, moi, n'importe qui, aurions besoin d'instructions claires du type&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>AUTUMN_TONIC_TEA :
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>AUTUMN_TONIC_TEA&thinsp;:
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>  MOVE  R1 @B4      # Déplace de la grande ortie du casier B4 au registre R1
 </span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>  MOVE  R2 @A8      # Déplace la menthe verte (Mentha spicata) du casier
@@ -4151,7 +4151,7 @@
 <p>En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à se soucier du processeur, du nom des registres, de la correspondance entre le nom des herbes et le casier ou elles sont entreposées. Néanmoins, l'électronicien développeur, proche du matériel, doit parfois bien comprendre ces mécanismes et ce qu'ils coûtent (en temps et en place mémoire) à l'exécution d'un programme.</p>
 <h3 id="overhead">Overhead<a class="headerlink" href="#overhead" title="Permanent link">¶</a></h3>
 <p>L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés&thinsp;:</p>
-<p><figure id="_figure-4"><img alt="Sauvegarde des registres du processeur et convention d'appel de fonction." class="drawio-diagram" src="../../../assets/images/calling-convention.drawio"/><figcaption>Figure 4&thinsp;: Sauvegarde des registres du processeur et convention d'appel de fonction.</figcaption></figure></p>
+<p><figure id="_figure-4"><img alt="Sauvegarde des registres du processeur et convention d'appel de fonction." class="drawio-diagram" src="../../../assets/images/calling-convention.drawio"/><figcaption> Sauvegarde des registres du processeur et convention d'appel de fonction.</figcaption></figure></p>
 <p>Ce coût est faible, très faible, un ordinateur fonctionnant à 3 GHz et une fonction complexe utilisant tous les registres disponibles, mettons 10 registres, consommera entre l'appel de la fonction et son retour 0.000'000'003 seconde, ça va, c'est raisonnable. Sauf que, si la fonction ne comporte qu'une seule opération comme ci-dessous, l'overhead sera aussi plus faible.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
@@ -4431,7 +4431,7 @@
 </span><span id="__span-25-8"><a href="#__codelineno-25-8" id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
 </span><span id="__span-25-9"><a href="#__codelineno-25-9" id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="w">    </span><span class="k">do</span>
 </span><span id="__span-25-10"><a href="#__codelineno-25-10" id="__codelineno-25-10" name="__codelineno-25-10"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-25-11"><a href="#__codelineno-25-11" id="__codelineno-25-11" name="__codelineno-25-11"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Enter a integer value: "</span><span class="p">);</span>
+</span><span id="__span-25-11"><a href="#__codelineno-25-11" id="__codelineno-25-11" name="__codelineno-25-11"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Enter a integer value&thinsp;: "</span><span class="p">);</span>
 </span><span id="__span-25-12"><a href="#__codelineno-25-12" id="__codelineno-25-12" name="__codelineno-25-12"></a><span class="w">        </span><span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span><span class="w"> </span><span class="c1">// Empty input buffer</span>
 </span><span id="__span-25-13"><a href="#__codelineno-25-13" id="__codelineno-25-13" name="__codelineno-25-13"></a><span class="w">        </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="n">scanf</span><span class="p">(</span><span class="s">"%ld"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">result</span><span class="p">);</span>
 </span><span id="__span-25-14"><a href="#__codelineno-25-14" id="__codelineno-25-14" name="__codelineno-25-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">ok</span><span class="p">)</span>
@@ -4685,8 +4685,6 @@
       <script src="../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
         <script src="../../../assets/_markdown_exec_pyodide.js"></script>
-      
-        <script src="../../../js/mkdocs-charts-plugin.js"></script>
       
         <script src="../../../js/viewer.min.js"></script>
       

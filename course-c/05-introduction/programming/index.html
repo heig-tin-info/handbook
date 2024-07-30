@@ -4158,7 +4158,7 @@
 <li>Qu'est-ce que l'algorithmique&thinsp;?</li>
 <li>Qu'est-ce que la programmation&thinsp;?</li>
 </ol>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/eniac.jpg"><img alt="L'un des premiers ordinateurs: l'Eniac" src="../../../assets/images/eniac.jpg"/></a><figcaption>Figure 1&thinsp;: L'un des premiers ordinateurs&thinsp;: l'Eniac</figcaption></figure></p>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/eniac.jpg"><img alt="L'un des premiers ordinateurs: l'Eniac" src="../../../assets/images/eniac.jpg"/></a><figcaption> L'un des premiers ordinateurs&thinsp;: l'Eniac</figcaption></figure></p>
 <h2 id="algorithmique">Algorithmique<a class="headerlink" href="#algorithmique" title="Permanent link">¶</a></h2>
 <p>L'algorithmique et non l'<em>algorithmie</em> (qui n'est pas français), est la science qui étudie la production de règles et techniques impliquées dans la définition et la conception d'<a href="https://fr.wikipedia.org/wiki/Algorithme">algorithmes</a>. Nous verrons l'algorithmique plus en détail dans le chapitre <a class="autorefs autorefs-internal" href="../../40-algorithms/introduction/#introduction">algorithmes</a>. Retenons pour l'heure que l'algorithmique est un domaine bien plus vaste que celui appliqué aux ordinateurs. Elle intervient tous les jours&thinsp;:</p>
 <ul>
@@ -4171,11 +4171,11 @@
 <h3 id="algorithme-deuclide">Algorithme d'Euclide<a class="headerlink" href="#algorithme-deuclide" title="Permanent link">¶</a></h3>
 <p>Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l'<a href="https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide">algorithme d'Euclide</a> datant probablement de 300 av. J.-C.</p>
 <p>Il est un algorithme permettant de déterminer le <a href="https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur">plus grand commun diviseur</a> (PGCD). Voici la description de l'algorithme sous forme d'un diagramme de flux&thinsp;:</p>
-<p><figure id="_figure-2"><img alt="Algorithme de calcul du PGCD d'Euclide." class="drawio-diagram" src="../../../assets/images/pgcd.drawio"/><figcaption>Figure 2&thinsp;: Algorithme de calcul du PGCD d'Euclide.</figcaption></figure></p>
+<p><figure id="_figure-2"><img alt="Algorithme de calcul du PGCD d'Euclide." class="drawio-diagram" src="../../../assets/images/pgcd.drawio"/><figcaption> Algorithme de calcul du PGCD d'Euclide.</figcaption></figure></p>
 <p>Souvent, les informaticiens et ingénieurs aiment utiliser des diagrammes pour synthétiser leurs idées. Le diagramme de flux est un outil de communication visuelle permettant de représenter des <strong>processus</strong>. Ici on observe des formes géométriques et des flèches. Les flèches indiquent le sens de lecture du processus. Les formes géométriques sont des boîtes de texte contenant des instructions. Les formes de début et de fin sont par convention des ovales. Les formes de traitement sont des rectangles et les formes de décision sont quant à elles des losanges. Une forme de décision contient une question et deux flèches de sortie, une pour chaque réponse possible. Généralement une flèche de sortie est étiquetée avec la réponse attendue. On le verra plus tard, mais un processus de traitement d'information dispose toujours d'une entrée et d'une sortie.</p>
 <p>Si l'on souhaite trouver le plus grand diviseur commun de 42 et 30, il suffit d'applique l'algorithme d'Euclide du <em>début</em> à la <em>fin</em> :</p>
 <table id="_table-1">
-<caption style="caption-side:bottom">Table 1&thinsp;: Exemple de calcul du PGCD entre 42 et 30</caption><thead>
+<caption style="caption-side:bottom"> Exemple de calcul du PGCD entre 42 et 30</caption><thead>
 <tr>
 <th>Étape</th>
 <th><span class="arithmatex">\(a\)</span></th>
@@ -4284,13 +4284,13 @@
 </div>
 <h3 id="tri-a-bulles">Tri à bulles<a class="headerlink" href="#tri-a-bulles" title="Permanent link">¶</a></h3>
 <p>Un autre algorithme célèbre est l'algorithme de tri de <a href="https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles">Bulles</a>. Il s'agit d'un algorithme de tri simple qui consiste à comparer les éléments adjacents et à les permuter si nécessaire.</p>
-<p>Dans la vie de tous les jours, imaginez que vous ayez un jeu de 54 cartes à jouer mélangé et vous souhaitez trier le jeu par valeurs (as, 2, 3, ..., Valet, Dame, Roi). Vous commencez par déposer les cartes les unes à côté des autres et pour trier le jeu vous vous allez intervertir deux cartes jusqu'à ce que le jeu soit trié.</p>
+<p>Dans la vie de tous les jours, imaginez que vous ayez un jeu de 54 cartes à jouer mélangé et vous souhaitez trier le jeu par valeurs (As, 2, 3,...Valet, Dame, Roi). Vous commencez par déposer les cartes les unes à côté des autres et pour trier le jeu vous vous allez intervertir deux cartes jusqu'à ce que le jeu soit trié.</p>
 <p>Voici un diagramme de flux de l'algorithme de tri de bulles&thinsp;:</p>
-<p><figure id="_figure-3"><img alt="Algorithme de tri de bulles." class="drawio-diagram" src="../../../assets/images/bubblesort.drawio"/><figcaption>Figure 3&thinsp;: Algorithme de tri de bulles.</figcaption></figure></p>
+<p><figure id="_figure-3"><img alt="Algorithme de tri de bulles." class="drawio-diagram" src="../../../assets/images/bubblesort.drawio"/><figcaption> Algorithme de tri de bulles.</figcaption></figure></p>
 <p>Soit un tableau de <span class="arithmatex">\(N = 5\)</span> valeurs à trier&thinsp;:</p>
 <div class="arithmatex">\[T = {5, 3, 8, 4, 2}\]</div>
 <p>Le cycle se répète jusqu'à ce que le tableau soit trié. Si <span class="arithmatex">\(s\)</span> est égal à 0, il n'y a pas eu d'échange lors du parcours du tableau et le tableau est donc trié.</p>
-<p><figure id="_figure-4"><img alt="Étape par étape du tri à bulles." class="drawio-diagram" src="../../../assets/images/bubblesort-steps.drawio"/><figcaption>Figure 4&thinsp;: Étape par étape du tri à bulles.</figcaption></figure></p>
+<p><figure id="_figure-4"><img alt="Étape par étape du tri à bulles." class="drawio-diagram" src="../../../assets/images/bubblesort-steps.drawio"/><figcaption> Étape par étape du tri à bulles.</figcaption></figure></p>
 <p>Pour les cycles <span class="arithmatex">\(3\)</span> et <span class="arithmatex">\(4\)</span>, nous ne montrons pas les étapes ou il n'y a pas eu d'échange. Au cinqième cycle, aucun échange n'est nécessaire, l'algorithme se termine.</p>
 <p>On peut compter le nombre de cycles assez facilement. Pour ce tableau de <span class="arithmatex">\(N = 5\)</span> valeurs, il y a <span class="arithmatex">\(5\)</span> cycles. Durant un cycle, il faut regarder <span class="arithmatex">\(N - 1\)</span> paires d'éléments. Donc pour un tableau de <span class="arithmatex">\(N\)</span> valeurs, il y a <span class="arithmatex">\(N^2 - N\)</span> comparaisons. Ce type d'algorithme est dit de complexité <span class="arithmatex">\(O(N^2)\)</span>. Cela signifie que le nombre d'opérations à effectuer est proportionnel au carré du nombre d'éléments à trier. Nous verrons plus tard que la complexité d'un algorithme est un critère important. Nous verrons comment le calculer.</p>
 <h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h3>
@@ -4301,7 +4301,7 @@
 </div>
 <h2 id="programmation_1">Programmation<a class="headerlink" href="#programmation_1" title="Permanent link">¶</a></h2>
 <p>Parlons couture&thinsp;! La machine Jacquard est un <a href="https://fr.wikipedia.org/wiki/M%C3%A9tier_Jacquard">métier à tisser</a> mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.</p>
-<p><figure id="_figure-5"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/loom.jpg"><img alt="Mécanisme Jacquard au Musée des arts et métiers de Paris." src="../../../assets/images/loom.jpg" width="80%"/></a><figcaption>Figure 5&thinsp;: Mécanisme Jacquard au Musée des arts et métiers de Paris.</figcaption></figure></p>
+<p><figure id="_figure-5"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/loom.jpg"><img alt="Mécanisme Jacquard au Musée des arts et métiers de Paris." src="../../../assets/images/loom.jpg" width="80%"/></a><figcaption> Mécanisme Jacquard au Musée des arts et métiers de Paris.</figcaption></figure></p>
 <p>Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes.</p>
 <div class="admonition info">
 <p class="admonition-title">La révolte des canuts</p>
@@ -4309,9 +4309,9 @@
 </div>
 <p>La <a href="https://fr.wikipedia.org/wiki/Programmation_informatique">programmation</a> définit toute activité menant à l'écriture de programmes. En informatique, un programme est un ensemble ordonné d'instructions codées avec un langage donné et décrivant les étapes menant à la solution d'un problème. Il s'agit le plus souvent d'une écriture formelle d'un algorithme par l'intermédiaire d'un langage de programmation.</p>
 <p>Les <em>informaticiens-tisserands</em> responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons par exemple un ouvrier spécialisé en <a href="https://fr.wikipedia.org/wiki/H%C3%A9raldique">héraldique</a> et devant créer des motifs complexes de blasons.</p>
-<p><figure id="_figure-6"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/armoiries.svg"><img alt="Armoiries des ducs de Mayenne" src="../../../assets/images/armoiries.svg" width="250px"/></a><figcaption>Figure 6&thinsp;: Armoiries des ducs de Mayenne</figcaption></figure></p>
+<p><figure id="_figure-6"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/armoiries.svg"><img alt="Armoiries des ducs de Mayenne" src="../../../assets/images/armoiries.svg" width="250px"/></a><figcaption> Armoiries des ducs de Mayenne</figcaption></figure></p>
 <p>Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qui le maîtrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de Mayenne (c.f. figure ci-dessous) aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>Écartelé, en 1 et 4 :
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>Écartelé, en 1 et 4&thinsp;:
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    coupé et parti en 3,
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>        au premier fascé de gueules et d'argent,
 </span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>        au deuxième d'azur semé de lys d'or
@@ -4331,7 +4331,7 @@
 </span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>            et aux deux bar d'or.
 </span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>    Sur le tout d'or à la bande de gueules
 </span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>        chargé de trois alérions d'argent
-</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>    le tout brisé d'un lambel de gueules ;
+</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>    le tout brisé d'un lambel de gueules&thinsp;;
 </span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>        en 2 et 3 contre-écartelé en 1 et 4 d'azur,
 </span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>        à l'aigle d'argent, becquée,
 </span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>        languée et couronnée d'or et en 2 et 3 d'azur,
@@ -4352,12 +4352,12 @@
 <details class="info">
 <summary>Scratch</summary>
 <p><a href="https://fr.wikipedia.org/wiki/Scratch_(langage)">Scratch</a> est un langage de programmation visuel développé par le <abbr title="Massachusetts Institute of Technology">MIT</abbr>. Il est utilisé pour enseigner les bases de la programmation aux enfants. Il permet de créer des animations, des jeux et des histoires interactives.</p>
-<p><figure id="_figure-7"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/scratch.png"><img alt="Interface de scratch" src="../../../assets/images/scratch.png"/></a><figcaption>Figure 7&thinsp;: Interface de scratch</figcaption></figure></p>
+<p><figure id="_figure-7"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/scratch.png"><img alt="Interface de scratch" src="../../../assets/images/scratch.png"/></a><figcaption> Interface de scratch</figcaption></figure></p>
 </details>
 <details class="info">
 <summary>LabView</summary>
 <p><a href="https://fr.wikipedia.org/wiki/LabVIEW">LabView</a> est un langage de programmation visuel développé par National Instruments. Il est utilisé pour la programmation de systèmes de mesure et de contrôle. Il est très utilisé dans l'industrie et la recherche.</p>
-<p><figure id="_figure-8"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/labview.webp"><img alt="Interface de LabView" src="../../../assets/images/labview.webp"/></a><figcaption>Figure 8&thinsp;: Interface de LabView</figcaption></figure></p>
+<p><figure id="_figure-8"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/labview.webp"><img alt="Interface de LabView" src="../../../assets/images/labview.webp"/></a><figcaption> Interface de LabView</figcaption></figure></p>
 <p>Son interface est composée de blocs graphiques que l'on relie entre eux pour créer un programme.</p>
 </details>
 <details class="info">
@@ -4402,15 +4402,15 @@
 <p>La machine de Turing est un modèle théorique d'un ordinateur. Elle est composée d'une bande infinie divisée en cases, d'une tête de lecture/écriture et d'un ensemble fini d'états. La machine de Turing est capable de lire et d'écrire des symboles sur la bande, de se déplacer à gauche ou à droite et de changer d'état. Elle est capable de simuler n'importe quel algorithme. La machine de Turing est un modèle abstrait qui a permis de définir la notion de calculabilité et de démontrer des résultats fondamentaux en informatique théorique.</p>
 <p>Lorsque l'on parle d'un ordinateur Turing complet, on fait référence à un ordinateur capable de simuler n'importe quel algorithme. Tous les ordinateurs modernes sont Turing complets. Selon le modèle, ces ordinateurs se composent d'un programme et d'une mémoire. Le programme est une suite d'instructions qui sont exécutées par le processeur. La mémoire est un espace de stockage qui contient les données et les instructions du programme.</p>
 <p>Prenons l'exemple d'un programme visant à additionner <code>1</code> à un nombre <code>n</code> en binaire. L'algorithme peut être exprimé comme suit&thinsp;:</p>
-<p><figure id="_figure-9"><img alt="Algorithme d'addition binaire" class="drawio-diagram" src="../../../assets/images/turing-add.drawio"/><figcaption>Figure 9&thinsp;: Algorithme d'addition binaire</figcaption></figure></p>
+<p><figure id="_figure-9"><img alt="Algorithme d'addition binaire" class="drawio-diagram" src="../../../assets/images/turing-add.drawio"/><figcaption> Algorithme d'addition binaire</figcaption></figure></p>
 <p>On commence par l'état de gauche, on lit un symbole sur la bande. Tant que ce symbole est <code>0</code> ou <code>1</code> on avance à droite. Lorsque l'on rencontre une case vide, on se déplace à gauche et on entre dans le second état. Tant qu’on lit un <code>1</code>, on le remplace par un <code>0</code> et on avance à gauche. Lorsqu’on lit un <code>0</code> ou une case vide, on le remplace par un <code>1</code> et on se déplace à gauche. On revient à l'état initial et on continue jusqu'à ce que l'on rencontre une case vide.</p>
 <p>Sur la figure ci-dessous, on peut voir l'exécution de l'algorithme sur une bande après chaque étape. La case centrale est celle sous la tête de lecture/écriture. On voit bien qu'au début on a le nombre <code>101</code> (5) et à la fin on obtient le nombre <code>110</code> (6). L'algorithme a bien fonctionné.</p>
-<p><figure id="_figure-10"><img alt="Exécution de l'algorithme sur une bande" class="drawio-diagram" src="../../../assets/images/turing-animation.drawio"/><figcaption>Figure 10&thinsp;: Exécution de l'algorithme sur une bande</figcaption></figure></p>
+<p><figure id="_figure-10"><img alt="Exécution de l'algorithme sur une bande" class="drawio-diagram" src="../../../assets/images/turing-animation.drawio"/><figcaption> Exécution de l'algorithme sur une bande</figcaption></figure></p>
 <p>On peut essayer de traduire cet algorithme dans un langage formel&thinsp;:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Pseudo code</label><label for="__tabbed_1_2">Langage formel de Turing</label><label for="__tabbed_1_3">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>début:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>début&thinsp;:
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>    lire symbole
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    si symbole = 0 ou 1 alors
 </span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>        avancer à droite
@@ -4418,7 +4418,7 @@
 </span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>    sinon si symbole = vide alors
 </span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>        se déplacer à gauche
 </span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>        aller retenue
-</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>retenue:
+</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>retenue&thinsp;:
 </span><span id="__span-2-10"><a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>    lire symbole
 </span><span id="__span-2-11"><a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>    si symbole = 1 alors
 </span><span id="__span-2-12"><a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>        écrire 0
@@ -4430,15 +4430,15 @@
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>input: '101'
-</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>table:
-</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>  right:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>input&thinsp;: '101'
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>table&thinsp;:
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>  right&thinsp;:
 </span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>    [1,0]: R
-</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>    ' '  : {L: carry}
-</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>  carry:
-</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>    1      : {write: 0, L}
-</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>    [0,' ']: {write: 1, L: done}
-</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>done:
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>    ' '  : {L&thinsp;: carry}
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>  carry&thinsp;:
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>    1      : {write&thinsp;: 0, L}
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>    [0,' ']: {write&thinsp;: 1, L&thinsp;: done}
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>done&thinsp;:
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4475,7 +4475,7 @@
 </div>
 <p><a href="" id="teletype"></a></p>
 <h2 id="lordinateur-dantan">L'ordinateur d'antan<a class="headerlink" href="#lordinateur-dantan" title="Permanent link">¶</a></h2>
-<p><figure id="_figure-11"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/siemens-t100.jpg"><img alt="Téléscripteur Siemens T100" src="../../../assets/images/siemens-t100.jpg"/></a><figcaption>Figure 11&thinsp;: Téléscripteur Siemens T100</figcaption></figure></p>
+<p><figure id="_figure-11"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/siemens-t100.jpg"><img alt="Téléscripteur Siemens T100" src="../../../assets/images/siemens-t100.jpg"/></a><figcaption> Téléscripteur Siemens T100</figcaption></figure></p>
 <p>Le <a href="https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur">téléscripteur</a> Siemens T100 est un exemple d'ordinateur des années 1960. Il était utilisé pour la transmission de messages télégraphiques. Il était composé d'un clavier et d'une imprimante. Il était capable de lire et d'écrire des messages sur une bande de papier. Il était programmé en utilisant des cartes perforées.</p>
 <p>On les appelait aussi <strong>télétype</strong> ou abrégé <strong>TTY</strong>. Ce terme est resté aujourd'hui pour désigner une console de terminal.</p>
 <h2 id="lordinateur-moderne">L'ordinateur moderne<a class="headerlink" href="#lordinateur-moderne" title="Permanent link">¶</a></h2>
@@ -4507,22 +4507,22 @@
 </span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Néanmoins, il est important de comprendre que ce programme est traduit en langage machine par un programme appelé compilateur. Une étape intermédiaire est la traduction du programme en langage assembleur. Le langage assembleur est un langage de plus bas niveau qui permet de contrôler directement le processeur. Ce sont les instructions primitives du processeur. Le programme ci-dessus sera converti en assembleur X86 comme suit&thinsp;:</p>
-<div class="language-asm highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nl">.LC0:</span>
-</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span><span class="na">.string</span><span class="w"> </span><span class="s">"%d"</span>
-</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="nl">main:</span>
-</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">  </span><span class="nf">sub</span><span class="w">     </span><span class="no">rsp</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span>
-</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">  </span><span class="nf">mov</span><span class="w">     </span><span class="no">edi</span><span class="p">,</span><span class="w"> </span><span class="no">OFFSET</span><span class="w"> </span><span class="no">FLAT</span><span class="p">:.</span><span class="no">LC0</span>
-</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">  </span><span class="nf">xor</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">eax</span>
-</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">  </span><span class="nf">lea</span><span class="w">     </span><span class="no">rsi</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">rsp</span><span class="err">+</span><span class="mi">12</span><span class="p">]</span>
-</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">  </span><span class="nf">call</span><span class="w">    </span><span class="no">scanf</span>
-</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">  </span><span class="nf">mov</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rsp</span><span class="err">+</span><span class="mi">12</span><span class="p">]</span>
-</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">  </span><span class="nf">mov</span><span class="w">     </span><span class="no">edi</span><span class="p">,</span><span class="w"> </span><span class="no">OFFSET</span><span class="w"> </span><span class="no">FLAT</span><span class="p">:.</span><span class="no">LC0</span>
-</span><span id="__span-6-11"><a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">  </span><span class="nf">lea</span><span class="w">     </span><span class="no">esi</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">rax</span><span class="err">+</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="__span-6-12"><a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">  </span><span class="nf">xor</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">eax</span>
-</span><span id="__span-6-13"><a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">  </span><span class="nf">call</span><span class="w">    </span><span class="no">printf</span>
-</span><span id="__span-6-14"><a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">  </span><span class="nf">xor</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">eax</span>
-</span><span id="__span-6-15"><a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">  </span><span class="nf">add</span><span class="w">     </span><span class="no">rsp</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span>
-</span><span id="__span-6-16"><a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">  </span><span class="nf">ret</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>.LC0&thinsp;:
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>  .string "%d"
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>main&thinsp;:
+</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>  sub     rsp, 24
+</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>  mov     edi, OFFSET FLAT&thinsp;:.LC0
+</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>  xor     eax, eax
+</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>  lea     rsi, [rsp+12]
+</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>  call    scanf
+</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>  mov     eax, DWORD PTR [rsp+12]
+</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>  mov     edi, OFFSET FLAT&thinsp;:.LC0
+</span><span id="__span-6-11"><a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a>  lea     esi, [rax+1]
+</span><span id="__span-6-12"><a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a>  xor     eax, eax
+</span><span id="__span-6-13"><a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a>  call    printf
+</span><span id="__span-6-14"><a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a>  xor     eax, eax
+</span><span id="__span-6-15"><a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a>  add     rsp, 24
+</span><span id="__span-6-16"><a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a>  ret
 </span></code></pre></div>
 <p>Ce programme assembleur peut ensuite être converti en langage machine binaire qui est le langage compris par le processeur.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>48 83 ec 18
@@ -4551,12 +4551,12 @@
 <h2 id="les-systemes-a-microcontroleurs">Les systèmes à microcontrôleurs<a class="headerlink" href="#les-systemes-a-microcontroleurs" title="Permanent link">¶</a></h2>
 <p>Les microcontrôleurs sont des ordinateurs complets intégrés dans un seul circuit intégré. Ils sont omniprésents dans notre vie quotidienne. Que ce soit la télévision, le téléphone portable, les machines à café, les voitures, les jouets, les montres ou les appareils électroménagers, ils contiennent tous un ou plusieurs microcontrôleurs.</p>
 <p>Ces derniers sont aussi programmés en implémentant des algorithmes. Le plus souvent ces algorithmes sont écrits en langage C car c'est un langage de programmation très proche du langage machine. Les microcontrôleurs sont souvent utilisés pour contrôler des systèmes en temps réel. Ils sont capables de lire des capteurs, de contrôler des actionneurs et de communiquer avec d'autres systèmes.</p>
-<p><figure id="_figure-12"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/citiz-cherry-red.png"><img alt="Machine à café Citiz de Nespresso" src="../../../assets/images/citiz-cherry-red.png"/></a><figcaption>Figure 12&thinsp;: Machine à café Citiz de Nespresso</figcaption></figure></p>
+<p><figure id="_figure-12"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/citiz-cherry-red.png"><img alt="Machine à café Citiz de Nespresso" src="../../../assets/images/citiz-cherry-red.png"/></a><figcaption> Machine à café Citiz de Nespresso</figcaption></figure></p>
 <p>Prenons l'exemple de cette machine à café. C'est une machine qui coûte environ 100 CHF. Elle est équipée d'un microcontrôleur à 30 centimes qui contrôle le chauffage, la pompe à eau et les leds. Le microcontrôleur est programmé pour lire les boutons de commande, contrôler les actionneurs et afficher des messages à l'utilisateur.</p>
-<p><figure id="_figure-13"><img alt="Schéma bloc de la machine à café Citiz" class="drawio-diagram" src="../../../assets/images/citiz-diagram.drawio"/><figcaption>Figure 13&thinsp;: Schéma bloc de la machine à café Citiz</figcaption></figure></p>
+<p><figure id="_figure-13"><img alt="Schéma bloc de la machine à café Citiz" class="drawio-diagram" src="../../../assets/images/citiz-diagram.drawio"/><figcaption> Schéma bloc de la machine à café Citiz</figcaption></figure></p>
 <p>Derrière se cache un programme, bien complexe. Si vous avez une de ces machines mettez là en service, vous verrez que s'il manque de l'eau vous aurez un message d'erreur. Au démarrage, les LEDs clignotent le temps que la machine chauffe. Une fois en température, vous pouvez l'utiliser. Ce sont des algorithmes qui sont derrière tout cela.</p>
 <h2 id="historique">Historique<a class="headerlink" href="#historique" title="Permanent link">¶</a></h2>
-<p><figure id="_figure-14"><img alt="Historique" class="drawio-diagram" src="../../../assets/images/history.drawio"/><figcaption>Figure 14&thinsp;: Historique</figcaption></figure></p>
+<p><figure id="_figure-14"><img alt="Historique" class="drawio-diagram" src="../../../assets/images/history.drawio"/><figcaption> Historique</figcaption></figure></p>
 <p>Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates clés&thinsp;:</p>
 <dl>
 <dt>87 av. J.-C.</dt>
@@ -4679,7 +4679,7 @@
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 23, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2024</span>
   </span>
 
     
@@ -4888,8 +4888,6 @@
       <script src="../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
         <script src="../../../assets/_markdown_exec_pyodide.js"></script>
-      
-        <script src="../../../js/mkdocs-charts-plugin.js"></script>
       
         <script src="../../../js/viewer.min.js"></script>
       

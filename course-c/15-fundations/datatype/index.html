@@ -4443,7 +4443,7 @@
 </span><span id="__span-1-21"><a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="boutisme">Boutisme<a class="headerlink" href="#boutisme" title="Permanent link">¶</a></h2>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/endian.jpg"><img alt="Boutisme par J. J. Grandville (1838)" src="../../../assets/images/endian.jpg"/></a><figcaption>Figure 1&thinsp;: Boutisme par J. J. Grandville (1838)</figcaption></figure></p>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/endian.jpg"><img alt="Boutisme par J. J. Grandville (1838)" src="../../../assets/images/endian.jpg"/></a><figcaption> Boutisme par J. J. Grandville (1838)</figcaption></figure></p>
 <p>La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé <em>endianess</em>. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les œufs à la coque par le petit bout (petit boutisme/<em>little endian</em>), la répression incite les rebelles à manger leurs œufs par le gros bout (gros boutisme/<em>big endian</em>).</p>
 <p>Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en <em>big endian</em> alors que d'autres sont en <em>little endian</em>. C'est-à-dire que si une information est stockée en mémoire comme suit&thinsp;:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>[0x40, 0x49, 0xf, 0xdb]
@@ -4458,7 +4458,7 @@
 <p>En C, on nomme ce type de donnée <code>unsigned int</code>, <code>int</code> étant le dénominatif du latin <em>integer</em> signifiant "entier".</p>
 <p>Voici quelques exemples des valeurs minimales et maximales possibles selon le nombre de bits utilisés pour coder l'information numérique&thinsp;:</p>
 <table id="_table-1">
-<caption style="caption-side:bottom">Table 1&thinsp;: Stockage d'un entier non signé sur différentes profondeurs</caption><thead>
+<caption style="caption-side:bottom"> Stockage d'un entier non signé sur différentes profondeurs</caption><thead>
 <tr>
 <th>Profondeur</th>
 <th>Minimum</th>
@@ -4494,7 +4494,7 @@
 <p>Comme il sont signés (<em>signed</em> en anglais), il est par conséquent correct d'écrire <code>signed int</code> bien que le préfixe <code>signed</code> soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.</p>
 <p>Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information&thinsp;:</p>
 <table id="_table-2">
-<caption style="caption-side:bottom">Table 2&thinsp;: Stockage d'un entier signé sur différentes profondeurs</caption><thead>
+<caption style="caption-side:bottom"> Stockage d'un entier signé sur différentes profondeurs</caption><thead>
 <tr>
 <th>Profondeur</th>
 <th>Minimum</th>
@@ -4529,10 +4529,10 @@
 <p>À l'origine le standard C restait flou quant au nombre de bits utilisés pour chacun des types et aucune réelle cohérence n'existait pour la construction d'un type. Le modificateur <code>signed</code> était optionnel, le préfixe <code>long</code> ne pouvait s'appliquer qu'au type <code>int</code> et <code>long</code> et la confusion entre <code>long</code> (préfixe) et <code>long</code> (type) restait possible. En fait, la plupart des développeurs s'y perdaient et s'y perd toujours ce qui menait à des problèmes de compatibilités des programmes entre eux.</p>
 <h4 id="types-standards">Types standards<a class="headerlink" href="#types-standards" title="Permanent link">¶</a></h4>
 <p>La construction d'un type entier C est la suivante&thinsp;:</p>
-<p><figure id="_figure-2"><img alt="Entiers standardisés" class="drawio-diagram" src="../../../assets/images/ansi-integers.drawio"/><figcaption>Figure 2&thinsp;: Entiers standardisés</figcaption></figure></p>
+<p><figure id="_figure-2"><img alt="Entiers standardisés" class="drawio-diagram" src="../../../assets/images/ansi-integers.drawio"/><figcaption> Entiers standardisés</figcaption></figure></p>
 <p>Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins <span class="arithmatex">\(N\)</span> bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée ci-dessous&thinsp;:</p>
 <table id="_table-3">
-<caption style="caption-side:bottom">Table 3&thinsp;: "Table des types entiers en C"</caption><thead>
+<caption style="caption-side:bottom"> "Table des types entiers en C"</caption><thead>
 <tr>
 <th>Type</th>
 <th>Signe</th>
@@ -4712,12 +4712,12 @@
 </tbody>
 </table>
 <p>Avec l'avènement de <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, une meilleure cohésion des types a été proposée dans le fichier d'en-tête <code>stdint.h</code>. Cette bibliothèque standard offre les types suivants&thinsp;:</p>
-<p><figure id="_figure-3"><img alt="Flux de construction d'un entier standardisé" class="drawio-diagram" src="../../../assets/images/c99-integers.drawio"/><figcaption>Figure 3&thinsp;: Flux de construction d'un entier standardisé</figcaption></figure></p>
+<p><figure id="_figure-3"><img alt="Flux de construction d'un entier standardisé" class="drawio-diagram" src="../../../assets/images/c99-integers.drawio"/><figcaption> Flux de construction d'un entier standardisé</figcaption></figure></p>
 <p><a href="" id="reformed-types"></a></p>
 <h3 id="types-reformes">Types réformés<a class="headerlink" href="#types-reformes" title="Permanent link">¶</a></h3>
 <p>Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.</p>
 <table id="_table-4">
-<caption style="caption-side:bottom">Table 4&thinsp;: Entiers standard défini par stdint</caption><thead>
+<caption style="caption-side:bottom"> Entiers standard défini par stdint</caption><thead>
 <tr>
 <th>Type</th>
 <th>Signe</th>
@@ -4806,14 +4806,14 @@
 <p>Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un <code>int</code> comme valeur de comptage allant au-delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du <code>int</code> sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème&thinsp;?</p>
 <p>La première solution est de toujours utiliser les types proposés par <code>&lt;stdint.h&gt;</code> lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données&thinsp;:</p>
 <table id="_table-5">
-<caption style="caption-side:bottom">Table 5&thinsp;: Modèle de données</caption><thead>
+<caption style="caption-side:bottom"> Modèle de données</caption><thead>
 <tr>
 <th>Modèle</th>
-<th><code>short</code></th>
-<th><code>int</code></th>
-<th><code>long</code></th>
-<th><code>long long</code></th>
-<th><code>size_t</code></th>
+<th>short</th>
+<th>int</th>
+<th>long</th>
+<th>long long</th>
+<th>size_t</th>
 <th>Système d'exploitation</th>
 </tr>
 </thead>
@@ -4890,19 +4890,19 @@
 <p>Mais comment un ordinateur sait-il que <code>97</code> correspond à <code>a</code> ? C'est là que la notion d'encodage entre en jeu.</p>
 <h3 id="la-table-ascii">La table ASCII<a class="headerlink" href="#la-table-ascii" title="Permanent link">¶</a></h3>
 <p>Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'<a href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ASA</a>, l'<em>American Standards Association</em> aujourd'hui <strong><abbr title="American National Standards Institute">ANSI</abbr></strong> qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.</p>
-<p><figure id="_figure-4"><img alt="Table ASCII ASA X3.4 établie en 1963" class="drawio-diagram" src="../../../assets/images/ascii-1963.drawio"/><figcaption>Figure 4&thinsp;: Table ASCII ASA X3.4 établie en 1963</figcaption></figure></p>
+<p><figure id="_figure-4"><img alt="Table ASCII ASA X3.4 établie en 1963" class="drawio-diagram" src="../../../assets/images/ascii-1963.drawio"/><figcaption> Table ASCII ASA X3.4 établie en 1963</figcaption></figure></p>
 <p>Aujourd'hui la table ASCII de base définit 128 caractères qui n'incluent pas les caractères accentués.</p>
-<p><figure id="_figure-5"><img alt="Table ANSI INCITS 4-1986 (standard actuel)" class="drawio-diagram" src="../../../assets/images/ascii.drawio"/><figcaption>Figure 5&thinsp;: Table ANSI INCITS 4-1986 (standard actuel)</figcaption></figure></p>
+<p><figure id="_figure-5"><img alt="Table ANSI INCITS 4-1986 (standard actuel)" class="drawio-diagram" src="../../../assets/images/ascii.drawio"/><figcaption> Table ANSI INCITS 4-1986 (standard actuel)</figcaption></figure></p>
 <p>Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard <strong>ISO/IEC 8859</strong> aussi appelé standard <em>Latin</em> définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables <strong>ISO-8859-1</strong> ou (<strong>latin1</strong>) et <strong>ISO-8859-15</strong> (<strong>latin9</strong>):</p>
-<p><figure id="_figure-6"><img alt="Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)" class="drawio-diagram" src="../../../assets/images/latin1.drawio"/><figcaption>Figure 6&thinsp;: Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)</figcaption></figure></p>
+<p><figure id="_figure-6"><img alt="Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)" class="drawio-diagram" src="../../../assets/images/latin1.drawio"/><figcaption> Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)</figcaption></figure></p>
 <p>Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement&thinsp;? C'est un problème typique d'encodage.</p>
 <p>Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a proposé un standard nommé <a href="https://fr.wikipedia.org/wiki/Windows-1252">Windows-1252</a> s'inspirant de <a href="https://fr.wikipedia.org/wiki/ISO/CEI_8859-1">ISO-8859-1</a>. En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...</p>
 <h3 id="unicode">Unicode<a class="headerlink" href="#unicode" title="Permanent link">¶</a></h3>
 <p>Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب‎), les Coréens (한국어), les Chinois avec le chinois simplifié (官话) et le chinois traditionnel (官話), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage&thinsp;; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.</p>
 <p>Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard <strong>Unicode</strong> (<em>Universal Coded Character Set</em>) plus précisément nommé <strong>UTF-8</strong>.</p>
-<p><figure id="_figure-7"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/encoding-trends.png"><img alt="Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008" src="../../../assets/images/encoding-trends.png"/></a><figcaption>Figure 7&thinsp;: Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008</figcaption></figure></p>
+<p><figure id="_figure-7"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/encoding-trends.png"><img alt="Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008" src="../../../assets/images/encoding-trends.png"/></a><figcaption> Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008</figcaption></figure></p>
 <p>Cette tendance est accessible <a href="https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html">ici</a>.</p>
-<p>L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. <a href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>, dont nous avons déjà parlé en introduction, <a href="" id="thompson"></a> est à l'origine de ce standard. Par exemple le <em>devanagari</em> caractère <code>ह</code> utilisé en Sanskrit possède la dénomination Unicode {unicode}<code><a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/0939" target="_blank">0939</a></code> et s'encode sur 3 octets&thinsp;: <code>0xE0 0xA4 0xB9</code></p>
+<p>L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. <a href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>, dont nous avons déjà parlé en introduction, <a href="" id="thompson"></a> est à l'origine de ce standard. Par exemple le <em>devanagari</em> caractère <code>ह</code> utilisé en Sanskrit possède la dénomination Unicode <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/0939" target="_blank">0939</a> et s'encode sur 3 octets&thinsp;: <code>0xE0 0xA4 0xB9</code></p>
 <p>En programmation C, un caractère <code>char</code> ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.</p>
 <p>Voici par exemple comment déclarer une variable contenant le caractère dollar&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'$'</span><span class="p">;</span>
@@ -4922,8 +4922,8 @@
 </div>
 <h3 id="les-emojis">Les emojis<a class="headerlink" href="#les-emojis" title="Permanent link">¶</a></h3>
 <p>Les emojis sont des caractères spéciaux qui ont été introduits en 2010 par le standard Unicode 6.0. Ils sont donc codés sur 4 octets et permettent de représenter des émotions, des objets, des animaux, des symboles, etc.</p>
-<p>Les émoticônes que vous pouvez envoyer à votre grand-mère sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère <code><a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/2764" target="_blank">2764</a></code> qui est le caractère <code>❤</code>. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.</p>
-<p>Ceci est vrai, mais encore faut-il que la police d'écriture utilisée par votre chère grand-maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère <code>�</code> qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.</p>
+<p>Les émoticônes que vous pouvez envoyer à votre grand-mère sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/2764" target="_blank">2764</a> qui est le caractère <code>❤</code>. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.</p>
+<p>Ceci est vrai, mais encore faut-il que la police d'écriture utilisée par votre chère grand-maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère � qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.</p>
 <h2 id="chaine-de-caracteres">Chaîne de caractères<a class="headerlink" href="#chaine-de-caracteres" title="Permanent link">¶</a></h2>
 <p>Une <strong>chaîne de caractères</strong> est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit <code>NUL</code> ou <code>\0</code>. On appelle ce caractère le caractère de fin de chaîne. Il s'agit d'une sentinelle.</p>
 <div class="admonition example">
@@ -5078,7 +5078,7 @@ définies numériquement dans le type énuméré.</p>
 </span><span id="__span-15-10"><a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Calling France, please wait...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-15-11"><a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
 </span><span id="__span-15-12"><a href="#__codelineno-15-12" id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">:</span>
-</span><span id="__span-15-13"><a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"No calls to this country are allowed yet!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-15-13"><a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"No calls to this country are allowed yet&thinsp;!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-15-14"><a href="#__codelineno-15-14" id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-15-15"><a href="#__codelineno-15-15" id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="p">}</span>
 </span></code></pre></div>
@@ -5090,7 +5090,7 @@ définies numériquement dans le type énuméré.</p>
 <h3 id="type-vide-void">Type vide (<em>void</em>)<a class="headerlink" href="#type-vide-void" title="Permanent link">¶</a></h3>
 <p>Le type <code>void</code> est particulier. Il s'agit d'un type dit <strong>incomplet</strong>, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">shout</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hey!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hey&thinsp;!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Il peut être également utilisé comme type générique comme la fonction de copie mémoire <code>memcpy</code></p>
@@ -5109,8 +5109,8 @@ C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'
 du processeur. Les <em>registres</em> du processeur, autrement dit ses casiers mémoires, sont au moins
 assez grand pour  contenir un <code>int</code>.</p>
 <p>Aussi, la plupart des types de taille inférieure à <code>int</code> sont automatiquement et implicitement promus en <code>int</code>. Le résultat de <code>a + b</code> lorsque <code>a</code> et <code>b</code> sont des <code>char</code> sera automatiquement un <code>int</code>.</p>
-<table>
-<thead>
+<table id="_table-6">
+<caption style="caption-side:bottom"> Promotion numérique</caption><thead>
 <tr>
 <th>Type source</th>
 <th>Type cible</th>
@@ -5195,18 +5195,18 @@ la valeur représentée&thinsp;!</p>
 <p>Par exemple, la conversion d'un nombre flottant (<em>double</em> ou <em>float</em>) en entier (signé) doit être étudiée pour éviter tout problème. Le type entier doit être
 capable de recevoir la valeur (attention aux valeurs maxi).</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mf">3.9</span><span class="p">;</span>
-</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 3 =&gt; perte de précision</span>
+</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur&thinsp;: 3 =&gt; perte de précision</span>
 </span></code></pre></div>
 <p>A l'exécution, la valeur de <span class="arithmatex">\(l\)</span> sera la partie entière de
 <span class="arithmatex">\(d\)</span>. Il n'y a pas d'arrondi.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mh">0x12345678</span><span class="p">;</span>
-</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 0x5678 =&gt; changement de valeur</span>
+</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur&thinsp;: 0x5678 =&gt; changement de valeur</span>
 </span></code></pre></div>
 <p>La variable sh (<em>short</em> sur 16 bit) ne peut contenir la valeur réelle.
 Lors du transtypage, il y a modification de la valeur ce qui conduit à
 des erreurs de calculs par la suite.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">-123</span><span class="p">;</span>
-</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 65413 =&gt; changement de valeur</span>
+</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur&thinsp;: 65413 =&gt; changement de valeur</span>
 </span></code></pre></div>
 <p>L'utilisation d'un type non signé pour convertir un nombre réel conduit
 également à une modification de la valeur numérique.</p>
@@ -5214,7 +5214,7 @@ des erreurs de calculs par la suite.</p>
 <p>La conversion d'un nombre réel de type <em>double</em> en réel de type <em>float</em>
 pose un problème de précision de calcul.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mf">0.1111111111111111</span><span class="p">;</span>
-</span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 0.1111111119389533 =&gt; perte de précision</span>
+</span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur&thinsp;: 0.1111111119389533 =&gt; perte de précision</span>
 </span></code></pre></div>
 <p>À l'exécution, il y a une perte de précision lors de la conversion, ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
@@ -5314,21 +5314,24 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 <p>Pour chaque exemple, donner la valeur des variables après exécution du code.</p>
 <ol>
 <li>
-<p><code>c
-    unsigned short i = 32767;
-    i++;</code></p>
+<p> </p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32767</span><span class="p">;</span>
+</span><span id="__span-33-2"><a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></code></pre></div>
 </li>
 <li>
-<p><code>c
-    short i = 32767;
-    i++;</code></p>
+<p> </p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="kt">short</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32767</span><span class="p">;</span>
+</span><span id="__span-34-2"><a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></code></pre></div>
 </li>
 <li>
-<p><code>c
-    short i = 0;
-    i = i--;
-    i = --i;
-    i = i--;</code></p>
+<p> </p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="kt">short</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
+</span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">--</span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-35-4"><a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
+</span></code></pre></div>
 </li>
 </ol>
 </div>
@@ -5336,12 +5339,12 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 <div class="admonition exercise">
 <p class="admonition-title">Évaluation d'expressions</p>
 <p>Considérons les déclarations suivantes&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-</span><span id="__span-33-2"><a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
-</span><span id="__span-33-3"><a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-</span><span id="__span-33-4"><a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
-</span><span id="__span-33-5"><a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.3</span><span class="p">;</span>
-</span><span id="__span-33-6"><a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.7</span><span class="p">;</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+</span><span id="__span-36-3"><a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-36-4"><a href="#__codelineno-36-4" id="__codelineno-36-4" name="__codelineno-36-4"></a><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+</span><span id="__span-36-5"><a href="#__codelineno-36-5" id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.3</span><span class="p">;</span>
+</span><span id="__span-36-6"><a href="#__codelineno-36-6" id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.7</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Que vaut le type et la valeur des expressions suivantes&thinsp;?</p>
 <div class="two-column-list">
@@ -5363,20 +5366,20 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 <div class="admonition exercise">
 <p class="admonition-title">Précision des flottants</p>
 <p>Que vaut <code>x</code>?</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10000000.</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-37-1"><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10000000.</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span>
 </span></code></pre></div>
 <details class="solution">
 <summary>Solution</summary>
 <p>Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-</span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a>
-</span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-35-4"><a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10000000.</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span>
-</span><span id="__span-35-5"><a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
-</span><span id="__span-35-6"><a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-38-2"><a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a>
+</span><span id="__span-38-3"><a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-38-4"><a href="#__codelineno-38-4" id="__codelineno-38-4" name="__codelineno-38-4"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10000000.</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span>
+</span><span id="__span-38-5"><a href="#__codelineno-38-5" id="__codelineno-38-5" name="__codelineno-38-5"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+</span><span id="__span-38-6"><a href="#__codelineno-38-6" id="__codelineno-38-6" name="__codelineno-38-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a>$<span class="w"> </span>./a.out
-</span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="m">10000000</span>.000000
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a>$<span class="w"> </span>./a.out
+</span><span id="__span-39-2"><a href="#__codelineno-39-2" id="__codelineno-39-2" name="__codelineno-39-2"></a><span class="m">10000000</span>.000000
 </span></code></pre></div>
 </details>
 </div>
@@ -5420,36 +5423,36 @@ correspondant.</p>
 \]</div>
 <p>Vous ne le croyez pas et décider d'utiliser le superordinateur <a href="https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste">Pensées Profondes</a> pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur <code>n</code> à laquelle s'arrêter.</p>
 <p>Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme <code>time</code>:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-37-1"><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="gp">$ </span><span class="nb">time</span><span class="w"> </span>./a.out<span class="w"> </span><span class="m">1000000000</span>
-</span><span id="__span-37-2"><a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="go">500000000500000000</span>
-</span><span id="__span-37-3"><a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a>
-</span><span id="__span-37-4"><a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="go">real    0m0.180s</span>
-</span><span id="__span-37-5"><a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a><span class="go">user    0m0.172s</span>
-</span><span id="__span-37-6"><a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a><span class="go">sys     0m0.016s</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-40-1"><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="gp">$ </span><span class="nb">time</span><span class="w"> </span>./a.out<span class="w"> </span><span class="m">1000000000</span>
+</span><span id="__span-40-2"><a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a><span class="go">500000000500000000</span>
+</span><span id="__span-40-3"><a href="#__codelineno-40-3" id="__codelineno-40-3" name="__codelineno-40-3"></a>
+</span><span id="__span-40-4"><a href="#__codelineno-40-4" id="__codelineno-40-4" name="__codelineno-40-4"></a><span class="go">real    0m0.180s</span>
+</span><span id="__span-40-5"><a href="#__codelineno-40-5" id="__codelineno-40-5" name="__codelineno-40-5"></a><span class="go">user    0m0.172s</span>
+</span><span id="__span-40-6"><a href="#__codelineno-40-6" id="__codelineno-40-6" name="__codelineno-40-6"></a><span class="go">sys     0m0.016s</span>
 </span></code></pre></div>
 <p>À partir de quelle valeur, le temps de calcul devient significativement palpable&thinsp;?</p>
 <details class="solution">
 <summary>Solution</summary>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-</span><span id="__span-38-2"><a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-</span><span id="__span-38-3"><a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a>
-</span><span id="__span-38-4"><a href="#__codelineno-38-4" id="__codelineno-38-4" name="__codelineno-38-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-38-5"><a href="#__codelineno-38-5" id="__codelineno-38-5" name="__codelineno-38-5"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-</span><span id="__span-38-6"><a href="#__codelineno-38-6" id="__codelineno-38-6" name="__codelineno-38-6"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-38-7"><a href="#__codelineno-38-7" id="__codelineno-38-7" name="__codelineno-38-7"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
-</span><span id="__span-38-8"><a href="#__codelineno-38-8" id="__codelineno-38-8" name="__codelineno-38-8"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%lld</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span>
-</span><span id="__span-38-9"><a href="#__codelineno-38-9" id="__codelineno-38-9" name="__codelineno-38-9"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+</span><span id="__span-41-3"><a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a>
+</span><span id="__span-41-4"><a href="#__codelineno-41-4" id="__codelineno-41-4" name="__codelineno-41-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-41-5"><a href="#__codelineno-41-5" id="__codelineno-41-5" name="__codelineno-41-5"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span><span id="__span-41-6"><a href="#__codelineno-41-6" id="__codelineno-41-6" name="__codelineno-41-6"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-41-7"><a href="#__codelineno-41-7" id="__codelineno-41-7" name="__codelineno-41-7"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-41-8"><a href="#__codelineno-41-8" id="__codelineno-41-8" name="__codelineno-41-8"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%lld</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span>
+</span><span id="__span-41-9"><a href="#__codelineno-41-9" id="__codelineno-41-9" name="__codelineno-41-9"></a><span class="p">}</span>
 </span></code></pre></div>
 </details>
 </div>
 <div class="admonition exercise">
 <p class="admonition-title">Système de vision industriel</p>
 <p>La société japonaise Nakainœil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-39-1"><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="kt">uint32_t</span><span class="w"> </span><span class="n">inspected_parts</span><span class="p">,</span><span class="w"> </span><span class="n">bad_parts</span><span class="p">;</span>
-</span><span id="__span-39-2"><a href="#__codelineno-39-2" id="__codelineno-39-2" name="__codelineno-39-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">percentage_good_parts</span><span class="p">;</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-42-1"><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="kt">uint32_t</span><span class="w"> </span><span class="n">inspected_parts</span><span class="p">,</span><span class="w"> </span><span class="n">bad_parts</span><span class="p">;</span>
+</span><span id="__span-42-2"><a href="#__codelineno-42-2" id="__codelineno-42-2" name="__codelineno-42-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">percentage_good_parts</span><span class="p">;</span>
 </span></code></pre></div>
 <p>À un moment du programme, on peut lire&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-40-1"><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="n">percentage_good_parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">inspected_parts</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bad_parts</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">inspected_parts</span><span class="p">;</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="n">percentage_good_parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">inspected_parts</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bad_parts</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">inspected_parts</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Sachant que <code>inspected_parts = 2000</code> et <code>bad_parts = 200</code>:</p>
 <ol>
@@ -5465,9 +5468,9 @@ correspondant.</p>
 <li>En pratique, il obtient un entier, c'est à dire toujours 0.</li>
 <li>
 <p>La promotion implicite des entiers peut être découpée comme suit&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">numerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">inspected_parts</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">bad_parts</span><span class="p">;</span>
-</span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">percentage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">inspected_parts</span><span class="p">;</span>
-</span><span id="__span-41-3"><a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">percentage_good_parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">percentage</span><span class="p">;</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">numerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">inspected_parts</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">bad_parts</span><span class="p">;</span>
+</span><span id="__span-44-2"><a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">percentage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">inspected_parts</span><span class="p">;</span>
+</span><span id="__span-44-3"><a href="#__codelineno-44-3" id="__codelineno-44-3" name="__codelineno-44-3"></a><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">percentage_good_parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">percentage</span><span class="p">;</span>
 </span></code></pre></div>
 </li>
 </ol>
@@ -5475,7 +5478,7 @@ correspondant.</p>
 <ol>
 <li>
 <p>Une possible correction consiste à forcer le type d'un des membres de la division&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-42-1"><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="n">percentage_good_parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">inspected_parts</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bad_parts</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">inspected_parts</span><span class="p">;</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-45-1"><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="n">percentage_good_parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">inspected_parts</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bad_parts</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">inspected_parts</span><span class="p">;</span>
 </span></code></pre></div>
 </li>
 </ol>
@@ -5484,7 +5487,7 @@ correspondant.</p>
 <div class="admonition exercise">
 <p class="admonition-title">Missile Patriot</p>
 <p>Durant la guerre du Golfe le 25 février 1991, une batterie de missile américaine à Dharan en Arabie saoudite à échoué à intercepter un missile irakien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport <strong>GAO/OMTEC-92-26</strong> du commandement général.</p>
-<p>Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixième de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24&thinsp;:sup&thinsp;:<code>ième</code> décimale après la virgule. Des erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduite par 600 mètres d'erreur lors de la tentative d'interception.</p>
+<p>Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixième de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24:sup&thinsp;:<code>ième</code> décimale après la virgule. Des erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduite par 600 mètres d'erreur lors de la tentative d'interception.</p>
 <p>Le stockage de la valeur 0.1 est donné par&thinsp;:</p>
 <div class="arithmatex">\[
 0.1_{10} \approx \lfloor 0.1_{10}\cdot 2^{23} \rfloor = 11001100110011001100_{2} \approx 0.09999990463256836
@@ -5493,7 +5496,7 @@ correspondant.</p>
 <div class="arithmatex">\[
 100 \cdot 60 \cdot 60 \cdot 10 = 3'600'000
 \]</div>
-<p>En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne <code>Q1.23 x Q0.24 = Q1.47</code> le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par&thinsp;:math&thinsp;:<code>2^{47}</code> pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.</p>
+<p>En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne <code>Q1.23 x Q0.24 = Q1.47</code> le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par :math&thinsp;:<code>2^{47}</code> pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.</p>
 <p>Quel est l'erreur en seconde cumulée sur les 100 heures de fonctionnement&thinsp;?</p>
 </div>
 
@@ -5518,7 +5521,7 @@ correspondant.</p>
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 23, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2024</span>
   </span>
 
     
@@ -5727,8 +5730,6 @@ correspondant.</p>
       <script src="../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
         <script src="../../../assets/_markdown_exec_pyodide.js"></script>
-      
-        <script src="../../../js/mkdocs-charts-plugin.js"></script>
       
         <script src="../../../js/viewer.min.js"></script>
       

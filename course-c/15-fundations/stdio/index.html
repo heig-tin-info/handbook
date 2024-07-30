@@ -4351,10 +4351,10 @@
 <p>Type de formatage souhaité</p>
 </dd>
 </dl>
-<p><figure id="_figure-1"><img alt="Formatage d'un marqueur" class="drawio-diagram" src="../../../assets/images/formats.drawio"/><figcaption>Figure 1&thinsp;: Formatage d'un marqueur</figcaption></figure></p>
+<p><figure id="_figure-1"><img alt="Formatage d'un marqueur" class="drawio-diagram" src="../../../assets/images/formats.drawio"/><figcaption> Formatage d'un marqueur</figcaption></figure></p>
 <p>Voici quelques exemples&thinsp;:</p>
 <table id="_table-1">
-<caption style="caption-side:bottom">Table 1&thinsp;: Exemple de formatage avec printf</caption><thead>
+<caption style="caption-side:bottom"> Exemple de formatage avec printf</caption><thead>
 <tr>
 <th>Exemple</th>
 <th>Sortie</th>
@@ -4420,7 +4420,7 @@
 </span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">format</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">        </span><span class="c1">// Si on rencontre un caractère %, on regarde le caractère suivant</span>
 </span><span id="__span-9-6"><a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">format</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'%'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-7"><a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">            </span><span class="c1">// Est-ce que ce caractère est spécial ?</span>
+</span><span id="__span-9-7"><a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">            </span><span class="c1">// Est-ce que ce caractère est spécial&thinsp;?</span>
 </span><span id="__span-9-8"><a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">            </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">format</span><span class="p">[</span><span class="o">++</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-9"><a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="sc">'d'</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-10"><a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">                    </span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
@@ -4466,7 +4466,7 @@
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 </span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getchar</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Caractère lu : %c</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Caractère lu&thinsp;: %c</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 </span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="p">}</span>
 </span></code></pre></div>
@@ -4481,7 +4481,7 @@
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
 </span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">    </span><span class="n">gets</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
-</span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Chaîne lue : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
+</span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Chaîne lue&thinsp;: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
 </span><span id="__span-12-7"><a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition warning">
@@ -4500,22 +4500,22 @@
 </span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="p">{</span>
 </span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">favorite</span><span class="p">;</span>
 </span><span id="__span-13-6"><a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>
-</span><span id="__span-13-7"><a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Quelle est votre nombre favori ? "</span><span class="p">);</span>
+</span><span id="__span-13-7"><a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Quelle est votre nombre favori&thinsp;? "</span><span class="p">);</span>
 </span><span id="__span-13-8"><a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">favorite</span><span class="p">);</span>
 </span><span id="__span-13-9"><a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a>
-</span><span id="__span-13-10"><a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Saviez-vous que votre nombre favori, %d, est %s ?</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+</span><span id="__span-13-10"><a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Saviez-vous que votre nombre favori, %d, est %s&thinsp;?</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
 </span><span id="__span-13-11"><a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="w">        </span><span class="n">favorite</span><span class="p">,</span>
 </span><span id="__span-13-12"><a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">        </span><span class="n">favorite</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"impair"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">"pair"</span><span class="p">);</span>
 </span><span id="__span-13-13"><a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Cette fonction utilise l'entrée standard <code>stdin</code>. Il est donc possible soit d'exécuter ce programme en mode interactif&thinsp;:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="gp">$ </span>./a.out
-</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="go">Quelle est votre nombre favori ? 2</span>
-</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="go">Saviez-vous que votre nombre favori, 2, est pair ?</span>
+</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="go">Quelle est votre nombre favori&thinsp;? 2</span>
+</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="go">Saviez-vous que votre nombre favori, 2, est pair&thinsp;?</span>
 </span></code></pre></div>
 <p>soit d'exécuter ce programme en fournissant le nécessaire à stdin&thinsp;:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"23"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>./a.out
-</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="go">Quel est votre nombre favori ? Saviez-vous que votre nombre favori, 23, est impair ?</span>
+</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="go">Quel est votre nombre favori&thinsp;? Saviez-vous que votre nombre favori, 23, est impair&thinsp;?</span>
 </span></code></pre></div>
 <p>On observe ici un comportement différent, car le retour clavier lorsque la touche <em>enter</em> est pressée n'est pas transmis au programme, mais c'est le shell qui l'intercepte.</p>
 <p>Le format de <code>scanf</code> se rapproche de <code>printf</code> mais en plus simple. Le <a href="https://linux.die.net/man/3/scanf">man scanf</a> ou même la page Wikipédia de <a href="https://en.wikipedia.org/wiki/Scanf_format_string">scanf</a> renseigne sur son format.</p>
@@ -4838,7 +4838,7 @@
 </li>
 <li>
 <p>Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables <code>x</code>, <code>y</code> et <code>z</code>.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="n">scanf</span><span class="p">(</span><span class="s">"%f ;%f ;%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">z</span><span class="p">);</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="n">scanf</span><span class="p">(</span><span class="s">"%f&thinsp;;%f&thinsp;;%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">z</span><span class="p">);</span>
 </span></code></pre></div>
 </li>
 <li>
@@ -4904,14 +4904,14 @@
 </span></code></pre></div>
 <details class="solution">
 <summary>Solution</summary>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="c1">// Incorrect ! Le premier paramètre de printf doit être la chaîne de format.</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="c1">// Incorrect&thinsp;! Le premier paramètre de printf doit être la chaîne de format.</span>
 </span><span id="__span-34-2"><a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="n">printf</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 </span><span id="__span-34-3"><a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a>
-</span><span id="__span-34-4"><a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="c1">// Incorrect ! Le premier paramètre de scanf doit être la chaîne de format.</span>
+</span><span id="__span-34-4"><a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="c1">// Incorrect&thinsp;! Le premier paramètre de scanf doit être la chaîne de format.</span>
 </span><span id="__span-34-5"><a href="#__codelineno-34-5" id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="n">scanf</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
 </span><span id="__span-34-6"><a href="#__codelineno-34-6" id="__codelineno-34-6" name="__codelineno-34-6"></a>
 </span><span id="__span-34-7"><a href="#__codelineno-34-7" id="__codelineno-34-7" name="__codelineno-34-7"></a><span class="c1">// Correct, mais surprenant.</span>
-</span><span id="__span-34-8"><a href="#__codelineno-34-8" id="__codelineno-34-8" name="__codelineno-34-8"></a><span class="c1">// Cette instruction affichera l’adresse de I, et non pas sa valeur !</span>
+</span><span id="__span-34-8"><a href="#__codelineno-34-8" id="__codelineno-34-8" name="__codelineno-34-8"></a><span class="c1">// Cette instruction affichera l’adresse de I, et non pas sa valeur&thinsp;!</span>
 </span><span id="__span-34-9"><a href="#__codelineno-34-9" id="__codelineno-34-9" name="__codelineno-34-9"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
 </span><span id="__span-34-10"><a href="#__codelineno-34-10" id="__codelineno-34-10" name="__codelineno-34-10"></a>
 </span><span id="__span-34-11"><a href="#__codelineno-34-11" id="__codelineno-34-11" name="__codelineno-34-11"></a><span class="c1">// Incorrect. Le paramètre i est de type short, alors que la chaîne de</span>
@@ -4922,7 +4922,7 @@
 </span><span id="__span-34-16"><a href="#__codelineno-34-16" id="__codelineno-34-16" name="__codelineno-34-16"></a><span class="c1">// Incorrect, la troisième variable passée en paramètre ne sera pas affichée.</span>
 </span><span id="__span-34-17"><a href="#__codelineno-34-17" id="__codelineno-34-17" name="__codelineno-34-17"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%d%ld"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">);</span>
 </span><span id="__span-34-18"><a href="#__codelineno-34-18" id="__codelineno-34-18" name="__codelineno-34-18"></a>
-</span><span id="__span-34-19"><a href="#__codelineno-34-19" id="__codelineno-34-19" name="__codelineno-34-19"></a><span class="c1">// Incorrect ! Le premier paramètre est de type short alors que int</span>
+</span><span id="__span-34-19"><a href="#__codelineno-34-19" id="__codelineno-34-19" name="__codelineno-34-19"></a><span class="c1">// Incorrect&thinsp;! Le premier paramètre est de type short alors que int</span>
 </span><span id="__span-34-20"><a href="#__codelineno-34-20" id="__codelineno-34-20" name="__codelineno-34-20"></a><span class="c1">// est spécifié dans la chaîne de format.</span>
 </span><span id="__span-34-21"><a href="#__codelineno-34-21" id="__codelineno-34-21" name="__codelineno-34-21"></a><span class="c1">// Le deuxième paramètre n’est pas passé par adresse, ce qui va</span>
 </span><span id="__span-34-22"><a href="#__codelineno-34-22" id="__codelineno-34-22" name="__codelineno-34-22"></a><span class="c1">// probablement causer une erreur fatale.</span>
@@ -4931,7 +4931,7 @@
 </span><span id="__span-34-25"><a href="#__codelineno-34-25" id="__codelineno-34-25" name="__codelineno-34-25"></a><span class="c1">// Correct, mais étonnant. Affiche l’adresse de la variable u.</span>
 </span><span id="__span-34-26"><a href="#__codelineno-34-26" id="__codelineno-34-26" name="__codelineno-34-26"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%u"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">u</span><span class="p">);</span>
 </span><span id="__span-34-27"><a href="#__codelineno-34-27" id="__codelineno-34-27" name="__codelineno-34-27"></a>
-</span><span id="__span-34-28"><a href="#__codelineno-34-28" id="__codelineno-34-28" name="__codelineno-34-28"></a><span class="c1">// Incorrect ! Le paramètre est de type unsigned short, alors que</span>
+</span><span id="__span-34-28"><a href="#__codelineno-34-28" id="__codelineno-34-28" name="__codelineno-34-28"></a><span class="c1">// Incorrect&thinsp;! Le paramètre est de type unsigned short, alors que</span>
 </span><span id="__span-34-29"><a href="#__codelineno-34-29" id="__codelineno-34-29" name="__codelineno-34-29"></a><span class="c1">// la chaîne de format spécifie int. Fonctionnera pour les valeurs</span>
 </span><span id="__span-34-30"><a href="#__codelineno-34-30" id="__codelineno-34-30" name="__codelineno-34-30"></a><span class="c1">// positives sur les machines dont le type short et int sont identiques.</span>
 </span><span id="__span-34-31"><a href="#__codelineno-34-31" id="__codelineno-34-31" name="__codelineno-34-31"></a><span class="c1">// Pour les valeurs négatives, le résultat sera l’interprétation non</span>
@@ -4944,10 +4944,10 @@
 </span><span id="__span-34-38"><a href="#__codelineno-34-38" id="__codelineno-34-38" name="__codelineno-34-38"></a><span class="c1">// Correct.</span>
 </span><span id="__span-34-39"><a href="#__codelineno-34-39" id="__codelineno-34-39" name="__codelineno-34-39"></a><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
 </span><span id="__span-34-40"><a href="#__codelineno-34-40" id="__codelineno-34-40" name="__codelineno-34-40"></a>
-</span><span id="__span-34-41"><a href="#__codelineno-34-41" id="__codelineno-34-41" name="__codelineno-34-41"></a><span class="c1">// Correct ! %f est traité comme double par printf !</span>
+</span><span id="__span-34-41"><a href="#__codelineno-34-41" id="__codelineno-34-41" name="__codelineno-34-41"></a><span class="c1">// Correct&thinsp;! %f est traité comme double par printf&thinsp;!</span>
 </span><span id="__span-34-42"><a href="#__codelineno-34-42" id="__codelineno-34-42" name="__codelineno-34-42"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
 </span><span id="__span-34-43"><a href="#__codelineno-34-43" id="__codelineno-34-43" name="__codelineno-34-43"></a>
-</span><span id="__span-34-44"><a href="#__codelineno-34-44" id="__codelineno-34-44" name="__codelineno-34-44"></a><span class="c1">// Incorrect ! La chaîne de format spécifie float,</span>
+</span><span id="__span-34-44"><a href="#__codelineno-34-44" id="__codelineno-34-44" name="__codelineno-34-44"></a><span class="c1">// Incorrect&thinsp;! La chaîne de format spécifie float,</span>
 </span><span id="__span-34-45"><a href="#__codelineno-34-45" id="__codelineno-34-45" name="__codelineno-34-45"></a><span class="c1">// le paramètre passé est l’adresse d’une variable de type double.</span>
 </span><span id="__span-34-46"><a href="#__codelineno-34-46" id="__codelineno-34-46" name="__codelineno-34-46"></a><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
 </span></code></pre></div>
@@ -4963,7 +4963,7 @@ invalides".</p>
 <summary>Solution</summary>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 </span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
-</span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="n">printf</span><span class="p">(</span><span class="s">"Donnez les valeurs de x, y et z :"</span><span class="p">);</span>
+</span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="n">printf</span><span class="p">(</span><span class="s">"Donnez les valeurs de x, y et z&thinsp;:"</span><span class="p">);</span>
 </span><span id="__span-35-4"><a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f%f%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">z</span><span class="p">);</span>
 </span><span id="__span-35-5"><a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
 </span><span id="__span-35-6"><a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="n">printf</span><span class="p">(</span><span class="s">"Erreur de saisie.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
@@ -4987,14 +4987,14 @@ invalides".</p>
 </span><span id="__span-36-5"><a href="#__codelineno-36-5" id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="p">{</span>
 </span><span id="__span-36-6"><a href="#__codelineno-36-6" id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">y1</span>
 </span><span id="__span-36-7"><a href="#__codelineno-36-7" id="__codelineno-36-7" name="__codelineno-36-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Coordonnées du vecteur v1 séparées par un </span><span class="se">\"</span><span class="s">;</span><span class="se">\"</span><span class="s"> :</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-</span><span id="__span-36-8"><a href="#__codelineno-36-8" id="__codelineno-36-8" name="__codelineno-36-8"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f ;%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y1</span><span class="p">);</span>
+</span><span id="__span-36-8"><a href="#__codelineno-36-8" id="__codelineno-36-8" name="__codelineno-36-8"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f&thinsp;;%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y1</span><span class="p">);</span>
 </span><span id="__span-36-9"><a href="#__codelineno-36-9" id="__codelineno-36-9" name="__codelineno-36-9"></a>
 </span><span id="__span-36-10"><a href="#__codelineno-36-10" id="__codelineno-36-10" name="__codelineno-36-10"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">;</span>
 </span><span id="__span-36-11"><a href="#__codelineno-36-11" id="__codelineno-36-11" name="__codelineno-36-11"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Coordonnées du vecteur v2 séparées par un </span><span class="se">\"</span><span class="s">;</span><span class="se">\"</span><span class="s"> :</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-</span><span id="__span-36-12"><a href="#__codelineno-36-12" id="__codelineno-36-12" name="__codelineno-36-12"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f ;%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y2</span><span class="p">);</span>
+</span><span id="__span-36-12"><a href="#__codelineno-36-12" id="__codelineno-36-12" name="__codelineno-36-12"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f&thinsp;;%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y2</span><span class="p">);</span>
 </span><span id="__span-36-13"><a href="#__codelineno-36-13" id="__codelineno-36-13" name="__codelineno-36-13"></a>
 </span><span id="__span-36-14"><a href="#__codelineno-36-14" id="__codelineno-36-14" name="__codelineno-36-14"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">dot_product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y2</span><span class="p">;</span>
-</span><span id="__span-36-15"><a href="#__codelineno-36-15" id="__codelineno-36-15" name="__codelineno-36-15"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Produit scalaire : %f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">dot_product</span><span class="p">);</span>
+</span><span id="__span-36-15"><a href="#__codelineno-36-15" id="__codelineno-36-15" name="__codelineno-36-15"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Produit scalaire&thinsp;: %f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">dot_product</span><span class="p">);</span>
 </span><span id="__span-36-16"><a href="#__codelineno-36-16" id="__codelineno-36-16" name="__codelineno-36-16"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dot_product</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span>
 </span><span id="__span-36-17"><a href="#__codelineno-36-17" id="__codelineno-36-17" name="__codelineno-36-17"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Les vecteurs sont orthogonaux.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-36-18"><a href="#__codelineno-36-18" id="__codelineno-36-18" name="__codelineno-36-18"></a><span class="p">}</span>
@@ -5016,20 +5016,20 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </span><span id="__span-39-2"><a href="#__codelineno-39-2" id="__codelineno-39-2" name="__codelineno-39-2"></a>#jnclude &lt;stdlib.h&gt;
 </span><span id="__span-39-3"><a href="#__codelineno-39-3" id="__codelineno-39-3" name="__codelineno-39-3"></a>INT Main()
 </span><span id="__span-39-4"><a href="#__codelineno-39-4" id="__codelineno-39-4" name="__codelineno-39-4"></a>{
-</span><span id="__span-39-5"><a href="#__codelineno-39-5" id="__codelineno-39-5" name="__codelineno-39-5"></a>int a, sum;
+</span><span id="__span-39-5"><a href="#__codelineno-39-5" id="__codelineno-39-5" name="__codelineno-39-5"></a>int a, sum&thinsp;;
 </span><span id="__span-39-6"><a href="#__codelineno-39-6" id="__codelineno-39-6" name="__codelineno-39-6"></a>printf("Addition de 2 entiers a et b.\n");
 </span><span id="__span-39-7"><a href="#__codelineno-39-7" id="__codelineno-39-7" name="__codelineno-39-7"></a>
-</span><span id="__span-39-8"><a href="#__codelineno-39-8" id="__codelineno-39-8" name="__codelineno-39-8"></a>printf("a: ")
+</span><span id="__span-39-8"><a href="#__codelineno-39-8" id="__codelineno-39-8" name="__codelineno-39-8"></a>printf("a&thinsp;: ")
 </span><span id="__span-39-9"><a href="#__codelineno-39-9" id="__codelineno-39-9" name="__codelineno-39-9"></a>scanf("%d", a);
 </span><span id="__span-39-10"><a href="#__codelineno-39-10" id="__codelineno-39-10" name="__codelineno-39-10"></a>
-</span><span id="__span-39-11"><a href="#__codelineno-39-11" id="__codelineno-39-11" name="__codelineno-39-11"></a>printf("b: ");
+</span><span id="__span-39-11"><a href="#__codelineno-39-11" id="__codelineno-39-11" name="__codelineno-39-11"></a>printf("b&thinsp;: ");
 </span><span id="__span-39-12"><a href="#__codelineno-39-12" id="__codelineno-39-12" name="__codelineno-39-12"></a>scanf("%d", &amp;b);
 </span><span id="__span-39-13"><a href="#__codelineno-39-13" id="__codelineno-39-13" name="__codelineno-39-13"></a>
 </span><span id="__span-39-14"><a href="#__codelineno-39-14" id="__codelineno-39-14" name="__codelineno-39-14"></a>/* Affichage du résultat
-</span><span id="__span-39-15"><a href="#__codelineno-39-15" id="__codelineno-39-15" name="__codelineno-39-15"></a>somme = a - b;
+</span><span id="__span-39-15"><a href="#__codelineno-39-15" id="__codelineno-39-15" name="__codelineno-39-15"></a>somme = a - b&thinsp;;
 </span><span id="__span-39-16"><a href="#__codelineno-39-16" id="__codelineno-39-16" name="__codelineno-39-16"></a>Printf("%d + %d = %d\n", a, b, sum);
 </span><span id="__span-39-17"><a href="#__codelineno-39-17" id="__codelineno-39-17" name="__codelineno-39-17"></a>
-</span><span id="__span-39-18"><a href="#__codelineno-39-18" id="__codelineno-39-18" name="__codelineno-39-18"></a>retturn EXIT_FAILURE;
+</span><span id="__span-39-18"><a href="#__codelineno-39-18" id="__codelineno-39-18" name="__codelineno-39-18"></a>retturn EXIT_FAILURE&thinsp;;
 </span><span id="__span-39-19"><a href="#__codelineno-39-19" id="__codelineno-39-19" name="__codelineno-39-19"></a>}
 </span><span id="__span-39-20"><a href="#__codelineno-39-20" id="__codelineno-39-20" name="__codelineno-39-20"></a>}
 </span></code></pre></div>
@@ -5045,25 +5045,25 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </span><span id="__span-40-7"><a href="#__codelineno-40-7" id="__codelineno-40-7" name="__codelineno-40-7"></a><span class="gi">&gt;         #jnclude &lt;stdlib.h&gt;</span>
 </span><span id="__span-40-8"><a href="#__codelineno-40-8" id="__codelineno-40-8" name="__codelineno-40-8"></a><span class="gi">&gt;         INT Main()</span>
 </span><span id="__span-40-9"><a href="#__codelineno-40-9" id="__codelineno-40-9" name="__codelineno-40-9"></a><span class="gu">5c5</span>
-</span><span id="__span-40-10"><a href="#__codelineno-40-10" id="__codelineno-40-10" name="__codelineno-40-10"></a><span class="gd">&lt;         int a, b, sum;</span>
+</span><span id="__span-40-10"><a href="#__codelineno-40-10" id="__codelineno-40-10" name="__codelineno-40-10"></a><span class="gd">&lt;         int a, b, sum&thinsp;;</span>
 </span><span id="__span-40-11"><a href="#__codelineno-40-11" id="__codelineno-40-11" name="__codelineno-40-11"></a><span class="gs">---</span>
-</span><span id="__span-40-12"><a href="#__codelineno-40-12" id="__codelineno-40-12" name="__codelineno-40-12"></a><span class="gi">&gt;         int a, sum;</span>
+</span><span id="__span-40-12"><a href="#__codelineno-40-12" id="__codelineno-40-12" name="__codelineno-40-12"></a><span class="gi">&gt;         int a, sum&thinsp;;</span>
 </span><span id="__span-40-13"><a href="#__codelineno-40-13" id="__codelineno-40-13" name="__codelineno-40-13"></a><span class="gu">9c9</span>
 </span><span id="__span-40-14"><a href="#__codelineno-40-14" id="__codelineno-40-14" name="__codelineno-40-14"></a><span class="gd">&lt;         scanf("%d", &amp;a);</span>
 </span><span id="__span-40-15"><a href="#__codelineno-40-15" id="__codelineno-40-15" name="__codelineno-40-15"></a><span class="gs">---</span>
 </span><span id="__span-40-16"><a href="#__codelineno-40-16" id="__codelineno-40-16" name="__codelineno-40-16"></a><span class="gi">&gt;         scanf("%d", a);</span>
 </span><span id="__span-40-17"><a href="#__codelineno-40-17" id="__codelineno-40-17" name="__codelineno-40-17"></a>14,16c14,16
 </span><span id="__span-40-18"><a href="#__codelineno-40-18" id="__codelineno-40-18" name="__codelineno-40-18"></a><span class="gd">&lt;         /* Affichage du résultat */</span>
-</span><span id="__span-40-19"><a href="#__codelineno-40-19" id="__codelineno-40-19" name="__codelineno-40-19"></a><span class="gd">&lt;         sum = a + b;</span>
+</span><span id="__span-40-19"><a href="#__codelineno-40-19" id="__codelineno-40-19" name="__codelineno-40-19"></a><span class="gd">&lt;         sum = a + b&thinsp;;</span>
 </span><span id="__span-40-20"><a href="#__codelineno-40-20" id="__codelineno-40-20" name="__codelineno-40-20"></a><span class="gd">&lt;         printf("%d + %d = %d\n", a, b, sum);</span>
 </span><span id="__span-40-21"><a href="#__codelineno-40-21" id="__codelineno-40-21" name="__codelineno-40-21"></a><span class="gs">---</span>
 </span><span id="__span-40-22"><a href="#__codelineno-40-22" id="__codelineno-40-22" name="__codelineno-40-22"></a><span class="gi">&gt;         /* Affichage du résultat</span>
-</span><span id="__span-40-23"><a href="#__codelineno-40-23" id="__codelineno-40-23" name="__codelineno-40-23"></a><span class="gi">&gt;         somme = a - b;</span>
+</span><span id="__span-40-23"><a href="#__codelineno-40-23" id="__codelineno-40-23" name="__codelineno-40-23"></a><span class="gi">&gt;         somme = a - b&thinsp;;</span>
 </span><span id="__span-40-24"><a href="#__codelineno-40-24" id="__codelineno-40-24" name="__codelineno-40-24"></a><span class="gi">&gt;         Printf("%d + %d = %d\n", a, b, sum);</span>
 </span><span id="__span-40-25"><a href="#__codelineno-40-25" id="__codelineno-40-25" name="__codelineno-40-25"></a>18c18,19
-</span><span id="__span-40-26"><a href="#__codelineno-40-26" id="__codelineno-40-26" name="__codelineno-40-26"></a><span class="gd">&lt;         return EXIT_SUCCESS;</span>
+</span><span id="__span-40-26"><a href="#__codelineno-40-26" id="__codelineno-40-26" name="__codelineno-40-26"></a><span class="gd">&lt;         return EXIT_SUCCESS&thinsp;;</span>
 </span><span id="__span-40-27"><a href="#__codelineno-40-27" id="__codelineno-40-27" name="__codelineno-40-27"></a><span class="gs">---</span>
-</span><span id="__span-40-28"><a href="#__codelineno-40-28" id="__codelineno-40-28" name="__codelineno-40-28"></a><span class="gi">&gt;         return EXIT_FAILURE;</span>
+</span><span id="__span-40-28"><a href="#__codelineno-40-28" id="__codelineno-40-28" name="__codelineno-40-28"></a><span class="gi">&gt;         return EXIT_FAILURE&thinsp;;</span>
 </span><span id="__span-40-29"><a href="#__codelineno-40-29" id="__codelineno-40-29" name="__codelineno-40-29"></a><span class="gi">&gt;         }</span>
 </span></code></pre></div>
 </details>
@@ -5158,13 +5158,13 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </span><span id="__span-42-12"><a href="#__codelineno-42-12" id="__codelineno-42-12" name="__codelineno-42-12"></a><span class="w">        </span><span class="n">slope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atof</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
 </span><span id="__span-42-13"><a href="#__codelineno-42-13" id="__codelineno-42-13" name="__codelineno-42-13"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-42-14"><a href="#__codelineno-42-14" id="__codelineno-42-14" name="__codelineno-42-14"></a><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">offset_default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.</span><span class="p">;</span>
-</span><span id="__span-42-15"><a href="#__codelineno-42-15" id="__codelineno-42-15" name="__codelineno-42-15"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Offset? [%f]: "</span><span class="p">,</span><span class="w"> </span><span class="n">offset_default</span><span class="p">);</span>
+</span><span id="__span-42-15"><a href="#__codelineno-42-15" id="__codelineno-42-15" name="__codelineno-42-15"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Offset&thinsp;? [%f]: "</span><span class="p">,</span><span class="w"> </span><span class="n">offset_default</span><span class="p">);</span>
 </span><span id="__span-42-16"><a href="#__codelineno-42-16" id="__codelineno-42-16" name="__codelineno-42-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">offset</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-42-17"><a href="#__codelineno-42-17" id="__codelineno-42-17" name="__codelineno-42-17"></a><span class="w">            </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">offset_default</span><span class="p">;</span>
 </span><span id="__span-42-18"><a href="#__codelineno-42-18" id="__codelineno-42-18" name="__codelineno-42-18"></a><span class="w">        </span><span class="p">}</span>
 </span><span id="__span-42-19"><a href="#__codelineno-42-19" id="__codelineno-42-19" name="__codelineno-42-19"></a>
 </span><span id="__span-42-20"><a href="#__codelineno-42-20" id="__codelineno-42-20" name="__codelineno-42-20"></a><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">slope_default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.</span><span class="p">;</span>
-</span><span id="__span-42-21"><a href="#__codelineno-42-21" id="__codelineno-42-21" name="__codelineno-42-21"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Pente? [%f]: "</span><span class="p">,</span><span class="w"> </span><span class="n">slope_default</span><span class="p">);</span>
+</span><span id="__span-42-21"><a href="#__codelineno-42-21" id="__codelineno-42-21" name="__codelineno-42-21"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Pente&thinsp;? [%f]: "</span><span class="p">,</span><span class="w"> </span><span class="n">slope_default</span><span class="p">);</span>
 </span><span id="__span-42-22"><a href="#__codelineno-42-22" id="__codelineno-42-22" name="__codelineno-42-22"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">slope</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-42-23"><a href="#__codelineno-42-23" id="__codelineno-42-23" name="__codelineno-42-23"></a><span class="w">            </span><span class="n">slope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slope_default</span><span class="p">;</span>
 </span><span id="__span-42-24"><a href="#__codelineno-42-24" id="__codelineno-42-24" name="__codelineno-42-24"></a><span class="w">        </span><span class="p">}</span>
@@ -5210,7 +5210,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </span><span id="__span-43-14"><a href="#__codelineno-43-14" id="__codelineno-43-14" name="__codelineno-43-14"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">distance</span><span class="p">);</span>
 </span><span id="__span-43-15"><a href="#__codelineno-43-15" id="__codelineno-43-15" name="__codelineno-43-15"></a>
 </span><span id="__span-43-16"><a href="#__codelineno-43-16" id="__codelineno-43-16" name="__codelineno-43-16"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">tan</span><span class="p">(</span><span class="n">angle_radian</span><span class="p">);</span>
-</span><span id="__span-43-17"><a href="#__codelineno-43-17" id="__codelineno-43-17" name="__codelineno-43-17"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"La hauteur du bâtiment est : %g mètres.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">);</span>
+</span><span id="__span-43-17"><a href="#__codelineno-43-17" id="__codelineno-43-17" name="__codelineno-43-17"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"La hauteur du bâtiment est&thinsp;: %g mètres.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">);</span>
 </span><span id="__span-43-18"><a href="#__codelineno-43-18" id="__codelineno-43-18" name="__codelineno-43-18"></a><span class="p">}</span>
 </span></code></pre></div>
 <ol>
@@ -5466,8 +5466,6 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
       <script src="../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
         <script src="../../../assets/_markdown_exec_pyodide.js"></script>
-      
-        <script src="../../../js/mkdocs-charts-plugin.js"></script>
       
         <script src="../../../js/viewer.min.js"></script>
       

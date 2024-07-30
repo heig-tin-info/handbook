@@ -4013,7 +4013,7 @@
 
 
 <h1 id="git">Git<a class="headerlink" href="#git" title="Permanent link">¶</a></h1>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/git-wallhaven.png"><img alt="Fanart Git" src="../../assets/images/git-wallhaven.png"/></a><figcaption>Figure 1&thinsp;: Fanart Git</figcaption></figure></p>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/git-wallhaven.png"><img alt="Fanart Git" src="../../assets/images/git-wallhaven.png"/></a><figcaption> Fanart Git</figcaption></figure></p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
 <p><a href="https://git-scm.com/">Git</a> est un outil de gestion de versions. Il a été inventé par <a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a> en 2005 pour gérer le développement du noyau Linux qui contient des millions de lignes de code devant être modifiées par des centaines de milliers de développeurs. Git a été conçu pour être rapide, efficace et pour gérer des projets de toutes tailles. Il est aujourd'hui le système de gestion de version le plus utilisé au monde.</p>
 <p>Git est la suite logique des outils comme <code>CVS</code> ou <a href="https://subversion.apache.org/">Subversion</a> qui étaient utilisés pour gérer des projets de développement de logiciels.</p>
@@ -4066,11 +4066,11 @@ Selon la distribution Linux que vous utilisez, les gestionnaires de paquets n'on
 </div>
 <h3 id="affichage-de-lhistorique-des-commits-log">Affichage de l'historique des commits (<em>log</em>)<a class="headerlink" href="#affichage-de-lhistorique-des-commits-log" title="Permanent link">¶</a></h3>
 <p>Lorsque vous utilisez la commande <code>git log</code> pour afficher l'historique des <em>commits</em>, Git affiche les <em>commits</em> dans un format compact. Il est possible de personnaliser l'affichage de l'historique des <em>commits</em>. Vous pouvez le faire avec la commande suivante&thinsp;:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.lg<span class="w"> </span><span class="s2">"log -n30 --boundary --graph --pretty=format:'%C(bold blue)%h%C(bold green)%&lt;|(20)% ar%C(reset)%C(white)% s %C(dim white)-% an%C(reset)%C(auto)% d%C(bold red)% N' --abbrev-commit --date=relative"</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.lg<span class="w"> </span><span class="s2">"log -n30 --boundary --graph --pretty=format&thinsp;:'%C(bold blue)%h%C(bold green)%&lt;|(20)% ar%C(reset)%C(white)% s %C(dim white)-% an%C(reset)%C(auto)% d%C(bold red)% N' --abbrev-commit --date=relative"</span>
 </span></code></pre></div>
 <p>Dès lors vous utiliserez le raccourcis <code>lg</code> pour afficher l'historique des <em>commits</em> (<code>git lg</code>).</p>
 <p>Pour afficher la date en format ISO 8601, vous pouvez utiliser la commande suivante&thinsp;:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.lga<span class="w"> </span><span class="s2">"log -n30 --boundary --graph --pretty=format:'%C(bold blue)%h%C(bold green)%&lt;|(20)% ai%C(reset)%C(white)% s %C(dim white)-% an%C(reset)%C(auto)% d%C(bold red)' --abbrev-commit --date=iso"</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.lga<span class="w"> </span><span class="s2">"log -n30 --boundary --graph --pretty=format&thinsp;:'%C(bold blue)%h%C(bold green)%&lt;|(20)% ai%C(reset)%C(white)% s %C(dim white)-% an%C(reset)%C(auto)% d%C(bold red)' --abbrev-commit --date=iso"</span>
 </span></code></pre></div>
 <h3 id="configuration-ssh">Configuration SSH<a class="headerlink" href="#configuration-ssh" title="Permanent link">¶</a></h3>
 <p>Comme nous l'avons vu, Git peut communiquer avec un serveur distant en utilisant le protocole <code>SSH</code>. Pour cela, il est nécessaire de configurer une clé cryptographique.</p>
@@ -4343,8 +4343,6 @@ Selon la distribution Linux que vous utilisez, les gestionnaires de paquets n'on
       <script src="../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
         <script src="../../assets/_markdown_exec_pyodide.js"></script>
-      
-        <script src="../../js/mkdocs-charts-plugin.js"></script>
       
         <script src="../../js/viewer.min.js"></script>
       

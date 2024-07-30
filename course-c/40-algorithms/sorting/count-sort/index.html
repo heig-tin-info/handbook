@@ -3810,7 +3810,7 @@
 <p>Nous l'avons vu précédemment, il n'est pas possible de trier un tableau mieux qu'en <strong>O(n<sub>log</sub>n)</strong>. En revanche cette assertion n'est pas tout à fait juste dans le cas ou les données brutes possèdent des propriétés remarquables.</p>
 <p>Pour que cet algorithme soit utilisable, imaginons un contexte où les données d'entrées possèdent des propriétés remarquables.</p>
 <p>Ici, les données d'entrées seront générées entre 0 et 51&thinsp;; chaque valeur représentera une carte à jouer selon la règle suivante&thinsp;:</p>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../../assets/images/playing-cards.svg"><img alt="cards" src="../../../../assets/images/playing-cards.svg" width="600px"/></a><figcaption>Figure 1&thinsp;: cards</figcaption></figure></p>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../../assets/images/playing-cards.svg"><img alt="cards" src="../../../../assets/images/playing-cards.svg" width="600px"/></a><figcaption> cards</figcaption></figure></p>
 <p>Cette série de valeurs dispose de plusieurs propriétés intéressantes&thinsp;:</p>
 <ol>
 <li>La valeur d'une carte est identifiée par <code>n % 13</code>.</li>
@@ -3831,14 +3831,14 @@
 <p>Voici un exemple de tri sur des entiers entre 0 et 9&thinsp;:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>1 0 9 3 8 1 4 8 7 5  Tableau d'entrée `a` non trié et contenant que des chiffres
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>                     Il y a 10 valeurs possibles par chiffre, donc le tableau
-</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>                     `counts` aura 10 positions:
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>                     `counts` aura 10 positions&thinsp;:
 </span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>1 2 0 1 1 1 0 1 2 1  Tableau `counts` calculé, il faut lire : une occurrence
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>1 2 0 1 1 1 0 1 2 1  Tableau `counts` calculé, il faut lire&thinsp;: une occurrence
 </span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>                     de 0, deux occurrences de 2, zero occurrences de 3...
 </span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
 </span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>1 3 3 4 5 6 6 1 9 B  Somme cumulée (affiché en hexadécimal)
 </span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>Pour trouver la position triée d'une valeur, par exemple le 3 :
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>Pour trouver la position triée d'une valeur, par exemple le 3&thinsp;:
 </span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
 </span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>1 0 9 3 8 1 4 8 7 5  a[i] == 3 (on part du tableau a)
 </span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>      ↧
@@ -4087,8 +4087,6 @@
       <script src="../../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
         <script src="../../../../assets/_markdown_exec_pyodide.js"></script>
-      
-        <script src="../../../../js/mkdocs-charts-plugin.js"></script>
       
         <script src="../../../../js/viewer.min.js"></script>
       

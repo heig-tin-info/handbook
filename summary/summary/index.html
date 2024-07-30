@@ -4349,7 +4349,7 @@ Algorithme de calcul du PGCD d'Euclide.
 <tr>
 <td><code>\r</code></td>
 <td><code>CR</code></td>
-<td>Anciens Macintoshs (\&lt&thinsp;; 2000)</td>
+<td>Anciens Macintoshs (\&lt; 2000)</td>
 </tr>
 <tr>
 <td><code>\n</code></td>
@@ -4524,9 +4524,9 @@ Grammaire d'un identificateur C
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>(u = ((((++a) + (b * (c++))) &gt;&gt; 3) ^ 2))
 </span></code></pre></div>
 <p>Dans le cas des opérateurs de pré et post incrémentation, ils sont en effet les plus prioritaires mais leur action est décalée dans le temps au précédent/suivant point de séquence. C'est-à-dire&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>a += 1;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>a += 1&thinsp;;
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>(u = (((a + (b * c)) &gt;&gt; 3) ^ 2));
-</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>c += 1;
+</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>c += 1&thinsp;;
 </span></code></pre></div>
 <h2 id="valeur-gauche">Valeur gauche<a class="headerlink" href="#valeur-gauche" title="Permanent link">¶</a></h2>
 <p>Une valeur gauche <em>lvalue</em> défini ce qui peut se trouver à gauche d'une affectation. C'est un terme qui apparaît souvent dans les erreurs de compilation. L'exemple suivant retourne l'erreur&thinsp;: <em>lvalue required as increment operand</em> car le résultat de <code>a + b</code> n'a pas d'emplacement mémoire et il n'est pas possible de l'assigner à quelque chose pour effectuer l'opération de pré-incrémentation.</p>
@@ -4997,8 +4997,6 @@ Formatage d'un marqueur
       <script src="../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
         <script src="../../assets/_markdown_exec_pyodide.js"></script>
-      
-        <script src="../../js/mkdocs-charts-plugin.js"></script>
       
         <script src="../../js/viewer.min.js"></script>
       

@@ -3821,7 +3821,7 @@
 <li>Choisir l'élément médian comme pivot</li>
 </ul>
 <p>Dans cet exemple, le dernier élément <code>6</code> sera arbitrairement choisi comme pivot.</p>
-<p><figure id="_figure-1"><img alt="Représentation du tableau à trier avec son pivot." class="drawio-diagram" src="../../../../assets/images/quicksort.drawio"/><figcaption>Figure 1&thinsp;: Représentation du tableau à trier avec son pivot.</figcaption></figure></p>
+<p><figure id="_figure-1"><img alt="Représentation du tableau à trier avec son pivot." class="drawio-diagram" src="../../../../assets/images/quicksort.drawio"/><figcaption> Représentation du tableau à trier avec son pivot.</figcaption></figure></p>
 <p>L'étape de paritionnement utilise l'algorithme suivant&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">partition</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">low</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">high</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pivot</span><span class="p">)</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">{</span>
@@ -3842,7 +3842,7 @@
 </span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>2 4 1 5 3 6 a 7 b 8 9
 </span></code></pre></div>
 <p>On constate que la valeur <code>6</code> choisie comme pivot est maintenant à sa bonne place. L'algorithme est donc appelé récursivement pour les éléments <code>0</code> à <code>4</code> et `` 6``  à <code>a</code>.</p>
-<p><figure id="_figure-2"><img alt="Tri rapide après le premier partitionnement." class="drawio-diagram" src="../../../../assets/images/quicksort-2.drawio"/><figcaption>Figure 2&thinsp;: Tri rapide après le premier partitionnement.</figcaption></figure></p>
+<p><figure id="_figure-2"><img alt="Tri rapide après le premier partitionnement." class="drawio-diagram" src="../../../../assets/images/quicksort-2.drawio"/><figcaption> Tri rapide après le premier partitionnement.</figcaption></figure></p>
 <p>Voici une autre représentation (voir <a href="../../../../assets/src/quicksort.c">code source</a>) :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="mi">1</span><span class="w">  </span><span class="mi">9</span><span class="w">  </span><span class="mi">5</span><span class="w">  </span><span class="mi">2</span><span class="w">  </span><span class="n">b</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="n">a</span><span class="w">  </span><span class="mi">7</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">8</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="mi">1</span><span class="w">  </span><span class="mi">5</span><span class="w">  </span><span class="mi">2</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="mi">3</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="n">a</span><span class="w">  </span><span class="mi">7</span><span class="w">  </span><span class="n">b</span><span class="w">  </span><span class="mi">8</span><span class="w">  </span><span class="mi">9</span>
@@ -4090,8 +4090,6 @@
       <script src="../../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
       
         <script src="../../../../assets/_markdown_exec_pyodide.js"></script>
-      
-        <script src="../../../../js/mkdocs-charts-plugin.js"></script>
       
         <script src="../../../../js/viewer.min.js"></script>
       
