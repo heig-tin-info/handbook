@@ -126,6 +126,8 @@ En algèbre de Boole, l'addition de deux chiffres n'a que $2^2 = 4$ cas de figur
 
 L'addition de deux bits $A$ et $B$ est donnée par la table suivante où `C` est la retenue engendrée par l'addition :
 
+Table: Addition binaire
+
 |   A   | B  @rb | A + B @rb | C @bb |
 | :---: | :----: | :-------: | :---: |
 |   0   |   0    |     0     |   0   |
@@ -251,61 +253,61 @@ if (a == b) {
 
     Dans se cas on utilise l'opérateur ternaire `? :` qui permet de s'affranchir d'une structure de contrôle explicite.
 
-!!! warning
 
-    Attention lors de l'utilisation du test d'égalité avec des valeurs flottantes, ces dernières sont des approximations et il est possible que deux valeurs qui devraient être égales ne le soient pas.
 
-    Par exemple, cette assertion est fausse :
+Attention lors de l'utilisation du test d'égalité avec des valeurs flottantes, ces dernières sont des approximations et il est possible que deux valeurs qui devraient être égales ne le soient pas.
 
-    ```c
-    assert(0.1 + 0.2 == 0.3) // false
-    ```
+Par exemple, cette assertion est fausse :
 
-    Pour comparer des valeurs flottantes, il est recommandé d'utiliser une fonction de comparaison qui prend en compte une marge d'erreur. Par exemple, on pourrait écrire une fonction `float_eq` qui compare deux valeurs flottantes avec une marge d'erreur de `0.0001` :
+```c
+assert(0.1 + 0.2 == 0.3) // false
+```
 
-    ```c
-    bool float_eq(float a, float b) {
-        return fabs(a - b) < 0.0001;
-    }
-    ```
+Pour comparer des valeurs flottantes, il est recommandé d'utiliser une fonction de comparaison qui prend en compte une marge d'erreur. Par exemple, on pourrait écrire une fonction `float_eq` qui compare deux valeurs flottantes avec une marge d'erreur de `0.0001` :
 
-    Alternativement on peut utiliser la définition `FLT_EPSILON` qui est la plus petite valeur positive telle que `1.0 + FLT_EPSILON != 1.0` :
+```c
+bool float_eq(float a, float b) {
+    return fabs(a - b) < 0.0001;
+}
+```
 
-    ```c
-    assert(fabs(0.1 + 0.2 - 0.3) < FLT_EPSILON);
-    ```
+Alternativement on peut utiliser la définition `FLT_EPSILON` qui est la plus petite valeur positive telle que `1.0 + FLT_EPSILON != 1.0` :
 
-    Voici une démonstration :
+```c
+assert(fabs(0.1 + 0.2 - 0.3) < FLT_EPSILON);
+```
 
-    ```c
-    #include <stdio.h>
-    #include <float.h>
-    #include <math.h>
-    int main() {
-        double u1 = 0.3, u2 = 0.1 + 0.2;
-        long long int i1 = *(long int*)&u1;
-        long long int i2 = *(long int*)&u2;
-        printf("Hex value of 0.3:\t\t0x%x\n", i1);
-        printf("Hex value of 0.3:\t\t0x%x\n", i2);
+Voici une démonstration :
 
-        printf("Float value of 0.3:\t\t%.20f\n", u1);
-        printf("Float value of 0.1 + 0.2:\t%.20f\n", u2);
+```c
+#include <stdio.h>
+#include <float.h>
+#include <math.h>
+int main() {
+    double u1 = 0.3, u2 = 0.1 + 0.2;
+    long long int i1 = *(long int*)&u1;
+    long long int i2 = *(long int*)&u2;
+    printf("Hex value of 0.3:\t\t0x%x\n", i1);
+    printf("Hex value of 0.3:\t\t0x%x\n", i2);
 
-        printf("0.1 + 0.2 == 0.3: %d\n", u1 == u2);
-        printf("0.1 + 0.2 == 0.3: %d\n", fabs(u1 - u2) < DBL_EPSILON );
-    }
-    ```
+    printf("Float value of 0.3:\t\t%.20f\n", u1);
+    printf("Float value of 0.1 + 0.2:\t%.20f\n", u2);
 
-    Le résultat de ce programme est le suivant :
+    printf("0.1 + 0.2 == 0.3: %d\n", u1 == u2);
+    printf("0.1 + 0.2 == 0.3: %d\n", fabs(u1 - u2) < DBL_EPSILON );
+}
+```
 
-    ```text
-    Hex value of 0.3:               0x33333333
-    Hex value of 0.3:               0x33333334
-    Float value of 0.3:             0.29999999999999998890
-    Float value of 0.1 + 0.2:       0.30000000000000004441
-    0.1 + 0.2 == 0.3: 0
-    0.1 + 0.2 == 0.3: 1
-    ```
+Le résultat de ce programme est le suivant :
+
+```text
+Hex value of 0.3:               0x33333333
+Hex value of 0.3:               0x33333334
+Float value of 0.3:             0.29999999999999998890
+Float value of 0.1 + 0.2:       0.30000000000000004441
+0.1 + 0.2 == 0.3: 0
+0.1 + 0.2 == 0.3: 1
+```
 
 !!! warning "Confusion = et =="
 
@@ -1058,43 +1060,41 @@ Selon le langage de programmation et la méthode utilisée, le mécanisme d'arro
 
 Le fonctionnement de la fonction `round` n'est pas unanime entre les mathématiciens et les programmeurs. C utilise l'arrondi au plus proche, c'est-à-dire que -23.5 donne -24 et 23.5 donnent 24.
 
-!!! info
+En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre-intuitive, car `round(3.5)` donne 4, mais `round(4.5)` donne 4 aussi.
 
-    En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre-intuitive, car `round(3.5)` donne 4, mais `round(4.5)` donne 4 aussi.
+Pourquoi faire cela ? Il y a deux raisons principales :
 
-    Pourquoi faire cela ? Il y a deux raisons principales :
+1. **Réduction du biais cumulatif** : Lorsque vous arrondissez toujours vers le haut ou vers le bas en cas de valeur à mi-chemin (comme 0.5), cela introduit un biais systématique dans vos données. Par exemple, si vous arrondissez toujours 0.5 vers le haut, la somme des valeurs arrondies sera systématiquement plus grande que la somme des valeurs originales.
 
-    1. **Réduction du biais cumulatif** : Lorsque vous arrondissez toujours vers le haut ou vers le bas en cas de valeur à mi-chemin (comme 0.5), cela introduit un biais systématique dans vos données. Par exemple, si vous arrondissez toujours 0.5 vers le haut, la somme des valeurs arrondies sera systématiquement plus grande que la somme des valeurs originales.
+2. **Statistiques plus précises** : En arrondissant les valeurs à la paire la plus proche, vous distribuez les erreurs d'arrondissement de manière plus équitable, ce qui donne des statistiques globales plus précises.
 
-    2. **Statistiques plus précises** : En arrondissant les valeurs à la paire la plus proche, vous distribuez les erreurs d'arrondissement de manière plus équitable, ce qui donne des statistiques globales plus précises.
+Supposons que nous avons les montants suivants:
 
-    Supposons que nous avons les montants suivants:
+```text
+3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5
+```
 
-    ```text
-    3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5
-    ```
+En utilisant l'arrondi classique (toujours vers le haut à 0.5), nous obtenons :
 
-    En utilisant l'arrondi classique (toujours vers le haut à 0.5), nous obtenons :
+```text
+4 + 5 + 6 + 7 + 8 + 9 + 10 = 49
+```
 
-    ```text
-    4 + 5 + 6 + 7 + 8 + 9 + 10 = 49
-    ```
+En utilisant l'arrondi commercial, nous obtenons :
 
-    En utilisant l'arrondi commercial, nous obtenons :
+```text
+4 + 4 + 6 + 6 + 8 + 8 + 10 = 46
+```
 
-    ```text
-    4 + 4 + 6 + 6 + 8 + 8 + 10 = 46
-    ```
+Si on compare à la somme réelle des valeurs, on obtient :
 
-    Si on compare à la somme réelle des valeurs, on obtient :
+```text
+3.5 + 4.5 + 5.5 + 6.5 + 7.5 + 8.5 + 9.5 = 45.5
+```
 
-    ```text
-    3.5 + 4.5 + 5.5 + 6.5 + 7.5 + 8.5 + 9.5 = 45.5
-    ```
+La méthode *round half to even* donne une somme arrondie (46) qui est plus proche de la somme réelle (45.5) que la méthode classique (49).
 
-    La méthode *round half to even* donne une somme arrondie (46) qui est plus proche de la somme réelle (45.5) que la méthode classique (49).
-
-    L'utilisation cette méthode est particulièrement utile dans les domaines où l'exactitude statistique est cruciale et où les erreurs d'arrondissement peuvent s'accumuler sur de grands ensembles de données, comme en finance, en analyse de données, et en statistiques.
+L'utilisation cette méthode est particulièrement utile dans les domaines où l'exactitude statistique est cruciale et où les erreurs d'arrondissement peuvent s'accumuler sur de grands ensembles de données, comme en finance, en analyse de données, et en statistiques.
 
 [](){#lvalue}
 [](){#rvalue}
@@ -1151,6 +1151,8 @@ if (a % 2) {
 ## ISO/IEC 646
 
 La bibliothèque standard `<iso646.h>` appartient à la norme C90 et définit des macros pour les opérateurs logiques. Ces macros sont les suivantes :
+
+Table: Macros de l'ISO/IEC 646
 
 | Opérateur |  Macro   | Description         |
 | :-------: | :------: | :------------------ |

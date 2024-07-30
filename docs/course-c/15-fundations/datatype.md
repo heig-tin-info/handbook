@@ -143,7 +143,7 @@ La construction d'un type entier C est la suivante :
 
 Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins $N$ bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée ci-dessous :
 
-Table: "Table des types entiers en C"
+Table: Table des types entiers en C
 
 | Type                     | Signe          | Profondeur              | Format       |
 | ------------------------ | -------------- | ----------------------- | ------------ |
@@ -244,9 +244,9 @@ Table: Modèle de données
 | Modèle | short | int | long | long long | size_t | Système d'exploitation                                                                                                    |
 | ---------------- | ------- | ----- | ------ | ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
 | **LP32**         | 16      | 16    | 32     |             | 32       | Windows 16-bits, Apple Macintosh                                                                             |
-| **ILP32**        | 16      | 32    | 32     | 64          | 32       | Windows x86, Linux/Unix 32-bits                                                                                           |
-| **LLP64**        | 16      | 32    | 32     | 64          | 64       | [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) x86-64, [MinGW](https://en.wikipedia.org/wiki/MinGW) |
-| **LP64**         | 16      | 32    | 64     | 64          | 64       | Unix, Linux, macOS, Cygwin                                                                                                |
+| **ILP32**        | 16      | 32    | 32     | 64          | 32       | Windows x86, Linux 32-bits                                                                                           |
+| **LLP64**        | 16      | 32    | 32     | 64          | 64       | [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) x86-64 |
+| **LP64**         | 16      | 32    | 64     | 64          | 64       | Unix, Linux, macOS                                                                                                |
 | **ILP64**        | 16      | 64    | 64     | 64          | 64       | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC)                                                         |
 | **SILP64**       | 64      | 64    | 64     | 64          | 64       | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur)                                                         |
 
@@ -290,7 +290,7 @@ Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a
 
 ### Unicode
 
-Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب‎), les Coréens (한국어), les Chinois avec le chinois simplifié (官话) et le chinois traditionnel (官話), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.
+Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب), les Coréens (한국어), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.
 
 Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) plus précisément nommé **UTF-8**.
 
@@ -341,7 +341,7 @@ Une **chaîne de caractères** est simplement la suite contiguë de plusieurs ca
     Imaginez que l'on vous demande de vous placer dans un champ et de déterrer n'importe quel légume sauf un chou. Votre algorithme est :
 
     ```mermaid
-    flowchart TD
+    flowchart LR
         start(Début) --> pick[Déterrer]
         pick --> if{Choux?}
         if --Non--> step[Avancer de 1 pas]
@@ -373,13 +373,11 @@ char string[] = "Hello";
  0x05 00000000
 ```
 
-!!! note
+On utilise le caractère nul `\0` pour plusieurs raisons:
 
-    On utilise le caractère nul `\0` pour plusieurs raisons:
-
-    1. Il est facilement reconnaissable.
-    2. Dans un test il vaut `false`.
-    3. Il n'est pas imprimable et n'appartient à aucun caractère spécial.
+1. Il est facilement reconnaissable.
+2. Dans un test il vaut `false`.
+3. Il n'est pas imprimable et n'appartient à aucun caractère spécial.
 
 !!! warning
 
@@ -419,26 +417,26 @@ char string[] = "Hello";
     int i1 = 7, i2 = 'a';
     ```
 
-    1. `printf("Next char: %c.\n", a + 1);`
-    2. `printf("Char: %3c.\n", a);`
-    3. `printf("Char: %-3c.\n", a);`
-    4. `printf("Chars: \n-%c.\n-%c.\n", a, 'z' - 1);`
-    5. `printf("Sum: %i\n", i1 + i2 - a);`
-    6. `printf("Taux d’erreur\t%i %%\n", i1);`
-    7. `printf("Quel charabia horrible:\\\a\a\a%g\b\a%%\a\\\n", f1);`
-    8. `printf("Inventaire: %i4 pieces\n", i1);`
-    9. `printf("Inventory: %i %s\n", i1, "pieces");`
-    10. `printf("Inventaire: %4i pieces\n", i1);`
-    11. `printf("Inventaire: %-4i pieces\n", i1);`
-    12. `printf("Mixed sum: %f\n", sh1 + i1 + f1);`
-    13. `printf("Tension: %5.2f mV\n", f1);`
-    14. `printf("Tension: %5.2e mV\n", f1);`
-    15. `printf("Code: %X\n", 12);`
-    16. `printf("Code: %x\n", 12);`
-    17. `printf("Code: %o\n", 12);`
-    18. `printf("Value: %i\n", -1);`
-    19. `printf("Value: %hi\n", 65535u);`
-    20. `printf("Value: %hu\n", -1);`
+    1. `#!c printf("Next char: %c.\n", a + 1);`
+    2. `#!c printf("Char: %3c.\n", a);`
+    3. `#!c printf("Char: %-3c.\n", a);`
+    4. `#!c printf("Chars: \n-%c.\n-%c.\n", a, 'z' - 1);`
+    5. `#!c printf("Sum: %i\n", i1 + i2 - a);`
+    6. `#!c printf("Taux d’erreur\t%i %%\n", i1);`
+    7. `#!c printf("Quel charabia horrible:\\\a\a\a%g\b\a%%\a\\\n", f1);`
+    8. `#!c printf("Inventaire: %i4 pieces\n", i1);`
+    9. `#!c printf("Inventory: %i %s\n", i1, "pieces");`
+    10. `#!c printf("Inventaire: %4i pieces\n", i1);`
+    11. `#!c printf("Inventaire: %-4i pieces\n", i1);`
+    12. `#!c printf("Mixed sum: %f\n", sh1 + i1 + f1);`
+    13. `#!c printf("Tension: %5.2f mV\n", f1);`
+    14. `#!c printf("Tension: %5.2e mV\n", f1);`
+    15. `#!c printf("Code: %X\n", 12);`
+    16. `#!c printf("Code: %x\n", 12);`
+    17. `#!c printf("Code: %o\n", 12);`
+    18. `#!c printf("Value: %i\n", -1);`
+    19. `#!c printf("Value: %hi\n", 65535u);`
+    20. `#!c printf("Value: %hu\n", -1);`
 
 ## Les booléens
 

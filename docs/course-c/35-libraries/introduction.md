@@ -59,22 +59,21 @@ gmp.c:1:10: fatal error: gmp.h: No such file or directory
 compilation terminated.
 ```
 
-Aïe! La bibliothèque n'est pas installée.
+Aïe! La bibliothèque n'est pas installée...
 
-Debian/Ubuntu
-: ```console
-  $ sudo apt-get install libgmp-dev
-  ```
+Pour l'installer, cela dépend de votre système d'exploitation :
 
-Mac OS X
-: ```console
-  $ brew install gmp
-  ```
+=== "Ubuntu"
 
-Windows
-: ```console
-  ERREUR 404
-  ```
+    ```console
+    $ sudo apt-get install libgmp-dev
+    ```
+
+=== "macOS"
+
+    ```console
+    $ brew install gmp
+    ```
 
 Deuxième tentative :
 

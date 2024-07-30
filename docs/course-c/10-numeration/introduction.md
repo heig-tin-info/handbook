@@ -20,7 +20,11 @@ On pourrait utiliser ce meuble, et ces pommes pour représenter son âge. Une pe
 0 0 1 0 1 0 1 0
 ```
 
-Si l'on souhaite représenter l'état d'un meuble beaucoup plus grand, par exemple un meuble de 64 casiers, la quantité d'information représentable est de $2^{64} = 18'446'744'073'709'551'616$, ou 64 bits. Cela permet de représenter le nombre de grains de sable sur Terre, le nombre de secondes dans 584'942 années, ou le nombre de combinaisons possibles pour un mot de passe de 8 caractères.
+Si l'on souhaite représenter l'état d'un meuble beaucoup plus grand, par exemple un meuble de 64 casiers, la quantité d'information représentable est de :
+
+$$2^{64} = 18'446'744'073'709'551'616$$
+
+ou 64 bits. Cela permet de représenter le nombre de grains de sable sur Terre, le nombre de secondes dans 584'942 années, ou le nombre de combinaisons possibles pour un mot de passe de 8 caractères.
 
 Les informaticiens ont l'habitude de regrouper les bits par 8 pour former un **octet**. Un octet peut donc représenter $256$ valeurs différentes. Un octet est souvent appelé un **byte** en anglais, mais ce terme est ambigu, car il peut également désigner un groupe de bits de taille variable.
 

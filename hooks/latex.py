@@ -1,46 +1,100 @@
-import pandoc
+"""
+- [ ] Footnotes
+"""
 import logging
 import mkdocs
 from pathlib import Path
-import stopwatch as sw
+from IPython import embed
+from mkdocs.structure.nav import Section
+from latex.renderer import LaTeXRenderer
+import ipdb
+import sys
+def excepthook(type, value, traceback):
+    ipdb.post_mortem(traceback)
+
+sys.excepthook = excepthook
+
 log = logging.getLogger('mkdocs')
-pages = []
 
-stopwatch = sw.Stopwatch()
+files_to_process = []
+book_nav = []
+saved_nav = []
+latex_dir = Path('build')
 
-page_order = []
+renderer = LaTeXRenderer(latex_dir)
+
+def fetch_files(section: Section):
+    files = []
+    for child in section.children:
+        if child.is_page:
+            files.append(child.file)
+        else:
+            files.extend(fetch_files(child))
+    return files
+
+def build_nav(section: Section, node):
+    for child in section.children:
+        if child.is_page:
+            node.append(child.file.src_path)
+        else:
+            new_node = []
+            node.append([child.title, new_node])
+            build_nav(child, new_node)
 
 def on_nav(nav, config, files):
-    for page in nav.pages:
-        page_order.append(page.file.src_path)
+    global files_to_process
+    global book_nav
+    global saved_nav
+    book = 'Cours C'
+    for section in nav:
+        if section.title == book:
+            break
 
-    return nav
+    level = -1
+    latex = []
 
-@mkdocs.plugins.event_priority(-100)
-def on_page_markdown(markdown, page, config, files):
-    stopwatch.start()
-    doc = pandoc.read(markdown)
-    pages.append({'file': page.file, 'doc': pandoc.write(doc, format='latex', options=[
-        '--listings',
-        # '-t markdown-simple_tables',
-        '-r markdown-auto_identifiers'
-    ])})
-    stopwatch.stop()
+    def get_nav(section: Section, level):
+        for child in section.children:
+            if child.is_page:
+                files_to_process.append((child.file, level))
+                # Replace md with tex
+                tex_path = child.file.src_path.replace('.md', '.tex')
+                latex.append(f'\\input{{{tex_path}}}')
+            else:
+                latex.append('\n')
+                latex.append(renderer.formatter.heading(child.title, level=level))
+                get_nav(child, level + 1)
 
-def on_post_build(config):
-    log.info(f"Hooks LaTeX done in {stopwatch.total:.2f} seconds.")
+    get_nav(section, level)
+    book_nav = '\n'.join(latex)
 
-    project_dir = Path(config.config_file_path).parent
-    output_dir = Path(project_dir / 'build' / 'latex')
+def on_env(env, config, files):
 
-    if output_dir.exists():
-        for file in output_dir.glob('*'):
-            file.unlink()
-    output_dir.mkdir(parents=True, exist_ok=True)
+    # Create output directory
+    latex_dir.mkdir(exist_ok=True)
+    project_dir = Path(config.config_file_path).parent / config['docs_dir']
 
-    log.error(page_order)
+    for file, level in files_to_process:
+        log.info(f'Processing LaTeX {file.src_path} (level {level})...')
+        if file.src_path.endswith('.md'):
+            path = latex_dir / file.src_path.replace('.md', '.tex')
+            path.parent.mkdir(parents=True, exist_ok=True)
 
-    for page in pages:
-        # Add .tex extension to the file name
-        with open((output_dir / page['file'].name).with_suffix('.tex'), 'w') as f:
-            f.write(page['doc'])
+            html = file.page.content
+
+            with open(path.with_suffix('.html'), 'w', encoding='utf-8') as f:
+                f.write(html)
+
+            latex = renderer.render(
+                html,
+                latex_dir, project_dir / file.src_path,
+                level)
+
+            path.write_text(latex)
+
+    # Build index page
+    index = renderer.formatter.template(content=book_nav)
+    (latex_dir / 'index.tex').write_text(index)
+
+    Path('build/acronyms.tex').write_text(renderer.get_list_acronyms())
+    Path('build/solutions.tex').write_text(renderer.get_list_solutions())

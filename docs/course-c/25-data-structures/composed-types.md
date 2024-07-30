@@ -1115,20 +1115,10 @@ void main() {
     - Un numéro atomique de 1 à 118 (2019)
     - Le type de l'élément
 
-        - Métaux
-
-            - Alcalin
-            - Alcalino-terreux
-            - Lanthanides
-            - Actinides
-            - Métaux de transition
-            - Métaux pauvres
+        - Métaux (Alcalin, Alcalino-terreux, Lanthanides, Actinides, Métaux de transition, Métaux pauvres)
         - Métalloïdes
-        - Non-métaux
+        - Non-métaux (Autres, Halogène, Gaz noble)
 
-            - Autres
-            - Halogène
-            - Gaz noble
     - La période: un entier de 1 à 7
     - Le groupe: un entier de 1 à 18
 

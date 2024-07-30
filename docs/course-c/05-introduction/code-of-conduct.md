@@ -10,17 +10,17 @@ Pour des projets personnels, vous développez dans votre coin, mais dans une ent
 
 Néanmoins, les valeurs humaines fondamentales d'un développement logiciel sont bien loin des considérations techniques et méthodologiques. Elles sont les mêmes que celles qui régissent la société humaine depuis des millénaires. Elles sont les mêmes que celles qui ont permis à l'humanité de survivre et de prospérer. On peut citer parmi ces valeurs : l'ouverture d'esprit, l'humilité, la curiosité, la rigueur, la patience, la persévérance, l'écoute, l'entraide et le partage.
 
-!!! info "Code d'Hammurabi"
+## Les règles évoluent
 
-    En 1750 av. J.-C., le roi Hammurabi de Babylone a promulgué le premier code de lois connu de l'histoire de l'humanité. Ce code, gravé sur une stèle de basalte, contient 282 lois qui régissent la vie quotidienne des habitants de la Mésopotamie. Il est considéré comme l'un des premiers exemples de justice équitable et de respect des droits de l'homme.
+En 1750 av. J.-C., le roi Hammurabi de Babylone a promulgué le premier code de lois connu de l'histoire de l'humanité. Ce code, gravé sur une stèle de basalte, contient 282 lois qui régissent la vie quotidienne des habitants de la Mésopotamie. Il est considéré comme l'un des premiers exemples de justice équitable et de respect des droits de l'homme.
 
-    ![Code d'Hammurabi (1750 av. J.-C.)]({assets}/images/hammurabi.png)
+![Code d'Hammurabi (1750 av. J.-C.)]({assets}/images/hammurabi.png)
 
-    Néanmoins, le terme équitable est à prendre avec des pincettes, car les lois de l'époque étaient souvent très sévères et punissaient les contrevenants par des châtiments corporels, des mutilations, des esclavages, des exécutions, etc. La loi du talion, "œil pour œil, dent pour dent", était souvent appliquée pour punir les criminels.
+Néanmoins, le terme équitable est à prendre avec des pincettes, car les lois de l'époque étaient souvent très sévères et punissaient les contrevenants par des châtiments corporels, des mutilations, des esclavages, des exécutions, etc. La loi du talion, "œil pour œil, dent pour dent", était souvent appliquée pour punir les criminels.
 
-    Ce que l'on doit retenir c'est que comme conventions sociales, les règles de l'informatique évoluent avec le temps et que les bonnes pratiques d'aujourd'hui ne seront pas celles de demain.
+Ce que l'on doit retenir c'est que comme conventions sociales, les règles de l'informatique évoluent avec le temps et que les bonnes pratiques d'aujourd'hui ne seront pas celles de demain.
 
-    En d'autres termes, ce que je vous transmet aujourd'hui dans ce cours, n'est pas une vérité absolue, elle dépend de mon contexte, de mes expériences et de mes valeurs. Vous devez donc les prendre avec du recul, les remettre en question et faire preuve d'esprit critique.
+En d'autres termes, ce que je vous transmet aujourd'hui dans ce cours, n'est pas une vérité absolue, elle dépend de mon contexte, de mes expériences et de mes valeurs. Vous devez donc les prendre avec du recul, les remettre en question et faire preuve d'esprit critique.
 
 ## L'Anglais
 
@@ -34,7 +34,7 @@ Aussi dans cet ouvrage, l'anglais sera privilégié dans les exemples de code et
 
 Un autre point méritant d'être mentionné est la constante interaction d'un développeur avec internet pour y piocher des exemples, chercher des conseils, ou de l'aide pour utiliser des outils développés par d'autres. De nombreux sites internet, la vaste majorité en anglais, sont d'une aide précieuse pour le développeur.
 
-!!! tip
+!!! tip "Apprenez les langues"
 
     Ne négligez pas les cours de langue. Partez à l'étranger, lisez des livres en anglais, regardez des films en version originale, écoutez des podcasts, des conférences, des tutoriels en anglais. Cela vous ouvrira les portes de la connaissance.
 

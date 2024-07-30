@@ -465,7 +465,7 @@ main :
     .ascii  "La Broye c'est fantastique!\000"
 ```
 
-Vous pouvez jouer avec cet exemple [ici](https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(j:1,lang:c%2B%2B,source:'%23include+%3Cstring.h%3E%0A%23include+%3Cstdio.h%3E%0A%0Aint+main(void)%0A%7B%0A++++char+a%5B%5D+%3D+%22La+Broye+c!'est+fantastique!!%22%3B%0A++++char+b%5Bsizeof(a)%5D%3B%0A%0A++++memcpy(a,+b,+sizeof(a))%3B%0A%0A++++printf(%22%25s+%25s%22,+a,+b)%3B%0A%7D'),l:'5',n:'0',o:'C%2B%2B+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:compiler,i:(compiler:armg820,filters:(b:'0',binary:'1',commentOnly:'0',demangle:'0',directives:'0',execute:'1',intel:'0',libraryCode:'1',trim:'1'),lang:c%2B%2B,libs:!(),options:'-O2',source:1),l:'5',n:'0',o:'ARM+gcc+8.2+(Editor+%231,+Compiler+%231)+C%2B%2B',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4).
+Vous pouvez jouer avec cet exemple sur le site [godbolt](https://godbolt.org).
 
 ## Pointeurs de fonctions
 
@@ -523,7 +523,7 @@ Première étape
 
 Deuxième étape
 
-: Chercher le symbole à droite de l'identifiant. Si vous trouvez un `()`, vous savez que cet identifiant est une fonction et vous avez `L'identifiant est une fonction retournant`. Si vous trouvez un `[]` vous dites alors `L'identifiant est un tableau de`. Continuez à droite jusqu'à ce que vous êtes à court de symboles, **OU** que vous trouvez une parenthèse fermante `)`.
+: Chercher le symbole à droite de l'identifiant. Si vous trouvez un `()`, vous savez que cet identifiant est une fonction et vous avez *L'identifiant est une fonction retournant*. Si vous trouvez un `[]` vous dites alors *L'identifiant est un tableau de*. Continuez à droite jusqu'à ce que vous êtes à court de symboles, **OU** que vous trouvez une parenthèse fermante `)`.
 
 Troisième étape
 

@@ -1,0 +1,17 @@
+\BLOCK{- set number_to_words = {
+    -1: 'part',
+    0: 'chapter',
+    1: 'section',
+    2: 'subsection',
+    3: 'subsubsection',
+    4: 'paragraph',
+    5: 'subparagraph'
+} -}
+\BLOCK{if ref -}
+%\label{\VAR{ref}}
+\BLOCK{endif}
+\BLOCK{- if level in number_to_words -}
+\\VAR{number_to_words[level]}{\VAR{text}}
+\BLOCK{else -}
+\textbf{\VAR{text}}
+\BLOCK{endif}

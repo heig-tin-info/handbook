@@ -1,5 +1,11 @@
 # Conteneurs de données
 
+Un conteneur de données est une structure informatique de données qui permet de stocker des éléments de façon organisée. Il existe de nombreux types de conteneurs de données, chacun ayant ses propres avantages et inconvénients. Les conteneurs de données les plus courants sont les tableaux, les listes chaînées, les piles, les files, les arbres, les graphes, etc.
+
+En règle générale, le développeur n'implémente pas directement ces conteneurs de données, mais utilise des bibliothèques qui les fournissent. Ces bibliothèques sont souvent incluses dans les langages de programmation, mais il existe également des bibliothèques tierces qui fournissent des implémentations de conteneurs de données pour de nombreux langages de programmation.
+
+Hélas en C, il n'existe pas de bibliothèque standard qui fournit des conteneurs de données de haut niveau.
+
 ## Types de données abstraits
 
 Un [type de donnée abstrait](wiki:abstract-type) (**ADT** pour Abstract Data Type) cache généralement une structure dont le contenu n'est pas connu de l'utilisateur final. Ceci est rendu possible par le standard (C99 §6.2.5) par l'usage de types incomplets.
@@ -61,7 +67,7 @@ void set(Foo* foo, int value) {
 foo->count = 42; // Hacked this !
 ```
 
-Pour s'en protéger, on a recours à la compilation séparée (voir chapitre {ref}`TranslationUnits`) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier `foobar.h` contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :
+Pour s'en protéger, on a recours à la compilation séparée (voir chapitre sur la compilation séparée [TranslationUnits]) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier `foobar.h` contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :
 
 ```c
 #pragma once
@@ -542,6 +548,8 @@ Rechercher dans une liste chaînée est une question qui peut-être complexe et 
 On sait qu'une recherche idéale s'effectue en $O(log(n))$, mais que la solution triviale en $O(n)$ est la suivante :
 
 ## Liste doublement chaînée
+
+![Liste chaînée simple]({assets}/images/list-double.drawio)
 
 ### Liste chaînée XOR
 
