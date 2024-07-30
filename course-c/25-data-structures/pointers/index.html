@@ -2645,6 +2645,8 @@
       
         
       
+        
+      
     
     
       
@@ -2727,6 +2729,33 @@
     
   
     Racine carrée inverse rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fast sin
   
 
     
@@ -4585,7 +4614,7 @@ placera le symbole <code>&amp;</code> pour lui donner l'adresse de la variable.<
 </span><span id="__span-33-28"><a href="#__codelineno-33-28" id="__codelineno-33-28" name="__codelineno-33-28"></a>.LC0&thinsp;:
 </span><span id="__span-33-29"><a href="#__codelineno-33-29" id="__codelineno-33-29" name="__codelineno-33-29"></a>    .ascii  "La Broye c'est fantastique&thinsp;!\000"
 </span></code></pre></div>
-<p>Vous pouvez jouer avec cet exemple <a href="https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(j:1,lang:c%2B%2B,source:" title="%23include+%3Cstring.h%3E%0A%23include+%3Cstdio.h%3E%0A%0Aint+main(void)%0A%7B%0A++++char+a%5B%5D+%3D+%22La+Broye+c!'est+fantastique!!%22%3B%0A++++char+b%5Bsizeof(a)%5D%3B%0A%0A++++memcpy(a,+b,+sizeof(a))%3B%0A%0A++++printf(%22%25s+%25s%22,+a,+b)%3B%0A%7D">ici</a>,l&thinsp;:'5',n&thinsp;:'0',o&thinsp;:'C%2B%2B+source+%231',t&thinsp;:'0')),k:50,l&thinsp;:'4',n&thinsp;:'0',o&thinsp;:'',s:0,t&thinsp;:'0'),(g&thinsp;:!((h:compiler,i&thinsp;:(compiler:armg820,filters&thinsp;:(b&thinsp;:'0',binary&thinsp;:'1',commentOnly&thinsp;:'0',demangle&thinsp;:'0',directives&thinsp;:'0',execute&thinsp;:'1',intel&thinsp;:'0',libraryCode&thinsp;:'1',trim&thinsp;:'1'),lang:c%2B%2B,libs&thinsp;:!(),options&thinsp;:'-O2',source:1),l&thinsp;:'5',n&thinsp;:'0',o&thinsp;:'ARM+gcc+8.2+(Editor+%231,+Compiler+%231)+C%2B%2B',t&thinsp;:'0')),k:50,l&thinsp;:'4',n&thinsp;:'0',o&thinsp;:'',s:0,t&thinsp;:'0')),l&thinsp;:'2',n&thinsp;:'0',o&thinsp;:'',t&thinsp;:'0')),version:4).</p>
+<p>Vous pouvez jouer avec cet exemple sur le site <a href="https://godbolt.org">godbolt</a>.</p>
 <h2 id="pointeurs-de-fonctions">Pointeurs de fonctions<a class="headerlink" href="#pointeurs-de-fonctions" title="Permanent link">¶</a></h2>
 <p>Un pointeur peut pointer n'importe où en mémoire, et donc il peut également pointer non pas sur une variable, mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel (<a href="https://fr.wikipedia.org/wiki/Fonction_de_rappel">callback</a>).</p>
 <p>Par exemple on veut appliquer une transformation sur tous les éléments d'un tableau, mais la transformation n'est pas connue à l'avance. On pourrait écrire&thinsp;:</p>
@@ -4651,7 +4680,7 @@ placera le symbole <code>&amp;</code> pour lui donner l'adresse de la variable.<
 </dd>
 <dt>Deuxième étape</dt>
 <dd>
-<p>Chercher le symbole à droite de l'identifiant. Si vous trouvez un <code>()</code>, vous savez que cet identifiant est une fonction et vous avez <code>L'identifiant est une fonction retournant</code>. Si vous trouvez un <code>[]</code> vous dites alors <code>L'identifiant est un tableau de</code>. Continuez à droite jusqu'à ce que vous êtes à court de symboles, <strong>OU</strong> que vous trouvez une parenthèse fermante <code>)</code>.</p>
+<p>Chercher le symbole à droite de l'identifiant. Si vous trouvez un <code>()</code>, vous savez que cet identifiant est une fonction et vous avez <em>L'identifiant est une fonction retournant</em>. Si vous trouvez un <code>[]</code> vous dites alors <em>L'identifiant est un tableau de</em>. Continuez à droite jusqu'à ce que vous êtes à court de symboles, <strong>OU</strong> que vous trouvez une parenthèse fermante <code>)</code>.</p>
 </dd>
 <dt>Troisième étape</dt>
 <dd>

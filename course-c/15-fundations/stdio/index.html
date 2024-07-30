@@ -2607,6 +2607,8 @@
       
         
       
+        
+      
     
     
       
@@ -2689,6 +2691,33 @@
     
   
     Racine carrée inverse rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fast sin
   
 
     
@@ -4208,8 +4237,6 @@
 <p class="admonition-title">Avertissement</p>
 <p>Attention à utiliser des apostrophes simples <code>'</code> pour les caractères. Si vous utilisez des guillemets doubles <code>"</code> vous obtiendrez une erreur de compilation.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>On sait que les caractères sont des entiers, donc on peut écrire <code>putchar(65)</code> pour écrire le caractère <code>A</code>. Donc le programme suivant écrit la même chose que le précédent&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
@@ -4222,7 +4249,6 @@
 </span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="n">putchar</span><span class="p">(</span><span class="sc">'\n'</span><span class="p">);</span>
 </span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="p">}</span>
 </span></code></pre></div>
-</div>
 <p><a href="" id="puts"></a></p>
 <h3 id="puts_1">Puts<a class="headerlink" href="#puts_1" title="Permanent link">¶</a></h3>
 <p>La fonction <code>puts</code> est une fonction de la bibliothèque standard C qui permet d'écrire une chaîne de caractères sur la sortie standard. Notons qu'elle ajoute automatiquement un retour à la ligne à la fin de la chaîne.</p>
@@ -4242,8 +4268,6 @@
 </span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>3      1 / 10     0         1
 </span></code></pre></div>
 <p>Comme on ne sait pas à priori combien de caractères on aura, et que ces caractères sont fournis depuis le chiffre le moins significatif, il faudra inverser la chaîne de caractères produite.</p>
-<details class="example">
-<summary>Iota</summary>
 <p>Voici un exemple possible d'implémentation&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span>
@@ -4305,7 +4329,6 @@
 </span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="n">itoa</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
 </span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="p">}</span>
 </span></code></pre></div>
-</details>
 <p><a href="" id="printf"></a></p>
 <h3 id="printf_1">Printf<a class="headerlink" href="#printf_1" title="Permanent link">¶</a></h3>
 <p>Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi <code>printf</code> rend l'opération bien plus aisée en utilisant des marques substitutives (<em>placeholder</em>). Ces spécifié débutent par le caractère <code>%</code> suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise <code>%d</code> pour formater un entier non signé.</p>
@@ -4410,8 +4433,6 @@
 </tbody>
 </table>
 <p>On peut s'intéresser à comment <code>printf</code> fonctionne en interne. Le premier argument est une chaîne de caractère qui est le motif de formatage. Il peut contenir des caractères spéciaux <em>placeholder</em> qui seront interceptés par <code>printf</code> pour être remplacés par les arguments suivants après avoir été convertis.</p>
-<div class="admonition example">
-<p class="admonition-title">Implémentation naïve de printf</p>
 <p>Pour bien comprendre, on peut imaginer une implémentation naïve de <code>printf</code> que nous appellerons <code>my_printf</code> et qui se basera sur une fonction de sortie non formatée <code>putchar</code>.</p>
 <p>Cette fonction ne sera capable que de traiter les marqueurs <code>%d</code> et <code>%c</code>, c'est suffisant pour comprendre le principe. Également, elle prendra toujours deux arguments, donc une valeur à afficher, ceci pour ne pas s'encombrer de la gestion de la liste variable d'arguments qui est un sujet avancé.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">my_printf</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">format</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4445,7 +4466,6 @@
 </span><span id="__span-9-29"><a href="#__codelineno-9-29" id="__codelineno-9-29" name="__codelineno-9-29"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-9-30"><a href="#__codelineno-9-30" id="__codelineno-9-30" name="__codelineno-9-30"></a><span class="p">}</span>
 </span></code></pre></div>
-</div>
 <div class="admonition exercise">
 <p class="admonition-title">Exercise</p>
 <p>Indiquez les erreurs dans les instructions suivantes&thinsp;:</p>
@@ -4622,26 +4642,26 @@
 </span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span></code></pre></div>
 <ol>
-<li><code>n = scanf("%1d%1d", &amp;i, &amp;j);</code>, <code>12\n</code></li>
-<li><code>n = scanf("%d%d", &amp;i, &amp;j);</code>, <code>1 , 2\n</code></li>
-<li><code>n = scanf("%d%d", &amp;i, &amp;j);</code>, <code>-1   -2\n</code></li>
-<li><code>n = scanf("%d%d", &amp;i, &amp;j);</code>, <code>-  1  -  2\n</code></li>
-<li><code>n = scanf("%d,%d", &amp;i, &amp;j);</code>, <code>1  ,  2\n</code></li>
-<li><code>n = scanf("%d ,%d", &amp;i, &amp;j);</code>, <code>1  ,  2\n</code></li>
-<li><code>n = scanf("%4d %2d", &amp;i, &amp;j);</code>, <code>1 234\n</code></li>
-<li><code>n = scanf("%4d %2d", &amp;i, &amp;j);</code>, <code>1234567\n</code></li>
-<li><code>n = scanf("%d%*d%d", &amp;i, &amp;j);</code>, <code>123 456 789\n</code></li>
-<li><code>n = scanf("i=%d , j=%d", &amp;i, &amp;j);</code>, <code>1 , 2\n</code></li>
-<li><code>n = scanf("i=%d , j=%d", &amp;i, &amp;j);</code>, <code>i=1, j=2\n</code></li>
-<li><code>n = scanf("%d%d", &amp;i, &amp;j);</code>, <code>1.23 4.56\n</code></li>
-<li><code>n = scanf("%d.%d", &amp;i, &amp;j);</code>, <code>1.23 4.56\n</code></li>
-<li><code>n = scanf("%x%x", &amp;i, &amp;j);</code>, <code>12 2a\n</code></li>
-<li><code>n = scanf("%x%x", &amp;i, &amp;j);</code>, <code>0x12 0X2a\n</code></li>
-<li><code>n = scanf("%o%o", &amp;i, &amp;j);</code>, <code>12 018\n</code></li>
-<li><code>n = scanf("%f", &amp;x);</code>, <code>123\n</code></li>
-<li><code>n = scanf("%f", &amp;x);</code>, <code>1.23\n</code></li>
-<li><code>n = scanf("%f", &amp;x);</code>, <code>123E4\n</code></li>
-<li><code>n = scanf("%e", &amp;x);</code>, <code>12\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%1d%1d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>12\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1 , 2\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>-1   -2\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>-  1  -  2\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d,%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1  ,  2\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d ,%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1  ,  2\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%4d %2d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1 234\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%4d %2d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1234567\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%*d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>123 456 789\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"i=%d , j=%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1 , 2\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"i=%d , j=%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>i=1, j=2\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1.23 4.56\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d.%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1.23 4.56\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%x%x"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>12 2a\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%x%x"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>0x12 0X2a\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%o%o"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>12 018\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span></code>, <code>123\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span></code>, <code>1.23\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span></code>, <code>123E4\n</code></li>
+<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%e"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span></code>, <code>12\n</code></li>
 </ol>
 <details class="solution">
 <summary>Solution</summary>
@@ -5257,7 +5277,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 23, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2024</span>
   </span>
 
     

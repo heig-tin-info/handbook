@@ -2728,6 +2728,8 @@
       
         
       
+        
+      
     
     
       
@@ -2810,6 +2812,33 @@
     
   
     Racine carrée inverse rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fast sin
   
 
     
@@ -4532,7 +4561,7 @@
 <p><figure id="_figure-2"><img alt="Entiers standardisés" class="drawio-diagram" src="../../../assets/images/ansi-integers.drawio"/><figcaption> Entiers standardisés</figcaption></figure></p>
 <p>Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins <span class="arithmatex">\(N\)</span> bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée ci-dessous&thinsp;:</p>
 <table id="_table-3">
-<caption style="caption-side:bottom"> "Table des types entiers en C"</caption><thead>
+<caption style="caption-side:bottom"> Table des types entiers en C</caption><thead>
 <tr>
 <th>Type</th>
 <th>Signe</th>
@@ -4834,7 +4863,7 @@
 <td>32</td>
 <td>64</td>
 <td>32</td>
-<td>Windows x86, Linux/Unix 32-bits</td>
+<td>Windows x86, Linux 32-bits</td>
 </tr>
 <tr>
 <td><strong>LLP64</strong></td>
@@ -4843,7 +4872,7 @@
 <td>32</td>
 <td>64</td>
 <td>64</td>
-<td><a href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a> x86-64, <a href="https://en.wikipedia.org/wiki/MinGW">MinGW</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a> x86-64</td>
 </tr>
 <tr>
 <td><strong>LP64</strong></td>
@@ -4852,7 +4881,7 @@
 <td>64</td>
 <td>64</td>
 <td>64</td>
-<td>Unix, Linux, macOS, Cygwin</td>
+<td>Unix, Linux, macOS</td>
 </tr>
 <tr>
 <td><strong>ILP64</strong></td>
@@ -4898,7 +4927,7 @@
 <p>Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement&thinsp;? C'est un problème typique d'encodage.</p>
 <p>Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a proposé un standard nommé <a href="https://fr.wikipedia.org/wiki/Windows-1252">Windows-1252</a> s'inspirant de <a href="https://fr.wikipedia.org/wiki/ISO/CEI_8859-1">ISO-8859-1</a>. En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...</p>
 <h3 id="unicode">Unicode<a class="headerlink" href="#unicode" title="Permanent link">¶</a></h3>
-<p>Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب‎), les Coréens (한국어), les Chinois avec le chinois simplifié (官话) et le chinois traditionnel (官話), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage&thinsp;; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.</p>
+<p>Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب), les Coréens (한국어), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage&thinsp;; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.</p>
 <p>Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard <strong>Unicode</strong> (<em>Universal Coded Character Set</em>) plus précisément nommé <strong>UTF-8</strong>.</p>
 <p><figure id="_figure-7"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/encoding-trends.png"><img alt="Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008" src="../../../assets/images/encoding-trends.png"/></a><figcaption> Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008</figcaption></figure></p>
 <p>Cette tendance est accessible <a href="https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html">ici</a>.</p>
@@ -4929,7 +4958,7 @@
 <div class="admonition example">
 <p class="admonition-title">Les légumes et les choux</p>
 <p>Imaginez que l'on vous demande de vous placer dans un champ et de déterrer n'importe quel légume sauf un chou. Votre algorithme est&thinsp;:</p>
-<pre class="mermaid"><code>flowchart TD
+<pre class="mermaid"><code>flowchart LR
     start(Début) --&gt; pick[Déterrer]
     pick --&gt; if{Choux?}
     if --Non--&gt; step[Avancer de 1 pas]
@@ -4953,15 +4982,12 @@
 </span><span id="__span-9-10"><a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a> 0x04 01101111
 </span><span id="__span-9-11"><a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a> 0x05 00000000
 </span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>On utilise le caractère nul <code>\0</code> pour plusieurs raisons&thinsp;:</p>
 <ol>
 <li>Il est facilement reconnaissable.</li>
 <li>Dans un test il vaut <code>false</code>.</li>
 <li>Il n'est pas imprimable et n'appartient à aucun caractère spécial.</li>
 </ol>
-</div>
 <div class="admonition warning">
 <p class="admonition-title">Avertissement</p>
 <p>Ne pas confondre le caractère nul <code>\0</code> avec le caractère <code>0</code>. Le premier est un caractère de fin de chaîne, le second est un caractère numérique qui vaut <code>0x30</code>.</p>
@@ -4997,26 +5023,26 @@
 </span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'a'</span><span class="p">;</span>
 </span></code></pre></div>
 <ol>
-<li><code>printf("Next char: %c.\n", a + 1);</code></li>
-<li><code>printf("Char: %3c.\n", a);</code></li>
-<li><code>printf("Char: %-3c.\n", a);</code></li>
-<li><code>printf("Chars: \n-%c.\n-%c.\n", a, 'z' - 1);</code></li>
-<li><code>printf("Sum: %i\n", i1 + i2 - a);</code></li>
-<li><code>printf("Taux d’erreur\t%i %%\n", i1);</code></li>
-<li><code>printf("Quel charabia horrible:\\\a\a\a%g\b\a%%\a\\\n", f1);</code></li>
-<li><code>printf("Inventaire: %i4 pieces\n", i1);</code></li>
-<li><code>printf("Inventory: %i %s\n", i1, "pieces");</code></li>
-<li><code>printf("Inventaire: %4i pieces\n", i1);</code></li>
-<li><code>printf("Inventaire: %-4i pieces\n", i1);</code></li>
-<li><code>printf("Mixed sum: %f\n", sh1 + i1 + f1);</code></li>
-<li><code>printf("Tension: %5.2f mV\n", f1);</code></li>
-<li><code>printf("Tension: %5.2e mV\n", f1);</code></li>
-<li><code>printf("Code: %X\n", 12);</code></li>
-<li><code>printf("Code: %x\n", 12);</code></li>
-<li><code>printf("Code: %o\n", 12);</code></li>
-<li><code>printf("Value: %i\n", -1);</code></li>
-<li><code>printf("Value: %hi\n", 65535u);</code></li>
-<li><code>printf("Value: %hu\n", -1);</code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Next char&thinsp;: %c.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Char&thinsp;: %3c.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Char&thinsp;: %-3c.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Chars&thinsp;: </span><span class="se">\n</span><span class="s">-%c.</span><span class="se">\n</span><span class="s">-%c.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="sc">'z'</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Sum&thinsp;: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Taux d’erreur</span><span class="se">\t</span><span class="s">%i %%</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Quel charabia horrible&thinsp;:</span><span class="se">\\\a\a\a</span><span class="s">%g</span><span class="se">\b\a</span><span class="s">%%</span><span class="se">\a\\\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Inventaire&thinsp;: %i4 pieces</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Inventory&thinsp;: %i %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="s">"pieces"</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Inventaire&thinsp;: %4i pieces</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Inventaire&thinsp;: %-4i pieces</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Mixed sum&thinsp;: %f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">sh1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Tension&thinsp;: %5.2f mV</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Tension&thinsp;: %5.2e mV</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Code&thinsp;: %X</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Code&thinsp;: %x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Code&thinsp;: %o</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Value&thinsp;: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Value&thinsp;: %hi</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">65535u</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Value&thinsp;: %hu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span></code></li>
 </ol>
 </div>
 <h2 id="les-booleens">Les booléens<a class="headerlink" href="#les-booleens" title="Permanent link">¶</a></h2>

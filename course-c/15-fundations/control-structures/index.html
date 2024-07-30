@@ -1249,6 +1249,50 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#point-virgule-en-trop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Point virgule en trop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#affectation-dans-un-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Affectation dans un test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loubli-des-accolades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'oubli des accolades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#switch_1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2673,6 +2717,8 @@
       
         
       
+        
+      
     
     
       
@@ -2755,6 +2801,33 @@
     
   
     Racine carrée inverse rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fast sin
   
 
     
@@ -4023,6 +4096,50 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#point-virgule-en-trop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Point virgule en trop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#affectation-dans-un-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Affectation dans un test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loubli-des-accolades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'oubli des accolades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#switch_1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4461,30 +4578,23 @@ L'opérateur d'assignation `=` n'est donc pas un point de séquence et l'exécut
 </span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"La valeur %d n'est pas valide"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 </span><span id="__span-14-10"><a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Point virgule en trop</p>
+<h3 id="point-virgule-en-trop">Point virgule en trop<a class="headerlink" href="#point-virgule-en-trop" title="Permanent link">¶</a></h3>
 <p>Il est courant de placer un point virgule derrière un <code>if</code>. Le point virgule correspondant à une instruction vide, c'est cette instruction qui sera exécutée si la condition du test est vraie.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">printf</span><span class="p">(</span><span class="s">"z est nul"</span><span class="p">);</span><span class="w"> </span><span class="c1">// ALWAYS executed</span>
 </span></code></pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Affectation dans un test</p>
+<h3 id="affectation-dans-un-test">Affectation dans un test<a class="headerlink" href="#affectation-dans-un-test" title="Permanent link">¶</a></h3>
 <p>Le test de la valeur d'une variable s'écrit avec l'opérateur d'égalité <code>==</code> et non l'opérateur d'affectation <code>=</code>. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">               </span><span class="c1">// set z to zero&thinsp;!!</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"z est nul"</span><span class="p">);</span><span class="w"> </span><span class="c1">// NEVER executed</span>
 </span></code></pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">L'oubli des accolades</p>
+<h3 id="loubli-des-accolades">L'oubli des accolades<a class="headerlink" href="#loubli-des-accolades" title="Permanent link">¶</a></h3>
 <p>Dans le cas ou vous souhaitez exécuter plusieurs instructions, vous devez impérativement déclarer un bloc d'instructions. Si vous omettez les accolades, seule la première instruction sera exécutée puisque la séquence se termine par un point virgule ou un bloc.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"z est nul"</span><span class="p">);</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="n">is_valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// Ne fait par partie du bloc et s'exécute toujours</span>
 </span></code></pre></div>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Exemple</p>
+<h3 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Permanent link">¶</a></h3>
 <p>On peut utiliser des conditions multiples pour déterminer le comportement d'un programme. Par exemple, le programme suivant affiche un message différent en fonction de la valeur de <code>value</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="p">{</span>
@@ -4503,7 +4613,6 @@ L'opérateur d'assignation `=` n'est donc pas un point de séquence et l'exécut
 </span><span id="__span-18-15"><a href="#__codelineno-18-15" id="__codelineno-18-15" name="__codelineno-18-15"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"La valeur ne satisfait aucune condition établie."</span><span class="p">);</span>
 </span><span id="__span-18-16"><a href="#__codelineno-18-16" id="__codelineno-18-16" name="__codelineno-18-16"></a><span class="p">}</span>
 </span></code></pre></div>
-</div>
 <div class="admonition exercise">
 <p class="admonition-title">Et si&thinsp;?</p>
 <p>Comment se comporte l'exemple suivant&thinsp;:</p>
@@ -4640,12 +4749,14 @@ L'opérateur d'assignation `=` n'est donc pas un point de séquence et l'exécut
 <h2 id="les-boucles">Les boucles<a class="headerlink" href="#les-boucles" title="Permanent link">¶</a></h2>
 <p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/road-runner.svg"><img alt="Bien choisir sa structure de contrôle" src="../../../assets/images/road-runner.svg"/></a><figcaption> Bien choisir sa structure de contrôle</figcaption></figure></p>
 <p>Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles&thinsp;:</p>
-<ul>
+<ol>
 <li><code class="language-c highlight"><span class="k">for</span></code></li>
 <li><code class="language-c highlight"><span class="k">while</span></code></li>
 <li><code class="language-c highlight"><span class="k">do</span></code> .. <code class="language-c highlight"><span class="k">while</span></code></li>
-</ul>
+</ol>
+<p>Elles peuvent être représentées par les diagrammes de flux suivants&thinsp;:</p>
 <p><figure id="_figure-3"><img alt="Aperçu des trois structures de boucles" class="drawio-diagram" src="../../../assets/images/for.drawio"/><figcaption> Aperçu des trois structures de boucles</figcaption></figure></p>
+<p>On observe que quelque soit la structure de boucle, une condition de maintien est nécessaire. Cette condition est évaluée avant ou après l'exécution de la séquence. Si la condition est fausse, la séquence est interrompue et le programme continue son exécution.</p>
 <p><a href="" id="loop-while"></a></p>
 <h3 id="while">while<a class="headerlink" href="#while" title="Permanent link">¶</a></h3>
 <p>La structure <code>while</code> répète une séquence <strong>tant que</strong> la condition est vraie.</p>

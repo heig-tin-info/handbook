@@ -2694,6 +2694,8 @@
       
         
       
+        
+      
     
     
       
@@ -2776,6 +2778,33 @@
     
   
     Racine carrée inverse rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fast sin
   
 
     
@@ -4445,8 +4474,8 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 \]</div>
 <p>En algèbre de Boole, l'addition de deux chiffres n'a que <span class="arithmatex">\(2^2 = 4\)</span> cas de figure (contre <span class="arithmatex">\(10^2=100\)</span> en base <span class="arithmatex">\(10\)</span>).</p>
 <p>L'addition de deux bits <span class="arithmatex">\(A\)</span> et <span class="arithmatex">\(B\)</span> est donnée par la table suivante où <code>C</code> est la retenue engendrée par l'addition&thinsp;:</p>
-<table>
-<thead>
+<table id="_table-2">
+<caption style="caption-side:bottom"> Addition binaire</caption><thead>
 <tr class="ycr-bottom-border">
 <th style="text-align: center;">A</th>
 <th class="ycr-right-border" style="text-align: center;">B  </th>
@@ -4552,7 +4581,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <p>Les opérateurs relationnels permettent de comparer deux valeurs. Le résultat d'un opérateur relationnel est toujours un <strong>booléen</strong> c'est-à-dire que le résultat d'une comparaison est soit <strong>vrai</strong>, soit <strong>faux</strong>.</p>
 <p>Rappelons qu'en C et dans la plupart des langages de programmation, une valeur vraie est représentée par <code>1</code> et une valeur fausse par <code>0</code>.</p>
 <p>Les opérateurs relationnels sont les suivants&thinsp;:</p>
-<table id="_table-2">
+<table id="_table-3">
 <caption style="caption-side:bottom"> Opérateurs relationnels</caption><thead>
 <tr>
 <th>Opérateur</th>
@@ -4618,8 +4647,6 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </span></code></pre></div>
 <p>Dans se cas on utilise l'opérateur ternaire <code>? :</code> qui permet de s'affranchir d'une structure de contrôle explicite.</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Avertissement</p>
 <p>Attention lors de l'utilisation du test d'égalité avec des valeurs flottantes, ces dernières sont des approximations et il est possible que deux valeurs qui devraient être égales ne le soient pas.</p>
 <p>Par exemple, cette assertion est fausse&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">assert</span><span class="p">(</span><span class="mf">0.1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)</span><span class="w"> </span><span class="c1">// false</span>
@@ -4658,7 +4685,6 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </span><span id="__span-15-5"><a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>0.1 + 0.2 == 0.3&thinsp;: 0
 </span><span id="__span-15-6"><a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a>0.1 + 0.2 == 0.3&thinsp;: 1
 </span></code></pre></div>
-</div>
 <div class="admonition warning">
 <p class="admonition-title">Confusion = et ==</p>
 <p>L'erreur est si vite commise, mais souvent fatale&thinsp;:</p>
@@ -4694,7 +4720,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </div>
 <h3 id="operateurs-bit-a-bit">Opérateurs bit à bit<a class="headerlink" href="#operateurs-bit-a-bit" title="Permanent link">¶</a></h3>
 <p>Les <strong>opérations bit à bit</strong> (<em>bitwise</em>) agissent sur chaque bit d'une valeur. Les disponibles en C sont les suivantes&thinsp;:</p>
-<table id="_table-3">
+<table id="_table-4">
 <caption style="caption-side:bottom"> Opérateurs bit à bit</caption><thead>
 <tr>
 <th>Opérateur</th>
@@ -4742,7 +4768,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <p><a href="" id="operator-and"></a></p>
 <h4 id="conjonction">Conjonction<a class="headerlink" href="#conjonction" title="Permanent link">¶</a></h4>
 <p>La conjonction ou <strong>ET logique</strong> (<span class="arithmatex">\(\wedge\)</span>) est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.</p>
-<table id="_table-4">
+<table id="_table-5">
 <caption style="caption-side:bottom"> Conjonction bit à bit</caption><thead>
 <tr class="ycr-bottom-border">
 <th class="ycr-right-border">\(A ∧ B\)  </th>
@@ -4775,7 +4801,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <p><a href="" id="operator-or"></a></p>
 <h4 id="disjonction">Disjonction<a class="headerlink" href="#disjonction" title="Permanent link">¶</a></h4>
 <p>La disjonction ou <strong>OU logique</strong> (<span class="arithmatex">\(\lor\)</span>) s'apparente à l'opération <code>+</code>.</p>
-<table id="_table-5">
+<table id="_table-6">
 <caption style="caption-side:bottom"> Disjonction bit à bit</caption><thead>
 <tr>
 <th><span class="arithmatex">\(A ∨ B\)</span></th>
@@ -4806,7 +4832,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <h4 id="disjonction-exclusive">Disjonction exclusive<a class="headerlink" href="#disjonction-exclusive" title="Permanent link">¶</a></h4>
 <p>Le <strong>OU exclusif</strong> (<span class="arithmatex">\(\oplus\)</span> ou <span class="arithmatex">\(\veebar\)</span>) est une opération curieuse, mais extrêmement puissante et utilisée massivement en cryptographie.</p>
 <p>En électronique sur les symboles CEI, l'opération logique est nommée, <code>=1</code> car si le résultat de l'addition des deux opérandes est différent de <code>1</code>, la sortie sera nulle. Lorsque <code>A</code> et <code>B</code> valent <code>1</code> la somme vaut <code>2</code> et donc la sortie est nulle.</p>
-<table id="_table-6">
+<table id="_table-7">
 <caption style="caption-side:bottom"> Disjonction exclusive</caption><thead>
 <tr>
 <th><span class="arithmatex">\(A \veebar B\)</span></th>
@@ -4858,7 +4884,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <p><a href="" id="operator-not"></a></p>
 <h4 id="complement-a-un">Complément à un<a class="headerlink" href="#complement-a-un" title="Permanent link">¶</a></h4>
 <p>Le complément à un (<span class="arithmatex">\(\lnot\)</span>) est simplement la valeur qui permet d'inverser bit à bit une valeur&thinsp;:</p>
-<table id="_table-7">
+<table id="_table-8">
 <caption style="caption-side:bottom"> Complément à un</caption><thead>
 <tr>
 <th><span class="arithmatex">\(A\)</span></th>
@@ -4934,7 +4960,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </span></code></pre></div>
 <h3 id="operations-logiques">Opérations logiques<a class="headerlink" href="#operations-logiques" title="Permanent link">¶</a></h3>
 <p>Les opérations logiques sont introduites par l'<a href="https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)">algèbre de Boole</a> et permettent de combiner plusieurs grandeurs binaires en utilisant des opérations. Les opérateurs logiques sont au nombre de deux et ne doivent pas être confondus avec leur petits frères <code>&amp;</code> et <code>|</code>.</p>
-<table id="_table-8">
+<table id="_table-9">
 <caption style="caption-side:bottom"> Opérateurs arithmétiques</caption><thead>
 <tr>
 <th>Opérateur</th>
@@ -4977,7 +5003,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </div>
 <h3 id="operateurs-daffectation">Opérateurs d'affectation<a class="headerlink" href="#operateurs-daffectation" title="Permanent link">¶</a></h3>
 <p>Les opérateurs d'affectation permettent d'assigner de nouvelles valeurs à une variable. En C il existe des sucres syntaxiques permettant de simplifier l'écriture lorsqu'une affectation est couplée à un autre opérateur.</p>
-<table id="_table-9">
+<table id="_table-10">
 <caption style="caption-side:bottom"> Opérateurs d'affectation</caption><thead>
 <tr>
 <th>Opérateur</th>
@@ -5073,7 +5099,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </div>
 <h3 id="operateurs-dincrementation">Opérateurs d'incrémentation<a class="headerlink" href="#operateurs-dincrementation" title="Permanent link">¶</a></h3>
 <p>Les opérateurs d'incrémentation sont régulièrement un motif primaire d'arrachage de cheveux pour les étudiants. En effet, ces opérateurs sont très particuliers à ce sens qu'il se décomposent en deux étapes&thinsp;: l'affectation et l'obtention du résultat. Il existe 4 opérateurs d'incrémentation&thinsp;:</p>
-<table id="_table-10">
+<table id="_table-11">
 <caption style="caption-side:bottom"> Opérateurs arithmétiques</caption><thead>
 <tr>
 <th>Opérateur</th>
@@ -5299,7 +5325,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <p>La <strong>précédence</strong> est un anglicisme de <em>precedence</em> (priorité) qui concerne la priorité des opérateurs, ou l'ordre dans lequel les opérateurs sont exécutés.</p>
 <p>Chacun connaît la priorité des quatre opérateurs de base (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>), mais le C et ses nombreux opérateurs sont bien plus complexes.</p>
 <p>La table suivante indique les règles à suivre pour les précédences des opérateurs en C.</p>
-<table class="ycr-flex-table" id="_table-11">
+<table class="ycr-flex-table" id="_table-12">
 <caption style="caption-side:bottom"> Priorité des opérateurs</caption><thead>
 <tr>
 <th>Priorité</th>
@@ -5576,8 +5602,6 @@ D \cdot E + \overline{D} + \overline{E}
 </ul>
 <p>Selon le langage de programmation et la méthode utilisée, le mécanisme d'arrondi sera différent. En C, la bibliothèque mathématique offre les fonctions <code>ceil</code> pour l'arrondi au plafond (entier supérieur), <code>floor</code> pour arrondi au plancher (entier inférieur) et <code>round</code> pour l'arrondi au plus proche (<em>nearest</em>). Il existe également une fonction <code>trunc</code> qui tronque la valeur en supprimant la partie fractionnaire.</p>
 <p>Le fonctionnement de la fonction <code>round</code> n'est pas unanime entre les mathématiciens et les programmeurs. C utilise l'arrondi au plus proche, c'est-à-dire que -23.5 donne -24 et 23.5 donnent 24.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
 <p>En Python ou en Java, c'est la méthode du <em>commercial rounding</em> qui a été choisie. Elle peut paraître contre-intuitive, car <code>round(3.5)</code> donne 4, mais <code>round(4.5)</code> donne 4 aussi.</p>
 <p>Pourquoi faire cela&thinsp;? Il y a deux raisons principales&thinsp;:</p>
 <ol>
@@ -5602,7 +5626,6 @@ D \cdot E + \overline{D} + \overline{E}
 </span></code></pre></div>
 <p>La méthode <em>round half to even</em> donne une somme arrondie (46) qui est plus proche de la somme réelle (45.5) que la méthode classique (49).</p>
 <p>L'utilisation cette méthode est particulièrement utile dans les domaines où l'exactitude statistique est cruciale et où les erreurs d'arrondissement peuvent s'accumuler sur de grands ensembles de données, comme en finance, en analyse de données, et en statistiques.</p>
-</div>
 <p><a href="" id="lvalue"></a>
 <a href="" id="rvalue"></a></p>
 <h2 id="valeurs-gauches">Valeurs gauches<a class="headerlink" href="#valeurs-gauches" title="Permanent link">¶</a></h2>
@@ -5645,8 +5668,8 @@ D \cdot E + \overline{D} + \overline{E}
 </span></code></pre></div>
 <h2 id="isoiec-646">ISO/IEC 646<a class="headerlink" href="#isoiec-646" title="Permanent link">¶</a></h2>
 <p>La bibliothèque standard <code>&lt;iso646.h&gt;</code> appartient à la norme C90 et définit des macros pour les opérateurs logiques. Ces macros sont les suivantes&thinsp;:</p>
-<table>
-<thead>
+<table id="_table-13">
+<caption style="caption-side:bottom"> Macros de l'ISO/IEC 646</caption><thead>
 <tr>
 <th style="text-align: center;">Opérateur</th>
 <th style="text-align: center;">Macro</th>

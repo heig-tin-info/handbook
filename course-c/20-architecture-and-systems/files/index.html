@@ -2645,6 +2645,8 @@
       
         
       
+        
+      
     
     
       
@@ -2727,6 +2729,33 @@
     
   
     Racine carrée inverse rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fast sin
   
 
     
@@ -4265,14 +4294,20 @@
 <li>Antislash <code>\</code> sous Windows</li>
 </ul>
 <p>Le chemin <code>/usr/bin/.././bin/../../home/john/documents</code> est correct, mais il n'est pas <a href="https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)">canonique</a>, on dit qu'il n'est pas résolu. La forme canonique est <code>/home/john/documents</code>.</p>
-<p>Un chemin peut être relatif s'il ne commence <strong>pas</strong> par un <code>/</code>: <code>../bin</code>. Sous Windows du même acabit, mais la racine différemment selon le type de média <code>C:\</code>, <code>\\network</code>, ...</p>
+<p>Un chemin peut être relatif s'il ne commence <strong>pas</strong> par un <code>/</code>: <code>../bin</code>. Sous Windows du même acabit, mais la racine différemment selon le type de média <code>C:\</code>, <code>\\network</code>...</p>
 <p>Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier, donc le chemin peut être soit relatif, soit absolu.</p>
 <h3 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">¶</a></h3>
 <p>Sous Windows (PowerShell) ou un système <strong><abbr title="Portable Operating System Interface">POSIX</abbr></strong> (Bash/Sh/Zsh), la navigation dans une arborescence peut être effectuée en ligne de commande à l'aide des commandes (programmes) suivants&thinsp;:</p>
-<ul>
-<li><code>ls</code> est un raccourci du nom <em>list</em>, ce programme permet d'afficher sur la sortie standard le contenu d'un répertoire.</li>
-<li><code>cd</code> pour <em>change directory</em> permets de naviguer dans l'arborescence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.</li>
-</ul>
+<dl>
+<dt><code>ls</code></dt>
+<dd>
+<p>est un raccourci du nom <em>list</em>, ce programme permet d'afficher sur la sortie standard le contenu d'un répertoire.</p>
+</dd>
+<dt><code>cd</code></dt>
+<dd>
+<p>pour <em>change directory</em> permets de naviguer dans l'arborescence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.</p>
+</dd>
+</dl>
 <h2 id="format-dun-fichier">Format d'un fichier<a class="headerlink" href="#format-dun-fichier" title="Permanent link">¶</a></h2>
 <p>Un fichier peut avoir un contenu arbitraire&thinsp;; une suite de zéro et d’un binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un <a href="https://fr.wikipedia.org/wiki/Fichier_texte">fichier texte</a>. C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un <a href="https://fr.wikipedia.org/wiki/Fichier_binaire">fichier binaire</a>.</p>
 <p>La frontière est parfois assez mince, car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme&thinsp;:</p>
@@ -4393,6 +4428,7 @@
 <p>Lorsqu'un fichier est ouvert, un curseur virtuel est positionné soit au début soit à la fin du fichier. Lorsque des données sont lues ou écrites, c'est à la position de ce curseur, lequel peut être déplacé en utilisant plusieurs fonctions utilitaires.</p>
 <p>La navigation dans un fichier n'est possible que si le fichier est <em>seekable</em>. Généralement les pointeurs de fichiers <code>stdin</code>, <code>stdout</code> et <code>stderr</code> ne sont pas <em>seekable</em>, et il n'est pas possible de se déplacer dans le fichier, mais seulement écrire dedans.</p>
 <h3 id="fseek">fseek<a class="headerlink" href="#fseek" title="Permanent link">¶</a></h3>
+<p>La fonction <code>fseek</code> permet de déplacer le curseur dans un fichier ouvert. La signature de la fonction est la suivante&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">fseek</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">whence</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Le manuel <a href="http://man7.org/linux/man-pages/man3/fseek.3.html">man fseek</a> indique les trois constantes possibles pour <code>whence</code>:</p>
@@ -4410,156 +4446,188 @@
 <p>Positionne le curseur à la fin du fichier.</p>
 </dd>
 </dl>
+<p>Si un fichier est seekable, il est possible de se déplacer dans le fichier. Par exemple, pour lire le dernier caractère d'un fichier&thinsp;:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="p">{</span>
+</span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">"toto"</span><span class="p">,</span><span class="w"> </span><span class="s">"r"</span><span class="p">);</span>
+</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="n">SEEK_END</span><span class="p">);</span>
+</span><span id="__span-11-10"><a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fgetc</span>
+</span><span id="__span-11-11"><a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%c</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+</span><span id="__span-11-12"><a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="ftell">ftell<a class="headerlink" href="#ftell" title="Permanent link">¶</a></h3>
 <p>Il est parfois utile de savoir où se trouve le curseur. <code>ftell()</code> retourne la position actuelle du curseur dans un fichier ouvert.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">filename</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"foo"</span><span class="p">;</span>
-</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
-</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="sc">'r'</span><span class="p">);</span>
-</span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">SEEK_END</span><span class="p">);</span>
-</span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ftell</span><span class="p">();</span>
-</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>
-</span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="n">printf</span><span class="p">(</span><span class="s">"The file %s has a size of %ld Bytes</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">filename</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"foo"</span><span class="p">;</span>
+</span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="sc">'r'</span><span class="p">);</span>
+</span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">SEEK_END</span><span class="p">);</span>
+</span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ftell</span><span class="p">();</span>
+</span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">printf</span><span class="p">(</span><span class="s">"The file %s has a size of %ld Bytes</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="rewind">rewind<a class="headerlink" href="#rewind" title="Permanent link">¶</a></h3>
 <p>L'appel <code>rewind()</code> est équivalent à <code>(void) fseek(stream, 0L, SEEK_SET)</code> et permet de se positionner au début du fichier.</p>
 <h2 id="lecture-ecriture">Lecture / Écriture<a class="headerlink" href="#lecture-ecriture" title="Permanent link">¶</a></h2>
-<p>La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues <code>printf</code> et <code>scanf</code> pour les flux standards (<em>stdout</em>, <em>stderr</em>), mais en utilisant les pendants fichiers&thinsp;:</p>
-<dl>
-<dt><code>int fscanf(FILE *stream, const char *format, ...)</code></dt>
-<dd>
-<p>Équivalent à <code>scanf</code> mais pour les fichiers</p>
-</dd>
-<dt><code>int fprintf(FILE *stream, const char *format, ...)</code></dt>
-<dd>
-<p>Équivalent à <code>printf</code> mais pour les fichiers</p>
-</dd>
-<dt><code>int fgetc(FILE *stream)</code></dt>
-<dd>
-<p>Équivalent à <code>getchar</code> (ISO/IEC 9899 §7.19.7.6-2)</p>
-</dd>
-<dt><code>int fputc(FILE *stream, char char)</code></dt>
-<dd>
-<p>Équivalent à <code>putchar</code> (ISO/IEC 9899 §7.19.7.9-2)</p>
-</dd>
-<dt><code>char *fgets(char * restrict s, int n, FILE * restrict stream)</code></dt>
-<dd>
-<p>Équivalent à <code>gets</code></p>
-</dd>
-<dt><code>int fputs(const char * restrict s, FILE * restrict stream)</code></dt>
-<dd>
-<p>Équivalent à <code>puts</code></p>
-</dd>
-</dl>
-<p>Bref... Vous avez compris.</p>
+<p>La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues <code>printf</code> et <code>scanf</code> pour les flux standards (<em>stdout</em>, <em>stderr</em>), mais en utilisant les variantes préfixées de <code>f</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-c highlight"><span class="kt">int</span><span class="w"> </span><span class="n">fscanf</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span></code></td>
+<td>Lecture formattée</td>
+</tr>
+<tr>
+<td><code class="language-c highlight"><span class="kt">int</span><span class="w"> </span><span class="n">fprintf</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span></code></td>
+<td>Écriture formattée</td>
+</tr>
+<tr>
+<td><code class="language-c highlight"><span class="kt">int</span><span class="w"> </span><span class="n">fgetc</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">)</span></code></td>
+<td>Lecture d'un caractère</td>
+</tr>
+<tr>
+<td><code class="language-c highlight"><span class="kt">int</span><span class="w"> </span><span class="n">fputc</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="kt">char</span><span class="p">)</span></code></td>
+<td>Écriture d'un caractère</td>
+</tr>
+<tr>
+<td><code class="language-c highlight"><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">fgets</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">stream</span><span class="p">)</span></code></td>
+<td>Lecture d'une ligne</td>
+</tr>
+<tr>
+<td><code class="language-c highlight"><span class="kt">int</span><span class="w"> </span><span class="n">fputs</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">stream</span><span class="p">)</span></code></td>
+<td>Écriture d'une ligne</td>
+</tr>
+</tbody>
+</table>
+<p>L'utilisation avec <code>stdin</code> et <code>stdout</code> comme descripteur de fichier est possible, mais il est préférable dans ce cas d'utiliser les fonctions <code>scanf</code> et <code>printf</code> qui ont les mêmes fonctionnalités.</p>
 <p>Les nouvelles fonctions à connaître sont les suivantes&thinsp;:</p>
-<dl>
-<dt><code>size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)</code></dt>
-<dd>
-<p>Lecture arbitraire de <code>nmemb * size</code> bytes depuis le flux <code>stream</code> dans le buffer <code>ptr</code>:</p>
-</dd>
-<dd>
-<p><code>c
-  int32_t buffer[12] = {0};
-  fread(buffer, 2, sizeof(int32_t), stdin);
-  printf("%x\n%x\n", buffer[0], buffer[1]);</code></p>
-</dd>
-<dd>
-<p><code>console
-  $ echo -e "0123abcdefgh" | ./a.out
-  33323130
-  64636261</code></p>
-</dd>
-</dl>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">nmemb</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Elle permet une lecture arbitraire de <code>nmemb * size</code> bytes depuis le flux <code>stream</code> dans le buffer <code>ptr</code>:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">fread</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int32_t</span><span class="p">),</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
+</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%x</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></code></pre></div>
+<p>Exemple d'utilisation&thinsp;:</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"0123abcdefgh"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>./a.out
+</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="go">33323130</span>
+</span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="go">64636261</span>
+</span></code></pre></div>
 <p>On notera au passage la nature <em>little-endian</em> du système.</p>
-<dl>
-<dt><code>size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)</code></dt>
-<dd>
-<p>La fonction est similaire à <code>fread</code> mais pour écrire sur un flux.</p>
-</dd>
-</dl>
+<p>La seconde fonction est&thinsp;:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">fwrite</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">nmemb</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">)</span>
+</span></code></pre></div>
+<p>La fonction est similaire à <code>fread</code> mais pour écrire sur un flux des données brutes.</p>
 <h2 id="buffer-de-fichier">Buffer de fichier<a class="headerlink" href="#buffer-de-fichier" title="Permanent link">¶</a></h2>
 <p>Pour améliorer les performances, <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> prévoit (§7.19.3-3), un espace tampon pour les descripteurs de fichiers qui peuvent être&thinsp;:</p>
-<dl>
-<dt><code>unbuffered</code> (<code>_IONBF</code>)</dt>
-<dd>
-<p>Pas de buffer, les caractères lus ou écrits sont acheminés le plus vite possible de la source à la destination.</p>
-</dd>
-</dl>
-<p><code>fully buffered</code> (<code>_IOFBF</code>)</p>
-<p><code>line buffered</code> (<code>_IO_LBF</code>)</p>
+<ol>
+<li><code>unbuffered</code> (<code>_IONBF</code>) : Pas de buffer, les caractères lus ou écrits sont acheminés le plus vite possible de la source à la destination.</li>
+<li><code>fully buffered</code> (<code>_IOFBF</code>) : Le buffer est rempli à chaque lecture ou écriture, puis vidé.</li>
+<li><code>line buffered</code> (<code>_IO_LBF</code>) : Le buffer est rempli à chaque retour à la ligne.</li>
+</ol>
 <p>Il faut comprendre qu'à chaque instant un programme souhaite écrire dans un fichier, il doit générer un appel système et donc interrompre le noyau. Un programme qui écrirait caractère par caractère sur la sortie standard agirait de la même manière qu'un employé des postes qui irait distribuer son courrier en ne prenant qu'une enveloppe à la fois, de la centrale de distribution au destinataire.</p>
 <p>Par défaut, un pointeur de fichier est <em>fully buffered</em>. C'est-à-dire que dans le cas du programme suivant devrait exécuter 10x l'appel système <code>write</code>, une fois par caractère.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-</span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
-</span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>
-</span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span>
-</span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="p">{</span>
-</span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">strcmp</span><span class="p">(</span><span class="s">"--no-buffering"</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-</span><span id="__span-12-7"><a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">        </span><span class="n">setvbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">_IONBF</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-</span><span id="__span-12-8"><a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>
-</span><span id="__span-12-9"><a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-</span><span id="__span-12-10"><a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">        </span><span class="n">putchar</span><span class="p">(</span><span class="sc">'c'</span><span class="p">);</span>
-</span><span id="__span-12-11"><a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span>
+</span><span id="__span-17-5"><a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="p">{</span>
+</span><span id="__span-17-6"><a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">strcmp</span><span class="p">(</span><span class="s">"--no-buffering"</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-17-7"><a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="w">        </span><span class="n">setvbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">_IONBF</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-17-8"><a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-17-10"><a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="w">        </span><span class="n">putchar</span><span class="p">(</span><span class="sc">'c'</span><span class="p">);</span>
+</span><span id="__span-17-11"><a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Cependant le comportement réel est différent. Seulement si le buffer est désactivé, que le programme interrompt le noyau pour chaque caractère&thinsp;:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>buftest.c<span class="w"> </span>-o<span class="w"> </span>buftest
-</span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="gp">$ </span>strace<span class="w"> </span>./buftest<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>write
-</span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="go">write(1, "cccccccccc", 10cccccccccc)              = 10</span>
-</span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>
-</span><span id="__span-13-6"><a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="gp">$ </span>strace<span class="w"> </span>./buftest<span class="w"> </span>--no-buffering<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>write
-</span><span id="__span-13-7"><a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="go">write(1, "c", 1c)                        = 1</span>
-</span><span id="__span-13-8"><a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="go">write(1, "c", 1c)                        = 1</span>
-</span><span id="__span-13-9"><a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="go">write(1, "c", 1c)                        = 1</span>
-</span><span id="__span-13-10"><a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="go">write(1, "c", 1c)                        = 1</span>
-</span><span id="__span-13-11"><a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="go">write(1, "c", 1c)                        = 1</span>
-</span><span id="__span-13-12"><a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="go">write(1, "c", 1c)                        = 1</span>
-</span><span id="__span-13-13"><a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="go">write(1, "c", 1c)                        = 1</span>
-</span><span id="__span-13-14"><a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="go">write(1, "c", 1c)                        = 1</span>
-</span><span id="__span-13-15"><a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="go">write(1, "c", 1c)                        = 1</span>
-</span><span id="__span-13-16"><a href="#__codelineno-13-16" id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="go">write(1, "c", 1c)                        = 1</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>buftest.c<span class="w"> </span>-o<span class="w"> </span>buftest
+</span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="gp">$ </span>strace<span class="w"> </span>./buftest<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>write
+</span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="go">write(1, "cccccccccc", 10cccccccccc)              = 10</span>
+</span><span id="__span-18-5"><a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>
+</span><span id="__span-18-6"><a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="gp">$ </span>strace<span class="w"> </span>./buftest<span class="w"> </span>--no-buffering<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>write
+</span><span id="__span-18-7"><a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="go">write(1, "c", 1c)                        = 1</span>
+</span><span id="__span-18-8"><a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="go">write(1, "c", 1c)                        = 1</span>
+</span><span id="__span-18-9"><a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="go">write(1, "c", 1c)                        = 1</span>
+</span><span id="__span-18-10"><a href="#__codelineno-18-10" id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="go">write(1, "c", 1c)                        = 1</span>
+</span><span id="__span-18-11"><a href="#__codelineno-18-11" id="__codelineno-18-11" name="__codelineno-18-11"></a><span class="go">write(1, "c", 1c)                        = 1</span>
+</span><span id="__span-18-12"><a href="#__codelineno-18-12" id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="go">write(1, "c", 1c)                        = 1</span>
+</span><span id="__span-18-13"><a href="#__codelineno-18-13" id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="go">write(1, "c", 1c)                        = 1</span>
+</span><span id="__span-18-14"><a href="#__codelineno-18-14" id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="go">write(1, "c", 1c)                        = 1</span>
+</span><span id="__span-18-15"><a href="#__codelineno-18-15" id="__codelineno-18-15" name="__codelineno-18-15"></a><span class="go">write(1, "c", 1c)                        = 1</span>
+</span><span id="__span-18-16"><a href="#__codelineno-18-16" id="__codelineno-18-16" name="__codelineno-18-16"></a><span class="go">write(1, "c", 1c)                        = 1</span>
 </span></code></pre></div>
 <p>Le changement de mode peut être effectué avec la fonction <code>setbuf</code> ou <code>setvbuf</code>:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
-</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
-</span><span id="__span-14-5"><a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>
-</span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">    </span><span class="n">setbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
-</span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a>
-</span><span id="__span-14-8"><a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="w">    </span><span class="n">fputs</span><span class="p">(</span><span class="s">"Allo&thinsp;?"</span><span class="p">);</span>
-</span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a>
-</span><span id="__span-14-10"><a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="w">    </span><span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
-</span><span id="__span-14-11"><a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>
+</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+</span><span id="__span-19-5"><a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>
+</span><span id="__span-19-6"><a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="w">    </span><span class="n">setbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
+</span><span id="__span-19-7"><a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a>
+</span><span id="__span-19-8"><a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="w">    </span><span class="n">fputs</span><span class="p">(</span><span class="s">"Allo&thinsp;?"</span><span class="p">);</span>
+</span><span id="__span-19-9"><a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a>
+</span><span id="__span-19-10"><a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="w">    </span><span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
+</span><span id="__span-19-11"><a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>La fonction <code>fflush</code> force l'écriture malgré l'utilisation d'un buffer.</p>
 <h2 id="fichiers-et-flux">Fichiers et Flux<a class="headerlink" href="#fichiers-et-flux" title="Permanent link">¶</a></h2>
 <p>Historiquement les descripteurs de fichiers sont appelés <code>FILE</code> alors qu'ils sont préférablement appelés <code>streams</code> en C++. Un fichier au même titre que <code>stdin</code>, <code>stdout</code> et <code>stderr</code> sont des flux de données. La norme <abbr title="Portable Operating System Interface">POSIX</abbr>, décrit que par défaut les flux&thinsp;:</p>
-<ul>
-<li><code>0</code>. <code>STDIN</code>,</li>
-<li><code>1</code>. <code>STDOUT</code>,</li>
-<li><code>2</code>. <code>STDERR</code>,</li>
-</ul>
-<p>sont ouverts au début du programme. Le premier fichier ouvert par exemple avec <code>fopen</code> sera très probablement assigné à l'identifiant <code>3</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Flux</th>
+<th>Numéro</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stdin</code></td>
+<td>0</td>
+<td>Flux d'entrée standard</td>
+</tr>
+<tr>
+<td><code>stdout</code></td>
+<td>1</td>
+<td>Flux de sortie standard</td>
+</tr>
+<tr>
+<td><code>stderr</code></td>
+<td>2</td>
+<td>Flux d'erreur standard</td>
+</tr>
+</tbody>
+</table>
+<p>Ces trois descripteurs de fichiers sont ouverts au début du programme. Le premier fichier ouvert par exemple avec <code>fopen</code> sera très probablement assigné à l'identifiant <code>3</code>, le suivant à <code>4</code>, etc.</p>
 <p>Pour se convaincre de cela, on peut exécuter l'exemple suivant avec le programme <code>strace</code>:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
-</span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-15-4"><a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fgetc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
-</span><span id="__span-15-5"><a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>
-</span><span id="__span-15-6"><a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">"file"</span><span class="p">,</span><span class="w"> </span><span class="s">"w"</span><span class="p">);</span>
-</span><span id="__span-15-7"><a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="w">    </span><span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">);</span>
-</span><span id="__span-15-8"><a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="w">    </span><span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">stdout</span><span class="p">);</span>
-</span><span id="__span-15-9"><a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="w">    </span><span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">stderr</span><span class="p">);</span>
-</span><span id="__span-15-10"><a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fgetc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+</span><span id="__span-20-5"><a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>
+</span><span id="__span-20-6"><a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">"file"</span><span class="p">,</span><span class="w"> </span><span class="s">"w"</span><span class="p">);</span>
+</span><span id="__span-20-7"><a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="w">    </span><span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">);</span>
+</span><span id="__span-20-8"><a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="w">    </span><span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">stdout</span><span class="p">);</span>
+</span><span id="__span-20-9"><a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="w">    </span><span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">stderr</span><span class="p">);</span>
+</span><span id="__span-20-10"><a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Pour mémoire, <code>strace</code> permet de capturer les appels système du programme passé en argument et de les afficher. Deux particularités de la commande exécutée sont <code>2&gt;&amp;1</code> qui redirige <code>stderr</code> vers <code>stdout</code> afin de pouvoir rediriger le flux vers <code>grep</code>. Ensuite <code>grep</code> permet de filtrer la sortie pour n'afficher que les lignes contenant <code>open</code>, <code>read</code>, <code>write</code> ou <code>close</code>:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span>k<span class="w"> </span><span class="p">|</span><span class="w"> </span>strace<span class="w"> </span>./a.out<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-P<span class="w"> </span><span class="s1">'open|read|write|close'</span>
-</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="go">read(0, "k\n", 4096)                    = 2</span>
-</span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="go">openat(AT_FDCWD, "file", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3</span>
-</span><span id="__span-16-4"><a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="go">write(2, "m", 1m)                        = 1</span>
-</span><span id="__span-16-5"><a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="go">write(3, "k", 1)                        = 1</span>
-</span><span id="__span-16-6"><a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="go">write(1, "l", 1l)                        = 1</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span>k<span class="w"> </span><span class="p">|</span><span class="w"> </span>strace<span class="w"> </span>./a.out<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-P<span class="w"> </span><span class="s1">'open|read|write|close'</span>
+</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="go">read(0, "k\n", 4096)                    = 2</span>
+</span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="go">openat(AT_FDCWD, "file", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3</span>
+</span><span id="__span-21-4"><a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="go">write(2, "m", 1m)                        = 1</span>
+</span><span id="__span-21-5"><a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="go">write(3, "k", 1)                        = 1</span>
+</span><span id="__span-21-6"><a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="go">write(1, "l", 1l)                        = 1</span>
 </span></code></pre></div>
 <p>On peut voir qu’on lit <code>k\n</code> sur le flux <code>0</code>, soit <code>stdin</code>, puis que le fichier <code>file</code> est ouvert, il porte l'identifiant <code>3</code>, enfin on écrit sur <code>1</code>, <code>2</code> et <code>3</code>.</p>
 <h2 id="formats-de-serialisation">Formats de sérialisation<a class="headerlink" href="#formats-de-serialisation" title="Permanent link">¶</a></h2>
@@ -4674,110 +4742,110 @@
 </ul>
 <h3 id="format-tabule">Format tabulé<a class="headerlink" href="#format-tabule" title="Permanent link">¶</a></h3>
 <p>Un fichier dit tabulé, utilise une <a href="https://fr.wikipedia.org/wiki/Valeur_sentinelle">sentinelle</a>, souvent le caractère de tabulation <code>\t</code> pour séparer les données. Chaque ligne du tableau est physiquement séparée de la suivante avec un <code>\n</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>Pays\tVille\t01\t02\t03\t04\t05\t06\t07\t08\t09\t10\t11\t12\n
-</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>Suisse\tZürich\t0.3\t1.3\t5.3\t8.8\t13.3\t16.4\t18.6\t18.0\t14.1\t9.9\t4.4\t1.4\n
-</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>Italie\tRome\t7.5\t8.2\t10.2\t12.6\t17.2\t21.1\t24.1\t24.5\t20.8\t16.4\t11.4\t8.4\n
-</span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a>Allemagne\tBerlin\t0.6\t2.3\t5.1\t10.2\t14.8\t17.9\t20.3\t19.7\t15.3\t10.5\t6.0\t1.33\n
-</span><span id="__span-17-5"><a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>Yémen\tAden\t25.7\t26.0\t27.2\t28.9\t31.0\t32.7\t32.7\t31.5\t31.6\t28.9\t27.1\t26.01\n
-</span><span id="__span-17-6"><a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a>Russie\tYakutsk\t-38.6\t-33.8\t-20.1\t-4.8\t7.5\t16.4\t19.5\t15.2\t6.1\t-7.8\t-27.0\t-37.6\n
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>Pays\tVille\t01\t02\t03\t04\t05\t06\t07\t08\t09\t10\t11\t12\n
+</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>Suisse\tZürich\t0.3\t1.3\t5.3\t8.8\t13.3\t16.4\t18.6\t18.0\t14.1\t9.9\t4.4\t1.4\n
+</span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>Italie\tRome\t7.5\t8.2\t10.2\t12.6\t17.2\t21.1\t24.1\t24.5\t20.8\t16.4\t11.4\t8.4\n
+</span><span id="__span-22-4"><a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a>Allemagne\tBerlin\t0.6\t2.3\t5.1\t10.2\t14.8\t17.9\t20.3\t19.7\t15.3\t10.5\t6.0\t1.33\n
+</span><span id="__span-22-5"><a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a>Yémen\tAden\t25.7\t26.0\t27.2\t28.9\t31.0\t32.7\t32.7\t31.5\t31.6\t28.9\t27.1\t26.01\n
+</span><span id="__span-22-6"><a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>Russie\tYakutsk\t-38.6\t-33.8\t-20.1\t-4.8\t7.5\t16.4\t19.5\t15.2\t6.1\t-7.8\t-27.0\t-37.6\n
 </span></code></pre></div>
 <p>Ce fichier peut être observé avec un lecteur hexadécimal&thinsp;:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="gp">$ </span>hexdump<span class="w"> </span>-C<span class="w"> </span>data.dat
-</span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="go">00000000  50 61 79 73 09 56 69 6c  6c 65 09 30 31 09 30 32  |Pays.Ville.01.02|</span>
-</span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="go">00000010  09 30 33 09 30 34 09 30  35 09 30 36 09 30 37 09  |.03.04.05.06.07.|</span>
-</span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="go">00000020  30 38 09 30 39 09 31 30  09 31 31 09 31 32 0a 53  |08.09.10.11.12.S|</span>
-</span><span id="__span-18-5"><a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="go">00000030  75 69 73 73 65 09 5a c3  bc 72 69 63 68 09 30 2e  |uisse.Z..rich.0.|</span>
-</span><span id="__span-18-6"><a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="go">00000040  33 09 31 2e 33 09 35 2e  33 09 38 2e 38 09 31 33  |3.1.3.5.3.8.8.13|</span>
-</span><span id="__span-18-7"><a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="go">00000050  2e 33 09 31 36 2e 34 09  31 38 2e 36 09 31 38 2e  |.3.16.4.18.6.18.|</span>
-</span><span id="__span-18-8"><a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="go">00000060  30 09 31 34 2e 31 09 39  2e 39 09 34 2e 34 09 31  |0.14.1.9.9.4.4.1|</span>
-</span><span id="__span-18-9"><a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="go">00000070  2e 34 0a 49 74 61 6c 69  65 09 52 6f 6d 65 09 37  |.4.Italie.Rome.7|</span>
-</span><span id="__span-18-10"><a href="#__codelineno-18-10" id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="go">00000080  2e 35 09 38 2e 32 09 31  30 2e 32 09 31 32 2e 36  |.5.8.2.10.2.12.6|</span>
-</span><span id="__span-18-11"><a href="#__codelineno-18-11" id="__codelineno-18-11" name="__codelineno-18-11"></a><span class="go">00000090  09 31 37 2e 32 09 32 31  2e 31 09 32 34 2e 31 09  |.17.2.21.1.24.1.|</span>
-</span><span id="__span-18-12"><a href="#__codelineno-18-12" id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="go">000000a0  32 34 2e 35 09 32 30 2e  38 09 31 36 2e 34 09 31  |24.5.20.8.16.4.1|</span>
-</span><span id="__span-18-13"><a href="#__codelineno-18-13" id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="go">000000b0  31 2e 34 09 38 2e 34 0a  41 6c 6c 65 6d 61 67 6e  |1.4.8.4.Allemagn|</span>
-</span><span id="__span-18-14"><a href="#__codelineno-18-14" id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="go">000000c0  65 09 42 65 72 6c 69 6e  09 30 2e 36 09 32 2e 33  |e.Berlin.0.6.2.3|</span>
-</span><span id="__span-18-15"><a href="#__codelineno-18-15" id="__codelineno-18-15" name="__codelineno-18-15"></a><span class="go">000000d0  09 35 2e 31 09 31 30 2e  32 09 31 34 2e 38 09 31  |.5.1.10.2.14.8.1|</span>
-</span><span id="__span-18-16"><a href="#__codelineno-18-16" id="__codelineno-18-16" name="__codelineno-18-16"></a><span class="go">000000e0  37 2e 39 09 32 30 2e 33  09 31 39 2e 37 09 31 35  |7.9.20.3.19.7.15|</span>
-</span><span id="__span-18-17"><a href="#__codelineno-18-17" id="__codelineno-18-17" name="__codelineno-18-17"></a><span class="go">000000f0  2e 33 09 31 30 2e 35 09  36 2e 30 09 31 2e 33 33  |.3.10.5.6.0.1.33|</span>
-</span><span id="__span-18-18"><a href="#__codelineno-18-18" id="__codelineno-18-18" name="__codelineno-18-18"></a><span class="go">00000100  0a 59 c3 a9 6d 65 6e 09  41 64 65 6e 09 32 35 2e  |.Y..men.Aden.25.|</span>
-</span><span id="__span-18-19"><a href="#__codelineno-18-19" id="__codelineno-18-19" name="__codelineno-18-19"></a><span class="go">00000110  37 09 32 36 2e 30 09 32  37 2e 32 09 32 38 2e 39  |7.26.0.27.2.28.9|</span>
-</span><span id="__span-18-20"><a href="#__codelineno-18-20" id="__codelineno-18-20" name="__codelineno-18-20"></a><span class="go">00000120  09 33 31 2e 30 09 33 32  2e 37 09 33 32 2e 37 09  |.31.0.32.7.32.7.|</span>
-</span><span id="__span-18-21"><a href="#__codelineno-18-21" id="__codelineno-18-21" name="__codelineno-18-21"></a><span class="go">00000130  33 31 2e 35 09 33 31 2e  36 09 32 38 2e 39 09 32  |31.5.31.6.28.9.2|</span>
-</span><span id="__span-18-22"><a href="#__codelineno-18-22" id="__codelineno-18-22" name="__codelineno-18-22"></a><span class="go">00000140  37 2e 31 09 32 36 2e 30  31 0a 52 75 73 73 69 65  |7.1.26.01.Russie|</span>
-</span><span id="__span-18-23"><a href="#__codelineno-18-23" id="__codelineno-18-23" name="__codelineno-18-23"></a><span class="go">00000150  09 59 61 6b 75 74 73 6b  09 2d 33 38 2e 36 09 2d  |.Yakutsk.-38.6.-|</span>
-</span><span id="__span-18-24"><a href="#__codelineno-18-24" id="__codelineno-18-24" name="__codelineno-18-24"></a><span class="go">00000160  33 33 2e 38 09 2d 32 30  2e 31 09 2d 34 2e 38 09  |33.8.-20.1.-4.8.|</span>
-</span><span id="__span-18-25"><a href="#__codelineno-18-25" id="__codelineno-18-25" name="__codelineno-18-25"></a><span class="go">00000170  37 2e 35 09 31 36 2e 34  09 31 39 2e 35 09 31 35  |7.5.16.4.19.5.15|</span>
-</span><span id="__span-18-26"><a href="#__codelineno-18-26" id="__codelineno-18-26" name="__codelineno-18-26"></a><span class="go">00000180  2e 32 09 36 2e 31 09 2d  37 2e 38 09 2d 32 37 2e  |.2.6.1.-7.8.-27.|</span>
-</span><span id="__span-18-27"><a href="#__codelineno-18-27" id="__codelineno-18-27" name="__codelineno-18-27"></a><span class="go">00000190  30 09 2d 33 37 2e 36 0a                           |0.-37.6.|</span>
-</span><span id="__span-18-28"><a href="#__codelineno-18-28" id="__codelineno-18-28" name="__codelineno-18-28"></a><span class="go">00000198</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="gp">$ </span>hexdump<span class="w"> </span>-C<span class="w"> </span>data.dat
+</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="go">00000000  50 61 79 73 09 56 69 6c  6c 65 09 30 31 09 30 32  |Pays.Ville.01.02|</span>
+</span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="go">00000010  09 30 33 09 30 34 09 30  35 09 30 36 09 30 37 09  |.03.04.05.06.07.|</span>
+</span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="go">00000020  30 38 09 30 39 09 31 30  09 31 31 09 31 32 0a 53  |08.09.10.11.12.S|</span>
+</span><span id="__span-23-5"><a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="go">00000030  75 69 73 73 65 09 5a c3  bc 72 69 63 68 09 30 2e  |uisse.Z..rich.0.|</span>
+</span><span id="__span-23-6"><a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="go">00000040  33 09 31 2e 33 09 35 2e  33 09 38 2e 38 09 31 33  |3.1.3.5.3.8.8.13|</span>
+</span><span id="__span-23-7"><a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="go">00000050  2e 33 09 31 36 2e 34 09  31 38 2e 36 09 31 38 2e  |.3.16.4.18.6.18.|</span>
+</span><span id="__span-23-8"><a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="go">00000060  30 09 31 34 2e 31 09 39  2e 39 09 34 2e 34 09 31  |0.14.1.9.9.4.4.1|</span>
+</span><span id="__span-23-9"><a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="go">00000070  2e 34 0a 49 74 61 6c 69  65 09 52 6f 6d 65 09 37  |.4.Italie.Rome.7|</span>
+</span><span id="__span-23-10"><a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="go">00000080  2e 35 09 38 2e 32 09 31  30 2e 32 09 31 32 2e 36  |.5.8.2.10.2.12.6|</span>
+</span><span id="__span-23-11"><a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="go">00000090  09 31 37 2e 32 09 32 31  2e 31 09 32 34 2e 31 09  |.17.2.21.1.24.1.|</span>
+</span><span id="__span-23-12"><a href="#__codelineno-23-12" id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="go">000000a0  32 34 2e 35 09 32 30 2e  38 09 31 36 2e 34 09 31  |24.5.20.8.16.4.1|</span>
+</span><span id="__span-23-13"><a href="#__codelineno-23-13" id="__codelineno-23-13" name="__codelineno-23-13"></a><span class="go">000000b0  31 2e 34 09 38 2e 34 0a  41 6c 6c 65 6d 61 67 6e  |1.4.8.4.Allemagn|</span>
+</span><span id="__span-23-14"><a href="#__codelineno-23-14" id="__codelineno-23-14" name="__codelineno-23-14"></a><span class="go">000000c0  65 09 42 65 72 6c 69 6e  09 30 2e 36 09 32 2e 33  |e.Berlin.0.6.2.3|</span>
+</span><span id="__span-23-15"><a href="#__codelineno-23-15" id="__codelineno-23-15" name="__codelineno-23-15"></a><span class="go">000000d0  09 35 2e 31 09 31 30 2e  32 09 31 34 2e 38 09 31  |.5.1.10.2.14.8.1|</span>
+</span><span id="__span-23-16"><a href="#__codelineno-23-16" id="__codelineno-23-16" name="__codelineno-23-16"></a><span class="go">000000e0  37 2e 39 09 32 30 2e 33  09 31 39 2e 37 09 31 35  |7.9.20.3.19.7.15|</span>
+</span><span id="__span-23-17"><a href="#__codelineno-23-17" id="__codelineno-23-17" name="__codelineno-23-17"></a><span class="go">000000f0  2e 33 09 31 30 2e 35 09  36 2e 30 09 31 2e 33 33  |.3.10.5.6.0.1.33|</span>
+</span><span id="__span-23-18"><a href="#__codelineno-23-18" id="__codelineno-23-18" name="__codelineno-23-18"></a><span class="go">00000100  0a 59 c3 a9 6d 65 6e 09  41 64 65 6e 09 32 35 2e  |.Y..men.Aden.25.|</span>
+</span><span id="__span-23-19"><a href="#__codelineno-23-19" id="__codelineno-23-19" name="__codelineno-23-19"></a><span class="go">00000110  37 09 32 36 2e 30 09 32  37 2e 32 09 32 38 2e 39  |7.26.0.27.2.28.9|</span>
+</span><span id="__span-23-20"><a href="#__codelineno-23-20" id="__codelineno-23-20" name="__codelineno-23-20"></a><span class="go">00000120  09 33 31 2e 30 09 33 32  2e 37 09 33 32 2e 37 09  |.31.0.32.7.32.7.|</span>
+</span><span id="__span-23-21"><a href="#__codelineno-23-21" id="__codelineno-23-21" name="__codelineno-23-21"></a><span class="go">00000130  33 31 2e 35 09 33 31 2e  36 09 32 38 2e 39 09 32  |31.5.31.6.28.9.2|</span>
+</span><span id="__span-23-22"><a href="#__codelineno-23-22" id="__codelineno-23-22" name="__codelineno-23-22"></a><span class="go">00000140  37 2e 31 09 32 36 2e 30  31 0a 52 75 73 73 69 65  |7.1.26.01.Russie|</span>
+</span><span id="__span-23-23"><a href="#__codelineno-23-23" id="__codelineno-23-23" name="__codelineno-23-23"></a><span class="go">00000150  09 59 61 6b 75 74 73 6b  09 2d 33 38 2e 36 09 2d  |.Yakutsk.-38.6.-|</span>
+</span><span id="__span-23-24"><a href="#__codelineno-23-24" id="__codelineno-23-24" name="__codelineno-23-24"></a><span class="go">00000160  33 33 2e 38 09 2d 32 30  2e 31 09 2d 34 2e 38 09  |33.8.-20.1.-4.8.|</span>
+</span><span id="__span-23-25"><a href="#__codelineno-23-25" id="__codelineno-23-25" name="__codelineno-23-25"></a><span class="go">00000170  37 2e 35 09 31 36 2e 34  09 31 39 2e 35 09 31 35  |7.5.16.4.19.5.15|</span>
+</span><span id="__span-23-26"><a href="#__codelineno-23-26" id="__codelineno-23-26" name="__codelineno-23-26"></a><span class="go">00000180  2e 32 09 36 2e 31 09 2d  37 2e 38 09 2d 32 37 2e  |.2.6.1.-7.8.-27.|</span>
+</span><span id="__span-23-27"><a href="#__codelineno-23-27" id="__codelineno-23-27" name="__codelineno-23-27"></a><span class="go">00000190  30 09 2d 33 37 2e 36 0a                           |0.-37.6.|</span>
+</span><span id="__span-23-28"><a href="#__codelineno-23-28" id="__codelineno-23-28" name="__codelineno-23-28"></a><span class="go">00000198</span>
 </span></code></pre></div>
 <p>L'inconvénient de ce format est que pour obtenir directement la température du mois de mars à Berlin, sachant que Berlin est la quatrième ligne du fichier, il est nécessaire de parcourir le fichier depuis le début, car la longueur des lignes n'est à priori pas connue. On dit que la lecture séquentielle est facilitée, mais la lecture aléatoire est plus lente.</p>
 <h3 id="format-avec-remplissage">Format avec remplissage<a class="headerlink" href="#format-avec-remplissage" title="Permanent link">¶</a></h3>
 <p>Pour pallier au défaut du format tabulé, il est possible d'écrire le fichier en utilisant un caractère de remplissage. Dans le fichier suivant, les mois de mai sont toujours alignés avec la
 48e colonne&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>0000000000111111111122222222223333333333444444444455555555556666666666777777777788
-</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>0123456789012345678901234567890123456789012345678901234567890123456789012345678901
-</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>+---------+-------+-----+-----+-----+----+----+----+----+----+----+----+-----+---&gt;
-</span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>
-</span><span id="__span-19-5"><a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>Pays      Ville   01    02    03    04   05   06   07   08   09   10   11    12
-</span><span id="__span-19-6"><a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a>Suisse    Zürich  0.3   1.3   5.3   8.8  13.3 16.4 18.6 18.0 14.1 9.9  4.4   1.4
-</span><span id="__span-19-7"><a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a>Italie    Rome    7.5   8.2   10.2  12.6 17.2 21.1 24.1 24.5 20.8 16.4 11.4  8.4
-</span><span id="__span-19-8"><a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a>Allemagne Berlin  0.6   2.3   5.1   10.2 14.8 17.9 20.3 19.7 15.3 10.5 6.0   1.33
-</span><span id="__span-19-9"><a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a>Yémen     Aden    25.7  26.0  27.2  28.9 31.0 32.7 32.7 31.5 31.6 28.9 27.1  26.01
-</span><span id="__span-19-10"><a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a>Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37.6
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a>0000000000111111111122222222223333333333444444444455555555556666666666777777777788
+</span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a>0123456789012345678901234567890123456789012345678901234567890123456789012345678901
+</span><span id="__span-24-3"><a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a>+---------+-------+-----+-----+-----+----+----+----+----+----+----+----+-----+---&gt;
+</span><span id="__span-24-4"><a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a>
+</span><span id="__span-24-5"><a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a>Pays      Ville   01    02    03    04   05   06   07   08   09   10   11    12
+</span><span id="__span-24-6"><a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a>Suisse    Zürich  0.3   1.3   5.3   8.8  13.3 16.4 18.6 18.0 14.1 9.9  4.4   1.4
+</span><span id="__span-24-7"><a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a>Italie    Rome    7.5   8.2   10.2  12.6 17.2 21.1 24.1 24.5 20.8 16.4 11.4  8.4
+</span><span id="__span-24-8"><a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a>Allemagne Berlin  0.6   2.3   5.1   10.2 14.8 17.9 20.3 19.7 15.3 10.5 6.0   1.33
+</span><span id="__span-24-9"><a href="#__codelineno-24-9" id="__codelineno-24-9" name="__codelineno-24-9"></a>Yémen     Aden    25.7  26.0  27.2  28.9 31.0 32.7 32.7 31.5 31.6 28.9 27.1  26.01
+</span><span id="__span-24-10"><a href="#__codelineno-24-10" id="__codelineno-24-10" name="__codelineno-24-10"></a>Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37.6
 </span></code></pre></div>
 <p>Idéalement on utilise comme caractère de remplissage le caractère nul <code>\0</code>, mais le caractère espace peut aussi convenir à condition que les données ne contiennent pas d'espace.</p>
 <p>La lecture aléatoire de ce type de fichier est facilitée, car la position de chaque entrée est connue à l'avance, on sait par exemple que le pays est stocké sur 11 caractères, la ville sur 9 caractères et chaque température sur 7 caractères.</p>
 <p>L'utilisation de <code>fseek</code> est par conséquent utile&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-</span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">temperature</span><span class="p">;</span>
-</span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a>
-</span><span id="__span-20-5"><a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="n">fseek</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">11</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">SEEK_SET</span><span class="p">);</span>
-</span><span id="__span-20-6"><a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="n">fseek</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">SEEK_CUR</span><span class="p">);</span>
-</span><span id="__span-20-7"><a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="n">fscanf</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="s">"%lf"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">temperature</span><span class="p">);</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-25-3"><a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">temperature</span><span class="p">;</span>
+</span><span id="__span-25-4"><a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a>
+</span><span id="__span-25-5"><a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="n">fseek</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">11</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">SEEK_SET</span><span class="p">);</span>
+</span><span id="__span-25-6"><a href="#__codelineno-25-6" id="__codelineno-25-6" name="__codelineno-25-6"></a><span class="n">fseek</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">SEEK_CUR</span><span class="p">);</span>
+</span><span id="__span-25-7"><a href="#__codelineno-25-7" id="__codelineno-25-7" name="__codelineno-25-7"></a><span class="n">fscanf</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="s">"%lf"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">temperature</span><span class="p">);</span>
 </span></code></pre></div>
 <p>L'inconvénient de ce format de fichier est la place qu'il prend en mémoire. L'autre problème est que si le nom d'une ville dépasse les 9 caractères alloués, il faut réécrire tout le fichier. Généralement ce problème est contourné en allouant des champs d'une taille suffisante, par exemple 256 caractères pour le nom des villes.</p>
 <h3 id="format-serialise">Format sérialisé<a class="headerlink" href="#format-serialise" title="Permanent link">¶</a></h3>
 <p>Des langages de sérialisation permettent de structurer de l'information en utilisant un format spécifique. Ici <a href="https://fr.wikipedia.org/wiki/JavaScript_Object_Notation">JSON</a> :</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="p">[</span>
-</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">        </span><span class="nt">"pays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suisse"</span><span class="p">,</span>
-</span><span id="__span-21-4"><a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">        </span><span class="nt">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zürich"</span><span class="p">,</span>
-</span><span id="__span-21-5"><a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="w">        </span><span class="nt">"mois"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-21-6"><a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">            </span><span class="nt">"janvier"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
-</span><span id="__span-21-7"><a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="w">            </span><span class="nt">"février"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span>
-</span><span id="__span-21-8"><a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="w">            </span><span class="nt">"mars"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.3</span><span class="p">,</span>
-</span><span id="__span-21-9"><a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="w">            </span><span class="nt">"avril"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.8</span><span class="p">,</span>
-</span><span id="__span-21-10"><a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="w">            </span><span class="nt">"mai"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.3</span><span class="p">,</span>
-</span><span id="__span-21-11"><a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="w">            </span><span class="nt">"juin"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.4</span><span class="p">,</span>
-</span><span id="__span-21-12"><a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="w">            </span><span class="nt">"juillet"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.6</span><span class="p">,</span>
-</span><span id="__span-21-13"><a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="w">            </span><span class="nt">"août"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.0</span><span class="p">,</span>
-</span><span id="__span-21-14"><a href="#__codelineno-21-14" id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="w">            </span><span class="nt">"septembre"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.1</span><span class="p">,</span>
-</span><span id="__span-21-15"><a href="#__codelineno-21-15" id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="w">            </span><span class="nt">"octobre"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.9</span><span class="p">,</span>
-</span><span id="__span-21-16"><a href="#__codelineno-21-16" id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="w">            </span><span class="nt">"novembre"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.4</span><span class="p">,</span>
-</span><span id="__span-21-17"><a href="#__codelineno-21-17" id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="w">            </span><span class="nt">"décembre"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.4</span>
-</span><span id="__span-21-18"><a href="#__codelineno-21-18" id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-21-19"><a href="#__codelineno-21-19" id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-21-20"><a href="#__codelineno-21-20" id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-21-21"><a href="#__codelineno-21-21" id="__codelineno-21-21" name="__codelineno-21-21"></a><span class="w">        </span><span class="nt">"pays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Italie"</span><span class="p">,</span>
-</span><span id="__span-21-22"><a href="#__codelineno-21-22" id="__codelineno-21-22" name="__codelineno-21-22"></a><span class="w">        </span><span class="nt">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rome"</span><span class="p">,</span>
-</span><span id="__span-21-23"><a href="#__codelineno-21-23" id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="w">        </span><span class="nt">"mois"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-21-24"><a href="#__codelineno-21-24" id="__codelineno-21-24" name="__codelineno-21-24"></a><span class="w">            </span><span class="nt">"janvier"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.5</span><span class="p">,</span>
-</span><span id="__span-21-25"><a href="#__codelineno-21-25" id="__codelineno-21-25" name="__codelineno-21-25"></a><span class="w">            </span><span class="nt">"février"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.2</span><span class="p">,</span>
-</span><span id="__span-21-26"><a href="#__codelineno-21-26" id="__codelineno-21-26" name="__codelineno-21-26"></a><span class="w">            </span><span class="nt">"mars"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.2</span><span class="p">,</span>
-</span><span id="__span-21-27"><a href="#__codelineno-21-27" id="__codelineno-21-27" name="__codelineno-21-27"></a><span class="w">            </span><span class="nt">"avril"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.6</span><span class="p">,</span>
-</span><span id="__span-21-28"><a href="#__codelineno-21-28" id="__codelineno-21-28" name="__codelineno-21-28"></a><span class="w">            </span><span class="nt">"mai"</span><span class="p">:</span><span class="w"> </span><span class="mf">17.2</span><span class="p">,</span>
-</span><span id="__span-21-29"><a href="#__codelineno-21-29" id="__codelineno-21-29" name="__codelineno-21-29"></a><span class="w">            </span><span class="nt">"juin"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.1</span><span class="p">,</span>
-</span><span id="__span-21-30"><a href="#__codelineno-21-30" id="__codelineno-21-30" name="__codelineno-21-30"></a><span class="w">            </span><span class="nt">"juillet"</span><span class="p">:</span><span class="w"> </span><span class="mf">24.1</span><span class="p">,</span>
-</span><span id="__span-21-31"><a href="#__codelineno-21-31" id="__codelineno-21-31" name="__codelineno-21-31"></a><span class="w">            </span><span class="nt">"août"</span><span class="p">:</span><span class="w"> </span><span class="mf">24.5</span><span class="p">,</span>
-</span><span id="__span-21-32"><a href="#__codelineno-21-32" id="__codelineno-21-32" name="__codelineno-21-32"></a><span class="w">            </span><span class="nt">"septembre"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.8</span><span class="p">,</span>
-</span><span id="__span-21-33"><a href="#__codelineno-21-33" id="__codelineno-21-33" name="__codelineno-21-33"></a><span class="w">            </span><span class="nt">"octobre"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.4</span><span class="p">,</span>
-</span><span id="__span-21-34"><a href="#__codelineno-21-34" id="__codelineno-21-34" name="__codelineno-21-34"></a><span class="w">            </span><span class="nt">"novembre"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.4</span><span class="p">,</span>
-</span><span id="__span-21-35"><a href="#__codelineno-21-35" id="__codelineno-21-35" name="__codelineno-21-35"></a><span class="w">            </span><span class="nt">"décembre"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.4</span>
-</span><span id="__span-21-36"><a href="#__codelineno-21-36" id="__codelineno-21-36" name="__codelineno-21-36"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-21-37"><a href="#__codelineno-21-37" id="__codelineno-21-37" name="__codelineno-21-37"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-21-38"><a href="#__codelineno-21-38" id="__codelineno-21-38" name="__codelineno-21-38"></a><span class="p">]</span>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="p">[</span>
+</span><span id="__span-26-2"><a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-26-3"><a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="w">        </span><span class="nt">"pays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suisse"</span><span class="p">,</span>
+</span><span id="__span-26-4"><a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="w">        </span><span class="nt">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zürich"</span><span class="p">,</span>
+</span><span id="__span-26-5"><a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="w">        </span><span class="nt">"mois"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-6"><a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="w">            </span><span class="nt">"janvier"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+</span><span id="__span-26-7"><a href="#__codelineno-26-7" id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="w">            </span><span class="nt">"février"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span>
+</span><span id="__span-26-8"><a href="#__codelineno-26-8" id="__codelineno-26-8" name="__codelineno-26-8"></a><span class="w">            </span><span class="nt">"mars"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.3</span><span class="p">,</span>
+</span><span id="__span-26-9"><a href="#__codelineno-26-9" id="__codelineno-26-9" name="__codelineno-26-9"></a><span class="w">            </span><span class="nt">"avril"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.8</span><span class="p">,</span>
+</span><span id="__span-26-10"><a href="#__codelineno-26-10" id="__codelineno-26-10" name="__codelineno-26-10"></a><span class="w">            </span><span class="nt">"mai"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.3</span><span class="p">,</span>
+</span><span id="__span-26-11"><a href="#__codelineno-26-11" id="__codelineno-26-11" name="__codelineno-26-11"></a><span class="w">            </span><span class="nt">"juin"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.4</span><span class="p">,</span>
+</span><span id="__span-26-12"><a href="#__codelineno-26-12" id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="w">            </span><span class="nt">"juillet"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.6</span><span class="p">,</span>
+</span><span id="__span-26-13"><a href="#__codelineno-26-13" id="__codelineno-26-13" name="__codelineno-26-13"></a><span class="w">            </span><span class="nt">"août"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.0</span><span class="p">,</span>
+</span><span id="__span-26-14"><a href="#__codelineno-26-14" id="__codelineno-26-14" name="__codelineno-26-14"></a><span class="w">            </span><span class="nt">"septembre"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.1</span><span class="p">,</span>
+</span><span id="__span-26-15"><a href="#__codelineno-26-15" id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="w">            </span><span class="nt">"octobre"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.9</span><span class="p">,</span>
+</span><span id="__span-26-16"><a href="#__codelineno-26-16" id="__codelineno-26-16" name="__codelineno-26-16"></a><span class="w">            </span><span class="nt">"novembre"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.4</span><span class="p">,</span>
+</span><span id="__span-26-17"><a href="#__codelineno-26-17" id="__codelineno-26-17" name="__codelineno-26-17"></a><span class="w">            </span><span class="nt">"décembre"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.4</span>
+</span><span id="__span-26-18"><a href="#__codelineno-26-18" id="__codelineno-26-18" name="__codelineno-26-18"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-26-19"><a href="#__codelineno-26-19" id="__codelineno-26-19" name="__codelineno-26-19"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-26-20"><a href="#__codelineno-26-20" id="__codelineno-26-20" name="__codelineno-26-20"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-26-21"><a href="#__codelineno-26-21" id="__codelineno-26-21" name="__codelineno-26-21"></a><span class="w">        </span><span class="nt">"pays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Italie"</span><span class="p">,</span>
+</span><span id="__span-26-22"><a href="#__codelineno-26-22" id="__codelineno-26-22" name="__codelineno-26-22"></a><span class="w">        </span><span class="nt">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rome"</span><span class="p">,</span>
+</span><span id="__span-26-23"><a href="#__codelineno-26-23" id="__codelineno-26-23" name="__codelineno-26-23"></a><span class="w">        </span><span class="nt">"mois"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-24"><a href="#__codelineno-26-24" id="__codelineno-26-24" name="__codelineno-26-24"></a><span class="w">            </span><span class="nt">"janvier"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.5</span><span class="p">,</span>
+</span><span id="__span-26-25"><a href="#__codelineno-26-25" id="__codelineno-26-25" name="__codelineno-26-25"></a><span class="w">            </span><span class="nt">"février"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.2</span><span class="p">,</span>
+</span><span id="__span-26-26"><a href="#__codelineno-26-26" id="__codelineno-26-26" name="__codelineno-26-26"></a><span class="w">            </span><span class="nt">"mars"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.2</span><span class="p">,</span>
+</span><span id="__span-26-27"><a href="#__codelineno-26-27" id="__codelineno-26-27" name="__codelineno-26-27"></a><span class="w">            </span><span class="nt">"avril"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.6</span><span class="p">,</span>
+</span><span id="__span-26-28"><a href="#__codelineno-26-28" id="__codelineno-26-28" name="__codelineno-26-28"></a><span class="w">            </span><span class="nt">"mai"</span><span class="p">:</span><span class="w"> </span><span class="mf">17.2</span><span class="p">,</span>
+</span><span id="__span-26-29"><a href="#__codelineno-26-29" id="__codelineno-26-29" name="__codelineno-26-29"></a><span class="w">            </span><span class="nt">"juin"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.1</span><span class="p">,</span>
+</span><span id="__span-26-30"><a href="#__codelineno-26-30" id="__codelineno-26-30" name="__codelineno-26-30"></a><span class="w">            </span><span class="nt">"juillet"</span><span class="p">:</span><span class="w"> </span><span class="mf">24.1</span><span class="p">,</span>
+</span><span id="__span-26-31"><a href="#__codelineno-26-31" id="__codelineno-26-31" name="__codelineno-26-31"></a><span class="w">            </span><span class="nt">"août"</span><span class="p">:</span><span class="w"> </span><span class="mf">24.5</span><span class="p">,</span>
+</span><span id="__span-26-32"><a href="#__codelineno-26-32" id="__codelineno-26-32" name="__codelineno-26-32"></a><span class="w">            </span><span class="nt">"septembre"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.8</span><span class="p">,</span>
+</span><span id="__span-26-33"><a href="#__codelineno-26-33" id="__codelineno-26-33" name="__codelineno-26-33"></a><span class="w">            </span><span class="nt">"octobre"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.4</span><span class="p">,</span>
+</span><span id="__span-26-34"><a href="#__codelineno-26-34" id="__codelineno-26-34" name="__codelineno-26-34"></a><span class="w">            </span><span class="nt">"novembre"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.4</span><span class="p">,</span>
+</span><span id="__span-26-35"><a href="#__codelineno-26-35" id="__codelineno-26-35" name="__codelineno-26-35"></a><span class="w">            </span><span class="nt">"décembre"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.4</span>
+</span><span id="__span-26-36"><a href="#__codelineno-26-36" id="__codelineno-26-36" name="__codelineno-26-36"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-26-37"><a href="#__codelineno-26-37" id="__codelineno-26-37" name="__codelineno-26-37"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-26-38"><a href="#__codelineno-26-38" id="__codelineno-26-38" name="__codelineno-26-38"></a><span class="p">]</span>
 </span></code></pre></div>
 <p>L'avantage de ce type de format est qu'il est facilement modifiable avec un éditeur de texte et qu'il est très interopérable. C'est-à-dire qu'il est facilement lisible depuis différents langages de programmation.</p>
 <p>En C, on pourra utiliser la bibliothèque logicielle <a href="https://github.com/json-c/json-c">json-c</a>.</p>
@@ -4785,27 +4853,27 @@
 <div class="admonition exercise">
 <p class="admonition-title">Variantes</p>
 <p>Considérez les deux programmes ci-dessous très similaires.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>
-</span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-</span><span id="__span-22-4"><a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="p">{</span>
-</span><span id="__span-22-5"><a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">texte</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
-</span><span id="__span-22-6"><a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>
-</span><span id="__span-22-7"><a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Saisir un texte&thinsp;:"</span><span class="p">);</span>
-</span><span id="__span-22-8"><a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="w">    </span><span class="n">gets</span><span class="p">(</span><span class="n">texte</span><span class="p">);</span>
-</span><span id="__span-22-9"><a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Texte&thinsp;: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">texte</span><span class="p">);</span>
-</span><span id="__span-22-10"><a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-27-2"><a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a>
+</span><span id="__span-27-3"><a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span id="__span-27-4"><a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="p">{</span>
+</span><span id="__span-27-5"><a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">texte</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
+</span><span id="__span-27-6"><a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a>
+</span><span id="__span-27-7"><a href="#__codelineno-27-7" id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Saisir un texte&thinsp;:"</span><span class="p">);</span>
+</span><span id="__span-27-8"><a href="#__codelineno-27-8" id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="w">    </span><span class="n">gets</span><span class="p">(</span><span class="n">texte</span><span class="p">);</span>
+</span><span id="__span-27-9"><a href="#__codelineno-27-9" id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Texte&thinsp;: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">texte</span><span class="p">);</span>
+</span><span id="__span-27-10"><a href="#__codelineno-27-10" id="__codelineno-27-10" name="__codelineno-27-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>
-</span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-</span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="p">{</span>
-</span><span id="__span-23-5"><a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">texte</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
-</span><span id="__span-23-6"><a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a>
-</span><span id="__span-23-7"><a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Saisir un texte&thinsp;:"</span><span class="p">);</span>
-</span><span id="__span-23-8"><a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">texte</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
-</span><span id="__span-23-9"><a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Texte&thinsp;: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">texte</span><span class="p">);</span>
-</span><span id="__span-23-10"><a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-28-2"><a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a>
+</span><span id="__span-28-3"><a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span id="__span-28-4"><a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="p">{</span>
+</span><span id="__span-28-5"><a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">texte</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
+</span><span id="__span-28-6"><a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a>
+</span><span id="__span-28-7"><a href="#__codelineno-28-7" id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Saisir un texte&thinsp;:"</span><span class="p">);</span>
+</span><span id="__span-28-8"><a href="#__codelineno-28-8" id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">texte</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
+</span><span id="__span-28-9"><a href="#__codelineno-28-9" id="__codelineno-28-9" name="__codelineno-28-9"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Texte&thinsp;: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">texte</span><span class="p">);</span>
+</span><span id="__span-28-10"><a href="#__codelineno-28-10" id="__codelineno-28-10" name="__codelineno-28-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <ol>
 <li>Quelle est la différence  entre ces 2 programmes&thinsp;?</li>
@@ -4835,7 +4903,7 @@
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 23, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2024</span>
   </span>
 
     

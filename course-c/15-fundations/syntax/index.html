@@ -1079,6 +1079,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#la-machine-a-ecrire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La machine à écrire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fin-de-lignes-eol" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2628,6 +2639,8 @@
       
         
       
+        
+      
     
     
       
@@ -2710,6 +2723,33 @@
     
   
     Racine carrée inverse rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fast sin
   
 
     
@@ -3916,6 +3956,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#la-machine-a-ecrire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La machine à écrire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fin-de-lignes-eol" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4263,10 +4314,9 @@
 <p>La ponctuation utilise les 29 symboles graphiques suivants&thinsp;:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>! # % ^ &amp; * ( _ ) - + = ~ [ ] ' | \ ; : " { } , . &lt; &gt; / ?
 </span></code></pre></div>
-<details class="info">
-<summary>La machine à écrire</summary>
-<p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/hermes-3000.webp"><img alt="Machine à écrire Hermès 3000 hébraïque" src="../../../assets/images/hermes-3000.webp" width="50%"/></a><figcaption> Machine à écrire Hermès 3000 hébraïque</figcaption></figure></p>
+<h2 id="la-machine-a-ecrire">La machine à écrire<a class="headerlink" href="#la-machine-a-ecrire" title="Permanent link">¶</a></h2>
 <p>Peut-être avez-vous déjà été confronté à une machine à écrire mécanique. Elles disposent d'un levier sur la gauche du chariot qui a deux fonctionnalités. D'une part il permet de faire revenir le chariot au début de la ligne, mais également de faire avancer le papier d'une ligne. C'est ce levier qui a donné son nom au caractère de retour à la ligne <code>CR</code> pour <em>Carriage Return</em>. Quant au caractère de nouvelle ligne <code>LF</code> pour <em>Line Feed</em>, il est associé à la rotation du cylindre qui porte la feuille de papier.</p>
+<p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/hermes-3000.webp"><img alt="Machine à écrire Hermès 3000 hébraïque" src="../../../assets/images/hermes-3000.webp" width="50%"/></a><figcaption> Machine à écrire Hermès 3000 hébraïque</figcaption></figure></p>
 <p>Historiquement il y a donc bien une distinction entre les deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens.</p>
 <p>Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de souligement (tiret bas, ou <em>underscore</em>) <code>_</code> pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère <code>-</code> pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin pour ajouter un accent circonflexe, il fallait utiliser la touche <code>^</code> pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.</p>
 <p>Ces subtilités de la machine à écrire ont été partiellement reprises dans le format <a class="autorefs autorefs-internal" href="../../50-philosophy/funny/#unicode">Unicode</a>. Aussi pour écrire un accent aigu, il y a aujourd'hui plusieurs façons de le faire.</p>
@@ -4275,7 +4325,6 @@
 <li>Utiliser le caractère <code>é</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/00E9" target="_blank">00E9</a> directement.</li>
 </ol>
 <p>Ces héritages historiques font qu'il est difficile aujourd'hui de traiter sans bogue les textes multilingues. Les cas particuliers sont nombreux et bien souvent, les informaticiens utilisent des bibliothèques logicielles pour gérer ces cas particuliers.</p>
-</details>
 <p>Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la commission responsable de standardiser C a intégré au standard les <strong>trigraphes</strong> et plus tard les <strong>digraphes</strong> qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi <code>&lt;:</code> est le digraphe de <code>[</code> et <code>??&lt;</code> est le trigraphe de <code>{</code>. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables. Par ailleurs, le standard C et C++ songent à les retirer.</p>
 <p>Retenez que C peut être un langage extrêmement cryptique tant il est permissif sur sa syntaxe. Il existe d'ailleurs un concours international d'obfuscation, le <a href="https://www.ioccc.org/">The International Obfuscated C Code Contest</a> qui prime des codes les plus subtils et illisibles comme le code suivant écrit par <a href="https://www.ioccc.org/2015/mills2/prog.c">Chris Mills</a>. Il s'agit d'ailleurs d'un exemple qui compile parfaitement sur la plupart des compilateurs.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">I</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="n">O</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">e</span><span class="p">(</span>
@@ -4408,14 +4457,11 @@
 <li>Sa <strong>portée</strong> (<em>scope</em>) qui est la portion de code ou le symbole est définie et accessible.</li>
 <li>Sa <strong>visibilité</strong> (<em>visibility</em>) qui ne peut être que <em>public</em> en C.</li>
 </ul>
-<div class="admonition example">
-<p class="admonition-title">Exemple</p>
-<p>Pour mieux comprendre, imaginons la plage de Donnant à Belle-Île-en-Mer. Quelqu'un a écrit sur le sable, bien visible depuis la colline adjacente, le mot <code>COIN</code>. L'identificateur c'est <code>Donnant</code>, la valeur c'est <code>COIN</code>, le type permet de savoir comment interpréter la valeur. Cela peut s'agir d'une pièce de monnaie en anglais, du coin d'une table en français ou du lapin en neerlandais.</p>
+<p>Pour mieux comprendre ce concept fondamental, imaginons la plage de Donnant à Belle-Île-en-Mer. Quelqu'un a écrit sur le sable, bien visible depuis la colline adjacente, le mot <code>COIN</code>. L'identificateur c'est <code>Donnant</code>, la valeur c'est <code>COIN</code>, le type permet de savoir comment interpréter la valeur. Cela peut s'agir d'une pièce de monnaie en anglais, du coin d'une table en français ou du lapin en neerlandais.</p>
 <p>L'<strong>adresse</strong> est l'emplacement exact de la plage où le mot a été écrit (47.32638670571° N, 3.2363350691522° W), la portée est la plage de Donnant et la visibilité est la colline adjacente.</p>
 <p>On voit que sans connaître le <strong>type</strong> de la variable, il est impossible de savoir comment interpréter sa <strong>valeur</strong>.</p>
 <p><figure id="_figure-4"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/donnant.png"><img alt="La plage de Donnant" src="../../../assets/images/donnant.png"/></a><figcaption> La plage de Donnant</figcaption></figure></p>
 <p>En pratique l'adresse sera plutôt de la forme <code>0x7fffbf7f1b4c</code>, la valeur serait plutôt <code>0100001101001111010010010100111000000000</code> et le type serait une chaîne de caractères <code>char[]</code>.</p>
-</div>
 <div class="admonition info">
 <p class="admonition-title">Variables initialisées</p>
 <p>Le fait de déclarer des variables dans en langage C implique que le

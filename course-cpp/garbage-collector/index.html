@@ -13,13 +13,13 @@
         <meta name="author" content="Yves Chevallier">
       
       
-        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/tools/vscode/">
+        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-cpp/garbage-collector/">
       
       
-        <link rel="prev" href="../make/">
+        <link rel="prev" href="../../course-c/90-exercises/">
       
       
-        <link rel="next" href="../python/">
+        <link rel="next" href="../shared-memory/">
       
       
         
@@ -30,7 +30,7 @@
     
     
       
-        <title>Visual Studio Code - Le C pour l'ingénieur</title>
+        <title>Collecteur de déchets (garbage collector) - Le C pour l'ingénieur</title>
       
     
     
@@ -166,7 +166,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#visual-studio-code" class="md-skip">
+        <a href="#collecteur-de-dechets-garbage-collector" class="md-skip">
           Aller au contenu
         </a>
       
@@ -199,7 +199,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Visual Studio Code
+              Collecteur de déchets (garbage collector)
             
           </span>
         </div>
@@ -357,13 +357,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../environment/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../tools/environment/" class="md-tabs__link">
           
   
     
@@ -2983,10 +2981,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -3015,20 +3011,17 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3045,7 +3038,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3063,7 +3056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../environment/" class="md-nav__link">
+      <a href="../../tools/environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3090,7 +3083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../filesystem/" class="md-nav__link">
+      <a href="../../tools/filesystem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3117,7 +3110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gcc/" class="md-nav__link">
+      <a href="../../tools/gcc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3144,7 +3137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../git/" class="md-nav__link">
+      <a href="../../tools/git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3171,7 +3164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../make/" class="md-nav__link">
+      <a href="../../tools/make/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3195,36 +3188,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    
-  
-    Visual Studio Code
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tools/vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3239,120 +3206,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#raccourcis-clavier" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Raccourcis clavier
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extensions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Extensions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#wsl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WSL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remote-ssh" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Remote - SSH
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        C/C++
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-pour-le-debogueur" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration pour le debogueur
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3365,7 +3218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../python/" class="md-nav__link">
+      <a href="../../tools/python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3444,7 +3297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utilities/binutils/" class="md-nav__link">
+      <a href="../../tools/utilities/binutils/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3479,7 +3332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bash/" class="md-nav__link">
+      <a href="../../tools/bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3506,7 +3359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/" class="md-nav__link">
+      <a href="../../tools/config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3533,7 +3386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gdb/" class="md-nav__link">
+      <a href="../../tools/gdb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3840,108 +3693,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#raccourcis-clavier" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Raccourcis clavier
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extensions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Extensions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#wsl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WSL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remote-ssh" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Remote - SSH
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        C/C++
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-pour-le-debogueur" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration pour le debogueur
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -3981,10 +3732,10 @@
     
     
       <li class="md-path__item">
-        <a href="../environment/" class="md-path__link">
+        <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    Outils
+    Course cpp
   </span>
 
         </a>
@@ -4003,7 +3754,7 @@
 
 
   
-    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/tools/vscode.md" title="Editer cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-cpp/garbage-collector.md" title="Editer cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
     </a>
@@ -4012,241 +3763,81 @@
     
       
     
-    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/tools/vscode.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-cpp/garbage-collector.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
     </a>
   
 
 
-<h1 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permanent link">¶</a></h1>
-<p>Visual Studio Code est un éditeur de code source développé par Microsoft. Il est gratuit, open-source et multiplateforme. Il est très populaire pour le développement de logiciels, notamment pour les langages de programmation tels que C, C++, Python, Java, etc.</p>
-<p>Il s'inscrit dans une très longue liste d'éditeurs de code source&thinsp;:</p>
-<table>
-<thead>
-<tr>
-<th>Éditeur</th>
-<th>Année</th>
-<th>Commentaire</th>
-<th>Inspiré de</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ed</td>
-<td>1971</td>
-<td>Éditeur de texte primitif en mode texte défini dans la norme <abbr title="Portable Operating System Interface">POSIX</abbr></td>
-<td>-</td>
-</tr>
-<tr>
-<td>Vi</td>
-<td>1976</td>
-<td>Éditeur de texte en mode texte défini dans la norme <abbr title="Portable Operating System Interface">POSIX</abbr></td>
-<td>ed</td>
-</tr>
-<tr>
-<td>Emacs</td>
-<td>1976</td>
-<td>Éditeur de texte extensible et personnalisable.</td>
-<td>TECO</td>
-</tr>
-<tr>
-<td>Vim</td>
-<td>1991</td>
-<td>Amélioration de Vi, très populaire des geek et devloppeurs</td>
-<td>Vi</td>
-</tr>
-<tr>
-<td>Nano</td>
-<td>1999</td>
-<td>Éditeur de texte simple et convivial en ligne de commande</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Sublime Text</td>
-<td>2008</td>
-<td>Éditeur de texte propriétaire avec une version gratuite</td>
-<td>Vim</td>
-</tr>
-<tr>
-<td>Atom</td>
-<td>2014</td>
-<td>Éditeur de texte open-source développé par GitHub</td>
-<td>Sublime Text</td>
-</tr>
-<tr>
-<td>Visual Studio Code</td>
-<td>2015</td>
-<td>Éditeur de texte open-source développé par Microsoft</td>
-<td>Atom</td>
-</tr>
-</tbody>
-</table>
-<p>Outre ces éditeurs on peut citer d'autres éditeurs de texte tels que Notepad++, TextPad, UltraEdit, etc. Si vous les utilisez, demandez-vous pourquoi...</p>
-<h2 id="raccourcis-clavier">Raccourcis clavier<a class="headerlink" href="#raccourcis-clavier" title="Permanent link">¶</a></h2>
-<p>Parmis les très nombreux raccourcis clavier de Visual Studio Code, voici les plus utiles&thinsp;:</p>
-<table>
-<thead>
-<tr>
-<th>Raccourci</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Ctrl+P</code></td>
-<td>Ouvrir un fichier (<em>fuzzy search</em>)</td>
-</tr>
-<tr>
-<td><code>Ctrl+Shift+P</code></td>
-<td>Ouvrir la palette de commandes (<em>fuzzy search</em>)</td>
-</tr>
-<tr>
-<td><code>Ctrl+Shift+N</code></td>
-<td>Nouvelle fenêtre</td>
-</tr>
-<tr>
-<td><code>Ctrl+Shift+F</code></td>
-<td>Rechercher dans tous les fichiers</td>
-</tr>
-<tr>
-<td><code>Ctrl+Shift+G</code></td>
-<td>Ouvrir le contrôle de code source (pour faire un Git commit)</td>
-</tr>
-<tr>
-<td><code>Ctrl+Shift+D</code></td>
-<td>Ouvrir le contrôle de débogage</td>
-</tr>
-<tr>
-<td><code>Ctrl+Shift+X</code></td>
-<td>Ouvrir le gestionnaire d'extensions</td>
-</tr>
-<tr>
-<td><code>Ctrl+Shift+V</code></td>
-<td>Ouvrir un aperçu du fichier Markdown</td>
-</tr>
-<tr>
-<td><code>Ctrl+K V</code></td>
-<td>Ouvrir un aperçu côte à côte du fichier Markdown</td>
-</tr>
-<tr>
-<td><code>Ctrl+K Z</code></td>
-<td>Activer/désactiver le mode Zen (plein écran)</td>
-</tr>
-<tr>
-<td><code>Ctrl+K S</code></td>
-<td>Enregistrer sous...</td>
-</tr>
-<tr>
-<td><code>Ctrl+K R</code></td>
-<td>Ouvrir le dossier du fichier actuel</td>
-</tr>
-<tr>
-<td><code>Ctrl+K Ctrl+O</code></td>
-<td>Ouvre un dossier</td>
-</tr>
-<tr>
-<td><code>Ctrl+D</code></td>
-<td>Sélectionner le mot suivant (multicurseur) (répéter)</td>
-</tr>
-<tr>
-<td><code>Ctrl+U</code></td>
-<td>Annuler la dernière sélection</td>
-</tr>
-<tr>
-<td><code>Ctrl+J</code></td>
-<td>Ouvrir un terminal intégré</td>
-</tr>
-<tr>
-<td><code>Ctrl+L</code></td>
-<td>Sélectionner la ligne entière (répéter)</td>
-</tr>
-<tr>
-<td><code>Ctrl+Shift+L</code></td>
-<td>Sélectionner toutes les occurrences du mot sélectionné (multicurseur)</td>
-</tr>
-<tr>
-<td><code>Alt+Click</code></td>
-<td>Insérer un curseur</td>
-</tr>
-<tr>
-<td><code>Ctrl+Alt+Up</code></td>
-<td>Insérer un curseur au-dessus</td>
-</tr>
-</tbody>
-</table>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¶</a></h2>
-<p>Pour installer Visual Studio Code, rendez-vous sur la page <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a> et téléchargez la version correspondant à votre système d'exploitation. Une fois téléchargé, installez-le en suivant les instructions.</p>
-<p>Alternativement, utilisez <code>winget</code> depuis PowerShell&thinsp;:</p>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">winget</span> <span class="n">install</span> <span class="n">-e</span> <span class="p">-</span><span class="n">-id</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">VisualStudioCode</span>
+<h1 id="collecteur-de-dechets-garbage-collector">Collecteur de déchets (<em>garbage collector</em>)<a class="headerlink" href="#collecteur-de-dechets-garbage-collector" title="Permanent link">¶</a></h1>
+<p>Le C est un langage primitif qui ne gère pas automatiquement la libération des ressources allouées dynamiquement. L'exemple suivant est évocateur&thinsp;:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">get_number</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="o">*</span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">();</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">}</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">get_number</span><span class="p">());</span>
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">¶</a></h2>
-<h3 id="wsl">WSL<a class="headerlink" href="#wsl" title="Permanent link">¶</a></h3>
-<p>Si vous utilisez WSL vous devez installer l'extension <code>Remote - WSL</code> pour Visual Studio Code. Cette extension permet d'ouvrir un terminal intégré dans WSL, d'exécuter des commandes dans WSL, de déboguer des programmes dans WSL, etc.</p>
-<h3 id="remote-ssh">Remote - SSH<a class="headerlink" href="#remote-ssh" title="Permanent link">¶</a></h3>
-<p>Si vous utilisez SSH pour vous connecter à un serveur distant par exemple vous connecter directement sur votre RaspberryPI, vous devez installer l'extension <code>Remote - SSH</code> pour Visual Studio Code. Cette extension permet d'ouvrir un terminal intégré sur un serveur distant, d'exécuter des commandes sur le serveur distant, de déboguer des programmes sur le serveur distant, etc.</p>
-<h3 id="cc">C/C++<a class="headerlink" href="#cc" title="Permanent link">¶</a></h3>
-<p>Si vous développez en C ou en C++, vous devez installer l'extension <code>C/C++</code> pour Visual Studio Code. Cette extension permet d'ajouter des fonctionnalités pour le développement en C et en C++ telles que la coloration syntaxique, l'autocomplétion, la compilation, le débogage, etc.</p>
-<h3 id="python">Python<a class="headerlink" href="#python" title="Permanent link">¶</a></h3>
-<p>Si vous développez en Python, vous devez installer l'extension <code>Python</code> pour Visual Studio Code. Cette extension permet d'ajouter des fonctionnalités pour le développement en Python telles que la coloration syntaxique, l'autocomplétion, la compilation, le débogage, etc.</p>
-<h3 id="configuration-pour-le-debogueur">Configuration pour le debogueur<a class="headerlink" href="#configuration-pour-le-debogueur" title="Permanent link">¶</a></h3>
-<p>Visual Studio Code n'a pas la notion de <strong>projet</strong> mais d'espace de travail <strong>workspace</strong>. Un espace de travail est simplement un répertoire. À l'intérieur de ce répertoire, on y trouvera&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>.
-</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>├── .vscode
-</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>│   └── launch.json
-</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>└── main.c
+<p>La fonction <code>get_number</code> alloue dynamiquement un espace de la taille d'un entier et lui assigne une valeur aléatoire. Dans le programme principal, l'adresse retournée est déréférencée pour être affichée sur la sortie standard.</p>
+<p>A la fin de l'exécution de la boucle for, une centaine d'espaces mémoire sont maintenant dans les <a href="https://fr.wikipedia.org/wiki/Limbes">limbes</a>. Comme le pointeur retourné n'a jamais été mémorisé, il n'est plus possible de libérer cet espace mémoire avec <code>free</code>.</p>
+<p>On dit que le programme à une <a href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a>. En admettant que ce programme reste résidant en mémoire, il peut arriver un moment où le programme peut aller jusqu'à utiliser toute la RAM disponible. Dans ce cas, il est probable que <code>malloc</code> retourne <code>NULL</code> et qu'une erreur de segmentation apparaisse lors du <code>printf</code>.</p>
+<p>Allons plus loin dans notre exemple et considérons le code suivant&thinsp;:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">new_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="n">values</span><span class="p">[</span><span class="n">count</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_value</span><span class="p">;</span>
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-1-13"><a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Foo aime %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">count</span><span class="p">]);</span>
+</span><span id="__span-1-14"><a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="p">}</span>
+</span><span id="__span-1-15"><a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="kt">int</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">new_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-17"><a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-1-18"><a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-1-19"><a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-21"><a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">        </span><span class="n">values</span><span class="p">[</span><span class="n">count</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_value</span><span class="p">;</span>
+</span><span id="__span-1-22"><a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-23"><a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>
+</span><span id="__span-1-24"><a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-1-25"><a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Bar aime %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">count</span><span class="p">]);</span>
+</span><span id="__span-1-26"><a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="p">}</span>
+</span><span id="__span-1-27"><a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">get_number</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-29"><a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span><span id="__span-1-30"><a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">    </span><span class="o">*</span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+</span><span id="__span-1-31"><a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">number</span><span class="p">;</span>
+</span><span id="__span-1-32"><a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="p">}</span>
+</span><span id="__span-1-33"><a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>
+</span><span id="__span-1-34"><a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-35"><a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">experiment_iterations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-1-36"><a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">experiment_iterations</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-37"><a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_number</span><span class="p">();</span>
+</span><span id="__span-1-38"><a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="w">        </span><span class="n">foo</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span><span id="__span-1-39"><a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="w">        </span><span class="n">bar</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span><span id="__span-1-40"><a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="w">        </span><span class="cp">#if 0</span><span class="c"> // ...</span>
+</span><span id="__span-1-41"><a href="#__codelineno-1-41" id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="c">            free(num) ??</span>
+</span><span id="__span-1-42"><a href="#__codelineno-1-42" id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="cp">        #endif</span>
+</span><span id="__span-1-43"><a href="#__codelineno-1-43" id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="w">    </span><span class="p">};</span>
+</span><span id="__span-1-44"><a href="#__codelineno-1-44" id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Visual Studio Code peut en général générer automatiquement le fichier <code>.vscode/launch.json</code> qui contient tout ce qu'il faut pour compiler et exécuter le programme&thinsp;:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="p">{</span>
-</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span>
-</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="nt">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">        </span><span class="p">{</span>
-</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gcc"</span><span class="p">,</span>
-</span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cppdbg"</span><span class="p">,</span>
-</span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">            </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span>
-</span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">            </span><span class="nt">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${fileDirname}\\${fileBasenameNoExtension}.exe"</span><span class="p">,</span>
-</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">            </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-</span><span id="__span-2-10"><a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">            </span><span class="nt">"stopAtEntry"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-</span><span id="__span-2-11"><a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">            </span><span class="nt">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}"</span><span class="p">,</span>
-</span><span id="__span-2-12"><a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">            </span><span class="nt">"environment"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-</span><span id="__span-2-13"><a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">            </span><span class="nt">"externalConsole"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-</span><span id="__span-2-14"><a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">            </span><span class="nt">"MIMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gdb"</span><span class="p">,</span>
-</span><span id="__span-2-15"><a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">            </span><span class="nt">"miDebuggerPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C&thinsp;:\\ProgramData\\chocolatey\\lib\\mingw\\tools\\install\\mingw64\\bin\\gdb.exe"</span><span class="p">,</span>
-</span><span id="__span-2-16"><a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">            </span><span class="nt">"setupCommands"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-2-17"><a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">                </span><span class="p">{</span>
-</span><span id="__span-2-18"><a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enable pretty-printing for gdb"</span><span class="p">,</span>
-</span><span id="__span-2-19"><a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">                    </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-enable-pretty-printing"</span><span class="p">,</span>
-</span><span id="__span-2-20"><a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">                    </span><span class="nt">"ignoreFailures"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-2-21"><a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">                </span><span class="p">}</span>
-</span><span id="__span-2-22"><a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-2-23"><a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">            </span><span class="nt">"preLaunchTask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gcc.exe build active file"</span>
-</span><span id="__span-2-24"><a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-2-25"><a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">    </span><span class="p">]</span>
-</span><span id="__span-2-26"><a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="p">}</span>
-</span></code></pre></div>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="p">{</span>
-</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="p">,</span>
-</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">        </span><span class="p">{</span>
-</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shell"</span><span class="p">,</span>
-</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gcc.exe build active file"</span><span class="p">,</span>
-</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C&thinsp;:\\ProgramData\\chocolatey\\lib\\mingw\\tools\\install\\mingw64\\bin\\gcc.exe"</span><span class="p">,</span>
-</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">            </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">                </span><span class="s2">"-g"</span><span class="p">,</span>
-</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">                </span><span class="s2">"${file}"</span><span class="p">,</span>
-</span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">                </span><span class="s2">"-o"</span><span class="p">,</span>
-</span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">                </span><span class="s2">"${fileDirname}\\${fileBasenameNoExtension}.exe"</span>
-</span><span id="__span-3-13"><a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-3-14"><a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">            </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-15"><a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">                </span><span class="nt">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C&thinsp;:\\ProgramData\\chocolatey\\lib\\mingw\\tools\\install\\mingw64\\bin"</span>
-</span><span id="__span-3-16"><a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">            </span><span class="p">},</span>
-</span><span id="__span-3-17"><a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">            </span><span class="nt">"problemMatcher"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-3-18"><a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">                </span><span class="s2">"$gcc"</span>
-</span><span id="__span-3-19"><a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">            </span><span class="p">]</span>
-</span><span id="__span-3-20"><a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-3-21"><a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">    </span><span class="p">]</span>
-</span><span id="__span-3-22"><a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="p">}</span>
-</span></code></pre></div>
+<p>La fonction <code>get_number</code> alloue dynamiquement un espace mémoire et assigne un nombre aléatoire. Les fonctions <code>foo</code> et <code>bar</code> reçoivent en paramètre un pointeur sur un entier. Chacune à le choix de mémoriser ce pointeur et de clamer sur <code>stdout</code> qu'elle aime un des nombres mémorisés.</p>
+<p>Au niveau du <code>#if 0</code> dans la fonction <code>main</code>, il est impossible de savoir si l'adresse pointée par <code>num</code> est encore utilisée ou non. Il se peut que <code>foo</code> et <code>bar</code> utilisent cet espace mémoire, comme il se peut qu'aucun des deux ne l'utilise.</p>
+<p>Comment peut-on savoir si il est possible de libérer ou non <code>num</code> ?</p>
+<p>Une solution couramment utilisée en C++ s'appelle un <em>smart pointer</em>. Il s'agit d'un pointeur qui contient en plus de l'adresse de la valeur, le nombre de références utilisées. De cette manière il est possible en tout temps de savoir si le pointeur est référencé quelque part. Dans le cas où le nombre de référence tombe à zéro, il est possible de libérer la ressource.</p>
+<p>Dans un certain nombre de langage de programmation comme Python ou Java, il existe un mécanisme automatique nommé <em>Garbage Collector</em> et qui, périodiquement, fait un tour de toutes les allocations dynamique pour savoir si elle sont encore référencées ou non. Le cas échéant, le <em>gc</em> décide libérer la ressource mémoire. De cette manière il n'est plus nécessaire de faire la chasse aux ressources allouées.</p>
+<p>En revanche, en C, il n'existe aucun mécanisme aussi sophistiqué alors prenez garde à bien libérer les ressources utilisées et à éviter d'écrire des fonctions qui allouent du contenu mémoire dynamiquement.</p>
 
 
 
@@ -4269,7 +3860,7 @@
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 3, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 27, 2024</span>
   </span>
 
     
@@ -4279,7 +3870,7 @@
     <span class="md-icon" title="Créé">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 3, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 17, 2024</span>
   </span>
 
     
@@ -4299,6 +3890,29 @@
   </span>
 
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributeurs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
+          
+          <img src="https://avatars.githubusercontent.com/u/52489316?v=4&size=72" alt="yves-chevallier">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 
@@ -4371,7 +3985,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../make/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Make">
+          <a href="../../course-c/90-exercises/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Exercices de révision">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -4381,20 +3995,20 @@
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Make
+                Exercices de révision
               </div>
             </div>
           </a>
         
         
           
-          <a href="../python/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Python">
+          <a href="../shared-memory/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Shared memory">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Python
+                Shared memory
               </div>
             </div>
             <div class="md-footer__button md-icon">
