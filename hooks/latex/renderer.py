@@ -145,6 +145,10 @@ class LaTeXRenderer:
         # Glighbox plugin wraps images in a span, we don't need it
         for el in soup.find_all('a', class_=['glightbox']):
             el.unwrap()
+
+        # Ignore unwanted in latex
+        for el in soup.find_all(['div'], class_=['latex-ignore']):
+            el.extract()
         return soup
 
     def get_safe_text(self, element: Union[PageElement, NavigableString]):
@@ -638,6 +642,25 @@ class LaTeXRenderer:
 
             self.apply(table, 'table', columns=styles[0], rows=table_data, caption=caption, label=label)
 
+    def process_exercise(self, soup: Tag, title, **kwargs):
+        """Extract solution from exercise if found, to render later as a solution."""
+        if not get_class(soup, 'exercise'):
+            return soup, title
+        self.exercise_counter += 1
+        if solution_el := soup.find('details', class_=['solution']):
+            label = f"ex:{self.exercise_counter}"
+            solution_label = f"sol:{self.exercise_counter}"
+            if solution_el.find('summary'):
+                solution_el.find('summary').extract()
+            solution_el = self.render_inlines(solution_el)
+            solution = self.get_safe_text(solution_el)
+            solution = f"\\label{{{solution_label}}}\n{solution}"
+
+            self.solutions.append((self.exercise_counter, title, label, solution))
+            self.apply(solution_el, 'label', label)
+            title = f"\\hyperref[{solution_label}]{{{title}}}"
+        return soup, title
+
     def render_admonition(self, soup: Tag, **kwargs):
         # Admonitions with callout
         for admonition in soup.find_all(['div'], class_='admonition'):
@@ -655,14 +678,7 @@ class LaTeXRenderer:
                 title = self.get_safe_text(title_node)
                 title_node.extract()
 
-
-            # Exercise solution
-            # if solution_el := admonition.find('div', class_=['details', 'solution']):
-            #     if solution_el.find('summary'):
-            #         solution_el.find('summary').extract()
-            #     solution = self.get_safe_text(solution_el)
-            #     self.solutions.append((title, solution))
-            #     admonition_type = 'solution'
+            admonition, title = self.process_exercise(admonition, title, **kwargs)
 
             # Treat figures in admonitions differently
             # Tcolorbox does not support figure environments
@@ -741,6 +757,8 @@ class LaTeXRenderer:
     def render_inlines(self, soup: Tag, **kwargs):
         """Replace all inline elements."""
 
+        self.render_columns(soup)
+        self.render_table(soup)
         self.render_abbreviation(soup)
         self.render_critics(soup)
         self.render_format(soup)
@@ -779,6 +797,9 @@ class LaTeXRenderer:
         acronyms = [(tag, short, text)
                     for tag, (short, text) in self.acronyms.items()]
         return self.formatter.list_acronyms(acronyms)
+
+    def get_list_solutions(self):
+        return self.formatter.exercises_solutions(self.solutions)
 
     def render(self, html, output_path, file_path, base_level=0):
         soup = BeautifulSoup(html, 'html.parser')

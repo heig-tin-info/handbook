@@ -75,11 +75,11 @@
 \setlist[itemize,1]{label=--}
 
 % Redéfinir \paragraph et \subparagraph pour qu'ils soient numérotés et aient des sauts de ligne
-\titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
+% \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+% \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
 
-\titleformat{\subparagraph}{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
-\titlespacing*{\subparagraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
+% \titleformat{\subparagraph}{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+% \titlespacing*{\subparagraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
 
 % Pour numérotation des paragraphes et subparagraphes
 \setcounter{secnumdepth}{5}
@@ -157,8 +157,8 @@
 \definecolor{calloutExerciseBg}{HTML}{F5F5F5}
 \definecolor{calloutExerciseFrame}{HTML}{9E9E9E}
 
-\newcounter{exercisecounter}[chapter]
-\renewcommand{\theexercisecounter}{\thechapter.\arabic{exercisecounter}}
+\newcounter{exercisecounter}
+\renewcommand{\theexercisecounter}{\arabic{exercisecounter}}
 
 % Définir les styles pour différents types de callout
 \tcbset{
@@ -372,6 +372,8 @@
 \VAR{content}
 
 \backmatter
+
+\VAR{solutions}
 
 \listoffigures
 

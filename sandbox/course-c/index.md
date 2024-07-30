@@ -1,5 +1,15 @@
 # Bases {#my-heading}
 
+!!! exercise "Les pommes bleues"
+
+    Les pommes bleues sont-elles comestibles ?
+
+    ??? hint "Indice"
+        Les pommes bleues n'existent pas.
+
+    ??? solution "Réponse"
+        Non, les pommes bleues ne sont pas comestibles.
+
 Figure: Les petits biscuits **caption** {#my-figure}
 
 ![](https://dummyimage.com/600x200/000/fff)

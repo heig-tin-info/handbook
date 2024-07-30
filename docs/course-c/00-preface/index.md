@@ -29,6 +29,8 @@ Ce cours d'informatique à la HEIG-VD est donné par le département TIN dans le
 
 ## Organisation de l'ouvrage
 
+/// html | div[class="latex-ignore"]
+
 ### Raccourcis clavier
 
 Pour améliorer votre navigation sur ce site, voici quelques raccourcis clavier que vous pouvez utiliser:
@@ -57,11 +59,13 @@ Pour améliorer votre navigation sur ce site, voici quelques raccourcis clavier 
 
 : Afficher/cacher la table des matières
 
+///
+
 ### Conventions d'écriture
 
 #### Symbole d'égalité
 
-Nous verrons que le signe d'égalité `=` peut aisément être confondu avec l'opérateur d'affectation (également) `=` utilisé en C. Dans certains exemples où l'on montre une égalité entre différentes écritures, le signe d'égalité triple U+2261 sera utilisé pour dissiper toute ambiguïté éventuelle:
+Nous verrons que le signe d'égalité `=` peut aisément être confondu avec l'opérateur d'affectation du langage C qui s'écrit de la même manière. Dans certains exemples où l'on montre une égalité entre différentes écritures, le signe d'égalité triple U+2261 sera utilisé pour dissiper toute ambiguïté éventuelle:
 
 ```
 'a' ≡ 0b1100001 ≡ 97 ≡ 0x61 ≡ 00141
@@ -125,9 +129,9 @@ Des encadrés sont utilisés pour mettre en avant des informations complémentai
 
     Limitations ou bugs possibles d'une méthode proposée.
 
-!!! exercise inline
+!!! exercise inline "Quelle icône ?"
 
-    Exercice de réflexion pour mettre en pratique les connaissances acquises.
+    Quelle icône est utilisée pour les exercices ?
 
 ///
 
@@ -170,5 +174,7 @@ Vous avez remarqué une erreur, une faute de frappe ou une information manquante
 Ce livre est écrit en [Markdown](wiki:markdown) et généré en HTML par [MkDocs](https://www.mkdocs.org/). Le thème utilisé est [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). Les sources sont disponibles sur [GitHub](wiki:github) et l'hébergement est assuré par [GitHub Pages](https://pages.github.com/).
 
 La plupart des illustrations sont réalisées avec [Draw.io](https://www.draw.io/), un outil de dessin vectoriel en ligne. Les schémas sont rendus dans le navigateur avec `GraphViewer`. Les diagrammes utilisent la technologie [Mermaid](https://mermaid-js.github.io/mermaid/#/). Les autres sources d'images sont issues en grande partie de [Wikimedia Commons](https://commons.wikimedia.org/) et [Wikipedia](https://www.wikipedia.org/).
+
+La génération de l'ouvrage en PDF est utilise son propre convertisseur vers LaTeX. Les extraits de code sources sont colorés avec [Pygments](https://pygments.org/) en utilisant le paquet [minted](https://ctan.org/pkg/minted).
 
 L'orthographe et la grammaire ont été revues avec [Antidote](https://www.antidote.info/).

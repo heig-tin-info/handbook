@@ -94,6 +94,7 @@ def on_env(env, config, files):
 
     # Build index page
     index = renderer.formatter.template(content=book_nav,
-                                        acronyms=renderer.get_list_acronyms())
+                                        acronyms=renderer.get_list_acronyms(),
+                                        solutions=renderer.get_list_solutions())
 
     (latex_dir / 'index.tex').write_text(index)

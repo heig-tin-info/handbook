@@ -358,6 +358,4 @@ n = 209
             1 \cdot 4^4 + 2 \cdot 4^3 + 0 \cdot 4^2 + 3 \cdot 4^1 + 0 \cdot 4^0 = 396_{10}
         $$
 
-        !!! hint
-
-            Depuis un terminal Python vous pouvez simplement utiliser `int("12030", 4)`
+        Notons que depuis un terminal Python vous pouvez simplement utiliser `int("12030", 4)`
