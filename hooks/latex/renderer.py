@@ -95,6 +95,7 @@ class LaTeXRenderer:
 
             self.render_emoji,
             self.render_keystrokes,
+            self.render_tabbed,
             self.render_heading,
             self.render_autoref,
             self.render_footnotes,
@@ -113,7 +114,7 @@ class LaTeXRenderer:
             self.render_format,
 
             # At last
-            self.render_tabbed,
+
             self.render_columns,
             self.render_paragraph
         ]
@@ -509,6 +510,8 @@ class LaTeXRenderer:
                 # Strip the checkbox litterals
                 items = [item[4:] for item in items]
 
+            checkboxes = [c > 0 for c in checkboxes]
+
             match el.name:
                 case 'ol':
                     self.apply(el, 'ordered_list', items=items)
@@ -534,26 +537,52 @@ class LaTeXRenderer:
             self.apply(dl, 'description_list', items=items)
         return soup
 
+    def get_heading_level(self, soup: Tag):
+        """Iterate parents and ancestors to get current <h> level."""
+        current = soup
+        while current is not None:
+            # Check current element
+            if current.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
+                return int(current.name[1:])
+
+            # Check previous siblings
+            sibling = current.previous_sibling
+            while sibling is not None:
+                if sibling.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
+                    return int(sibling.name[1:])
+                sibling = sibling.previous_sibling
+
+            # Move to parent
+            current = current.parent
+
+        return None
+
     def render_tabbed(self, soup: Tag, **kwargs):
         for div in soup.find_all(['div'], class_='tabbed-set'):
+            level = self.get_heading_level(div)
             # Get titles
             titles = []
-            for label in div.find_all(['label']):
-                self.render_inlines(label)
-                titles.append(self.get_safe_text(label))
+            if tabbed_labels := div.find('div', class_='tabbed-labels'):
+                for label in tabbed_labels.find_all(['label']):
+                    self.render_inlines(label)
+                    titles.append(self.get_safe_text(label))
+                tabbed_labels.extract()
+            else:
+                raise ValueError("Missing tabbed-labels")
+
+            # Remove checkbox
+            for el in div.find_all(['input'], recursive=False):
+                el.extract()
 
             # Get content
             tabbed_content = div.find('div', class_='tabbed-content')
             for i, tab in enumerate(tabbed_content.find_all(['div'], class_='tabbed-block')):
-                self.render_inlines(tab)
-                content = self.get_safe_text(tab)
-                self.apply(tab, 'tabbed', content, title=titles[i])
-            tabbed_content.unwrap()
+                heading = soup.new_tag(f'h{min(level + 1, 6)}')
+                heading.string = titles[i]
+                tab.insert_before(heading)
+                tab.unwrap()
 
-            for el in div.find_all(['input'], recursive=False):
-                el.extract()
-            for el in div.find_all(['div'], class_=['tabbed-labels']):
-                el.extract()
+            tabbed_content.unwrap()
             div.unwrap()
         return soup
 
@@ -647,9 +676,24 @@ class LaTeXRenderer:
         if not get_class(soup, 'exercise'):
             return soup, title
         self.exercise_counter += 1
+
+        # Capture multiple choices
+        # The content should have been already rendered
+        answer = False
+        for el in soup.find_all(string=True):
+            if m := re.findall(r'\\item\[\\(correct)?choice]', el):
+                answers = [bool(c) for c in m]
+                # Replace True with the position in the list rendered at the letter in the alphabet
+                keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                answers = [keys[i] for i, a in enumerate(answers) if a]
+                answer = ','.join(answers)
+                el.replace_with(el.get_text().replace('\\correctchoice', '\\choice'))
+
+        # Extract solution if found
+        solution_label = f"sol:{self.exercise_counter}"
+        label = f"ex:{self.exercise_counter}"
+
         if solution_el := soup.find('details', class_=['solution']):
-            label = f"ex:{self.exercise_counter}"
-            solution_label = f"sol:{self.exercise_counter}"
             if solution_el.find('summary'):
                 solution_el.find('summary').extract()
             solution_el = self.render_inlines(solution_el)
@@ -659,6 +703,17 @@ class LaTeXRenderer:
             self.solutions.append((self.exercise_counter, title, label, solution))
             self.apply(solution_el, 'label', label)
             title = f"\\hyperref[{solution_label}]{{{title}}}"
+
+        # Add answer if found
+        if answer:
+            solution = answer
+            solution = f"\\label{{{solution_label}}}\n{solution}"
+
+            self.solutions.append((self.exercise_counter, title, label, solution))
+            soup.append(NavigableString(f"\\label{{{solution_label}}}\n"))
+
+            title = f"\\hyperref[{solution_label}]{{{title}}}"
+
         return soup, title
 
     def render_admonition(self, soup: Tag, **kwargs):
@@ -678,7 +733,7 @@ class LaTeXRenderer:
                 title = self.get_safe_text(title_node)
                 title_node.extract()
 
-            admonition, title = self.process_exercise(admonition, title, **kwargs)
+
 
             # Treat figures in admonitions differently
             # Tcolorbox does not support figure environments
@@ -686,6 +741,7 @@ class LaTeXRenderer:
                                             tcolorbox=True, **kwargs)
             admonition = self.render_mermaid(admonition, tcolorbox=True, **kwargs)
 
+            admonition, title = self.process_exercise(admonition, title, **kwargs)
 
             admonition = self.render_after(self.render_admonition,
                                            admonition, **kwargs)

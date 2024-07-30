@@ -1,191 +1,78 @@
-\documentclass[a4paper]{article}
+\documentclass[11pt,a4paper,twoside]{book}
 \usepackage{fontspec}
-\usepackage[margin=2cm]{geometry}
-
-\usepackage[french, bidi=basic]{babel}
-
-\babelprovide[onchar=ids fonts]{arabic}
-\babelprovide[onchar=ids fonts]{hebrew}
-\babelprovide[onchar=ids fonts]{sanskrit-devanagari}
-
-\babelfont[*arabic]{rm}[Language = Default]{Noto Naskh Arabic} % Define fonts
-\babelfont[*hebrew]{rm}[Language = Default]{Noto Serif Hebrew}
-\babelfont[*devanagari]{rm}[Renderer=Harfbuzz]{Noto Serif Devanagari}
-
-\newfontfamily\tibetanfont{Noto Serif Tibetan}
-\newfontfamily\javanesefont{Noto Sans Javanese}
-
-% % For CJK, you can use kotex
+\usepackage[french,english,greek,bidi=basic]{babel}
 \usepackage{kotex}
-\setmainhangulfont{Noto Serif CJK KR} % only on Overleaf
+
+\directlua{luaotfload.add_fallback
+   ("fontfallback",
+    {
+      "NotoColorEmoji:mode=harf;",
+      "Symbola:mode=harf;",
+      "NotoNaskhArabic:mode=harf;",
+      "NotoSerifHebrew:mode=harf;",
+      "NotoSerifDevanagari:mode=harf;",
+      "NotoSerifTamil:mode=harf;",
+      "NotoSerifTibetan:mode=harf;"
+    }
+   )}
+
+\setmainfont{Latin Modern Roman}[
+  RawFeature={fallback=fontfallback}
+]
 
 \begin{document}
 
 \section{Foobar}
 
-Lorem Ipsum
+\subsection{Symbols}
 
-\begin{itemize}
+〰, ∧, ⊕, ♯, ⨼, 𝄽, 🠔
 
-    \item 〰 (U+3030)
-    \item ↧ (U+21A7)
-    \item ∧ (U+2227)
-    \item ⊕ (U+2295)
-    \item ◿ (U+25FF)
-    \item ❤ (U+2764)
-    \item ⨼ (U+2A3C)
-    \item ♯ (U+266F)
-    \item 𝄽 (U+1D13D)
-    \item 💩 (U+1F4A9)
-    \item 😔 (U+1F614)
-    \item 🠔 (U+1F814)
-    \item ➀ (U+2780)
-    \item ⅓ (U+2153)
-    \item ➁ (U+2781)
-    \item ⅔ (U+2154)
-    \item ➂ (U+2782)
-    \item ɑ (U+0251)
-    \item ɡ (U+0261)
-    \item ɔ (U+0254)
-    \item ʁ (U+0281)
-    \item ά (U+03AC)
-    \item α (U+03B1)
-    \item ὰ (U+1F70)
-    \item ᾶ (U+1FB6)
-    \item γ (U+03B3)
-    \item δ (U+03B4)
-    \item ε (U+03B5)
-    \item Ἐ (U+1F18)
-    \item η (U+03B7)
-    \item ῆ (U+1FC6)
-    \item ι (U+03B9)
-    \item ὶ (U+1F76)
-    \item κ (U+03BA)
-    \item λ (U+03BB)
-    \item μ (U+03BC)
-    \item ν (U+03BD)
-    \item ο (U+03BF)
-    \item ό (U+03CC)
-    \item π (U+03C0)
-    \item ρ (U+03C1)
-    \item ς (U+03C2)
-    \item σ (U+03C3)
-    \item τ (U+03C4)
-    \item ω (U+03C9)
-    \item ῶ (U+1FF6)
-    \item ا (U+0627)
-    \item ب (U+0628)
-    \item پ (U+067E)
-    \item ت (U+062A)
-    \item ر (U+0631)
-    \item س (U+0633)
-    \item ع (U+0639)
-    \item ن (U+0646)
-    \item ह (U+0939)
-    \item இ (U+0B87)
-    \item ச (U+0B9A)
-    \item ம (U+0BAE)
-    \item ர (U+0BB0)
-    \item வ (U+0BB5)
-    \item ன (U+0BA9)
-    \item ஜ (U+0B9C)
-    \item ா (U+0BBE)
-    \item ி (U+0BBF)
-    \item ீ (U+0BC0)
-    \item ு (U+0BC1)
-    \item ் (U+0BCD)
-    \item ㄱ (U+3131)
-    \item 국 (U+AD6D)
-    \item ㄴ (U+3134)
-    \item ㄷ (U+3137)
-    \item ㄹ (U+3139)
-    \item ㅁ (U+3141)
-    \item ㅂ (U+3142)
-    \item ㅅ (U+3145)
-    \item ㅇ (U+3147)
-    \item 어 (U+C5B4)
-    \item ㅈ (U+3148)
-    \item ㅊ (U+314A)
-    \item ㅋ (U+314B)
-    \item ㅌ (U+314C)
-    \item ㅍ (U+314D)
-    \item ㅎ (U+314E)
-    \item 한 (U+D55C)
-    \item ㅏ (U+314F)
-    \item ㅑ (U+3151)
-    \item ㅓ (U+3153)
-    \item ㅕ (U+3155)
-    \item ㅗ (U+3157)
-    \item ㅛ (U+315B)
-    \item ㅜ (U+315C)
-    \item ㅠ (U+3160)
-    \item ㅡ (U+3161)
-    \item ㅣ (U+3163)
-    \item あ (U+3042)
-    \item い (U+3044)
-    \item う (U+3046)
-    \item え (U+3048)
-    \item お (U+304A)
-    \item か (U+304B)
-    \item き (U+304D)
-    \item く (U+304F)
-    \item け (U+3051)
-    \item こ (U+3053)
-    \item さ (U+3055)
-    \item し (U+3057)
-    \item す (U+3059)
-    \item せ (U+305B)
-    \item そ (U+305D)
-    \item た (U+305F)
-    \item ち (U+3061)
-    \item つ (U+3064)
-    \item て (U+3066)
-    \item と (U+3068)
-    \item な (U+306A)
-    \item に (U+306B)
-    \item ぬ (U+306C)
-    \item ね (U+306D)
-    \item の (U+306E)
-    \item は (U+306F)
-    \item ひ (U+3072)
-    \item ふ (U+3075)
-    \item へ (U+3078)
-    \item ほ (U+307B)
-    \item ま (U+307E)
-    \item み (U+307F)
-    \item む (U+3080)
-    \item め (U+3081)
-    \item も (U+3082)
-    \item や (U+3084)
-    \item ゆ (U+3086)
-    \item よ (U+3088)
-    \item ら (U+3089)
-    \item り (U+308A)
-    \item る (U+308B)
-    \item れ (U+308C)
-    \item ろ (U+308D)
-    \item わ (U+308F)
-    \item を (U+3092)
-    \item ん (U+3093)
-    \item 九 (U+4E5D)
-    \item 八 (U+516B)
-    \item 十 (U+5341)
-    \item 千 (U+5343)
-    \item 官 (U+5B98)
-    \item 尋 (U+5C0B)
-    \item 日 (U+65E5)
-    \item 本 (U+672C)
-    \item 爺 (U+723A)
-    \item 神 (U+795E)
-    \item 話 (U+8A71)
-    \item 語 (U+8A9E)
-    \item 话 (U+8BDD)
-    \item 釜 (U+91DC)
-    \item 隠 (U+96A0)
-    \item 零 (U+96F6)
-    \item � (U+FFFD)
+➀, ➁, ➂, ④, ⑤, ⑥, ⑦, ⑧, ⑨, ⑩, ⑪, ⑫, ⑬, ⑭, ⑮, ⑯, ⑰, ⑱, ⑲, ⑳
 
-\end{itemize}
+\subsection{Emoji}
 
+😂, ❤️, 🤣, 👍, 😭, 🙏, 😍, 😊, 🥰, 😘, 💕, 🥺, 😭, 🤔, 🥳, 🎉, 😇, 😁, 🤩, 💪, 🙃, 🤗, 🥺, 😎, 😱, 🤭, 😡, 😔, 🌟, 💜, 🤯, 😜, 👀, 😴, 💥, 🖤, 🐱, 😒, 👋, 😏, 🤨, 🥺, 🥵, 👑, 💩, 💓, ✨, 🎶, 😲, 🎂, 💩, 🍃
+
+\subsection{Korean}
+ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅅ, ㅇ, ㅈ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ
+ㄲ, ㄸ, ㅃ, ㅆ, ㅉ
+ㅏ, ㅑ, ㅓ, ㅕ, ㅗ, ㅛ, ㅜ, ㅠ, ㅡ, ㅣ, ㅐ, ㅒ, ㅔ, ㅖ, ㅘ, ㅙ, ㅚ, ㅝ, ㅞ, ㅟ, ㅢ
+갯, 냉, 댁, 랭, 맹, 백, 색, 앵, 쟉, 책, 캭, 탱, 팽, 행
+개, 내, 대, 래, 매, 배, 새, 애, 재, 채, 캐, 태, 패, 해
+갂, 갇, 갅, 갆, 갇, 갏, 갉, 갊, 갋, 갌, 갍, 갎, 갏, 값
+
+\subsection{Japanese}
+あ, い, う, え, お, か, き, く, け, こ, さ, し, す, せ, そ, た, ち, つ, て, と, な, に, ぬ, ね, の, は, ひ, ふ, へ, ほ, ま, み, む, め, も, や, ゆ, よ, ら, り, る, れ, ろ, わ, を, ん
+
+ア, イ, ウ, エ, オ, カ, キ, ク, ケ, コ, サ, シ, ス, セ, ソ, タ, チ, ツ, テ, ト, ナ, ニ, ヌ, ネ, ノ, ハ, ヒ, フ, ヘ, ホ, マ, ミ, ム, メ, モ, ヤ, ユ, ヨ, ラ, リ, ル, レ, ロ, ワ, ヲ, ン
+
+日, 一, 国, 人, 年, 大, 十, 二, 本, 中, 長, 出, 三, 時, 行, 見, 月, 五, 後, 前, 生, 間, 上, 東, 四, 今, 金, 九, 入, 学, 高, 円, 子, 外, 八, 六, 下, 来, 気, 小, 七, 山, 話, 女, 北, 午, 書, 半, 西, 電, 語, 土, 父, 母, 間, 友, 開, 天
+
+\subsection{Greek}
+
+Α, Β, Γ, Δ, Ε, Ζ, Η, Θ, Ι, Κ, Λ, Μ, Ν, Ξ, Ο, Π, Ρ, Σ, Τ, Υ, Φ, Χ, Ψ, Ω
+α, β, γ, δ, ε, ζ, η, θ, ι, κ, λ, μ, ν, ξ, ο, π, ρ, σ, τ, υ, φ, χ, ψ, ω
+
+\subsection{Arabic}
+ا, ب, ت, ث, ج, ح, خ, د, ذ, ر, ز, س, ش, ص, ض, ط, ظ, ع, غ, ف, ق, ك, ل, م, ن, ه, و, ي
+
+\subsection{Hebrew}
+
+א, ב, ג, ד, ה, ו, ז, ח, ט, י, כ, ל, מ, נ, ס, ע, פ, צ, ק, ר, ש, ת
+
+\subsection{Russian}
+
+А, Б, В, Г, Д, Е, Ё, Ж, З, И, Й, К, Л, М, Н, О, П, Р, С, Т, У, Ф, Х, Ц, Ч, Ш, Щ, Ъ, Ы, Ь, Э, Ю, Я
+
+a, б, в, г, д, е, ё, ж, з, и, й, к, л, м, н, о, п, р, с, т, у, ф, х, ц, ч, ш, щ, ъ, ы, ь, э, ю, я
+
+\subsection{Tibetan}
+
+ཀ, ཁ, ག, ང, ཅ, ཆ, ཇ, ཉ, ཏ, ཐ, ད, ན, པ, ཕ, བ, མ, ཙ, ཚ, ཛ, ཝ, ཞ, ཟ, འ, ཡ, ར, ལ, ཤ, ས, ཧ, ཨ
+
+ཨ, ཨཱ, ཨི, ཨཱི, ཨུ, ཨཱུ, ཨེ, ཨཻ, ཨོ, ཨཽ, ཨྀ, ཨཱྀ
+
+ྐ
 
 \end{document}

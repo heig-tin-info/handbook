@@ -249,7 +249,7 @@ Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami 
 
     ??? solution
 
-        ```c
+        ```text
         0xaaaa    ≡ 43690
         0b1100101 ≡   101
         0x1010    ≡  4112

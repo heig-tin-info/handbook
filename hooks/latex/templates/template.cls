@@ -1,6 +1,5 @@
 \documentclass[11pt,a4paper,twoside]{book}
 \usepackage{fontspec}
-\usepackage{polyglossia}
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{textcomp} % For ©, ™
@@ -27,13 +26,39 @@
 \usepackage{titlesec} % Pour la personnalisation des titres
 \usepackage{enumitem} % Pour personnaliser les listes
 \usepackage{etoolbox}
+\usepackage[french,english,greek,bidi=basic]{babel}
+\usepackage{kotex}
 
+\directlua{luaotfload.add_fallback
+   ("fontfallback",
+    {
+      "NotoColorEmoji:mode=harf;",
+      "Symbola:mode=harf;",
+      "NotoNaskhArabic:mode=harf;",
+      "NotoSerifHebrew:mode=harf;",
+      "NotoSerifDevanagari:mode=harf;",
+      "NotoSerifTamil:mode=harf;",
+      "NotoSerifTibetan:mode=harf;"
+    }
+   )}
 
-\preto\paragraph{\checkspace}
+\setmainfont{Latin Modern Roman}[
+  RawFeature={fallback=fontfallback}
+]
 
-\newcommand{\checkspace}{%
-  \Needspace{0.2\textheight}
-}
+\setmonofont{FiraMono}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  Scale=0.8,
+  RawFeature={fallback=fontfallback}
+]
+
+% \preto\paragraph{\checkspace}
+
+% \newcommand{\checkspace}{%
+%   \Needspace{0.2\textheight}
+% }
 
 \definecolor{darkblue}{rgb}{0.0, 0.0, 0.5}
 \definecolor{linkcolor}{RGB}{219, 48, 122}
@@ -58,16 +83,6 @@
   marginparsep=4mm,
   heightrounded,
   includehead]{geometry}
-
-\setmainlanguage{french}
-\setotherlanguage{english}
-
-\setmonofont{FiraMono}[
-  Extension=.otf,
-  UprightFont=*-Regular,
-  BoldFont=*-Bold,
-  Scale=0.8,
-]
 
 \graphicspath{{assets/}}
 
@@ -271,6 +286,7 @@
 
 \newtcblisting[auto counter,number within=section,
   list inside=mypyg]{code}[4][]{%
+  breakable,
   listing only,
   enhanced,
   colframe=gray!40,
