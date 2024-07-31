@@ -50,7 +50,7 @@
       "NotoSerifTamil:mode=harf;",
       "NotoSerifTibetan:mode=harf;",
       "NotoSerifCJKkr:mode=harf;",
-      "DroidSansFallback:mode=harf;"
+      "NotoSans:mode=harf;"
     }
    )}
 
