@@ -49,7 +49,7 @@ jobs:
       - name: Build assets cache
         uses: actions/cache@v4
         with:
-          path: /home/runner/work/handbook/handbook/build/assets
+          path: /home/runner/work/handbook/build/assets
           key: ${{ runner.os }}-assets
       - name: Install Python dependencies
         run: |
@@ -70,6 +70,7 @@ jobs:
           extra_system_packages: |
             font-noto font-noto-hebrew font-noto-devanagari
             font-noto-tamil font-noto-tibetan font-noto-cjk
+            font-noto-naskh-arabic
           latexmk_shell_escape: true
           latexmk_use_lualatex: true
           args: -cd
@@ -105,6 +106,7 @@ jobs:
           extra_system_packages: |
             font-noto font-noto-hebrew font-noto-devanagari
             font-noto-tamil font-noto-tibetan font-noto-cjk
+            font-noto-naskh-arabic
           latexmk_shell_escape: true
           latexmk_use_lualatex: true
           args: -cd
