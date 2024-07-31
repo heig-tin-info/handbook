@@ -100,17 +100,39 @@
 % Pour numérotation des paragraphes et subparagraphes
 \setcounter{secnumdepth}{5}
 
-\fancypagestyle{headings}{
-\fancyhf{}
-\fancyhead[LO]{\textsl{\rightmark}}
-\fancyhead[RE]{\textsl{\leftmark}}
-\ifdefined\@confidential
-\fancyfoot[LE]{\MakeUppercase{\@confidential}}
-\fancyfoot[RO]{\MakeUppercase{\@confidential}}
-\fi
-\fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}}
+\fancypagestyle{partpagestyle}
+{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\fancypagestyle{onlycount}
+{
+  \fancyhf{}
+  \renewcommand\headrulewidth{0pt}
+  \renewcommand\footrulewidth{0pt}
+  \fancyfoot[C]{\thepage}
+}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \lhead[\rm\thepage]{\fancyplain{}{\nouppercase{\textsl{\bfseries{\leftmark}}}}}
+  \rhead[\rm\thepage]{\fancyplain{}{\nouppercase{\textsl{\bfseries{\rightmark}}}}}
+  %\fancyhead[LO]{\textsl{\rightmark}}
+  %\fancyhead[RE]{\textsl{\leftmark}}
+
+  \chead{}\lfoot{}\rfoot{}\cfoot{}
+  %\renewcommand{\headrulewidth}{0.1mm}%
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyfoot[C]{\thepage}%
+}
+
+% Patch the `\thispagestyle` code within `\part
+\xpatchcmd{\part}{\thispagestyle{plain}}{\thispagestyle{partpagestyle}}{}{}
+\pagestyle{fancy}
+
+
 
 \setlength{\parindent}{0pt}
 \setlength\parskip{\medskipamount}
