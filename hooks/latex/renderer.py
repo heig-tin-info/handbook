@@ -220,6 +220,9 @@ class LaTeXRenderer:
             # Escape LaTeX string only once
             text = el.get_text()
             text = escape_latex_chars(text)
+
+            #text = self.monkeypatch_hyphenation(text)
+
             el.replace_with(text)
         return soup
 
@@ -876,6 +879,16 @@ class LaTeXRenderer:
         meant to be cross-documents and we don't really use them in LaTeX.
         """
         return re.sub(r'\\label\{_(?:figure|table)-\d+\}', '', latex)
+
+    def monkeypatch_hyphenation(self, latex: str):
+        """TeX will not hyphenate past an explicit hyphen, unless you
+        explicitly tell it to.
+
+        This has to be applied only in plain text and not in code blocks.
+
+        https://tex.stackexchange.com/a/723596/85416
+        """
+        return re.sub(r'\b\w{2,}-(\w{4,})\b', r'\1\allowhyphens \2', latex)
 
     def render(self, html, output_path, file_path, base_level=0):
         soup = BeautifulSoup(html, 'html.parser')
