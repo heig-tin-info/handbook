@@ -4,6 +4,8 @@ on:
     branches:
       - master
       - main
+    tags:
+      - '*'
 permissions:
   contents: write
 env:
@@ -55,4 +57,44 @@ jobs:
       - name: Build Documentation with MkDocs
         env:
           GH_TOKEN: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
-        run: CI=true xvfb-run -a poetry run mkdocs gh-deploy --force
+        run: CI=true poetry run mkdocs gh-deploy --force
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: ./build
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: build/index.tex
+          extra_fonts: fonts/cc-icons.otf
+          extra_system_packages: |
+            font-noto font-noto-hebrew font-noto-devanagari
+            font-noto-tamil font-noto-tibetan font-noto-cjk
+            font-droid
+          latexmk_shell_escape: true
+          latexmk_use_lualatex: true
+          args: -cd
+  post-deploy:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: ./build
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: build/index.tex
+          extra_fonts: fonts/cc-icons.otf
+          extra_system_packages: |
+            font-noto font-noto-hebrew font-noto-devanagari
+            font-noto-tamil font-noto-tibetan font-noto-cjk
+            font-droid
+          latexmk_shell_escape: true
+          latexmk_use_lualatex: true
+          args: -cd
