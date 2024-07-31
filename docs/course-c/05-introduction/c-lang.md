@@ -141,11 +141,11 @@ SERVIR(omelette_cuite)
 La structure de la phrase permettant de traiter tous les éléments d'un ensemble d'éléments peut alors s'écrire :
 
 ```text
-POUR CHAQUE 〰 DANS 〰:
-    〰
+POUR CHAQUE 〜 DANS 〜:
+    〜
 ```
 
-Où les `〰` sont des marques substitutives ([placeholder](https://fr.wikipedia.org/wiki/Marque_substitutive)) qui seront remplacées par le développeur par ce qui convient.
+Où les `〜` sont des marques substitutives ([placeholder](https://fr.wikipedia.org/wiki/Marque_substitutive)) qui seront remplacées par le développeur par ce qui convient.
 
 Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. La [grammaire][grammar] du langage C utilisé dans ce cours peut ainsi s'exprimer en utilisant la forme Backus-Naur ou **BNF** disponible en annexe.
 

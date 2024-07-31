@@ -249,11 +249,7 @@ def svg2pdf_cairo(svg: Union[str, Path], output_path=Path()) -> Path:
     pdfpath = get_filename_from_content(
         svg, output_path).with_suffix('.pdf')
 
-    open('before.svg', 'w').write(svg)
-
     svg = add_size_to_svg(svg)
-
-    open('after.svg', 'w').write(svg)
 
     if not pdfpath.exists():
         cairosvg.svg2pdf(bytestring=svg,

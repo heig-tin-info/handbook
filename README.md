@@ -3,28 +3,37 @@
 
 Cours d'informatique pour les étudiants de la HEIG-VD, département TIN.
 
-Ce cours couvre les bases de l'informatique, de l'architecture des ordinateurs à la programmation en C.
+Ce cours couvre les bases de l'informatique, de l'architecture des ordinateurs à la programmation en C, il est prévu de l'étendre à C++ et Python.
 
 La version web est disponible sur cette [page](https://heig-tin-info.github.io/handbook/).
 
+## Technologies
+
+
 ## Développement
 
+La version utilisée est Ubuntu 24.04 LTS. Commencez par installer les paquets suivants :
+
 ```bash
-sudo apt install -y fonts-symbolia fonts-noto
+sudo apt install -y fonts-symbola fonts-noto
+sudo apt install -y texlive-full
 sudo apt install -y pipx
-pipx install poetry
 sudo fc-cache -fv
 ```
+
+Initialisez le dépôt avec :
+
+```bash
+git clone https://github.com/heig-tin-info/handbook.git
+cd handbook
+pipx install poetry
+```
+
+Puis pour lancer le développement :
 
 ```bash
 poetry install
 poetry run mkdocs serve
-```
-
-Pour déployer une nouvelle version:
-
-```bash
-poetry run mike deploy --push --update-aliases 0.1 latest
 ```
 
 ## To-Do
@@ -34,34 +43,34 @@ poetry run mike deploy --push --update-aliases 0.1 latest
   - [ ] Implement local links to code, copy them in appencies
   - [ ] Table des opérateurs, find a way
   - [ ] Autres tables, largeur, ajuster au contenu ? tabularx ?
-  - [ ] Replace weavydash with 〜 ?
-  - [x] Fetch solution to exercises and display them later in document
-  - [x] Number exercises with a counter
-  - [x] Support unicode chars in LaTeX (Use lualatex?)
-  - [x] Auto number tables?
-  - [x] \leavevmode only if item is right before code block
-
-- [ ] Use additional inline macro values defined in the config.yml, such as the homepage url, the version...
 - [ ] Add tags anywhere (inline tags) to summary concepts
 - [ ] Build another nav with only the required sections for INFO1, INFO2.
 - [ ] Label for tables are cropped, should be placed above tables
 - [ ] Exercise plugin cause code to be renamed exercise
-- [ ] Optimize plugins with a beautiful soup parser
 - [ ] Make all figures compatible with both light/dark theme
 - [ ] Tables
-  - [ ] Caption above table
+  - [x] Caption above table
   - [ ] Addfull parameter for adjusting width, fullwidth
-  - [ ] Alternate colors for table entries
-  - [ ] Number table from section number
 - [ ] Slides for each course with inteactive examples
 - [ ] Embedded Interactive examples (linked-list)...
 - [ ] Interactive exercices
   - [ ] Multiple choice
   - [ ] Code execution
   - [ ] Fill the gap
-- [ ] Generate PDF with LaTeX
 - [ ] Two/Three columns for exercises ?
 - [ ] Exercises style bullet is wrong
+
+## Changelog
+
+- [x] LaTeX
+  - [x] Generate PDF with LaTeX
+  - [x] Only generate LaTeX on build
+  - [x] Replace weavydash with 〜 ?
+  - [x] Fetch solution to exercises and display them later in document
+  - [x] Number exercises with a counter
+  - [x] Support unicode chars in LaTeX (Use lualatex?)
+  - [x] Auto number tables?
+  - [x] \leavevmode only if item is right before code block
 - [x] Find a way to add unbreakable space before semi-colon in paragraphs
 - [x] Center mermaid diagrams
 - [x] Center tables

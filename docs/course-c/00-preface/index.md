@@ -73,7 +73,7 @@ Nous verrons que le signe d'égalité `=` peut aisément être confondu avec l'o
 
 #### Symbole de remplissage
 
-Dans les exemples qui seront donnés, on pourra voir `#!c while (condition) { 〰 }` ou le caractère `〰` U+3030 indique une continuité logique d'opération. Le symbole exprime ainsi `...` ([points de suspension](https://fr.wikipedia.org/wiki/Points_de_suspension) ou *ellipsis*). Or, pour ne pas confondre avec le symbole C `...` utilisé dans les fonctions à arguments variables tels que `printf`.
+Dans les exemples qui seront donnés, on pourra voir `#!c while (condition) { 〜 }` ou le caractère `〜` U+3030 indique une continuité logique d'opération. Le symbole exprime ainsi `...` ([points de suspension](https://fr.wikipedia.org/wiki/Points_de_suspension) ou *ellipsis*). Or, pour ne pas confondre avec le symbole C `...` utilisé dans les fonctions à arguments variables tels que `printf`.
 
 #### Types de données
 

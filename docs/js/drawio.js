@@ -1,6 +1,5 @@
 // Once dom is ready
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Installing converter");
     const chatMap = {
         "&": "&amp;",
         "'": "&#x27;",
@@ -15,27 +14,76 @@ document.addEventListener("DOMContentLoaded", function () {
             return chatMap[match];
         });
     };
+
+    /**
+     * See options in
+     * GraphViewer.prototype.init = function(container, xmlNode, graphConfig)
+     */
     window.drawioConverter = function (xml, idx = new Date().getTime()) {
+
+        let parser = new DOMParser();
+        let xmlDoc = parser.parseFromString(xml, "text/xml");
+        let mxfile = xmlDoc.getElementsByTagName("mxfile")[0];
+        let mxGraphModel = mxfile.getElementsByTagName("mxGraphModel")[0];
+        let canvasWidth = mxGraphModel.getAttribute("pageWidth");
+        let canvasHeight = mxGraphModel.getAttribute("pageHeight");
+
         let mxGraphData = {
-            editable: false,
-            highlight: "#0000ff",
-            nav: false,
-            toolbar: null,
-            edit: null,
-            resize: true,
-            lightbox: "open",
-            // "check-visible-state": false,
-            // "auto-fit": false,
+            // editable: false,
+            // autoCrop: false,
+            // autoFit: false
+
+            'auto-origin': false,
+            'auto-crop': false,
+            'auto-fit': false,
+            'zoom-enabled': false,
+            zoomEnabled: false,
+            // highlight: "#0000ff",
+            // toolbar: null,
+            // edit: null,
+            //resize: true,
+            // lightbox: "open",
+            // // "check-visible-state": false,
+            // autoFit: false,
+            // autoCrop: false,
+            // darkMode: true,
+            // allowZoomIn: true,
             // move: false,
+            canvasWidth,
+            canvasHeight,
             xml,
         };
-
         const json = JSON.stringify(mxGraphData);
 
         return `<div class="drawio-viewer-index-${idx}">
           <div class="mxgraph" style="max-width: 100%; border: 1px solid transparent" data-mxgraph="${escapeHTML(json)}"></div>
         </div>
         `;
+    };
+
+    GraphViewer.processElements = function(classname)
+    {
+        mxUtils.forEach(GraphViewer.getElementsByClassName(classname || 'mxgraph'), function(div)
+        {
+            try
+            {
+                div.innerText = '';
+                GraphViewer.createViewerForElement(div, (element) => {
+                    let ratio = element.graph.container.offsetWidth / element.graphConfig.canvasWidth;
+                    // element.graph.zoomTo(ratio);
+                    // Do not work as expected...
+                });
+            }
+            catch (e)
+            {
+                div.innerText = e.message;
+
+                if (window.console != null)
+                {
+                    console.error(e);
+                }
+            }
+        });
     };
 
     const install = function (hook) {
@@ -69,15 +117,18 @@ document$.subscribe(async function() {
         }
         let xml = await response.text();
 
-        // Appelle la fonction drawioConverter
+
         let newHtml = window.drawioConverter(xml, new Date().getTime());
 
-        // Crée un élément temporaire pour insérer le nouveau HTML
         let tempDiv = document.createElement('div');
         tempDiv.innerHTML = newHtml;
 
+        let drawioElement = tempDiv.firstElementChild;
+        // drawioElement.style.width = 'auto';
+        // drawioElement.style.height = `${ratioHeight}%`;
+
         // Remplace l'image par le nouveau contenu
-        img.parentNode.replaceChild(tempDiv.firstElementChild, img);
+        img.parentNode.replaceChild(drawioElement, img);
       } catch (error) {
         console.error('Erreur lors du traitement de', img.src, error);
       }

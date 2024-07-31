@@ -14,6 +14,15 @@
   width: auto !important;
 }
 
+/* Allow caption to be out of the table */
+.md-typeset__table table:not([class]) {
+  display: inline-table;
+}
+
+table caption {
+  margin-bottom: 1em;
+}
+
 .enumerate-headings-plugin {
   filter: opacity(35%);
 }
@@ -50,7 +59,7 @@ article {
 
 .md-typeset .solution>.admonition-title,
 .md-typeset .solution>summary {
-  background-color: rgba(146, 146, 146, 0.466);
+  background-color: rgba(255, 255, 255, 0.466);
 }
 
 .md-typeset .solution>.admonition-title::before,

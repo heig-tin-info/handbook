@@ -98,7 +98,34 @@ On parle de notation positionnelle, car la position des chiffres est importante.
 
 En informatique, et particulièrement en binaire on nomme **LSB** (Least Significant Bit) le bit de poids faible et **MSB** (Most Significant Bit) le bit de poids fort. Le bit de poids faible est le bit le plus à droite, et le bit de poids fort est le bit le plus à gauche.
 
-Faits remarquables:
+On notera que le **LSB** permet de savoir si le nombre est pair ou impair, si le **LSB** est à `0`, le nombre est pair, et s'il est à `1`, le nombre est impair :
 
-- le **LSB** permet de savoir si le nombre est pair ou impair, si le **LSB** est à `0`, le nombre est pair, et s'il est à `1`, le nombre est impair.
-- le **MSB** dans un nombre signé permet de savoir si le nombre est positif ou négatif. Si le **MSB** est à `0`, le nombre est positif, et s'il est à `1`, le nombre est négatif.
+```c
+bool is_even(int n) {
+    return n & 1 == 0;
+}
+```
+
+Le **MSB** quant à lui permet de savoir si le nombre est positif ou négatif dans un nombre signé. Si le **MSB** est à `0`, le nombre est positif, et s'il est à `1`, le nombre est négatif (on préfèrera plutôt utiliser `n < 0` pour vérifier si un nombre est négatif).
+
+```c
+bool is_negative(int32_t n) {
+    return n & 0x80000000 == 0x80000000;
+}
+```
+
+!!! exercise "Nature de ces nombres ?"
+
+    Pour les nombres suivants stockés sur 8-bit, pouvez-vous dire s'ils sont pairs ou impairs, positifs ou négatifs ?
+
+    1. `0b01100000`
+    2. `0b00001001`
+    3. `0b10000000`
+    4. `0b11011011`
+
+    ??? solution
+
+        1. Pair, positif
+        2. Impair, positif
+        3. Pair, négatif
+        4. Impair, négatif

@@ -20,8 +20,8 @@ files_to_process = []
 book_nav = []
 saved_nav = []
 latex_dir = Path('build')
-
-renderer = LaTeXRenderer(latex_dir)
+enabled = False
+renderer = None
 
 def fetch_files(section: Section):
     files = []
@@ -41,10 +41,20 @@ def build_nav(section: Section, node):
             node.append([child.title, new_node])
             build_nav(child, new_node)
 
+def on_startup(command, dirty):
+    global enabled
+    global renderer
+    enabled = command != 'serve'
+
+    if enabled:
+        renderer = LaTeXRenderer(latex_dir)
+
 def on_nav(nav, config, files):
     global files_to_process
     global book_nav
     global saved_nav
+    if not enabled:
+        return
     book = 'Cours C'
     for section in nav:
         if section.title == book:
@@ -69,6 +79,8 @@ def on_nav(nav, config, files):
     book_nav = '\n'.join(latex)
 
 def on_env(env, config, files):
+    if not enabled:
+        return
 
     # Create output directory
     latex_dir.mkdir(exist_ok=True)
