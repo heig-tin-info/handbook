@@ -4448,8 +4448,8 @@
 
 
 <h1 id="preprocesseur">Préprocesseur<a class="headerlink" href="#preprocesseur" title="Permanent link">¶</a></h1>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/preprocessor.svg"><img alt="Illustration du mécanisme de pré-processing avant la compilation" src="../../../assets/images/preprocessor.svg"/></a><figcaption> Illustration du mécanisme de pré-processing avant la compilation</figcaption></figure></p>
-<p>Comme nous l'avons vu en introduction (c. f. <a class="autorefs autorefs-internal" href="../../05-introduction/c-lang/#programmation-texte-structuree">Texte structuré</a>) le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.</p>
+<p><figure id="_figure-1"><img alt="Illustration du mécanisme de pré-processing avant la compilation" class="drawio-diagram" src="../../../assets/images/preprocessing-fun.drawio"/><figcaption> Illustration du mécanisme de pré-processing avant la compilation</figcaption></figure></p>
+<p>Comme nous l'avons vu en introduction (<a class="autorefs autorefs-internal" href="../../05-introduction/c-lang/#programmation-texte-structuree">Texte structuré</a>) le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.</p>
 <p>Le cœur de cette opération est appelé <strong>préprocesseur</strong>. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon <code>#</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/0023" target="_blank">0023</a>, <em>hash</em> en anglais et utilisé récemment comme <a href="https://fr.wikipedia.org/wiki/Hashtag">hashtag</a> sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif <em>pound</em> (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse <code>♯</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/266F" target="_blank">266F</a> présent sur les pavés numériques de téléphone.</p>
 <p>Le vocabulaire du préprocesseur est le suivant&thinsp;:</p>
 <table>
@@ -4628,7 +4628,7 @@
 <p>Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplacée par le contenu de sa définition. <strong>C'est un remplacement de chaîne bête, idiot et naïf</strong>. Il est par conséquent possible d'écrire&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#define MAIN int main(</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cp">#define BEGIN ) {</span>
-</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="cp">#define END return 0&thinsp;; }</span>
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="cp">#define END return 0; }</span>
 </span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="cp">#define EOF "\n"</span>
 </span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>
 </span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="n">MAIN</span>
@@ -4668,7 +4668,7 @@
 <p><a href="" id="preprocessor-error"></a></p>
 <h3 id="error">#error<a class="headerlink" href="#error" title="Permanent link">¶</a></h3>
 <p>Cette directive génère une erreur avec le texte qui suit la directive&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#if&thinsp;!(KERNEL_SIZE % 2)</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#if !(KERNEL_SIZE % 2)</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="cp">#    error Le noyau du filtre est pair</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="cp">#endif</span>
 </span></code></pre></div>
@@ -4757,14 +4757,14 @@
 <p class="admonition-title">Paramètres de macro non protégés</p>
 <p>On ne le répètera jamais assez&thinsp;: une macro est un remplacement de chaîne effectué par le préprocesseur. Donc écrire <code class="language-c highlight"><span class="cp">#define m(x) x * 2</span></code> et <code>m(2 + 5)</code> sera remplacé en <code>2 + 5 * 2</code>.</p>
 <p>Quel sera le problème dans le cas suivant&thinsp;?</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#define ABS(x) x &gt;= 0&thinsp;? x&thinsp;: -x</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#define ABS(x) x &gt;= 0 ? x: -x</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-16-4"><a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ABS</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
 </span><span id="__span-16-5"><a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Plus difficile, quel serait le problème ici&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">#define ERROR(str) printf("Erreur&thinsp;: %s\r\n", str); log(str);</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">#define ERROR(str) printf("Erreur: %s\r\n", str); log(str);</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 </span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">    </span><span class="n">ERROR</span><span class="p">(</span><span class="s">"Zero division"</span><span class="p">);</span>
@@ -4775,13 +4775,13 @@
 <ul>
 <li>
 <p>Toujours protéger les paramètres des macros avec des parenthèses</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cp">#define ABS(x) ((x) &gt;= 0&thinsp;? (x): -(x))</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cp">#define ABS(x) ((x) &gt;= 0 ? (x): -(x))</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Toujours protéger une macro à plusieurs instructions par une boucle vide&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cp">#define ERROR(str) do { \</span>
-</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="cp">    printf("Erreur&thinsp;: %s\r\n", str); \</span>
+</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="cp">    printf("Erreur: %s\r\n", str); \</span>
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="cp">    log(str); \</span>
 </span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="cp">} while (0)</span>
 </span></code></pre></div>
@@ -4791,12 +4791,12 @@
 <div class="admonition warning">
 <p class="admonition-title">Pré/Post incrémentation avec une macro</p>
 <p>On pourrait se dire qu'avec toutes les précautions prises, il n'y aura plus d'ennuis possibles. Or, les post/pré incréments peuvent encore poser problème.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">#define ABS(x) ((x) &gt;= 0&thinsp;? (x) : -(x))</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">#define ABS(x) ((x) &gt;= 0 ? (x) : -(x))</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="k">return</span><span class="w"> </span><span class="n">ABS</span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="p">)</span>
 </span></code></pre></div>
 <p>On peut constater que x sera post-incrémenté deux fois au lieu d'une&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cp">#define ABS(x) ((x) &gt;= 0&thinsp;? (x) : -(x))</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cp">#define ABS(x) ((x) &gt;= 0 ? (x) : -(x))</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>
 </span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="k">return</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="p">))</span>
 </span></code></pre></div>
@@ -4858,9 +4858,9 @@
 </span></code></pre></div>
 <h3 id="desactivation-de-code">Désactivation de code<a class="headerlink" href="#desactivation-de-code" title="Permanent link">¶</a></h3>
 <p>On voit souvent des développeurs commenter des sections de code pour le débogage. Cette pratique n'est pas recommandée, car les outils de <a href="https://en.wikipedia.org/wiki/Code_refactoring">refactoring</a> (réusinage de code), ne parviendront pas à interpréter le code en commentaire jugeant qu'il ne s'agit pas de code, mais de texte insignifiant. Une méthode plus robuste et plus sure consiste à utiliser une directive conditionnelle&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cp">#if 0</span><span class="c"> // TODO&thinsp;: Check if this code is still required.</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cp">#if 0</span><span class="c"> // TODO: Check if this code is still required.</span>
 </span><span id="__span-27-2"><a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="c">if (x &lt; 0) {</span>
-</span><span id="__span-27-3"><a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="c">    x = 0&thinsp;;</span>
+</span><span id="__span-27-3"><a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="c">    x = 0;</span>
 </span><span id="__span-27-4"><a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="c">}</span>
 </span><span id="__span-27-5"><a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="cp">#endif</span>
 </span></code></pre></div>
@@ -4913,7 +4913,7 @@
 </span></code></pre></div>
 <h3 id="simulation-dexceptions">Simulation d'exceptions<a class="headerlink" href="#simulation-dexceptions" title="Permanent link">¶</a></h3>
 <p>Il est possible de simuler des exceptions en C en utilisant les directives du préprocesseur&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="cp">#define TRY do { jmp_buf ex_buf__&thinsp;; if (setjmp(ex_buf__) == 0) {</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="cp">#define TRY do { jmp_buf ex_buf__; if (setjmp(ex_buf__) == 0) {</span>
 </span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="cp">#define CATCH } else {</span>
 </span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="cp">#define ETRY } } while (0)</span>
 </span><span id="__span-35-4"><a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="cp">#define THROW longjmp(ex_buf__, 1)</span>
@@ -4921,7 +4921,7 @@
 <h3 id="debogage_1">Débogage<a class="headerlink" href="#debogage_1" title="Permanent link">¶</a></h3>
 <p>Il est possible de définir des macros pour le débogage&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="cp">#ifdef DEBUG</span>
-</span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="cp">#    define TRACE printf("Trace&thinsp;: %s&thinsp;:%d\n", __FILE__, __LINE__)</span>
+</span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="cp">#    define TRACE printf("Trace: %s:%d\n", __FILE__, __LINE__)</span>
 </span><span id="__span-36-3"><a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="cp">#else</span>
 </span><span id="__span-36-4"><a href="#__codelineno-36-4" id="__codelineno-36-4" name="__codelineno-36-4"></a><span class="cp">#    define TRACE</span>
 </span><span id="__span-36-5"><a href="#__codelineno-36-5" id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="cp">#endif</span>
@@ -4948,7 +4948,7 @@
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 23, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2024</span>
   </span>
 
     
@@ -5167,6 +5167,8 @@
         <script src="../../../js/feedback.js"></script>
       
         <script src="../../../js/mathjax.js"></script>
+      
+        <script src="../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

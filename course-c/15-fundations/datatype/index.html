@@ -4427,25 +4427,15 @@
 <p>Considérons le paquet de 32-bit suivant, êtes-vous à même d'en donner une signification&thinsp;?</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>01000000 01001001 00001111 11011011
 </span></code></pre></div>
-<p>Il pourrait s'agir&thinsp;:</p>
-<ul>
-<li>
-<p>de 4 caractères de 8-bits&thinsp;:</p>
-<ul>
-<li><code>01000000</code> <code>@</code>,</li>
-<li><code>01001001</code> <code>I</code>,</li>
-<li><code>00001111</code> <code>\x0f</code>,</li>
-<li><code>11011011</code> <code>Û</code>;</li>
-</ul>
-</li>
-<li>
-<p>ou de 4 nombres de 8-bits&thinsp;: <code>64</code>, <code>73</code>, <code>15</code>, <code>219</code>;</p>
-</li>
-<li>ou de deux nombres de 16-bits <code>18752</code> et <code>56079</code>;</li>
-<li>ou alors un seul nombre de 32-bit <code>3675212096</code>;</li>
-<li>peut-être est-ce le nombre <code>-40331460896358400.000000</code> lu en <em>little endian</em>;</li>
-<li>ou encore <code>3.141592</code> lu en <em>big endian</em>.</li>
-</ul>
+<p>Il y a plusieurs interprétations possibles&thinsp;:</p>
+<ol>
+<li>4 caractères de 8-bits&thinsp;: <code>01000000</code> <code>@</code>, <code>01001001</code> <code>I</code>, <code>00001111</code> <code>\x0f</code> et <code>11011011</code> <code>Û</code>.</li>
+<li>4 nombres de 8-bits&thinsp;: <code>64</code>, <code>73</code>, <code>15</code>, <code>219</code>.</li>
+<li>Deux nombres de 16-bits <code>18752</code> et <code>56079</code>.</li>
+<li>Un seul nombre de 32-bit <code>3675212096</code>.</li>
+<li>Peut-être le nombre <code>-40331460896358400.000000</code> lu en <em>little endian</em>.</li>
+<li>Ou encore <code>3.141592</code> lu en <em>big endian</em>.</li>
+</ol>
 <p>Qu'en pensez-vous&thinsp;?</p>
 <p>Lorsque l'on souhaite programmer à bas niveau, vous voyez que la notion de type de donnée est essentielle, car en dehors d'une interprétation subjective&thinsp;: "c'est forcément PI la bonne réponse", rien ne permet à l'ordinateur d'interpréter convenablement l'information enregistrée en mémoire.</p>
 <p>Le typage permet de résoudre toute ambiguïté.</p>
@@ -4472,7 +4462,7 @@
 </span><span id="__span-1-21"><a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="boutisme">Boutisme<a class="headerlink" href="#boutisme" title="Permanent link">¶</a></h2>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/endian.jpg"><img alt="Boutisme par J. J. Grandville (1838)" src="../../../assets/images/endian.jpg"/></a><figcaption> Boutisme par J. J. Grandville (1838)</figcaption></figure></p>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/endian.jpg"><img alt="Boutisme par J. J. Grandville (1838)" src="../../../assets/images/endian.jpg" width="70%"/></a><figcaption> Boutisme par J. J. Grandville (1838)</figcaption></figure></p>
 <p>La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé <em>endianess</em>. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les œufs à la coque par le petit bout (petit boutisme/<em>little endian</em>), la répression incite les rebelles à manger leurs œufs par le gros bout (gros boutisme/<em>big endian</em>).</p>
 <p>Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en <em>big endian</em> alors que d'autres sont en <em>little endian</em>. C'est-à-dire que si une information est stockée en mémoire comme suit&thinsp;:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>[0x40, 0x49, 0xf, 0xdb]
@@ -4487,7 +4477,7 @@
 <p>En C, on nomme ce type de donnée <code>unsigned int</code>, <code>int</code> étant le dénominatif du latin <em>integer</em> signifiant "entier".</p>
 <p>Voici quelques exemples des valeurs minimales et maximales possibles selon le nombre de bits utilisés pour coder l'information numérique&thinsp;:</p>
 <table id="_table-1">
-<caption style="caption-side:bottom"> Stockage d'un entier non signé sur différentes profondeurs</caption><thead>
+<caption style="caption-side:top"> Stockage d'un entier non signé sur différentes profondeurs</caption><thead>
 <tr>
 <th>Profondeur</th>
 <th>Minimum</th>
@@ -4523,7 +4513,7 @@
 <p>Comme il sont signés (<em>signed</em> en anglais), il est par conséquent correct d'écrire <code>signed int</code> bien que le préfixe <code>signed</code> soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.</p>
 <p>Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information&thinsp;:</p>
 <table id="_table-2">
-<caption style="caption-side:bottom"> Stockage d'un entier signé sur différentes profondeurs</caption><thead>
+<caption style="caption-side:top"> Stockage d'un entier signé sur différentes profondeurs</caption><thead>
 <tr>
 <th>Profondeur</th>
 <th>Minimum</th>
@@ -4561,7 +4551,7 @@
 <p><figure id="_figure-2"><img alt="Entiers standardisés" class="drawio-diagram" src="../../../assets/images/ansi-integers.drawio"/><figcaption> Entiers standardisés</figcaption></figure></p>
 <p>Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins <span class="arithmatex">\(N\)</span> bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée ci-dessous&thinsp;:</p>
 <table id="_table-3">
-<caption style="caption-side:bottom"> Table des types entiers en C</caption><thead>
+<caption style="caption-side:top"> Table des types entiers en C</caption><thead>
 <tr>
 <th>Type</th>
 <th>Signe</th>
@@ -4746,7 +4736,7 @@
 <h3 id="types-reformes">Types réformés<a class="headerlink" href="#types-reformes" title="Permanent link">¶</a></h3>
 <p>Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.</p>
 <table id="_table-4">
-<caption style="caption-side:bottom"> Entiers standard défini par stdint</caption><thead>
+<caption style="caption-side:top"> Entiers standard défini par stdint</caption><thead>
 <tr>
 <th>Type</th>
 <th>Signe</th>
@@ -4835,7 +4825,7 @@
 <p>Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un <code>int</code> comme valeur de comptage allant au-delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du <code>int</code> sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème&thinsp;?</p>
 <p>La première solution est de toujours utiliser les types proposés par <code>&lt;stdint.h&gt;</code> lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données&thinsp;:</p>
 <table id="_table-5">
-<caption style="caption-side:bottom"> Modèle de données</caption><thead>
+<caption style="caption-side:top"> Modèle de données</caption><thead>
 <tr>
 <th>Modèle</th>
 <th>short</th>
@@ -5104,7 +5094,7 @@ définies numériquement dans le type énuméré.</p>
 </span><span id="__span-15-10"><a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Calling France, please wait...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-15-11"><a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
 </span><span id="__span-15-12"><a href="#__codelineno-15-12" id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">:</span>
-</span><span id="__span-15-13"><a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"No calls to this country are allowed yet&thinsp;!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-15-13"><a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"No calls to this country are allowed yet!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-15-14"><a href="#__codelineno-15-14" id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-15-15"><a href="#__codelineno-15-15" id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="p">}</span>
 </span></code></pre></div>
@@ -5116,7 +5106,7 @@ définies numériquement dans le type énuméré.</p>
 <h3 id="type-vide-void">Type vide (<em>void</em>)<a class="headerlink" href="#type-vide-void" title="Permanent link">¶</a></h3>
 <p>Le type <code>void</code> est particulier. Il s'agit d'un type dit <strong>incomplet</strong>, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">shout</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hey&thinsp;!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hey!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Il peut être également utilisé comme type générique comme la fonction de copie mémoire <code>memcpy</code></p>
@@ -5136,7 +5126,7 @@ du processeur. Les <em>registres</em> du processeur, autrement dit ses casiers m
 assez grand pour  contenir un <code>int</code>.</p>
 <p>Aussi, la plupart des types de taille inférieure à <code>int</code> sont automatiquement et implicitement promus en <code>int</code>. Le résultat de <code>a + b</code> lorsque <code>a</code> et <code>b</code> sont des <code>char</code> sera automatiquement un <code>int</code>.</p>
 <table id="_table-6">
-<caption style="caption-side:bottom"> Promotion numérique</caption><thead>
+<caption style="caption-side:top"> Promotion numérique</caption><thead>
 <tr>
 <th>Type source</th>
 <th>Type cible</th>
@@ -5221,18 +5211,18 @@ la valeur représentée&thinsp;!</p>
 <p>Par exemple, la conversion d'un nombre flottant (<em>double</em> ou <em>float</em>) en entier (signé) doit être étudiée pour éviter tout problème. Le type entier doit être
 capable de recevoir la valeur (attention aux valeurs maxi).</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mf">3.9</span><span class="p">;</span>
-</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur&thinsp;: 3 =&gt; perte de précision</span>
+</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 3 =&gt; perte de précision</span>
 </span></code></pre></div>
 <p>A l'exécution, la valeur de <span class="arithmatex">\(l\)</span> sera la partie entière de
 <span class="arithmatex">\(d\)</span>. Il n'y a pas d'arrondi.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mh">0x12345678</span><span class="p">;</span>
-</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur&thinsp;: 0x5678 =&gt; changement de valeur</span>
+</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 0x5678 =&gt; changement de valeur</span>
 </span></code></pre></div>
 <p>La variable sh (<em>short</em> sur 16 bit) ne peut contenir la valeur réelle.
 Lors du transtypage, il y a modification de la valeur ce qui conduit à
 des erreurs de calculs par la suite.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">-123</span><span class="p">;</span>
-</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur&thinsp;: 65413 =&gt; changement de valeur</span>
+</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 65413 =&gt; changement de valeur</span>
 </span></code></pre></div>
 <p>L'utilisation d'un type non signé pour convertir un nombre réel conduit
 également à une modification de la valeur numérique.</p>
@@ -5240,7 +5230,7 @@ des erreurs de calculs par la suite.</p>
 <p>La conversion d'un nombre réel de type <em>double</em> en réel de type <em>float</em>
 pose un problème de précision de calcul.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mf">0.1111111111111111</span><span class="p">;</span>
-</span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur&thinsp;: 0.1111111119389533 =&gt; perte de précision</span>
+</span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 0.1111111119389533 =&gt; perte de précision</span>
 </span></code></pre></div>
 <p>À l'exécution, il y a une perte de précision lors de la conversion, ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
@@ -5547,7 +5537,7 @@ correspondant.</p>
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2024</span>
   </span>
 
     
@@ -5766,6 +5756,8 @@ correspondant.</p>
         <script src="../../../js/feedback.js"></script>
       
         <script src="../../../js/mathjax.js"></script>
+      
+        <script src="../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

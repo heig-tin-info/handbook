@@ -4017,7 +4017,7 @@
 </span></code></pre></div>
 <p>Puis on compile&thinsp;:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>gmp.c
-</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="go">gmp.c:1:10&thinsp;: fatal error&thinsp;: gmp.h&thinsp;: No such file or directory</span>
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="go">gmp.c:1:10: fatal error: gmp.h: No such file or directory</span>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="gp">#</span>include<span class="w"> </span>&lt;gmp.h&gt;
 </span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="go">        ^~~~~~~</span>
 </span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="go">compilation terminated.</span>
@@ -4038,17 +4038,17 @@
 </div>
 <p>Deuxième tentative&thinsp;:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>gmp.c
-</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="go">/tmp/cc2FxDSy.o&thinsp;: In function `main':</span>
-</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="go">gmp.c&thinsp;:(.text+0x6f): undefined reference to `__gmpz_init'</span>
-</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="go">gmp.c&thinsp;:(.text+0x80): undefined reference to `__gmpz_set_ui'</span>
-</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="go">gmp.c&thinsp;:(.text+0x96): undefined reference to `__gmpz_set_str'</span>
-</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="go">gmp.c&thinsp;:(.text+0xb3): undefined reference to `__gmpz_out_str'</span>
-</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="go">gmp.c&thinsp;:(.text+0xd5): undefined reference to `__gmpz_add_ui'</span>
-</span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="go">gmp.c&thinsp;:(.text+0xf2): undefined reference to `__gmpz_out_str'</span>
-</span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="go">gmp.c&thinsp;:(.text+0x113): undefined reference to `__gmpz_mul'</span>
-</span><span id="__span-5-10"><a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="go">gmp.c&thinsp;:(.text+0x130): undefined reference to `__gmpz_out_str'</span>
-</span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="go">gmp.c&thinsp;:(.text+0x146): undefined reference to `__gmpz_clear'</span>
-</span><span id="__span-5-12"><a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="go">collect2&thinsp;: error&thinsp;: ld returned 1 exit status</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="go">/tmp/cc2FxDSy.o: In function `main':</span>
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="go">gmp.c:(.text+0x6f): undefined reference to `__gmpz_init'</span>
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="go">gmp.c:(.text+0x80): undefined reference to `__gmpz_set_ui'</span>
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="go">gmp.c:(.text+0x96): undefined reference to `__gmpz_set_str'</span>
+</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="go">gmp.c:(.text+0xb3): undefined reference to `__gmpz_out_str'</span>
+</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="go">gmp.c:(.text+0xd5): undefined reference to `__gmpz_add_ui'</span>
+</span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="go">gmp.c:(.text+0xf2): undefined reference to `__gmpz_out_str'</span>
+</span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="go">gmp.c:(.text+0x113): undefined reference to `__gmpz_mul'</span>
+</span><span id="__span-5-10"><a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="go">gmp.c:(.text+0x130): undefined reference to `__gmpz_out_str'</span>
+</span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="go">gmp.c:(.text+0x146): undefined reference to `__gmpz_clear'</span>
+</span><span id="__span-5-12"><a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="go">collect2: error: ld returned 1 exit status</span>
 </span></code></pre></div>
 <p>Cette fois-ci on peut lire que le compilateur à fait sont travail, mais ne parvient pas à trouver les symboles des fonctions que l'on utilise p.ex. <code>__gmpz_add_ui</code>. C'est normal parce que l'on n'a pas renseigné la bibliothèque à utiliser.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>gmp.c<span class="w"> </span>-lgmp
@@ -4176,9 +4176,9 @@
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="go">sreehtvarhk</span>
 </span></code></pre></div>
 <p>Car sinon c'est l'erreur&thinsp;:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="gp">$ </span><span class="nv">LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="w"> </span>.<span class="k">)</span><span class="w"> </span>./a.out<span class="w"> </span>Hey&thinsp;?
-</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="go">./a.out&thinsp;: error while loading shared libraries&thinsp;: libcaesar.so&thinsp;:</span>
-</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="go">cannot open shared object file&thinsp;: No such file or directory</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="gp">$ </span><span class="nv">LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="w"> </span>.<span class="k">)</span><span class="w"> </span>./a.out<span class="w"> </span>Hey?
+</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="go">./a.out: error while loading shared libraries: libcaesar.so :</span>
+</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="go">cannot open shared object file: No such file or directory</span>
 </span></code></pre></div>
 
 
@@ -4421,6 +4421,8 @@
         <script src="../../../js/feedback.js"></script>
       
         <script src="../../../js/mathjax.js"></script>
+      
+        <script src="../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

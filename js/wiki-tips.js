@@ -3,7 +3,6 @@
  */
 document$.subscribe(function() {
     const wikiLinks = document.querySelectorAll('a[href*="wikipedia.org"]');
-    console.log("Subscribed to document$");
     wikiLinks.forEach(link => {
         if (link.querySelector('abbr')) {
             return;

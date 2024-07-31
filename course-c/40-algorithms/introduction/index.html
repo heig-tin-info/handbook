@@ -2197,6 +2197,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#methodes-de-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthodes de résolution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercices-de-revision" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3890,6 +3901,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#methodes-de-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthodes de résolution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercices-de-revision" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4117,7 +4139,7 @@ O(10)
 </div>
 <p>D'une manière générale, la plupart des algorithmes que l'ingénieur écrira appartiendront à ces catégories exprimées du meilleur au plus mauvais&thinsp;:</p>
 <table id="_table-1">
-<caption style="caption-side:bottom"> Temps pour différentes complexités d'algorithmes</caption><thead>
+<caption style="caption-side:top"> Temps pour différentes complexités d'algorithmes</caption><thead>
 <tr>
 <th>Complexité</th>
 <th><span class="arithmatex">\(n = 100000\)</span></th>
@@ -4225,6 +4247,14 @@ O(10)
 <p>Un algorithme incrémental ou <a href="https://fr.wikipedia.org/wiki/Algorithme_online">online</a> est un algorithme qui peut s'exécuter sur un flux de données continu en entrée. C'est-à-dire qu'il est en mesure de prendre des décisions sans avoir besoin d'une visibilité complète sur le set de données.</p>
 <p>Un exemple typique est le <a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_secr%C3%A9taire">problème de la secrétaire</a>. On souhaite recruter une nouvelle secrétaire et le recruteur voit défiler les candidats. Il doit décider à chaque entretien s'il engage ou non le candidat et ne peut pas attendre la fin du processus d'entretiens pour obtenir le score attribué à chaque candidat. Il ne peut comparer la performance de l'un qu'à celle de deux déjà entrevus. L'objectif est de trouver la meilleure stratégie.</p>
 <p>La solution à ce problème est de laisser passer 37% des candidats sans les engager. Ceci correspond à une proportion de <span class="arithmatex">\(1/e\)</span>. Ensuite il suffit d'attendre un ou une candidate meilleure que tous ceux/celles du premier échantillon.</p>
+<h2 id="methodes-de-resolution">Méthodes de résolution<a class="headerlink" href="#methodes-de-resolution" title="Permanent link">¶</a></h2>
+<p>Il existe deux méthodes quasiment infaillibles pour résoudre un problème complexe&thinsp;:</p>
+<ol>
+<li>La réduction du problème en sous-problèmes plus simples.</li>
+<li>Le raisonnement par l'inverse.</li>
+</ol>
+<p>La rédiction aussi appelée <a href="https://fr.wikipedia.org/wiki/Diviser_pour_r%C3%A9gner">Divide and Conquer</a> consiste à diviser un problème en sous-problèmes plus simples, les résoudre et combiner les solutions pour obtenir la solution du problème initial. C'est une méthode très utilisée en informatique pour résoudre des problèmes complexes. Par exemple, le tri fusion, le tri rapide, la recherche dichotomique sont des méthodes de résolution de problèmes basées sur la réduction.</p>
+<p>Le raisonnement par l'inverse consiste à partir de la solution pour remonter au problème en posant des hypothèses. Par exemple, si vous avez un problème de recherche de chemin, vous pouvez partir de la destination pour remonter au point de départ. C'est une méthode très utilisée en mathématiques pour résoudre des problèmes complexes. Par exemple, la méthode de Newton pour trouver les racines d'une fonction est basée sur le raisonnement par l'inverse.</p>
 <h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¶</a></h2>
 <div class="admonition exercise">
 <p class="admonition-title">Intégrateur de Kahan</p>
@@ -4266,7 +4296,7 @@ O(10)
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>    │ A │ B │ C │ D │ E │ F │ G │ H │ I │ J │ K │ L │ M │ O │ P │ Q │
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>──┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>1 ┃                     x ┃       ┃               ┃               ┃
-</span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>──┃             F1&thinsp;: Frigo ┃       ┃               ┃               ┃
+</span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>──┃             F1: Frigo ┃       ┃               ┃               ┃
 </span><span id="__span-10-5"><a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>2 ┃       ┃               ┃       ┃               ┃               ┃
 </span><span id="__span-10-6"><a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>──┃       ┃               ┃       ┃               ┃               ┃
 </span><span id="__span-10-7"><a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a>3 ┃       ┃               ┃       ┃               ┃               ┃
@@ -4274,7 +4304,7 @@ O(10)
 </span><span id="__span-10-9"><a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a>4 ┃       ┃               ┃       ┃               ┃               ┃
 </span><span id="__span-10-10"><a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a>──┃       ┃               ┃       ┃               ┃               ┃
 </span><span id="__span-10-11"><a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a>5 ┃       ┃               ┃       ┃               ┃      &lt;--o     ┃
-</span><span id="__span-10-12"><a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a>──┃       ┣━━━━━━━   ━━━━━┫       ┃               ┃     P5&thinsp;: Robot ┃
+</span><span id="__span-10-12"><a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a>──┃       ┣━━━━━━━   ━━━━━┫       ┃               ┃     P5: Robot ┃
 </span><span id="__span-10-13"><a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a>6 ┃       ┃               ┃       ┃               ┃               ┃
 </span><span id="__span-10-14"><a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a>──┃       ┃               ┃       ┃               ┃               ┃
 </span><span id="__span-10-15"><a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a>7 ┃                       ┃       ┃               ┃               ┃
@@ -4311,7 +4341,7 @@ O(10)
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2024</span>
   </span>
 
     
@@ -4530,6 +4560,8 @@ O(10)
         <script src="../../../js/feedback.js"></script>
       
         <script src="../../../js/mathjax.js"></script>
+      
+        <script src="../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

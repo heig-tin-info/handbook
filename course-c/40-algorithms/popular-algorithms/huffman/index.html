@@ -4039,19 +4039,19 @@
 </tbody>
 </table>
 <p>Chaque élément est un noeuf qui est placé dans une file de priorité (<em>min-heap</em>) où la priorité est la fréquence du caractère. Voici le pseudo code du tas minimum&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>Min-Heap&thinsp;: [(1, 'C'), (1, 'D'), (2, 'B'), (2, 'R'), (5, 'A')]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>Min-Heap : [(1, 'C'), (1, 'D'), (2, 'B'), (2, 'R'), (5, 'A')]
 </span></code></pre></div>
 <h3 id="fusion">Fusion<a class="headerlink" href="#fusion" title="Permanent link">¶</a></h3>
 <p>On va fusionner les deux noeuds de plus faible fréquence, c'est facile parce qu'un <em>min-heap</em> nous permet de récupérer les deux éléments de plus faible fréquence en temps constant. Après fusion, on obtient une chaîne de caractère qui représente les deux noeuds fusionnés. On ajoute ce nouveau noeud à la file de priorité en prenant en compte la fréquence totale des deux noeuds fusionnés.</p>
 <p>Notons que qu'en cas de priorité égale, on peut choisir arbitrairement l'ordre des noeuds.</p>
 <p>Les noeuds <code>C</code> et <code>D</code> sont les deux noeuds de plus faible fréquence. On les fusionne pour obtenir <code>CD</code> qui a une priorité de <code>2</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>Min-Heap&thinsp;: [(2, 'CD'), (2, 'B'), (2, 'R'), (5, 'A')]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>Min-Heap : [(2, 'CD'), (2, 'B'), (2, 'R'), (5, 'A')]
 </span></code></pre></div>
 <pre class="mermaid"><code>graph TD
 CD("CD (2)") --&gt; C("C (1)")
 CD --&gt; D("D (1)")</code></pre>
 <p>Il nous reste des noeuuds à fusionner. On fusionne les noeuds <code>CD</code> et <code>B</code> pour obtenir <code>CDB</code> qui a une priorité de <code>4</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>Min-Heap&thinsp;: [(2, 'R'), (4, 'CDB'), (5, 'A')]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>Min-Heap : [(2, 'R'), (4, 'CDB'), (5, 'A')]
 </span></code></pre></div>
 <pre class="mermaid"><code>graph TD
     CDB("CDB (4)") --&gt; CD("CD (2)")
@@ -4059,7 +4059,7 @@ CD --&gt; D("D (1)")</code></pre>
     CD --&gt; C("C (1)")
     CD --&gt; D("D (1)")</code></pre>
 <p>On continue car il nous reste des noeuds à fusionner. On fusionne les noeuds <code>CDB</code> et <code>R</code> pour obtenir <code>CDBR</code> qui a une priorité de <code>6</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>Min-Heap&thinsp;: [(5, 'A'), (6, 'RCDB')]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>Min-Heap : [(5, 'A'), (6, 'RCDB')]
 </span></code></pre></div>
 <pre class="mermaid"><code>graph TD
     RCDB("RCDB (6)") --&gt; R("R (2)")
@@ -4069,7 +4069,7 @@ CD --&gt; D("D (1)")</code></pre>
     CD --&gt; C("C (1)")
     CD --&gt; D("D (1)")</code></pre>
 <p>Enfin, on fusionne les noeuds <code>RCDB</code> et <code>A</code> pour obtenir <code>ACDBR</code> qui a une priorité de <code>11</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>Min-Heap&thinsp;: [(11, 'ARCDB')]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>Min-Heap : [(11, 'ARCDB')]
 </span></code></pre></div>
 <pre class="mermaid"><code>graph TD
     ARCDB("ARCDB (11)") --&gt; A("A (5)")
@@ -4363,6 +4363,8 @@ CD --&gt; D("D (1)")</code></pre>
         <script src="../../../../js/feedback.js"></script>
       
         <script src="../../../../js/mathjax.js"></script>
+      
+        <script src="../../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

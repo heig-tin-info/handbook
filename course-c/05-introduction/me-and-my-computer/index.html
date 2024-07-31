@@ -3970,12 +3970,44 @@
 <p>C'est votre système d'exploitation et peu importe lequel vous avez, la bonne nouvelle c'est que vous pourrez écrire vos premiers programmes avec n'importe lequel de ces systèmes d'exploitation.</p>
 <h2 id="editeur-de-code-source">Éditeur de code source<a class="headerlink" href="#editeur-de-code-source" title="Permanent link">¶</a></h2>
 <p>Pour écrire un programme, vous aurez besoin d'un <em>éditeur de code</em>, c'est un programme qui vous permet d'écrire du texte et de le sauvegarder dans un fichier. Il en existe des centaines&thinsp;!</p>
-<p>Si vous prenez une Doloréane munie d'un convecteur temporel, et que vous dépassez les 88 miles à l'heure, vous vous rendre en 1973 et vous pourrez utiliser un éditeur de code qui s'appelle <code>ed</code>.</p>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/ed.jpg"><img alt="ED" src="../../../assets/images/ed.jpg"/></a><figcaption> ED</figcaption></figure></p>
+<p>Si vous prenez une Doloréane munie d'un convecteur temporel, et que vous dépassez les 88 miles à l'heure, avec une énergie de 2.21 Gigot-Watt vous pouvez vous rendre en 1973 et utiliser un éditeur de code qui s'appelle <code>ed</code>.</p>
 <p>C'est un éditeur qui a été écrit à l'époque des <a class="autorefs autorefs-internal" href="../programming/#lordinateur-dantan">télétypes</a> et qui, curieusement, est encore intégré au standard <abbr title="Portable Operating System Interface">POSIX</abbr>. Il est par conséquent toujours disponible sur nos systèmes d'exploitation modernes. Il faut noter qu'à cette époque il n'y avait pas d'écran, et que l'on utilisait des imprimantes pour afficher le texte. L'éditeur n'est donc pas très interactif, mais il a le mérite d'exister.</p>
+<p>C'est un des premier éditeur modale, son utilisation est assez déroutante car il n'y a pas de retour visuel immédiat. Il faut taper des commandes pour écrire du texte, pour sauvegarder, pour quitter, etc. Voici l'exemple pour éditer <code>hello.c</code> :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>$ ed
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>a
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>void main() {
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    printf("hello, world");
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>}
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>.
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>1
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>void main() {
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>s/void/int/
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>1i
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>#include &lt;stdio.h&gt;
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>.
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>w hello.c
+</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>62
+</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>q
+</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>$
+</span></code></pre></div>
+<p>Dans les étapes ci-dessus, nous avons&thinsp;:</p>
+<ol>
+<li>lancé l'éditeur <code>ed</code></li>
+<li><code>a</code> pour passer en mode édition</li>
+<li>écrit le code</li>
+<li><code>.</code> pour revenir en mode commande</li>
+<li><code>1</code> pour afficher la première ligne (qui comporte une erreur)</li>
+<li><code>s/void/int/</code> pour remplacer <code>void</code> par <code>int</code></li>
+<li><code>1i</code> pour insérer une ligne avant la première ligne</li>
+<li>écrit <code>#include &lt;stdio.h&gt;</code> que l'on a oublié</li>
+<li><code>.</code> pour revenir en mode commande</li>
+<li><code>w hello.c</code> pour sauvegarder le fichier</li>
+</ol>
+<p>Ce programme est écrit en C, donc le plus amusant c'est que vous pouvez le compiler, le modifier et même ajouter des fonctionnalités. On trouve bien entendu le code source sur <a href="https://raw.githubusercontent.com/yves-chevallier/ed/master/main_loop.c">GitHub</a>.</p>
+<p>Trève de plaisanteries, continuons un peu notre voyage spatio-temporel...</p>
 <p>En 1991 naît un éditeur de code qui va révolutionner le monde de la programmation, il s'appelle <code>vim</code>. C'est un éditeur de code qui est très puissant, mais qui a une courbe d'apprentissage assez velue. Il est toujours très utilisé de nos jours, et il est disponible sur tous les systèmes d'exploitation. Vous seriez surpris de voir le nombre de programmeurs qui l'utilisent encore. C'est un éditeur modal, c'est-à-dire qu'il a plusieurs modes, un mode pour écrire du texte, un mode pour éditer du texte, un mode pour naviguer dans le texte, etc.</p>
 <p>Puisque nous nommons Vim, nous devons aussi nommer Emacs. Le rival de Vim. Emacs est un éditeur de code qui est aussi très puissant. Il est aussi très utilisé de nos jours, et il est disponible sur tous les systèmes d'exploitation.</p>
-<p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/vim-vs-emacs.png"><img alt="Guerre d'éditeurs" src="../../../assets/images/vim-vs-emacs.png"/></a><figcaption> Guerre d'éditeurs</figcaption></figure></p>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/vim-vs-emacs.png"><img alt="Guerre d'éditeurs" src="../../../assets/images/vim-vs-emacs.png"/></a><figcaption> Guerre d'éditeurs</figcaption></figure></p>
 <p>Nous ferons l'impasse sur d'autres éditeurs qui ont été populaires en leurs temps, mais qui sont technologiquement dépassés&thinsp;: TextPad, UltraEdit, Sublime Text, Atom, NotePad++... Le grand gagnant de ces dernières années est Visual Studio Code, un éditeur de code qui est très puissant, qui est très utilisé de nos jours, et qui est disponible sur tous les systèmes d'exploitation.</p>
 <p>Le résultat de l'étude annuelle 2023 de <a href="https://survey.stackoverflow.co/2023/#overview">Stackoverflow</a> donne une idée de la popularité des éditeurs et IDE les plus utilisés par les développeurs&thinsp;:</p>
 <pre class="mermaid"><code>pie
@@ -4016,7 +4048,7 @@
 <dt>Expressions régulières (<em>regular expressions</em>)</dt>
 <dd>
 <p>L'éditeur de code vous permet de rechercher ou remplacer des éléments en utilisant des expressions régulières. Par exemple si vous voulez inverser l'ordre des mots écrits <code>M. Yves Chevallier</code> par <code>M. Chevallier Yves</code>, vous pouvez utiliser l'expression régulière&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>/(M.|Mme.)\s+([^ ]+)\s+([^ ]+)/\1 \3 \2/
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>/(M.|Mme.)\s+([^ ]+)\s+([^ ]+)/\1 \3 \2/
 </span></code></pre></div>
 </dd>
 <dt>Multicurseurs (<em>multi-cursor</em>)</dt>
@@ -4069,7 +4101,7 @@
 </ul>
 <p>Un autre composant essentiel de l'environnement de développement est le <strong>compilateur</strong>. Il s'agit généralement d'un ensemble de programmes qui permettent de convertir le <strong>code</strong> écrit en un programme exécutable. Ce programme peut-être par la suite intégré dans un <em>smartphone</em>, dans un système embarqué sur un satellite, sur des cartes de prototypage comme un Raspberry PI, ou encore sur un ordinateur personnel.</p>
 <p>L'ensemble des outils nécessaire à créer un produit logiciel est appelé chaîne de compilation, plus communément appelée <a href="https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_compilation">toolchain</a>.</p>
-<p><figure id="_figure-3"><img alt="Représentation graphique des notions de compilateur, IDE, toolchain..." class="drawio-diagram" src="../../../assets/images/toolchain.drawio"/><figcaption> Représentation graphique des notions de compilateur, IDE, toolchain...</figcaption></figure></p>
+<p><figure id="_figure-2"><img alt="Représentation graphique des notions de compilateur, IDE, toolchain..." class="drawio-diagram" src="../../../assets/images/toolchain.drawio"/><figcaption> Représentation graphique des notions de compilateur, IDE, toolchain...</figcaption></figure></p>
 <div class="admonition exercise">
 <p class="admonition-title">Eclipse</p>
 <p>Un ami vous parle d'un outil utilisé pour le développement logiciel nommé <strong>Eclipse</strong>. De quel type d'outil s'agit-il&thinsp;?</p>
@@ -4109,7 +4141,7 @@
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2024</span>
   </span>
 
     
@@ -4328,6 +4360,8 @@
         <script src="../../../js/feedback.js"></script>
       
         <script src="../../../js/mathjax.js"></script>
+      
+        <script src="../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

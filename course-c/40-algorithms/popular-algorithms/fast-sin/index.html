@@ -3840,9 +3840,9 @@
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cm">/**</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cm">* A 5-order polynomial approximation to sin(x).</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="cm">* @param i   angle (with 2^15 units/circle)</span>
-</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="cm">* @return    16 bit fixed point Sine value (4.12) (ie&thinsp;: +4096 = +1 &amp; -4096 = -1)</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="cm">* @return    16 bit fixed point Sine value (4.12) (ie: +4096 = +1 &amp; -4096 = -1)</span>
 </span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="cm">*</span>
-</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="cm">* The result is accurate to within +- 1 count. ie&thinsp;: +/-2.44e-4.</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="cm">* The result is accurate to within +- 1 count. ie: +/-2.44e-4.</span>
 </span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="cm">*/</span>
 </span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="kt">int16_t</span><span class="w"> </span><span class="nf">fpsin</span><span class="p">(</span><span class="kt">int16_t</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
 </span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="p">{</span>
@@ -3856,10 +3856,10 @@
 </span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>
 </span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="cm">/**</span>
-</span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="cm">        * The following section implements the formula&thinsp;:</span>
+</span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="cm">        * The following section implements the formula:</span>
 </span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="cm">        *  = y * 2^-n * ( A1 - 2^(q-p)* y * 2^-n * y * 2^-n *</span>
 </span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="cm">        *  [B1 - 2^-r * y * 2^-n * C1 * y]) * 2^(a-q)</span>
-</span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="cm">        * Where the constants are defined as follows&thinsp;:</span>
+</span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="cm">        * Where the constants are defined as follows:</span>
 </span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="cm">        */</span>
 </span><span id="__span-0-25"><a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="n">A1</span><span class="o">=</span><span class="mi">3370945099UL</span><span class="p">,</span><span class="w"> </span><span class="n">B1</span><span class="o">=</span><span class="mi">2746362156UL</span><span class="p">,</span><span class="w"> </span><span class="n">C1</span><span class="o">=</span><span class="mi">292421UL</span><span class="p">};</span>
 </span><span id="__span-0-26"><a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="n">n</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="mi">12</span><span class="p">};</span>
@@ -4117,6 +4117,8 @@
         <script src="../../../../js/feedback.js"></script>
       
         <script src="../../../../js/mathjax.js"></script>
+      
+        <script src="../../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -4043,7 +4043,7 @@
 </span><span id="__span-1-23"><a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Évidemment, on ne souhaite pas qu'un petit malin compromette ce compteur en écrivant maladroitement&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">foo</span><span class="o">-&gt;</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">// Hacked this&thinsp;!</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">foo</span><span class="o">-&gt;</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">// Hacked this !</span>
 </span></code></pre></div>
 <p>Pour s'en protéger, on a recours à la compilation séparée (voir chapitre sur la compilation séparée [TranslationUnits]) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <code>foobar.h</code> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#pragma once</span>
@@ -4096,7 +4096,7 @@
 <p>Un tableau dynamique est représenté en mémoire comme un contenu séquentiel qui possède un début et une fin. On appelle son début la <strong>tête</strong> ou <em>head</em> et la fin du tableau, sa <strong>queue</strong> ou <em>tail</em>. Selon que l'on souhaite ajouter des éléments au début ou à la fin du tableau, la complexité n'est pas la même.</p>
 <p>Nous définirons par la suite le vocabulaire suivant&thinsp;:</p>
 <table id="_table-1">
-<caption style="caption-side:bottom"> Vocabulaire des actions sur un tableau dynamique</caption><thead>
+<caption style="caption-side:top"> Vocabulaire des actions sur un tableau dynamique</caption><thead>
 <tr>
 <th>Action</th>
 <th>Terme technique</th>
@@ -4284,7 +4284,7 @@
 <p>Les listes chaînées réduisent la complexité liée à la manipulation d'éléments dans une liste. L'empreinte mémoire d'une liste chaînée est plus grande qu'avec un tableau, car à chaque élément de donnée est associé un pointeur vers l'élément suivant ou précédent.</p>
 <p>Ce surcoût est souvent part du compromis entre la complexité d'exécution du code et la mémoire utilisée par ce programme.</p>
 <table id="_table-2">
-<caption style="caption-side:bottom"> Coût des opérations dans des structures de données récursives</caption><thead>
+<caption style="caption-side:top"> Coût des opérations dans des structures de données récursives</caption><thead>
 <tr>
 <th>Structure de donnée</th>
 <th>Pire cas</th>
@@ -4582,7 +4582,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span></code></pre></div>
 <p>Le tableau suivant résume les performances obtenues pour les différentes structures de données que nous avons vues dans ce chapitre&thinsp;:</p>
 <table id="_table-3">
-<caption style="caption-side:bottom"> Comparaison des performances des structures récursives</caption><thead>
+<caption style="caption-side:top"> Comparaison des performances des structures récursives</caption><thead>
 <tr>
 <th>Action</th>
 <th>Tableau</th>
@@ -4892,6 +4892,8 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
         <script src="../../../js/feedback.js"></script>
       
         <script src="../../../js/mathjax.js"></script>
+      
+        <script src="../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

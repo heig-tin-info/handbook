@@ -4264,7 +4264,7 @@
 <p>Outre ces caractères, la séparation des symboles est assurée par <a href="https://fr.wikipedia.org/wiki/Espace_(typographie)">une espace</a>, une tabulation horizontale, une tabulation verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le <a href="https://fr.wikipedia.org/wiki/Pied-de-mouche">pied-de-mouche</a> <code>¶</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/00B6" target="_blank">00B6</a> pour indiquer les fins de paragraphes qui sont également des caractères non imprimables.</p>
 <p>On nomme les caractères non imprimables soit par leur acronyme <code>LF</code> pour <em>Line Feed</em> ou soit par leur convention C échappée par un <em>backslash</em> <code>\n</code>:</p>
 <table id="_table-1">
-<caption style="caption-side:bottom"> Caractères non imprimables</caption><thead>
+<caption style="caption-side:top"> Caractères non imprimables</caption><thead>
 <tr>
 <th>Acronyme</th>
 <th>Échappé</th>
@@ -4655,7 +4655,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 </ul>
 <p>Selon les standards adoptés, chaque société on trouve ceux qui préfèrent nommer les variables en utilisant un <em>underscore</em> (<code>_</code>) comme séparateur et ceux qui préfèrent nommer une variable en utilisant des majuscules comme séparateurs de mots.</p>
 <table id="_table-2">
-<caption style="caption-side:bottom"> Conventions de nommage</caption><thead>
+<caption style="caption-side:top"> Conventions de nommage</caption><thead>
 <tr>
 <th>Convention</th>
 <th>Nom français</th>
@@ -4945,9 +4945,9 @@ nécessairement un bon programme.</p>
 </ol>
 <p>Si d'aventure vous souhaitez quand même exclure temporairement du code de la compilation, il est recommandé d'utiliser la directive de préprocesseur suivante, et n'oubliez pas d'expliquer pourquoi vous avez souhaité
 désactiver cette portion de code.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cp">#if 0</span><span class="c"> // TODO&thinsp;: Check if divisor could still be null at this point.</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cp">#if 0</span><span class="c"> // TODO: Check if divisor could still be null at this point.</span>
 </span><span id="__span-27-2"><a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="c">if (divisor == 0) {</span>
-</span><span id="__span-27-3"><a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="c">    return -1&thinsp;; // Error</span>
+</span><span id="__span-27-3"><a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="c">    return -1; // Error</span>
 </span><span id="__span-27-4"><a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="c">}</span>
 </span><span id="__span-27-5"><a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="cp">#endif</span>
 </span></code></pre></div>
@@ -4973,8 +4973,8 @@ désactiver cette portion de code.</p>
 </span><span id="__span-28-7"><a href="#__codelineno-28-7" id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="cm"> *</span>
 </span><span id="__span-28-8"><a href="#__codelineno-28-8" id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="cm"> * Long description of the translation unit.</span>
 </span><span id="__span-28-9"><a href="#__codelineno-28-9" id="__codelineno-28-9" name="__codelineno-28-9"></a><span class="cm"> *</span>
-</span><span id="__span-28-10"><a href="#__codelineno-28-10" id="__codelineno-28-10" name="__codelineno-28-10"></a><span class="cm"> * NOTE&thinsp;: Important notes about this code</span>
-</span><span id="__span-28-11"><a href="#__codelineno-28-11" id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="cm"> * TODO&thinsp;: Things to fix...</span>
+</span><span id="__span-28-10"><a href="#__codelineno-28-10" id="__codelineno-28-10" name="__codelineno-28-10"></a><span class="cm"> * NOTE: Important notes about this code</span>
+</span><span id="__span-28-11"><a href="#__codelineno-28-11" id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="cm"> * TODO: Things to fix...</span>
 </span><span id="__span-28-12"><a href="#__codelineno-28-12" id="__codelineno-28-12" name="__codelineno-28-12"></a><span class="cm"> */</span>
 </span></code></pre></div>
 <p>Voici un exemple de ce qu'il ne faut pas faire&thinsp;:</p>
@@ -4992,7 +4992,7 @@ désactiver cette portion de code.</p>
 </span><span id="__span-29-9"><a href="#__codelineno-29-9" id="__codelineno-29-9" name="__codelineno-29-9"></a><span class="cm">                                 /   _.  |    ;</span>
 </span><span id="__span-29-10"><a href="#__codelineno-29-10" id="__codelineno-29-10" name="__codelineno-29-10"></a><span class="cm">                                ;-.-'|    \   |</span>
 </span><span id="__span-29-11"><a href="#__codelineno-29-11" id="__codelineno-29-11" name="__codelineno-29-11"></a><span class="cm">                               /   | \    _\  _\</span>
-</span><span id="__span-29-12"><a href="#__codelineno-29-12" id="__codelineno-29-12" name="__codelineno-29-12"></a><span class="cm">                               \__/'._&thinsp;;.  ==' ==\</span>
+</span><span id="__span-29-12"><a href="#__codelineno-29-12" id="__codelineno-29-12" name="__codelineno-29-12"></a><span class="cm">                               \__/'._;.  ==' ==\</span>
 </span><span id="__span-29-13"><a href="#__codelineno-29-13" id="__codelineno-29-13" name="__codelineno-29-13"></a><span class="cm">                                        \    \   |</span>
 </span><span id="__span-29-14"><a href="#__codelineno-29-14" id="__codelineno-29-14" name="__codelineno-29-14"></a><span class="cm">                                 jgs    /    /   /</span>
 </span><span id="__span-29-15"><a href="#__codelineno-29-15" id="__codelineno-29-15" name="__codelineno-29-15"></a><span class="cm">                                        /-._/-._/</span>
@@ -5066,7 +5066,7 @@ désactiver cette portion de code.</p>
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2024</span>
   </span>
 
     
@@ -5285,6 +5285,8 @@ désactiver cette portion de code.</p>
         <script src="../../../js/feedback.js"></script>
       
         <script src="../../../js/mathjax.js"></script>
+      
+        <script src="../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

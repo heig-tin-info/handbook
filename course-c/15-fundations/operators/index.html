@@ -4390,7 +4390,7 @@
 <h3 id="operateurs-arithmetiques">Opérateurs arithmétiques<a class="headerlink" href="#operateurs-arithmetiques" title="Permanent link">¶</a></h3>
 <p>Aux 4 opérations de base (+, -, ×, ÷) le C ajoute l'opération <a href="https://fr.wikipedia.org/wiki/Modulo_(op%C3%A9ration)">modulo</a>, qui est le reste d'une division entière.</p>
 <table id="_table-1">
-<caption style="caption-side:bottom"> Opérateurs arithmétiques</caption><thead>
+<caption style="caption-side:top"> Opérateurs arithmétiques</caption><thead>
 <tr>
 <th>Opérateur</th>
 <th>Abréviation</th>
@@ -4475,7 +4475,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <p>En algèbre de Boole, l'addition de deux chiffres n'a que <span class="arithmatex">\(2^2 = 4\)</span> cas de figure (contre <span class="arithmatex">\(10^2=100\)</span> en base <span class="arithmatex">\(10\)</span>).</p>
 <p>L'addition de deux bits <span class="arithmatex">\(A\)</span> et <span class="arithmatex">\(B\)</span> est donnée par la table suivante où <code>C</code> est la retenue engendrée par l'addition&thinsp;:</p>
 <table id="_table-2">
-<caption style="caption-side:bottom"> Addition binaire</caption><thead>
+<caption style="caption-side:top"> Addition binaire</caption><thead>
 <tr class="ycr-bottom-border">
 <th style="text-align: center;">A</th>
 <th class="ycr-right-border" style="text-align: center;">B  </th>
@@ -4582,7 +4582,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <p>Rappelons qu'en C et dans la plupart des langages de programmation, une valeur vraie est représentée par <code>1</code> et une valeur fausse par <code>0</code>.</p>
 <p>Les opérateurs relationnels sont les suivants&thinsp;:</p>
 <table id="_table-3">
-<caption style="caption-side:bottom"> Opérateurs relationnels</caption><thead>
+<caption style="caption-side:top"> Opérateurs relationnels</caption><thead>
 <tr>
 <th>Opérateur</th>
 <th>Abréviation</th>
@@ -4667,23 +4667,23 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </span><span id="__span-14-5"><a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">u1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="n">u2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span>
 </span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">u1</span><span class="p">;</span>
 </span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">u2</span><span class="p">;</span>
-</span><span id="__span-14-8"><a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hex value of 0.3&thinsp;:</span><span class="se">\t\t</span><span class="s">0x%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">);</span>
-</span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hex value of 0.3&thinsp;:</span><span class="se">\t\t</span><span class="s">0x%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i2</span><span class="p">);</span>
+</span><span id="__span-14-8"><a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hex value of 0.3:</span><span class="se">\t\t</span><span class="s">0x%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">);</span>
+</span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hex value of 0.3:</span><span class="se">\t\t</span><span class="s">0x%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i2</span><span class="p">);</span>
 </span><span id="__span-14-10"><a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a>
-</span><span id="__span-14-11"><a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Float value of 0.3&thinsp;:</span><span class="se">\t\t</span><span class="s">%.20f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">u1</span><span class="p">);</span>
-</span><span id="__span-14-12"><a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Float value of 0.1 + 0.2&thinsp;:</span><span class="se">\t</span><span class="s">%.20f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">u2</span><span class="p">);</span>
+</span><span id="__span-14-11"><a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Float value of 0.3:</span><span class="se">\t\t</span><span class="s">%.20f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">u1</span><span class="p">);</span>
+</span><span id="__span-14-12"><a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Float value of 0.1 + 0.2:</span><span class="se">\t</span><span class="s">%.20f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">u2</span><span class="p">);</span>
 </span><span id="__span-14-13"><a href="#__codelineno-14-13" id="__codelineno-14-13" name="__codelineno-14-13"></a>
-</span><span id="__span-14-14"><a href="#__codelineno-14-14" id="__codelineno-14-14" name="__codelineno-14-14"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"0.1 + 0.2 == 0.3&thinsp;: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">u1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">u2</span><span class="p">);</span>
-</span><span id="__span-14-15"><a href="#__codelineno-14-15" id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"0.1 + 0.2 == 0.3&thinsp;: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">fabs</span><span class="p">(</span><span class="n">u1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">u2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">DBL_EPSILON</span><span class="w"> </span><span class="p">);</span>
+</span><span id="__span-14-14"><a href="#__codelineno-14-14" id="__codelineno-14-14" name="__codelineno-14-14"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"0.1 + 0.2 == 0.3: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">u1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">u2</span><span class="p">);</span>
+</span><span id="__span-14-15"><a href="#__codelineno-14-15" id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"0.1 + 0.2 == 0.3: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">fabs</span><span class="p">(</span><span class="n">u1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">u2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">DBL_EPSILON</span><span class="w"> </span><span class="p">);</span>
 </span><span id="__span-14-16"><a href="#__codelineno-14-16" id="__codelineno-14-16" name="__codelineno-14-16"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Le résultat de ce programme est le suivant&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>Hex value of 0.3&thinsp;:               0x33333333
-</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>Hex value of 0.3&thinsp;:               0x33333334
-</span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>Float value of 0.3&thinsp;:             0.29999999999999998890
-</span><span id="__span-15-4"><a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>Float value of 0.1 + 0.2&thinsp;:       0.30000000000000004441
-</span><span id="__span-15-5"><a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>0.1 + 0.2 == 0.3&thinsp;: 0
-</span><span id="__span-15-6"><a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a>0.1 + 0.2 == 0.3&thinsp;: 1
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>Hex value of 0.3:               0x33333333
+</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>Hex value of 0.3:               0x33333334
+</span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>Float value of 0.3:             0.29999999999999998890
+</span><span id="__span-15-4"><a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>Float value of 0.1 + 0.2:       0.30000000000000004441
+</span><span id="__span-15-5"><a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>0.1 + 0.2 == 0.3: 0
+</span><span id="__span-15-6"><a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a>0.1 + 0.2 == 0.3: 1
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Confusion = et ==</p>
@@ -4721,7 +4721,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <h3 id="operateurs-bit-a-bit">Opérateurs bit à bit<a class="headerlink" href="#operateurs-bit-a-bit" title="Permanent link">¶</a></h3>
 <p>Les <strong>opérations bit à bit</strong> (<em>bitwise</em>) agissent sur chaque bit d'une valeur. Les disponibles en C sont les suivantes&thinsp;:</p>
 <table id="_table-4">
-<caption style="caption-side:bottom"> Opérateurs bit à bit</caption><thead>
+<caption style="caption-side:top"> Opérateurs bit à bit</caption><thead>
 <tr>
 <th>Opérateur</th>
 <th>Description</th>
@@ -4769,7 +4769,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <h4 id="conjonction">Conjonction<a class="headerlink" href="#conjonction" title="Permanent link">¶</a></h4>
 <p>La conjonction ou <strong>ET logique</strong> (<span class="arithmatex">\(\wedge\)</span>) est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.</p>
 <table id="_table-5">
-<caption style="caption-side:bottom"> Conjonction bit à bit</caption><thead>
+<caption style="caption-side:top"> Conjonction bit à bit</caption><thead>
 <tr class="ycr-bottom-border">
 <th class="ycr-right-border">\(A ∧ B\)  </th>
 <th><span class="arithmatex">\(A=0\)</span></th>
@@ -4796,13 +4796,13 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">balrog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b1100110101</span><span class="p">;</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">gandalf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>
-</span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">balrog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balrog</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">gandalf</span><span class="p">;</span><span class="w"> </span><span class="c1">// You shall not pass&thinsp;!</span>
+</span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">balrog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balrog</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">gandalf</span><span class="p">;</span><span class="w"> </span><span class="c1">// You shall not pass!</span>
 </span></code></pre></div>
 <p><a href="" id="operator-or"></a></p>
 <h4 id="disjonction">Disjonction<a class="headerlink" href="#disjonction" title="Permanent link">¶</a></h4>
 <p>La disjonction ou <strong>OU logique</strong> (<span class="arithmatex">\(\lor\)</span>) s'apparente à l'opération <code>+</code>.</p>
 <table id="_table-6">
-<caption style="caption-side:bottom"> Disjonction bit à bit</caption><thead>
+<caption style="caption-side:top"> Disjonction bit à bit</caption><thead>
 <tr>
 <th><span class="arithmatex">\(A ∨ B\)</span></th>
 <th><span class="arithmatex">\(A=0\)</span></th>
@@ -4823,7 +4823,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </tbody>
 </table>
 <p>Ici l'état dominant est le <code>1</code> car il force n'importe quel <code>0</code> à changer d'état&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// Veut pas faire ses devoirs&thinsp;?</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// Veut pas faire ses devoirs ?</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">teacher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 </span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>
 </span><span id="__span-21-4"><a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="n">student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">teacher</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tes devoirs tu feras...</span>
@@ -4833,7 +4833,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <p>Le <strong>OU exclusif</strong> (<span class="arithmatex">\(\oplus\)</span> ou <span class="arithmatex">\(\veebar\)</span>) est une opération curieuse, mais extrêmement puissante et utilisée massivement en cryptographie.</p>
 <p>En électronique sur les symboles CEI, l'opération logique est nommée, <code>=1</code> car si le résultat de l'addition des deux opérandes est différent de <code>1</code>, la sortie sera nulle. Lorsque <code>A</code> et <code>B</code> valent <code>1</code> la somme vaut <code>2</code> et donc la sortie est nulle.</p>
 <table id="_table-7">
-<caption style="caption-side:bottom"> Disjonction exclusive</caption><thead>
+<caption style="caption-side:top"> Disjonction exclusive</caption><thead>
 <tr>
 <th><span class="arithmatex">\(A \veebar B\)</span></th>
 <th><span class="arithmatex">\(A=0\)</span></th>
@@ -4885,7 +4885,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <h4 id="complement-a-un">Complément à un<a class="headerlink" href="#complement-a-un" title="Permanent link">¶</a></h4>
 <p>Le complément à un (<span class="arithmatex">\(\lnot\)</span>) est simplement la valeur qui permet d'inverser bit à bit une valeur&thinsp;:</p>
 <table id="_table-8">
-<caption style="caption-side:bottom"> Complément à un</caption><thead>
+<caption style="caption-side:top"> Complément à un</caption><thead>
 <tr>
 <th><span class="arithmatex">\(A\)</span></th>
 <th><span class="arithmatex">\(\lnot~A\)</span></th>
@@ -4961,7 +4961,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <h3 id="operations-logiques">Opérations logiques<a class="headerlink" href="#operations-logiques" title="Permanent link">¶</a></h3>
 <p>Les opérations logiques sont introduites par l'<a href="https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)">algèbre de Boole</a> et permettent de combiner plusieurs grandeurs binaires en utilisant des opérations. Les opérateurs logiques sont au nombre de deux et ne doivent pas être confondus avec leur petits frères <code>&amp;</code> et <code>|</code>.</p>
 <table id="_table-9">
-<caption style="caption-side:bottom"> Opérateurs arithmétiques</caption><thead>
+<caption style="caption-side:top"> Opérateurs arithmétiques</caption><thead>
 <tr>
 <th>Opérateur</th>
 <th>ISO646</th>
@@ -5004,7 +5004,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <h3 id="operateurs-daffectation">Opérateurs d'affectation<a class="headerlink" href="#operateurs-daffectation" title="Permanent link">¶</a></h3>
 <p>Les opérateurs d'affectation permettent d'assigner de nouvelles valeurs à une variable. En C il existe des sucres syntaxiques permettant de simplifier l'écriture lorsqu'une affectation est couplée à un autre opérateur.</p>
 <table id="_table-10">
-<caption style="caption-side:bottom"> Opérateurs d'affectation</caption><thead>
+<caption style="caption-side:top"> Opérateurs d'affectation</caption><thead>
 <tr>
 <th>Opérateur</th>
 <th>Description</th>
@@ -5100,7 +5100,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <h3 id="operateurs-dincrementation">Opérateurs d'incrémentation<a class="headerlink" href="#operateurs-dincrementation" title="Permanent link">¶</a></h3>
 <p>Les opérateurs d'incrémentation sont régulièrement un motif primaire d'arrachage de cheveux pour les étudiants. En effet, ces opérateurs sont très particuliers à ce sens qu'il se décomposent en deux étapes&thinsp;: l'affectation et l'obtention du résultat. Il existe 4 opérateurs d'incrémentation&thinsp;:</p>
 <table id="_table-11">
-<caption style="caption-side:bottom"> Opérateurs arithmétiques</caption><thead>
+<caption style="caption-side:top"> Opérateurs arithmétiques</caption><thead>
 <tr>
 <th>Opérateur</th>
 <th>Description</th>
@@ -5224,7 +5224,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <div class="language-c highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="p">()</span><span class="o">?</span><span class="p">()</span><span class="o">:</span><span class="p">()</span>
 </span></code></pre></div>
 <p>Cet opérateur permet sur une seule ligne d'évaluer une expression et de renvoyer une valeur ou une autre selon que l'expression est vraie ou fausse.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a>valeur = (condition&thinsp;? valeur si condition vraie&thinsp;: valeur si condition fausse);
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a>valeur = (condition ? valeur si condition vraie : valeur si condition fausse);
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -5326,7 +5326,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <p>Chacun connaît la priorité des quatre opérateurs de base (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>), mais le C et ses nombreux opérateurs sont bien plus complexes.</p>
 <p>La table suivante indique les règles à suivre pour les précédences des opérateurs en C.</p>
 <table class="ycr-flex-table" id="_table-12">
-<caption style="caption-side:bottom"> Priorité des opérateurs</caption><thead>
+<caption style="caption-side:top"> Priorité des opérateurs</caption><thead>
 <tr>
 <th>Priorité</th>
 <th>Opérateur</th>
@@ -5643,8 +5643,8 @@ D \cdot E + \overline{D} + \overline{E}
 <p>En forçant l'associativité à gauche, on essaie d'assigner <code>z</code> à une <em>lvalue</em> et le compilateur s'en plaint&thinsp;:</p>
 </li>
 </ol>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-68-1"><a href="#__codelineno-68-1" id="__codelineno-68-1" name="__codelineno-68-1"></a>4:8: error&thinsp;: lvalue required as left operand of assignment
-</span><span id="__span-68-2"><a href="#__codelineno-68-2" id="__codelineno-68-2" name="__codelineno-68-2"></a>  (x = y) = z&thinsp;;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-68-1"><a href="#__codelineno-68-1" id="__codelineno-68-1" name="__codelineno-68-1"></a>4:8: error: lvalue required as left operand of assignment
+</span><span id="__span-68-2"><a href="#__codelineno-68-2" id="__codelineno-68-2" name="__codelineno-68-2"></a>  (x = y) = z;
 </span><span id="__span-68-3"><a href="#__codelineno-68-3" id="__codelineno-68-3" name="__codelineno-68-3"></a>          ^
 </span></code></pre></div>
 <p>Voici quelques exemples de valeurs gauches&thinsp;:</p>
@@ -5669,7 +5669,7 @@ D \cdot E + \overline{D} + \overline{E}
 <h2 id="isoiec-646">ISO/IEC 646<a class="headerlink" href="#isoiec-646" title="Permanent link">¶</a></h2>
 <p>La bibliothèque standard <code>&lt;iso646.h&gt;</code> appartient à la norme C90 et définit des macros pour les opérateurs logiques. Ces macros sont les suivantes&thinsp;:</p>
 <table id="_table-13">
-<caption style="caption-side:bottom"> Macros de l'ISO/IEC 646</caption><thead>
+<caption style="caption-side:top"> Macros de l'ISO/IEC 646</caption><thead>
 <tr>
 <th style="text-align: center;">Opérateur</th>
 <th style="text-align: center;">Macro</th>
@@ -5846,7 +5846,7 @@ n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2024</span>
   </span>
 
     
@@ -6065,6 +6065,8 @@ n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0
         <script src="../../../js/feedback.js"></script>
       
         <script src="../../../js/mathjax.js"></script>
+      
+        <script src="../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -822,6 +822,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ordinateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ordinateur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#la-machine-de-turing" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4000,6 +4011,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ordinateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ordinateur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#la-machine-de-turing" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4204,7 +4226,7 @@
 <p>Souvent, les informaticiens et ingénieurs aiment utiliser des diagrammes pour synthétiser leurs idées. Le diagramme de flux est un outil de communication visuelle permettant de représenter des <strong>processus</strong>. Ici on observe des formes géométriques et des flèches. Les flèches indiquent le sens de lecture du processus. Les formes géométriques sont des boîtes de texte contenant des instructions. Les formes de début et de fin sont par convention des ovales. Les formes de traitement sont des rectangles et les formes de décision sont quant à elles des losanges. Une forme de décision contient une question et deux flèches de sortie, une pour chaque réponse possible. Généralement une flèche de sortie est étiquetée avec la réponse attendue. On le verra plus tard, mais un processus de traitement d'information dispose toujours d'une entrée et d'une sortie.</p>
 <p>Si l'on souhaite trouver le plus grand diviseur commun de 42 et 30, il suffit d'applique l'algorithme d'Euclide du <em>début</em> à la <em>fin</em> :</p>
 <table id="_table-1">
-<caption style="caption-side:bottom"> Exemple de calcul du PGCD entre 42 et 30</caption><thead>
+<caption style="caption-side:top"> Exemple de calcul du PGCD entre 42 et 30</caption><thead>
 <tr>
 <th>Étape</th>
 <th><span class="arithmatex">\(a\)</span></th>
@@ -4307,8 +4329,8 @@
 </table>
 <div class="admonition exercise">
 <p class="admonition-title">Algorithme d'Euclide</p>
-<p>Appliquer l'algorithme d'Euclide aux entrées suivantes. Que vaut <span class="arithmatex">\(a\)</span>
-, <span class="arithmatex">\(b\)</span> et <span class="arithmatex">\(r\)</span> ?</p>
+<p>Appliquer l'algorithme d'Euclide aux entrées <span class="arithmatex">\(a\)</span> et <span class="arithmatex">\(b\)</span> suivantes.</p>
+<p>Que vaut <span class="arithmatex">\(a, b\)</span> et <span class="arithmatex">\(r\)</span> à la fin de l'algorithme, et quel est le plus grand diviseur commun&thinsp;?</p>
 <div class="arithmatex">\[a = 1260, b = 630\]</div>
 </div>
 <h3 id="tri-a-bulles">Tri à bulles<a class="headerlink" href="#tri-a-bulles" title="Permanent link">¶</a></h3>
@@ -4324,13 +4346,10 @@
 <p>On peut compter le nombre de cycles assez facilement. Pour ce tableau de <span class="arithmatex">\(N = 5\)</span> valeurs, il y a <span class="arithmatex">\(5\)</span> cycles. Durant un cycle, il faut regarder <span class="arithmatex">\(N - 1\)</span> paires d'éléments. Donc pour un tableau de <span class="arithmatex">\(N\)</span> valeurs, il y a <span class="arithmatex">\(N^2 - N\)</span> comparaisons. Ce type d'algorithme est dit de complexité <span class="arithmatex">\(O(N^2)\)</span>. Cela signifie que le nombre d'opérations à effectuer est proportionnel au carré du nombre d'éléments à trier. Nous verrons plus tard que la complexité d'un algorithme est un critère important. Nous verrons comment le calculer.</p>
 <h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h3>
 <p>Les algorithmes, il y en a de toutes sortes, des plus simples aux plus complexes. Ils sont utilisés dans de nombreux domaines, de la cryptographie à la bio-informatique en passant par la finance et la robotique.</p>
-<div class="admonition tip">
-<p class="admonition-title">Astuce</p>
-<p>En tant que développeur vous devrez souvent écrire des algorithmes pour résoudre des problèmes. Souvent la meilleure approche est de prendre une feuille de papier, un crayon et de faire chauffer vos neurones. Il est crucial de bien comprendre le problème avant de se lancer dans l'écriture d'un algorithme. Les jeunes développeurs vont souvent au combat sans une reflexion préalable et passent leur temps à touiller leur code à la vaudoise. Prenez votre temps, réfléchissez, écrivez des exemples, faites des tests et vous verrez que la programmation deviendra un jeu d'enfant.</p>
-</div>
+<p>En tant que développeur vous devrez souvent écrire des algorithmes pour résoudre des problèmes. Souvent, la meilleure approche est de prendre une feuille de papier, un crayon et de faire chauffer vos neurones. Il est crucial de bien comprendre le problème avant de se lancer dans l'écriture d'un algorithme. Les jeunes développeurs vont souvent au combat sans une reflexion préalable et passent leur temps à <em>touiller</em> leur code à la <em>vaudoise</em>. Prenez votre temps, réfléchissez, imaginez des exemples, faites des tests et vous verrez que la programmation deviendra un jeu d'enfant.</p>
 <h2 id="programmation_1">Programmation<a class="headerlink" href="#programmation_1" title="Permanent link">¶</a></h2>
 <p>Parlons couture&thinsp;! La machine Jacquard est un <a href="https://fr.wikipedia.org/wiki/M%C3%A9tier_Jacquard">métier à tisser</a> mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.</p>
-<p><figure id="_figure-5"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/loom.jpg"><img alt="Mécanisme Jacquard au Musée des arts et métiers de Paris." src="../../../assets/images/loom.jpg" width="80%"/></a><figcaption> Mécanisme Jacquard au Musée des arts et métiers de Paris.</figcaption></figure></p>
+<p><figure id="_figure-5"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/loom.png"><img alt="Mécanisme Jacquard au Musée des arts et métiers de Paris." src="../../../assets/images/loom.png"/></a><figcaption> Mécanisme Jacquard au Musée des arts et métiers de Paris.</figcaption></figure></p>
 <p>Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes.</p>
 <div class="admonition info">
 <p class="admonition-title">La révolte des canuts</p>
@@ -4338,9 +4357,9 @@
 </div>
 <p>La <a href="https://fr.wikipedia.org/wiki/Programmation_informatique">programmation</a> définit toute activité menant à l'écriture de programmes. En informatique, un programme est un ensemble ordonné d'instructions codées avec un langage donné et décrivant les étapes menant à la solution d'un problème. Il s'agit le plus souvent d'une écriture formelle d'un algorithme par l'intermédiaire d'un langage de programmation.</p>
 <p>Les <em>informaticiens-tisserands</em> responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons par exemple un ouvrier spécialisé en <a href="https://fr.wikipedia.org/wiki/H%C3%A9raldique">héraldique</a> et devant créer des motifs complexes de blasons.</p>
-<p><figure id="_figure-6"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/armoiries.svg"><img alt="Armoiries des ducs de Mayenne" src="../../../assets/images/armoiries.svg" width="250px"/></a><figcaption> Armoiries des ducs de Mayenne</figcaption></figure></p>
+<p><figure id="_figure-6"><img alt="Armoiries des ducs de Mayenne" class="drawio-diagram" src="../../../assets/images/armoiries.drawio"/><figcaption> Armoiries des ducs de Mayenne</figcaption></figure></p>
 <p>Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qui le maîtrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de Mayenne (c.f. figure ci-dessous) aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>Écartelé, en 1 et 4&thinsp;:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>Écartelé, en 1 et 4 :
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    coupé et parti en 3,
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>        au premier fascé de gueules et d'argent,
 </span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>        au deuxième d'azur semé de lys d'or
@@ -4360,7 +4379,7 @@
 </span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>            et aux deux bar d'or.
 </span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>    Sur le tout d'or à la bande de gueules
 </span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>        chargé de trois alérions d'argent
-</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>    le tout brisé d'un lambel de gueules&thinsp;;
+</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>    le tout brisé d'un lambel de gueules ;
 </span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>        en 2 et 3 contre-écartelé en 1 et 4 d'azur,
 </span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>        à l'aigle d'argent, becquée,
 </span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>        languée et couronnée d'or et en 2 et 3 d'azur,
@@ -4413,10 +4432,10 @@
 <li>l'interface de saisie (<a href="https://fr.wikipedia.org/wiki/Pav%C3%A9_num%C3%A9rique">pavé numérique</a>);</li>
 <li>l'affichage du résultat (écran à cristaux liquides).</li>
 </ul>
-<p>Notons qu'à l'instar de notre diagramme de flux, un <a href="#calculateur">calculateur</a> dispose aussi d'une entrée, d'une sortie et d'états internes.</p>
-<details class="info">
-<summary>Origine du mot ordinateur</summary>
+<p>Notons qu'à l'instar de notre diagramme de flux, un calculateur dispose aussi d'une entrée, d'une sortie et d'états internes.</p>
+<h2 id="ordinateur">Ordinateur<a class="headerlink" href="#ordinateur" title="Permanent link">¶</a></h2>
 <p>Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques Perret à la demande d'IBM France (c.f <a href="http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html">2014&thinsp;: 100 ans d'IBM en France</a>). Voici la lettre de Jacques Perret à IBM France&thinsp;:</p>
+<blockquote>
 <p>« Le 16 IV 1955</p>
 <p>Cher Monsieur,</p>
 <p>Que diriez-vous d’<strong>ordinateur</strong>? C’est un mot correctement formé, qui se trouve même dans le <strong>Littré</strong> comme adjectif désignant <strong>Dieu</strong> qui met de l’ordre dans le monde. Un mot de ce genre a l’avantage de donner aisément un verbe <strong>ordiner</strong>, un nom d’action <strong>ordination</strong>. L’inconvénient est que ordination désigne une cérémonie religieuse&thinsp;; mais les deux champs de signification (religion et comptabilité) sont si éloignés et la cérémonie d’ordination connue, je crois, de si peu de personnes que l’inconvénient est peut-être mineur. D’ailleurs votre machine serait ordinateur (et non-ordination) et ce mot est tout à fait sorti de l’usage théologique. Systémateur serait un néologisme, mais qui ne me paraît pas offensant&thinsp;; il permet systématisé&thinsp;; — mais système ne me semble guère utilisable — Combinateur a l’inconvénient du sens péjoratif de combine&thinsp;; combiner est usuel donc peu capable de devenir technique&thinsp;; combination ne me paraît guère viable à cause de la proximité de combinaison. Mais les Allemands ont bien leurs combinats (sorte de trusts, je crois), si bien que le mot aurait peut-être des possibilités autres que celles qu’évoque combine.</p>
@@ -4425,7 +4444,7 @@
 <p>Il me semble que je pencherais pour <strong>ordonnatrice électronique</strong>. Je souhaite que ces suggestions stimulent, orientent vos propres facultés d’invention. N’hésitez pas à me donner un coup de téléphone si vous avez une idée qui vous paraisse requérir l’avis d’un philologue.</p>
 <p>Vôtre</p>
 <p>Jacques Perret »</p>
-</details>
+</blockquote>
 <h2 id="la-machine-de-turing">La machine de Turing<a class="headerlink" href="#la-machine-de-turing" title="Permanent link">¶</a></h2>
 <p>Comment pourrait-on introduire les notions d'ordinateur, de programmes et d'algorithmes sans évoquer la machine de Turing&thinsp;? Alan Turing est un mathématicien britannique qui a joué un rôle majeur dans la création de l'informatique. Il est notamment connu pour avoir cassé le code de la machine Enigma utilisée par les forces allemandes pendant la Seconde Guerre mondiale.</p>
 <p>La machine de Turing est un modèle théorique d'un ordinateur. Elle est composée d'une bande infinie divisée en cases, d'une tête de lecture/écriture et d'un ensemble fini d'états. La machine de Turing est capable de lire et d'écrire des symboles sur la bande, de se déplacer à gauche ou à droite et de changer d'état. Elle est capable de simuler n'importe quel algorithme. La machine de Turing est un modèle abstrait qui a permis de définir la notion de calculabilité et de démontrer des résultats fondamentaux en informatique théorique.</p>
@@ -4439,7 +4458,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Pseudo code</label><label for="__tabbed_1_2">Langage formel de Turing</label><label for="__tabbed_1_3">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>début&thinsp;:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>début:
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>    lire symbole
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    si symbole = 0 ou 1 alors
 </span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>        avancer à droite
@@ -4447,7 +4466,7 @@
 </span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>    sinon si symbole = vide alors
 </span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>        se déplacer à gauche
 </span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>        aller retenue
-</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>retenue&thinsp;:
+</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>retenue:
 </span><span id="__span-2-10"><a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>    lire symbole
 </span><span id="__span-2-11"><a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>    si symbole = 1 alors
 </span><span id="__span-2-12"><a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>        écrire 0
@@ -4459,15 +4478,15 @@
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>input&thinsp;: '101'
-</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>table&thinsp;:
-</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>  right&thinsp;:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>input: '101'
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>table:
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>  right:
 </span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>    [1,0]: R
-</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>    ' '  : {L&thinsp;: carry}
-</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>  carry&thinsp;:
-</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>    1      : {write&thinsp;: 0, L}
-</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>    [0,' ']: {write&thinsp;: 1, L&thinsp;: done}
-</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>done&thinsp;:
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>    ' '  : {L: carry}
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>  carry:
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>    1      : {write: 0, L}
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>    [0,' ']: {write: 1, L: done}
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>done:
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4536,16 +4555,16 @@
 </span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Néanmoins, il est important de comprendre que ce programme est traduit en langage machine par un programme appelé compilateur. Une étape intermédiaire est la traduction du programme en langage assembleur. Le langage assembleur est un langage de plus bas niveau qui permet de contrôler directement le processeur. Ce sont les instructions primitives du processeur. Le programme ci-dessus sera converti en assembleur X86 comme suit&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>.LC0&thinsp;:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>.LC0:
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>  .string "%d"
-</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>main&thinsp;:
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>main:
 </span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>  sub     rsp, 24
-</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>  mov     edi, OFFSET FLAT&thinsp;:.LC0
+</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>  mov     edi, OFFSET FLAT:.LC0
 </span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>  xor     eax, eax
 </span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>  lea     rsi, [rsp+12]
 </span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>  call    scanf
 </span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>  mov     eax, DWORD PTR [rsp+12]
-</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>  mov     edi, OFFSET FLAT&thinsp;:.LC0
+</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>  mov     edi, OFFSET FLAT:.LC0
 </span><span id="__span-6-11"><a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a>  lea     esi, [rax+1]
 </span><span id="__span-6-12"><a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a>  xor     eax, eax
 </span><span id="__span-6-13"><a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a>  call    printf
@@ -4708,7 +4727,7 @@
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2024</span>
   </span>
 
     
@@ -4927,6 +4946,8 @@
         <script src="../../../js/feedback.js"></script>
       
         <script src="../../../js/mathjax.js"></script>
+      
+        <script src="../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
