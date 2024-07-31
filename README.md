@@ -39,6 +39,7 @@ poetry run mkdocs serve
 ## To-Do
 
 - [ ] LaTeX
+  - [ ] Do not use adjustbox on small tables
   - [ ] Code with title doesn't display well in LaTeX
   - [ ] Image with width should be included with the correct size
   - [ ] Implement local links to code, copy them in appencies
