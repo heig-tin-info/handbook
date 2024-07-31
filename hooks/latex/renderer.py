@@ -221,7 +221,7 @@ class LaTeXRenderer:
             text = el.get_text()
             text = escape_latex_chars(text)
 
-            #text = self.monkeypatch_hyphenation(text)
+            text = self.monkeypatch_hyphenation(text)
 
             el.replace_with(text)
         return soup
@@ -256,9 +256,9 @@ class LaTeXRenderer:
         """Extract code from a <code> object."""
 
         def find_safe_delimiter(text):
-            delimiters = ['|', '@', '?', '~']
+            delimiters = ['|', '@', '?', '~', '*', '£', '§']
             for delimiter in delimiters:
-                if text.count(delimiter) % 2 == 0:
+                if delimiter not in text:
                     return delimiter
             raise ValueError("No safe delimiter found")
 
@@ -273,7 +273,7 @@ class LaTeXRenderer:
                 code = self.get_safe_text(el)
             language = self.get_code_language(el)
 
-            code = code.replace('&', '\\&').replace('%', '\\%')
+            #code = code.replace('&', '\\&').replace('%', '\\%')
             #.replace('#', '\\#')
 
             self.apply(el, 'codeinline', code, language=language,
@@ -383,7 +383,6 @@ class LaTeXRenderer:
         for abbr in soup.find_all('abbr'):
             text = escape_latex_chars(abbr.get('title'))
             short = self.get_safe_text(abbr)
-            short = escape_latex_chars(short)
 
             # Discard any special characters not allowed in glossary references
             tag = 'acr:' + re.sub(r'[^a-zA-Z0-9]', '', short).lower()
@@ -674,6 +673,7 @@ class LaTeXRenderer:
 
             table_data = []
             styles = []
+            is_large = False
             for row in table.find_all('tr'):
                 row_data = []
                 row_styles = []
@@ -682,10 +682,16 @@ class LaTeXRenderer:
                     self.render_inlines(cell)
                     row_data.append(self.get_safe_text(cell).strip())
                     row_styles.append(self.get_table_styles(cell))
+
+                # We already have rendered some LaTeX, so to have an idea of the table width
+                # we simply strip the LaTeX commands and count the characters...
+                # Ugly? yes.
+                is_large |= len(''.join([re.sub(r"\\\w{3,}|\\href\{[^\}]+?\}|[\{\}|]", '', col) for col in row_data])) > 55
+
                 table_data.append(row_data)
                 styles.append(row_styles)
 
-            self.apply(table, 'table', columns=styles[0], rows=table_data, caption=caption, label=label)
+            self.apply(table, 'table', columns=styles[0], rows=table_data, caption=caption, label=label, is_large=is_large)
 
     def process_exercise(self, soup: Tag, title, **kwargs):
         """Extract solution from exercise if found, to render later as a solution."""
@@ -702,7 +708,7 @@ class LaTeXRenderer:
                 # Replace True with the position in the list rendered at the letter in the alphabet
                 keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 answers = [keys[i] for i, a in enumerate(answers) if a]
-                answer = ','.join(answers)
+                answer = f"Réponse{'' if len(answers) == 1 else 's'}: {', '.join(answers)}"
                 el.replace_with(el.get_text().replace('\\correctchoice', '\\choice'))
 
         # Extract solution if found
@@ -722,7 +728,7 @@ class LaTeXRenderer:
             solution += answer
 
         if solution:
-            solution += f"\\label{{{solution_label}}}\n{solution}"
+            solution = f"\\label{{{solution_label}}}\n{solution}"
             self.solutions.append((self.exercise_counter, title, label, solution))
             title = f"\\hyperref[{solution_label}]{{{title}}}"
 
@@ -887,8 +893,13 @@ class LaTeXRenderer:
         This has to be applied only in plain text and not in code blocks.
 
         https://tex.stackexchange.com/a/723596/85416
+
+        This patch is very naive and will not work in all cases.
         """
-        return re.sub(r'\b\w{2,}-(\w{4,})\b', r'\1\allowhyphens \2', latex)
+        if len(latex) < 50:
+            return latex
+
+        return re.sub(r'(\b[^\W\d_]{2,}-)([^\W\d_]{7,})\b', r'\1\\allowhyphens \2', latex)
 
     def render(self, html, output_path, file_path, base_level=0):
         soup = BeautifulSoup(html, 'html.parser')

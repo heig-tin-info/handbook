@@ -39,12 +39,14 @@ poetry run mkdocs serve
 ## To-Do
 
 - [ ] LaTeX
-  - [ ] Do not use adjustbox on small tables
+  - [ ] Avoid breaking code block if contains boxchars or special chars (ascii art?)
+  - [x] Do not use adjustbox on small tables
   - [ ] Code with title doesn't display well in LaTeX
   - [ ] Image with width should be included with the correct size
   - [ ] Implement local links to code, copy them in appencies
   - [ ] Table des opérateurs, find a way
   - [ ] Autres tables, largeur, ajuster au contenu ? tabularx ?
+  - [ ] Find a way to have "short caption" on figures (maybe use alt text)
 - [ ] Add tags anywhere (inline tags) to summary concepts
 - [ ] Build another nav with only the required sections for INFO1, INFO2.
 - [ ] Label for tables are cropped, should be placed above tables
@@ -391,6 +393,18 @@ plugins:
 To ensure LaTeX conversion it might be easier to process the html file directly with a beautiful soup parser, than processing the markdown file which doesn't have a native support for all extensions.
 
 However, this would require that none of the plugins would alter the raw html content with template specific things (such as mermaid, image boxes...). For custom plugins, it is there preferable to use `on_post_page` event to alter content that is for the online version.
+
+## LaTeX Parser
+
+To improve, it would be nice to add meta info on NavigableStrings:
+
+1. Is LaTeX meta?
+2. Is Code?
+3. Is Displayed Text?
+
+Unfortunately with the strategy chosen, Jinja is used to so we don't keep track of what is LaTeX and what is not.
+
+Another point of improvement would be to simplify the DOM tree to make it "almost" LaTeX compatible. This first pass will make it far easier to parse.
 
 ## References
 

@@ -10,7 +10,6 @@
 \usepackage{nicefrac}
 \usepackage{fancyhdr}
 \usepackage[normalem]{ulem}
-\usepackage{lipsum}
 \usepackage{graphicx}
 \usepackage{unicode-math} % For using Unicode math symbols
 \usepackage{fontawesome5}
@@ -30,9 +29,10 @@
 \usepackage{adjustbox} % Auto resize tables to fit page width
 \usepackage{caption}
 \usepackage{polyglossia}
+\usepackage{emptypage} % Nothing on empty pages
 
 \setcounter{tocdepth}{2}
-\setlength{\cftsubsubsecnumwidth}{6em}
+\setlength{\cftsubsecnumwidth}{6em}
 
 \setdefaultlanguage{french}
 \setotherlanguages{english}
@@ -67,6 +67,27 @@
 \DeclareTextFontCommand\creativecommon{\creativecommonfont}
 
 
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\pagestyle{fancy}
+\fancyhf{} % Efface les en-têtes et pieds de page par défaut
+
+
+% Définition des en-têtes et pieds de page pour les pages paires (gauche)
+\fancyhead[LE]{\leftmark} % Section en haut à gauche
+\fancyfoot[LE,RO]{\thepage} % Numéro de page en bas au centre
+
+% Définition des en-têtes et pieds de page pour les pages impaires (droite)
+\fancyhead[RO]{\rightmark} % Chapitre en haut à droite
+\fancyfoot[LE,RO]{\thepage} % Numéro de page en bas au centre
+
+% plain : parts
+\fancypagestyle{plain}{%
+  \fancyhf{} % Efface les en-têtes et pieds de page par défaut
+  \fancyfoot[C]{\thepage} % Numéro de page en bas au centre
+}
+
 \definecolor{linkcolor}{RGB}{34, 18, 104}
 \definecolor{urlcolor}{RGB}{104, 18, 55}
 
@@ -94,45 +115,14 @@
 
 \graphicspath{{assets/}}
 
+% Allow hyphenation after a hyphen
+\providecommand{\allowhyphens}{\ifvmode\else\nobreak\hspace{0pt}\fi}
+
 % Redéfinir l'itemize pour utiliser des demi-cadratins (en-dash) comme puces
 \setlist[itemize,1]{label=--}
 
 % Pour numérotation des paragraphes et subparagraphes
 \setcounter{secnumdepth}{5}
-
-\fancypagestyle{partpagestyle}
-{%
-  \fancyhf{}
-  \renewcommand{\headrulewidth}{0pt}
-}
-
-\fancypagestyle{onlycount}
-{
-  \fancyhf{}
-  \renewcommand\headrulewidth{0pt}
-  \renewcommand\footrulewidth{0pt}
-  \fancyfoot[C]{\thepage}
-}
-
-\fancypagestyle{plain}{
-  \fancyhf{}
-  \lhead[\rm\thepage]{\fancyplain{}{\nouppercase{\textsl{\bfseries{\leftmark}}}}}
-  \rhead[\rm\thepage]{\fancyplain{}{\nouppercase{\textsl{\bfseries{\rightmark}}}}}
-  %\fancyhead[LO]{\textsl{\rightmark}}
-  %\fancyhead[RE]{\textsl{\leftmark}}
-
-  \chead{}\lfoot{}\rfoot{}\cfoot{}
-  %\renewcommand{\headrulewidth}{0.1mm}%
-  \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{0pt}
-  \fancyfoot[C]{\thepage}%
-}
-
-% Patch the `\thispagestyle` code within `\part
-\xpatchcmd{\part}{\thispagestyle{plain}}{\thispagestyle{partpagestyle}}{}{}
-\pagestyle{fancy}
-
-
 
 \setlength{\parindent}{0pt}
 \setlength\parskip{\medskipamount}
@@ -402,11 +392,69 @@
 \newcommand\correctchoice{\stackinset{c}{}{c}{}{$\times$}{$\bigcirc$}}
 \newcommand\choice{$\bigcirc$}
 
+
+
+
+\newcommand{\logoimg}[2]{
+    \begin{tikzpicture}[x=0.7pt,y=0.7pt]%
+        \fill[black]
+            (74, 18) -- (56, 18) -- (56, 12) -- (68, 12) -- (68, 12)
+            .. controls (67, 7) and (63, 5) .. (57, 5)
+            .. controls (50, 5) and (45, 10) .. (45, 17)
+            .. controls (45, 24) and (50, 30) .. (57, 30)
+            .. controls (63, 30) and (67, 27) .. (69, 23)
+            -- (74, 25)
+            .. controls (71, 32) and (65, 35) .. (57, 35)
+            .. controls (47, 35) and (39, 27) .. (39, 17)
+            .. controls (39, 7) and (47, 0) .. (57, 0)
+            .. controls (62, 0) and (66, 2) .. (69, 5)
+            -- (69, 1) -- (74, 1) -- (74, 17) -- cycle ;
+        \fill[black]
+            (74, 47) -- (46, 47) -- (46, 56) -- (70, 56) -- (70, 61) --
+            (46, 61) -- (46, 70) -- (74, 70) -- (74, 75) -- (40, 75) --
+            (40, 42) -- (74, 42) -- cycle ;
+        \fill[black]
+            (27, 61) -- (5, 61) -- (5, 75) -- (0, 75) -- (0, 42) --
+            (5, 42) -- (5, 56) -- (27, 56) -- (27, 42) -- (33, 42) --
+            (33, 75) -- (27, 75) -- cycle ;
+        \fill[black]
+            (19, 6) -- (19, 29) -- (33, 29) -- (33, 34) -- (-0, 34) --
+            (-0, 29) -- (13, 29) -- (13, 6) -- (-0, 6) -- (-0, 1) --
+            (33, 1) -- (33, 6) -- cycle;
+        \fill[black]
+            (88, 75) -- (90, 75) -- (87, 65) -- (85, 65) -- (81, 75) --
+            (83, 75) -- (86, 68) -- cycle;
+        \fill[black]
+            (92, 65) -- (92, 75) -- (95, 75)
+            .. controls (98, 75) and (100, 73) .. (100, 70)
+            .. controls (100, 67) and (98, 65) .. (95, 65)
+            -- cycle;
+        \fill[white]
+            (95, 67)
+            .. controls (97, 67) and (98, 68) .. (98, 70)
+            .. controls (98, 72) and (97, 73) .. (95, 73)
+            -- (94, 73)
+            -- (94, 67)
+            -- cycle;
+    \end{tikzpicture}
+}
+
+\newcommand{\logo}[2]{% \logo{<left>}{<top>}
+    \begin{tikzpicture}[remember picture,overlay, align=center,]
+        \node(logo) at ([xshift=#1, yshift=-#2] current page.north west)
+        [anchor=north west] {\logoimg{#1}{#2}};
+    \end{tikzpicture}\vspace*{-\baselineskip}}
+
+
+
 \input{acronyms.tex}
 
 \begin{document}
 
 \begin{titlepage}
+  \logo{1cm}{1cm}
+  \vspace{6cm}
+  \vfil
   \begin{center}
    {\huge\bfseries Le C pour l'ingénieur\\}
    \vspace{1.5cm}
@@ -473,11 +521,16 @@ Seconde édition avec MkDocs Material:              & 30 Juillet 2024 \\
 
 \input{solutions.tex}
 
+\clearpage
+
 \listoffigures
+
+\clearpage
 
 \listoftables
 
-\printglossary[type=\acronymtype]
+\clearpage
 
+\printacronyms[title=Liste des acronymes]
 
 \end{document}

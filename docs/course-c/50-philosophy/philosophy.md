@@ -185,27 +185,25 @@ Le [Zen de Python](https://fr.wikipedia.org/wiki/Zen_de_Python) est un ensemble 
 
 Voici le texte original anglais :
 
-!!! quote "Zen of Python par Tim Peters"
-
-    Beautiful is better than ugly.<br>
-    Explicit is better than implicit.<br>
-    Simple is better than complex.<br>
-    Complex is better than complicated.<br>
-    Flat is better than nested.<br>
-    Sparse is better than dense.<br>
-    Readability counts.<br>
-    Special cases aren't special enough to break the rules.<br>
-    Although practicality beats purity.<br>
-    Errors should never pass silently.<br>
-    Unless explicitly silenced.<br>
-    In the face of ambiguity, refuse the temptation to guess.<br>
-    There should be one—and preferably only one—obvious way to do it.<br>
-    Although that way may not be obvious at first unless you're Dutch.<br>
-    Now is better than never.<br>
-    Although never is often better than right now.[n 1]<br>
-    If the implementation is hard to explain, it's a bad idea.<br>
-    If the implementation is easy to explain, it may be a good idea.<br>
-    Namespaces are one honking great idea—let's do more of those!<br>
+>Beautiful is better than ugly.<br>
+>Explicit is better than implicit.<br>
+>Simple is better than complex.<br>
+>Complex is better than complicated.<br>
+>Flat is better than nested.<br>
+>Sparse is better than dense.<br>
+>Readability counts.<br>
+>Special cases aren't special enough to break the rules.<br>
+>Although practicality beats purity.<br>
+>Errors should never pass silently.<br>
+>Unless explicitly silenced.<br>
+>In the face of ambiguity, refuse the temptation to guess.<br>
+>There should be one—and preferably only one—obvious way to do it.<br>
+>Although that way may not be obvious at first unless you're Dutch.<br>
+>Now is better than never.<br>
+>Although never is often better than right now.<br>
+>If the implementation is hard to explain, it's a bad idea.<br>
+>If the implementation is easy to explain, it may be a good idea.<br>
+>Namespaces are one honking great idea—let's do more of those!<br>
 
 
 Un code est meilleur s'il est beau, esthétique, que les noms des variables, l'alignement et la mise en forme sont cohérents et forment une unité.

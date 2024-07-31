@@ -37,6 +37,10 @@ jobs:
           key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
           restore-keys: |
             ${{ runner.os }}-poetry-
+      - name: Install Ubuntu dependencies
+        run: |
+          sudo apt-get update
+          sudo apt install -y pngquant
       - name: Setup Poetry
         uses: abatilo/actions-poetry@v2
 
