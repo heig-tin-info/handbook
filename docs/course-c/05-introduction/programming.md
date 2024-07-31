@@ -55,8 +55,9 @@ Table: Exemple de calcul du PGCD entre 42 et 30
 
 !!! exercise "Algorithme d'Euclide"
 
-    Appliquer l'algorithme d'Euclide aux entrées suivantes. Que vaut $a$
-    , $b$ et $r$ ?
+    Appliquer l'algorithme d'Euclide aux entrées $a$ et $b$ suivantes.
+
+    Que vaut $a, b$ et $r$ à la fin de l'algorithme, et quel est le plus grand diviseur commun ?
 
     $$a = 1260, b = 630$$
 
@@ -86,15 +87,13 @@ On peut compter le nombre de cycles assez facilement. Pour ce tableau de $N = 5$
 
 Les algorithmes, il y en a de toutes sortes, des plus simples aux plus complexes. Ils sont utilisés dans de nombreux domaines, de la cryptographie à la bio-informatique en passant par la finance et la robotique.
 
-!!! tip
-
-    En tant que développeur vous devrez souvent écrire des algorithmes pour résoudre des problèmes. Souvent la meilleure approche est de prendre une feuille de papier, un crayon et de faire chauffer vos neurones. Il est crucial de bien comprendre le problème avant de se lancer dans l'écriture d'un algorithme. Les jeunes développeurs vont souvent au combat sans une reflexion préalable et passent leur temps à touiller leur code à la vaudoise. Prenez votre temps, réfléchissez, écrivez des exemples, faites des tests et vous verrez que la programmation deviendra un jeu d'enfant.
+En tant que développeur vous devrez souvent écrire des algorithmes pour résoudre des problèmes. Souvent, la meilleure approche est de prendre une feuille de papier, un crayon et de faire chauffer vos neurones. Il est crucial de bien comprendre le problème avant de se lancer dans l'écriture d'un algorithme. Les jeunes développeurs vont souvent au combat sans une reflexion préalable et passent leur temps à *touiller* leur code à la *vaudoise*. Prenez votre temps, réfléchissez, imaginez des exemples, faites des tests et vous verrez que la programmation deviendra un jeu d'enfant.
 
 ## Programmation
 
 Parlons couture ! La machine Jacquard est un [métier à tisser](https://fr.wikipedia.org/wiki/M%C3%A9tier_Jacquard) mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
 
-![Mécanisme Jacquard au Musée des arts et métiers de Paris.]({assets}/images/loom.jpg){ width="80%" }
+![Mécanisme Jacquard au Musée des arts et métiers de Paris.]({assets}/images/loom.png)
 
 Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes.
 
@@ -106,7 +105,7 @@ La [programmation](https://fr.wikipedia.org/wiki/Programmation_informatique) dé
 
 Les *informaticiens-tisserands* responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons par exemple un ouvrier spécialisé en [héraldique](https://fr.wikipedia.org/wiki/H%C3%A9raldique) et devant créer des motifs complexes de blasons.
 
-![Armoiries des ducs de Mayenne]({assets}/images/armoiries.svg){ width="250px" }
+![Armoiries des ducs de Mayenne]({assets}/images/armoiries.drawio)
 
 Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qui le maîtrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de Mayenne (c.f. figure ci-dessous) aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :
 
@@ -187,7 +186,7 @@ Pour ce cours, et pour l'enseignement de la programmation en général, nous uti
 
 ## Calculateur
 
-Un calculateur du latin *calculare*: calculer avec des cailloux, originellement appelés [abaque,](<https://fr.wikipedia.org/wiki/Abaque_(calcul)>) était un dispositif permettant de faciliter les calculs mathématiques.
+Un calculateur du latin *calculare*: calculer avec des cailloux, originellement appelés [abaque,](https://fr.wikipedia.org/wiki/Abaque_(calcul)) était un dispositif permettant de faciliter les calculs mathématiques.
 
 Les [os d'Ishango](https://fr.wikipedia.org/wiki/Os_d%27Ishango) datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
 
@@ -198,29 +197,27 @@ Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *compu
 
 [pavé numérique]: https://fr.wikipedia.org/wiki/Pav%C3%A9_num%C3%A9rique
 
-Notons qu'à l'instar de notre diagramme de flux, un [calculateur] dispose aussi d'une entrée, d'une sortie et d'états internes.
+Notons qu'à l'instar de notre diagramme de flux, un calculateur dispose aussi d'une entrée, d'une sortie et d'états internes.
 
-[calculateur]: #calculateur
+## Ordinateur
 
-??? info "Origine du mot ordinateur"
+Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques Perret à la demande d'IBM France (c.f [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)). Voici la lettre de Jacques Perret à IBM France :
 
-    Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques Perret à la demande d'IBM France (c.f [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)). Voici la lettre de Jacques Perret à IBM France :
+>« Le 16 IV 1955
 
-    « Le 16 IV 1955
+>Cher Monsieur,
 
-    Cher Monsieur,
+>Que diriez-vous d’**ordinateur**? C’est un mot correctement formé, qui se trouve même dans le **Littré** comme adjectif désignant **Dieu** qui met de l’ordre dans le monde. Un mot de ce genre a l’avantage de donner aisément un verbe **ordiner**, un nom d’action **ordination**. L’inconvénient est que ordination désigne une cérémonie religieuse ; mais les deux champs de signification (religion et comptabilité) sont si éloignés et la cérémonie d’ordination connue, je crois, de si peu de personnes que l’inconvénient est peut-être mineur. D’ailleurs votre machine serait ordinateur (et non-ordination) et ce mot est tout à fait sorti de l’usage théologique. Systémateur serait un néologisme, mais qui ne me paraît pas offensant ; il permet systématisé ; — mais système ne me semble guère utilisable — Combinateur a l’inconvénient du sens péjoratif de combine ; combiner est usuel donc peu capable de devenir technique ; combination ne me paraît guère viable à cause de la proximité de combinaison. Mais les Allemands ont bien leurs combinats (sorte de trusts, je crois), si bien que le mot aurait peut-être des possibilités autres que celles qu’évoque combine.
 
-    Que diriez-vous d’**ordinateur**? C’est un mot correctement formé, qui se trouve même dans le **Littré** comme adjectif désignant **Dieu** qui met de l’ordre dans le monde. Un mot de ce genre a l’avantage de donner aisément un verbe **ordiner**, un nom d’action **ordination**. L’inconvénient est que ordination désigne une cérémonie religieuse ; mais les deux champs de signification (religion et comptabilité) sont si éloignés et la cérémonie d’ordination connue, je crois, de si peu de personnes que l’inconvénient est peut-être mineur. D’ailleurs votre machine serait ordinateur (et non-ordination) et ce mot est tout à fait sorti de l’usage théologique. Systémateur serait un néologisme, mais qui ne me paraît pas offensant ; il permet systématisé ; — mais système ne me semble guère utilisable — Combinateur a l’inconvénient du sens péjoratif de combine ; combiner est usuel donc peu capable de devenir technique ; combination ne me paraît guère viable à cause de la proximité de combinaison. Mais les Allemands ont bien leurs combinats (sorte de trusts, je crois), si bien que le mot aurait peut-être des possibilités autres que celles qu’évoque combine.
+>Congesteur, digesteur évoquent trop congestion et digestion. Synthétiseur ne me paraît pas un mot assez neuf pour désigner un objet spécifique, déterminé comme votre machine.
 
-    Congesteur, digesteur évoquent trop congestion et digestion. Synthétiseur ne me paraît pas un mot assez neuf pour désigner un objet spécifique, déterminé comme votre machine.
+>En relisant les brochures que vous m’avez données, je vois que plusieurs de vos appareils sont désignés par des noms d’agent féminins (trieuse, tabulatrice). Ordinatrice serait parfaitement possible et aurait même l’avantage de séparer plus encore votre machine du vocabulaire de la théologie. Il y a possibilité aussi d’ajouter à un nom d’agent un complément : ordinatrice d’éléments complexes ou un élément de composition, par exemple : sélecto-systémateur. Sélecto-ordinateur a l’inconvénient de deux o en hiatus, comme électro-ordonnatrice.
 
-    En relisant les brochures que vous m’avez données, je vois que plusieurs de vos appareils sont désignés par des noms d’agent féminins (trieuse, tabulatrice). Ordinatrice serait parfaitement possible et aurait même l’avantage de séparer plus encore votre machine du vocabulaire de la théologie. Il y a possibilité aussi d’ajouter à un nom d’agent un complément : ordinatrice d’éléments complexes ou un élément de composition, par exemple : sélecto-systémateur. Sélecto-ordinateur a l’inconvénient de deux o en hiatus, comme électro-ordonnatrice.
+>Il me semble que je pencherais pour **ordonnatrice électronique**. Je souhaite que ces suggestions stimulent, orientent vos propres facultés d’invention. N’hésitez pas à me donner un coup de téléphone si vous avez une idée qui vous paraisse requérir l’avis d’un philologue.
 
-    Il me semble que je pencherais pour **ordonnatrice électronique**. Je souhaite que ces suggestions stimulent, orientent vos propres facultés d’invention. N’hésitez pas à me donner un coup de téléphone si vous avez une idée qui vous paraisse requérir l’avis d’un philologue.
+>Vôtre
 
-    Vôtre
-
-    Jacques Perret »
+>Jacques Perret »
 
 ## La machine de Turing
 
@@ -471,7 +468,7 @@ Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates cl�
 
 2018
 
-: Le [Behold Summit](<https://fr.wikipedia.org/wiki/Summit_(superordinateur)>) est un superordinateur construit par IBM.
+: Le [Behold Summit](https://fr.wikipedia.org/wiki/Summit_(superordinateur)) est un superordinateur construit par IBM.
 
     - 200'000'000'000'000'000 multiplications par seconde
     - simple ou double précision

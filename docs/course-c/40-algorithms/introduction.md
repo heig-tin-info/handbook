@@ -223,6 +223,17 @@ Un exemple typique est le [problème de la secrétaire](https://fr.wikipedia.org
 
 La solution à ce problème est de laisser passer 37% des candidats sans les engager. Ceci correspond à une proportion de $1/e$. Ensuite il suffit d'attendre un ou une candidate meilleure que tous ceux/celles du premier échantillon.
 
+## Méthodes de résolution
+
+Il existe deux méthodes quasiment infaillibles pour résoudre un problème complexe :
+
+1. La réduction du problème en sous-problèmes plus simples.
+2. Le raisonnement par l'inverse.
+
+La rédiction aussi appelée [Divide and Conquer](https://fr.wikipedia.org/wiki/Diviser_pour_r%C3%A9gner) consiste à diviser un problème en sous-problèmes plus simples, les résoudre et combiner les solutions pour obtenir la solution du problème initial. C'est une méthode très utilisée en informatique pour résoudre des problèmes complexes. Par exemple, le tri fusion, le tri rapide, la recherche dichotomique sont des méthodes de résolution de problèmes basées sur la réduction.
+
+Le raisonnement par l'inverse consiste à partir de la solution pour remonter au problème en posant des hypothèses. Par exemple, si vous avez un problème de recherche de chemin, vous pouvez partir de la destination pour remonter au point de départ. C'est une méthode très utilisée en mathématiques pour résoudre des problèmes complexes. Par exemple, la méthode de Newton pour trouver les racines d'une fonction est basée sur le raisonnement par l'inverse.
+
 ## Exercices de révision
 
 !!! exercise "Intégrateur de Kahan"

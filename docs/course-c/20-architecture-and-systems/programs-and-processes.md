@@ -30,7 +30,7 @@ Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibon
 --8<-- "docs/assets/src/fibonacci.c"
 ```
 
-Une fois [assemblé](<https://fr.wikipedia.org/wiki/Assembly_(informatique)>) le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc :
+Une fois [assemblé](https://fr.wikipedia.org/wiki/Assembly_(informatique)) le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc :
 
 ```console
 gcc Fibonacci.c -o fibonacci.exe
@@ -141,7 +141,7 @@ La figure suivante résume les interactions qu'un programme peut avoir sur son e
 
 ### Signaux
 
-Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des [signaux](<https://fr.wikipedia.org/wiki/Signal_(informatique)>). Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.
+Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des [signaux](https://fr.wikipedia.org/wiki/Signal_(informatique)). Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.
 
 Si, en utilisant Windows, vous vous rendez dans le [gestionnaire de tâches](https://fr.wikipedia.org/wiki/Gestionnaire_des_t%C3%A2ches_Windows) et que vous décidez de *Terminer une tâche*, le système d'exploitation envoie un signal au programme lui demandant de se terminer.
 

@@ -242,7 +242,8 @@ class LaTeXRenderer:
         """
         for a in soup.find_all('a', class_=['ycr-regex']):
             code = self.get_safe_text(a)
-            code = code.replace('&', '\\&').replace('%', '\\%').replace('#', '\\#')
+            # .replace('%', '\\%')
+            code = code.replace('&', '\\&').replace('#', '\\#')
             self.apply(a, 'regex',
                        code,
                        url=safe_quote(a.get('href', '')))
@@ -533,7 +534,7 @@ class LaTeXRenderer:
         for dl in soup.find_all(['dl']):
             items = []
             title = None
-            for el in soup.find_all(['dt', 'dd']):
+            for el in dl.find_all(['dt', 'dd']):
                 self.render_inlines(el)
                 if el.name == 'dt':
                     title = self.get_safe_text(el)
@@ -620,6 +621,8 @@ class LaTeXRenderer:
             caption_text = self.get_safe_text(caption) \
                 if caption else image.get('alt', '')
 
+            width = image.get('width', None)
+
             label = None
             if label_id := figure.get('id'):
                 label = f"{label_id}"
@@ -627,7 +630,10 @@ class LaTeXRenderer:
             template = 'figure_tcolorbox' if \
                 kwargs.get('tcolorbox', False) else 'figure'
             self.apply(figure, template,
-                       caption=caption_text, path=filename.name, label=label)
+                       caption=caption_text,
+                       path=filename.name,
+                       label=label,
+                       width=width)
         return soup
 
     def get_table_styles(self, cell):

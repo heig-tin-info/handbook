@@ -1,6 +1,9 @@
 \begin{figure}[H]
-\centering
-\BLOCK{if label}\label{\VAR{label}}\BLOCK{endif}
-\includegraphics[width=\textwidth]{\VAR{path}}
-\BLOCK{if caption}\caption{\VAR{caption}}\BLOCK{endif}
+    \centering
+    \BLOCK{-if label}\label{\VAR{label}}
+    \BLOCK{endif-}
+    \BLOCK{if width}\BLOCK{set width_value = width.rstrip('%') if width.endswith('%') else width}\BLOCK{endif}
+    \includegraphics[width=\BLOCK{if width}\BLOCK{if width.endswith('%')}\VAR{(width_value|float) / 100}\linewidth\BLOCK{else}\VAR{width}\BLOCK{endif}\BLOCK{else}\linewidth\BLOCK{endif}]{\VAR{path}}
+    \BLOCK{-if caption}
+    \caption{\VAR{caption}}\BLOCK{endif}
 \end{figure}

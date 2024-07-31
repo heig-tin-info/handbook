@@ -105,7 +105,7 @@ Avec un seul `bit` il est donc possible d'exprimer 2 valeurs distinctes.
 
         $$2^10 = 1024$$
 
-       Soit les nombres de 0 à 1023.
+        Soit les nombres de 0 à 1023.
 
 ## Système octal
 

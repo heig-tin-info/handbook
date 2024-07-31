@@ -37,39 +37,17 @@ jobs:
           key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
           restore-keys: |
             ${{ runner.os }}-poetry-
-      - name: Cache Draw.io download
-        uses: actions/cache@v4
-        with:
-          path: drawio-${{env.drawio_arch}}-${{env.drawio_version}}.deb
-          key: ${{ runner.os }}-drawio-${{env.drawio_arch}}-${{ env.drawio_version }}
-      - name: Install pandoc
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc pngquant
       - name: Setup Poetry
         uses: abatilo/actions-poetry@v2
-      - name: Install Draw.io Desktop
-        run: |
-          set -euo pipefail
 
-          drawio_deb="drawio-${{env.drawio_arch}}-${{env.drawio_version}}.deb"
-          drawio_url="https://github.com/jgraph/drawio-desktop/releases/download/v${{env.drawio_version}}/${drawio_deb}"
-
-          if [ ! -f "$drawio_deb" ]; then
-            curl -L -o "$drawio_deb" "$drawio_url"
-            sha256sum --check <<<"${drawio_sha256sum}  $drawio_deb"
-          fi
-
-          sudo apt-get install -y libasound2 xvfb ./"$drawio_deb"
-      - name: Cache Drawio Exporter
+      - name: Build assets cache
         uses: actions/cache@v4
         with:
-          path: /home/runner/work/handbook/handbook/docs/drawio-exporter/
-          key: ${{ runner.os }}-drawio-exporter-${{env.drawio_arch}}-${{ env.drawio_version }}
+          path: /home/runner/work/handbook/handbook/build/assets
+          key: ${{ runner.os }}-assets
       - name: Install Python dependencies
         run: |
           poetry install
-
       - name: Build Documentation with MkDocs
         env:
           GH_TOKEN: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}

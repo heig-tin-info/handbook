@@ -1,6 +1,6 @@
 # Fonctions
 
-![Margaret Hamilton, directrice projet AGC (1969), photo du MIT Museum]({assets}/images/hamilton.png){ width="50%" }
+![Margaret Hamilton, directrice projet AGC (1969), photo du MIT Museum]({assets}/images/hamilton.png){ width=70% }
 
 Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.
 
@@ -8,15 +8,15 @@ Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côt
 
 Néanmoins, dans ce langage assembleur étrange, le code reste **monolithique** et toutes les variables sont globales.
 
-Un programme convenablement **structuré** est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un [télencéphale hautement développé et son pouce préhenseur](https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs) aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les [effets de bord](<https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)>).
+Un programme convenablement **structuré** est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un [télencéphale hautement développé et son pouce préhenseur](https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs) aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les [effets de bord](https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)).
+
+![Agencement de fonctions]({assets}/images/functions.drawio)
 
 Une fonction est donc un ensemble de code exécutable délimité du programme principal et disposant :
 
 - D'un identifiant unique
 - D'une valeur de retour
 - De paramètres d'appel
-
-![Agencement de fonctions]({assets}/images/functions.drawio)
 
 L'utilisation des fonctions permet :
 
@@ -76,7 +76,7 @@ On observe néanmoins dans la recette évoquée plus haut qu'il utilise d'autres
 herb slice(herb a);
 ```
 
-Kamaji entrepose temporairement les feuilles de menthe verte dans R5 et lorsqu'il en a besoin, plus tard, après avoir découpé les fleurs de [molène](<https://fr.wikipedia.org/wiki/Mol%C3%A8ne_(plante)>) que R5 contient des tiges d'une autre plante.
+Kamaji entrepose temporairement les feuilles de menthe verte dans R5 et lorsqu'il en a besoin, plus tard, après avoir découpé les fleurs de [molène](https://fr.wikipedia.org/wiki/Mol%C3%A8ne_(plante)) que R5 contient des tiges d'une autre plante.
 
 Dans les conventions d'appel, il faut donc également donner la responsabilité à quelqu'un de ne pas utiliser certains casiers, ou alors d'en sauvegarder ou de restaurer le contenu au début et à la fin de la recette. Dans les conventions d'appel, il y a en réalité plusieurs catégories de registres :
 
@@ -239,7 +239,7 @@ Aussi, il est impératif de toujours écrire des prototypes complets et d'explic
 
 Comme nous l'avons vu plus haut, pour de meilleures performances à l'exécution, il est préférable de s'en tenir à un maximum de trois paramètres, c'est également plus lisible pour le développeur, mais rien n'empêche d'en avoir plus.
 
-En plus de cela, les [paramètres](<https://fr.wikipedia.org/wiki/Param%C3%A8tre_(programmation_informatique)>) peuvent être passés de deux manières :
+En plus de cela, les [paramètres](https://fr.wikipedia.org/wiki/Param%C3%A8tre_(programmation_informatique)) peuvent être passés de deux manières :
 
 - Par valeur
 - Par référence

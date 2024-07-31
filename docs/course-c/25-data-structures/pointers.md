@@ -1,6 +1,6 @@
 # Pointeurs
 
-[Attention les vélos](https://fr.wikiquote.org/wiki/Le_Jour_de_gloire), on s'attaque à un sujet délicat, difficile, scabreux, mais nécessaire. Un sujet essentiel, indispensable et fantastique: les [pointeurs](<https://fr.wikipedia.org/wiki/Pointeur_(programmation)>).
+[Attention les vélos](https://fr.wikiquote.org/wiki/Le_Jour_de_gloire), on s'attaque à un sujet délicat, difficile, scabreux, mais nécessaire. Un sujet essentiel, indispensable et fantastique: les [pointeurs](https://fr.wikipedia.org/wiki/Pointeur_(programmation)).
 
 Les pointeurs sont des **variables** qui, au lieu de stocker une valeur, stockent une **adresse mémoire**. Dans quel but me direz-vous ? Pour créer des indirections, simplifier l'exécution du code.
 
@@ -414,7 +414,7 @@ void memcpy(void *dest, void *src, size_t n)
 }
 ```
 
-Or, rien de tout ceci n'est juste. `memcpy` est une fonction fondamentale en C, ce pourquoi nous nous y attardons temps. Elle est constamment utilisée et doit être extrêmement performante. Aussi, si le compilateur cible une architecture 64-bits pourquoi diable copier les éléments par paquet de 8-bits. C'est un peu comme si notre facteur, au début de ce chapitre, aurait fait ses allers-retours avec en tête qu'un octet par trajet. L'implémentation dépend donc de l'architecture cible et doit tenir compte des éventuels effets de bords. Par exemple s'il faut copier un tableau de 9 x 32 bits. Une architecture 64-bits aura une grande facilité à copier les 8 premiers octets, mais quant au dernier, il s'agit d'un cas particulier et selon la taille de la copie et l'architecture du processeur, l'implémentation devra être ajustée. C'est pourquoi ce type très bas niveau de fonction est l'affaire d'une cuisine interne du compilateur et dont le développeur ne doit pas se soucier. Vous êtes comme [Thomas l'apôtre](<https://fr.wikipedia.org/wiki/Thomas_(ap%C3%B4tre)>), et ne me croyez pas ? Alors, digressons et essayons :
+Or, rien de tout ceci n'est juste. `memcpy` est une fonction fondamentale en C, ce pourquoi nous nous y attardons temps. Elle est constamment utilisée et doit être extrêmement performante. Aussi, si le compilateur cible une architecture 64-bits pourquoi diable copier les éléments par paquet de 8-bits. C'est un peu comme si notre facteur, au début de ce chapitre, aurait fait ses allers-retours avec en tête qu'un octet par trajet. L'implémentation dépend donc de l'architecture cible et doit tenir compte des éventuels effets de bords. Par exemple s'il faut copier un tableau de 9 x 32 bits. Une architecture 64-bits aura une grande facilité à copier les 8 premiers octets, mais quant au dernier, il s'agit d'un cas particulier et selon la taille de la copie et l'architecture du processeur, l'implémentation devra être ajustée. C'est pourquoi ce type très bas niveau de fonction est l'affaire d'une cuisine interne du compilateur et dont le développeur ne doit pas se soucier. Vous êtes comme [Thomas l'apôtre](https://fr.wikipedia.org/wiki/Thomas_(ap%C3%B4tre)), et ne me croyez pas ? Alors, digressons et essayons :
 
 ```c
 #include <string.h>

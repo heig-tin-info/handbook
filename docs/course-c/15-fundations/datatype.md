@@ -22,20 +22,14 @@ Considérons le paquet de 32-bit suivant, êtes-vous à même d'en donner une si
 01000000 01001001 00001111 11011011
 ```
 
-Il pourrait s'agir :
+Il y a plusieurs interprétations possibles :
 
-- de 4 caractères de 8-bits :
-
-    - `01000000` `@`,
-    - `01001001` `I`,
-    - `00001111` `\x0f`,
-    - `11011011` `Û`;
-
-- ou de 4 nombres de 8-bits: `64`, `73`, `15`, `219`;
-- ou de deux nombres de 16-bits `18752` et `56079`;
-- ou alors un seul nombre de 32-bit `3675212096`;
-- peut-être est-ce le nombre `-40331460896358400.000000` lu en *little endian*;
-- ou encore `3.141592` lu en *big endian*.
+1. 4 caractères de 8-bits : `01000000` `@`, `01001001` `I`, `00001111` `\x0f` et `11011011` `Û`.
+2. 4 nombres de 8-bits: `64`, `73`, `15`, `219`.
+3. Deux nombres de 16-bits `18752` et `56079`.
+4. Un seul nombre de 32-bit `3675212096`.
+5. Peut-être le nombre `-40331460896358400.000000` lu en *little endian*.
+6. Ou encore `3.141592` lu en *big endian*.
 
 Qu'en pensez-vous ?
 
@@ -69,7 +63,7 @@ int main() {
 
 ## Boutisme
 
-![Boutisme par J. J. Grandville (1838)]({assets}/images/endian.jpg)
+![Boutisme par J. J. Grandville (1838)]({assets}/images/endian.jpg){width=70%}
 
 La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé *endianess*. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les œufs à la coque par le petit bout (petit boutisme/*little endian*), la répression incite les rebelles à manger leurs œufs par le gros bout (gros boutisme/*big endian*).
 

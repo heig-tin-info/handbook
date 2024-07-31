@@ -26,9 +26,16 @@
 \usepackage{titlesec} % Pour la personnalisation des titres
 \usepackage{enumitem} % Pour personnaliser les listes
 \usepackage{etoolbox}
-\usepackage[french]{babel}
-\usepackage{kotex}
+\usepackage{tocloft}
+\usepackage{adjustbox} % Auto resize tables to fit page width
 \usepackage{caption}
+\usepackage{polyglossia}
+
+\setcounter{tocdepth}{2}
+\setlength{\cftsubsubsecnumwidth}{6em}
+
+\setdefaultlanguage{french}
+\setotherlanguages{english}
 
 \captionsetup[table]{skip=10pt}
 
@@ -41,21 +48,24 @@
       "NotoSerifHebrew:mode=harf;",
       "NotoSerifDevanagari:mode=harf;",
       "NotoSerifTamil:mode=harf;",
-      "NotoSerifTibetan:mode=harf;"
+      "NotoSerifTibetan:mode=harf;",
+      "NotoSerifCJKkr:mode=harf;",
+      "DroidSansFallback:mode=harf;"
     }
    )}
 
-\setmainfont{Latin Modern Roman}[
+\setmainfont{Noto Serif}[
   RawFeature={fallback=fontfallback}
 ]
 
-\setmonofont{FiraMono}[
-  Extension=.otf,
-  UprightFont=*-Regular,
-  BoldFont=*-Bold,
+\setmonofont{Noto Sans Mono}[
   Scale=0.8,
   RawFeature={fallback=fontfallback}
 ]
+
+\newfontfamily\creativecommonfont{Creative Commons}
+\DeclareTextFontCommand\creativecommon{\creativecommonfont}
+
 
 \definecolor{linkcolor}{RGB}{34, 18, 104}
 \definecolor{urlcolor}{RGB}{104, 18, 55}
@@ -87,13 +97,6 @@
 % Redéfinir l'itemize pour utiliser des demi-cadratins (en-dash) comme puces
 \setlist[itemize,1]{label=--}
 
-% Redéfinir \paragraph et \subparagraph pour qu'ils soient numérotés et aient des sauts de ligne
-% \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-% \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
-
-% \titleformat{\subparagraph}{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
-% \titlespacing*{\subparagraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
-
 % Pour numérotation des paragraphes et subparagraphes
 \setcounter{secnumdepth}{5}
 
@@ -109,27 +112,8 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}}
 
-% \pagestyle{headings}
-
-
-% \renewcommand\section{\@startsection {section}{1}{\z@}%
-%                                    {-2.5ex \@plus -1ex \@minus -.2ex}%
-%                                    {2.0ex \@plus.2ex}%
-%                                    {\normalfont\Large\bfseries\itshape}}
-% \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-%                                      {-2.5ex\@plus -1ex \@minus -.2ex}%
-%                                      {1.0ex \@plus .2ex}%
-%                                      {\normalfont\large\bfseries\itshape}}
-% \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
-%                                      {-2.25ex\@plus -1ex \@minus -.2ex}%
-%                                      {1.0ex \@plus .2ex}%
-%                                      {\normalfont\normalsize\bfseries\itshape}}
-
-
 \setlength{\parindent}{0pt}
 \setlength\parskip{\medskipamount}
-
-
 
 \definecolor{calloutNoteBg}{HTML}{ECF3FF}
 \definecolor{calloutNoteFrame}{HTML}{448AFF}
@@ -275,6 +259,7 @@
     lefttitle=1mm,
     leftupper=1mm,
     coltitle=black,
+    parbox=false, % Allow paragraph breaks inside the box
     #1,
     after title={~#2}
 }
@@ -287,12 +272,12 @@
   breakable,
   listing only,
   enhanced,
-  colframe=gray!20!white,
-  colback=gray!20!white,
+  colframe=gray!10!white,
+  colback=gray!10!white,
   boxrule=0.5pt,
   arc=0.7mm,
   toptitle=0.25em,
-  bottomtitle=0.1em,
+  bottomtitle=0.2em,
   lefttitle=0.5em,
   outer arc=0.7mm,
   minted language=#2,
@@ -302,9 +287,11 @@
     xleftmargin=-0.75em,
     fontsize=\footnotesize,
     highlightcolor=gray!30,
+    ignorelexererrors,
     #4
   },
   coltitle=black,
+  colbacktitle=gray!20!white,
   title={#3},
   list entry={\protect\numberline{\thetcbcounter}#3},
   #1
@@ -319,6 +306,9 @@
   bottom=1pt,
   colframe=gray!20,
   colback=gray!20,
+  minted options={%
+    ignorelexererrors
+  },
   rounded corners,
   boxrule=0pt,
 }{\mintinline{#1}{#2}}
@@ -368,9 +358,6 @@
   ;
 }
 
-% Table of contents depth
-\setcounter{tocdepth}{2}
-
 % Description item and text are displayed by default on the same line
 % this is not very readable. This command changes the style to display
 % the description text on the next line.
@@ -418,6 +405,39 @@
   \end{center}
 \end{titlepage}
 \clearpage
+
+\thispagestyle{empty}
+
+\begingroup
+\footnotesize
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+
+\begin{tabular}{@{} l l}
+  \textcopyright{} 2019\:---\:2024 &Prof. Yves Chevallier \\
+\end{tabular}
+
+Creative Commons \par
+\creativecommon{\huge L}
+
+L'œuvre peut être librement utilisée, à la condition de l'attribuer à l'auteur en citant son nom. Le titulaire de droits peut autoriser tous les types d'utilisation ou au contraire restreindre aux utilisations non commerciales (les utilisations commerciales restant soumises à son autorisation).
+
+HEIG-VD
+
+Imprimé en Suisse
+\vfil
+\begin{center}
+10 09 08 07 06 05 04 03 02 01\hspace{2em}19 18 17 16 15 14 13
+\end{center}
+\begin{center}
+\begin{tabular}{ll}
+Première édition avec Sphinx:                      & 1 Septembre 2019 \\
+Première édition avec Sphinx, avec corrections:    & 15 Juillet 2020 \\
+Seconde édition avec MkDocs Material:              & 30 Juillet 2024 \\
+\end{tabular}
+\end{center}
+\vfil
+\endgroup
 
 \frontmatter
 

@@ -14,11 +14,47 @@ C'est votre système d'exploitation et peu importe lequel vous avez, la bonne no
 
 Pour écrire un programme, vous aurez besoin d'un *éditeur de code*, c'est un programme qui vous permet d'écrire du texte et de le sauvegarder dans un fichier. Il en existe des centaines !
 
-Si vous prenez une Doloréane munie d'un convecteur temporel, et que vous dépassez les 88 miles à l'heure, vous vous rendre en 1973 et vous pourrez utiliser un éditeur de code qui s'appelle `ed`.
-
-![ED]({assets}/images/ed.jpg)
+Si vous prenez une Doloréane munie d'un convecteur temporel, et que vous dépassez les 88 miles à l'heure, avec une énergie de 2.21 Gigot-Watt vous pouvez vous rendre en 1973 et utiliser un éditeur de code qui s'appelle `ed`.
 
 C'est un éditeur qui a été écrit à l'époque des [télétypes][teletype] et qui, curieusement, est encore intégré au standard POSIX. Il est par conséquent toujours disponible sur nos systèmes d'exploitation modernes. Il faut noter qu'à cette époque il n'y avait pas d'écran, et que l'on utilisait des imprimantes pour afficher le texte. L'éditeur n'est donc pas très interactif, mais il a le mérite d'exister.
+
+C'est un des premier éditeur modale, son utilisation est assez déroutante car il n'y a pas de retour visuel immédiat. Il faut taper des commandes pour écrire du texte, pour sauvegarder, pour quitter, etc. Voici l'exemple pour éditer `hello.c` :
+
+```text
+$ ed
+a
+void main() {
+    printf("hello, world");
+}
+.
+1
+void main() {
+s/void/int/
+1i
+#include <stdio.h>
+.
+w hello.c
+62
+q
+$
+```
+
+Dans les étapes ci-dessus, nous avons :
+
+1. lancé l'éditeur `ed`
+2. `a` pour passer en mode édition
+3. écrit le code
+4. `.` pour revenir en mode commande
+5. `1` pour afficher la première ligne (qui comporte une erreur)
+6. `s/void/int/` pour remplacer `void` par `int`
+7. `1i` pour insérer une ligne avant la première ligne
+8. écrit `#include <stdio.h>` que l'on a oublié
+9. `.` pour revenir en mode commande
+10. `w hello.c` pour sauvegarder le fichier
+
+Ce programme est écrit en C, donc le plus amusant c'est que vous pouvez le compiler, le modifier et même ajouter des fonctionnalités. On trouve bien entendu le code source sur [GitHub](https://raw.githubusercontent.com/yves-chevallier/ed/master/main_loop.c).
+
+Trève de plaisanteries, continuons un peu notre voyage spatio-temporel...
 
 En 1991 naît un éditeur de code qui va révolutionner le monde de la programmation, il s'appelle `vim`. C'est un éditeur de code qui est très puissant, mais qui a une courbe d'apprentissage assez velue. Il est toujours très utilisé de nos jours, et il est disponible sur tous les systèmes d'exploitation. Vous seriez surpris de voir le nombre de programmeurs qui l'utilisent encore. C'est un éditeur modal, c'est-à-dire qu'il a plusieurs modes, un mode pour écrire du texte, un mode pour éditer du texte, un mode pour naviguer dans le texte, etc.
 

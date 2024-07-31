@@ -15,7 +15,7 @@ La version web est disponible sur cette [page](https://heig-tin-info.github.io/h
 La version utilisée est Ubuntu 24.04 LTS. Commencez par installer les paquets suivants :
 
 ```bash
-sudo apt install -y fonts-symbola fonts-noto
+sudo apt install -y fonts-symbola fonts-noto fonts-firacode
 sudo apt install -y texlive-full
 sudo apt install -y pipx
 sudo fc-cache -fv
@@ -39,6 +39,7 @@ poetry run mkdocs serve
 ## To-Do
 
 - [ ] LaTeX
+  - [ ] Code with title doesn't display well in LaTeX
   - [ ] Image with width should be included with the correct size
   - [ ] Implement local links to code, copy them in appencies
   - [ ] Table des opérateurs, find a way

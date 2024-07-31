@@ -9,4 +9,7 @@ poetry.lock: pyproject.toml
 
 build:
 	poetry run mkdocs build
+	latexmk -C
 	latexmk --shell-escape -pdf -lualatex -cd build/index.tex
+
+.PHONY: all serve build

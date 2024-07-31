@@ -30,7 +30,7 @@ Il est des circonstances ou un programme ne sait pas combien de mémoire il a be
 
 L'approche la plus naïve serait d'anticiper le cas le plus défavorable. Le dictionnaire Littré comporte environ 132'000 mots tandis que le Petit Larousse Illustré 80'000 mots environ. Pour se donner une bonne marge de manœuvre et anticiper les anglicismes et les noms propres. Il suffirait de réserver un tableau de 1 million de mots de 10 caractères soit un peu plus de 100 MiB de mémoire quand bien même le fichier qui serait lu ne comporterait que 2 mots: `Hello World!`.
 
-L'approche correcte est d'allouer la mémoire au moment où on en a besoin, c'est ce que l'on appelle l'[allocation dynamique](<https://fr.wikipedia.org/wiki/Tas_(allocation_dynamique)>).
+L'approche correcte est d'allouer la mémoire au moment où on en a besoin, c'est ce que l'on appelle l'[allocation dynamique](https://fr.wikipedia.org/wiki/Tas_(allocation_dynamique)).
 
 Lorsqu'un programme a besoin de mémoire, il peut générer un appel système pour demander au système d'exploitation le besoin de disposer de plus de mémoire. En pratique on utilise deux fonctions de la bibliothèque standard `<stdlib.h>`:
 

@@ -14,6 +14,7 @@
 \BLOCK{else}
 \begin{center}
 \BLOCK{- endif}
+\begin{adjustbox}{width=\linewidth}
 \begin{tabular}{\BLOCK{- for column in columns}\VAR{style[column]}\BLOCK{- endfor}}
 \toprule
 \BLOCK{for row in rows -}
@@ -32,6 +33,7 @@
 \BLOCK{- endfor}
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \BLOCK{- if caption -}
 \end{table}
 \BLOCK{- else}

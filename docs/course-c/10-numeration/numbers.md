@@ -282,7 +282,7 @@ Cette solution est élégante, mais demande à présent 11-bits contre 8-bits in
 
 ### Virgule flottante
 
-Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' [exposant](<https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)>) et le reste de l'information la [mantisse](https://fr.wikipedia.org/wiki/Mantisse), qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la [mantis shrimp](https://fr.wikipedia.org/wiki/Stomatopoda), une quille ou crevette-mante boxeuse aux couleurs particulièrement chatoyantes).
+Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' [exposant](https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)) et le reste de l'information la [mantisse](https://fr.wikipedia.org/wiki/Mantisse), qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la [mantis shrimp](https://fr.wikipedia.org/wiki/Stomatopoda), une quille ou crevette-mante boxeuse aux couleurs particulièrement chatoyantes).
 
 ```
   exp.  mantisse
@@ -483,7 +483,7 @@ int main() {
 
 ## Format Q (virgule fixe)
 
-Le format [Q](<https://en.wikipedia.org/wiki/Q_(number_format)>) est une notation en virgule fixe dans laquelle le format d'un nombre est représenté par la lettre **Q** suivie de deux nombres :
+Le format [Q](https://en.wikipedia.org/wiki/Q_(number_format)) est une notation en virgule fixe dans laquelle le format d'un nombre est représenté par la lettre **Q** suivie de deux nombres :
 
 1. Le nombre de bits entiers
 2. Le nombre de bits fractionnaires

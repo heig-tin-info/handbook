@@ -438,7 +438,7 @@ Notons quelques observations :
 
 ## Les boucles
 
-![Bien choisir sa structure de contrôle]({assets}/images/road-runner.svg)
+![Bien choisir sa structure de contrôle]({assets}/images/road-runner.drawio)
 
 Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :
 
@@ -461,8 +461,7 @@ La structure `while` répète une séquence **tant que** la condition est vraie.
 Dans l'exemple suivant tant que le poids d'un objet déposé sur une balance est inférieur à une valeur constante, une masse est ajoutée et le système patiente avant stabilisation.
 
 ```c
-while (get_weight() < 420 /* newtons */)
-{
+while (get_weight() < 420 /* newtons */) {
     add_one_kg();
     wait(5 /* seconds */);
 }
@@ -506,8 +505,7 @@ Contrairement à la boucle `while`, la séquence est ici exécutée **au moins u
 La boucle `for` est un `while` amélioré qui permet en une ligne de résumer les conditions de la boucle :
 
 ```c
-for (/* expression 1 */; /* expression 2 */; /* expression 3 */)
-{
+for (/* expression 1 */; /* expression 2 */; /* expression 3 */) {
     /* séquence */
 }
 ```
@@ -527,8 +525,7 @@ Expression 3
 Voici comment répéter 10x un bloc de code :
 
 ```c
-for (size_t i = 0; i < 10; i++)
-{
+for (size_t i = 0; i < 10; i++) {
     something();
 }
 ```
@@ -536,8 +533,7 @@ for (size_t i = 0; i < 10; i++)
 Notons que les portions de `for` sont optionnels et que la structure suivante est strictement identique à la boucle `while`:
 
 ```c
-for (; get_weight() < 420 ;)
-{
+for (; get_weight() < 420 ;) {
     /* ... */
 }
 ```
@@ -596,13 +592,11 @@ for (; get_weight() < 420 ;)
 Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort *La boucle principale* aussi nommée [run loop](https://en.wikipedia.org/wiki/Event_loop). Lorsqu'un programme est exécuté *bare-metal*, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction `main` telle que :
 
 ```c
-void main_loop()
-{
+void main_loop() {
     // Boucle principale
 }
 
-int main(void)
-{
+int main(void) {
     for (;;)
     {
         main_loop();

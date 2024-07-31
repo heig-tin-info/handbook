@@ -152,6 +152,7 @@ Table: Anglicismes
 | *stream* | flux de données | *stream* |
 | *listing* | extrait de code | *listing* |
 | *process* | processus | processus |
+| *seekable* | positionnable | *seekable* |
 
 [](){#anglisismes}
 

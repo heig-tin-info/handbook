@@ -8,7 +8,7 @@ La philosophie d'un bon développeur repose sur plusieurs principes de programma
 
 Le [rasoir d'Ockham](https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham) expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise [Shadok](https://en.wikipedia.org/wiki/Les_Shadoks) : "Pourquoi faire simple quand on peut faire compliqué ?"
 
-En philosophie un [rasoir](<https://fr.wikipedia.org/wiki/Rasoir_(philosophie)>) est un principe qui permet de *raser* des explications improbables d'un phénomène. Ce principe tient son nom de Guillaume d'Ockham (XIVe siècle) alors qu'il date probablement d'Empédocle (Ἐμπεδοκλῆς) vers 450 av. J.-C.
+En philosophie un [rasoir](https://fr.wikipedia.org/wiki/Rasoir_(philosophie)) est un principe qui permet de *raser* des explications improbables d'un phénomène. Ce principe tient son nom de Guillaume d'Ockham (XIVe siècle) alors qu'il date probablement d'Empédocle (Ἐμπεδοκλῆς) vers 450 av. J.-C.
 
 Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent le développeur de la noyade, car un programme peut rester simple, quelle que soit sa taille et si chaque strate de conception reste évidente et compréhensible pour celui qui chercherait à contribuer au projet d'autrui.
 

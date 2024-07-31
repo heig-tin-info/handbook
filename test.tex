@@ -1,19 +1,39 @@
 \documentclass{article}
-\usepackage{enumitem}
+\usepackage{fontspec}
+\usepackage[many,minted]{tcolorbox}% version 3.03 or better
+\usepackage{parskip}
+\usepackage[a4paper, left=3cm, right=4cm]{geometry}
+
+\newtcolorbox{callout}[1][]{%
+    breakable,
+    #1
+}
 
 \begin{document}
 
-\setlist[description]{
-    style=nextline,
-    labelindent=0pt,
-    leftmargin=1cm,
-    itemindent=\dimexpr-5pt-\labelsep\relax
-}
+\begin{callout}[parbox=false]
 
-\begin{description}
-    \item[\textbf{Item 1}] Description de l'item 1 qui commence à la ligne et est indentée.
-    \item[\textbf{Item 2}] Description de l'item 2 qui commence à la ligne et est indentée.
-    \item[\textbf{Exemple}] Description d'un item avec un label plus long.
-\end{description}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id odio nunc.
+  Suspendisse potenti. Integer et elit ut sem convallis gravida.
+
+  Donec porta tincidunt dapibus. Donec id enim nec ante cursus consequat in nec libero. In maximus ante enim, et pretium velit scelerisque eget. Morbi iaculis egestas justo in faucibus.
+
+  \begin{enumerate}
+  \item Lorem ipsum dolor sit amet, consectetur adipiscing elit pré-fuuuuuuuuuuuuuuuuuuuuuu.
+  \item Nullam id odio nunc.
+  \end{enumerate}
+\end{callout}
+
+\begin{callout}[hyphenationfix=true]
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id odio nunc.
+  Suspendisse potenti. Integer et elit ut sem convallis gravida.
+
+  Donec porta tincidunt dapibus. Donec id enim nec ante cursus consequat in nec libero. In maximus ante enim, et pretium velit scelerisque eget. Morbi iaculis egestas justo in faucibus.
+
+  \begin{enumerate}
+  \item Lorem ipsum dolor sit amet, consectetur adipiscing elit pré-fuuuuuuuuuuuuuuuuuuuuuu.
+  \item Nullam id odio nunc.
+  \end{enumerate}
+\end{callout}
 
 \end{document}

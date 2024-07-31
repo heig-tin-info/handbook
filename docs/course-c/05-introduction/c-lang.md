@@ -185,7 +185,7 @@ Le C++ quant à lui apporte les paradigmes suivants à C :
 
 : programmation basée sur la définition de classes et d'objets. Utilisé dans les langages C++, Java, Python. Une classe associe des données a des actions qui manipulent ces données.
 
-Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la [programmation réflective](<https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)>).
+Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la [programmation réflective](https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)).
 
 Ce que nous devons retenir c'est que le langage C est impératif et procédural, c'est-à-dire qu'il est basé sur des séquences d'instructions qui se lisent de haut en bas, lesquelles peuvent être regroupées en procédures. Si nous reprenons notre exemple de l'[omelette][omelette], si nous souhaitons réaliser une pâte à crêpes nous pourrions écrire :
 
@@ -300,7 +300,7 @@ Une console lancée ressemble à ceci, c'est intimidant si l'on n’en a pas l'h
 $
 ```
 
-La première étape est de s'assurer que le fichier `test.c` contient bien notre programme. Pour ce faire on utilise un autre programme [cat](<https://fr.wikipedia.org/wiki/Cat_(Unix)>) qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :
+La première étape est de s'assurer que le fichier `test.c` contient bien notre programme. Pour ce faire on utilise un autre programme [cat]https://fr.wikipedia.org/wiki/Cat_(Unix)) qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :
 
 ```bash
 $ cat hello.c
@@ -370,6 +370,12 @@ a.out         Nom du fichier
     Mais avant tout, c'est la cohérence de l'ensemble qui doit primer. Si vous avez choisi d'écrire `Hello, World!`, alors écrivez-le partout de la même manière, dans tous vos exemples, dans tous vos commentaires, dans toute votre documentation.
 
 ## Exercices de Révision
+
+!!! exercise "Hello World"
+
+    Pouvez-vous écrire, puis compiler votre premier programme en C ? Rédiger le programme `hello.c` qui affiche `Hello, World!` à l'écran.
+
+    Exécutez le programme et vérifiez que le message s'affiche bien.
 
 !!! exercise "Auteurs"
 
