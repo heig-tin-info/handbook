@@ -39,6 +39,7 @@ poetry run mkdocs serve
 ## To-Do
 
 - [ ] LaTeX
+  - [ ] Mint inline in titles cause weird behavior in the toc.
   - [ ] Avoid breaking code block if contains boxchars or special chars (ascii art?)
   - [x] Do not use adjustbox on small tables
   - [ ] Code with title doesn't display well in LaTeX

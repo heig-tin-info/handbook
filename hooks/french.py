@@ -33,7 +33,7 @@ def on_page_markdown(markdown, page, config, files):
 
 
 RE_PUNCT = re.compile(r'(?<=\w) ?([!?:;])')
-RE_IGNORE = re.compile(r'<code>.*?</code>|<[^>]+>|&\w+;|\w://|[!?:;]\w', re.DOTALL)
+RE_IGNORE = re.compile(r'<code[^>]*>.*?</code>|<[^>]+>|&\w+;|\w://|[!?:;]\w', re.DOTALL)
 
 def process_html(html):
     parts = RE_IGNORE.split(html)

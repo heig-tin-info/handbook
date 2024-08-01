@@ -913,7 +913,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     \sum_{k=1}^n k = \frac{n(n+1)}{2}
     $$
 
-    Un grand mathématicien [Srinivasa Ramanujan](https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan) (En tamoul: சீனிவாச இராமானுஜன்) à démontré que ce la somme à l'infini donne :
+    சீனிவாச இராமானுஜன், un grand mathématicien ([Srinivasa Ramanujan](https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan)) à démontré que ce la somme à l'infini donne :
 
     $$
     \sum_{k=1}^{\inf} k = -\frac{1}{12}
@@ -995,7 +995,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
     Durant la guerre du Golfe le 25 février 1991, une batterie de missile américaine à Dharan en Arabie saoudite à échoué à intercepter un missile irakien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport **GAO/OMTEC-92-26** du commandement général.
 
-    Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixième de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24:sup:`ième` décimale après la virgule. Des erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduite par 600 mètres d'erreur lors de la tentative d'interception.
+    Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixième de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24^e décimale après la virgule. Des erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduite par 600 mètres d'erreur lors de la tentative d'interception.
 
     Le stockage de la valeur 0.1 est donné par :
 

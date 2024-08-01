@@ -63,7 +63,11 @@ def escape_latex_chars(text):
         ('#', r'\#'),
         ('$', r'\$'),
         ('_', r'\_'),
-        ('\\', r'\textbackslash'),
+        ('^', r'\^'),
+        ('{', r'\{'),
+        ('}', r'\}'),
+        ('~', r'\textasciitilde{}'),
+        ('\\', r'\textbackslash{}'),
     ]
     return ''.join([c if c not in dict(mapping) else dict(mapping)[c]
                     for c in text])
@@ -254,6 +258,28 @@ class LaTeXRenderer:
 
     def render_codeinline(self, soup: Tag, **kwargs):
         """Extract code from a <code> object."""
+        for el in soup.find_all('code'):
+            # Skip mermaid
+            if el.find_parent('pre', class_='mermaid'):
+                continue
+
+            if get_class(el, 'highlight'):
+                code = ''.join([e.get_text() for e in el.find_all('span')])
+            else:
+                code = self.get_safe_text(el)
+            language = self.get_code_language(el)
+
+            code = escape_latex_chars(code).replace(' ', '~')
+
+            self.apply(el, 'codeinlinett', code)
+        return soup
+
+    def render_codeinline_old(self, soup: Tag, **kwargs):
+        """Extract code from a <code> object.
+        TeX doesn't like verb command inside arguments, so we cannot
+        use mintinline anywhere. It limits the use, or conditionnaly replace it with
+        textt where it is allowed... but it is not a good solution.
+        """
 
         def find_safe_delimiter(text):
             delimiters = ['|', '@', '?', '~', '*', '£', '§']
@@ -686,7 +712,7 @@ class LaTeXRenderer:
                 # We already have rendered some LaTeX, so to have an idea of the table width
                 # we simply strip the LaTeX commands and count the characters...
                 # Ugly? yes.
-                is_large |= len(''.join([re.sub(r"\\\w{3,}|\\href\{[^\}]+?\}|[\{\}|]", '', col) for col in row_data])) > 55
+                is_large |= len(''.join([re.sub(r"\\href\{[^\}]+?\}|\\\w{3,}|[\{\}|]", '', col) for col in row_data])) > 50
 
                 table_data.append(row_data)
                 styles.append(row_styles)

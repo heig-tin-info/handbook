@@ -32,7 +32,10 @@
 \usepackage{emptypage} % Nothing on empty pages
 
 \setcounter{tocdepth}{2}
-\setlength{\cftsubsecnumwidth}{6em}
+
+% Give more spaces on Table of content (between numbers and text)
+\setlength{\cftsecnumwidth}{4em}
+\setlength{\cftsubsecnumwidth}{4em}
 
 \setdefaultlanguage{french}
 \setotherlanguages{english}
@@ -368,6 +371,15 @@
     ](key) {#1\strut}
   ;
 }
+
+% Avoid orphans at the end of a page, encourage page breaks if there are
+% a section with less than 3 lines
+% https://tex.stackexchange.com/a/723704/85416
+\makeatletter
+\patchcmd\@afterheading{\clubpenalty \@M}{\clubpenalties 3 \@M\@M 5000 }{%
+  \typeout{patched}}{\typeout{patch failed}
+}
+\makeatother
 
 % Description item and text are displayed by default on the same line
 % this is not very readable. This command changes the style to display

@@ -1,39 +1,33 @@
 \documentclass{article}
 \usepackage{fontspec}
-\usepackage[many,minted]{tcolorbox}% version 3.03 or better
 \usepackage{parskip}
-\usepackage[a4paper, left=3cm, right=4cm]{geometry}
+\usepackage{etoolbox}
+\usepackage{lipsum}
+\usepackage{blindtext}
+\usepackage{needspace}
 
-\newtcolorbox{callout}[1][]{%
-    breakable,
-    #1
-}
+\makeatletter
+\patchcmd\@afterheading{\clubpenalty \@M}{\clubpenalties 3 \@M\@M 5000 }{\typeout{patched}}{\typeout{patch failed}}
+\makeatother
 
 \begin{document}
 
-\begin{callout}[parbox=false]
+\section{Lorem ipsum}
 
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id odio nunc.
-  Suspendisse potenti. Integer et elit ut sem convallis gravida.
+\Blindtext[2][1]
 
-  Donec porta tincidunt dapibus. Donec id enim nec ante cursus consequat in nec libero. In maximus ante enim, et pretium velit scelerisque eget. Morbi iaculis egestas justo in faucibus.
+\section{Nuc vitae}
 
-  \begin{enumerate}
-  \item Lorem ipsum dolor sit amet, consectetur adipiscing elit pré-fuuuuuuuuuuuuuuuuuuuuuu.
-  \item Nullam id odio nunc.
-  \end{enumerate}
-\end{callout}
+\texttt{[~~~\textbackslash\textbackslash\textbackslash \textbf{a}~~\{ \^ \_ \} ]}
 
-\begin{callout}[hyphenationfix=true]
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id odio nunc.
-  Suspendisse potenti. Integer et elit ut sem convallis gravida.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec turpis est, ultricies et nisi a, commodo aliquam turpis. Aliquam blandit ut risus in sodales. Pellentesque rhoncus gravida neque. Phasellus ac pellentesque libero, a varius mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 
-  Donec porta tincidunt dapibus. Donec id enim nec ante cursus consequat in nec libero. In maximus ante enim, et pretium velit scelerisque eget. Morbi iaculis egestas justo in faucibus.
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus dapibus volutpat egestas. Nulla nec magna in odio ultricies sollicitudin. Mauris massa velit, tempus id rutrum vel, fermentum in neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id augue dignissim, viverra ante et, scelerisque dolor.
 
-  \begin{enumerate}
-  \item Lorem ipsum dolor sit amet, consectetur adipiscing elit pré-fuuuuuuuuuuuuuuuuuuuuuu.
-  \item Nullam id odio nunc.
-  \end{enumerate}
-\end{callout}
+Curabitur non faucibus risus. Quisque sapien felis, rhoncus et dictum quis, pulvinar at arcu. Duis augue orci, facilisis sed ipsum a, fringilla malesuada dolor.
+
+\section{Quisque ullamcorper}
+
+\Blindtext[3][1]
 
 \end{document}

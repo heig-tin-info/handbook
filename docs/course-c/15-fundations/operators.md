@@ -375,7 +375,7 @@ La conjonction ou **ET logique** ($\wedge$) est identique à la multiplication a
 
 Table: Conjonction bit à bit
 
-| $A ∧ B$ @rb @bb | $A=0$ | $A=1$ |
+| $A ∧ B$  | $A=0$ | $A=1$ |
 | --------------- | ----- | ----- |
 | $B=0$           | 0     | 0     |
 | $B=1$           | 0     | 1     |
