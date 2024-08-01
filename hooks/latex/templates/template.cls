@@ -43,7 +43,6 @@
    ("fontfallback",
     {
       "NotoColorEmoji:mode=harf;",
-      "Symbola:mode=harf;",
       "NotoNaskhArabic:mode=harf;",
       "NotoSerifHebrew:mode=harf;",
       "NotoSerifDevanagari:mode=harf;",
