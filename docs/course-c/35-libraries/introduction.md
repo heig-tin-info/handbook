@@ -133,7 +133,9 @@ La bibliothèque [ncurses](https://fr.wikipedia.org/wiki/Ncurses) traduction de 
 
 La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...
 
-![Exemple d'interface graphique écrite avec `ncurses`. Ici la configuration du noyau Linux.]({assets}/images/linux-menuconfig.png)
+Figure: Exemple d'interface graphique écrite avec `ncurses`. Ici la configuration du noyau Linux.
+
+![Exemple avec ncurses]({assets}/images/linux-menuconfig.png)
 
 L'écriture d'un programme Hello World avec cette bibliothèque pourrait être :
 

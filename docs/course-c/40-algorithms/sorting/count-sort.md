@@ -8,7 +8,7 @@ Pour que cet algorithme soit utilisable, imaginons un contexte où les données 
 
 Ici, les données d'entrées seront générées entre 0 et 51 ; chaque valeur représentera une carte à jouer selon la règle suivante :
 
-![cards]({assets}/images/playing-cards.svg){ width=600px }
+![cards]({assets}/images/playing-cards.svg){ width=100% }
 
 Cette série de valeurs dispose de plusieurs propriétés intéressantes :
 

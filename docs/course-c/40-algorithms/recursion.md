@@ -42,6 +42,7 @@ Le code est beaucoup plus simple à écrire, et même à lire. Néanmoins cet al
 Cette chaîne d'appel représente le nombre de fois que `fib` est appelé et à quel niveau elle est appelée. Par exemple `fib(4)` est appelé dans `fib(5)` :
 
 ```mermaid
+%% Arbre d'appel de Fibonacci
 graph TD
 
 5(("fib(5)")) --> 41(("fib(4)"))

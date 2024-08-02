@@ -7,7 +7,7 @@ from urllib.parse import quote
 from hashlib import sha256
 from html import unescape
 from IPython import embed
-from .transformers import fetch_image, image2pdf, svg2pdf, mermaid2pdf, drawio2pdf
+from .transformers import fetch_image, image2pdf, svg2pdf, mermaid2pdf, drawio2pdf, get_pdf_page_sizes
 import logging
 from urllib.parse import quote, urlparse, urlunparse
 
@@ -307,6 +307,11 @@ class LaTeXRenderer:
                 raise ValueError("No code block found in mermaid")
 
             diagram = self.get_safe_text(code)
+
+            caption = None
+            if match := re.search(r'^%%\s*(.*?)\n', diagram):
+                caption = match.group(1)
+
             filename = mermaid2pdf(diagram, self.output_path)
             self.assets_map[filename] = {
                 'type': 'mermaid',
@@ -314,8 +319,13 @@ class LaTeXRenderer:
             }
             template = 'figure_tcolorbox' if \
                 kwargs.get('tcolorbox', False) else 'figure'
+
+            width, height = get_pdf_page_sizes(filename)
             self.apply(el, template,
-                       path=filename.name)
+                       path=filename.name,
+                       caption=caption,
+                       width=f"{width}mm",
+                       height=f"{height}mm")
         return soup
 
     def render_codeblock(self, soup: Tag, **kwargs):
@@ -351,9 +361,21 @@ class LaTeXRenderer:
                 #tokens = span_line.find_all('span')
                 listing.append(span_line.get_text())
 
-            self.apply(el, 'codeblock', code=''.join(listing),
+            code = ''.join(listing)
+
+            def is_ascii_art(s):
+                chars = '┌┬─┐'
+                for c in chars:
+                    if c in s:
+                        return True
+                return False
+
+            baselinestretch = 0.5 if is_ascii_art(code) else None
+
+            self.apply(el, 'codeblock', code=code,
                        language=language, lineno=lineno, filename=filename,
-                       highlight=highlight)
+                       highlight=highlight,
+                       baselinestretch=baselinestretch)
         return soup
 
     def render_heading(self, soup: Tag, **kwargs):
@@ -663,9 +685,13 @@ class LaTeXRenderer:
                             'source': filepath
                         }
             caption = figure.find('figcaption')
+            short_caption = image.get('alt', '')
             self.render_inlines(caption)
             caption_text = self.get_safe_text(caption) \
-                if caption else image.get('alt', '')
+                if caption else short_caption
+
+            if short_caption and len(caption) > len(short_caption):
+                short_caption = None
 
             width = image.get('width', None)
 
@@ -677,6 +703,7 @@ class LaTeXRenderer:
                 kwargs.get('tcolorbox', False) else 'figure'
             self.apply(figure, template,
                        caption=caption_text,
+                       shortcaption=short_caption,
                        path=filename.name,
                        label=label,
                        width=width)

@@ -396,6 +396,8 @@ La fonction `fflush` force l'écriture malgré l'utilisation d'un buffer.
 
 Historiquement les descripteurs de fichiers sont appelés `FILE` alors qu'ils sont préférablement appelés `streams` en C++. Un fichier au même titre que `stdin`, `stdout` et `stderr` sont des flux de données. La norme POSIX, décrit que par défaut les flux :
 
+Table: Flux de données standards
+
 | Flux   | Numéro | Description |
 | ------ | --- | ----------- |
 | `stdin`  | 0 | Flux d'entrée standard |
@@ -504,9 +506,9 @@ Pour pallier au défaut du format tabulé, il est possible d'écrire le fichier 
 48e colonne :
 
 ```text
-0000000000111111111122222222223333333333444444444455555555556666666666777777777788
-0123456789012345678901234567890123456789012345678901234567890123456789012345678901
-+---------+-------+-----+-----+-----+----+----+----+----+----+----+----+-----+--->
+ 0000000000111111111122222222223333333333444444444455555555556666666666777777777788
+ 0123456789012345678901234567890123456789012345678901234567890123456789012345678901
++---------+-------+-----+-----+-----+----+----+----+----+----+----+----+-----+---->
 
 Pays      Ville   01    02    03    04   05   06   07   08   09   10   11    12
 Suisse    Zürich  0.3   1.3   5.3   8.8  13.3 16.4 18.6 18.0 14.1 9.9  4.4   1.4

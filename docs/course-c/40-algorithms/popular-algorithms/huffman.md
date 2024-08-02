@@ -14,6 +14,8 @@ Pour notre entrée `ABRACADABRA`, nous allons suivre les étapes suivantes :
 
 On commence par compter la fréquence de chaque caractère. On obtient :
 
+Table: Fréquence de Huffman
+
 | Caractère | Fréquence |
 |-----------|-----------|
 | A         | 5         |

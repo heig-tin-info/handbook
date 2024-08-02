@@ -14,3 +14,10 @@ void foo(int a) { //   ┬ b
     ...           //   │ │
 }                 //   ┴ ┴
 ```
+
+```mermaid
+%% Les enfants bleus
+graph TD
+CD("CD (2)") --> C("C (1)")
+CD --> D("D (1)")
+```

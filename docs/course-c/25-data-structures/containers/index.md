@@ -178,8 +178,9 @@ data[elements++] = value;
 
 L'opération `shift` retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque élément qu'il contient.
 
-![Suppression du premier élément dans un tableau dynamique]({assets}/images/dyn-array-shift.drawio)
+Figure: Suppression du premier élément dans un tableau dynamique
 
+![Tableau dynamique: pop front]({assets}/images/dyn-array-shift.drawio)
 
 ```c
 if (elements <= 0) exit(EXIT_FAILURE);

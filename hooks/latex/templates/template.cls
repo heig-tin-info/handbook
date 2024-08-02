@@ -36,6 +36,8 @@
 % Give more spaces on Table of content (between numbers and text)
 \setlength{\cftsecnumwidth}{4em}
 \setlength{\cftsubsecnumwidth}{4em}
+\setlength{\cftfignumwidth}{4em}
+\setlength{\cfttabnumwidth}{4em}
 
 \setdefaultlanguage{french}
 \setotherlanguages{english}

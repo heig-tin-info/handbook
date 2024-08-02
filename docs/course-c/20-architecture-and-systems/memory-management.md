@@ -4,14 +4,29 @@ Vous l'aurez appris à vos dépens, l'erreur *Segmentation fault* (erreur de seg
 
 La mémoire d'un programme est découpée en [segments de données](https://fr.wikipedia.org/wiki/Segment_de_donn%C3%A9es). Les principaux segments sont :
 
-| Segment      | Nom                                | Description                                                                                                                                                 |
-|--------------|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `.text`    | Segment de code                    | Les instructions du programme exécutable sont chargées dans ce segment.                                                                                     |
-| `.rodata`  | Segment de constantes et chaînes de caractères | Les constantes globales `const int = 13` et les chaînes de caractères sont enregistrées dans ce segment.                                                 |
-| `.bss`     | Segment de variables initialisées   | Ce segment est garanti d'être initialisé à zéro lorsque le programme est chargé en mémoire. Les variables globales statiques tels que `static int foo = 0` seront stockées dans ce segment. |
-| `.data`    | Segment de variables non initialisées | Les variables globales non initialisées comme `static int bar;` seront placées dans ce segment.                                                           |
-| `.heap`    | Segment de tas                     | Les allocations dynamiques décrites plus bas dans ce chapitre sont déclarées ici.                                                                            |
-| `.stack`   | Segment de pile                    | La chaîne d'appel de fonction ainsi que toutes les variables locales sont mémorisées dans ce segment.                                                       |
+`.text`
+
+: Segment de code: les instructions du programme exécutable sont chargées dans ce segment.
+
+`.rodata`
+
+: Segment de constantes et chaînes de caractères: les constantes globales `const int = 13` et les chaînes de caractères sont enregistrées dans ce segment.
+
+`.bss`
+
+: Segment de variables initialisées: ce segment est garanti d'être initialisé à zéro lorsque le programme est chargé en mémoire. Les variables globales statiques tels que `static int foo = 0` seront stockées dans ce segment.
+
+`.data`
+
+: Segment de variables non initialisées: les variables globales non initialisées comme `static int bar;` seront placées dans ce segment.
+
+`.heap`
+
+: Segment de tas: les allocations dynamiques décrites plus bas dans ce chapitre sont déclarées ici.
+
+`.stack`
+
+: Segment de pile: la chaîne d'appel de fonction ainsi que toutes les variables locales sont mémorisées dans ce segment.
 
 
 ## Allocation statique

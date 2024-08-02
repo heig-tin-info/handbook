@@ -288,7 +288,9 @@ Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب), les C
 
 Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) plus précisément nommé **UTF-8**.
 
-![Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008]({assets}/images/encoding-trends.png)
+Figure: Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008
+
+![Utiliation de l'UTF-8 dès 2008]({assets}/images/encoding-trends.png)
 
 Cette tendance est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
 
@@ -335,6 +337,7 @@ Une **chaîne de caractères** est simplement la suite contiguë de plusieurs ca
     Imaginez que l'on vous demande de vous placer dans un champ et de déterrer n'importe quel légume sauf un chou. Votre algorithme est :
 
     ```mermaid
+    %% Algorithme de déterrage de légumes
     flowchart LR
         start(Début) --> pick[Déterrer]
         pick --> if{Choux?}

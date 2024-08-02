@@ -8,6 +8,7 @@ from pathlib import Path
 import logging
 import shutil
 import mimetypes
+import pypdf
 import tempfile
 import cairosvg
 import requests
@@ -315,3 +316,19 @@ def svg2pdf_inkscape(svg, output_path=Path()):
 
 
 svg2pdf = svg2pdf_cairo
+
+
+
+def points_to_mm(points):
+    return points * 25.4 / 72
+
+def get_pdf_page_sizes(pdf_path):
+    reader = pypdf.PdfReader(pdf_path)
+    for page in reader.pages:
+        media_box = page.mediabox
+        width_pts = float(media_box.width)
+        height_pts = float(media_box.height)
+        width_mm = points_to_mm(width_pts)
+        height_mm = points_to_mm(height_pts)
+        return (width_mm, height_mm)
+    return None

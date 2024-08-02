@@ -5,5 +5,6 @@
     \BLOCK{if width}\BLOCK{set width_value = width.rstrip('%') if width.endswith('%') else width}\BLOCK{endif}
     \includegraphics[width=\BLOCK{if width}\BLOCK{if width.endswith('%')}\VAR{(width_value|float) / 100}\linewidth\BLOCK{else}\VAR{width}\BLOCK{endif}\BLOCK{else}\linewidth\BLOCK{endif}]{\VAR{path}}
     \BLOCK{-if caption}
-    \caption{\VAR{caption}}\BLOCK{endif}
+    \caption\BLOCK{if shortcaption}[\VAR{shortcaption}]\BLOCK{endif}{\VAR{caption}}
+    \BLOCK{-endif}
 \end{figure}

@@ -67,6 +67,7 @@ Nous ferons l'impasse sur d'autres éditeurs qui ont été populaires en leurs t
 Le résultat de l'étude annuelle 2023 de [Stackoverflow](https://survey.stackoverflow.co/2023/#overview) donne une idée de la popularité des éditeurs et IDE les plus utilisés par les développeurs :
 
 ```mermaid
+%% Utilisation des éditeurs de code
 pie
     "Visual Studio Code" : 73.3
     "Visual Studio" : 28.4
@@ -167,7 +168,9 @@ Un autre composant essentiel de l'environnement de développement est le **compi
 
 L'ensemble des outils nécessaire à créer un produit logiciel est appelé chaîne de compilation, plus communément appelée [toolchain](https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_compilation).
 
-![Représentation graphique des notions de compilateur, IDE, toolchain...]({assets}/images/toolchain.drawio)
+Figure: Représentation graphique des notions de compilateur, IDE, toolchain...
+
+![Notions de compilateur, IDE, toolchain...]({assets}/images/toolchain.drawio)
 
 
 !!! exercise "Eclipse"

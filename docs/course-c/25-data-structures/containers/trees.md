@@ -9,6 +9,7 @@ Voici un exemple d'arbre, il représente par exemple une structure de documents 
 On appelle ce type d'arbre un **arbre n-aire dirigé**. C'est-à-dire que chaque nœud peut avoir plusieurs enfants. L'arbre est dirigé car il y a un sens de la racine vers les feuilles. Il y a donc des flèches qui indiquent le sens de la hiérarchie.
 
 ```mermaid
+%% Arbre n-aire dirigé
 graph LR
     C(C:)
 
@@ -65,6 +66,7 @@ Le C étant un langage très bas niveau, il n'y a pas de structure de données a
 Voici l'exemple d'un arbre binaire. Chaque nœud est composé de deux enfants sauf pour les feuilles qui n'ont pas d'enfants. Le nœud `40` n'a lui que 1 enfant : l'enfant de droite.
 
 ```mermaid
+%% Arbre binaire
 graph TD
     classDef ghost display: none;
 
@@ -100,6 +102,7 @@ Un arbre peut être **équilibré** ou **déséquilibré**. Un arbre est équili
 Voici l'exemple d'un arbre déséquilibré :
 
 ```mermaid
+%% Arbre binaire déséquilibré
 graph LR
     classDef ghost display: none;
 
@@ -325,6 +328,8 @@ L'implémentation de ce type de structure de donnée s'appuie le plus souvent su
 
 Un arbre AVL est un arbre binaire de recherche équilibré. Il est équilibré car la hauteur de ses sous-arbres gauche et droit diffère d'au plus un. Cela signifie que la hauteur de l'arbre est en $O(log n)$, ce qui rend les opérations de recherche, d'insertion et de suppression en $O(log n)$.
 
+![AVL Tree]({assets}/images/avl-tree.drawio)
+
 AVL tire son nom de ses inventeurs *Adelson-Velsky and Landis*. C'est une structure de données très utilisée en informatique pour implémenter des dictionnaires, des bases de données, des compilateurs, etc.
 
 Son implémentation complète sort du cadre de ce cours mais il est intéressant de comprendre comment il fonctionne. L'arbre AVL est un arbre binaire de recherche où chaque nœud a un **facteur d'équilibre** qui est la différence entre la hauteur de son sous-arbre gauche et la hauteur de son sous-arbre droit. Si le facteur d'équilibre d'un nœud est supérieur à $1$ ou inférieur à $-1$, l'arbre est déséquilibré et il faut le rééquilibrer. Cela donne un critère de rééquilibrage en fonction du facteur d'équilibre.
@@ -336,6 +341,8 @@ C'est cette opération de rotation qui est la plus complexe dans un arbre AVL. I
 ### Arbre rouge-noir
 
 Un arbre rouge-noir est un arbre binaire de recherche équilibré. Il est équilibré car la hauteur de ses sous-arbres gauche et droit diffère d'au plus deux. Cela signifie que la hauteur de l'arbre est en $O(log n)$, ce qui rend les opérations de recherche, d'insertion et de suppression en $O(log n)$.
+
+![Arbre rouge et noir]({assets}/images/red-black-tree.drawio)
 
 Contrairement à l'arbre AVL, l'arbre rouge-noir est plus simple à implémenter. Il utilise un **bit de couleur** pour chaque nœud pour indiquer si le nœud est rouge ou noir. L'arbre rouge-noir a cinq propriétés :
 
@@ -428,11 +435,11 @@ Exemple d'implémentation:
 
 !!! exercise "Regroupement ?"
 
-    On peut se demander si il ne serait pas préférable de regrouper les noeuds communs ensembles comme la figure suivante :
+    Demandons-nous s'il ne serait pas préférable de regrouper les noeuds communs ensemble comme le montre la figure suivante :
 
-    ![Autre représentation]({assets}/images/trie-not.drawio)
+    ![Trie: arbre avec noeuds communs]({assets}/images/trie-not.drawio)
 
-    Est-ce une bonne idée ? Pourquoi ?
+    D'après vous est-ce une bonne idée ? Pourquoi ?
 
     ??? solution
 

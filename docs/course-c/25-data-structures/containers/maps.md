@@ -354,6 +354,8 @@ On observe égalements des valeurs arbitraires pour les constantes `0xcc9e2d51`,
 
 Voici une compaison de différentes fonctions de hachage :
 
+Table: Comparaison des fonctions de hachage
+
 | Fonction de hachage | Qualité                           | Vitesse     | Taille      |
 | ------------------- | --------------------------------- | ----------- | ----------- |
 | **MD5**             | Bonne (cryptographie)             | Lente       | 128 bits    |

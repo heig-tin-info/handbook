@@ -10,7 +10,9 @@ Un [programme informatique](wiki:computer-program) est un ensemble d'opérations
 
 Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les [systèmes d'exploitation](wiki:operating-system) tels que Windows sont dits [multitâches](wiki:multitasking), il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.
 
-![Programmeuse en tenue décontractée à côté de 62'500 cartes perforées]({assets}/images/vintage-programmer.jpg){width="60%"}
+Figure: Programmeuse en tenue décontractée à côté de 62'500 cartes perforées
+
+![Programmeuse à côté de cartes perforées]({assets}/images/vintage-programmer.jpg){width="60%"}
 
 ### Code source
 
