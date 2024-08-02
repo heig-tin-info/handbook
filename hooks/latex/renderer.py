@@ -131,16 +131,9 @@ class LaTeXRenderer:
         self.solutions = []
         self.exercise_counter = 0
 
-        self.level = 0
+        self.assets_map = {}
 
-    def get_filename_from_content(self, content: str):
-        """Generate a filename from content.
-        This renderer, store assets with files sometime
-        generated from content. This function will generate
-        a unique filename based on the content.
-        """
-        digest = sha256(content.encode()).hexdigest()
-        return self.output_path / digest
+        self.level = 0
 
     def discard_unwanted(self, soup: Tag, **kwargs):
         # Headerlink and Footnote-backref only useful on HTML
@@ -249,7 +242,6 @@ class LaTeXRenderer:
         """
         for a in soup.find_all('a', class_=['ycr-regex']):
             code = self.get_safe_text(a)
-            # .replace('%', '\\%')
             code = code.replace('&', '\\&').replace('#', '\\#')
             self.apply(a, 'regex',
                        code,
@@ -316,7 +308,10 @@ class LaTeXRenderer:
 
             diagram = self.get_safe_text(code)
             filename = mermaid2pdf(diagram, self.output_path)
-
+            self.assets_map[filename] = {
+                'type': 'mermaid',
+                'inline': True  # Inline content
+            }
             template = 'figure_tcolorbox' if \
                 kwargs.get('tcolorbox', False) else 'figure'
             self.apply(el, template,
@@ -433,6 +428,10 @@ class LaTeXRenderer:
             if not src.startswith('http'):
                 raise ValueError(f"Expected URL, got {src}")
             filename = fetch_image(src, self.output_path)
+            self.assets_map[filename] = {
+                'type': 'twemoji',
+                'url': src
+            }
             self.apply(img, 'icon', filename)
 
         for span in soup.find_all('span', class_=['twemoji']):
@@ -441,6 +440,10 @@ class LaTeXRenderer:
                 raise ValueError("Expected SVG element in twemoji")
             svgdata = str(svg)
             filename = svg2pdf(svgdata, self.output_path)
+            self.assets_map[filename] = {
+                'type': 'twemoji',
+                'inline': True
+            }
             self.apply(span, 'icon', filename)
         return soup
 
@@ -632,6 +635,10 @@ class LaTeXRenderer:
                 raise ValueError(f"Missing src in image {image}")
             if is_valid_url(image_src):
                 filename = fetch_image(image_src, self.output_path)
+                self.assets_map[filename] = {
+                    'type': 'image',
+                    'source': image_src,
+                }
             else:
                 filepath = resolve_asset_path(kwargs.get('file_path', Path()), image_src)
                 if not filepath:
@@ -639,11 +646,22 @@ class LaTeXRenderer:
                 match filepath.suffix:
                     case '.svg':
                         filename = svg2pdf(filepath, self.output_path)
+                        self.assets_map[filename] = {
+                            'type': 'svg',
+                            'source': filepath
+                        }
                     case '.drawio':
                         filename = drawio2pdf(filepath, self.output_path)
+                        self.assets_map[filename] = {
+                            'type': 'drawio',
+                            'source': filepath
+                        }
                     case _:
                         filename = image2pdf(filepath, self.output_path)
-
+                        self.assets_map[filename] = {
+                            'type': 'image',
+                            'source': filepath
+                        }
             caption = figure.find('figcaption')
             self.render_inlines(caption)
             caption_text = self.get_safe_text(caption) \
@@ -895,6 +913,9 @@ class LaTeXRenderer:
 
     def get_list_solutions(self):
         return self.formatter.exercises_solutions(self.solutions)
+
+    def get_assets_map(self):
+        return self.assets_map
 
     def monkeypatch_item(self, latex: str):
         """Verbatim material should not go in the argument to other commands.

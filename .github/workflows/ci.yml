@@ -75,12 +75,10 @@ jobs:
           latexmk_use_lualatex: true
           args: -cd
           post_compile: |
-            gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer
-            -dNOPAUSE -dQUIET -dBATCH -sOutputFile=build/output-print.pdf
-            -dDownsampleColorImages=true -dDownsampleGrayImages=true
-            -dDownsampleMonoImages=true -dColorImageResolution=200
-            -dGrayImageResolution=200 -dMonoImageResolution=200
-            build/index.pdf
+            gs -sDEVICE=pdfwrite -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output-print.pdf -dDownsampleColorImages=true -dDownsampleGrayImages=true -dDownsampleMonoImages=true -dColorImageResolution=200 -dGrayImageResolution=200 -dMonoImageResolution=200 build/index.pdf
+            ls build
+      - name: ls
+        run: ls build
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
         with:

@@ -11,16 +11,22 @@ build:
 	poetry run mkdocs build
 	latexmk -C
 	latexmk --shell-escape -pdf -file-line-error -lualatex -cd build/index.tex
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer \
-	   -dNOPAUSE -dQUIET -dBATCH -sOutputFile=build/output-print.pdf \
+
+build/output-print.pdf: build/index.pdf
+	gs -sDEVICE=pdfwrite -dPDFSETTINGS=/printer \
+	   -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ \
 	   -dDownsampleColorImages=true -dDownsampleGrayImages=true \
 	   -dDownsampleMonoImages=true -dColorImageResolution=200 \
 	   -dGrayImageResolution=200 -dMonoImageResolution=200 \
-	   build/index.pdf
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen \
-	-dNOPAUSE -dQUIET -dBATCH -sOutputFile=output-screen.pdf \
+	   $<
+
+build/output-screen.pdf: build/index.pdf
+	gs -sDEVICE=pdfwrite -dPDFSETTINGS=/screen \
+	-dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ \
 	-dDownsampleColorImages=true -dDownsampleGrayImages=true \
 	-dDownsampleMonoImages=true -dColorImageResolution=72 \
-	-dGrayImageResolution=72 -dMonoImageResolution=72 build/index.pdf
+	-dGrayImageResolution=72 -dMonoImageResolution=72 $<
+
+optimize: build/output-print.pdf
 
 .PHONY: all serve build

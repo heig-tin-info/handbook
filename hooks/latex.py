@@ -3,12 +3,15 @@
 """
 import logging
 import mkdocs
-from pathlib import Path
+from pathlib import Path, PosixPath
 from IPython import embed
 from mkdocs.structure.nav import Section
 from latex.renderer import LaTeXRenderer
+import yaml
 import ipdb
 import sys
+
+
 def excepthook(type, value, traceback):
     ipdb.post_mortem(traceback)
 
@@ -103,6 +106,26 @@ def on_env(env, config, files):
                 level)
 
             path.write_text(latex)
+
+
+    # Save assets map and clean unused assets
+    def path_representer(dumper, data):
+        # Path relative to the project directory
+        data = data.resolve().relative_to(Path(config.config_file_path).parent)
+        return dumper.represent_scalar('tag:yaml.org,2002:str', str(data))
+    yaml.add_representer(PosixPath, path_representer)
+
+    assets_map = renderer.get_assets_map()
+
+    # Remove unused objets (list build/assets directors and remove those that are not in assets_map keys)
+    for file in (latex_dir / 'assets').iterdir():
+        if file not in assets_map:
+            log.info(f'Removing unused asset {file}')
+            file.unlink()
+
+    with(open(latex_dir / 'assets_map.yml', 'w')) as f:
+        assets_map = yaml.dump(assets_map, default_flow_style=False, allow_unicode=True)
+        f.write(assets_map)
 
     # Build index page
     index = renderer.formatter.template(content=book_nav)
