@@ -17,16 +17,18 @@ build/output-print.pdf: build/index.pdf
 	   -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ \
 	   -dDownsampleColorImages=true -dDownsampleGrayImages=true \
 	   -dDownsampleMonoImages=true -dColorImageResolution=200 \
-	   -dGrayImageResolution=200 -dMonoImageResolution=200 \
-	   $<
+	   -dGrayImageResolution=200 -dMonoImageResolution=200 $<
 
 build/output-screen.pdf: build/index.pdf
 	gs -sDEVICE=pdfwrite -dPDFSETTINGS=/screen \
-	-dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ \
-	-dDownsampleColorImages=true -dDownsampleGrayImages=true \
-	-dDownsampleMonoImages=true -dColorImageResolution=72 \
-	-dGrayImageResolution=72 -dMonoImageResolution=72 $<
+	   -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ \
+	   -dDownsampleColorImages=true -dDownsampleGrayImages=true \
+	   -dDownsampleMonoImages=true -dColorImageResolution=72 \
+	   -dGrayImageResolution=72 -dMonoImageResolution=72 $<
 
 optimize: build/output-print.pdf
 
-.PHONY: all serve build
+clean:
+	rm -rf build site
+
+.PHONY: all serve build clean optimize

@@ -364,3 +364,66 @@ n = 209
         ```python
         int("12030", 4)
         ```
+
+## Autres bases
+
+Une autre base couramment utilisée est la [base64](wiki:base64), qui utilise les 26 lettres de l'alphabet latin (majuscules et minuscules), les 10 chiffres et deux symboles additionnels. Cette base est souvent utilisée pour encoder des données binaires en ASCII, par exemple pour les pièces jointes des courriels.
+
+Elle n'est pas à proprement parler une base fondamentale, mais plutôt une méthode de codage qui utilise 64 caractères imprimables.
+
+On peut transmettre de l'information en binaire mais cela implique de pouvoir gérer un contenu arbitraire qui n'est pas toujours évident dans des environnements prévus pour des caractères imprimables. On pourrait se dire qu'on utilise la représentation ASCII des caractères mais de nombreux caractères ne sont pas imprimables. La base64 est une solution élégante pour encoder des données binaires en ASCII.
+
+Prenons l'exemple de la phrase suivante:
+
+```text
+La fleur en bouquet fâne... et jamais ne renait !
+```
+
+Si l'on affiche le contenu hexadécimal de cette phrase, on obtient :
+
+```bash
+$ echo -ne 'La fleur en bouquet fâne... et jamais ne renait !'  | hexdump -C
+00000000  4c 61 20 66 6c 65 75 72  20 65 6e 20 62 6f 75 71  |La fleur en bouq|
+00000010  75 65 74 20 66 c3 a2 6e  65 2e 2e 2e 20 65 74 20  |uet f..ne... et |
+00000020  6a 61 6d 61 69 73 20 6e  65 20 72 65 6e 61 69 74  |jamais ne renait|
+00000030  20 21                                             | !|
+00000032
+```
+
+En base64, le message est découpé en mot de 6 bits, soit 64 valeurs possibles. Chaque mot de 6 bits est ensuite converti en un caractère ASCII avec la table de codage suivante:
+
+```text
+0  000000 A    17 010001 R    34 100010 i    51 110011 z
+1  000001 B    18 010010 S    35 100011 j    52 110100 0
+2  000010 C    19 010011 T    36 100100 k    53 110101 1
+3  000011 D    20 010100 U    37 100101 l    54 110110 2
+4  000100 E    21 010101 V    38 100110 m    55 110111 3
+5  000101 F    22 010110 W    39 100111 n    56 111000 4
+6  000110 G    23 010111 X    40 101000 o    57 111001 5
+7  000111 H    24 011000 Y    41 101001 p    58 111010 6
+8  001000 I    25 011001 Z    42 101010 q    59 111011 7
+9  001001 J    26 011010 a    43 101011 r    60 111100 8
+10 001010 K    27 011011 b    44 101100 s    61 111101 9
+11 001011 L    28 011100 c    45 101101 t    62 111110 +
+12 001100 M    29 011101 d    46 101110 u    63 111111 /
+13 001101 N    30 011110 e    47 101111 v
+14 001110 O    31 011111 f    48 110000 w    (complément) =
+15 001111 P    32 100000 g    49 110001 x
+16 010000 Q    33 100001 h    50 110010 y
+```
+
+Ainsi le message commence par `4c612` ou en binaire `01001100 01100001 0010`. Découpé en paquet de 6 bits
+`010011 000110 000100 10`, on utilise selon la table de codage `TGE`. Comme il s'agit d'un encodage courant,
+il existe des outils pour le faire automatiquement:
+
+```bash
+echo -ne 'La fleur en bouquet fâne... et jamais ne renait !' | base64
+TGEgZmxldXIgZW4gYm91cXVldCBmw6JuZS4uLiBldCBqYW1haXMgbmUgcmVuYWl0ICE=
+```
+
+Si le message n'est pas un multiple de $4\times 6$ bits, il est complété avec des zéros et le caractère `=` est ajouté à la fin du message pour indiquer le nombre de zéros ajoutés. Notre message à une longueur de 50 caractères, ou bien 400 bits, qui n'est pas divisible par 24. On complète donc avec `=`.
+
+```bash
+echo -ne 'La fleur en bouquet fâne... et jamais ne renait'  | wc -c
+50
+```

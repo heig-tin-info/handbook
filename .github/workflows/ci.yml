@@ -70,15 +70,11 @@ jobs:
           extra_system_packages: |
             font-noto font-noto-hebrew font-noto-devanagari
             font-noto-tamil font-noto-tibetan font-noto-cjk
-            font-noto-naskh-arabic
+            font-noto-naskh-arabic make
           latexmk_shell_escape: true
           latexmk_use_lualatex: true
           args: -cd
-          post_compile: |
-            gs -sDEVICE=pdfwrite -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output-print.pdf -dDownsampleColorImages=true -dDownsampleGrayImages=true -dDownsampleMonoImages=true -dColorImageResolution=200 -dGrayImageResolution=200 -dMonoImageResolution=200 build/index.pdf
-            ls build
-      - name: ls
-        run: ls build
+          post_compile: make optimize
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
         with:

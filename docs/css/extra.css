@@ -1,4 +1,6 @@
-/* Adjust view icon (eye) */
+/* Adjust the size of view/edit icons (eye/pencil)
+   Default value is too big, it is not elegant
+*/
 .md-content__button svg {
   width: 18px;
   padding-top: 9px;
@@ -7,6 +9,11 @@
 /* Fix line height for code blocks */
 .md-typeset code {
   line-height: 1;
+}
+
+/* Keys spacing */
+span.keys {
+  padding: 0.1em 0.3em;
 }
 
 /* Center tables */
