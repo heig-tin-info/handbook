@@ -1,0 +1,8 @@
+<expression> ::= <term> { "+" <term> | "-" <term> }*
+
+<term> ::= <factor> { "*" <factor> | "/" <factor> }*
+
+<factor> ::= <number> | "(" <expression> ")" | <function> "(" <expression> ")"
+
+<number> ::= [0-9]+("."[0-9]*)?
+<function> ::= "sin" | "cos" | "sqrt"

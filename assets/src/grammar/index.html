@@ -13,31 +13,31 @@
         <meta name="author" content="Yves Chevallier">
       
       
-        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/40-algorithms/sorting/count-sort/">
+        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/assets/src/grammar/">
       
       
-        <link rel="prev" href="../../searching/introduction/">
+        <link rel="prev" href="../../../appendix/unit/">
       
       
-        <link rel="next" href="../heap-sort/">
+        <link rel="next" href="../../../course-c/00-preface/">
       
       
         
       
       
-      <link rel="icon" href="../../../../assets/icons/favicon.ico">
+      <link rel="icon" href="../../icons/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29+insiders-4.53.11">
     
     
       
-        <title>Counting Sort - Le C pour l'ingénieur</title>
+        <title>Expression - Le C pour l'ingénieur</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.cc8ffde5.min.css">
+      <link rel="stylesheet" href="../../stylesheets/main.cc8ffde5.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../stylesheets/palette.ab4e12ef.min.css">
       
       
   
@@ -112,17 +112,17 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/_markdown_exec_pyodide.css">
+      <link rel="stylesheet" href="../../_markdown_exec_pyodide.css">
     
-      <link rel="stylesheet" href="../../../../css/french.css">
+      <link rel="stylesheet" href="../../../css/french.css">
     
-      <link rel="stylesheet" href="../../../../css/callout.css">
+      <link rel="stylesheet" href="../../../css/callout.css">
     
-      <link rel="stylesheet" href="../../../../css/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
     
-      <link rel="stylesheet" href="../../../../css/tables.css">
+      <link rel="stylesheet" href="../../../css/tables.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -138,7 +138,7 @@
 
     
     
-   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -147,7 +147,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -166,7 +166,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#counting-sort" class="md-skip">
+        <a href="#expression" class="md-skip">
           Aller au contenu
         </a>
       
@@ -182,7 +182,7 @@
   <nav class="md-header__inner md-grid" aria-label="En-tête">
     <a href="https://heig-tin-info.github.io/handbook" title="Le C pour l&#39;ingénieur" class="md-header__button md-logo" aria-label="Le C pour l'ingénieur" data-md-component="logo">
       
-  <img src="../../../../assets/logos/heig-vd-white.svg" alt="logo">
+  <img src="../../logos/heig-vd-white.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -199,7 +199,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Counting Sort
+              Expression
             
           </span>
         </div>
@@ -313,7 +313,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -328,21 +328,17 @@
         
   
   
-    
-  
   
     
     
       
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../00-preface/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../course-c/00-preface/" class="md-tabs__link">
           
   
     
@@ -365,7 +361,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../tools/environment/" class="md-tabs__link">
+        <a href="../../../tools/environment/" class="md-tabs__link">
           
   
     
@@ -385,7 +381,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../appendix/bibliography/" class="md-tabs__link">
+        <a href="../../../appendix/bibliography/" class="md-tabs__link">
           
   
     
@@ -422,7 +418,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://heig-tin-info.github.io/handbook" title="Le C pour l&#39;ingénieur" class="md-nav__button md-logo" aria-label="Le C pour l'ingénieur" data-md-component="logo">
       
-  <img src="../../../../assets/logos/heig-vd-white.svg" alt="logo">
+  <img src="../../logos/heig-vd-white.svg" alt="logo">
 
     </a>
     Le C pour l'ingénieur
@@ -449,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -472,10 +468,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -506,20 +500,17 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -536,7 +527,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -575,7 +566,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../00-preface/" class="md-nav__link ">
+            <a href="../../../course-c/00-preface/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -679,7 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05-introduction/programming/" class="md-nav__link">
+      <a href="../../../course-c/05-introduction/programming/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -706,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05-introduction/code-of-conduct/" class="md-nav__link">
+      <a href="../../../course-c/05-introduction/code-of-conduct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -733,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05-introduction/me-and-my-computer/" class="md-nav__link">
+      <a href="../../../course-c/05-introduction/me-and-my-computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -760,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05-introduction/c-lang/" class="md-nav__link">
+      <a href="../../../course-c/05-introduction/c-lang/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10-numeration/introduction/" class="md-nav__link">
+      <a href="../../../course-c/10-numeration/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -878,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10-numeration/bases/" class="md-nav__link">
+      <a href="../../../course-c/10-numeration/bases/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -905,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10-numeration/numbers/" class="md-nav__link">
+      <a href="../../../course-c/10-numeration/numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1008,7 +999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/syntax/" class="md-nav__link">
+      <a href="../../../course-c/15-fundations/syntax/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1035,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/datatype/" class="md-nav__link">
+      <a href="../../../course-c/15-fundations/datatype/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1062,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/operators/" class="md-nav__link">
+      <a href="../../../course-c/15-fundations/operators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1089,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/stdio/" class="md-nav__link">
+      <a href="../../../course-c/15-fundations/stdio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,7 +1107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/control-structures/" class="md-nav__link">
+      <a href="../../../course-c/15-fundations/control-structures/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1143,7 +1134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/preprocessor/" class="md-nav__link">
+      <a href="../../../course-c/15-fundations/preprocessor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1170,7 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/functions/" class="md-nav__link">
+      <a href="../../../course-c/15-fundations/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1197,7 +1188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/scope/" class="md-nav__link">
+      <a href="../../../course-c/15-fundations/scope/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1224,7 +1215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../15-fundations/grammar/" class="md-nav__link">
+      <a href="../../../course-c/15-fundations/grammar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1319,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/computer/" class="md-nav__link">
+      <a href="../../../course-c/20-architecture-and-systems/computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1346,7 +1337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/mcu/" class="md-nav__link">
+      <a href="../../../course-c/20-architecture-and-systems/mcu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/memory-management/" class="md-nav__link">
+      <a href="../../../course-c/20-architecture-and-systems/memory-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1400,7 +1391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/programs-and-processes/" class="md-nav__link">
+      <a href="../../../course-c/20-architecture-and-systems/programs-and-processes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1427,7 +1418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../20-architecture-and-systems/files/" class="md-nav__link">
+      <a href="../../../course-c/20-architecture-and-systems/files/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1518,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/composed-types/" class="md-nav__link">
+      <a href="../../../course-c/25-data-structures/composed-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1545,7 +1536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/pointers/" class="md-nav__link">
+      <a href="../../../course-c/25-data-structures/pointers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1599,7 +1590,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../25-data-structures/containers/" class="md-nav__link ">
+            <a href="../../../course-c/25-data-structures/containers/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1642,7 +1633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/containers/trees/" class="md-nav__link">
+      <a href="../../../course-c/25-data-structures/containers/trees/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1669,7 +1660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/containers/maps/" class="md-nav__link">
+      <a href="../../../course-c/25-data-structures/containers/maps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1696,7 +1687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../25-data-structures/containers/graphs/" class="md-nav__link">
+      <a href="../../../course-c/25-data-structures/containers/graphs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1764,7 +1755,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../30-modular-programming/" class="md-nav__link ">
+            <a href="../../../course-c/30-modular-programming/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1807,7 +1798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../30-modular-programming/translation-units/" class="md-nav__link">
+      <a href="../../../course-c/30-modular-programming/translation-units/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1834,7 +1825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../30-modular-programming/libraries/" class="md-nav__link">
+      <a href="../../../course-c/30-modular-programming/libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1925,7 +1916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../35-libraries/introduction/" class="md-nav__link">
+      <a href="../../../course-c/35-libraries/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1952,7 +1943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../35-libraries/standard-library/" class="md-nav__link">
+      <a href="../../../course-c/35-libraries/standard-library/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1979,7 +1970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../35-libraries/third-party-libraries/" class="md-nav__link">
+      <a href="../../../course-c/35-libraries/third-party-libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2011,10 +2002,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2036,11 +2025,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
         
           
           <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
@@ -2060,7 +2049,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_9">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2078,7 +2067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2105,7 +2094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utilities/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/utilities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2132,7 +2121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recursion/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/recursion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2211,7 +2200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../searching/introduction/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/searching/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2243,10 +2232,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2262,11 +2249,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9_5" >
         
           
           <label class="md-nav__link" for="__nav_2_9_5" id="__nav_2_9_5_label" tabindex="0">
@@ -2286,7 +2273,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_9_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2301,19 +2288,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../course-c/40-algorithms/sorting/count-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2328,7 +2306,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -2341,7 +2318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../heap-sort/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/sorting/heap-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2368,7 +2345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quick-sort/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/sorting/quick-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2467,7 +2444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../popular-algorithms/fast-exp/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/popular-algorithms/fast-exp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2494,7 +2471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../popular-algorithms/fast-inverse-square-root/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/popular-algorithms/fast-inverse-square-root/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2521,7 +2498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../popular-algorithms/fast-sin/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2548,7 +2525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../popular-algorithms/huffman/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/popular-algorithms/huffman/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2575,7 +2552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../popular-algorithms/rabin-karp/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/popular-algorithms/rabin-karp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2602,7 +2579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../popular-algorithms/random/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/popular-algorithms/random/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2629,7 +2606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../popular-algorithms/shunting-yard/" class="md-nav__link">
+      <a href="../../../course-c/40-algorithms/popular-algorithms/shunting-yard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2728,7 +2705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../45-project-management/teamwork/" class="md-nav__link">
+      <a href="../../../course-c/45-project-management/teamwork/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2755,7 +2732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../45-project-management/software-project/" class="md-nav__link">
+      <a href="../../../course-c/45-project-management/software-project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2782,7 +2759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../45-project-management/testing/" class="md-nav__link">
+      <a href="../../../course-c/45-project-management/testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2871,7 +2848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../50-philosophy/philosophy/" class="md-nav__link">
+      <a href="../../../course-c/50-philosophy/philosophy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2898,7 +2875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../50-philosophy/funny/" class="md-nav__link">
+      <a href="../../../course-c/50-philosophy/funny/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2954,7 +2931,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../90-exercises/" class="md-nav__link ">
+            <a href="../../../course-c/90-exercises/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3079,7 +3056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/environment/" class="md-nav__link">
+      <a href="../../../tools/environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3106,7 +3083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/filesystem/" class="md-nav__link">
+      <a href="../../../tools/filesystem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3133,7 +3110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/gcc/" class="md-nav__link">
+      <a href="../../../tools/gcc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3160,7 +3137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/git/" class="md-nav__link">
+      <a href="../../../tools/git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3187,7 +3164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/make/" class="md-nav__link">
+      <a href="../../../tools/make/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3214,7 +3191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/vscode/" class="md-nav__link">
+      <a href="../../../tools/vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3241,7 +3218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/python/" class="md-nav__link">
+      <a href="../../../tools/python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3320,7 +3297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/utilities/binutils/" class="md-nav__link">
+      <a href="../../../tools/utilities/binutils/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3355,7 +3332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/bash/" class="md-nav__link">
+      <a href="../../../tools/bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3382,7 +3359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/config/" class="md-nav__link">
+      <a href="../../../tools/config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3409,7 +3386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tools/gdb/" class="md-nav__link">
+      <a href="../../../tools/gdb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3507,7 +3484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/bibliography/" class="md-nav__link">
+      <a href="../../../appendix/bibliography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3534,7 +3511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/glossary/" class="md-nav__link">
+      <a href="../../../appendix/glossary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3561,7 +3538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/grammar/" class="md-nav__link">
+      <a href="../../../appendix/grammar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3588,7 +3565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/laboratories/" class="md-nav__link">
+      <a href="../../../appendix/laboratories/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3615,7 +3592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/unit/" class="md-nav__link">
+      <a href="../../../appendix/unit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3642,7 +3619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/colophon/" class="md-nav__link">
+      <a href="../../../appendix/colophon/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3669,7 +3646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../appendix/refcards/" class="md-nav__link">
+      <a href="../../../appendix/refcards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3738,7 +3715,7 @@
         
   
     <li class="md-path__item">
-      <a href="../../../.." class="md-path__link">
+      <a href="../../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -3758,15 +3735,22 @@
   
     
     
+      
+  
+    
+    
       <li class="md-path__item">
-        <a href="../../../00-preface/" class="md-path__link">
+        <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    Cours C
+    Assets
   </span>
 
         </a>
       </li>
+    
+  
+
     
   
 
@@ -3778,15 +3762,22 @@
   
     
     
+      
+  
+    
+    
       <li class="md-path__item">
-        <a href="../../introduction/" class="md-path__link">
+        <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    Algorithmes et Conception
+    Src
   </span>
 
         </a>
       </li>
+    
+  
+
     
   
 
@@ -3799,7 +3790,7 @@
         <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    Algorithmes de tris
+    Grammar
   </span>
 
         </a>
@@ -3818,7 +3809,7 @@
 
 
   
-    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/40-algorithms/sorting/count-sort.md" title="Editer cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/assets/src/grammar/README.md" title="Editer cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
     </a>
@@ -3827,64 +3818,15 @@
     
       
     
-    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/40-algorithms/sorting/count-sort.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/assets/src/grammar/README.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
     </a>
   
 
 
-<h1 id="counting-sort">Counting Sort<a class="headerlink" href="#counting-sort" title="Permanent link">¶</a></h1>
-<p>Le <a href="https://fr.wikipedia.org/wiki/Tri_comptage">tri par dénombrement</a> est un algorithme de tri particulier. Il est utilisé pour trier des éléments dont la valeur est connue à l'avance. Il est donc inutile pour trier des éléments dont la valeur est inconnue ou aléatoire.</p>
-<p>Nous l'avons vu précédemment, il n'est pas possible de trier un tableau mieux qu'en <strong>O(n<sub>log</sub>n)</strong>. En revanche cette assertion n'est pas tout à fait juste dans le cas ou les données brutes possèdent des propriétés remarquables.</p>
-<p>Pour que cet algorithme soit utilisable, imaginons un contexte où les données d'entrées possèdent des propriétés remarquables.</p>
-<p>Ici, les données d'entrées seront générées entre 0 et 51&thinsp;; chaque valeur représentera une carte à jouer selon la règle suivante&thinsp;:</p>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../../assets/images/playing-cards.svg"><img alt="cards" src="../../../../assets/images/playing-cards.svg" width="100%"/></a><figcaption> cards</figcaption></figure></p>
-<p>Cette série de valeurs dispose de plusieurs propriétés intéressantes&thinsp;:</p>
-<ol>
-<li>La valeur d'une carte est identifiée par <code>n % 13</code>.</li>
-<li>La couleur est identifiée par <code>n / 13</code>.</li>
-<li>Il n'y a donc que <strong>13</strong> valeurs par couleur et <strong>4</strong> couleurs.</li>
-<li>Bien qu'un entier soit stocké sur 4 bytes, il suffit en réalité de 6 bits pour encoder la valeur d'une carte.</li>
-</ol>
-<p>L'algorithme <code>counting-sort</code> est intéressant, car il ne fait pas appel à des comparaisons de valeurs.</p>
-<p>L'algorithme itératif est le suivant&thinsp;:</p>
-<ol>
-<li>On crée un tableau statique de 13 positions correspondant au nombre de valeurs possibles dans notre set de donnée. Ce tableau peut être nommé <code>counts</code></li>
-<li>On parcourt le tableau à trier linéairement et on compte le nombre d'occurrences de chaque valeur dans <code>counts</code>. On aura donc à la position <code>0</code> le nombre d'as contenus dans le tableau à trier et à la positon <code>10</code> le nombre de valets dans le jeu de cartes fourni.</li>
-<li>Une fois ces comptes terminés, une opération de somme cumulée est faite sur ce tableau (p.ex. le tableau <code>{1, 2, 2, 0, 8, 1}</code> sera sommé comme suit <code>{1, 3, 5, 5, 13, 14}</code>).</li>
-<li>Le tableau à trier est parcouru linéairement de la fin vers le début et on copie la valeur à la bonne position dans le tableau des valeurs triées. Si votre tableau d'entrée non trié est nommé <code>a</code> et votre tableau de sortie trié <code>b</code> vous aurez pour chaque élément <code>i</code> : <code>b[c[a[i]--] - 1] = a[i]</code></li>
-</ol>
-<p>À l'issue de cet algorithme, vous aurez dans <code>b</code> un tableau trié par valeurs.</p>
-<p><strong>Notez qu'ici les couleurs ne sont pas triées</strong>.</p>
-<p>Voici un exemple de tri sur des entiers entre 0 et 9&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>1 0 9 3 8 1 4 8 7 5  Tableau d'entrée `a` non trié et contenant que des chiffres
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>                     Il y a 10 valeurs possibles par chiffre, donc le tableau
-</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>                     `counts` aura 10 positions:
-</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>1 2 0 1 1 1 0 1 2 1  Tableau `counts` calculé, il faut lire : une occurrence
-</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>                     de 0, deux occurrences de 2, zero occurrences de 3...
-</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>1 3 3 4 5 6 6 1 9 B  Somme cumulée (affiché en hexadécimal)
-</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>Pour trouver la position triée d'une valeur, par exemple le 3 :
-</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>1 0 9 3 8 1 4 8 7 5  a[i] == 3 (on part du tableau a)
-</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>      ↧
-</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>1 3 3 4 5 6 6 1 9 B  counts[a[i]] == 4 (on consulte la somme cumulée)
-</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>      ↧
-</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>_ _ _ 3 _ _ _ _ _ _  b[counts[a[i]]-- - 1] == 3 (on insert la valeur triée)
-</span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>0 1 1 3 4 5 7 8 8 9  Et ainsi de suite jusqu'à tri complet du tableau
-</span></code></pre></div>
-<p>On constate en effet que <code>3</code> est à la bonne position dans <code>b</code> et qu'il y aura <code>0 1 1</code> devant.</p>
-<p>Tel quel, cet algorithme ne permet pas de modifier directement le tableau d'origine puisqu'il ne fait pas intervenir de permutations (<code>swap</code>). Il requiert donc un buffer supplémentaire et donc à une complexité en espace de <strong>O(n)</strong>.</p>
-<p>Concernant les cartes à jouer, voici un exemple de tri&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>41 23 00 15 26 39 13 02 28  Tableau d'entrée
-</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>00 26 39 13 41 15 02 28 23  Tableau trié
-</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>À♣ À♥ A♠ A♦ 3♠ 3♦ 3♣ 3♥ V♦  Valeurs interprétées des cartes
-</span></code></pre></div>
-<p>Un avantage de cet algorithme est qu'il est stable, c'est-à-dire que l'ordre des éléments égaux est conservé. Donc on peut ensuite retrier les cartes par couleur.</p>
+<h1 id="expression">Expression<a class="headerlink" href="#expression" title="Permanent link">¶</a></h1>
+<p>Does not work yet...</p>
 
 
 
@@ -3917,7 +3859,7 @@
     <span class="md-icon" title="Créé">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 21, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2024</span>
   </span>
 
     
@@ -4032,7 +3974,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../../searching/introduction/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Algorithmes de recherche">
+          <a href="../../../appendix/unit/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Fiches d&#39;unités de cours">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -4042,20 +3984,20 @@
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Algorithmes de recherche
+                Fiches d'unités de cours
               </div>
             </div>
           </a>
         
         
           
-          <a href="../heap-sort/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Heap Sort">
+          <a href="../../../course-c/00-preface/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Préface">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Heap Sort
+                Préface
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4110,24 +4052,24 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.d249fdc4.min.js"></script>
+      <script src="../../javascripts/bundle.d249fdc4.min.js"></script>
       
-        <script src="../../../../assets/_markdown_exec_pyodide.js"></script>
+        <script src="../../_markdown_exec_pyodide.js"></script>
       
-        <script src="../../../../js/viewer.min.js"></script>
+        <script src="../../../js/viewer.min.js"></script>
       
-        <script src="../../../../js/drawio.js"></script>
+        <script src="../../../js/drawio.js"></script>
       
-        <script src="../../../../js/wiki-tips.js"></script>
+        <script src="../../../js/wiki-tips.js"></script>
       
-        <script src="../../../../js/feedback.js"></script>
+        <script src="../../../js/feedback.js"></script>
       
-        <script src="../../../../js/mathjax.js"></script>
+        <script src="../../../js/mathjax.js"></script>
       
-        <script src="../../../../js/navcolor.js"></script>
+        <script src="../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

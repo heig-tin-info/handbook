@@ -4194,47 +4194,32 @@
 <h1 id="gestion-de-la-memoire">Gestion de la mémoire<a class="headerlink" href="#gestion-de-la-memoire" title="Permanent link">¶</a></h1>
 <p>Vous l'aurez appris à vos dépens, l'erreur <em>Segmentation fault</em> (erreur de segmentation) arrive souvent lors du développement. Ce chapitre s'intéresse à la mémoire et vulgarise les concepts de segmentation et traite de l'allocation dynamique.</p>
 <p>La mémoire d'un programme est découpée en <a href="https://fr.wikipedia.org/wiki/Segment_de_donn%C3%A9es">segments de données</a>. Les principaux segments sont&thinsp;:</p>
-<table>
-<thead>
-<tr>
-<th>Segment</th>
-<th>Nom</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.text</code></td>
-<td>Segment de code</td>
-<td>Les instructions du programme exécutable sont chargées dans ce segment.</td>
-</tr>
-<tr>
-<td><code>.rodata</code></td>
-<td>Segment de constantes et chaînes de caractères</td>
-<td>Les constantes globales <code>const int = 13</code> et les chaînes de caractères sont enregistrées dans ce segment.</td>
-</tr>
-<tr>
-<td><code>.bss</code></td>
-<td>Segment de variables initialisées</td>
-<td>Ce segment est garanti d'être initialisé à zéro lorsque le programme est chargé en mémoire. Les variables globales statiques tels que <code>static int foo = 0</code> seront stockées dans ce segment.</td>
-</tr>
-<tr>
-<td><code>.data</code></td>
-<td>Segment de variables non initialisées</td>
-<td>Les variables globales non initialisées comme <code>static int bar;</code> seront placées dans ce segment.</td>
-</tr>
-<tr>
-<td><code>.heap</code></td>
-<td>Segment de tas</td>
-<td>Les allocations dynamiques décrites plus bas dans ce chapitre sont déclarées ici.</td>
-</tr>
-<tr>
-<td><code>.stack</code></td>
-<td>Segment de pile</td>
-<td>La chaîne d'appel de fonction ainsi que toutes les variables locales sont mémorisées dans ce segment.</td>
-</tr>
-</tbody>
-</table>
+<dl>
+<dt><code>.text</code></dt>
+<dd>
+<p>Segment de code&thinsp;: les instructions du programme exécutable sont chargées dans ce segment.</p>
+</dd>
+<dt><code>.rodata</code></dt>
+<dd>
+<p>Segment de constantes et chaînes de caractères&thinsp;: les constantes globales <code>const int = 13</code> et les chaînes de caractères sont enregistrées dans ce segment.</p>
+</dd>
+<dt><code>.bss</code></dt>
+<dd>
+<p>Segment de variables initialisées&thinsp;: ce segment est garanti d'être initialisé à zéro lorsque le programme est chargé en mémoire. Les variables globales statiques tels que <code>static int foo = 0</code> seront stockées dans ce segment.</p>
+</dd>
+<dt><code>.data</code></dt>
+<dd>
+<p>Segment de variables non initialisées&thinsp;: les variables globales non initialisées comme <code>static int bar;</code> seront placées dans ce segment.</p>
+</dd>
+<dt><code>.heap</code></dt>
+<dd>
+<p>Segment de tas&thinsp;: les allocations dynamiques décrites plus bas dans ce chapitre sont déclarées ici.</p>
+</dd>
+<dt><code>.stack</code></dt>
+<dd>
+<p>Segment de pile&thinsp;: la chaîne d'appel de fonction ainsi que toutes les variables locales sont mémorisées dans ce segment.</p>
+</dd>
+</dl>
 <h2 id="allocation-statique">Allocation statique<a class="headerlink" href="#allocation-statique" title="Permanent link">¶</a></h2>
 <p>Jusqu'ici toutes les variables que nous avons déclarées ont été déclarées statiquement. C'est-à-dire que le compilateur est capable a priori de savoir combien de place prend telle ou telle variable et les agencer en mémoire dans les bons segments. On appelle cette méthode d'allocation de mémoire l'allocation statique.</p>
 <p>La <a href="https://fr.wikipedia.org/wiki/Allocation_de_m%C3%A9moire#Allocation_statique">déclaration statique</a> suivante déclare un tableau de 1024 entiers 64-bits initialisés à zéro et stockés dans le segment <code>.bss</code>, soit 64 kio&thinsp;:</p>
@@ -4456,7 +4441,7 @@ de spécifier la taille de la pile&thinsp;; c'est une de ses nombreuses options.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2024</span>
   </span>
 
     
