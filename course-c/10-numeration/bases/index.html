@@ -992,6 +992,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#autres-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autres bases
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3866,6 +3877,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#autres-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autres bases
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4334,6 +4356,50 @@ pour lister le contenu hexadécimal de son fichier et il obtient la sortie suiva
 </span></code></pre></div>
 </details>
 </div>
+<h2 id="autres-bases">Autres bases<a class="headerlink" href="#autres-bases" title="Permanent link">¶</a></h2>
+<p>Une autre base couramment utilisée est la <a href="https://fr.wikipedia.org/wiki/Base64">base64</a>, qui utilise les 26 lettres de l'alphabet latin (majuscules et minuscules), les 10 chiffres et deux symboles additionnels. Cette base est souvent utilisée pour encoder des données binaires en ASCII, par exemple pour les pièces jointes des courriels.</p>
+<p>Elle n'est pas à proprement parler une base fondamentale, mais plutôt une méthode de codage qui utilise 64 caractères imprimables.</p>
+<p>On peut transmettre de l'information en binaire mais cela implique de pouvoir gérer un contenu arbitraire qui n'est pas toujours évident dans des environnements prévus pour des caractères imprimables. On pourrait se dire qu'on utilise la représentation ASCII des caractères mais de nombreux caractères ne sont pas imprimables. La base64 est une solution élégante pour encoder des données binaires en ASCII.</p>
+<p>Prenons l'exemple de la phrase suivante&thinsp;:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>La fleur en bouquet fâne... et jamais ne renait !
+</span></code></pre></div>
+<p>Si l'on affiche le contenu hexadécimal de cette phrase, on obtient&thinsp;:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-ne<span class="w"> </span><span class="s1">'La fleur en bouquet fâne... et jamais ne renait !'</span><span class="w">  </span><span class="p">|</span><span class="w"> </span>hexdump<span class="w"> </span>-C
+</span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="m">00000000</span><span class="w">  </span>4c<span class="w"> </span><span class="m">61</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">66</span><span class="w"> </span>6c<span class="w"> </span><span class="m">65</span><span class="w"> </span><span class="m">75</span><span class="w"> </span><span class="m">72</span><span class="w">  </span><span class="m">20</span><span class="w"> </span><span class="m">65</span><span class="w"> </span>6e<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">62</span><span class="w"> </span>6f<span class="w"> </span><span class="m">75</span><span class="w"> </span><span class="m">71</span><span class="w">  </span><span class="p">|</span>La<span class="w"> </span>fleur<span class="w"> </span>en<span class="w"> </span>bouq<span class="p">|</span>
+</span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="m">00000010</span><span class="w">  </span><span class="m">75</span><span class="w"> </span><span class="m">65</span><span class="w"> </span><span class="m">74</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">66</span><span class="w"> </span>c3<span class="w"> </span>a2<span class="w"> </span>6e<span class="w">  </span><span class="m">65</span><span class="w"> </span>2e<span class="w"> </span>2e<span class="w"> </span>2e<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">65</span><span class="w"> </span><span class="m">74</span><span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="p">|</span>uet<span class="w"> </span>f..ne...<span class="w"> </span>et<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="m">00000020</span><span class="w">  </span>6a<span class="w"> </span><span class="m">61</span><span class="w"> </span>6d<span class="w"> </span><span class="m">61</span><span class="w"> </span><span class="m">69</span><span class="w"> </span><span class="m">73</span><span class="w"> </span><span class="m">20</span><span class="w"> </span>6e<span class="w">  </span><span class="m">65</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">72</span><span class="w"> </span><span class="m">65</span><span class="w"> </span>6e<span class="w"> </span><span class="m">61</span><span class="w"> </span><span class="m">69</span><span class="w"> </span><span class="m">74</span><span class="w">  </span><span class="p">|</span>jamais<span class="w"> </span>ne<span class="w"> </span>renait<span class="p">|</span>
+</span><span id="__span-18-5"><a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="m">00000030</span><span class="w">  </span><span class="m">20</span><span class="w"> </span><span class="m">21</span><span class="w">                                             </span><span class="p">|</span><span class="w"> </span>!<span class="p">|</span>
+</span><span id="__span-18-6"><a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="m">00000032</span>
+</span></code></pre></div>
+<p>En base64, le message est découpé en mot de 6 bits, soit 64 valeurs possibles. Chaque mot de 6 bits est ensuite converti en un caractère ASCII avec la table de codage suivante&thinsp;:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>0  000000 A    17 010001 R    34 100010 i    51 110011 z
+</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>1  000001 B    18 010010 S    35 100011 j    52 110100 0
+</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>2  000010 C    19 010011 T    36 100100 k    53 110101 1
+</span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>3  000011 D    20 010100 U    37 100101 l    54 110110 2
+</span><span id="__span-19-5"><a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>4  000100 E    21 010101 V    38 100110 m    55 110111 3
+</span><span id="__span-19-6"><a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a>5  000101 F    22 010110 W    39 100111 n    56 111000 4
+</span><span id="__span-19-7"><a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a>6  000110 G    23 010111 X    40 101000 o    57 111001 5
+</span><span id="__span-19-8"><a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a>7  000111 H    24 011000 Y    41 101001 p    58 111010 6
+</span><span id="__span-19-9"><a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a>8  001000 I    25 011001 Z    42 101010 q    59 111011 7
+</span><span id="__span-19-10"><a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a>9  001001 J    26 011010 a    43 101011 r    60 111100 8
+</span><span id="__span-19-11"><a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a>10 001010 K    27 011011 b    44 101100 s    61 111101 9
+</span><span id="__span-19-12"><a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a>11 001011 L    28 011100 c    45 101101 t    62 111110 +
+</span><span id="__span-19-13"><a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a>12 001100 M    29 011101 d    46 101110 u    63 111111 /
+</span><span id="__span-19-14"><a href="#__codelineno-19-14" id="__codelineno-19-14" name="__codelineno-19-14"></a>13 001101 N    30 011110 e    47 101111 v
+</span><span id="__span-19-15"><a href="#__codelineno-19-15" id="__codelineno-19-15" name="__codelineno-19-15"></a>14 001110 O    31 011111 f    48 110000 w    (complément) =
+</span><span id="__span-19-16"><a href="#__codelineno-19-16" id="__codelineno-19-16" name="__codelineno-19-16"></a>15 001111 P    32 100000 g    49 110001 x
+</span><span id="__span-19-17"><a href="#__codelineno-19-17" id="__codelineno-19-17" name="__codelineno-19-17"></a>16 010000 Q    33 100001 h    50 110010 y
+</span></code></pre></div>
+<p>Ainsi le message commence par <code>4c612</code> ou en binaire <code>01001100 01100001 0010</code>. Découpé en paquet de 6 bits
+<code>010011 000110 000100 10</code>, on utilise selon la table de codage <code>TGE</code>. Comme il s'agit d'un encodage courant,
+il existe des outils pour le faire automatiquement&thinsp;:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="nb">echo</span><span class="w"> </span>-ne<span class="w"> </span><span class="s1">'La fleur en bouquet fâne... et jamais ne renait !'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64
+</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="nv">TGEgZmxldXIgZW4gYm91cXVldCBmw6JuZS4uLiBldCBqYW1haXMgbmUgcmVuYWl0ICE</span><span class="o">=</span>
+</span></code></pre></div>
+<p>Si le message n'est pas un multiple de <span class="arithmatex">\(4\times 6\)</span> bits, il est complété avec des zéros et le caractère <code>=</code> est ajouté à la fin du message pour indiquer le nombre de zéros ajoutés. Notre message à une longueur de 50 caractères, ou bien 400 bits, qui n'est pas divisible par 24. On complète donc avec <code>=</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="nb">echo</span><span class="w"> </span>-ne<span class="w"> </span><span class="s1">'La fleur en bouquet fâne... et jamais ne renait'</span><span class="w">  </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-c
+</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="m">50</span>
+</span></code></pre></div>
 
 
 
@@ -4356,7 +4422,7 @@ pour lister le contenu hexadécimal de son fichier et il obtient la sortie suiva
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 1, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2024</span>
   </span>
 
     
