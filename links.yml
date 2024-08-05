@@ -3,56 +3,617 @@
 #   mkdocs refresh-links (fetches the latest links from the web, retrieve the thumbnails and update the links.yml file)
 #   validated false will raise a warning in the console inviting you to check the link.
 wikipedia:
-  c-sharp: https://fr.wikipedia.org/wiki/C_Sharp
-  go: https://fr.wikipedia.org/wiki/Go_(langage)
-  rust: https://fr.wikipedia.org/wiki/Rust_(langage)
-  swift: https://fr.wikipedia.org/wiki/Swift_(langage_d%27Apple)
-  fortran-lang: https://fr.wikipedia.org/wiki/Fortran
-  lisp-lang: https://fr.wikipedia.org/wiki/Lisp
-  cobol-lang: https://fr.wikipedia.org/wiki/Cobol
-  basic-lang: https://fr.wikipedia.org/wiki/Basic_(langage)
-  pascal-lang: https://fr.wikipedia.org/wiki/Pascal_(langage)
-  c-lang: https://fr.wikipedia.org/wiki/C_(langage)
-  cpp-lang: https://fr.wikipedia.org/wiki/C%2B%2B
-  perl-lang: https://fr.wikipedia.org/wiki/Perl_(langage)
-  python-lang: https://fr.wikipedia.org/wiki/Python_(langage)
-  ruby-lang: https://fr.wikipedia.org/wiki/Ruby
-  java-lang: https://fr.wikipedia.org/wiki/Java_(langage)
-  php-lang: https://fr.wikipedia.org/wiki/PHP
-  go-lang: https://fr.wikipedia.org/wiki/Go_(langage)
-  rust-lang: https://fr.wikipedia.org/wiki/Rust_(langage)
-  swift-lang: https://fr.wikipedia.org/wiki/Swift_(langage_d%27Apple)
-  zig-lang: https://fr.wikipedia.org/wiki/Zig_(langage)
-  bpmn: https://fr.wikipedia.org/wiki/Business_process_model_and_notation
-  structogramme: https://fr.wikipedia.org/wiki/Structogramme
-  # We could use the following format to provide more information and allow offline access
-  test:
-    url: https://fr.wikipedia.org/wiki/Test_(informatique)
-    title: Test (informatique)
-    validated: true
-    updated-at: 2021-09-01T00:00:00Z
-    summary: |
-      Un test informatique est une procédure qui permet de vérifier le bon fonctionnement d'un programme informatique. Il s'agit de vérifier que le programme répond bien aux spécifications qui lui sont données. Les tests sont souvent automatisés pour être exécutés régulièrement et rapidement.
+  markdown:
+    url: https://fr.wikipedia.org/wiki/Markdown
+    title: Markdown
+    validated: false
     thumbnail:
-      url: 
-        https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Check_mark.svg/1200px-Check_mark.svg.png
-      width: 1200
-      height: 1200
-  iec-61131-3: https://fr.wikipedia.org/wiki/CEI_61131-3
-  openvms: https://fr.wikipedia.org/wiki/OpenVMS
-  bios: https://fr.wikipedia.org/wiki/BIOS_(informatique)
-  Executable_and_Linkable_Format: https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format
-  Exit_status: https://fr.wikipedia.org/wiki/Exit,_Voice,_and_Loyalty
-  ROT13: https://fr.wikipedia.org/wiki/ROT13
-  abstract-type: https://fr.wikipedia.org/wiki/Type_abstrait
-  markdown: https://fr.wikipedia.org/wiki/Markdown
-  github: https://fr.wikipedia.org/wiki/GitHub
-  computer-program: https://fr.wikipedia.org/wiki/Programme_informatique
-  operating-system: https://fr.wikipedia.org/wiki/Système_d'exploitation
-  multitasking: https://fr.wikipedia.org/wiki/Multitasking
-  ladder-language: https://fr.wikipedia.org/wiki/Alexandra_Grant
-  labview: https://fr.wikipedia.org/wiki/LabVIEW
-  arborescence: https://fr.wikipedia.org/wiki/Arborescence
-  doxygen: https://fr.wikipedia.org/wiki/Doxygen
-  bare-metal: https://fr.wikipedia.org/wiki/Bare_metal
-  base64: https://fr.wikipedia.org/wiki/Base64
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Markdown_Syntax_in_gedit.png/320px-Markdown_Syntax_in_gedit.png
+      width: 320
+      height: 180
+    tid: d817c476-4b83-11ef-8596-3d2850f31393
+    timestamp: '2024-07-26T19:18:31Z'
+    description: langage de balisage léger
+    extract: Markdown est un langage de balisage léger créé en 2004 par John Gruber,
+      avec l'aide d'Aaron Swartz, avec l'objectif d'offrir une syntaxe, facile à lire
+      et à écrire, en l'état, sans formatage.
+  github:
+    url: https://fr.wikipedia.org/wiki/GitHub
+    title: GitHub
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/langfr-320px-GitHub_Invertocat_Logo.svg.png
+      width: 320
+      height: 320
+    tid: 04564ea6-2e87-11ef-9fa7-6e3db2014fd9
+    timestamp: '2024-06-19T21:58:10Z'
+    description: plateforme web collaborative pour le développement de logiciels
+    extract: GitHub est un service web d'hébergement et de gestion de développement
+      de logiciels, utilisant le logiciel de gestion de versions Git. Ce site est
+      développé en Ruby on Rails et Erlang par Chris Wanstrath, PJ Hyett et Tom Preston-Werner.
+      GitHub propose des comptes professionnels payants, ainsi que des comptes gratuits
+      pour les projets de logiciels libres.
+  multics:
+    url: https://fr.wikipedia.org/wiki/Multics
+    title: Multics
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Multics-Login.png/320px-Multics-Login.png
+      width: 320
+      height: 238
+    tid: eb4e0fe5-27f5-11ef-b15a-5188169ccf28
+    timestamp: '2024-06-11T13:24:24Z'
+    description: système d’exploitation
+    extract: Multics est le nom d'un système d'exploitation en temps partagé.
+  ken-thompson:
+    url: https://fr.wikipedia.org/wiki/Ken_Thompson
+    title: Ken Thompson
+    validated: false
+    thumbnail:
+      source: https://upload.wikimedia.org/wikipedia/commons/f/f9/Ken_Thompson_02.jpg
+      width: 220
+      height: 255
+    tid: 63460d00-f28a-11ee-9b7a-3def83d9171c
+    timestamp: '2024-04-04T13:51:08Z'
+    description: informaticien américain
+    extract: Kenneth Lane Thompson dit Ken Thompson est un informaticien américain,
+      concepteur des systèmes Unix et Plan 9 ainsi que des langages B et Go.
+  dennis-ritchie:
+    url: https://fr.wikipedia.org/wiki/Dennis_Ritchie
+    title: Dennis Ritchie
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Dennis_Ritchie_2011.jpg/320px-Dennis_Ritchie_2011.jpg
+      width: 320
+      height: 411
+    tid: e53176ed-15bd-11ef-ac94-dc35bfbf78e4
+    timestamp: '2024-05-19T08:58:01Z'
+    description: informaticien américain
+    extract: Dennis MacAlistair Ritchie, né le 9 septembre 1941 à Bronxville dans
+      l'État de New York et retrouvé mort le 12 octobre 2011 à Berkeley Heights dans
+      le New Jersey, est un des pionniers de l'informatique moderne, inventeur du
+      langage C et codéveloppeur de Unix. Il est parfois désigné par dmr, son adresse
+      électronique aux Laboratoires Bell.
+  brian-kernighan:
+    url: https://fr.wikipedia.org/wiki/Brian_Kernighan
+    title: Brian Kernighan
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Brian_Kernighan_in_2012_at_Bell_Labs_1.jpg/320px-Brian_Kernighan_in_2012_at_Bell_Labs_1.jpg
+      width: 320
+      height: 213
+    tid: 5ad6d581-7e80-11ee-8cbe-cf3345da6389
+    timestamp: '2023-11-08T21:47:04Z'
+    description: informaticien américain
+    extract: Brian Kernighan est un informaticien connu pour avoir coécrit le premier
+      livre sur le langage de programmation C. Il est aussi le cocréateur des langages
+      Awk, avec Alfred Aho et Peter Weinberger, et AMPL.
+  bjarne-stroustrup:
+    url: https://fr.wikipedia.org/wiki/Bjarne_Stroustrup
+    title: Bjarne Stroustrup
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Bjarne-stroustrup_%28cropped%29.jpg/320px-Bjarne-stroustrup_%28cropped%29.jpg
+      width: 320
+      height: 483
+    tid: 4bfc1fa2-4742-11ef-abf0-6c5dd205a79e
+    timestamp: '2024-07-21T09:19:14Z'
+    description: informaticien, écrivain et professeur de sciences informatiques danois
+    extract: Bjarne Stroustrup, né le 30 décembre 1950 à Aarhus, est un informaticien,
+      écrivain et professeur de sciences informatiques danois. Il est connu pour être
+      l'auteur du langage de programmation C++, l'un des plus utilisés dans le monde.
+  fortran-lang:
+    url: https://fr.wikipedia.org/wiki/Fortran
+    title: Fortran
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Fortran_logo.svg/langfr-320px-Fortran_logo.svg.png
+      width: 320
+      height: 320
+    tid: bb04fe43-1904-11ef-aca9-ba68929134ba
+    timestamp: '2024-05-23T13:02:38Z'
+    description: langage de programmation
+    extract: Fortran est un langage de programmation généraliste dont le domaine de
+      prédilection est le calcul scientifique et le calcul numérique. Il est utilisé
+      aussi bien sur ordinateur personnel que sur les superordinateurs, où il sert
+      d'ailleurs à tester leurs performances dans le cadre du classement TOP500 des
+      superordinateurs les plus puissants au monde, entre autres grâce à la bibliothèque
+      LINPACK.
+  lisp-lang:
+    url: https://fr.wikipedia.org/wiki/Liste_de_langages_de_programmation
+    title: Liste de langages de programmation
+    validated: false
+    tid: 7ecd6799-40ff-11ef-b9f8-92131086d570
+    timestamp: '2024-07-13T10:05:56Z'
+    description: page de liste de Wikimédia
+    extract: "Le but de cette liste de langages de programmation est d'inclure tous
+      les langages de programmation existants, qu'ils soient actuellement utilisés
+      ou historiques, par ordre alphabétique.\nLes langages informatiques de représentation
+      de données tels que XML, HTML, XHTML ou YAML ne sont pas listés ici. Un langage
+      de programmation doit permettre d’écrire des algorithmes, mais il n’est pas
+      nécessaire qu’il soit Turing-complet. Par exemple, Gallina, le langage de programmation
+      de Coq, ne l’est pas."
+  cobol-lang:
+    url: https://fr.wikipedia.org/wiki/Rust_(langage)
+    title: Rust (langage)
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/langfr-320px-Rust_programming_language_black_logo.svg.png
+      width: 320
+      height: 320
+    tid: de890a68-48e5-11ef-8c5d-c33af55720b3
+    timestamp: '2024-07-23T11:22:39Z'
+    description: langage de programmation informatique
+    extract: Rust est un langage de programmation compilé multi-paradigme qui met
+      l'accent sur la performance, la sûreté des types et la concurrence. Il assure
+      la sécurité mémoire (en), ce qui signifie que toutes les références pointent
+      vers une mémoire valide, sans nécessiter l'utilisation de techniques de gestion
+      de la mémoire automatisée telles que le ramasse-miettes. Afin d'assurer la sécurité
+      de la mémoire et d'empêcher une situation de compétition aux données, son "vérificateur
+      d'emprunts" suit la durée de vie des objets de toutes les références dans un
+      programme à la compilation.
+  basic-lang:
+    url: https://fr.wikipedia.org/wiki/Toki_pona
+    title: Toki pona
+    validated: false
+    tid: 8499d8ea-f0a5-11ee-836f-b8181695a66c
+    timestamp: '2024-04-02T04:00:18Z'
+    description: langue construite inventée par la linguiste et traductrice canadienne
+      Sonja Lang
+    extract: Le toki pona est une langue construite minimaliste inventée par la linguiste
+      et traductrice canadienne Sonja Lang et publiée pour la première fois en 2001
+      sur Internet.
+  pascal-lang:
+    url: https://fr.wikipedia.org/wiki/Jack_Lang
+    title: Jack Lang
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Jack_Lang.jpg/320px-Jack_Lang.jpg
+      width: 320
+      height: 452
+    tid: c368d244-4a14-11ef-932d-e8058cdc2fbf
+    timestamp: '2024-07-24T23:30:51Z'
+    description: homme politique français
+    extract: Jack Lang, né le 2 septembre 1939 à Mirecourt (Vosges), est un homme
+      politique français.
+  c-lang:
+    url: https://fr.wikipedia.org/wiki/Lang_Lang
+    title: Lang Lang
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Lang_Lang_-_World_Economic_Forum_Annual_Meeting_2010_Davos_cropped_%28cropped%29.jpg/320px-Lang_Lang_-_World_Economic_Forum_Annual_Meeting_2010_Davos_cropped_%28cropped%29.jpg
+      width: 320
+      height: 422
+    tid: 3b482e27-4274-11ef-8d6b-948befca2448
+    timestamp: '2024-07-15T06:34:05Z'
+    description: pianiste et concertiste chinois de renommée internationale
+    extract: Lang Lang, né le 14 juin 1982 à Shenyang, est un pianiste chinois de
+      renommée internationale. Il réside actuellement à Paris.
+  cpp-lang:
+    url: https://fr.wikipedia.org/wiki/Cambodge
+    title: Cambodge
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Cambodia_on_the_globe_%28Cambodia_centered%29.svg/langfr-320px-Cambodia_on_the_globe_%28Cambodia_centered%29.svg.png
+      width: 320
+      height: 320
+    tid: 9583880b-497b-11ef-afa4-430438fb09d0
+    timestamp: '2024-07-24T05:14:21Z'
+    description: pays d'Asie du Sud-Est
+    extract: Le Cambodge, ou en forme longue le royaume du Cambodge, aussi appelé
+      Srok Khmer, ស្រុកខ្មែរ, littéralement « le pays khmer », est un pays d'Asie
+      du Sud-Est, peuplé d’environ 17 millions d'habitants. Sa capitale est Phnom
+      Penh.
+  perl-lang:
+    url: https://fr.wikipedia.org/wiki/Le_Puits_(film,_1909)
+    title: Le Puits (film, 1909)
+    validated: false
+    tid: c2297272-d7b2-11ed-a043-a4b1eb032df1
+    timestamp: '2023-04-10T15:17:08Z'
+    description: film sorti en 1909
+    extract: "\nLe Puits est un film muet français réalisé par Louis Feuillade, sorti
+      en 1909."
+  python-lang:
+    url: https://fr.wikipedia.org/wiki/Python_(langage)
+    title: Python (langage)
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CPT-TheoryOfComp-Binary-Search-Python.png/320px-CPT-TheoryOfComp-Binary-Search-Python.png
+      width: 320
+      height: 329
+    tid: 30012634-4e7e-11ef-8158-cbe844dc83f4
+    timestamp: '2024-07-30T14:15:35Z'
+    description: langage de programmation objet, multi-paradigme et multi-plateformes
+    extract: Python est un langage de programmation interprété, multiparadigme et
+      multiplateformes. Il favorise la programmation impérative structurée, fonctionnelle
+      et orientée objet. Il est doté d'un typage dynamique fort, d'une gestion automatique
+      de la mémoire par ramasse-miettes et d'un système de gestion d'exceptions ;
+      il est ainsi similaire à Perl, Ruby, Scheme, Smalltalk et Tcl.
+  ruby-lang:
+    url: https://fr.wikipedia.org/wiki/Ruby
+    title: Ruby
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Ruby_logo.svg/langfr-320px-Ruby_logo.svg.png
+      width: 320
+      height: 320
+    tid: b4af275f-4047-11ef-aad8-a847eaf5933f
+    timestamp: '2024-07-12T12:10:19Z'
+    description: langage de programmation libre
+    extract: Ruby est un langage de programmation libre. Il est interprété, orienté
+      objet et multi-paradigme. Le langage a été standardisé au Japon en 2011, et
+      en 2012 par l'Organisation internationale de normalisation.
+  java-lang:
+    url: https://fr.wikipedia.org/wiki/Java_hashCode()
+    title: Java hashCode()
+    validated: false
+    tid: a910cc55-0c20-11ee-a222-568c6d5cf6be
+    timestamp: '2023-06-16T08:34:51Z'
+    extract: Dans le langage de programmation Java, chaque classe doit mettre en œuvre
+      une méthode hashCode  qui digère les données stockées dans une instance de la
+      classe dans une valeur de hachage. Cette valeur de hachage est utilisée par
+      d'autres codes lors du stockage ou de la manipulation de l'instance - les valeurs
+      visent à être réparties de manière homogène pour différentes entrées de manière
+      à être utilisées en agglomération. Cette propriété est importante pour les performances
+      des tables de hachage et autres structures de données qui stockent des objets
+      en groupes ("agglomérats") en fonction de leurs valeurs de hachage.
+  php-lang:
+    url: https://fr.wikipedia.org/wiki/PHP
+    title: PHP
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/langfr-320px-PHP-logo.svg.png
+      width: 320
+      height: 173
+    tid: a429cfbc-4d28-11ef-889b-cc1aeae53ca0
+    timestamp: '2024-07-28T21:30:42Z'
+    description: langage de programmation orienté serveur web
+    extract: "PHP: Hypertext Preprocessor, plus connu sous son sigle PHP, est un langage
+      de programmation libre, principalement utilisé pour produire des pages Web dynamiques
+      via un serveur web, mais pouvant également fonctionner comme n'importe quel
+      langage interprété de façon locale. PHP est un langage impératif orienté objet."
+  c-sharp:
+    url: https://fr.wikipedia.org/wiki/C_Sharp
+    title: C Sharp
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/C_Sharp_Logo_2023.svg/langfr-320px-C_Sharp_Logo_2023.svg.png
+      width: 320
+      height: 320
+    tid: 5637f30b-3c1d-11ef-bfa8-ff4491fff844
+    timestamp: '2024-07-07T04:56:57Z'
+    description: langage de programmation informatique
+    extract: C# est un langage de programmation orientée objet, commercialisé par
+      Microsoft depuis 2002 et destiné à développer sur la plateforme Microsoft .NET,
+      au même titre que d’autres langages liés à cette plateforme.
+  go-lang:
+    url: https://fr.wikipedia.org/wiki/Go_(jeu)
+    title: Go (jeu)
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Go_game.jpg/320px-Go_game.jpg
+      width: 320
+      height: 240
+    tid: c482dd98-3df4-11ef-8b55-6b6c9a4637d0
+    timestamp: '2024-07-09T13:11:35Z'
+    description: jeu de stratégie
+    extract: Le go, également appelé jeu de go, appelé en japonais igo (囲碁), go (碁)
+      ou dans certaines expressions ki (棋), en chinois, en hanyu pinyin wéiqí et en
+      coréen baduk (바둑), est un jeu de société originaire de Chine. Il oppose deux
+      adversaires qui placent à tour de rôle des pierres, respectivement noires et
+      blanches, sur les intersections d'un tablier quadrillé appelé goban en japonais.
+      Le but est de contrôler le plan de jeu en y construisant des « territoires ».
+      Les pierres encerclées deviennent des « prisonniers », le gagnant étant le joueur
+      ayant totalisé le plus de territoires et de prisonniers.
+  rust-lang:
+    url: https://fr.wikipedia.org/wiki/Rust_(langage)
+    title: Rust (langage)
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/langfr-320px-Rust_programming_language_black_logo.svg.png
+      width: 320
+      height: 320
+    tid: de890a68-48e5-11ef-8c5d-c33af55720b3
+    timestamp: '2024-07-23T11:22:39Z'
+    description: langage de programmation informatique
+    extract: Rust est un langage de programmation compilé multi-paradigme qui met
+      l'accent sur la performance, la sûreté des types et la concurrence. Il assure
+      la sécurité mémoire (en), ce qui signifie que toutes les références pointent
+      vers une mémoire valide, sans nécessiter l'utilisation de techniques de gestion
+      de la mémoire automatisée telles que le ramasse-miettes. Afin d'assurer la sécurité
+      de la mémoire et d'empêcher une situation de compétition aux données, son "vérificateur
+      d'emprunts" suit la durée de vie des objets de toutes les références dans un
+      programme à la compilation.
+  swift-lang:
+    url: https://fr.wikipedia.org/wiki/Cruel_Summer_(chanson_de_Taylor_Swift)
+    title: Cruel Summer (chanson de Taylor Swift)
+    validated: false
+    tid: 2996e04b-3c43-11ef-9967-6651a1153397
+    timestamp: '2024-07-07T09:27:43Z'
+    description: single de Taylor Swift, sorti en 2019
+    extract: Cruel Summer est une chanson de l'auteure-compositrice-interprète américaine
+      Taylor Swift issue de son septième album studio Lover sorti en 2019.
+  zig-lang:
+    url: https://fr.wikipedia.org/wiki/Zig_(langage)
+    title: Zig (langage)
+    validated: false
+    tid: f0ec72a8-4a82-11ef-a22f-e1a0d61f2fc4
+    timestamp: '2024-07-25T12:39:32Z'
+    description: langage de programmation
+    extract: Zig est un langage de programmation compilé impératif polyvalent, typé
+      statiquement, conçu par Andrew Kelley. Le langage est conçu pour la «robustesse»,
+      l'«optimalité» et la «maintenabilité», prenant en charge les génériques et la
+      réflexion au moment de la compilation, la compilation croisée et la gestion
+      manuelle de la mémoire. Un objectif majeur du langage est de concurrencer C,
+      tout en s'inspirant également de Rust, entre autres.
+  base64:
+    url: https://fr.wikipedia.org/wiki/Base64
+    title: Base64
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Base64-da.png/320px-Base64-da.png
+      width: 320
+      height: 127
+    tid: 1a8d3724-3acb-11ef-b6e7-2fd6d3cbf871
+    timestamp: '2024-07-05T12:35:47Z'
+    description: Type de codage binaire utilisant 64 caractères
+    extract: En informatique, base64 est un codage de l'information utilisant 64 caractères,
+      choisis pour être disponibles sur la majorité des systèmes. Défini en tant qu'encodage
+      MIME dans la RFC 2045, il est principalement utilisé pour la transmission de
+      messages sur Internet. Il est par ailleurs défini en propre dans la RFC 4648.
+  bpmn:
+    url: https://fr.wikipedia.org/wiki/Business_process_model_and_notation
+    title: Business process model and notation
+    validated: false
+    tid: 6f013a0e-007e-11ef-b04c-88d5895eb5b5
+    timestamp: '2024-04-22T08:00:50Z'
+    extract: "\nBusiness Process Model and Notation, c'est-à-dire « modèle de procédé
+      d'affaire et notation », est une méthode de modélisation de processus d'affaires
+      pour décrire les chaînes de valeur et les activités métier d'une organisation
+      sous forme d'une représentation graphique. Elle constitue la norme internationale
+      ISO/CEI 19510."
+  structogramme:
+    url: https://fr.wikipedia.org/wiki/Structogramme
+    title: Structogramme
+    validated: false
+    tid: c853b1b8-88a9-11ea-8ead-46f94627505a
+    timestamp: '2020-04-27T17:08:58Z'
+    extract: Le structogramme ou graphe NSD, modèle proposé par Nassi-Shneidermann,
+      est une description graphique des instructions nécessaires à la résolution d'un
+      problème. Il s'agit de graphes emboîtés qui permettent de représenter des traitements
+      séquentiels, des tests et des répétitions.
+  bare-metal:
+    url: https://fr.wikipedia.org/wiki/Bare_metal
+    title: Bare metal
+    validated: false
+    tid: 2f4d1705-1de7-11ef-be77-bd8fc36b1bef
+    timestamp: '2024-05-29T18:13:44Z'
+    description: utilisation d'un système informatique matériel sans système d'exploitation
+    extract: En informatique et électronique, on appelle bare-metal ou programmation
+      bare metal, un système informatique matériel utilisé sans système d'exploitation
+      complexe mais directement par un programme, généralement à l'aide d'une bibliothèque
+      spécialisée, à l'image de l'assembleur RISC-V BronzeBeard ou des bibliothèques
+      mutli-plateforme telles que Barebox.
+  computer-program:
+    url: https://fr.wikipedia.org/wiki/Programme_informatique
+    title: Programme informatique
+    validated: false
+    tid: 0eb3e374-4a77-11ef-8570-b6a126cd5a59
+    timestamp: '2024-07-25T11:14:28Z'
+    description: séquence d'instructions pour ordinateur
+    extract: "Un programme informatique est un ensemble d'instructions et d’opérations
+      destinées à être exécutées par un ordinateur.Un programme source est un code
+      écrit par un informaticien dans un langage de programmation. Il peut être compilé
+      vers une forme binaire ou directement interprété.\nUn programme binaire décrit
+      les instructions à exécuter par un microprocesseur sous forme numérique. Ces
+      instructions appartiennent à un langage machine."
+  operating-system:
+    url: https://fr.wikipedia.org/wiki/Système_d'exploitation
+    title: Système d'exploitation
+    validated: false
+    tid: 99fb88b8-4aac-11ef-934e-021dd9592dd7
+    timestamp: '2024-07-25T17:37:45Z'
+    description: ensemble de programmes qui dirige l’utilisation des capacités d’un
+      ordinateur par des logiciels applicatifs
+    extract: En informatique, un système d'exploitation est un ensemble de programmes
+      qui dirige l'utilisation des ressources d'un ordinateur par des logiciels applicatifs.
+  multitasking:
+    url: https://fr.wikipedia.org/wiki/Multitasking
+    title: Multitasking
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Multitasking_%281272935961%29.jpg/320px-Multitasking_%281272935961%29.jpg
+      width: 320
+      height: 480
+    tid: 308c301d-fe5c-11ee-a8c4-b8eb54a11bd3
+    timestamp: '2024-04-19T14:50:40Z'
+    description: capacité de l'homme à effectuer plusieurs tâches en même temps
+    extract: Multitasking est un terme anglophone qui prend sa source dans l’ingénierie
+      informatique, désignant un type de système d’exploitation dit multitâche, capable
+      de traiter en même temps plusieurs programmes informatiques. Il a ensuite été
+      décliné pour s’appliquer à l’humain, désignant désormais le fait de pratiquer
+      plusieurs activités en même temps et plus précisément d’utiliser plusieurs moyens
+      de communication de manière simultanée.
+  ladder-language:
+    url: https://fr.wikipedia.org/wiki/Liste_d'extensions_de_fichiers
+    title: Liste d'extensions de fichiers
+    validated: false
+    tid: d01fbf38-3cbd-11ef-82f4-0594bd1419e5
+    timestamp: '2024-07-08T00:05:41Z'
+    description: page de liste de Wikipédia
+    extract: Cet article est une liste alphabétique non exhaustive d'extensions de
+      fichiers.
+  iec-61131-3:
+    url: https://fr.wikipedia.org/wiki/CEI_61131-3
+    title: CEI 61131-3
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ladder_2.PNG/320px-Ladder_2.PNG
+      width: 320
+      height: 140
+    tid: ca86c3e5-f763-11ed-a063-68aeac02b4e0
+    timestamp: '2023-05-20T23:12:29Z'
+    description: norme industrielle pour l'automation
+    extract: "La CEI 61131-3, intitulée Automates programmables - Partie 3 : Langages
+      de programmation, est une norme industrielle de la Commission électrotechnique
+      internationale (CEI). Publiée la première fois en 1993, sa dernière édition
+      date de septembre 2013. Cette norme définit quatre langages de programmation
+      utilisés pour les automates programmables, deux langages textuels, liste d'instructions
+      et texte structuré, et deux langages graphiques, diagramme à contacts et diagramme
+      de bloc fonctionnel (FBD, Function Block Diagram."
+  labview:
+    url: https://fr.wikipedia.org/wiki/LabVIEW
+    title: LabVIEW
+    validated: false
+    tid: 8c06773f-0e74-11ef-b067-65a9185a0126
+    timestamp: '2024-05-10T02:25:20Z'
+    description: logiciel informatique
+    extract: LabVIEW est le cœur d’une plate-forme de conception de systèmes de mesure
+      et de contrôle, fondée sur un environnement de développement graphique de National
+      Instruments.
+  arborescence:
+    url: https://fr.wikipedia.org/wiki/Arborescence
+    title: Arborescence
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Phylogenic_tree.png/320px-Phylogenic_tree.png
+      width: 320
+      height: 243
+    tid: a52e18a2-0e19-11ef-9a73-4396b238409c
+    timestamp: '2024-05-09T15:34:38Z'
+    extract: "En mathématiques, plus précisément dans la théorie des graphes : une
+      arborescence est un arbre comportant un sommet particulier , nommé racine de
+      l'arborescence, à partir duquel il existe un chemin unique vers tous les autres
+      sommets."
+  openvms:
+    url: https://fr.wikipedia.org/wiki/OpenVMS
+    title: OpenVMS
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/OpenVMSlogin.png/320px-OpenVMSlogin.png
+      width: 320
+      height: 197
+    tid: dea71b88-4a53-11ef-99ac-6683a1264a50
+    timestamp: '2024-07-25T07:02:35Z'
+    description: système d'exploitation
+    extract: OpenVMS anciennement VAX-11/VMS, VAX/VMS ou (officieusement) VMS est
+      un système d'exploitation propriétaire créé par DEC en 1977 pour ses ordinateurs
+      VAX. Le système a depuis été porté sur les processeurs DEC Alpha, et enfin Itanium.
+  bios:
+    url: https://fr.wikipedia.org/wiki/BIOS_(informatique)
+    title: BIOS (informatique)
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Award_BIOS_setup_utility.png/320px-Award_BIOS_setup_utility.png
+      width: 320
+      height: 200
+    tid: cc1d16f7-0de2-11ef-9ec8-c0b2055abc0f
+    timestamp: '2024-05-09T09:02:01Z'
+    description: système élémentaire d'entrée/sortie
+    extract: "Le BIOS, de l'anglais : Basic Input Output System est le nom donné sur
+      les ordinateurs issu de la norme de compatibilité IBM PC, à ce que l'on appelle
+      plus généralement un firmware. Il est donc principalement utilisé sur les systèmes
+      informatiques utilisant l'architecture de processeur 32 bits i686 d'Intel et
+      64 bits x86_64 d'AMD. Il comporte un ensemble de fonctions, contenu dans la
+      mémoire morte (ROM) de la carte mère de ces ordinateurs, lui permettant d'effectuer
+      des opérations de base, lors de sa mise sous tension. Par exemple l'identification
+      et l'initialisation des périphériques d'alimentation et d’entrée/sortie connectés
+      et la lecture du système d'amorçage, que ce soit un secteur d'amorçage sur la
+      mémoire de masse, ou bien une adresse fournie par le réseau. Il permet également
+      au système de communiquer avec les différents périphériques de la carte mère,
+      bien qu'il soit également possible de communiquer sans passer par le BIOS. Sur
+      les cartes récentes, l'UEFI a été ajouté au BIOS pour unifier les méthodes de
+      communication avec le noyau du système. C'est un palliatif de l'absence de spécification
+      ouverte des pilotes de périphériques, tels qu'ils se présentent au sein du BIOS."
+  Executable_and_Linkable_Format:
+    url: https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format
+    title: Executable and Linkable Format
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Elf-layout--en.svg/langfr-320px-Elf-layout--en.svg.png
+      width: 320
+      height: 355
+    tid: a64518a8-40a8-11ef-a191-ebf39b24b551
+    timestamp: '2024-07-12T23:44:16Z'
+    extract: ELF est un format de fichier binaire utilisé pour l'enregistrement de
+      code compilé. Il a été développé par l’USL pour remplacer les anciens formats
+      a.out et COFF qui avaient atteint leurs limites. Aujourd'hui, ce format est
+      utilisé dans la plupart des systèmes d'exploitation de type Unix, à l'exception
+      de Mac OS X.
+  Exit_status:
+    url: https://fr.wikipedia.org/wiki/Exit,_Voice,_and_Loyalty
+    title: Exit, Voice, and Loyalty
+    validated: false
+    tid: 216531c4-1b83-11ee-bf5d-f294e3d46170
+    timestamp: '2023-07-05T22:27:31Z'
+    description: livre de Albert Hirschman
+    extract: Exit, Voice and Loyalty est un livre du socio-économiste américain d'origine
+      allemande Albert Hirschman, paru en 1970 à Harvard University Press, qui a eu
+      une influence durable sur les pensées des auteurs en organisation, en économie
+      et en sciences politiques.
+  ROT13:
+    url: https://fr.wikipedia.org/wiki/ROT13
+    title: ROT13
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/ROT13.png/320px-ROT13.png
+      width: 320
+      height: 201
+    tid: abdda325-f118-11ee-9439-c6a27b7d3126
+    timestamp: '2024-04-02T17:44:36Z'
+    extract: Le ROT13 est un cas particulier du chiffrement de César, un algorithme
+      simpliste de chiffrement de texte. Comme son nom l’indique, il s’agit d’un décalage
+      de 13 caractères de chaque lettre du texte à chiffrer. Son principal aspect
+      pratique est que le codage et le décodage se font exactement de la même manière.
+  abstract-type:
+    url: https://fr.wikipedia.org/wiki/Type_abstrait
+    title: Type abstrait
+    validated: false
+    tid: eab2e225-1b31-11ee-8a60-62743a5bb1fa
+    timestamp: '2023-07-05T12:46:10Z'
+    description: Concept informatique
+    extract: En informatique, un type de donnée abstrait est une spécification mathématique
+      d'un ensemble de données et de l'ensemble des opérations qu'on peut effectuer
+      sur elles. On qualifie d'abstrait ce type de donnée car il ne spécifie pas comment
+      les données sont représentées ni comment les opérations sont implémentées.
+  doxygen:
+    url: https://fr.wikipedia.org/wiki/Doxygen
+    title: Doxygen
+    validated: false
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Doxygen-1.8.1.png/320px-Doxygen-1.8.1.png
+      width: 320
+      height: 276
+    tid: 717fcea5-0e73-11ef-80b5-e9a31928a060
+    timestamp: '2024-05-10T02:17:26Z'
+    description: logiciel informatique
+    extract: Doxygen est un générateur de documentation sous licence libre capable
+      de produire une documentation logicielle à partir du code source d'un programme.
+      Pour cela, il tient compte de la syntaxe du langage dans lequel est écrit le
+      code source, ainsi que des commentaires s'ils sont écrits dans un format particulier.

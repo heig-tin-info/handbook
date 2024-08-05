@@ -1,24 +1,49 @@
 # Le langage C
 
-Nous voici arrivés au sujet central de ce cours, le langage C. Ce chapitre est une introduction au langage C, à son histoire, à sa standardisation, à son utilisation et à son environnement de développement.
-
-Le langage C est un des premiers langages de programmation de haut niveau. Il est très proche de l'assembleur: le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation de système complexe à la simple [machine à café][mcu]{ data-preview }.
+Le langage C est l'un des premiers langages de programmation dit de haut niveau. Il est très proche de l'assembleur: le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation de système complexe à la simple [machine à café][mcu].
 
 Même s'il est très ancien (1972), il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.
 
 À vrai dire, en 2024, il n'y a pas d'alternative viable au C pour programmer des applications embarquées, des systèmes d'exploitation ou des applications nécessitant des performances élevées.
 
+> C is quirky, flawed, and an enormous success. -- Dennis Ritchie
+
 [](){ #c-history }
+
 ## Historique { data-search-keyword="thompson"}
 
-Le langage de programmation **C** est la suite naturelle du langage **B** créé dans la toute fin des années soixante par un grand pionnier de l'informatique moderne: [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson).
+En 1964 naît, d'une collaboration avec les laboratoires Bell (*Bell Telephone Laboratories*), General Electric et le MIT, le projet [Multics](wiki:multics) (*Multiplexed Information and Computing Service*), qui vise le développement d'un nouveau système d'exploitation.
 
-Le langage C a été inventé en 1972 par [Brian Kernighan](https://fr.wikipedia.org/wiki/Brian_Kernighan) et [Dennis Ritchie](https://fr.wikipedia.org/wiki/Dennis_Ritchie). Ils sont aussi les concepteurs du système d'exploitation [UNIX](https://fr.wikipedia.org/wiki/Unix) et ont créé ce nouveau langage pour faciliter leurs travaux de développement logiciel. La saga continue avec [Bjarne Stroustrup](https://fr.wikipedia.org/wiki/Bjarne_Stroustrup) qui décide d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fera l'objet d'un cours à part entière. Ce C amélioré voit le jour en 1985.
+Malheureusement, la fin de la décennie est assez tumultueuse car les laboratoires Bell, ne croyant plus aux promesses de Multics, décidèrent de se retirer du projet pour créer leur propre système d'exploitation. Un groupe informel, dirigé notamment par [Ken Thompson](wiki:ken-thompson) et [Dennis Ritchie](wiki:dennis-ritchie), souhaitait revoir et améliorer certains concepts de Multics qu'ils n'appréciaient pas. Notamment le langage de programmation PL/I (*Programming Language number 1*), pourtant alors dominant pour l'écriture de systèmes d'exploitation. Ken Thompson avait développé le langage B, largement inspiré de BCPL, mais dans lequel il supprima tout ce qu'il ne pensait pas être essentiel pour pouvoir être utilisé sur de petits ordinateurs. L'un comme l'autre n'avaient qu'un seul type de donnée, à savoir le "mot" (*word*).
+
+BCPL, qui fut conçu par Martin Richards au milieu des années 1960 pendant qu'il était en visite au MIT, n'est autre que le grand-père de B et l'arrière-grand-père de C. Dennis Ritchie, alors collègue de Ken Thompson, retravailla B pour y ajouter la gestion des types de données.
+
+Ce système d'exploitation que Ken Thompson et Dennis Ritchie développaient au sein des laboratoires Bell se nommait initialement UNICS, en contradiction de Multics, là où *Multiplexed* fut remplacé par *Uniplexed*. Le nom fut ensuite modifié en UNIX, qui fut central dans l'histoire de l'informatique.
+
+Par la suite, [Brian Kernighan](wiki:brian-kernighan) aida à populariser ce nouveau langage. Il est le principal auteur du livre "The C Programming Language", tandis que Dennis Ritchie s'est davantage occupé des annexes.
+
+Les évolutions continuerons plus tard avec [Bjarne Stroustrup](wiki:bjarne-stroustrup) qui décidera d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fait l'objet d'un autre cours.
 
 ![Les pères fondateurs du C]({assets}/images/thompson-kernighan-ritchie.webp)
 
 Il faut attendre 1989 pour que le langage C fasse l'objet d'une normalisation par l'ANSI (*American National Standards Institute*). L'année suivante le comité ISO (*International Organization for Standardization*) ratifie le standard *ISO/IEC 9899:1990* communément appelé **C90**. Dès lors, le langage C est devenu un standard international et devient le langage dominant dans le monde de l'informatique.
 
+```mermaid
+%% Influences des langages de programmation
+flowchart LR
+    COBOL --> PLI["PL/I"]
+    FORTRAN --> ALGOL
+    ALGOL --> CPL
+    CPL --> BCPL
+    ALGOL --> SIMULA
+    ALGOL --> PASCAL
+    FORTRAN --> PASCAL
+    FORTRAN --> PLI
+    BCPL --> B
+    ALGOL --> PLI
+    PLI --> C("C")
+    B --> C
+```
 Les années se succèdent et le standard évolue pour soit corriger certaines de ses faiblesses soit pour apporter de nouvelles fonctionnalités.
 
 Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés par les ingénieurs, car il allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances telles que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.

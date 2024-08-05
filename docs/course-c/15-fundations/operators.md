@@ -594,7 +594,11 @@ La priorité des opérateurs logiques est plus faible que celle des opérateurs 
 
 ### Opérateurs d'affectation
 
-Les opérateurs d'affectation permettent d'assigner de nouvelles valeurs à une variable. En C il existe des sucres syntaxiques permettant de simplifier l'écriture lorsqu'une affectation est couplée à un autre opérateur.
+Les opérateurs d'affectation permettent d'assigner de nouvelles valeurs à une variable. En C, il existe des sucres syntaxiques permettant de simplifier l'écriture lorsqu'une affectation est couplée à un autre opérateur.
+
+Originellement, la syntaxe héritée de l'Algol-68 était de positionner le symbole `=` à gauche suivi de l'opérateur arithmétique. Cette forme était confuse car elle pouvait mener à des incohérences d'écriture. Par exemple, l'expression `x =- 3` peut être confondue avec `x = -3`. Pour éviter ces ambiguïtés, le C a inversé la logique en plaçant l'opérateur arithmétique à gauche de l'opérateur d'affectation. L'histoire apporte parfois des réponses là où la logique échoue...
+
+Voici la liste des différents opérateurs d'affectation :
 
 Table: Opérateurs d'affectation
 
@@ -632,7 +636,7 @@ Un opérateur d'affectation implique que la valeur à gauche de l'égalité soit
 
 ### Opérateurs d'incrémentation
 
-Les opérateurs d'incrémentation sont régulièrement un motif primaire d'arrachage de cheveux pour les étudiants. En effet, ces opérateurs sont très particuliers à ce sens qu'il se décomposent en deux étapes : l'affectation et l'obtention du résultat. Il existe 4 opérateurs d'incrémentation :
+Les opérateurs d'incrémentation sont régulièrement un motif primaire d'arrachage de cheveux pour les étudiants. En effet, ces opérateurs sont très particuliers en ce sens qu'il se décomposent en deux étapes : l'affectation et l'obtention du résultat. Il existe 4 opérateurs d'incrémentation :
 
 Table: Opérateurs arithmétiques
 
@@ -642,6 +646,8 @@ Table: Opérateurs arithmétiques
 | `++()`    | Pré-incrémentation  | `++i`           |
 | `()--`    | Post-décrémentation | `i--`           |
 | `--()`    | Pré-décrémentation  | `--i`           |
+
+Ces opérateurs furent conçu initialement par Ken Thompson pour le langage B, le prédécesseur du C. Ils ont été repris par Dennis Ritchie pour le C. Une croyance est que ces opérateurs furent restés dans le langage car le PDP-11, la machine sur laquelle le C fut développé, possédait des instructions spécifiques pour ces opérations.
 
 La pré-incrémentation ou pré-décrémentation effectue en premier la modification de la variable impliquée puis retourne le résultat de cette variable modifiée. Dans le cas de la post-incrémentation ou pré-décrémentation, la valeur actuelle de la variable est d'abord retournée, puis dans un second temps cette variable est incrémentée.
 
@@ -1177,6 +1183,18 @@ int foo(int a, int b, int c) {
 ```
 
 ## Exercices de révision
+
+!!! exercise "Parenthèses superflues"
+
+    Dans les expressions suivantes, lesquelles contiennent des parenthèses superflues qui peuvent être retirées sans changer le sens de l'expression ?
+
+    - [ ] `a = (b + c) * d`
+    - [x] `a = b + (c * d)`
+    - [x] `(a < b) && (c > d)`
+    - [ ] `a = (b + c) / (d + e)`
+    - [ ] `(a && b) || (c && d)`
+    - [x] `(a || b) && (c || d)`
+    - [ ] `a = (b + c) % (d + e)`
 
 !!! exercise "Quelle priorité"
 

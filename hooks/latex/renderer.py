@@ -10,6 +10,7 @@ from IPython import embed
 from .transformers import fetch_image, image2pdf, svg2pdf, mermaid2pdf, drawio2pdf, get_pdf_page_sizes
 import logging
 from urllib.parse import quote, urlparse, urlunparse
+import yaml
 
 log = logging.getLogger('mkdocs')
 
@@ -123,6 +124,14 @@ class LaTeXRenderer:
             self.render_paragraph
         ]
 
+        # Wiki links
+        with open('links.yml') as f:
+            self.links = yaml.load(f, Loader=yaml.FullLoader)
+        self.wikimap = {
+            value['url']: {'key': key, **value}
+            for key, value in self.links.get('wikipedia', {}).items()
+        }
+
         # Metadata
         self.abbreviations = {}
         self.acronyms = {}
@@ -136,17 +145,21 @@ class LaTeXRenderer:
         self.level = 0
 
     def discard_unwanted(self, soup: Tag, **kwargs):
-        # Headerlink and Footnote-backref only useful on HTML
-        for el in soup.find_all('a', class_=['headerlink', 'footnote-backref']):
-            el.extract()
+        unwanted = [
+            ('a', ['headerlink', 'footnote-backref'], False),
+            ('a', ['glightbox'], True),
+            ('div', ['latex-ignore'], False),
+            ('span', ['exercise-title'], True),
+            ('div', ['checkbox-wrapper-12'], False),
+        ]
 
-        # Glighbox plugin wraps images in a span, we don't need it
-        for el in soup.find_all('a', class_=['glightbox']):
-            el.unwrap()
+        for tag, classes, unwrap in unwanted:
+            for el in soup.find_all(tag, class_=classes):
+                if unwrap:
+                    el.unwrap()
+                else:
+                    el.extract()
 
-        # Ignore unwanted in latex
-        for el in soup.find_all(['div'], class_=['latex-ignore']):
-            el.extract()
         return soup
 
     def get_safe_text(self, element: Union[PageElement, NavigableString]):
@@ -782,6 +795,17 @@ class LaTeXRenderer:
                 answer = f"Réponse{'' if len(answers) == 1 else 's'}: {', '.join(answers)}"
                 el.replace_with(el.get_text().replace('\\correctchoice', '\\choice'))
 
+        # Fill in the blank
+        if gaps := soup.find_all('input', class_='text-with-gap'):
+            answers = []
+            for el in gaps:
+                correct_value = el.get('answer')
+                answers.append(correct_value)
+                el.replace_with(f"\\rule{{{len(correct_value)}ex}}{{0.4pt}}")
+            answer = f"Réponse{'' if len(answers) == 1 else 's'}: {', '.join(answers)}"
+        if el := soup.find('p', 'align--right'):
+            el.extract()
+
         # Extract solution if found
         solution_label = f"sol:{self.exercise_counter}"
         label = f"ex:{self.exercise_counter}"
@@ -813,7 +837,7 @@ class LaTeXRenderer:
 
             classes = admonition.get('class', [])
             filtered_classes = [cls for cls in classes if cls not in [
-                'admonition', 'annotate', 'inline', 'end', 'left', 'right']]
+                'admonition', 'annotate', 'inline', 'end', 'left', 'right', 'checkbox', 'fill-in-the-blank']]
             if len(filtered_classes) > 1:
                 raise ValueError(
                     f"Multiple classes in admonition: {filtered_classes}")
@@ -872,6 +896,15 @@ class LaTeXRenderer:
             text = self.get_safe_text(el)
             href = el.get('href', '')
             if href.startswith('http'):
+                if href in self.wikimap:
+                    data = self.wikimap[href]
+                    self.glossary[data['key']] = {
+                        'name': escape_latex_chars(data['title']),
+                        'description': escape_latex_chars(data['extract'])
+                    }
+                    self.apply(el, 'glossary', key=data['key'])
+                    continue
+
                 href = escape_latex_chars(safe_quote(el.get('href')))
                 self.apply(el, 'href', text=text, url=href)
             elif href.startswith('#'):
@@ -937,6 +970,9 @@ class LaTeXRenderer:
         acronyms = [(tag, short, text)
                     for tag, (short, text) in self.acronyms.items()]
         return self.formatter.list_acronyms(acronyms)
+
+    def get_list_glossary(self):
+        return self.formatter.list_glossary(self.glossary)
 
     def get_list_solutions(self):
         return self.formatter.exercises_solutions(self.solutions)

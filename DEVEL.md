@@ -232,6 +232,14 @@ plugins:
 
 ## To-Do
 
+- [ ] Termes et définitions
+  - [ ] Glossaire
+  - [ ] Acronymes
+- [ ] Index
+- [ ] Crédits des illustrations
+- [ ] Summary Wikipedia
+- [ ] Bibliographie
+
 - [ ] LaTeX
   - [x] Mint inline in titles cause weird behavior in the toc.
   - [x] Avoid breaking code block if contains boxchars or special chars (ascii art?)

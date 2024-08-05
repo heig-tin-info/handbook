@@ -21,6 +21,7 @@
 \usepackage{minted}
 \usepackage{capt-of}
 \usepackage[acronym]{glossaries}
+\usepackage{imakeidx}
 \usepackage{fvextra} % Pour une meilleure gestion des verbatim inline
 \usepackage{titlesec} % Pour la personnalisation des titres
 \usepackage{enumitem} % Pour personnaliser les listes
@@ -30,6 +31,9 @@
 \usepackage{caption}
 \usepackage{polyglossia}
 \usepackage{emptypage} % Nothing on empty pages
+
+\makeglossaries
+\makeindex
 
 \setcounter{tocdepth}{2}
 
@@ -460,6 +464,7 @@
 
 
 
+\input{glossary.tex}
 \input{acronyms.tex}
 
 \begin{document}
@@ -544,6 +549,10 @@ Seconde édition avec MkDocs Material:              & 30 Juillet 2024 \\
 
 \clearpage
 
-\printacronyms[title=Liste des acronymes]
+
+\printglossary[type=\acronymtype, title=Liste des acronymes]
+\printglossary[title=Termes et définitions]
+
+\printindex
 
 \end{document}

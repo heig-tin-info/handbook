@@ -86,6 +86,12 @@ Il est possible d'ajouter autant de blocs que vous voulez, mais il est recommand
 // a, b et c ne sont pas accessibles ici
 ```
 
+!!! info "Limites de profondeur"
+
+    Le standard C99 §5.2.4.1 impose qu'un compilateur C doit supporter au moins 127 niveaux d'imbrication de blocs, ce qui est emplement suffisant. Cette valeur n'a pas été introduite par hasard, 127 est la valeur maximale d'un entier signé sur 8 bits (`char`) et les ordinateurs ne savent pas manipuler efficacement des types de données plus petits.
+
+    Ceci étant, le nombre d'imbrication de structures conditionnelles est limité à 63, ce qui est déjà beaucoup trop. Si vous avez besoin de plus de 63 niveaux d'imbrication, il est temps de revoir votre conception !
+
 [](){#sequence-point}
 
 ### Point de séquence

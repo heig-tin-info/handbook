@@ -6,7 +6,9 @@ site_url: https://heig-tin-info.github.io/handbook/
 site_author: Yves Chevallier
 site_description: |
   Un manuel pour apprendre le langage C en partant de zéro.
-copyright: Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier
+copyright: >
+  Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier
+  <a href="#__consent">Changer les paramètres des cookies</a>
 
 # Repository information
 repo_name: heig-tin-info/handbook
@@ -21,7 +23,7 @@ theme:
   font:
     text: Segoe UI
     code: Consolas
-  logo: assets/logos/heig-vd-white.svg
+  logo: https://raw.githubusercontent.com/HEIG-VD/logos/main/heig-vd/heig-vd-white.svg
   favicon: assets/icons/favicon.ico
   features:
     - content.action.edit
@@ -146,7 +148,7 @@ plugins:
   - search
   #- htmlproofer  # Very slow, and not accurate
 
-  #- exercises
+  - exercises
 markdown_extensions:
   - toc:
       toc_depth: 3
@@ -213,6 +215,14 @@ extra:
     foo: Bob
     bar: Alice
     baz: Eve
+  extra:
+    consent:
+      title: Cookie consent
+      description: >-
+        Nous utilisons des cookies pour reconnaître vos visites répétées et vos préférences,
+        ainsi que pour mesurer l'efficacité de notre documentation et savoir si les
+        utilisateurs trouvent ce qu'ils recherchent. Avec votre consentement,
+        vous nous aidez à améliorer notre documentation.
   analytics:
     provider: google
     property: G-FVF0WYPMYM
@@ -253,7 +263,7 @@ extra_css:
   - css/extra.css
   - css/tables.css
 extra_javascript:
-  - js/viewer.min.js
+  - js/viewer.min.js  # https://github.com/jgraph/drawio/blob/dev/src/main/webapp/js/viewer.min.js
   - js/drawio.js
   - js/wiki-tips.js
   - js/feedback.js

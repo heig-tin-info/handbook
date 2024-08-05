@@ -121,7 +121,7 @@ def on_env(env, config, files):
     for file in (latex_dir / 'assets').iterdir():
         if file not in assets_map:
             log.info(f'Removing unused asset {file}')
-            file.unlink()
+            #file.unlink()
 
     with(open(latex_dir / 'assets_map.yml', 'w')) as f:
         assets_map = yaml.dump(assets_map, default_flow_style=False, allow_unicode=True)
@@ -132,4 +132,5 @@ def on_env(env, config, files):
     (latex_dir / 'index.tex').write_text(index)
 
     Path('build/acronyms.tex').write_text(renderer.get_list_acronyms())
+    Path('build/glossary.tex').write_text(renderer.get_list_glossary())
     Path('build/solutions.tex').write_text(renderer.get_list_solutions())

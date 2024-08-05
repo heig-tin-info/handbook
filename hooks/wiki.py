@@ -30,6 +30,13 @@ def get_wiki_link(keyword, lang):
     else:
         return None
 
+def get_wiki_summary(lang, page_title):
+    summary_url = f"https://{lang}.wikipedia.org/api/rest_v1/page/summary/{page_title}"
+    response = requests.get(summary_url)
+    data = response.json()
+    keep_keys = 'title', 'thumbnail', 'timestamp', 'description', 'extract', 'tid'
+    return {k: v for k, v in data.items() if k in keep_keys}
+
 links = {}
 
 def on_config(config):
@@ -53,10 +60,22 @@ def on_page_markdown(markdown, page, config, files):
                 return link.group(0)
             url, title = result
             if url is not None:
-                links['wikipedia'][keyword] = url
+                links['wikipedia'][keyword] = {
+                    'url': url,
+                    'title': title,
+                    'validated': False,
+                }
                 log.warning(f"New wiki link discovered: {keyword}, guessing to be {title}")
 
-        return f"{link.group(1)}{links['wikipedia'][keyword]}{link.group(3)}"
+        if 'tid' not in links['wikipedia'][keyword]:
+            summary = get_wiki_summary('fr', links['wikipedia'][keyword]['title'])
+            if summary:
+                links['wikipedia'][keyword].update(summary)
+            else:
+                log.error(f"Unable to find wikipedia summary for keyword: {keyword}")
+                return link.group(0)
+
+        return f"{link.group(1)}{links['wikipedia'][keyword]['url']}{link.group(3)}"
 
     return re.sub(r'(\[[^\]]+\]\()wiki:([^\)]+)(\))', replace_link, markdown)
 

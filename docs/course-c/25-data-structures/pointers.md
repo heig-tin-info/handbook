@@ -83,6 +83,14 @@ int* ptr = NULL;
 
 La valeur `NULL` correspond à l'adresse nulle `0x00000000`. On utilise cette convention pour bien indiquer qu'il s'agit d'une adresse et non d'une valeur scalaire.
 
+!!! warning "nul, null, nulll"
+
+    Attention à l'écriture de `NULL`:
+
+    - `nul` est le caractère de fin de chaîne de caractères `'\0'` ;
+    - `null` est une adresse qui pointe nulle part ;
+    - `nulll` veut dire que vous avez fait une faute de frappe.
+
 À tout moment, la valeur du pointeur peut être assignée à l'adresse d'un entier puisque nous avons déclaré un pointeur sur un entier :
 
 ```c

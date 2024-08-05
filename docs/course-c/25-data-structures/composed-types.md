@@ -26,7 +26,7 @@ uint32_t array(5);
 size_t length = sizeof(array) / sizeof(array[0]);
 ```
 
-!!! hint
+!!! warning "L'indice zéro"
 
     L'index d'un tableau commence toujours à **0** et par conséquent l'index maximum d'un tableau de 5 éléments sera 4. Il est donc fréquent dans une boucle d'utiliser `<` et non `<=`:
 
