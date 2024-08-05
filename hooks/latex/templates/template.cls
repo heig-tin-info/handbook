@@ -38,10 +38,10 @@
 \setcounter{tocdepth}{2}
 
 % Give more spaces on Table of content (between numbers and text)
-\setlength{\cftsecnumwidth}{4em}
-\setlength{\cftsubsecnumwidth}{4em}
-\setlength{\cftfignumwidth}{4em}
-\setlength{\cfttabnumwidth}{4em}
+\setlength{\cftsecnumwidth}{3em}
+\setlength{\cftsubsecnumwidth}{3em}
+\setlength{\cftfignumwidth}{3em}
+\setlength{\cfttabnumwidth}{3em}
 
 \setdefaultlanguage{french}
 \setotherlanguages{english}
@@ -508,7 +508,20 @@
 Creative Commons \par
 \creativecommon{\huge L}
 
-L'œuvre peut être librement utilisée, à la condition de l'attribuer à l'auteur en citant son nom. Le titulaire de droits peut autoriser tous les types d'utilisation ou au contraire restreindre aux utilisations non commerciales (les utilisations commerciales restant soumises à son autorisation).
+L'œuvre peut être librement utilisée, à la condition de l'attribuer à l'auteur en citant son nom. Le titulaire de droits peut autoriser tous les types d'utilisation ou au contraire restreindre aux utilisations non commerciales (les utilisations commerciales restant soumises à son autorisation). En sommes vous êtges libre de :
+
+\begin{itemize}
+    \item Partager --- copier, distribuer et communiquer le matériel par tous moyens et sous tous formats
+    \item Adapter --- remixer, transformer et créer à partir du matériel
+\end{itemize}
+
+Sous les conditions suivantes :
+
+\begin{itemize}
+    \item Attribution --- Vous devez créditer l'Œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées à l'Œuvre. Vous devez indiquer ces informations par tous les moyens raisonnables, sans toutefois suggérer que l'Offrant vous soutient ou soutient la façon dont vous avez utilisé son œuvre.
+    \item Partage dans les mêmes conditions --- Si vous modifiez, transformez ou adaptez cette œuvre, vous n'avez le droit de distribuer votre création que sous une licence identique ou similaire à celle-ci.
+\end{itemize}
+
 
 HEIG-VD
 

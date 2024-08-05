@@ -562,7 +562,7 @@ int b = a & ~(1 << bit);
 
 ### Opérations logiques
 
-Les opérations logiques sont introduites par l'[algèbre de Boole](https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)) et permettent de combiner plusieurs grandeurs binaires en utilisant des opérations. Les opérateurs logiques sont au nombre de deux et ne doivent pas être confondus avec leur petits frères `&` et `|`.
+Les opérateurs logiques sont au nombre de deux et ne doivent pas être confondus avec leur petits frères `&` et `|`.
 
 Table: Opérateurs arithmétiques
 
