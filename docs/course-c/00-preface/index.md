@@ -1,23 +1,14 @@
 # Préface
 
-## Quel programmeur ?
-
-Les cursus académiques en écoles d'ingénieurs sont souvent cloisonnés. Il existe une démarcation franche entre les facultés d'informatique et celles d'électronique. On observe en côtoyant ces profils aux pédigrées différents, une culture du métier très différente. Les informaticiens disposent d'un excellent esprit d'abstraction, ont connaissance du fonctionnement interne d'un système d'exploitation et possèdent de larges connaissances en programmation. Néanmoins, ils manquent d'une assise pratique avec le matériel électronique et les limites imposées par des architectures matérielles légères. Les électroniciens, quant à eux, ont une connaissance approfondie dans le bas niveau. Ils ont une vision pratique des systèmes et des contraintes matérielles. Cependant, ils manquent souvent de connaissances en programmation et en algorithmique.
-
-Ces deux profiles bien que complémentaires ont souvent du mal à se comprendre. Les informaticiens trouvent les électroniciens trop terre-à-terre et les électroniciens trouvent les informaticiens trop abstraits. Des digergeances d'opinions peuvent naître de ces différences de culture, notamment dans des notions communes dont les définitions varient. Par exemple, la notion de temps réel n'est pas la même pour un informaticien que pour un électronicien. Pour un informaticien, le temps réel est un système qui répond dans un délai déterminé pour un utilisateur ($\approx 100~ms$). Pour un électronicien, le temps réel est un système qui répond dans un délai déterminé et qui est déterministe ($\approx 100~\mu s$).
-Un autre exemple est la complexité algorithmique. Pour un informaticien, la complexité algorithmique est une mesure de la performance d'un algorithme en termes généraux. Un accès à un dictionnaire est en $O(1)$, même s'il faut calculer un `sha256` qui est une formalité sur un ordinateur. Pour un électronicien, il lui est impossible de faire un `sha256` sur un microcontrôleur 8 bits et il s'intéressera à des optimisations profondes de l'algorithme, quitte à le rendre moins générique et modulaire.
-
-Cet ouvrage a pour but de rapprocher ces deux cultures en donnant aux électroniciens les bases de la "vraie" informatique, de la programmation et de sa culture en rendant accessibles des concepts complexes tels que les arbres ou les graphes.
-
 ## À qui s'adresse cet ouvrage ?
 
-Conçu comme un résumé du savoir nécessaire à l'ingénieur pour prendre en main le langage C, cet ouvrage n'est pas un manuel de référence. Il réfère à de nombreuses ressources internet et livres que le lecteur pourra consulter au besoin pour approfondir certains concepts.
+Conçu comme un résumé du savoir nécessaire à l'ingénieur pour s'initier à la programmation et prendre en main le langage C, cet ouvrage n'est pas un manuel de référence. Il se réfère à de nombreuses ressources internet et livres que le lecteur pourra consulter au besoin pour approfondir certains concepts.
 
-Chaque chapitre est composé d'exercices, mais à des fins pédagogiques, toutes les solutions ne sont pas données. Certains exercices sont destinés à être faits en études.
+Chaque chapitre est composé d'exercices, mais à des fins pédagogiques, l'intégralité des solutions ne sont pas fournies; certains exercices sont destinés à être faits en études.
 
 Cet ouvrage est destiné à des étudiants ingénieurs de première année n'ayant aucune expérience en programmation.
 
-Le contenu concerne les cours d'informatique 1 et 2 de l'enseignement de base du département des technologies industrielles (TIN) de la HEIG-VD.
+Le contenu concerne principalement les cours d'informatique 1 et 2 de l'enseignement de base du département des technologies industrielles (TIN) de la HEIG-VD.
 
 ## Cours d'informatique cursus bachelor
 
@@ -26,6 +17,16 @@ Ce cours d'informatique à la HEIG-VD est donné par le département TIN dans le
 - Informatique 1 (INFO1) - 101 Première année
 - Informatique 2 (INFO2) - 102 Première année
 - Microinformatique (MICROINFO) - 101 Première année
+
+## Quel programmeur êtes-vous ?
+
+Les études en écoles d'ingénieurs sont souvent cloisonnées. On observe, entre les différentes facultés (électronique, informatique, etc.), que l'enseignement de l'informatique s'inscrit dans une culture distincte avec un langage spécifique. Les informaticiens, dotés d'un esprit d'abstraction remarquable, acquièrent des connaissances approfondies du fonctionnement interne des systèmes d'exploitation et possèdent une expertise étendue en programmation. Néanmoins, ils manquent parfois d'une expérience pratique avec le matériel électronique et les contraintes imposées par des architectures matérielles légères (systèmes embarqués, microcontrôleurs, etc.). Les électroniciens, quant à eux, disposent d'une compréhension approfondie des systèmes à bas niveau. Ils ont une vision pragmatique des systèmes et des contraintes matérielles. Cependant, ils manquent souvent de connaissances poussées en programmation et en algorithmique.
+
+Ces deux profils, bien que complémentaires, ont souvent du mal à se comprendre. Les informaticiens perçoivent les électroniciens comme trop terre-à-terre, tandis que les électroniciens jugent les informaticiens trop abstraits. Des divergences d'opinions peuvent émerger de ces différences culturelles, notamment dans des notions communes dont les définitions varient. Par exemple, la notion de temps réel diffère pour un informaticien et un électronicien. Pour un informaticien, le temps réel désigne un système qui répond dans un délai déterminé pour un utilisateur (environ 100 ms). Pour un électronicien, le temps réel désigne un système qui répond dans un délai déterminé et qui est déterministe (environ 100 µs).
+
+Un autre exemple est la complexité algorithmique. Pour un informaticien, la complexité algorithmique mesure la performance d'un algorithme en termes généraux. Un accès à un dictionnaire est en $O(1)$, même s'il implique le calcul d'un `sha256`, une opération triviale sur un ordinateur. Pour un électronicien, il est impossible de réaliser un `sha256` sur un microcontrôleur 8 bits, ce qui l'incite à rechercher des optimisations profondes de l'algorithme, quitte à le rendre moins générique et modulaire.
+
+Cet ouvrage a pour objectif de rapprocher ces deux cultures en fournissant aux électroniciens les bases de la véritable informatique, de la programmation et de sa culture, en rendant accessibles des concepts complexes tels que les arbres et les graphes.
 
 ## Organisation de l'ouvrage
 
@@ -63,6 +64,20 @@ Pour améliorer votre navigation sur ce site, voici quelques raccourcis clavier 
 
 ### Conventions d'écriture
 
+#### Encodage de caractère
+
+Il sera souvent fait mention dans cet ouvrage la notation du type U+1F4A9, il s'agit d'une notation Unicode qui ne dépend pas d'un quelconque encodage. Parler du caractère ASCII 234 est incorrect, car cela dépend de la table d'encodage utilisée; en revanche, la notation Unicode est plus précise.
+
+/// html | div[class="latex-ignore"]
+La notation est cliquable et vous redirigera vers le site [symbl.cc](https://www.symbl.cc/).
+///
+
+#### Expressions régulières
+
+Les expressions régulières sont utilisées pour décrire des motifs de texte. Elles sont utilisées pour rechercher, remplacer ou valider des chaînes de caractères. Les expressions régulières sont utilisées dans de nombreux langages de programmation, d'outils de recherche et de traitement de texte.
+
+Aussi dans cet ouvrage, les expressions régulières sont mises en évidence avec `/regex/`. Le lien mène au site [regex101.com](https://regex101.com/). Pour tester les expressions régulières, il vous suffit alors d'ajouter votre propre texte pour tester l'exemple donné.
+
 #### Symbole d'égalité
 
 Nous verrons que le signe d'égalité `=` peut aisément être confondu avec l'opérateur d'affectation du langage C qui s'écrit de la même manière. Dans certains exemples où l'on montre une égalité entre différentes écritures, le signe d'égalité triple U+2261 sera utilisé pour dissiper toute ambiguïté éventuelle:
@@ -84,16 +99,6 @@ Les conventions C s'appliquent à la manière d'exprimer les grandeurs suivantes
 - `'c'` pour les caractères `/'([^']|\\[nrftvba'])'/`
 - `123` pour les grandeurs entières `/-?[1-9][0-9]*/`
 - `12.` pour les grandeurs réelles en virgule flottante
-
-#### Encodage de caractère
-
-Il sera souvent fait mention dans cet ouvrage la notation du type U+1F4A9, il s'agit d'une notation Unicode qui ne dépend pas d'un quelconque encodage. Parler du caractère ASCII 234 est incorrect, car cela dépend de la table d'encodage utilisée; en revanche, la notation Unicode est exacte.
-
-#### Expressions régulières
-
-Les expressions régulières sont utilisées pour décrire des motifs de texte. Elles sont utilisées pour rechercher, remplacer ou valider des chaînes de caractères. Les expressions régulières sont utilisées dans de nombreux langages de programmation, d'outils de recherche et de traitement de texte.
-
-Aussi dans cet ouvrage, les expressions régulières sont mises en évidence avec `/regex/`. Le lien mène au site [regex101.com](https://regex101.com/) pour tester les expressions régulières. Il vous suffit d'ajouter du texte pour tester l'exemple donné.
 
 #### Encadrés
 

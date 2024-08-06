@@ -1,21 +1,18 @@
 # Programmation
 
-Il ne serait pas raisonnable d'enseigner la programmation informatique sans au préalable définir ce qu'est la programmation et quelle est son origine.
+La **programmation** aussi nommée **codage** est la branche de l'informatique qui consiste en l'écriture de programmes agencés en séquences d'instructions qui reflètent des ordres donnés à l'ordinateur. Un programme est donc une succession d'étapes respectant un **algorithme**.
 
-La **programmation** est l'étape qui suit l'élaboration **d’algorithmes**. Elle vise à traduire un algorithme en un **langage formel** compréhensible par une machine. La programmation est donc une activité de communication entre un humain et une machine. Elle est un art, une science et une technique.
+L'essentiel pour le programmeur est la traduction d'algorithmes en un **langage formel** compréhensible par une machine. La programmation est donc une activité de communication entre un humain et une machine. Elle est un art, une science et une technique.
 
-Dans un cursus académique, on parle souvent de cours d'**Algorithmique et Programmation**, il y donc deux questions à éclaircir :
-
-1. Qu'est-ce que l'algorithmique ?
-2. Qu'est-ce que la programmation ?
+Dans un cursus académique, on parle souvent de cours d'**Algorithmique et Programmation**. Nous allons donc éclaircir ces deux termes.
 
 ![L'un des premiers ordinateurs: l'Eniac]({assets}/images/eniac.jpg)
 
 ## Algorithmique
 
-L'algorithmique et non l'*algorithmie* (qui n'est pas français), est la science qui étudie la production de règles et techniques impliquées dans la définition et la conception d'[algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Nous verrons l'algorithmique plus en détail dans le chapitre [algorithmes][algorithms-and-design]. Retenons pour l'heure que l'algorithmique est un domaine bien plus vaste que celui appliqué aux ordinateurs. Elle intervient tous les jours :
+L'algorithmique (n.f.) et non l'*algorithmie* (qui n'est pas français), est la science qui étudie la production de règles et techniques impliquées dans la définition et la conception d'[algorithmes](wiki:algorithme). Nous verrons l'algorithmique plus en détail dans le chapitre [algorithmes][algorithms-and-design]. Retenons pour l'heure que l'algorithmique est un domaine bien plus vaste que celui appliqué aux ordinateurs; elle intervient tous les jours dans :
 
-- dans une recette de cuisine,
+- une recette de cuisine,
 - le tissage de tapis persans,
 - les casse-tête ([Rubik's Cube](https://fr.wikipedia.org/wiki/Rubik%27s_Cube)),
 - les tactiques sportives,
@@ -95,19 +92,19 @@ Parlons couture ! La machine Jacquard est un [métier à tisser](https://fr.wiki
 
 ![Mécanisme Jacquard au Musée des arts et métiers de Paris.]({assets}/images/loom.png)
 
-Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes.
+Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. Elles sont donc le programme de la machine et dont le format (largeur, dimension des trous, etc.) est spécifique à la machine. En termes informatiques, on dirait que les cartes perforées sont écrites en **langage machine**.
 
 !!! info "La révolte des canuts"
 
-    L'automatisation d'un travail qui jadis était effectué manuellement causa une vague de chômage menant à la [Révolte des canuts](https://fr.wikipedia.org/wiki/R%C3%A9volte_des_canuts) en 1831.
+    L'avènement de la machine Jacquard a révolutionné l'industrie textile mais a aussi eu des conséquences sociales. L'automatisation d'un travail qui jadis était effectué manuellement causa une vague de chômage menant à la [Révolte des canuts](https://fr.wikipedia.org/wiki/R%C3%A9volte_des_canuts) en 1831.
 
-La [programmation](https://fr.wikipedia.org/wiki/Programmation_informatique) définit toute activité menant à l'écriture de programmes. En informatique, un programme est un ensemble ordonné d'instructions codées avec un langage donné et décrivant les étapes menant à la solution d'un problème. Il s'agit le plus souvent d'une écriture formelle d'un algorithme par l'intermédiaire d'un langage de programmation.
+La [programmation](https://fr.wikipedia.org/wiki/Programmation_informatique) définit toute activité menant à l'écriture de programmes. En informatique, un programme est défini comme un ensemble ordonné d'instructions codées avec un langage donné et décrivant les étapes menant à la résolution d'un problème. Comme nous l'avons vu, il s'agit le plus souvent d'une écriture formelle d'un algorithme par l'intermédiaire d'un langage de programmation.
 
 Les *informaticiens-tisserands* responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons par exemple un ouvrier spécialisé en [héraldique](https://fr.wikipedia.org/wiki/H%C3%A9raldique) et devant créer des motifs complexes de blasons.
 
 ![Armoiries des ducs de Mayenne]({assets}/images/armoiries.drawio)
 
-Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qui le maîtrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de Mayenne (c.f. figure ci-dessous) aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :
+Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qui le maîtrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de [[Mayenne|Mayenne, Duc de]] aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :
 
 ```text
 Écartelé, en 1 et 4 :
@@ -130,17 +127,38 @@ Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qu
             et aux deux bar d'or.
     Sur le tout d'or à la bande de gueules
         chargé de trois alérions d'argent
-    le tout brisé d'un lambel de gueules ;
-        en 2 et 3 contre-écartelé en 1 et 4 d'azur,
+    Le tout brisé d'un lambel de gueules ;
+En 2 et 3 contre-écartelé :
+    en 1 et 4 d'azur,
         à l'aigle d'argent, becquée,
         languée et couronnée d'or et en 2 et 3 d'azur,
         à trois fleurs de lys d'or,
         à la bordure endentée de gueules et d'or.
 ```
 
+[[|heraldique]]
+
+Tout l'art est de pouvoir traduire ce texte compréhensible par tout héraldiste en un programme en [[langage machine]] compréhensible par un métier à tisser. Cette traduction est le rôle du [[compilateur]] que nous verrons plus tard. Quant au texte, et bien qu'il nous viens tout droit du moyen-âge, il partage avec les langages de programmation modernes des caractéristiques communes :
+
+Lexique
+
+: le texte est composé de mots et de symboles qui ont un sens précis, les couleurs (émaux) ont des termes spécifiques (gueules pour le rouge, azur pour le bleu, sable pour le noir etc.), les figures (meubles) aussi (lys, croix, lion, aigle, etc.). [[|lexique]]
+
+Syntaxe
+
+: le texte suit une structure grammaticale précise, le fond (champ) est toujours mentionnées en premier, les figures en second suivi de leurs attributs. [[|syntaxe]]
+
+Sémantique
+
+: les termes peuvent adopter une certaine [[morphologie]], par exemple le lion peut être *lampassé* (langue de couleur différente), *couronné* (avec une couronne), *armé* (avec des griffes et des dents de couleur différente). Cette sémantique implique l'adjonction de préfixes ou de suffixes. [[|sémantique]]
+
+Grammaire
+
+: le texte est organisé en phrases, les phrases sont organisées en paragraphes, les paragraphes en sections, les symboles vont être interprétés en fonction de leur position dans le texte, de leur contexte. [[|grammaire]]
+
 !!! info "De gueules"
 
-    Notons que *de gueules* signifie *rouge*. Le [drapeau suisse](https://fr.wikipedia.org/wiki/Drapeau_et_armoiries_de_la_Suisse) est donc *de gueules, à la croix alésée d'argent*.
+    Notons que *gueules* signifie *rouge*. Le [drapeau suisse](https://fr.wikipedia.org/wiki/Drapeau_et_armoiries_de_la_Suisse) est donc *de gueules, à la croix alésée d'argent*.
 
 ## Langage de programmation
 
@@ -153,13 +171,13 @@ L'être humain a appris depuis des millénaires à communiquer avec des symboles
 
 ??? info "Scratch"
 
-    [Scratch](https://fr.wikipedia.org/wiki/Scratch_(langage)) est un langage de programmation visuel développé par le MIT. Il est utilisé pour enseigner les bases de la programmation aux enfants. Il permet de créer des animations, des jeux et des histoires interactives.
+    [Scratch](https://fr.wikipedia.org/wiki/Scratch_(langage)) est un langage de programmation visuel développé par le MIT. Il est utilisé pour enseigner les bases de la programmation aux enfants. Il permet de créer des animations, des jeux et des histoires interactives. [[|Scratch|Scratch, langage]]
 
     ![Interface de scratch]({assets}/images/scratch.png)
 
 ??? info "LabView"
 
-    [LabView](https://fr.wikipedia.org/wiki/LabVIEW) est un langage de programmation visuel développé par National Instruments. Il est utilisé pour la programmation de systèmes de mesure et de contrôle. Il est très utilisé dans l'industrie et la recherche.
+    [LabView](https://fr.wikipedia.org/wiki/LabVIEW) est un langage de programmation visuel développé par National Instruments. Il est utilisé pour la programmation de systèmes de mesure et de contrôle. Il est très utilisé dans l'industrie et la recherche. [[|LabView|LabView, programme]]
 
     ![Interface de LabView]({assets}/images/labview.webp)
 
@@ -167,7 +185,7 @@ L'être humain a appris depuis des millénaires à communiquer avec des symboles
 
 ??? info "Common Lisp"
 
-    [Common Lisp](https://fr.wikipedia.org/wiki/Common_Lisp) est un langage de programmation inventé en 1984. C'est un langage de programmation textuel de type fonctionnel. Voici un exemple de programme en Common Lisp pour résoudre le problème des tours de Hanoï :
+    [Common Lisp](https://fr.wikipedia.org/wiki/Common_Lisp) est un langage de programmation inventé en 1984. C'est un langage de programmation textuel de type fonctionnel. Voici un exemple de programme en [[Common Lisp|lisp|Lisp, Common]] pour résoudre le problème des tours de [[Hanoï||Hanoï, tours de]] :
 
     ```lisp
     (defun hanoi (n source target auxiliary)
@@ -186,7 +204,7 @@ Pour ce cours, et pour l'enseignement de la programmation en général, nous uti
 
 ## Calculateur
 
-Un calculateur du latin *calculare*: calculer avec des cailloux, originellement appelés [abaque,](https://fr.wikipedia.org/wiki/Abaque_(calcul)) était un dispositif permettant de faciliter les calculs mathématiques.
+Un [[calculateur]] du latin *calculare*: calculer avec des cailloux, originellement appelés [abaque,](https://fr.wikipedia.org/wiki/Abaque_(calcul)) était un dispositif permettant de faciliter les calculs mathématiques.
 
 Les [os d'Ishango](https://fr.wikipedia.org/wiki/Os_d%27Ishango) datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
 
@@ -201,7 +219,7 @@ Notons qu'à l'instar de notre diagramme de flux, un calculateur dispose aussi d
 
 ## Ordinateur
 
-Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques Perret à la demande d'IBM France (c.f [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)). Voici la lettre de Jacques Perret à IBM France :
+Le terme ordinateur est très récent, il daterait de 1955, créé par [[Jacques Perret]] à la demande d'IBM France (c.f [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)). [[|ordinateur]] Voici la lettre de Jacques Perret à IBM France :
 
 >« Le 16 IV 1955
 

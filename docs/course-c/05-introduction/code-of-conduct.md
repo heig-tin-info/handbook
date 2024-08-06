@@ -16,9 +16,9 @@ En 1750 av. J.-C., le roi Hammurabi de Babylone a promulgué le premier code de 
 
 ![Code d'Hammurabi (1750 av. J.-C.)]({assets}/images/hammurabi.png)
 
-Néanmoins, le terme équitable est à prendre avec des pincettes, car les lois de l'époque étaient souvent très sévères et punissaient les contrevenants par des châtiments corporels, des mutilations, des esclavages, des exécutions, etc. La loi du talion, "œil pour œil, dent pour dent", était souvent appliquée pour punir les criminels.
+Néanmoins, le terme équitable est à prendre avec des pincettes, car les lois de l'époque étaient souvent très sévères et punissaient les contrevenants par des châtiments corporels, des mutilations, des esclavages ou des exécutions. La loi du talion, "œil pour œil, dent pour dent", était souvent appliquée pour punir les criminels.
 
-Ce que l'on doit retenir c'est que comme conventions sociales, les règles de l'informatique évoluent avec le temps et que les bonnes pratiques d'aujourd'hui ne seront pas celles de demain.
+Ce que l'on doit retenir c'est que comme conventions sociales, les règles et les consensus de l'informatique évoluent avec le temps et les bonnes pratiques d'aujourd'hui seront tout autre demain.
 
 En d'autres termes, ce que je vous transmet aujourd'hui dans ce cours, n'est pas une vérité absolue, elle dépend de mon contexte, de mes expériences et de mes valeurs. Vous devez donc les prendre avec du recul, les remettre en question et faire preuve d'esprit critique.
 
@@ -32,11 +32,11 @@ On réutilise ainsi volontiers des algorithmes écrits par un vénérable japona
 
 Aussi dans cet ouvrage, l'anglais sera privilégié dans les exemples de code et les noms des symboles (variables, constantes ...), les termes techniques seront traduits lorsqu'il existe un consensus établi sinon l'anglicisme sera préféré. Il m'est d'ailleurs difficile, bien que ce cours soit écrit en français de parler de *feu d'alerte* en lieu et place de *warning*, car si l'un est la traduction *ad hoc* de l'autre, la terminologie n'a rien à voir et préfère, au risque d'un affront avec l'Académie, préserver les us et coutumes des développeurs logiciels.
 
-Un autre point méritant d'être mentionné est la constante interaction d'un développeur avec internet pour y piocher des exemples, chercher des conseils, ou de l'aide pour utiliser des outils développés par d'autres. De nombreux sites internet, la vaste majorité en anglais, sont d'une aide précieuse pour le développeur.
+Un autre point méritant d'être mentionné est la constante interaction d'un développeur avec internet pour y puiser des exemples, chercher des conseils, ou de l'aide pour utiliser des outils développés par d'autres. De nombreux sites internet, la vaste majorité en anglais, sont d'une aide précieuse pour le développeur.
 
 !!! tip "Apprenez les langues"
 
-    Ne négligez pas les cours de langue. Partez à l'étranger, lisez des livres en anglais, regardez des films en version originale, écoutez des podcasts, des conférences, des tutoriels en anglais. Cela vous ouvrira les portes de la connaissance.
+    Ne négligez pas les cours de langue. Partez à l'étranger, lisez des livres en anglais, regardez des films en version originale, écoutez des podcasts, des conférences, des tutoriels en anglais : ceci vous ouvrira les portes de la connaissance.
 
     En outre, sans cet atout, il vous sera plus difficile de trouver un emploi, les entreprises étant souvent internationales et les équipes de développement multiculturelles.
 
@@ -44,15 +44,16 @@ Un autre point méritant d'être mentionné est la constante interaction d'un d�
 
 ![Un père et son fils pêchant]({assets}/images/fisherman.png)
 
-Un jeune homme s'en va à la mer avec son père et lui demande: papa, j'ai faim, comment ramènes-tu du poisson? Le père, fier, lance sa ligne à la mer et lui ramène un beau poisson. Plus tard, alors que le jeune homme revient d'une balade sur les estrans, il demande à son père: papa, j'ai faim, me ramènerais-tu du poisson? Le père, sort de son étui sa plus belle canne et l'équipant d'un bel hameçon, lance sa ligne à la mer et ramène un gros poisson. Durant longtemps, le jeune homme mange ainsi à sa faim cependant que le père ramène du poisson pour son fils.
+Un jeune homme s'en va à la mer avec son père et lui demande: "papa, j'ai faim, comment ramènes-tu du poisson?" Le père, fier, lance sa ligne à la mer et lui ramène un beau poisson. Plus tard, alors que le jeune homme revient d'une balade sur les estrans, il demande à son père: "papa, j'ai faim, me ramènerais-tu du poisson?" Le père, sort de son étui sa plus belle canne et l'équipant d'un bel hameçon, lance sa ligne à la mer et ramène un gros poisson. Durant longtemps, le jeune homme mange ainsi à sa faim cependant que le père ramène du poisson pour son fils.
 
-Un jour, alors que le fils invective son père l'estomac vide, le père annonce. Fils, il est temps pour toi d'apprendre à pêcher, je peux te montrer encore longtemps comment je ramène du poisson, mais ce ne serait pas t'aider, voici donc cette canne et cet hameçon.
+Un jour, alors que le fils invective son père l'estomac vide, le père annonce. "Fils, il est temps pour toi d'apprendre à pêcher, je peux te montrer encore longtemps comment je ramène du poisson, mais ce ne serait pas t'aider, voici donc cette canne et cet hameçon."
 
-Le jeune homme tente de répéter les gestes de son père, mais il ne parvient pas à ramener le poisson qui le rassasierait. Il demande à son père de l'aide que ce dernier refuse. Fils, c'est par la pratique et avec la faim au ventre que tu parviendras à prendre du poisson, persévère et tu deviendras meilleur pêcheur que moi, la lignée ainsi assurée de toujours manger à sa faim.
+Le jeune homme tente de répéter les gestes de son père, mais il ne parvient pas à ramener le poisson qui le rassasierait. Il demande à son père de l'aide que ce dernier refuse. "Fils, c'est par la pratique et avec la faim au ventre que tu parviendras à prendre du poisson, persévère et tu deviendras meilleur pêcheur que moi, la lignée sera ainsi assurée de toujours manger à sa faim".
 
 La morale de cette histoire est plus que jamais applicable en programmation, confier aux expérimentés l'écriture d'algorithmes compliqués, ou se contenter d'observer les réponses des exercices pour se dire: j'ai compris ce n'est pas si compliqué, est une erreur, car pêcher ou expliquer comment pêcher n'est pas la même chose.
 
 Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le développement logiciel et non un guide exhaustif du langage, car le standard C99/C11 est disponible sur internet ainsi que le K&R qui reste l'ouvrage de référence pour apprendre le C. Il est donc inutile de paraphraser les exemples donnés quand internet apporte toutes les réponses, pour tous les publics du profane réservé au hacker passionné.
+
 
 ## Une affaire de consensus
 

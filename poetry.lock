@@ -670,6 +670,17 @@ docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.link
 testing = ["jaraco.test (>=5.4)", "pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy", "pytest-ruff (>=0.2.1)", "zipp (>=3.17)"]
 
 [[package]]
+name = "inflection"
+version = "0.5.1"
+description = "A port of Ruby on Rails inflector to Python"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "inflection-0.5.1-py2.py3-none-any.whl", hash = "sha256:f38b2b640938a4f35ade69ac3d053042959b62a0f1076a5bbaa1b9526605a8a2"},
+    {file = "inflection-0.5.1.tar.gz", hash = "sha256:1a29730d366e996aaacffb2f1f1cb9593dc38e2ddd30c91250c6dde09ea9b417"},
+]
+
+[[package]]
 name = "ipdb"
 version = "0.13.13"
 description = "IPython-enabled pdb"
@@ -1666,27 +1677,6 @@ csscompressor = ">=0.9.5"
 htmlmin2 = ">=0.1.13"
 jsmin = ">=3.0.1"
 mkdocs = ">=1.4.1"
-
-[[package]]
-name = "mkdocs-plugin-exercises"
-version = "0.1.0"
-description = "Provide Exercises to Mkdocs"
-optional = false
-python-versions = "^3.10"
-files = []
-develop = false
-
-[package.dependencies]
-beautifulsoup4 = "^4.12.3"
-mkdocs = "^1.6"
-mkdocs-material = "^9.5.28"
-pymdown-extensions = "^10.8.1"
-
-[package.source]
-type = "git"
-url = "https://github.com/yves-chevallier/mkdocs-exercise.git"
-reference = "HEAD"
-resolved_reference = "72131b37a402b9bf558bbcad074fa47cf6b73f5e"
 
 [[package]]
 name = "mkdocs-snippets"
@@ -3136,4 +3126,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "92994cc05b318f4060fd8e5d21c167b7b3da41b825373d649cd3d059b67f1c56"
+content-hash = "f6ca19bbc9ecc5f6cfd7797327a8fb43a60a89eba89bd14f2e30ae7974771588"

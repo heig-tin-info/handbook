@@ -930,12 +930,22 @@ class LaTeXRenderer:
         """Replace all inline elements."""
 
         self.render_autoref(soup)
+        self.render_index(soup)
         self.render_columns(soup)
         self.render_table(soup)
         self.render_abbreviation(soup)
         self.render_critics(soup)
         self.render_format(soup)
         self.render_paragraph(soup)
+        return soup
+
+    def render_index(self, soup: Tag, **kwargs):
+        """ Render index entries """
+        for el in soup.find_all('span', class_='ycr-hashtag'):
+            text = self.get_safe_text(el)
+            tag = el.get('data-tag')
+            entry = el.get('data-index-entry', text if text else tag)
+            self.apply(el, 'index', text, tag=tag, entry=entry)
         return soup
 
     def render_paragraph(self, soup: Tag, **kwargs):

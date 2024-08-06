@@ -39,8 +39,13 @@ def process_html(html):
     parts = RE_IGNORE.split(html)
     entities = RE_IGNORE.findall(html)
 
+    def process_part(part):
+        part = RE_PUNCT.sub(r'&thinsp;\1', part)
+        part = re.sub(r'"([^"]+)"', r'«&thinsp;\1&thinsp;»', part)
+        return part
+
     processed_parts = [
-        RE_PUNCT.sub(r'&thinsp;\1', part)
+        process_part(part)
         if not RE_IGNORE.fullmatch(part) else part
         for part in parts
     ]

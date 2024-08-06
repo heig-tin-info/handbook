@@ -1,30 +1,20 @@
 # Test
 
-[Dennis Ritchie](wiki:dennis-ritchie) Est un homme gentil.
-
-!!! exercise "Les bucherons bleus"
-
-    Les bucherons bleus sont des bucherons qui ont la particularité d'avoir une barbe bleue.
-
-    - [ ] Quelle est la couleur de la barbe des bucherons bleus ?
-    - [x] Quelle est la couleur de leur chemise ?
-    - [ ] Quelle est la couleur de leur pantalon ?
+Lorem ipsum   set
+{span}
 
 
-    ??? solution
-
-        - La couleur de la barbe des bucherons bleus est bleue.
-        - La couleur de leur chemise est bleue.
-        - La couleur de leur pantalon est bleue.
+| Abc | Def | Ghi |
+|-----|-----|-----|
+| 1   | 2   | 3 {span}  |
 
 
-!!! exercise "La vanille"
+Add [[index]] to a <span data-index="1">word</span>
 
-    La vanille est une {{épice}} très utilisée en cuisine. La vanille Bourbon pousse principalement sur l'île de {{Madagascar}}, dans le sud du continent {{africain}}.
+## Les chevaux
 
+Les [[chevaux]] sont des [[animaux|animal]] qui sont importants pour l'histoire de l'humanité.
 
-    ??? solution
+## Bananes
 
-        - La couleur de la barbe des bucherons bleus est bleue.
-        - La couleur de leur chemise est bleue.
-        - La couleur de leur pantalon est bleue.
+Les [[bananes]] sont des fruits délicieux.
