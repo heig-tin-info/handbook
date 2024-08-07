@@ -1,3 +1,6 @@
+---
+frontmatter: true
+---
 # Préface
 
 ## À qui s'adresse cet ouvrage ?

@@ -19,8 +19,6 @@ sys.excepthook = excepthook
 
 log = logging.getLogger('mkdocs')
 
-files_to_process = []
-book_nav = []
 saved_nav = []
 latex_dir = Path('build')
 enabled = False
@@ -53,8 +51,6 @@ def on_startup(command, dirty):
         renderer = LaTeXRenderer(latex_dir)
 
 def on_nav(nav, config, files):
-    global files_to_process
-    global book_nav
     global saved_nav
     if not enabled:
         return
@@ -63,9 +59,24 @@ def on_nav(nav, config, files):
         if section.title == book:
             break
 
+    saved_nav = section
+
+
+def on_env(env, config, files):
+    if not enabled:
+        return
+
+    # Sort files to process by places in the book
     level = -1
     latex = []
 
+    files_to_process = []
+
+    frontmatter = []
+    backmatter = []
+    mainmatter = []
+
+    embed()
     def get_nav(section: Section, level):
         for child in section.children:
             if child.is_page:
@@ -78,16 +89,15 @@ def on_nav(nav, config, files):
                 latex.append(renderer.formatter.heading(child.title, level=level))
                 get_nav(child, level + 1)
 
-    get_nav(section, level)
-    book_nav = '\n'.join(latex)
+    get_nav(saved_nav, level)
 
-def on_env(env, config, files):
-    if not enabled:
-        return
+    book_nav = '\n'.join(latex)
 
     # Create output directory
     latex_dir.mkdir(exist_ok=True)
     project_dir = Path(config.config_file_path).parent / config['docs_dir']
+
+
 
     for file, level in files_to_process:
         log.info(f'Processing LaTeX {file.src_path} (level {level})...')
@@ -107,7 +117,6 @@ def on_env(env, config, files):
 
             path.write_text(latex)
 
-
     # Save assets map and clean unused assets
     def path_representer(dumper, data):
         # Path relative to the project directory
@@ -121,7 +130,7 @@ def on_env(env, config, files):
     for file in (latex_dir / 'assets').iterdir():
         if file not in assets_map:
             log.info(f'Removing unused asset {file}')
-            #file.unlink()
+            file.unlink()
 
     with(open(latex_dir / 'assets_map.yml', 'w')) as f:
         assets_map = yaml.dump(assets_map, default_flow_style=False, allow_unicode=True)

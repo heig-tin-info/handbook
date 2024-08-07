@@ -22,6 +22,7 @@
 \usepackage{capt-of}
 \usepackage[acronym]{glossaries}
 \usepackage{imakeidx}
+% \usepackage{listings}
 \usepackage{fvextra} % Pour une meilleure gestion des verbatim inline
 \usepackage{titlesec} % Pour la personnalisation des titres
 \usepackage{enumitem} % Pour personnaliser les listes
@@ -29,8 +30,12 @@
 \usepackage{tocloft}
 \usepackage{adjustbox} % Auto resize tables to fit page width
 \usepackage{caption}
+\usepackage{microtype} % Avoid overfull with fonts
 \usepackage{polyglossia}
 \usepackage{emptypage} % Nothing on empty pages
+
+\preto\frontmatter{\setcounter{secnumdepth}{0}}
+\preto\mainmatter{\setcounter{secnumdepth}{2}}
 
 \makeglossaries
 \makeindex
@@ -39,7 +44,7 @@
 
 % Give more spaces on Table of content (between numbers and text)
 \setlength{\cftsecnumwidth}{3em}
-\setlength{\cftsubsecnumwidth}{3em}
+\setlength{\cftsubsecnumwidth}{3.5em}
 \setlength{\cftfignumwidth}{3em}
 \setlength{\cfttabnumwidth}{3em}
 
@@ -78,26 +83,6 @@
 \DeclareTextFontCommand\creativecommon{\creativecommonfont}
 
 
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-\pagestyle{fancy}
-\fancyhf{} % Efface les en-têtes et pieds de page par défaut
-
-
-% Définition des en-têtes et pieds de page pour les pages paires (gauche)
-\fancyhead[LE]{\leftmark} % Section en haut à gauche
-\fancyfoot[LE,RO]{\thepage} % Numéro de page en bas au centre
-
-% Définition des en-têtes et pieds de page pour les pages impaires (droite)
-\fancyhead[RO]{\rightmark} % Chapitre en haut à droite
-\fancyfoot[LE,RO]{\thepage} % Numéro de page en bas au centre
-
-% plain : parts
-\fancypagestyle{plain}{%
-  \fancyhf{} % Efface les en-têtes et pieds de page par défaut
-  \fancyfoot[C]{\thepage} % Numéro de page en bas au centre
-}
 
 \definecolor{linkcolor}{RGB}{34, 18, 104}
 \definecolor{urlcolor}{RGB}{104, 18, 55}
@@ -123,6 +108,32 @@
   marginparsep=4mm,
   heightrounded,
   includehead]{geometry}
+
+
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+
+  \pagestyle{fancy}
+  \fancyhf{}
+
+  \fancyhead[LE]{\leftmark}
+  \fancyfoot[LE,RO]{\thepage}
+
+  \fancyhead[RO]{\rightmark}
+  \fancyfoot[LE,RO]{\thepage}
+
+  % plain : chapters
+  \fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyfoot[LE,RO]{\thepage}
+  }
+
+  \fancypagestyle{part}{%
+    \fancyhf{}
+  }
+
+  \patchcmd{\part}{\thispagestyle{plain}}{\thispagestyle{part}}{}{}
+
 
 \graphicspath{{assets/}}
 
@@ -290,6 +301,72 @@
 \setminted{style=trac}
 \setmintedinline{style=trac} %,bgcolor=gray!20}
 
+% \tcbuselibrary{listings}
+
+% \definecolor{listingsKeyword}{HTML}{063970}
+% \definecolor{listingsComment}{HTML}{5C6B77}
+% \definecolor{listingsStrings}{HTML}{5C5B4C}
+
+% \lstdefinelanguage{text}{
+% }
+
+% \lstdefinelanguage{console}{
+%   morekeywords={\$},
+%   morecomment=[l]{\#},
+%   morestring=[b]",
+% }
+
+% \lstdefinelanguage{makefile}{
+%   keywords={\$@, \$<, \$^, \$+, \$*, \$?, \$|},
+%   ndkeywords={define, endef, export, override, private, vpath},
+%   sensitive=false,
+%   comment=[l]{\#},
+%   morestring=[b]',
+%   morestring=[b]"
+% }
+
+% \definecolor{diffstart}{named}{Grey}
+% \definecolor{diffincl}{named}{Green}
+% \definecolor{diffrem}{named}{OrangeRed}
+
+% \lstdefinelanguage{yaml}{
+%   keywords={true,false,null,y,n},
+%   sensitive=false,
+%   comment=[l]{\#},
+%   morecomment=[s]{/*}{*/},
+%   morestring=[b]',
+%   morestring=[b]",
+%   literate =    {---}{{\ProcessThreeDashes}}3
+%                 {>}{{\textcolor{red}\textgreater}}1
+%                 {|}{{\textcolor{red}\textbar}}1
+%                 {\ -\ }{{\mdseries\ -\ }}3
+% }
+
+% \lstdefinelanguage{diff}{
+%   basicstyle=\ttfamily\small,
+%   morecomment=[f][\color{diffstart}]{@@},
+%   morecomment=[f][\color{diffincl}]{+\ },
+%   morecomment=[f][\color{diffrem}]{-\ },
+% }
+
+% \lstdefinelanguage{javascript}{
+%   keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+%   ndkeywords={class, export, boolean, throw, implements, import, this},
+%   sensitive=false,
+%   comment=[l]{//},
+%   morecomment=[s]{/*}{*/},
+%   morestring=[b]',
+%   morestring=[b]"
+% }
+
+% \lstdefinelanguage{cpp}{
+%   language=C++
+% }
+
+% \lstdefinelanguage{json}{
+%   morestring=[b]",
+% }
+
 \newtcblisting[auto counter,number within=section,
   list inside=mypyg]{code}[4][]{%
   breakable,
@@ -304,6 +381,17 @@
   lefttitle=0.5em,
   outer arc=0.7mm,
   minted language=#2,
+  % listing options={
+  %   language=#2,
+  %   basicstyle=\ttfamily\footnotesize,
+  %   keywordstyle=\bfseries\color{listingsKeyword},
+  %   stringstyle=\color{listingsStrings},
+  %   commentstyle=\itshape\color{listingsComment},
+  %   ndkeywordstyle=\color{darkgray}\bfseries,
+  %   identifierstyle=\color{black},
+  %   breaklines=true,
+  %   showstringspaces=false
+  % },
   minted options={%
     tabsize=4,
     breaklines,
@@ -513,17 +601,17 @@ Creative Commons \par
 
 L'œuvre peut être librement utilisée, à la condition de l'attribuer à l'auteur en citant son nom. Le titulaire de droits peut autoriser tous les types d'utilisation ou au contraire restreindre aux utilisations non commerciales (les utilisations commerciales restant soumises à son autorisation). En sommes vous êtges libre de :
 
-\begin{itemize}
-    \item Partager --- copier, distribuer et communiquer le matériel par tous moyens et sous tous formats
-    \item Adapter --- remixer, transformer et créer à partir du matériel
-\end{itemize}
+\begin{description}
+    \item[Partager] copier, distribuer et communiquer le matériel par tous moyens et sous tous formats
+    \item[Adapter] remixer, transformer et créer à partir du matériel
+\end{description}
 
 Sous les conditions suivantes :
 
-\begin{itemize}
-    \item Attribution --- Vous devez créditer l'Œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées à l'Œuvre. Vous devez indiquer ces informations par tous les moyens raisonnables, sans toutefois suggérer que l'Offrant vous soutient ou soutient la façon dont vous avez utilisé son œuvre.
-    \item Partage dans les mêmes conditions --- Si vous modifiez, transformez ou adaptez cette œuvre, vous n'avez le droit de distribuer votre création que sous une licence identique ou similaire à celle-ci.
-\end{itemize}
+\begin{description}
+    \item[Attribution] Vous devez créditer l'Œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées à l'Œuvre. Vous devez indiquer ces informations par tous les moyens raisonnables, sans toutefois suggérer que l'Offrant vous soutient ou soutient la façon dont vous avez utilisé son œuvre.
+    \item[Partage dans les mêmes conditions] Si vous modifiez, transformez ou adaptez cette œuvre, vous n'avez le droit de distribuer votre création que sous une licence identique ou similaire à celle-ci.
+\end{description}
 
 
 HEIG-VD
@@ -545,15 +633,20 @@ Seconde édition avec MkDocs Material:              & 30 Juillet 2024 \\
 
 \frontmatter
 
+\VAR{frontmatter}
+
+\clearpage
 \tableofcontents
 
 \mainmatter
 
-\VAR{content}
+\VAR{mainmatter}
 
 \backmatter
 
 \input{solutions.tex}
+
+\VAR{backmatter}
 
 \clearpage
 

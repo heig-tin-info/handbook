@@ -1,84 +1,73 @@
-\documentclass[11pt,a4paper,twoside]{book}
+\documentclass{article}
 \usepackage{fontspec}
 \usepackage{xcolor}
-\usepackage{tikz}
-\usepackage{textcomp} % For ©, ™
-\usepackage{amsmath} % For ±
-\usepackage{amssymb} % For ®
-\usepackage{gensymb} % For ±
-\usepackage{wasysym} % For fractions
-\usepackage{nicefrac}
-\usepackage{fancyhdr}
-\usepackage[normalem]{ulem}
-\usepackage{graphicx}
-\usepackage{unicode-math} % For using Unicode math symbols
-\usepackage{fontawesome5}
-\usepackage{multicol}
-\usepackage{parskip}
-\usepackage{stackengine}
-\usepackage{booktabs}
-\usepackage[many,minted]{tcolorbox}% version 3.03 or better
-\usepackage{minted}
-\usepackage{capt-of}
-\usepackage[acronym]{glossaries}
-\usepackage{imakeidx}
-\usepackage{fvextra} % Pour une meilleure gestion des verbatim inline
-\usepackage{titlesec} % Pour la personnalisation des titres
-\usepackage{enumitem} % Pour personnaliser les listes
-\usepackage{etoolbox}
-\usepackage{tocloft}
-\usepackage{adjustbox} % Auto resize tables to fit page width
-\usepackage{caption}
-\usepackage{polyglossia}
-\usepackage{emptypage} % Nothing on empty pages
 
-\makeglossaries
-\makeindex
+% Définir les couleurs selon le style Trac
+\definecolor{trac-bg}{RGB}{255,255,255}
+\definecolor{trac-text}{RGB}{0,0,0}
+\definecolor{trac-comment}{RGB}{136,136,136}
+\definecolor{trac-keyword}{RGB}{34,34,255}
+\definecolor{trac-string}{RGB}{196,26,22}
+\definecolor{trac-number}{RGB}{0,0,255}
+\definecolor{trac-operator}{RGB}{0,0,0}
+\definecolor{trac-builtin}{RGB}{102,102,0}
 
-\setcounter{tocdepth}{2}
+% Définir les commandes pour chaque type de token
+\newcommand{\codeComment}[1]{\textcolor{trac-comment}{\itshape #1}}
+\newcommand{\codeKeyword}[1]{\textcolor{trac-keyword}{\bfseries #1}}
+\newcommand{\codeString}[1]{\textcolor{trac-string}{#1}}
+\newcommand{\codeNumber}[1]{\textcolor{trac-number}{#1}}
+\newcommand{\codeOperator}[1]{\textcolor{trac-operator}{#1}}
+\newcommand{\codeBuiltin}[1]{\textcolor{trac-builtin}{#1}}
+\newcommand{\codeText}[1]{\textcolor{trac-text}{#1}}
+\newcommand{\linenumber}[1]{\textcolor{black}{#1}\kern 1em}
 
-% Give more spaces on Table of content (between numbers and text)
-\setlength{\cftsecnumwidth}{3em}
-\setlength{\cftsubsecnumwidth}{3em}
-\setlength{\cftfignumwidth}{3em}
-\setlength{\cfttabnumwidth}{3em}
 
-\setdefaultlanguage{french}
-\setotherlanguages{english}
-
-\captionsetup[table]{skip=10pt}
-
-\directlua{luaotfload.add_fallback
-   ("fontfallback",
-    {
-      "NotoColorEmoji:mode=harf;",
-      "NotoNaskhArabic:mode=harf;",
-      "NotoSerifHebrew:mode=harf;",
-      "NotoSerifDevanagari:mode=harf;",
-      "NotoSerifTamil:mode=harf;",
-      "NotoSerifTibetan:mode=harf;",
-      "NotoSerifCJKkr:mode=harf;",
-      "NotoSans:mode=harf;",
-      "Fira Code:mode=harf;",
-    }
-   )}
-
-\setmainfont{Noto Serif}[
-  RawFeature={fallback=fontfallback}
-]
-
+\setmainfont{Noto Serif}
 \setmonofont{Noto Sans Mono}[
-  Scale=0.8,
   ItalicFont=lmmono10-italic.otf,
-  BoldItalicFont=lmmonolt10-boldoblique.otf,
-  RawFeature={fallback=fontfallback}
+  BoldItalicFont=lmmonolt10-boldoblique.otf
 ]
 
 \begin{document}
 
-⇧ ⌘
+\parindent=0pt
+{ \ttfamily
+\codeString{"""\newline{}-\ [\ ]\ Footnotes\newline{}"""}\\
+\linenumber{2}\codeKeyword{import}\codeText{\ }\codeText{logging}\\
+\linenumber{3}\codeKeyword{import}\codeText{\ }\codeText{mkdocs}\\
+\linenumber{4}\codeKeyword{from}\codeText{\ }\codeText{pathlib}\codeText{\ }\codeKeyword{import}\codeText{\ }\codeText{Path}\codeText{,}\codeText{\ }\codeText{PosixPath}\\
+\linenumber{5}\codeKeyword{from}\codeText{\ }\codeText{IPython}\codeText{\ }\codeKeyword{import}\codeText{\ }\codeText{embed}\\
+\linenumber{6}\codeKeyword{from}\codeText{\ }\codeText{mkdocs}\codeText{.}\codeText{structure}\codeText{.}\codeText{nav}\codeText{\ }\codeKeyword{import}\codeText{\ }\codeText{Section}\\
+\linenumber{7}\codeKeyword{from}\codeText{\ }\codeText{latex}\codeText{.}\codeText{renderer}\codeText{\ }\codeKeyword{import}\codeText{\ }\codeText{LaTeXRenderer}\\
+\linenumber{8}\codeKeyword{import}\codeText{\ }\codeText{yaml}\\
+\linenumber{9}\codeKeyword{import}\codeText{\ }\codeText{ipdb}\\
+\linenumber{10}\codeKeyword{import}\codeText{\ }\codeText{sys}\\
+\linenumber{11}\\
+\linenumber{12}\\
+\linenumber{13}\codeKeyword{def}\codeText{\ }\codeText{excepthook}\codeText{(}\codeBuiltin{type}\codeText{,}\codeText{\ }\codeText{value}\codeText{,}\codeText{\ }\codeText{traceback}\codeText{)}\codeText{:}\\
+\linenumber{14}\codeText{\ \ \ \ }\codeText{ipdb}\codeOperator{.}\codeText{post\_mortem}\codeText{(}\codeText{traceback}\codeText{)}\\
+\linenumber{15}\\
+\linenumber{16}\codeText{sys}\codeOperator{.}\codeText{excepthook}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{excepthook}\\
+\linenumber{17}\\
+\linenumber{18}\codeText{log}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{logging}\codeOperator{.}\codeText{getLogger}\codeText{(}\codeString{'}\codeString{mkdocs}\codeString{'}\codeText{)}\\
+\linenumber{19}\\
+\linenumber{20}\codeText{files\_to\_process}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{[}\codeText{]}\\
+\linenumber{21}\codeText{book\_nav}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{[}\codeText{]}\\
+\linenumber{22}\codeText{saved\_nav}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{[}\codeText{]}\\
+\linenumber{23}\codeText{latex\_dir}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{Path}\codeText{(}\codeString{'}\codeString{build}\codeString{'}\codeText{)}\\
+\linenumber{24}\codeText{enabled}\codeText{\ }\codeOperator{=}\codeText{\ }\codeKeyword{False}\\
+\linenumber{25}\codeText{renderer}\codeText{\ }\codeOperator{=}\codeText{\ }\codeKeyword{None}\\
+\linenumber{26}\\
+\linenumber{27}\codeKeyword{def}\codeText{\ }\codeText{fetch\_files}\codeText{(}\codeText{section}\codeText{:}\codeText{\ }\codeText{Section}\codeText{)}\codeText{:}\\
+\linenumber{28}\codeText{\ \ \ \ }\codeText{files}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{[}\codeText{]}\\
+\linenumber{29}\codeText{\ \ \ \ }\codeKeyword{for}\codeText{\ }\codeText{child}\codeText{\ }\codeOperator{in}\codeText{\ }\codeText{section}\codeOperator{.}\codeText{children}\codeText{:}\\
+\linenumber{30}\codeText{\ \ \ \ \ \ \ \ }\codeKeyword{if}\codeText{\ }\codeText{child}\codeOperator{.}\codeText{is\_page}\codeText{:}\\
+\linenumber{31}\codeText{\ \ \ \ \ \ \ \ \ \ \ \ }\codeText{files}\codeOperator{.}\codeText{append}\codeText{(}\codeText{child}\codeOperator{.}\codeText{file}\codeText{)}\\
+\linenumber{32}\codeText{\ \ \ \ \ \ \ \ }\codeKeyword{else}\codeText{:}\\
+\linenumber{33}\codeText{\ \ \ \ \ \ \ \ \ \ \ \ }\codeText{files}\codeOperator{.}\codeText{extend}\codeText{(}\codeText{fetch\_files}\codeText{(}\codeText{child}\codeText{)}\codeText{)}\\
+\linenumber{34}\codeText{\ \ \ \ }\codeKeyword{return}\codeText{\ }\codeText{files}\\
+\linenumber{35}
+}
 
-\begin{minted}{python}
-⇧ ⌘
-\end{minted}
 \end{document}
