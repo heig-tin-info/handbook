@@ -58,7 +58,8 @@
       "NotoSerifTamil:mode=harf;",
       "NotoSerifTibetan:mode=harf;",
       "NotoSerifCJKkr:mode=harf;",
-      "NotoSans:mode=harf;"
+      "NotoSans:mode=harf;",
+      "Symbola:mode=harf;",
     }
    )}
 
@@ -68,6 +69,8 @@
 
 \setmonofont{Noto Sans Mono}[
   Scale=0.8,
+  ItalicFont=lmmono10-italic.otf,
+  BoldItalicFont=lmmonolt10-boldoblique.otf,
   RawFeature={fallback=fontfallback}
 ]
 

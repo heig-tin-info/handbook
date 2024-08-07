@@ -34,13 +34,13 @@ Voici les quatre principes les plus connus :
 
 <div class="grid cards" markdown>
 
-- **DRY** [Ne vous répétez pas.][dry]{ data-preview }
+- **DRY** [Ne vous répétez pas.][dry]
 
     ---
 
     *Do not repeat yourself.*
 
-- **KISS** [Restez simple, stupide.][kiss]{ data-preview }
+- **KISS** [Restez simple, stupide.][kiss]
 
     ---
 
@@ -48,19 +48,21 @@ Voici les quatre principes les plus connus :
 
     ---
 
-- **SSOT** [Une seule source de vérité.][ssot]{ data-preview }
+- **SSOT** [Une seule source de vérité.][ssot]
 
     ---
 
     *Single source of truth.*
 
-- **YAGNI** [Vous n'en aurez pas besoin.][yagni]{ data-preview }
+- **YAGNI** [Vous n'en aurez pas besoin.][yagni]
 
     ---
 
     *You ain't gonna need it.*
 
 </div>
+
+[](){#dry}
 
 ### DRY
 
@@ -89,6 +91,8 @@ Voici la version corrigée :
 FILE *fp = argc > 1 ? fopen(argv[1], "r") : stdin;
 display(fp);
 ```
+
+[](){#kiss}
 
 ### KISS
 
@@ -126,11 +130,15 @@ int display(const Data *data, const size_t size) {
 }
 ```
 
+[](){#yagni}
+
 ### YAGNI
 
 YAGNI est un anglicisme de *you ain't gonna need it* qui peut être traduit par: vous n'en aurez pas besoin. C'est un principe très connu en développent Agile XP ([Extreme Programming](https://fr.wikipedia.org/wiki/Extreme_programming)) qui stipule qu'un développeur logiciel ne devrait pas implémenter une fonctionnalité à un logiciel tant que celle-ci n'est pas absolument nécessaire.
 
 Ce principe combat le biais du développeur à vouloir sans cesse démarrer de nombreux chantiers sans se focaliser sur l'essentiel strictement nécessaire d'un programme et permettant de satisfaire au cahier des charges convenu avec le partenaire/client.
+
+[](){#ssot}
 
 ### SSOT
 

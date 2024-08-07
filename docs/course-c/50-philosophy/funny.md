@@ -8,6 +8,8 @@ Hélas, le constat est souvent le même : le nouveau standard ne sera qu'un éni
 
 ![XKCD Standards](https://imgs.xkcd.com/comics/standards.png)
 
+[](){#unicode}
+
 ## Unicode
 
 Unicode est dirigé par un consortium de grandes entreprises technologiques et de parties prenantes. Les fondateurs d'Unicode comprennent Joe Becker, qui travaillait pour Xerox dans les années 80. Il avait une barbe et il se pourrait bien qu'il est le personnage figurant dans le premier et le troisième panneaux.

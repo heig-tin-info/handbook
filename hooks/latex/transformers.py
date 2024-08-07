@@ -146,6 +146,25 @@ def up_to_date(source: Path, destination: Path) -> bool:
     return destination.exists() and \
         destination.stat().st_mtime >= source.stat().st_mtime
 
+def pdf2pdf15(filename: Path, output_path: Path) -> Path:
+    """ Convert a PDF to PDF 1.5 format. """
+    command = [
+        'gs',
+        '-sDEVICE=pdfwrite',
+        '-dCompatibilityLevel=1.5',
+        '-dNOPAUSE',
+        '-dQUIET',
+        '-dBATCH',
+        '-sOutputFile=' + str(output_path),
+        str(filename)
+    ]
+
+    log.debug("Running command: %s", ' '.join(str(e) for e in command))
+    completed_process = subprocess.run(command, check=False)
+    if completed_process.returncode != 0:
+        log.error('Return code %s', completed_process.returncode)
+        return None
+    return output_path
 
 def drawio2pdf(filename: Path, output_path: Path) -> Path:
 
@@ -155,7 +174,7 @@ def drawio2pdf(filename: Path, output_path: Path) -> Path:
     intermediate = output_path / filename.with_suffix('.pdf').name
     # If destination path is older than source, recompile
     if not up_to_date(filename, pdfpath):
-        log.info('Converting %s to PDF...', filename)
+        log.debug('Converting %s to PDF...', filename)
 
         pwd = Path().absolute()
         command = get_docker_command(pwd) + [
@@ -195,7 +214,11 @@ def drawio2pdf(filename: Path, output_path: Path) -> Path:
         else:
             # Drawio cannot output to a specific file,
             # so we need to move it manually :(
-            shutil.move(intermediate, pdfpath)
+            #shutil.move(intermediate, pdfpath)
+
+            # Instead of moving, we convert the file to PDF 1.5
+            pdfpath = pdf2pdf15(intermediate, pdfpath)
+
             log.debug('Command succeeded')
 
     return pdfpath
@@ -254,7 +277,9 @@ def svg2pdf_cairo(svg: Union[str, Path], output_path=Path()) -> Path:
 
     if not pdfpath.exists():
         cairosvg.svg2pdf(bytestring=svg,
-                         write_to=str(pdfpath))
+                         write_to=str(pdfpath.with_suffix('.temp.pdf')))
+        pdf2pdf15(pdfpath.with_suffix('.temp.pdf'), pdfpath)
+        os.remove(pdfpath.with_suffix('.temp.pdf'))
     return pdfpath
 
 

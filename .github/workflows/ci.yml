@@ -70,7 +70,7 @@ jobs:
           extra_system_packages: |
             font-noto font-noto-hebrew font-noto-devanagari
             font-noto-tamil font-noto-tibetan font-noto-cjk
-            font-noto-naskh-arabic make
+            font-noto-naskh-arabic font-fira-code make
           latexmk_shell_escape: true
           latexmk_use_lualatex: true
           args: -cd

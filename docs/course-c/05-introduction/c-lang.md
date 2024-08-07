@@ -303,6 +303,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 
 ![Édition des liens de plusieurs objets]({assets}/images/link.drawio)
 
+[](){#hello-world}
+
 ## Hello World!
 
 Il est traditionnellement coutume depuis la publication en 1978 du livre [The C Programming Language](https://en.wikipedia.org/wiki/The_C_Programming_Language) de reprendre l'exemple de Brian Kernighan comme premier programme.

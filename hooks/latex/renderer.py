@@ -912,9 +912,16 @@ class LaTeXRenderer:
             elif href == '' and el.get('id'):
                 self.apply(el, 'label', el.get('id'))
             elif path := resolve_asset_path(kwargs.get('file_path', Path()), href):
-                digest = sha256(href.encode()).hexdigest()
-                self.snippets[digest] = path
-                self.apply(el, 'ref', text='extrait', path=digest)
+                with open(path, 'rb') as f:
+                    content = f.read()
+                    digest = sha256().hexdigest()
+                reference = f"snippet:{digest}"
+                self.snippets[reference] = {
+                    'path': path,
+                    'content': content,
+                    'format': path.suffix[1:]
+                }
+                self.apply(el, 'ref', text='extrait', ref=reference)
             else:
                 raise NotImplementedError("Local links not implemented")
         return soup
@@ -989,6 +996,13 @@ class LaTeXRenderer:
 
     def get_assets_map(self):
         return self.assets_map
+
+    def get_snippets(self):
+        tex = ''
+        for key, data in self.snippets.items():
+            tex += self.formatter.heading(key.name, level=1)
+            tex += self.formatter.codeblock(data['content'], language=data['format'])
+        return tex
 
     def monkeypatch_item(self, latex: str):
         """Verbatim material should not go in the argument to other commands.
