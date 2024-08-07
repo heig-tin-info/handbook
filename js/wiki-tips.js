@@ -8,6 +8,11 @@ document$.subscribe(function() {
             return;
         }
 
+        function shouldDisplayPopupAbove(rect, popupHeight) {
+            const spaceBelow = window.innerHeight - (rect.bottom + window.scrollY);
+            return spaceBelow < popupHeight;
+        }
+
         link.addEventListener('mouseenter', async (event) => {
             const url = link.getAttribute('href');
             const { language, title } = extractLanguageAndTitleFromUrl(url);
@@ -32,6 +37,15 @@ document$.subscribe(function() {
             }
 
             const rect = link.getBoundingClientRect();
+            const popupHeight = popup.offsetHeight;
+            // console.log(rect, popupHeight);
+
+            // if (shouldDisplayPopupAbove(rect, popupHeight)) {
+            //     popup.style.top = `${rect.top + window.scrollY - popupHeight}px`;
+            // } else {
+            //     popup.style.top = `${rect.bottom + window.scrollY}px`;
+            // }
+
             popup.style.top = `${rect.bottom + window.scrollY}px`;
             popup.style.left = `${rect.left + window.scrollX}px`;
             popup.style.display = 'block';

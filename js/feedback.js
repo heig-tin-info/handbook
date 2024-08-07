@@ -1,19 +1,22 @@
 var feedback = document.forms.feedback
-feedback.hidden = false
 
-feedback.addEventListener("submit", function(ev) {
-  ev.preventDefault()
+if (feedback) {
+    feedback.hidden = false
 
-  var page = document.location.pathname
-  var data = ev.submitter.getAttribute("data-md-value")
+    feedback.addEventListener("submit", function(ev) {
+      ev.preventDefault()
 
-  console.log(page, data)
+      var page = document.location.pathname
+      var data = ev.submitter.getAttribute("data-md-value")
 
-  feedback.firstElementChild.disabled = true
+      console.log(page, data)
 
-  var note = feedback.querySelector(
-    ".md-feedback__note [data-md-value='" + data + "']"
-  )
-  if (note)
-    note.hidden = false
-})
+      feedback.firstElementChild.disabled = true
+
+      var note = feedback.querySelector(
+        ".md-feedback__note [data-md-value='" + data + "']"
+      )
+      if (note)
+        note.hidden = false
+    })
+}
