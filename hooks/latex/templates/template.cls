@@ -502,58 +502,52 @@
 \newcommand\correctchoice{\stackinset{c}{}{c}{}{$\times$}{$\bigcirc$}}
 \newcommand\choice{$\bigcirc$}
 
-
-
-
-\newcommand{\logoimg}[2]{
-    \begin{tikzpicture}[x=0.7pt,y=0.7pt]%
-        \fill[black]
-            (74, 18) -- (56, 18) -- (56, 12) -- (68, 12) -- (68, 12)
-            .. controls (67, 7) and (63, 5) .. (57, 5)
-            .. controls (50, 5) and (45, 10) .. (45, 17)
-            .. controls (45, 24) and (50, 30) .. (57, 30)
-            .. controls (63, 30) and (67, 27) .. (69, 23)
-            -- (74, 25)
-            .. controls (71, 32) and (65, 35) .. (57, 35)
-            .. controls (47, 35) and (39, 27) .. (39, 17)
-            .. controls (39, 7) and (47, 0) .. (57, 0)
-            .. controls (62, 0) and (66, 2) .. (69, 5)
-            -- (69, 1) -- (74, 1) -- (74, 17) -- cycle ;
-        \fill[black]
-            (74, 47) -- (46, 47) -- (46, 56) -- (70, 56) -- (70, 61) --
-            (46, 61) -- (46, 70) -- (74, 70) -- (74, 75) -- (40, 75) --
-            (40, 42) -- (74, 42) -- cycle ;
-        \fill[black]
-            (27, 61) -- (5, 61) -- (5, 75) -- (0, 75) -- (0, 42) --
-            (5, 42) -- (5, 56) -- (27, 56) -- (27, 42) -- (33, 42) --
-            (33, 75) -- (27, 75) -- cycle ;
-        \fill[black]
-            (19, 6) -- (19, 29) -- (33, 29) -- (33, 34) -- (-0, 34) --
-            (-0, 29) -- (13, 29) -- (13, 6) -- (-0, 6) -- (-0, 1) --
-            (33, 1) -- (33, 6) -- cycle;
-        \fill[black]
-            (88, 75) -- (90, 75) -- (87, 65) -- (85, 65) -- (81, 75) --
-            (83, 75) -- (86, 68) -- cycle;
-        \fill[black]
-            (92, 65) -- (92, 75) -- (95, 75)
-            .. controls (98, 75) and (100, 73) .. (100, 70)
-            .. controls (100, 67) and (98, 65) .. (95, 65)
-            -- cycle;
-        \fill[white]
-            (95, 67)
-            .. controls (97, 67) and (98, 68) .. (98, 70)
-            .. controls (98, 72) and (97, 73) .. (95, 73)
-            -- (94, 73)
-            -- (94, 67)
-            -- cycle;
-    \end{tikzpicture}
+\newcommand{\logoimg}[3]{
+  \begin{tikzpicture}[remember picture, overlay, x=0.7pt, y=0.7pt]
+      \begin{scope}[shift={($(current page.north west) + (#1, -#2) + (0, -75)$)}]
+          \fill[#3]
+              (74, 18) -- (56, 18) -- (56, 12) -- (68, 12) -- (68, 12)
+              .. controls (67, 7) and (63, 5) .. (57, 5)
+              .. controls (50, 5) and (45, 10) .. (45, 17)
+              .. controls (45, 24) and (50, 30) .. (57, 30)
+              .. controls (63, 30) and (67, 27) .. (69, 23)
+              -- (74, 25)
+              .. controls (71, 32) and (65, 35) .. (57, 35)
+              .. controls (47, 35) and (39, 27) .. (39, 17)
+              .. controls (39, 7) and (47, 0) .. (57, 0)
+              .. controls (62, 0) and (66, 2) .. (69, 5)
+              -- (69, 1) -- (74, 1) -- (74, 17) -- cycle;
+          \fill[#3]
+              (74, 47) -- (46, 47) -- (46, 56) -- (70, 56) -- (70, 61) --
+              (46, 61) -- (46, 70) -- (74, 70) -- (74, 75) -- (40, 75) --
+              (40, 42) -- (74, 42) -- cycle;
+          \fill[#3]
+              (27, 61) -- (5, 61) -- (5, 75) -- (0, 75) -- (0, 42) --
+              (5, 42) -- (5, 56) -- (27, 56) -- (27, 42) -- (33, 42) --
+              (33, 75) -- (27, 75) -- cycle;
+          \fill[#3]
+              (19, 6) -- (19, 29) -- (33, 29) -- (33, 34) -- (-0, 34) --
+              (-0, 29) -- (13, 29) -- (13, 6) -- (-0, 6) -- (-0, 1) --
+              (33, 1) -- (33, 6) -- cycle;
+          \fill[#3]
+              (88, 75) -- (90, 75) -- (87, 65) -- (85, 65) -- (81, 75) --
+              (83, 75) -- (86, 68) -- cycle;
+          \fill[#3, even odd rule]
+              (92, 65) -- (92, 75) -- (95, 75)
+              .. controls (98, 75) and (100, 73) .. (100, 70)
+              .. controls (100, 67) and (98, 65) .. (95, 65)
+              -- cycle
+              (95, 67)
+              .. controls (97, 67) and (98, 68) .. (98, 70)
+              .. controls (98, 72) and (97, 73) .. (95, 73)
+              -- (94, 73)
+              -- (94, 67)
+              -- cycle;
+      \end{scope}
+  \end{tikzpicture}
 }
 
-\newcommand{\logo}[2]{% \logo{<left>}{<top>}
-    \begin{tikzpicture}[remember picture,overlay, align=center,]
-        \node(logo) at ([xshift=#1, yshift=-#2] current page.north west)
-        [anchor=north west] {\logoimg{#1}{#2}};
-    \end{tikzpicture}\vspace*{-\baselineskip}}
+
 
 
 \def\title{\VAR{title}}
@@ -562,7 +556,21 @@
 \definecolor{indigo(dye)}{rgb}{0.0, 0.25, 0.42}
 
 \def\covercolor{indigo(dye)}
-\author{\VAR{author}}
+\def\author{\VAR{author}}
+
+\newcommand{\changelocaltocdepth}[1]{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{#1}}%
+  \setcounter{tocdepth}{#1}%
+}
+
+\pretocmd{\frontmatter}{%
+  \pagestyle{plain}%
+  \changelocaltocdepth{1}%
+}{}{}
+
+\pretocmd{\mainmatter}{%
+  \changelocaltocdepth{2}%
+}{}{}
 
 \input{glossary.tex}
 \input{acronyms.tex}
@@ -570,55 +578,68 @@
 \begin{document}
 
 \begin{tikzpicture}[remember picture,overlay]
-  \fill[\covercolor] (current page.south west) rectangle (current page.north east);
+\fill[\covercolor] (current page.south west) rectangle (current page.north east);
 
-  \foreach \i in {2.5,...,20}{
-      \node[rounded corners,\covercolor!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick,rotate=30] at ($(current page.west)+(3.5,-5)$) {} ;
-  }
+\foreach \i in {2.5,...,20}{
+    \node[rounded corners,\covercolor!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick,rotate=30] at ($(current page.west)+(3.5,-5)$) {} ;
+}
 
-  \foreach \i in {0.5,...,20}{
-  \node[rounded corners,\covercolor!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north west)+(2.5,0)$) {} ;
-  }
+\foreach \i in {0.5,...,20}{
+\node[rounded corners,\covercolor!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north west)+(2.5,0)$) {} ;
+}
 
-  \foreach \i in {0.5,...,20}{
-  \node[rounded corners,\covercolor!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north east)+(0,-9.5)$) {} ;
-  }
-
-
-  \foreach \i in {21,...,6}{
-  \node[\covercolor!85,rounded corners,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;
-  }
-
-  \node[left,\covercolor!5,minimum width=0.625*\paperwidth,minimum height=3cm ,align = right] at ($(current page.north east)+(0,-9.5)$)
-  {
-  {\fontsize{25}{30} \selectfont \bfseries \title}
-  };
-
-  \node[left,\covercolor!10,minimum width=0.625*\paperwidth,minimum height=2cm,align = right] at ($(current page.north east)+(0,-11)$)
-  {
-  {\huge \textit{\subtitle}}
-  };
-
-  \node[left,\covercolor!5,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-13)$)
-  {
-  {\Large \textsc{\author}}
-  };
+\foreach \i in {0.5,...,20}{
+\node[rounded corners,\covercolor!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north east)+(0,-9.5)$) {} ;
+}
 
 
-  \node[fill=\covercolor, rounded corners,text =\covercolor!5,regular polygon,regular polygon sides=6, minimum size=6 cm,inner sep=0,ultra thick,rotate=30] at ($(current page.west)+(3.5,-5)$) {
+\foreach \i in {21,...,6}{
+\node[\covercolor!85,rounded corners,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;
+}
 
-  };
+\node[
+  left,
+  \covercolor!5,
+  minimum width=150mm,
+  text width=150mm,
+  minimum height=1cm,
+  align=right] at ($(current page.north east)+(-2,-10)$)
+{
+{\fontsize{25}{30} \selectfont \bfseries \title}
+};
 
-  \node[] at ($(current page.west)+(3.5,-5)$) {
-    \includegraphics[width=5cm]{c-logo.pdf}
-  };
+\node[
+  left,
+  \covercolor!10,
+  minimum width=150mm,
+  text width=150mm,
+  minimum height=1cm,
+  align=right] at ($(current page.north east)+(-2,-11.3)$)
+{
+{\huge \textit{\subtitle}}
+};
+
+\node[left,\covercolor!5,minimum width=80mm,minimum height=1cm,text width=80mm, align=right, rounded corners] at ($(current page.south east)+(-2,2)$)
+{
+{\Large \textsc{\author}}
+};
 
 
-  \end{tikzpicture}
+\node[fill=\covercolor, rounded corners,text =\covercolor!5,regular polygon,regular polygon sides=6, minimum size=6 cm,inner sep=0,ultra thick,rotate=30] at ($(current page.west)+(3.5,-5)$) {
+
+};
+
+\node[] at ($(current page.west)+(3.5,-5)$) {
+  \includegraphics[width=5cm]{c-logo.pdf}
+};
+
+\end{tikzpicture}
+
+\logoimg{10mm}{10mm}{\covercolor!5}
 
 \cleardoublepage
 \begin{titlepage}
-  \logo{1cm}{1cm}
+  \logoimg{1cm}{1cm}{black}
   \vspace{6cm}
   \vfil
   \begin{center}
