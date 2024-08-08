@@ -1,37 +1,59 @@
-"""
-- [ ] Footnotes
-"""
 import logging
-import mkdocs
+import sys
 from pathlib import Path, PosixPath
-from IPython import embed
-from mkdocs.structure.nav import Section
-from latex.renderer import LaTeXRenderer
 import yaml
 import ipdb
-import sys
+from IPython import embed
+from urllib.parse import urlparse
+from mkdocs.structure.nav import Section
+from mkdocs.structure import StructureItem
+import deepmerge
+from latex.renderer import LaTeXRenderer
+import inflection
+import unidecode
+import re
 
+def path_representer(dumper, data):
+    # Path relative to the project directory
+    data = data.resolve().relative_to(Path('.').resolve())
+    return dumper.represent_scalar("tag:yaml.org,2002:str", str(data))
+
+yaml.add_representer(PosixPath, path_representer)
+
+def to_kebab_case(name):
+    name = unidecode.unidecode(name)
+    name = re.sub(r"[^\w\s']", '', name)
+    name = re.sub(r"[\s']+", '-', name)
+    return name.lower()
 
 def excepthook(type, value, traceback):
     ipdb.post_mortem(traceback)
 
+
 sys.excepthook = excepthook
 
-log = logging.getLogger('mkdocs')
+log = logging.getLogger("mkdocs")
 
 saved_nav = []
-latex_dir = Path('build')
+latex_dir = Path("build")
 enabled = False
 renderer = None
 
-def fetch_files(section: Section):
-    files = []
-    for child in section.children:
-        if child.is_page:
-            files.append(child.file)
-        else:
-            files.extend(fetch_files(child))
-    return files
+current_config = None
+
+def find_item(item: StructureItem, cb: callable):
+    if cb(item):
+        return item
+    for child in item.children or []:
+        if result := find_item(child, cb):
+            return result
+    return None
+
+def find_item_by_title(item: StructureItem, title: str):
+    return find_item(item, lambda item: item.title == title)
+
+
+
 
 def build_nav(section: Section, node):
     for child in section.children:
@@ -42,104 +64,186 @@ def build_nav(section: Section, node):
             node.append([child.title, new_node])
             build_nav(child, new_node)
 
+
 def on_startup(command, dirty):
     global enabled
-    global renderer
-    enabled = command != 'serve'
+    enabled = command != "serve"
 
-    if enabled:
-        renderer = LaTeXRenderer(latex_dir)
+
+
+
+
 
 def on_nav(nav, config, files):
-    global saved_nav
-    if not enabled:
+    global current_config
+
+    default_book = {
+        "root": nav.pages[0].title,
+        "title": config.site_name,
+        "author": config.site_author,
+        "base_level": -2,
+        "frontmatter": [],
+        "backmatter": []
+    }
+
+    default_config = {
+        "enabled": True,
+        "build_dir": "build/",
+        "books": [],
+        "save_html": True,
+    }
+
+    current_config = deepmerge.always_merger.merge(
+        default_config, config.extra.get("latex", {}))
+
+    for i, book in enumerate(current_config["books"]):
+        current_config["books"][i] = deepmerge.always_merger.merge(
+            default_book, book)
+
+    current_config['project_dir'] = Path(config.config_file_path).parent
+
+    if not current_config["enabled"]:
         return
-    book = 'Cours C'
-    for section in nav:
-        if section.title == book:
-            break
 
-    saved_nav = section
+    # Need to postpone the nav processing until pages are processed
+    # Because we need the meta and the title.
+    current_config['nav'] = nav
 
 
-def on_env(env, config, files):
-    if not enabled:
-        return
+def nav_map(section: StructureItem, cb: callable, level: int = 0):
+    cb(section, level)
+    for child in section.children or []:
+        nav_map(child, cb, level + 1)
 
-    # Sort files to process by places in the book
-    level = -1
-    latex = []
+class Book:
+    def __init__(self, section, config):
+        self.section = section
+        self.config = config
 
-    files_to_process = []
+        self.files = self._fetch_files(section)
 
-    frontmatter = []
-    backmatter = []
-    mainmatter = []
+        self._propagate_meta(section, config['base_level'])
 
-    embed()
-    def get_nav(section: Section, level):
-        for child in section.children:
+        self.frontmatter = []
+        self.mainmatter = []
+        self._sort_by_part(section)
+
+    def _fetch_files(self, item: StructureItem):
+        files = []
+        for child in item.children or []:
             if child.is_page:
-                files_to_process.append((child.file, level))
-                # Replace md with tex
-                tex_path = child.file.src_path.replace('.md', '.tex')
-                latex.append(f'\\input{{{tex_path}}}')
+                files.append(child.file)
             else:
-                latex.append('\n')
-                latex.append(renderer.formatter.heading(child.title, level=level))
-                get_nav(child, level + 1)
+                files.extend(self._fetch_files(child))
+        return files
 
-    get_nav(saved_nav, level)
+    def _propagate_meta(self, item: StructureItem, level=0):
+        item.level = level
+        if getattr(item.parent, "frontmatter", False):
+            item.frontmatter = True
+        if item.is_page:
+            item.tex_path = item.file.src_path.replace(".md", ".tex")
 
-    book_nav = '\n'.join(latex)
+        for child in item.children or []:
+            if child.title in self.config['frontmatter']:
+                child.frontmatter = True
+            self._propagate_meta(child, level + 1)
 
-    # Create output directory
-    latex_dir.mkdir(exist_ok=True)
-    project_dir = Path(config.config_file_path).parent / config['docs_dir']
+    def _sort_by_part(self, item: StructureItem):
+        if getattr(item, "frontmatter", False):
+            self.frontmatter.append(item)
+        else:
+            self.mainmatter.append(item)
+        for section in item.children or []:
+            self._sort_by_part(section)
 
+    def _get_latex(self, elements: [StructureItem], renderer: LaTeXRenderer):
+        latex = []
+        for element in elements:
+            if element.is_page:
+                latex.append(renderer.formatter.include(element.tex_path, title=element.title))
+            elif element.level > self.config['base_level']:
+                latex.append(renderer.formatter.heading(element.title, level=element.level))
+        return '\n'.join(latex)
 
+    def build(self, build_dir: Path):
+        renderer = LaTeXRenderer(build_dir)
 
-    for file, level in files_to_process:
-        log.info(f'Processing LaTeX {file.src_path} (level {level})...')
-        if file.src_path.endswith('.md'):
-            path = latex_dir / file.src_path.replace('.md', '.tex')
+        build_dir.mkdir(exist_ok=True)
+
+        # Build all files
+        for file in self.files:
+            log.info("Processing LaTeX '%s' ...", file.src_path)
+            path = build_dir / file.page.tex_path
             path.parent.mkdir(parents=True, exist_ok=True)
 
             html = file.page.content
 
-            with open(path.with_suffix('.html'), 'w', encoding='utf-8') as f:
-                f.write(html)
+            if self.config['save_html']:
+                path.with_suffix(".html").write_text(html)
 
             latex = renderer.render(
                 html,
-                latex_dir, project_dir / file.src_path,
-                level)
+                build_dir,
+                Path(file.abs_src_path),
+                file.page.level)
 
             path.write_text(latex)
 
-    # Save assets map and clean unused assets
-    def path_representer(dumper, data):
-        # Path relative to the project directory
-        data = data.resolve().relative_to(Path(config.config_file_path).parent)
-        return dumper.represent_scalar('tag:yaml.org,2002:str', str(data))
-    yaml.add_representer(PosixPath, path_representer)
+        # Remove unused objets (list build/assets directors and remove those that are not in assets_map keys)
+        assets_map = renderer.get_assets_map()
+        for file in (build_dir / "assets/").iterdir():
+            if file not in assets_map:
+                log.info(f"Removing unused asset {file}")
+                file.unlink()
 
-    assets_map = renderer.get_assets_map()
+        (build_dir / "assets_map.yml").write_text(yaml.dump(
+            assets_map, default_flow_style=False, allow_unicode=True))
 
-    # Remove unused objets (list build/assets directors and remove those that are not in assets_map keys)
-    for file in (latex_dir / 'assets').iterdir():
-        if file not in assets_map:
-            log.info(f'Removing unused asset {file}')
-            file.unlink()
+        # Build index page
+        self._get_latex(self.frontmatter, renderer)
+        index = renderer.formatter.template(
+            title=self.config['title'],
+            author=self.config['author'],
+            frontmatter=self._get_latex(self.frontmatter, renderer),
+            mainmatter=self._get_latex(self.mainmatter, renderer)
+        )
+        (build_dir / "index.tex").write_text(index)
 
-    with(open(latex_dir / 'assets_map.yml', 'w')) as f:
-        assets_map = yaml.dump(assets_map, default_flow_style=False, allow_unicode=True)
-        f.write(assets_map)
+        (build_dir / "acronyms.tex").write_text(renderer.get_list_acronyms())
+        (build_dir / "glossary.tex").write_text(renderer.get_list_glossary())
+        (build_dir / "solutions.tex").write_text(renderer.get_list_solutions())
 
-    # Build index page
-    index = renderer.formatter.template(content=book_nav)
-    (latex_dir / 'index.tex').write_text(index)
+        # Copy assets
+        for src, dest in self.config.get('copy', {}).items():
+            src = current_config['project_dir'] / src
+            dest = build_dir / dest
+            log.info(f"Copying {src} to {dest}")
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(src.read_bytes())
 
-    Path('build/acronyms.tex').write_text(renderer.get_list_acronyms())
-    Path('build/glossary.tex').write_text(renderer.get_list_glossary())
-    Path('build/solutions.tex').write_text(renderer.get_list_solutions())
+def on_env(env, config, files):
+    if not current_config["enabled"]:
+        return
+
+    books = []
+
+    # For each book, identify root section by title
+    for book in current_config["books"]:
+        for item in current_config['nav']:
+            if section := find_item_by_title(item, book['root']):
+                break
+        else:
+            raise Exception(f"Root section {book['root']} not found")
+
+        book['save_html'] = current_config['save_html']
+
+        book = Book(section, book)
+        books.append(book)
+
+    project_dir = Path(config.config_file_path).parent
+    build_dir = project_dir / current_config["build_dir"]
+
+    for book in books:
+        book_dir = build_dir / to_kebab_case(book.config['title'])
+        book.build(book_dir)

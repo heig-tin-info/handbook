@@ -34,6 +34,10 @@
 \usepackage{polyglossia}
 \usepackage{emptypage} % Nothing on empty pages
 
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc}
+\usetikzlibrary{shadows}
+
 \preto\frontmatter{\setcounter{secnumdepth}{0}}
 \preto\mainmatter{\setcounter{secnumdepth}{2}}
 
@@ -451,8 +455,6 @@
   #1
 }
 
-\usetikzlibrary{shadows}
-
 \newcommand*\keystroke[1]{%
   \tikz[baseline=(key.base)]
     \node[%
@@ -554,12 +556,67 @@
     \end{tikzpicture}\vspace*{-\baselineskip}}
 
 
+\def\title{\VAR{title}}
+\def\subtitle{Programmation en C}
+
+\definecolor{indigo(dye)}{rgb}{0.0, 0.25, 0.42}
+
+\def\covercolor{indigo(dye)}
+\author{\VAR{author}}
 
 \input{glossary.tex}
 \input{acronyms.tex}
 
 \begin{document}
 
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[\covercolor] (current page.south west) rectangle (current page.north east);
+
+  \foreach \i in {2.5,...,20}{
+      \node[rounded corners,\covercolor!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick,rotate=30] at ($(current page.west)+(3.5,-5)$) {} ;
+  }
+
+  \foreach \i in {0.5,...,20}{
+  \node[rounded corners,\covercolor!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north west)+(2.5,0)$) {} ;
+  }
+
+  \foreach \i in {0.5,...,20}{
+  \node[rounded corners,\covercolor!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north east)+(0,-9.5)$) {} ;
+  }
+
+
+  \foreach \i in {21,...,6}{
+  \node[\covercolor!85,rounded corners,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;
+  }
+
+  \node[left,\covercolor!5,minimum width=0.625*\paperwidth,minimum height=3cm ,align = right] at ($(current page.north east)+(0,-9.5)$)
+  {
+  {\fontsize{25}{30} \selectfont \bfseries \title}
+  };
+
+  \node[left,\covercolor!10,minimum width=0.625*\paperwidth,minimum height=2cm,align = right] at ($(current page.north east)+(0,-11)$)
+  {
+  {\huge \textit{\subtitle}}
+  };
+
+  \node[left,\covercolor!5,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-13)$)
+  {
+  {\Large \textsc{\author}}
+  };
+
+
+  \node[fill=\covercolor, rounded corners,text =\covercolor!5,regular polygon,regular polygon sides=6, minimum size=6 cm,inner sep=0,ultra thick,rotate=30] at ($(current page.west)+(3.5,-5)$) {
+
+  };
+
+  \node[] at ($(current page.west)+(3.5,-5)$) {
+    \includegraphics[width=5cm]{c-logo.pdf}
+  };
+
+
+  \end{tikzpicture}
+
+\cleardoublepage
 \begin{titlepage}
   \logo{1cm}{1cm}
   \vspace{6cm}

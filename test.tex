@@ -1,73 +1,70 @@
-\documentclass{article}
-\usepackage{fontspec}
-\usepackage{xcolor}
-
-% Définir les couleurs selon le style Trac
-\definecolor{trac-bg}{RGB}{255,255,255}
-\definecolor{trac-text}{RGB}{0,0,0}
-\definecolor{trac-comment}{RGB}{136,136,136}
-\definecolor{trac-keyword}{RGB}{34,34,255}
-\definecolor{trac-string}{RGB}{196,26,22}
-\definecolor{trac-number}{RGB}{0,0,255}
-\definecolor{trac-operator}{RGB}{0,0,0}
-\definecolor{trac-builtin}{RGB}{102,102,0}
-
-% Définir les commandes pour chaque type de token
-\newcommand{\codeComment}[1]{\textcolor{trac-comment}{\itshape #1}}
-\newcommand{\codeKeyword}[1]{\textcolor{trac-keyword}{\bfseries #1}}
-\newcommand{\codeString}[1]{\textcolor{trac-string}{#1}}
-\newcommand{\codeNumber}[1]{\textcolor{trac-number}{#1}}
-\newcommand{\codeOperator}[1]{\textcolor{trac-operator}{#1}}
-\newcommand{\codeBuiltin}[1]{\textcolor{trac-builtin}{#1}}
-\newcommand{\codeText}[1]{\textcolor{trac-text}{#1}}
-\newcommand{\linenumber}[1]{\textcolor{black}{#1}\kern 1em}
 
 
-\setmainfont{Noto Serif}
-\setmonofont{Noto Sans Mono}[
-  ItalicFont=lmmono10-italic.otf,
-  BoldItalicFont=lmmonolt10-boldoblique.otf
-]
+\documentclass[a4paper]{article}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc}
+\usepackage{anyfontsize}
+
+\def\title{L'informatique pour l'ingénieur}
+\def\subtitle{Programmation en C}
+
+\definecolor{indigo(dye)}{rgb}{0.0, 0.25, 0.42}
+
+\def\covercolor{indigo(dye)}
+\author{Yves Chevallier}
 
 \begin{document}
+\pagestyle{empty}
 
-\parindent=0pt
-{ \ttfamily
-\codeString{"""\newline{}-\ [\ ]\ Footnotes\newline{}"""}\\
-\linenumber{2}\codeKeyword{import}\codeText{\ }\codeText{logging}\\
-\linenumber{3}\codeKeyword{import}\codeText{\ }\codeText{mkdocs}\\
-\linenumber{4}\codeKeyword{from}\codeText{\ }\codeText{pathlib}\codeText{\ }\codeKeyword{import}\codeText{\ }\codeText{Path}\codeText{,}\codeText{\ }\codeText{PosixPath}\\
-\linenumber{5}\codeKeyword{from}\codeText{\ }\codeText{IPython}\codeText{\ }\codeKeyword{import}\codeText{\ }\codeText{embed}\\
-\linenumber{6}\codeKeyword{from}\codeText{\ }\codeText{mkdocs}\codeText{.}\codeText{structure}\codeText{.}\codeText{nav}\codeText{\ }\codeKeyword{import}\codeText{\ }\codeText{Section}\\
-\linenumber{7}\codeKeyword{from}\codeText{\ }\codeText{latex}\codeText{.}\codeText{renderer}\codeText{\ }\codeKeyword{import}\codeText{\ }\codeText{LaTeXRenderer}\\
-\linenumber{8}\codeKeyword{import}\codeText{\ }\codeText{yaml}\\
-\linenumber{9}\codeKeyword{import}\codeText{\ }\codeText{ipdb}\\
-\linenumber{10}\codeKeyword{import}\codeText{\ }\codeText{sys}\\
-\linenumber{11}\\
-\linenumber{12}\\
-\linenumber{13}\codeKeyword{def}\codeText{\ }\codeText{excepthook}\codeText{(}\codeBuiltin{type}\codeText{,}\codeText{\ }\codeText{value}\codeText{,}\codeText{\ }\codeText{traceback}\codeText{)}\codeText{:}\\
-\linenumber{14}\codeText{\ \ \ \ }\codeText{ipdb}\codeOperator{.}\codeText{post\_mortem}\codeText{(}\codeText{traceback}\codeText{)}\\
-\linenumber{15}\\
-\linenumber{16}\codeText{sys}\codeOperator{.}\codeText{excepthook}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{excepthook}\\
-\linenumber{17}\\
-\linenumber{18}\codeText{log}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{logging}\codeOperator{.}\codeText{getLogger}\codeText{(}\codeString{'}\codeString{mkdocs}\codeString{'}\codeText{)}\\
-\linenumber{19}\\
-\linenumber{20}\codeText{files\_to\_process}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{[}\codeText{]}\\
-\linenumber{21}\codeText{book\_nav}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{[}\codeText{]}\\
-\linenumber{22}\codeText{saved\_nav}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{[}\codeText{]}\\
-\linenumber{23}\codeText{latex\_dir}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{Path}\codeText{(}\codeString{'}\codeString{build}\codeString{'}\codeText{)}\\
-\linenumber{24}\codeText{enabled}\codeText{\ }\codeOperator{=}\codeText{\ }\codeKeyword{False}\\
-\linenumber{25}\codeText{renderer}\codeText{\ }\codeOperator{=}\codeText{\ }\codeKeyword{None}\\
-\linenumber{26}\\
-\linenumber{27}\codeKeyword{def}\codeText{\ }\codeText{fetch\_files}\codeText{(}\codeText{section}\codeText{:}\codeText{\ }\codeText{Section}\codeText{)}\codeText{:}\\
-\linenumber{28}\codeText{\ \ \ \ }\codeText{files}\codeText{\ }\codeOperator{=}\codeText{\ }\codeText{[}\codeText{]}\\
-\linenumber{29}\codeText{\ \ \ \ }\codeKeyword{for}\codeText{\ }\codeText{child}\codeText{\ }\codeOperator{in}\codeText{\ }\codeText{section}\codeOperator{.}\codeText{children}\codeText{:}\\
-\linenumber{30}\codeText{\ \ \ \ \ \ \ \ }\codeKeyword{if}\codeText{\ }\codeText{child}\codeOperator{.}\codeText{is\_page}\codeText{:}\\
-\linenumber{31}\codeText{\ \ \ \ \ \ \ \ \ \ \ \ }\codeText{files}\codeOperator{.}\codeText{append}\codeText{(}\codeText{child}\codeOperator{.}\codeText{file}\codeText{)}\\
-\linenumber{32}\codeText{\ \ \ \ \ \ \ \ }\codeKeyword{else}\codeText{:}\\
-\linenumber{33}\codeText{\ \ \ \ \ \ \ \ \ \ \ \ }\codeText{files}\codeOperator{.}\codeText{extend}\codeText{(}\codeText{fetch\_files}\codeText{(}\codeText{child}\codeText{)}\codeText{)}\\
-\linenumber{34}\codeText{\ \ \ \ }\codeKeyword{return}\codeText{\ }\codeText{files}\\
-\linenumber{35}
+\begin{tikzpicture}[remember picture,overlay]
+\fill[\covercolor] (current page.south west) rectangle (current page.north east);
+
+\foreach \i in {2.5,...,20}{
+    \node[rounded corners,\covercolor!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick,rotate=30] at ($(current page.west)+(3.5,-5)$) {} ;
 }
+
+\foreach \i in {0.5,...,20}{
+\node[rounded corners,\covercolor!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north west)+(2.5,0)$) {} ;
+}
+
+\foreach \i in {0.5,...,20}{
+\node[rounded corners,\covercolor!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north east)+(0,-9.5)$) {} ;
+}
+
+
+\foreach \i in {21,...,6}{
+\node[\covercolor!85,rounded corners,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;
+}
+
+\node[left,\covercolor!5,minimum width=0.625*\paperwidth,minimum height=3cm ,align = right] at ($(current page.north east)+(0,-9.5)$)
+{
+{\fontsize{25}{30} \selectfont \bfseries \title}
+};
+
+\node[left,\covercolor!10,minimum width=0.625*\paperwidth,minimum height=2cm,align = right] at ($(current page.north east)+(0,-11)$)
+{
+{\huge \textit{\subtitle}}
+};
+
+\node[left,\covercolor!5,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-13)$)
+{
+{\Large \textsc{\author}}
+};
+
+
+\node[fill=\covercolor, rounded corners,text =\covercolor!5,regular polygon,regular polygon sides=6, minimum size=6 cm,inner sep=0,ultra thick,rotate=30] at ($(current page.west)+(3.5,-5)$) {
+
+};
+
+\node[] at ($(current page.west)+(3.5,-5)$) {
+  \includegraphics[width=5cm]{c-logo.pdf}
+};
+
+
+\end{tikzpicture}
 
 \end{document}

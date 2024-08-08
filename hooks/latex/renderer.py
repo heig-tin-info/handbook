@@ -14,8 +14,9 @@ import yaml
 
 log = logging.getLogger('mkdocs')
 
+
 def resolve_asset_path(file_path, path):
-    if file_path.name == 'index.md':
+    if Path(file_path).name == 'index.md':
         file_path = file_path.parent
     path = (file_path / path).resolve()
     if not path.exists():
@@ -675,7 +676,8 @@ class LaTeXRenderer:
                     'source': image_src,
                 }
             else:
-                filepath = resolve_asset_path(kwargs.get('file_path', Path()), image_src)
+                filepath = resolve_asset_path(kwargs.get('file_path', Path()),
+                                              image_src)
                 if not filepath:
                     raise ValueError(f"Image not found: {image_src}")
                 match filepath.suffix:

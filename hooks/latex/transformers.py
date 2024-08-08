@@ -174,7 +174,7 @@ def drawio2pdf(filename: Path, output_path: Path) -> Path:
     intermediate = output_path / filename.with_suffix('.pdf').name
     # If destination path is older than source, recompile
     if not up_to_date(filename, pdfpath):
-        log.debug('Converting %s to PDF...', filename)
+        log.info('Converting %s to PDF...', filename)
 
         pwd = Path().absolute()
         command = get_docker_command(pwd) + [
@@ -182,11 +182,11 @@ def drawio2pdf(filename: Path, output_path: Path) -> Path:
             '--export',
             '--format', 'pdf',
             #'--crop',
-            '--output', f'{output_path}',
+            '--output', f'{output_path.relative_to(pwd)}',
             f"{filename.relative_to(pwd)}"
         ]
 
-        log.debug("Running %s", ' '.join(str(e) for e in command))
+        log.info("Running %s", ' '.join(str(e) for e in command))
 
         # Recompile the svg file
         completed_process = subprocess.run(command,
@@ -217,8 +217,9 @@ def drawio2pdf(filename: Path, output_path: Path) -> Path:
             #shutil.move(intermediate, pdfpath)
 
             # Instead of moving, we convert the file to PDF 1.5
+            log.info(f"Converting {intermediate} to PDF 1.5 -> {pdfpath}")
             pdfpath = pdf2pdf15(intermediate, pdfpath)
-
+            intermediate.unlink()
             log.debug('Command succeeded')
 
     return pdfpath
