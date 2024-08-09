@@ -42,7 +42,7 @@ jobs:
       - name: Install Ubuntu dependencies
         run: |
           sudo apt-get update
-          sudo apt install -y pngquant
+          sudo apt install -y pngquant ghostscript
       - name: Setup Poetry
         uses: abatilo/actions-poetry@v2
 
@@ -57,7 +57,7 @@ jobs:
       - name: Build Documentation with MkDocs
         env:
           GH_TOKEN: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
-        run: CI=true poetry run mkdocs gh-deploy --force
+        run: CI=true poetry run mkdocs gh-deploy --force --verbose
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v3
         with:
