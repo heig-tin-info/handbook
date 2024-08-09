@@ -102,6 +102,12 @@ def on_nav(nav, config, files):
 
     current_config['project_dir'] = Path(config.config_file_path).parent
 
+    # Propagate base config to each book config
+    base_config = current_config.copy()
+    base_config.pop('books')
+    for i, book_config in enumerate(current_config['books']):
+        current_config["books"][i] = deepmerge.always_merger.merge(base_config, book_config)
+
     if not current_config["enabled"]:
         return
 
@@ -167,7 +173,7 @@ class Book:
         return '\n'.join(latex)
 
     def build(self, build_dir: Path):
-        renderer = LaTeXRenderer(build_dir)
+        renderer = LaTeXRenderer(build_dir, self.config)
 
         build_dir.mkdir(exist_ok=True)
 
@@ -193,7 +199,7 @@ class Book:
         # Remove unused objets (list build/assets directors and remove those that are not in assets_map keys)
         assets_map = renderer.get_assets_map()
         for file in (build_dir / "assets/").iterdir():
-            if file not in assets_map:
+            if file not in assets_map and file.is_file():
                 log.info(f"Removing unused asset {file}")
                 file.unlink()
 
@@ -229,16 +235,14 @@ def on_env(env, config, files):
     books = []
 
     # For each book, identify root section by title
-    for book in current_config["books"]:
+    for book_config in current_config["books"]:
         for item in current_config['nav']:
-            if section := find_item_by_title(item, book['root']):
+            if section := find_item_by_title(item, book_config['root']):
                 break
         else:
-            raise Exception(f"Root section {book['root']} not found")
+            raise ValueError(f"Root section {book_config['root']} not found")
 
-        book['save_html'] = current_config['save_html']
-
-        book = Book(section, book)
+        book = Book(section, book_config)
         books.append(book)
 
     project_dir = Path(config.config_file_path).parent

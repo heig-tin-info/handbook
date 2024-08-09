@@ -76,7 +76,8 @@ def escape_latex_chars(text):
 
 
 class LaTeXRenderer:
-    def __init__(self, output_path=Path('build')):
+    def __init__(self, output_path=Path('build'), config={}):
+        self.config = config
         self.formatter = LaTeXFormatter()
         self.output_path = Path(output_path) / 'assets'
         self.output_path.mkdir(parents=True, exist_ok=True)
@@ -326,7 +327,12 @@ class LaTeXRenderer:
             if match := re.search(r'^%%\s*(.*?)\n', diagram):
                 caption = match.group(1)
 
-            filename = mermaid2pdf(diagram, self.output_path)
+            kwargs = {}
+            if mermaid_config := self.config.get('mermaid_config'):
+                kwargs['config_filename'] = \
+                    self.config['project_dir'] / mermaid_config
+
+            filename = mermaid2pdf(diagram, self.output_path, **kwargs)
             self.assets_map[filename] = {
                 'type': 'mermaid',
                 'inline': True  # Inline content
@@ -335,11 +341,20 @@ class LaTeXRenderer:
                 kwargs.get('tcolorbox', False) else 'figure'
 
             width, height = get_pdf_page_sizes(filename)
+
+            # Naive scaling. Assume PDF page is 210mm x 297mm
+            # With 30 + 40 mm margins, linewidth is 140 mm.
+            if width > 140:
+                #ratio = round(140 / width, 2)
+                ratio = 1.0
+                width = f'{ratio*100}%'
+            else:
+                width = f'{width}mm'
+
             self.apply(el, template,
                        path=filename.name,
                        caption=caption,
-                       width=f"{width}mm",
-                       height=f"{height}mm")
+                       width=width)
         return soup
 
     def render_codeblock(self, soup: Tag, **kwargs):

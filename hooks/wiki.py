@@ -67,7 +67,12 @@ def on_page_markdown(markdown, page, config, files):
                 }
                 log.warning(f"New wiki link discovered: {keyword}, guessing to be {title}")
 
+        if 'title' not in links['wikipedia'][keyword] and 'url' in links['wikipedia'][keyword]:
+            title = links['wikipedia'][keyword]['url'].split('/')[-1]
+            links['wikipedia'][keyword]['title'] = title
+
         if 'tid' not in links['wikipedia'][keyword]:
+            log.info(f"Updating wikipedia summary for keyword: {keyword}")
             summary = get_wiki_summary('fr', links['wikipedia'][keyword]['title'])
             if summary:
                 links['wikipedia'][keyword].update(summary)
@@ -76,6 +81,10 @@ def on_page_markdown(markdown, page, config, files):
                 return link.group(0)
 
         return f"{link.group(1)}{links['wikipedia'][keyword]['url']}{link.group(3)}"
+
+    with open('links.yml', 'w') as f:
+        yaml = YAML()
+        yaml.dump(links, f)
 
     return re.sub(r'(\[[^\]]+\]\()wiki:([^\)]+)(\))', replace_link, markdown)
 

@@ -17,6 +17,8 @@ from PIL import Image
 from math import ceil
 import pillow_avif
 from IPython import embed
+import json
+import yaml
 log = logging.getLogger('mkdocs')
 
 pillow_supported_types = Image.registered_extensions().keys()
@@ -68,7 +70,6 @@ def fetch_image(url: str, output_path: Path) -> Path:
     else:
         raise ValueError(f"Unsupported image type: {extension}, cannot be converted to PDF")
 
-
     return filename
 
 
@@ -83,6 +84,7 @@ def image2pdf(filename, output_path=Path()):
 
     return pdfpath
 
+
 def get_docker_command(wdir: Path) -> list:
     return [
         'docker',
@@ -94,51 +96,67 @@ def get_docker_command(wdir: Path) -> list:
         '-v', f'{wdir.absolute()}:/data',
     ]
 
-def mermaid2pdf(content: str, output_path: Path) -> Path:
+
+def mermaid2pdf(content: Union[str, Path], output_path: Path = Path(), **kwargs) -> Path:
     """Converts Mermaid content to PDF using the
     mermaid-cli docker image."""
 
-    pdfpath = get_filename_from_content(
-        content, output_path).with_suffix('.mermaid.pdf')
+    options = []
 
-    if pdfpath.exists():
-        return pdfpath
+    if 'config_filename' in kwargs:
+        config = Path(kwargs['config_filename']).read_text('utf-8')
+        config_filename = get_filename_from_content(
+            config, output_path).with_suffix('.json')
+        config_filename.write_text(config)
+        options += ['-c', f'{config_filename.name}']
+
+    if isinstance(content, str) and '\n' not in content:
+        log.warning("Assuming content is a filename")
+        content = Path(content)
+
+    if isinstance(content, Path):
+        content = content.read_text('utf-8')
+
+    mmd_filename = get_filename_from_content(
+        content + ''.join(options), output_path).with_suffix('.mmd')
+
+    pdf_filename = mmd_filename.with_suffix('.mmd.pdf')
+
+    if pdf_filename.exists():
+        return pdf_filename
+
+
+
+    # Docker is chrooted, file must be in the working directory
+    mmd_filename.write_text(content)
 
     log.info('Converting mermaid diagram to PDF...')
 
-    # Get temp file
-    with tempfile.NamedTemporaryFile(delete=False, suffix='.mmd') as fp:
-        fp.write(content.encode())
-        fp.close()
+    command = get_docker_command(mmd_filename.parent) + [
+        'minlag/mermaid-cli',
+        '-i', f'{mmd_filename.name}',
+        '-f',
+        '-t', 'neutral',
+        '-o', f'{pdf_filename.name}',
+        *options
+    ]
 
-        input_path = Path(fp.name)
-        output_path = input_path.with_suffix('.pdf')
-        command = get_docker_command(input_path.parent) + [
-            'minlag/mermaid-cli',
-            '-i', f'{input_path.name}',
-            '-f',
-            '-t', 'neutral',
-            '-o', f'{output_path.name}'
-        ]
+    completed_process = subprocess.run(
+        command,
+        check=False,
+        stderr=subprocess.PIPE)
 
-        log.debug("Running %s", ' '.join(str(e) for e in command))
-        completed_process = subprocess.run(
-            command,
-            check=False,
-            stderr=subprocess.PIPE)
+    if completed_process.returncode != 0:
+        log.error('Executing: %s', ' '.join(str(e) for e in command))
+        log.error('Return code %s', completed_process.returncode)
 
-        for line in completed_process.stderr.splitlines():
-            log.error("mermaid: %s", {line.decode()})
+    for line in completed_process.stderr.splitlines():
+        log.error("mermaid: %s", {line.decode()})
 
-        if completed_process.returncode != 0:
-            log.error('Return code %s', completed_process.returncode)
-            return None
+    if completed_process.returncode != 0:
+        return None
 
-        fp.delete = True
-
-        shutil.move(output_path, pdfpath)
-
-    return pdfpath
+    return pdf_filename
 
 
 def up_to_date(source: Path, destination: Path) -> bool:

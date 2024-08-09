@@ -8,7 +8,7 @@ wikipedia:
     title: Markdown
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Markdown_Syntax_in_gedit.png/320px-Markdown_Syntax_in_gedit.png
       width: 320
       height: 180
@@ -23,7 +23,7 @@ wikipedia:
     title: GitHub
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/langfr-320px-GitHub_Invertocat_Logo.svg.png
       width: 320
       height: 320
@@ -40,7 +40,7 @@ wikipedia:
     title: Multics
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Multics-Login.png/320px-Multics-Login.png
       width: 320
       height: 238
@@ -66,7 +66,7 @@ wikipedia:
     title: Dennis Ritchie
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Dennis_Ritchie_2011.jpg/320px-Dennis_Ritchie_2011.jpg
       width: 320
       height: 411
@@ -83,7 +83,7 @@ wikipedia:
     title: Brian Kernighan
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Brian_Kernighan_in_2012_at_Bell_Labs_1.jpg/320px-Brian_Kernighan_in_2012_at_Bell_Labs_1.jpg
       width: 320
       height: 213
@@ -98,7 +98,7 @@ wikipedia:
     title: Bjarne Stroustrup
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Bjarne-stroustrup_%28cropped%29.jpg/320px-Bjarne-stroustrup_%28cropped%29.jpg
       width: 320
       height: 483
@@ -113,7 +113,7 @@ wikipedia:
     title: Fortran
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Fortran_logo.svg/langfr-320px-Fortran_logo.svg.png
       width: 320
       height: 320
@@ -128,24 +128,112 @@ wikipedia:
       LINPACK.
   lisp-lang:
     url: https://fr.wikipedia.org/wiki/Lisp
+    title: Lisp
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lisp_logo.svg/langfr-320px-Lisp_logo.svg.png
+      width: 320
+      height: 320
+    tid: 8bc31d06-e84d-11ee-aee8-3ed6260d9496
+    timestamp: '2024-03-22T13:10:25Z'
+    description: langage de programmation, principalement utilsé en ia, et qui est
+      à la fois impératif et fonctionnel
+    extract: Lisp est la plus ancienne famille de langages de programmation à la fois
+      impératifs et fonctionnels. Développé initialement en tant que modèle pratique
+      pour représenter des programmes, il est devenu, dans les années 1970 et 80,
+      un des langages de choix pour la recherche en intelligence artificielle. Les
+      langages Lisp sont aujourd'hui utilisés dans de nombreux domaines, de la programmation
+      Web à la finance, et dans certains cursus de formation en informatique.
   cobol-lang:
     url: https://fr.wikipedia.org/wiki/Cobol
+    title: Cobol
+    thumbnail:
+      source: https://upload.wikimedia.org/wikipedia/commons/e/eb/COBOL.png
+      width: 263
+      height: 202
+    tid: f476a7d7-315a-11ef-9ba7-4df9f67fdc4d
+    timestamp: '2024-06-23T12:20:19Z'
+    description: langage de programmation
+    extract: "Cobol est un langage de programmation créé en 1959. Son nom est l’acronyme
+      de COmmon Business Oriented Language qui révèle sa vocation originelle : être
+      un langage commun pour la programmation d'applications de gestion. Aujourd'hui,
+      il est surtout utilisé dans les secteurs de la banque, des assurances, des grandes
+      administrations."
   basic-lang:
     url: https://fr.wikipedia.org/wiki/Basic_(langage)
+    title: Basic (langage)
+    thumbnail:
+      source: https://upload.wikimedia.org/wikipedia/commons/8/85/AtariBasicExample.png
+      width: 320
+      height: 192
+    tid: 06967d73-369f-11ef-b947-a7cfa23e8133
+    timestamp: '2024-06-30T05:10:11Z'
+    description: langage de programmation informatique, pour l’amateur ou le débutant
+    extract: Basic ou basic, fait partie d'une famille de langages de programmation
+      de haut niveau ayant pour caractéristique leur facilité d'utilisation. La première
+      version est présentée par John George Kemeny et Thomas Eugene Kurtz au Dartmouth
+      College en 1964.
   pascal-lang:
     url: https://fr.wikipedia.org/wiki/Pascal_(langage)
+    title: Pascal (langage)
+    tid: 4c622662-15e4-11ef-9e19-9cb0819865d0
+    timestamp: '2024-05-19T13:32:55Z'
+    description: langage de programmation informatique
+    extract: Pascal est un langage de programmation impératif conçu pour l'enseignement.
   c-lang:
     url: https://fr.wikipedia.org/wiki/C_(langage)
+    title: C (langage)
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/The_C_Programming_Language_logo.svg/langfr-320px-The_C_Programming_Language_logo.svg.png
+      width: 320
+      height: 334
+    tid: 70a4c096-325c-11ef-b74f-19cc85c80586
+    timestamp: '2024-06-24T19:03:28Z'
+    description: langage de programmation créé en 1972
+    extract: C est un langage de programmation impératif, généraliste et de bas niveau.
+      Inventé au début des années 1970 pour réécrire Unix, le langage C est encore
+      largement utilisé. De nombreux langages plus modernes comme C++, C#, Java et
+      PHP ou JavaScript ont repris une syntaxe similaire au C et reprennent en partie
+      sa logique. C offre au développeur une marge de contrôle importante sur la machine
+      et est de ce fait utilisé pour réaliser les « fondations » de ces langages plus
+      modernes.
   cpp-lang:
     url: https://fr.wikipedia.org/wiki/C%2B%2B
+    title: C++
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/langfr-320px-ISO_C%2B%2B_Logo.svg.png
+      width: 320
+      height: 360
+    tid: d425363f-5321-11ef-bfb3-206508ec0e5e
+    timestamp: '2024-08-05T11:57:03Z'
+    description: langage de programmation
+    extract: C++ est un langage de programmation compilé permettant la programmation
+      sous de multiples paradigmes, dont la programmation procédurale, la programmation
+      orientée objet et la programmation générique. Ses bonnes performances, et sa
+      compatibilité avec le langage C en font un des langages de programmation les
+      plus utilisés dans les applications où la performance est critique.
   perl-lang:
     url: https://fr.wikipedia.org/wiki/Perl_(langage)
+    title: Perl (langage)
+    thumbnail:
+      source: https://upload.wikimedia.org/wikipedia/fr/e/e0/Programming-republic-of-perl.png
+      width: 97
+      height: 97
+    tid: f93906f8-048b-11ef-8274-5a641c67d82e
+    timestamp: '2024-04-27T11:47:50Z'
+    description: langage de programmation
+    extract: Perl est un langage de programmation créé par Larry Wall en 1987 pour
+      traiter facilement de l'information de type textuel. Ce langage, interprété,
+      s'inspire des structures de contrôle et d'impression du langage C, mais aussi
+      de langages de scripts sed, awk et shell (sh).
   python-lang:
     url: https://fr.wikipedia.org/wiki/Python_(langage)
     title: Python (langage)
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CPT-TheoryOfComp-Binary-Search-Python.png/320px-CPT-TheoryOfComp-Binary-Search-Python.png
       width: 320
       height: 329
@@ -162,7 +250,7 @@ wikipedia:
     title: Ruby
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Ruby_logo.svg/langfr-320px-Ruby_logo.svg.png
       width: 320
       height: 320
@@ -174,12 +262,24 @@ wikipedia:
       en 2012 par l'Organisation internationale de normalisation.
   java-lang:
     url: https://fr.wikipedia.org/wiki/Java_(langage)
+    title: Java (langage)
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Metodo_Astratto.png/320px-Metodo_Astratto.png
+      width: 320
+      height: 155
+    tid: fd29e78d-541b-11ef-8555-e407dac394cf
+    timestamp: '2024-08-06T17:47:46Z'
+    description: langage de programmation informatique orienté objet
+    extract: Java est un langage de programmation de haut niveau orienté objet créé
+      par James Gosling et Patrick Naughton, employés de Sun Microsystems, avec le
+      soutien de Bill Joy, présenté officiellement le 23 mai 1995 au SunWorld.
   php-lang:
     url: https://fr.wikipedia.org/wiki/PHP
     title: PHP
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/langfr-320px-PHP-logo.svg.png
       width: 320
       height: 173
@@ -195,7 +295,7 @@ wikipedia:
     title: C Sharp
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/C_Sharp_Logo_2023.svg/langfr-320px-C_Sharp_Logo_2023.svg.png
       width: 320
       height: 320
@@ -207,12 +307,24 @@ wikipedia:
       au même titre que d’autres langages liés à cette plateforme.
   go-lang:
     url: https://fr.wikipedia.org/wiki/Go_(langage)
+    title: Go (langage)
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Go_Logo_Aqua.svg/langfr-320px-Go_Logo_Aqua.svg.png
+      width: 320
+      height: 119
+    tid: cf872f61-1d16-11ef-b8a8-cedfa480eeac
+    timestamp: '2024-05-28T17:22:08Z'
+    description: langage de programmation
+    extract: Go est un langage de programmation compilé et concurrent inspiré de C
+      et Pascal. Il a été développé par Google à partir d’un concept initial de Robert
+      Griesemer (en), Rob Pike et Ken Thompson.
   rust-lang:
     url: https://fr.wikipedia.org/wiki/Rust_(langage)
     title: Rust (langage)
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/langfr-320px-Rust_programming_language_black_logo.svg.png
       width: 320
       height: 320
@@ -229,6 +341,12 @@ wikipedia:
       programme à la compilation.
   swift-lang:
     url: https://fr.wikipedia.org/wiki/Swift_(langage_d%27Apple)
+    title: Swift (langage d'Apple)
+    tid: 297311be-3d2d-11ef-a554-f4944a8c6c73
+    timestamp: '2024-07-08T13:22:45Z'
+    description: langage de programmation
+    extract: Swift est un langage de programmation objet compilé, multi-paradigmes,
+      qui se veut simple, performant et sûr. Il est développé en open source.
   zig-lang:
     url: https://fr.wikipedia.org/wiki/Zig_(langage)
     title: Zig (langage)
@@ -247,7 +365,7 @@ wikipedia:
     title: Base64
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Base64-da.png/320px-Base64-da.png
       width: 320
       height: 127
@@ -319,7 +437,7 @@ wikipedia:
     title: Multitasking
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Multitasking_%281272935961%29.jpg/320px-Multitasking_%281272935961%29.jpg
       width: 320
       height: 480
@@ -334,12 +452,25 @@ wikipedia:
       de communication de manière simultanée.
   ladder-language:
     url: https://fr.wikipedia.org/wiki/Langage_Ladder
+    title: Langage Ladder
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Ladder_diagram.png/320px-Ladder_diagram.png
+      width: 320
+      height: 355
+    tid: 14a5f9e2-c410-11ee-859f-b10d9db55fcf
+    timestamp: '2024-02-05T10:19:44Z'
+    description: langage de programmation
+    extract: Ladder Diagram (LD) ou Langage Ladder ou schéma à contacts est un langage
+      graphique très populaire auprès des automaticiens pour programmer les automates
+      programmables industriels. Il ressemble aux schémas électriques, et est facilement
+      compréhensible.
   iec-61131-3:
     url: https://fr.wikipedia.org/wiki/CEI_61131-3
     title: CEI 61131-3
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ladder_2.PNG/320px-Ladder_2.PNG
       width: 320
       height: 140
@@ -368,7 +499,7 @@ wikipedia:
     title: Arborescence
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Phylogenic_tree.png/320px-Phylogenic_tree.png
       width: 320
       height: 243
@@ -383,7 +514,7 @@ wikipedia:
     title: OpenVMS
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/OpenVMSlogin.png/320px-OpenVMSlogin.png
       width: 320
       height: 197
@@ -398,7 +529,7 @@ wikipedia:
     title: BIOS (informatique)
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Award_BIOS_setup_utility.png/320px-Award_BIOS_setup_utility.png
       width: 320
       height: 200
@@ -425,7 +556,7 @@ wikipedia:
     title: Executable and Linkable Format
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Elf-layout--en.svg/langfr-320px-Elf-layout--en.svg.png
       width: 320
       height: 355
@@ -452,7 +583,7 @@ wikipedia:
     title: ROT13
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/ROT13.png/320px-ROT13.png
       width: 320
       height: 201
@@ -478,7 +609,7 @@ wikipedia:
     title: Doxygen
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Doxygen-1.8.1.png/320px-Doxygen-1.8.1.png
       width: 320
       height: 276
@@ -494,7 +625,7 @@ wikipedia:
     title: Algorithme
     validated: false
     thumbnail:
-      source:
+      source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Diagram_for_the_computation_of_Bernoulli_numbers.jpg/320px-Diagram_for_the_computation_of_Bernoulli_numbers.jpg
       width: 320
       height: 224

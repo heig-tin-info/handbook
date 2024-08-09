@@ -208,6 +208,7 @@ extra:
   latex:
     enabled: true
     build_dir: build
+    mermaid_config: tex/mermaid-config.json
     books:
       - root: Cours C
         title: L'informatique pour l'ingénieur
