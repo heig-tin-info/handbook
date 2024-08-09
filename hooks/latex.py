@@ -26,17 +26,17 @@ def to_kebab_case(name):
     name = re.sub(r"[\s']+", '-', name)
     return name.lower()
 
-def excepthook(type, value, traceback):
-    ipdb.post_mortem(traceback)
+# def excepthook(type, value, traceback):
+#     ipdb.post_mortem(traceback)
 
 
-sys.excepthook = excepthook
+# sys.excepthook = excepthook
 
 log = logging.getLogger("mkdocs")
 
 saved_nav = []
 latex_dir = Path("build")
-enabled = False
+is_serve = False
 renderer = None
 
 current_config = None
@@ -66,8 +66,8 @@ def build_nav(section: Section, node):
 
 
 def on_startup(command, dirty):
-    global enabled
-    enabled = command != "serve"
+    global is_serve
+    is_serve = command == "serve"
 
 
 
@@ -108,8 +108,10 @@ def on_nav(nav, config, files):
     for i, book_config in enumerate(current_config['books']):
         current_config["books"][i] = deepmerge.always_merger.merge(base_config, book_config)
 
-    if not current_config["enabled"]:
+    if is_serve:
+        current_config["enabled"] = False
         return
+
 
     # Need to postpone the nav processing until pages are processed
     # Because we need the meta and the title.
