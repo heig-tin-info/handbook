@@ -19,6 +19,7 @@
 \usepackage{booktabs}
 \usepackage[many,minted]{tcolorbox}% version 3.03 or better
 \usepackage{minted}
+\usepackage{csquotes}
 \usepackage{capt-of}
 \usepackage[acronym]{glossaries}
 \usepackage{imakeidx}
@@ -85,6 +86,9 @@
 
 \newfontfamily\creativecommonfont{Creative Commons}
 \DeclareTextFontCommand\creativecommon{\creativecommonfont}
+
+% Make quotations italic and smaller
+\AtBeginEnvironment{displayquote}{\small\itshape}
 
 
 
@@ -190,114 +194,143 @@
 \definecolor{calloutQuoteFrame}{HTML}{9E9E9E}
 
 \definecolor{calloutExerciseBg}{HTML}{F5F5F5}
-\definecolor{calloutExerciseFrame}{HTML}{9E9E9E}
+\definecolor{calloutExerciseFrame}{HTML}{202020}
 
 \newcounter{exercisecounter}
 \renewcommand{\theexercisecounter}{\arabic{exercisecounter}}
 
-% Définir les styles pour différents types de callout
 \tcbset{
     callout note/.style={
         colbacktitle=calloutNoteBg,
         colframe=calloutNoteFrame,
-        title={\textcolor{calloutNoteFrame}{\faBookmark}\kern0.5em},
+        coltitle=calloutNoteFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutNoteFrame},
+        title={\makebox[1.3em][c]{\faBookmark}},
     },
     callout abstract/.style={
         colbacktitle=calloutAbstractBg,
         colframe=calloutAbstractFrame,
-        title={\textcolor{calloutAbstractFrame}{\faLaptopCode}\kern0.5em},
+        coltitle=calloutAbstractFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutAbstractFrame},
+        title={\makebox[1.3em][c]{\faLaptopCode}},
     },
     callout info/.style={
         colbacktitle=calloutInfoBg,
         colframe=calloutInfoFrame,
-        title={\textcolor{calloutInfoFrame}{\faBook}\kern0.5em},
+        coltitle=calloutInfoFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutInfoFrame},
+        title={\makebox[1.3em][c]{\faComment}},
     },
     callout tip/.style={
         colbacktitle=calloutTipBg,
         colframe=calloutTipFrame,
-        title={\textcolor{calloutTipFrame}{\faLightbulb}\kern0.5em},
+        coltitle=calloutTipFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutTipFrame},
+        title={\makebox[1.3em][c]{\faLightbulb}},
     },
     callout success/.style={
         colbacktitle=calloutSuccessBg,
         colframe=calloutSuccessFrame,
-        title={\textcolor{calloutSuccessFrame}{\faCheck}\kern0.5em},
+        coltitle=calloutSuccessFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutSuccessFrame},
+        title={\makebox[1.3em][c]{\faCheck}},
     },
     callout warning/.style={
         colbacktitle=calloutWarningBg,
         colframe=calloutWarningFrame,
-        title={\textcolor{calloutWarningFrame}{\faExclamationTriangle}\kern0.5em},
+        coltitle=calloutWarningFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutWarningFrame},
+        title={\makebox[1.3em][c]{\faBolt}},
     },
     callout failure/.style={
         colbacktitle=calloutFailureBg,
         colframe=calloutFailureFrame,
-        title={\textcolor{calloutFailureFrame}{\faExclamationTriangle}\kern0.5em},
+        coltitle=calloutFailureFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutFailureFrame},
+        title={\makebox[1.3em][c]{\faExclamationTriangle}},
     },
     callout important/.style={
         colbacktitle=calloutDangerBg,
         colframe=calloutDangerFrame,
-        title={\textcolor{calloutDangerFrame}{\faExclamationTriangle}\kern0.5em },
+        coltitle=calloutDangerFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutDangerFrame},
+        title={\makebox[1.3em][c]{\faExclamationTriangle}},
     },
     callout hint/.style={
         colbacktitle=calloutTipBg,
         colframe=calloutTipFrame,
-        title={\textcolor{calloutTipFrame}{\faLightbulb}\kern0.5em},
+        coltitle=calloutTipFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutTipFrame},
+        title={\makebox[1.3em][c]{\faLightbulb}},
     },
     callout danger/.style={
         colbacktitle=calloutDangerBg,
         colframe=calloutDangerFrame,
-        title={\textcolor{calloutDangerFrame}{\faExclamationTriangle}\kern0.5em},
+        coltitle=calloutDangerFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutDangerFrame},
+        title={\makebox[1.3em][c]{\faExclamationTriangle}},
     },
     callout bug/.style={
         colbacktitle=calloutBugBg,
         colframe=calloutBugFrame,
-        title={\textcolor{calloutBugFrame}{\faBug}\kern0.5em},
+        coltitle=calloutBugFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutBugFrame},
+        title={\makebox[1.3em][c]{\faBomb}},
     },
     callout example/.style={
         colbacktitle=calloutExampleBg,
         colframe=calloutExampleFrame,
-        title={\textcolor{calloutExampleFrame}{\faChalkboardTeacher}\kern0.5em },
+        coltitle=calloutExampleFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutExampleFrame},
+        title={\makebox[1.3em][c]{\faFlask}},
     },
     callout quote/.style={
         colbacktitle=calloutQuoteBg,
         colframe=calloutQuoteFrame,
-        title={\textcolor{calloutQuoteFrame}{\faQuestionCircle}\kern0.5em },
+        coltitle=calloutQuoteFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutQuoteFrame},
+        title={\makebox[1.3em][c]{\faQuestionCircle}},
     },
     callout question/.style={
         colbacktitle=calloutQuestionBg,
         colframe=calloutQuestionFrame,
-        title={\textcolor{calloutQuestionFrame}{\faQuestionCircle}\kern0.5em },
+        coltitle=calloutQuestionFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutQuestionFrame},
+        title={\makebox[1.3em][c]{\faQuestionCircle}},
     },
     callout exercise/.style={
         colbacktitle=calloutExerciseBg,
         colframe=calloutExerciseFrame,
-        title={\textcolor{calloutExerciseFrame}{\faChess}
+        coltitle=calloutExerciseFrame!80!black,
+        borderline west={0.5mm}{0mm}{calloutExerciseFrame},
+        title={\faChess
             \refstepcounter{exercisecounter}
             \textbf{Exercice \theexercisecounter:}
         }
     },
     callout solution/.style={
         colbacktitle=gray!40!white,
-        title={\textcolor{black}{\faComment}\kern0.5em},
+        title={\textcolor{black}{\makebox[1.3em][l]{\faComment}}},
     },
     callout default/.style={
         colbacktitle=gray!40!white,
-        title={\textcolor{black}{\faComment}\kern0.5em},
+
+        title={\textcolor{black}{\makebox[1.3em][l]{\faComment}}},
     }
 }
 
 \newtcolorbox{callout}[2][]{%
     breakable,
-    boxsep=1.5mm,
-    arc=0.5mm,
-    outer arc=0.5mm,
-    colback=white,
-    colframe=black,
-    boxrule=0.7pt,
+    enhanced,
+    arc=0mm,
+    boxrule=0mm,
     titlerule=0mm,
     lefttitle=1mm,
     leftupper=1mm,
-    coltitle=black,
+    colback=white,
     parbox=false, % Allow paragraph breaks inside the box
+    frame hidden,
+    borderline west={0.5mm}{0mm}{black!70},
     #1,
     after title={~#2}
 }
@@ -376,15 +409,18 @@
   breakable,
   listing only,
   enhanced,
-  colframe=gray!10!white,
-  colback=gray!10!white,
-  boxrule=0.5pt,
-  arc=0.7mm,
-  toptitle=0.25em,
-  bottomtitle=0.2em,
-  lefttitle=0.5em,
-  outer arc=0.7mm,
+  colback=white,
+  pad at break*=1mm,
+  toptitle=0.15em,
+  bottomtitle=0.1em,
+  boxrule=0mm,
+  % lefttitle=0.5em,
+  frame hidden,
+  %borderline west={0.25mm}{0mm}{black!70},
+  % outer arc=0.7mm,
   minted language=#2,
+  top=1mm,
+  bottom=1mm,
   % listing options={
   %   language=#2,
   %   basicstyle=\ttfamily\footnotesize,
@@ -566,6 +602,10 @@
 \pretocmd{\frontmatter}{%
   \pagestyle{plain}%
   \changelocaltocdepth{1}%
+}{}{}
+
+\pretocmd{\mainmatter}{%
+  \pagestyle{fancy}%
 }{}{}
 
 \pretocmd{\mainmatter}{%

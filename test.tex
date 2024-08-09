@@ -120,16 +120,16 @@
   \pagestyle{fancy}
   \fancyhf{}
 
-  \fancyhead[LE]{\leftmark}
-  \fancyfoot[LE,RO]{\thepage}
+  \fancyhead[LE]{}
+  \fancyfoot[LE,RO]{}
 
-  \fancyhead[RO]{\rightmark}
-  \fancyfoot[LE,RO]{\thepage}
+  \fancyhead[RO]{}
+  \fancyfoot[LE,RO]{}
 
   % plain : chapters
   \fancypagestyle{plain}{%
     \fancyhf{}
-    \fancyfoot[LE,RO]{\thepage}
+    \makebox[1.3em][l]{\fancyfoot[LE,RO]{}}
   }
 
   \fancypagestyle{part}{%
@@ -190,7 +190,7 @@
 \definecolor{calloutQuoteFrame}{HTML}{9E9E9E}
 
 \definecolor{calloutExerciseBg}{HTML}{F5F5F5}
-\definecolor{calloutExerciseFrame}{HTML}{9E9E9E}
+\definecolor{calloutExerciseFrame}{HTML}{202020}
 
 \newcounter{exercisecounter}
 \renewcommand{\theexercisecounter}{\arabic{exercisecounter}}
@@ -202,98 +202,98 @@
         colframe=calloutNoteFrame,
         coltitle=calloutNoteFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutNoteFrame},
-        title={\faBookmark\kern0.5em},
+        title={\makebox[1.3em][c]{\faBookmark}},
     },
     callout abstract/.style={
         colbacktitle=calloutAbstractBg,
         colframe=calloutAbstractFrame,
         coltitle=calloutAbstractFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutAbstractFrame},
-        title={\faLaptopCode\kern0.5em},
+        title={\makebox[1.3em][c]{\faLaptopCode}},
     },
     callout info/.style={
         colbacktitle=calloutInfoBg,
         colframe=calloutInfoFrame,
         coltitle=calloutInfoFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutInfoFrame},
-        title={\faComment\kern0.5em},
+        title={\makebox[1.3em][c]{\faComment}},
     },
     callout tip/.style={
         colbacktitle=calloutTipBg,
         colframe=calloutTipFrame,
         coltitle=calloutTipFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutTipFrame},
-        title={\faLightbulb\kern0.5em},
+        title={\makebox[1.3em][c]{\faLightbulb}},
     },
     callout success/.style={
         colbacktitle=calloutSuccessBg,
         colframe=calloutSuccessFrame,
         coltitle=calloutSuccessFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutSuccessFrame},
-        title={\faCheck\kern0.5em},
+        title={\makebox[1.3em][c]{\faCheck}},
     },
     callout warning/.style={
         colbacktitle=calloutWarningBg,
         colframe=calloutWarningFrame,
         coltitle=calloutWarningFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutWarningFrame},
-        title={\faBolt\kern0.5em},
+        title={\makebox[1.3em][c]{\faBolt}},
     },
     callout failure/.style={
         colbacktitle=calloutFailureBg,
         colframe=calloutFailureFrame,
         coltitle=calloutFailureFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutFailureFrame},
-        title={\faExclamationTriangle\kern0.5em},
+        title={\makebox[1.3em][c]{\faExclamationTriangle}},
     },
     callout important/.style={
         colbacktitle=calloutDangerBg,
         colframe=calloutDangerFrame,
         coltitle=calloutDangerFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutDangerFrame},
-        title={\faExclamationTriangle\kern0.5em },
+        title={\makebox[1.3em][c]{\faExclamationTriangle}},
     },
     callout hint/.style={
         colbacktitle=calloutTipBg,
         colframe=calloutTipFrame,
         coltitle=calloutTipFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutTipFrame},
-        title={\faLightbulb\kern0.5em},
+        title={\makebox[1.3em][c]{\faLightbulb}},
     },
     callout danger/.style={
         colbacktitle=calloutDangerBg,
         colframe=calloutDangerFrame,
         coltitle=calloutDangerFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutDangerFrame},
-        title={\faExclamationTriangle\kern0.5em},
+        title={\makebox[1.3em][c]{\faExclamationTriangle}},
     },
     callout bug/.style={
         colbacktitle=calloutBugBg,
         colframe=calloutBugFrame,
         coltitle=calloutBugFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutBugFrame},
-        title={\faBomb\kern0.5em},
+        title={\makebox[1.3em][c]{\faBomb}},
     },
     callout example/.style={
         colbacktitle=calloutExampleBg,
         colframe=calloutExampleFrame,
         coltitle=calloutExampleFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutExampleFrame},
-        title={\faFlask\kern0.5em },
+        title={\makebox[1.3em][c]{\faFlask}},
     },
     callout quote/.style={
         colbacktitle=calloutQuoteBg,
         colframe=calloutQuoteFrame,
         coltitle=calloutQuoteFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutQuoteFrame},
-        title={\faQuestionCircle\kern0.5em },
+        title={\makebox[1.3em][c]{\faQuestionCircle}},
     },
     callout question/.style={
         colbacktitle=calloutQuestionBg,
         colframe=calloutQuestionFrame,
         coltitle=calloutQuestionFrame!80!black,
         borderline west={0.5mm}{0mm}{calloutQuestionFrame},
-        title={\faQuestionCircle\kern0.5em },
+        title={\makebox[1.3em][c]{\faQuestionCircle}},
     },
     callout exercise/.style={
         colbacktitle=calloutExerciseBg,
@@ -307,29 +307,24 @@
     },
     callout solution/.style={
         colbacktitle=gray!40!white,
-        title={\textcolor{black}{\faComment}\kern0.5em},
+        title={\textcolor{black}{\makebox[1.3em][l]{\faComment}}},
     },
     callout default/.style={
         colbacktitle=gray!40!white,
 
-        title={\textcolor{black}{\faComment}\kern0.5em},
+        title={\textcolor{black}{\makebox[1.3em][l]{\faComment}}},
     }
 }
 
 \newtcolorbox{callout}[2][]{%
     breakable,
     enhanced,
-    boxsep=1.5mm,
     arc=0mm,
-    % outer arc=0.5mm,
-    % colback=white,
-    % colframe=black,
-    boxrule=0.7pt,
+    boxrule=0mm,
     titlerule=0mm,
     lefttitle=1mm,
-    colback=white,
     leftupper=1mm,
-    coltitle=black,
+    colback=white,
     parbox=false, % Allow paragraph breaks inside the box
     frame hidden,
     borderline west={0.5mm}{0mm}{black!70},
@@ -640,7 +635,13 @@ Q q_add_sat(Q a, Q b) {
 
 Des encadrés sont utilisés pour mettre en avant des informations complémentaires ou des astuces. Ils sont également utilisés pour donner des informations sur des concepts avancés ou des détails techniques.
 
+\begin{callout}[callout question]{Question}
 
+
+  Fait historique où information complémentaire pour ceux qui voudraient en savoir plus.
+
+
+  \end{callout}
 \begin{callout}[callout info]{Info}
 
 

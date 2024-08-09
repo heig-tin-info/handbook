@@ -36,7 +36,7 @@ size_t length = sizeof(array) / sizeof(array[0]);
     }
     ```
 
-Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est-à-dire la position mémoire à laquelle se trouvent les éléments du tableau. Nous verrons ceci plus en détail à la section {numref}`pointers`. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie, mais seule une **référence** sur ce tableau est passée.
+Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est-à-dire la position mémoire à laquelle se trouvent les éléments du tableau. Nous verrons ceci plus en détail à la section sur les [pointeurs][pointers]. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie, mais seule une **référence** sur ce tableau est passée.
 
 La preuve étant que le contenu du tableau peut être modifié à distance :
 
@@ -335,7 +335,7 @@ Enfin, un sucre syntaxique `{0}` permet d'initialiser tout un tableau à zéro. 
 int32_t sequence[6] = {0};
 ```
 
-Cette écriture est nécessaire pour les variables locales, car, nous verrons plus loin (c.f. {numref}`memory-management`) les variables globales sont placées dans le segment mémoire `.bss` et sont initialisées à zéro au démarrage du programme. Toute variable globale est donc initialisée à zéro par défaut.
+Cette écriture est nécessaire pour les variables locales, car, nous verrons plus loin les variables globales sont placées dans le segment mémoire `.bss` et sont initialisées à zéro au démarrage du programme. Toute variable globale est donc initialisée à zéro par défaut.
 
 ### Initialisation à une valeur particulière
 
@@ -991,7 +991,7 @@ Notons que les champs de bits, ainsi que les structures seront déclarés diffé
 
 ## Unions
 
-Une [union](https://en.wikipedia.org/wiki/Union_type) est une variable qui peut avoir plusieurs représentations d'un même contenu mémoire. Rappelez-vous, au {numref}`storage` nous nous demandions quelle était l'interprétation d'un contenu mémoire donné. Il est possible en C d'avoir toutes les interprétations à la fois :
+Une [union](https://en.wikipedia.org/wiki/Union_type) est une variable qui peut avoir plusieurs représentations d'un même contenu mémoire. Rappelez-vous, nous nous demandions quelle était l'interprétation d'un contenu mémoire donné. Il est possible en C d'avoir toutes les interprétations à la fois :
 
 ```c
 #include <stdint.h>

@@ -96,15 +96,15 @@ Il est possible d'ajouter autant de blocs que vous voulez, mais il est recommand
 
 ### Point de séquence
 
-    On appelle un point de séquence ou [sequence point](https://en.wikipedia.org/wiki/Sequence_point) décrite dans l'annexe du standard C que certains ordres d'évaluation sont garantis.
+On appelle un point de séquence ou [sequence point](https://en.wikipedia.org/wiki/Sequence_point) décrite dans l'annexe du standard C que certains ordres d'évaluation sont garantis.
 
-    Les règles sont les suivantes :
+Les règles sont les suivantes :
 
-    1. l'appel d'une fonction est effectué après que tous ses arguments ont été évalués;
-    2. la fin du premier opérande dans les opérations `&&`, `||`, `?` et `,` qui permet de court-circuiter le calcul dans `a() && b()`. La condition `b()` n'est jamais évaluée si la condition `a()` est valide;
-    3. avant et après des actions associées à un formatage d'entrée sortie.
+1. l'appel d'une fonction est effectué après que tous ses arguments ont été évalués;
+2. la fin du premier opérande dans les opérations `&&`, `||`, `?` et `,` qui permet de court-circuiter le calcul dans `a() && b()`. La condition `b()` n'est jamais évaluée si la condition `a()` est valide;
+3. avant et après des actions associées à un formatage d'entrée sortie.
 
-    L'opérateur d'assignation `=` n'est donc pas un point de séquence et l'exécution du code `(a = 2) + a + (a = 2)` est par conséquent indéterminée.
+L'opérateur d'assignation `=` n'est donc pas un point de séquence et l'exécution du code `(a = 2) + a + (a = 2)` est par conséquent indéterminée.
 
 [](){#conditional-jumps}
 
@@ -438,8 +438,8 @@ switch (coffee)
 
 Notons quelques observations :
 
-- La structure `switch` bien qu'elle puisse toujours être remplacée par une structure `if..else if` est généralement plus élégante et plus lisible. Elle évite par ailleurs de répéter la condition plusieurs fois (c.f. {numref}`DRY`).
-- Le compilateur est mieux à même d'optimiser un choix multiple lorsque les valeurs scalaires de la condition triées se suivent directement p. ex`{12, 13, 14, 15}`.
+- La structure `switch` bien qu'elle puisse toujours être remplacée par une structure `if..else if` est généralement plus élégante et plus lisible. Elle évite par ailleurs de répéter la condition plusieurs fois (c.f. [DRY][dry]).
+- Le compilateur est mieux à même d'optimiser un choix multiple lorsque les valeurs scalaires de la condition triées se suivent directement p. ex. `{12, 13, 14, 15}`.
 - L'ordre des cas d'un `switch` n'a pas d'importance, le compilateur peut même choisir de réordonner les cas pour optimiser l'exécution.
 
 ## Les boucles
@@ -630,7 +630,7 @@ _Bool true = 0;
 while (true) { /* ... */ }
 ```
 
-Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c. f. {numref}`signals`). On rajoute alors une condition de sortie à la boucle principale :
+Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c. f. [signals][signals]). On rajoute alors une condition de sortie à la boucle principale :
 
 ```c
 #include <stdlib.h>
@@ -666,7 +666,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 - `break` interrompt la structure de contrôle en cours. Elle est valide pour :
 
   - `while`
-  - `do`...\`\`while\`\`
+  - `do`...`while`
   - `switch`
 
 - `continue`: saute un tour d'exécution dans une boucle
@@ -741,7 +741,7 @@ while (true)
 
 ### `break`
 
-Le mot-clé `break` peut être utilisé dans une boucle ou dans un `switch`. Il permet d'interrompre l'exécution de la boucle ou de la structure `switch` la plus proche. Nous avions déjà évoqué l'utilisation dans un `switch` (c.f. {numref}`switch`).
+Le mot-clé `break` peut être utilisé dans une boucle ou dans un `switch`. Il permet d'interrompre l'exécution de la boucle ou de la structure `switch` la plus proche. Nous avions déjà évoqué l'utilisation dans un `switch` (c.f. [switch][switch]).
 
 ### `return`
 

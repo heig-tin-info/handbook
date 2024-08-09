@@ -36,10 +36,8 @@ int main(int)
 {
     {
         int i = 12;
-
         i += 2; // Valide
     }
-
     i++; // Invalide, `i` n'est plus visible.
 }
 ```

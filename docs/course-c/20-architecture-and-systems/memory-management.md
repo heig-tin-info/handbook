@@ -270,7 +270,7 @@ Jadis, le mot clé `register` était utilisé pour forcer le compilateur à plac
 
 ## Fragmentation mémoire
 
-On peut observer à la figure {numref}`fig-allocation` qu'après un appel successif de `malloc` et de `free` des espaces mémoire non utilisés peuvent apparaître entre des régions utilisées. Ces *trous* sont appelés fragmentation mémoire.
+On peut observer à la figure suivante montre qu'après un appel successif de `malloc` et de `free` des espaces mémoire non utilisés peuvent apparaître entre des régions utilisées. Ces *trous* sont appelés fragmentation mémoire.
 
 Dans la figure suivante, on suit l'évolution de l'utilisation du *heap* au cours de la vie d'un programme. Au début ➀, la mémoire est libre. Tant que de la mémoire est allouée sans libération (`free`), aucun problème de fragmentation ➁. Néanmoins, après un certain temps la mémoire devient fragmentée ➂ ; il reste dans cet exemple 2 emplacements de taille 2, un emplacement de taille 5 et un emplacement de taille 8. Il est donc impossible de réserver un espace de taille 9 malgré que l'espace cumulé libre est suffisant.
 

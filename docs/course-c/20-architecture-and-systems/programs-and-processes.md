@@ -97,7 +97,7 @@ $ hexdump -s0x680 -n256 a.out
 0000770 ff0c ffff 15ff 0866 0020 0ff4 441f 0000
 ```
 
-Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs `41 55` puis `41 54` puis `48 8d 35 59` se retrouvent directement dans le *dump*: `5541 5441 8d48`. Si les valeurs sont interverties, c'est parce qu'un PC est *little-endian* (c.f. {numref}`endianess`), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.
+Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs `41 55` puis `41 54` puis `48 8d 35 59` se retrouvent directement dans le *dump*: `5541 5441 8d48`. Si les valeurs sont interverties, c'est parce qu'un PC est *little-endian* (c.f. [endianess][endianess]), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.
 
 Sous Windows, l'extension des fichiers détermine leur type. Un fichier avec l'extension `.jpg` sera un fichier image du [Join Photographic Experts Group](https://fr.wikipedia.org/wiki/JPEG) et exécuter ce fichier correspond à l'ouvrir en utilisant l'application par défaut pour visualiser les images de ce type. Un fichier avec l'extension `.exe` est un exécutable binaire, et il sera exécuté en tant que programme par le système d'exploitation.
 

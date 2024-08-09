@@ -113,6 +113,7 @@ class LaTeXRenderer:
             self.render_list,
             self.render_description_list,
 
+            self.render_quote,
             self.render_admonition,
             self.render_mermaid,
             self.render_figure,
@@ -405,6 +406,13 @@ class LaTeXRenderer:
                        language=language, lineno=lineno, filename=filename,
                        highlight=highlight,
                        baselinestretch=baselinestretch)
+        return soup
+
+    def render_quote(self, soup: Tag, **kwargs):
+        for el in soup.find_all(['blockquote']):
+            self.render_inlines(el)
+            text = self.get_safe_text(el)
+            self.apply(el, 'blockquote', text)
         return soup
 
     def render_heading(self, soup: Tag, **kwargs):

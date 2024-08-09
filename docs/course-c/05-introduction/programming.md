@@ -64,9 +64,9 @@ Un autre algorithme célèbre est l'algorithme de tri de [Bulles](https://fr.wik
 
 Dans la vie de tous les jours, imaginez que vous ayez un jeu de 54 cartes à jouer mélangé et vous souhaitez trier le jeu par valeurs (As, 2, 3, ..., 10, Valet, Dame, Roi). Vous commencez par déposer les cartes les unes à côté des autres et pour trier le jeu vous vous allez intervertir deux cartes jusqu'à ce que le jeu soit trié.
 
-Voici un diagramme de flux de l'algorithme de tri de bulles :
+Voici un diagramme de flux de l'algorithme de tri à bulles :
 
-![Algorithme de tri de bulles.]({assets}/images/bubblesort.drawio)
+![Algorithme de tri à bulles.]({assets}/images/bubblesort.drawio)
 
 Soit un tableau de $N = 5$ valeurs à trier :
 
@@ -219,11 +219,9 @@ Notons qu'à l'instar de notre diagramme de flux, un calculateur dispose aussi d
 
 ## Ordinateur
 
-Le terme ordinateur est très récent, il daterait de 1955, créé par [[Jacques Perret]] à la demande d'IBM France (c.f [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)). [[|ordinateur]] Voici la lettre de Jacques Perret à IBM France :
+Le terme ordinateur est très récent, il daterait de 1955, créé par [[Jacques Perret]] à la demande d'IBM France (*c.f.* [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)). [[|ordinateur]] Voici la lettre de Jacques Perret à IBM France :
 
->« Le 16 IV 1955
-
->Cher Monsieur,
+>« Le 16 IV 1955, Cher Monsieur,
 
 >Que diriez-vous d’**ordinateur**? C’est un mot correctement formé, qui se trouve même dans le **Littré** comme adjectif désignant **Dieu** qui met de l’ordre dans le monde. Un mot de ce genre a l’avantage de donner aisément un verbe **ordiner**, un nom d’action **ordination**. L’inconvénient est que ordination désigne une cérémonie religieuse ; mais les deux champs de signification (religion et comptabilité) sont si éloignés et la cérémonie d’ordination connue, je crois, de si peu de personnes que l’inconvénient est peut-être mineur. D’ailleurs votre machine serait ordinateur (et non-ordination) et ce mot est tout à fait sorti de l’usage théologique. Systémateur serait un néologisme, mais qui ne me paraît pas offensant ; il permet systématisé ; — mais système ne me semble guère utilisable — Combinateur a l’inconvénient du sens péjoratif de combine ; combiner est usuel donc peu capable de devenir technique ; combination ne me paraît guère viable à cause de la proximité de combinaison. Mais les Allemands ont bien leurs combinats (sorte de trusts, je crois), si bien que le mot aurait peut-être des possibilités autres que celles qu’évoque combine.
 
@@ -233,9 +231,7 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par [[Jacques
 
 >Il me semble que je pencherais pour **ordonnatrice électronique**. Je souhaite que ces suggestions stimulent, orientent vos propres facultés d’invention. N’hésitez pas à me donner un coup de téléphone si vous avez une idée qui vous paraisse requérir l’avis d’un philologue.
 
->Vôtre
-
->Jacques Perret »
+>Vôtre, Jacques Perret »
 
 ## La machine de Turing
 
