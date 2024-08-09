@@ -4,6 +4,8 @@ Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il 
 
 ## L'alphabet
 
+[[||alphabet, l']]
+
 Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 [chiffres indo-arabes](https://fr.wikipedia.org/wiki/Chiffres_arabes) :
 
 ```text
@@ -12,14 +14,14 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 0 1 2 3 4 5 6 7 8 9
 ```
 
-Pour comparaison, le système d'écriture coréen (Hangul) est alphasyllabique, c'est-à-dire que chaque caractère représente une syllabe. Les lettres de base sont composées de 14 consonnes de base et 10 voyelles. Quant aux chiffres ils sont les mêmes qu'en occident.
+Pour comparaison, le système d'écriture coréen ([[Hangul]]) est [[alphasyllabique]], c'est-à-dire que chaque caractère représente une syllabe. Les lettres de base sont composées de 14 consonnes de base et 10 voyelles. Quant aux chiffres ils sont les mêmes qu'en occident.
 
 ```text
 ㄱ (g), ㄴ (n), ㄷ (d), ㄹ (r/l), ㅁ (m), ㅂ (b), ㅅ (s), ㅇ (ng), ㅈ (j), ㅊ (ch), ㅋ (k), ㅌ (t), ㅍ (p), ㅎ (h)
 ㅏ (a), ㅑ (ya), ㅓ (eo), ㅕ (yeo), ㅗ (o), ㅛ (yo), ㅜ (u), ㅠ (yu), ㅡ (eu), ㅣ (i)
 ```
 
-Les japonais quant à eux utilisent trois systèmes d'écriture, le Hiragana, le Katakana et le Kanji. Les deux premiers sont des syllabaires et le dernier est un système d'écriture logographique. Le Hiragana et Katakana ont tous deux 46 caractères de base. Voici l'exemple du Katakana:
+Les japonais quant à eux utilisent trois systèmes d'écriture, le [[Hiragana]], le [[Katakana]] et le [[Kanji]]. Les deux premiers sont des syllabaires et le dernier est un système d'[[écriture logographique]]. Le Hiragana et Katakana ont tous deux 46 caractères de base. Voici l'exemple du Katakana:
 
 ```text
 あ (a),  い (i),   う (u),   え (e),  お (o)
@@ -37,7 +39,7 @@ Les japonais quant à eux utilisent trois systèmes d'écriture, le Hiragana, le
 
 On notera que l'alphabet latin est tout particulièrement adapté à la programmation car, d'une part ce fut le premier alphabet à être utilisé pour l'écriture de programmes informatiques et d'autre part, il reste assez simple pour être utilisé par des machines. On peut noter en outre que les pays qui utilisent leur propre alphabet doivent impérativement apprendre et maîtriser l'alphabet latin pour pouvoir programmer. Ceci implique qu'ils doivent également disposer d'un clavier latin pour pouvoir saisir leur code. Nous avons donc privilégiés nous francophones de ne pas devoir jongler avec plusieurs alphabets pour écrire du code...
 
-Outre ces caractères, la séparation des symboles est assurée par [une espace](https://fr.wikipedia.org/wiki/Espace_(typographie)), une tabulation horizontale, une tabulation verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le [pied-de-mouche](https://fr.wikipedia.org/wiki/Pied-de-mouche) `¶` U+00B6 pour indiquer les fins de paragraphes qui sont également des caractères non imprimables.
+Outre ces caractères, la séparation des symboles est assurée par [une espace](https://fr.wikipedia.org/wiki/Espace_(typographie)), une tabulation horizontale, une [[tabulation]] verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le [pied-de-mouche](https://fr.wikipedia.org/wiki/Pied-de-mouche) `¶` U+00B6 pour indiquer les fins de paragraphes qui sont également des caractères non imprimables.
 
 On nomme les caractères non imprimables soit par leur acronyme `LF` pour *Line Feed* ou soit par leur convention C échappée par un *backslash* `\n`:
 
@@ -71,7 +73,7 @@ Peut-être avez-vous déjà été confronté à une machine à écrire mécaniqu
 
 Historiquement il y a donc bien une distinction entre les deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens.
 
-Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de souligement (tiret bas, ou *underscore*) `_` pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère `-` pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin pour ajouter un accent circonflexe, il fallait utiliser la touche `^` pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.
+Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de souligement ([[tiret bas]], ou *underscore*) `_` pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère `-` pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin pour ajouter un accent circonflexe, il fallait utiliser la touche `^` pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.
 
 Ces subtilités de la machine à écrire ont été partiellement reprises dans le format [Unicode][unicode]. Aussi pour écrire un accent aigu, il y a aujourd'hui plusieurs façons de le faire.
 
@@ -114,6 +116,8 @@ c=0)                            :( O
 
 ## Fin de lignes (EOL)
 
+[[||EOL, fin de ligne]] [[||CR, retour chariot]] [[||LF, nouvelle ligne]]
+
 À l'instar des premières machines à écrire, les [téléscripteurs](https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur) possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme [retour chariot](https://fr.wikipedia.org/wiki/Retour_chariot) est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC [IBM compatibles](https://fr.wikipedia.org/wiki/Compatible_PC) ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères: un retour chariot (`CR`) et une nouvelle ligne (`LF`) ou en C `\r\n`. Les premiers [Macintosh](https://fr.wikipedia.org/wiki/Macintosh) d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère `\r`. Enfin, les ordinateurs UNIX ont eu le même raisonnement, mais ils ont choisi de ne garder que `\n`.
 
 Fort heureusement depuis que Apple a migré son système sur une base [BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) (UNIX) en 2001, les systèmes d'exploitation modernes ont adopté le standard UNIX et il n'y a plus de problème de compatibilité entre les systèmes.
@@ -126,6 +130,8 @@ En sommes, il existe aujourd'hui deux types de fin de ligne :
 Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (`EOL`: *End Of Line*) il faut utiliser, faite preuve de bon sens et surtout, soyez cohérent.
 
 ## Mots clés
+
+[[||mot clé]]
 
 Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés :
 
@@ -150,7 +156,7 @@ _Bool, _imaginary, auto, goto, inline, long, register, restrict, short
 
 Il n'y a donc plus que 28 mots clés à connaître pour être un bon développeur C.
 
-Notons que les mots clés `true` et `false` ne sont pas standardisés en C, mais ils le sont en C++.
+Notons que les mots clés `true` et `false` ne sont pas standardisés en C, mais ils le sont en C++. [[||true]] [[||false]]
 
 Ces mots clés font partie intégrante de la [grammaire][grammar] du langage et ne peuvent être utilisés pour identifier des variables, des fonctions ou des étiquettes.
 

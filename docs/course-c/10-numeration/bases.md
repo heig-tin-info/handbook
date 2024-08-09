@@ -1,6 +1,6 @@
 # Bases
 
-Une base désigne la valeur dont les puissances successives interviennent dans l'écriture des nombres dans la numération positionnelle, laquelle est un procédé par lequel l'écriture des nombres est composée de chiffres ou symboles reliés à leur position voisine par un multiplicateur, appelé base du système de numération.
+Une [[base]] désigne la valeur dont les puissances successives interviennent dans l'écriture des nombres dans la numération positionnelle, laquelle est un procédé par lequel l'écriture des nombres est composée de chiffres ou symboles reliés à leur position voisine par un multiplicateur, appelé base du système de numération.
 
 Sans cette connaissance à priori du système de numération utilisé, il vous est impossible d'interpréter ces nombres :
 
@@ -26,9 +26,9 @@ Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche �
 ## Système décimal
 
 
-Le système décimal est le système de numération utilisant la base **dix** et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
+Le [[système décimal]] est le système de numération utilisant la base **dix** et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base [[sexagésimale]] (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
 
-L'exemple suivant montre l'écriture de 1506 en écriture [hiéroglyphique](https://www.compart.com/en/unicode/block/U+13000) de :
+L'exemple suivant montre l'écriture de 1506 en écriture [hiéroglyphique](wiki:hiéroglyphique) de :
 
 $$ 1000+100+100+100+100+100+1+1+1+1+1+1$$
 
@@ -36,7 +36,7 @@ Il s'agit d'une numération additive.
 
 ![1506 en écriture hiéroglyphique](../../assets/images/hieroglyph.drawio)
 
-Notre système de représentation des nombres décimaux est le système de numération indo-arabe qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf :
+Notre système de représentation des nombres décimaux est le système de numération [[indo-arabe]] qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf :
 
 ```c
 0 1 2 3 4 5 6 7 8 9
@@ -62,7 +62,7 @@ La base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la man
 
 ## Système binaire
 
-Le système binaire est similaire au système décimal, mais utilise la base deux. Les symboles utilisés pour exprimer ces deux états possibles sont d'ailleurs empruntés au système indo-arabe :
+Le [[système binaire]] est similaire au système décimal, mais utilise la base deux. Les symboles utilisés pour exprimer ces deux états possibles sont d'ailleurs empruntés au système indo-arabe :
 
 $$
 \begin{bmatrix}
@@ -149,7 +149,7 @@ char msg = "Hell\0157\040World!";
 
 !!! important
 
-    N'essayez pas de préfixer vos nombres avec des zéros lorsque vous programmer car ces nombres seraient alors interprétés en octal et non en écimal.
+    N'essayez pas de préfixer vos nombres avec des zéros lorsque vous programmer car ces nombres seraient alors interprétés en octal et non en décimal.
 
 ## Système hexadécimal
 
@@ -195,8 +195,8 @@ Table: Correspondance binaire, octale, hexadécimale
 | `0b1111` | `0xF`     | `17` | `15`  |
 
 
-Le fichier `albatros.txt` contient un extrait du poème de Baudelaire, l'ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à comprendre et utilise le programme `hexdump`
-pour lister le contenu hexadécimal de son fichier et il obtient la sortie suivante sur son terminal :
+Le fichier `albatros.txt` contient un extrait du poème de Baudelaire. Un ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à le résoudre et utilise le programme `hexdump`
+pour lister le contenu hexadécimal de son fichier. Il obtient la sortie suivante sur son terminal :
 
 ```text
 $ hexdump -C albatros.txt
@@ -234,7 +234,7 @@ Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadé
 - `é` de *ailé* est encodé avec `e\xcc\x81`, soit le caractère e suivi du diacritique `´` U+0301
 - Une espace fine insécable `\xe2\x80\xaf` est utilisée avant les `!`, ce qui est le caractère Unicode U+202F, conformément à la recommandation de l'Académie française.
 
-Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur, il concerne probablement les deux manières distinctes utilisées pour encoder le `é`.
+Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur, il concerne très probablement les deux manières distinctes utilisées pour encoder le `é`. On observe néanmoins l'élégance de l'encodage hexadécimal qui permet de visualiser facilement, par groupe de 8 bits, le contenu du fichier.
 
 !!! exercise "Les chiffres hexadécimaux"
 
@@ -267,7 +267,7 @@ Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami 
     $ hexdump -C albatros.txt
     ```
 
-    Si vous n'avez pas les outils `wget` ou `hexdump`, tentez de les installer ia la commande `apt-get install wget hexdump`.
+    Si vous n'avez pas les outils `wget` ou `hexdump`, tentez de les installer ia la commande `apt-get install wget hexdump` sous Ubuntu.
 
 ## Conversions de bases
 
@@ -291,7 +291,7 @@ $h_i$
 
 : La valeur du chiffre à la position $i$
 
-Ainsi, la valeur `AP7` exprimée en base tritrigesimale (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimales après avoir pris connaissance de la correspondance d'un symbole [tritrigesimal](https://en.wikipedia.org/wiki/List_of_numeral_systems) vers le système décimal :
+Ainsi, la valeur `AP7` exprimée en [[base tritrigesimale]] (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimales après avoir pris connaissance de la correspondance d'un symbole [tritrigesimal](https://en.wikipedia.org/wiki/List_of_numeral_systems) vers le système décimal :
 
 ```text
 Tritrigesimal -> Décimal :
@@ -332,7 +332,7 @@ n = 209
 
     ![Les Shadocks](../../assets/images/shadocks.drawio)
 
-    Les Shadocks ne connaissent que quatre mots: `GA`, `BU`, `ZO`, `MEU`. La vidéo [Comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ>) en explique le principe.
+    Les [[Shadocks||Shadocks, les]] ne connaissent que quatre mots: `GA`, `BU`, `ZO`, `MEU`. La vidéo éducative [comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ) en explique le principe. Ils utilisent par conséquent une base quaternaire.
 
     Convertir `−⨼○◿○` (`BU ZO GA MEU GA`) en décimal.
 
@@ -390,7 +390,7 @@ $ echo -ne 'La fleur en bouquet fâne... et jamais ne renait !'  | hexdump -C
 00000032
 ```
 
-En base64, le message est découpé en mot de 6 bits, soit 64 valeurs possibles. Chaque mot de 6 bits est ensuite converti en un caractère ASCII avec la table de codage suivante:
+En [[base64]], le message est découpé en mot de 6 bits, soit 64 valeurs possibles. Chaque mot de 6 bits est ensuite converti en un caractère [[ASCII]] avec la table de codage suivante:
 
 ```text
 0  000000 A    17 010001 R    34 100010 i    51 110011 z

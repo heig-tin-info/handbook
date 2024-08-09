@@ -5,4 +5,4 @@
 - [ ] ⇧ 🠔 missing
 - [ ] Mermaid width too wide
 - [ ] Exercise in title Exercice 35 : Exercise : Promotion numérique
-- [ ] Tentez de récupérer vous même le poème l'[Albatros]({assets}/src/albatros.txt) ref null
+- [ ] Tentez de récupérer vous même le poème l'[Albatros]({assets}/src/albatros.txt) ref null -> use web page from site, add link
