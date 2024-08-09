@@ -4375,7 +4375,7 @@ de spécifier la taille de la pile&thinsp;; c'est une de ses nombreuses options.
 </ul>
 <p>Jadis, le mot clé <code>register</code> était utilisé pour forcer le compilateur à placer une variable locale dans un registre processeur pour obtenir de meilleures performances. Aujourd'hui, les compilateurs sont assez malins pour déterminer automatiquement les variables souvent utilisées.</p>
 <h2 id="fragmentation-memoire">Fragmentation mémoire<a class="headerlink" href="#fragmentation-memoire" title="Permanent link">¶</a></h2>
-<p>On peut observer à la figure {numref}<code>fig-allocation</code> qu'après un appel successif de <code>malloc</code> et de <code>free</code> des espaces mémoire non utilisés peuvent apparaître entre des régions utilisées. Ces <em>trous</em> sont appelés fragmentation mémoire.</p>
+<p>On peut observer à la figure suivante montre qu'après un appel successif de <code>malloc</code> et de <code>free</code> des espaces mémoire non utilisés peuvent apparaître entre des régions utilisées. Ces <em>trous</em> sont appelés fragmentation mémoire.</p>
 <p>Dans la figure suivante, on suit l'évolution de l'utilisation du <em>heap</em> au cours de la vie d'un programme. Au début ➀, la mémoire est libre. Tant que de la mémoire est allouée sans libération (<code>free</code>), aucun problème de fragmentation ➁. Néanmoins, après un certain temps la mémoire devient fragmentée ➂&thinsp;; il reste dans cet exemple 2 emplacements de taille 2, un emplacement de taille 5 et un emplacement de taille 8. Il est donc impossible de réserver un espace de taille 9 malgré que l'espace cumulé libre est suffisant.</p>
 <p><figure id="_figure-3"><img alt="Fragmentation mémoire" class="drawio-diagram" src="../../../assets/images/fragmentation.drawio"/><figcaption> Fragmentation mémoire</figcaption></figure></p>
 <p>Dans une petite architecture, l'allocation et la libération fréquente d'espaces mémoire de taille arbitraire sont malvenues. Une fois que la fragmentation mémoire est installée, il n'existe aucun moyen de soigner le mal si ce n'est au travers de l'ultime solution de l'informatique&thinsp;: <a href="https://www.youtube.com/watch?v=nn2FB1P_Mn8">éteindre puis redémarrer</a>.</p>
@@ -4414,7 +4414,7 @@ de spécifier la taille de la pile&thinsp;; c'est une de ses nombreuses options.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 9, 2024</span>
   </span>
 
     
@@ -4621,7 +4621,7 @@ de spécifier la taille de la pile&thinsp;; c'est une de ses nombreuses options.
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.ef37796b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>
       
         <script src="../../../assets/_markdown_exec_pyodide.js"></script>
       
