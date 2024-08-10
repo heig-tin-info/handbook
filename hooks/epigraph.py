@@ -10,7 +10,7 @@ def on_page_content(html, page, config, files):
     # Find first header tag
     for i, line in enumerate(lines):
         if '<h' in line:
-            lines.insert(i, (
+            lines.insert(i + 1, (
                 f'<blockquote class="epigraph">{text}'
                 f'<footer>{source}</footer></blockquote>'))
             break
