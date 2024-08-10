@@ -69,7 +69,7 @@
       "NotoSerifTibetan:mode=harf;",
       "NotoSerifCJKkr:mode=harf;",
       "NotoSans:mode=harf;",
-      "Symbola:mode=harf;",
+      "FiraCode:mode=harf;",
     }
    )}
 

@@ -6,6 +6,15 @@ Ce cours couvre les bases de l'informatique, de l'architecture des ordinateurs �
 
 La version web est disponible sur cette [page](https://heig-tin-info.github.io/handbook/).
 
+## Contribution
+
+Une seule source de données est utilisée pour générer le site web et le livre en version PDF. Aussi, il est important de respecter les règles suivantes :
+
+Éviter d'utiliser "en-dessus" et "en-dessous" pour les figures, les tableaux, les équations, etc. Utilisez les références croisées.
+
+Les réfrences croisées sont ajoutée en lieu et place du texte sur la version web. Pour la version PDF, le texte suit de `(c.f. figure 2.1)`.
+
+Les acronymes sont indiqués la première fois en entier suivi de l'acronyme entre parenthèses. Par exemple, "Système d'exploitation (OS)". puis l'acronyme est utilisé par la suite.
 ## Technologies
 
 
