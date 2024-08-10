@@ -120,12 +120,13 @@ def mermaid2pdf(content: Union[str, Path], output_path: Path = Path(), **kwargs)
     mmd_filename = get_filename_from_content(
         content + ''.join(options), output_path).with_suffix('.mmd')
 
-    pdf_filename = mmd_filename.with_suffix('.mmd.pdf')
+    if 'output' in kwargs:
+        pdf_filename = Path(kwargs['output'])
+    else:
+        pdf_filename = mmd_filename.with_suffix('.mmd.pdf')
 
-    if pdf_filename.exists():
-        return pdf_filename
-
-
+        if pdf_filename.exists():
+            return pdf_filename
 
     # Docker is chrooted, file must be in the working directory
     mmd_filename.write_text(content)
@@ -140,6 +141,8 @@ def mermaid2pdf(content: Union[str, Path], output_path: Path = Path(), **kwargs)
         '-o', f'{pdf_filename.name}',
         *options
     ]
+
+    print(' '.join(str(e) for e in command))
 
     completed_process = subprocess.run(
         command,

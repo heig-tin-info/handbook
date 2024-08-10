@@ -72,6 +72,8 @@ jobs:
             font-noto-tamil font-noto-tibetan font-noto-cjk
             font-noto-naskh-arabic font-noto-symbols font-noto-math
             font-noto-music make
+          pre_compile: |
+            fc-cache -fv
           # pre_compile: |
           #   echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
           #   apk update \
