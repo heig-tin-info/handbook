@@ -68,7 +68,7 @@ jobs:
           root_file: build/l-informatique-pour-l-ingenieur/index.tex
           extra_fonts: fonts/cc-icons.otf
           extra_system_packages: |
-            font-noto font-noto-hebrew font-noto-devanagari
+            font-noto-all font-noto font-noto-hebrew font-noto-devanagari
             font-noto-tamil font-noto-tibetan font-noto-cjk
             font-noto-naskh-arabic font-noto-symbols font-noto-math
             font-noto-music make
