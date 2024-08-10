@@ -20,9 +20,6 @@ Définition du problème -> Modélisation -> Algorithmes -> Implémentation -> T
 >  ... conduire par ordre mes pensées, en commençant par les objets les plus simples et les plus aisés à connaître, pour monter peu à peu, comme par degrés, jusques à la connaissance des plus composés; et supposant même de l'ordre entre ceux qui ne se précèdent point naturellement les uns les autres. René Descartes, Discours de la méthode
 
 
-> La programmation, c'est l'art d'organiser la complexité. E. Dijkstra
-
-
 > On doit être préoccupé uniquement de l'impression ou de l'idée à traduire. Les yeux de l'esprit sont tournés au dedans, il faut s'efforcer de rendre avec la plus grande délité possible le modèle intérieur. Un seul trait ajouté (pour briller, ou pour ne pas trop briller, pour obéir à un vain désir d'étonner, ou à l'enfantine volonté de rester classique) su t à compromettre le succès de l'expérience et la découverte d'une loi. On n'a pas trop de toutes ses forces de soumission au réel, pour arriver à faire passer l'impression la plus simple en apparence, du monde de l'invisible dans celui si di érent du concret où l'ine able se résout en claires formules. Marcel Proust, Du côté de chez Swann.
 
 Un modèle de données est une abstraction utilisée pour décrire des problèmes. Cette abstraction

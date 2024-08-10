@@ -1,17 +1,17 @@
-import logging
+import re
 import sys
-from pathlib import Path, PosixPath
+import shutil
 import yaml
+import deepmerge
+import unidecode
+from mkdocs.utils import log
 import ipdb
 from IPython import embed
-from urllib.parse import urlparse
+from pathlib import Path, PosixPath
 from mkdocs.structure.nav import Section
 from mkdocs.structure import StructureItem
-import deepmerge
 from latex.renderer import LaTeXRenderer
-import inflection
-import unidecode
-import re
+
 
 def path_representer(dumper, data):
     # Path relative to the project directory
@@ -26,13 +26,10 @@ def to_kebab_case(name):
     name = re.sub(r"[\s']+", '-', name)
     return name.lower()
 
-# def excepthook(type, value, traceback):
-#     ipdb.post_mortem(traceback)
+def excepthook(type, value, traceback):
+    ipdb.post_mortem(traceback)
 
-
-# sys.excepthook = excepthook
-
-log = logging.getLogger("mkdocs")
+sys.excepthook = excepthook
 
 saved_nav = []
 latex_dir = Path("build")
@@ -223,12 +220,15 @@ class Book:
         (build_dir / "solutions.tex").write_text(renderer.get_list_solutions())
 
         # Copy assets
-        for src, dest in self.config.get('copy', {}).items():
-            src = current_config['project_dir'] / src
-            dest = build_dir / dest
-            log.info(f"Copying {src} to {dest}")
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            dest.write_bytes(src.read_bytes())
+        for src_pattern, dest_dir in self.config.get('copy', {}).items():
+            src_pattern = current_config['project_dir'] / src_pattern
+            dest_dir = build_dir / dest_dir
+
+            for src in src_pattern.parent.glob(src_pattern.name):
+                dest = dest_dir
+                log.info("Copying %s to %s", src, dest)
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(src, dest)
 
 def on_env(env, config, files):
     if not current_config["enabled"]:

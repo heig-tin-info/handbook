@@ -218,8 +218,9 @@ extra:
         backmatter:
           - colophon
         copy:
-          docs/assets/c-logo.pdf: assets/c-logo.pdf
-          tex/.latexmkrc: .latexmkrc
+          docs/assets/c-logo.pdf: assets/
+          tex/.latexmkrc: .
+          tex/*.sty: .
 
   admonition_translations:
     tip: Astuce
@@ -273,6 +274,7 @@ hooks:
   - hooks/french.py
   - hooks/wiki.py
   - hooks/latex.py
+  - hooks/epigraph.py
   - hooks/tags.py
 extra_css:
   - css/french.css

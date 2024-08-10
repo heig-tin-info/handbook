@@ -141,6 +141,7 @@ La figure suivante résume les interactions qu'un programme peut avoir sur son e
 
 ![Résumé des interactions avec un programme]({assets}/images/program.drawio)
 
+[](){#signals}
 ### Signaux
 
 Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des [signaux](https://fr.wikipedia.org/wiki/Signal_(informatique)). Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.

@@ -1,4 +1,4 @@
-# Moi et mon ordinateur
+# Mon ordinateur et moi
 
 Vous êtes devant votre ordinateur, vous avez en théorie un clavier devant vous, une souris à droite de votre clavier, et un ou plusieurs écrans devant vous. Votre ordinateur démarre et vous verrez apparaître très probablement soit :
 
@@ -28,8 +28,7 @@ C'est un des premier éditeur modale, son utilisation est assez déroutante car 
 $ ed
 a
 void main() {
-    printf("hello, world");
-}
+    printf("hello, world"); }
 .
 1
 void main() {
@@ -40,7 +39,6 @@ s/void/int/
 w hello.c
 62
 q
-$
 ```
 
 Dans les étapes ci-dessus, nous avons : (1) lancé l'éditeur `ed`, (2) écrit `a` pour passer en mode édition, (3) écrit le code, puis (4) saisi `.` pour revenir en mode commande. Nous avons (5) entré `1` pour afficher la première ligne (qui comporte une erreur) puis (6) saisi `s/void/int/` pour remplacer `void` par `int`. Nous avons (7) tapé `1i` pour insérer une ligne avant la première ligne puis (8) écrit `#include <stdio.h>` que l'on a oublié et (9) entré `.` pour revenir en mode commande. Enfin (10) écrit `w hello.c` pour sauvegarder le fichier et (11) `q` pour quitter l'éditeur.
@@ -100,10 +98,14 @@ Navigation hiérarchique (*go to definition*)
 
 Expressions régulières (*regular expressions*)
 
-:   L'éditeur de code vous permet de rechercher ou remplacer des éléments en utilisant des expressions régulières. Par exemple si vous voulez inverser l'ordre des mots écrits `M. Yves Chevallier` par `M. Chevallier Yves`, vous pouvez utiliser l'expression régulière:
+:   L'éditeur de code vous permet de rechercher ou remplacer des éléments en utilisant des expressions régulières. Par exemple si vous voulez inverser l'ordre des mots écrits, vous activez le mode regex (▪⃰ dans vscode). Vous pouvez alors utiliser l'expression régulière suivante :
 
     ```text
     /(M.|Mme.)\s+([^ ]+)\s+([^ ]+)/\1 \3 \2/
+
+    Qui permet d'inverser le prénom et le nom.
+
+    M. Yves Chevallier` --> M. Chevallier Yves
     ```
 
 Multicurseurs (*multi-cursor*)
@@ -151,11 +153,10 @@ Un **IDE** est un *Integrated Development Environment*, c'est un environnement d
 Tous les éditeurs ne sont pas des IDE, mais tous les IDE sont des éditeurs. En fin de compte, un IDE est un éditeur qui a des fonctionnalités supplémentaires telles que:
 
 - Un compilateur
-- Un débogueur
+- Un débogueur avec des points d'arrêt
 - Gestion de paramètres par projet
 - Gestion de dépendances logicielles
-- ...
-
+- Gestion de versions
 
 Un autre composant essentiel de l'environnement de développement est le **compilateur**. Il s'agit généralement d'un ensemble de programmes qui permettent de convertir le **code** écrit en un programme exécutable. Ce programme peut-être par la suite intégré dans un *smartphone*, dans un système embarqué sur un satellite, sur des cartes de prototypage comme un Raspberry PI, ou encore sur un ordinateur personnel.
 

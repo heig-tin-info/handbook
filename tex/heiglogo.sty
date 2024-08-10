@@ -1,0 +1,74 @@
+% heiglogo.sty
+% -------------------------------
+% HEIG-VD Logo Package
+% Author: Yves Chevallier
+% Date: August 2024
+% -------------------------------
+
+% Load required packages
+\RequirePackage{tikz}       % For drawing the logo
+\RequirePackage{xkeyval}    % For handling options with default values
+\RequirePackage{xcolor}     % For color management
+
+% Load TikZ library
+\usetikzlibrary{calc}
+
+% Define keys (options) for the \heiglogo command
+\define@key{heiglogo}{top}{\def\heiglogo@top{#1}}     % Option to set top margin
+\define@key{heiglogo}{left}{\def\heiglogo@left{#1}}   % Option to set left margin
+\define@key{heiglogo}{scale}{\def\heiglogo@scale{#1}} % Option to set scale
+\define@key{heiglogo}{color}{\def\heiglogo@color{#1}} % Option to set color
+
+% Define the main command \heiglogo
+\newcommand{\heiglogo}[1][]{%
+    % Set default values for options: top=1cm, left=1cm, scale=1, color=red
+    \setkeys{heiglogo}{top=1cm,left=1cm,scale=1,color=red,#1}%
+    % Call the \logoimg command with the provided or default values
+    \logoimg{\heiglogo@left}{\heiglogo@top}{\heiglogo@color}{\heiglogo@scale}%
+}
+
+% Define the \logoimg command, which draws the logo using TikZ
+\newcommand{\logoimg}[4]{
+  \begin{tikzpicture}[remember picture, overlay, x=0.7pt, y=0.7pt, scale=#4]
+    \begin{scope}[shift={($(current page.north west) + (#1, -#2) + (0, -75)$)}]
+      \fill[#3]
+      (74, 18) -- (56, 18) -- (56, 12) -- (68, 12) -- (68, 12)
+      .. controls (67, 7) and (63, 5) .. (57, 5)
+      .. controls (50, 5) and (45, 10) .. (45, 17)
+      .. controls (45, 24) and (50, 30) .. (57, 30)
+      .. controls (63, 30) and (67, 27) .. (69, 23)
+      -- (74, 25)
+      .. controls (71, 32) and (65, 35) .. (57, 35)
+      .. controls (47, 35) and (39, 27) .. (39, 17)
+      .. controls (39, 7) and (47, 0) .. (57, 0)
+      .. controls (62, 0) and (66, 2) .. (69, 5)
+      -- (69, 1) -- (74, 1) -- (74, 17) -- cycle;
+      \fill[#3]
+      (74, 47) -- (46, 47) -- (46, 56) -- (70, 56) -- (70, 61) --
+      (46, 61) -- (46, 70) -- (74, 70) -- (74, 75) -- (40, 75) --
+      (40, 42) -- (74, 42) -- cycle;
+      \fill[#3]
+      (27, 61) -- (5, 61) -- (5, 75) -- (0, 75) -- (0, 42) --
+      (5, 42) -- (5, 56) -- (27, 56) -- (27, 42) -- (33, 42) --
+      (33, 75) -- (27, 75) -- cycle;
+      \fill[#3]
+      (19, 6) -- (19, 29) -- (33, 29) -- (33, 34) -- (-0, 34) --
+      (-0, 29) -- (13, 29) -- (13, 6) -- (-0, 6) -- (-0, 1) --
+      (33, 1) -- (33, 6) -- cycle;
+      \fill[#3]
+      (88, 75) -- (90, 75) -- (87, 65) -- (85, 65) -- (81, 75) --
+      (83, 75) -- (86, 68) -- cycle;
+      \fill[#3, even odd rule]
+      (92, 65) -- (92, 75) -- (95, 75)
+      .. controls (98, 75) and (100, 73) .. (100, 70)
+      .. controls (100, 67) and (98, 65) .. (95, 65)
+      -- cycle
+      (95, 67)
+      .. controls (97, 67) and (98, 68) .. (98, 70)
+      .. controls (98, 72) and (97, 73) .. (95, 73)
+      -- (94, 73)
+      -- (94, 67)
+      -- cycle;
+    \end{scope}
+  \end{tikzpicture}
+}

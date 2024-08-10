@@ -230,6 +230,16 @@ plugins:
       - exercise
 ```
 
+## Book size
+
+| Book | Width | Height | Thickness |
+| ---- | ----- | ------ | --------- |
+| Cracking coding interview | 178 | 254 | 0.1 |
+| Presses polytechniques romandes | 160 | 240 | 0.1 |
+| Springer | 177 | 235 | 0.1 |
+| Eyrolles | 190 | 230 | 0.1 |
+| Dunod | 175 | 250 | 0.1 |
+
 ## To-Do
 
 - [ ] Termes et définitions

@@ -6,7 +6,7 @@ Dans un environnement POSIX tout est fichier. `stdin` est un fichier, une souris
 
 Les fichiers sont organisés dans une arborescence gérée par un [système de fichiers](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_fichiers). Sous Windows l'arborescence classique est :
 
-```console
+```text
 C :
 ├── Program Files         Programmes installés
 ├── Users                 Comptes utilisateur
@@ -22,7 +22,7 @@ C :
 
 Il y a une arborescence par disque physique `C:`, `D:`, une arborescence par chemin réseau `\\eistore2`, etc. Sous POSIX, la stratégie est différente, car il n'existe qu'un seul système de fichier dont la racine est `/`.
 
-```console
+```text
 /
 ├── bin                   Programmes exécutables cruciaux
 ├── dev                   Périphériques (clavier, souris ...)
@@ -91,14 +91,14 @@ Si nous le compilons et cherchons dans son code binaire :
 
 ```text
 $ gcc example.c
-| $ hexdump -C a.out                                         | grep -C3 sec     |
-| 000006f0  f3 c3 00 00 48 83 ec 08  48 83 c4 08 c3 00 00 00 | ....H...H....... |
-| 00000700  01 00 02 00 00 00 00 00  00 00 00 00 00 00 00 00 | ................ |
-| 00000710  75 6e 20 6d 6f 74 20 64  65 20 70 61 73 73 65 20 | un mot de passe  |
-| 00000720  73 65 63 72 65 74 00 00  01 1b 03 3b 3c 00 00 00 | secret.....;<... |
-| 00000730  06 00 00 00 e8 fd ff ff  88 00 00 00 08 fe ff ff | ................ |
-| 00000740  b0 00 00 00 18 fe ff ff  58 00 00 00 22 ff ff ff | ........X..."... |
-| 00000750  c8 00 00 00 58 ff ff ff  e8 00 00 00 c8 ff ff ff | ....X........... |
+$ hexdump -C a.out | grep -C3 sec
+06f0  f3 c3 00 00 48 83 ec 08  48 83 c4 08 c3 00 00 00 | ....H...H....... |
+0700  01 00 02 00 00 00 00 00  00 00 00 00 00 00 00 00 | ................ |
+0710  75 6e 20 6d 6f 74 20 64  65 20 70 61 73 73 65 20 | un mot de passe  |
+0720  73 65 63 72 65 74 00 00  01 1b 03 3b 3c 00 00 00 | secret.....;<... |
+0730  06 00 00 00 e8 fd ff ff  88 00 00 00 08 fe ff ff | ................ |
+0740  b0 00 00 00 18 fe ff ff  58 00 00 00 22 ff ff ff | ........X..."... |
+0750  c8 00 00 00 58 ff ff ff  e8 00 00 00 c8 ff ff ff | ....X........... |
 ```
 
 Sous un système POSIX, il n'existe aucune distinction formelle entre un fichier binaire et un fichier texte. En revanche sous Windows, il existe une subtile différence concernant surtout le caractère de fin de ligne. La commande `copy a.txt + b.txt c.txt` considère des fichiers textes et ajoutera automatiquement une fin de ligne entre chaque partie concaténée, mais celle-ci `copy /b a.bin + b.bin c.bin` ne le fera pas.

@@ -70,11 +70,11 @@ jobs:
           extra_system_packages: |
             font-noto font-noto-hebrew font-noto-devanagari
             font-noto-tamil font-noto-tibetan font-noto-cjk
-            font-noto-naskh-arabic make
-          pre_compile: |
-            echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
-            apk update \
-            apk add font-fira-code
+            font-noto-naskh-arabic font-noto-symbols make
+          # pre_compile: |
+          #   echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+          #   apk update \
+          #   apk add font-fira-code
           latexmk_shell_escape: true
           latexmk_use_lualatex: true
           args: -cd

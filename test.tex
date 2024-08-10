@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,twoside]{book}
+\documentclass[9pt,twoside]{book}
 \usepackage{fontspec}
 \usepackage{xcolor}
 \usepackage{tikz}
@@ -19,10 +19,11 @@
 \usepackage{booktabs}
 \usepackage[many,minted]{tcolorbox}% version 3.03 or better
 \usepackage{minted}
+\usepackage{csquotes}
+\usepackage{epigraph}
 \usepackage{capt-of}
 \usepackage[acronym]{glossaries}
 \usepackage{imakeidx}
-% \usepackage{listings}
 \usepackage{fvextra} % Pour une meilleure gestion des verbatim inline
 \usepackage{titlesec} % Pour la personnalisation des titres
 \usepackage{enumitem} % Pour personnaliser les listes
@@ -38,13 +39,8 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{shadows}
 
-\preto\frontmatter{\setcounter{secnumdepth}{0}}
-\preto\mainmatter{\setcounter{secnumdepth}{2}}
-
 \makeglossaries
 \makeindex
-
-\setcounter{tocdepth}{2}
 
 % Give more spaces on Table of content (between numbers and text)
 \setlength{\cftsecnumwidth}{3em}
@@ -58,8 +54,8 @@
 \captionsetup[table]{skip=10pt}
 
 \directlua{luaotfload.add_fallback
-   ("fontfallback",
-    {
+  ("fontfallback",
+  {
       "NotoColorEmoji:mode=harf;",
       "NotoNaskhArabic:mode=harf;",
       "NotoSerifHebrew:mode=harf;",
@@ -68,16 +64,20 @@
       "NotoSerifTibetan:mode=harf;",
       "NotoSerifCJKkr:mode=harf;",
       "NotoSans:mode=harf;",
-      "Symbola:mode=harf;",
+      "NotoSansSymbols2-Regular:mode=harf;"
     }
-   )}
+  )}
 
 \setmainfont{Noto Serif}[
   RawFeature={fallback=fontfallback}
 ]
 
+\setsansfont{Noto Sans}[
+  RawFeature={fallback=fontfallback}
+]
+
 \setmonofont{Noto Sans Mono}[
-  Scale=0.8,
+  Scale=0.9,
   ItalicFont=lmmono10-italic.otf,
   BoldItalicFont=lmmonolt10-boldoblique.otf,
   RawFeature={fallback=fontfallback}
@@ -86,7 +86,8 @@
 \newfontfamily\creativecommonfont{Creative Commons}
 \DeclareTextFontCommand\creativecommon{\creativecommonfont}
 
-
+% Make quotations italic and smaller
+\AtBeginEnvironment{displayquote}{\small\itshape}
 
 \definecolor{linkcolor}{RGB}{34, 18, 104}
 \definecolor{urlcolor}{RGB}{104, 18, 55}
@@ -101,42 +102,60 @@
   urlcolor=urlcolor]{hyperref}
 
 \usepackage[
-  a4paper,
-  top=2.5cm,
-  bottom=2.5cm,
-  left=3cm,
-  right=4cm,
+  paperwidth=160mm,
+  paperheight=240mm,
+  top=20mm,
+  bottom=20mm,
+  left=15mm,
+  right=20mm, % Margin for binding
   headheight=6mm,
   headsep=5mm,
-  marginparwidth=3cm,
   marginparsep=4mm,
-  heightrounded,
-  includehead]{geometry}
+  heightrounded]{geometry}
 
 
-  \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
-  \pagestyle{fancy}
+% All pages of mainmatter
+\fancypagestyle{fancy}{%
   \fancyhf{}
+  \renewcommand{\headrulewidth}{2pt}
+  \fancyhead[LE]{\leftmark}
+  \fancyhead[RO]{\rightmark}
+  \fancyfoot[LE,RO]{\thepage}
+}
 
-  \fancyhead[LE]{}
-  \fancyfoot[LE,RO]{}
+% Chapter pages
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[LE,RO]{\thepage}
+}
 
-  \fancyhead[RO]{}
-  \fancyfoot[LE,RO]{}
+% Part pages
+\fancypagestyle{part}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+}
 
-  % plain : chapters
-  \fancypagestyle{plain}{%
-    \fancyhf{}
-    \makebox[1.3em][l]{\fancyfoot[LE,RO]{}}
-  }
+\patchcmd{\part}{\thispagestyle{plain}}{\thispagestyle{part}}{}{}
 
-  \fancypagestyle{part}{%
-    \fancyhf{}
-  }
+\newcommand{\changelocaltocdepth}[1]{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{#1}}%
+  \setcounter{tocdepth}{#1}%
+}
 
-  \patchcmd{\part}{\thispagestyle{plain}}{\thispagestyle{part}}{}{}
+\apptocmd{\frontmatter}{%
+  \pagestyle{plain}%
+  \changelocaltocdepth{1}%
+  \setcounter{secnumdepth}{0}
+}{}{}
+
+\apptocmd{\mainmatter}{%
+  \pagestyle{fancy}%
+  \changelocaltocdepth{2}%
+  \setcounter{secnumdepth}{2}
+}{}{}
 
 
 \graphicspath{{assets/}}
@@ -195,211 +214,144 @@
 \newcounter{exercisecounter}
 \renewcommand{\theexercisecounter}{\arabic{exercisecounter}}
 
-% Définir les styles pour différents types de callout
 \tcbset{
-    callout note/.style={
-        colbacktitle=calloutNoteBg,
-        colframe=calloutNoteFrame,
-        coltitle=calloutNoteFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutNoteFrame},
-        title={\makebox[1.3em][c]{\faBookmark}},
+  callout note/.style={
+      colbacktitle=calloutNoteBg,
+      colframe=calloutNoteFrame,
+      coltitle=calloutNoteFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutNoteFrame},
+      title={\makebox[1.3em][c]{\faBookmark}},
     },
-    callout abstract/.style={
-        colbacktitle=calloutAbstractBg,
-        colframe=calloutAbstractFrame,
-        coltitle=calloutAbstractFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutAbstractFrame},
-        title={\makebox[1.3em][c]{\faLaptopCode}},
+  callout abstract/.style={
+      colbacktitle=calloutAbstractBg,
+      colframe=calloutAbstractFrame,
+      coltitle=calloutAbstractFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutAbstractFrame},
+      title={\makebox[1.3em][c]{\faLaptopCode}},
     },
-    callout info/.style={
-        colbacktitle=calloutInfoBg,
-        colframe=calloutInfoFrame,
-        coltitle=calloutInfoFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutInfoFrame},
-        title={\makebox[1.3em][c]{\faComment}},
+  callout info/.style={
+      colbacktitle=calloutInfoBg,
+      colframe=calloutInfoFrame,
+      coltitle=calloutInfoFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutInfoFrame},
+      title={\makebox[1.3em][c]{\faComment}},
     },
-    callout tip/.style={
-        colbacktitle=calloutTipBg,
-        colframe=calloutTipFrame,
-        coltitle=calloutTipFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutTipFrame},
-        title={\makebox[1.3em][c]{\faLightbulb}},
+  callout tip/.style={
+      colbacktitle=calloutTipBg,
+      colframe=calloutTipFrame,
+      coltitle=calloutTipFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutTipFrame},
+      title={\makebox[1.3em][c]{\faLightbulb}},
     },
-    callout success/.style={
-        colbacktitle=calloutSuccessBg,
-        colframe=calloutSuccessFrame,
-        coltitle=calloutSuccessFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutSuccessFrame},
-        title={\makebox[1.3em][c]{\faCheck}},
+  callout success/.style={
+      colbacktitle=calloutSuccessBg,
+      colframe=calloutSuccessFrame,
+      coltitle=calloutSuccessFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutSuccessFrame},
+      title={\makebox[1.3em][c]{\faCheck}},
     },
-    callout warning/.style={
-        colbacktitle=calloutWarningBg,
-        colframe=calloutWarningFrame,
-        coltitle=calloutWarningFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutWarningFrame},
-        title={\makebox[1.3em][c]{\faBolt}},
+  callout warning/.style={
+      colbacktitle=calloutWarningBg,
+      colframe=calloutWarningFrame,
+      coltitle=calloutWarningFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutWarningFrame},
+      title={\makebox[1.3em][c]{\faBolt}},
     },
-    callout failure/.style={
-        colbacktitle=calloutFailureBg,
-        colframe=calloutFailureFrame,
-        coltitle=calloutFailureFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutFailureFrame},
-        title={\makebox[1.3em][c]{\faExclamationTriangle}},
+  callout failure/.style={
+      colbacktitle=calloutFailureBg,
+      colframe=calloutFailureFrame,
+      coltitle=calloutFailureFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutFailureFrame},
+      title={\makebox[1.3em][c]{\faExclamationTriangle}},
     },
-    callout important/.style={
-        colbacktitle=calloutDangerBg,
-        colframe=calloutDangerFrame,
-        coltitle=calloutDangerFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutDangerFrame},
-        title={\makebox[1.3em][c]{\faExclamationTriangle}},
+  callout important/.style={
+      colbacktitle=calloutDangerBg,
+      colframe=calloutDangerFrame,
+      coltitle=calloutDangerFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutDangerFrame},
+      title={\makebox[1.3em][c]{\faExclamationTriangle}},
     },
-    callout hint/.style={
-        colbacktitle=calloutTipBg,
-        colframe=calloutTipFrame,
-        coltitle=calloutTipFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutTipFrame},
-        title={\makebox[1.3em][c]{\faLightbulb}},
+  callout hint/.style={
+      colbacktitle=calloutTipBg,
+      colframe=calloutTipFrame,
+      coltitle=calloutTipFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutTipFrame},
+      title={\makebox[1.3em][c]{\faLightbulb}},
     },
-    callout danger/.style={
-        colbacktitle=calloutDangerBg,
-        colframe=calloutDangerFrame,
-        coltitle=calloutDangerFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutDangerFrame},
-        title={\makebox[1.3em][c]{\faExclamationTriangle}},
+  callout danger/.style={
+      colbacktitle=calloutDangerBg,
+      colframe=calloutDangerFrame,
+      coltitle=calloutDangerFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutDangerFrame},
+      title={\makebox[1.3em][c]{\faExclamationTriangle}},
     },
-    callout bug/.style={
-        colbacktitle=calloutBugBg,
-        colframe=calloutBugFrame,
-        coltitle=calloutBugFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutBugFrame},
-        title={\makebox[1.3em][c]{\faBomb}},
+  callout bug/.style={
+      colbacktitle=calloutBugBg,
+      colframe=calloutBugFrame,
+      coltitle=calloutBugFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutBugFrame},
+      title={\makebox[1.3em][c]{\faBomb}},
     },
-    callout example/.style={
-        colbacktitle=calloutExampleBg,
-        colframe=calloutExampleFrame,
-        coltitle=calloutExampleFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutExampleFrame},
-        title={\makebox[1.3em][c]{\faFlask}},
+  callout example/.style={
+      colbacktitle=calloutExampleBg,
+      colframe=calloutExampleFrame,
+      coltitle=calloutExampleFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutExampleFrame},
+      title={\makebox[1.3em][c]{\faFlask}},
     },
-    callout quote/.style={
-        colbacktitle=calloutQuoteBg,
-        colframe=calloutQuoteFrame,
-        coltitle=calloutQuoteFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutQuoteFrame},
-        title={\makebox[1.3em][c]{\faQuestionCircle}},
+  callout quote/.style={
+      colbacktitle=calloutQuoteBg,
+      colframe=calloutQuoteFrame,
+      coltitle=calloutQuoteFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutQuoteFrame},
+      title={\makebox[1.3em][c]{\faQuestionCircle}},
     },
-    callout question/.style={
-        colbacktitle=calloutQuestionBg,
-        colframe=calloutQuestionFrame,
-        coltitle=calloutQuestionFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutQuestionFrame},
-        title={\makebox[1.3em][c]{\faQuestionCircle}},
+  callout question/.style={
+      colbacktitle=calloutQuestionBg,
+      colframe=calloutQuestionFrame,
+      coltitle=calloutQuestionFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutQuestionFrame},
+      title={\makebox[1.3em][c]{\faQuestionCircle}},
     },
-    callout exercise/.style={
-        colbacktitle=calloutExerciseBg,
-        colframe=calloutExerciseFrame,
-        coltitle=calloutExerciseFrame!80!black,
-        borderline west={0.5mm}{0mm}{calloutExerciseFrame},
-        title={\faChess
-            \refstepcounter{exercisecounter}
-            \textbf{Exercice \theexercisecounter:}
+  callout exercise/.style={
+      colbacktitle=calloutExerciseBg,
+      colframe=calloutExerciseFrame,
+      coltitle=calloutExerciseFrame!80!black,
+      borderline west={0.5mm}{0mm}{calloutExerciseFrame},
+      title={\faChess
+          \refstepcounter{exercisecounter}
+          \textbf{Exercice \theexercisecounter:}
         }
     },
-    callout solution/.style={
-        colbacktitle=gray!40!white,
-        title={\textcolor{black}{\makebox[1.3em][l]{\faComment}}},
+  callout solution/.style={
+      colbacktitle=gray!40!white,
+      title={\textcolor{black}{\makebox[1.3em][l]{\faComment}}},
     },
-    callout default/.style={
-        colbacktitle=gray!40!white,
+  callout default/.style={
+      colbacktitle=gray!40!white,
 
-        title={\textcolor{black}{\makebox[1.3em][l]{\faComment}}},
+      title={\textcolor{black}{\makebox[1.3em][l]{\faComment}}},
     }
 }
 
 \newtcolorbox{callout}[2][]{%
-    breakable,
-    enhanced,
-    arc=0mm,
-    boxrule=0mm,
-    titlerule=0mm,
-    lefttitle=1mm,
-    leftupper=1mm,
-    colback=white,
-    parbox=false, % Allow paragraph breaks inside the box
-    frame hidden,
-    borderline west={0.5mm}{0mm}{black!70},
-    #1,
-    after title={~#2}
+  breakable,
+  enhanced,
+  arc=0mm,
+  boxrule=0mm,
+  titlerule=0mm,
+  lefttitle=1mm,
+  leftupper=1mm,
+  colback=white,
+  parbox=false, % Allow paragraph breaks inside the box
+  frame hidden,
+  borderline west={0.5mm}{0mm}{black!70},
+  #1,
+  after title={~#2}
 }
 
 \setminted{style=trac}
 \setmintedinline{style=trac} %,bgcolor=gray!20}
-
-% \tcbuselibrary{listings}
-
-% \definecolor{listingsKeyword}{HTML}{063970}
-% \definecolor{listingsComment}{HTML}{5C6B77}
-% \definecolor{listingsStrings}{HTML}{5C5B4C}
-
-% \lstdefinelanguage{text}{
-% }
-
-% \lstdefinelanguage{console}{
-%   morekeywords={\$},
-%   morecomment=[l]{\#},
-%   morestring=[b]",
-% }
-
-% \lstdefinelanguage{makefile}{
-%   keywords={\$@, \$<, \$^, \$+, \$*, \$?, \$|},
-%   ndkeywords={define, endef, export, override, private, vpath},
-%   sensitive=false,
-%   comment=[l]{\#},
-%   morestring=[b]',
-%   morestring=[b]"
-% }
-
-% \definecolor{diffstart}{named}{Grey}
-% \definecolor{diffincl}{named}{Green}
-% \definecolor{diffrem}{named}{OrangeRed}
-
-% \lstdefinelanguage{yaml}{
-%   keywords={true,false,null,y,n},
-%   sensitive=false,
-%   comment=[l]{\#},
-%   morecomment=[s]{/*}{*/},
-%   morestring=[b]',
-%   morestring=[b]",
-%   literate =    {---}{{\ProcessThreeDashes}}3
-%                 {>}{{\textcolor{red}\textgreater}}1
-%                 {|}{{\textcolor{red}\textbar}}1
-%                 {\ -\ }{{\mdseries\ -\ }}3
-% }
-
-% \lstdefinelanguage{diff}{
-%   basicstyle=\ttfamily\small,
-%   morecomment=[f][\color{diffstart}]{@@},
-%   morecomment=[f][\color{diffincl}]{+\ },
-%   morecomment=[f][\color{diffrem}]{-\ },
-% }
-
-% \lstdefinelanguage{javascript}{
-%   keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-%   ndkeywords={class, export, boolean, throw, implements, import, this},
-%   sensitive=false,
-%   comment=[l]{//},
-%   morecomment=[s]{/*}{*/},
-%   morestring=[b]',
-%   morestring=[b]"
-% }
-
-% \lstdefinelanguage{cpp}{
-%   language=C++
-% }
-
-% \lstdefinelanguage{json}{
-%   morestring=[b]",
-% }
 
 \newtcblisting[auto counter,number within=section,
   list inside=mypyg]{code}[4][]{%
@@ -410,24 +362,11 @@
   pad at break*=1mm,
   toptitle=0.15em,
   bottomtitle=0.1em,
-  % lefttitle=0.5em,
+  boxrule=0mm,
   frame hidden,
-  borderline west={0.5mm}{0mm}{black!70},
-  % outer arc=0.7mm,
   minted language=#2,
   top=1mm,
   bottom=1mm,
-  % listing options={
-  %   language=#2,
-  %   basicstyle=\ttfamily\footnotesize,
-  %   keywordstyle=\bfseries\color{listingsKeyword},
-  %   stringstyle=\color{listingsStrings},
-  %   commentstyle=\itshape\color{listingsComment},
-  %   ndkeywordstyle=\color{darkgray}\bfseries,
-  %   identifierstyle=\color{black},
-  %   breaklines=true,
-  %   showstringspaces=false
-  % },
   minted options={%
     tabsize=4,
     breaklines,
@@ -489,17 +428,17 @@
 
 \newcommand*\keystroke[1]{%
   \tikz[baseline=(key.base)]
-    \node[%
-      draw,
-      fill=gray!10,
-      drop shadow={shadow xshift=0.25ex,shadow yshift=-0.25ex,fill=black!70,opacity=0.75},
-      rectangle,
-      rounded corners=1.5pt,
-      inner ysep=0.1em,
-      inner xsep=0.5em,
-      line width=0.5pt,
-      font=\scriptsize\sffamily
-    ](key) {#1\strut}
+  \node[%
+    draw,
+    fill=gray!10,
+    drop shadow={shadow xshift=0.25ex,shadow yshift=-0.25ex,fill=black!70,opacity=0.75},
+    rectangle,
+    rounded corners=1.5pt,
+    inner ysep=0.1em,
+    inner xsep=0.5em,
+    line width=0.5pt,
+    font=\scriptsize\sffamily
+  ](key) {#1\strut}
   ;
 }
 
@@ -517,10 +456,10 @@
 % the description text on the next line.
 % https://tex.stackexchange.com/a/430454/85416
 \setlist[description]{
-    style=nextline,
-    labelindent=0pt,
-    leftmargin=1cm,
-    itemindent=\dimexpr-5pt-\labelsep\relax
+  style=nextline,
+  labelindent=0pt,
+  leftmargin=1cm,
+  itemindent=\dimexpr-5pt-\labelsep\relax
 }
 
 % Workaround for mintedinline in item
@@ -534,54 +473,6 @@
 \newcommand\correctchoice{\stackinset{c}{}{c}{}{$\times$}{$\bigcirc$}}
 \newcommand\choice{$\bigcirc$}
 
-\newcommand{\logoimg}[3]{
-  \begin{tikzpicture}[remember picture, overlay, x=0.7pt, y=0.7pt]
-      \begin{scope}[shift={($(current page.north west) + (#1, -#2) + (0, -75)$)}]
-          \fill[#3]
-              (74, 18) -- (56, 18) -- (56, 12) -- (68, 12) -- (68, 12)
-              .. controls (67, 7) and (63, 5) .. (57, 5)
-              .. controls (50, 5) and (45, 10) .. (45, 17)
-              .. controls (45, 24) and (50, 30) .. (57, 30)
-              .. controls (63, 30) and (67, 27) .. (69, 23)
-              -- (74, 25)
-              .. controls (71, 32) and (65, 35) .. (57, 35)
-              .. controls (47, 35) and (39, 27) .. (39, 17)
-              .. controls (39, 7) and (47, 0) .. (57, 0)
-              .. controls (62, 0) and (66, 2) .. (69, 5)
-              -- (69, 1) -- (74, 1) -- (74, 17) -- cycle;
-          \fill[#3]
-              (74, 47) -- (46, 47) -- (46, 56) -- (70, 56) -- (70, 61) --
-              (46, 61) -- (46, 70) -- (74, 70) -- (74, 75) -- (40, 75) --
-              (40, 42) -- (74, 42) -- cycle;
-          \fill[#3]
-              (27, 61) -- (5, 61) -- (5, 75) -- (0, 75) -- (0, 42) --
-              (5, 42) -- (5, 56) -- (27, 56) -- (27, 42) -- (33, 42) --
-              (33, 75) -- (27, 75) -- cycle;
-          \fill[#3]
-              (19, 6) -- (19, 29) -- (33, 29) -- (33, 34) -- (-0, 34) --
-              (-0, 29) -- (13, 29) -- (13, 6) -- (-0, 6) -- (-0, 1) --
-              (33, 1) -- (33, 6) -- cycle;
-          \fill[#3]
-              (88, 75) -- (90, 75) -- (87, 65) -- (85, 65) -- (81, 75) --
-              (83, 75) -- (86, 68) -- cycle;
-          \fill[#3, even odd rule]
-              (92, 65) -- (92, 75) -- (95, 75)
-              .. controls (98, 75) and (100, 73) .. (100, 70)
-              .. controls (100, 67) and (98, 65) .. (95, 65)
-              -- cycle
-              (95, 67)
-              .. controls (97, 67) and (98, 68) .. (98, 70)
-              .. controls (98, 72) and (97, 73) .. (95, 73)
-              -- (94, 73)
-              -- (94, 67)
-              -- cycle;
-      \end{scope}
-  \end{tikzpicture}
-}
-
-
-
-
 \def\title{\VAR{title}}
 \def\subtitle{Programmation en C}
 
@@ -590,113 +481,48 @@
 \def\covercolor{indigo(dye)}
 \def\author{\VAR{author}}
 
-\newcommand{\changelocaltocdepth}[1]{%
-  \addtocontents{toc}{\protect\setcounter{tocdepth}{#1}}%
-  \setcounter{tocdepth}{#1}%
-}
-
-\pretocmd{\frontmatter}{%
-  \pagestyle{plain}%
-  \changelocaltocdepth{1}%
-}{}{}
-
-\pretocmd{\mainmatter}{%
-  \changelocaltocdepth{2}%
-}{}{}
-
-
 \begin{document}
 
-\begin{code}{c}{Titre}{}
-typedef int16_t Q;
-typedef Q Q12;
+\chapter{Les chiens}
+\epigraph{The quick brown fox jumps over the lazy dog.}{Animals}
 
-Q q_add(Q a, Q b) {
-    return a + b;
-}\end{code}
+⇧ 🠔 + ⌘ 🠔 + ⌫ 🠔 + ⏎ 🠔 ⨼
 
-\begin{code}{c}{}{}
-typedef int16_t Q;
-typedef Q Q12;
+L'éditeur de code vous permet d'indenter automatiquement votre code. Cela permet de voir la structure du code. Il est consensuellement admis qu' une région de code sélectionnée peut être indentée avec \keystroke{Tab} et désindentée avec \keystroke{⇧ Shift}+\keystroke{Tab}.
 
-Q q_add(Q a, Q b) {
-    return a + b;
-}
+normalsize 60
+footnotesize 80
+\begin{code}{text}{}{fontsize=\footnotesize  }
+0        1         2         3         4         5         6         7         8
+12345678901234567890123456789012345678901234567890123456789012345678901234567890
 
-Q q_add_sat(Q a, Q b) {
-    int32_t res = (int32_t)a + (int32_t)b;
-    res = res > 0x7FFF ? 0x7FFF : res
-    res = res < -1 * 0x8000 ? -1 * 0x8000 : res;
-    return (Q)res;
-}
+$ hexdump -C albatros.txt
+00000  53 6f 75 76 65 6e 74 2c  20 70 6f 75 72 20 73 27  |Souvent, pour s'|
+00010  61 6d 75 73 65 72 2c 20  6c 65 73 20 68 6f 6d 6d  |amuser, les homm|
+00020  65 73 20 64 27 c3 a9 71  75 69 70 61 67 65 0d 0a  |es d'..quipage..|
+00030  50 72 65 6e 6e 65 6e 74  20 64 65 73 20 61 6c 62  |Prennent des alb|
+00040  61 74 72 6f 73 2c 20 76  61 73 74 65 73 20 6f 69  |atros, vastes oi|
+00050  73 65 61 75 78 20 64 65  73 20 6d 65 72 73 2c 0d  |seaux des mers,.|
+00060  0a 51 75 69 20 73 75 69  76 65 6e 74 2c 20 69 6e  |.Qui suivent, in|
+00070  64 6f 6c 65 6e 74 73 20  63 6f 6d 70 61 67 6e 6f  |dolents compagno|
+00080  6e 73 20 64 65 20 76 6f  79 61 67 65 2c 0d 0a 4c  |ns de voyage,..L|
+00090  65 20 6e 61 76 69 72 65  20 67 6c 69 73 73 61 6e  |e navire glissan|
+000a0  74 20 73 75 72 20 6c 65  73 20 67 6f 75 66 66 72  |t sur les gouffr|
+000b0  65 73 20 61 6d 65 72 73  2e 0d 0a 0d 0a 2e 2e 2e  |es amers........|
+000c0  0d 0a 0d 0a 43 65 20 76  6f 79 61 67 65 75 72 20  |....Ce voyageur |
+000d0  61 69 6c 65 cc 81 2c 20  63 6f 6d 6d 65 20 69 6c  |aile.., comme il|
+000e0  20 65 73 74 20 67 61 75  63 68 65 20 65 74 20 76  | est gauche et v|
+000f0  65 75 6c 65 e2 80 af 21  0d 0a 4c 75 69 2c 20 6e  |eule...!..Lui, n|
+00100  61 67 75 c3 a8 72 65 20  73 69 20 62 65 61 75 2c  |agu..re si beau,|
+00110  20 71 75 27 69 6c 20 65  73 74 20 63 6f 6d 69 71  | qu'il est comiq|
+00120  75 65 20 65 74 20 6c 61  69 64 e2 80 af 21 0d 0a  |ue et laid...!..|
+00130  4c 27 75 6e 20 61 67 61  63 65 20 73 6f 6e 20 62  |L'un agace son b|
+00140  65 63 20 61 76 65 63 20  75 6e 20 62 72 c3 bb 6c  |ec avec un br..l|
+00150  65 2d 67 75 65 75 6c 65  2c 0d 0a 4c 27 61 75 74  |e-gueule,..L'aut|
+00160  72 65 20 6d 69 6d 65 2c  20 65 6e 20 62 6f 69 74  |re mime, en boit|
+00170  61 6e 74 2c 20 6c 27 69  6e 66 69 72 6d 65 20 71  |ant, l'infirme q|
+00180  75 69 20 76 6f 6c 61 69  74 e2 80 af 21           |ui volait...!|
+0018d
 \end{code}
-
-\subsubsection{Encadrés}
-
-Des encadrés sont utilisés pour mettre en avant des informations complémentaires ou des astuces. Ils sont également utilisés pour donner des informations sur des concepts avancés ou des détails techniques.
-
-\begin{callout}[callout question]{Question}
-
-
-  Fait historique où information complémentaire pour ceux qui voudraient en savoir plus.
-
-
-  \end{callout}
-\begin{callout}[callout info]{Info}
-
-
-Fait historique où information complémentaire pour ceux qui voudraient en savoir plus.
-
-
-\end{callout}
-\begin{callout}[callout warning]{Avertissement}
-
-
-Point important à faire attention qui source d'erreur fréquente.
-
-
-\end{callout}
-\begin{callout}[callout danger]{Danger}
-
-
-Note importante qui comporte des risques à considérer.
-
-
-\end{callout}
-\begin{callout}[callout example]{Exemple}
-
-
-Exemple pratique pour illustrer un concept.
-
-
-\end{callout}
-\begin{callout}[callout note]{Note}
-
-
-Corollaire à retenir.
-
-
-\end{callout}
-\begin{callout}[callout tip]{Astuce}
-
-
-Truc ou Astuce pour faciliter la compréhension.
-
-
-\end{callout}
-\begin{callout}[callout bug]{Bogue}
-
-
-Limitations ou bugs possibles d'une méthode proposée.
-
-
-\end{callout}
-\begin{callout}[callout exercise]{Exercise~: Quelle icône~?}
-
-
-Quelle icône est utilisée pour les exercices~?
-
-
-\end{callout}
 
 \end{document}

@@ -401,6 +401,23 @@ Vient s'ajouter les valeurs particulières suivantes :
 1 11111111 00000000000000000000000₂ ≡ ff80 0000₁₆ ≡ −inf
 ```
 
+!!! bug "Dépassement de capacité"
+
+    Il ne faut pas oublier que la représentation des nombres en virgule flottante n'est pas exacte. Il est possible de dépasser la capacité de stockage d'un nombre en virgule flottante. La précision maximale d'un nombre en virgule flottante dépend de sa mantisse.
+
+    Par exemple si l'on souhaite réaliser un intégrateur simple, nous disposons d'un compteur `u` initialisé à 1.0. À chaque itération, on incrémente `u` de 1.0. Lorsque la valeur cesse de croître, on affiche la valeur de `u`.
+
+    ```c
+    #include <stdio.h>
+    int main() {
+        float u = 1.0, v;
+        do { v = u++; } while (u > v);
+        printf("%f\n", u);
+    }
+    ```
+
+    Vous pourriez vous attendre à ce que le programme tourne à l'infini, où du moins jusqu'à une limite très grande, mais en réalité, il s'arrête à 16777216.0. C'est parce que la précision de la mantisse est de 23 bits, et que le nombre 16777217.0 est le premier nombre entier qui ne peut pas être représenté avec une précision de 23 bits.
+
 !!! info "Les nombres subnormaux"
 
     On l'a vu un nombre en virgule flottante simple précision s'écrit sous la forme :

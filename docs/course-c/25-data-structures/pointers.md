@@ -1,3 +1,4 @@
+[](){#pointers}
 # Pointeurs
 
 [Attention les vélos](https://fr.wikiquote.org/wiki/Le_Jour_de_gloire), on s'attaque à un sujet délicat, difficile, scabreux, mais nécessaire. Un sujet essentiel, indispensable et fantastique: les [pointeurs](https://fr.wikipedia.org/wiki/Pointeur_(programmation)).

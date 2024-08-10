@@ -104,6 +104,7 @@ class LaTeXRenderer:
             self.render_keystrokes,
             self.render_tabbed,
             self.render_heading,
+            self.render_epigraph,
             self.render_autoref,
             self.render_footnotes,
             self.render_links,
@@ -356,6 +357,17 @@ class LaTeXRenderer:
                        path=filename.name,
                        caption=caption,
                        width=width)
+        return soup
+
+    def render_epigraph(self, soup: Tag, **kwargs):
+        for el in soup.find_all('blockquote', class_=['epigraph']):
+            if footer := el.find('footer'):
+                self.render_inlines(footer)
+                source = self.get_safe_text(footer)
+                footer.extract()
+
+            text = el.get_text()
+            self.apply(el, 'epigraph', text, source=source)
         return soup
 
     def render_codeblock(self, soup: Tag, **kwargs):

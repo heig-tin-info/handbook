@@ -1,3 +1,9 @@
+---
+epigraph:
+  text: La programmation, c'est l'art d'organiser la complexité.
+  source: E. Dijkstra
+---
+
 # Programmation
 
 La **programmation** aussi nommée **codage** est la branche de l'informatique qui consiste en l'écriture de programmes agencés en séquences d'instructions qui reflètent des ordres donnés à l'ordinateur. Un programme est donc une succession d'étapes respectant un **algorithme**.

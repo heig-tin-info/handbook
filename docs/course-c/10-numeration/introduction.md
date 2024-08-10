@@ -1,3 +1,8 @@
+---
+epigraph:
+  text: L'informatique ne concerne pas plus les ordinateurs que l'astronomie ne concerne les télescopes... La science ne concerne pas les outils. Elle concerne la manière dont nous les utilisons et ce que nous découvrons en les utilisant.
+  source: Edsger W. Dijkstra
+---
 [](){#numeration}
 
 # Numération

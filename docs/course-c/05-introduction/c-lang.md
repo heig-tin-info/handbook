@@ -1,3 +1,8 @@
+---
+epigraph:
+    text: "C is quirky, flawed, and an enormous success."
+    source: Dennis Ritchie
+---
 # Le langage C
 
 Le langage C est l'un des premiers langages de programmation dit de haut niveau. Il est très proche de l'assembleur: le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation de système complexe à la simple [machine à café][mcu].
@@ -5,8 +10,6 @@ Le langage C est l'un des premiers langages de programmation dit de haut niveau.
 Même s'il est très ancien (1972), il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.
 
 À vrai dire, en 2024, il n'y a pas d'alternative viable au C pour programmer des applications embarquées, des systèmes d'exploitation ou des applications nécessitant des performances élevées.
-
-> C is quirky, flawed, and an enormous success. -- Dennis Ritchie
 
 [](){ #c-history }
 

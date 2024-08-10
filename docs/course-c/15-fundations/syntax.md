@@ -17,8 +17,11 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 Pour comparaison, le système d'écriture coréen ([[Hangul]]) est [[alphasyllabique]], c'est-à-dire que chaque caractère représente une syllabe. Les lettres de base sont composées de 14 consonnes de base et 10 voyelles. Quant aux chiffres ils sont les mêmes qu'en occident.
 
 ```text
-ㄱ (g), ㄴ (n), ㄷ (d), ㄹ (r/l), ㅁ (m), ㅂ (b), ㅅ (s), ㅇ (ng), ㅈ (j), ㅊ (ch), ㅋ (k), ㅌ (t), ㅍ (p), ㅎ (h)
-ㅏ (a), ㅑ (ya), ㅓ (eo), ㅕ (yeo), ㅗ (o), ㅛ (yo), ㅜ (u), ㅠ (yu), ㅡ (eu), ㅣ (i)
+g n d r/l m b s ng j ch k t p h
+ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ
+
+a ya eo yeo o yo u yu eu i
+ㅏ ㅑ ㅓ ㅕ ㅗ ㅛ ㅜ ㅠ ㅡ ㅣ
 ```
 
 Les japonais quant à eux utilisent trois systèmes d'écriture, le [[Hiragana]], le [[Katakana]] et le [[Kanji]]. Les deux premiers sont des syllabaires et le dernier est un système d'[[écriture logographique]]. Le Hiragana et Katakana ont tous deux 46 caractères de base. Voici l'exemple du Katakana:
