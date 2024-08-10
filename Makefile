@@ -1,3 +1,5 @@
+BUILD_DIR=build/l-informatique-pour-l-ingenieur
+
 all:
 	poetry run mkdocs build
 
@@ -10,18 +12,18 @@ poetry.lock: pyproject.toml
 build:
 	poetry run mkdocs build
 
-latex: build/index.tex
-	latexmk -cd build/index.tex -C
-	latexmk --shell-escape -pdf -file-line-error -lualatex -cd build/index.tex
+latex: $(BUILD_DIR)/index.tex
+	latexmk -cd $(BUILD_DIR)/index.tex -C
+	latexmk --shell-escape -pdf -file-line-error -lualatex -cd $(BUILD_DIR)/index.tex
 
-build/output-print.pdf: build/index.pdf
+$(BUILD_DIR)/output-print.pdf: $(BUILD_DIR)/index.pdf
 	gs -sDEVICE=pdfwrite -dPDFSETTINGS=/printer \
 	   -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ \
 	   -dDownsampleColorImages=true -dDownsampleGrayImages=true \
 	   -dDownsampleMonoImages=true -dColorImageResolution=200 \
 	   -dGrayImageResolution=200 -dMonoImageResolution=200 $<
 
-build/output-screen.pdf: build/index.pdf
+$(BUILD_DIR)/output-screen.pdf: $(BUILD_DIR)/index.pdf
 	gs -sDEVICE=pdfwrite -dPDFSETTINGS=/screen \
 	   -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ \
 	   -dDownsampleColorImages=true -dDownsampleGrayImages=true \
@@ -31,7 +33,7 @@ build/output-screen.pdf: build/index.pdf
 update-viewer:
 	wget https://raw.githubusercontent.com/jgraph/drawio/dev/src/main/webapp/js/viewer.min.js -O docs/js/viewer.min.js
 
-optimize: build/output-print.pdf
+optimize: $(BUILD_DIR)/output-print.pdf
 
 clean:
 	rm -rf build site

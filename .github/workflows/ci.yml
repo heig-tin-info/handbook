@@ -65,12 +65,16 @@ jobs:
           path: ./build
       - uses: xu-cheng/latex-action@v3
         with:
-          root_file: build/index.tex
+          root_file: build/l-informatique-pour-l-ingenieur/index.tex
           extra_fonts: fonts/cc-icons.otf
           extra_system_packages: |
             font-noto font-noto-hebrew font-noto-devanagari
             font-noto-tamil font-noto-tibetan font-noto-cjk
-            font-noto-naskh-arabic font-fira-code make
+            font-noto-naskh-arabic make
+          pre_compile: |
+            echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+            apk update \
+            apk add font-fira-code
           latexmk_shell_escape: true
           latexmk_use_lualatex: true
           args: -cd
@@ -79,7 +83,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: PDF
-          path: build/output-print.pdf
+          path: build/l-informatique-pour-l-ingenieur/output-print.pdf
   post-deploy:
     needs: deploy
     runs-on: ubuntu-latest
