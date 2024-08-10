@@ -2,7 +2,7 @@ from fontTools.ttLib import TTFont
 import os
 
 # Caractère à rechercher
-char = '𝄽'
+char = ';'
 codepoint = ord(char)
 
 # Répertoire contenant les polices (ajoutez d'autres répertoires si nécessaire)

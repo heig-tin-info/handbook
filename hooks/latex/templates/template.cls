@@ -66,7 +66,7 @@
       "NotoSerifTibetan:mode=harf;",
       "NotoSerifCJKkr:mode=harf;",
       "NotoSans:mode=harf;",
-      "NotoSansSymbols2-Regular:mode=harf;"
+      "NotoSansSymbols2-Regular:mode=harf;",
       "NotoSansMath-Regular:mode=harf;",
       "NotoMusic-Regular:mode=harf;",
     }
@@ -147,7 +147,7 @@
   \renewcommand{\headrulewidth}{0pt}
 }
 
-\apptocmd{\chapter}{\minitoc}{}{}
+% \apptocmd{\chapter}{\minitoc}{}{}
 
 \patchcmd{\part}{\thispagestyle{plain}}{\thispagestyle{part}}{}{}
 
