@@ -741,7 +741,7 @@
   <span class="md-ellipsis">
     
   
-    Moi et mon ordinateur
+    Mon ordinateur et moi
   
 
     
@@ -1795,7 +1795,7 @@
   <span class="md-ellipsis">
     
   
-    Pointeurs
+    Pointers
   
 
     
@@ -4224,31 +4224,31 @@
 <h2 id="systeme-de-fichiers">Système de fichiers<a class="headerlink" href="#systeme-de-fichiers" title="Permanent link">¶</a></h2>
 <p>Dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr> tout est fichier. <code>stdin</code> est un fichier, une souris USB est un fichier, un clavier est un fichier, un terminal est un fichier, un programme est un fichier.</p>
 <p>Les fichiers sont organisés dans une arborescence gérée par un <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_fichiers">système de fichiers</a>. Sous Windows l'arborescence classique est&thinsp;:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="go">C :</span>
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="go">├── Program Files         Programmes installés</span>
-</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="go">├── Users                 Comptes utilisateur</span>
-</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="go">│   └── John</span>
-</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="go">│       ├── Desktop</span>
-</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="go">│       ├── Documents</span>
-</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="go">│       └── Music</span>
-</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="go">└── Windows</span>
-</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="go">    ├── Fonts             Polices de caractères</span>
-</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="go">    ├── System32          Système d'exploitation 64-bits (oui, oui)</span>
-</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="go">    └── Temp              Fichiers temporaires</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>C :
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>├── Program Files         Programmes installés
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>├── Users                 Comptes utilisateur
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>│   └── John
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>│       ├── Desktop
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>│       ├── Documents
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>│       └── Music
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>└── Windows
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    ├── Fonts             Polices de caractères
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>    ├── System32          Système d'exploitation 64-bits (oui, oui)
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    └── Temp              Fichiers temporaires
 </span></code></pre></div>
 <p>Il y a une arborescence par disque physique <code>C:</code>, <code>D:</code>, une arborescence par chemin réseau <code>\\eistore2</code>, etc. Sous <abbr title="Portable Operating System Interface">POSIX</abbr>, la stratégie est différente, car il n'existe qu'un seul système de fichier dont la racine est <code>/</code>.</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="go">/</span>
-</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="go">├── bin                   Programmes exécutables cruciaux</span>
-</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="go">├── dev                   Périphériques (clavier, souris ...)</span>
-</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="go">├── usr</span>
-</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="go">│   └── bin               Programmes installés</span>
-</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="go">├── mnt                   Points de montage (disques réseaux, CD, clé USB)</span>
-</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="go">│   └── eistore2</span>
-</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="go">├── tmp                   Fichiers temporaires</span>
-</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="go">├── home                  Comptes utilisateurs</span>
-</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="go">│   └── john</span>
-</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="go">│       └── documents</span>
-</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="go">└── var                   Fichiers variables comme les logs ou les database</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>/
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>├── bin                   Programmes exécutables cruciaux
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>├── dev                   Périphériques (clavier, souris ...)
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>├── usr
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>│   └── bin               Programmes installés
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>├── mnt                   Points de montage (disques réseaux, CD, clé USB)
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>│   └── eistore2
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>├── tmp                   Fichiers temporaires
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>├── home                  Comptes utilisateurs
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>│   └── john
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>│       └── documents
+</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>└── var                   Fichiers variables comme les logs ou les database
 </span></code></pre></div>
 <p>Chaque élément qui contient d'autres éléments est appelé un <strong>répertoire</strong> ou <strong>dossier</strong>, en anglais <em>directory</em>. Chaque répertoire contient toujours au minimum deux fichiers spéciaux&thinsp;:</p>
 <dl>
@@ -4295,14 +4295,14 @@
 </span></code></pre></div>
 <p>Si nous le compilons et cherchons dans son code binaire&thinsp;:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>$ gcc example.c
-</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>| $ hexdump -C a.out                                         | grep -C3 sec     |
-</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>| 000006f0  f3 c3 00 00 48 83 ec 08  48 83 c4 08 c3 00 00 00 | ....H...H....... |
-</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>| 00000700  01 00 02 00 00 00 00 00  00 00 00 00 00 00 00 00 | ................ |
-</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>| 00000710  75 6e 20 6d 6f 74 20 64  65 20 70 61 73 73 65 20 | un mot de passe  |
-</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>| 00000720  73 65 63 72 65 74 00 00  01 1b 03 3b 3c 00 00 00 | secret.....;&lt;... |
-</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>| 00000730  06 00 00 00 e8 fd ff ff  88 00 00 00 08 fe ff ff | ................ |
-</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>| 00000740  b0 00 00 00 18 fe ff ff  58 00 00 00 22 ff ff ff | ........X..."... |
-</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>| 00000750  c8 00 00 00 58 ff ff ff  e8 00 00 00 c8 ff ff ff | ....X........... |
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>$ hexdump -C a.out | grep -C3 sec
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>06f0  f3 c3 00 00 48 83 ec 08  48 83 c4 08 c3 00 00 00 | ....H...H....... |
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>0700  01 00 02 00 00 00 00 00  00 00 00 00 00 00 00 00 | ................ |
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>0710  75 6e 20 6d 6f 74 20 64  65 20 70 61 73 73 65 20 | un mot de passe  |
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>0720  73 65 63 72 65 74 00 00  01 1b 03 3b 3c 00 00 00 | secret.....;&lt;... |
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>0730  06 00 00 00 e8 fd ff ff  88 00 00 00 08 fe ff ff | ................ |
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>0740  b0 00 00 00 18 fe ff ff  58 00 00 00 22 ff ff ff | ........X..."... |
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>0750  c8 00 00 00 58 ff ff ff  e8 00 00 00 c8 ff ff ff | ....X........... |
 </span></code></pre></div>
 <p>Sous un système <abbr title="Portable Operating System Interface">POSIX</abbr>, il n'existe aucune distinction formelle entre un fichier binaire et un fichier texte. En revanche sous Windows, il existe une subtile différence concernant surtout le caractère de fin de ligne. La commande <code>copy a.txt + b.txt c.txt</code> considère des fichiers textes et ajoutera automatiquement une fin de ligne entre chaque partie concaténée, mais celle-ci <code>copy /b a.bin + b.bin c.bin</code> ne le fera pas.</p>
 <h2 id="ouverture-dun-fichier">Ouverture d'un fichier<a class="headerlink" href="#ouverture-dun-fichier" title="Permanent link">¶</a></h2>
@@ -4876,7 +4876,7 @@
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 10, 2024</span>
   </span>
 
     

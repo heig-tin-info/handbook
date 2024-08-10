@@ -741,7 +741,7 @@
   <span class="md-ellipsis">
     
   
-    Moi et mon ordinateur
+    Mon ordinateur et moi
   
 
     
@@ -1867,7 +1867,7 @@
   <span class="md-ellipsis">
     
   
-    Pointeurs
+    Pointers
   
 
     
@@ -4867,7 +4867,7 @@
 </span><span id="__span-43-2"><a href="#__codelineno-43-2" id="__codelineno-43-2" name="__codelineno-43-2"></a>
 </span><span id="__span-43-3"><a href="#__codelineno-43-3" id="__codelineno-43-3" name="__codelineno-43-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
-<p>Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal <strong>SIGINT</strong> (c. f. [signals][]). On rajoute alors une condition de sortie à la boucle principale&thinsp;:</p>
+<p>Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal <strong>SIGINT</strong> (c. f. <a class="autorefs autorefs-internal" href="../../20-architecture-and-systems/programs-and-processes/#signaux">signals</a>). On rajoute alors une condition de sortie à la boucle principale&thinsp;:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-44-2"><a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span>
 </span><span id="__span-44-3"><a href="#__codelineno-44-3" id="__codelineno-44-3" name="__codelineno-44-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span>
