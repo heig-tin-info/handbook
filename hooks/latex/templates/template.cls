@@ -50,8 +50,7 @@
 \setlength{\cftfignumwidth}{3em}
 \setlength{\cfttabnumwidth}{3em}
 
-\setdefaultlanguage{french}
-\setotherlanguages{english}
+\setdefaultlanguage[frenchpart=false]{french}
 
 \captionsetup[table]{skip=10pt}
 
