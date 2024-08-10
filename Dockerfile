@@ -10,7 +10,6 @@ RUN apt-get update && \
 RUN echo "Europe/Zurich" > /etc/timezone
 RUN dpkg-reconfigure -f noninteractive tzdata
 
-# Télécharger et installer TeX Live avec le profil minimal
 RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
     tar -xzf install-tl-unx.tar.gz && \
     cd install-tl-20* && \
@@ -18,7 +17,6 @@ RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
     ./install-tl --profile=/tmp/texlive.profile && \
     cd .. && rm -rf install-tl*
 
-# Ajouter TeX Live au PATH
 ENV PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 
 RUN tlmgr install latex latexmk minted adjustbox capt-of collectbox csquotes \
