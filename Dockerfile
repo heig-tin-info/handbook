@@ -21,7 +21,7 @@ RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
     tar -xzf install-tl-unx.tar.gz && \
     cd install-tl-20* && \
     ( \
-        echo "selected_scheme scheme-minimal" && \
+        echo "selected_scheme scheme-small" && \
         echo "instopt_adjustpath 0" && \
         echo "tlpdbopt_install_docfiles 0" && \
         echo "tlpdbopt_install_srcfiles 0" && \
