@@ -20,12 +20,21 @@ RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime && \
 RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
     tar -xzf install-tl-unx.tar.gz && \
     cd install-tl-20* && \
-    echo "selected_scheme scheme-minimal" > /tmp/texlive.profile && \
+    ( \
+        echo "selected_scheme scheme-minimal" && \
+        echo "instopt_adjustpath 0" && \
+        echo "tlpdbopt_install_docfiles 0" && \
+        echo "tlpdbopt_install_srcfiles 0" && \
+        echo "TEXDIR /opt/texlive/" && \
+        echo "TEXMFLOCAL /opt/texlive/texmf-local" && \
+        echo "TEXMFSYSCONFIG /opt/texlive/texmf-config" && \
+        echo "TEXMFSYSVAR /opt/texlive/texmf-var" && \
+        echo "TEXMFHOME ~/.texmf" \
+    ) > "/tmp/texlive.profile" && \
     ./install-tl --profile=/tmp/texlive.profile && \
     cd .. && rm -rf install-tl*
 
-# Définir le chemin de TeX Live
-ENV PATH="/usr/local/texlive/2024/bin/x86_64-linuxmusl:$PATH"
+ENV PATH="${PATH}:/opt/texlive/bin/x86_64-linuxmusl"
 
 # Installer les packages TeX Live
 RUN tlmgr install latex latexmk minted adjustbox capt-of collectbox csquotes \
@@ -43,12 +52,6 @@ RUN tlmgr install epstopdf-pkg babel-french psnfss carlisle
 
 RUN apk add font-noto font-noto-music font-noto-emoji font-noto-cjk font-noto-naskh-arabic \
     font-noto-devanagari font-noto-hebrew font-noto-tamil font-noto-tibetan font-noto-math font-noto-symbols
-
-# RUN mkdir -p /usr/share/fonts/truetype/noto && \
-#     wget https://cdn.jsdelivr.net/gh/notofonts/notofonts.github.io/fonts/NotoSansSymbols2/full/ttf/NotoSansSymbols2-Regular.ttf -P /usr/share/fonts/truetype/noto && \
-#     wget https://github.com/notofonts/noto-cjk/raw/main/Serif/OTF/Japanese/NotoSerifCJKjp-Regular.otf -P /usr/share/fonts/truetype/noto && \
-#     wget https://github.com/notofonts/noto-cjk/raw/main/Serif/OTF/Korean/NotoSerifCJKkr-Regular.otf -P /usr/share/fonts/truetype/noto && \
-#     wget https://github.com/googlefonts/noto-emoji/raw/main/fonts/NotoColorEmoji.ttf -P /usr/share/fonts/truetype/noto
 
 RUN wget https://github.com/cc-icons/cc-icons/raw/master/fonts/cc-icons.otf -P /usr/share/fonts/truetype/creativecommons
 
