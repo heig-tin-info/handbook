@@ -41,11 +41,13 @@ jobs:
           sudo apt install -y pngquant ghostscript
       - uses: abatilo/actions-poetry@v2
       - run: poetry install
-      - name: Download Build Artifacts
-        uses: actions/download-artifact@v3
+      - name: Cache MkDocs build directory
+        uses: actions/cache@v4
         with:
-          name: latex
           path: ./build
+          key: ${{ runner.os }}-mkdocs-build-${{ hashFiles('mkdocs.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-mkdocs-build-
       - name: Build Documentation with MkDocs
         env:
           GH_TOKEN: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
