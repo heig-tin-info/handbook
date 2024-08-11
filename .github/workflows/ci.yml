@@ -52,6 +52,7 @@ jobs:
           path: ./build
   book:
     needs: deploy
+    runs-on: ubuntu-latest
     container:
       build: .
     steps:
