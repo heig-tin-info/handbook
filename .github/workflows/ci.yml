@@ -59,7 +59,7 @@ jobs:
         run: docker build -t latex-ycr .
       - name: Save Docker image as artifact
         run: docker save latex-ycr | gzip > latex-ycr.tar.gz
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3
         with:
           name: latex-ycr
           path: latex-ycr.tar.gz
