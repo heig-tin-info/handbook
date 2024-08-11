@@ -17,7 +17,7 @@ RUN mkdir "/tmp/texlive" && cd "/tmp/texlive" && \
     wget "$TL_MIRROR/install-tl-unx.tar.gz" && \
     tar xzvf ./install-tl-unx.tar.gz && \
     ( \
-        echo "selected_scheme scheme-small" && \
+        echo "selected_scheme scheme-basic" && \
         echo "instopt_adjustpath 0" && \
         echo "tlpdbopt_install_docfiles 0" && \
         echo "tlpdbopt_install_srcfiles 0" && \
