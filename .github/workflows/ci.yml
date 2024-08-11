@@ -45,13 +45,24 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ./build
-          key: ${{ runner.os }}-mkdocs-build-${{ hashFiles('mkdocs.yml') }}
+          key: ${{ runner.os }}-mkdocs-build-${{ hashFiles('docs/**/*.md', 'mkdocs.yml') }}
           restore-keys: |
             ${{ runner.os }}-mkdocs-build-
+
+          restore-keys: ${{ runner.os }}-mkdocs-build
+      - name: Check cache restore
+        run: ls -alR build
       - name: Build Documentation with MkDocs
         env:
           GH_TOKEN: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
         run: CI=true poetry run mkdocs gh-deploy --force
+      - name: Update Cache with New Build Artifacts
+        uses: actions/cache@v4
+        with:
+          path: ./build
+          key: ${{ runner.os }}-mkdocs-build-${{ hashFiles('docs/**/*.md', 'mkdocs.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-mkdocs-build-
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -89,6 +100,10 @@ jobs:
         run: |
           docker save latex-ycr:latest | gzip > /tmp/.buildx-cache/latex-ycr.tar.gz
 
+      - name: List files in cache directory
+        run: |
+          ls -al /tmp/.buildx-cache
+
       - name: Update Cache with Docker image
         uses: actions/cache@v4
         with:
@@ -110,6 +125,10 @@ jobs:
           key: ${{ runner.os }}-docker-${{ hashFiles('Dockerfile') }}
           restore-keys: |
             ${{ runner.os }}-docker-
+
+      - name: List files in cache directory after restore
+        run: |
+          ls -al /tmp/.buildx-cache
 
       - name: Load Docker Image
         run: |
