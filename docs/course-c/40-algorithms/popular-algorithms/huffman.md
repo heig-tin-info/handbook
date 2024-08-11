@@ -4,7 +4,7 @@ Le codage de Huffman est un algorithme de compression sans perte qui permet de r
 
 Il est utilisé dans de nombreux formats de fichiers comme le format [PNG](https://fr.wikipedia.org/wiki/Portable_Network_Graphics), [JPEG](https://fr.wikipedia.org/wiki/JPEG) et [MP3](https://fr.wikipedia.org/wiki/MPEG-1/2_Audio_Layer_3).
 
-Prenons le texte `ABRACADABRA`. Il y a des lettres qui reviennent plus souvent que d'autres et des lettres de l'alphabet qui sont absente. Pourquoi donc représenter chaque caractère sur 1 octet ? On pourrait utiliser un code de longueur variable. Par exemple, la lettre `A` pourrait être représentée par `0`, la lettre `B` par `10` et la lettre `R` par `11`. Il faudrait également définir une table de correspondance pour décoder le texte. C'est le principe de l'abre de Huffman.
+Prenons le texte `ABRACADABRA`. Il y a des lettres qui reviennent plus souvent que d'autres et des lettres de l'alphabet qui sont absentes. Pourquoi donc représenter chaque caractère sur 1 octet ? On pourrait utiliser un code de longueur variable. Par exemple, la lettre `A` pourrait être représentée par `0`, la lettre `B` par `10` et la lettre `R` par `11`. Il faudrait également définir une table de correspondance pour décoder le texte. C'est le principe de l'abre de Huffman.
 
 ## Comment ça marche ?
 

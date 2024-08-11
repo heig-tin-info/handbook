@@ -109,8 +109,8 @@
   paperheight=240mm,
   top=20mm,
   bottom=20mm,
-  left=15mm,
-  right=20mm, % Margin for binding
+  left=20mm,
+  right=15mm, % Margin for binding
   headheight=6mm,
   headsep=5mm,
   marginparsep=4mm,
