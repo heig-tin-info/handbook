@@ -1,4 +1,4 @@
-FROM alpine:3.20.2
+FROM kjarosh/latex:2024.2-basic
 
 RUN apk add --no-cache \
     perl \
@@ -10,30 +10,7 @@ RUN apk add --no-cache \
     ttf-freefont \
     py3-pygments
 
-# Installer TeX Live
-ARG TL_MIRROR="https://texlive.info/CTAN/systems/texlive/tlnet"
-
-RUN mkdir "/tmp/texlive" && cd "/tmp/texlive" && \
-    wget "$TL_MIRROR/install-tl-unx.tar.gz" && \
-    tar xzvf ./install-tl-unx.tar.gz && \
-    ( \
-        echo "selected_scheme scheme-basic" && \
-        echo "instopt_adjustpath 0" && \
-        echo "tlpdbopt_install_docfiles 0" && \
-        echo "tlpdbopt_install_srcfiles 0" && \
-        echo "TEXDIR /opt/texlive/" && \
-        echo "TEXMFLOCAL /opt/texlive/texmf-local" && \
-        echo "TEXMFSYSCONFIG /opt/texlive/texmf-config" && \
-        echo "TEXMFSYSVAR /opt/texlive/texmf-var" && \
-        echo "TEXMFHOME ~/.texmf" \
-    ) > "/tmp/texlive.profile" && \
-    "./install-tl-"*"/install-tl" --location "$TL_MIRROR" -profile "/tmp/texlive.profile" && \
-    rm -vf "/opt/texlive/install-tl" && \
-    rm -vf "/opt/texlive/install-tl.log" && \
-    rm -vrf /tmp/*
-
-ENV PATH="${PATH}:/opt/texlive/bin/x86_64-linuxmusl"
-
+RUN tlmgr update --self --all
 RUN tlmgr install latexmk fontspec minted babel-french adjustbox capt-of \
   csquotes datatool emptypage enumitem environ epigraph fontawesome5 gensymb \
   glossaries imakeidx listofitems minitoc stackengine tcolorbox titlesec \
