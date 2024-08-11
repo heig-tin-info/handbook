@@ -72,13 +72,15 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
         with:
-          driver-opts: "network=host"
+          install: true
+          driver: 'docker-container'
+          buildkitd-flags: --oci-worker=true --oci-worker-gc=false
       - name: Build Docker image
         run: |
-          docker build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache -t my-custom-image:latest .
+          docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache -t latex-ycr:latest .
       - name: Push Docker image to cache
         run: |
-          docker save my-custom-image:latest | gzip > my-custom-image.tar.gz
+          docker save latex-ycr:latest | gzip > latex-ycr.tar.gz
   book:
     needs:
       - deploy
@@ -97,7 +99,7 @@ jobs:
 
       - name: Load Docker Image
         run: |
-          gunzip -c /tmp/.buildx-cache/my-custom-image.tar.gz | docker load
+          gunzip -c /tmp/.buildx-cache/latex-ycr.tar.gz | docker load
       - name: Download Build Artifacts
         uses: actions/download-artifact@v3
         with:
