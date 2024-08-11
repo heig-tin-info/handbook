@@ -1,20 +1,14 @@
-FROM alpine:latest
+FROM alpine:3.20.2
 
 RUN apk add --no-cache \
     perl \
     wget \
     curl \
-    tzdata \
     xz \
     ghostscript \
     fontconfig \
     ttf-freefont \
-    python3 py3-pygments
-
-# Configurer le fuseau horaire
-RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime && \
-    echo "Europe/Zurich" > /etc/timezone && \
-    apk del tzdata
+    py3-pygments
 
 # Installer TeX Live
 ARG TL_MIRROR="https://texlive.info/CTAN/systems/texlive/tlnet"
