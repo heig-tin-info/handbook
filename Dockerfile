@@ -17,7 +17,7 @@ RUN mkdir -p /usr/share/fonts/truetype/creativecommons && \
     -P /usr/share/fonts/truetype/creativecommons
 
 RUN apk add --no-cache \
-    ghostscript fontconfig ttf-freefont py3-pygments
+    make ghostscript fontconfig ttf-freefont py3-pygments
 
 RUN fc-cache -fv
 RUN updmap-sys
