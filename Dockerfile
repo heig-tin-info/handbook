@@ -17,9 +17,11 @@ RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime && \
     apk del tzdata
 
 # Installer TeX Live
-RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
-    tar -xzf install-tl-unx.tar.gz && \
-    cd install-tl-20* && \
+ARG TL_MIRROR="https://texlive.info/CTAN/systems/texlive/tlnet"
+
+RUN mkdir "/tmp/texlive" && cd "/tmp/texlive" && \
+    wget "$TL_MIRROR/install-tl-unx.tar.gz" && \
+    tar xzvf ./install-tl-unx.tar.gz && \
     ( \
         echo "selected_scheme scheme-small" && \
         echo "instopt_adjustpath 0" && \
@@ -31,8 +33,10 @@ RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
         echo "TEXMFSYSVAR /opt/texlive/texmf-var" && \
         echo "TEXMFHOME ~/.texmf" \
     ) > "/tmp/texlive.profile" && \
-    ./install-tl --profile=/tmp/texlive.profile && \
-    cd .. && rm -rf install-tl*
+    "./install-tl-"*"/install-tl" --location "$TL_MIRROR" -profile "/tmp/texlive.profile" && \
+    rm -vf "/opt/texlive/install-tl" && \
+    rm -vf "/opt/texlive/install-tl.log" && \
+    rm -vrf /tmp/*
 
 ENV PATH="${PATH}:/opt/texlive/bin/x86_64-linuxmusl"
 
