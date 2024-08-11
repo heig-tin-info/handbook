@@ -41,6 +41,11 @@ jobs:
           sudo apt install -y pngquant ghostscript
       - uses: abatilo/actions-poetry@v2
       - run: poetry install
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: latex
+          path: ./build
       - name: Build Documentation with MkDocs
         env:
           GH_TOKEN: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
@@ -74,17 +79,17 @@ jobs:
       - name: Download Docker Image Artifact
         uses: actions/download-artifact@v3
         with:
-          name: my-custom-image
+          name: latex-ycr
           path: .
       - name: Load Docker Image
-        run: gunzip -c my-custom-image.tar.gz | docker load
+        run: gunzip -c latex-ycr.tar.gz | docker load
       - name: Download Build Artifacts
         uses: actions/download-artifact@v3
         with:
           name: latex
           path: ./build
       - name: Build LaTeX Book (using Docker)
-        run: docker run --rm -v ${{ github.workspace }}:/workspace my-custom-image:latest make latex optimize
+        run: docker run --rm -v ${{ github.workspace }}:/workspace latex-ycr make latex optimize
       - name: Upload PDF Artifact
         uses: actions/upload-artifact@v4
         with:
