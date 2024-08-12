@@ -48,8 +48,6 @@ jobs:
           key: ${{ runner.os }}-mkdocs-build-${{ hashFiles('docs/**/*.md', 'mkdocs.yml') }}
           restore-keys: |
             ${{ runner.os }}-mkdocs-build-
-      - name: Check cache restore
-        run: ls -alR build
       - name: Build Documentation with MkDocs
         env:
           MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
