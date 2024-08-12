@@ -66,11 +66,18 @@ jobs:
         with:
           name: latex
           path: ./build
-  build-image:
+  book:
+    needs:
+      - deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: latex
+          path: ./build
 
       - name: Cache Docker layers
         uses: actions/cache@v4
@@ -94,48 +101,6 @@ jobs:
                               --load \
                               -t latex-ycr:latest .
 
-      - name: Save Docker image to tar.gz
-        run: |
-          docker save latex-ycr:latest | gzip > /tmp/.buildx-cache/latex-ycr.tar.gz
-
-      - name: List files in cache directory
-        run: |
-          ls -al /tmp/.buildx-cache
-
-      - name: Update Cache with Docker image
-        uses: actions/cache@v4
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-docker-${{ hashFiles('Dockerfile') }}
-  book:
-    needs:
-      - deploy
-      - build-image
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Restore Docker Image from Cache
-        uses: actions/cache@v4
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-docker-${{ hashFiles('Dockerfile') }}
-          restore-keys: |
-            ${{ runner.os }}-docker-
-
-      - name: List files in cache directory after restore
-        run: |
-          ls -al /tmp/.buildx-cache
-
-      - name: Load Docker Image
-        run: |
-          gunzip -c /tmp/.buildx-cache/latex-ycr.tar.gz | docker load
-      - name: Download Build Artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: latex
-          path: ./build
       - name: Build LaTeX Book (using Docker)
         run: docker run --rm -v ${{ github.workspace }}:/workspace latex-ycr make latex optimize
       - name: Upload PDF Artifact
