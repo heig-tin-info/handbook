@@ -33,7 +33,7 @@
 \usepackage{adjustbox} % Auto resize tables to fit page width
 \usepackage{caption}
 \usepackage{microtype} % Avoid overfull with fonts
-\usepackage{polyglossia}
+\usepackage[french]{babel}
 \usepackage{emptypage} % Nothing on empty pages
 \usepackage{heiglogo}
 \usetikzlibrary{shapes.geometric}
@@ -49,8 +49,6 @@
 \setlength{\cftsubsecnumwidth}{3.5em}
 \setlength{\cftfignumwidth}{3em}
 \setlength{\cfttabnumwidth}{3em}
-
-\setdefaultlanguage[frenchpart=false]{french}
 
 \captionsetup[table]{skip=10pt}
 

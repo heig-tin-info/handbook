@@ -77,7 +77,7 @@ def image2pdf(filename, output_path=Path()):
     pdfpath = get_filename_from_content(
         filename, output_path).with_suffix('.pdf')
 
-    if not up_to_date(filename, pdfpath):
+    if not pdfpath.exists():
         log.info('Converting %s to PDF...', filename)
         image = Image.open(filename)
         image.save(pdfpath, 'PDF')
@@ -163,7 +163,9 @@ def mermaid2pdf(content: Union[str, Path], output_path: Path = Path(), **kwargs)
 
 
 def up_to_date(source: Path, destination: Path) -> bool:
-    """Check if a file is up to date."""
+    """Check if a file is up to date.
+    Does not work well with GitHub Actions cache.
+    """
     return destination.exists() and \
         destination.stat().st_mtime >= source.stat().st_mtime
 
@@ -193,8 +195,8 @@ def drawio2pdf(filename: Path, output_path: Path) -> Path:
         filename.read_bytes(), output_path).with_suffix('.drawio.pdf')
 
     intermediate = output_path / filename.with_suffix('.pdf').name
-    # If destination path is older than source, recompile
-    if not up_to_date(filename, pdfpath):
+
+    if not pdfpath.exists():
         log.info('Converting %s to PDF...', filename)
 
         pwd = Path().absolute()
@@ -254,7 +256,7 @@ def image2pdf(filename, output_path=Path()):
     pdfpath = get_filename_from_content(
         filename.name, output_path).with_suffix('.pdf')
 
-    if not up_to_date(filename, pdfpath):
+    if not pdfpath.exists():
         image = Image.open(filename)
         image.save(pdfpath, 'PDF')
 
