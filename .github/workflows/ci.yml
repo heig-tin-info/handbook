@@ -102,6 +102,15 @@ jobs:
                               -t latex-ycr:latest .
 
       - name: Build LaTeX Book (using Docker)
+        run: |
+          docker run -v ${{ github.workspace }}:/workspace \
+                     -w /workspace \
+                     -u $(id -u):$(id -g) \
+                     -v /etc/passwd:/etc/passwd:ro \
+                     -e HOME=/workspace \
+                     latex-ycr \
+                     make latex optimize
+
         run: docker run --rm -v ${{ github.workspace }}:/workspace latex-ycr make latex optimize
       - name: Upload PDF Artifact
         uses: actions/upload-artifact@v4
