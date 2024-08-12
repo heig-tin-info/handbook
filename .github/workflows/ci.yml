@@ -52,15 +52,9 @@ jobs:
         run: ls -alR build
       - name: Build Documentation with MkDocs
         env:
+          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
           GH_TOKEN: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
         run: CI=true poetry run mkdocs gh-deploy --force
-      - name: Update Cache with New Build Artifacts
-        uses: actions/cache@v4
-        with:
-          path: ./build
-          key: ${{ runner.os }}-mkdocs-build-${{ hashFiles('docs/**/*.md', 'mkdocs.yml') }}
-          restore-keys: |
-            ${{ runner.os }}-mkdocs-build-
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v3
         with:
