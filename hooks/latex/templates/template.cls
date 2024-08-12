@@ -6,7 +6,7 @@
 \usepackage{amsmath} % For ±
 \usepackage{amssymb} % For ®
 \usepackage{gensymb} % For ±
-\usepackage{wasysym} % For fractions
+%\usepackage{wasysym} % For fractions
 \usepackage{nicefrac}
 \usepackage{fancyhdr}
 \usepackage[normalem]{ulem}
