@@ -29,7 +29,7 @@ sudo apt install -y pipx
 sudo fc-cache -fv
 ```
 
-Initialisez le dépôt avec :
+Initialisez le dépôt  avec :
 
 ```bash
 git clone https://github.com/heig-tin-info/handbook.git
