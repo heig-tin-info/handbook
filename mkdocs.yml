@@ -40,10 +40,7 @@ theme:
     - navigation.instant.prefetch # [Insiders only]
     - navigation.instant.progress # [Insiders only]
     - navigation.path # [Insiders only]
-    #- navigation.expand
-    #- navigation.sections # Render top-level section as groups
     - navigation.indexes # Allows for entry pages for each section
-    #- navigation.prune
     - navigation.tabs # Render top-level section in navbar
     - navigation.top # Adds back-to-top button
     - navigation.tracking # Update address bar with current page
@@ -95,13 +92,11 @@ plugins:
       plugins:
         #- privacy # Seem to mess with images
         # - mike
-        #- info
         # - minify:
         #     minify_html: true # Break draw.io images?
         - git-committers:
             repository: heig-tin-info/handbook
             branch: master
-            token: !ENV ["GH_TOKEN"]
         - optimize
         - git-revision-date-localized:
             enable_creation_date: true
@@ -115,8 +110,7 @@ plugins:
         reference_text: ''
         caption_prefix: ''
         position: top
-  #- charts
-
+  - social
   #- toggle-sidebar  # Seems buggy
   - awesome-pages
 
@@ -130,9 +124,6 @@ plugins:
   #           warning: Avertissement
 
   - tags
-  # - drawio-exporter:
-  #     cache_dir: .drawio_cache
-  #     embed_format: '{content}'
   - glightbox:
       skip_classes:
         - drawio-diagram
@@ -146,8 +137,6 @@ plugins:
   #     exclude:
   #       - index.md
   - search
-  #- htmlproofer  # Very slow, and not accurate
-
   - exercises
 markdown_extensions:
   - toc:

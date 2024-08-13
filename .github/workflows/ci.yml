@@ -1,4 +1,5 @@
 name: ci
+
 on:
   push:
     branches:
@@ -6,8 +7,10 @@ on:
       - main
     tags:
       - '*'
+
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,6 +19,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Configure Git Credentials
         env:
           GH_TOKEN: ${{ secrets.MKDOCS_MATERIALS_INSIDER_PAT }}
@@ -23,9 +27,11 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
           git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "git@github.com:"
+
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+
       - name: Cache Poetry dependencies
         uses: actions/cache@v4
         with:
@@ -35,10 +41,12 @@ jobs:
           key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
           restore-keys: |
             ${{ runner.os }}-poetry-
+
       - name: Install Ubuntu dependencies
         run: |
           sudo apt-get update
           sudo apt install -y pngquant ghostscript
+
       - uses: abatilo/actions-poetry@v2
       - run: poetry install
       - name: Cache MkDocs build directory
@@ -48,13 +56,15 @@ jobs:
           key: ${{ runner.os }}-mkdocs-build-${{ hashFiles('docs/**/*.md', 'mkdocs.yml') }}
           restore-keys: |
             ${{ runner.os }}-mkdocs-build-
+
       - name: Build Documentation with MkDocs
         env:
           MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
           GH_TOKEN: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
         run: CI=true poetry run mkdocs gh-deploy --force
+
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: latex
           path: ./build
@@ -65,6 +75,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
       - name: Download Build Artifacts
         uses: actions/download-artifact@v3
         with:
@@ -108,3 +119,34 @@ jobs:
         with:
           name: PDF
           path: build/l-informatique-pour-l-ingenieur/output-print.pdf
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: book
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download PDF Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: PDF
+          path: ./build
+
+      - name: Rename PDF file
+        run: |
+          TAG_NAME=$(echo ${{ github.ref }} | sed 's/refs\/tags\///')
+          mv ./build/l-informatique-pour-l-ingenieur/output-print.pdf ./build/handbook-$TAG_NAME.pdf
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          files: ./build/handbook-*.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
