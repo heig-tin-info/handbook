@@ -189,15 +189,19 @@ extra:
     enabled: true
     build_dir: build
     mermaid_config: tex/mermaid-config.json
+    clean_assets: false
+
     books:
       - root: Cours C
         title: L'informatique pour l'ingénieur
         subtitle: Cours de programmation en C
+        folder: book
+        save_html: true
         frontmatter:
           - Préface
         backmatter:
           - colophon
-        copy:
+        copy_files:
           docs/assets/c-logo.pdf: assets/
           tex/.latexmkrc: .
           tex/*.sty: .
@@ -208,10 +212,7 @@ extra:
     example: Exemple
     cite: Citation
     bug: Bogue
-  tags:
-    foo: Bob
-    bar: Alice
-    baz: Eve
+    exercise: Exercice
   extra:
     consent:
       title: Cookie consent
@@ -224,7 +225,6 @@ extra:
     provider: google
     property: G-FVF0WYPMYM
     feedback:
-      title: Cette page vous a-t-elle été utile ?
       ratings:
         - icon: material/emoticon-happy-outline
           name: Cette page m'a été utile
@@ -246,16 +246,16 @@ watch:
   - includes
   - overrides
 hooks:
-  - hooks/drawio.py
-  - hooks/links.py
-  - hooks/unicode.py
-  - hooks/spantable.py
-  - hooks/regex.py
-  - hooks/french.py
-  - hooks/wiki.py
-  - hooks/latex.py
-  - hooks/epigraph.py
-  - hooks/tags.py
+  - hooks/drawio.py # Embedded draw.io diagrams
+  - hooks/links.py # Prefix in links {assets}/...
+  - hooks/unicode.py # Box around unicode codes U+XXXX
+  - hooks/spantable.py # Adds span table support
+  - hooks/regex.py # Box around regex `#!regex a/b`
+  - hooks/french.py # French typography
+  - hooks/wiki.py # Wiki tips on hover
+  - hooks/latex.py # LaTeX conversion
+  - hooks/epigraph.py # Quote at the beginning of a page
+  - hooks/tags.py # Custom tags
 extra_css:
   - css/french.css
   - css/callout.css
@@ -268,8 +268,6 @@ extra_javascript:
   - js/feedback.js
   - js/mathjax.js
   - js/navcolor.js
-  #- js/tablesort.js
-  #- https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js # Unwanted for certain tables
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - https://cdn.jsdelivr.net/npm/vega@5
   - https://cdn.jsdelivr.net/npm/vega-lite@5

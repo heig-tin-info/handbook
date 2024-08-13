@@ -60,3 +60,13 @@
   background-color: var(--ycr-bubble-bg-color--hover);
   border: .075rem solid var(--ycr-bubble-fg-color--hover);
 }
+
+
+.ycr-regex code {
+  color: var(--ycr-bubble-icon-color) !important;
+  text-decoration: none;
+}
+
+ a.ycr-callout:focus code,a.ycr-callout:hover code {
+  background-color: transparent !important;
+}

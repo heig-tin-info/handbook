@@ -1,18 +1,21 @@
 """ Rename admonitions to "Note" and "Warning" in French. """
+
 import logging
 import re
 
-log = logging.getLogger('mkdocs')
+log = logging.getLogger("mkdocs")
 
-RE_ADMONITION = re.compile(r'^(?P<pre>!!!\s*(?P<type>[\w\-]+)(?P<extra>(?: +[\w\-]+)*))(?: +"(?P<title>.*?)")? *$')
-RE_PUNCT = re.compile(r'(<code>.*?</code>|<[^>]+>)', re.DOTALL)
+RE_ADMONITION = re.compile(
+    r'^(?P<pre>!!!\s*(?P<type>[\w\-]+)(?P<extra>(?: +[\w\-]+)*))(?: +"(?P<title>.*?)")? *$'
+)
+RE_PUNCT = re.compile(r"(<code>.*?</code>|<[^>]+>)", re.DOTALL)
 
 translations = {}
 
 
 def on_config(config):
     global translations
-    translations = config['extra']['admonition_translations']
+    translations = config["extra"]["admonition_translations"]
 
 
 def on_page_markdown(markdown, page, config, files):
@@ -21,33 +24,32 @@ def on_page_markdown(markdown, page, config, files):
         m = RE_ADMONITION.match(line)
 
         if m:
-            type = m.group('type')
+            type = m.group("type")
             if (
-                m.group('title') is None or m.group('title').strip() == ''
+                m.group("title") is None or m.group("title").strip() == ""
             ) and type in translations:
                 title = translations[type]
-                line = m.group('pre') + f' "{title}"'
+                line = m.group("pre") + f' "{title}"'
         out.append(line)
     markdown = "\n".join(out)
     return markdown
 
 
-RE_PUNCT = re.compile(r'(?<=\w) ?([!?:;])')
-RE_IGNORE = re.compile(r'<code[^>]*>.*?</code>|<[^>]+>|&\w+;|\w://|[!?:;]\w', re.DOTALL)
+RE_PUNCT = re.compile(r"(?<=\w) ?([!?:;])")
+RE_IGNORE = re.compile(r"<code[^>]*>.*?</code>|<[^>]+>|&\w+;|\w://|[!?:;]\w", re.DOTALL)
+
 
 def process_html(html):
     parts = RE_IGNORE.split(html)
     entities = RE_IGNORE.findall(html)
 
     def process_part(part):
-        part = RE_PUNCT.sub(r'&thinsp;\1', part)
-        part = re.sub(r'"([^"]+)"', r'«&thinsp;\1&thinsp;»', part)
+        part = RE_PUNCT.sub(r"&thinsp;\1", part)
+        part = re.sub(r'"([^"]+)"', r"«&thinsp;\1&thinsp;»", part)
         return part
 
     processed_parts = [
-        process_part(part)
-        if not RE_IGNORE.fullmatch(part) else part
-        for part in parts
+        process_part(part) if not RE_IGNORE.fullmatch(part) else part for part in parts
     ]
 
     # Reconstruct the html with entities
@@ -56,6 +58,7 @@ def process_html(html):
         result += entity + part
 
     return result
+
 
 def on_page_content(html, page, config, files):
     return process_html(html)

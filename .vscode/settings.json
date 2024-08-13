@@ -13,5 +13,18 @@
   "files.associations": {
     "*.pages": "yaml"
   },
-  "search.useIgnoreFiles": false
+  "search.useIgnoreFiles": false,
+  "python.sortImports.args": [
+    "--profile",
+    "black"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+  "python.formatting.blackArgs": [
+    "--line-length",
+    "88"
+  ]
 }

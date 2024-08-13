@@ -179,7 +179,7 @@ Un identificateur est une séquence de caractères représentant une entité du 
 
 ![Grammaire d'un identificateur C]({assets}/images/identifier.drawio)
 
-La notation `/[a-z]/` signifie que l'on peut utiliser n'importe quelle lettre minuscule de l'alphabet latin, `/[A-Z]/` pour les lettres majuscules, `/[0-9]/` pour les chiffres et `_` pour le caractère souligné.
+La notation `#!re /[a-z]/` signifie que l'on peut utiliser n'importe quelle lettre minuscule de l'alphabet latin, `#!re /[A-Z]/` pour les lettres majuscules, `#!re /[0-9]/` pour les chiffres et `_` pour le caractère souligné.
 
 En addition de cette grammaire, voici quelques règles :
 
@@ -192,7 +192,7 @@ En addition de cette grammaire, voici quelques règles :
 
     Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'expression régulière suivante :
 
-    `/^[a-zA-Z_][a-zA-Z0-9_]*$/`
+    `#!re /^[a-zA-Z_][a-zA-Z0-9_]*$/`
 
 
 !!! exercise "Validité des identificateurs"
@@ -447,10 +447,12 @@ Quant aux guillemets simples `'`, ils sont utilisés pour délimiter un caractè
 
     | Type | Expression régulière | Exemple |
     | ---- | --------------------- | ------- |
-    | Nombre signé | `/[1-9][0-9]*/` | `42` |
-    | Nombre non signé | `/[1-9][0-9]*u/` | `42u` |
-    | Nombre hexadécimal | `/0x[0-9a-fA-F]+/` | `0x2a` |
-    | Nombre octal | `/0[0-7]+/` | `052` |
+    | Nombre signé | `#!re /[1-9][0-9]*/` | `42` |
+    | Nombre non signé | `#!re /[1-9][0-9]*u/` | `42u` |
+    | Nombre hexadécimal | `#!re /0x[0-9a-fA-F]+/` | `0x2a` |
+    | Nombre octal | `#!re /0[0-7]+/` | `052` |
+
+    Vous pouvez essayer de les tester sur [regex101.com](https://regex101.com/).
 
 !!! exercise "Constances littérales"
 

@@ -79,7 +79,7 @@ La notation est cliquable et vous redirigera vers le site [symbl.cc](https://www
 
 Les expressions régulières sont utilisées pour décrire des motifs de texte. Elles sont utilisées pour rechercher, remplacer ou valider des chaînes de caractères. Les expressions régulières sont utilisées dans de nombreux langages de programmation, d'outils de recherche et de traitement de texte.
 
-Aussi dans cet ouvrage, les expressions régulières sont mises en évidence avec `/regex/`. Le lien mène au site [regex101.com](https://regex101.com/). Pour tester les expressions régulières, il vous suffit alors d'ajouter votre propre texte pour tester l'exemple donné.
+Aussi dans cet ouvrage, les expressions régulières sont mises en évidence avec `#!re /regex/`. Le lien mène au site [regex101.com](https://regex101.com/). Pour tester les expressions régulières, il vous suffit alors d'ajouter votre propre texte pour tester l'exemple donné.
 
 #### Symbole d'égalité
 
@@ -97,10 +97,10 @@ Dans les exemples qui seront donnés, on pourra voir `#!c while (condition) { �
 
 Les conventions C s'appliquent à la manière d'exprimer les grandeurs suivantes :
 
-- `0xABCD` pour les valeurs hexadécimales `/0x[0-9a-f]+/i`
-- `00217` pour les valeurs octales `/0[0-7]+/`
-- `'c'` pour les caractères `/'([^']|\\[nrftvba'])'/`
-- `123` pour les grandeurs entières `/-?[1-9][0-9]*/`
+- `0xABCD` pour les valeurs hexadécimales `#!re /0x[0-9a-f]+/i`
+- `00217` pour les valeurs octales `#!re /0[0-7]+/`
+- `'c'` pour les caractères `#!re /'([^']|\\[nrftvba'])'/`
+- `123` pour les grandeurs entières `#!re /-?[1-9][0-9]*/`
 - `12.` pour les grandeurs réelles en virgule flottante
 
 #### Encadrés
