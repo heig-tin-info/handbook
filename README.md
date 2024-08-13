@@ -1,5 +1,12 @@
 # Handbook
 
+![.github/workflows/ci.yml](https://github.com/heig-tin-info/handbook/workflows/.github/workflows/ci.yml/badge.svg?branch=master)
+
+![version](https://img.shields.io/github/v/release/heig-tin-info/handbook)
+![downloads](https://img.shields.io/github/downloads/heig-tin-info/handbook/latest/total)
+
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/heig-tin-info/handbook)
+
 Cours d'informatique pour les étudiants de la HEIG-VD, département TIN.
 
 Ce cours couvre les bases de l'informatique, de l'architecture des ordinateurs à la programmation en C, il est prévu de l'étendre à C++ et Python.
@@ -15,19 +22,19 @@ Une seule source de données est utilisée pour générer le site web et le livr
 Les réfrences croisées sont ajoutée en lieu et place du texte sur la version web. Pour la version PDF, le texte suit de `(c.f. figure 2.1)`.
 
 Les acronymes sont indiqués la première fois en entier suivi de l'acronyme entre parenthèses. Par exemple, "Système d'exploitation (OS)". puis l'acronyme est utilisé par la suite.
-## Technologies
-
 
 ## Développement
 
 La version utilisée est Ubuntu 24.04 LTS. Commencez par installer les paquets suivants :
 
 ```bash
-sudo apt install -y fonts-symbola fonts-noto fonts-firacode
+sudo apt install -y fonts-noto
 sudo apt install -y texlive-full
 sudo apt install -y pipx
 sudo fc-cache -fv
 ```
+
+L'image Docker `Dockerfile` permet alternativement de compiler le livre en PDF.
 
 Initialisez le dépôt  avec :
 

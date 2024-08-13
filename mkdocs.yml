@@ -110,8 +110,7 @@ plugins:
         reference_text: ''
         caption_prefix: ''
         position: top
-  - social
-  #- toggle-sidebar  # Seems buggy
+  # - social # Not supporting external logo link
   - awesome-pages
 
   # - i18n:
@@ -128,14 +127,6 @@ plugins:
       skip_classes:
         - drawio-diagram
   - markdown-exec
-  # - extract_listings:
-  #     listings_file: listings.md
-  #     placeholder: PLACEHOLDER_LISTINGS_PLUGIN
-  # - enumerate-headings:
-  #     toc_depth: 3
-  #     increment_across_pages: true
-  #     exclude:
-  #       - index.md
   - search
   - exercises
 markdown_extensions:

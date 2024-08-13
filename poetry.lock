@@ -3098,6 +3098,17 @@ files = [
 test = ["coverage", "flake8 (>=3.7)", "mypy", "pretend", "pytest"]
 
 [[package]]
+name = "voluptuous"
+version = "0.15.2"
+description = "Python data validation library"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "voluptuous-0.15.2-py3-none-any.whl", hash = "sha256:016348bc7788a9af9520b1764ebd4de0df41fe2138ebe9e06fa036bf86a65566"},
+    {file = "voluptuous-0.15.2.tar.gz", hash = "sha256:6ffcab32c4d3230b4d2af3a577c87e1908a714a11f6f95570456b1849b0279aa"},
+]
+
+[[package]]
 name = "watchdog"
 version = "4.0.2"
 description = "Filesystem events monitoring"
@@ -3226,4 +3237,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "08664027578726d65706de5321ed97338ddf3d6f5e2885b824b1913bb400d239"
+content-hash = "78fb26652a1c4af59571dc0d5fda5e88110d6ea6c4ecf5b68b115f91c0f14eff"

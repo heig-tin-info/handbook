@@ -261,7 +261,7 @@ int __libc_start_main(int (*main) (int, char**, char**),
 
 ### Valeur de retour
 
-La fonction `main` renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme ([exit status](wiki:Exit_status)). Sous POSIX et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante :
+La fonction `main` renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme (*exit status*). Sous POSIX et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante :
 
 `0`
 

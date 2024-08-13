@@ -1,23 +1,4 @@
-# Correspondance Wikipedia links
-# Commands are    :
-#   mkdocs refresh-links (fetches the latest links from the web, retrieve the thumbnails and update the links.yml file)
-#   validated false will raise a warning in the console inviting you to check the link.
 wikipedia:
-  markdown:
-    url: https://fr.wikipedia.org/wiki/Markdown
-    title: Markdown
-    validated: false
-    thumbnail:
-      source: 
-        https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Markdown_Syntax_in_gedit.png/320px-Markdown_Syntax_in_gedit.png
-      width: 320
-      height: 180
-    tid: d817c476-4b83-11ef-8596-3d2850f31393
-    timestamp: '2024-07-26T19:18:31Z'
-    description: langage de balisage léger
-    extract: Markdown est un langage de balisage léger créé en 2004 par John Gruber,
-      avec l'aide d'Aaron Swartz, avec l'objectif d'offrir une syntaxe, facile à lire
-      et à écrire, en l'état, sans formatage.
   github:
     url: https://fr.wikipedia.org/wiki/GitHub
     title: GitHub
@@ -27,7 +8,7 @@ wikipedia:
         https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/langfr-320px-GitHub_Invertocat_Logo.svg.png
       width: 320
       height: 320
-    tid: 04564ea6-2e87-11ef-9fa7-6e3db2014fd9
+    tid: 04566712-2e87-11ef-957f-ea3455e2ca08
     timestamp: '2024-06-19T21:58:10Z'
     description: plateforme web collaborative pour le développement de logiciels
     extract: GitHub est un service web d'hébergement et de gestion de développement
@@ -144,6 +125,7 @@ wikipedia:
       un des langages de choix pour la recherche en intelligence artificielle. Les
       langages Lisp sont aujourd'hui utilisés dans de nombreux domaines, de la programmation
       Web à la finance, et dans certains cursus de formation en informatique.
+    validated: false
   cobol-lang:
     url: https://fr.wikipedia.org/wiki/Cobol
     title: Cobol
@@ -159,6 +141,7 @@ wikipedia:
       un langage commun pour la programmation d'applications de gestion. Aujourd'hui,
       il est surtout utilisé dans les secteurs de la banque, des assurances, des grandes
       administrations."
+    validated: false
   basic-lang:
     url: https://fr.wikipedia.org/wiki/Basic_(langage)
     title: Basic (langage)
@@ -173,6 +156,7 @@ wikipedia:
       de haut niveau ayant pour caractéristique leur facilité d'utilisation. La première
       version est présentée par John George Kemeny et Thomas Eugene Kurtz au Dartmouth
       College en 1964.
+    validated: false
   pascal-lang:
     url: https://fr.wikipedia.org/wiki/Pascal_(langage)
     title: Pascal (langage)
@@ -180,6 +164,7 @@ wikipedia:
     timestamp: '2024-05-19T13:32:55Z'
     description: langage de programmation informatique
     extract: Pascal est un langage de programmation impératif conçu pour l'enseignement.
+    validated: false
   c-lang:
     url: https://fr.wikipedia.org/wiki/C_(langage)
     title: C (langage)
@@ -198,6 +183,7 @@ wikipedia:
       sa logique. C offre au développeur une marge de contrôle importante sur la machine
       et est de ce fait utilisé pour réaliser les « fondations » de ces langages plus
       modernes.
+    validated: false
   cpp-lang:
     url: https://fr.wikipedia.org/wiki/C%2B%2B
     title: C++
@@ -214,6 +200,7 @@ wikipedia:
       orientée objet et la programmation générique. Ses bonnes performances, et sa
       compatibilité avec le langage C en font un des langages de programmation les
       plus utilisés dans les applications où la performance est critique.
+    validated: false
   perl-lang:
     url: https://fr.wikipedia.org/wiki/Perl_(langage)
     title: Perl (langage)
@@ -228,6 +215,7 @@ wikipedia:
       traiter facilement de l'information de type textuel. Ce langage, interprété,
       s'inspire des structures de contrôle et d'impression du langage C, mais aussi
       de langages de scripts sed, awk et shell (sh).
+    validated: false
   python-lang:
     url: https://fr.wikipedia.org/wiki/Python_(langage)
     title: Python (langage)
@@ -274,6 +262,7 @@ wikipedia:
     extract: Java est un langage de programmation de haut niveau orienté objet créé
       par James Gosling et Patrick Naughton, employés de Sun Microsystems, avec le
       soutien de Bill Joy, présenté officiellement le 23 mai 1995 au SunWorld.
+    validated: false
   php-lang:
     url: https://fr.wikipedia.org/wiki/PHP
     title: PHP
@@ -319,6 +308,7 @@ wikipedia:
     extract: Go est un langage de programmation compilé et concurrent inspiré de C
       et Pascal. Il a été développé par Google à partir d’un concept initial de Robert
       Griesemer (en), Rob Pike et Ken Thompson.
+    validated: false
   rust-lang:
     url: https://fr.wikipedia.org/wiki/Rust_(langage)
     title: Rust (langage)
@@ -347,6 +337,7 @@ wikipedia:
     description: langage de programmation
     extract: Swift est un langage de programmation objet compilé, multi-paradigmes,
       qui se veut simple, performant et sûr. Il est développé en open source.
+    validated: false
   zig-lang:
     url: https://fr.wikipedia.org/wiki/Zig_(langage)
     title: Zig (langage)
@@ -465,6 +456,7 @@ wikipedia:
       graphique très populaire auprès des automaticiens pour programmer les automates
       programmables industriels. Il ressemble aux schémas électriques, et est facilement
       compréhensible.
+    validated: false
   algorithme:
     url: https://fr.wikipedia.org/wiki/Algorithme
     title: Algorithme
@@ -586,7 +578,7 @@ wikipedia:
   Executable_and_Linkable_Format:
     url: https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format
     title: Executable and Linkable Format
-    validated: false
+    validated: true
     thumbnail:
       source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Elf-layout--en.svg/langfr-320px-Elf-layout--en.svg.png
@@ -599,21 +591,10 @@ wikipedia:
       a.out et COFF qui avaient atteint leurs limites. Aujourd'hui, ce format est
       utilisé dans la plupart des systèmes d'exploitation de type Unix, à l'exception
       de Mac OS X.
-  Exit_status:
-    url: https://fr.wikipedia.org/wiki/Exit,_Voice,_and_Loyalty
-    title: Exit, Voice, and Loyalty
-    validated: false
-    tid: 216531c4-1b83-11ee-bf5d-f294e3d46170
-    timestamp: '2023-07-05T22:27:31Z'
-    description: livre de Albert Hirschman
-    extract: Exit, Voice and Loyalty est un livre du socio-économiste américain d'origine
-      allemande Albert Hirschman, paru en 1970 à Harvard University Press, qui a eu
-      une influence durable sur les pensées des auteurs en organisation, en économie
-      et en sciences politiques.
   ROT13:
     url: https://fr.wikipedia.org/wiki/ROT13
     title: ROT13
-    validated: false
+    validated: true
     thumbnail:
       source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/ROT13.png/320px-ROT13.png
@@ -628,7 +609,7 @@ wikipedia:
   abstract-type:
     url: https://fr.wikipedia.org/wiki/Type_abstrait
     title: Type abstrait
-    validated: false
+    validated: true
     tid: eab2e225-1b31-11ee-8a60-62743a5bb1fa
     timestamp: '2023-07-05T12:46:10Z'
     description: Concept informatique
@@ -639,7 +620,7 @@ wikipedia:
   doxygen:
     url: https://fr.wikipedia.org/wiki/Doxygen
     title: Doxygen
-    validated: false
+    validated: true
     thumbnail:
       source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Doxygen-1.8.1.png/320px-Doxygen-1.8.1.png
@@ -652,3 +633,18 @@ wikipedia:
       de produire une documentation logicielle à partir du code source d'un programme.
       Pour cela, il tient compte de la syntaxe du langage dans lequel est écrit le
       code source, ainsi que des commentaires s'ils sont écrits dans un format particulier.
+  markdown:
+    title: Markdown
+    url: https://fr.wikipedia.org/wiki/Markdown
+    timestamp: '2024-08-08T06:56:56Z'
+    validated: true
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Markdown_Syntax_in_gedit.png/320px-Markdown_Syntax_in_gedit.png
+      width: 320
+      height: 180
+    tid: 66604a66-5553-11ef-8d05-941d1425ab1b
+    description: langage de balisage léger
+    extract: Markdown est un langage de balisage léger créé en 2004 par John Gruber,
+      avec l'aide d'Aaron Swartz, avec l'objectif d'offrir une syntaxe, facile à lire
+      et à écrire, en l'état, sans formatage.
