@@ -115,9 +115,10 @@ article {
 }
 
 
-strong:not([class]) {
-    color: var(--md-default-fg-color--light);
-}
+/* strong:not([class]) {
+    color: var(--md-accent-fg-color);
+    opacity: 0.7;
+} */
 
 /* Wikipedia Popup */
 .wiki-popup {
