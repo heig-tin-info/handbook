@@ -1,5 +1,21 @@
-blockquote.epigraph {
+/* Cannnot load the font from Google because it lacks many glyphs
+   We need the box drawing characters */
+@font-face {
+    font-family: "Noto Sans Mono";
+    src: url("../assets/NotoSansMono-Regular.woff2") format("woff2");
+}
 
+:root {
+    --md-code-font: "Noto Sans Mono", monospace;
+}
+
+/* Fix line height for code blocks, value depends on the font */
+.md-typeset code {
+    line-height: 1.25;
+}
+
+
+blockquote.epigraph {
     width: auto;
     font-style: italic;
     text-align: right;
@@ -38,10 +54,7 @@ blockquote.epigraph>footer::before {
     padding-top: 9px;
 }
 
-/* Fix line height for code blocks */
-.md-typeset code {
-    line-height: 1;
-}
+
 
 /* Keys spacing */
 span.keys {
