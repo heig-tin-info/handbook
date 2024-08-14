@@ -24,7 +24,7 @@ Table: Fréquence de Huffman
 | C         | 1         |
 | D         | 1         |
 
-Chaque élément est un noeuf qui est placé dans une file de priorité (*min-heap*) où la priorité est la fréquence du caractère. Voici le pseudo code du tas minimum :
+Chaque élément est un noeud qui est placé dans une file de priorité (*min-heap*) où la priorité est la fréquence du caractère. Voici le pseudo code du tas minimum :
 
 ```text
 Min-Heap : [(1, 'C'), (1, 'D'), (2, 'B'), (2, 'R'), (5, 'A')]

@@ -1,3 +1,12 @@
+/* Allow caption to be out of the table */
+.md-typeset__table table:not([class]) {
+    display: inline-table;
+}
+
+table caption {
+    margin-bottom: 1em;
+}
+
 /* Center tables */
 .md-typeset__table {
     display: flex;

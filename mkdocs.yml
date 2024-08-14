@@ -21,8 +21,8 @@ theme:
   language: fr
   custom_dir: overrides
   font:
-    text: Segoe UI
-    code: Consolas
+    text: Nunito
+    code: Fira Mono
   logo: https://raw.githubusercontent.com/HEIG-VD/logos/main/heig-vd/heig-vd-white.svg
   favicon: assets/icons/favicon.ico
   features:
@@ -256,6 +256,7 @@ hooks:
   - hooks/latex.py # LaTeX conversion
   - hooks/epigraph.py # Quote at the beginning of a page
   - hooks/tags.py # Custom tags
+  - hooks/mermaid.py # Support for captions in mermaid diagrams
 extra_css:
   - css/french.css
   - css/callout.css

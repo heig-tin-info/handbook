@@ -204,7 +204,7 @@ Liste des arguments et options passés au programme :
 4. Baguette au beurre
 5.  -Lait
     -Viande
-    -Oeufs
+    -Œufs
 ```
 
 ### Norme POSIX

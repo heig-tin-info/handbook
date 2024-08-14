@@ -1,9 +1,10 @@
 import re
+import urllib.parse
 from xml.etree import ElementTree as etree
+
+from IPython import embed
 from markdown.extensions import Extension
 from markdown.inlinepatterns import InlineProcessor
-import urllib.parse
-from IPython import embed
 
 
 class CustomBacktickProcessor(InlineProcessor):
@@ -11,14 +12,16 @@ class CustomBacktickProcessor(InlineProcessor):
         BASE_URL = "https://regex101.com"
 
         code_content = m.group(2)
-        rm = re.search(r'(?:\/(?P<pattern>.*?)|s\/(?P<search>.*?)\/(?P<sub>.*?))/(?P<flags>[igmsx]*)', code_content)
+        rm = re.search(
+            r"(?:\/(?P<pattern>.*?)|s\/(?P<search>.*?)\/(?P<sub>.*?))/(?P<flags>[igmsx]*)",
+            code_content,
+        )
         if not rm:
             return m.group(0), m.start(0), m.end(0)
 
         flavor = "pcre2"
         classes = "ycr-callout ycr-regex"
         target = "_blank"
-
 
         if rm.group("pattern"):
             pattern = rm.group("pattern")
@@ -32,16 +35,13 @@ class CustomBacktickProcessor(InlineProcessor):
 
         flags = rm.group("flags")
         regex += flags
-        href += f'&flags={flags}&flavor={flavor}'
+        href += f"&flags={flags}&flavor={flavor}"
 
         el = etree.Element("a")
-        el.set('href', href)
-        el.set('class', classes)
-        el.set('target', target)
-
-        code = etree.Element("code")
-        code.text = regex
-        el.append(code)
+        el.set("href", href)
+        el.set("class", classes)
+        el.set("target", target)
+        el.text = f"`{regex}`"
 
         return el, m.start(0), m.end(0)
 
@@ -49,8 +49,14 @@ class CustomBacktickProcessor(InlineProcessor):
 class RegexExtension(Extension):
     def extendMarkdown(self, md):
         # increase priority to be after pymdownx.inlinehilite
-        md.inlinePatterns.register(CustomBacktickProcessor(
-            r'(?<!\\)(`+)#!re(?:gex)?\s*(.+?)(?<!`)\1(?!`)', md), 'inline-regex', 200)
+        md.inlinePatterns.register(
+            CustomBacktickProcessor(
+                r"(?<!\\)(`+)#!re(?:gex)?\s*(.+?)(?<!`)\1(?!`)", md
+            ),
+            "inline-regex",
+            200,
+        )
+
 
 def on_config(config):
-    config['markdown_extensions'].append(RegexExtension())
+    config["markdown_extensions"].append(RegexExtension())

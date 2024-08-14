@@ -247,11 +247,11 @@ int hash(char* str, int mod) {
 
 int main() {
     char *text[] = {
-        "La poule ou l'oeuf?",
+        "La poule ou l'œuf?",
         "Les pommes sont cuites!",
         "Aussi lentement que possible",
-        "La poule ou l'oeuf.",
-        "La poule ou l'oeuf!",
+        "La poule ou l'œuf.",
+        "La poule ou l'œuf!",
         "Aussi vite que nécessaire",
         "Il ne faut pas lâcher la proie pour l’ombre.",
         "Le mieux est l'ennemi du bien",
@@ -265,11 +265,11 @@ int main() {
 ```console
 $ gcc hash.c -lcrypto
 $ ./a.out
-1. La poule ou l'oeuf?
+1. La poule ou l'œuf?
 2. Les pommes sont cuites!
 3. Aussi lentement que possible
-4. La poule ou l'oeuf.
-5. La poule ou l'oeuf!
+4. La poule ou l'œuf.
+5. La poule ou l'œuf!
 6. Aussi vite que nécessaire
 8. Il ne faut pas lâcher la proie pour l’ombre.
 9. Le mieux est l'ennemi du bien

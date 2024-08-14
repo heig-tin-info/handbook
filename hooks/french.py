@@ -1,9 +1,14 @@
-""" Rename admonitions to "Note" and "Warning" in French. """
+""" French typography for MkDocs.
 
-import logging
+This plugin adds some French typography rules to your MkDocs project:
+
+- Add a thin space before `!`, `?`, `:` and `;` punctuation marks.
+- Use french quote (« and ») around quoted text.
+- Use long dash (—) lists.
+- Translate admonition titles.
+"""
+
 import re
-
-log = logging.getLogger("mkdocs")
 
 RE_ADMONITION = re.compile(
     r'^(?P<pre>!!!\s*(?P<type>[\w\-]+)(?P<extra>(?: +[\w\-]+)*))(?: +"(?P<title>.*?)")? *$'

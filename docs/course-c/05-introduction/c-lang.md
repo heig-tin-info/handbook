@@ -47,6 +47,7 @@ flowchart LR
     PLI --> C("C")
     B --> C
 ```
+
 Les années se succèdent et le standard évolue pour soit corriger certaines de ses faiblesses soit pour apporter de nouvelles fonctionnalités.
 
 Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés par les ingénieurs, car il allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances telles que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.
@@ -158,8 +159,8 @@ Les **compilateurs** sont ainsi construits autour d'une grammaire du langage qui
 L'exemple suivant est un [pseudo-code](https://fr.wikipedia.org/wiki/Pseudo-code) utilisant une grammaire simple :
 
 ```text
-POUR CHAQUE oeuf DANS le panier :
-    jaune, blanc 🠔 CASSER(oeuf)
+POUR CHAQUE œuf DANS le panier :
+    jaune, blanc 🠔 CASSER(œuf)
     omelette 🠔 MELANGER(jaune, blanc)
     omelette_cuite 🠔 CUIRE(omelette)
 
@@ -218,9 +219,9 @@ Des langages de plus haut niveau comme Python ou C# apportent davantage de parad
 Ce que nous devons retenir c'est que le langage C est impératif et procédural, c'est-à-dire qu'il est basé sur des séquences d'instructions qui se lisent de haut en bas, lesquelles peuvent être regroupées en procédures. Si nous reprenons notre exemple de l'[omelette][omelette], si nous souhaitons réaliser une pâte à crêpes nous pourrions écrire :
 
 ```text
-POUR REALISER un oeuf:
+POUR REALISER un œuf:
     CHERCHER poule
-    oeuf 🠔 PONDRE(poule)
+    œuf 🠔 PONDRE(poule)
 
 POUR REALISER du lait:
     CHERCHER vache
@@ -233,12 +234,12 @@ POUR REALISER de la farine:
     farine 🠔 MOUDRE(moisson)
 
 POUR REALISER une pâte à crèpes:
-    oeuf 🠔 REALISER(oeuf)
-    jaune, blanc 🠔 CASSER(oeuf)
-    oeuf-liquide 🠔 MELANGER(jaune, blanc)
+    œuf 🠔 REALISER(œuf)
+    jaune, blanc 🠔 CASSER(œuf)
+    œuf-liquide 🠔 MELANGER(jaune, blanc)
     farine 🠔 REALISER(farine)
     lait 🠔 REALISER(lait)
-    pâte 🠔 MELANGER(oeuf-liquide, farine, lait)
+    pâte 🠔 MELANGER(œuf-liquide, farine, lait)
 ```
 
 On a regroupé des instructions en procédures pour réaliser une pâte à crêpes. C'est ce que l'on appelle la programmation procédurale.
@@ -395,7 +396,7 @@ a.out         Nom du fichier
 
     Outre le caractère pinailleur de cette remarque qui prête attention aux détails, il peut être noté que la casse des caractères est importante en informatique. `Hello` n'est pas la même chose que `hello`, le stockage en mémoire n'est pas le même, et donc le résultat de l'exécution d'un programme peut être différent.
 
-    Il est donc essentiel d'avoir l'oeil sur ces détails, vous le verrez par la suite, vous développerez une certaine facilité à repérer les `;` manquants, les `{}` mal placées, les `==` qui devraient être `=`, etc.
+    Il est donc essentiel d'avoir l'œil sur ces détails, vous le verrez par la suite, vous développerez une certaine facilité à repérer les `;` manquants, les `{}` mal placées, les `==` qui devraient être `=`, etc.
 
     Mais avant tout, c'est la cohérence de l'ensemble qui doit primer. Si vous avez choisi d'écrire `Hello, World!`, alors écrivez-le partout de la même manière, dans tous vos exemples, dans tous vos commentaires, dans toute votre documentation.
 

@@ -81,7 +81,7 @@ def on_nav(nav, config, files):
         ]
 
     if is_serve:
-        current_config["enabled"] = False
+        current_config.enabled = False
         return
 
     # Need to postpone the nav processing until pages are processed
