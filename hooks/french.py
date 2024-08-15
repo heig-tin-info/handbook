@@ -65,5 +65,36 @@ def process_html(html):
     return result
 
 
+def ligatures(html):
+    map = {
+        "coeur": "cœur",
+        "soeur": "sœur",
+        "boeuf": "bœuf",
+        "coelacanthe": "cœlacanthe",
+        "noeud": "nœud",
+        "oeil": "œil",
+        "oeuf": "œuf",
+        "oeuvre": "œuvre",
+        "oeuvrer": "œuvrer",
+        "oedeme": "œdème",
+        "oestrogène": "œstrogène",
+        "oecuménique": "œcuménique",
+        "oeillet": "œillet",
+        "oe": "œ",
+        "foetus": "fœtus",
+        "oedipe": "œdipe",
+        "caecum": "cæcum",
+        "tænia": "tænia",
+        "vitae": "vitæ",
+        "ex aequo": "ex æquo",
+        "cænotype": "cænotype",
+        "voeu": "vœu",
+    }
+
+    abbreviations = {
+        "cie": "C^{ie}",
+    }
+
+
 def on_page_content(html, page, config, files):
     return process_html(html)

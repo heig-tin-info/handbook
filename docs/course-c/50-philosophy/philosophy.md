@@ -1,78 +1,75 @@
 # Philosophie
 
-La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur. Les vaudois l'appelant parfois: **le bon sens paysan** comme l'aurait sans doute confirmé feu [Jean Villard dit Gilles](https://fr.wikipedia.org/wiki/Jean_Villard).
+La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur. Les vaudois l'appelant parfois: **le bon sens paysan** comme l'aurait sans doute confirmé  [Jean Villard dit Gilles](https://fr.wikipedia.org/wiki/Jean_Villard).
 
 ## Rasoir d'Ockham
 
 ![Illustration humoristique du rasoir d'Ockham]({assets}/images/razor.jpg)
 
-Le [rasoir d'Ockham](https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham) expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise [Shadok](https://en.wikipedia.org/wiki/Les_Shadoks) : "Pourquoi faire simple quand on peut faire compliqué ?"
+Le [rasoir d'Ockham](https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham) expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise [Shadok](https://en.wikipedia.org/wiki/Les_Shadoks), non sans une pointe d'ironie : "Pourquoi faire simple quand on peut faire compliqué ?"
 
-En philosophie un [rasoir](https://fr.wikipedia.org/wiki/Rasoir_(philosophie)) est un principe qui permet de *raser* des explications improbables d'un phénomène. Ce principe tient son nom de Guillaume d'Ockham (XIVe siècle) alors qu'il date probablement d'Empédocle (Ἐμπεδοκλῆς) vers 450 av. J.-C.
+En philosophie, un [rasoir](https://fr.wikipedia.org/wiki/Rasoir_(philosophie)) est une méthode heuristique visant à éliminer les explications invraisemblables d'un phénomène donné. Ce principe tire son nom de Guillaume d'Ockham, un penseur du XIVe siècle, bien que son origine remonte probablement à Empédocle (Ἐμπεδοκλῆς), aux environs de 450 avant J.-C.
 
-Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent le développeur de la noyade, car un programme peut rester simple, quelle que soit sa taille et si chaque strate de conception reste évidente et compréhensible pour celui qui chercherait à contribuer au projet d'autrui.
+Ce principe trouve une résonance particulière en programmation, domaine où le développeur ne peut appréhender la totalité d'un logiciel, intrinsèquement insaisissable à l'œil humain. Seuls la simplicité et l'art de la conception logicielle peuvent le préserver du chaos, car un programme, quel qu'en soit l'envergure, peut demeurer limpide pour peu que chaque strate de son architecture reste claire et intelligible pour quiconque souhaiterait contribuer à l'œuvre d'autrui.
 
 ## L'effet Dunning-Kruger
 
-L'[effet Dunning-Kruger](https://fr.wikipedia.org/wiki/Effet_Dunning-Kruger) est un biais cognitif qui se manifeste par une surestimation des compétences d'une personne. Les personnes les moins compétentes dans un domaine ont tendance à surestimer leurs compétences, tandis que les personnes les plus compétentes ont tendance à les sous-estimer.
+L' est un biais cognitif qui se manifeste par une surestimation des compétences d'une personne. Les personnes les moins compétentes dans un domaine ont tendance à surestimer leurs compétences, tandis que les personnes les plus compétentes ont tendance à les sous-estimer.
+
+L'effet [Dunning-Kruger](wiki:dunning-kruger) est un biais cognitif où les individus tendent à surestimer leurs compétences. Paradoxalement, ce sont les moins expérimentés dans un domaine qui s'illusionnent le plus sur leurs capacités, tandis que les experts, eux, ont tendance à sous-évaluer leur maîtrise.
 
 ![Illustration satirique de l'effet Dunning-Kruger]({assets}/images/dunning-kruger.drawio)
 
-J'ai vu bien souvent chez mes étudiants et collègues ce biais de surconfiance, et je l'ai moi-même expérimenté. Il est difficile de se rendre compte de son propre niveau de compétence, et il est souvent nécessaire de se confronter à des pairs pour se rendre compte de ses lacunes. Soumettre son code à la critique est par bien des égard une perspective effrayante, mais c'est aussi une source d'enrichissement inestimable.
+J'ai souvent observé ce biais de surconfiance chez mes étudiants et collègues, et je n'en ai pas été exempt moi-même. Il est en effet difficile de jauger avec précision son propre niveau de compétence, et ce n'est qu'en se confrontant au regard critique de ses pairs que l'on prend véritablement conscience de ses lacunes. Soumettre son code à l'examen d'autrui peut être une démarche intimidante, mais elle s'avère être une source d'enrichissement inestimable.
 
 !!! note
 
     L'effet Dunning-Kruger ne fait pas consensus au sein de la communauté scientifique, mais il est souvent cité en psychologie populaire.
 
+## Ultracrépidarianisme
+
+L'[ultracrépidarianisme](wiki:ultracrépidarianisme), terme rare mais puissant, désigne l'art de s'exprimer avec assurance sur des sujets que l'on ne maîtrise guère. Ce phénomène, aussi ancien que la parole elle-même, se manifeste lorsque des individus, ignorants des nuances et des subtilités d'un domaine, s'érigent en experts. Étienne Klein, physicien et philosophe des sciences, a popularisé ce mot en France, mettant en garde contre les dangers de cette posture, notamment à l'époque du Covid-19, où les voix des véritables spécialistes furent souvent noyées par le vacarme de ceux qui, en sachant moins, parlaient davantage.
+
+Dans le domaine de l'informatique, ce travers est particulièrement prégnant. Les développeurs, en première ligne de la complexité technique, se voient fréquemment dictés leur conduite par ceux qui ne partagent ni leur expertise ni leur compréhension des enjeux. Directeurs, managers, clients – tous s'autorisent à émettre des avis, à imposer des choix, souvent au mépris des réalités techniques. Cette immixtion, loin d'être anodine, est une source constante de frustration. Pire encore, elle peut mener à des désastres techniques, notamment lorsque des décisions mal avisées entraînent une accumulation de dette technique, cette gangrène silencieuse du code que l'on reporte de corriger, jusqu'au jour où l'effort nécessaire pour la résorber devient titanesque, voire impossible.
+
+Ainsi, l'ultracrépidarianisme, en s'infiltrant dans les rouages du développement logiciel, menace l'équilibre délicat entre création et rigueur, innovation et solidité. Il est un rappel de l'importance de la modestie, de la nécessité d'écouter ceux qui savent, et de la sagesse qu'il y a à reconnaître ses propres limites.
+
 ## Philosophie de conception
 
-Ces principes sont des lignes directrices aidant le développeur à organiser son code pour le rendre plus lisible, plus maintenable, et moins sensible aux erreurs humaines.
+Ces principes constituent des lignes directrices essentielles pour aider le développeur à structurer son code de manière à le rendre plus lisible, plus maintenable et moins susceptible de contenir des erreurs humaines.
 
-Il ne suffit pas d'avoir un programme qui fonctionne, et un supérieur hiérarchique heureux, l'attitude du programmeur transcende l'acte singulier de coder. Cette état d'esprit ne s'enseigne pas, elle vient avec l'exérience.
+Il ne suffit pas qu'un programme fonctionne correctement ou qu'il satisfasse les attentes d'un supérieur hiérarchique; l'attitude du programmeur va bien au-delà du simple acte de coder. Cet état d'esprit ne s'enseigne pas, il s'acquiert avec l'expérience.
 
-Voici les quatre principes les plus connus :
+Voici les quatre principes les plus emblématiques :
 
-<div class="grid cards" markdown>
+DRY
 
-- **DRY** [Ne vous répétez pas.][dry]
+: [Ne vous répétez pas.][dry] (*Do not repeat yourself.*)
 
-    ---
+KISS
 
-    *Do not repeat yourself.*
+: [Restez simple, stupide.][kiss] (*Keep it simple, stupid.*)
 
-- **KISS** [Restez simple, stupide.][kiss]
+SSOT
 
-    ---
+: [Une seule source de vérité.][ssot] (*Single source of truth.*)
 
-    *Keep it simple, stupid.*
+YAGNI
 
-    ---
+: [Vous n'en aurez pas besoin.][yagni] (*You ain't gonna need it.*)
 
-- **SSOT** [Une seule source de vérité.][ssot]
-
-    ---
-
-    *Single source of truth.*
-
-- **YAGNI** [Vous n'en aurez pas besoin.][yagni]
-
-    ---
-
-    *You ain't gonna need it.*
-
-</div>
 
 [](){#dry}
 
 ### DRY
 
-**Ne vous répétez pas** (*Don't Repeat Yourself*)! Je répète, **ne vous répétez pas** ! Il s'agit d'une philosophie de développement logiciel évitant la [redondance de code](https://fr.wikipedia.org/wiki/Duplication_de_code). L'excellent livre [The Pragmatic Programmer](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer) de Andrew Hunt et David Thomas décrit cette philosophie en ces termes :
+**Ne vous répétez pas** (*Don't Repeat Yourself*) ! Je le répète : **ne vous répétez pas** ! Ce principe fondamental du développement logiciel vise à éviter la [redondance de code](https://fr.wikipedia.org/wiki/Duplication_de_code). Dans leur ouvrage incontournable, [The Pragmatic Programmer](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer), Andrew Hunt et David Thomas le formulent ainsi :
 
-> Dans un système, toute connaissance doit avoir une représentation unique, non ambiguë, faisant autorité.
+> Dans un système, toute connaissance doit avoir une représentation unique, non ambiguë et faisant autorité.
 
-En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement ++ctrl+c++ ( ++command+c++ ) suivi de ++ctrl+v++ ( ++command+v++ ). Dupliquez du code et, quelle que soit l'envergure de texte concerné est **toujours** une mauvaise pratique, car c'est le plus souvent le signe évident d'un [code smell](https://fr.wikipedia.org/wiki/Code_smell) indiquant que le code peut être simplifié et optimisé.
+En d'autres termes, le programmeur doit rester constamment vigilant, prêt à entendre une alarme mentale, rouge, vive et bruyante dès qu'il s'apprête à utiliser la combinaison ++ctrl+c++ (ou ++command+c++), suivie de ++ctrl+v++ (ou ++command+v++). Dupliquer du code, quelle que soit la quantité, est **toujours** une mauvaise pratique, car cela trahit souvent un [code smell](https://fr.wikipedia.org/wiki/Code_smell), signal évident que le code pourrait être simplifié et optimisé.
 
-Le code suivant comprend une erreur **DRY** car la fonction display est appelée deux fois. Dans les deux cas de figure, la fonction `display` reçoit un pointeur sur un fichier, il est donc possible de simplifier ce code.
+L'exemple de code suivant présente une violation du principe **DRY** : la fonction `display` est appelée deux fois. Dans les deux cas, elle reçoit un pointeur sur un fichier, ce qui indique qu'une simplification est possible.
 
 ```c
 FILE *fp = NULL;
@@ -187,8 +184,6 @@ Un programme qui respecte ce principe évite la duplication des données. Des d�
 
 ## Zen de Python
 
-Python est un langage de programmation qui devient très populaire, il est certes moins performant que C, mais il se veut être de très haut niveau.
-
 Le [Zen de Python](https://fr.wikipedia.org/wiki/Zen_de_Python) est un ensemble de 19 principes publiés en 1999 par Tim Peters. Largement accepté par la communauté de développeurs et il est connu sous le nom de **PEP 20**.
 
 Voici le texte original anglais :
@@ -220,9 +215,11 @@ Un code se doit être explicite, et réellement traduire l'intention du dévelop
 
 ## The code taste
 
-Dans une [conférence](https://www.ted.com/talks/linus_torvalds_the_mind_behind_linux) TED en 2016, le créateur de Linux, Linus Torvald évoqua un principe nommé *code taste* traduisible par *avoir du goût pour le code*.
+Voici une version améliorée de votre texte, en tenant compte du style que vous appréciez :
 
-Il évoqua l'exemple C suivant et demanda à l'auditoire si ce code est de bon goût :
+Lors d'une [conférence TED](https://www.ted.com/talks/linus_torvalds_the_mind_behind_linux) en 2016, le créateur de Linux, Linus Torvalds, introduisit un concept qu'il nomma *code taste*, que l'on pourrait traduire par *le goût du code*.
+
+Il présenta l'exemple de code C suivant, interrogeant son auditoire sur le fait de savoir si ce code était de bon goût :
 
 ```c
 void remove_list_entry(List* list, Entry* entry)
@@ -242,14 +239,14 @@ void remove_list_entry(List* list, Entry* entry)
 }
 ```
 
-Il répondit que ce code est de mauvais goût, qu'il est *vilain* et *moche*, car ce test placé après la boucle `while` jure avec le reste du code et que parce que ce code semble laid, il doit y avoir une meilleure implémentation de meilleur goût. On dit dans ce cas de figure que le code *sent*, ce test est de trop, et il doit y avoir un moyen d'éviter de traiter un cas particulier en utilisant un algorithme meilleur.
+Torvalds répondit sans détour que ce code était de mauvais goût, le qualifiant de *vilain* et *moche*. En effet, ce test placé après la boucle `while` dénote par rapport au reste du code. Cette dissonance esthétique suggère qu'il existe une implémentation plus élégante, car lorsque le code paraît laid, il y a fort à parier qu'une solution de meilleur goût peut être trouvée. On dit dans ces cas-là que le code *sent* : ce test est superflu, et il doit exister une manière d'éviter de traiter un cas particulier en choisissant un algorithme mieux conçu.
 
-Enlever un élément d'une liste chaînée nécessite de traiter deux cas :
+En réalité, retirer un élément d'une liste chaînée requiert de gérer deux cas distincts :
 
-- Si l'élément est au début de la liste, il faut modifier `head`
-- Sinon il faut modifier l'élément précédent `prev->next`
+- Si l'élément se trouve au début de la liste, il faut ajuster le pointeur `head`.
+- Dans le cas contraire, il convient de modifier `prev->next`.
 
-Après avoir longuement questionné l'auditoire, il présente cette nouvelle implémentation :
+Après avoir questionné l'auditoire, Torvalds dévoila une nouvelle implémentation :
 
 ```c
 void remove_list_entry(List* list, Entry* entry)
@@ -263,11 +260,11 @@ void remove_list_entry(List* list, Entry* entry)
 }
 ```
 
-La fonction originale de 10 lignes de code a été réduite à 4 lignes et bien que le nombre de lignes compte moins que la lisibilité du code, cette nouvelle implémentation élimine le traitement des cas d'exception en utilisant un adressage indirect beaucoup plus élégant.
+La fonction originellement étalée sur dix lignes est désormais réduite à quatre. Bien que le nombre de lignes importe moins que la lisibilité, cette nouvelle version élimine la gestion des cas particuliers grâce à un adressage indirect beaucoup plus raffiné.
 
-Néanmoins, le néophyte en programmation C pourrait être dérouté par l'usage de double pointeurs et trouverait que la première implémentation est plus lisible. Cela souligne l'importance de la connaissance des structures de données et des algorithmes pour écrire du code de qualité, on ne s'improvise pas développeur&nbsp;: c'est un art.
+Cependant, un programmeur novice en C pourrait être déconcerté par l'emploi des doubles pointeurs et juger la première version plus lisible. Cela illustre à quel point la connaissance des structures de données et des algorithmes est cruciale pour écrire du code de qualité : on ne s'improvise pas développeur, c'est un art qui demande patience et apprentissage.
 
-Un autre exemple similaire et plus simple à comprendre est présenté par Brian Barto sur un article publié sur [Medium](https://medium.com/@bartobri/applying-the-linus-tarvolds-good-taste-coding-requirement-99749f37684a). Il donne l'exemple de l'initialisation à zéro de la bordure d'un tableau bidimensionnel :
+Un exemple similaire, plus accessible, est présenté par Brian Barto dans un article publié sur [Medium](https://medium.com/@bartobri/applying-the-linus-tarvolds-good-taste-coding-requirement-99749f37684a). Il y discute de l'initialisation à zéro de la bordure d'un tableau bidimensionnel :
 
 ```c
 for (size_t row = 0; row < GRID_SIZE; ++row)
@@ -312,22 +309,34 @@ for (size_t i = 0; i < length; i++)
 
 Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs des [antipatterns](https://fr.wikipedia.org/wiki/Antipattern). Voici quelques indicateurs les plus courants :
 
-- **Mastodonte** Une fonction est plus longue qu'un écran de haut (~50 lignes)
+**Mastodonte**
 
-- Un fichier est plus long que **1000 lignes**.
+: Une fonction est plus longue qu'un écran de haut (~50 lignes)
 
-- **Ligne Dieu**, une ligne beaucoup trop longue et *de facto* illisible.
+**Titan**
 
-- Une fonction à plus de **trois** paramètres
+: Un fichier est plus long que **1000 lignes**.
+
+**Ligne Dieu**
+
+: Une ligne beaucoup trop longue et *de facto* illisible.
+
+**Usine à gaz**
+
+: Une fonction à plus de **trois** paramètres
 
     ```c
     void make_coffee(int size, int mode, int mouture, int cup_size,
         bool with_milk, bool cow_milk, int number_of_sugars);
     ```
 
-- **Copier coller**, du code est dupliqué
+**Miroir magique**
 
-- Les commentaires expliquent le comment du code et non le pourquoi
+: Du code est dupliqué. Du code est dupliqué.
+
+**Pamphlets touristiques**
+
+:   Les commentaires expliquent le comment du code et non le pourquoi
 
     ```c
     // Additionne une constante avec une autre pour ensuite l'utiliser
@@ -335,7 +344,9 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
     u /= 1.11123445143; // division par une constante inférieure à 2
     ```
 
-- **Arbre de Noël**, plus de deux structures de contrôles sont impliquées
+**Arbre de Noël**
+
+:   plus de deux structures de contrôles sont impliquées
 
     ```c
     if (a > 2) {
@@ -349,7 +360,9 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
     }
     ```
 
-- Usage de `goto`
+**Téléportation sauvage**
+
+:   Usage de `goto`, où quand le code saute d'un endroit à l'autre sans logique apparente.
 
     ```c
     loop:
@@ -367,14 +380,18 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
     end:
     ```
 
-- Plusieurs variables avec des noms très similaires
+**Jumeaux diaboliques**
+
+:   Plusieurs variables avec des noms très similaires
 
     ```c
     int advice = 11;
     int advise = 12;
     ```
 
-- **Action à distance** par l'emploi immodéré de variables globales
+**Action à distance**
+
+:  Une fonction qui tire les ficelles à distance grâce aux variables globales.
 
     ```c
     void make_coffee() {
@@ -384,11 +401,17 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
     }
     ```
 
-- **Ancre de bateau**, un composant inutilisé, mais gardé dans le logiciel pour des raisons politiques (YAGNI)
+**Ancre de bateau**
 
-- **Cyclomatisme aigu**, quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple
+: Un composant inutilisé, mais gardé dans le logiciel pour des raisons politiques (YAGNI)
 
-- **Attente active**, une boucle qui ne contient qu'une instruction de test, attendant la condition
+**Cyclomatisme aigu**
+
+: Quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple
+
+**Attente active**
+
+: Une boucle qui ne contient qu'une instruction de test, attendant la condition
 
     ```c
     while (true) {
@@ -396,10 +419,24 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
     }
     ```
 
-- **Objet divin** quand un composant logiciel assure trop de fonctions essentielles (KISS)
+**Objet divin**
 
-- **Coulée de lave** lorsqu'un code immature est mis en production
+: Quand un composant logiciel assure trop de fonctions essentielles (KISS)
 
-    En novembre 1990 à 14h25, la société AT&T effecue une mise à jour de son   réseau téléphonique. Un bug dans le code de mise à jour provoque un crash du   réseau entraînant une interruption de service de 9 heures affectant quelque   50 millions d'appels et coûtant à l'entreprise 60 millions de dollars. (Source&nbsp;: [The 1990 AT&T Long Distance Network Collapse](https://users.csc.calpoly.edu/~jdalbey/SWE/Papers/att_collapse))
+**Coulée de lave**
 
-- **Chirurgie au fusil de chasse** quand l'ajout d'une fonctionnalité logicielle demande des changements multiples et disparates dans le code ([Shotgun surgery](https://en.wikipedia.org/wiki/Shotgun_surgery)).
+: Lorsqu'un code immature est mis en production
+
+  En novembre 1990 à 14h25, la société AT&T effecue une mise à jour de son   réseau téléphonique. Un bug dans le code de mise à jour provoque un crash du réseau entraînant une interruption de service de 9 heures affectant quelque 50 millions d'appels et coûtant à l'entreprise 60 millions de dollars. (Source&nbsp;: [The 1990 AT&T Long Distance Network Collapse](https://users.csc.calpoly.edu/~jdalbey/SWE/Papers/att_collapse))
+
+**Chirurgie au fusil de chasse**
+
+: Quand l'ajout d'une fonctionnalité logicielle demande des changements multiples et disparates dans le code ([Shotgun surgery](https://en.wikipedia.org/wiki/Shotgun_surgery)).
+
+## Conclusion
+
+La quête d'un code de qualité repose sur des principes philosophiques et méthodologiques essentiels. Le **rasoir d'Ockham** encourage la simplicité en éliminant les éléments superflus, tandis que l'**effet Dunning-Kruger** met en garde contre la surestimation de ses compétences, rappelant l'importance de la remise en question et du retour critique. Des doctrines telles que **DRY** (ne vous répétez pas), **KISS** (restez simple), **SSOT** (une seule source de vérité) et **YAGNI** (vous n'en aurez pas besoin) guident le développeur vers une conception épurée et efficace.
+
+Le **Zen de Python** illustre cette philosophie par dix-neuf aphorismes valorisant la beauté, la lisibilité et la simplicité du code. Linus Torvalds, créateur de Linux et de Git, a souligné l'importance du *code taste* ou "goût du code", démontrant qu'une implémentation élégante résulte souvent d'une réflexion profonde sur les structures de données et les algorithmes, plutôt que d'une complexité inutile.
+
+Enfin, reconnaître et éviter les **odeurs de code** (*code smells*), ces indicateurs de mauvaise conception comme les fonctions tentaculaires, les duplications ou les commentaires mal pensés, est crucial. En identifiant ces *antipatterns* — qu'ils se manifestent sous la forme d'un "Arbre de Noël" de structures conditionnelles imbriquées ou d'une "Téléportation sauvage" via des `goto` intempestifs—le développeur s'assure de produire un code maintenable, clair et performant.
