@@ -26,19 +26,11 @@ def on_page_content(html, page, config, files):
         if not title:
             continue
 
-        figure = Tag(name="figure")
+        figure = Tag(name="figure", attrs={"class": "mermaid-figure"})
         figcaption = Tag(name="figcaption")
         figcaption.string = title
 
-        # Create a copy of the original element
-        el_copy = Tag(name="pre", attrs={"class": "mermaid"})
-        el_copy.string = el.string  # Copy the content
-
-        # Append the copied element and the caption to the figure
-        figure.append(el_copy)
+        el.wrap(figure)
         figure.append(figcaption)
-
-        # Replace the original element with the new figure
-        el.replace_with(figure)
 
     return str(soup)

@@ -1,9 +1,12 @@
-BUILD_DIR=build/l-informatique-pour-l-ingenieur
+BUILD_DIR=build/book
 
 all:
 	poetry run mkdocs build
 
 serve:
+	poetry run mkdocs serve
+
+servefast:
 	poetry run mkdocs serve --dirty
 
 poetry.lock: pyproject.toml
@@ -12,9 +15,13 @@ poetry.lock: pyproject.toml
 build:
 	poetry run mkdocs build
 
-latex: $(BUILD_DIR)/index.tex
+latex-clean:
+	$(RM) -rf $(BUILD_DIR)/_minted-index
 	latexmk -cd $(BUILD_DIR)/index.tex -C
-	latexmk --shell-escape -pdf -file-line-error -lualatex -cd $(BUILD_DIR)/index.tex
+
+latex: $(BUILD_DIR)/index.tex | latex-clean
+	latexmk -cd $(BUILD_DIR)/index.tex -gg -silent \
+	-time -logfilewarninglist --interaction=nonstopmode --halt-on-error
 
 $(BUILD_DIR)/output-print.pdf: $(BUILD_DIR)/index.pdf
 	gs -sDEVICE=pdfwrite -dPDFSETTINGS=/printer \
@@ -23,19 +30,26 @@ $(BUILD_DIR)/output-print.pdf: $(BUILD_DIR)/index.pdf
 	   -dDownsampleMonoImages=true -dColorImageResolution=200 \
 	   -dGrayImageResolution=200 -dMonoImageResolution=200 $<
 
-$(BUILD_DIR)/output-screen.pdf: $(BUILD_DIR)/index.pdf
-	gs -sDEVICE=pdfwrite -dPDFSETTINGS=/screen \
-	   -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ \
-	   -dDownsampleColorImages=true -dDownsampleGrayImages=true \
-	   -dDownsampleMonoImages=true -dColorImageResolution=72 \
-	   -dGrayImageResolution=72 -dMonoImageResolution=72 $<
+docker-image: Dockerfile
+	docker build -t latex-ycr .
 
-update-viewer:
+ci:
+	docker run -v $(shell pwd):/workspace \
+				-w /workspace \
+				-u $(shell id -u):$(shell id -g) \
+				-v /etc/passwd:/etc/passwd:ro \
+				latex-ycr \
+				make latex optimize
+
+update: docs/js/viewer.min.js
+	poetry update
+
+docs/js/viewer.min.js:
 	wget https://raw.githubusercontent.com/jgraph/drawio/dev/src/main/webapp/js/viewer.min.js -O docs/js/viewer.min.js
 
 optimize: $(BUILD_DIR)/output-print.pdf
 
 clean:
-	rm -rf build site
+	$(RM) -rf build site __pycache__ _minted-*
 
-.PHONY: all serve build clean optimize
+.PHONY: all serve build clean optimize latex latex-clean docker-image ci update-viewer

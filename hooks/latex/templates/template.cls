@@ -1,4 +1,4 @@
-\documentclass[9pt,twoside]{book}
+\documentclass[10pt,twoside]{book}
 \usepackage{fontspec}
 \usepackage{xcolor}
 \usepackage{tikz}
@@ -376,14 +376,14 @@
   top=1mm,
   bottom=1mm,
   minted options={%
-    tabsize=4,
-    breaklines,
-    xleftmargin=-0.75em,
-    fontsize=\footnotesize,
-    highlightcolor=gray!30,
-    ignorelexererrors,
-    #4
-  },
+      tabsize=4,
+      breaklines,
+      xleftmargin=-0.75em,
+      fontsize=\footnotesize,
+      highlightcolor=gray!30,
+      ignorelexererrors,
+      #4
+    },
   coltitle=black,
   colbacktitle=gray!20!white,
   title={#3},
@@ -401,8 +401,8 @@
   colframe=gray!20,
   colback=gray!20,
   minted options={%
-    ignorelexererrors
-  },
+      ignorelexererrors
+    },
   rounded corners,
   boxrule=0pt,
 }{\mintinline{#1}{#2}}
@@ -541,8 +541,8 @@
 
 
   \foreach \i in {2.5,3.3,...,15}{
-    \node[rounded corners,\covercolor!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,line width=1.4pt,rotate=30] at ($(current page.west)+(4,-5)$) {} ;
-  };
+      \node[rounded corners,\covercolor!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,line width=1.4pt,rotate=30] at ($(current page.west)+(4,-5)$) {} ;
+    };
 
   \node[fill=\covercolor, rounded corners,text =\covercolor!5,regular polygon,regular polygon sides=6, minimum size=5 cm,inner sep=0,line width=1.4pt,rotate=30] at ($(current page.west)+(4,-5)$) {
 

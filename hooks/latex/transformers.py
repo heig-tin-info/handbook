@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Union
 
 import cairosvg
+import pillow_avif  # noqa
 import pypdf
 import requests
 import unidecode

@@ -162,18 +162,19 @@ class LaTeXRenderer:
 
     def discard_unwanted(self, soup: Tag, **kwargs):
         unwanted = [
-            ("a", ["headerlink", "footnote-backref"], False),
-            ("a", ["glightbox"], True),
-            ("div", ["latex-ignore"], False),
-            ("span", ["exercise-title"], True),
-            ("div", ["exercise-checkbox"], False),
+            ("a", ["headerlink", "footnote-backref"], "extract"),
+            ("a", ["glightbox"], "unwrap"),
+            ("div", ["latex-ignore"], "extract"),
+            ("span", ["exercise-title"], "unwrap"),
+            ("div", ["exercise-checkbox"], "extract"),
+            ("figure", ["mermaid-figure"], "extract"),
         ]
 
-        for tag, classes, unwrap in unwanted:
+        for tag, classes, mode in unwanted:
             for el in soup.find_all(tag, class_=classes):
-                if unwrap:
+                if mode == "unwrap":
                     el.unwrap()
-                else:
+                elif mode == "extract":
                     el.extract()
 
         return soup
@@ -385,6 +386,7 @@ class LaTeXRenderer:
                 width = f"{width}mm"
 
             self.apply(el, template, path=filename.name, caption=caption, width=width)
+
         return soup
 
     def render_epigraph(self, soup: Tag, **kwargs):
@@ -728,6 +730,8 @@ class LaTeXRenderer:
 
     def render_figure(self, soup: Tag, **kwargs):
         for figure in soup.find_all(["figure"]):
+            if get_class(figure, "mermaid-figure"):
+                continue
             image = figure.find("img")
             if not image:
                 raise ValueError(f"Missing image in figure {figure}")

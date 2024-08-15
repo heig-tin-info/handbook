@@ -1,9 +1,10 @@
-$pdf_mode = 1;
-$pdflatex = 'lualatex -shell-escape %O %S';
-
+$pdf_mode = 4;
+$bibtex_use = 1;
 $log_file_mode = 1;
-
 $failure_cmd = 'echo "Error during the compilation of file: %S"';
+
+set_tex_cmds( '--shell-escape -file-line-error %O %S' );
+
 
 add_cus_dep('glo', 'gls', 0, 'run_makeglossaries');
 add_cus_dep('acn', 'acr', 0, 'run_makeglossaries');
@@ -23,4 +24,4 @@ sub run_makeglossaries {
 push @generated_exts, 'glo', 'gls', 'glg';
 push @generated_exts, 'acn', 'acr', 'alg';
 
-$clean_ext .= ' %R.ist %R.xdy';
+$clean_ext .= ' %R.ist %R.xdy %R.maf %R.mtc*';
