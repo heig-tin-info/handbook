@@ -1,16 +1,16 @@
 \BLOCK{- set number_to_words = {
-    -1: 'part',
-    0: 'chapter',
-    1: 'section',
-    2: 'subsection',
-    3: 'subsubsection',
-    4: 'paragraph',
-    5: 'subparagraph'
-} -}
+            -1: 'part',
+            0: 'chapter',
+            1: 'section',
+            2: 'subsection',
+            3: 'subsubsection',
+            4: 'paragraph',
+            5: 'subparagraph'
+        } -}
 \BLOCK{if ref -}
 \BLOCK{endif}
 \BLOCK{- if level in number_to_words -}
-\\VAR{number_to_words[level]}{\VAR{text}}\BLOCK{if level >= 4}\mbox{}\\\BLOCK{endif}
+\\VAR{number_to_words[level]}\BLOCK{if not numbered and level <= 5}*\BLOCK{endif}{\VAR{text}}\BLOCK{if level >= 4}\mbox{}\\\BLOCK{endif}
 \BLOCK{else -}
 \textbf{\VAR{text}}
 \BLOCK{endif}

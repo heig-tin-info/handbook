@@ -474,7 +474,14 @@ class LaTeXRenderer:
             title = self.get_safe_text(el)
             level = int(el.name[1:]) + base_level - 1
             ref = el.get("id", None)
-            self.apply(el, "heading", title, level=level, ref=ref)
+            self.apply(
+                el,
+                "heading",
+                title,
+                level=level,
+                ref=ref,
+                numbered=kwargs.get("numbered", True),
+            )
         return soup
 
     def render_autoref(self, soup: Tag, **kwargs):
@@ -1081,7 +1088,7 @@ class LaTeXRenderer:
 
     def render_br(self, soup: Tag, **kwargs):
         for el in soup.find_all("br"):
-            node = NavigableString("\\newline\n")
+            node = NavigableString("\\")
             node.processed = True
             el.replace_with(node)
         return soup
@@ -1147,13 +1154,14 @@ class LaTeXRenderer:
             r"(\b[^\W\d_]{2,}-)([^\W\d_]{7,})\b", r"\1\\allowhyphens \2", latex
         )
 
-    def render(self, html, output_path, file_path, base_level=0):
+    def render(self, html, output_path, file_path, base_level=0, numbered=True):
         soup = BeautifulSoup(html, "html.parser")
 
         kwargs = {
             "file_path": file_path,
             "output_path": output_path,
             "base_level": base_level,
+            "numbered": numbered,
         }
 
         for render in self.renderering_order:

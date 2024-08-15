@@ -29,6 +29,7 @@ class BookConfig(CommonConfig):
     backmatter: Optional[List[str]] = []
     copy_files: Optional[Dict[str, str]] = {}
     author: Optional[str] = None
+    index_is_foreword: Optional[bool] = False
 
     @model_validator(mode="after")
     @classmethod

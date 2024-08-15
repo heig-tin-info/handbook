@@ -117,17 +117,21 @@ class Book:
                 files.extend(self._fetch_files(child))
         return files
 
-    def _propagate_meta(self, item: StructureItem, level=0):
+    def _propagate_meta(self, item: StructureItem, level=0, numbered=True):
         item.level = level
+        item.numbered = numbered
+
         if getattr(item.parent, "frontmatter", False):
             item.frontmatter = True
         if item.is_page:
             item.tex_path = item.file.src_path.replace(".md", ".tex")
+            if self.config.index_is_foreword and item.file.name == "index":
+                item.numbered = False
 
         for child in item.children or []:
             if child.title in self.config.frontmatter:
                 child.frontmatter = True
-            self._propagate_meta(child, level + 1)
+            self._propagate_meta(child, level + 1, numbered=numbered)
 
     def _sort_by_part(self, item: StructureItem):
         if getattr(item, "frontmatter", False):
@@ -146,7 +150,9 @@ class Book:
                 )
             elif element.level > self.config.base_level:
                 latex.append(
-                    renderer.formatter.heading(element.title, level=element.level)
+                    renderer.formatter.heading(
+                        element.title, level=element.level, numbered=True
+                    )
                 )
         return "\n".join(latex)
 
@@ -167,7 +173,11 @@ class Book:
                 path.with_suffix(".html").write_text(html)
 
             latex = renderer.render(
-                html, build_dir, Path(file.abs_src_path), file.page.level
+                html,
+                build_dir,
+                Path(file.abs_src_path),
+                file.page.level,
+                file.page.numbered,
             )
 
             path.write_text(latex)
