@@ -42,7 +42,6 @@ class CustomBacktickProcessor(InlineProcessor):
         el.set("class", classes)
         el.set("target", target)
         el.text = f"`{regex}`"
-
         return el, m.start(0), m.end(0)
 
 

@@ -1,4 +1,3 @@
-
 :root {
   --ycr-bubble-bg-color: #92c6ce1a;
   --ycr-bubble-icon-color: #0d545f;
@@ -52,7 +51,7 @@
   margin: 0 0.2em;
   white-space: nowrap;
   font-weight: 300 !important;
-  color: var(--md-code-fg-color) !important;
+  color: var(--ycr-bubble-icon-color) !important;
   font-family: var(--md-code-font-family);
 }
 
@@ -61,12 +60,13 @@
   border: .075rem solid var(--ycr-bubble-fg-color--hover);
 }
 
-
 .ycr-regex code {
+  all: unset;
   color: var(--ycr-bubble-icon-color) !important;
-  text-decoration: none;
 }
 
- a.ycr-callout:focus code,a.ycr-callout:hover code {
-  background-color: transparent !important;
+a.ycr-regex:focus code,
+a.ycr-regex:hover code {
+  background: inherit;
+  background-color: transparent;
 }

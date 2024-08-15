@@ -73,7 +73,7 @@
       top: 0;
       right: 0;
       width: 40rem;
-      position:absolute;
+      position: absolute;
       transform: translateX(5rem);
       height: 100vh;
       overflow: hidden;
@@ -93,20 +93,21 @@
     <div class="mdx-hero">
       <!-- Hero content -->
       <div class="mdx-hero__content">
-        <h1>Un cours d'informatique pour ingénieur</h1>
+        <h1>Un cours d'informatique pour ingénieurs</h1>
         <p>{{ config.site_description }}.</p>
         <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}"
           class="md-button md-button--primary">
-          Cours
+          Cours en ligne
         </a>
-        <a href="{{ 'tools/' | url }}" title="Configuration de votre environnement de travail" class="md-button">
-          Environnement de travail
+        <a href="https://github.com/heig-tin-info/handbook/releases/latest/download/output-print.pdf"
+          title="Télécharger le PDF" class="md-button">
+          Télécharger le PDF
         </a>
       </div>
     </div>
     <!-- Hero image -->
     <div class="mdx-hero__image">
-    <img src="assets/images/hero.png" alt="" draggable="false">
+      <img src="assets/images/hero.png" alt="" draggable="false">
     </div>
   </div>
 </section>

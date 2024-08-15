@@ -5,7 +5,9 @@ site_name: Le C pour l'ingénieur
 site_url: https://heig-tin-info.github.io/handbook/
 site_author: Yves Chevallier
 site_description: |
-  Un manuel pour apprendre le langage C en partant de zéro.
+  Cours d'informatique pour les étudiants en ingénierie du département des
+  technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+  les outils associés.
 copyright: >
   Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier
   <a href="#__consent">Changer les paramètres des cookies</a>
@@ -15,7 +17,10 @@ repo_name: heig-tin-info/handbook
 repo_url: https://github.com/heig-tin-info/handbook
 edit_uri: edit/master/docs/
 docs_dir: !ENV [DOCS, docs]
-
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
 theme:
   name: material
   language: fr
@@ -49,16 +54,16 @@ theme:
     - toc.follow
   palette:
     - scheme: default
-      #media: "(prefers-color-scheme: light)"
+      media: "(prefers-color-scheme: light)"
       toggle:
         icon: material/lightbulb
         name: Switch to dark mode
       primary: red
       accent: light blue
     - scheme: slate
-      #media: "(prefers-color-scheme: dark)"
-      primary: red
-      accent: light blue
+      media: "(prefers-color-scheme: dark)"
+      primary: black
+      accent: lime
       toggle:
         icon: material/lightbulb-outline
         name: Switch to light mode
@@ -131,7 +136,7 @@ plugins:
 markdown_extensions:
   - toc:
       toc_depth: 3
-      permalink: true
+      permalink: "¤"
   - pymdownx.betterem:
       smart_enable: all
   - tables

@@ -109,11 +109,11 @@ class LaTeXRenderer:
             self.render_hr,
             self.render_br,
             # Prior escaping LaTeX special characters
+            self.render_regex,
             self.render_codeblock,
             self.render_codeinline,
             self.render_math,
             self.render_math_block,
-            self.render_regex,
             self.render_unicode,
             self.render_navigable_string,
             self.render_emoji,
@@ -284,7 +284,11 @@ class LaTeXRenderer:
             class="ycr-regex" target="_blank">/.../</a>
         """
         for a in soup.find_all("a", class_=["ycr-regex"]):
-            code = self.get_safe_text(a)
+            if code_tag := a.find("code"):
+                code = self.get_safe_text(code_tag)
+            else:  # Fallback to text
+                code = self.get_safe_text(a)
+
             code = code.replace("&", "\\&").replace("#", "\\#")
             self.apply(a, "regex", code, url=safe_quote(a.get("href", "")))
         return soup
