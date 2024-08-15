@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4208,9 +4210,9 @@
   
 
 
-<h1 id="syntaxe">Syntaxe<a class="headerlink" href="#syntaxe" title="Permanent link">¶</a></h1>
+<h1 id="syntaxe">Syntaxe<a class="headerlink" href="#syntaxe" title="Permanent link">¤</a></h1>
 <p>Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il traite des généralités propres au langage, mais aussi des notions élémentaires permettant d'interpréter du code source. Notons que ce chapitre est transversal, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maîtrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.</p>
-<h2 id="lalphabet">L'alphabet<a class="headerlink" href="#lalphabet" title="Permanent link">¶</a></h2>
+<h2 id="lalphabet">L'alphabet<a class="headerlink" href="#lalphabet" title="Permanent link">¤</a></h2>
 <p><span class="ycr-hashtag" data-index-entry="alphabet, l'" data-tag=""></span></p>
 <p>Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 <a href="https://fr.wikipedia.org/wiki/Chiffres_arabes">chiffres indo-arabes</a> :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
@@ -4224,7 +4226,7 @@
 </span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>a ya eo yeo o yo u yu eu i
 </span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>ㅏ ㅑ ㅓ ㅕ ㅗ ㅛ ㅜ ㅠ ㅡ ㅣ
 </span></code></pre></div>
-<p>Les japonais quant à eux utilisent trois systèmes d'écriture, le <span class="ycr-hashtag" data-index-entry="Hiragana" data-tag="hiragana">Hiragana</span>, le <span class="ycr-hashtag" data-index-entry="Katakana" data-tag="katakana">Katakana</span> et le <span class="ycr-hashtag" data-index-entry="Kanji" data-tag="kanji">Kanji</span>. Les deux premiers sont des syllabaires et le dernier est un système d'<span class="ycr-hashtag" data-index-entry="écriture logographique" data-tag="ecriture-logographique">écriture logographique</span>. Le Hiragana et Katakana ont tous deux 46 caractères de base. Voici l'exemple du Katakana&thinsp;:</p>
+<p>Les japonais quant à eux utilisent trois systèmes d'écriture, le <span class="ycr-hashtag" data-index-entry="Hiragana" data-tag="hiragana">Hiragana</span>, le <span class="ycr-hashtag" data-index-entry="Katakana" data-tag="katakana">Katakana</span> et le <span class="ycr-hashtag" data-index-entry="Kanji" data-tag="kanji">Kanji</span>. Les deux premiers sont des syllabaires et le dernier est un système d'<span class="ycr-hashtag" data-index-entry="écriture logographique" data-tag="ecriture-logographique">écriture logographique</span>. Le Hiragana et Katakana ont tous deux 46 caractères de base. Voici l'exemple du Katakana :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>あ (a),  い (i),   う (u),   え (e),  お (o)
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>か (ka), き (ki),  く (ku),  け (ke), こ (ko)
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>さ (sa), し (shi), す (su),  せ (se), そ (so)
@@ -4238,7 +4240,7 @@
 </span><span id="__span-2-11"><a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>ん (n)
 </span></code></pre></div>
 <p>On notera que l'alphabet latin est tout particulièrement adapté à la programmation car, d'une part ce fut le premier alphabet à être utilisé pour l'écriture de programmes informatiques et d'autre part, il reste assez simple pour être utilisé par des machines. On peut noter en outre que les pays qui utilisent leur propre alphabet doivent impérativement apprendre et maîtriser l'alphabet latin pour pouvoir programmer. Ceci implique qu'ils doivent également disposer d'un clavier latin pour pouvoir saisir leur code. Nous avons donc privilégiés nous francophones de ne pas devoir jongler avec plusieurs alphabets pour écrire du code...</p>
-<p>Outre ces caractères, la séparation des symboles est assurée par <a href="https://fr.wikipedia.org/wiki/Espace_(typographie)">une espace</a>, une tabulation horizontale, une <span class="ycr-hashtag" data-index-entry="tabulation" data-tag="tabulation">tabulation</span> verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le <a href="https://fr.wikipedia.org/wiki/Pied-de-mouche">pied-de-mouche</a> <code>¶</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/00B6" target="_blank">00B6</a> pour indiquer les fins de paragraphes qui sont également des caractères non imprimables.</p>
+<p>Outre ces caractères, la séparation des symboles est assurée par <a href="https://fr.wikipedia.org/wiki/Espace_(typographie)">une espace</a>, une tabulation horizontale, une <span class="ycr-hashtag" data-index-entry="tabulation" data-tag="tabulation">tabulation</span> verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le <a href="https://fr.wikipedia.org/wiki/Pied-de-mouche">pied-de-mouche</a> <code>¶</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//00B6" target="_blank">00B6</a> pour indiquer les fins de paragraphes qui sont également des caractères non imprimables.</p>
 <p>On nomme les caractères non imprimables soit par leur acronyme <code>LF</code> pour <em>Line Feed</em> ou soit par leur convention C échappée par un <em>backslash</em> <code>\n</code>:</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Caractères non imprimables</caption><thead>
@@ -4286,20 +4288,20 @@
 </tr>
 </tbody>
 </table>
-<p>Voici en pratique comment ces caractères peuvent être utilisés&thinsp;:</p>
+<p>Voici en pratique comment ces caractères peuvent être utilisés :</p>
 <p><figure id="_figure-1"><img alt="Distinction de différents caractères non imprimables" class="drawio-diagram" src="../../../assets/images/crlf.drawio"/><figcaption> Distinction de différents caractères non imprimables</figcaption></figure></p>
-<p>La ponctuation utilise les 29 symboles graphiques suivants&thinsp;:</p>
+<p>La ponctuation utilise les 29 symboles graphiques suivants :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>! # % ^ &amp; * ( _ ) - + = ~ [ ] ' | \ ; : " { } , . &lt; &gt; / ?
 </span></code></pre></div>
-<h2 id="la-machine-a-ecrire">La machine à écrire<a class="headerlink" href="#la-machine-a-ecrire" title="Permanent link">¶</a></h2>
+<h2 id="la-machine-a-ecrire">La machine à écrire<a class="headerlink" href="#la-machine-a-ecrire" title="Permanent link">¤</a></h2>
 <p>Peut-être avez-vous déjà été confronté à une machine à écrire mécanique. Elles disposent d'un levier sur la gauche du chariot qui a deux fonctionnalités. D'une part il permet de faire revenir le chariot au début de la ligne, mais également de faire avancer le papier d'une ligne. C'est ce levier qui a donné son nom au caractère de retour à la ligne <code>CR</code> pour <em>Carriage Return</em>. Quant au caractère de nouvelle ligne <code>LF</code> pour <em>Line Feed</em>, il est associé à la rotation du cylindre qui porte la feuille de papier.</p>
 <p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/hermes-3000.webp"><img alt="Machine à écrire Hermès 3000 hébraïque" src="../../../assets/images/hermes-3000.webp" width="50%"/></a><figcaption> Machine à écrire Hermès 3000 hébraïque</figcaption></figure></p>
 <p>Historiquement il y a donc bien une distinction entre les deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens.</p>
 <p>Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de souligement (<span class="ycr-hashtag" data-index-entry="tiret bas" data-tag="tiret-bas">tiret bas</span>, ou <em>underscore</em>) <code>_</code> pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère <code>-</code> pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin pour ajouter un accent circonflexe, il fallait utiliser la touche <code>^</code> pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.</p>
 <p>Ces subtilités de la machine à écrire ont été partiellement reprises dans le format <a class="autorefs autorefs-internal" href="../../50-philosophy/funny/#unicode_1">Unicode</a>. Aussi pour écrire un accent aigu, il y a aujourd'hui plusieurs façons de le faire.</p>
 <ol>
-<li>Utiliser le caractère <code>e</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/0065" target="_blank">0065</a> suivi du caractère <code>´</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/0301" target="_blank">0301</a> aussi appelé <em>combining acute accent</em> pour obtenir <code>é</code>.</li>
-<li>Utiliser le caractère <code>é</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/00E9" target="_blank">00E9</a> directement.</li>
+<li>Utiliser le caractère <code>e</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//0065" target="_blank">0065</a> suivi du caractère <code>´</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//0301" target="_blank">0301</a> aussi appelé <em>combining acute accent</em> pour obtenir <code>é</code>.</li>
+<li>Utiliser le caractère <code>é</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//00E9" target="_blank">00E9</a> directement.</li>
 </ol>
 <p>Ces héritages historiques font qu'il est difficile aujourd'hui de traiter sans bogue les textes multilingues. Les cas particuliers sont nombreux et bien souvent, les informaticiens utilisent des bibliothèques logicielles pour gérer ces cas particuliers.</p>
 <p>Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la commission responsable de standardiser C a intégré au standard les <strong>trigraphes</strong> et plus tard les <strong>digraphes</strong> qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi <code>&lt;:</code> est le digraphe de <code>[</code> et <code>??&lt;</code> est le trigraphe de <code>{</code>. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables. Par ailleurs, le standard C et C++ songent à les retirer.</p>
@@ -4328,19 +4330,19 @@
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">main</span><span class="p">(</span><span class="n">i</span><span class="p">){</span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">160</span><span class="p">;</span><span class="n">i</span><span class="o">--</span><span class="p">;</span><span class="n">putchar</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">32</span><span class="o">?</span><span class="s">"œ™cæRJ""</span><span class="se">\\</span><span class="s">J•äRJ""œ]dä"</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">8</span><span class="p">]</span><span class="o">&amp;</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">%</span><span class="mi">8</span><span class="o">?</span><span class="mi">42</span><span class="o">:</span><span class="mi">32</span><span class="o">:</span><span class="mi">10</span><span class="p">));}</span>
 </span></code></pre></div>
 </details>
-<h2 id="fin-de-lignes-eol">Fin de lignes (EOL)<a class="headerlink" href="#fin-de-lignes-eol" title="Permanent link">¶</a></h2>
+<h2 id="fin-de-lignes-eol">Fin de lignes (EOL)<a class="headerlink" href="#fin-de-lignes-eol" title="Permanent link">¤</a></h2>
 <p><span class="ycr-hashtag" data-index-entry="EOL, fin de ligne" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="CR, retour chariot" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="LF, nouvelle ligne" data-tag=""></span></p>
-<p>À l'instar des premières machines à écrire, les <a href="https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur">téléscripteurs</a> possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme <a href="https://fr.wikipedia.org/wiki/Retour_chariot">retour chariot</a> est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC <a href="https://fr.wikipedia.org/wiki/Compatible_PC">IBM compatibles</a> ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères&thinsp;: un retour chariot (<code>CR</code>) et une nouvelle ligne (<code>LF</code>) ou en C <code>\r\n</code>. Les premiers <a href="https://fr.wikipedia.org/wiki/Macintosh">Macintosh</a> d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère <code>\r</code>. Enfin, les ordinateurs <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr> ont eu le même raisonnement, mais ils ont choisi de ne garder que <code>\n</code>.</p>
+<p>À l'instar des premières machines à écrire, les <a href="https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur">téléscripteurs</a> possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme <a href="https://fr.wikipedia.org/wiki/Retour_chariot">retour chariot</a> est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC <a href="https://fr.wikipedia.org/wiki/Compatible_PC">IBM compatibles</a> ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères : un retour chariot (<code>CR</code>) et une nouvelle ligne (<code>LF</code>) ou en C <code>\r\n</code>. Les premiers <a href="https://fr.wikipedia.org/wiki/Macintosh">Macintosh</a> d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère <code>\r</code>. Enfin, les ordinateurs <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr> ont eu le même raisonnement, mais ils ont choisi de ne garder que <code>\n</code>.</p>
 <p>Fort heureusement depuis que Apple a migré son système sur une base <a href="https://en.wikipedia.org/wiki/Berkeley_Software_Distribution"><abbr title="Berkeley Software Distribution">BSD</abbr></a> (<abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>) en 2001, les systèmes d'exploitation modernes ont adopté le standard <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr> et il n'y a plus de problème de compatibilité entre les systèmes.</p>
-<p>En sommes, il existe aujourd'hui deux types de fin de ligne&thinsp;:</p>
+<p>En sommes, il existe aujourd'hui deux types de fin de ligne :</p>
 <ul>
 <li><code>LF</code> ou <code>\n</code> sur les ordinateurs <abbr title="Portable Operating System Interface">POSIX</abbr> comme Linux, Android, Unix ou macOS</li>
 <li><code>CRLF</code> ou <code>\r\n</code> sur les ordinateurs Windows.</li>
 </ul>
 <p>Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (<code>EOL</code>: <em>End Of Line</em>) il faut utiliser, faite preuve de bon sens et surtout, soyez cohérent.</p>
-<h2 id="mots-cles">Mots clés<a class="headerlink" href="#mots-cles" title="Permanent link">¶</a></h2>
+<h2 id="mots-cles">Mots clés<a class="headerlink" href="#mots-cles" title="Permanent link">¤</a></h2>
 <p><span class="ycr-hashtag" data-index-entry="mot clé" data-tag=""></span></p>
-<p>Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés&thinsp;:</p>
+<p>Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">_Bool</span><span class="w">       </span><span class="k">do</span><span class="w">        </span><span class="kt">int</span><span class="w">       </span><span class="k">switch</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kt">_Complex</span><span class="w">    </span><span class="kt">double</span><span class="w">    </span><span class="kt">long</span><span class="w">      </span><span class="k">typedef</span>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">_Imaginary</span><span class="w">  </span><span class="k">else</span><span class="w">      </span><span class="k">register</span><span class="w">  </span><span class="k">union</span>
@@ -4365,11 +4367,11 @@
 <p>Le Perl par exemple n'a environ que 20 mots clés, mais il est réputé pour être un langage difficile à apprendre. Le C++ dans sa version 2020 en a plus de 84.</p>
 </details>
 <p><a href="" id="identifier"></a></p>
-<h2 id="identificateurs">Identificateurs<a class="headerlink" href="#identificateurs" title="Permanent link">¶</a></h2>
-<p>Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par une grammaire régulière qui peut être exprimée comme suit&thinsp;:</p>
+<h2 id="identificateurs">Identificateurs<a class="headerlink" href="#identificateurs" title="Permanent link">¤</a></h2>
+<p>Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par une grammaire régulière qui peut être exprimée comme suit :</p>
 <p><figure id="_figure-3"><img alt="Grammaire d'un identificateur C" class="drawio-diagram" src="../../../assets/images/identifier.drawio"/><figcaption> Grammaire d'un identificateur C</figcaption></figure></p>
-<p>La notation <a href="https://regex101.com/?regex=[a-z]&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/[a-z]/</a> signifie que l'on peut utiliser n'importe quelle lettre minuscule de l'alphabet latin, <a href="https://regex101.com/?regex=[A-Z]&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/[A-Z]/</a> pour les lettres majuscules, <a href="https://regex101.com/?regex=[0-9]&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/[0-9]/</a> pour les chiffres et <code>_</code> pour le caractère souligné.</p>
-<p>En addition de cette grammaire, voici quelques règles&thinsp;:</p>
+<p>La notation <a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=%5Ba-z%5D&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/[a-z]/</code></a> signifie que l'on peut utiliser n'importe quelle lettre minuscule de l'alphabet latin, <a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=%5BA-Z%5D&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/[A-Z]/</code></a> pour les lettres majuscules, <a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=%5B0-9%5D&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/[0-9]/</code></a> pour les chiffres et <code>_</code> pour le caractère souligné.</p>
+<p>En addition de cette grammaire, voici quelques règles :</p>
 <ol>
 <li>Un identificateur ne peut pas être l'un des mots clés du langage.</li>
 <li>Les identificateurs sont sensibles à la <a href="https://fr.wikipedia.org/wiki/Casse_(typographie)">casse</a> (majuscule/minuscule).</li>
@@ -4378,11 +4380,11 @@
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Expression régulière</p>
-<p>Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'expression régulière suivante&thinsp;:</p>
-<p><a href="https://regex101.com/?regex=^[a-zA-Z_][a-zA-Z0-9_]*$&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/^[a-zA-Z_][a-zA-Z0-9_]*$/</a></p>
+<p>Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'expression régulière suivante :</p>
+<p><a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=%5E%5Ba-zA-Z_%5D%5Ba-zA-Z0-9_%5D%2A%24&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/^[a-zA-Z_][a-zA-Z0-9_]*$/</code></a></p>
 </div>
 <div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise&thinsp;: Validité des identificateurs<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Validité des identificateurs<span class="exercise-title"></span></p>
 <p>Pour chacune des suites de caractères ci-dessous, indiquez s'il s'agit d'un identificateur valide et utilisable en C. Justifier votre réponse.</p>
 <div class="three-column-list">
 <ul>
@@ -4425,9 +4427,9 @@
 </div>
 </details>
 </div>
-<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">¶</a></h2>
+<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">¤</a></h2>
 <p>Une variable est un symbole qui associe un nom (<strong>identificateur</strong>) à une <strong>valeur</strong>. Comme son nom l'indique, une variable peut voir son contenu varier au cours du temps.</p>
-<p>Une variable est définie par&thinsp;:</p>
+<p>Une variable est définie par :</p>
 <ul>
 <li>Son <strong>nom</strong> (<em>name</em>), c'est-à-dire l'identificateur associé au symbole.</li>
 <li>Son <strong>type</strong> (<em>type</em>), qui est la convention d'interprétation du contenu binaire en mémoire.</li>
@@ -4450,7 +4452,7 @@ variables initialisées à la valeur zéro et les variables initialisées à
 des valeurs différentes de zéro. Le compilateur regroupe en mémoire ces
 variables en deux catégories et ajoute un bout de code au début de votre
 application (qui est exécuté avant le <code>main</code>).</p>
-<p>Ce code (que l'on n'a pas à écrire) effectue les opérations suivantes&thinsp;:</p>
+<p>Ce code (que l'on n'a pas à écrire) effectue les opérations suivantes :</p>
 <ul>
 <li>mise à zéro du bloc mémoire contenant les variables ayant été
   déclarées avec une valeur d'initialisation à zéro,</li>
@@ -4461,9 +4463,9 @@ application (qui est exécuté avant le <code>main</code>).</p>
 <p>Par ce fait, dès que l'exécution du logiciel est effectuée, on a, lors
 de l'exécution du <code>main</code>, des variables correctement initialisées.</p>
 </div>
-<h3 id="declaration">Déclaration<a class="headerlink" href="#declaration" title="Permanent link">¶</a></h3>
+<h3 id="declaration">Déclaration<a class="headerlink" href="#declaration" title="Permanent link">¤</a></h3>
 <p>Avant de pouvoir être utilisée, une variable doit être <strong>déclarée</strong> afin que le compilateur puisse réserver un emplacement en mémoire pour stocker sa valeur.</p>
-<p>Voici quelques déclarations valides&thinsp;:</p>
+<p>Voici quelques déclarations valides :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'€'</span><span class="p">;</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">37</span><span class="p">;</span>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="kt">float</span><span class="w"> </span><span class="n">neptune_stone_height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">376.86</span><span class="p">;</span>
@@ -4474,12 +4476,12 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Affectation de variables<span class="exercise-title"></span></p>
-<p>Considérons les déclarations suivantes&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Affectation de variables<span class="exercise-title"></span></p>
+<p>Considérons les déclarations suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Notez après chaque affectation, le contenu des différentes variables&thinsp;:</p>
+<p>Notez après chaque affectation, le contenu des différentes variables :</p>
 <table>
 <thead>
 <tr>
@@ -4624,9 +4626,9 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 </table>
 </details>
 </div>
-<h3 id="convention-de-nommage">Convention de nommage<a class="headerlink" href="#convention-de-nommage" title="Permanent link">¶</a></h3>
+<h3 id="convention-de-nommage">Convention de nommage<a class="headerlink" href="#convention-de-nommage" title="Permanent link">¤</a></h3>
 <p><figure id="_figure-5"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/kebab.png"><img alt="Différentes casses illustrées" src="../../../assets/images/kebab.png"/></a><figcaption> Différentes casses illustrées</figcaption></figure></p>
-<p>Il existe autant de conventions de nommage qu'il y a de développeurs, mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation dit que&thinsp;:</p>
+<p>Il existe autant de conventions de nommage qu'il y a de développeurs, mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation dit que :</p>
 <ul>
 <li>La longueur du nom d'une variable est généralement proportionnelle à sa portée et donc il est d'autant plus court que l'utilisation d'une variable est localisée.</li>
 <li>Le nom doit être concis et précis et ne pas laisser place à une quelconque ambiguïté.</li>
@@ -4668,7 +4670,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <p class="admonition-title">Note</p>
 <p>La casse de kebab n'est pas acceptée par le standard C car les noms formés ne sont pas des identificateurs valides. Néanmoins cette notation est beaucoup utilisée par exemple sur GitHub.</p>
 </div>
-<h3 id="variable-metasyntaxique">Variable métasyntaxique<a class="headerlink" href="#variable-metasyntaxique" title="Permanent link">¶</a></h3>
+<h3 id="variable-metasyntaxique">Variable métasyntaxique<a class="headerlink" href="#variable-metasyntaxique" title="Permanent link">¤</a></h3>
 <p>Souvent lors d'exemples donnés en programmation, on utilise des variables génériques dites <a href="https://fr.wikipedia.org/wiki/Variable_m%C3%A9tasyntaxique">métasyntaxiques</a>. En français les valeurs <code>toto</code>, <code>titi</code>, <code>tata</code> et <code>tutu</code> sont régulièrement utilisées tandis qu'en anglais
 <code>foo</code>, <code>bar</code>, <code>baz</code> et <code>qux</code> sont régulièrement utilisés. Les valeurs <code>spam</code>, <code>ham</code> et <code>eggs</code> sont quant à elles souvent utilisée en Python, en référence au sketch <a href="https://en.wikipedia.org/wiki/Spam_(Monty_Python)">Spam</a> des Monthy Python.</p>
 <p>Leur usage est conseillé pour appuyer le cadre générique d'un exemple sans lui donner la consonance d'un problème plus spécifique.</p>
@@ -4678,7 +4680,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <p>L'origine de <code>foo</code> et <code>bar</code> remonte à la <a href="https://en.wikipedia.org/wiki/FUBAR">deuxième guerre mondiale</a> où les militaires américains utilisaient ces termes pour désigner des objets non identifiés.</p>
 <p>Titi et Toto sont des personnages de bande dessinée créés par <a href="https://fr.wikipedia.org/wiki/Maurice_Cuvillier">Maurice Cuvillier</a> en 1931.</p>
 </div>
-<h2 id="les-constantes">Les constantes<a class="headerlink" href="#les-constantes" title="Permanent link">¶</a></h2>
+<h2 id="les-constantes">Les constantes<a class="headerlink" href="#les-constantes" title="Permanent link">¤</a></h2>
 <p>Une constante par opposition à une variable voit son contenu <strong>fixe</strong> et <strong>immuable</strong>.</p>
 <p>Formellement, une constante se déclare comme une variable, mais préfixée du mot-clé <code>const</code>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">scale_factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12.67</span><span class="p">;</span>
@@ -4689,20 +4691,20 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <p>Il ne faut pas confondre la <strong>constante</strong> qui est une variable immuable, stockée en mémoire et une <strong>macro</strong> qui appartient au préprocesseur. Sur certaines plateformes, le fichier d'en-tête <code>math.h</code> définit par exemple la constante <code>M_PI</code> sous forme de macro.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#define M_PI 3.14159265358979323846</span>
 </span></code></pre></div>
-<p>Cette même constante peut être définie comme une variable constante&thinsp;:</p>
+<p>Cette même constante peut être définie comme une variable constante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159265358979323846</span><span class="p">;</span>
 </span></code></pre></div>
 </div>
-<p>En résumé, les constantes sont utilisées pour&thinsp;:</p>
+<p>En résumé, les constantes sont utilisées pour :</p>
 <ul>
 <li>Éviter les erreurs de programmation en évitant de modifier une valeur qui ne devrait pas l'être.</li>
 <li>Indiquer au compilateur que la valeur ne changera pas et qu'il peut optimiser le code en conséquence.</li>
 <li>Indiquer au développeur que la valeur ne sera pas modifiée plus tard dans le programme.</li>
 </ul>
-<h2 id="constantes-litterales">Constantes littérales<a class="headerlink" href="#constantes-litterales" title="Permanent link">¶</a></h2>
+<h2 id="constantes-litterales">Constantes littérales<a class="headerlink" href="#constantes-litterales" title="Permanent link">¤</a></h2>
 <p>Les constantes littérales représentent des <strong>grandeurs scalaires</strong> numériques ou de caractères et initialisées lors de la phase de compilation.</p>
 <p>En effet, lorsque l'on veut saisir un nombre, on ne veut pas que le compilateur la comprenne comme un identificateur, mais bien comme une valeur numérique. C'est d'ailleurs la raison pour laquelle un identificateur ne peut pas commencer par un chiffre.</p>
-<p>Les constantes littérales sont généralement identifiées avec des préfixes et des suffixes pour indiquer leur nature. Voici quelques exemples&thinsp;:</p>
+<p>Les constantes littérales sont généralement identifiées avec des préfixes et des suffixes pour indiquer leur nature. Voici quelques exemples :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="mi">6</span><span class="w">      </span><span class="c1">// Grandeur valant le nombre d'heures sur l'horloge du Palais du Quirinal à Rome</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="mi">12u</span><span class="w">    </span><span class="c1">// Grandeur non signée</span>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="mf">6l</span><span class="w">     </span><span class="c1">// Grandeur entière signée codée sur un entier long</span>
@@ -4721,7 +4723,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <p>Quant aux guillemets simples <code>'</code>, ils sont utilisés pour délimiter un caractère de la table ASCII.</p>
 <details class="info">
 <summary>Expressions régulières</summary>
-<p>Il est plus facile pour un informaticien de comprendre la syntaxe des constantes littérales en utilisant des expressions régulières. Voici les expressions régulières qui définissent les différentes constantes littérales&thinsp;:</p>
+<p>Il est plus facile pour un informaticien de comprendre la syntaxe des constantes littérales en utilisant des expressions régulières. Voici les expressions régulières qui définissent les différentes constantes littérales :</p>
 <table>
 <thead>
 <tr>
@@ -4733,29 +4735,30 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <tbody>
 <tr>
 <td>Nombre signé</td>
-<td><a href="https://regex101.com/?regex=[1-9][0-9]*&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/[1-9][0-9]*/</a></td>
+<td><a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=%5B1-9%5D%5B0-9%5D%2A&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/[1-9][0-9]*/</code></a></td>
 <td><code>42</code></td>
 </tr>
 <tr>
 <td>Nombre non signé</td>
-<td><a href="https://regex101.com/?regex=[1-9][0-9]*u&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/[1-9][0-9]*u/</a></td>
+<td><a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=%5B1-9%5D%5B0-9%5D%2Au&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/[1-9][0-9]*u/</code></a></td>
 <td><code>42u</code></td>
 </tr>
 <tr>
 <td>Nombre hexadécimal</td>
-<td><a href="https://regex101.com/?regex=0x[0-9a-fA-F]+&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/0x[0-9a-fA-F]+/</a></td>
+<td><a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=0x%5B0-9a-fA-F%5D%2B&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/0x[0-9a-fA-F]+/</code></a></td>
 <td><code>0x2a</code></td>
 </tr>
 <tr>
 <td>Nombre octal</td>
-<td><a href="https://regex101.com/?regex=0[0-7]+&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/0[0-7]+/</a></td>
+<td><a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=0%5B0-7%5D%2B&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/0[0-7]+/</code></a></td>
 <td><code>052</code></td>
 </tr>
 </tbody>
 </table>
+<p>Vous pouvez essayer de les tester sur <a href="https://regex101.com/">regex101.com</a>.</p>
 </details>
 <div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise&thinsp;: Constances littérales<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 3 : </span>Constances littérales<span class="exercise-title"></span></p>
 <p>Pour les entrées suivantes, indiquez lesquelles sont correctes.</p>
 <div class="two-column-list">
 <ul>
@@ -4783,20 +4786,20 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <p class="admonition-title">Avertissement</p>
 <p>Il ne faut pas confondre l'exponentiation avec le nombre d'Euler (2.71828...) <code>e</code> avec la notation scientifique <code>e</code> qui est utilisée pour indiquer une puissance de 10.</p>
 </div>
-<h2 id="operateur-daffectation">Opérateur d'affectation<a class="headerlink" href="#operateur-daffectation" title="Permanent link">¶</a></h2>
+<h2 id="operateur-daffectation">Opérateur d'affectation<a class="headerlink" href="#operateur-daffectation" title="Permanent link">¤</a></h2>
 <p>Dans les exemples ci-dessus, on utilise l'opérateur d'affectation pour associer une valeur à une variable.</p>
 <p>Historiquement, et fort malheureusement, le symbole choisi pour cet opérateur est le signe égal <code>=</code> or, l'égalité est une notion mathématique qui n'est en aucun cas reliée à l'affectation.</p>
-<p>Pour mieux saisir la nuance, considérons le programme suivant&thinsp;:</p>
+<p>Pour mieux saisir la nuance, considérons le programme suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Mathématiquement, la valeur de <code>b</code> devrait être égale à 42 ce qui n'est pas le cas en C où il faut lire, séquentiellement l'exécution du code, car oui, C est un langage <strong>impératif</strong>. Ainsi, dans l'ordre, on lit&thinsp;:</p>
+<p>Mathématiquement, la valeur de <code>b</code> devrait être égale à 42 ce qui n'est pas le cas en C où il faut lire, séquentiellement l'exécution du code, car oui, C est un langage <strong>impératif</strong>. Ainsi, dans l'ordre, on lit :</p>
 <ol>
 <li>J'assigne la valeur 42 à la variable symbolisée par <code>a</code></li>
 <li>Puis, j'assigne la valeur de la variable <code>b</code> au contenu de <code>a</code>.</li>
 </ol>
 <p>Comme on ne connaît pas la valeur de <code>b</code>, avec cet exemple, on ne peut pas connaître la valeur de <code>a</code>.</p>
-<p>Certains langages de programmation ont été sensibilisés à l'importance de cette distinction et dans les langages <strong>F#</strong>, <strong>OCaml</strong>, <strong>R</strong> ou <strong>S</strong>, l'opérateur d'affectation est <code>&lt;-</code> et une affectation pourrait s'écrire par exemple&thinsp;: <code>a &lt;- 42</code> ou <code>42 -&gt; a</code>.</p>
+<p>Certains langages de programmation ont été sensibilisés à l'importance de cette distinction et dans les langages <strong>F#</strong>, <strong>OCaml</strong>, <strong>R</strong> ou <strong>S</strong>, l'opérateur d'affectation est <code>&lt;-</code> et une affectation pourrait s'écrire par exemple : <code>a &lt;- 42</code> ou <code>42 -&gt; a</code>.</p>
 <p>En C, l'opérateur d'égalité que nous verrons plus loin s'écrit <code>==</code> (deux <code>=</code> concaténés).</p>
 <p>Remarquez ici que l'opérateur d'affectation de C agit toujours de droite à gauche c'est-à-dire que la valeur à <strong>droite</strong> de l'opérateur est affectée à la variable située à <strong>gauche</strong> de l'opérateur.</p>
 <p>S'agissant d'un opérateur il est possible de chaîner les opérations, comme on le ferait avec l'opérateur <code>+</code> et dans l'exemple suivant il faut lire que <code>42</code> est assigné à <code>c</code>, que la valeur de <code>c</code> est ensuite assigné à <code>b</code> et enfin la valeur de <code>b</code> est assignée à <code>a</code>.</p>
@@ -4804,8 +4807,8 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 </span></code></pre></div>
 <p>Nous verrons plus tard comment l'ordre des opérations et l'associativité de chaque opérateur.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Affectations simples<span class="exercise-title"></span></p>
-<p>Donnez les valeurs de <code>x</code>, <code>n</code>, <code>p</code> après l'exécution des instructions ci-dessous&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 4 : </span>Affectations simples<span class="exercise-title"></span></p>
+<p>Donnez les valeurs de <code>x</code>, <code>n</code>, <code>p</code> après l'exécution des instructions ci-dessous :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>
@@ -4822,18 +4825,18 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Trop d'égalités<span class="exercise-title"></span></p>
-<p>On considère les déclarations suivantes&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 5 : </span>Trop d'égalités<span class="exercise-title"></span></p>
+<p>On considère les déclarations suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Donnez les valeurs des variables <code>i</code>, <code>j</code> et <code>k</code> après l'exécution de chacune des expressions ci-dessous. Qu'en pensez-vous&thinsp;?</p>
+<p>Donnez les valeurs des variables <code>i</code>, <code>j</code> et <code>k</code> après l'exécution de chacune des expressions ci-dessous. Qu'en pensez-vous ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cm">/* 1 */</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="cm">/* 2 */</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="cm">/* 3 */</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 </span></code></pre></div>
 <details class="solution">
 <summary>Solution</summary>
-<p>Selon la table de priorité des opérateurs, on note&thinsp;:</p>
+<p>Selon la table de priorité des opérateurs, on note :</p>
 <ul>
 <li><code>()</code> priorité 1 associativité à droite</li>
 <li><code>*</code> priorité 3 associativité à gauche</li>
@@ -4866,15 +4869,15 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 </ol>
 </details>
 </div>
-<h2 id="espaces-de-noms">Espaces de noms<a class="headerlink" href="#espaces-de-noms" title="Permanent link">¶</a></h2>
-<p>En C, il est possible d'utiliser le même identificateur pour autant qu'il n'appartient pas au même espace de nom. Il existe en C plusieurs espaces de noms&thinsp;:</p>
+<h2 id="espaces-de-noms">Espaces de noms<a class="headerlink" href="#espaces-de-noms" title="Permanent link">¤</a></h2>
+<p>En C, il est possible d'utiliser le même identificateur pour autant qu'il n'appartient pas au même espace de nom. Il existe en C plusieurs espaces de noms :</p>
 <ul>
 <li>étiquettes utilisées pour l'instruction <code>goto</code>;</li>
-<li>tag de structures, d'énumérations et d'union&thinsp;;</li>
-<li>membres de structures, d'énumérations et d'union&thinsp;;</li>
-<li>identificateurs de variable ou fonctions&thinsp;;</li>
+<li>tag de structures, d'énumérations et d'union ;</li>
+<li>membres de structures, d'énumérations et d'union ;</li>
+<li>identificateurs de variable ou fonctions ;</li>
 </ul>
-<p>Ces espaces de noms sont indépendants les uns des autres, il est donc possible d'utiliser le même nom sans conflit. Par exemple&thinsp;:</p>
+<p>Ces espaces de noms sont indépendants les uns des autres, il est donc possible d'utiliser le même nom sans conflit. Par exemple :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">x</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Espace de nom des structures</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// Membre de la structure point</span>
 </span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="p">}</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// Espace de nom des types</span>
@@ -4883,14 +4886,14 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 </span><span id="__span-21-6"><a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">};</span><span class="w"> </span><span class="c1">// x est une variable de type x</span>
 </span><span id="__span-21-7"><a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="commentaires">Commentaires<a class="headerlink" href="#commentaires" title="Permanent link">¶</a></h2>
+<h2 id="commentaires">Commentaires<a class="headerlink" href="#commentaires" title="Permanent link">¤</a></h2>
 <p>Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des <strong>commentaires</strong>. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source.</p>
 <p><figure id="_figure-6"><img alt="Les carafes dans la Vivonne" class="drawio-diagram" src="../../../assets/images/vivonne.drawio"/><figcaption> Les carafes dans la Vivonne</figcaption></figure></p>
-<p>Il existe deux manières d'écrire un commentaire en C&thinsp;:</p>
+<p>Il existe deux manières d'écrire un commentaire en C :</p>
 <p>Les commentaires de lignes (depuis <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>):</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="c1">// This is a single line comment.</span>
 </span></code></pre></div>
-<p>Les commentaires de blocs&thinsp;:</p>
+<p>Les commentaires de blocs :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="cm">/* This is a</span>
 </span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="cm">    Multi-line comment */</span>
 </span></code></pre></div>
@@ -4911,12 +4914,12 @@ nécessairement un bon programme.</p>
 </span><span id="__span-25-3"><a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="o">*/</span>
 </span></code></pre></div>
 </div>
-<p>Les commentaires de blocs peuvent être utilisés pour documenter une fonction ou un bloc de code, mais également pour insérer un commentaire à l'intérieur d'une ligne&thinsp;:</p>
+<p>Les commentaires de blocs peuvent être utilisés pour documenter une fonction ou un bloc de code, mais également pour insérer un commentaire à l'intérieur d'une ligne :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">deep_throught</span><span class="w"> </span><span class="cm">/* Name of the computer */</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">// The answer</span>
 </span></code></pre></div>
-<h3 id="commenter-du-code">Commenter du code&thinsp;?<a class="headerlink" href="#commenter-du-code" title="Permanent link">¶</a></h3>
+<h3 id="commenter-du-code">Commenter du code ?<a class="headerlink" href="#commenter-du-code" title="Permanent link">¤</a></h3>
 <p>Lorsque vous développez, vous avez souvent besoin de désactiver des portions de code pour des raisons de débogage ou de test. Il est tentant de commenter ces portions de code plutôt que de les supprimer.</p>
-<p>Néanmoins une règle à retenir est que l'on ne commente <strong>jamais</strong> des portions de code, et ce pour plusieurs raisons&thinsp;:</p>
+<p>Néanmoins une règle à retenir est que l'on ne commente <strong>jamais</strong> des portions de code, et ce pour plusieurs raisons :</p>
 <ol>
 <li>Les outils de <em>refactoring</em> ne pourront pas accéder du code commenté</li>
 <li>La syntaxe ne pourra plus être vérifiée par l'IDE</li>
@@ -4930,15 +4933,15 @@ désactiver cette portion de code.</p>
 </span><span id="__span-27-4"><a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="c">}</span>
 </span><span id="__span-27-5"><a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="cp">#endif</span>
 </span></code></pre></div>
-<h3 id="quelques-conseils">Quelques conseils<a class="headerlink" href="#quelques-conseils" title="Permanent link">¶</a></h3>
-<p>D'une manière générale l'utilisation des commentaires ne devrait pas être utilisée pour&thinsp;:</p>
+<h3 id="quelques-conseils">Quelques conseils<a class="headerlink" href="#quelques-conseils" title="Permanent link">¤</a></h3>
+<p>D'une manière générale l'utilisation des commentaires ne devrait pas être utilisée pour :</p>
 <ul>
 <li>Désactiver temporairement une portion de code sans l'effacer.</li>
 <li>Expliquer le <strong>comment</strong> du fonctionnement du code.</li>
 <li>Faire dans le dithyrambique pompeux et notarial, des phrases à rallonge bien trop romanesques.</li>
 <li>Créer de jolies séparations telles que <code class="language-c highlight"><span class="cm">/*************************/</span></code>.</li>
 </ul>
-<p>Exemple d'entête de fichier&thinsp;:</p>
+<p>Exemple d'entête de fichier :</p>
 <div class="admonition note inline end">
 <p class="admonition-title">SSOT</p>
 <p>Vous verrez souvent, trop souvent le nom de l'auteur et du fichiers dans les en-têtes. Ce n'est pas une bonne pratique si vous utilisez Git, car ces informations sont déjà présentes dans les métadonnées du fichier.</p>
@@ -4956,7 +4959,7 @@ désactiver cette portion de code.</p>
 </span><span id="__span-28-11"><a href="#__codelineno-28-11" id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="cm"> * TODO: Things to fix...</span>
 </span><span id="__span-28-12"><a href="#__codelineno-28-12" id="__codelineno-28-12" name="__codelineno-28-12"></a><span class="cm"> */</span>
 </span></code></pre></div>
-<p>Voici un exemple de ce qu'il ne faut pas faire&thinsp;:</p>
+<p>Voici un exemple de ce qu'il ne faut pas faire :</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Pas bien</label><label for="__tabbed_1_2">Bien</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5001,21 +5004,21 @@ désactiver cette portion de code.</p>
 </div>
 </div>
 </div>
-<p>Le format des commentaires est par essence libre au développeur, mais il est généralement souhaité que&thinsp;:</p>
+<p>Le format des commentaires est par essence libre au développeur, mais il est généralement souhaité que :</p>
 <ul>
 <li>Les commentaires soient concis et précis.</li>
 <li>Les commentaires soient écrits en anglais.</li>
 </ul>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Verbosité<span class="exercise-title"></span></p>
-<p>Comment récririez-vous ce programme&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 6 : </span>Verbosité<span class="exercise-title"></span></p>
+<p>Comment récririez-vous ce programme ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-31-1"><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">register</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">the_element_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-31-2"><a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="w">    </span><span class="n">the_element_index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">number_of_elements</span><span class="p">;</span><span class="w"> </span><span class="n">the_element_index</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 </span><span id="__span-31-3"><a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="w">    </span><span class="n">array_of_elements</span><span class="p">[</span><span class="n">the_element_index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">the_element_index</span><span class="p">;</span>
 </span></code></pre></div>
 <details class="solution">
 <summary>Solution</summary>
-<p>Une règle de programmation&thinsp;: le nom identifieurs doit être proportionnel à leur contexte. Plus le contexte de la variable est réduit, plus le nom peut être court. Le même programme pourrait être écrit comme suit&thinsp;:</p>
+<p>Une règle de programmation : le nom identifieurs doit être proportionnel à leur contexte. Plus le contexte de la variable est réduit, plus le nom peut être court. Le même programme pourrait être écrit comme suit :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nelems</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 </span><span id="__span-32-2"><a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="w">    </span><span class="n">elem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 </span></code></pre></div>
@@ -5045,7 +5048,7 @@ désactiver cette portion de code.</p>
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 10, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 13, 2024</span>
   </span>
 
     
@@ -5109,7 +5112,7 @@ désactiver cette portion de code.</p>
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -5249,7 +5252,7 @@ désactiver cette portion de code.</p>
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

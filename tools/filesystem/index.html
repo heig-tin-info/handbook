@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4024,21 +4026,21 @@
   
 
 
-<h1 id="systeme-de-fichier">Système de fichier<a class="headerlink" href="#systeme-de-fichier" title="Permanent link">¶</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
+<h1 id="systeme-de-fichier">Système de fichier<a class="headerlink" href="#systeme-de-fichier" title="Permanent link">¤</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/ant.png"><img alt="Fourmi portant des données" src="../../assets/images/ant.png"/></a><figcaption> Fourmi portant des données</figcaption></figure></p>
 <p>Un <em>système de fichier</em> est une structure de données qui permet de stocker des fichiers et des répertoires sur un support de stockage. Les systèmes de fichiers sont utilisés pour organiser les données sur les disques durs, les clés USB, les cartes mémoire, etc.</p>
-<p>Nous savons maintenant que les données informatiques sont stockées sous forme binaire. Sur une clé USB ou un disque dur, c'est pareil. On aura des 0 et des 1 stockés à perte de vue sur le silicium. Si votre disque dur de 1 Tio est la surface de la terre, sans les océans et d'environ <span class="arithmatex">\(148.9\)</span> millions de <span class="arithmatex">\(\text{km}^2\)</span>. Notre disque contient <span class="arithmatex">\(2^{40}\)</span> octets, soit <span class="arithmatex">\(2^{43}\)</span> bits&thinsp;:</p>
+<p>Nous savons maintenant que les données informatiques sont stockées sous forme binaire. Sur une clé USB ou un disque dur, c'est pareil. On aura des 0 et des 1 stockés à perte de vue sur le silicium. Si votre disque dur de 1 Tio est la surface de la terre, sans les océans et d'environ <span class="arithmatex">\(148.9\)</span> millions de <span class="arithmatex">\(\text{km}^2\)</span>. Notre disque contient <span class="arithmatex">\(2^{40}\)</span> octets, soit <span class="arithmatex">\(2^{43}\)</span> bits :</p>
 <div class="arithmatex">\[
 N_{bits} = 8'796'093'022'208
 \]</div>
-<p>Cela revient à stocker environ 16 bits par millimètre carré. Une fourmi aurait sur son dos 2 à 3 octets de données. Imaginez vous un instant prendre l'avion, le train, revêtir votre tenue d'explorateur pour chercher les fourmis qui portent les données que vous cherchez&thinsp;?</p>
+<p>Cela revient à stocker environ 16 bits par millimètre carré. Une fourmi aurait sur son dos 2 à 3 octets de données. Imaginez vous un instant prendre l'avion, le train, revêtir votre tenue d'explorateur pour chercher les fourmis qui portent les données que vous cherchez ?</p>
 <p>Oui ce n'est pas très réaliste, et le calcul que nous avons fourni est très simplifié. Mais cela permet de comprendre que les données stockées doivent être organisées car elles ne sont pas accessibles immédiatement. Pour un disque dur, la tête de lecture doit parcourir le disque pour atteindre les données. Sur une clé USB, la mémoire doit être configurée pour accéder une région précise.</p>
 <p>Nous avons donc besoin d'une carte pour savoir où sont stockées les données. C'est le rôle du système de fichier. Il permet de stocker les fichiers, les organiser en dossiers. N'importe qui n'aura pas accès à toutes les données, il faut les droits d'accès. Et les données peuvent être corrompues, détruites par des <a href="https://fr.wikipedia.org/wiki/Rayonnement_cosmique">rayonnements cosmiques</a>. Il faut aussi gérer les erreurs.</p>
 <p>Le premier système de fichier a été inventé par IBM en 1956 pour le disque dur IBM 305 RAMAC. Il s'appelait le <em>système de fichier à index</em>. Il a été inventé par Hans Peter Luhn. Il permettait de stocker 5 Mo de données sur un disque de 24 pouces. Depuis</p>
-<h2 id="fat-et-les-autres">FAT et les autres<a class="headerlink" href="#fat-et-les-autres" title="Permanent link">¶</a></h2>
+<h2 id="fat-et-les-autres">FAT et les autres<a class="headerlink" href="#fat-et-les-autres" title="Permanent link">¤</a></h2>
 <p>Le système de fichier FAT (File Allocation Table) est un système de fichier simple et robuste. Il a été inventé par Microsoft en 1977 pour le système d'exploitation MS-DOS. Il est toujours utilisé aujourd'hui pour les clés USB, les cartes mémoire, etc. C'est très certainement celui-ci qu'un ingénieur embarqué utiliserait sur une carte SD interfacée avec un microcontrôleur.</p>
-<p>L'API de FAT, c'est à dire les fonctions primitives pour contrôler le système de fichier contient par exemple les fonctions suivantes&thinsp;:</p>
+<p>L'API de FAT, c'est à dire les fonctions primitives pour contrôler le système de fichier contient par exemple les fonctions suivantes :</p>
 <ul>
 <li><code>fopen</code> : Ouvrir un fichier à partir d'un chemin</li>
 <li><code>fread</code> : Lire de données depuis un fichier ouvert</li>
@@ -4049,7 +4051,7 @@ N_{bits} = 8'796'093'022'208
 <li><code>fmkdir</code> : Créer un répertoire</li>
 <li>...</li>
 </ul>
-<p>Les systèmes de fichiers les plus utilisés aujourd'hui sont&thinsp;:</p>
+<p>Les systèmes de fichiers les plus utilisés aujourd'hui sont :</p>
 <table>
 <thead>
 <tr>
@@ -4096,28 +4098,28 @@ N_{bits} = 8'796'093'022'208
 </tr>
 </tbody>
 </table>
-<h2 id="organisation">Organisation<a class="headerlink" href="#organisation" title="Permanent link">¶</a></h2>
-<p>Un système de fichier comporte en général&thinsp;:</p>
+<h2 id="organisation">Organisation<a class="headerlink" href="#organisation" title="Permanent link">¤</a></h2>
+<p>Un système de fichier comporte en général :</p>
 <ul>
 <li>Des répertoires (des dossiers) qui contiennent des fichiers ou d'autres répertoires.</li>
 <li>Des fichiers qui contiennent des données.</li>
 </ul>
-<p>Les répertoires sont organisés en arborescence de manière hiérarchique. Si vous avez dans votre maison, dans votre cuisine, dans votre frigo, au second rayonnage, sur la droite, une pomme. Vous pourriez écrire&thinsp;:</p>
+<p>Les répertoires sont organisés en arborescence de manière hiérarchique. Si vous avez dans votre maison, dans votre cuisine, dans votre frigo, au second rayonnage, sur la droite, une pomme. Vous pourriez écrire :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>maison -&gt; cuisine -&gt; frigo -&gt; rayonnage2 -&gt; droite -&gt; pomme
 </span></code></pre></div>
 <p>Mais la pomme est un fruit, comment le savoir avec seulement un nom. C'est peut-être une pomme de terre, une pomme de pin ou une pomme de douche. Généralement, on ajoute une extension, c'est un suffixe qui permet de savoir de quel type de fichier il s'agit. Par exemple, <code>.txt</code> pour un fichier texte, <code>.jpg</code> pour une image, <code>.c</code> pour un fichier source en langage C, etc.</p>
 <p>Enfin, utiliser <code>-&gt;</code> pour indiquer la hiérarchie n'est pas pratique. Tous les systèmes de fichiers du monde utilisent le <em>slash</em> <code>/</code> pour séparer les répertoires. Tous... sauf un qui résiste encore et toujours à l'envahisseur. Sur Windows, la convention est différente, et c'est le <em>backslash</em> qui est utilisé <code>\</code>. C'est une source de confusion pour les développeurs qui doivent écrire des programmes compatibles avec les deux systèmes d'exploitation.</p>
-<p>Reprenons. Notre pomme serait un fruit, une image de fruit. On indiquerait alors son chemin complet&thinsp;:</p>
+<p>Reprenons. Notre pomme serait un fruit, une image de fruit. On indiquerait alors son chemin complet :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>/maison/cuisine/frigo/rayonnage2/droite/pomme.jpg
 </span></code></pre></div>
-<p>Tient&thinsp;? Pourquoi un <code>slash</code> au début&thinsp;? C'est pour indiquer le répertoire racine&thinsp;: le répertoire d'origine, le point de départ de l'arborescence. Evidemment si vous vous trouvez déjà dans la cuisine, vous n'avez pas besoin de préciser <code>/maison/cuisine</code>. Vous pouvez simplement écrire <code>frigo/rayonnage2/droite/pomme.jpg</code>. Donc un chemin peut, ou non avoir un <code>slash</code> au début. On dit qu'il est <strong>absolu</strong> ou <strong>relatif</strong>.</p>
+<p>Tient ? Pourquoi un <code>slash</code> au début ? C'est pour indiquer le répertoire racine : le répertoire d'origine, le point de départ de l'arborescence. Evidemment si vous vous trouvez déjà dans la cuisine, vous n'avez pas besoin de préciser <code>/maison/cuisine</code>. Vous pouvez simplement écrire <code>frigo/rayonnage2/droite/pomme.jpg</code>. Donc un chemin peut, ou non avoir un <code>slash</code> au début. On dit qu'il est <strong>absolu</strong> ou <strong>relatif</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Windows</p>
 <p>Sur Windows, le répertoire racine est <code>C:\</code> pour le disque dur principal. Donc un chemin absolu sur Windows ressemblerait à <code>C:\maison\cuisine\frigo\rayonnage2\droite\pomme.jpg</code>.</p>
 <p>L'usage de <code>C</code> est historique. À l'origine il n'y avait pas de disques durs mais des disquettes. Ceux qui avaient la chance d'avoir un lecteur de disquette avaient un unique lecteur <code>A</code>. Ceux qui voulaient faire des copies de disquettes devaient en avoir un deuxième, c'était le lecteur <code>B</code>. En général, le disque dur était le troisième lecteur, le lecteur <code>C</code>. Et depuis Windows 95, c'est resté comme ça.</p>
 </div>
-<h2 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">¶</a></h2>
-<p>Nous savons qu'un chemin est une suite de répertoires séparés par des slashes mais ce que nous ne savons pas c'est où on se trouve. Lorsque vous ouvrez un terminal, ou une application vous êtes dans un répertoire, c'est le répertoire courant, ou le répertoire de travail (<em>working directory</em>). Pour savoir où vous trouvez vous pouvez ouvrir un terminal et taper&thinsp;:</p>
+<h2 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">¤</a></h2>
+<p>Nous savons qu'un chemin est une suite de répertoires séparés par des slashes mais ce que nous ne savons pas c'est où on se trouve. Lorsque vous ouvrez un terminal, ou une application vous êtes dans un répertoire, c'est le répertoire courant, ou le répertoire de travail (<em>working directory</em>). Pour savoir où vous trouvez vous pouvez ouvrir un terminal et taper :</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1"><abbr title="Portable Operating System Interface">POSIX</abbr></label><label for="__tabbed_1_2">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4132,7 +4134,7 @@ N_{bits} = 8'796'093'022'208
 </div>
 </div>
 </div>
-<p>Mais si je suis dans la maison et que je veux aller dans le jardin&thinsp;? Je ne vais pas indiquer le chemin complet&thinsp;:</p>
+<p>Mais si je suis dans la maison et que je veux aller dans le jardin ? Je ne vais pas indiquer le chemin complet :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>/universe/
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span>galaxy/
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">        </span>solar-system/
@@ -4144,11 +4146,11 @@ N_{bits} = 8'796'093'022'208
 </span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">                                </span>maison/
 </span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">                                    </span>jardin
 </span></code></pre></div>
-<p>Je ne peux pas non plus utiliser le chemin relatif <code>jardin</code> car le jardin n'est pas dans la maison. Ni d'ailleurs <code>/jardin</code> car celui-ci n'est pas à la racine de l'univers. On voit qu'il est essentiel d'introduire une notion de parenté&thinsp;; ce que je souhaite faire c'est remonter d'un niveau pour aller dans le jardin.</p>
+<p>Je ne peux pas non plus utiliser le chemin relatif <code>jardin</code> car le jardin n'est pas dans la maison. Ni d'ailleurs <code>/jardin</code> car celui-ci n'est pas à la racine de l'univers. On voit qu'il est essentiel d'introduire une notion de parenté ; ce que je souhaite faire c'est remonter d'un niveau pour aller dans le jardin.</p>
 <p>Il existe un fichier spécial qui permet de remonter d'un niveau c'est le fichier <code>..</code>.</p>
-<p>Et si je suis dans le jardin et que j'aimerais tondre la pelouse. J'aimerais appeler le programme <code>tondre</code> en lui donnant le chemin jusque là où je me trouve. Je pourrais écrire&thinsp;: <code>../jardin</code> mais c'est redondant, et cela implique de connaître le nom de là ou je me trouve. Il existe pour cela un deuxième fichier spécial qui permet de désigner le répertoire courant, c'est le fichier <code>.</code>.</p>
+<p>Et si je suis dans le jardin et que j'aimerais tondre la pelouse. J'aimerais appeler le programme <code>tondre</code> en lui donnant le chemin jusque là où je me trouve. Je pourrais écrire : <code>../jardin</code> mais c'est redondant, et cela implique de connaître le nom de là ou je me trouve. Il existe pour cela un deuxième fichier spécial qui permet de désigner le répertoire courant, c'est le fichier <code>.</code>.</p>
 <p>Enfin, si je souhaite me déplacer dans l'arborescence, je peux utiliser la commande <code>cd</code> pour <em>change directory</em>. Ce programme prend en argument un chemin absolu ou relatif.</p>
-<h2 id="commandes-utiles">Commandes utiles<a class="headerlink" href="#commandes-utiles" title="Permanent link">¶</a></h2>
+<h2 id="commandes-utiles">Commandes utiles<a class="headerlink" href="#commandes-utiles" title="Permanent link">¤</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1"><abbr title="Portable Operating System Interface">POSIX</abbr></label><label for="__tabbed_2_2">Windows CMD</label><label for="__tabbed_2_3">Windows PowerShell</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4335,20 +4337,20 @@ N_{bits} = 8'796'093'022'208
 <p class="admonition-title">Avertissement</p>
 <p>Les commandes <code>rm</code>, <code>mv</code>, <code>cp</code> sont très dangereuses. Elles peuvent détruire des données. Il est important de faire attention à ce que vous faites. Il est recommandé de faire des sauvegardes régulières de vos données.</p>
 </div>
-<h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">¶</a></h2>
-<p>Les systèmes de fichiers modernes permettent de définir des permissions sur les fichiers et les répertoires. Ces permissions permettent de contrôler qui peut lire, écrire ou exécuter un fichier. Les permissions sont définies pour trois catégories d'utilisateurs&thinsp;:</p>
+<h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">¤</a></h2>
+<p>Les systèmes de fichiers modernes permettent de définir des permissions sur les fichiers et les répertoires. Ces permissions permettent de contrôler qui peut lire, écrire ou exécuter un fichier. Les permissions sont définies pour trois catégories d'utilisateurs :</p>
 <ul>
 <li>Le propriétaire du fichier</li>
 <li>Le groupe auquel appartient le fichier</li>
 <li>Les autres utilisateurs</li>
 </ul>
-<p>Les permissions sont définies pour trois actions&thinsp;:</p>
+<p>Les permissions sont définies pour trois actions :</p>
 <ul>
 <li>Lire le fichier</li>
 <li>Écrire dans le fichier</li>
 <li>Exécuter le fichier</li>
 </ul>
-<p>Les permissions sont représentées par des lettres&thinsp;:</p>
+<p>Les permissions sont représentées par des lettres :</p>
 <ul>
 <li><code>r</code> pour lire</li>
 <li><code>w</code> pour écrire</li>
@@ -4402,13 +4404,13 @@ N_{bits} = 8'796'093'022'208
 </table>
 <div class="admonition note">
 <p class="admonition-title">Représentation octale</p>
-<p>Dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr>, on peut représenter les permissions avec des chiffres. Chaque permission est représentée par un bit&thinsp;:</p>
+<p>Dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr>, on peut représenter les permissions avec des chiffres. Chaque permission est représentée par un bit :</p>
 <ul>
 <li><code>r</code> : 4</li>
 <li><code>w</code> : 2</li>
 <li><code>x</code> : 1</li>
 </ul>
-<p>On additionne les bits pour obtenir la permission&thinsp;:</p>
+<p>On additionne les bits pour obtenir la permission :</p>
 <ul>
 <li><code>rwx</code> : 7</li>
 <li><code>rw-</code> : 6</li>
@@ -4416,7 +4418,7 @@ N_{bits} = 8'796'093'022'208
 </ul>
 <p>Chaque chiffre représente dans l'ordre le propriétaire, le groupe et les autres. Ainsi la permission du fichier <code>~/.ssh/id_rsa</code> est <code>400</code> ce qui signifie que le propriétaire a le droit de lire le fichier mais ni d'écrire ni d'exécuter. Le groupe et les autres n'ont aucun droit. C'est normal c'est la clé privée SSH, elle ne doit être lue que par le propriétaire.</p>
 </div>
-<h2 id="proprietaire-et-groupe">Propriétaire et groupe<a class="headerlink" href="#proprietaire-et-groupe" title="Permanent link">¶</a></h2>
+<h2 id="proprietaire-et-groupe">Propriétaire et groupe<a class="headerlink" href="#proprietaire-et-groupe" title="Permanent link">¤</a></h2>
 <p>Chaque fichier a un propriétaire et un groupe. Le propriétaire est l'utilisateur qui a créé le fichier. Le groupe est le groupe auquel appartient le fichier. Les utilisateurs peuvent appartenir à plusieurs groupes. Les groupes permettent de définir des permissions pour plusieurs utilisateurs. Par exemple, un groupe <code>admin</code> pourrait avoir des droits d'écriture sur un répertoire.</p>
 <p>Pour changer le propriétaire d'un fichier, on utilise la commande <code>chown</code> dans <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Windows, il est préférable de passer par l'interface graphique.</p>
 <table>
@@ -4457,10 +4459,10 @@ N_{bits} = 8'796'093'022'208
 </tr>
 </tbody>
 </table>
-<h2 id="acl-access-control-list">ACL (Access Control List)<a class="headerlink" href="#acl-access-control-list" title="Permanent link">¶</a></h2>
+<h2 id="acl-access-control-list">ACL (Access Control List)<a class="headerlink" href="#acl-access-control-list" title="Permanent link">¤</a></h2>
 <p>Les systèmes de fichiers modernes permettent de définir des ACL (Access Control List) sur les fichiers et les répertoires. Les ACL permettent de définir des permissions plus fines que les permissions <abbr title="Portable Operating System Interface">POSIX</abbr>. Les ACL permettent de définir des permissions pour des utilisateurs individuels ou des groupes d'utilisateurs. Les ACL sont plus complexes à gérer que les permissions <abbr title="Portable Operating System Interface">POSIX</abbr> mais elles permettent de définir des permissions plus précises.</p>
 <p>En général, les ACL sont gérées par des outils graphiques ou des commandes spécifiques. Les ACL sont stockées dans les métadonnées des fichiers et des répertoires. Les ACL sont utilisées dans les environnements professionnels où les données sont sensibles et où il est nécessaire de définir des permissions très précises. Cela permet de se rapprocher de systèmes de fichiers comme NTFS de Microsoft.</p>
-<p>Sur votre ordinateur ou dans votre carrière professionnelle vous n'aurez très certainement jamais besoin de gérer des ACL. C'est un sujet complexe et réservé aux administrateurs système. Mais pour les plus curieux voici quelques exemples&thinsp;:</p>
+<p>Sur votre ordinateur ou dans votre carrière professionnelle vous n'aurez très certainement jamais besoin de gérer des ACL. C'est un sujet complexe et réservé aux administrateurs système. Mais pour les plus curieux voici quelques exemples :</p>
 <table>
 <thead>
 <tr>
@@ -4495,21 +4497,21 @@ N_{bits} = 8'796'093'022'208
 </tr>
 </tbody>
 </table>
-<h2 id="manipulation-bas-niveau">Manipulation bas niveau<a class="headerlink" href="#manipulation-bas-niveau" title="Permanent link">¶</a></h2>
+<h2 id="manipulation-bas-niveau">Manipulation bas niveau<a class="headerlink" href="#manipulation-bas-niveau" title="Permanent link">¤</a></h2>
 <p>Une question que l'on peut se poser est s'il est possible d'accéder aux données brutes d'un disque dur (les 1 et les 0) : la réponse est oui. Il est possible d'accéder aux données brutes d'un disque dur en utilisant des outils spécifiques. Ces outils permettent de lire et d'écrire des données directement sur le disque dur sans passer par le système de fichiers.</p>
 <p>La commande <code>dd</code> dans <abbr title="Portable Operating System Interface">POSIX</abbr> permet de lire et d'écrire des données brutes sur un disque dur. Cette commande est très puissante et <strong>très dangereuse</strong>. Elle permet de lire et d'écrire des données directement sur le disque dur. Il est très facile de détruire des données avec cette commande.</p>
 <p>On peut utiliser des fichiers spéciaux comme <code>/dev/zero</code> ou <code>/dev/random</code> pour générer des fichiers de données.</p>
-<p>Par exemple créer un fichier de 1 Mio rempli de zéros&thinsp;:</p>
+<p>Par exemple créer un fichier de 1 Mio rempli de zéros :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>$<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>file<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">1</span>
 </span></code></pre></div>
-<p>Ou créer un fichier de 100 bytes rempli de données aléatoires&thinsp;:</p>
+<p>Ou créer un fichier de 100 bytes rempli de données aléatoires :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>$<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/random<span class="w"> </span><span class="nv">of</span><span class="o">=</span>file<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">1</span>
 </span></code></pre></div>
-<p>On peut aussi lire des données brutes sur un disque dur. Par exemple lire les 100 premiers bytes d'un disque dur&thinsp;:</p>
+<p>On peut aussi lire des données brutes sur un disque dur. Par exemple lire les 100 premiers bytes d'un disque dur :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>$<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/sda<span class="w"> </span><span class="nv">of</span><span class="o">=</span>file<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">1</span>
 </span></code></pre></div>
-<h2 id="arborescence-posix">Arborescence <abbr title="Portable Operating System Interface">POSIX</abbr><a class="headerlink" href="#arborescence-posix" title="Permanent link">¶</a></h2>
-<p>L'arborescence <abbr title="Portable Operating System Interface">POSIX</abbr> est une convention pour organiser les fichiers et les répertoires sur un système de fichiers. L'arborescence <abbr title="Portable Operating System Interface">POSIX</abbr> est utilisée par la plupart des systèmes d'exploitation basés sur <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>. L'arborescence <abbr title="Portable Operating System Interface">POSIX</abbr> est organisée de la manière suivante&thinsp;:</p>
+<h2 id="arborescence-posix">Arborescence <abbr title="Portable Operating System Interface">POSIX</abbr><a class="headerlink" href="#arborescence-posix" title="Permanent link">¤</a></h2>
+<p>L'arborescence <abbr title="Portable Operating System Interface">POSIX</abbr> est une convention pour organiser les fichiers et les répertoires sur un système de fichiers. L'arborescence <abbr title="Portable Operating System Interface">POSIX</abbr> est utilisée par la plupart des systèmes d'exploitation basés sur <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>. L'arborescence <abbr title="Portable Operating System Interface">POSIX</abbr> est organisée de la manière suivante :</p>
 <ul>
 <li><code>/</code> : Le répertoire racine</li>
 <li><code>/bin</code> : Les programmes de base</li>
@@ -4531,7 +4533,7 @@ N_{bits} = 8'796'093'022'208
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Windows</p>
-<p>Malheureusement Windows n'a pas vraiment de convention rigide pour l'organisation des fichiers et des répertoires. Chaque programme peut décider où il veut stocker ses fichiers de configuration, ses fichiers de données, etc. Cela rend la maintenance et la sauvegarde des données plus difficile. On peut néanmoins retrouver quelques répertoires communs&thinsp;:</p>
+<p>Malheureusement Windows n'a pas vraiment de convention rigide pour l'organisation des fichiers et des répertoires. Chaque programme peut décider où il veut stocker ses fichiers de configuration, ses fichiers de données, etc. Cela rend la maintenance et la sauvegarde des données plus difficile. On peut néanmoins retrouver quelques répertoires communs :</p>
 <ul>
 <li><code>C:\Program Files</code> : Les programmes installés</li>
 <li><code>C:\Program Files (x86)</code> : Les programmes 32 bits installés sur un système 64 bits</li>
@@ -4608,7 +4610,7 @@ N_{bits} = 8'796'093'022'208
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4748,7 +4750,7 @@ N_{bits} = 8'796'093'022'208
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

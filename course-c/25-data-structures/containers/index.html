@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3966,14 +3968,14 @@
   
 
 
-<h1 id="conteneurs-de-donnees">Conteneurs de données<a class="headerlink" href="#conteneurs-de-donnees" title="Permanent link">¶</a></h1>
+<h1 id="conteneurs-de-donnees">Conteneurs de données<a class="headerlink" href="#conteneurs-de-donnees" title="Permanent link">¤</a></h1>
 <p>Un conteneur de données est une structure informatique de données qui permet de stocker des éléments de façon organisée. Il existe de nombreux types de conteneurs de données, chacun ayant ses propres avantages et inconvénients. Les conteneurs de données les plus courants sont les tableaux, les listes chaînées, les piles, les files, les arbres, les graphes, etc.</p>
 <p>En règle générale, le développeur n'implémente pas directement ces conteneurs de données, mais utilise des bibliothèques qui les fournissent. Ces bibliothèques sont souvent incluses dans les langages de programmation, mais il existe également des bibliothèques tierces qui fournissent des implémentations de conteneurs de données pour de nombreux langages de programmation.</p>
 <p>Hélas en C, il n'existe pas de bibliothèque standard qui fournit des conteneurs de données de haut niveau.</p>
-<h2 id="types-de-donnees-abstraits">Types de données abstraits<a class="headerlink" href="#types-de-donnees-abstraits" title="Permanent link">¶</a></h2>
+<h2 id="types-de-donnees-abstraits">Types de données abstraits<a class="headerlink" href="#types-de-donnees-abstraits" title="Permanent link">¤</a></h2>
 <p>Un <a href="https://fr.wikipedia.org/wiki/Type_abstrait">type de donnée abstrait</a> (<strong>ADT</strong> pour Abstract Data Type) cache généralement une structure dont le contenu n'est pas connu de l'utilisateur final. Ceci est rendu possible par le standard (<abbr title="Standard ISO/IEC 9899:1999">C99</abbr> §6.2.5) par l'usage de types incomplets.</p>
 <p>Pour mémoire, un type incomplet décrit un objet dont on ne connaît pas sa taille en mémoire.</p>
-<p>L'exemple suivant déclare un nouveau type structure qui n'est alors pas (encore) connu dans le fichier courant&thinsp;:</p>
+<p>L'exemple suivant déclare un nouveau type structure qui n'est alors pas (encore) connu dans le fichier courant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Unknown</span><span class="w"> </span><span class="o">*</span><span class="n">Known</span><span class="p">;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -3984,9 +3986,9 @@
 </span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>De façon générale, les types abstraits sont utilisés dans l'écriture de bibliothèques logicielles lorsqu'il est important que l'utilisateur final ne puisse pas compromettre le contenu du type et en forçant cet utilisateur à ne passer que par des fonctions d'accès.</p>
-<p>Prenons le cas du fichier <code>foobar.c</code> lequel décrit une structure <code>struct Foo</code> et un type <code>Foo</code>. Notez que le type peut être déclaré avant la structure. <code>Foo</code> restera abstrait jusqu'à la déclaration complète de la structure <code>struct Foo</code> permettant de connaître sa taille. Ce fichier contient également trois fonctions&thinsp;:</p>
+<p>Prenons le cas du fichier <code>foobar.c</code> lequel décrit une structure <code>struct Foo</code> et un type <code>Foo</code>. Notez que le type peut être déclaré avant la structure. <code>Foo</code> restera abstrait jusqu'à la déclaration complète de la structure <code>struct Foo</code> permettant de connaître sa taille. Ce fichier contient également trois fonctions :</p>
 <ul>
-<li><code>init</code> permet d'initialiser la structure&thinsp;;</li>
+<li><code>init</code> permet d'initialiser la structure ;</li>
 <li><code>get</code> permet de récupérer la valeur contenue dans <code>Foo</code> ;</li>
 <li><code>set</code> permet d'assigner une valeur à <code>Foo</code>.</li>
 </ul>
@@ -4015,10 +4017,10 @@
 </span><span id="__span-1-22"><a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">    </span><span class="n">foo</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 </span><span id="__span-1-23"><a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Évidemment, on ne souhaite pas qu'un petit malin compromette ce compteur en écrivant maladroitement&thinsp;:</p>
+<p>Évidemment, on ne souhaite pas qu'un petit malin compromette ce compteur en écrivant maladroitement :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">foo</span><span class="o">-&gt;</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">// Hacked this !</span>
 </span></code></pre></div>
-<p>Pour s'en protéger, on a recours à la compilation séparée (voir chapitre sur la compilation séparée [TranslationUnits]) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <code>foobar.h</code> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait&thinsp;:</p>
+<p>Pour s'en protéger, on a recours à la compilation séparée (voir chapitre sur la compilation séparée [TranslationUnits]) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <code>foobar.h</code> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#pragma once</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="n">Foo</span><span class="p">;</span>
@@ -4040,9 +4042,9 @@
 </span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>En résumé, un type abstrait impose l'utilisation de fonctions intermédiaires pour modifier le type. Dans la grande majorité des cas, ces types représentent des structures qui contiennent des informations internes qui ne sont pas destinées à être modifiées par l'utilisateur final.</p>
-<h2 id="tableau-dynamique">Tableau dynamique<a class="headerlink" href="#tableau-dynamique" title="Permanent link">¶</a></h2>
+<h2 id="tableau-dynamique">Tableau dynamique<a class="headerlink" href="#tableau-dynamique" title="Permanent link">¤</a></h2>
 <p>Un tableau dynamique aussi appelé <em>vecteur</em> est, comme son nom l'indique, alloué dynamiquement dans le <em>heap</em> en fonction des besoins. Vous vous rappelez que le <em>heap</em> grossit à chaque appel de <code>malloc</code> et diminue à chaque appel de <code>free</code>.</p>
-<p>Un tableau dynamique est souvent spécifié par un facteur de croissance (rien à voir avec les hormones). Lorsque le tableau est plein et que l'on souhaite rajouter un nouvel élément, le tableau est réalloué dans un autre espace mémoire plus grand avec la fonction <code>realloc</code>. Cette dernière n'est rien d'autre qu'un <code>malloc</code> suivi d'un <code>memcopy</code> suivi d'un <code>free</code>. Un nouvel espace mémoire est réservé, les données sont copiées du premier espace vers le nouveau, et enfin le premier espace est libéré. Voici un exemple&thinsp;:</p>
+<p>Un tableau dynamique est souvent spécifié par un facteur de croissance (rien à voir avec les hormones). Lorsque le tableau est plein et que l'on souhaite rajouter un nouvel élément, le tableau est réalloué dans un autre espace mémoire plus grand avec la fonction <code>realloc</code>. Cette dernière n'est rien d'autre qu'un <code>malloc</code> suivi d'un <code>memcopy</code> suivi d'un <code>free</code>. Un nouvel espace mémoire est réservé, les données sont copiées du premier espace vers le nouveau, et enfin le premier espace est libéré. Voici un exemple :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1">// Alloue un espace de trois chars</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
@@ -4065,9 +4067,9 @@
 </span></code></pre></div>
 <p>La taille du nouvel espace mémoire est plus grande d'un facteur donné que l'ancien espace. Selon les langages de programmation et les compilateurs, ces facteurs sont compris entre 3/2 et 2. C'est-à-dire que la taille du tableau prendra les tailles de 1, 2, 4, 8, 16, 32, etc.</p>
 <p>Lorsque le nombre d'éléments du tableau devient inférieur du facteur de croissance à la taille effective du tableau, il est possible de faire l'opération inverse, c'est-à-dire réduire la taille allouée. En pratique cette opération est rarement implémentée, car peu efficace (c.f. <a href="https://stackoverflow.com/a/60827815/2612235">cette</a> réponse sur stackoverflow).</p>
-<h3 id="anatomie">Anatomie<a class="headerlink" href="#anatomie" title="Permanent link">¶</a></h3>
+<h3 id="anatomie">Anatomie<a class="headerlink" href="#anatomie" title="Permanent link">¤</a></h3>
 <p>Un tableau dynamique est représenté en mémoire comme un contenu séquentiel qui possède un début et une fin. On appelle son début la <strong>tête</strong> ou <em>head</em> et la fin du tableau, sa <strong>queue</strong> ou <em>tail</em>. Selon que l'on souhaite ajouter des éléments au début ou à la fin du tableau, la complexité n'est pas la même.</p>
-<p>Nous définirons par la suite le vocabulaire suivant&thinsp;:</p>
+<p>Nous définirons par la suite le vocabulaire suivant :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Vocabulaire des actions sur un tableau dynamique</caption><thead>
 <tr>
@@ -4095,10 +4097,10 @@
 </tbody>
 </table>
 <p>Nous comprenons rapidement qu'il est plus compliqué d'ajouter ou de supprimer un élément depuis la tête du tableau, car il est nécessaire ensuite de déplacer chaque élément (l'élément 0 devient l'élément 1, l'élément 1 devient l'élément 2...).</p>
-<p>Un tableau dynamique peut être représenté par la figure suivante&thinsp;:</p>
+<p>Un tableau dynamique peut être représenté par la figure suivante :</p>
 <p><figure id="_figure-1"><img alt="Tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array.drawio"/><figcaption> Tableau dynamique</figcaption></figure></p>
 <p>Un espace mémoire est réservé dynamiquement sur le tas. Comme <code>malloc</code> ne retourne pas la taille de l'espace mémoire alloué, mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 <code>int32_t</code> représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par <code>malloc</code> n'est généralement pas vide, mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau, il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.</p>
-<p>Les composants de cette structure de donnée sont donc&thinsp;:</p>
+<p>Les composants de cette structure de donnée sont donc :</p>
 <ul>
 <li>Un entier non signé <code>size_t</code> représentant la capacité totale du tableau dynamique à un instant T.</li>
 <li>Un entier non signé <code>size_t</code> représentant le nombre d'éléments effectivement dans le tableau.</li>
@@ -4129,7 +4131,7 @@
 </span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">data</span><span class="o">++</span><span class="p">;</span>
 </span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="n">capacity</span><span class="o">--</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Enfin, l'opération <code>unshift</code> ajoute un élément depuis le début du tableau&thinsp;:</p>
+<p>Enfin, l'opération <code>unshift</code> ajoute un élément depuis le début du tableau :</p>
 <p><figure id="_figure-5"><img alt="Ajout d'un élément en début d'un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-unshift.drawio"/><figcaption> Ajout d'un élément en début d'un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elements</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">--</span><span class="p">)</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
@@ -4140,19 +4142,19 @@
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">realloc</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">capacity</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="buffer-circulaire">Buffer circulaire<a class="headerlink" href="#buffer-circulaire" title="Permanent link">¶</a></h2>
+<h2 id="buffer-circulaire">Buffer circulaire<a class="headerlink" href="#buffer-circulaire" title="Permanent link">¤</a></h2>
 <p>Un <strong>tampon circulaire</strong> aussi appelé <em>buffer circulaire</em> ou <em>ring buffer</em> en anglais est généralement d'une taille fixe et possède deux pointeurs. L'un pointant sur le dernier élément (<em>tail</em>) et l'un sur le premier élément (<em>head</em>).</p>
 <p>Lorsqu'un élément est supprimé du buffer, le pointeur de fin est incrémenté. Lorsqu'un élément est ajouté, le pointeur de début est incrémenté.</p>
 <p>Pour permettre la circulation, les indices sont calculés modulo la taille du buffer.</p>
-<p>Il est possible de représenter schématiquement ce buffer comme un cercle et ses deux pointeurs&thinsp;:</p>
+<p>Il est possible de représenter schématiquement ce buffer comme un cercle et ses deux pointeurs :</p>
 <p><figure id="_figure-6"><img alt="Exemple d'un tampon circulaire" class="drawio-diagram" src="../../../assets/images/ring.drawio"/><figcaption> Exemple d'un tampon circulaire</figcaption></figure></p>
-<p>Le nombre d'éléments dans le buffer est la différence entre le pointeur de tête et le pointeur de queue, modulo la taille du buffer. Néanmoins, l'opérateur <code>%</code> en C ne fonctionne que sur des nombres positifs et ne retourne pas le résidu positif le plus petit. En sommes, <code>-2 % 5</code> devrait donner <code>3</code>, ce qui est le cas en Python, mais en C, en C++ ou en PHP la valeur retournée est <code>-2</code>. Le modulo vrai, mathématiquement correct, peut être calculé ainsi&thinsp;:</p>
+<p>Le nombre d'éléments dans le buffer est la différence entre le pointeur de tête et le pointeur de queue, modulo la taille du buffer. Néanmoins, l'opérateur <code>%</code> en C ne fonctionne que sur des nombres positifs et ne retourne pas le résidu positif le plus petit. En sommes, <code>-2 % 5</code> devrait donner <code>3</code>, ce qui est le cas en Python, mais en C, en C++ ou en PHP la valeur retournée est <code>-2</code>. Le modulo vrai, mathématiquement correct, peut être calculé ainsi :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="p">((</span><span class="n">A</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">M</span>
 </span></code></pre></div>
-<p>Les indices sont bouclés sur la taille du buffer, l'élément suivant est donc défini par&thinsp;:</p>
+<p>Les indices sont bouclés sur la taille du buffer, l'élément suivant est donc défini par :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">SIZE</span>
 </span></code></pre></div>
-<p>Voici une implémentation possible du buffer circulaire&thinsp;:</p>
+<p>Voici une implémentation possible du buffer circulaire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#define SIZE 16</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="cp">#define MOD(A, M) (((A % M) + M) % M)</span>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="cp">#define NEXT(A) (((A) + 1) % SIZE)</span>
@@ -4194,10 +4196,10 @@
 </span><span id="__span-14-39"><a href="#__codelineno-14-39" id="__codelineno-14-39" name="__codelineno-14-39"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">el</span><span class="p">;</span>
 </span><span id="__span-14-40"><a href="#__codelineno-14-40" id="__codelineno-14-40" name="__codelineno-14-40"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="listes-chainees">Listes chaînées<a class="headerlink" href="#listes-chainees" title="Permanent link">¶</a></h2>
+<h2 id="listes-chainees">Listes chaînées<a class="headerlink" href="#listes-chainees" title="Permanent link">¤</a></h2>
 <p>On s'aperçoit vite avec les tableaux que certaines opérations sont plus coûteuses que d'autres. Ajouter ou supprimer un élément à la fin du tableau coûte <span class="arithmatex">\(O(1)\)</span> amorti, mais ajouter ou supprimer un élément à l'intérieur du tableau coûte <span class="arithmatex">\(O(n)\)</span> du fait qu'il est nécessaire de déplacer tous les éléments qui suivent l'élément concerné.</p>
 <p>Une possible solution à ce problème serait de pouvoir s'affranchir du lien entre les éléments et leurs positions en mémoire relative les uns aux autres.</p>
-<p>Pour illustrer cette idée, imaginons un tableau statique dans lequel chaque élément est décrit par la structure suivante&thinsp;:</p>
+<p>Pour illustrer cette idée, imaginons un tableau statique dans lequel chaque élément est décrit par la structure suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">index_next_element</span><span class="p">;</span>
@@ -4207,11 +4209,11 @@
 </span></code></pre></div>
 <p>Considérons les dix premiers éléments de la séquence de nombre <a href="https://oeis.org/A130826">A130826</a> dans un tableau statique. Ensuite, répartissons ces valeurs aléatoirement dans notre tableau <code>elements</code> déclaré plus haut entre les indices 0 et 19.</p>
 <p><figure id="_figure-7"><img alt="Construction d'une liste chainée à l'aide d'un tableau" class="drawio-diagram" src="../../../assets/images/static-linked-list.drawio"/><figcaption> Construction d'une liste chainée à l'aide d'un tableau</figcaption></figure></p>
-<p>On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire, car il est possible facilement de chercher l'élément suivant de la liste avec cette relation&thinsp;:</p>
+<p>On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire, car il est possible facilement de chercher l'élément suivant de la liste avec cette relation :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="n">current</span><span class="p">.</span><span class="n">index_next_element</span><span class="p">]</span>
 </span></code></pre></div>
-<p>De même, insérer une nouvelle valeur <code>13</code> après la valeur <code>42</code> est très facile&thinsp;:</p>
+<p>De même, insérer une nouvelle valeur <code>13</code> après la valeur <code>42</code> est très facile :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1">// Recherche de l'élément contenant la valeur 42</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">el</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">el</span><span class="p">.</span><span class="n">index_next_element</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4238,18 +4240,18 @@
 </span><span id="__span-17-24"><a href="#__codelineno-17-24" id="__codelineno-17-24" name="__codelineno-17-24"></a><span class="n">elements</span><span class="p">[</span><span class="n">el</span><span class="p">.</span><span class="n">index_next_element</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Cette solution d'utiliser un lien vers l'élément suivant et s'appelle liste chaînée. Chaque élément dispose d'un lien vers l'élément suivant situé quelque part en mémoire. Les opérations d'insertion et de suppression au milieu de la chaîne sont maintenant effectuées en <span class="arithmatex">\(O(1)\)</span> contre <span class="arithmatex">\(O(n)\)</span> pour un tableau standard. En revanche l'espace nécessaire pour stocker ce tableau est doublé puisqu'il faut associer à chaque valeur le lien vers l'élément suivant.</p>
-<p>D'autre part, la solution proposée n'est pas optimale&thinsp;:</p>
+<p>D'autre part, la solution proposée n'est pas optimale :</p>
 <ul>
 <li>L'élément 0 est un cas particulier qu'il faut traiter différemment. Le premier élément de la liste doit toujours être positionné à l'indice 0 du tableau. Insérer un nouvel élément en début de tableau demande de déplacer cet élément ailleurs en mémoire.</li>
 <li>Rechercher un élément libre prend du temps.</li>
 <li>Supprimer un élément dans le tableau laisse une place mémoire vide. Il devient alors difficile de savoir où sont les emplacements mémoires disponibles.</li>
 </ul>
-<p>Une liste chaînée est une structure de données permettant de lier des éléments structurés entre eux. La liste est caractérisée par&thinsp;:</p>
+<p>Une liste chaînée est une structure de données permettant de lier des éléments structurés entre eux. La liste est caractérisée par :</p>
 <ul>
 <li>un élément de tête (<em>head</em>),</li>
 <li>un élément de queue (<em>tail</em>).</li>
 </ul>
-<p>Un élément est caractérisé par&thinsp;:</p>
+<p>Un élément est caractérisé par :</p>
 <ul>
 <li>un contenu (<em>payload</em>),</li>
 <li>une référence vers l'élément suivant et/ou précédent dans la liste.</li>
@@ -4290,7 +4292,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="liste-simplement-chainee-linked-list">Liste simplement chaînée (<em>linked-list</em>)<a class="headerlink" href="#liste-simplement-chainee-linked-list" title="Permanent link">¶</a></h3>
+<h3 id="liste-simplement-chainee-linked-list">Liste simplement chaînée (<em>linked-list</em>)<a class="headerlink" href="#liste-simplement-chainee-linked-list" title="Permanent link">¤</a></h3>
 <p>La figure suivante illustre un set d'éléments liés entre eux à l'aide d'un pointeur rattaché à chaque élément. On peut s'imaginer que chaque élément peut se situer n'importe où en mémoire et
 qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.</p>
 <p>Il est indispensable de bien identifier le dernier élément de la liste grâce à son pointeur associé
@@ -4335,7 +4337,7 @@ qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.<
 </span><span id="__span-18-37"><a href="#__codelineno-18-37" id="__codelineno-18-37" name="__codelineno-18-37"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-18-38"><a href="#__codelineno-18-38" id="__codelineno-18-38" name="__codelineno-18-38"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="operations-sur-une-liste-chainee">Opérations sur une liste chaînée<a class="headerlink" href="#operations-sur-une-liste-chainee" title="Permanent link">¶</a></h3>
+<h3 id="operations-sur-une-liste-chainee">Opérations sur une liste chaînée<a class="headerlink" href="#operations-sur-une-liste-chainee" title="Permanent link">¤</a></h3>
 <ul>
 <li>Création</li>
 <li>Nombre d'éléments</li>
@@ -4350,7 +4352,7 @@ de l'allocation dynamique ce qui permet de récupérer l'adresse de
 l'élément et de faciliter sa manipulation au travers de la liste.  Ne
 pas oublier de libérer la mémoire allouée pour les éléments lors de leur
 suppression…</p>
-<h4 id="calcul-du-nombre-delements-dans-la-liste">Calcul du nombre d'éléments dans la liste<a class="headerlink" href="#calcul-du-nombre-delements-dans-la-liste" title="Permanent link">¶</a></h4>
+<h4 id="calcul-du-nombre-delements-dans-la-liste">Calcul du nombre d'éléments dans la liste<a class="headerlink" href="#calcul-du-nombre-delements-dans-la-liste" title="Permanent link">¤</a></h4>
 <p>Pour évaluer le nombre d'éléments dans une liste, on effectue le
 parcours de la liste à partir de la tête, et on passe d'élément en
 élément grâce au champ <em>next</em> de la structure <code>Element</code>. On incrément
@@ -4360,11 +4362,11 @@ le nombre d'éléments jusqu'à ce que le pointeur <em>next</em> soit égal à <
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Element</span><span class="w"> </span><span class="o">*</span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
 </span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 </span></code></pre></div>
-<h4 id="detection-des-boucles">Détection des boucles<a class="headerlink" href="#detection-des-boucles" title="Permanent link">¶</a></h4>
-<p>Attention, la technique précédente ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant&thinsp;:</p>
+<h4 id="detection-des-boucles">Détection des boucles<a class="headerlink" href="#detection-des-boucles" title="Permanent link">¤</a></h4>
+<p>Attention, la technique précédente ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant :</p>
 <p><figure id="_figure-9"><img alt="Boucle dans une liste chaînée" class="drawio-diagram" src="../../../assets/images/loop.drawio"/><figcaption> Boucle dans une liste chaînée</figcaption></figure></p>
 <p>La liste se terminant par une boucle, il n'y aura jamais d'élément de fin et le nombre d'éléments
-calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment donc les compter&thinsp;?</p>
+calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment donc les compter ?</p>
 <p>Il existe un algorithme nommé détection de cycle de Robert W. Floyd aussi appelé <em>algorithme du lièvre et de la tortue</em>. Il consiste à avoir deux pointeurs qui parcourent la liste chaînée. L'un avance deux fois plus vite que le second.</p>
 <p><figure id="_figure-10"><img alt="Algorithme de détection de cycle de Robert W. Floyd" class="drawio-diagram" src="../../../assets/images/floyd.drawio"/><figcaption> Algorithme de détection de cycle de Robert W. Floyd</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="nf">compute_length</span><span class="p">(</span><span class="n">Element</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">)</span>
@@ -4407,8 +4409,8 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <p class="admonition-title">Astuce</p>
 <p>Une bonne idée pour se simplifier la vie est simplement d'éviter la création de boucles.</p>
 </div>
-<h4 id="insertion">Insertion<a class="headerlink" href="#insertion" title="Permanent link">¶</a></h4>
-<p>L'insertion d'un élément dans une liste chaînée peut-être implémentée de la façon suivante&thinsp;:</p>
+<h4 id="insertion">Insertion<a class="headerlink" href="#insertion" title="Permanent link">¤</a></h4>
+<p>L'insertion d'un élément dans une liste chaînée peut-être implémentée de la façon suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">Element</span><span class="o">*</span><span class="w"> </span><span class="nf">insert_after</span><span class="p">(</span><span class="n">Element</span><span class="o">*</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">payload</span><span class="p">)</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="p">{</span>
 </span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">    </span><span class="n">Element</span><span class="o">*</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Element</span><span class="p">));</span>
@@ -4421,7 +4423,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span><span id="__span-21-10"><a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">new</span><span class="p">;</span>
 </span><span id="__span-21-11"><a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<h4 id="suppression">Suppression<a class="headerlink" href="#suppression" title="Permanent link">¶</a></h4>
+<h4 id="suppression">Suppression<a class="headerlink" href="#suppression" title="Permanent link">¤</a></h4>
 <p>La suppression implique d'accéder à l'élément parent, il n'est donc pas possible à partir d'un élément donné de le supprimer de la liste.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">delete_after</span><span class="p">(</span><span class="n">Element</span><span class="o">*</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="p">{</span>
@@ -4429,16 +4431,16 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span><span id="__span-22-4"><a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
 </span><span id="__span-22-5"><a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<h4 id="recherche">Recherche<a class="headerlink" href="#recherche" title="Permanent link">¶</a></h4>
-<p>Rechercher dans une liste chaînée est une question qui peut-être complexe et il est nécessaire de ce poser un certain nombre de questions&thinsp;:</p>
+<h4 id="recherche">Recherche<a class="headerlink" href="#recherche" title="Permanent link">¤</a></h4>
+<p>Rechercher dans une liste chaînée est une question qui peut-être complexe et il est nécessaire de ce poser un certain nombre de questions :</p>
 <ul>
-<li>Est-ce que la liste est triée&thinsp;?</li>
-<li>Combien d'espace mémoire puis-je utiliser&thinsp;?</li>
+<li>Est-ce que la liste est triée ?</li>
+<li>Combien d'espace mémoire puis-je utiliser ?</li>
 </ul>
-<p>On sait qu'une recherche idéale s'effectue en <span class="arithmatex">\(O(log(n))\)</span>, mais que la solution triviale en <span class="arithmatex">\(O(n)\)</span> est la suivante&thinsp;:</p>
-<h2 id="liste-doublement-chainee">Liste doublement chaînée<a class="headerlink" href="#liste-doublement-chainee" title="Permanent link">¶</a></h2>
+<p>On sait qu'une recherche idéale s'effectue en <span class="arithmatex">\(O(log(n))\)</span>, mais que la solution triviale en <span class="arithmatex">\(O(n)\)</span> est la suivante :</p>
+<h2 id="liste-doublement-chainee">Liste doublement chaînée<a class="headerlink" href="#liste-doublement-chainee" title="Permanent link">¤</a></h2>
 <p><figure id="_figure-11"><img alt="Liste chaînée simple" class="drawio-diagram" src="../../../assets/images/list-double.drawio"/><figcaption> Liste chaînée simple</figcaption></figure></p>
-<h3 id="liste-chainee-xor">Liste chaînée XOR<a class="headerlink" href="#liste-chainee-xor" title="Permanent link">¶</a></h3>
+<h3 id="liste-chainee-xor">Liste chaînée XOR<a class="headerlink" href="#liste-chainee-xor" title="Permanent link">¤</a></h3>
 <p>L'inconvénient d'une liste doublement chaînée est le surcoût nécessaire au stockage d'un élément. Chaque élément contient en effet deux pointeurs sur l'élément précédent (<em>prev</em>) et suivant (<em>next</em>).</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a>...  A       B         C         D         E  ...
 </span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>        –&gt;  next –&gt;  next  –&gt;  next  –&gt;
@@ -4449,13 +4451,13 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a>        &lt;–&gt;  A⊕C  &lt;-&gt;  B⊕D  &lt;-&gt;  C⊕E  &lt;-&gt;
 </span></code></pre></div>
 <p>Lorsque la liste est traversée de gauche à droite, il est possible de facilement reconstruire le pointeur de l'élément suivant à partir de l'adresse de l'élément précédent.</p>
-<p>Les inconvénients de cette structure sont&thinsp;:</p>
+<p>Les inconvénients de cette structure sont :</p>
 <ul>
 <li>Difficultés de débogage</li>
 <li>Complexité de mise en œuvre</li>
 </ul>
 <p>L'avantage principal étant le gain de place en mémoire.</p>
-<h2 id="liste-chainee-deroulee-unrolled-linked-list">Liste chaînée déroulée (Unrolled linked list)<a class="headerlink" href="#liste-chainee-deroulee-unrolled-linked-list" title="Permanent link">¶</a></h2>
+<h2 id="liste-chainee-deroulee-unrolled-linked-list">Liste chaînée déroulée (Unrolled linked list)<a class="headerlink" href="#liste-chainee-deroulee-unrolled-linked-list" title="Permanent link">¤</a></h2>
 <p>Une liste chaînée déroulée rassemble les avantages d'un tableau et d'une liste chaînée. Elle permet d'accroître les performances en réduisant l'overhead de réservation mémoire avec <code>malloc</code>.</p>
 <p><figure id="_figure-12"><img alt="Liste chaînée déroulée" class="drawio-diagram" src="../../../assets/images/unrolled-linked-list.drawio"/><figcaption> Liste chaînée déroulée</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
@@ -4464,8 +4466,8 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span><span id="__span-25-4"><a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">elements</span><span class="p">[];</span><span class="w"> </span><span class="c1">// Membre flexible contenant les éléments</span>
 </span><span id="__span-25-5"><a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="piles-ou-lifo-last-in-first-out">Piles ou LIFO (<em>Last In First Out</em>)<a class="headerlink" href="#piles-ou-lifo-last-in-first-out" title="Permanent link">¶</a></h2>
-<p>Une pile est une structure de donnée très similaire à un tableau dynamique, mais dans laquelle les opérations sont limitées. Par exemple, il n'est possible que&thinsp;:</p>
+<h2 id="piles-ou-lifo-last-in-first-out">Piles ou LIFO (<em>Last In First Out</em>)<a class="headerlink" href="#piles-ou-lifo-last-in-first-out" title="Permanent link">¤</a></h2>
+<p>Une pile est une structure de donnée très similaire à un tableau dynamique, mais dans laquelle les opérations sont limitées. Par exemple, il n'est possible que :</p>
 <ul>
 <li>d'ajouter un élément (<em>push</em>) ;</li>
 <li>retirer un élément (<em>pop</em>) ;</li>
@@ -4473,7 +4475,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <li>tester si la pile est vide (<em>is_empty</em>) ;</li>
 <li>tester si la pile est pleine avec (<em>is_full</em>).</li>
 </ul>
-<p>Une utilisation possible de pile sur des entiers serait la suivante&thinsp;:</p>
+<p>Une utilisation possible de pile sur des entiers serait la suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"stack.h"</span>
 </span><span id="__span-26-2"><a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a>
 </span><span id="__span-26-3"><a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -4493,15 +4495,15 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span><span id="__span-26-17"><a href="#__codelineno-26-17" id="__codelineno-26-17" name="__codelineno-26-17"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Les piles peuvent être implémentées avec des tableaux dynamiques ou des listes chaînées (voir plus bas).</p>
-<h2 id="queues-ou-fifo-first-in-first-out">Queues ou FIFO (<em>First In First Out</em>)<a class="headerlink" href="#queues-ou-fifo-first-in-first-out" title="Permanent link">¶</a></h2>
-<p>Les queues sont aussi des structures très similaires à des tableaux dynamiques, mais elles ne permettent que les opérations suivantes&thinsp;:</p>
+<h2 id="queues-ou-fifo-first-in-first-out">Queues ou FIFO (<em>First In First Out</em>)<a class="headerlink" href="#queues-ou-fifo-first-in-first-out" title="Permanent link">¤</a></h2>
+<p>Les queues sont aussi des structures très similaires à des tableaux dynamiques, mais elles ne permettent que les opérations suivantes :</p>
 <ul>
 <li>ajouter un élément à la queue (<em>push</em>) aussi nommé <em>enqueue</em> ;</li>
 <li>supprimer un élément au début de la queue (<em>shift</em>) aussi nommé <em>dequeue</em> ;</li>
 <li>tester si la queue est vide (<em>is_empty</em>) ;</li>
 <li>tester si la queue est pleine avec (<em>is_full</em>).</li>
 </ul>
-<p>Les queues sont souvent utilisées lorsque des processus séquentiels ou parallèles s'échangent des tâches à traiter&thinsp;:</p>
+<p>Les queues sont souvent utilisées lorsque des processus séquentiels ou parallèles s'échangent des tâches à traiter :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"queue.h"</span>
 </span><span id="__span-27-2"><a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-27-3"><a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a>
@@ -4530,9 +4532,9 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span><span id="__span-27-26"><a href="#__codelineno-27-26" id="__codelineno-27-26" name="__codelineno-27-26"></a><span class="w">    </span><span class="n">queue_free</span><span class="p">(</span><span class="n">queue</span><span class="p">);</span>
 </span><span id="__span-27-27"><a href="#__codelineno-27-27" id="__codelineno-27-27" name="__codelineno-27-27"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="performances">Performances<a class="headerlink" href="#performances" title="Permanent link">¶</a></h2>
-<p>Les différentes structures de données ne sont pas toutes équivalentes en termes de performances. Il convient, selon l'application, d'opter pour la structure la plus adaptée, et par conséquent il est important de pouvoir comparer les différentes structures de données pour choisir la plus appropriée. Est-ce que les données doivent être maintenues triées&thinsp;? Est-ce que la structure de donnée est utilisée comme une pile ou un tas&thinsp;? Quelle est la structure de donnée avec le moins d'<em>overhead</em> pour les opérations de <code>push</code> ou <code>unshift</code> ?</p>
-<p>L'indexation (<em>indexing</em>) est l'accès à une certaine valeur du tableau par exemple avec <code>a[k]</code>. Dans un tableau statique et dynamique l'accès se fait par pointeur depuis le début du tableau soit&thinsp;: <code>*((char*)a + sizeof(a[0]) * k)</code> qui est équivalant à <code>*(a + k)</code>. L'indexation par arithmétique de pointeur n'est pas possible avec les listes chaînées dont il faut parcourir chaque élément pour découvrir l'adresse du prochain élément&thinsp;:</p>
+<h2 id="performances">Performances<a class="headerlink" href="#performances" title="Permanent link">¤</a></h2>
+<p>Les différentes structures de données ne sont pas toutes équivalentes en termes de performances. Il convient, selon l'application, d'opter pour la structure la plus adaptée, et par conséquent il est important de pouvoir comparer les différentes structures de données pour choisir la plus appropriée. Est-ce que les données doivent être maintenues triées ? Est-ce que la structure de donnée est utilisée comme une pile ou un tas ? Quelle est la structure de donnée avec le moins d'<em>overhead</em> pour les opérations de <code>push</code> ou <code>unshift</code> ?</p>
+<p>L'indexation (<em>indexing</em>) est l'accès à une certaine valeur du tableau par exemple avec <code>a[k]</code>. Dans un tableau statique et dynamique l'accès se fait par pointeur depuis le début du tableau soit : <code>*((char*)a + sizeof(a[0]) * k)</code> qui est équivalant à <code>*(a + k)</code>. L'indexation par arithmétique de pointeur n'est pas possible avec les listes chaînées dont il faut parcourir chaque élément pour découvrir l'adresse du prochain élément :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">List</span><span class="w"> </span><span class="o">*</span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-28-2"><a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="w">    </span><span class="n">List</span><span class="w"> </span><span class="o">*</span><span class="n">el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span><span class="p">;</span>
 </span><span id="__span-28-3"><a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
@@ -4541,7 +4543,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span><span id="__span-28-6"><a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>L'indexation d'une liste chaînée prend dans le cas le plus défavorable <span class="arithmatex">\(O(n)\)</span>.</p>
-<p>Les arbres binaires ont une structure qui permet naturellement la dichotomique. Chercher l'élément 5 prend 4 opérations&thinsp;: <code>12 -&gt; 4 -&gt; 6 -&gt; 5</code>. L'indexation est ainsi possible en <span class="arithmatex">\(O(log~n)\)</span>.</p>
+<p>Les arbres binaires ont une structure qui permet naturellement la dichotomique. Chercher l'élément 5 prend 4 opérations : <code>12 -&gt; 4 -&gt; 6 -&gt; 5</code>. L'indexation est ainsi possible en <span class="arithmatex">\(O(log~n)\)</span>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a>            12
 </span><span id="__span-29-2"><a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a>             |
 </span><span id="__span-29-3"><a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a>         ----+----
@@ -4553,7 +4555,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span><span id="__span-29-9"><a href="#__codelineno-29-9" id="__codelineno-29-9" name="__codelineno-29-9"></a> / \    / \    / \   /  \
 </span><span id="__span-29-10"><a href="#__codelineno-29-10" id="__codelineno-29-10" name="__codelineno-29-10"></a>1   3  5   7  9  11 13  15
 </span></code></pre></div>
-<p>Le tableau suivant résume les performances obtenues pour les différentes structures de données que nous avons vues dans ce chapitre&thinsp;:</p>
+<p>Le tableau suivant résume les performances obtenues pour les différentes structures de données que nous avons vues dans ce chapitre :</p>
 <table id="_table-3">
 <caption style="caption-side:top"> Comparaison des performances des structures récursives</caption><thead>
 <tr>
@@ -4710,7 +4712,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4850,7 +4852,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

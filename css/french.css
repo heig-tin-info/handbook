@@ -1,21 +1,27 @@
 ul:not([class]) {
   list-style-type: none;
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
 }
 
-ul:not([class]) > li:not([class]) {
+ul:not([class])>li:not([class]) {
   position: relative;
   padding-left: 1.0em;
 }
 
-ul:not([class]) > li:not([class])::before {
+ul:not([class])>li:not([class])::before {
   content: "–";
   padding-right: 0.5em;
+  color: var(--md-default-fg-color--light);
   display: inline-block;
 }
 
-ul:not([class]) li:not([class]) > p:first-of-type {
+[dir=ltr] .md-typeset ol li,
+[dir=ltr] .md-typeset ul li {
+  margin-left: 1em;
+}
+
+ul:not([class]) li:not([class])>p:first-of-type {
   display: inline;
-  margin: 0;  /* Remove default margins of <p> */
+  margin: 0;
 }

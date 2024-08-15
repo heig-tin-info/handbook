@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4088,20 +4090,20 @@
   
 
 
-<h1 id="fonctions">Fonctions<a class="headerlink" href="#fonctions" title="Permanent link">¶</a></h1>
+<h1 id="fonctions">Fonctions<a class="headerlink" href="#fonctions" title="Permanent link">¤</a></h1>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/hamilton.png"><img alt="Margaret Hamilton (1969)" src="../../../assets/images/hamilton.png" width="70%"/></a><figcaption> Margaret Hamilton, directrice projet AGC (1969), photo du <abbr title="Massachusetts Institute of Technology">MIT</abbr> Museum</figcaption></figure></p>
 <p>Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.</p>
 <p>À l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du <a href="https://github.com/chrislgarry/Apollo-11">Apollo Guidance Computer</a> ont été publiées sur GitHub. Le langage est l'assembler <a href="https://www.ibiblio.org/apollo/yaYUL.html">yaYUL</a> dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.</p>
 <p>Néanmoins, dans ce langage assembleur étrange, le code reste <strong>monolithique</strong> et toutes les variables sont globales.</p>
 <p>Un programme convenablement <strong>structuré</strong> est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un <a href="https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs">télencéphale hautement développé et son pouce préhenseur</a> aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les <a href="https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)">effets de bord</a>.</p>
 <p><figure id="_figure-2"><img alt="Agencement de fonctions" class="drawio-diagram" src="../../../assets/images/functions.drawio"/><figcaption> Agencement de fonctions</figcaption></figure></p>
-<p>Une fonction est donc un ensemble de code exécutable délimité du programme principal et disposant&thinsp;:</p>
+<p>Une fonction est donc un ensemble de code exécutable délimité du programme principal et disposant :</p>
 <ul>
 <li>D'un identifiant unique</li>
 <li>D'une valeur de retour</li>
 <li>De paramètres d'appel</li>
 </ul>
-<p>L'utilisation des fonctions permet&thinsp;:</p>
+<p>L'utilisation des fonctions permet :</p>
 <ul>
 <li>De décomposer un programme complexe en tâches plus simples</li>
 <li>De réduire la redondance de code</li>
@@ -4111,11 +4113,11 @@
 <li>D'accroître la traçabilité à l'exécution</li>
 </ul>
 <p>En revanche, une fonction apporte quelques désavantages qui à l'échelle des ordinateurs moderne sont parfaitement négligeables. L'appel à une fonction ou sous-routine requiert du <a href="https://fr.wikipedia.org/wiki/Sous-programme">housekeeping</a>, qui se compose d'un prélude et d'un aboutissant et dans lequel le <a href="https://fr.wikipedia.org/wiki/Commutation_de_contexte">contexte</a> doit être sauvegardé.</p>
-<h2 id="conventions-dappel">Conventions d'appel<a class="headerlink" href="#conventions-dappel" title="Permanent link">¶</a></h2>
+<h2 id="conventions-dappel">Conventions d'appel<a class="headerlink" href="#conventions-dappel" title="Permanent link">¤</a></h2>
 <p>Dans le <a href="https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro">Voyage de Chihiro</a> (千と千尋の神隠し) de Hayao Miyazaki, le vieux Kamaji (釜爺) travaille dans la chaudière des bains pour l'alimenter en charbon et préparer les décoctions d'herbes pour parfumer les bains des clients.</p>
 <p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/kamaji.jpg"><img alt="Le vieux Kamaji et ses bras extensibles." src="../../../assets/images/kamaji.jpg"/></a><figcaption> Le vieux Kamaji et ses bras extensibles.</figcaption></figure></p>
-<p>Je vous propose de bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel il mélange les herbes&thinsp;; ils sont à l'instar de l'<a href="https://en.wikipedia.org/wiki/Arithmetic_logic_unit">ALU</a> d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie&thinsp;: le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaires aux registres du processeur.</p>
-<p>Il profite de son temps libre, pendant que les bains sont fermés pour préparer certains mélanges d'herbes les plus populaires et il place ce stock dans un casier du mur. Préparer un mélange est très similaire à un programme informatique dans lequel une suite d'opération représente une recette donnée. Le vieux Kamaji à une très grande mémoire, et il ne dispose pas de livre de recettes, mais vous, moi, n'importe qui, aurions besoin d'instructions claires du type&thinsp;:</p>
+<p>Je vous propose de bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel il mélange les herbes ; ils sont à l'instar de l'<a href="https://en.wikipedia.org/wiki/Arithmetic_logic_unit">ALU</a> d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie : le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaires aux registres du processeur.</p>
+<p>Il profite de son temps libre, pendant que les bains sont fermés pour préparer certains mélanges d'herbes les plus populaires et il place ce stock dans un casier du mur. Préparer un mélange est très similaire à un programme informatique dans lequel une suite d'opération représente une recette donnée. Le vieux Kamaji à une très grande mémoire, et il ne dispose pas de livre de recettes, mais vous, moi, n'importe qui, aurions besoin d'instructions claires du type :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>AUTUMN_TONIC_TEA :
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>  MOVE  R1 @B4      # Déplace de la grande ortie du casier B4 au registre R1
@@ -4138,12 +4140,12 @@
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">blend</span><span class="w"> </span><span class="nf">slice_and_blend</span><span class="p">(</span><span class="n">rootstock</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">herb</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">herb</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Pour des recettes complexes, il se pourrait que la fonction <code>slice_and_blend</code> soit appelée plusieurs fois à la suite, mais avec des ingrédients différents. De même que cette fonction fait appel à une autre fonction plus simple tel que <code>slice</code> (découper) ou <code>blend_together</code> (incorporer).</p>
-<p>Et le contexte dans tout cela&thinsp;? Il existe selon le langage de programmation et l'architecture processeur ce que l'on appelle les <a href="https://en.wikipedia.org/wiki/Calling_convention">conventions d'appel</a>. C'est-à-dire les règles qui régissent les interactions entre les appels de fonctions. Dans notre exemple, on adoptera peut-être la convention que n'importe quelle fonction trouvera ses ingrédients d'entrées dans les casiers R1, R2 et R3 et que le résultat de la fonction, ici le <em>blend</em>, sera placé dans le casier R8. Ainsi peu importe les herbes en entrée, le vieux Kamaji peut travailler les yeux fermés, piochant simplement dans R1, R2 et R3.</p>
+<p>Et le contexte dans tout cela ? Il existe selon le langage de programmation et l'architecture processeur ce que l'on appelle les <a href="https://en.wikipedia.org/wiki/Calling_convention">conventions d'appel</a>. C'est-à-dire les règles qui régissent les interactions entre les appels de fonctions. Dans notre exemple, on adoptera peut-être la convention que n'importe quelle fonction trouvera ses ingrédients d'entrées dans les casiers R1, R2 et R3 et que le résultat de la fonction, ici le <em>blend</em>, sera placé dans le casier R8. Ainsi peu importe les herbes en entrée, le vieux Kamaji peut travailler les yeux fermés, piochant simplement dans R1, R2 et R3.</p>
 <p>On observe néanmoins dans la recette évoquée plus haut qu'il utilise d'autres casiers, R4, et R5. Il faut donc faire très attention à ce qu'une autre fonction peut-être la fonction <code>slice</code>, n'utilise pas dans sa propre recette le casier R5, car sinon, c'est la catastrophe.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">herb</span><span class="w"> </span><span class="nf">slice</span><span class="p">(</span><span class="n">herb</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Kamaji entrepose temporairement les feuilles de menthe verte dans R5 et lorsqu'il en a besoin, plus tard, après avoir découpé les fleurs de <a href="https://fr.wikipedia.org/wiki/Mol%C3%A8ne_(plante)">molène</a> que R5 contient des tiges d'une autre plante.</p>
-<p>Dans les conventions d'appel, il faut donc également donner la responsabilité à quelqu'un de ne pas utiliser certains casiers, ou alors d'en sauvegarder ou de restaurer le contenu au début et à la fin de la recette. Dans les conventions d'appel, il y a en réalité plusieurs catégories de registres&thinsp;:</p>
+<p>Dans les conventions d'appel, il faut donc également donner la responsabilité à quelqu'un de ne pas utiliser certains casiers, ou alors d'en sauvegarder ou de restaurer le contenu au début et à la fin de la recette. Dans les conventions d'appel, il y a en réalité plusieurs catégories de registres :</p>
 <ul>
 <li>ceux utilisés pour les paramètres de la fonction,</li>
 <li>ceux utilisés pour les valeurs de retour,</li>
@@ -4151,27 +4153,27 @@
 <li>ceux qui doivent être sauvegardés par le <em>callee</em> (la fonction qui est appelée).</li>
 </ul>
 <p>En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à se soucier du processeur, du nom des registres, de la correspondance entre le nom des herbes et le casier ou elles sont entreposées. Néanmoins, l'électronicien développeur, proche du matériel, doit parfois bien comprendre ces mécanismes et ce qu'ils coûtent (en temps et en place mémoire) à l'exécution d'un programme.</p>
-<h3 id="overhead">Overhead<a class="headerlink" href="#overhead" title="Permanent link">¶</a></h3>
-<p>L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés&thinsp;:</p>
+<h3 id="overhead">Overhead<a class="headerlink" href="#overhead" title="Permanent link">¤</a></h3>
+<p>L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés :</p>
 <p><figure id="_figure-4"><img alt="Convention d'appel de fonction" class="drawio-diagram" src="../../../assets/images/calling-convention.drawio"/><figcaption> Sauvegarde des registres du processeur et convention d'appel de fonction.</figcaption></figure></p>
 <p>Ce coût est faible, très faible, un ordinateur fonctionnant à 3 GHz et une fonction complexe utilisant tous les registres disponibles, mettons 10 registres, consommera entre l'appel de la fonction et son retour 0.000'000'003 seconde, ça va, c'est raisonnable. Sauf que, si la fonction ne comporte qu'une seule opération comme ci-dessous, l'overhead sera aussi plus faible.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">¶</a></h3>
-<p>En français la <a href="https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution">pile d'exécution</a>, est un emplacement mémoire utilisé pour sauvegarder les registres du processeur entre les appels de fonctions, sauvegarder les adresses de retour des fonctions qui sont analogue à sauvegarder le numéro de page du livre de recettes&thinsp;: p 443. Recette du Bras de Vénus&thinsp;: commencer par réaliser une génoise de 300g (p. 225). Une fois la génoise terminée, il faut se rappeler de retourner à la page 443. Enfin le <em>stack</em> est utilisé pour mémoriser les paramètres des fonctions supplémentaires qui ne tiendraient pas dans les registres d'entrées. La convention d'appel de la plupart des architectures prévoit généralement 3 registres pour les paramètres d'entrées, si bien qu'une fonction à 4 paramètres pourrait bien aussi utiliser le <em>stack</em>:</p>
+<h3 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">¤</a></h3>
+<p>En français la <a href="https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution">pile d'exécution</a>, est un emplacement mémoire utilisé pour sauvegarder les registres du processeur entre les appels de fonctions, sauvegarder les adresses de retour des fonctions qui sont analogue à sauvegarder le numéro de page du livre de recettes : p 443. Recette du Bras de Vénus : commencer par réaliser une génoise de 300g (p. 225). Une fois la génoise terminée, il faut se rappeler de retourner à la page 443. Enfin le <em>stack</em> est utilisé pour mémoriser les paramètres des fonctions supplémentaires qui ne tiendraient pas dans les registres d'entrées. La convention d'appel de la plupart des architectures prévoit généralement 3 registres pour les paramètres d'entrées, si bien qu'une fonction à 4 paramètres pourrait bien aussi utiliser le <em>stack</em>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">double</span><span class="w"> </span><span class="nf">quaternion_norm</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">d1</span><span class="p">);</span>
 </span></code></pre></div>
 <p>La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont empilés et dépilés les éléments au besoin. À chaque appel d'une fonction, la valeur des registres à sauvegarder est empilée et au retour d'une fonction les registres sont dépilés si bien que la fonction d'appel retrouve le <em>stack</em> dans le même état qu'il était avant l'appel d'une fonction enfant.</p>
-<h2 id="prototype">Prototype<a class="headerlink" href="#prototype" title="Permanent link">¶</a></h2>
+<h2 id="prototype">Prototype<a class="headerlink" href="#prototype" title="Permanent link">¤</a></h2>
 <p><a href="" id="function-prototype"></a></p>
-<p>Le <a href="https://en.wikipedia.org/wiki/Function_prototype">prototype</a> d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour construire des bibliothèques logicielles. La fonction <code>printf</code> que nous ne cessons pas d'utiliser voit son prototype résider dans le fichier <code>&lt;stdio.h&gt;</code> et il est déclaré sous la forme&thinsp;:</p>
+<p>Le <a href="https://en.wikipedia.org/wiki/Function_prototype">prototype</a> d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour construire des bibliothèques logicielles. La fonction <code>printf</code> que nous ne cessons pas d'utiliser voit son prototype résider dans le fichier <code>&lt;stdio.h&gt;</code> et il est déclaré sous la forme :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>​int printf(const char* format, ...);
 </span></code></pre></div>
 <p>Notons qu'il n'y a pas d'accolades ici.</p>
 <p>Rappelons-le, C est un langage impératif et déclaratif, c'est-à-dire que les instructions sont séquentielles et que les déclarations du code sont interprétées dans l'ordre ou elles apparaissent. Si bien si je veux appeler la fonction <code>make_coffee</code>, il faut qu'elle ait été déclarée avant, c'est à dire plus haut.</p>
-<p>Le code suivant fonctionne&thinsp;:</p>
+<p>Le code suivant fonctionne :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">make_coffee</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Please wait...</span><span class="se">\n</span><span class="s">)"</span><span class="p">;</span>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">}</span>
@@ -4180,7 +4182,7 @@
 </span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="n">make_coffee</span><span class="p">();</span>
 </span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Mais celui-ci ne fonctionnera pas, car <code>make_coffee</code> n'est pas connu au moment de l'appel&thinsp;:</p>
+<p>Mais celui-ci ne fonctionnera pas, car <code>make_coffee</code> n'est pas connu au moment de l'appel :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">make_coffee</span><span class="p">();</span>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">}</span>
@@ -4201,8 +4203,8 @@
 </span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Un <strong>prototype</strong> de fonction diffère de son <strong>implémentation</strong> par le fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les conventions d'appel <a href="" id="calling_conventions"></a> de la fonction.</p>
-<h2 id="syntaxe">Syntaxe<a class="headerlink" href="#syntaxe" title="Permanent link">¶</a></h2>
-<p>La syntaxe d'écriture d'une fonction peut être assez compliquée et la source de vérité est issue de la grammaire du langage, qui n'est pas nécessairement accessible au profane. Or, depuis <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, une fonction prend la forme&thinsp;:</p>
+<h2 id="syntaxe">Syntaxe<a class="headerlink" href="#syntaxe" title="Permanent link">¤</a></h2>
+<p>La syntaxe d'écriture d'une fonction peut être assez compliquée et la source de vérité est issue de la grammaire du langage, qui n'est pas nécessairement accessible au profane. Or, depuis <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, une fonction prend la forme :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>&lt;storage-class&gt; &lt;return-type&gt; &lt;function-name&gt; (
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>    &lt;parameter-type&gt; &lt;parameter-name&gt;, ... )
 </span></code></pre></div>
@@ -4217,14 +4219,14 @@
 </dd>
 <dt><code>&lt;function-name&gt;</code></dt>
 <dd>
-<p>Il s'agit d'un <a class="autorefs autorefs-internal" href="../syntax/#identificateurs">identificateur</a> qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom&thinsp;: <code>compute_norm</code>, <code>make_coffee</code>, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que <code>main</code>, <code>display</code> ou <code>dot_product</code>.</p>
+<p>Il s'agit d'un <a class="autorefs autorefs-internal" href="../syntax/#identificateurs">identificateur</a> qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom : <code>compute_norm</code>, <code>make_coffee</code>, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que <code>main</code>, <code>display</code> ou <code>dot_product</code>.</p>
 </dd>
 <dt><code>&lt;parameter-type&gt; &lt;parameter-name&gt;</code></dt>
 <dd>
-<p>La fonction peut prendre en paramètre zéro à plusieurs paramètres où chaque paramètre est défini par son type et son nom tel que&thinsp;: <code>double real, double imag</code> pour une fonction qui prendrait en paramètre un nombre complexe.</p>
+<p>La fonction peut prendre en paramètre zéro à plusieurs paramètres où chaque paramètre est défini par son type et son nom tel que : <code>double real, double imag</code> pour une fonction qui prendrait en paramètre un nombre complexe.</p>
 </dd>
 </dl>
-<p>Après la fermeture de la parenthèse de la liste des paramètres, deux possibilités&thinsp;:</p>
+<p>Après la fermeture de la parenthèse de la liste des paramètres, deux possibilités :</p>
 <dl>
 <dt>Prototype</dt>
 <dd>
@@ -4235,21 +4237,21 @@
 <p>On poursuit avec l'implémentation du code <code>{ ... }</code></p>
 </dd>
 </dl>
-<h3 id="void">void<a class="headerlink" href="#void" title="Permanent link">¶</a></h3>
-<p>Le type <code>void</code> est à une signification particulière dans la syntaxe d'une fonction. Il peut être utilisé de trois manières différentes&thinsp;:</p>
+<h3 id="void">void<a class="headerlink" href="#void" title="Permanent link">¤</a></h3>
+<p>Le type <code>void</code> est à une signification particulière dans la syntaxe d'une fonction. Il peut être utilisé de trois manières différentes :</p>
 <ul>
 <li>
-<p>Pour indiquer l'absence de valeur de retour&thinsp;:</p>
+<p>Pour indiquer l'absence de valeur de retour :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </span></code></pre></div>
 </li>
 <li>
-<p>Pour indiquer l'absence de paramètres&thinsp;:</p>
+<p>Pour indiquer l'absence de paramètres :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 </span></code></pre></div>
 </li>
 <li>
-<p>Pour indiquer que la valeur de retour n'est pas utilisée par le parent&thinsp;:</p>
+<p>Pour indiquer que la valeur de retour n'est pas utilisée par le parent :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">);</span>
 </span></code></pre></div>
 </li>
@@ -4263,9 +4265,9 @@
 </span><span id="__span-13-6"><a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Aussi, il est impératif de toujours écrire des prototypes complets et d'explicitement utiliser <code>void</code> lorsque la fonction ne prend aucun paramètre en entrée. Si vous utilisez un compilateur C++, une déclaration incomplète génèrera une erreur.</p>
-<h2 id="parametres">Paramètres<a class="headerlink" href="#parametres" title="Permanent link">¶</a></h2>
+<h2 id="parametres">Paramètres<a class="headerlink" href="#parametres" title="Permanent link">¤</a></h2>
 <p>Comme nous l'avons vu plus haut, pour de meilleures performances à l'exécution, il est préférable de s'en tenir à un maximum de trois paramètres, c'est également plus lisible pour le développeur, mais rien n'empêche d'en avoir plus.</p>
-<p>En plus de cela, les <a href="https://fr.wikipedia.org/wiki/Param%C3%A8tre_(programmation_informatique)">paramètres</a> peuvent être passés de deux manières&thinsp;:</p>
+<p>En plus de cela, les <a href="https://fr.wikipedia.org/wiki/Param%C3%A8tre_(programmation_informatique)">paramètres</a> peuvent être passés de deux manières :</p>
 <ul>
 <li>Par valeur</li>
 <li>Par référence</li>
@@ -4295,11 +4297,11 @@
 <p>Par abus de langage et en comparaison avec d'autres langages de programmation, on appellera ceci un passage par référence, car ce n'est pas une copie du tableau qui est passée à la fonction <code>alter</code>, mais seulement une référence sur ce tableau.</p>
 <p>En des termes plus corrects, mais nous verrons cela au chapitre sur les pointeurs, c'est bien un passage par valeur dans lequel la valeur d'un pointeur sur un tableau est passée à la fonction <code>alter</code>.</p>
 <p>Retenez simplement que lors d'un passage par référence, on cherche à rendre la valeur passée en paramètre modifiable par le <em>caller</em>.</p>
-<h2 id="exemples-de-fonctions">Exemples de fonctions<a class="headerlink" href="#exemples-de-fonctions" title="Permanent link">¶</a></h2>
+<h2 id="exemples-de-fonctions">Exemples de fonctions<a class="headerlink" href="#exemples-de-fonctions" title="Permanent link">¤</a></h2>
 <p><a href="" id="fib-iterative"></a></p>
-<h3 id="suite-de-fibonacci">Suite de Fibonacci<a class="headerlink" href="#suite-de-fibonacci" title="Permanent link">¶</a></h3>
+<h3 id="suite-de-fibonacci">Suite de Fibonacci<a class="headerlink" href="#suite-de-fibonacci" title="Permanent link">¤</a></h3>
 <p>La suite de Fibonacci est une suite d'entiers dans laquelle chaque terme est la somme des deux termes précédents. La suite commence par 0 et 1. La suite commence donc par 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...</p>
-<p>Voici une implémentation de la suite de Fibonacci en utilisant une approche itérative&thinsp;:</p>
+<p>Voici une implémentation de la suite de Fibonacci en utilisant une approche itérative :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="p">{</span>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -4315,9 +4317,9 @@
 </span><span id="__span-16-13"><a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
 </span><span id="__span-16-14"><a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¶</a></h2>
+<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¤</a></h2>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Dans la moyenne<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Dans la moyenne<span class="exercise-title"></span></p>
 <p>Écrire une fonction <code>mean</code> qui reçoit 3 paramètres réels et qui retourne la moyenne.</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -4328,7 +4330,7 @@
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Le plus petit<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Le plus petit<span class="exercise-title"></span></p>
 <p>Écrire une fonction <code>min</code> qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -4341,7 +4343,7 @@
 </span><span id="__span-18-7"><a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">min_value</span><span class="p">;</span>
 </span><span id="__span-18-8"><a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Une manière plus compacte, mais moins lisible serait&thinsp;:</p>
+<p>Une manière plus compacte, mais moins lisible serait :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kt">double</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="p">}</span>
@@ -4349,16 +4351,16 @@
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Algorithme de retour de monnaie<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 3 : </span>Algorithme de retour de monnaie<span class="exercise-title"></span></p>
 <p>On considère le cas d'une caisse automatique de parking. Cette caisse délivre des tickets au prix unique de CHF 0.50 et dispose d'un certain nombre de pièces de 10 et 20 centimes pour le rendu de monnaie.</p>
-<p>Dans le code du programme, les trois variables suivantes seront utilisées&thinsp;:</p>
+<p>Dans le code du programme, les trois variables suivantes seront utilisées :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="c1">// Available coins in the parking ticket machine</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ncoin_10</span><span class="p">,</span><span class="w"> </span><span class="n">ncoin_20</span><span class="p">;</span>
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>
 </span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="c1">// How much money the user inserted into the machine (in cents)</span>
 </span><span id="__span-20-5"><a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amount_payed</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Écrivez l'algorithme de rendu de la monnaie tenant compte du nombre de pièces de 10 et 20 centimes restants dans l'appareil. Voici un exemple du fonctionnement du programme&thinsp;:</p>
+<p>Écrivez l'algorithme de rendu de la monnaie tenant compte du nombre de pièces de 10 et 20 centimes restants dans l'appareil. Voici un exemple du fonctionnement du programme :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"10 10 20 20 20"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>./ptm<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">1</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>ticket
 </span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="m">20</span>
@@ -4368,7 +4370,7 @@
 <p>Le cas échéant, s'il n'est possible de rendre la monnaie, aucun ticket n'est distribué et l'argent donné est rendu.</p>
 <details class="solution">
 <summary>Solution</summary>
-<p>Voici une solution partielle&thinsp;:</p>
+<p>Voici une solution partielle :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cp">#define TICKET_PRICE 50</span>
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>
 </span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">give_coin</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
@@ -4401,8 +4403,8 @@
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: La fonction f<span class="exercise-title"></span></p>
-<p>Considérons le programme suivant&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 4 : </span>La fonction f<span class="exercise-title"></span></p>
+<p>Considérons le programme suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 </span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span>
@@ -4412,16 +4414,16 @@
 </span><span id="__span-23-7"><a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 </span><span id="__span-23-8"><a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Quel sont les types et les valeurs retournées par les expressions ci-dessous&thinsp;?</p>
+<p>Quel sont les types et les valeurs retournées par les expressions ci-dessous ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">f</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span>
 </span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">f</span><span class="p">(</span><span class="mf">-1.2</span><span class="p">)</span>
 </span><span id="__span-24-3"><a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="n">f</span><span class="p">(</span><span class="mf">1.6</span><span class="p">)</span>
 </span><span id="__span-24-4"><a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="n">f</span><span class="p">(</span><span class="mf">-1.6</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Quel est votre conclusion sur cette fonction&thinsp;?</p>
+<p>Quel est votre conclusion sur cette fonction ?</p>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Mauvaise somme<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 5 : </span>Mauvaise somme<span class="exercise-title"></span></p>
 <p>Le programme suivant compile sans erreurs graves, mais ne fonctionne pas correctement.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
@@ -4451,7 +4453,7 @@
 </span><span id="__span-25-26"><a href="#__codelineno-25-26" id="__codelineno-25-26" name="__codelineno-25-26"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </span><span id="__span-25-27"><a href="#__codelineno-25-27" id="__codelineno-25-27" name="__codelineno-25-27"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Quel est le problème&thinsp;? À titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparu&thinsp;:</p>
+<p>Quel est le problème ? À titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparu :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a>$<span class="w"> </span>./sum
 </span><span id="__span-26-2"><a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="m">8527952</span>
 </span></code></pre></div>
@@ -4542,7 +4544,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4682,7 +4684,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

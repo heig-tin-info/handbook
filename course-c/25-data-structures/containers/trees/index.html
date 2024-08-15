@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4117,12 +4119,12 @@
   
 
 
-<h1 id="arbres">Arbres<a class="headerlink" href="#arbres" title="Permanent link">¶</a></h1>
+<h1 id="arbres">Arbres<a class="headerlink" href="#arbres" title="Permanent link">¤</a></h1>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../../assets/images/binary-tree.jpg"><img alt="Arbre binaire IRL" src="../../../../assets/images/binary-tree.jpg"/></a><figcaption> Arbre binaire IRL</figcaption></figure></p>
 <p>Les <span class="ycr-hashtag" data-index-entry="arbres" data-tag="arbres">arbres</span> sont des structures de données non linéaires qui sont composées de nœuds. Chaque nœud a un ou plusieurs enfants, sauf pour le nœud racine qui n'a pas de parent. Les arbres sont souvent utilisés pour représenter des hiérarchies, comme les systèmes de fichiers, les arbres généalogiques, les arbres de décision, etc.</p>
-<p>Voici un exemple d'arbre, il représente par exemple une structure de documents stockés sur un ordinateur. En haut on voit le disque C&thinsp;: qui contient des dossiers et des fichiers. Chaque dossier peut contenir d'autres dossiers ou des fichiers. Il y a donc une <span class="ycr-hashtag" data-index-entry="hiérarchie" data-tag="hierarchie">hiérarchie</span> entre les éléments. Chaque dossier peut contenir plusieurs éléments, mais chaque élément ne peut être contenu que dans un seul dossier.</p>
+<p>Voici un exemple d'arbre, il représente par exemple une structure de documents stockés sur un ordinateur. En haut on voit le disque C : qui contient des dossiers et des fichiers. Chaque dossier peut contenir d'autres dossiers ou des fichiers. Il y a donc une <span class="ycr-hashtag" data-index-entry="hiérarchie" data-tag="hierarchie">hiérarchie</span> entre les éléments. Chaque dossier peut contenir plusieurs éléments, mais chaque élément ne peut être contenu que dans un seul dossier.</p>
 <p>On appelle ce type d'arbre un <strong>arbre n-aire dirigé</strong>. C'est-à-dire que chaque nœud peut avoir plusieurs enfants. L'arbre est dirigé car il y a un sens de la racine vers les feuilles. Il y a donc des flèches qui indiquent le sens de la hiérarchie.</p>
-<pre class="mermaid"><code>%% Arbre n-aire dirigé
+<figure class="mermaid-figure"><pre class="mermaid"><code>%% Arbre n-aire dirigé
 graph LR
     C(C:)
 
@@ -4165,13 +4167,13 @@ graph LR
     Documents_Alice --&gt; Thesis(Thesis.docx)
     Documents_Alice --&gt; Notes(Notes.txt)
 
-    Downloads_Alice --&gt; App(App.exe)</code></pre>
-<h2 id="arbre-binaire">Arbre binaire<a class="headerlink" href="#arbre-binaire" title="Permanent link">¶</a></h2>
+    Downloads_Alice --&gt; App(App.exe)</code></pre><figcaption>Arbre n-aire dirigé</figcaption></figure>
+<h2 id="arbre-binaire">Arbre binaire<a class="headerlink" href="#arbre-binaire" title="Permanent link">¤</a></h2>
 <p>Un <span class="ycr-hashtag" data-index-entry="arbre binaire" data-tag="arbre-binaire">arbre binaire</span> est un arbre où chaque nœud a au plus deux enfants. Les enfants sont généralement appelés le fils gauche et le fils droit. Les arbres binaires sont souvent utilisés pour implémenter des structures de données comme les arbres de recherche binaires, les tas binaires, les arbres d'expression, etc.</p>
 <p>C'est une structure de donnée très utilisée en informatique. En pratique, il est rare d'implémenter un arbre binaire de manière explicite. On utilise plutôt des structures de données qui sont basées sur des arbres binaires.</p>
 <p>Le C étant un langage très bas niveau, il n'y a pas de structure de données arbre binaire dans la bibliothèque standard. En C++ en revanche il y a de nombreux conteneurs qui utilisent des arbres binaires comme <code>std::set</code>, <code>std::map</code>, <code>std::multiset</code>, <code>std::multimap</code>, <code>std::priority_queue</code>, etc.</p>
-<p>Voici l'exemple d'un arbre binaire. Chaque nœud est composé de deux enfants sauf pour les feuilles qui n'ont pas d'enfants. Le nœud <code>40</code> n'a lui que 1 enfant&thinsp;: l'enfant de droite.</p>
-<pre class="mermaid"><code>%% Arbre binaire
+<p>Voici l'exemple d'un arbre binaire. Chaque nœud est composé de deux enfants sauf pour les feuilles qui n'ont pas d'enfants. Le nœud <code>40</code> n'a lui que 1 enfant : l'enfant de droite.</p>
+<figure class="mermaid-figure"><pre class="mermaid"><code>%% Arbre binaire
 graph TD
     classDef ghost display: none;
 
@@ -4199,10 +4201,10 @@ graph TD
     80 --&gt; 90((90))
 
     class ghost1 ghost;
-    linkStyle 8 display: none;</code></pre>
+    linkStyle 8 display: none;</code></pre><figcaption>Arbre binaire</figcaption></figure>
 <p>Un arbre peut être <strong>équilibré</strong> ou <strong>déséquilibré</strong>. Un arbre est équilibré si la hauteur de ses sous-arbres gauche et droit diffère d'au plus un. Un arbre équilibré est souvent plus efficace pour les opérations de recherche, d'insertion et de suppression.</p>
-<p>Voici l'exemple d'un arbre déséquilibré&thinsp;:</p>
-<pre class="mermaid"><code>%% Arbre binaire déséquilibré
+<p>Voici l'exemple d'un arbre déséquilibré :</p>
+<figure class="mermaid-figure"><pre class="mermaid"><code>%% Arbre binaire déséquilibré
 graph LR
     classDef ghost display: none;
 
@@ -4225,10 +4227,10 @@ graph LR
 
     10 --&gt; 12((12))
     10 --&gt; 23((23))
-    23 --&gt; 35((35))</code></pre>
-<h3 id="heap">Heap<a class="headerlink" href="#heap" title="Permanent link">¶</a></h3>
-<p>La structure de donnée <code>heap</code> aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit «&thinsp;presque complet&thinsp;», dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est-à-dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.</p>
-<p>Un tas peut aisément être représenté sous forme de tableau en utilisant la règle suivante&thinsp;:</p>
+    23 --&gt; 35((35))</code></pre><figcaption>Arbre binaire déséquilibré</figcaption></figure>
+<h3 id="heap">Heap<a class="headerlink" href="#heap" title="Permanent link">¤</a></h3>
+<p>La structure de donnée <code>heap</code> aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit « presque complet », dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est-à-dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.</p>
+<p>Un tas peut aisément être représenté sous forme de tableau en utilisant la règle suivante :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Opération d'accès à un élément d'un hea</caption><thead>
 <tr>
@@ -4256,7 +4258,7 @@ graph LR
 </tbody>
 </table>
 <p><figure id="_figure-2"><img alt="Représentation d'un *heap*" class="drawio-diagram" src="../../../../assets/images/heap.drawio"/><figcaption> Représentation d'un *heap*</figcaption></figure></p>
-<h3 id="min-heap">Min-heap<a class="headerlink" href="#min-heap" title="Permanent link">¶</a></h3>
+<h3 id="min-heap">Min-heap<a class="headerlink" href="#min-heap" title="Permanent link">¤</a></h3>
 <p>Un <span class="ycr-hashtag" data-index-entry="tas binaire" data-tag="tas-binaire">tas binaire</span> est une structure de données qui permet de stocker des éléments de manière ordonnée. Un tas binaire est un arbre binaire complet où chaque nœud est <strong>plus petit que ses enfants</strong>. Un tas binaire est souvent utilisé pour implémenter une file de priorité.</p>
 <div class="admonition example">
 <p class="admonition-title">Implémentation en C</p>
@@ -4389,7 +4391,7 @@ graph LR
 <p>La propriété principale du tas binaire est que chaque element de l'arbre est plus petit que ses enfants. Cela signifie que la racine de l'arbre est le plus petit élément. Lorsqu'on retire un élément du tas, on retire la racine et on la remplace par le dernier élément du tableau il faut ensuite manipuler le tas pour que la propriété soit respectée. On appelle cette opération <em>heapify</em>.</p>
 <p>L'algorithme <em>heapify</em> est un algorithme récursif qui permet de rétablir la propriété du tas binaire. On part du dernier élément de l'arbre qui possède au moins un enfant. On compare la valeur de l'élément avec celle de son ou de ses enfants. Si la valeur de l'élément est plus grande que celle de ses enfants, on échange les valeurs. On continue récursivement avec les enfants jusqu'à ce que la propriété soit respectée.</p>
 <p>Si on insert un élément dans le tableau dynamique, on l'ajoute à la fin du tableau. Puis on doit rétablir la propriété du tas binaire. On compare la valeur de l'élément avec celle de son parent. Si la valeur de l'élément est plus petite que celle de son parent, on échange les valeurs. On continue récursivement avec le parent jusqu'à ce que la propriété soit respectée, en remontant la branche.</p>
-<p>Prenons l'exemple initial de cet arbre stocké en tableau&thinsp;:</p>
+<p>Prenons l'exemple initial de cet arbre stocké en tableau :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">};</span>
 </span></code></pre></div>
 <pre class="mermaid"><code>graph TD
@@ -4398,7 +4400,7 @@ graph LR
     3((3)) --&gt; 5((5))
     3((3)) --&gt; 9((9))
     6((6)) --&gt; 8((8))</code></pre>
-<p>On souhaite rajouter l'élément <code>2</code>. On commence par l'ajouter à la fin&thinsp;:</p>
+<p>On souhaite rajouter l'élément <code>2</code>. On commence par l'ajouter à la fin :</p>
 <pre class="mermaid"><code>graph TD
     1((1)) --&gt; 3((3))
     1((1)) --&gt; 6((6))
@@ -4406,7 +4408,7 @@ graph LR
     3((3)) --&gt; 9((9))
     6((6)) --&gt; 8((8))
     6((6)) --&gt; 2((2))</code></pre>
-<p>On compare la valeur de <code>2</code> avec celle de son parent <code>6</code>. Comme <code>2</code> est plus petit que <code>6</code>, on échange les valeurs&thinsp;:</p>
+<p>On compare la valeur de <code>2</code> avec celle de son parent <code>6</code>. Comme <code>2</code> est plus petit que <code>6</code>, on échange les valeurs :</p>
 <pre class="mermaid"><code>graph TD
     1((1)) --&gt; 3((3))
     1((1)) --&gt; 2((2))
@@ -4415,7 +4417,7 @@ graph LR
     2((2)) --&gt; 8((8))
     2((2)) --&gt; 6((6))</code></pre>
 <p>On continue avec le parent de <code>2</code>, <code>1</code>. Comme <code>2</code> est plus grand que <code>1</code>, on s'arrête là. Le tas binaire est maintenant rétabli.</p>
-<p>Les utilisations les plus courantes de cette structure de donnée sont&thinsp;:</p>
+<p>Les utilisations les plus courantes de cette structure de donnée sont :</p>
 <ul>
 <li><a href="https://fr.wikipedia.org/wiki/Tri_par_tas">Tri par tas</a> (<em>Heap sort</em>)</li>
 <li>Une queue prioritaire (<em>Priority queue</em>)</li>
@@ -4477,16 +4479,16 @@ graph LR
 </li>
 </ul>
 <p>Ces complexités font des min-heaps une structure de données efficace pour les files de priorité et les algorithmes nécessitant des opérations fréquentes d'insertion et d'extraction du minimum.</p>
-<h3 id="arbre-binaire-de-recherche">Arbre binaire de recherche<a class="headerlink" href="#arbre-binaire-de-recherche" title="Permanent link">¶</a></h3>
+<h3 id="arbre-binaire-de-recherche">Arbre binaire de recherche<a class="headerlink" href="#arbre-binaire-de-recherche" title="Permanent link">¤</a></h3>
 <p>Un <a href="https://fr.wikipedia.org/wiki/Arbre_binaire_de_recherche">arbres binaires de recherche</a> (<em>Binary Search Tree</em>, <strong>BST</strong>) est un arbre binaire dans lequel chaque nœud a une valeur et les valeurs des nœuds de l'arbre sont ordonnées. Pour chaque nœud, toutes les valeurs des nœuds du sous-arbre gauche sont inférieures à la valeur du nœud et toutes les valeurs des nœuds du sous-arbre droit sont supérieures à la valeur du nœud.</p>
 <p>L'implémentation d'un arbre binaire est souvent implémentée avec une liste chaînée comportant deux enfants un <code>left</code> et un <code>right</code> :</p>
 <p><figure id="_figure-3"><img alt="Arbre binaire équilibré" class="drawio-diagram" src="../../../../assets/images/binary-tree.drawio"/><figcaption> Arbre binaire équilibré</figcaption></figure></p>
-<p>Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours&thinsp;:</p>
+<p>Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours :</p>
 <ul>
 <li>La valeur de l'enfant de gauche est inférieure à celle de son parent</li>
 <li>La valeur de l'enfant de droite est supérieure à celle de son parent</li>
 </ul>
-<p>Cette propriété est très appréciée pour rechercher et insérer des données complexes. Admettons que l'on a un registre patient du type&thinsp;:</p>
+<p>Cette propriété est très appréciée pour rechercher et insérer des données complexes. Admettons que l'on a un registre patient du type :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">patient</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">firstname</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
@@ -4500,7 +4502,7 @@ graph LR
 </span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="o">*</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
 </span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Si l'on cherche le patient numéro <code>612</code>, il suffit de parcourir l'arbre de façon dichotomique&thinsp;:</p>
+<p>Si l'on cherche le patient numéro <code>612</code>, il suffit de parcourir l'arbre de façon dichotomique :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="p">{</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
@@ -4513,7 +4515,7 @@ graph LR
 </span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>L'insertion et la suppression d'éléments dans un arbre binaire font appel à des <a href="https://fr.wikipedia.org/wiki/Rotation_d%27un_arbre_binaire_de_recherche">rotations</a>, puisque les éléments doivent être insérés dans le correct ordre et que l'arbre, pour être performant, doit toujours être équilibré. Ces rotations sont donc des mécanismes de rééquilibrage de l'arbre ne sont pas triviaux, mais dont la complexité d'exécution reste simple, et donc performante.</p>
-<h3 id="queue-prioritaire">Queue prioritaire<a class="headerlink" href="#queue-prioritaire" title="Permanent link">¶</a></h3>
+<h3 id="queue-prioritaire">Queue prioritaire<a class="headerlink" href="#queue-prioritaire" title="Permanent link">¤</a></h3>
 <p>Une queue prioritaire ou <em>priority queue</em>, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux mœurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée, mais, par importance aristocratique.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">;</span>
@@ -4546,17 +4548,17 @@ graph LR
 </span></code></pre></div>
 <p>La queue prioritaire dispose donc aussi des méthodes <code>enqueue</code> et <code>dequeue</code> mais le <code>dequeue</code> retournera l'élément le plus prioritaire de la liste. Ceci se traduit par trier la file d'attente à chaque opération <code>enqueue</code> ou <code>dequeue</code>. L'une de ces deux opérations pourrait donc avoir une complexité de <span class="arithmatex">\(O(n log n)\)</span>. Heureusement, il existe des méthodes de tris performantes si un tableau est déjà trié et qu'un seul nouvel élément y est ajouté.</p>
 <p>L'implémentation de ce type de structure de donnée s'appuie le plus souvent sur un <em>heap</em>, soit construite à partir d'un tableau statique, soit un tableau dynamique.</p>
-<h3 id="arbre-avl">Arbre AVL<a class="headerlink" href="#arbre-avl" title="Permanent link">¶</a></h3>
+<h3 id="arbre-avl">Arbre AVL<a class="headerlink" href="#arbre-avl" title="Permanent link">¤</a></h3>
 <p>Un arbre AVL est un arbre binaire de recherche équilibré. Il est équilibré car la hauteur de ses sous-arbres gauche et droit diffère d'au plus un. Cela signifie que la hauteur de l'arbre est en <span class="arithmatex">\(O(log n)\)</span>, ce qui rend les opérations de recherche, d'insertion et de suppression en <span class="arithmatex">\(O(log n)\)</span>.</p>
 <p><figure id="_figure-4"><img alt="AVL Tree" class="drawio-diagram" src="../../../../assets/images/avl-tree.drawio"/><figcaption> AVL Tree</figcaption></figure></p>
 <p>AVL tire son nom de ses inventeurs <em>Adelson-Velsky and Landis</em>. C'est une structure de données très utilisée en informatique pour implémenter des dictionnaires, des bases de données, des compilateurs, etc.</p>
 <p>Son implémentation complète sort du cadre de ce cours mais il est intéressant de comprendre comment il fonctionne. L'arbre AVL est un arbre binaire de recherche où chaque nœud a un <strong>facteur d'équilibre</strong> qui est la différence entre la hauteur de son sous-arbre gauche et la hauteur de son sous-arbre droit. Si le facteur d'équilibre d'un nœud est supérieur à <span class="arithmatex">\(1\)</span> ou inférieur à <span class="arithmatex">\(-1\)</span>, l'arbre est déséquilibré et il faut le rééquilibrer. Cela donne un critère de rééquilibrage en fonction du facteur d'équilibre.</p>
 <p>L'opération d'insertion dans un arbre AVL est similaire à celle d'un arbre binaire de recherche. On insère le nœud à la bonne place dans l'arbre. Puis on met à jour le facteur d'équilibre de chaque nœud sur le chemin de la racine. Si le facteur d'équilibre d'un nœud est supérieur à <span class="arithmatex">\(1\)</span> ou inférieur à <span class="arithmatex">\(-1\)</span>, on rééquilibre l'arbre en effectuant des rotations.</p>
 <p>C'est cette opération de rotation qui est la plus complexe dans un arbre AVL. Il existe plusieurs types de rotations en fonction du facteur d'équilibre du nœud. Il y a les rotations simples et les rotations doubles. Les rotations simples sont les rotations droite et gauche. Les rotations doubles sont les rotations gauche-droite et droite-gauche.</p>
-<h3 id="arbre-rouge-noir">Arbre rouge-noir<a class="headerlink" href="#arbre-rouge-noir" title="Permanent link">¶</a></h3>
+<h3 id="arbre-rouge-noir">Arbre rouge-noir<a class="headerlink" href="#arbre-rouge-noir" title="Permanent link">¤</a></h3>
 <p>Un arbre rouge-noir est un arbre binaire de recherche équilibré. Il est équilibré car la hauteur de ses sous-arbres gauche et droit diffère d'au plus deux. Cela signifie que la hauteur de l'arbre est en <span class="arithmatex">\(O(log n)\)</span>, ce qui rend les opérations de recherche, d'insertion et de suppression en <span class="arithmatex">\(O(log n)\)</span>.</p>
 <p><figure id="_figure-5"><img alt="Arbre rouge et noir" class="drawio-diagram" src="../../../../assets/images/red-black-tree.drawio"/><figcaption> Arbre rouge et noir</figcaption></figure></p>
-<p>Contrairement à l'arbre AVL, l'arbre rouge-noir est plus simple à implémenter. Il utilise un <strong>bit de couleur</strong> pour chaque nœud pour indiquer si le nœud est rouge ou noir. L'arbre rouge-noir a cinq propriétés&thinsp;:</p>
+<p>Contrairement à l'arbre AVL, l'arbre rouge-noir est plus simple à implémenter. Il utilise un <strong>bit de couleur</strong> pour chaque nœud pour indiquer si le nœud est rouge ou noir. L'arbre rouge-noir a cinq propriétés :</p>
 <ol>
 <li>Chaque nœud est soit rouge, soit noir.</li>
 <li>La racine est noire.</li>
@@ -4564,30 +4566,30 @@ graph LR
 <li>Si un nœud est rouge, alors ses deux enfants sont noirs. (Pas de deux rouges consécutifs sur un chemin vers une feuille)</li>
 <li>Tout chemin simple d'un nœud donné à ses feuilles descendantes contient le même nombre de nœuds noirs.</li>
 </ol>
-<p>De la même manière que l'arbre AVL, il y a des opérations de rotation pour rééquilibrer l'arbre rouge-noir. Les rotations sont plus simples que dans un arbre AVL car il n'y a que deux types de rotations&thinsp;: la rotation gauche et la rotation droite.</p>
-<h2 id="trie">Trie<a class="headerlink" href="#trie" title="Permanent link">¶</a></h2>
+<p>De la même manière que l'arbre AVL, il y a des opérations de rotation pour rééquilibrer l'arbre rouge-noir. Les rotations sont plus simples que dans un arbre AVL car il n'y a que deux types de rotations : la rotation gauche et la rotation droite.</p>
+<h2 id="trie">Trie<a class="headerlink" href="#trie" title="Permanent link">¤</a></h2>
 <p>Un <em>trie</em> est une structure de données qui stocke un ensemble de chaînes de caractères. Il est souvent utilisé pour stocker des mots dans un dictionnaire ou pour rechercher des mots dans un texte. Un trie est donc un arbre où chaque nœud est associé à une lettre et un marqueur de fin de mot. Un noeud peut avoir de 1 à 26 enfants, un pour chaque lettre de l'alphabet (si on se limite à l'alphabet latin minuscule).</p>
-<p>Prenons l'exemple des mots suivants&thinsp;:</p>
+<p>Prenons l'exemple des mots suivants :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">words</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="s">"cadeaux"</span><span class="p">,</span><span class="w"> </span><span class="s">"le"</span><span class="p">,</span><span class="w"> </span><span class="s">"car"</span><span class="p">,</span><span class="w"> </span><span class="s">"cette"</span><span class="p">,</span><span class="w"> </span><span class="s">"cadre"</span><span class="p">,</span><span class="w"> </span><span class="s">"cause"</span><span class="p">,</span>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="s">"carte"</span><span class="p">,</span><span class="w"> </span><span class="s">"comme"</span><span class="p">,</span><span class="w"> </span><span class="s">"car"</span><span class="p">,</span><span class="w"> </span><span class="s">"ce"</span><span class="p">,</span><span class="w"> </span><span class="s">"caduc"</span><span class="p">,</span><span class="w"> </span><span class="s">"cadet"</span><span class="p">,</span>
 </span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="s">"la"</span><span class="p">,</span><span class="w"> </span><span class="s">"la"</span><span class="p">,</span><span class="w"> </span><span class="s">"les"</span><span class="p">};</span>
 </span></code></pre></div>
-<p>On peut construire le trie suivant&thinsp;:</p>
+<p>On peut construire le trie suivant :</p>
 <p><figure id="_figure-6"><img alt="Trie" class="drawio-diagram" src="../../../../assets/images/trie.drawio"/><figcaption> Trie</figcaption></figure></p>
-<p>En vert, les nœuds qui marquent la fin d'un mot. En orange la racine de l'arbre. La structure de données de chaque noeud pourrait être la suivante&thinsp;:</p>
+<p>En vert, les nœuds qui marquent la fin d'un mot. En orange la racine de l'arbre. La structure de données de chaque noeud pourrait être la suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">occurences</span><span class="p">;</span><span class="w">  </span><span class="c1">// Number of occurences of the word</span>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">children</span><span class="p">[</span><span class="mi">26</span><span class="p">];</span><span class="w">  </span><span class="c1">// Children nodes</span>
 </span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
 </span></code></pre></div>
 <div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise&thinsp;: Implémentation<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Implémentation<span class="exercise-title"></span></p>
 <p>Vous avez un texte connu et vous voulez permettre de compter les occurences de chaque mot. Une fois que le trie est construit, il est en lecture seule.
-Comment allez-vous implémenter le trie&thinsp;?</p>
+Comment allez-vous implémenter le trie ?</p>
 <ul class="exercise-list">
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4599,7 +4601,8 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4608,7 +4611,7 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
    Comme une liste chaînée, chaque noeud est alloué dynamiquement sur le <em>heap</em>.
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4620,7 +4623,8 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4629,7 +4633,7 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
    Un tableau statique sur la pile ou chaque élément est un noeud.
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4641,7 +4645,8 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4650,7 +4655,7 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
    Un tableau dynamique sur le <em>heap</em>, l'allocation est amortie et chaque noeud contient un tableau de pointeurs sur ses enfants.
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="good" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4662,7 +4667,8 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4671,7 +4677,7 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
    Un tableau dynamique sur le <em>heap</em>, l'allocation est amortie et chaque noeud contient non pas un pointeur des enfants mais l'indice de l'enfant dans le tableau.
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4683,7 +4689,8 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4693,7 +4700,7 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
 </li>
 </ul>
 </div>
-<p>Discutons de plusieurs implémentations possibles d'un noeud d'un trie&thinsp;:</p>
+<p>Discutons de plusieurs implémentations possibles d'un noeud d'un trie :</p>
 <ul>
 <li>
 <p><strong>Liste chaînée</strong> : Chaque noeud est alloué dynamiquement sur le <em>heap</em>. C'est une solution simple mais qui peut être coûteuse en mémoire et en temps d'allocation. Néanmoins le noeud peut prendre un tableau flexible pour les enfants. Ce qui permet de ne pas allouer de mémoire inutile.</p>
@@ -4726,7 +4733,7 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
 </span></code></pre></div>
 </li>
 </ul>
-<p>Exemple d'implémentation&thinsp;:</p>
+<p>Exemple d'implémentation :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
@@ -4798,32 +4805,32 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
 </span><span id="__span-11-69"><a href="#__codelineno-11-69" id="__codelineno-11-69" name="__codelineno-11-69"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Regroupement&thinsp;?<span class="exercise-title"></span></p>
-<p>Demandons-nous s'il ne serait pas préférable de regrouper les noeuds communs ensemble comme le montre la figure suivante&thinsp;:</p>
-<p><figure id="_figure-7"><img alt="Trie: arbre avec noeuds communs" class="drawio-diagram" src="../../../../assets/images/trie-not.drawio"/><figcaption> Trie&thinsp;: arbre avec noeuds communs</figcaption></figure></p>
-<p>D'après vous est-ce une bonne idée&thinsp;? Pourquoi&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Regroupement ?<span class="exercise-title"></span></p>
+<p>Demandons-nous s'il ne serait pas préférable de regrouper les noeuds communs ensemble comme le montre la figure suivante :</p>
+<p><figure id="_figure-7"><img alt="Trie: arbre avec noeuds communs" class="drawio-diagram" src="../../../../assets/images/trie-not.drawio"/><figcaption> Trie : arbre avec noeuds communs</figcaption></figure></p>
+<p>D'après vous est-ce une bonne idée ? Pourquoi ?</p>
 <details class="solution">
 <summary>Solution</summary>
 <p>Non, ce n'est pas une bonne idée. D'une part la figure n'est plus un arbre mais un graphe. Un graph peut avoir des cycles et donc des boucles infinies. Ensuite, regrouper les éléments communs ne peut être fait qu'à la fin de la construction du trie, lorsqu'elle est déjà allouée en mémoire. La complexité de l'optimisation n'est pas à négliger. Si la contrainte est l'utilisation de la mémoire, il est préférable d'utiliser une autre structure de donnée comme un <em>radix trie</em>.</p>
 </details>
 </div>
-<h2 id="radix-trie">Radix Trie<a class="headerlink" href="#radix-trie" title="Permanent link">¶</a></h2>
+<h2 id="radix-trie">Radix Trie<a class="headerlink" href="#radix-trie" title="Permanent link">¤</a></h2>
 <p>On l'a vu l'implémentation d'un trie est simple mais elle peut conduire à une utilisation excessive de la mémoire. En effet, chaque noeud contient un tableau de 26 éléments, même si un mot ne contient que quelques lettres. Pour réduire la consommation de mémoire, on peut utiliser un <a href="https://fr.wikipedia.org/wiki/Arbre_radix">radix trie</a>. Cet arbre est également nommé <em>PATRICIA trie</em> pour <em>Practical Algorithm to Retrieve Information Coded in Alphanumeric</em>.</p>
 <p>Plutôt que de stocker une seule lettre par noeud, on stocke un préfixe commun à plusieurs mots. On peut alors réduire le nombre de noeuds et donc la consommation de mémoire.</p>
-<h2 id="navigation-dans-un-arbre">Navigation dans un arbre<a class="headerlink" href="#navigation-dans-un-arbre" title="Permanent link">¶</a></h2>
-<p>La navigation dans un arbre binaire est une opération courante. Il existe plusieurs façons de parcourir un arbre binaire&thinsp;:</p>
+<h2 id="navigation-dans-un-arbre">Navigation dans un arbre<a class="headerlink" href="#navigation-dans-un-arbre" title="Permanent link">¤</a></h2>
+<p>La navigation dans un arbre binaire est une opération courante. Il existe plusieurs façons de parcourir un arbre binaire :</p>
 <ul>
 <li><strong>Parcours en profondeur</strong> (DFS pour <em>Depth First Search</em>) On commence par la racine, puis on visite le sous-arbre gauche, puis le sous-arbre droit. On peut faire un parcours en profondeur en pré-ordre, en in-ordre ou en post-ordre.</li>
 <li><strong>Parcours en largeur</strong> (BFS pour <em>Breadth First Search</em>) On visite les nœuds de l'arbre de haut en bas et de gauche à droite. On utilise une file pour stocker les nœuds à visiter.</li>
 </ul>
-<h3 id="parcours-en-profondeur">Parcours en profondeur<a class="headerlink" href="#parcours-en-profondeur" title="Permanent link">¶</a></h3>
-<p>Le parcours en profondeur est une méthode de parcours d'un arbre binaire qui commence par la racine, puis visite le sous-arbre gauche, puis le sous-arbre droit. Il existe trois façons de parcourir un arbre en profondeur&thinsp;:</p>
+<h3 id="parcours-en-profondeur">Parcours en profondeur<a class="headerlink" href="#parcours-en-profondeur" title="Permanent link">¤</a></h3>
+<p>Le parcours en profondeur est une méthode de parcours d'un arbre binaire qui commence par la racine, puis visite le sous-arbre gauche, puis le sous-arbre droit. Il existe trois façons de parcourir un arbre en profondeur :</p>
 <ul>
 <li><strong>Pré-ordre</strong> : On visite d'abord la racine, puis le sous-arbre gauche, puis le sous-arbre droit.</li>
 <li><strong>In-ordre</strong> : On visite d'abord le sous-arbre gauche, puis la racine, puis le sous-arbre droit.</li>
 <li><strong>Post-ordre</strong> : On visite d'abord le sous-arbre gauche, puis le sous-arbre droit, puis la racine.</li>
 </ul>
-<p>L'implémentation peut se faire de manière récursive ou itérative. Voici un exemple d'implémentation récursive en C&thinsp;:</p>
+<p>L'implémentation peut se faire de manière récursive ou itérative. Voici un exemple d'implémentation récursive en C :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)(</span><span class="o">*</span><span class="n">visit</span><span class="p">)(</span><span class="n">Node</span><span class="o">*</span><span class="p">))</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="p">{</span>
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
@@ -4834,7 +4841,7 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
 </span><span id="__span-12-8"><a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">visit</span><span class="p">);</span>
 </span><span id="__span-12-9"><a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>L'implémentation itérative utilise une pile pour stocker les nœuds à visiter. Voici un exemple d'implémentation itérative en C&thinsp;:</p>
+<p>L'implémentation itérative utilise une pile pour stocker les nœuds à visiter. Voici un exemple d'implémentation itérative en C :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)(</span><span class="o">*</span><span class="n">visit</span><span class="p">)(</span><span class="n">Node</span><span class="o">*</span><span class="p">))</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="p">{</span>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="n">Stack</span><span class="w"> </span><span class="n">stack</span><span class="p">;</span>
@@ -4939,7 +4946,7 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -5079,7 +5086,7 @@ Comment allez-vous implémenter le trie&thinsp;?</p>
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

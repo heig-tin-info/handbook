@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3998,29 +4000,29 @@
   
 
 
-<h1 id="compilation-separee">Compilation séparée<a class="headerlink" href="#compilation-separee" title="Permanent link">¶</a></h1>
-<h2 id="unite-de-traduction">Unité de traduction<a class="headerlink" href="#unite-de-traduction" title="Permanent link">¶</a></h2>
+<h1 id="compilation-separee">Compilation séparée<a class="headerlink" href="#compilation-separee" title="Permanent link">¤</a></h1>
+<h2 id="unite-de-traduction">Unité de traduction<a class="headerlink" href="#unite-de-traduction" title="Permanent link">¤</a></h2>
 <p>En programmation, on appelle <em>translation unit</em> (unité de traduction), un code qui peut être <strong>compilé</strong> en un <strong>objet</strong> sans autre dépendance externe. Le plus souvent, une unité de traduction correspond à un fichier C.</p>
-<h2 id="diviser-pour-mieux-regner">Diviser pour mieux régner<a class="headerlink" href="#diviser-pour-mieux-regner" title="Permanent link">¶</a></h2>
+<h2 id="diviser-pour-mieux-regner">Diviser pour mieux régner<a class="headerlink" href="#diviser-pour-mieux-regner" title="Permanent link">¤</a></h2>
 <p>De même qu'un magazine illustré est divisé en sections pour accroître la lisibilité (sport, news, annonces, météo) de même un code source est organisé en éléments fonctionnels le plus souvent séparés en plusieurs fichiers et ces derniers parfois maintenus par différents développeurs.</p>
 <p>Rappelons-le (et c'est très important) :</p>
 <ul>
 <li>une fonction ne devrait pas dépasser un écran de haut (~50 lignes) ;</li>
-<li>un fichier ne devrait pas dépasser 1000 lignes&thinsp;;</li>
+<li>un fichier ne devrait pas dépasser 1000 lignes ;</li>
 <li>une ligne ne devrait pas dépasser 80 caractères.</li>
 </ul>
 <p>Donc à un moment, il est essentiel de diviser son travail en créant plusieurs fichiers.</p>
-<p>Ainsi, lorsque le programme commence à être volumineux, sa lecture, sa compréhension et sa mise au point deviennent délicates même pour le plus aguerri des développeurs. Il est alors essentiel de scinder le code source en plusieurs fichiers. Prenons l'exemple d'un programme qui effectue des calculs sur les nombres complexes. Notre projet est donc constitué de trois fichiers&thinsp;:</p>
+<p>Ainsi, lorsque le programme commence à être volumineux, sa lecture, sa compréhension et sa mise au point deviennent délicates même pour le plus aguerri des développeurs. Il est alors essentiel de scinder le code source en plusieurs fichiers. Prenons l'exemple d'un programme qui effectue des calculs sur les nombres complexes. Notre projet est donc constitué de trois fichiers :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">$ </span>tree
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="go">.</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="go">├── complex.c</span>
 </span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="go">├── complex.h</span>
 </span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="go">└── main.c</span>
 </span></code></pre></div>
-<p>Le programme principal et la fonction <code>main</code> est contenu dans <code>main.c</code> quant au module <em>complex</em> il est composé de deux fichiers&thinsp;: <code>complex.h</code> l'en-tête et <code>complex.c</code>, l'implémentation du module.</p>
+<p>Le programme principal et la fonction <code>main</code> est contenu dans <code>main.c</code> quant au module <em>complex</em> il est composé de deux fichiers : <code>complex.h</code> l'en-tête et <code>complex.c</code>, l'implémentation du module.</p>
 <p>Le fichier <code>main.c</code> devra inclure le fichier <code>complex.h</code> afin de
 pouvoir utiliser correctement les fonctions du module de gestion des
-nombres complexes. Exemple&thinsp;:</p>
+nombres complexes. Exemple :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">// fichier main.c</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"complex.h"</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
@@ -4053,25 +4055,25 @@ nombres complexes. Exemple&thinsp;:</p>
 </span></code></pre></div>
 <p>Un des avantages majeurs à la création de modules est qu'un module
 logiciel peut être réutilisé pour d'autres applications. Plus besoin de
-réinventer la roue à chaque application&thinsp;!</p>
-<p>Cet exemple sera compilé dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr> de la façon suivante&thinsp;:</p>
+réinventer la roue à chaque application !</p>
+<p>Cet exemple sera compilé dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr> de la façon suivante :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="go">gcc -c complex.c -o complex.o</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="go">gcc -c main.c -o main.o</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="go">gcc complex.o main.o -oprogram -lm</span>
 </span></code></pre></div>
 <p>Nous verrons plus bas les éléments théoriques vous permettant de mieux comprendre ces lignes.</p>
-<h2 id="module-logiciel">Module logiciel<a class="headerlink" href="#module-logiciel" title="Permanent link">¶</a></h2>
-<p>Les applications modernes dépendent souvent de nombreux modules logiciels externes aussi utilisés dans d'autres projets. C'est avantageux à plus d'un titre&thinsp;:</p>
+<h2 id="module-logiciel">Module logiciel<a class="headerlink" href="#module-logiciel" title="Permanent link">¤</a></h2>
+<p>Les applications modernes dépendent souvent de nombreux modules logiciels externes aussi utilisés dans d'autres projets. C'est avantageux à plus d'un titre :</p>
 <ul>
-<li>les modules externes sont sous la responsabilité d'autres développeurs et le programme a développer comporte moins de code&thinsp;;</li>
-<li>les modules externes sont souvent bien documentés et testés et il est facile de les utiliser&thinsp;;</li>
-<li>la lisibilité du programme est accrue, car il est bien découpé en des ensembles fonctionnels&thinsp;;</li>
+<li>les modules externes sont sous la responsabilité d'autres développeurs et le programme a développer comporte moins de code ;</li>
+<li>les modules externes sont souvent bien documentés et testés et il est facile de les utiliser ;</li>
+<li>la lisibilité du programme est accrue, car il est bien découpé en des ensembles fonctionnels ;</li>
 <li>les modules externes sont réutilisables et indépendants, ils peuvent donc être réutilisés sur plusieurs projets.</li>
 </ul>
 <p>Lorsque vous utilisez la fonction <code>printf</code>, vous dépendez d'un module externe nommé <code>stdio</code>. En réalité l'ensemble des modules <code>stdio</code>, <code>stdlib</code>, <code>stdint</code>, <code>ctype</code>... sont tous groupés dans une seule bibliothèque logicielle nommée <code>libc</code> disponible sur tous les systèmes compatibles <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Linux, le pendant libre <code>glibc</code> est utilisé. Il s'agit de la bibliothèque <a href="https://fr.wikipedia.org/wiki/GNU_C_Library"><abbr title="GNU's Not Unix">GNU</abbr> C Library</a>.</p>
 <p>Un module logiciel peut se composer de fichiers sources, c'est-à-dire un ensemble de fichiers <code>.c</code> et <code>.h</code> ainsi qu'une documentation et un script de compilation (<code>Makefile</code>). Alternativement, un module logiciel peut se composer de bibliothèques déjà compilées sous la forme de fichiers <code>.h</code>, <code>.a</code> et <code>.so</code>. Sous Windows on rencontre fréquemment l'extension <code>.dll</code>. Ces fichiers compilés ne donnent pas accès au code source, mais permettent d'utiliser les fonctionnalités quelles offrent dans des programmes C en mettant à disposition un ensemble de fonctions documentées.</p>
-<h2 id="compilation-avec-assemblage-differe">Compilation avec assemblage différé<a class="headerlink" href="#compilation-avec-assemblage-differe" title="Permanent link">¶</a></h2>
-<p>Lorsque nous avions compilé notre premier exemple <a class="autorefs autorefs-internal" href="../../05-introduction/c-lang/#hello-world_1">Hello World</a> nous avions simplement appelé <code>gcc</code> avec le fichier source <code>hello.c</code> qui nous avait créé un exécutable <code>a.out</code>. En réalité, GCC est passé par plusieurs sous-étapes de compilation&thinsp;:</p>
+<h2 id="compilation-avec-assemblage-differe">Compilation avec assemblage différé<a class="headerlink" href="#compilation-avec-assemblage-differe" title="Permanent link">¤</a></h2>
+<p>Lorsque nous avions compilé notre premier exemple <a class="autorefs autorefs-internal" href="../../05-introduction/c-lang/#hello-world_1">Hello World</a> nous avions simplement appelé <code>gcc</code> avec le fichier source <code>hello.c</code> qui nous avait créé un exécutable <code>a.out</code>. En réalité, GCC est passé par plusieurs sous-étapes de compilation :</p>
 <ol>
 <li><strong>Préprocessing</strong> : les commentaires sont retirés, les directives préprocesseur sont remplacées par leur équivalent C.</li>
 <li><strong>Compilation</strong> : le code C d'une seule <em>translation unit</em> est converti en langage machine en un fichier objet <code>.o</code>.</li>
@@ -4081,24 +4083,24 @@ réinventer la roue à chaque application&thinsp;!</p>
 <p>La figure suivante résume les différentes étapes de GCC. Les pointillés indiquent à quel niveau les opérations peuvent s'arrêter. Il est dès lors possible de passer par des fichiers intermédiaires assembleur (<code>.s</code>) ou objets (<code>.o</code>) en utilisant la bonne commande.</p>
 <p><figure id="_figure-1"><img alt="Étapes intermédiaires de compilation avec GCC" class="drawio-diagram" src="../../../assets/images/gcc.drawio"/><figcaption> Étapes intermédiaires de compilation avec GCC</figcaption></figure></p>
 <p>Notons que ces étapes existent, quel que soit le compilateur ou le système d'exploitation. Nous retrouverons ces exactes mêmes étapes avec Microsoft Visual Studio, mais le nom des commandes et les extensions des fichiers peuvent varier s'ils ne respectent pas la norme <abbr title="Portable Operating System Interface">POSIX</abbr> (et <abbr title="GNU's Not Unix">GNU</abbr>).</p>
-<p>Notons que généralement, seul deux étapes de GCC sont utilisées&thinsp;:</p>
+<p>Notons que généralement, seul deux étapes de GCC sont utilisées :</p>
 <ol>
 <li>Compilation avec <code>gcc -c &lt;fichier.c&gt;</code>, ceci génère automatiquement un fichier <code>.o</code> du même nom que le fichier d'entrée.</li>
 <li>Édition des liens avec <code>gcc &lt;fichier1.o&gt; &lt;fichier2.o&gt; ...</code>, ceci génère automatiquement un fichier exécutable <code>a.out</code>.</li>
 </ol>
-<h2 id="fichiers-den-tete-header">Fichiers d'en-tête (<em>header</em>)<a class="headerlink" href="#fichiers-den-tete-header" title="Permanent link">¶</a></h2>
-<p>Les fichiers d'en-tête (<code>.h</code>) sont des fichiers écrits en langage C, mais qui ne contiennent pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de <code>while</code>, de <code>for</code> ou même de <code>if</code>. Par convention, ces fichiers ne contiennent que&thinsp;:</p>
+<h2 id="fichiers-den-tete-header">Fichiers d'en-tête (<em>header</em>)<a class="headerlink" href="#fichiers-den-tete-header" title="Permanent link">¤</a></h2>
+<p>Les fichiers d'en-tête (<code>.h</code>) sont des fichiers écrits en langage C, mais qui ne contiennent pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de <code>while</code>, de <code>for</code> ou même de <code>if</code>. Par convention, ces fichiers ne contiennent que :</p>
 <ul>
 <li>Des prototypes de fonctions (ou de variables).</li>
 <li>Des déclarations de types (<code>typedef</code>, <code>struct</code>).</li>
 <li>Des définitions préprocesseur (<code>#include</code>, <code>#define</code>).</li>
 </ul>
-<p>Nous l'avons vu dans le chapitre sur le préprocesseur, la directive <code>#include</code> ne fais qu'inclure le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fort déconseillé), d'avoir la situation suivante&thinsp;:</p>
+<p>Nous l'avons vu dans le chapitre sur le préprocesseur, la directive <code>#include</code> ne fais qu'inclure le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fort déconseillé), d'avoir la situation suivante :</p>
 <div class="language-c highlight"><span class="filename">main.c</span><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">   </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">"foobar.def"</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Et le fichier <code>foobar.def</code> pourrait contenir&thinsp;:</p>
+<p>Et le fichier <code>foobar.def</code> pourrait contenir :</p>
 <div class="language-c highlight"><span class="filename">foobar.def</span><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#ifdef FOO</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">printf</span><span class="p">(</span><span class="s">"hello foo!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="cp">#else</span>
@@ -4106,7 +4108,7 @@ réinventer la roue à chaque application&thinsp;!</p>
 </span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="cp">#endif</span>
 </span></code></pre></div>
 <p>Vous noterez que l'extension de <code>foobar</code> n'est pas <code>.h</code> puisque le contenu n'est pas un fichier d'en-tête. <code>.def</code> ou n'importe quelle autre extension pourrait donc faire l'affaire ici.</p>
-<p>Dans cet exemple, le préprocesseur ne fait qu'inclure le contenu du fichier <code>foobar.def</code> à l'emplacement de la définition <code>#include "foobar.def"</code>. Voyons-le en détail&thinsp;:</p>
+<p>Dans cet exemple, le préprocesseur ne fait qu'inclure le contenu du fichier <code>foobar.def</code> à l'emplacement de la définition <code>#include "foobar.def"</code>. Voyons-le en détail :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="gp">$ </span>cat<span class="w"> </span>&lt;&lt;<span class="w"> </span>EOF<span class="w"> </span>&gt;<span class="w"> </span>main.c
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="go">int main() {</span>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="gp">    #</span>include<span class="w"> </span><span class="s2">"foobar.def"</span>
@@ -4129,7 +4131,7 @@ réinventer la roue à chaque application&thinsp;!</p>
 </span><span id="__span-7-20"><a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="go">}</span>
 </span></code></pre></div>
 <p>Lorsque l'on observe le résultat du préprocesseur, on s'aperçoit que toutes les directives préprocesseur ont disparues et que la directive <code>#include</code> a été remplacée par de contenu de <code>foobar.def</code>. Remarquons que le fichier est inclus deux fois, nous verrons plus loin comme éviter cela.</p>
-<p>Nous avons vu au chapitre sur les <a class="autorefs autorefs-internal" href="../../15-fundations/functions/#function-prototype">prototypes de fonctions</a> qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de savoir combien d'arguments est composé une fonction sans nécessairement disposer de l'implémentation de cette fonction. Aussi on trouve dans tous les fichiers d'en-tête des déclarations en amont (<em>forward declaration</em>). Dans le fichier d'en-tête <code>stdio.h</code> on trouvera la ligne&thinsp;: <code>int printf( const char *restrict format, ... );</code>.</p>
+<p>Nous avons vu au chapitre sur les <a class="autorefs autorefs-internal" href="../../15-fundations/functions/#function-prototype">prototypes de fonctions</a> qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de savoir combien d'arguments est composé une fonction sans nécessairement disposer de l'implémentation de cette fonction. Aussi on trouve dans tous les fichiers d'en-tête des déclarations en amont (<em>forward declaration</em>). Dans le fichier d'en-tête <code>stdio.h</code> on trouvera la ligne : <code>int printf( const char *restrict format, ... );</code>.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>$<span class="w"> </span>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; main.c</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="s">→ #include &lt;stdio.h&gt;</span>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="s">→ int main() { }</span>
@@ -4139,8 +4141,8 @@ réinventer la roue à chaque application&thinsp;!</p>
 </span></code></pre></div>
 <p>Notons qu'ici le prototype est précédé par le mot clé <code>extern</code>. Il s'agit d'un mot clé <strong>optionnel</strong> permettant de renforcer l'intention du développeur que la fonction déclarée n'est pas inclue dans fichier courant, mais qu'elle est implémentée ailleurs, dans un autre fichier. Et c'est le cas, car <code>printf</code> est déjà compilée quelque part dans la bibliothèque <code>libc</code> inclue par défaut lorsqu'un programme C est compilé dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr>.</p>
 <p>Un fichier d'en-tête contiendra donc tout le nécessaire utile à pouvoir utiliser une bibliothèque externe.</p>
-<h3 id="protection-de-reentrance">Protection de réentrance<a class="headerlink" href="#protection-de-reentrance" title="Permanent link">¶</a></h3>
-<p>La protection de réentrence aussi nommée <em>header guards</em> est une solution au problème d'inclusion multiple. Si par exemple on définit dans un fichier d'en-tête un nouveau type et que l'on inclut ce fichier, mais que ce dernier est déjà inclus par une autre bibliothèque, une erreur de compilation apparaîtra&thinsp;:</p>
+<h3 id="protection-de-reentrance">Protection de réentrance<a class="headerlink" href="#protection-de-reentrance" title="Permanent link">¤</a></h3>
+<p>La protection de réentrence aussi nommée <em>header guards</em> est une solution au problème d'inclusion multiple. Si par exemple on définit dans un fichier d'en-tête un nouveau type et que l'on inclut ce fichier, mais que ce dernier est déjà inclus par une autre bibliothèque, une erreur de compilation apparaîtra :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>$<span class="w"> </span>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; main.c</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="s">→ #include "foo.h"</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="s">→ #include "bar.h"</span>
@@ -4178,7 +4180,7 @@ réinventer la roue à chaque application&thinsp;!</p>
 </span><span id="__span-9-35"><a href="#__codelineno-9-35" id="__codelineno-9-35" name="__codelineno-9-35"></a>^~~
 </span><span id="__span-9-36"><a href="#__codelineno-9-36" id="__codelineno-9-36" name="__codelineno-9-36"></a>...
 </span></code></pre></div>
-<p>Dans cet exemple l'utilisateur ne sait pas forcément que <code>bar.h</code> est déjà inclus avec <code>foo.h</code> et le résultat après pré-processing est le suivant&thinsp;:</p>
+<p>Dans cet exemple l'utilisateur ne sait pas forcément que <code>bar.h</code> est déjà inclus avec <code>foo.h</code> et le résultat après pré-processing est le suivant :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>$<span class="w"> </span>gcc<span class="w"> </span>-E<span class="w"> </span>main.c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'/^#/ d'</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>typedef<span class="w"> </span>struct<span class="w"> </span>Bar<span class="w"> </span><span class="o">{</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>int<span class="w"> </span>b,<span class="w"> </span>a,<span class="w"> </span>r<span class="p">;</span>
@@ -4194,7 +4196,7 @@ réinventer la roue à chaque application&thinsp;!</p>
 </span><span id="__span-10-13"><a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="o">}</span>
 </span></code></pre></div>
 <p>On y retrouve la définition de <code>Bar</code> deux fois et donc, le compilateur génère une erreur.</p>
-<p>Une solution à ce problème est d'ajouter des gardes d'inclusion multiple par exemple avec ceci&thinsp;:</p>
+<p>Une solution à ce problème est d'ajouter des gardes d'inclusion multiple par exemple avec ceci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#ifndef BAR_H</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="cp">#define BAR_H</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>
@@ -4205,7 +4207,7 @@ réinventer la roue à chaque application&thinsp;!</p>
 </span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="cp">#endif </span><span class="c1">// BAR_H</span>
 </span></code></pre></div>
 <p>Si aucune définition du type <code>#define BAR_H</code> n'existe, alors le fichier <code>bar.h</code> n'a jamais été inclus auparavant et le contenu de la directive <code>#ifndef BAR_H</code> dans lequel on commence par définir <code>BAR_H</code> est exécuté. Lors d'une future inclusion de <code>bar.h</code>, la valeur de <code>BAR_H</code> aura déjà été définie et le contenu de la directive <code>#ifndef BAR_H</code> ne sera jamais exécuté.</p>
-<p>Alternativement, il existe une solution <strong>non standard</strong>, mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma&thinsp;:</p>
+<p>Alternativement, il existe une solution <strong>non standard</strong>, mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#pragma once</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Bar</span><span class="w"> </span><span class="p">{</span>
@@ -4213,7 +4215,7 @@ réinventer la roue à chaque application&thinsp;!</p>
 </span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="p">}</span><span class="w"> </span><span class="n">Bar</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un <code>#endif</code> à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT, car le nom du fichier <code>bar.h</code> n'apparaît pas dans le fichier <code>BAR_H</code>.</p>
-<h2 id="en-profondeur">En profondeur<a class="headerlink" href="#en-profondeur" title="Permanent link">¶</a></h2>
+<h2 id="en-profondeur">En profondeur<a class="headerlink" href="#en-profondeur" title="Permanent link">¤</a></h2>
 <p>Pour mieux comprendre la compilation séparée, tentons d'observer le code assembleur généré. Considérons le fichier <code>foo.c</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
@@ -4221,13 +4223,13 @@ réinventer la roue à chaque application&thinsp;!</p>
 </span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Puisqu'il ne contient pas de fonction main, il n'est pas possible de compiler ce fichier en un exécutable car il manque un point d'entrée&thinsp;:</p>
+<p>Puisqu'il ne contient pas de fonction main, il n'est pas possible de compiler ce fichier en un exécutable car il manque un point d'entrée :</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>gcc<span class="w"> </span>foo.c
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>/usr/bin/ld:<span class="w"> </span>/usr/lib/x86_64-linux-gnu/Scrt1.o:<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="s1">'_start'</span>:
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="o">(</span>.text+0x24<span class="o">)</span>:<span class="w"> </span>undefined<span class="w"> </span>reference<span class="w"> </span>to<span class="w"> </span><span class="s1">'main'</span>
 </span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a>collect2:<span class="w"> </span>error:<span class="w"> </span>ld<span class="w"> </span>returned<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span>status
 </span></code></pre></div>
-<p>Le <em>linker</em> se termine avec une erreur&thinsp;: <em>référence à 'main' inexistante</em>.</p>
+<p>Le <em>linker</em> se termine avec une erreur : <em>référence à 'main' inexistante</em>.</p>
 <p>En revanche, il est possible de compiler un objet, c'est à dire générer les instructions assembleur. La fonction <code>bar</code> étant manquante, le compilateur suppose qu'elle existe quelque part en mémoire et se contentera de dire <em>moi j'appelle cette fonction ou qu'elle se trouve</em>.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="nv">$objdump</span><span class="w"> </span>-d<span class="w"> </span>foo.o
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
@@ -4249,7 +4251,7 @@ réinventer la roue à chaque application&thinsp;!</p>
 </span><span id="__span-15-18"><a href="#__codelineno-15-18" id="__codelineno-15-18" name="__codelineno-15-18"></a>1d:<span class="w">   </span>c3<span class="w">                </span>retq
 </span></code></pre></div>
 <p>On constate à la ligne <code>19</code> que l'addition à bien lieu <code>eax + 42</code>, et que l'appel de la fonction <code>bar</code> se produit à la ligne <code>14</code>.</p>
-<p>Maintenant, considérons le programme principal&thinsp;:</p>
+<p>Maintenant, considérons le programme principal :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
@@ -4342,7 +4344,7 @@ réinventer la roue à chaque application&thinsp;!</p>
 </span><span id="__span-18-45"><a href="#__codelineno-18-45" id="__codelineno-18-45" name="__codelineno-18-45"></a><span class="w">    </span>11ac:<span class="w">       </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span>
 </span><span id="__span-18-46"><a href="#__codelineno-18-46" id="__codelineno-18-46" name="__codelineno-18-46"></a><span class="w">    </span>11af:<span class="w">       </span><span class="m">90</span><span class="w">                      </span>nop
 </span></code></pre></div>
-<p>On constate que les appels de fonctions ont été bien remplacés par les bons noms&thinsp;:</p>
+<p>On constate que les appels de fonctions ont été bien remplacés par les bons noms :</p>
 <ul>
 <li><code>115d</code> Appel de <code>bar</code></li>
 <li><code>1186</code> Appel de <code>foo</code></li>
@@ -4434,7 +4436,7 @@ réinventer la roue à chaque application&thinsp;!</p>
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4574,7 +4576,7 @@ réinventer la roue à chaque application&thinsp;!</p>
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

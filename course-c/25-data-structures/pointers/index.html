@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4221,16 +4223,16 @@
 
 
 <p><a href="" id="pointers"></a></p>
-<h1 id="pointeurs">Pointeurs<a class="headerlink" href="#pointeurs" title="Permanent link">¶</a></h1>
-<p><a href="https://fr.wikiquote.org/wiki/Le_Jour_de_gloire">Attention les vélos</a>, on s'attaque à un sujet délicat, difficile, scabreux, mais nécessaire. Un sujet essentiel, indispensable et fantastique&thinsp;: les <a href="https://fr.wikipedia.org/wiki/Pointeur_(programmation)">pointeurs</a>.</p>
-<p>Les pointeurs sont des <strong>variables</strong> qui, au lieu de stocker une valeur, stockent une <strong>adresse mémoire</strong>. Dans quel but me direz-vous&thinsp;? Pour créer des indirections, simplifier l'exécution du code.</p>
-<p>Prenons un exemple concret. Le <a href="https://fr.wikipedia.org/wiki/Vicomte_de_Valmont">Vicomte de Valmont</a> décide d'écrire à la marquise de Merteuil et il rédige une lettre. Il cachette sa lettre et la dépose dans sa boîte aux lettres pour enlèvement par le facteur moyennant quelques sous. En des termes programmatiques, on a&thinsp;:</p>
+<h1 id="pointeurs">Pointeurs<a class="headerlink" href="#pointeurs" title="Permanent link">¤</a></h1>
+<p><a href="https://fr.wikiquote.org/wiki/Le_Jour_de_gloire">Attention les vélos</a>, on s'attaque à un sujet délicat, difficile, scabreux, mais nécessaire. Un sujet essentiel, indispensable et fantastique : les <a href="https://fr.wikipedia.org/wiki/Pointeur_(programmation)">pointeurs</a>.</p>
+<p>Les pointeurs sont des <strong>variables</strong> qui, au lieu de stocker une valeur, stockent une <strong>adresse mémoire</strong>. Dans quel but me direz-vous ? Pour créer des indirections, simplifier l'exécution du code.</p>
+<p>Prenons un exemple concret. Le <a href="https://fr.wikipedia.org/wiki/Vicomte_de_Valmont">Vicomte de Valmont</a> décide d'écrire à la marquise de Merteuil et il rédige une lettre. Il cachette sa lettre et la dépose dans sa boîte aux lettres pour enlèvement par le facteur moyennant quelques sous. En des termes programmatiques, on a :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">lettre</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Chère Marquise, ..."</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Cette variable <code>lettre</code> est dès lors enregistrée en mémoire à l'adresse <code>0x12345abc</code> qui pourrait correspondre à l'emplacement de la boîte aux lettres du Vicomte.</p>
 <p>Le facteur qui ne craint pas la besogne prend connaissance du courrier à livrer, mais constate avec effroi que le cachet de cire a fondu sous l'effet du réchauffement climatique. La lettre est collée au fond de la boîte et il ne parvient pas à la détacher. Pire encore, et ajoutant à la situation déjà cocasse un dramatisme sans équivoque, à forcer de ses maigres doigts le papier de l'enveloppe se déchire et le contenu de lettre indécollable lui est révélée.</p>
 <p>Je l'admets volontiers, il me faut bien faire quelques pirouettes pour justifier qu'une valeur en mémoire ne peut être transportée d'un lieu à un autre à simple dos de facteur. Aussi, notre facteur qui est si bon, mais qui n'a plus la mémoire de sa jeunesse, ni papier d'ailleurs, décide de mémoriser la lettre et de la retranscrire chez madame la Marquise qu'il connaît bien. Or comme il est atteint de la maladie de <em>64-bits</em> il n'arrive à mémoriser que 8 caractères <code>Chère Ma</code>. Sur son bolide, il arrive à destination et retranscrit dans le fond de la boîte de madame de Merteuil les huit caractères fidèlement retranscrits. Comme il est bonnet, mais assidu, il consacre le restant de sa journée en des allers-retours usant la gomme de son <a href="https://www.paroles.net/georges-brassens/paroles-pour-me-rendre-a-mon-bureau">tout nickelé</a> jusqu'à ce que toute la lettre ait été retranscrite.</p>
-<p>On se retrouve avec une <strong>copie</strong> de la lettre chez madame de Merteuil&thinsp;:</p>
+<p>On se retrouve avec une <strong>copie</strong> de la lettre chez madame de Merteuil :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">valmont_mailbox</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Chère Maquise, ..."</span><span class="p">;</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">char</span><span class="w"> </span><span class="n">merteil_mailbox</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Chère Maquise, ..."</span><span class="p">;</span>
 </span></code></pre></div>
@@ -4238,22 +4240,22 @@
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">castello_wall</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Cher Vicomte ..."</span><span class="p">;</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kt">char</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">gps_position</span><span class="p">)[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">castello_wall</span><span class="p">;</span>
 </span></code></pre></div>
-<p>De retour chez elle, elle prie le facteur de transmettre au vicomte de Valmont ce simple mot&thinsp;: <code>0x30313233</code>. Le facteur parvient sans mal à mémoriser les 4 octets du message.</p>
+<p>De retour chez elle, elle prie le facteur de transmettre au vicomte de Valmont ce simple mot : <code>0x30313233</code>. Le facteur parvient sans mal à mémoriser les 4 octets du message.</p>
 <p>La variable <code>gps_position</code> ne contient donc pas le message, mais seulement l'adresse mémoire de ce message. Il s'agit ici d'un <strong>pointeur sur un tableau de caractères</strong>.</p>
 <p>Entre-temps, le vicomte qui est paresseux s'est équipé d'un téléscripteur capable d'exécuter du code C et il parvient à lire le message de sa complice la marquise.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">gps_position</span><span class="p">);</span>
 </span></code></pre></div>
-<p>S'il avait oublié l'astérisque (<code>*</code>, <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/002A" target="_blank">002A</a>) dans cette dernière ligne, il n'aurait pas vu le message espéré, mais simplement <code>0123</code> qui correspond au contenu à l'adresse mémoire ou se trouve l'adresse du message (et non le message).</p>
+<p>S'il avait oublié l'astérisque (<code>*</code>, <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//002A" target="_blank">002A</a>) dans cette dernière ligne, il n'aurait pas vu le message espéré, mais simplement <code>0123</code> qui correspond au contenu à l'adresse mémoire ou se trouve l'adresse du message (et non le message).</p>
 <p>L'astérisque agit donc comme un <strong>déréférencement</strong>, autrement dit, la demande expresse faite au dévoué facteur d'aller à l'adresse donnée récupérer le contenu du message.</p>
-<p>Oui, mais, on utilise un astérisque pour déréférencer, mais dans l'exemple précédant on a utilisé l'esperluette (<code>&amp;</code>, <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/0026" target="_blank">0026</a>): <code>&amp;castello_wall</code>, pourquoi&thinsp;? L'esperluette quand elle préfixe une variable peut être traduite par <strong>l'adresse de</strong>. Cela revient à l'étape pendant laquelle la marquise a mesuré la position GPS du mur sur à Tarente.</p>
-<p>Il manque encore une chose, il y a aussi une astérisque sur <code>(*gps_position)[]</code>. Cela vaudrait-il dire qu’on déréférence la position GPS pour affecter l'adresse du mur&thinsp;? Non, pas du tout... Et c'est d'ailleurs à cette étape que les novices perdent le fil. Où en étais-je&thinsp;?</p>
-<p>Notons qu'il y a plusieurs interprétations de l'astérisque en C&thinsp;:</p>
+<p>Oui, mais, on utilise un astérisque pour déréférencer, mais dans l'exemple précédant on a utilisé l'esperluette (<code>&amp;</code>, <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//0026" target="_blank">0026</a>): <code>&amp;castello_wall</code>, pourquoi ? L'esperluette quand elle préfixe une variable peut être traduite par <strong>l'adresse de</strong>. Cela revient à l'étape pendant laquelle la marquise a mesuré la position GPS du mur sur à Tarente.</p>
+<p>Il manque encore une chose, il y a aussi une astérisque sur <code>(*gps_position)[]</code>. Cela vaudrait-il dire qu’on déréférence la position GPS pour affecter l'adresse du mur ? Non, pas du tout... Et c'est d'ailleurs à cette étape que les novices perdent le fil. Où en étais-je ?</p>
+<p>Notons qu'il y a plusieurs interprétations de l'astérisque en C :</p>
 <ul>
-<li>Opérateur de multiplication&thinsp;: <code>a * b</code></li>
-<li>Déréférencement d'un pointeur&thinsp;: <code>*ptr</code></li>
-<li>Déclaration d'un pointeur&thinsp;: <code>int * ptr</code></li>
+<li>Opérateur de multiplication : <code>a * b</code></li>
+<li>Déréférencement d'un pointeur : <code>*ptr</code></li>
+<li>Déclaration d'un pointeur : <code>int * ptr</code></li>
 </ul>
-<p>Donc ici, on déclare un pointeur. En appliquant la règle gauche-droite que l'on verra plus bas&thinsp;:</p>
+<p>Donc ici, on déclare un pointeur. En appliquant la règle gauche-droite que l'on verra plus bas :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">char</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">gps_position</span><span class="p">)[]</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">       </span><span class="o">^^^^^^^^^^^^</span><span class="w">        </span><span class="mf">1.</span><span class="w"> </span><span class="n">gps_position</span><span class="w"> </span><span class="n">est</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">                   </span><span class="o">^</span><span class="w">       </span><span class="mf">2.</span><span class="w"> </span><span class="p">...</span>
@@ -4262,14 +4264,14 @@
 </span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="o">^^^^</span><span class="w">                       </span><span class="mf">5.</span><span class="w"> </span><span class="n">caractères</span>
 </span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">                           </span><span class="mf">6.</span><span class="w"> </span><span class="n">PROFIT</span><span class="p">...</span>
 </span></code></pre></div>
-<p>Résumons&thinsp;:</p>
+<p>Résumons :</p>
 <ul>
 <li>Un pointeur est une <strong>variable</strong></li>
 <li>Il contient une <strong>adresse mémoire</strong></li>
 <li>Il peut être <strong>déréférencé</strong> pour en obtenir la valeur de l'élément qu'il pointe</li>
 <li><strong>L'adresse d'une variable</strong> peut être obtenue avec une esperluette</li>
 </ul>
-<h2 id="pointeur-simple">Pointeur simple<a class="headerlink" href="#pointeur-simple" title="Permanent link">¶</a></h2>
+<h2 id="pointeur-simple">Pointeur simple<a class="headerlink" href="#pointeur-simple" title="Permanent link">¤</a></h2>
 <p>Le format le plus simple d'un pointeur sur un entier s'écrit avec l'astérisque <code>*</code>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 </span></code></pre></div>
@@ -4279,11 +4281,11 @@
 <p>Attention à l'écriture de <code>NULL</code>:</p>
 <ul>
 <li><code>nul</code> est le caractère de fin de chaîne de caractères <code>'\0'</code> ;</li>
-<li><code>null</code> est une adresse qui pointe nulle part&thinsp;;</li>
+<li><code>null</code> est une adresse qui pointe nulle part ;</li>
 <li><code>nulll</code> veut dire que vous avez fait une faute de frappe.</li>
 </ul>
 </div>
-<p>À tout moment, la valeur du pointeur peut être assignée à l'adresse d'un entier puisque nous avons déclaré un pointeur sur un entier&thinsp;:</p>
+<p>À tout moment, la valeur du pointeur peut être assignée à l'adresse d'un entier puisque nous avons déclaré un pointeur sur un entier :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">boiling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">freezing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>
@@ -4292,13 +4294,13 @@
 </span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
 </span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Lorsque nous avions vu les tableaux, nous écrivions&thinsp;:</p>
+<p>Lorsque nous avions vu les tableaux, nous écrivions :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span>
 </span></code></pre></div>
-<p>Vous ne le saviez pas, mais 𝄽 <em>plot twist</em> 𝄽 la variable <code>array</code> est un pointeur, et la preuve est que <code>array</code> peut être déréférencé&thinsp;:</p>
+<p>Vous ne le saviez pas, mais 𝄽 <em>plot twist</em> 𝄽 la variable <code>array</code> est un pointeur, et la preuve est que <code>array</code> peut être déréférencé :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">);</span><span class="w"> </span><span class="c1">// Affiche 0</span>
 </span></code></pre></div>
-<p>La différence entre un <strong>tableau</strong> et un <strong>pointeur</strong> est la suivante&thinsp;:</p>
+<p>La différence entre un <strong>tableau</strong> et un <strong>pointeur</strong> est la suivante :</p>
 <ul>
 <li>Il n'est pas possible d'assigner une adresse à un tableau</li>
 <li>Il n'est pas possible d'assigner des valeurs à un pointeur</li>
@@ -4306,18 +4308,18 @@
 <p>D'ailleurs, l'opérateur crochet <code>[]</code> n'est rien d'autre qu'un <a href="https://fr.wikipedia.org/wiki/Sucre_syntaxique">sucre syntaxique</a>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">a</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Bien que ce soit une très mauvaise idée, il est tout à fait possible d'écrire le code suivant puisque l'addition est commutative&thinsp;:</p>
+<p>Bien que ce soit une très mauvaise idée, il est tout à fait possible d'écrire le code suivant puisque l'addition est commutative :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">assert</span><span class="p">(</span><span class="mi">4</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span>
 </span></code></pre></div>
-<h2 id="arithmetique-de-pointeurs">Arithmétique de pointeurs<a class="headerlink" href="#arithmetique-de-pointeurs" title="Permanent link">¶</a></h2>
-<p>Fondamentalement un pointeur est une variable qui contient un <a href="https://fr.wikipedia.org/wiki/Nombre_ordinal">ordinal</a>, c'est-à-dire qu'il peut être imaginé l'ajout à un pointeur une grandeur finie&thinsp;:</p>
+<h2 id="arithmetique-de-pointeurs">Arithmétique de pointeurs<a class="headerlink" href="#arithmetique-de-pointeurs" title="Permanent link">¤</a></h2>
+<p>Fondamentalement un pointeur est une variable qui contient un <a href="https://fr.wikipedia.org/wiki/Nombre_ordinal">ordinal</a>, c'est-à-dire qu'il peut être imaginé l'ajout à un pointeur une grandeur finie :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Le vif zéphyr jubile sur les kumquats du clown gracieux"</span><span class="p">;</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">;</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span><span class="w"> </span><span class="n">ptr</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="n">putchar</span><span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
 </span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Imaginons que l'on souhaite représenter le carré magique suivant&thinsp;:</p>
+<p>Imaginons que l'on souhaite représenter le carré magique suivant :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>┌───┬───┬───┐
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>│ 4 │ 9 │ 2 │
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>├───┼───┼───┤
@@ -4326,7 +4328,7 @@
 </span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>│ 8 │ 1 │ 6 │
 </span><span id="__span-12-7"><a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a>└───┴───┴───┘
 </span></code></pre></div>
-<p>On peut le représenter en mémoire linéairement et utiliser de l'arithmétique de pointeur pour le dessiner&thinsp;:</p>
+<p>On peut le représenter en mémoire linéairement et utiliser de l'arithmétique de pointeur pour le dessiner :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">magic</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"492"</span><span class="w"> </span><span class="s">"357"</span><span class="w"> </span><span class="s">"816"</span><span class="p">;</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">magic</span><span class="p">;</span>
@@ -4337,7 +4339,7 @@
 </span><span id="__span-13-8"><a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">    </span><span class="n">putchar</span><span class="p">(</span><span class="sc">'\n'</span><span class="p">);</span>
 </span><span id="__span-13-9"><a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Mais&thinsp;? N'est-ce pas là ce que fait le compilateur lorsque l'adresse les éléments d'un tableau multidimensionnel&thinsp;?</p>
+<p>Mais ? N'est-ce pas là ce que fait le compilateur lorsque l'adresse les éléments d'un tableau multidimensionnel ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">magic</span><span class="p">[][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">"792"</span><span class="p">,</span><span class="w"> </span><span class="s">"357"</span><span class="p">,</span><span class="w"> </span><span class="s">"816"</span><span class="p">};</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4346,8 +4348,8 @@
 </span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">    </span><span class="n">putchar</span><span class="p">(</span><span class="sc">'\n'</span><span class="p">);</span>
 </span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Oui très exactement, les deux codes sont similaires, mais l'un est plus élégant que l'autre, lequel d'après vous&thinsp;?</p>
-<p>L'arithmétique de pointeur est donc chose courante avec les tableaux. À vrai dire, les deux concepts sont interchangeables&thinsp;:</p>
+<p>Oui très exactement, les deux codes sont similaires, mais l'un est plus élégant que l'autre, lequel d'après vous ?</p>
+<p>L'arithmétique de pointeur est donc chose courante avec les tableaux. À vrai dire, les deux concepts sont interchangeables :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Arithmétique sur tableau unidimensionnel</caption><thead>
 <tr>
@@ -4375,7 +4377,7 @@
 </tr>
 </tbody>
 </table>
-<p>De même, l'exercice peut être répété avec des tableaux à deux dimensions&thinsp;:</p>
+<p>De même, l'exercice peut être répété avec des tableaux à deux dimensions :</p>
 <table id="_table-2">
 <caption style="caption-side:top"> Arithmétique sur tableau bidimensionnel</caption><thead>
 <tr>
@@ -4400,15 +4402,15 @@
 </tr>
 </tbody>
 </table>
-<h2 id="pointeur-et-chaines-de-caracteres">Pointeur et chaînes de caractères<a class="headerlink" href="#pointeur-et-chaines-de-caracteres" title="Permanent link">¶</a></h2>
+<h2 id="pointeur-et-chaines-de-caracteres">Pointeur et chaînes de caractères<a class="headerlink" href="#pointeur-et-chaines-de-caracteres" title="Permanent link">¤</a></h2>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">conjonctions</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="s">"mais"</span><span class="p">,</span><span class="w"> </span><span class="s">"ou"</span><span class="p">,</span><span class="w"> </span><span class="s">"est"</span><span class="p">,</span><span class="w"> </span><span class="s">"donc"</span><span class="p">,</span><span class="w"> </span><span class="s">"or"</span><span class="p">,</span><span class="w"> </span><span class="s">"ni"</span><span class="p">,</span><span class="w"> </span><span class="s">"car"</span>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="p">};</span>
 </span></code></pre></div>
 <p><figure id="_figure-1"><img alt="Pointeur sur une chaîne de caractère" class="drawio-diagram" src="../../../assets/images/ptrstr.drawio"/><figcaption> Pointeur sur une chaîne de caractère</figcaption></figure></p>
 <p>Cette structure est très exactement la même que pour les arguments transmis à la fonction <code>main</code>: la définition <code>char *argv[]</code>.</p>
-<h2 id="structures-et-pointeurs">Structures et pointeurs<a class="headerlink" href="#structures-et-pointeurs" title="Permanent link">¶</a></h2>
-<h3 id="initialisation-dun-pointeur-sur-une-structure">Initialisation d'un pointeur sur une structure<a class="headerlink" href="#initialisation-dun-pointeur-sur-une-structure" title="Permanent link">¶</a></h3>
+<h2 id="structures-et-pointeurs">Structures et pointeurs<a class="headerlink" href="#structures-et-pointeurs" title="Permanent link">¤</a></h2>
+<h3 id="initialisation-dun-pointeur-sur-une-structure">Initialisation d'un pointeur sur une structure<a class="headerlink" href="#initialisation-dun-pointeur-sur-une-structure" title="Permanent link">¤</a></h3>
 <p>De la même manière qu'avec les types standards, on peut définir un
 pointeur sur une structure de données.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
@@ -4418,17 +4420,17 @@ pointeur sur une structure de données.</p>
 </span><span id="__span-16-5"><a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="p">}</span><span class="w"> </span><span class="n">Date</span><span class="p">;</span>
 </span></code></pre></div>
 <p>L'exemple précédent définit un type de donnée <em>Date</em>. On pourrait donc
-initialiser un pointeur sur cette structure de la façon suivante&thinsp;:</p>
+initialiser un pointeur sur cette structure de la façon suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">Date</span><span class="w"> </span><span class="n">date</span><span class="p">;</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">Date</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span><span class="w">  </span><span class="c1">// Pointeur sur un type Date</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>
 </span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">date</span><span class="p">;</span><span class="w">  </span><span class="c1">// Initialisation du pointeur sur un type structuré</span>
 </span></code></pre></div>
-<p>Le pointeur reste un pointeur, soit un espace mémoire qui contient une adresse vers la structure <code>Date</code>. En conséquence, la taille de ce pointeur est de 8 bytes sur une machine 64 bits&thinsp;:</p>
+<p>Le pointeur reste un pointeur, soit un espace mémoire qui contient une adresse vers la structure <code>Date</code>. En conséquence, la taille de ce pointeur est de 8 bytes sur une machine 64 bits :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">Date</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
 </span></code></pre></div>
-<h3 id="utilisation-dun-pointeur-sur-une-structure">Utilisation d'un pointeur sur une structure<a class="headerlink" href="#utilisation-dun-pointeur-sur-une-structure" title="Permanent link">¶</a></h3>
+<h3 id="utilisation-dun-pointeur-sur-une-structure">Utilisation d'un pointeur sur une structure<a class="headerlink" href="#utilisation-dun-pointeur-sur-une-structure" title="Permanent link">¤</a></h3>
 <p>On a vu que les champs d'une structure sont accessibles au travers du
 <code>.</code> faisant la liaison entre la variable et le champ. Cela est
 valable si la variable est du type structuré. Si la variable est du type
@@ -4442,23 +4444,23 @@ pointeur sur une structure, on remplacera le <code>.</code> par <code>-&gt;</cod
 </span><span id="__span-19-7"><a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="n">p</span><span class="o">-&gt;</span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
 </span><span id="__span-19-8"><a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="n">p</span><span class="o">-&gt;</span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1964</span><span class="p">;</span>
 </span></code></pre></div>
-<p>La syntaxe <code>-&gt;</code> est un sucre syntaxique. Les deux écritures suivantes sont par conséquent équivalentes&thinsp;:</p>
+<p>La syntaxe <code>-&gt;</code> est un sucre syntaxique. Les deux écritures suivantes sont par conséquent équivalentes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">p</span><span class="o">-&gt;</span><span class="n">year</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">).</span><span class="n">year</span>
 </span></code></pre></div>
-<h3 id="utilisation-dun-pointeur-recursif-sur-une-structure">Utilisation d'un pointeur récursif sur une structure<a class="headerlink" href="#utilisation-dun-pointeur-recursif-sur-une-structure" title="Permanent link">¶</a></h3>
+<h3 id="utilisation-dun-pointeur-recursif-sur-une-structure">Utilisation d'un pointeur récursif sur une structure<a class="headerlink" href="#utilisation-dun-pointeur-recursif-sur-une-structure" title="Permanent link">¤</a></h3>
 <p>Lorsqu'on utilise des listes chaînées, on a besoin de créer une
 structure contenant des données ainsi qu'un pointeur sur un élément
 précédent et un autre sur l'élément suivant. Ces pointeurs sont du même
 type que la structure dans laquelle ils sont déclarés et cela impose un
-style d'écriture spécifique&thinsp;:</p>
+style d'écriture spécifique :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="o">*</span><span class="n">prev</span><span class="p">;</span><span class="w">  </span><span class="c1">// Pointeur sur l'élément précédent</span>
 </span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span><span class="w">  </span><span class="c1">// Pointeur sur l'élément suivant</span>
 </span><span id="__span-21-4"><a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w">  </span><span class="c1">// Donnée d'une liste chaînée</span>
 </span><span id="__span-21-5"><a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="p">}</span><span class="w"> </span><span class="n">Element</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Exemple d'utilisation&thinsp;:</p>
+<p>Exemple d'utilisation :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">Element</span><span class="w"> </span><span class="n">e</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>
 </span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="c1">// Premier élément de la liste</span>
@@ -4473,19 +4475,19 @@ style d'écriture spécifique&thinsp;:</p>
 </span><span id="__span-22-12"><a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 </span><span id="__span-22-13"><a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a><span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="pointeurs-et-parametres-de-fonctions">Pointeurs et paramètres de fonctions<a class="headerlink" href="#pointeurs-et-parametres-de-fonctions" title="Permanent link">¶</a></h2>
+<h2 id="pointeurs-et-parametres-de-fonctions">Pointeurs et paramètres de fonctions<a class="headerlink" href="#pointeurs-et-parametres-de-fonctions" title="Permanent link">¤</a></h2>
 <p>Les fonctions comportent une liste de paramètres permettant de retourner
 une information au programme appelant. Il est souvent indispensable de
 pouvoir fournir à une fonction des paramètres qu'elle peut modifier lors
 de son exécution. Pour ce faire, on passera par l'utilisation de
 pointeurs.</p>
-<h3 id="parametres-sous-la-forme-de-pointeurs">Paramètres sous la forme de pointeurs<a class="headerlink" href="#parametres-sous-la-forme-de-pointeurs" title="Permanent link">¶</a></h3>
+<h3 id="parametres-sous-la-forme-de-pointeurs">Paramètres sous la forme de pointeurs<a class="headerlink" href="#parametres-sous-la-forme-de-pointeurs" title="Permanent link">¤</a></h3>
 <p>Le prototype d'une fonction recevant un (ou plusieurs) pointeur s'écrit
-de la manière suivante&thinsp;:</p>
+de la manière suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">type</span><span class="w"> </span><span class="nf">fonction</span><span class="p">(</span><span class="n">Type</span><span class="w"> </span><span class="o">*</span><span class="n">param</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Cette fonction reçoit un paramètre (<em>param</em>) qui est un pointeur sur le type <code>Type</code>.</p>
-<p>Exemple de prototype&thinsp;:</p>
+<p>Exemple de prototype :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">pres</span><span class="p">);</span>
 </span></code></pre></div>
 <p>La fonction <em>calcul</em> prend 2 paramètres. Le premier (<em>x</em>) est du type
@@ -4509,33 +4511,33 @@ variable dans laquelle la fonction placera le résultat du calcul.</p>
 </span></code></pre></div>
 <p>Lors de l'appel d'une fonction recevant un pointeur comme paramètre, on
 placera le symbole <code>&amp;</code> pour lui donner l'adresse de la variable.</p>
-<h2 id="transtypage-de-pointeurs-cast">Transtypage de pointeurs (cast)<a class="headerlink" href="#transtypage-de-pointeurs-cast" title="Permanent link">¶</a></h2>
-<p>Le <code>cast</code> de pointeur s'avère nécessaire lorsqu'un pointeur du type <code>void</code> est déclaré, comme c'est le cas pour la fonction de copie mémoire <code>memcpy</code>. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoires peut être de nature très différente&thinsp;:</p>
+<h2 id="transtypage-de-pointeurs-cast">Transtypage de pointeurs (cast)<a class="headerlink" href="#transtypage-de-pointeurs-cast" title="Permanent link">¤</a></h2>
+<p>Le <code>cast</code> de pointeur s'avère nécessaire lorsqu'un pointeur du type <code>void</code> est déclaré, comme c'est le cas pour la fonction de copie mémoire <code>memcpy</code>. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoires peut être de nature très différente :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">message</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Mind the gap, please!"</span><span class="p">;</span>
 </span><span id="__span-26-2"><a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
 </span><span id="__span-26-3"><a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
 </span></code></pre></div>
-<p>Il faudrait donc autant de fonctions <code>memcpy</code> que de type possible, ce qui n'est ni raisonnable, ni même imaginable. Face à ce dilemme, on utilise un pointeur neutre, celui qui n'envie personne et que personne n'envie <code>void</code> et qui permet sans autre&thinsp;:</p>
+<p>Il faudrait donc autant de fonctions <code>memcpy</code> que de type possible, ce qui n'est ni raisonnable, ni même imaginable. Face à ce dilemme, on utilise un pointeur neutre, celui qui n'envie personne et que personne n'envie <code>void</code> et qui permet sans autre :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
 </span><span id="__span-27-2"><a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a>
 </span><span id="__span-27-3"><a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
 </span><span id="__span-27-4"><a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">;</span>
 </span><span id="__span-27-5"><a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elements</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Que pensez-vous que <code>sizeof(void)</code> devrait retourner&thinsp;? Formellement ceci devrait mener à une erreur de compilation, car <code>void</code> n'a pas de substance, et donc aucune taille associée. Néanmoins <code>gcc</code> est très permissif de base et (à ma <a href="https://stackoverflow.com/questions/1666224/what-is-the-size-of-void">grande surprise</a>), il ne génère par défaut ni <em>warning</em>, ni erreurs sans l'option <code>-Wpointer-arith</code> sur laquelle nous aurons tout le loisir de revenir.</p>
-<p>L'intérêt d'un pointeur, c'est justement de pointer une région mémoire et le plus souvent, de la balayer grâce à l'arithmétique de pointeurs. Notre fonction de copie mémoire doit en somme pouvoir parcourir toute la région mémoire de source et de destination et de ce fait incrémenter le pointeur. Mais, n'ayant aucune taille l'arithmétique de pointeur n'est pas autorisée avec le pointeur <code>void</code> et nous voilà bien avancés, notre pointeur ne nous est guère d'usage que son utilité éponyme&thinsp;: rien.</p>
+<p>Que pensez-vous que <code>sizeof(void)</code> devrait retourner ? Formellement ceci devrait mener à une erreur de compilation, car <code>void</code> n'a pas de substance, et donc aucune taille associée. Néanmoins <code>gcc</code> est très permissif de base et (à ma <a href="https://stackoverflow.com/questions/1666224/what-is-the-size-of-void">grande surprise</a>), il ne génère par défaut ni <em>warning</em>, ni erreurs sans l'option <code>-Wpointer-arith</code> sur laquelle nous aurons tout le loisir de revenir.</p>
+<p>L'intérêt d'un pointeur, c'est justement de pointer une région mémoire et le plus souvent, de la balayer grâce à l'arithmétique de pointeurs. Notre fonction de copie mémoire doit en somme pouvoir parcourir toute la région mémoire de source et de destination et de ce fait incrémenter le pointeur. Mais, n'ayant aucune taille l'arithmétique de pointeur n'est pas autorisée avec le pointeur <code>void</code> et nous voilà bien avancés, notre pointeur ne nous est guère d'usage que son utilité éponyme : rien.</p>
 <p>Or, le titre de cette section étant le transtypage, il doit donc y avoir moyen de s'en sortir par une pirouette programmatique dans laquelle je déclare un nouveau pointeur du type char auquel j'associe la valeur de ptr par un <strong>cast explicite</strong>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">iptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">ptr</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Dès lors, l'arithmétique est redevient possible <code>iptr++</code>. Pourquoi ne pas avoir utilisé ce subterfuge plus tôt me direz-vous&thinsp;? En effet, il m'aurait été possible d'écrire <code>char *ptr = (char*)elements;</code> directement et sans détour, mais ceci aurait alors mené à ce prototype-ci&thinsp;:</p>
+<p>Dès lors, l'arithmétique est redevient possible <code>iptr++</code>. Pourquoi ne pas avoir utilisé ce subterfuge plus tôt me direz-vous ? En effet, il m'aurait été possible d'écrire <code>char *ptr = (char*)elements;</code> directement et sans détour, mais ceci aurait alors mené à ce prototype-ci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 </span></code></pre></div>
-<p>La clé est dans le standard ISO/IEC 9899:2011 section 6.3.2.3 page 55&thinsp;:</p>
+<p>La clé est dans le standard ISO/IEC 9899:2011 section 6.3.2.3 page 55 :</p>
 <blockquote>
-<p>A pointer to void may be converted to or from a pointer to any object type. A pointer to any object type may be converted to a pointer to void and back again&thinsp;; the result shall compare equal to the original pointer.</p>
+<p>A pointer to void may be converted to or from a pointer to any object type. A pointer to any object type may be converted to a pointer to void and back again ; the result shall compare equal to the original pointer.</p>
 </blockquote>
 <p>Autrement dit, il n'est pas nécessaire ni recommandé de faire un transtypage explicite pour convertir vers et en provenance d'un pointeur sur <code>void</code>. Et donc, l'astuce de memcpy est que la fonction accepte n'importe quel type de pointeur et c'est le message auto documenté du code.</p>
-<p>Et quant à l'implémentation de cette fonction me direz-vous&thinsp;? Une possibilité serait&thinsp;:</p>
+<p>Et quant à l'implémentation de cette fonction me direz-vous ? Une possibilité serait :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-30-1"><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </span><span id="__span-30-2"><a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="p">{</span>
 </span><span id="__span-30-3"><a href="#__codelineno-30-3" id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="w">    </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">csrc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">;</span>
@@ -4545,14 +4547,14 @@ placera le symbole <code>&amp;</code> pour lui donner l'adresse de la variable.<
 </span><span id="__span-30-7"><a href="#__codelineno-30-7" id="__codelineno-30-7" name="__codelineno-30-7"></a><span class="w">        </span><span class="n">cdest</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csrc</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 </span><span id="__span-30-8"><a href="#__codelineno-30-8" id="__codelineno-30-8" name="__codelineno-30-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Où plus concis&thinsp;:</p>
+<p>Où plus concis :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-31-1"><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </span><span id="__span-31-2"><a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="p">{</span>
 </span><span id="__span-31-3"><a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 </span><span id="__span-31-4"><a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="w">        </span><span class="p">((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">dst</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">src</span><span class="p">)[</span><span class="n">i</span><span class="p">];</span>
 </span><span id="__span-31-5"><a href="#__codelineno-31-5" id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Or, rien de tout ceci n'est juste. <code>memcpy</code> est une fonction fondamentale en C, ce pourquoi nous nous y attardons temps. Elle est constamment utilisée et doit être extrêmement performante. Aussi, si le compilateur cible une architecture 64-bits pourquoi diable copier les éléments par paquet de 8-bits. C'est un peu comme si notre facteur, au début de ce chapitre, aurait fait ses allers-retours avec en tête qu'un octet par trajet. L'implémentation dépend donc de l'architecture cible et doit tenir compte des éventuels effets de bords. Par exemple s'il faut copier un tableau de 9 x 32 bits. Une architecture 64-bits aura une grande facilité à copier les 8 premiers octets, mais quant au dernier, il s'agit d'un cas particulier et selon la taille de la copie et l'architecture du processeur, l'implémentation devra être ajustée. C'est pourquoi ce type très bas niveau de fonction est l'affaire d'une cuisine interne du compilateur et dont le développeur ne doit pas se soucier. Vous êtes comme <a href="https://fr.wikipedia.org/wiki/Thomas_(ap%C3%B4tre)">Thomas l'apôtre</a>, et ne me croyez pas&thinsp;? Alors, digressons et essayons&thinsp;:</p>
+<p>Or, rien de tout ceci n'est juste. <code>memcpy</code> est une fonction fondamentale en C, ce pourquoi nous nous y attardons temps. Elle est constamment utilisée et doit être extrêmement performante. Aussi, si le compilateur cible une architecture 64-bits pourquoi diable copier les éléments par paquet de 8-bits. C'est un peu comme si notre facteur, au début de ce chapitre, aurait fait ses allers-retours avec en tête qu'un octet par trajet. L'implémentation dépend donc de l'architecture cible et doit tenir compte des éventuels effets de bords. Par exemple s'il faut copier un tableau de 9 x 32 bits. Une architecture 64-bits aura une grande facilité à copier les 8 premiers octets, mais quant au dernier, il s'agit d'un cas particulier et selon la taille de la copie et l'architecture du processeur, l'implémentation devra être ajustée. C'est pourquoi ce type très bas niveau de fonction est l'affaire d'une cuisine interne du compilateur et dont le développeur ne doit pas se soucier. Vous êtes comme <a href="https://fr.wikipedia.org/wiki/Thomas_(ap%C3%B4tre)">Thomas l'apôtre</a>, et ne me croyez pas ? Alors, digressons et essayons :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
 </span><span id="__span-32-2"><a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-32-3"><a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a>
@@ -4598,9 +4600,9 @@ placera le symbole <code>&amp;</code> pour lui donner l'adresse de la variable.<
 </span><span id="__span-33-29"><a href="#__codelineno-33-29" id="__codelineno-33-29" name="__codelineno-33-29"></a>    .ascii  "La Broye c'est fantastique!\000"
 </span></code></pre></div>
 <p>Vous pouvez jouer avec cet exemple sur le site <a href="https://godbolt.org">godbolt</a>.</p>
-<h2 id="pointeurs-de-fonctions">Pointeurs de fonctions<a class="headerlink" href="#pointeurs-de-fonctions" title="Permanent link">¶</a></h2>
+<h2 id="pointeurs-de-fonctions">Pointeurs de fonctions<a class="headerlink" href="#pointeurs-de-fonctions" title="Permanent link">¤</a></h2>
 <p>Un pointeur peut pointer n'importe où en mémoire, et donc il peut également pointer non pas sur une variable, mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel (<a href="https://fr.wikipedia.org/wiki/Fonction_de_rappel">callback</a>).</p>
-<p>Par exemple on veut appliquer une transformation sur tous les éléments d'un tableau, mais la transformation n'est pas connue à l'avance. On pourrait écrire&thinsp;:</p>
+<p>Par exemple on veut appliquer une transformation sur tous les éléments d'un tableau, mais la transformation n'est pas connue à l'avance. On pourrait écrire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">is_odd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </span><span id="__span-34-2"><a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="p">{</span>
 </span><span id="__span-34-3"><a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
@@ -4620,7 +4622,7 @@ placera le symbole <code>&amp;</code> pour lui donner l'adresse de la variable.<
 </span><span id="__span-34-17"><a href="#__codelineno-34-17" id="__codelineno-34-17" name="__codelineno-34-17"></a><span class="w">    </span><span class="n">map</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">is_odd</span><span class="p">);</span>
 </span><span id="__span-34-18"><a href="#__codelineno-34-18" id="__codelineno-34-18" name="__codelineno-34-18"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Avec la règle gauche droite, on parvient à décortiquer la déclaration&thinsp;:</p>
+<p>Avec la règle gauche droite, on parvient à décortiquer la déclaration :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span>
 </span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="w">      </span><span class="o">^^^^^^^^</span><span class="w">        </span><span class="n">callback</span><span class="w"> </span><span class="n">is</span>
 </span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="w">              </span><span class="o">^</span>
@@ -4628,8 +4630,8 @@ placera le symbole <code>&amp;</code> pour lui donner l'adresse de la variable.<
 </span><span id="__span-35-5"><a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="w">               </span><span class="o">^^^^^</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">taking</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="kt">int</span>
 </span><span id="__span-35-6"><a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="o">^^^</span><span class="w">                   </span><span class="n">and</span><span class="w"> </span><span class="n">returning</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="kt">int</span>
 </span></code></pre></div>
-<h2 id="la-regle-gauche-droite">La règle gauche-droite<a class="headerlink" href="#la-regle-gauche-droite" title="Permanent link">¶</a></h2>
-<p>Cette <a href="http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html">règle</a> est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs. Il faut tout d'abord lire&thinsp;:</p>
+<h2 id="la-regle-gauche-droite">La règle gauche-droite<a class="headerlink" href="#la-regle-gauche-droite" title="Permanent link">¤</a></h2>
+<p>Cette <a href="http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html">règle</a> est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs. Il faut tout d'abord lire :</p>
 <table id="_table-3">
 <caption style="caption-side:top"> Règles gauche droite</caption><thead>
 <tr>
@@ -4674,12 +4676,12 @@ placera le symbole <code>&amp;</code> pour lui donner l'adresse de la variable.<
 <p>Continuez les étapes 2 et 3 jusqu'à ce que vous avez une déclaration complète.</p>
 </dd>
 </dl>
-<p>Voici quelques exemples&thinsp;:</p>
+<p>Voici quelques exemples :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">[];</span>
 </span></code></pre></div>
 <ol>
 <li>
-<p>Trouver l'identifiant&thinsp;: <code>p</code>: <code>p est</code></p>
+<p>Trouver l'identifiant : <code>p</code>: <code>p est</code></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-37-1"><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">[];</span>
 </span><span id="__span-37-2"><a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="w">     </span><span class="o">^</span>
 </span></code></pre></div>
@@ -4703,13 +4705,13 @@ placera le symbole <code>&amp;</code> pour lui donner l'adresse de la variable.<
 </span></code></pre></div>
 </li>
 </ol>
-<h3 id="cdecl">cdecl<a class="headerlink" href="#cdecl" title="Permanent link">¶</a></h3>
-<p>Il existe un programme nommé <a href="https://github.com/paul-j-lucas/cdecl">cdecl</a> qui permet de décoder de complexes déclaration c&thinsp;:</p>
+<h3 id="cdecl">cdecl<a class="headerlink" href="#cdecl" title="Permanent link">¤</a></h3>
+<p>Il existe un programme nommé <a href="https://github.com/paul-j-lucas/cdecl">cdecl</a> qui permet de décoder de complexes déclaration c :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="gp">$ </span>cdecl<span class="w"> </span><span class="s1">'char (*(*x[3])())[5]'</span>
 </span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="go">declare x as array 3 of pointer to function returning pointer to array 5 of char</span>
 </span></code></pre></div>
 <p>Une version en ligne est également <a href="https://cdecl.org/">disponible</a>.</p>
-<h2 id="initialisation-par-transtypage">Initialisation par transtypage<a class="headerlink" href="#initialisation-par-transtypage" title="Permanent link">¶</a></h2>
+<h2 id="initialisation-par-transtypage">Initialisation par transtypage<a class="headerlink" href="#initialisation-par-transtypage" title="Permanent link">¤</a></h2>
 <p>L'utilisation de structure peut être utile pour initialiser un type de donnée en utilisant un autre type de donnée. Nous citons ici deux exemples.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-42-1"><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)(</span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="p">}){</span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="sc">'b'</span><span class="p">,</span><span class="w"> </span><span class="sc">'c'</span><span class="p">,</span><span class="w"> </span><span class="sc">'d'</span><span class="p">};</span>
 </span></code></pre></div>
@@ -4718,17 +4720,17 @@ placera le symbole <code>&amp;</code> pour lui donner l'adresse de la variable.<
 </span><span id="__span-43-3"><a href="#__codelineno-43-3" id="__codelineno-43-3" name="__codelineno-43-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">vector</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
 </span><span id="__span-43-4"><a href="#__codelineno-43-4" id="__codelineno-43-4" name="__codelineno-43-4"></a><span class="p">}</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="enchevetrement-ou-aliasing">Enchevêtrement ou <em>Aliasing</em><a class="headerlink" href="#enchevetrement-ou-aliasing" title="Permanent link">¶</a></h2>
+<h2 id="enchevetrement-ou-aliasing">Enchevêtrement ou <em>Aliasing</em><a class="headerlink" href="#enchevetrement-ou-aliasing" title="Permanent link">¤</a></h2>
 <p>Travailler avec les pointeurs demande une attention particulière à tous
 les problèmes d'<em>alisasing</em> dans lesquels différents pointeurs pointent sur
 une même région mémoire.</p>
-<p>Mettons que l'on souhaite simplement déplacer une région mémoire vers une nouvelle région mémoire. On pourrait implémenter le code suivant&thinsp;:</p>
+<p>Mettons que l'on souhaite simplement déplacer une région mémoire vers une nouvelle région mémoire. On pourrait implémenter le code suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">memory_move</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-44-2"><a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 </span><span id="__span-44-3"><a href="#__codelineno-44-3" id="__codelineno-44-3" name="__codelineno-44-3"></a><span class="w">        </span><span class="o">*</span><span class="n">dst</span><span class="o">++</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="o">++</span><span class="p">;</span>
 </span><span id="__span-44-4"><a href="#__codelineno-44-4" id="__codelineno-44-4" name="__codelineno-44-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Ce code est très simple mais il peut poser problème selon les cas. Imaginons que l'on dispose d'un tableau simple de dix éléments et de deux pointeurs <code>*src</code> et <code>*dst</code>. Pour déplacer la région du tableau de 4 éléments vers la droite. On se dirait que le code suivant pourrait fonctionner&thinsp;:</p>
+<p>Ce code est très simple mais il peut poser problème selon les cas. Imaginons que l'on dispose d'un tableau simple de dix éléments et de deux pointeurs <code>*src</code> et <code>*dst</code>. Pour déplacer la région du tableau de 4 éléments vers la droite. On se dirait que le code suivant pourrait fonctionner :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a>┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
 </span><span id="__span-45-2"><a href="#__codelineno-45-2" id="__codelineno-45-2" name="__codelineno-45-2"></a>│0│1│2│3│4│5│6│7│8│9│
 </span><span id="__span-45-3"><a href="#__codelineno-45-3" id="__codelineno-45-3" name="__codelineno-45-3"></a>└─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
@@ -4760,15 +4762,15 @@ une même région mémoire.</p>
 </span></code></pre></div>
 <p>Notre simple fonction de déplacement mémoire ne fonctionne pas avec des régions mémoires qui s'enchevêtrent. En revanche, la fonction standard <code>memmove</code> de <code>&lt;stdlib.h&gt;</code> fonctionne, car elle autorise, au détriment d'une plus grande complexité, de gérer ce type de situation.</p>
 <p>Notons que sa fonction voisine <code>memcpy</code> ne dois <strong>jamais</strong> être utilisée en cas d'<em>aliasing</em>. Cette fonction se veut performante, c'est-à-dire qu'elle peut être implémentée en suivant le même principe que notre exemple <code>memory_move</code>. Le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> ne définit pas le comportement de <code>memcpy</code> pour des pointeurs qui se chevauchent.</p>
-<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¶</a></h2>
+<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¤</a></h2>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Esperluettes cascadées<span class="exercise-title"></span></p>
-<p>Quel est le type de&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Esperluettes cascadées<span class="exercise-title"></span></p>
+<p>Quel est le type de :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-48-1"><a href="#__codelineno-48-1" id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="o">*&amp;*&amp;*&amp;*&amp;*&amp;*&amp;</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">x</span><span class="p">;</span>
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Passage par adresse<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Passage par adresse<span class="exercise-title"></span></p>
 <p>Donnez les valeurs affichées par ce programme pour les variables <code>a</code> à <code>e</code>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-49-1"><a href="#__codelineno-49-1" id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-49-2"><a href="#__codelineno-49-2" id="__codelineno-49-2" name="__codelineno-49-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
@@ -4879,7 +4881,7 @@ une même région mémoire.</p>
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -5019,7 +5021,7 @@ une même région mémoire.</p>
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

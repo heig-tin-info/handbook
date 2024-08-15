@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3964,15 +3966,15 @@
   
 
 
-<h1 id="systemes-a-microcontroleurs">Systèmes à microcontrôleurs<a class="headerlink" href="#systemes-a-microcontroleurs" title="Permanent link">¶</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
-<h2 id="les-microcontroleurs">Les microcontrôleurs<a class="headerlink" href="#les-microcontroleurs" title="Permanent link">¶</a></h2>
+<h1 id="systemes-a-microcontroleurs">Systèmes à microcontrôleurs<a class="headerlink" href="#systemes-a-microcontroleurs" title="Permanent link">¤</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
+<h2 id="les-microcontroleurs">Les microcontrôleurs<a class="headerlink" href="#les-microcontroleurs" title="Permanent link">¤</a></h2>
 <p>Un microcontrôleur est un ordinateur sur une puce. Il est composé d'un processeur, de mémoire et de périphériques d'entrée/sortie. Les microcontrôleurs sont utilisés dans de nombreux systèmes embarqués, tels que les télécommandes, les jouets, les appareils électroménagers, les instruments de mesure, les systèmes de contrôle de moteurs etc. Nous avons déjà évoqué la <a class="autorefs autorefs-internal" href="../../05-introduction/programming/#les-systemes-a-microcontroleurs">machine à café</a> en début de cours qui est un bon exemple de système embarqué.</p>
-<h2 id="style-de-programmation">Style de programmation<a class="headerlink" href="#style-de-programmation" title="Permanent link">¶</a></h2>
+<h2 id="style-de-programmation">Style de programmation<a class="headerlink" href="#style-de-programmation" title="Permanent link">¤</a></h2>
 <p>D'ordinaire les petits microcontrôleurs sont programmés en langage C, néanmoins certaines possibilités du langage sont généralement prohibées. Par exemple, les pointeurs de fonction sont rarement utilisés, les fonctions récursives sont à proscrire, les allocations dynamiques de mémoire sont interdites, etc. Les microcontrôleurs ont des ressources limitées et le programmeur doit en tenir compte.</p>
 <p>L'allocation dynamique est interdite car elle peut entraîner des fuites de mémoire ou de la fragmentation.</p>
 <p>L'exécution du programme est très souvent dite <a href="https://fr.wikipedia.org/wiki/Bare_metal">bare-metal</a>, c'est-à-dire sans système d'exploitation. Le programme est exécuté directement sur le microcontrôleur sans aucune couche intermédiaire. Cela permet d'avoir un contrôle total sur le matériel. Mais cela rend le programme non préemptif, c'est-à-dire qu'il n'y a pas de gestionnaire de tâches qui peut interrompre le programme en cours d'exécution.</p>
-<p>Prenons l'exemple d'une montre à aiguille équipée d'un microcontrôleur à ultra basse consommation comme le <a href="https://global.epson.com/products_and_drivers/semicon/products/micro_controller/16bit/">Epson S1C17</a>. Il ne serait pas raisonnable d'utiliser des boucles d'attentes actives (c'est-à-dire de compter un cerain nombre d'instructions correspondant à une seconde), au lieu de cela, il est préférable d'utiliser un timer pour réveiller le microcontrôleur toutes les secondes. Ce timer est un périphérique matériel qui génère une interruption toutes les secondes. L'interruption, via une table des vecteurs d'interruption, appelle une fonction qui met à jour l'affichage de la montre. Aussi, c'est principalement dans cette fonction qu'aura lieu la majorité du programme, et il n'est pas rare d'avoir un programme de cette forme&thinsp;:</p>
+<p>Prenons l'exemple d'une montre à aiguille équipée d'un microcontrôleur à ultra basse consommation comme le <a href="https://global.epson.com/products_and_drivers/semicon/products/micro_controller/16bit/">Epson S1C17</a>. Il ne serait pas raisonnable d'utiliser des boucles d'attentes actives (c'est-à-dire de compter un cerain nombre d'instructions correspondant à une seconde), au lieu de cela, il est préférable d'utiliser un timer pour réveiller le microcontrôleur toutes les secondes. Ce timer est un périphérique matériel qui génère une interruption toutes les secondes. L'interruption, via une table des vecteurs d'interruption, appelle une fonction qui met à jour l'affichage de la montre. Aussi, c'est principalement dans cette fonction qu'aura lieu la majorité du programme, et il n'est pas rare d'avoir un programme de cette forme :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">timer_isr</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="n">update_display</span><span class="p">();</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="n">sleep</span><span class="p">();</span><span class="w"> </span><span class="c1">// Suspend l'exécution du programme jusqu'à une interruption</span>
@@ -3985,9 +3987,9 @@
 </span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="k">for</span><span class="p">(;;)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// Boucle infinie</span>
 </span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="interruptions">Interruptions<a class="headerlink" href="#interruptions" title="Permanent link">¶</a></h2>
-<h2 id="ports">Ports<a class="headerlink" href="#ports" title="Permanent link">¶</a></h2>
-<h2 id="timers">Timers<a class="headerlink" href="#timers" title="Permanent link">¶</a></h2>
+<h2 id="interruptions">Interruptions<a class="headerlink" href="#interruptions" title="Permanent link">¤</a></h2>
+<h2 id="ports">Ports<a class="headerlink" href="#ports" title="Permanent link">¤</a></h2>
+<h2 id="timers">Timers<a class="headerlink" href="#timers" title="Permanent link">¤</a></h2>
 
 
 
@@ -4074,7 +4076,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4214,7 +4216,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

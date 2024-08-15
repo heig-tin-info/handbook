@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3999,14 +4001,14 @@
 
 
 <p><a href="" id="algorithms-and-design"></a></p>
-<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h1>
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h1>
 <blockquote class="epigraph">... conduire par ordre mes pensées, en commençant par les objets les plus simples et les plus aisés à connaître, pour monter peu à peu, comme par degrés, jusques à la connaissance des plus composés; et supposant même de l'ordre entre ceux qui ne se précèdent point naturellement les uns les autres.<footer>René Descartes, Discours de la méthode</footer></blockquote>
 <p>L'algorithmique est le domaine scientifique qui étudie les algorithmes, une suite finie et non ambiguë d'opérations ou d'instructions permettant de résoudre un problème ou de traiter des données.</p>
 <p>Un algorithme peut être également considéré comme étant n'importe quelle séquence d'opérations pouvant être simulées par un système <a href="https://fr.wikipedia.org/wiki/Turing-complet">Turing-complet</a>. Un système est déclaré Turing-complet s'il peut simuler n'importe quelle <a href="https://fr.wikipedia.org/wiki/Machine_de_Turing">machine de Turing</a>. For heureusement, le langage C est Turing-complet puisqu'il possède tous les ingrédients nécessaires à la simulation de ces machines, soit compter, comparer, lire, écrire...</p>
-<p>Dans le cas qui concerne cet ouvrage, un algorithme est une recette exprimée en une liste d'instructions et permettant de résoudre un problème informatique. Cette recette contient à peu de choses près les éléments programmatiques que nous avons déjà entre aperçus&thinsp;: des structures de contrôle, des variables, etc.</p>
+<p>Dans le cas qui concerne cet ouvrage, un algorithme est une recette exprimée en une liste d'instructions et permettant de résoudre un problème informatique. Cette recette contient à peu de choses près les éléments programmatiques que nous avons déjà entre aperçus : des structures de contrôle, des variables, etc.</p>
 <p>Généralement un algorithme peut être exprimé graphiquement en utilisant un organigramme (<em>flowchart</em>) ou un structogramme (<em>Nassi-Shneiderman diagram</em>) afin de s'affranchir du langage de programmation cible.</p>
 <p>La <strong>conception</strong> aussi appelée <a href="https://fr.wikipedia.org/wiki/Architecture_logicielle">Architecture logicielle</a> est l'art de penser un programme avant son implémentation. La phase de conception fait bien souvent appel à des algorithmes.</p>
-<p>Pour être qualifiées d'algorithmes, certaines propriétés doivent être respectées&thinsp;:</p>
+<p>Pour être qualifiées d'algorithmes, certaines propriétés doivent être respectées :</p>
 <ol>
 <li><strong>Entrées</strong>, un algorithme doit posséder 0 ou plus d'entrées en provenance de l'extérieur de l'algorithme.</li>
 <li><strong>Sorties</strong>, un algorithme doit posséder au moins une sortie.</li>
@@ -4014,25 +4016,25 @@
 <li><strong>Finitude</strong>, un algorithme doit comporter un nombre fini d'étapes.</li>
 <li><strong>Répétable</strong>, un algorithme doit fournir un résultat répétable.</li>
 </ol>
-<h2 id="complexite-dun-algorithme">Complexité d'un algorithme<a class="headerlink" href="#complexite-dun-algorithme" title="Permanent link">¶</a></h2>
-<p>Il est souvent utile de savoir quelle est la performance d'un algorithme afin de le comparer à un autre algorithme équivalent. Il existe deux indicateurs&thinsp;:</p>
+<h2 id="complexite-dun-algorithme">Complexité d'un algorithme<a class="headerlink" href="#complexite-dun-algorithme" title="Permanent link">¤</a></h2>
+<p>Il est souvent utile de savoir quelle est la performance d'un algorithme afin de le comparer à un autre algorithme équivalent. Il existe deux indicateurs :</p>
 <ul>
-<li>La complexité en temps&thinsp;: combien de temps CPU consomme un algorithme pour s'exécuter.</li>
-<li>La complexité en mémoire&thinsp;: combien de mémoire tampon consomme un algorithme pour s'exécuter.</li>
+<li>La complexité en temps : combien de temps CPU consomme un algorithme pour s'exécuter.</li>
+<li>La complexité en mémoire : combien de mémoire tampon consomme un algorithme pour s'exécuter.</li>
 </ul>
 <p>Bien évidemment, la complexité d'un algorithme dépend des données en entrée. Par exemple si on vous donne à corriger un examen de 100 copies, et le protocol de correction associé, votre temps de travail dépendra du nombre de copies à corriger, je sais de quoi je parle...</p>
 <p>La complexité en temps et en mémoire d'un algorithme est souvent exprimée en utilisant la notation en O (<em>big O notation</em>). Cette notation a été ontroduite par le mathématicien et informaticien allemand Paul Bachmann en 1984 dans son ouvrage <em>Analytische Zahlentheorie</em>. Cependant, c'est le mathématicien austro-hongrois Edmund Landau qui a popularisé cette notation dans le contexte de la théorie des nombres.</p>
-<p>En substance, la complexité en temps d'un algorithme qui demanderait 10 étapes pour être résolu s'écrirait&thinsp;:</p>
+<p>En substance, la complexité en temps d'un algorithme qui demanderait 10 étapes pour être résolu s'écrirait :</p>
 <div class="arithmatex">\[
 O(10)
 \]</div>
-<p>Un algorithme qui ferait une recherche dichotomique sur un tableau de <span class="arithmatex">\(n\)</span> éléments à une complexité <span class="arithmatex">\(O(log(n))\)</span>. La recherche dichotomique c'est comme chercher un mot dans un dictionnaire. Vous ouvrez le dictionnaire à la moitié, si le mot est avant, vous répétez l'opération sur la première moitié, sinon sur la seconde. Vous répétez l'opération jusqu'à trouver le mot. À chaque étape vous éliminez la moitié restante des mots du dictionnaire. Si le dictionnaire contient 100'000 mots, vous aurez trouvé le mot en&thinsp;:</p>
+<p>Un algorithme qui ferait une recherche dichotomique sur un tableau de <span class="arithmatex">\(n\)</span> éléments à une complexité <span class="arithmatex">\(O(log(n))\)</span>. La recherche dichotomique c'est comme chercher un mot dans un dictionnaire. Vous ouvrez le dictionnaire à la moitié, si le mot est avant, vous répétez l'opération sur la première moitié, sinon sur la seconde. Vous répétez l'opération jusqu'à trouver le mot. À chaque étape vous éliminez la moitié restante des mots du dictionnaire. Si le dictionnaire contient 100'000 mots, vous aurez trouvé le mot en :</p>
 <div class="arithmatex">\[
 \log_2(100'000) = 16.6
 \]</div>
 <p>étapes. C'est bien plus rapide que de parcourir le dictionnaire de manière linéaire, en tournant les pages une à une.</p>
 <p>Prenons un algoritme qui prend un certain temps pour s'exécuter. L'algorithme <span class="arithmatex">\(A\)</span> prend <span class="arithmatex">\(f(n)\)</span> unités de temps pour une entrée de taille <span class="arithmatex">\(n\)</span>. On peut dire que <span class="arithmatex">\(A\)</span> est en <span class="arithmatex">\(O(g(n))\)</span> si <span class="arithmatex">\(f(n) \leq c \cdot g(n)\)</span> pour tout <span class="arithmatex">\(n \geq n_0\)</span>, où <span class="arithmatex">\(c\)</span> est une constante et <span class="arithmatex">\(n_0\)</span> est un entier.</p>
-<p>Il existe différents indicateurs de Landau&thinsp;:</p>
+<p>Il existe différents indicateurs de Landau :</p>
 <dl>
 <dt><strong>Notation Big O (O)</strong> :</dt>
 <dd>
@@ -4111,7 +4113,7 @@ O(10)
 </div>
 </div>
 </div>
-<p>D'une manière générale, la plupart des algorithmes que l'ingénieur écrira appartiendront à ces catégories exprimées du meilleur au plus mauvais&thinsp;:</p>
+<p>D'une manière générale, la plupart des algorithmes que l'ingénieur écrira appartiendront à ces catégories exprimées du meilleur au plus mauvais :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Temps pour différentes complexités d'algorithmes</caption><thead>
 <tr>
@@ -4152,16 +4154,16 @@ O(10)
 <td>aura ingurgité la terre</td>
 </tr>
 <tr>
-<td>$O(n&thinsp;!)`</td>
+<td>$O(n !)`</td>
 <td>trop trop grand</td>
 <td>La galaxie ne sera plus que poussière</td>
 </tr>
 </tbody>
 </table>
-<p>Les différentes complexités peuvent être résumées sur la figure suivante&thinsp;:</p>
+<p>Les différentes complexités peuvent être résumées sur la figure suivante :</p>
 <p><figure id="_figure-1"><img alt="Différentes complexités d'algorithmes" class="drawio-diagram" src="../../../assets/images/complexity.drawio"/><figcaption> Différentes complexités d'algorithmes</figcaption></figure></p>
 <p>Un algorithme en <span class="arithmatex">\(O(n^2)\)</span>, doit éveiller chez le développeur la volonté de voir s'il n'y a pas moyen d'optimiser l'algorithme en réduisant sa complexité, souvent on s'aperçoit qu'un algorithme peut être optimisé et s'intéresser à sa complexité est un excellent point d'entrée.</p>
-<p>Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyons par exemple les deux algorithmes suivants&thinsp;:</p>
+<p>Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyons par exemple les deux algorithmes suivants :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAX_INT</span><span class="p">;</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MIN_INT</span><span class="p">;</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
@@ -4192,23 +4194,23 @@ O(10)
 </span><span id="__span-6-16"><a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Triangle évanescent<span class="exercise-title"></span></p>
-<p>Quel serait l'algorithme permettant d'afficher&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Triangle évanescent<span class="exercise-title"></span></p>
+<p>Quel serait l'algorithme permettant d'afficher :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="o">*****</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="o">****</span>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="o">***</span>
 </span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="o">**</span>
 </span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="o">*</span>
 </span></code></pre></div>
-<p>et dont la taille peut varier&thinsp;?</p>
+<p>et dont la taille peut varier ?</p>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: L'entier manquant<span class="exercise-title"></span></p>
-<p>On vous donne un gros fichier de 3'000'000'000 entiers positifs 32-bits, il vous faut générer un entier qui n'est pas dans la liste. Le hic, c'est que vous n'avez que 500 MiB de mémoire de travail. Quel algorithme proposez-vous&thinsp;?</p>
-<p>Une fois le travail terminé, votre manager vient vous voir pour vous annoncer que le cahier des charges a été modifié. Le client dit qu'il n'a que 10 MiB. Pensez-vous pouvoir résoudre le problème quand même&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>L'entier manquant<span class="exercise-title"></span></p>
+<p>On vous donne un gros fichier de 3'000'000'000 entiers positifs 32-bits, il vous faut générer un entier qui n'est pas dans la liste. Le hic, c'est que vous n'avez que 500 MiB de mémoire de travail. Quel algorithme proposez-vous ?</p>
+<p>Une fois le travail terminé, votre manager vient vous voir pour vous annoncer que le cahier des charges a été modifié. Le client dit qu'il n'a que 10 MiB. Pensez-vous pouvoir résoudre le problème quand même ?</p>
 </div>
-<h2 id="machines-detats">Machines d'états<a class="headerlink" href="#machines-detats" title="Permanent link">¶</a></h2>
-<h2 id="diagrammes-visuels">Diagrammes visuels<a class="headerlink" href="#diagrammes-visuels" title="Permanent link">¶</a></h2>
+<h2 id="machines-detats">Machines d'états<a class="headerlink" href="#machines-detats" title="Permanent link">¤</a></h2>
+<h2 id="diagrammes-visuels">Diagrammes visuels<a class="headerlink" href="#diagrammes-visuels" title="Permanent link">¤</a></h2>
 <ul>
 <li>Diagrammes en flux</li>
 <li>Structogrammes</li>
@@ -4216,24 +4218,24 @@ O(10)
 <li>Machines d'états (<a href="https://en.wikipedia.org/wiki/UML_state_machine">UML state machine</a>)</li>
 <li><a href="https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation">BPMN</a> (<em>Business Process Model and Notation</em>)</li>
 </ul>
-<h2 id="type-dalgorithmes">Type d'algorithmes<a class="headerlink" href="#type-dalgorithmes" title="Permanent link">¶</a></h2>
-<h3 id="algorithmes-en-ligne-incremental">Algorithmes en ligne (incrémental)<a class="headerlink" href="#algorithmes-en-ligne-incremental" title="Permanent link">¶</a></h3>
+<h2 id="type-dalgorithmes">Type d'algorithmes<a class="headerlink" href="#type-dalgorithmes" title="Permanent link">¤</a></h2>
+<h3 id="algorithmes-en-ligne-incremental">Algorithmes en ligne (incrémental)<a class="headerlink" href="#algorithmes-en-ligne-incremental" title="Permanent link">¤</a></h3>
 <p>Un algorithme incrémental ou <a href="https://fr.wikipedia.org/wiki/Algorithme_online">online</a> est un algorithme qui peut s'exécuter sur un flux de données continu en entrée. C'est-à-dire qu'il est en mesure de prendre des décisions sans avoir besoin d'une visibilité complète sur le set de données.</p>
 <p>Un exemple typique est le <a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_secr%C3%A9taire">problème de la secrétaire</a>. On souhaite recruter une nouvelle secrétaire et le recruteur voit défiler les candidats. Il doit décider à chaque entretien s'il engage ou non le candidat et ne peut pas attendre la fin du processus d'entretiens pour obtenir le score attribué à chaque candidat. Il ne peut comparer la performance de l'un qu'à celle de deux déjà entrevus. L'objectif est de trouver la meilleure stratégie.</p>
 <p>La solution à ce problème est de laisser passer 37% des candidats sans les engager. Ceci correspond à une proportion de <span class="arithmatex">\(1/e\)</span>. Ensuite il suffit d'attendre un ou une candidate meilleure que tous ceux/celles du premier échantillon.</p>
-<h2 id="methodes-de-resolution">Méthodes de résolution<a class="headerlink" href="#methodes-de-resolution" title="Permanent link">¶</a></h2>
-<p>Il existe deux méthodes quasiment infaillibles pour résoudre un problème complexe&thinsp;:</p>
+<h2 id="methodes-de-resolution">Méthodes de résolution<a class="headerlink" href="#methodes-de-resolution" title="Permanent link">¤</a></h2>
+<p>Il existe deux méthodes quasiment infaillibles pour résoudre un problème complexe :</p>
 <ol>
 <li>La réduction du problème en sous-problèmes plus simples.</li>
 <li>Le raisonnement par l'inverse.</li>
 </ol>
 <p>La rédiction aussi appelée <a href="https://fr.wikipedia.org/wiki/Diviser_pour_r%C3%A9gner">Divide and Conquer</a> consiste à diviser un problème en sous-problèmes plus simples, les résoudre et combiner les solutions pour obtenir la solution du problème initial. C'est une méthode très utilisée en informatique pour résoudre des problèmes complexes. Par exemple, le tri fusion, le tri rapide, la recherche dichotomique sont des méthodes de résolution de problèmes basées sur la réduction.</p>
 <p>Le raisonnement par l'inverse consiste à partir de la solution pour remonter au problème en posant des hypothèses. Par exemple, si vous avez un problème de recherche de chemin, vous pouvez partir de la destination pour remonter au point de départ. C'est une méthode très utilisée en mathématiques pour résoudre des problèmes complexes. Par exemple, la méthode de Newton pour trouver les racines d'une fonction est basée sur le raisonnement par l'inverse.</p>
-<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¶</a></h2>
+<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¤</a></h2>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Intégrateur de Kahan<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 3 : </span>Intégrateur de Kahan<span class="exercise-title"></span></p>
 <p>L'intégrateur de Kahan (<a href="https://en.wikipedia.org/wiki/Kahan_summation_algorithm">Kahan summation algorithm</a>) est une solution élégante pour pallier à la limite de résolution des types de données.</p>
-<p>L'algorithme pseudo-code peut être exprimé comme&thinsp;:</p>
+<p>L'algorithme pseudo-code peut être exprimé comme :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>function kahan_sum(input)
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>    var sum = 0.0
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>    var c = 0.0
@@ -4247,7 +4249,7 @@ O(10)
 </span></code></pre></div>
 <ol>
 <li>
-<p>Implémenter cet algorithme en C compte tenu du prototype&thinsp;:</p>
+<p>Implémenter cet algorithme en C compte tenu du prototype :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">float</span><span class="w"> </span><span class="nf">kahan_sum</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">sum</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 </span></code></pre></div>
 </li>
@@ -4258,9 +4260,9 @@ O(10)
 </ol>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Robot aspirateur affamé<span class="exercise-title"></span></p>
-<p>Un robot aspirateur souhaite se rassasier et cherche le frigo, le problème c'est qu'il ne sait pas où il est. Elle serait la stratégie de recherche du robot pour se rendre à la cuisine&thinsp;?</p>
-<p>Le robot dispose de plusieurs fonctionnalités&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 4 : </span>Robot aspirateur affamé<span class="exercise-title"></span></p>
+<p>Un robot aspirateur souhaite se rassasier et cherche le frigo, le problème c'est qu'il ne sait pas où il est. Elle serait la stratégie de recherche du robot pour se rendre à la cuisine ?</p>
+<p>Le robot dispose de plusieurs fonctionnalités :</p>
 <ul>
 <li>Avancer</li>
 <li>Tourner à droite de 90°</li>
@@ -4379,7 +4381,7 @@ O(10)
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4519,7 +4521,7 @@ O(10)
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

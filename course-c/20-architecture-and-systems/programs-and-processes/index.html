@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4176,9 +4178,9 @@
   
 
 
-<h1 id="programmes-et-processus">Programmes et Processus<a class="headerlink" href="#programmes-et-processus" title="Permanent link">¶</a></h1>
-<h2 id="quest-ce-quun-programme">Qu'est-ce qu'un programme&thinsp;?<a class="headerlink" href="#quest-ce-quun-programme" title="Permanent link">¶</a></h2>
-<p>Un <a href="https://fr.wikipedia.org/wiki/Programme_informatique">programme informatique</a> est un ensemble d'opérations destinées à être exécutées par un ordinateur. Un programme peut se décliner sous plusieurs formes&thinsp;:</p>
+<h1 id="programmes-et-processus">Programmes et Processus<a class="headerlink" href="#programmes-et-processus" title="Permanent link">¤</a></h1>
+<h2 id="quest-ce-quun-programme">Qu'est-ce qu'un programme ?<a class="headerlink" href="#quest-ce-quun-programme" title="Permanent link">¤</a></h2>
+<p>Un <a href="https://fr.wikipedia.org/wiki/Programme_informatique">programme informatique</a> est un ensemble d'opérations destinées à être exécutées par un ordinateur. Un programme peut se décliner sous plusieurs formes :</p>
 <ul>
 <li>Le code source (C, C++, Python, Java, etc.)</li>
 <li>Le <em>listing</em> assembleur (<code>.s</code>, <code>.asm</code>)</li>
@@ -4186,13 +4188,13 @@
 </ul>
 <p>Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d'exploitation">systèmes d'exploitation</a> tels que Windows sont dits <a href="https://fr.wikipedia.org/wiki/Multitasking">multitâches</a>, il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.</p>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/vintage-programmer.jpg"><img alt="Programmeuse à côté de cartes perforées" src="../../../assets/images/vintage-programmer.jpg" width="60%"/></a><figcaption> Programmeuse en tenue décontractée à côté de 62'500 cartes perforées</figcaption></figure></p>
-<h3 id="code-source">Code source<a class="headerlink" href="#code-source" title="Permanent link">¶</a></h3>
+<h3 id="code-source">Code source<a class="headerlink" href="#code-source" title="Permanent link">¤</a></h3>
 <p>Le <strong>code source</strong> est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes <a href="https://fr.wikipedia.org/wiki/Langage_Ladder">Ladder</a> utilisés dans les automates programmables et respectant la norme <a href="https://fr.wikipedia.org/wiki/CEI_61131-3">IEC 61131-3</a>, ou <a href="https://fr.wikipedia.org/wiki/LabVIEW">LabView</a> un outil de développement graphique.</p>
 <p>Le plus souvent le code source est organisé en une <a href="https://fr.wikipedia.org/wiki/Arborescence">arborescence</a> de fichiers. Des programmes complexes comme le noyau Linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.</p>
-<h3 id="executable-binaire">Exécutable binaire<a class="headerlink" href="#executable-binaire" title="Permanent link">¶</a></h3>
+<h3 id="executable-binaire">Exécutable binaire<a class="headerlink" href="#executable-binaire" title="Permanent link">¤</a></h3>
 <p>Une fois compilé en <a href="https://fr.wikipedia.org/wiki/Langage_machine">langage machine</a>, il en résulte un fichier qui peut être exécuté soit par un système d'exploitation, soit sur une plateforme embarquée à microcontrôleur sans l'intermédiaire d'un système d'exploitation. On dit que ce type de programme est <a href="https://en.wikipedia.org/wiki/Bare_machine">bare metal</a>, qu'il s'exécute à même le métal.</p>
 <p>Un exécutable binaire doit être compilé pour la bonne architecture matérielle. Un programme compilé pour un processeur INTEL ne pourra pas s'exécuter sur un processeur ARM, c'est pourquoi on utilise différents compilateurs en fonctions des architectures cibles. L'opération de compiler un programme pour une autre architecture, ou un autre système d'exploitation que celui sur lequel est installé le compilateur s'appelle la compilation croisée (<a href="https://en.wikipedia.org/wiki/Cross_compiler">cross-compilation</a>).</p>
-<p>Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci&thinsp;:</p>
+<p>Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
@@ -4212,7 +4214,7 @@
 </span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Une fois <a href="https://fr.wikipedia.org/wiki/Assembly_(informatique)">assemblé</a> le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc&thinsp;:</p>
+<p>Une fois <a href="https://fr.wikipedia.org/wiki/Assembly_(informatique)">assemblé</a> le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="go">gcc Fibonacci.c -o fibonacci.exe</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="go">objdump -d fibonacci.exe</span>
 </span></code></pre></div>
@@ -4249,7 +4251,7 @@
 </span><span id="__span-2-30"><a href="#__codelineno-2-30" id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="go">749:   00 00 00</span>
 </span><span id="__span-2-31"><a href="#__codelineno-2-31" id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="go">74c:   0f 1f 40 00             nopl   0x0(%rax)</span>
 </span></code></pre></div>
-<p>Avec un visualiseur hexadécimal, on peut extraire le langage machine du binaire exécutable. L'utilitaire <code>hexdump</code> est appelé avec deux options <code>-s</code> pour spécifier l'adresse de début, on choisit ici celle du début de la fonction <code>main</code> <code>0x680</code>, et <code>-n</code> pour n'extraire que les premiers 256 octets&thinsp;:</p>
+<p>Avec un visualiseur hexadécimal, on peut extraire le langage machine du binaire exécutable. L'utilitaire <code>hexdump</code> est appelé avec deux options <code>-s</code> pour spécifier l'adresse de début, on choisit ici celle du début de la fonction <code>main</code> <code>0x680</code>, et <code>-n</code> pour n'extraire que les premiers 256 octets :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gp">$ </span>hexdump<span class="w"> </span>-s0x680<span class="w"> </span>-n256<span class="w"> </span>a.out
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="go">0000680 5541 5441 8d48 5935 0002 5500 bf53 0001</span>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="go">0000690 0000 8348 18ec 4864 048b 2825 0000 4800</span>
@@ -4270,11 +4272,11 @@
 </span></code></pre></div>
 <p>Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs <code>41 55</code> puis <code>41 54</code> puis <code>48 8d 35 59</code> se retrouvent directement dans le <em>dump</em>: <code>5541 5441 8d48</code>. Si les valeurs sont interverties, c'est parce qu'un PC est <em>little-endian</em> (c.f. <a class="autorefs autorefs-internal" href="../../15-fundations/datatype/#boutisme">endianess</a>), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.</p>
 <p>Sous Windows, l'extension des fichiers détermine leur type. Un fichier avec l'extension <code>.jpg</code> sera un fichier image du <a href="https://fr.wikipedia.org/wiki/JPEG">Join Photographic Experts Group</a> et exécuter ce fichier correspond à l'ouvrir en utilisant l'application par défaut pour visualiser les images de ce type. Un fichier avec l'extension <code>.exe</code> est un exécutable binaire, et il sera exécuté en tant que programme par le système d'exploitation.</p>
-<p>Sous <abbr title="Portable Operating System Interface">POSIX</abbr> (Linux, macOS, <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>), les <em>flags</em> d'un fichier qualifient son type. Le programme <code>ls</code> permet de visualiser les flags du programme <code>Fibonacci</code> que nous avons compilé&thinsp;:</p>
+<p>Sous <abbr title="Portable Operating System Interface">POSIX</abbr> (Linux, macOS, <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>), les <em>flags</em> d'un fichier qualifient son type. Le programme <code>ls</code> permet de visualiser les flags du programme <code>Fibonacci</code> que nous avons compilé :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="gp">$ </span>ls<span class="w"> </span>-al<span class="w"> </span>a.out
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="go">-rwxr-xr-x 1 root ftp 8.3K Jul 17 09:53 Fibonacci</span>
 </span></code></pre></div>
-<p>Les lettres <code>r-x</code> indiquent&thinsp;:</p>
+<p>Les lettres <code>r-x</code> indiquent :</p>
 <dl>
 <dt><code>r</code></dt>
 <dd>
@@ -4290,14 +4292,14 @@
 </dd>
 </dl>
 <p>Ce programme peut-être exécuté par tout le monde, mais modifié que par l'utilisateur <code>root</code>.</p>
-<h3 id="entrees-sorties">Entrées sorties<a class="headerlink" href="#entrees-sorties" title="Permanent link">¶</a></h3>
-<p>Tout programme doit pouvoir interagir avec son environnement. À l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées&thinsp;:</p>
+<h3 id="entrees-sorties">Entrées sorties<a class="headerlink" href="#entrees-sorties" title="Permanent link">¤</a></h3>
+<p>Tout programme doit pouvoir interagir avec son environnement. À l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées :</p>
 <ul>
 <li>L'entrée standard <code>STDIN</code> fournit au programme du contenu qui est généralement fourni par la sortie d'un autre programme.</li>
 <li>Les arguments du programme <code>ARGV</code></li>
 <li>Les variables d'environnement <code>ENVP</code></li>
 </ul>
-<p>Ainsi qu'à des sorties&thinsp;:</p>
+<p>Ainsi qu'à des sorties :</p>
 <ul>
 <li>La sortie standard <code>STDOUT</code> est généralement affichée à l'écran</li>
 <li>La sortie d'erreur standard <code>STDERR</code> contient des détails sur les éventuelles erreurs d'exécution du programme.</li>
@@ -4305,29 +4307,29 @@
 <p>La figure suivante résume les interactions qu'un programme peut avoir sur son environnement. Les appels système (<a href="https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me">syscall</a>) sont des ordres transmis directement au système d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.</p>
 <p><figure id="_figure-2"><img alt="Résumé des interactions avec un programme" class="drawio-diagram" src="../../../assets/images/program.drawio"/><figcaption> Résumé des interactions avec un programme</figcaption></figure></p>
 <p><a href="" id="signals"></a></p>
-<h3 id="signaux">Signaux<a class="headerlink" href="#signaux" title="Permanent link">¶</a></h3>
+<h3 id="signaux">Signaux<a class="headerlink" href="#signaux" title="Permanent link">¤</a></h3>
 <p>Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des <a href="https://fr.wikipedia.org/wiki/Signal_(informatique)">signaux</a>. Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.</p>
 <p>Si, en utilisant Windows, vous vous rendez dans le <a href="https://fr.wikipedia.org/wiki/Gestionnaire_des_t%C3%A2ches_Windows">gestionnaire de tâches</a> et que vous décidez de <em>Terminer une tâche</em>, le système d'exploitation envoie un signal au programme lui demandant de se terminer.</p>
-<p>Sous Linux, habituellement, le <em>shell</em> relie certains raccourcis clavier à des signaux particuliers&thinsp;:</p>
+<p>Sous Linux, habituellement, le <em>shell</em> relie certains raccourcis clavier à des signaux particuliers :</p>
 <ul>
 <li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> envoie le signal <code>SIGINT</code> pour interrompre l'exécution d'un programme</li>
 <li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-z">Z</kbd></span> envoie le signal <code>SIGTSTP</code> pour suspendre l'exécution d'un programme</li>
 <li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-t">T</kbd></span> envoie le signal <code>SIGINFO</code> permettant de visualiser certaines informations liées à l'exécution du processus.</li>
 </ul>
-<p>Si le programme suivant est exécuté, il sera bloquant, c'est-à-dire qu'à moins d'envoyer un signal d'interruption, il ne sera pas possible d'interrompre le processus&thinsp;:</p>
+<p>Si le programme suivant est exécuté, il sera bloquant, c'est-à-dire qu'à moins d'envoyer un signal d'interruption, il ne sera pas possible d'interrompre le processus :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="p">{</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="k">for</span><span class="p">(;;);</span>
 </span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="arguments-et-options">Arguments et options<a class="headerlink" href="#arguments-et-options" title="Permanent link">¶</a></h2>
-<p>L'interpréteur de commande <code>cmd.exe</code> sous Windows ou <code>bash</code> sous Linux, fonctionne de façon assez similaire. L'<strong>invite de commande</strong> nommée <em>prompt</em> en anglais invite l'utilisateur à entrer une commande. Sous <a href="https://fr.wikipedia.org/wiki/DOS">DOS</a> puis sous Windows cet invite de commande ressemble à ceci&thinsp;:</p>
+<h2 id="arguments-et-options">Arguments et options<a class="headerlink" href="#arguments-et-options" title="Permanent link">¤</a></h2>
+<p>L'interpréteur de commande <code>cmd.exe</code> sous Windows ou <code>bash</code> sous Linux, fonctionne de façon assez similaire. L'<strong>invite de commande</strong> nommée <em>prompt</em> en anglais invite l'utilisateur à entrer une commande. Sous <a href="https://fr.wikipedia.org/wiki/DOS">DOS</a> puis sous Windows cet invite de commande ressemble à ceci :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="go">C:\&gt;</span>
 </span></code></pre></div>
 <p>Sous Linux, le prompt est largement configurable et dépend de la distribution installée, mais le plus souvent il se termine par le caractère <code>$</code> ou <code>#</code>.</p>
 <p>Une commande débute par le nom de cette dernière, qui peut être le nom du programme que l'on souhaite exécuter puis vient les arguments et les options.</p>
 <ul>
-<li>Une <strong>option</strong> est par convention un <strong>argument</strong> dont le préfixe est <code>-</code> sous Linux ou <code>/</code> sous Windows même si le standard <abbr title="GNU's Not Unix">GNU</abbr> gagne du terrain. Aussi, le consensus le plus large semble être le suivant&thinsp;:</li>
+<li>Une <strong>option</strong> est par convention un <strong>argument</strong> dont le préfixe est <code>-</code> sous Linux ou <code>/</code> sous Windows même si le standard <abbr title="GNU's Not Unix">GNU</abbr> gagne du terrain. Aussi, le consensus le plus large semble être le suivant :</li>
 <li>Une option peut être exprimée soit sous format court <code>-o</code>, <code>-v</code>, soit sous format long <code>--output=</code>, <code>--verbose</code> selon qu'elle commence par un ou deux tirets. Une option peut être un booléenne (présence ou non de l'option), ou scalaire, c'est-à-dire être associée à une valeur <code>--output=foo.o</code>. Les options modifient le comportement interne d'un programme.</li>
 </ul>
 <p>Un argument est une chaîne de caractères utilisée comme entrée au programme. Un programme peut avoir plusieurs arguments.</p>
@@ -4351,18 +4353,18 @@
 </span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="go">4. Baguette au beurre</span>
 </span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="go">5.  -Lait</span>
 </span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="go">    -Viande</span>
-</span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="go">    -Oeufs</span>
+</span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="go">    -Œufs</span>
 </span></code></pre></div>
-<h3 id="norme-posix">Norme <abbr title="Portable Operating System Interface">POSIX</abbr><a class="headerlink" href="#norme-posix" title="Permanent link">¶</a></h3>
+<h3 id="norme-posix">Norme <abbr title="Portable Operating System Interface">POSIX</abbr><a class="headerlink" href="#norme-posix" title="Permanent link">¤</a></h3>
 <p>Le standard <abbr title="Portable Operating System Interface">POSIX</abbr> décrit une façon de distinguer des <em>options</em> passées à un programme. Par exemple, le programme <a href="https://en.wikipedia.org/wiki/Cowsay">cowsay</a> peut être paramétré pour changer son comportement en utilisant des <code>options</code> standards comme <code>-d</code>. La fonction <code>getopt</code> disponible dans la bibliothèque <code>&lt;unistd.h&gt;</code> permet de facilement interpréter ces options.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">getopt</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
 </span></code></pre></div>
-<h3 id="extension-gnu">Extension <abbr title="GNU's Not Unix">GNU</abbr><a class="headerlink" href="#extension-gnu" title="Permanent link">¶</a></h3>
+<h3 id="extension-gnu">Extension <abbr title="GNU's Not Unix">GNU</abbr><a class="headerlink" href="#extension-gnu" title="Permanent link">¤</a></h3>
 <p>Malheureusement, la norme <abbr title="Portable Operating System Interface">POSIX</abbr> ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension <a href="https://fr.wikipedia.org/wiki/GNU"><abbr title="GNU's Not Unix">GNU</abbr></a> et son en-tête <code>&lt;getopt.h&gt;</code> permet l'accès à la fonction <code>getopt_long</code> laquelle permet d'interpréter aussi les options longues <code>--version</code> qui sont devenues très répandues.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">getopt_long</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">shortopts</span><span class="p">,</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">                 </span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">option</span><span class="w"> </span><span class="o">*</span><span class="n">longopts</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">longind</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Ci-dessous une possible utilisation de cette fonction&thinsp;:</p>
+<p>Ci-dessous une possible utilisation de cette fonction :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;getopt.h&gt;</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -4457,19 +4459,19 @@
 </span><span id="__span-11-92"><a href="#__codelineno-11-92" id="__codelineno-11-92" name="__codelineno-11-92"></a><span class="w">    </span><span class="c1">// ...</span>
 </span><span id="__span-11-93"><a href="#__codelineno-11-93" id="__codelineno-11-93" name="__codelineno-11-93"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">¶</a></h3>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">¤</a></h3>
 <p>Windows utilise à l'instar de <code>RDOS</code> ou <a href="https://fr.wikipedia.org/wiki/OpenVMS">OpenVMS</a>, le caractère <em>slash</em> pour identifier ses options. Alors que sous <abbr title="Portable Operating System Interface">POSIX</abbr> l'affichage de la liste des fichiers s'écrira peut-être <code>ls -l -s D*</code>, sous Windows on utilisera <code>dir /q d* /o:s</code>.</p>
-<h2 id="fonction-main">Fonction main<a class="headerlink" href="#fonction-main" title="Permanent link">¶</a></h2>
+<h2 id="fonction-main">Fonction main<a class="headerlink" href="#fonction-main" title="Permanent link">¤</a></h2>
 <p>Le standard définit une fonction nommée <code>main</code> comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction <code>main</code> a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le <a href="https://fr.wikipedia.org/wiki/BIOS_(informatique)">BIOS</a> a chargé le système d'exploitation en mémoire. Dès lors la fonction <code>main</code> de notre programme <a class="autorefs autorefs-internal" href="../../05-introduction/c-lang/#hello-world_1">Hello World</a> n'est pas la première, mais est appelé.</p>
-<h3 id="qui-appelle-main">Qui appelle main&thinsp;?<a class="headerlink" href="#qui-appelle-main" title="Permanent link">¶</a></h3>
-<p>Un exécutable binaire à un format particulier appelé <strong>ELF</strong> (<a href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">Executable and Linkable Format</a>) qui contient un <strong>point d'entrée</strong> qui sera l'adresse mémoire de début du programme. Sous un système <abbr title="Portable Operating System Interface">POSIX</abbr> ce point d'entrée est nommé <code>_init</code>. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la <strong>pile</strong> du programme&thinsp;:</p>
+<h3 id="qui-appelle-main">Qui appelle main ?<a class="headerlink" href="#qui-appelle-main" title="Permanent link">¤</a></h3>
+<p>Un exécutable binaire à un format particulier appelé <strong>ELF</strong> (<a href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">Executable and Linkable Format</a>) qui contient un <strong>point d'entrée</strong> qui sera l'adresse mémoire de début du programme. Sous un système <abbr title="Portable Operating System Interface">POSIX</abbr> ce point d'entrée est nommé <code>_init</code>. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la <strong>pile</strong> du programme :</p>
 <ul>
 <li>Le nombre d'arguments <code>argc</code></li>
 <li>La liste des arguments <code>argv</code></li>
 <li>Les variables d'environnements <code>envp</code></li>
 <li>Les pointeurs de fichiers sur <code>stdout</code>, <code>stdin</code>, <code>stderr</code></li>
 </ul>
-<p>C'est la fonction <code>__libc_start_main</code> de la bibliothèque standard qui a la responsabilité d'appeler la fonction <code>main</code>. Voici son prototype&thinsp;:</p>
+<p>C'est la fonction <code>__libc_start_main</code> de la bibliothèque standard qui a la responsabilité d'appeler la fonction <code>main</code>. Voici son prototype :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">__libc_start_main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">main</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="p">),</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">ubp_av</span><span class="p">,</span>
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">init</span><span class="p">)(</span><span class="kt">void</span><span class="p">),</span>
@@ -4478,8 +4480,8 @@
 </span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">stack_end</span><span class="p">)</span>
 </span><span id="__span-12-7"><a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="p">);</span>
 </span></code></pre></div>
-<h3 id="valeur-de-retour">Valeur de retour<a class="headerlink" href="#valeur-de-retour" title="Permanent link">¶</a></h3>
-<p>La fonction <code>main</code> renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme (<a href="https://fr.wikipedia.org/wiki/Exit,_Voice,_and_Loyalty">exit status</a>). Sous <abbr title="Portable Operating System Interface">POSIX</abbr> et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante&thinsp;:</p>
+<h3 id="valeur-de-retour">Valeur de retour<a class="headerlink" href="#valeur-de-retour" title="Permanent link">¤</a></h3>
+<p>La fonction <code>main</code> renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme (<em>exit status</em>). Sous <abbr title="Portable Operating System Interface">POSIX</abbr> et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante :</p>
 <dl>
 <dt><code>0</code></dt>
 <dd>
@@ -4490,7 +4492,7 @@
 <p>Erreur, le programme ne s'est pas terminé correctement.</p>
 </dd>
 </dl>
-<p>Par exemple le programme <code>printf</code> retourne dans le cas précis l'erreur 130&thinsp;:</p>
+<p>Par exemple le programme <code>printf</code> retourne dans le cas précis l'erreur 130 :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="gp">$ </span><span class="nb">printf</span><span class="w"> </span><span class="s1">'%d'</span><span class="w"> </span><span class="m">42</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="go">42</span>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
@@ -4501,7 +4503,7 @@
 </span><span id="__span-13-8"><a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
 </span><span id="__span-13-9"><a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="go">130</span>
 </span></code></pre></div>
-<h2 id="entrees-sorties-standards">Entrées sorties standards<a class="headerlink" href="#entrees-sorties-standards" title="Permanent link">¶</a></h2>
+<h2 id="entrees-sorties-standards">Entrées sorties standards<a class="headerlink" href="#entrees-sorties-standards" title="Permanent link">¤</a></h2>
 <p>Le fichier d'en-tête <code>stdio.h</code> (<a href="http://man7.org/linux/man-pages/man3/stdio.3.html">man stdio</a>) permet de simplifier l'interaction avec les fichiers. Sous Linux et macOS principalement, mais d'une certaine manière également sous Windows, les canaux d'échanges entre un programme et son hôte (<em>shell</em>, gestionnaire de fenêtre, autre programme), se font par l'intermédiaire de fichiers particuliers nommés <code>stdin</code>, <code>stdout</code> et <code>stderr</code>.</p>
 <p>La fonction de base est <code>putchar</code> qui écrit un caractère sur <code>stdout</code>:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="gp">#</span>include<span class="w"> </span>&lt;stdio.h&gt;
@@ -4515,7 +4517,7 @@
 </span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="go">    putchar('\n');</span>
 </span><span id="__span-14-10"><a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="go">}</span>
 </span></code></pre></div>
-<p>Bien vite, on préfèrera utiliser <code>printf</code> qui simplifie le formatage de chaînes de caractères et qui permet à l'aide de marqueurs (<em>tokens</em>) de formater des variables&thinsp;:</p>
+<p>Bien vite, on préfèrera utiliser <code>printf</code> qui simplifie le formatage de chaînes de caractères et qui permet à l'aide de marqueurs (<em>tokens</em>) de formater des variables :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4523,7 +4525,7 @@
 </span><span id="__span-15-5"><a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d, %s, %f"</span><span class="p">,</span><span class="w"> </span><span class="mh">0x12</span><span class="p">,</span><span class="w"> </span><span class="s">"World!"</span><span class="p">,</span><span class="w"> </span><span class="mf">3.1415</span><span class="p">);</span>
 </span><span id="__span-15-6"><a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Il peut être nécessaire, surtout lorsqu'il s'agit d'erreurs qui ne concernent pas la sortie standard du programme, d'utiliser le bon canal de communication, c'est-à-dire <code>stderr</code> au lieu de <code>stdout</code>. La fonction <code>fprintf</code> permet de spécifier le flux standard de sortie&thinsp;:</p>
+<p>Il peut être nécessaire, surtout lorsqu'il s'agit d'erreurs qui ne concernent pas la sortie standard du programme, d'utiliser le bon canal de communication, c'est-à-dire <code>stderr</code> au lieu de <code>stdout</code>. La fonction <code>fprintf</code> permet de spécifier le flux standard de sortie :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4531,16 +4533,16 @@
 </span><span id="__span-16-5"><a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Sortie d'erreur standard</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-16-6"><a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Pourquoi, me direz-vous, faut-il séparer la sortie standard du canal d'erreur&thinsp;? Le plus souvent un programme n'est pas utilisé seul, mais en conjonction avec d'autres programmes&thinsp;:</p>
+<p>Pourquoi, me direz-vous, faut-il séparer la sortie standard du canal d'erreur ? Le plus souvent un programme n'est pas utilisé seul, mais en conjonction avec d'autres programmes :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Bonjour"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">'A-Za-z'</span><span class="w"> </span><span class="s1">'N-ZA-Mn-za-m'</span><span class="w"> </span>&gt;<span class="w"> </span>data.txt
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="gp">$ </span>cat<span class="w"> </span>data.txt
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="go">Obawbhe</span>
 </span></code></pre></div>
 <p>Dans cet exemple ci-dessus, le programme <code>echo</code> prend en argument la chaîne de caractère <code>Bonjour</code> qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme <code>tr</code> qui effectue une opération de <a href="https://fr.wikipedia.org/wiki/ROT13">ROT13</a> et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier <code>data.txt</code>.
 La commande suivante <code>cat</code> lis le contenu du fichier dont le nom est passé en argument et écrit le contenu sur la sortie standard.</p>
-<p>Dans le cas où un de ces programmes génère une alerte (<em>warning</em>), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie&thinsp;: <code>stdout</code> pour la sortie standard et <code>stderr</code> pour les messages de diagnostic et les erreurs.</p>
-<h2 id="boucle-dattente">Boucle d'attente<a class="headerlink" href="#boucle-dattente" title="Permanent link">¶</a></h2>
-<p>Comme évoqué, un programme est souvent destiné à tourner sur un système d'exploitation. Un programme simple comme celui-ci&thinsp;:</p>
+<p>Dans le cas où un de ces programmes génère une alerte (<em>warning</em>), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie : <code>stdout</code> pour la sortie standard et <code>stderr</code> pour les messages de diagnostic et les erreurs.</p>
+<h2 id="boucle-dattente">Boucle d'attente<a class="headerlink" href="#boucle-dattente" title="Permanent link">¤</a></h2>
+<p>Comme évoqué, un programme est souvent destiné à tourner sur un système d'exploitation. Un programme simple comme celui-ci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="k">for</span><span class="p">(;;)</span><span class="w"> </span><span class="p">{}</span>
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="p">}</span>
@@ -4568,11 +4570,11 @@ La commande suivante <code>cat</code> lis le contenu du fichier dont le nom est 
 </span><span id="__span-20-8"><a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: La fortune, la vache qui dit et le chat drôle<span class="exercise-title"></span></p>
-<p>En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>La fortune, la vache qui dit et le chat drôle<span class="exercise-title"></span></p>
+<p>En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>$<span class="w"> </span>fortune<span class="w"> </span><span class="p">|</span><span class="w"> </span>cowsay<span class="w"> </span><span class="p">|</span><span class="w"> </span>lolcat
 </span></code></pre></div>
-<p>Quelle est sa structure et que fait-elle&thinsp;?</p>
+<p>Quelle est sa structure et que fait-elle ?</p>
 </div>
 
 
@@ -4596,7 +4598,7 @@ La commande suivante <code>cat</code> lis le contenu du fichier dont le nom est 
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 10, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
   </span>
 
     
@@ -4660,7 +4662,7 @@ La commande suivante <code>cat</code> lis le contenu du fichier dont le nom est 
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4800,7 +4802,7 @@ La commande suivante <code>cat</code> lis le contenu du fichier dont le nom est 
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

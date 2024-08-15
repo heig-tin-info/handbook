@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4083,11 +4085,11 @@
   
 
 
-<h1 id="tableaux-de-hachage">Tableaux de hachage<a class="headerlink" href="#tableaux-de-hachage" title="Permanent link">¶</a></h1>
+<h1 id="tableaux-de-hachage">Tableaux de hachage<a class="headerlink" href="#tableaux-de-hachage" title="Permanent link">¤</a></h1>
 <p>Les tableaux de hachage (<em>Hash Table</em>) sont une structure particulière dans laquelle une fonction dite de <em>hachage</em> est utilisée pour transformer les entrées en des indices d'un tableau.</p>
-<p>L'objectif est de stocker des chaînes de caractères correspondant a des noms simples ici utilisés pour l'exemple. Une possible répartition serait la suivante&thinsp;:</p>
+<p>L'objectif est de stocker des chaînes de caractères correspondant a des noms simples ici utilisés pour l'exemple. Une possible répartition serait la suivante :</p>
 <p><figure id="_figure-1"><img alt="Tableau de hachage simple" class="drawio-diagram" src="../../../../assets/images/hash-linear.drawio"/><figcaption> Tableau de hachage simple</figcaption></figure></p>
-<p>Si l'on cherche l'indice correspondant à <code>Ada</code>, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé <em>hash</em>, il existe une infinité de méthodes. Dans cet exemple, considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants&thinsp;:</p>
+<p>Si l'on cherche l'indice correspondant à <code>Ada</code>, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé <em>hash</em>, il existe une infinité de méthodes. Dans cet exemple, considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="go">Nom    Valeurs ASCII     Somme  Modulo 10</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="go">---    --------------    -----  ---------</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="go">Mia -&gt; {77, 105, 97}  -&gt; 279 -&gt; 4</span>
@@ -4102,17 +4104,17 @@
 </span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="go">Max -&gt; {77, 97, 120}  -&gt; 294 -&gt; 8</span>
 </span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="go">Ted -&gt; {84, 101, 100} -&gt; 285 -&gt; 10</span>
 </span></code></pre></div>
-<p>Pour trouver l'indice de <code>"Mia"</code> il suffit donc d'appeler la fonction suivante&thinsp;:</p>
+<p>Pour trouver l'indice de <code>"Mia"</code> il suffit donc d'appeler la fonction suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">hash_str</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">)</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">s</span><span class="o">++</span><span class="p">;</span>
 </span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>L'assertion suivante est donc vraie&thinsp;:</p>
+<p>L'assertion suivante est donc vraie :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">hash_str</span><span class="p">(</span><span class="s">"Mia"</span><span class="p">)],</span><span class="w"> </span><span class="s">"Mia"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Rechercher <code>"Mia"</code> et obtenir <code>"Mia"</code> n'est certainement pas l'exemple le plus utile. Néanmoins il est possible d'encoder plus qu'une chaîne de caractère et utiliser plutôt une structure de donnée&thinsp;:</p>
+<p>Rechercher <code>"Mia"</code> et obtenir <code>"Mia"</code> n'est certainement pas l'exemple le plus utile. Néanmoins il est possible d'encoder plus qu'une chaîne de caractère et utiliser plutôt une structure de donnée :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="cm">/* '\0' */</span><span class="p">];</span>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
@@ -4130,7 +4132,7 @@
 </span><span id="__span-3-15"><a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">country_code</span><span class="p">;</span><span class="w"> </span><span class="c1">// For example 41 for Switzerland</span>
 </span><span id="__span-3-16"><a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>Dans ce cas, le calcul du hash se ferait sur la première clé d'un élément&thinsp;:</p>
+<p>Dans ce cas, le calcul du hash se ferait sur la première clé d'un élément :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">hash_person</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="n">person</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">person</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">)</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">s</span><span class="o">++</span><span class="p">;</span>
@@ -4139,13 +4141,13 @@
 </span></code></pre></div>
 <p>L'accès à une personne à partir de la clé se résout donc en <code>O(1)</code> car il n'y a aucune itération ou recherche à effectuer.</p>
 <p>Cette <a href="https://www.youtube.com/watch?v=KyUTuwz_b7Q">vidéo</a> YouTube explique bien le fonctionnement des tableaux de hachage.</p>
-<h2 id="collisions">Collisions<a class="headerlink" href="#collisions" title="Permanent link">¶</a></h2>
-<p>Lorsque la <strong>fonction de hachage</strong> est mal choisie, un certain nombre de collisions peuvent apparaître. Si l'on souhaite par exemple ajouter les personnes suivantes&thinsp;:</p>
+<h2 id="collisions">Collisions<a class="headerlink" href="#collisions" title="Permanent link">¤</a></h2>
+<p>Lorsque la <strong>fonction de hachage</strong> est mal choisie, un certain nombre de collisions peuvent apparaître. Si l'on souhaite par exemple ajouter les personnes suivantes :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>Sue -&gt; {83, 117, 101} -&gt; 301 -&gt; 4
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 </span></code></pre></div>
 <p>On voit que les positions <code>4</code> et <code>1</code> sont déjà occupées par Mia et Tim.</p>
-<p>Une stratégie de résolution s'appelle <a href="https://en.wikipedia.org/wiki/Open_addressing">Open adressing</a>. Parmi les possibilités de cette stratégie, le <em>linear probing</em> consiste à vérifier si la position du tableau est déjà occupée et en cas de collision, chercher la prochaine place disponible dans le tableau&thinsp;:</p>
+<p>Une stratégie de résolution s'appelle <a href="https://en.wikipedia.org/wiki/Open_addressing">Open adressing</a>. Parmi les possibilités de cette stratégie, le <em>linear probing</em> consiste à vérifier si la position du tableau est déjà occupée et en cas de collision, chercher la prochaine place disponible dans le tableau :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">Person</span><span class="w"> </span><span class="n">people</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">}</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1">// Add Mia</span>
@@ -4154,17 +4156,17 @@
 </span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="n">hash</span><span class="p">].</span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">)</span><span class="w"> </span><span class="n">hash</span><span class="o">++</span><span class="p">;</span>
 </span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">people</span><span class="p">[</span><span class="n">hash</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mia</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Récupérer une valeur dans le tableau demande une comparaison supplémentaire&thinsp;:</p>
+<p>Récupérer une valeur dans le tableau demande une comparaison supplémentaire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">key</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Mia"</span><span class="p">;</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="n">hash</span><span class="p">],</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">hash</span><span class="o">++</span><span class="p">;</span>
 </span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="n">Person</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">people</span><span class="p">[</span><span class="n">hash</span><span class="p">];</span>
 </span></code></pre></div>
 <p>Lorsque le nombre de collisions est négligeable par rapport à la table de hachage, la recherche d'un élément est toujours en moyenne égale à <span class="arithmatex">\(O(1)\)</span>, mais lorsque le nombre de collisions est prépondérant, la complexité se rapproche de celle de la recherche linéaire <span class="arithmatex">\(O(n)\)</span> et on perd tout avantage à cette structure de donnée.</p>
-<p>Dans le cas extrême, pour garantir un accès unitaire pour tous les noms de trois lettres, il faudrait un tableau de hachage d'une taille <span class="arithmatex">\(26^3 = 17576\)</span> personnes. L'empreinte mémoire peut être considérablement réduite en stockant non pas une structure <code>struct Person</code> mais plutôt l'adresse vers cette structure&thinsp;:</p>
+<p>Dans le cas extrême, pour garantir un accès unitaire pour tous les noms de trois lettres, il faudrait un tableau de hachage d'une taille <span class="arithmatex">\(26^3 = 17576\)</span> personnes. L'empreinte mémoire peut être considérablement réduite en stockant non pas une structure <code>struct Person</code> mais plutôt l'adresse vers cette structure :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="o">*</span><span class="n">people</span><span class="p">[</span><span class="mi">26</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">26</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">};</span>
 </span></code></pre></div>
-<p>Dans ce cas exagéré, la fonction de hachage pourrait être la suivante&thinsp;:</p>
+<p>Dans ce cas exagéré, la fonction de hachage pourrait être la suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">hash_name</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">26</span><span class="p">;</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="k">return</span>
@@ -4173,25 +4175,25 @@
 </span><span id="__span-9-6"><a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">        </span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">'a'</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">26</span><span class="p">;</span>
 </span><span id="__span-9-7"><a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="facteur-de-charge">Facteur de charge<a class="headerlink" href="#facteur-de-charge" title="Permanent link">¶</a></h2>
-<p>Le facteur de charge d'une table de hachage est donné par la relation&thinsp;:</p>
+<h2 id="facteur-de-charge">Facteur de charge<a class="headerlink" href="#facteur-de-charge" title="Permanent link">¤</a></h2>
+<p>Le facteur de charge d'une table de hachage est donné par la relation :</p>
 <div class="arithmatex">\[
 \text{Facteur de charge} = \frac{\text{Nombre total d'éléments}}{\text{Taille de la table}}
 \]</div>
 <p>Plus ce facteur de charge est élevé, dans le cas du <em>linear probing</em>, moins bon sera la performance de la table de hachage.</p>
 <p>Certains algorithmes permettent de redimensionner dynamiquement la table de hachage pour conserver un facteur de charge le plus faible possible. Quand le facteur de charge dépasse un certain seuil (souvent 0.7), la table de hachage est agrandi (souvent doublée comme pour un tableau dynamique) et les éléments sont re-hachés dans la nouvelle table.</p>
-<h2 id="chainage">Chaînage<a class="headerlink" href="#chainage" title="Permanent link">¶</a></h2>
+<h2 id="chainage">Chaînage<a class="headerlink" href="#chainage" title="Permanent link">¤</a></h2>
 <p>Le chaînage ou <em>chaining</em> est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.</p>
 <p><figure id="_figure-2"><img alt="Chaînage d'une table de hachage" class="drawio-diagram" src="../../../../assets/images/hash-table.drawio"/><figcaption> Chaînage d'une table de hachage</figcaption></figure></p>
-<h2 id="adressage-ouvert">Adressage ouvert<a class="headerlink" href="#adressage-ouvert" title="Permanent link">¶</a></h2>
+<h2 id="adressage-ouvert">Adressage ouvert<a class="headerlink" href="#adressage-ouvert" title="Permanent link">¤</a></h2>
 <p>L'adressage ouvert est une autre méthode pour gérer les collisions. Lorsqu'une collision est détectée, une autre position est calculée pour stocker l'élément.</p>
 <p>Si une collision est détectée, on regardera la position suivante dans la table. Si elle est libre on l'utilise, sinon la suitante, jusqu'à trouver une position libre. Cette méthode est appelée <em>linear probing</em>.</p>
 <p>Une autre méthode consiste à utiliser une fonction de hachage secondaire pour calculer la position suivante. Cette méthode est appelée <em>double hashing</em>.</p>
 <p>Si la méthode est plus facile à implémenter, l'opération de suppression est plus complexe. En effet, il est souvent nécessaire de re-hacher les éléments pour maintenir la performance de la table de hachage.</p>
-<h2 id="fonction-de-hachage">Fonction de hachage<a class="headerlink" href="#fonction-de-hachage" title="Permanent link">¶</a></h2>
+<h2 id="fonction-de-hachage">Fonction de hachage<a class="headerlink" href="#fonction-de-hachage" title="Permanent link">¤</a></h2>
 <p>Nous avons vu plus haut une fonction de hachage calculant le modulo sur la somme des caractères ASCII d'une chaîne de caractères. Nous avons également vu que cette fonction de hachage est source de nombreuses collisions. Les chaînes <code>"Rea"</code> ou <code>"Rae"</code> auront les même <em>hash</em> puisqu'ils contiennent les mêmes lettres. De même une fonction de hachage qui ne répartit pas bien les éléments dans la table de hachage sera mauvaise. On sait par exemple que les voyelles sont nombreuses dans les mots et qu'il n'y en a que six et que la probabilité que nos noms de trois lettres contiennent une voyelle en leur milieu est très élevée.</p>
 <p>L'idée générale des fonctions de hachage est de répartir <strong>uniformément</strong> les clés sur les indices de la table de hachage. L'approche la plus courante est de mélanger les bits de notre clé dans un processus reproductible.</p>
-<p>Une idée <strong>mauvaise</strong> et <strong>à ne pas retenir</strong> pourrait être d'utiliser le caractère pseudo-aléatoire de <code>rand</code> pour hacher nos noms&thinsp;:</p>
+<p>Une idée <strong>mauvaise</strong> et <strong>à ne pas retenir</strong> pourrait être d'utiliser le caractère pseudo-aléatoire de <code>rand</code> pour hacher nos noms :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>
@@ -4213,7 +4215,7 @@
 </span><span id="__span-10-19"><a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s : %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">hash</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="mi">10</span><span class="p">));</span>
 </span><span id="__span-10-20"><a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Cette approche nous donne une assez bonne répartition&thinsp;:</p>
+<p>Cette approche nous donne une assez bonne répartition :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="gp">$ </span>./a.out
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="go">Bea : 2</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="go">Tim : 3</span>
@@ -4228,7 +4230,7 @@
 </span><span id="__span-11-12"><a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="go">Max : 3</span>
 </span><span id="__span-11-13"><a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="go">Tod : 1</span>
 </span></code></pre></div>
-<p>Dans la pratique, on utilisera volontiers des fonctions de hachage utilisées en cryptographies tels que <a href="https://en.wikipedia.org/wiki/MD5">MD5</a> ou <code>SHA</code>. Considérons par exemple la première partie du poème Chanson de Pierre Corneille&thinsp;:</p>
+<p>Dans la pratique, on utilisera volontiers des fonctions de hachage utilisées en cryptographies tels que <a href="https://en.wikipedia.org/wiki/MD5">MD5</a> ou <code>SHA</code>. Considérons par exemple la première partie du poème Chanson de Pierre Corneille :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="gp">$ </span>cat<span class="w"> </span>chanson.txt
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="go">Si je perds bien des maîtresses,</span>
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="go">J'en fais encor plus souvent,</span>
@@ -4240,7 +4242,7 @@
 </span><span id="__span-12-9"><a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="gp">$ </span>md5sum<span class="w"> </span>chanson.txt
 </span><span id="__span-12-10"><a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="go">699bfc5c3fd42a06e99797bfa635f410  chanson.txt</span>
 </span></code></pre></div>
-<p>Le <em>hash</em> de ce texte est exprimé en hexadécimal ( <code>0x699bfc5c3fd42a06e99797bfa635f410</code>). Converti en décimal <code>140378864046454182829995736237591622672</code> il peut être réduit en utilisant le modulo. Voici un exemple en C&thinsp;:</p>
+<p>Le <em>hash</em> de ce texte est exprimé en hexadécimal ( <code>0x699bfc5c3fd42a06e99797bfa635f410</code>). Converti en décimal <code>140378864046454182829995736237591622672</code> il peut être réduit en utilisant le modulo. Voici un exemple en C :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;openssl/md5.h&gt;</span>
@@ -4266,11 +4268,11 @@
 </span><span id="__span-13-23"><a href="#__codelineno-13-23" id="__codelineno-13-23" name="__codelineno-13-23"></a>
 </span><span id="__span-13-24"><a href="#__codelineno-13-24" id="__codelineno-13-24" name="__codelineno-13-24"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-13-25"><a href="#__codelineno-13-25" id="__codelineno-13-25" name="__codelineno-13-25"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">text</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-13-26"><a href="#__codelineno-13-26" id="__codelineno-13-26" name="__codelineno-13-26"></a><span class="w">        </span><span class="s">"La poule ou l'oeuf?"</span><span class="p">,</span>
+</span><span id="__span-13-26"><a href="#__codelineno-13-26" id="__codelineno-13-26" name="__codelineno-13-26"></a><span class="w">        </span><span class="s">"La poule ou l'œuf?"</span><span class="p">,</span>
 </span><span id="__span-13-27"><a href="#__codelineno-13-27" id="__codelineno-13-27" name="__codelineno-13-27"></a><span class="w">        </span><span class="s">"Les pommes sont cuites!"</span><span class="p">,</span>
 </span><span id="__span-13-28"><a href="#__codelineno-13-28" id="__codelineno-13-28" name="__codelineno-13-28"></a><span class="w">        </span><span class="s">"Aussi lentement que possible"</span><span class="p">,</span>
-</span><span id="__span-13-29"><a href="#__codelineno-13-29" id="__codelineno-13-29" name="__codelineno-13-29"></a><span class="w">        </span><span class="s">"La poule ou l'oeuf."</span><span class="p">,</span>
-</span><span id="__span-13-30"><a href="#__codelineno-13-30" id="__codelineno-13-30" name="__codelineno-13-30"></a><span class="w">        </span><span class="s">"La poule ou l'oeuf!"</span><span class="p">,</span>
+</span><span id="__span-13-29"><a href="#__codelineno-13-29" id="__codelineno-13-29" name="__codelineno-13-29"></a><span class="w">        </span><span class="s">"La poule ou l'œuf."</span><span class="p">,</span>
+</span><span id="__span-13-30"><a href="#__codelineno-13-30" id="__codelineno-13-30" name="__codelineno-13-30"></a><span class="w">        </span><span class="s">"La poule ou l'œuf!"</span><span class="p">,</span>
 </span><span id="__span-13-31"><a href="#__codelineno-13-31" id="__codelineno-13-31" name="__codelineno-13-31"></a><span class="w">        </span><span class="s">"Aussi vite que nécessaire"</span><span class="p">,</span>
 </span><span id="__span-13-32"><a href="#__codelineno-13-32" id="__codelineno-13-32" name="__codelineno-13-32"></a><span class="w">        </span><span class="s">"Il ne faut pas lâcher la proie pour l’ombre."</span><span class="p">,</span>
 </span><span id="__span-13-33"><a href="#__codelineno-13-33" id="__codelineno-13-33" name="__codelineno-13-33"></a><span class="w">        </span><span class="s">"Le mieux est l'ennemi du bien"</span><span class="p">,</span>
@@ -4282,18 +4284,18 @@
 </span></code></pre></div>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>hash.c<span class="w"> </span>-lcrypto
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="gp">$ </span>./a.out
-</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="go">1. La poule ou l'oeuf?</span>
+</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="go">1. La poule ou l'œuf?</span>
 </span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="go">2. Les pommes sont cuites!</span>
 </span><span id="__span-14-5"><a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="go">3. Aussi lentement que possible</span>
-</span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="go">4. La poule ou l'oeuf.</span>
-</span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="go">5. La poule ou l'oeuf!</span>
+</span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="go">4. La poule ou l'œuf.</span>
+</span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="go">5. La poule ou l'œuf!</span>
 </span><span id="__span-14-8"><a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="go">6. Aussi vite que nécessaire</span>
 </span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="go">8. Il ne faut pas lâcher la proie pour l’ombre.</span>
 </span><span id="__span-14-10"><a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="go">9. Le mieux est l'ennemi du bien</span>
 </span></code></pre></div>
 <p>On peut constater qu'ici les indices sont bien répartis et que la fonction de hachage choisie semble uniforme.</p>
-<h3 id="fonction-de-hachage-affine">Fonction de hachage affine<a class="headerlink" href="#fonction-de-hachage-affine" title="Permanent link">¶</a></h3>
-<p>Une autre méthode pour calculer le hash consiste à multiplier la valeur de chaque caractère par une constante et de sommer le tout. Par exemple, la fonction de hachage suivante&thinsp;:</p>
+<h3 id="fonction-de-hachage-affine">Fonction de hachage affine<a class="headerlink" href="#fonction-de-hachage-affine" title="Permanent link">¤</a></h3>
+<p>Une autre méthode pour calculer le hash consiste à multiplier la valeur de chaque caractère par une constante et de sommer le tout. Par exemple, la fonction de hachage suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">hash</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mod</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">31</span><span class="p">;</span>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -4303,14 +4305,14 @@
 </span><span id="__span-15-7"><a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>La constante <code>a</code> est souvent choisie comme un nombre premier pour éviter les collisions.</p>
-<p>On peut également implémenter cette fonction pour hacher des entiers&thinsp;:</p>
+<p>On peut également implémenter cette fonction pour hacher des entiers :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">hash_int</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mod</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">31</span><span class="p">;</span>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">;</span>
 </span><span id="__span-16-4"><a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="murmurhash">MurmurHash<a class="headerlink" href="#murmurhash" title="Permanent link">¶</a></h3>
-<p>Une autre fonction de hachage très populaire est <a href="https://en.wikipedia.org/wiki/MurmurHash">MurmurHash</a>. Elle est très rapide et produit des résultats de qualité. Voici un exemple en C&thinsp;:</p>
+<h3 id="murmurhash">MurmurHash<a class="headerlink" href="#murmurhash" title="Permanent link">¤</a></h3>
+<p>Une autre fonction de hachage très populaire est <a href="https://en.wikipedia.org/wiki/MurmurHash">MurmurHash</a>. Elle est très rapide et produit des résultats de qualité. Voici un exemple en C :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kt">uint32_t</span><span class="w"> </span><span class="nf">murmur3_32</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">seed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seed</span><span class="p">;</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4351,8 +4353,8 @@
 </span></code></pre></div>
 <p>Les valeurs de <code>seed</code> et <code>len</code> sont des valeurs arbitraires. La valeur de <code>seed</code> est souvent choisie aléatoirement. La valeur de <code>len</code> est la longueur de la chaîne de caractères à hacher.</p>
 <p>On observe égalements des valeurs arbitraires pour les constantes <code>0xcc9e2d51</code>, <code>0x1b873593</code>, <code>0xe6546b64</code>, <code>0x85ebca6b</code>... Ces valeurs ont été choisies pour leur qualité de mélange des bits. Elles sont souvent déterminées empiriquement.</p>
-<h3 id="comparaison">Comparaison<a class="headerlink" href="#comparaison" title="Permanent link">¶</a></h3>
-<p>Voici une compaison de différentes fonctions de hachage&thinsp;:</p>
+<h3 id="comparaison">Comparaison<a class="headerlink" href="#comparaison" title="Permanent link">¤</a></h3>
+<p>Voici une compaison de différentes fonctions de hachage :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Comparaison des fonctions de hachage</caption><thead>
 <tr>
@@ -4413,14 +4415,14 @@
 </tr>
 </tbody>
 </table>
-<h2 id="perte-de-lordre">Perte de l'ordre<a class="headerlink" href="#perte-de-lordre" title="Permanent link">¶</a></h2>
+<h2 id="perte-de-lordre">Perte de l'ordre<a class="headerlink" href="#perte-de-lordre" title="Permanent link">¤</a></h2>
 <p>Il est important de noter que les tableaux de hachage ne conservent pas l'ordre des éléments. Comme ils peuvent être insérés dans n'importe quelle position du tableau, il n'est pas possible de les parcourir dans l'ordre d'insertion.</p>
 <p>Pire, selon l'algorithme utlisé, il est possible que si la fonction de hachage ou la taille de la table est modifiée en cours de route, les éléments soient déplacés dans le tableau, et donc que l'ordre de parcours change.</p>
 <div class="admonition note">
 <p class="admonition-title">Python</p>
 <p>En Python les tables de hachages sont des structures de base du langage appelées <code>dict</code>. Avant la version 3.7, l'ordre des éléments n'était pas conservé. Depuis la version 3.7, l'ordre d'insertion est conservé. Cela est dû à l'implémentation de la table de hachage qui utilise une seconde structure de donnée de type liste chaînée pour conserver l'ordre d'insertion. Cela a un impact sur la quantité de mémoire utilisée et la performance de la table de hachage car à chaque insertion il faut également mettre à jour la liste chaînée.</p>
 </div>
-<h2 id="complexite-et-implementation">Complexité et implémentation<a class="headerlink" href="#complexite-et-implementation" title="Permanent link">¶</a></h2>
+<h2 id="complexite-et-implementation">Complexité et implémentation<a class="headerlink" href="#complexite-et-implementation" title="Permanent link">¤</a></h2>
 <p>La caractéristique principale recherchée dans une table de hachage est de permettre un accès en temps constant <span class="arithmatex">\(O(1)\)</span> pour les opérations de recherche.</p>
 <p>La complexité de la recherche est en moyenne est donc de <span class="arithmatex">\(O(1)\)</span>, mais peut atteindre <span class="arithmatex">\(O(n)\)</span> dans le pire des cas, par exemple si le facteur de charge est élevé et que la table de hachage est mal répartie. Il y a donc un compromis à trouver entre la mémoire utilisée et la performance de la table de hachage.</p>
 
@@ -4445,7 +4447,7 @@
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
   </span>
 
     
@@ -4509,7 +4511,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4649,7 +4651,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

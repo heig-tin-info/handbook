@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3899,32 +3901,32 @@
 
 
 <p><a href="" id="numeration"></a></p>
-<h1 id="numeration_1">Numération<a class="headerlink" href="#numeration_1" title="Permanent link">¶</a></h1>
+<h1 id="numeration_1">Numération<a class="headerlink" href="#numeration_1" title="Permanent link">¤</a></h1>
 <blockquote class="epigraph">L'informatique ne concerne pas plus les ordinateurs que l'astronomie ne concerne les télescopes... La science ne concerne pas les outils. Elle concerne la manière dont nous les utilisons et ce que nous découvrons en les utilisant.<footer>Edsger W. Dijkstra</footer></blockquote>
 <p>La <span class="ycr-hashtag" data-index-entry="numération" data-tag="numeration">numération</span> désigne le mode de représentation des nombres (p. ex. cardinaux, ordinaux), leur base (système binaire, ternaire, quinaire, décimal ou vicésimal), ainsi que leur codification, IEEE 754, <span class="ycr-hashtag" data-index-entry="complément à un" data-tag="complement-a-un">complément à un</span>, <span class="ycr-hashtag" data-index-entry="complément à deux" data-tag="complement-a-deux">complément à deux</span>. Bien comprendre les bases de la numération est important pour l'ingénieur développeur, car il est souvent amené à effectuer des opérations de bas niveau sur les nombres.</p>
-<p>Ce chapitre n'est essentiel qu'au programmeur de bas niveau, l'électronicien ou l'informaticien technique. Bien comprendre la numération permet de mieux se représenter la manière dont l'ordinateur traite les données au niveau le plus fondamental&thinsp;: le <span class="ycr-hashtag" data-index-entry="bit, le" data-tag="bit">bit</span>.</p>
-<h2 id="quantite-dinformation-bit">Quantité d'information (bit)<a class="headerlink" href="#quantite-dinformation-bit" title="Permanent link">¶</a></h2>
-<p>Un <strong>bit</strong> est l'unité d'information fondamentale qui ne peut prendre que deux états&thinsp;: <code>1</code> ou <code>0</code>. En électronique, cette information peut être stockée dans un élément mémoire par une charge électrique. Dans le monde réel, on peut stocker un bit avec une pièce de monnaie déposée sur le côté pile ou face. L'assemblage de plusieurs bits permet de stocker de l'information plus complexe.</p>
-<p>Le bit est l'abréviation de <em>binary digit</em> (<span class="ycr-hashtag" data-index-entry="chiffre" data-tag="chiffre">chiffre</span> binaire) et est central à la théorie de l'information. Le concept a été popularisé par <span class="ycr-hashtag" data-index-entry="Claude Shannon" data-tag="claude-shannon">Claude Shannon</span> dans son article fondateur de la théorie de l'information en 1948&thinsp;: <em>A Mathematical Theory of Communication</em>. Shannon y introduit le bit comme unité de mesure de l'information.</p>
+<p>Ce chapitre n'est essentiel qu'au programmeur de bas niveau, l'électronicien ou l'informaticien technique. Bien comprendre la numération permet de mieux se représenter la manière dont l'ordinateur traite les données au niveau le plus fondamental : le <span class="ycr-hashtag" data-index-entry="bit, le" data-tag="bit">bit</span>.</p>
+<h2 id="quantite-dinformation-bit">Quantité d'information (bit)<a class="headerlink" href="#quantite-dinformation-bit" title="Permanent link">¤</a></h2>
+<p>Un <strong>bit</strong> est l'unité d'information fondamentale qui ne peut prendre que deux états : <code>1</code> ou <code>0</code>. En électronique, cette information peut être stockée dans un élément mémoire par une charge électrique. Dans le monde réel, on peut stocker un bit avec une pièce de monnaie déposée sur le côté pile ou face. L'assemblage de plusieurs bits permet de stocker de l'information plus complexe.</p>
+<p>Le bit est l'abréviation de <em>binary digit</em> (<span class="ycr-hashtag" data-index-entry="chiffre" data-tag="chiffre">chiffre</span> binaire) et est central à la théorie de l'information. Le concept a été popularisé par <span class="ycr-hashtag" data-index-entry="Claude Shannon" data-tag="claude-shannon">Claude Shannon</span> dans son article fondateur de la théorie de l'information en 1948 : <em>A Mathematical Theory of Communication</em>. Shannon y introduit le bit comme unité de mesure de l'information.</p>
 <p>S'il existe un meuble avec huit casiers assez grands pour une pomme, et que l'on souhaite connaître le nombre de possibilités de rangement, on sait que chaque casier peut contenir soit une pomme, soit oaucune. Le nombre de possibilités est alors de <span class="arithmatex">\(2^8 = 256\)</span>. La quantité d'information nécessaire à connaître l'état du meuble est de 8 bits.</p>
-<p>On pourrait utiliser ce meuble, et ces pommes pour représenter son âge. Une personne de 42 ans n'aurait pas besoin de 42 pommes, mais seulement de 3. En effet, si on représente l'absence de pomme par <code>0</code> et la présence d'une pomme par <code>1</code>, on obtient&thinsp;:</p>
+<p>On pourrait utiliser ce meuble, et ces pommes pour représenter son âge. Une personne de 42 ans n'aurait pas besoin de 42 pommes, mais seulement de 3. En effet, si on représente l'absence de pomme par <code>0</code> et la présence d'une pomme par <code>1</code>, on obtient :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>0 0 1 0 1 0 1 0
 </span></code></pre></div>
-<p>Si l'on souhaite représenter l'état d'un meuble beaucoup plus grand, par exemple un meuble de 64 casiers, la quantité d'information représentable est de&thinsp;:</p>
+<p>Si l'on souhaite représenter l'état d'un meuble beaucoup plus grand, par exemple un meuble de 64 casiers, la quantité d'information représentable est de :</p>
 <div class="arithmatex">\[2^{64} = 18'446'744'073'709'551'616\]</div>
 <p>ou 64 bits. Cela permet de représenter le nombre de grains de sable sur Terre, le nombre de secondes dans 584'942 années, ou le nombre de combinaisons possibles pour un mot de passe de 8 caractères.</p>
-<p>La quantité d'information peut s'exprimer par la formule suivante&thinsp;:</p>
+<p>La quantité d'information peut s'exprimer par la formule suivante :</p>
 <div class="arithmatex">\[I = \log_2(N)\]</div>
 <p>où <span class="arithmatex">\(I\)</span> est la quantité d'information en bits, et <span class="arithmatex">\(N\)</span> est le nombre de possibilités.</p>
 <p>Les informaticiens ont l'habitude de regrouper les bits par 8 pour former un <strong>octet</strong>. Un <span class="ycr-hashtag" data-index-entry="octet" data-tag="octet">octet</span> peut donc représenter <span class="arithmatex">\(256\)</span> valeurs différentes. Un octet est souvent appelé un <strong>byte</strong> en anglais, mais ce terme est ambigu, car il peut également désigner un groupe de bits de taille variable.</p>
 <p>Lorsque vous achetez un disque de stockage pour votre ordinateur, vous pouvez par exemple lire sur l'emballage que le disque a une capacité de 1 To (Téra-octet). Un Téra-octet est égal à <span class="arithmatex">\(2^{40}\)</span> octets, soit <span class="arithmatex">\(1'099'511'627'776\)</span> octets. Un octet égant égal à 8 bits, donc un Téra-octet est égal à <span class="arithmatex">\(8'796'093'022'208\)</span> bits. À titre d'information l'entièreté de Wikipédia en pèse environ 22 Go (Giga-octet). On peut donc dire que notre disque de 1 To permettrait de stocker 45 copies de Wikipédia.</p>
 <p>Pour représenter l'état de Wikipédia, il suffirait donc d'avoir <span class="arithmatex">\(10'225'593'776'312\)</span> pommes et de l'armoire appropriée.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Pile ou face<span class="exercise-title"></span></p>
-<p>Lors d'un tir à pile ou face de l'engagement d'un match de football, l'arbitre lance une pièce de monnaie qu'il rattrape et dépose sur l'envers de sa main. Lorsqu'il annonce le résultat de ce tir, quelle quantité d'information transmet-il&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Pile ou face<span class="exercise-title"></span></p>
+<p>Lors d'un tir à pile ou face de l'engagement d'un match de football, l'arbitre lance une pièce de monnaie qu'il rattrape et dépose sur l'envers de sa main. Lorsqu'il annonce le résultat de ce tir, quelle quantité d'information transmet-il ?</p>
 <details class="solution">
 <summary>Solution</summary>
-<p>Il transmet un seul 1 bit d'information&thinsp;: équipe A ou pile ou <code>1</code>, équipe B ou face ou <code>0</code>. Il faut néanmoins encore définir à quoi correspond cette information.</p>
+<p>Il transmet un seul 1 bit d'information : équipe A ou pile ou <code>1</code>, équipe B ou face ou <code>0</code>. Il faut néanmoins encore définir à quoi correspond cette information.</p>
 </details>
 </div>
 <div class="admonition info">
@@ -3932,10 +3934,10 @@
 <p>On entends souvent que l'<span class="ycr-hashtag" data-index-entry="entropie" data-tag="entropie">entropie</span> est la mesure du désordre d'un système. En thermodynamique, l'entropie est une mesure de l'énergie non disponible. En informatique, l'entropie est une mesure de l'incertitude d'une information. Plus une information est incertaine, plus elle contient d'entropie. L'entropie est souvent mesurée en bits, et est utilisée en cryptographie pour mesurer la qualité d'un générateur de nombres aléatoires.</p>
 <p>Néanmoins l'entropie peut également être utilisée pour mesurer la quantité d'information transmise par un message. Plus un message est incertain, plus il contient d'entropie. Par exemple, si un message est composé de 8 bits, il contient 8 bits d'entropie. Si le message est composé de 16 bits, il contient 16 bits d'entropie.</p>
 </div>
-<h2 id="les-prefixes">Les préfixes<a class="headerlink" href="#les-prefixes" title="Permanent link">¶</a></h2>
+<h2 id="les-prefixes">Les préfixes<a class="headerlink" href="#les-prefixes" title="Permanent link">¤</a></h2>
 <p>On l'a vu, le nombre de bits peut être très grand et même divisé par 8 pour obtenir un nombre d'octets, il est difficile avec des nombres simples de représenter ces quantités. C'est pourquoi on utilise des préfixes.</p>
 <p>Avec le système international d'unités, on utilise des préfixes pour exprimer des multiples de 10. Par exemple, un kilogramme est égal à 1000 grammes. La tonne est égale à 1000 kilogrammes.</p>
-<p>En informatique, comme on utilise un système binaire en puissance de deux, rajouter un bit double la quantité d'information. On utilise donc des préfixes pour exprimer des multiples de 2. Un kilo-octet est égal à 1000 octets <span class="arithmatex">\(10^3\)</span>, mais un kibi-octet est égal à 1024 octets <span class="arithmatex">\(2^10\)</span>. Les <span class="ycr-hashtag" data-index-entry="préfixes binaires" data-tag="prefixes-binaires">préfixes binaires</span> sont définis par l'IEC (International Electrotechnical Commission) et sont les suivants&thinsp;:</p>
+<p>En informatique, comme on utilise un système binaire en puissance de deux, rajouter un bit double la quantité d'information. On utilise donc des préfixes pour exprimer des multiples de 2. Un kilo-octet est égal à 1000 octets <span class="arithmatex">\(10^3\)</span>, mais un kibi-octet est égal à 1024 octets <span class="arithmatex">\(2^10\)</span>. Les <span class="ycr-hashtag" data-index-entry="préfixes binaires" data-tag="prefixes-binaires">préfixes binaires</span> sont définis par l'IEC (International Electrotechnical Commission) et sont les suivants :</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Préfixes standards</label><label for="__tabbed_1_2">Préfixes binaires</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4050,12 +4052,12 @@
 <p class="admonition-title">Info</p>
 <p>Les préfixes binaires sont méconnus et peu utilisés par le marketing. Les disques durs sont souvent vendus en Go (Giga-octets) alors que les systèmes d'exploitation les affichent en Gio (Gibi-octets). Il est donc important de bien comprendre la différence entre ces deux unités.</p>
 </div>
-<h2 id="notation-positionnelle">Notation positionnelle<a class="headerlink" href="#notation-positionnelle" title="Permanent link">¶</a></h2>
-<p>La numération est un système de représentation des nombres. La numération décimale est un système de <span class="ycr-hashtag" data-index-entry="base 10" data-tag="base-10">base 10</span>, c'est-à-dire que chaque chiffre peut prendre 10 valeurs différentes&thinsp;: <span class="arithmatex">\(0, 1, 2, 3, 4, 5, 6, 7, 8, 9\)</span>. La position des chiffres dans un nombre décimal indique la puissance de 10 à laquelle il est multiplié. Par exemple, le nombre 123 est égal à&thinsp;:</p>
+<h2 id="notation-positionnelle">Notation positionnelle<a class="headerlink" href="#notation-positionnelle" title="Permanent link">¤</a></h2>
+<p>La numération est un système de représentation des nombres. La numération décimale est un système de <span class="ycr-hashtag" data-index-entry="base 10" data-tag="base-10">base 10</span>, c'est-à-dire que chaque chiffre peut prendre 10 valeurs différentes : <span class="arithmatex">\(0, 1, 2, 3, 4, 5, 6, 7, 8, 9\)</span>. La position des chiffres dans un nombre décimal indique la puissance de 10 à laquelle il est multiplié. Par exemple, le nombre 123 est égal à :</p>
 <div class="arithmatex">\[1 \times 10^2 + 2 \times 10^1 + 3 \times 10^0\]</div>
 <p>On parle de notation positionnelle, car la position des chiffres est importante. Le chiffre le plus à droite est le chiffre des unités, le chiffre à sa gauche est le chiffre des dizaines, puis des centaines, etc.</p>
 <p>En informatique, et particulièrement en binaire on nomme <strong>LSB</strong> (<span class="ycr-hashtag" data-index-entry="Least Significant Bit" data-tag="least-significant-bit">Least Significant Bit</span>) le bit de poids faible et <strong>MSB</strong> (<span class="ycr-hashtag" data-index-entry="Most Significant Bit" data-tag="most-significant-bit">Most Significant Bit</span>) le bit de poids fort. Le bit de poids faible est le bit le plus à droite, et le bit de poids fort est le bit le plus à gauche.</p>
-<p>On notera que le <strong>LSB</strong> permet de savoir si le nombre est pair ou impair, si le <strong>LSB</strong> est à <code>0</code>, le nombre est pair, et s'il est à <code>1</code>, le nombre est impair&thinsp;:</p>
+<p>On notera que le <strong>LSB</strong> permet de savoir si le nombre est pair ou impair, si le <strong>LSB</strong> est à <code>0</code>, le nombre est pair, et s'il est à <code>1</code>, le nombre est impair :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">is_even</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p">}</span>
@@ -4066,8 +4068,8 @@
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Nature de ces nombres&thinsp;?<span class="exercise-title"></span></p>
-<p>Pour les nombres suivants stockés sur 8-bit, pouvez-vous dire s'ils sont pairs ou impairs, positifs ou négatifs&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Nature de ces nombres ?<span class="exercise-title"></span></p>
+<p>Pour les nombres suivants stockés sur 8-bit, pouvez-vous dire s'ils sont pairs ou impairs, positifs ou négatifs ?</p>
 <ol>
 <li><code>0b01100000</code></li>
 <li><code>0b00001001</code></li>
@@ -4170,7 +4172,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4310,7 +4312,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

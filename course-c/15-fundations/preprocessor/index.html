@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4420,11 +4422,11 @@
   
 
 
-<h1 id="preprocesseur">Préprocesseur<a class="headerlink" href="#preprocesseur" title="Permanent link">¶</a></h1>
+<h1 id="preprocesseur">Préprocesseur<a class="headerlink" href="#preprocesseur" title="Permanent link">¤</a></h1>
 <p><figure id="_figure-1"><img alt="Mécanisme de pré-processing avant compilation" class="drawio-diagram" src="../../../assets/images/preprocessing-fun.drawio"/><figcaption> Illustration du mécanisme de pré-processing avant la compilation</figcaption></figure></p>
 <p>Comme nous l'avons vu en introduction (<a class="autorefs autorefs-internal" href="../../05-introduction/c-lang/#programmation-texte-structuree">Texte structuré</a>) le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.</p>
-<p>Le cœur de cette opération est appelé <strong>préprocesseur</strong>. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon <code>#</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/0023" target="_blank">0023</a>, <em>hash</em> en anglais et utilisé récemment comme <a href="https://fr.wikipedia.org/wiki/Hashtag">hashtag</a> sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif <em>pound</em> (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse <code>♯</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/266F" target="_blank">266F</a> présent sur les pavés numériques de téléphone.</p>
-<p>Le vocabulaire du préprocesseur est le suivant&thinsp;:</p>
+<p>Le cœur de cette opération est appelé <strong>préprocesseur</strong>. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon <code>#</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//0023" target="_blank">0023</a>, <em>hash</em> en anglais et utilisé récemment comme <a href="https://fr.wikipedia.org/wiki/Hashtag">hashtag</a> sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif <em>pound</em> (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse <code>♯</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//266F" target="_blank">266F</a> présent sur les pavés numériques de téléphone.</p>
+<p>Le vocabulaire du préprocesseur est le suivant :</p>
 <table>
 <thead>
 <tr>
@@ -4472,7 +4474,7 @@
 </tbody>
 </table>
 <p>Le préprocesseur C est indépendant du langage C, c'est-à-dire qu'il peut être exécuté sur n'importe quel type de fichier.</p>
-<p>Prenons l'exemple d'une lettre générique d'un cabinet dentaire&thinsp;:</p>
+<p>Prenons l'exemple d'une lettre générique d'un cabinet dentaire :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>#ifdef FEMALE
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>#    define NAME Madame
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>#else
@@ -4494,7 +4496,7 @@
 </span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>#    error "Lettre sans signature"
 </span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>#endif
 </span></code></pre></div>
-<p>Il est possible d'appeler le préprocesseur directement avec l'option <code>-E</code> de gcc. Des directives <code>define</code> peuvent être renseignées depuis la ligne de commande&thinsp;:</p>
+<p>Il est possible d'appeler le préprocesseur directement avec l'option <code>-E</code> de gcc. Des directives <code>define</code> peuvent être renseignées depuis la ligne de commande :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>-xc<span class="w"> </span>-E<span class="w"> </span>test.txt<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span>-DDATE<span class="o">=</span><span class="m">22</span><span class="w"> </span>-DHOUR<span class="o">=</span><span class="m">9</span>:00<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span>-DFEMALE<span class="w"> </span><span class="se">\</span>
@@ -4514,16 +4516,16 @@
 </span><span id="__span-1-17"><a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="go">Adam</span>
 </span></code></pre></div>
 <p>Notez que les instructions du préprocesseur (à l'exception des opérateurs de concaténation de conversion en chaîne de caractère) sont des instructions de ligne (<em>line-wise</em>), et doivent se terminer par un caractère de fin de ligne.</p>
-<h2 id="phases-de-traduction">Phases de traduction<a class="headerlink" href="#phases-de-traduction" title="Permanent link">¶</a></h2>
-<p>Le standard décrit quatre phases de pré-processing&thinsp;:</p>
+<h2 id="phases-de-traduction">Phases de traduction<a class="headerlink" href="#phases-de-traduction" title="Permanent link">¤</a></h2>
+<p>Le standard décrit quatre phases de pré-processing :</p>
 <ol>
 <li>Remplacement des caractères spéciaux, décodage des trigraphes, traitement des fin de lignes.</li>
 <li>Fusionne les lignes utilisant un retour virtuel <code>\</code>.</li>
 <li>Supprime les commentaires, décompose les symboles du préprocesseur</li>
 <li>Exécute les directives du préprocesseur (<code>#define</code> et <code>#include</code>)</li>
 </ol>
-<h2 id="extensions-des-fichiers">Extensions des fichiers<a class="headerlink" href="#extensions-des-fichiers" title="Permanent link">¶</a></h2>
-<p>Par convention, et selon le standard <abbr title="GNU's Not Unix">GNU</abbr>, les extensions suivantes sont en vigueur&thinsp;:</p>
+<h2 id="extensions-des-fichiers">Extensions des fichiers<a class="headerlink" href="#extensions-des-fichiers" title="Permanent link">¤</a></h2>
+<p>Par convention, et selon le standard <abbr title="GNU's Not Unix">GNU</abbr>, les extensions suivantes sont en vigueur :</p>
 <dl>
 <dt><code>.h</code></dt>
 <dd>
@@ -4535,7 +4537,7 @@
 </dd>
 <dt><code>.i</code></dt>
 <dd>
-<p>Fichier source C qui ne sera pas soumis au préprocesseur&thinsp;: <code>gcc -E -o foo.i foo.c</code></p>
+<p>Fichier source C qui ne sera pas soumis au préprocesseur : <code>gcc -E -o foo.i foo.c</code></p>
 </dd>
 <dt><code>.s</code></dt>
 <dd>
@@ -4546,9 +4548,9 @@
 <p>Fichier assembleur soumis au préprocesseur. Notons toutefois que cette convention n'est pas  applicable sous Windows, car le système de fichier n'est pas sensible à la casse.</p>
 </dd>
 </dl>
-<h2 id="inclusion-de-fichiers">Inclusion de fichiers<a class="headerlink" href="#inclusion-de-fichiers" title="Permanent link">¶</a></h2>
+<h2 id="inclusion-de-fichiers">Inclusion de fichiers<a class="headerlink" href="#inclusion-de-fichiers" title="Permanent link">¤</a></h2>
 <p><a href="" id="preprocessor-include"></a></p>
-<h3 id="include">#include<a class="headerlink" href="#include" title="Permanent link">¶</a></h3>
+<h3 id="include">#include<a class="headerlink" href="#include" title="Permanent link">¤</a></h3>
 <p>La directive include peut prendre deux formes, l'inclusion locale et l'inclusion globale. Il s'agit d'ailleurs de l'une des questions les plus posées (c.f. <a href="https://stackoverflow.com/questions/21593/what-is-the-difference-between-include-filename-and-include-filename">cette question</a>.).</p>
 <dl>
 <dt><code>#include &lt;filename&gt;</code></dt>
@@ -4560,7 +4562,7 @@
 <p>Le préprocesseur cherche le chemin du fichier à partir du chemin courant et les chemins donnés par les des directives <code>-I</code>.</p>
 </dd>
 </dl>
-<p>L'inclusion de fichier est simplement du remplacement de chaînes&thinsp;:</p>
+<p>L'inclusion de fichier est simplement du remplacement de chaînes :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Ce début de phrase est ici"</span><span class="w"> </span>&gt;<span class="w"> </span>head.h
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">", mais cette fin est là."</span><span class="w"> </span>&gt;<span class="w"> </span>tail.h
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">'#include "head.h"\n#include "tail.h"\n'</span><span class="w"> </span>&gt;<span class="w"> </span>main.c
@@ -4580,10 +4582,10 @@
 </span><span id="__span-2-17"><a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="gp"># </span><span class="m">3</span><span class="w"> </span><span class="s2">"main.c"</span><span class="w"> </span><span class="m">2</span>
 </span></code></pre></div>
 <p>La directive <code>#include</code> est principalement utilisée pour inclure des fichiers d'en-tête (<em>header</em>), mais rarement (jamais), des fichiers C.</p>
-<h2 id="definitions">Définitions<a class="headerlink" href="#definitions" title="Permanent link">¶</a></h2>
+<h2 id="definitions">Définitions<a class="headerlink" href="#definitions" title="Permanent link">¤</a></h2>
 <p><a href="" id="preprocessor-define"></a></p>
-<h3 id="define">#define<a class="headerlink" href="#define" title="Permanent link">¶</a></h3>
-<p>Les définitions sont des symboles généralement écrits en majuscule et qui sont remplacés par le préprocesseur. Ces définitions peuvent être utiles pour définir des constantes globales qui sont définies à la compilation&thinsp;:</p>
+<h3 id="define">#define<a class="headerlink" href="#define" title="Permanent link">¤</a></h3>
+<p>Les définitions sont des symboles généralement écrits en majuscule et qui sont remplacés par le préprocesseur. Ces définitions peuvent être utiles pour définir des constantes globales qui sont définies à la compilation :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#ifndef WINDOW_SIZE</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="cp">#    define WINDOW_SIZE 10</span>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="cp">#endif</span>
@@ -4595,10 +4597,10 @@
 </span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">        </span><span class="n">tab</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 </span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Il est ainsi possible de définir la taille du tableau à la compilation avec&thinsp;:</p>
+<p>Il est ainsi possible de définir la taille du tableau à la compilation avec :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>main.c<span class="w"> </span>-DWINDOW_SIZE<span class="o">=</span><span class="m">42</span>
 </span></code></pre></div>
-<p>Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplacée par le contenu de sa définition. <strong>C'est un remplacement de chaîne bête, idiot et naïf</strong>. Il est par conséquent possible d'écrire&thinsp;:</p>
+<p>Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplacée par le contenu de sa définition. <strong>C'est un remplacement de chaîne bête, idiot et naïf</strong>. Il est par conséquent possible d'écrire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#define MAIN int main(</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cp">#define BEGIN ) {</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="cp">#define END return 0; }</span>
@@ -4609,7 +4611,7 @@
 </span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello"</span><span class="w"> </span><span class="n">EOF</span><span class="p">);</span>
 </span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="n">END</span>
 </span></code></pre></div>
-<p>On relèvera qu'il est aussi possible de commettre certaines erreurs&thinsp;:</p>
+<p>On relèvera qu'il est aussi possible de commettre certaines erreurs :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#define ADD a + b</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
@@ -4625,28 +4627,28 @@
 </span></code></pre></div>
 <p>Pour se prémunir contre ces éventuelles coquilles, on protègera toujours les définitions avec des parenthèses <code>#define ADD (a + b)</code>.</p>
 <p><a href="" id="preprocessor-ifdef"></a></p>
-<h3 id="if-defined">#if defined<a class="headerlink" href="#if-defined" title="Permanent link">¶</a></h3>
+<h3 id="if-defined">#if defined<a class="headerlink" href="#if-defined" title="Permanent link">¤</a></h3>
 <p><a href="" id="preprocessor-if"></a></p>
-<h3 id="if">#if<a class="headerlink" href="#if" title="Permanent link">¶</a></h3>
+<h3 id="if">#if<a class="headerlink" href="#if" title="Permanent link">¤</a></h3>
 <p><a href="" id="preprocessor-undef"></a></p>
-<h3 id="undef">#undef<a class="headerlink" href="#undef" title="Permanent link">¶</a></h3>
-<p>Un symbole défini soit par la ligne de commande <code>-DFOO=1</code>, soit par la directive <code>#define FOO 1</code> ne peut pas être redéfini. C'est pourquoi il est possible d'utiliser <code>#undef</code> pour supprimer une directive préprocesseur&thinsp;:</p>
+<h3 id="undef">#undef<a class="headerlink" href="#undef" title="Permanent link">¤</a></h3>
+<p>Un symbole défini soit par la ligne de commande <code>-DFOO=1</code>, soit par la directive <code>#define FOO 1</code> ne peut pas être redéfini. C'est pourquoi il est possible d'utiliser <code>#undef</code> pour supprimer une directive préprocesseur :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">#ifdef FOO</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="cp">#   undef FOO</span>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="cp">#endif</span>
 </span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="cp">#define FOO 1</span>
 </span></code></pre></div>
 <p>Généralement on évitera de faire appel à <code>#undef</code> car le bon programmeur aura forcé la définition d'une directive en amont pour contraindre le développement en aval.</p>
-<h2 id="debogage">Débogage<a class="headerlink" href="#debogage" title="Permanent link">¶</a></h2>
+<h2 id="debogage">Débogage<a class="headerlink" href="#debogage" title="Permanent link">¤</a></h2>
 <p><a href="" id="preprocessor-error"></a></p>
-<h3 id="error">#error<a class="headerlink" href="#error" title="Permanent link">¶</a></h3>
-<p>Cette directive génère une erreur avec le texte qui suit la directive&thinsp;:</p>
+<h3 id="error">#error<a class="headerlink" href="#error" title="Permanent link">¤</a></h3>
+<p>Cette directive génère une erreur avec le texte qui suit la directive :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#if !(KERNEL_SIZE % 2)</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="cp">#    error Le noyau du filtre est pair</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="cp">#endif</span>
 </span></code></pre></div>
-<h3 id="directives-speciales">Directives spéciales<a class="headerlink" href="#directives-speciales" title="Permanent link">¶</a></h3>
-<p>Le standard définit certains symboles utiles pour le débogage&thinsp;:</p>
+<h3 id="directives-speciales">Directives spéciales<a class="headerlink" href="#directives-speciales" title="Permanent link">¤</a></h3>
+<p>Le standard définit certains symboles utiles pour le débogage :</p>
 <dl>
 <dt><code>__LINE__</code></dt>
 <dd>
@@ -4673,18 +4675,18 @@
 <p>Est remplacé par l'heure au moment du pre-processing <code>"hh:mm:ss"</code></p>
 </dd>
 </dl>
-<h2 id="caractere-dechappement">Caractère d'échappement<a class="headerlink" href="#caractere-dechappement" title="Permanent link">¶</a></h2>
-<p>L'anti-slash (<code>backslash</code>) est interprété par le préprocesseur comme un saut de ligne virtuel. Il permet par exemple de casser les longues lignes&thinsp;:</p>
+<h2 id="caractere-dechappement">Caractère d'échappement<a class="headerlink" href="#caractere-dechappement" title="Permanent link">¤</a></h2>
+<p>L'anti-slash (<code>backslash</code>) est interprété par le préprocesseur comme un saut de ligne virtuel. Il permet par exemple de casser les longues lignes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#define TRACE printf("Le programme est passé " \</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="cp">    " dans le fichier %s" \</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="cp">    " ligne %d\n", \</span>
 </span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="cp">    __FILE__, __LINE__);</span>
 </span></code></pre></div>
-<h2 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">¶</a></h2>
-<p>Une macro est une définition qui prend des arguments en paramètre&thinsp;:</p>
+<h2 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">¤</a></h2>
+<p>Une macro est une définition qui prend des arguments en paramètre :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#define MIN(x, y) ((x) &lt; (y) ? (x) : (y))</span>
 </span></code></pre></div>
-<p>De la même manière que pour les définitions simples, il s'agit d'un remplacement de chaîne&thinsp;:</p>
+<p>De la même manière que pour les définitions simples, il s'agit d'un remplacement de chaîne :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="gp">$ </span>cat<span class="w"> </span>test.c
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="gp">#</span>define<span class="w"> </span>MIN<span class="o">(</span>x,<span class="w"> </span>y<span class="o">)</span><span class="w"> </span><span class="o">((</span>x<span class="o">)</span><span class="w"> </span>&lt;<span class="w"> </span><span class="o">(</span>y<span class="o">)</span><span class="w"> </span>?<span class="w"> </span><span class="o">(</span>x<span class="o">)</span><span class="w"> </span>:<span class="w"> </span><span class="o">(</span>y<span class="o">))</span>
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>
@@ -4697,7 +4699,7 @@
 </span><span id="__span-12-10"><a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="go">    return ((23) &lt; (12) ? (23) : (12));</span>
 </span><span id="__span-12-11"><a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="go">}</span>
 </span></code></pre></div>
-<p>Notez que l'absence d'espace entre le nom de la macro et la parenthèse est importante. L'exemple suivant le démontre&thinsp;:</p>
+<p>Notez que l'absence d'espace entre le nom de la macro et la parenthèse est importante. L'exemple suivant le démontre :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="gp">$ </span>cat<span class="w"> </span>test.c
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="gp">#</span>define<span class="w"> </span>ADD<span class="w"> </span><span class="o">(</span>x,<span class="w"> </span>y<span class="o">)</span><span class="w"> </span><span class="o">((</span>x<span class="o">)</span><span class="w"> </span>+<span class="w"> </span><span class="o">(</span>y<span class="o">))</span>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>
@@ -4712,7 +4714,7 @@
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Macro avec paramètres</p>
-<p>Le préprocesseur interprète une macro avec paramètres que si la parenthèse ouvrante suit directement et sans espace le nom de la macro. Ainsi, considérant cet exemple&thinsp;:</p>
+<p>Le préprocesseur interprète une macro avec paramètres que si la parenthèse ouvrante suit directement et sans espace le nom de la macro. Ainsi, considérant cet exemple :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#define f (x) ((x) + 1)</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -4720,7 +4722,7 @@
 <p>Le préprocesseur génère ceci et le compilateur retournera une erreur du type <code>identification x non déclarés</code>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)(</span><span class="mi">1</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Observations&thinsp;:</p>
+<p>Observations :</p>
 <ul>
 <li>Ne jamais mettre d'espace entre le nom d'une macro et ses paramètres.</li>
 <li>Être toujours prêt à mettre en doute le code généré par une macro.</li>
@@ -4728,15 +4730,15 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Paramètres de macro non protégés</p>
-<p>On ne le répètera jamais assez&thinsp;: une macro est un remplacement de chaîne effectué par le préprocesseur. Donc écrire <code class="language-c highlight"><span class="cp">#define m(x) x * 2</span></code> et <code>m(2 + 5)</code> sera remplacé en <code>2 + 5 * 2</code>.</p>
-<p>Quel sera le problème dans le cas suivant&thinsp;?</p>
+<p>On ne le répètera jamais assez : une macro est un remplacement de chaîne effectué par le préprocesseur. Donc écrire <code class="language-c highlight"><span class="cp">#define m(x) x * 2</span></code> et <code>m(2 + 5)</code> sera remplacé en <code>2 + 5 * 2</code>.</p>
+<p>Quel sera le problème dans le cas suivant ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#define ABS(x) x &gt;= 0 ? x: -x</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-16-4"><a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ABS</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
 </span><span id="__span-16-5"><a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Plus difficile, quel serait le problème ici&thinsp;:</p>
+<p>Plus difficile, quel serait le problème ici :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">#define ERROR(str) printf("Erreur: %s\r\n", str); log(str);</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
@@ -4744,7 +4746,7 @@
 </span><span id="__span-17-5"><a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="k">else</span>
 </span><span id="__span-17-6"><a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Observations&thinsp;:</p>
+<p>Observations :</p>
 <ul>
 <li>
 <p>Toujours protéger les paramètres des macros avec des parenthèses</p>
@@ -4752,7 +4754,7 @@
 </span></code></pre></div>
 </li>
 <li>
-<p>Toujours protéger une macro à plusieurs instructions par une boucle vide&thinsp;:</p>
+<p>Toujours protéger une macro à plusieurs instructions par une boucle vide :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cp">#define ERROR(str) do { \</span>
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="cp">    printf("Erreur: %s\r\n", str); \</span>
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="cp">    log(str); \</span>
@@ -4768,31 +4770,31 @@
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="k">return</span><span class="w"> </span><span class="n">ABS</span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="p">)</span>
 </span></code></pre></div>
-<p>On peut constater que x sera post-incrémenté deux fois au lieu d'une&thinsp;:</p>
+<p>On peut constater que x sera post-incrémenté deux fois au lieu d'une :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cp">#define ABS(x) ((x) &gt;= 0 ? (x) : -(x))</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>
 </span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="k">return</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="p">))</span>
 </span></code></pre></div>
-<p>Observations&thinsp;:</p>
+<p>Observations :</p>
 <ul>
 <li>Éviter l'utilisation de la pre/post incrémentation/décrémentation dans l'appel de macros.</li>
 </ul>
 </div>
 <p><a href="" id="preprocessor-hash-hash"></a></p>
-<h2 id="concatenation-de-chaines">Concaténation de chaînes<a class="headerlink" href="#concatenation-de-chaines" title="Permanent link">¶</a></h2>
-<p>Parfois il est utile de vouloir concaténer deux symboles comme si ce n'était qu'un seul. Attention, il est nécessaire de passer par une macro pour que cela fonctionne&thinsp;:</p>
+<h2 id="concatenation-de-chaines">Concaténation de chaînes<a class="headerlink" href="#concatenation-de-chaines" title="Permanent link">¤</a></h2>
+<p>Parfois il est utile de vouloir concaténer deux symboles comme si ce n'était qu'un seul. Attention, il est nécessaire de passer par une macro pour que cela fonctionne :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">foobar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>
 </span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="cp">#define CONCAT(a, b) a ## b</span>
 </span><span id="__span-22-4"><a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="n">bar</span><span class="p">));</span>
 </span></code></pre></div>
-<p>En appelant seulement le préprocesseur, on constate ce résultat&thinsp;:</p>
+<p>En appelant seulement le préprocesseur, on constate ce résultat :</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a>$<span class="w"> </span>gcc<span class="w"> </span>-E<span class="w"> </span>ww.c
 </span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>int<span class="w"> </span><span class="nv">foobar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">42</span><span class="p">;</span>
 </span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a>
 </span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a>printf<span class="o">(</span><span class="s2">"%d"</span>,<span class="w"> </span>foobar<span class="o">)</span><span class="p">;</span>
 </span></code></pre></div>
-<p>L'usage le plus courant est de définir le <em>mangling</em> des noms de fonctions&thinsp;:</p>
+<p>L'usage le plus courant est de définir le <em>mangling</em> des noms de fonctions :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cp">#define MANGLE(name) prefix_ ## name ## _suffix</span>
 </span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a>
 </span><span id="__span-24-3"><a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">MANGLE</span><span class="p">(</span><span class="n">foo</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4808,13 +4810,13 @@
 <p>Les développeurs autorisent l'utilisateur de la bibliothèque, pour autant que l'utilisateur ait accès au code source, à renommer les fonctions.</p>
 <p>En utilisant le <em>mangling</em> vous pourriez définir <code>xml_read</code> et <code>json_read</code> pour éviter les conflits.</p>
 <p><a href="" id="preprocessor-hash"></a></p>
-<h2 id="conversion-en-chaine">Conversion en chaîne<a class="headerlink" href="#conversion-en-chaine" title="Permanent link">¶</a></h2>
+<h2 id="conversion-en-chaine">Conversion en chaîne<a class="headerlink" href="#conversion-en-chaine" title="Permanent link">¤</a></h2>
 <p>Il est possible de convertir un symbole en chaîne de caractères avec l'opérateur <code>#</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="cp">#define STR(x) #x</span>
 </span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="w"> </span><span class="n">STR</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
 </span></code></pre></div>
-<h2 id="directives-conditionnelles">Directives conditionnelles<a class="headerlink" href="#directives-conditionnelles" title="Permanent link">¶</a></h2>
-<p>Les directives <code>#if</code>, <code>#else</code>, <code>#elif</code> et <code>#endif</code> sont utiles pour rendre conditionnelle une section de code. Cela peut être utilisé pour définir une structure selon le boutisme de l'architecture cible&thinsp;:</p>
+<h2 id="directives-conditionnelles">Directives conditionnelles<a class="headerlink" href="#directives-conditionnelles" title="Permanent link">¤</a></h2>
+<p>Les directives <code>#if</code>, <code>#else</code>, <code>#elif</code> et <code>#endif</code> sont utiles pour rendre conditionnelle une section de code. Cela peut être utilisé pour définir une structure selon le boutisme de l'architecture cible :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="cp">#ifdef BIG_ENDIAN</span>
 </span><span id="__span-26-2"><a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-26-3"><a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">header</span><span class="p">;</span>
@@ -4829,20 +4831,20 @@
 </span><span id="__span-26-12"><a href="#__codelineno-26-12" id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="p">}</span><span class="w"> </span><span class="n">Dataframe</span><span class="p">;</span>
 </span><span id="__span-26-13"><a href="#__codelineno-26-13" id="__codelineno-26-13" name="__codelineno-26-13"></a><span class="cp">#endif</span>
 </span></code></pre></div>
-<h3 id="desactivation-de-code">Désactivation de code<a class="headerlink" href="#desactivation-de-code" title="Permanent link">¶</a></h3>
-<p>On voit souvent des développeurs commenter des sections de code pour le débogage. Cette pratique n'est pas recommandée, car les outils de <a href="https://en.wikipedia.org/wiki/Code_refactoring">refactoring</a> (réusinage de code), ne parviendront pas à interpréter le code en commentaire jugeant qu'il ne s'agit pas de code, mais de texte insignifiant. Une méthode plus robuste et plus sure consiste à utiliser une directive conditionnelle&thinsp;:</p>
+<h3 id="desactivation-de-code">Désactivation de code<a class="headerlink" href="#desactivation-de-code" title="Permanent link">¤</a></h3>
+<p>On voit souvent des développeurs commenter des sections de code pour le débogage. Cette pratique n'est pas recommandée, car les outils de <a href="https://en.wikipedia.org/wiki/Code_refactoring">refactoring</a> (réusinage de code), ne parviendront pas à interpréter le code en commentaire jugeant qu'il ne s'agit pas de code, mais de texte insignifiant. Une méthode plus robuste et plus sure consiste à utiliser une directive conditionnelle :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cp">#if 0</span><span class="c"> // TODO: Check if this code is still required.</span>
 </span><span id="__span-27-2"><a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="c">if (x &lt; 0) {</span>
 </span><span id="__span-27-3"><a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="c">    x = 0;</span>
 </span><span id="__span-27-4"><a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="c">}</span>
 </span><span id="__span-27-5"><a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="cp">#endif</span>
 </span></code></pre></div>
-<h3 id="include-guard">Include guard<a class="headerlink" href="#include-guard" title="Permanent link">¶</a></h3>
+<h3 id="include-guard">Include guard<a class="headerlink" href="#include-guard" title="Permanent link">¤</a></h3>
 <p>La protection des fichiers d'en-tête permet d'éviter d'inclure un fichier s'il a déjà été inclus.</p>
 <p>Imaginons que la constante <code>M_PI</code> soit définie dans le header <code>&lt;math.h&gt;</code>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cp">#define M_PI  3.14159265358979323846</span>
 </span></code></pre></div>
-<p>Si ce fichier d'en-tête est inclus à nouveau, le préprocesseur générera une erreur, car le symbole est déjà défini. Pour éviter ce genre d'erreur, les fichiers d'en-tête sont protégés par un garde&thinsp;:</p>
+<p>Si ce fichier d'en-tête est inclus à nouveau, le préprocesseur générera une erreur, car le symbole est déjà défini. Pour éviter ce genre d'erreur, les fichiers d'en-tête sont protégés par un garde :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="cp">#ifndef MATH_H</span>
 </span><span id="__span-29-2"><a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="cp">#define MATH_H</span>
 </span><span id="__span-29-3"><a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a>
@@ -4856,8 +4858,8 @@
 </span><span id="__span-30-2"><a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a>
 </span><span id="__span-30-3"><a href="#__codelineno-30-3" id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="p">...</span>
 </span></code></pre></div>
-<h2 id="commentaires">Commentaires<a class="headerlink" href="#commentaires" title="Permanent link">¶</a></h2>
-<p>Les commentaires C du type suivant sont aussi des directives du préprocesseur. Ils seront retirés par le préprocesseur&thinsp;:</p>
+<h2 id="commentaires">Commentaires<a class="headerlink" href="#commentaires" title="Permanent link">¤</a></h2>
+<p>Les commentaires C du type suivant sont aussi des directives du préprocesseur. Ils seront retirés par le préprocesseur :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-31-1"><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="c1">// Blabla</span>
 </span><span id="__span-31-2"><a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a>
 </span><span id="__span-31-3"><a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="cm">/**</span>
@@ -4865,18 +4867,18 @@
 </span><span id="__span-31-5"><a href="#__codelineno-31-5" id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="cm"> */</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Macro compromise&thinsp;?<span class="exercise-title"></span></p>
-<p>Que pensez-vous de cette définition&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Macro compromise ?<span class="exercise-title"></span></p>
+<p>Que pensez-vous de cette définition ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cp">#define IS_OCTAL(c) ((c) &gt;= '0' &amp;&amp; (c) &lt;= '8')</span>
 </span></code></pre></div>
 </div>
-<h2 id="usages-avances">Usages avancés<a class="headerlink" href="#usages-avances" title="Permanent link">¶</a></h2>
+<h2 id="usages-avances">Usages avancés<a class="headerlink" href="#usages-avances" title="Permanent link">¤</a></h2>
 <p><a href="" id="preprocessor-pragma"></a></p>
-<h3 id="pragma">#pragma<a class="headerlink" href="#pragma" title="Permanent link">¶</a></h3>
-<p>La directive <code>#pragma</code> est une directive spécifique à un compilateur. Elle permet de passer des options spécifiques au compilateur, elle n'est par conséquent pas standardisée. Par exemple, pour désactiver un warning&thinsp;:</p>
+<h3 id="pragma">#pragma<a class="headerlink" href="#pragma" title="Permanent link">¤</a></h3>
+<p>La directive <code>#pragma</code> est une directive spécifique à un compilateur. Elle permet de passer des options spécifiques au compilateur, elle n'est par conséquent pas standardisée. Par exemple, pour désactiver un warning :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="cp">#pragma GCC diagnostic ignored "-Wformat"</span>
 </span></code></pre></div>
-<p>On utilise également <code>#pragma</code> forcer l'alignement mémoire d'une structure&thinsp;:</p>
+<p>On utilise également <code>#pragma</code> forcer l'alignement mémoire d'une structure :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="cp">#pragma pack(push, 1)</span>
 </span><span id="__span-34-2"><a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-34-3"><a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
@@ -4884,15 +4886,15 @@
 </span><span id="__span-34-5"><a href="#__codelineno-34-5" id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="p">}</span><span class="w"> </span><span class="n">MyStruct</span><span class="p">;</span>
 </span><span id="__span-34-6"><a href="#__codelineno-34-6" id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="cp">#pragma pack(pop)</span>
 </span></code></pre></div>
-<h3 id="simulation-dexceptions">Simulation d'exceptions<a class="headerlink" href="#simulation-dexceptions" title="Permanent link">¶</a></h3>
-<p>Il est possible de simuler des exceptions en C en utilisant les directives du préprocesseur&thinsp;:</p>
+<h3 id="simulation-dexceptions">Simulation d'exceptions<a class="headerlink" href="#simulation-dexceptions" title="Permanent link">¤</a></h3>
+<p>Il est possible de simuler des exceptions en C en utilisant les directives du préprocesseur :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="cp">#define TRY do { jmp_buf ex_buf__; if (setjmp(ex_buf__) == 0) {</span>
 </span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="cp">#define CATCH } else {</span>
 </span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="cp">#define ETRY } } while (0)</span>
 </span><span id="__span-35-4"><a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="cp">#define THROW longjmp(ex_buf__, 1)</span>
 </span></code></pre></div>
-<h3 id="debogage_1">Débogage<a class="headerlink" href="#debogage_1" title="Permanent link">¶</a></h3>
-<p>Il est possible de définir des macros pour le débogage&thinsp;:</p>
+<h3 id="debogage_1">Débogage<a class="headerlink" href="#debogage_1" title="Permanent link">¤</a></h3>
+<p>Il est possible de définir des macros pour le débogage :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="cp">#ifdef DEBUG</span>
 </span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="cp">#    define TRACE printf("Trace: %s:%d\n", __FILE__, __LINE__)</span>
 </span><span id="__span-36-3"><a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="cp">#else</span>
@@ -4985,7 +4987,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -5125,7 +5127,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

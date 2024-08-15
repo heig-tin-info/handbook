@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3807,13 +3809,13 @@
   
 
 
-<h1 id="counting-sort">Counting Sort<a class="headerlink" href="#counting-sort" title="Permanent link">¶</a></h1>
+<h1 id="counting-sort">Counting Sort<a class="headerlink" href="#counting-sort" title="Permanent link">¤</a></h1>
 <p>Le <a href="https://fr.wikipedia.org/wiki/Tri_comptage">tri par dénombrement</a> est un algorithme de tri particulier. Il est utilisé pour trier des éléments dont la valeur est connue à l'avance. Il est donc inutile pour trier des éléments dont la valeur est inconnue ou aléatoire.</p>
 <p>Nous l'avons vu précédemment, il n'est pas possible de trier un tableau mieux qu'en <strong>O(n<sub>log</sub>n)</strong>. En revanche cette assertion n'est pas tout à fait juste dans le cas ou les données brutes possèdent des propriétés remarquables.</p>
 <p>Pour que cet algorithme soit utilisable, imaginons un contexte où les données d'entrées possèdent des propriétés remarquables.</p>
-<p>Ici, les données d'entrées seront générées entre 0 et 51&thinsp;; chaque valeur représentera une carte à jouer selon la règle suivante&thinsp;:</p>
+<p>Ici, les données d'entrées seront générées entre 0 et 51 ; chaque valeur représentera une carte à jouer selon la règle suivante :</p>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../../assets/images/playing-cards.svg"><img alt="cards" src="../../../../assets/images/playing-cards.svg" width="100%"/></a><figcaption> cards</figcaption></figure></p>
-<p>Cette série de valeurs dispose de plusieurs propriétés intéressantes&thinsp;:</p>
+<p>Cette série de valeurs dispose de plusieurs propriétés intéressantes :</p>
 <ol>
 <li>La valeur d'une carte est identifiée par <code>n % 13</code>.</li>
 <li>La couleur est identifiée par <code>n / 13</code>.</li>
@@ -3821,7 +3823,7 @@
 <li>Bien qu'un entier soit stocké sur 4 bytes, il suffit en réalité de 6 bits pour encoder la valeur d'une carte.</li>
 </ol>
 <p>L'algorithme <code>counting-sort</code> est intéressant, car il ne fait pas appel à des comparaisons de valeurs.</p>
-<p>L'algorithme itératif est le suivant&thinsp;:</p>
+<p>L'algorithme itératif est le suivant :</p>
 <ol>
 <li>On crée un tableau statique de 13 positions correspondant au nombre de valeurs possibles dans notre set de donnée. Ce tableau peut être nommé <code>counts</code></li>
 <li>On parcourt le tableau à trier linéairement et on compte le nombre d'occurrences de chaque valeur dans <code>counts</code>. On aura donc à la position <code>0</code> le nombre d'as contenus dans le tableau à trier et à la positon <code>10</code> le nombre de valets dans le jeu de cartes fourni.</li>
@@ -3830,7 +3832,7 @@
 </ol>
 <p>À l'issue de cet algorithme, vous aurez dans <code>b</code> un tableau trié par valeurs.</p>
 <p><strong>Notez qu'ici les couleurs ne sont pas triées</strong>.</p>
-<p>Voici un exemple de tri sur des entiers entre 0 et 9&thinsp;:</p>
+<p>Voici un exemple de tri sur des entiers entre 0 et 9 :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>1 0 9 3 8 1 4 8 7 5  Tableau d'entrée `a` non trié et contenant que des chiffres
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>                     Il y a 10 valeurs possibles par chiffre, donc le tableau
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>                     `counts` aura 10 positions:
@@ -3852,7 +3854,7 @@
 </span></code></pre></div>
 <p>On constate en effet que <code>3</code> est à la bonne position dans <code>b</code> et qu'il y aura <code>0 1 1</code> devant.</p>
 <p>Tel quel, cet algorithme ne permet pas de modifier directement le tableau d'origine puisqu'il ne fait pas intervenir de permutations (<code>swap</code>). Il requiert donc un buffer supplémentaire et donc à une complexité en espace de <strong>O(n)</strong>.</p>
-<p>Concernant les cartes à jouer, voici un exemple de tri&thinsp;:</p>
+<p>Concernant les cartes à jouer, voici un exemple de tri :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>41 23 00 15 26 39 13 02 28  Tableau d'entrée
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>00 26 39 13 41 15 02 28 23  Tableau trié
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>À♣ À♥ A♠ A♦ 3♠ 3♦ 3♣ 3♥ V♦  Valeurs interprétées des cartes
@@ -3944,7 +3946,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4084,7 +4086,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

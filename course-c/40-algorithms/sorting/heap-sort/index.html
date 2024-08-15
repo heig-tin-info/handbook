@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3807,9 +3809,9 @@
   
 
 
-<h1 id="heap-sort">Heap Sort<a class="headerlink" href="#heap-sort" title="Permanent link">¶</a></h1>
-<p>L'algorithme <a href="https://fr.wikipedia.org/wiki/Tri_par_tas">Heap Sort</a> aussi appelé «&thinsp;Tri par tas&thinsp;» est l'un des algorithmes de tri les plus performants offrant une complexité en temps de <span class="arithmatex">\(O(n\cdot log(n))\)</span> et une complexité en espace de <span class="arithmatex">\(O(1)\)</span>. Il s'appuie sur le concept d'arbre binaire.</p>
-<p>Prenons l'exemple du tableau ci-dessous et deux règles suivantes&thinsp;:</p>
+<h1 id="heap-sort">Heap Sort<a class="headerlink" href="#heap-sort" title="Permanent link">¤</a></h1>
+<p>L'algorithme <a href="https://fr.wikipedia.org/wiki/Tri_par_tas">Heap Sort</a> aussi appelé « Tri par tas » est l'un des algorithmes de tri les plus performants offrant une complexité en temps de <span class="arithmatex">\(O(n\cdot log(n))\)</span> et une complexité en espace de <span class="arithmatex">\(O(1)\)</span>. Il s'appuie sur le concept d'arbre binaire.</p>
+<p>Prenons l'exemple du tableau ci-dessous et deux règles suivantes :</p>
 <ul>
 <li>l'enfant de gauche est donné par <code>2 * k + 1</code> ;</li>
 <li>l'enfant de droite est donné par <code>2 * k + 2</code>.</li>
@@ -3821,7 +3823,7 @@
 </span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  (indice)
 </span></code></pre></div>
 <p>La première valeur du tableau est appelée la racine <em>root</em>. C'est le premier élément de l'arbre. Puisqu'il s'agit d'un arbre binaire, chaque nœud peut comporter jusqu'à 2 enfants. L'enfant de gauche est calculé à partir de l'indice <code>k</code> de l'élément courant. Ainsi les deux enfants de l'élément <code>4</code> seront <code>2 * 4 + 1 = 9</code> et <code>2 * 4 + 2 == a</code>.</p>
-<p>Ce tableau linéaire en mémoire pourra être représenté visuellement comme un arbre binaire&thinsp;:</p>
+<p>Ce tableau linéaire en mémoire pourra être représenté visuellement comme un arbre binaire :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>             8
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>             |
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>         ----+----
@@ -3832,8 +3834,8 @@
 </span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a> / \    / \    / \   /  \
 </span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>11  3  35  7  9  11 50  16
 </span></code></pre></div>
-<p>Le cœur de cet algorithme est le sous-algorithme nommé <em>heapify</em>. Ce dernier à pour objectif de satisfaire une exigence supplémentaire de notre arbre&thinsp;: <strong>chaque enfant doit être plus petit que son parent</strong>. Le principe est donc simple. On part du dernier élément de l'arbre qui possède au moins un enfant&thinsp;: la valeur <code>14</code> (indice <code>6</code>). Le plus grand des enfants est échangé avec la valeur du parent. Ici <code>50</code> sera échangé avec <code>14</code>. Ensuite on applique récursivement ce même algorithme pour tous les enfants qui ont été échangés. Comme <code>14</code> (anciennement <code>50</code>) n'a pas d'enfant, on s'arrête là.</p>
-<p>L'algorithme continue en remontant jusqu'à la racine de l'arbre. La valeur suivante analysée est donc <code>42</code>, comme les deux enfants sont petits on continue avec la valeur <code>6</code>. Cette fois-ci <code>35</code> qui est plus grand est alors échangé. Comme <code>6</code> n'a plus d'enfant, on continue avec <code>20</code>, puis <code>12</code>. À cette étape, notre arbre ressemble à ceci&thinsp;:</p>
+<p>Le cœur de cet algorithme est le sous-algorithme nommé <em>heapify</em>. Ce dernier à pour objectif de satisfaire une exigence supplémentaire de notre arbre : <strong>chaque enfant doit être plus petit que son parent</strong>. Le principe est donc simple. On part du dernier élément de l'arbre qui possède au moins un enfant : la valeur <code>14</code> (indice <code>6</code>). Le plus grand des enfants est échangé avec la valeur du parent. Ici <code>50</code> sera échangé avec <code>14</code>. Ensuite on applique récursivement ce même algorithme pour tous les enfants qui ont été échangés. Comme <code>14</code> (anciennement <code>50</code>) n'a pas d'enfant, on s'arrête là.</p>
+<p>L'algorithme continue en remontant jusqu'à la racine de l'arbre. La valeur suivante analysée est donc <code>42</code>, comme les deux enfants sont petits on continue avec la valeur <code>6</code>. Cette fois-ci <code>35</code> qui est plus grand est alors échangé. Comme <code>6</code> n'a plus d'enfant, on continue avec <code>20</code>, puis <code>12</code>. À cette étape, notre arbre ressemble à ceci :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>             8
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>             |
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>         ----+----
@@ -3844,7 +3846,7 @@
 </span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a> / \    / \    / \   /  \
 </span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>11  3  6   7  9  11 14  16
 </span></code></pre></div>
-<p>La valeur <code>12</code> est plus petite que <code>50</code> et est donc échangée. Mais puisque <code>12</code> contient deux enfants (<code>14</code> et <code>16</code>), l'algorithme continue. <code>16</code> est échangé avec <code>12</code>. L'algorithme se poursuit avec <code>4</code> et se terminera avec la racine <code>8</code>. Finalement l'arbre ressemblera à ceci&thinsp;:</p>
+<p>La valeur <code>12</code> est plus petite que <code>50</code> et est donc échangée. Mais puisque <code>12</code> contient deux enfants (<code>14</code> et <code>16</code>), l'algorithme continue. <code>16</code> est échangé avec <code>12</code>. L'algorithme se poursuit avec <code>4</code> et se terminera avec la racine <code>8</code>. Finalement l'arbre ressemblera à ceci :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>            35
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>             |
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>         ----+----
@@ -3855,9 +3857,9 @@
 </span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a> / \    / \    / \   /  \
 </span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>8   3  6   4  9  11 14  12
 </span></code></pre></div>
-<p>On peut observer que chaque nœud de l'arbre satisfait à l'exigence susmentionnée&thinsp;: tous les enfants sont inférieurs à leurs parents.</p>
+<p>On peut observer que chaque nœud de l'arbre satisfait à l'exigence susmentionnée : tous les enfants sont inférieurs à leurs parents.</p>
 <p>Une fois que cette propriété est respectée, on a l'assurance que la racine de l'arbre est maintenant le plus grand élément du tableau. Il est alors échangé avec le dernier élément du tableau <code>12</code>, qui devient à son tour la racine.</p>
-<p>Le dernier élément est sorti du tableau et notre arbre ressemble maintenant à ceci&thinsp;:</p>
+<p>Le dernier élément est sorti du tableau et notre arbre ressemble maintenant à ceci :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>1   2       3                  4
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>┞──╀──┬──╀──┬──┬──┬──╀──┬──┬──┬──┬──┬──┬──┦──┦
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>│12│20│50│11│ 7│42│16│ 8│ 3│ 6│ 4│ 9│11│14│35│
@@ -3874,7 +3876,7 @@
 </span><span id="__span-4-14"><a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a> / \    / \    / \   /
 </span><span id="__span-4-15"><a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>8   3  6   4  9  11 14
 </span></code></pre></div>
-<p>À ce moment on recommence&thinsp;:</p>
+<p>À ce moment on recommence :</p>
 <ol>
 <li><code>heapify</code></li>
 <li>Échange du premier élément avec le dernier.</li>
@@ -3967,7 +3969,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4107,7 +4109,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

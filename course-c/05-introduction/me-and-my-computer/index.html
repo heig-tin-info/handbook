@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3954,20 +3956,20 @@
   
 
 
-<h1 id="mon-ordinateur-et-moi">Mon ordinateur et moi<a class="headerlink" href="#mon-ordinateur-et-moi" title="Permanent link">¶</a></h1>
-<p>Vous êtes devant votre ordinateur, vous avez en théorie un clavier devant vous, une souris à droite de votre clavier, et un ou plusieurs écrans devant vous. Votre ordinateur démarre et vous verrez apparaître très probablement soit&thinsp;:</p>
+<h1 id="mon-ordinateur-et-moi">Mon ordinateur et moi<a class="headerlink" href="#mon-ordinateur-et-moi" title="Permanent link">¤</a></h1>
+<p>Vous êtes devant votre ordinateur, vous avez en théorie un clavier devant vous, une souris à droite de votre clavier, et un ou plusieurs écrans devant vous. Votre ordinateur démarre et vous verrez apparaître très probablement soit :</p>
 <ul>
 <li>une pomme croquée (Apple);</li>
 <li>une fenêtre à carreaux (Windows);</li>
 <li>un manchot Adélie (Linux).</li>
 </ul>
 <p>C'est votre système d'exploitation et peu importe lequel vous avez, la bonne nouvelle c'est que vous pourrez écrire vos premiers programmes avec n'importe lequel de ces systèmes.</p>
-<h2 id="systeme-dexploitation">Système d'exploitation<a class="headerlink" href="#systeme-dexploitation" title="Permanent link">¶</a></h2>
+<h2 id="systeme-dexploitation">Système d'exploitation<a class="headerlink" href="#systeme-dexploitation" title="Permanent link">¤</a></h2>
 <p>Dans cet ouvrage, la plupart des exemples seront donnés sous Linux. Linux présente l'avantage d'être normalisé et de suivre les standards <abbr title="Portable Operating System Interface">POSIX</abbr>, lesquels sont communs, du moins en partie avec macOS. Windows, quant à lui, est un peu à part, mais il est possible d'installer un sous-système Linux pour Windows (WSL2), ce qui permet d'exécuter des programmes Linux sur Windows.</p>
 <p>Le système d'exploitation c'est aussi un programme qui offre une couche d'abstraction entre le matériel et les autres programmes. On peut le voir comme le chef d'orchestre de votre ordinateur. Il permet de gérer les ressources matérielles, de lancer des programmes, de gérer les fichiers, de gérer les utilisateurs, etc.</p>
-<h2 id="editeur-de-code-source">Éditeur de code source<a class="headerlink" href="#editeur-de-code-source" title="Permanent link">¶</a></h2>
-<p>Pour écrire un programme, vous aurez besoin d'un <em>éditeur de code</em>, c'est un programme (oui, lui aussi) qui vous permet d'écrire du texte et de le sauvegarder dans un fichier. Il en existe des centaines&thinsp;!</p>
-<p>Si vous prenez une Doloréane munie d'un convecteur temporel, et que vous dépassez les 88 miles à l'heure, avec une énergie de 2.21 Gigot-Watt vous pouvez vous rendre en 1973 et utiliser un éditeur de code qui s'appelle <code>ed</code> (prononcé «&thinsp;idi&thinsp;») écrit par Ken Thompson (un des créateurs d'Unix et du langage C, mais nous reviendrons sur lui).</p>
+<h2 id="editeur-de-code-source">Éditeur de code source<a class="headerlink" href="#editeur-de-code-source" title="Permanent link">¤</a></h2>
+<p>Pour écrire un programme, vous aurez besoin d'un <em>éditeur de code</em>, c'est un programme (oui, lui aussi) qui vous permet d'écrire du texte et de le sauvegarder dans un fichier. Il en existe des centaines !</p>
+<p>Si vous prenez une Doloréane munie d'un convecteur temporel, et que vous dépassez les 88 miles à l'heure, avec une énergie de 2.21 Gigot-Watt vous pouvez vous rendre en 1973 et utiliser un éditeur de code qui s'appelle <code>ed</code> (prononcé « idi ») écrit par Ken Thompson (un des créateurs d'Unix et du langage C, mais nous reviendrons sur lui).</p>
 <p>C'est un éditeur qui a été écrit à l'époque des <a class="autorefs autorefs-internal" href="../programming/#lordinateur-dantan">télétypes</a> et qui, curieusement a traversé les âges car il est encore intégré au standard <abbr title="Portable Operating System Interface">POSIX</abbr>. Il est par conséquent toujours disponible sur nos systèmes d'exploitation modernes. Il faut noter qu'à cette époque il n'y avait pas d'écran, et que l'on utilisait des imprimantes pour afficher le texte. L'éditeur n'est donc pas très interactif, mais il a le mérite d'exister.</p>
 <p>C'est un des premier éditeur modale, son utilisation est assez déroutante car il n'y a pas de retour visuel immédiat. Il faut taper des commandes pour écrire du texte, pour sauvegarder, pour quitter, etc. Voici l'exemple pour éditer <code>hello.c</code> :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>$ ed
@@ -3985,15 +3987,15 @@
 </span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>62
 </span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>q
 </span></code></pre></div>
-<p>Dans les étapes ci-dessus, nous avons&thinsp;: (1) lancé l'éditeur <code>ed</code>, (2) écrit <code>a</code> pour passer en mode édition, (3) écrit le code, puis (4) saisi <code>.</code> pour revenir en mode commande. Nous avons (5) entré <code>1</code> pour afficher la première ligne (qui comporte une erreur) puis (6) saisi <code>s/void/int/</code> pour remplacer <code>void</code> par <code>int</code>. Nous avons (7) tapé <code>1i</code> pour insérer une ligne avant la première ligne puis (8) écrit <code>#include &lt;stdio.h&gt;</code> que l'on a oublié et (9) entré <code>.</code> pour revenir en mode commande. Enfin (10) écrit <code>w hello.c</code> pour sauvegarder le fichier et (11) <code>q</code> pour quitter l'éditeur.</p>
+<p>Dans les étapes ci-dessus, nous avons : (1) lancé l'éditeur <code>ed</code>, (2) écrit <code>a</code> pour passer en mode édition, (3) écrit le code, puis (4) saisi <code>.</code> pour revenir en mode commande. Nous avons (5) entré <code>1</code> pour afficher la première ligne (qui comporte une erreur) puis (6) saisi <code>s/void/int/</code> pour remplacer <code>void</code> par <code>int</code>. Nous avons (7) tapé <code>1i</code> pour insérer une ligne avant la première ligne puis (8) écrit <code>#include &lt;stdio.h&gt;</code> que l'on a oublié et (9) entré <code>.</code> pour revenir en mode commande. Enfin (10) écrit <code>w hello.c</code> pour sauvegarder le fichier et (11) <code>q</code> pour quitter l'éditeur.</p>
 <p>Rappelons que ce programme est écrit en C. Donc le plus amusant, c'est que vous pouvez le compiler, le modifier et même ajouter des fonctionnalités. On trouve bien entendu le code source sur <a href="https://raw.githubusercontent.com/yves-chevallier/ed/master/main_loop.c">GitHub</a>.</p>
 <p>Trève de plaisanteries, vous n'allez probablement pas utiliser <code>ed</code> mais connaître son existence permet de mieux saisir le contexte général. Je vous propose de continuer un peu notre voyage spatio-temporel...</p>
-<p>En 1991 naît un éditeur de code qui va révolutionner le monde de la programmation, il s'appelle <code>vim</code>. C'est un éditeur de code qui est très puissant, mais qui a une courbe d'apprentissage assez velue. Il est toujours très utilisé de nos jours, et il est disponible sur tous les systèmes d'exploitation. Vous seriez surpris de constater le nombre de programmeurs qui l'utilisent encore. Comme <code>ed</code>, c'est un éditeur modal&thinsp;: un mode pour écrire du texte, un mode pour éditer du texte, un mode pour naviguer dans le texte, etc.</p>
+<p>En 1991 naît un éditeur de code qui va révolutionner le monde de la programmation, il s'appelle <code>vim</code>. C'est un éditeur de code qui est très puissant, mais qui a une courbe d'apprentissage assez velue. Il est toujours très utilisé de nos jours, et il est disponible sur tous les systèmes d'exploitation. Vous seriez surpris de constater le nombre de programmeurs qui l'utilisent encore. Comme <code>ed</code>, c'est un éditeur modal : un mode pour écrire du texte, un mode pour éditer du texte, un mode pour naviguer dans le texte, etc.</p>
 <p>Puisque nous nommons Vim, nous devons aussi nommer Emacs. Le rival de Vim. Emacs est un éditeur de code qui est aussi très puissant mais il semble moins utilisé de nos jours. Vim comme Emacs sont disponibles sur tous les systèmes d'exploitation.</p>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/vim-vs-emacs.png"><img alt="Guerre d'éditeurs" src="../../../assets/images/vim-vs-emacs.png"/></a><figcaption> Guerre d'éditeurs</figcaption></figure></p>
-<p>Nous ferons l'impasse sur d'autres éditeurs qui ont été populaires en leurs temps, mais qui sont technologiquement dépassés&thinsp;: TextPad, UltraEdit, Sublime Text, Atom, NotePad++... Le grand gagnant de ces dernières années est Visual Studio Code, un éditeur de code qui est très puissant, qui est très utilisé de nos jours, et qui est aussi disponible sur tous les systèmes d'exploitation.</p>
-<p>Le résultat de l'étude annuelle 2023 de <a href="https://survey.stackoverflow.co/2023/#overview">Stackoverflow</a> donne une idée de la popularité des éditeurs et IDE les plus utilisés par les développeurs&thinsp;:</p>
-<pre class="mermaid"><code>%% Utilisation des éditeurs de code
+<p>Nous ferons l'impasse sur d'autres éditeurs qui ont été populaires en leurs temps, mais qui sont technologiquement dépassés : TextPad, UltraEdit, Sublime Text, Atom, NotePad++... Le grand gagnant de ces dernières années est Visual Studio Code, un éditeur de code qui est très puissant, qui est très utilisé de nos jours, et qui est aussi disponible sur tous les systèmes d'exploitation.</p>
+<p>Le résultat de l'étude annuelle 2023 de <a href="https://survey.stackoverflow.co/2023/#overview">Stackoverflow</a> donne une idée de la popularité des éditeurs et IDE les plus utilisés par les développeurs :</p>
+<figure class="mermaid-figure"><pre class="mermaid"><code>%% Utilisation des éditeurs de code
 pie
     "Visual Studio Code" : 73.3
     "Visual Studio" : 28.4
@@ -4002,8 +4004,8 @@ pie
     "Vim": 22.3
     "Emacs": 4.69
     "Eclipse": 9.9
-    "Nano": 8.98</code></pre>
-<h3 id="fonctionnalites-attendues">Fonctionnalités attendues<a class="headerlink" href="#fonctionnalites-attendues" title="Permanent link">¶</a></h3>
+    "Nano": 8.98</code></pre><figcaption>Utilisation des éditeurs de code</figcaption></figure>
+<h3 id="fonctionnalites-attendues">Fonctionnalités attendues<a class="headerlink" href="#fonctionnalites-attendues" title="Permanent link">¤</a></h3>
 <dl>
 <dt>Coloration Synatxique (<em>syntax highlighting</em>)</dt>
 <dd>
@@ -4031,7 +4033,7 @@ pie
 </dd>
 <dt>Expressions régulières (<em>regular expressions</em>)</dt>
 <dd>
-<p>L'éditeur de code vous permet de rechercher ou remplacer des éléments en utilisant des expressions régulières. Par exemple si vous voulez inverser l'ordre des mots écrits, vous activez le mode regex (▪⃰ dans vscode). Vous pouvez alors utiliser l'expression régulière suivante&thinsp;:</p>
+<p>L'éditeur de code vous permet de rechercher ou remplacer des éléments en utilisant des expressions régulières. Par exemple si vous voulez inverser l'ordre des mots écrits, vous activez le mode regex (▪⃰ dans vscode). Vous pouvez alors utiliser l'expression régulière suivante :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>/(M.|Mme.)\s+([^ ]+)\s+([^ ]+)/\1 \3 \2/
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>Qui permet d'inverser le prénom et le nom.
@@ -4064,7 +4066,7 @@ pie
 <p>L'éditeur de code vous permet d'intégrer Git dans votre éditeur de code pour gérer les versions de votre code.</p>
 </dd>
 </dl>
-<h2 id="compilateur">Compilateur<a class="headerlink" href="#compilateur" title="Permanent link">¶</a></h2>
+<h2 id="compilateur">Compilateur<a class="headerlink" href="#compilateur" title="Permanent link">¤</a></h2>
 <p>Un <strong>compilateur</strong> est un programme qui permet de transformer un programme écrit dans un langage de programmation en un programme exécutable. Il existe de nombreux compilateurs, et chaque langage de programmation a son propre compilateur.</p>
 <p>En C, les compilateurs les plus populaires et qui respectent les normes sont GCC et CLANG.</p>
 <dl>
@@ -4077,9 +4079,9 @@ pie
 <p>Un <strong>compilateur</strong> <em>open-source</em> gagnant en popularité, une alternative à GCC. Il est sous licence Apache et utilise la bibliothèque LLVM.</p>
 </dd>
 </dl>
-<h2 id="ide">IDE<a class="headerlink" href="#ide" title="Permanent link">¶</a></h2>
+<h2 id="ide">IDE<a class="headerlink" href="#ide" title="Permanent link">¤</a></h2>
 <p>Un <strong>IDE</strong> est un <em>Integrated Development Environment</em>, c'est un environnement de développement intégré. C'est un programme qui vous permet d'écrire du code, de le compiler, de le déboguer, de le tester, de le déployer, etc.</p>
-<p>Tous les éditeurs ne sont pas des IDE, mais tous les IDE sont des éditeurs. En fin de compte, un IDE est un éditeur qui a des fonctionnalités supplémentaires telles que&thinsp;:</p>
+<p>Tous les éditeurs ne sont pas des IDE, mais tous les IDE sont des éditeurs. En fin de compte, un IDE est un éditeur qui a des fonctionnalités supplémentaires telles que :</p>
 <ul>
 <li>Un compilateur</li>
 <li>Un débogueur avec des points d'arrêt</li>
@@ -4091,20 +4093,20 @@ pie
 <p>L'ensemble des outils nécessaire à créer un produit logiciel est appelé chaîne de compilation, plus communément appelée <a href="https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_compilation">toolchain</a>.</p>
 <p><figure id="_figure-2"><img alt="Notions de compilateur, IDE, toolchain..." class="drawio-diagram" src="../../../assets/images/toolchain.drawio"/><figcaption> Représentation graphique des notions de compilateur, IDE, toolchain...</figcaption></figure></p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Eclipse<span class="exercise-title"></span></p>
-<p>Un ami vous parle d'un outil utilisé pour le développement logiciel nommé <strong>Eclipse</strong>. De quel type d'outil s'agit-il&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Eclipse<span class="exercise-title"></span></p>
+<p>Un ami vous parle d'un outil utilisé pour le développement logiciel nommé <strong>Eclipse</strong>. De quel type d'outil s'agit-il ?</p>
 <details class="solution">
 <summary>Solution</summary>
 <p><a href="https://www.eclipse.org/ide/">Eclipse</a> est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.</p>
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Stack Overflow<span class="exercise-title"></span></p>
-<p>Combien y a-t-il eu de questions posées en C sur le site Stack Overflow&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Stack Overflow<span class="exercise-title"></span></p>
+<p>Combien y a-t-il eu de questions posées en C sur le site Stack Overflow ?</p>
 <details class="solution">
 <summary>Solution</summary>
 <p>Il suffit pour cela de se rendre sur le site de <a href="https://stackoverflow.com/tags/c">Stackoverflow</a> et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.</p>
-<p>Seriez-vous capable de répondre à une question posée&thinsp;?</p>
+<p>Seriez-vous capable de répondre à une question posée ?</p>
 </details>
 </div>
 
@@ -4193,7 +4195,7 @@ pie
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4333,7 +4335,7 @@ pie
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

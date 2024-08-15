@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3920,7 +3922,7 @@
   
 
 
-<h1 id="recursivite">Récursivité<a class="headerlink" href="#recursivite" title="Permanent link">¶</a></h1>
+<h1 id="recursivite">Récursivité<a class="headerlink" href="#recursivite" title="Permanent link">¤</a></h1>
 <p>La <a href="https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9">récursivité</a> est une technique de programmation dans laquelle une fonction s'appelle elle-même pour résoudre un problème. Cela signifie que la fonction résout une partie du problème et appelle ensuite la fonction elle-même pour résoudre le reste du problème.</p>
 <p>La récursivité est utilisée pour résoudre des problèmes qui peuvent être décomposés en problèmes plus petits de la même nature. Par exemple, la factorielle d'un nombre est le produit de tous les entiers positifs inférieurs ou égaux à ce nombre. La factorielle d'un nombre <code>n</code> est <code>n! = n * (n-1)!</code>.</p>
 <p>Au chapitre sur les fonctions, nous avions donné l'<a class="autorefs autorefs-internal" href="../../15-fundations/functions/#suite-de-fibonacci">exemple du calcul de la somme de la suite de Fibonacci</a> jusqu'à <code>n</code> :</p>
@@ -3939,9 +3941,9 @@
 </span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
 </span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Il peut sembler plus logique de raisonner de façon récursive. Quelle que soit l'itération à laquelle l'on soit, l'assertion suivante est valable&thinsp;:</p>
+<p>Il peut sembler plus logique de raisonner de façon récursive. Quelle que soit l'itération à laquelle l'on soit, l'assertion suivante est valable :</p>
 <div class="arithmatex">\[fib(n) == fib(n - 1) + fib(n - 2)\]</div>
-<p>Donc pourquoi ne pas réécrire cette fonction en employant ce caractère récursif&thinsp;?</p>
+<p>Donc pourquoi ne pas réécrire cette fonction en employant ce caractère récursif ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="p">{</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -3950,7 +3952,7 @@
 </span></code></pre></div>
 <p>Le code est beaucoup plus simple à écrire, et même à lire. Néanmoins cet algorithme est notoirement connu pour être très mauvais en termes de performance. Calculer <code>fib(5)</code> revient à la chaîne d'appel suivant.</p>
 <p>Cette chaîne d'appel représente le nombre de fois que <code>fib</code> est appelé et à quel niveau elle est appelée. Par exemple <code>fib(4)</code> est appelé dans <code>fib(5)</code> :</p>
-<pre class="mermaid"><code>%% Arbre d'appel de Fibonacci
+<figure class="mermaid-figure"><pre class="mermaid"><code>%% Arbre d'appel de Fibonacci
 graph TD
 
 5(("fib(5)")) --&gt; 41(("fib(4)"))
@@ -3968,7 +3970,7 @@ graph TD
 32(("fib(3)")) --&gt; 23(("fib(2)"))
 32 --&gt; 14(("fib(1)"))
 
-23 --&gt; 15(("fib(1)"))</code></pre>
+23 --&gt; 15(("fib(1)"))</code></pre><figcaption>Arbre d'appel de Fibonacci</figcaption></figure>
 <p>Au final, <code>fib(1)</code> est appelé 5 fois, <code>fib(2)</code> 3 fois, <code>fib(3)</code> 2 fois, <code>fib(4)</code> et <code>fib(5)</code> 1 fois. Ce sont donc 12 appels à la fonction <code>fib</code> pour calculer <code>fib(5)</code>.</p>
 <table>
 <thead>
@@ -4041,12 +4043,12 @@ graph TD
 </tbody>
 </table>
 <p>Il s'agit de la suite <a href="https://oeis.org/A000071">A000071</a> de l'OEIS. On constate que le nombre d'appels est exponentiel. Pour <code>fib(100)</code> il faudra neuf cent vingt-sept quintillions trois cent soixante-douze quadrillions six cent quatre-vingt-douze trillions cent quatre-vingt-treize milliards soixante-dix-huit millions neuf cent quatre-vingt-dix-neuf mille cent soixante-quinze appels à la fonction <code>fib</code>. Pour un processeur capable de calculer 100 GFLOPS (milliards d'opérations par seconde), il faudra tout de même 294 ans. C'est un peu long...</p>
-<p>La complexité algorithmique de cette fonction est dite <span class="arithmatex">\(O(2^n)\)</span>. C'est-à-dire que le nombre d'appels suit une relation exponentielle. La réelle complexité est donnée par la relation&thinsp;:</p>
+<p>La complexité algorithmique de cette fonction est dite <span class="arithmatex">\(O(2^n)\)</span>. C'est-à-dire que le nombre d'appels suit une relation exponentielle. La réelle complexité est donnée par la relation :</p>
 <p>En revanche, dans l'approche itérative, on constate qu'une seule boucle <code>for</code>. C'est-à-dire qu'il faudra seulement 100 itérations pour calculer la somme.</p>
 <p>Généralement les algorithmes récursifs (s'appelant eux-mêmes) sont moins performants que les algorithmes itératifs (utilisant des boucles). Néanmoins il est parfois plus facile d'écrire un algorithme récursif.</p>
 <p>Notons que tout algorithme récursif peut être écrit en un algorithme itératif, mais ce n'est pas toujours facile.</p>
-<h2 id="les-tours-de-hanoi">Les tours de Hanoï<a class="headerlink" href="#les-tours-de-hanoi" title="Permanent link">¶</a></h2>
-<p>Les <a href="https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF">tours de Hanoï</a> est un jeu de réflexion inventé par le mathématicien français Édouard Lucas en 1889 et publié dans le tome 3 de ses Récréations mathématiques. Le jeu est composé de trois tiges et d'un certain nombre de disques de diamètres différents qui peuvent être empilés sur une tige. Le but du jeu est de déplacer tous les disques d'une tige à une autre, en respectant les règles suivantes&thinsp;:</p>
+<h2 id="les-tours-de-hanoi">Les tours de Hanoï<a class="headerlink" href="#les-tours-de-hanoi" title="Permanent link">¤</a></h2>
+<p>Les <a href="https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF">tours de Hanoï</a> est un jeu de réflexion inventé par le mathématicien français Édouard Lucas en 1889 et publié dans le tome 3 de ses Récréations mathématiques. Le jeu est composé de trois tiges et d'un certain nombre de disques de diamètres différents qui peuvent être empilés sur une tige. Le but du jeu est de déplacer tous les disques d'une tige à une autre, en respectant les règles suivantes :</p>
 <ol>
 <li>On ne peut déplacer qu'un seul disque à la fois.</li>
 <li>Un disque ne peut être placé que sur un disque plus grand que lui ou sur une tige vide.</li>
@@ -4162,7 +4164,7 @@ graph TD
 </div>
 </div>
 </div>
-<p>Ce qui donne le résultat suivant&thinsp;:</p>
+<p>Ce qui donne le résultat suivant :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>Déplacer le disque 1 de A à C
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>Déplacer le disque 2 de A à B
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>Déplacer le disque 1 de C à B
@@ -4172,10 +4174,10 @@ graph TD
 </span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>Déplacer le disque 1 de A à C
 </span></code></pre></div>
 <p>On voit que l'implémentation itérative est bien plus complexe que l'implémentation récursive. C'est pourquoi il est souvent plus simple d'écrire un algorithme récursif, mais pas nécessairement plus performant.</p>
-<h2 id="utilisation-du-stack">Utilisation du stack<a class="headerlink" href="#utilisation-du-stack" title="Permanent link">¶</a></h2>
+<h2 id="utilisation-du-stack">Utilisation du stack<a class="headerlink" href="#utilisation-du-stack" title="Permanent link">¤</a></h2>
 <p>En C, la récursivité est gérée par le stack. Chaque appel de fonction est empilé sur le stack. Lorsque la fonction retourne, elle est dépilée du stack. Il est important de noter que le stack a une taille limitée. Par défaut, sous Linux la taille du stack est de 8 Mio (donné par la commande <code>ulimit -s</code>), sous Windows c'est 1 Mio. Si la récursivité est trop profonde, il y a un risque de stack overflow.</p>
 <p>D'autre part, une fonction récursive qui utilise beaucoup de variables locales et beaucoup de paramètres seront tous empilés sur le stack. Cela peut rapidement saturer la mémoire.</p>
-<p>Prenons l'exemple suivant d'une fonction récursive qui déclare un tableau de 1Mio de caractères&thinsp;:</p>
+<p>Prenons l'exemple suivant d'une fonction récursive qui déclare un tableau de 1Mio de caractères :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
@@ -4192,7 +4194,7 @@ graph TD
 </span><span id="__span-5-14"><a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">    </span><span class="n">recurse</span><span class="p">(</span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </span><span id="__span-5-15"><a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>À l'exécution, on obtient&thinsp;:</p>
+<p>À l'exécution, on obtient :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>used stack: 0 kiB
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>used stack: 1024 kiB
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>used stack: 2048 kiB
@@ -4207,10 +4209,10 @@ graph TD
 <p>Avant d'implémenter une fonction récursive, il est important de vérifier que la profondeur de la récursivité ne dépasse pas la taille du stack.</p>
 <p>Limitez l'utilisation du stack en utilisant soit des variables globales, soit des variables statiques, soit des allocations dynamiques.</p>
 </div>
-<h2 id="memoisation">Mémoïsation<a class="headerlink" href="#memoisation" title="Permanent link">¶</a></h2>
+<h2 id="memoisation">Mémoïsation<a class="headerlink" href="#memoisation" title="Permanent link">¤</a></h2>
 <p>En informatique la <a href="https://fr.wikipedia.org/wiki/M%C3%A9mo%C3%AFsation">mémoïsation</a> est une technique d'optimisation du code souvent utilisée conjointement avec des algorithmes récursifs. Cette technique est largement utilisée en <a href="https://fr.wikipedia.org/wiki/Programmation_dynamique">programmation dynamique</a>.</p>
 <p>Nous l'avons vu précédemment, l'algorithme récursif du calcul de la somme de la suite de Fibonacci n'est pas efficace du fait que les mêmes appels sont répétés un nombre inutile de fois. La parade est de mémoriser pour chaque appel de <code>fib</code>, la sortie correspondante à l'entrée.</p>
-<p>Dans cet exemple nous utiliserons un mécanisme composé de trois fonctions&thinsp;:</p>
+<p>Dans cet exemple nous utiliserons un mécanisme composé de trois fonctions :</p>
 <ul>
 <li><code>int memoize(Cache *cache, int input, int output)</code></li>
 <li><code>bool memoize_has(Cache *cache, int input)</code></li>
@@ -4219,7 +4221,7 @@ graph TD
 <p>La première fonction mémorise la valeur de sortie <code>output</code> liée à la valeur d'entrée <code>input</code>. Pour des raisons de simplicité d'utilisation, la fonction retourne la valeur de sortie <code>output</code>.</p>
 <p>La seconde fonction <code>memoize_has</code> vérifie si une valeur de correspondance existe pour l'entrée <code>input</code>. Elle retourne <code>true</code> en cas de correspondance et <code>false</code> sinon.</p>
 <p>La troisième fonction <code>memoize_get</code> retourne la valeur de sortie correspondante à la valeur d'entrée <code>input</code>.</p>
-<p>Notre fonction récursive sera ainsi modifiée comme suit&thinsp;:</p>
+<p>Notre fonction récursive sera ainsi modifiée comme suit :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="p">{</span>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">memoize_has</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">memoize_get</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
@@ -4248,9 +4250,9 @@ graph TD
 </span><span id="__span-8-18"><a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: La plus petite différence<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>La plus petite différence<span class="exercise-title"></span></p>
 <p>Soit deux tableaux d'entiers, trouver la paire de valeurs (une dans chaque tableau) ayant la plus petite différence (positive).</p>
-<p>Exemple&thinsp;:</p>
+<p>Exemple :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="mi">236</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">};</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>
@@ -4258,20 +4260,20 @@ graph TD
 </span></code></pre></div>
 <ol>
 <li>Proposer une implémentation</li>
-<li>Quelle est la complexité de votre algorithme&thinsp;?</li>
+<li>Quelle est la complexité de votre algorithme ?</li>
 </ol>
 </div>
-<h2 id="programmation-dynamique">Programmation dynamique<a class="headerlink" href="#programmation-dynamique" title="Permanent link">¶</a></h2>
+<h2 id="programmation-dynamique">Programmation dynamique<a class="headerlink" href="#programmation-dynamique" title="Permanent link">¤</a></h2>
 <p>La programmation dynamique est une méthode algorithmique datant des années 1950, mais devenue populaire ces dernières années. Elle permet de coupler des algorithmes récursifs avec le concept de mémoïsation.</p>
-<p>Prenons par exemple l'algorithme de Fibonacci récursif&thinsp;:</p>
+<p>Prenons par exemple l'algorithme de Fibonacci récursif :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 </span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Le problème de cet algorithme est sa performance. Appeler <code>fibonacci(50)</code> demandera de calculer <code>fibonacci(49)</code> et <code>fibonacci(48)</code> mais pour calculer <code>fibonacci(49)</code> il faudra recalculer <code>fibonacci(48)</code>. On voit qu'on effectue du travail à double. En réalité c'est bien pire que ça. La complexité est de <span class="arithmatex">\(O(2^n)\)</span>. Donc pour calculer la valeur <code>50</code> il faudra effectuer <span class="arithmatex">\(1 125 899 906 842 624\)</span> opérations. Avec un ordinateur capable de calculer 1 milliard d'opérations par seconde, il faudra tout de même plus d'un million de secondes. Cet algorithme est donc très mauvais&thinsp;!</p>
+<p>Le problème de cet algorithme est sa performance. Appeler <code>fibonacci(50)</code> demandera de calculer <code>fibonacci(49)</code> et <code>fibonacci(48)</code> mais pour calculer <code>fibonacci(49)</code> il faudra recalculer <code>fibonacci(48)</code>. On voit qu'on effectue du travail à double. En réalité c'est bien pire que ça. La complexité est de <span class="arithmatex">\(O(2^n)\)</span>. Donc pour calculer la valeur <code>50</code> il faudra effectuer <span class="arithmatex">\(1 125 899 906 842 624\)</span> opérations. Avec un ordinateur capable de calculer 1 milliard d'opérations par seconde, il faudra tout de même plus d'un million de secondes. Cet algorithme est donc très mauvais !</p>
 <p>En revanche, si l'on est capable de mémoriser dans une table les résultats précédents des appels de Fibonacci, les performances seront bien meilleures.</p>
-<p>Voici l'algorithme modifié&thinsp;:</p>
+<p>Voici l'algorithme modifié :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">memo</span><span class="p">[</span><span class="mi">1000</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">])</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
@@ -4366,7 +4368,7 @@ graph TD
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4506,7 +4508,7 @@ graph TD
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

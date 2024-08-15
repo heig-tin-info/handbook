@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3954,10 +3956,10 @@
   
 
 
-<h1 id="qualite-et-testabilite">Qualité et Testabilité<a class="headerlink" href="#qualite-et-testabilite" title="Permanent link">¶</a></h1>
+<h1 id="qualite-et-testabilite">Qualité et Testabilité<a class="headerlink" href="#qualite-et-testabilite" title="Permanent link">¤</a></h1>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/y2k-bug.jpg"><img alt="Bogue de l'an 2000" src="../../../assets/images/y2k-bug.jpg"/></a><figcaption> Bogue de l'an 2000</figcaption></figure></p>
 <p>Surveiller et assurer la qualité d'un code est primordial dans toute institution et quelques soit le produit. Dans l'industrie automobile par exemple, un bogue qui serait découvert plusieurs années après la commercialisation d'un modèle d'automobile aurait des conséquences catastrophiques.</p>
-<p>Voici quelques exemples célèbres de ratés logiciels&thinsp;:</p>
+<p>Voici quelques exemples célèbres de ratés logiciels :</p>
 <dl>
 <dt>La sonde martienne Mariner</dt>
 <dd>
@@ -3976,8 +3978,8 @@
 <p>En 1993, une erreur sur le silicium des processeurs Pentium, fleuron technologique de l'époque, menait à des erreurs de calcul en virgule flottante. Par exemple la division <span class="arithmatex">\(4195835.0/3145727.0\)</span> menait à <span class="arithmatex">\(1.33374\)</span> au lieu de <span class="arithmatex">\(1.33382\)</span></p>
 </dd>
 </dl>
-<h2 id="square">SQuaRE<a class="headerlink" href="#square" title="Permanent link">¶</a></h2>
-<p>La norme ISO/IEC 25010 (qui remplace ISO/IEC 9126-1) décrit les caractéristiques définissant la qualité d'un logiciel. L'acronyme <strong>SQuaRE</strong> (<em>Software product Quality Requirements and Evaluation</em>) définit le standard international. Voici quelques critères d'un code de qualité&thinsp;:</p>
+<h2 id="square">SQuaRE<a class="headerlink" href="#square" title="Permanent link">¤</a></h2>
+<p>La norme ISO/IEC 25010 (qui remplace ISO/IEC 9126-1) décrit les caractéristiques définissant la qualité d'un logiciel. L'acronyme <strong>SQuaRE</strong> (<em>Software product Quality Requirements and Evaluation</em>) définit le standard international. Voici quelques critères d'un code de qualité :</p>
 <ul>
 <li>Maintenabilié</li>
 <li>Modifiabilité</li>
@@ -3988,10 +3990,10 @@
 <li>Réutilisabilité</li>
 <li>Compréhensibilité</li>
 </ul>
-<h2 id="hacking">Hacking<a class="headerlink" href="#hacking" title="Permanent link">¶</a></h2>
-<h3 id="buffer-overflow">Buffer overflow<a class="headerlink" href="#buffer-overflow" title="Permanent link">¶</a></h3>
-<p>L'attaque par buffer overflow est un type d'attaque typique permettant de modifier le comportement d'un programme en exploitant «&thinsp;le jardinage mémoire&thinsp;». Lorsqu'un programme a mal été conçu et que les tests de dépassement n'ont pas été correctement implémentés, il est souvent possible d'accéder à des comportements de programmes imprévus.</p>
-<p>Considérons le programme suivant&thinsp;:</p>
+<h2 id="hacking">Hacking<a class="headerlink" href="#hacking" title="Permanent link">¤</a></h2>
+<h3 id="buffer-overflow">Buffer overflow<a class="headerlink" href="#buffer-overflow" title="Permanent link">¤</a></h3>
+<p>L'attaque par buffer overflow est un type d'attaque typique permettant de modifier le comportement d'un programme en exploitant « le jardinage mémoire ». Lorsqu'un programme a mal été conçu et que les tests de dépassement n'ont pas été correctement implémentés, il est souvent possible d'accéder à des comportements de programmes imprévus.</p>
+<p>Considérons le programme suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
@@ -4021,22 +4023,22 @@
 </span><span id="__span-0-27"><a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-28"><a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>À priori, c'est un programme tout à fait correct. Si l'utilisateur entre le bon mot de passe, il se voit octroyer des privilèges administrateurs. Testons ce programme&thinsp;:</p>
+<p>À priori, c'est un programme tout à fait correct. Si l'utilisateur entre le bon mot de passe, il se voit octroyer des privilèges administrateurs. Testons ce programme :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>u.c<span class="w"> </span>-fno-stack-protector
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="gp">$ </span>./a.out
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="go">Password: starwars</span>
 </span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="go">Correct Password</span>
 </span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="go">Now, you have the root access!</span>
 </span></code></pre></div>
-<p>Très bien, maintenant testons avec un mauvais mot de passe&thinsp;:</p>
+<p>Très bien, maintenant testons avec un mauvais mot de passe :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="gp">$ </span>./a.out
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="go">Password: startrek</span>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="go">Wrong Password</span>
 </span></code></pre></div>
 <p>Et maintenant, essayons avec un mot de passe magique...</p>
-<h2 id="tests-unitaires">Tests unitaires<a class="headerlink" href="#tests-unitaires" title="Permanent link">¶</a></h2>
+<h2 id="tests-unitaires">Tests unitaires<a class="headerlink" href="#tests-unitaires" title="Permanent link">¤</a></h2>
 <p>Un test unitaire est une procédure permettant de vérifier le bon fonctionnement d'une unité de code. Une unité de code est la plus petite partie d'un programme qui peut être testée de manière isolée. En C, une unité de code est souvent une fonction.</p>
-<p>Lorsque l'on travaille selon la philosophie du TDD (<em>Test Driven Development</em>), on commence par écrire les tests unitaires avant d'écrire le code. Voici par exemple un test unitaire pour la résolution d'une équation du second degré&thinsp;:</p>
+<p>Lorsque l'on travaille selon la philosophie du TDD (<em>Test Driven Development</em>), on commence par écrire les tests unitaires avant d'écrire le code. Voici par exemple un test unitaire pour la résolution d'une équation du second degré :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">quadratic_solver</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
@@ -4080,7 +4082,7 @@
 </span></code></pre></div>
 <p>En pratique on aimerait lancer les tests unitaires automatiquement à chaque modification du code source. Pour cela, on utilisera des outils d'intégration continue comme Travis CI ou GitHub Actions.</p>
 <p>Souvent on utilise des frameworks de tests unitaires pour automatiser les tests. En C, on peut citer <a href="https://www.throwtheswitch.org/unity">Unity</a>.</p>
-<p>Reprenons l'exemple précédent avec Unity&thinsp;:</p>
+<p>Reprenons l'exemple précédent avec Unity :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"unity.h"</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"quadratic_solver.h"</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
@@ -4116,10 +4118,10 @@
 </span><span id="__span-4-33"><a href="#__codelineno-4-33" id="__codelineno-4-33" name="__codelineno-4-33"></a><span class="w">    </span><span class="n">TEST_ASSERT_FLOAT_WITHIN</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span>
 </span><span id="__span-4-34"><a href="#__codelineno-4-34" id="__codelineno-4-34" name="__codelineno-4-34"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="tests-fonctionnels">Tests fonctionnels<a class="headerlink" href="#tests-fonctionnels" title="Permanent link">¶</a></h2>
+<h2 id="tests-fonctionnels">Tests fonctionnels<a class="headerlink" href="#tests-fonctionnels" title="Permanent link">¤</a></h2>
 <p>Les tests fonctionnels permettent de vérifier le bon fonctionnement d'une application dans son ensemble. Ils sont souvent utilisés pour tester des applications web ou des applications mobiles. Les tests fonctionnels sont souvent automatisés et peuvent être lancés à chaque modification du code source.</p>
 <p>Dans le cadre de ce cours on utilise le framework <a href="https://heig-tin-info.github.io/baygon/">Baygon</a> pour réaliser des tests fonctionnels.</p>
-<p>Pour l'utiliser il suffit de créer un fichier <code>tests.yml</code> à la racine de votre projet&thinsp;:</p>
+<p>Pour l'utiliser il suffit de créer un fichier <code>tests.yml</code> à la racine de votre projet :</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nt">tests</span><span class="p">:</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Arguments check</span>
@@ -4139,10 +4141,10 @@
 </span><span id="__span-5-17"><a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">regex</span><span class="p">:</span><span class="w"> </span><span class="s">'\b\d\.\d\.\d\b'</span>
 </span><span id="__span-5-18"><a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">contains</span><span class="p">:</span><span class="w"> </span><span class="s">'Version'</span>
 </span></code></pre></div>
-<p>Il faut ensuite installer Baygon&thinsp;:</p>
+<p>Il faut ensuite installer Baygon :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>baygon
 </span></code></pre></div>
-<p>Et lancer les tests&thinsp;:</p>
+<p>Et lancer les tests :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>$<span class="w"> </span>baygon<span class="w"> </span>program
 </span></code></pre></div>
 
@@ -4231,7 +4233,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4371,7 +4373,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

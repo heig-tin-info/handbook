@@ -1,5 +1,21 @@
-blockquote.epigraph {
+/* Cannnot load the font from Google because it lacks many glyphs
+   We need the box drawing characters */
+@font-face {
+    font-family: "Noto Sans Mono";
+    src: url("../assets/NotoSansMono-Regular.woff2") format("woff2");
+}
 
+:root {
+    --md-code-font: "Noto Sans Mono", monospace;
+}
+
+/* Fix line height for code blocks, value depends on the font */
+.md-typeset code {
+    line-height: 1.25;
+}
+
+
+blockquote.epigraph {
     width: auto;
     font-style: italic;
     text-align: right;
@@ -8,6 +24,224 @@ blockquote.epigraph {
     padding-left: 50% !important;
 }
 
-blockquote.epigraph > footer::before {
+blockquote.epigraph>footer::before {
     content: "— ";
+}
+
+/* Fix caret position in breadcrumbs */
+.md-path__item:not(:first-child):before {
+    margin-top: .15em;
+}
+
+/* Reduce size of header links (¶) and center vertically */
+.md-typeset .headerlink {
+    font-size: 0.7em;
+    line-height: 1;
+    vertical-align: middle;
+    top: -0.1em;
+    position: relative;
+}
+
+.md-code__button {
+    font-size: 0.8em;
+}
+
+/* Adjust the size of view/edit icons (eye/pencil)
+   Default value is too big, it is not elegant
+*/
+.md-content__button svg {
+    width: 18px;
+    padding-top: 9px;
+}
+
+
+
+/* Keys spacing */
+span.keys {
+    padding: 0.1em 0.3em;
+}
+
+
+
+.enumerate-headings-plugin {
+    filter: opacity(35%);
+}
+
+.md-typeset p,
+article {
+    hyphens: auto;
+    text-align: justify;
+    line-height: 1.7;
+}
+
+.two-column-list {
+    list-style-type: none;
+    columns: 2;
+    column-gap: 16px;
+    padding: 0;
+}
+
+.two-column-list li {
+    break-inside: avoid-column;
+}
+
+.three-column-list {
+    list-style-type: none;
+    columns: 3;
+    column-gap: 16px;
+    padding: 0;
+}
+
+.three-column-list li {
+    break-inside: avoid-column;
+}
+
+/* Headings */
+.md-typeset h1 {
+    font-size: 2.5em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.md-typeset h1 {
+    margin-top: 1em;
+    font-weight: 400;
+}
+
+.md-typeset h2,
+.md-typeset h3 {
+    font-weight: 600;
+    color: var(--md-default-fg-color--light);
+}
+
+
+/* strong:not([class]) {
+    color: var(--md-accent-fg-color);
+    opacity: 0.7;
+} */
+
+/* Wikipedia Popup */
+.wiki-popup {
+    display: none;
+    position: absolute;
+    background-color: var(--md-default-bg-color);
+    color: var(--md-typeset-color);
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.3em;
+    z-index: 1000;
+    max-width: 400px;
+}
+
+.wiki-popup-container {
+    padding: 10px;
+}
+
+.wiki-popup img {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+/* Center mermaid diagrams */
+.mermaid {
+    text-align: center;
+}
+
+/* When wrapped into figure size of mermaid is too small */
+.md-typeset figure:has(> div.mermaid) {
+    width: auto;
+}
+
+:root>* {
+    --md-mermaid-font-family: var(--md-text-font-family), sans-serif;
+    --md-mermaid-edge-color: var(--md-code-fg-color);
+    --md-mermaid-node-bg-color: transparent;
+    --md-mermaid-node-fg-color: var(--md-default-fg-color);
+    --md-mermaid-label-bg-color: var(--md-default-bg-color);
+    --md-mermaid-label-fg-color: var(--md-code-fg-color);
+}
+
+:root {
+    --mxgraph-color-000000: var(--md-typeset-color);
+    --mxgraph-color-ffffff: var(--md-default-bg-color);
+
+    --mxgraph-color-dae8fc: #dae8fc;
+    --mxgraph-color-f5f5f5: #f5f5f5;
+    --mxgraph-color-6c8ebf: #6c8ebf;
+    --mxgraph-color-d5e8d4: #d5e8d4;
+    --mxgraph-color-82b366: #82b366;
+    --mxgraph-color-ffe6cc: #ffe6cc;
+    --mxgraph-color-d79b00: #d79b00;
+    --mxgraph-color-fff2cc: #fff2cc;
+    --mxgraph-color-d6b656: #d6b656;
+    --mxgraph-color-f8cecc: #f8cecc;
+    --mxgraph-color-b85450: #b85450;
+    --mxgraph-color-e1d5e7: #e1d5e7;
+    --mxgraph-color-9673a6: #9673a6;
+
+    --mxgraph-color-e6d0de: #e6d0de;
+    --mxgraph-color-cda2be: #cda2be;
+    --mxgraph-color-b5739d: #b5739d;
+    --mxgraph-color-e1d5e7: #e1d5e7;
+    --mxgraph-color-c3abd0: #c3abd0;
+    --mxgraph-color-a680b8: #a680b8;
+    --mxgraph-color-d4e1f5: #d4e1f5;
+    --mxgraph-color-a9c4eb: #a9c4eb;
+    --mxgraph-color-7ea6e0: #7ea6e0;
+    --mxgraph-color-d5e8d4: #d5e8d4;
+    --mxgraph-color-9ac7bf: #9ac7bf;
+    --mxgraph-color-67ab9f: #67ab9f;
+    --mxgraph-color-d5e8d4: #d5e8d4;
+    --mxgraph-color-b9e0a5: #b9e0a5;
+    --mxgraph-color-97d077: #97d077;
+    --mxgraph-color-fff2cc: #fff2cc;
+    --mxgraph-color-ffe599: #ffe599;
+    --mxgraph-color-ffd966: #ffd966;
+    --mxgraph-color-fff4c3: #fff4c3;
+    --mxgraph-color-ffce9f: #ffce9f;
+    --mxgraph-color-ffb570: #ffb570;
+    --mxgraph-color-f8cecc: #f8cecc;
+    --mxgraph-color-f19c99: #f19c99;
+    --mxgraph-color-ea6b66: #ea6b66;
+}
+
+[data-md-color-scheme="slate"] {
+    --mxgraph-color-000000: var(--md-typeset-color);
+    --mxgraph-color-ffffff: var(--md-default-bg-color);
+
+    --mxgraph-color-dae8fc: #4a6a94;
+    --mxgraph-color-f5f5f5: #2c2c2c;
+    --mxgraph-color-6c8ebf: #5a7fae;
+    --mxgraph-color-d5e8d4: #3c5b48;
+    --mxgraph-color-82b366: #659e72;
+    --mxgraph-color-ffe6cc: #8a7a5a;
+    --mxgraph-color-d79b00: #a6883e;
+    --mxgraph-color-fff2cc: #8a7a5a;
+    --mxgraph-color-d6b656: #a69057;
+    --mxgraph-color-f8cecc: #6a504a;
+    --mxgraph-color-b85450: #a24845;
+    --mxgraph-color-e1d5e7: #61546b;
+    --mxgraph-color-9673a6: #9b85b0;
+
+    --mxgraph-color-e6d0de: #735a6e;
+    --mxgraph-color-cda2be: #89758a;
+    --mxgraph-color-b5739d: #a77f95;
+    --mxgraph-color-c3abd0: #7c6b82;
+    --mxgraph-color-a680b8: #9b85b0;
+    --mxgraph-color-d4e1f5: #4a6a94;
+    --mxgraph-color-a9c4eb: #6b8db9;
+    --mxgraph-color-7ea6e0: #5a7fae;
+    --mxgraph-color-9ac7bf: #699189;
+    --mxgraph-color-67ab9f: #578f80;
+    --mxgraph-color-b9e0a5: #6c8250;
+    --mxgraph-color-97d077: #6a8c56;
+    --mxgraph-color-ffe599: #a6883e;
+    --mxgraph-color-ffd966: #b89143;
+    --mxgraph-color-ffce9f: #a67648;
+    --mxgraph-color-ffb570: #bf7044;
+    --mxgraph-color-f19c99: #875c58;
+    --mxgraph-color-ea6b66: #a94e4a;
 }

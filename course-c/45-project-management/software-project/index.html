@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4132,21 +4134,21 @@
   
 
 
-<h1 id="organisation-dun-projet">Organisation d'un projet<a class="headerlink" href="#organisation-dun-projet" title="Permanent link">¶</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
+<h1 id="organisation-dun-projet">Organisation d'un projet<a class="headerlink" href="#organisation-dun-projet" title="Permanent link">¤</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
 <p>Dans ce chapitre, nous allons voir comment organiser un projet logiciel. Nous allons voir comment structurer un projet, comment gérer les dépendances, comment gérer les tests unitaires et comment gérer les tests fonctionnels.</p>
-<h2 id="structure-dun-projet">Structure d'un projet<a class="headerlink" href="#structure-dun-projet" title="Permanent link">¶</a></h2>
+<h2 id="structure-dun-projet">Structure d'un projet<a class="headerlink" href="#structure-dun-projet" title="Permanent link">¤</a></h2>
 <p>La structure d'un projet logiciel est un élément important pour sa maintenabilité. Une bonne structure permet de retrouver facilement les fichiers sources, les fichiers d'en-tête, les tests, etc.</p>
 <p>Si votre projet est accessible par d'autres développeurs, il y a certaines conventions à respecter pour que tout le monde puisse s'y retrouver.</p>
 <p>Tout commence avec un dossier racine. Ce dossier racine contient tous les fichiers sources, les fichiers d'en-tête, les tests, les dépendances, etc. Encore faut-il bien nommer ce projet. Un nom de projet doit être court, explicite et unique. Il est recommandé de ne pas utiliser d'espaces, de caractères spéciaux ou de majuscules.</p>
 <div class="admonition note">
 <p class="admonition-title">Les Majuscules</p>
 <p>Les noms de fichiers et de dossiers sont sensibles à la casse sur les systèmes <abbr title="Portable Operating System Interface">POSIX</abbr> mais pas sous Windows. Cela crée certains problèmes de compatibilité entre les systèmes d'exploitation.</p>
-<p>D'autre part, l'usage des majuscules peut créer des ambiguïtés. Par exemple, <code>NomDuFichier</code> et <code>nomdufichier</code> sont deux noms différents. Comment allez-vous expliquer par téléphone à un collègue que le fichier s'écrit de cette manière&thinsp;? L'ennui c'est les acronymes. Par exemple, <code>XMLParser</code>, <code>XmlParser</code> ou <code>XMLparser</code> ? Vous aurez tendance à choisir la troisième solution pour que <code>XML</code> ressort bien mais vous êtes incohérent puisque vous avez pas utilisé de majuscul pour <code>Parser</code>.</p>
+<p>D'autre part, l'usage des majuscules peut créer des ambiguïtés. Par exemple, <code>NomDuFichier</code> et <code>nomdufichier</code> sont deux noms différents. Comment allez-vous expliquer par téléphone à un collègue que le fichier s'écrit de cette manière ? L'ennui c'est les acronymes. Par exemple, <code>XMLParser</code>, <code>XmlParser</code> ou <code>XMLparser</code> ? Vous aurez tendance à choisir la troisième solution pour que <code>XML</code> ressort bien mais vous êtes incohérent puisque vous avez pas utilisé de majuscul pour <code>Parser</code>.</p>
 <p>Le problème est bien résolu avec l'utilisation d'underscores ou de tirets (notation kekbab-case ou snake_case). Par exemple, <code>xml_parser</code> est plus lisible et plus facile à expliquer.</p>
 <p>Une convention en voque est de nommer les fichiers en minuscules et d'utiliser des tirets pour séparer les mots. Par exemple, <code>xml-parser</code>. C'est la convention utilisée sur GitHub pour le nom des dépôts.</p>
 </div>
-<p>Voici une structure de projet classique&thinsp;:</p>
+<p>Voici une structure de projet classique :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>projet/
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>├── src/
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>│   ├── main.c
@@ -4162,8 +4164,8 @@
 </span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>└── README.md
 </span></code></pre></div>
 <p>Le point d'entrée pour le développeur c'est le fichier <code>README.md</code>. Ce fichier contient une description du projet, des instructions pour l'installation, des instructions pour la compilation, des instructions pour les tests, etc.</p>
-<h3 id="readmemd">README.md<a class="headerlink" href="#readmemd" title="Permanent link">¶</a></h3>
-<p>Jadis, le fichier <code>README</code> était un fichier texte simple. Aujourd'hui, c'est un fichier <code>Markdown</code>. Le <code>Markdown</code> est un langage de balisage léger créé en 2004 par John Gruber et Aaron Swartz. Il est facile à lire et à écrire. Il est utilisé sur de très nombreux supports&thinsp;: GitHub, GitLab, Bitbucket, Reddit, Stack Overflow, etc. C'est d'ailleurs le format utilisé pour rédiger cet ouvrage.</p>
+<h3 id="readmemd">README.md<a class="headerlink" href="#readmemd" title="Permanent link">¤</a></h3>
+<p>Jadis, le fichier <code>README</code> était un fichier texte simple. Aujourd'hui, c'est un fichier <code>Markdown</code>. Le <code>Markdown</code> est un langage de balisage léger créé en 2004 par John Gruber et Aaron Swartz. Il est facile à lire et à écrire. Il est utilisé sur de très nombreux supports : GitHub, GitLab, Bitbucket, Reddit, Stack Overflow, etc. C'est d'ailleurs le format utilisé pour rédiger cet ouvrage.</p>
 <p>Voici un exemple de fichier <code>README.md</code> :</p>
 <div class="language-markdown highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="gh"># Nom du Projet</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
@@ -4178,48 +4180,48 @@
 </span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>cd projet
 </span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>make
 </span></code></pre></div>
-<h2 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Permanent link">¶</a></h2>
-<p>Comment utiliser le projet&thinsp;:</p>
+<h2 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Permanent link">¤</a></h2>
+<p>Comment utiliser le projet :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>./projet
 </span></code></pre></div>
-<p>Le fichier <code>README.md</code> est un fichier important. Il doit être à jour et bien rédigé car c'est la première chose que l'on voit lorsqu'on arrive sur le dépôt du projet. Il doit permettre à l'utilisateur rapidement&thinsp;:</p>
+<p>Le fichier <code>README.md</code> est un fichier important. Il doit être à jour et bien rédigé car c'est la première chose que l'on voit lorsqu'on arrive sur le dépôt du projet. Il doit permettre à l'utilisateur rapidement :</p>
 <ol>
-<li>Que fait le projet et quelle est son utilité&thinsp;?</li>
-<li>Est-ce que ce projet est fait pour moi&thinsp;?</li>
-<li>Comment l'installer&thinsp;?</li>
-<li>Comment l'utiliser&thinsp;?</li>
-<li>Comment contribuer&thinsp;?</li>
+<li>Que fait le projet et quelle est son utilité ?</li>
+<li>Est-ce que ce projet est fait pour moi ?</li>
+<li>Comment l'installer ?</li>
+<li>Comment l'utiliser ?</li>
+<li>Comment contribuer ?</li>
 </ol>
-<h3 id="dotfiles">Dotfiles<a class="headerlink" href="#dotfiles" title="Permanent link">¶</a></h3>
+<h3 id="dotfiles">Dotfiles<a class="headerlink" href="#dotfiles" title="Permanent link">¤</a></h3>
 <p>Dans un système <abbr title="Portable Operating System Interface">POSIX</abbr>, les fichiers commençant par un point sont des fichiers cachés. C'est une convention utilisée pour les fichiers de configuration. Ces fichiers sont appelés <code>dotfiles</code>.</p>
-<p>On va trouver toute une panoplie de fichiers de configuration dans un projet logiciel tel que&thinsp;:</p>
+<p>On va trouver toute une panoplie de fichiers de configuration dans un projet logiciel tel que :</p>
 <ul>
 <li><code>.gitignore</code> : liste des fichiers à ignorer par Git.</li>
 <li><code>.editorconfig</code> : conventions de codage pour les éditeurs de texte.</li>
 <li><code>.github/</code> : dossier contenant l'intégration continue, les actions GitHub, etc.</li>
 <li><code>.env</code> : variables d'environnement pour le projet.</li>
 </ul>
-<h3 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">¶</a></h3>
+<h3 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">¤</a></h3>
 <p>Le <code>Makefile</code> est un fichier de configuration pour le programme <code>make</code>. C'est généralement le point d'entrée pour construire un projet. Si vous trouvez un <code>Makefile</code>, vous savez que vous pourrez très probablement simplement utiliser la commande <code>make</code> pour construire le projet.</p>
 <p>Néanmoins, parfois le <code>Makefile</code> n'est pas suffisant car votre projet est plus complexe et dépend de plusieurs bibliothèques tierces qui peuvent être fastidieuses à installer. C'est là qu'interviennent les gestionnaires de dépendances que nous verrons plus tard.</p>
 <p>Alternativement, on peut trouver simplement un script <code>build.sh</code> ou <code>build.bat</code> pour construire le projet que vous appelerer avec <code>./build.sh</code> ou <code>.\build.bat</code>.</p>
-<h3 id="organisation-des-fichiers-sources">Organisation des fichiers sources<a class="headerlink" href="#organisation-des-fichiers-sources" title="Permanent link">¶</a></h3>
+<h3 id="organisation-des-fichiers-sources">Organisation des fichiers sources<a class="headerlink" href="#organisation-des-fichiers-sources" title="Permanent link">¤</a></h3>
 <p>Lorsque le projet dépasse 5 à 10 fichiers, il est habituel de les déplacer dans un dossier pour ne pas encombrer la racine du projet. On crée un dossier <code>src</code> pour les fichiers sources qui va contenir tous les fichiers <code>.c</code>.</p>
-<p>Faut-il séparer les fichiers sources des fichiers d'en-tête&thinsp;? C'est une question de goût. Certains développeurs préfèrent tout mettre dans un seul dossier <code>src</code> pour simplifier la navigation. D'autres préfèrent séparer les fichiers sources des fichiers d'en-tête. Cela permet de mieux organiser le projet et de mieux gérer les dépendances. Il n'y a pas de consensus établi mais on peut noter plusieurs points.</p>
+<p>Faut-il séparer les fichiers sources des fichiers d'en-tête ? C'est une question de goût. Certains développeurs préfèrent tout mettre dans un seul dossier <code>src</code> pour simplifier la navigation. D'autres préfèrent séparer les fichiers sources des fichiers d'en-tête. Cela permet de mieux organiser le projet et de mieux gérer les dépendances. Il n'y a pas de consensus établi mais on peut noter plusieurs points.</p>
 <p>Lorsqu'un projet est destiné à devenir une bibliothèque partagée, vous devez fournir les fichiers d'en-tête pour que les autres développeurs puissent utiliser votre bibliothèque. S'ils sont séparés, c'est plus facile de les extraire et les distribuer.</p>
-<p>Néanmoins, séplacer les fichiers d'en-tête dans un dossier <code>include</code> nécessite d'informer le compilateur de l'emplacement des fichiers d'en-tête. C'est généralement fait avec l'option <code>-I</code> de GCC&thinsp;:</p>
+<p>Néanmoins, séplacer les fichiers d'en-tête dans un dossier <code>include</code> nécessite d'informer le compilateur de l'emplacement des fichiers d'en-tête. C'est généralement fait avec l'option <code>-I</code> de GCC :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>gcc<span class="w"> </span>-Iinclude<span class="w"> </span>-c<span class="w"> </span>src/*.c
 </span></code></pre></div>
-<h3 id="repertoire-de-construction">Répertoire de construction<a class="headerlink" href="#repertoire-de-construction" title="Permanent link">¶</a></h3>
+<h3 id="repertoire-de-construction">Répertoire de construction<a class="headerlink" href="#repertoire-de-construction" title="Permanent link">¤</a></h3>
 <p>Lorsque vous compilez un projet, vous allez générer des fichiers intermédiaires (fichiers objets) et des fichiers finaux (exécutables, bibliothèques). Selon le projet il peut y avoir beaucoup de fichiers. Afin d'éviter de ne voir ces fichiers dans votre explorateur de fichiers, on crée un dossier <code>build</code> pour les stocker.</p>
 <p>Ceci est une convention. Vous pouvez choisir un autre nom pour ce dossier. Par exemple, <code>bin</code>, <code>out</code>, <code>dist</code>, etc.</p>
-<p>Néanmoins, il faut d'une part penser à ajouter ce dossier dans le <code>.gitignore</code> pour ne pas le versionner, mais également modifier la configuration de votre compilateur pour qu'il place les fichiers objets dans ce dossier&thinsp;:</p>
+<p>Néanmoins, il faut d'une part penser à ajouter ce dossier dans le <code>.gitignore</code> pour ne pas le versionner, mais également modifier la configuration de votre compilateur pour qu'il place les fichiers objets dans ce dossier :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>build
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>gcc<span class="w"> </span>-Iinclude<span class="w"> </span>-c<span class="w"> </span>src/*.c<span class="w"> </span>-o<span class="w"> </span>build/*.o
 </span></code></pre></div>
-<h2 id="en-tetes-de-fichiers">En-têtes de fichiers<a class="headerlink" href="#en-tetes-de-fichiers" title="Permanent link">¶</a></h2>
+<h2 id="en-tetes-de-fichiers">En-têtes de fichiers<a class="headerlink" href="#en-tetes-de-fichiers" title="Permanent link">¤</a></h2>
 <p>Historiquement, les développeurs C utilisait l'outil <a href="https://fr.wikipedia.org/wiki/Doxygen">Doxygen</a> pour générer de la documentation à partir des commentaires dans le code source. Cela a donné naissance à une convention pour les commentaires de documentation qui est souvent utilisée de manière abusive.</p>
-<p>Aujourd'hui, avec les éditeurs modernes, il est plus facile de naviguer dans le code source et de trouver des informations sur les fonctions et les structures. Les commentaires de documentation sont souvent redondants et inutiles, ils polluent plus qu'ils n'aident. Néanmoins, je peux vous donner un exemple de commentaires de documentation pour un fichier d'en-tête&thinsp;:</p>
+<p>Aujourd'hui, avec les éditeurs modernes, il est plus facile de naviguer dans le code source et de trouver des informations sur les fonctions et les structures. Les commentaires de documentation sont souvent redondants et inutiles, ils polluent plus qu'ils n'aident. Néanmoins, je peux vous donner un exemple de commentaires de documentation pour un fichier d'en-tête :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/**</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cm"> * @brief Définition des fonctions pour manipuler des nombres</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="cm"> * @file numbers.h</span>
@@ -4264,7 +4266,7 @@
 </span><span id="__span-5-42"><a href="#__codelineno-5-42" id="__codelineno-5-42" name="__codelineno-5-42"></a><span class="cm">/*                       FIN                             */</span>
 </span><span id="__span-5-43"><a href="#__codelineno-5-43" id="__codelineno-5-43" name="__codelineno-5-43"></a><span class="cm">/*********************************************************/</span>
 </span></code></pre></div>
-<p>Nous pouvons maintenant discuter de la pertinence de ces commentaires. Intéressons-nous tout d'abord à l'en-tête du fichier&thinsp;:</p>
+<p>Nous pouvons maintenant discuter de la pertinence de ces commentaires. Intéressons-nous tout d'abord à l'en-tête du fichier :</p>
 <dl>
 <dt><code>@file</code></dt>
 <dd>
@@ -4276,7 +4278,7 @@
 </dd>
 <dt><code>@author</code></dt>
 <dd>
-<p>Si vous utilisez Git, vous possédez déjà cette information et de manière beaucoup plus fine. Vous pouvez voir qui a modifié chaque ligne du fichier. Gérer cette information dans le fichier c'est également s'astreindre à ajouter son nom, même si vous n'avez ajouté qu'une ligne. Et puis, si vous aimez tant le fichier que vous venez tant à le modifier que vous avez changé toutes les lignes, devez-vous supprimer le nom du vrai auteur pour mettre le vôtre&thinsp;? C'est une source de conflit, est c'est beaucoup plus simple de laisser Git gérer cette information.</p>
+<p>Si vous utilisez Git, vous possédez déjà cette information et de manière beaucoup plus fine. Vous pouvez voir qui a modifié chaque ligne du fichier. Gérer cette information dans le fichier c'est également s'astreindre à ajouter son nom, même si vous n'avez ajouté qu'une ligne. Et puis, si vous aimez tant le fichier que vous venez tant à le modifier que vous avez changé toutes les lignes, devez-vous supprimer le nom du vrai auteur pour mettre le vôtre ? C'est une source de conflit, est c'est beaucoup plus simple de laisser Git gérer cette information.</p>
 </dd>
 <dt><code>@version</code></dt>
 <dd>
@@ -4291,11 +4293,11 @@
 <p>C'est une information importante. Elle permet de savoir comment le fichier peut être utilisé. Néanmoins, il est rare que pour un projet donné, le copyright et la licence changent d'un fichier à l'autre, il est donc plus judicieux de mettre cette information dans le <code>README</code> ou mieux dans un fichier <code>LICENSE</code>.</p>
 </dd>
 </dl>
-<p>Maintenant que nous avons balayé l'en-tête, concentrons-nous sur la fonction <code>add</code>. Cette fonction fait 3 lignes et le commentaire 8 lignes. Est-ce réellement nécessaire de documenter une fonction que tout le monde peut comprendre&thinsp;?</p>
+<p>Maintenant que nous avons balayé l'en-tête, concentrons-nous sur la fonction <code>add</code>. Cette fonction fait 3 lignes et le commentaire 8 lignes. Est-ce réellement nécessaire de documenter une fonction que tout le monde peut comprendre ?</p>
 <p>La réponse n'est pas si simple. Si vous publier le code source avec votre bibliothèque, la réponse est non car n'importe qui pourra la comprendre. Néanmoins votre bibliothèque est publiée sans le code source, la seule chose que votre utlisateur aura c'est le fichier d'en-tête (<code>.h</code>) :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 </span></code></pre></div>
-<p>C'est peut-être un peu court et un complément d'information pourrait être utile. Mais faut-il documenter tous les paramètres&thinsp;? Si le <em>brief</em> dit que la fonction additionne deux entiers, et que vous avez accès aux types des paramètres, est-ce vraiment nécessaire de documenter les paramètres&thinsp;? La réponse est non. Je le répète souvent, un commentaire est fait pour expliquer le pourquoi, pas le comment. Si vous avez besoin de documenter le comment, c'est que votre code n'est pas assez clair. On pourrait par exemple réécrire la fonction de la manière suivante&thinsp;:</p>
+<p>C'est peut-être un peu court et un complément d'information pourrait être utile. Mais faut-il documenter tous les paramètres ? Si le <em>brief</em> dit que la fonction additionne deux entiers, et que vous avez accès aux types des paramètres, est-ce vraiment nécessaire de documenter les paramètres ? La réponse est non. Je le répète souvent, un commentaire est fait pour expliquer le pourquoi, pas le comment. Si vous avez besoin de documenter le comment, c'est que votre code n'est pas assez clair. On pourrait par exemple réécrire la fonction de la manière suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add_two_integers_together</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">}</span>
@@ -4304,7 +4306,7 @@
 <p>Questionnons maintenant les séparateurs de contenu. Lorsque vous débutez en programmation, vous avez tendance à vous faire mousser un peu en écrivant plus que le nécessaire, écrire des commentaires c'est sans risque et cela rallonge votre beau programme. Alors pour bien structurer votre code, vous avez mis des séparateurs de contenu. Néanmoins ils n'apportent pas grand chose. En Python par exemple, la norme propose d'ajouter deux retour à la ligne entre chaque fonction. C'est une convention qui est largement suffisante pour séparer les différents éléments du code.</p>
 <p>Enfin, la dernière question est de savoir si le commentaire de la structure <code>Point</code> est utile. Pour cette structure qui est très simple, on pourrait se passer de commentaires, mais dans le cas ou les éléments nécessitent d'être expliqués, c'est la notation Doxygen qui peut être discutée.</p>
 <p>Doxygen utilise la notation <code class="language-c highlight"><span class="c1">//!</span></code> pour les commentaires de documentation. C'est une notation spéciale qui a la facheuse tendance s'afficher en rouge vif dans certains éditeurs de texte. Si vous n'utilisez pas Doxygen, il est préférable de ne pas utiliser cette notation. Il est préférable de rester sur la notation <code class="language-c highlight"><span class="c1">//</span></code> qui est plus universelle.</p>
-<p>Après ces longues explications, je vous propose de vous redonner l'exemple simplifié&thinsp;:</p>
+<p>Après ces longues explications, je vous propose de vous redonner l'exemple simplifié :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/**</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="cm"> * Définition des fonctions pour manipuler des nombres</span>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="cm"> *</span>
@@ -4327,18 +4329,18 @@
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="cm">/*                    FIN DU FICHIER                     */</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="cm">/*********************************************************/</span>
 </span></code></pre></div>
-<p>Diable&thinsp;! Pourquoi trouve-t-on toujours un commentaire <code>FIN</code> à la fin des fichiers&thinsp;? C'est une pratique qui remonte à l'époque des cartes perforées. Les cartes perforées étaient utilisées pour stocker les programmes. Chaque carte avait un numéro de ligne et un numéro de colonne. Pour éviter de mélanger les cartes, on mettait un commentaire <code>FIN</code> à la fin de chaque carte. C'est une pratique ancestrale qui a perduré jusqu'à aujourd'hui. Les développeurs répètent inlassablement ces habitudes sans toutefois les remettre en question.</p>
+<p>Diable ! Pourquoi trouve-t-on toujours un commentaire <code>FIN</code> à la fin des fichiers ? C'est une pratique qui remonte à l'époque des cartes perforées. Les cartes perforées étaient utilisées pour stocker les programmes. Chaque carte avait un numéro de ligne et un numéro de colonne. Pour éviter de mélanger les cartes, on mettait un commentaire <code>FIN</code> à la fin de chaque carte. C'est une pratique ancestrale qui a perduré jusqu'à aujourd'hui. Les développeurs répètent inlassablement ces habitudes sans toutefois les remettre en question.</p>
 <p>Aujourd'hui, un fichier est fini au sens que lorsqu'on en atteint la fin, on le sait. Il n'est alors pas pertinent de le préciser.</p>
-<p>C'est un peu la même chose que ces pages dans les livres laissées blanches, ou presque, avec un commentaire <em>«&thinsp;Cette page a été intentionnellement laissée blanche&thinsp;»</em> qui remontait à l'époque de l'impression en offset. Lorsqu'on imprimait un livre, on imprimait les pages par feuille de 16 pages. Si le livre faisait 200 pages, il fallait ajouter 4 pages blanches à la fin pour que l'impression soit correcte. Aujourd'hui, les livres sont imprimés en numérique et il n'y a plus besoin de ces pages blanches.</p>
+<p>C'est un peu la même chose que ces pages dans les livres laissées blanches, ou presque, avec un commentaire <em>« Cette page a été intentionnellement laissée blanche »</em> qui remontait à l'époque de l'impression en offset. Lorsqu'on imprimait un livre, on imprimait les pages par feuille de 16 pages. Si le livre faisait 200 pages, il fallait ajouter 4 pages blanches à la fin pour que l'impression soit correcte. Aujourd'hui, les livres sont imprimés en numérique et il n'y a plus besoin de ces pages blanches.</p>
 </div>
-<h2 id="gestion-de-configuration">Gestion de configuration<a class="headerlink" href="#gestion-de-configuration" title="Permanent link">¶</a></h2>
+<h2 id="gestion-de-configuration">Gestion de configuration<a class="headerlink" href="#gestion-de-configuration" title="Permanent link">¤</a></h2>
 <p>La gestion de configuration est un élément important pour un projet logiciel. Elle permet de stocker des informations qui peuvent varier d'un environnement à un autre. Par exemple, les informations de connexion à une base de données, les clés d'API, les adresses IP, etc.</p>
-<p>Il existe plusieurs solutions pour gérer la configuration d'un projet&thinsp;:</p>
+<p>Il existe plusieurs solutions pour gérer la configuration d'un projet :</p>
 <ul>
 <li>Les variables d'environnement.</li>
 <li>Les fichiers de configuration.</li>
 </ul>
-<h3 id="variables-denvironnement">Variables d'environnement<a class="headerlink" href="#variables-denvironnement" title="Permanent link">¶</a></h3>
+<h3 id="variables-denvironnement">Variables d'environnement<a class="headerlink" href="#variables-denvironnement" title="Permanent link">¤</a></h3>
 <p>Les variables d'environnement sont des variables stockées dans l'environnement d'exécution d'un programme. Elles sont accessibles par le programme et peuvent être modifiées par l'utilisateur. Ces variables sont propagées à tous les processus enfants pour autant qu'elles ait été exportées. Elles peuvent être utile dans un projet pour stocker des informations sensibles qui ne devraient pas être versionnées.</p>
 <p>Prenons l'exemple d'une clé d'API. Cette clé vous permet d'accéder à un service tiers depuis votre programme. Chaque utilisateur de votre programme doit avoir sa propre clé d'API. Si vous stockez cette clé dans le code source, vous risquez de la versionner et de la rendre publique. Si vous stockez cette clé dans un fichier de configuration, vous risquez de le versionner et de le rendre public également. Une bonne solution est de stocker cette clé dans une variable d'environnement.</p>
 <p>Il se peut d'ailleurs que votre projet nécessite plusieurs variables d'environnement. On utilise couramment un fichier <code>.env.example</code> pour lister les variables d'environnement nécessaires au projet. Ce fichier est versionné et contient des valeurs par défaut. L'utilisateur doit copier ce fichier en <code>.env</code> et renseigner les valeurs.</p>
@@ -4355,7 +4357,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>for /f "delims== tokens=1,2" %i in (.env) do set %i=%j
 </span></code></pre></div>
 <p>Ces commandes sont généralement intégrées dans un script <code>start.sh</code> ou <code>start.bat</code> pour démarrer votre projet, ou alors directement dans le <code>Makefile</code>.</p>
-<h3 id="fichier-den-tete">Fichier d'en-tête<a class="headerlink" href="#fichier-den-tete" title="Permanent link">¶</a></h3>
+<h3 id="fichier-den-tete">Fichier d'en-tête<a class="headerlink" href="#fichier-den-tete" title="Permanent link">¤</a></h3>
 <p>On trouve très souvent dans un projet C un fichier d'en-tête <code>.h</code> qui contient des définitions de configuration. Par exemple, un fichier <code>config.h</code> qui contient des constantes, des macros, des structures, etc.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#ifndef CONFIG_H</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="cp">#define CONFIG_H</span>
@@ -4461,7 +4463,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4601,7 +4603,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

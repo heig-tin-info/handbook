@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4189,24 +4191,24 @@
   
 
 
-<h1 id="resume">Résumé<a class="headerlink" href="#resume" title="Permanent link">¶</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
+<h1 id="resume">Résumé<a class="headerlink" href="#resume" title="Permanent link">¤</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
 <p>Le langage C a créé en <strong>1972</strong> par <a href="https://fr.wikipedia.org/wiki/Brian_Kernighan">Brian Kernighan</a> et <a href="https://fr.wikipedia.org/wiki/Dennis_Ritchie">Dennis Ritchie</a> est s'est dès lors imposé comme le standard industriel pour la programmation embarquée et pour tout développement nécessitant de hautes performances.</p>
 <p>Le langage est standardisé par l'ISO (standardisation internationale) et le standard le plus couramment utilisé en 2019 est encore <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a>.</p>
-<p>Il faut retenir que le C est un langage dit&thinsp;:</p>
+<p>Il faut retenir que le C est un langage dit :</p>
 <ul>
 <li><a href="https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative">Impératif</a>: programmation en séquences de commandes</li>
 <li><a href="https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e">Structuré</a>: programmation impérative avec des structures de contrôle imbriquées</li>
 <li><a href="https://fr.wikipedia.org/wiki/Programmation_proc%C3%A9durale">Procédural</a>: programmation impérative avec appels de procédures</li>
 </ul>
 <p>Ce sont ses paradigmes de programmation</p>
-<h2 id="cycle-de-developpement">Cycle de développement<a class="headerlink" href="#cycle-de-developpement" title="Permanent link">¶</a></h2>
-<p>Le cycle de développement se compose toujours des phases&thinsp;: étude, écriture du cahier des charges, de l'écriture des tests, de la conception du logiciel, du codage à proprement parler et des validations finales. Le modèle en cascade est un bon résumé très utilisé dans l'industrie&thinsp;:</p>
+<h2 id="cycle-de-developpement">Cycle de développement<a class="headerlink" href="#cycle-de-developpement" title="Permanent link">¤</a></h2>
+<p>Le cycle de développement se compose toujours des phases : étude, écriture du cahier des charges, de l'écriture des tests, de la conception du logiciel, du codage à proprement parler et des validations finales. Le modèle en cascade est un bon résumé très utilisé dans l'industrie :</p>
 <p>:::{figure} {assets}/figures/dist/software-life-cycle/waterfall.*
 Modèle en cascade
 :::</p>
-<h2 id="cycle-de-compilation">Cycle de compilation<a class="headerlink" href="#cycle-de-compilation" title="Permanent link">¶</a></h2>
-<p>Faire évoluer un logiciel est aussi un processus itératif&thinsp;:</p>
+<h2 id="cycle-de-compilation">Cycle de compilation<a class="headerlink" href="#cycle-de-compilation" title="Permanent link">¤</a></h2>
+<p>Faire évoluer un logiciel est aussi un processus itératif :</p>
 <ul>
 <li>Editer le code avec un éditeur comme <code>vi</code> ou <code>vscode</code></li>
 <li>
@@ -4226,8 +4228,8 @@ $ gcc -o foobar foo.o bar.o -lm</code></dd>
 </li>
 <li>Tests</li>
 </ul>
-<h2 id="make">Make<a class="headerlink" href="#make" title="Permanent link">¶</a></h2>
-<p>Souvent, pour s'éviter de répéter les mêmes commandes les développeurs utilisent un outil comme <code>make</code> qui tire des règles de compilations d'un fichier nommé <code>Makefile</code>. Cet outil permet d'automatiquement recompiler les fichiers qui ne sont plus à jour et régénérer automatiquement l'exécutable. Certaines recettes de <code>make</code> sont souvent utilisées comme&thinsp;:</p>
+<h2 id="make">Make<a class="headerlink" href="#make" title="Permanent link">¤</a></h2>
+<p>Souvent, pour s'éviter de répéter les mêmes commandes les développeurs utilisent un outil comme <code>make</code> qui tire des règles de compilations d'un fichier nommé <code>Makefile</code>. Cet outil permet d'automatiquement recompiler les fichiers qui ne sont plus à jour et régénérer automatiquement l'exécutable. Certaines recettes de <code>make</code> sont souvent utilisées comme :</p>
 <ul>
 <li><code>make all</code> Pour compiler tout le projet</li>
 <li><code>make clean</code> Pour supprimer tous les fichiers intermédiaires générés</li>
@@ -4235,7 +4237,7 @@ $ gcc -o foobar foo.o bar.o -lm</code></dd>
 <li><code>make test</code> Pour exécuter les tests de validation</li>
 </ul>
 <p>D'autres recettes peuvent être écrites dans le fichier <code>Makefile</code>, mais la courbe d'apprentissage du langage de <code>make</code> est raide.</p>
-<h2 id="linuxposix">Linux/<abbr title="Portable Operating System Interface">POSIX</abbr><a class="headerlink" href="#linuxposix" title="Permanent link">¶</a></h2>
+<h2 id="linuxposix">Linux/<abbr title="Portable Operating System Interface">POSIX</abbr><a class="headerlink" href="#linuxposix" title="Permanent link">¤</a></h2>
 <p>Un certain nombre de commandes sont utilisées durant ce cours et voici un résumé de ces dernières</p>
 <table>
 <thead>
@@ -4275,15 +4277,15 @@ $ gcc -o foobar foo.o bar.o -lm</code></dd>
 </tr>
 </tbody>
 </table>
-<h3 id="programmation">Programmation<a class="headerlink" href="#programmation" title="Permanent link">¶</a></h3>
-<h2 id="diagramme-de-flux">Diagramme de flux<a class="headerlink" href="#diagramme-de-flux" title="Permanent link">¶</a></h2>
+<h3 id="programmation">Programmation<a class="headerlink" href="#programmation" title="Permanent link">¤</a></h3>
+<h2 id="diagramme-de-flux">Diagramme de flux<a class="headerlink" href="#diagramme-de-flux" title="Permanent link">¤</a></h2>
 <p>Le diagramme de flux est beaucoup utilisé pour exprimer un algorithme comme celui d'Euclide pour
 chercher le plus grand diviseur commun.</p>
 <p>:::{figure} {assets}/figures/dist/algorithm/euclide-gcd.*
 Algorithme de calcul du PGCD d'Euclide.
 :::</p>
-<h3 id="langage-c">Langage C<a class="headerlink" href="#langage-c" title="Permanent link">¶</a></h3>
-<h2 id="caracteres-non-imprimables">Caractères non imprimables<a class="headerlink" href="#caracteres-non-imprimables" title="Permanent link">¶</a></h2>
+<h3 id="langage-c">Langage C<a class="headerlink" href="#langage-c" title="Permanent link">¤</a></h3>
+<h2 id="caracteres-non-imprimables">Caractères non imprimables<a class="headerlink" href="#caracteres-non-imprimables" title="Permanent link">¤</a></h2>
 <table>
 <thead>
 <tr>
@@ -4332,7 +4334,7 @@ Algorithme de calcul du PGCD d'Euclide.
 </tr>
 </tbody>
 </table>
-<h2 id="fin-de-lignes">Fin de lignes<a class="headerlink" href="#fin-de-lignes" title="Permanent link">¶</a></h2>
+<h2 id="fin-de-lignes">Fin de lignes<a class="headerlink" href="#fin-de-lignes" title="Permanent link">¤</a></h2>
 <p>Les caractères de fin de ligne dépendent du système d'exploitation et sont appelés <strong>EOL</strong>: <em>End Of Line</em>.</p>
 <table>
 <thead>
@@ -4360,36 +4362,36 @@ Algorithme de calcul du PGCD d'Euclide.
 </tr>
 </tbody>
 </table>
-<h2 id="identificateurs">Identificateurs<a class="headerlink" href="#identificateurs" title="Permanent link">¶</a></h2>
+<h2 id="identificateurs">Identificateurs<a class="headerlink" href="#identificateurs" title="Permanent link">¤</a></h2>
 <p>:::{figure} {assets}/figures/dist/grammar/identifier.*
 Grammaire d'un identificateur C
 :::</p>
-<p>Le format des identificateurs peut également être exprimé par une expression régulière&thinsp;:</p>
+<p>Le format des identificateurs peut également être exprimé par une expression régulière :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>^[a-zA-Z_][a-zA-Z0-9_]*$
 </span></code></pre></div>
-<h2 id="variable">Variable<a class="headerlink" href="#variable" title="Permanent link">¶</a></h2>
-<p>Une variable possède 6 paramètres&thinsp;: <strong>nom</strong>, <strong>type</strong>, <strong>valeur</strong>, <strong>adresse</strong>, <strong>portée</strong>, <strong>visibilité</strong>.</p>
-<p>Elle peut être&thinsp;: <strong>globale</strong> et dans ce cas elle est automatiquement initialisée à 0&thinsp;:</p>
+<h2 id="variable">Variable<a class="headerlink" href="#variable" title="Permanent link">¤</a></h2>
+<p>Une variable possède 6 paramètres : <strong>nom</strong>, <strong>type</strong>, <strong>valeur</strong>, <strong>adresse</strong>, <strong>portée</strong>, <strong>visibilité</strong>.</p>
+<p>Elle peut être : <strong>globale</strong> et dans ce cas elle est automatiquement initialisée à 0 :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 </span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Ou elle peut être locale et dans ce cas il est nécessaire de l'initialiser à une valeur&thinsp;:</p>
+<p>Ou elle peut être locale et dans ce cas il est nécessaire de l'initialiser à une valeur :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 </span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Il est possible de déclarer plusieurs variables d'un même type sur la même ligne&thinsp;:</p>
+<p>Il est possible de déclarer plusieurs variables d'un même type sur la même ligne :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Les conventions de nommage pour une variable sont&thinsp;: <code>camelCase</code> et <code>snake_case</code>, certains utilisent la notation <code>PascalCase</code>.</p>
+<p>Les conventions de nommage pour une variable sont : <code>camelCase</code> et <code>snake_case</code>, certains utilisent la notation <code>PascalCase</code>.</p>
 <p>Les termes <code>toto</code>, <code>tata</code>, <code>foo</code>, <code>bar</code> sont souvent utilisés comme noms génériques et sont appelés termes <em>métasyntaxiques</em>.</p>
-<h2 id="constantes-litterales">Constantes littérales<a class="headerlink" href="#constantes-litterales" title="Permanent link">¶</a></h2>
-<p>Une constante littérale est une grandeur exprimant une valeur donnée qui n'est pas calculée à l'exécution&thinsp;:</p>
+<h2 id="constantes-litterales">Constantes littérales<a class="headerlink" href="#constantes-litterales" title="Permanent link">¤</a></h2>
+<p>Une constante littérale est une grandeur exprimant une valeur donnée qui n'est pas calculée à l'exécution :</p>
 <table>
 <thead>
 <tr>
@@ -4446,8 +4448,8 @@ Grammaire d'un identificateur C
 </tr>
 </tbody>
 </table>
-<h2 id="commentaires">Commentaires<a class="headerlink" href="#commentaires" title="Permanent link">¶</a></h2>
-<p>Il existe deux types de commentaires&thinsp;:</p>
+<h2 id="commentaires">Commentaires<a class="headerlink" href="#commentaires" title="Permanent link">¤</a></h2>
+<p>Il existe deux types de commentaires :</p>
 <ul>
 <li>Les commentaires de lignes (depuis <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>)</li>
 </ul>
@@ -4459,8 +4461,8 @@ Grammaire d'un identificateur C
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* This is a</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cm">   Multi-line comment */</span>
 </span></code></pre></div>
-<h2 id="fonction-main">Fonction main<a class="headerlink" href="#fonction-main" title="Permanent link">¶</a></h2>
-<p>La fonction main peut s'érire sous deux formes&thinsp;:</p>
+<h2 id="fonction-main">Fonction main<a class="headerlink" href="#fonction-main" title="Permanent link">¤</a></h2>
+<p>La fonction main peut s'érire sous deux formes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">}</span>
@@ -4469,12 +4471,12 @@ Grammaire d'un identificateur C
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="numeration">Numération<a class="headerlink" href="#numeration" title="Permanent link">¶</a></h3>
+<h3 id="numeration">Numération<a class="headerlink" href="#numeration" title="Permanent link">¤</a></h3>
 <p>Les données dans l'ordinateur sont stockées sous forme binaire et le <em>type</em> d'une variable permet de définir son interprétation.</p>
 <ul>
 <li>
 <dl>
-<dt>Une valeur <strong>entière</strong> et <strong>non signée</strong> est exprimée sous la forme binaire pure&thinsp;:</dt>
+<dt>Une valeur <strong>entière</strong> et <strong>non signée</strong> est exprimée sous la forme binaire pure :</dt>
 <dd><code>text
 ┌─┬─┬─┬─┬─┬─┬─┬─┐
 │0│1│0│1│0│0│1│1│ = 0b1010011 = 83
@@ -4483,7 +4485,7 @@ Grammaire d'un identificateur C
 </li>
 <li>
 <dl>
-<dt>Une valeur <strong>entière</strong> et <strong>signée</strong> est exprimée en complément à deux&thinsp;:</dt>
+<dt>Une valeur <strong>entière</strong> et <strong>signée</strong> est exprimée en complément à deux :</dt>
 <dd><code>text
 ┌─┬─┬─┬─┬─┬─┬─┬─┐     ┌─┬─┬─┬─┬─┬─┬─┬─┐
 │1│1│0│1│0│0│1│1│ = ! │0│0│1│0│1│1│0│0│ = (-1) * (0b101100 + 1) = -45
@@ -4503,13 +4505,13 @@ Grammaire d'un identificateur C
 </dl>
 </li>
 </ul>
-<h3 id="operateurs">Opérateurs<a class="headerlink" href="#operateurs" title="Permanent link">¶</a></h3>
-<p>Les opérateurs appliquent une opération entre une ou plusieurs valeurs&thinsp;:</p>
+<h3 id="operateurs">Opérateurs<a class="headerlink" href="#operateurs" title="Permanent link">¤</a></h3>
+<p>Les opérateurs appliquent une opération entre une ou plusieurs valeurs :</p>
 <ul>
 <li>Les opérateurs <strong>unaire</strong> s'appliquent à un seul opérande (<code>!12</code>, <code>~23</code>)</li>
 <li>Les opérateurs standards s'appliquent à deux opérandes (<code>12 ^ 32</code>)</li>
 </ul>
-<p>Les opérateurs ont une priorité et une direction d'associativité&thinsp;:</p>
+<p>Les opérateurs ont une priorité et une direction d'associativité :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>u = ++a + b * c++ &gt;&gt; 3 ^ 2
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>Rang  Opérateur  Associativité
@@ -4522,20 +4524,20 @@ Grammaire d'un identificateur C
 </span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a> 9    ^          --&gt;
 </span><span id="__span-8-11"><a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>14    =          --&gt;
 </span></code></pre></div>
-<p>Donc la priorité de ces opérations sera&thinsp;:</p>
+<p>Donc la priorité de ces opérations sera :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>(u = ((((++a) + (b * (c++))) &gt;&gt; 3) ^ 2))
 </span></code></pre></div>
-<p>Dans le cas des opérateurs de pré et post incrémentation, ils sont en effet les plus prioritaires mais leur action est décalée dans le temps au précédent/suivant point de séquence. C'est-à-dire&thinsp;:</p>
+<p>Dans le cas des opérateurs de pré et post incrémentation, ils sont en effet les plus prioritaires mais leur action est décalée dans le temps au précédent/suivant point de séquence. C'est-à-dire :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>a += 1;
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>(u = (((a + (b * c)) &gt;&gt; 3) ^ 2));
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>c += 1;
 </span></code></pre></div>
-<h2 id="valeur-gauche">Valeur gauche<a class="headerlink" href="#valeur-gauche" title="Permanent link">¶</a></h2>
-<p>Une valeur gauche <em>lvalue</em> défini ce qui peut se trouver à gauche d'une affectation. C'est un terme qui apparaît souvent dans les erreurs de compilation. L'exemple suivant retourne l'erreur&thinsp;: <em>lvalue required as increment operand</em> car le résultat de <code>a + b</code> n'a pas d'emplacement mémoire et il n'est pas possible de l'assigner à quelque chose pour effectuer l'opération de pré-incrémentation.</p>
+<h2 id="valeur-gauche">Valeur gauche<a class="headerlink" href="#valeur-gauche" title="Permanent link">¤</a></h2>
+<p>Une valeur gauche <em>lvalue</em> défini ce qui peut se trouver à gauche d'une affectation. C'est un terme qui apparaît souvent dans les erreurs de compilation. L'exemple suivant retourne l'erreur : <em>lvalue required as increment operand</em> car le résultat de <code>a + b</code> n'a pas d'emplacement mémoire et il n'est pas possible de l'assigner à quelque chose pour effectuer l'opération de pré-incrémentation.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Dans cet exemple <code>c</code> est une valeur gauche</p>
-<h3 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Permanent link">¶</a></h3>
+<h3 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Permanent link">¤</a></h3>
 <p>Dans 90% des cas, voici les types qu'un développeur utilisera en C et sur le modèle
 de donnée <strong>LP64</strong></p>
 <table>
@@ -4590,23 +4592,23 @@ de donnée <strong>LP64</strong></p>
 </span><span id="__span-12-8"><a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Les valeurs signées sont exprimées en <strong>complément à deux</strong> c'est-à-dire que les valeurs maximales et minimales sont pour un entier 8-bit de <code>-128</code> à <code>+128</code>.</p>
-<p>La construction des types standards&thinsp;:</p>
+<p>La construction des types standards :</p>
 <p>:::{figure} {assets}/figures/dist/datatype/ansi-integers.*
-:alt&thinsp;: "Entiers standardis\xE9s <strong>C89</strong>"
-:width&thinsp;: 100 %
+:alt : "Entiers standardis\xE9s <strong>C89</strong>"
+:width : 100 %
 :::</p>
-<p>La construction des types portables&thinsp;:</p>
+<p>La construction des types portables :</p>
 <p>:::{figure} {assets}/figures/dist/datatype/c99-integers.*
-:alt&thinsp;: "Entiers standardis\xE9s <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>"
-:width&thinsp;: 100 %
+:alt : "Entiers standardis\xE9s <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>"
+:width : 100 %
 :::</p>
-<h2 id="caracteres">Caractères<a class="headerlink" href="#caracteres" title="Permanent link">¶</a></h2>
-<p>Un caractère est une valeur binaire codée sur 8-bit et dont l'interprétation est confiée à une table de correspondance nommée ASCII&thinsp;:</p>
+<h2 id="caracteres">Caractères<a class="headerlink" href="#caracteres" title="Permanent link">¤</a></h2>
+<p>Un caractère est une valeur binaire codée sur 8-bit et dont l'interprétation est confiée à une table de correspondance nommée ASCII :</p>
 <p>:::{figure} {assets}/figures/dist/encoding/ascii.*
 Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1986 (standard actuel)
 :::</p>
 <p>Seul ces valeurs sont garanties d'être stockées sur 8-bit. Pour les caractères accentués ou les émoticônes, la manière dont ils sont codés en mémoire dépend de l'encodage des caractères. Souvent on utilise le type d'encodage <strong>utf-8</strong>.</p>
-<p>Les écritures suivantes sont donc strictement identiques&thinsp;:</p>
+<p>Les écritures suivantes sont donc strictement identiques :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'a'</span><span class="p">;</span>
@@ -4614,20 +4616,20 @@ Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1
 </span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">97</span><span class="p">;</span>
 </span><span id="__span-13-6"><a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mo">0141</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="chaine-de-caractere">Chaîne de caractère<a class="headerlink" href="#chaine-de-caractere" title="Permanent link">¶</a></h2>
+<h2 id="chaine-de-caractere">Chaîne de caractère<a class="headerlink" href="#chaine-de-caractere" title="Permanent link">¤</a></h2>
 <p>Une chaîne de caractère est exprimée avec des guillemets double. Une chaîne de caractère comporte toujours un caractère terminal <code>\0</code>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">;</span>
 </span></code></pre></div>
 <p>La taille en mémoire de cette chaîne de caractère est de 6 <em>bytes</em>, 5 caractères et un caractère de terminaison.</p>
-<h2 id="booleens">Booléens<a class="headerlink" href="#booleens" title="Permanent link">¶</a></h2>
-<p>En C la valeur <code>0</code> est considérée comme fausse (<em>false</em>) et une valeur différente de <code>0</code> est considérée comme vraie (<em>true</em>). Toutes les assertions suivantes sont vraies&thinsp;:</p>
+<h2 id="booleens">Booléens<a class="headerlink" href="#booleens" title="Permanent link">¤</a></h2>
+<p>En C la valeur <code>0</code> est considérée comme fausse (<em>false</em>) et une valeur différente de <code>0</code> est considérée comme vraie (<em>true</em>). Toutes les assertions suivantes sont vraies :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <p>Pour utiliser les mots clés <code>true</code> et <code>false</code> il faut utiliser la bibliothèque <code>&lt;stdbool.h&gt;</code></p>
-<h2 id="promotion-implicite">Promotion implicite<a class="headerlink" href="#promotion-implicite" title="Permanent link">¶</a></h2>
-<p>Un type est automatiquement et tacitement promu dans le type le plus général&thinsp;:</p>
+<h2 id="promotion-implicite">Promotion implicite<a class="headerlink" href="#promotion-implicite" title="Permanent link">¤</a></h2>
+<p>Un type est automatiquement et tacitement promu dans le type le plus général :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
@@ -4637,7 +4639,7 @@ Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1
 </span><span id="__span-16-7"><a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="c1">// Résultat promu en `long long`</span>
 </span><span id="__span-16-8"><a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="c1">// Résultat promu en `int`</span>
 </span></code></pre></div>
-<p>Attention aux valeurs en virgule flottante&thinsp;:</p>
+<p>Attention aux valeurs en virgule flottante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>
@@ -4645,22 +4647,22 @@ Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1
 </span><span id="__span-17-5"><a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">  </span><span class="c1">// Résultat de type float donc 4.5</span>
 </span><span id="__span-17-6"><a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="n">b</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">  </span><span class="c1">// Résultat en type double (promotion)</span>
 </span></code></pre></div>
-<h2 id="transtypage">Transtypage<a class="headerlink" href="#transtypage" title="Permanent link">¶</a></h2>
-<p>Préfixer une variable ou une valeur avec <code>(int)</code> comme dans&thinsp;: <code>(int)a</code> permet de convertir explicitement cette variable dans le type donné.</p>
+<h2 id="transtypage">Transtypage<a class="headerlink" href="#transtypage" title="Permanent link">¤</a></h2>
+<p>Préfixer une variable ou une valeur avec <code>(int)</code> comme dans : <code>(int)a</code> permet de convertir explicitement cette variable dans le type donné.</p>
 <p>Le transtypage peut être implicite par exemple dans <code>int a = 4.5</code></p>
-<p>Ou plus spécifiquement dans&thinsp;:</p>
+<p>Ou plus spécifiquement dans :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// Promotion implicite de `float` en `double`</span>
 </span></code></pre></div>
-<h3 id="structure-de-controle">Structure de contrôle<a class="headerlink" href="#structure-de-controle" title="Permanent link">¶</a></h3>
-<h2 id="sequence">Séquence<a class="headerlink" href="#sequence" title="Permanent link">¶</a></h2>
-<p>Une séquence est déterminée par un bloc de code entre accolades&thinsp;:</p>
+<h3 id="structure-de-controle">Structure de contrôle<a class="headerlink" href="#structure-de-controle" title="Permanent link">¤</a></h3>
+<h2 id="sequence">Séquence<a class="headerlink" href="#sequence" title="Permanent link">¤</a></h2>
+<p>Une séquence est déterminée par un bloc de code entre accolades :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="p">{</span>
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 </span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="si-sinon">Si, sinon<a class="headerlink" href="#si-sinon" title="Permanent link">¶</a></h2>
+<h2 id="si-sinon">Si, sinon<a class="headerlink" href="#si-sinon" title="Permanent link">¤</a></h2>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="p">{</span>
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="w">    </span><span class="c1">// Si vrai</span>
@@ -4670,7 +4672,7 @@ Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1
 </span><span id="__span-20-7"><a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="w">    </span><span class="c1">// Sinon</span>
 </span><span id="__span-20-8"><a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="si-sinon-si-sinon">Si, sinon si, sinon<a class="headerlink" href="#si-sinon-si-sinon" title="Permanent link">¶</a></h2>
+<h2 id="si-sinon-si-sinon">Si, sinon si, sinon<a class="headerlink" href="#si-sinon-si-sinon" title="Permanent link">¤</a></h2>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="p">{</span>
 </span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">    </span><span class="c1">// Si vrai</span>
@@ -4684,7 +4686,7 @@ Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1
 </span><span id="__span-21-11"><a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="w">    </span><span class="c1">// Sinon</span>
 </span><span id="__span-21-12"><a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="boucle-for">Boucle For<a class="headerlink" href="#boucle-for" title="Permanent link">¶</a></h2>
+<h2 id="boucle-for">Boucle For<a class="headerlink" href="#boucle-for" title="Permanent link">¤</a></h2>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="p">{</span>
 </span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="w">    </span><span class="c1">// Block exécuté 10 fois</span>
@@ -4692,14 +4694,14 @@ Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1
 </span><span id="__span-22-5"><a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a>
 </span><span id="__span-22-6"><a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">// Erreur car `i` n'est plus accessible ici...</span>
 </span></code></pre></div>
-<h2 id="boucle-while">Boucle While<a class="headerlink" href="#boucle-while" title="Permanent link">¶</a></h2>
+<h2 id="boucle-while">Boucle While<a class="headerlink" href="#boucle-while" title="Permanent link">¤</a></h2>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>
 </span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="w">    </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
 </span><span id="__span-23-5"><a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="programmes-et-processus">Programmes et Processus<a class="headerlink" href="#programmes-et-processus" title="Permanent link">¶</a></h3>
+<h3 id="programmes-et-processus">Programmes et Processus<a class="headerlink" href="#programmes-et-processus" title="Permanent link">¤</a></h3>
 <table>
 <thead>
 <tr>
@@ -4741,9 +4743,9 @@ Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1
 <p>:::{figure} {assets}/figures/dist/process/program.*
 Résumé des interactions avec un programme
 :::</p>
-<h3 id="entrees-sorties">Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Permanent link">¶</a></h3>
-<h2 id="printf"><code>printf</code><a class="headerlink" href="#printf" title="Permanent link">¶</a></h2>
-<p>Les sorties formatées utilisent <code>printf</code> dont le format est&thinsp;:</p>
+<h3 id="entrees-sorties">Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Permanent link">¤</a></h3>
+<h2 id="printf"><code>printf</code><a class="headerlink" href="#printf" title="Permanent link">¤</a></h2>
+<p>Les sorties formatées utilisent <code>printf</code> dont le format est :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a>%[parameter][flags][width][.precision][length]type
 </span></code></pre></div>
 <dl>
@@ -4753,7 +4755,7 @@ Résumé des interactions avec un programme
 </dd>
 <dt><code>flags</code> (optionnel)</dt>
 <dd>
-<p>Modificateurs&thinsp;: préfixe, signe plus, alignement à gauche ...</p>
+<p>Modificateurs : préfixe, signe plus, alignement à gauche ...</p>
 </dd>
 <dt><code>width</code> (optionnel)</dt>
 <dd>
@@ -4775,18 +4777,18 @@ Résumé des interactions avec un programme
 <p>:::{figure} {assets}/figures/dist/string/formats.*
 Formatage d'un marqueur
 :::</p>
-<h3 id="techniques-de-programmation">Techniques de programmation<a class="headerlink" href="#techniques-de-programmation" title="Permanent link">¶</a></h3>
-<h2 id="masque-binaire">Masque binaire<a class="headerlink" href="#masque-binaire" title="Permanent link">¶</a></h2>
-<p>Pour tester si un bit est à un&thinsp;:</p>
+<h3 id="techniques-de-programmation">Techniques de programmation<a class="headerlink" href="#techniques-de-programmation" title="Permanent link">¤</a></h3>
+<h2 id="masque-binaire">Masque binaire<a class="headerlink" href="#masque-binaire" title="Permanent link">¤</a></h2>
+<p>Pour tester si un bit est à un :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x040</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Pour forcer un bit à zéro&thinsp;:</p>
+<p>Pour forcer un bit à zéro :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="n">c</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="mh">0x02</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Pour forcer un bit à un&thinsp;:</p>
+<p>Pour forcer un bit à un :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="n">c</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mh">0x02</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="permuter-deux-variables-sans-valeur-intermediaire">Permuter deux variables sans valeur intermédiaire<a class="headerlink" href="#permuter-deux-variables-sans-valeur-intermediaire" title="Permanent link">¶</a></h2>
+<h2 id="permuter-deux-variables-sans-valeur-intermediaire">Permuter deux variables sans valeur intermédiaire<a class="headerlink" href="#permuter-deux-variables-sans-valeur-intermediaire" title="Permanent link">¤</a></h2>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 </span><span id="__span-28-2"><a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 </span><span id="__span-28-3"><a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
@@ -4854,7 +4856,7 @@ Formatage d'un marqueur
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4994,7 +4996,7 @@ Formatage d'un marqueur
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

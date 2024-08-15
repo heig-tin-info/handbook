@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3973,14 +3975,14 @@
   
 
 
-<h1 id="codage-de-huffman">Codage de Huffman<a class="headerlink" href="#codage-de-huffman" title="Permanent link">¶</a></h1>
+<h1 id="codage-de-huffman">Codage de Huffman<a class="headerlink" href="#codage-de-huffman" title="Permanent link">¤</a></h1>
 <p>Le codage de Huffman est un algorithme de compression sans perte qui permet de réduire la taille des fichiers en utilisant des codes de longueur variable pour représenter les caractères. L'algorithme repose sur l'idée que les caractères les plus fréquents dans un texte peuvent être représentés par des codes plus courts, tandis que les caractères les moins fréquents sont représentés par des codes plus longs.</p>
 <p>Il est utilisé dans de nombreux formats de fichiers comme le format <a href="https://fr.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a>, <a href="https://fr.wikipedia.org/wiki/JPEG">JPEG</a> et <a href="https://fr.wikipedia.org/wiki/MPEG-1/2_Audio_Layer_3">MP3</a>.</p>
-<p>Prenons le texte <code>ABRACADABRA</code>. Il y a des lettres qui reviennent plus souvent que d'autres et des lettres de l'alphabet qui sont absentes. Pourquoi donc représenter chaque caractère sur 1 octet&thinsp;? On pourrait utiliser un code de longueur variable. Par exemple, la lettre <code>A</code> pourrait être représentée par <code>0</code>, la lettre <code>B</code> par <code>10</code> et la lettre <code>R</code> par <code>11</code>. Il faudrait également définir une table de correspondance pour décoder le texte. C'est le principe de l'abre de Huffman.</p>
-<h2 id="comment-ca-marche">Comment ça marche&thinsp;?<a class="headerlink" href="#comment-ca-marche" title="Permanent link">¶</a></h2>
-<p>Pour notre entrée <code>ABRACADABRA</code>, nous allons suivre les étapes suivantes&thinsp;:</p>
-<h3 id="nombre-doccurences">Nombre d'occurences<a class="headerlink" href="#nombre-doccurences" title="Permanent link">¶</a></h3>
-<p>On commence par compter la fréquence de chaque caractère. On obtient&thinsp;:</p>
+<p>Prenons le texte <code>ABRACADABRA</code>. Il y a des lettres qui reviennent plus souvent que d'autres et des lettres de l'alphabet qui sont absentes. Pourquoi donc représenter chaque caractère sur 1 octet ? On pourrait utiliser un code de longueur variable. Par exemple, la lettre <code>A</code> pourrait être représentée par <code>0</code>, la lettre <code>B</code> par <code>10</code> et la lettre <code>R</code> par <code>11</code>. Il faudrait également définir une table de correspondance pour décoder le texte. C'est le principe de l'abre de Huffman.</p>
+<h2 id="comment-ca-marche">Comment ça marche ?<a class="headerlink" href="#comment-ca-marche" title="Permanent link">¤</a></h2>
+<p>Pour notre entrée <code>ABRACADABRA</code>, nous allons suivre les étapes suivantes :</p>
+<h3 id="nombre-doccurences">Nombre d'occurences<a class="headerlink" href="#nombre-doccurences" title="Permanent link">¤</a></h3>
+<p>On commence par compter la fréquence de chaque caractère. On obtient :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Fréquence de Huffman</caption><thead>
 <tr>
@@ -4011,10 +4013,10 @@
 </tr>
 </tbody>
 </table>
-<p>Chaque élément est un noeuf qui est placé dans une file de priorité (<em>min-heap</em>) où la priorité est la fréquence du caractère. Voici le pseudo code du tas minimum&thinsp;:</p>
+<p>Chaque élément est un noeud qui est placé dans une file de priorité (<em>min-heap</em>) où la priorité est la fréquence du caractère. Voici le pseudo code du tas minimum :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>Min-Heap : [(1, 'C'), (1, 'D'), (2, 'B'), (2, 'R'), (5, 'A')]
 </span></code></pre></div>
-<h3 id="fusion">Fusion<a class="headerlink" href="#fusion" title="Permanent link">¶</a></h3>
+<h3 id="fusion">Fusion<a class="headerlink" href="#fusion" title="Permanent link">¤</a></h3>
 <p>On va fusionner les deux noeuds de plus faible fréquence, c'est facile parce qu'un <em>min-heap</em> nous permet de récupérer les deux éléments de plus faible fréquence en temps constant. Après fusion, on obtient une chaîne de caractère qui représente les deux noeuds fusionnés. On ajoute ce nouveau noeud à la file de priorité en prenant en compte la fréquence totale des deux noeuds fusionnés.</p>
 <p>Notons que qu'en cas de priorité égale, on peut choisir arbitrairement l'ordre des noeuds.</p>
 <p>Les noeuds <code>C</code> et <code>D</code> sont les deux noeuds de plus faible fréquence. On les fusionne pour obtenir <code>CD</code> qui a une priorité de <code>2</code>.</p>
@@ -4053,7 +4055,7 @@ CD --&gt; D("D (1)")</code></pre>
     CDB --&gt; B("B (2)")
     CD --&gt; C("C (1)")
     CD --&gt; D("D (1)")</code></pre>
-<h3 id="generation-des-codes">Génération des codes<a class="headerlink" href="#generation-des-codes" title="Permanent link">¶</a></h3>
+<h3 id="generation-des-codes">Génération des codes<a class="headerlink" href="#generation-des-codes" title="Permanent link">¤</a></h3>
 <p>Pour générer les codes, on parcourt l'arbre de Huffman en partant de la racine. On ajoute un <code>0</code> à chaque fois qu'on descend à gauche et un <code>1</code> à chaque fois qu'on descend à droite. Les noeuds fusionnés sont des noeuds internes, on ne les prend pas en compte.</p>
 <table>
 <thead>
@@ -4085,7 +4087,7 @@ CD --&gt; D("D (1)")</code></pre>
 </tr>
 </tbody>
 </table>
-<h3 id="encodage-du-texte">Encodage du texte<a class="headerlink" href="#encodage-du-texte" title="Permanent link">¶</a></h3>
+<h3 id="encodage-du-texte">Encodage du texte<a class="headerlink" href="#encodage-du-texte" title="Permanent link">¤</a></h3>
 <p>Une fois les codes générés, on peut encoder le texte en remplaçant chaque caractère par son code.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>A B   R  A C    A C    A B   R  A
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>0 111 10 0 1100 0 1100 0 111 10 0
@@ -4117,7 +4119,7 @@ CD --&gt; D("D (1)")</code></pre>
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 11, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
   </span>
 
     
@@ -4181,7 +4183,7 @@ CD --&gt; D("D (1)")</code></pre>
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4321,7 +4323,7 @@ CD --&gt; D("D (1)")</code></pre>
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

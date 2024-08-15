@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4308,11 +4310,11 @@
   
 
 
-<h1 id="types-composites">Types composites<a class="headerlink" href="#types-composites" title="Permanent link">¶</a></h1>
-<h2 id="tableaux">Tableaux<a class="headerlink" href="#tableaux" title="Permanent link">¶</a></h2>
+<h1 id="types-composites">Types composites<a class="headerlink" href="#types-composites" title="Permanent link">¤</a></h1>
+<h2 id="tableaux">Tableaux<a class="headerlink" href="#tableaux" title="Permanent link">¤</a></h2>
 <p>Les <a href="https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)">tableaux</a> (<em>arrays</em>) représentent une séquence finie d'éléments d'un type donné que l'on peut accéder par leur position (indice) dans la séquence. Un tableau est par conséquent une liste indexée de variable du même type.</p>
-<p>L'opérateur crochet <code>[]</code> est utilisé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau&thinsp;:</p>
-<p>La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon suivante&thinsp;:</p>
+<p>L'opérateur crochet <code>[]</code> est utilisé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau :</p>
+<p>La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
 </span></code></pre></div>
 <p>Par la suite il est possible d'accéder aux différents éléments ici l'élément 1 et 3 (deuxième et quatrième position du tableau) :</p>
@@ -4332,7 +4334,7 @@
 </span></code></pre></div>
 </div>
 <p>Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est-à-dire la position mémoire à laquelle se trouvent les éléments du tableau. Nous verrons ceci plus en détail à la section sur les <a class="autorefs autorefs-internal" href="../pointers/#pointeurs">pointeurs</a>. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie, mais seule une <strong>référence</strong> sur ce tableau est passée.</p>
-<p>La preuve étant que le contenu du tableau peut être modifié à distance&thinsp;:</p>
+<p>La preuve étant que le contenu du tableau peut être modifié à distance :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">   </span><span class="n">i</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">}</span>
@@ -4343,14 +4345,14 @@
 </span><span id="__span-4-8"><a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">   </span><span class="n">assert</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span>
 </span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Un fait remarquable est que l'opérateur <code>[]</code> est commutatif. En effet, l'opérateur <em>crochet</em> est un sucre syntaxique&thinsp;:</p>
+<p>Un fait remarquable est que l'opérateur <code>[]</code> est commutatif. En effet, l'opérateur <em>crochet</em> est un sucre syntaxique :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">a</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Et cela fonctionne même avec les tableaux à plusieurs dimensions&thinsp;:</p>
+<p>Et cela fonctionne même avec les tableaux à plusieurs dimensions :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Assignation<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Assignation<span class="exercise-title"></span></p>
 <p>Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -4362,7 +4364,7 @@
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Première position<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Première position<span class="exercise-title"></span></p>
 <p>Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurrence d'une valeur dans le tableau.</p>
 <p>Traitez les cas particuliers.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">index_of</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">search</span><span class="p">);</span>
@@ -4378,8 +4380,8 @@
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Déclarations de tableaux<span class="exercise-title"></span></p>
-<p>Considérant les déclarations suivantes&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 3 : </span>Déclarations de tableaux<span class="exercise-title"></span></p>
+<p>Considérant les déclarations suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#define LIMIT 10</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">twelve</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
@@ -4397,15 +4399,15 @@
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Comparaisons<span class="exercise-title"></span></p>
-<p>Soit deux tableaux <code>char u[]</code> et <code>char v[]</code>, écrire une fonction comparant leur contenu et retournant&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 4 : </span>Comparaisons<span class="exercise-title"></span></p>
+<p>Soit deux tableaux <code>char u[]</code> et <code>char v[]</code>, écrire une fonction comparant leur contenu et retournant :</p>
 <p><code>0</code>
     La somme des deux tableaux est égale.</p>
 <p><code>-1</code>
     La somme du tableau de gauche est plus petite que le tableau de droite</p>
 <p><code>1</code>
     La somme du tableau de droite est plus grande que le tableau de gauche</p>
-<p>Le prototype de la fonction à écrire est&thinsp;:</p>
+<p>Le prototype de la fonction à écrire est :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">comp</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[],</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">[],</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">);</span>
 </span></code></pre></div>
 <details class="solution">
@@ -4424,10 +4426,10 @@
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Le plus grand et le plus petit<span class="exercise-title"></span></p>
-<p>Dans le canton de Genève, il existe une tradition ancestrale&thinsp;: l'<a href="https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)">Escalade</a>. En commémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle «&thinsp;Ainsi périrent les ennemis de la République&thinsp;!&thinsp;».</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 5 : </span>Le plus grand et le plus petit<span class="exercise-title"></span></p>
+<p>Dans le canton de Genève, il existe une tradition ancestrale : l'<a href="https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)">Escalade</a>. En commémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle « Ainsi périrent les ennemis de la République ! ».</p>
 <p>Pour gagner du temps et puisque l'assemblée est grande, il vous est demandé d'écrire un programme pour identifier le doyen et le benjamin de l'assistance.</p>
-<p>Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci&thinsp;:</p>
+<p>Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="mi">1931</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="mi">1986</span>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="mi">1996</span>
@@ -4438,16 +4440,16 @@
 </span><span id="__span-14-8"><a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="mi">1978</span>
 </span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="mi">1964</span>
 </span></code></pre></div>
-<p>Votre programme sera exécuté comme suit&thinsp;:</p>
+<p>Votre programme sera exécuté comme suit :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>$<span class="w"> </span>cat<span class="w"> </span>years.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>marmite
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="m">2004</span>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="m">1931</span>
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: L'index magique<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 6 : </span>L'index magique<span class="exercise-title"></span></p>
 <p>Un indice magique d'un tableau <code>A[0..n-1]</code> est défini tel que la valeur <code>A[i] == i</code>. Étant donné que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.</p>
-<p>Exemple&thinsp;:</p>
+<p>Exemple :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>    0   1   2   3   4   5   6   7   8   9   10
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>│-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
@@ -4456,7 +4458,7 @@
 </span></code></pre></div>
 <details class="solution">
 <summary>Solution</summary>
-<p>Une solution triviale consiste à itérer tous les éléments jusqu'à trouver l'indice magique&thinsp;:</p>
+<p>Une solution triviale consiste à itérer tous les éléments jusqu'à trouver l'indice magique :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">magic_index</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>
@@ -4467,23 +4469,23 @@
 </span><span id="__span-17-8"><a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 </span><span id="__span-17-9"><a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>La complexité de cet algorithme est :math&thinsp;:<code>O(n)</code> or, la donnée du problème indique que le tableau est trié. Cela veut dire que probablement, cette information n'est pas donnée par hasard.</p>
-<p>Pour mieux se représenter le problème, prenons l'exemple d'un tableau&thinsp;:</p>
+<p>La complexité de cet algorithme est :math :<code>O(n)</code> or, la donnée du problème indique que le tableau est trié. Cela veut dire que probablement, cette information n'est pas donnée par hasard.</p>
+<p>Pour mieux se représenter le problème, prenons l'exemple d'un tableau :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>    0   1   2   3   4   5   6   7   8   9   10
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>│-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
 </span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a>└───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
 </span><span id="__span-18-5"><a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>                                ^
 </span></code></pre></div>
-<p>La première valeur magique est <code>7</code>. Est-ce qu'une approche dichotomique est possible&thinsp;?</p>
-<p>Prenons le milieu du tableau <code>A[5] = 4</code>. Est-ce qu'une valeur magique peut se trouver à gauche du tableau&thinsp;? Dans le cas le plus favorable qui serait&thinsp;:</p>
+<p>La première valeur magique est <code>7</code>. Est-ce qu'une approche dichotomique est possible ?</p>
+<p>Prenons le milieu du tableau <code>A[5] = 4</code>. Est-ce qu'une valeur magique peut se trouver à gauche du tableau ? Dans le cas le plus favorable qui serait :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>    0   1   2   3   4
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>┌───┬───┬───┬───┬───┐
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>│ -1│ 0 │ 1 │ 2 │ 3 │
 </span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>└───┴───┴───┴───┴───┘
 </span></code></pre></div>
 <p>On voit qu'il est impossible que la valeur se trouve à gauche, car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est <code>A[mid] &lt; mid</code> où <code>mid</code> est la valeur médiane.</p>
-<p>Il est possible de répéter cette approche de façon dichotomique&thinsp;:</p>
+<p>Il est possible de répéter cette approche de façon dichotomique :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">magic_index</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">_magic_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="p">}</span>
@@ -4502,12 +4504,12 @@
 </span></code></pre></div>
 </details>
 </div>
-<h3 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">¶</a></h3>
-<p>Lors de la déclaration d'un tableau, le compilateur réserve un espace mémoire de la taille suffisante pour contenir tous les éléments du tableau. La déclaration suivante&thinsp;:</p>
+<h3 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">¤</a></h3>
+<p>Lors de la déclaration d'un tableau, le compilateur réserve un espace mémoire de la taille suffisante pour contenir tous les éléments du tableau. La déclaration suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">even</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
 </span></code></pre></div>
 <p>contiens 6 entiers, chacun d'une taille de 32-bits (4 bytes). L'espace mémoire réservé est donc de 24 bytes.</p>
-<p>Compte tenu de cette déclaration, il n'est pas possible de connaître la valeur qu'il y a, par exemple, à l'indice 4 (<code>even[4]</code>), car ce tableau n'a pas été initialisé et le contenu mémoire est non prédictible puisqu'il peut contenir les vestiges d'un ancien programme ayant résidé dans cette région mémoire auparavant. Pour s'assurer d'un contenu, il faut initialiser le tableau, soit affecter des valeurs pour chaque indice&thinsp;:</p>
+<p>Compte tenu de cette déclaration, il n'est pas possible de connaître la valeur qu'il y a, par exemple, à l'indice 4 (<code>even[4]</code>), car ce tableau n'a pas été initialisé et le contenu mémoire est non prédictible puisqu'il peut contenir les vestiges d'un ancien programme ayant résidé dans cette région mémoire auparavant. Pour s'assurer d'un contenu, il faut initialiser le tableau, soit affecter des valeurs pour chaque indice :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="n">sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
 </span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="n">sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
@@ -4516,94 +4518,94 @@
 </span><span id="__span-22-6"><a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="n">sequence</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span>
 </span><span id="__span-22-7"><a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="n">sequence</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Cette écriture n'est certainement pas la plus optimisée, car l'initialisation du tableau n'est pas réalisée à la compilation, mais à l'exécution du programme&thinsp;; et ce seront pas moins de six instructions qui seront nécessaires à initialiser ce tableau. L'initialisation d'un tableau utilise les accolades&thinsp;:</p>
+<p>Cette écriture n'est certainement pas la plus optimisée, car l'initialisation du tableau n'est pas réalisée à la compilation, mais à l'exécution du programme ; et ce seront pas moins de six instructions qui seront nécessaires à initialiser ce tableau. L'initialisation d'un tableau utilise les accolades :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">};</span>
 </span></code></pre></div>
-<p>Dans cette dernière écriture, il existe une redondance d'information. La partie d'initialisation <code>{4, 8, 15, 16, 23, 42}</code> comporte six éléments et le tableau est déclaré avec six éléments <code>[6]</code>. Pour éviter une double source de vérité, il est ici possible d'omettre la taille du tableau&thinsp;:</p>
+<p>Dans cette dernière écriture, il existe une redondance d'information. La partie d'initialisation <code>{4, 8, 15, 16, 23, 42}</code> comporte six éléments et le tableau est déclaré avec six éléments <code>[6]</code>. Pour éviter une double source de vérité, il est ici possible d'omettre la taille du tableau :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">sequence</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">};</span>
 </span></code></pre></div>
 <p>Notons que dans premier de ces deux cas, si un nombre inférieur à 6 éléments est initialisé, les autres éléments seront initialisés à <strong>zéro</strong></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="cm">/* le reste vaudra zéro */</span><span class="w"> </span><span class="p">};</span>
 </span></code></pre></div>
-<p>Il est également possible d'initialiser un tableau de façon explicite en utilisant une notation plus spécifique&thinsp;:</p>
+<p>Il est également possible d'initialiser un tableau de façon explicite en utilisant une notation plus spécifique :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="mi">42</span><span class="p">};</span>
 </span></code></pre></div>
 <p>Et naturellement il est possible d'omettre certaines valeurs, lesquelles seront initialisées à zéro par défaut. Dans l'exemple suivant, les valeurs aux indices 1 à 4 vaudront zéro.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="mi">42</span><span class="p">};</span>
 </span></code></pre></div>
-<p>Notons que lorsque la notation <code>[]=</code> est utilisée, les valeurs qui suivent seront positionnées aux indices suivants&thinsp;:</p>
+<p>Notons que lorsque la notation <code>[]=</code> est utilisée, les valeurs qui suivent seront positionnées aux indices suivants :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">};</span>
 </span></code></pre></div>
 <p>Dans l'exemple ci-dessus <code>sequence[2]</code> vaudra zéro.</p>
-<p>Notons qu'un type composé tel qu'un tableau ne peut pas être initialisé après sa déclaration. L'exemple suivant ne fonctionne pas&thinsp;:</p>
+<p>Notons qu'un type composé tel qu'un tableau ne peut pas être initialisé après sa déclaration. L'exemple suivant ne fonctionne pas :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
 </span><span id="__span-29-2"><a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a>
 </span><span id="__span-29-3"><a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="c1">// Erreur: l'initialisation tardive n'est pas autorisée.</span>
 </span><span id="__span-29-4"><a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span>
 </span></code></pre></div>
-<h3 id="initialisation-a-zero">Initialisation à zéro<a class="headerlink" href="#initialisation-a-zero" title="Permanent link">¶</a></h3>
-<p>Enfin, un sucre syntaxique <code>{0}</code> permet d'initialiser tout un tableau à zéro. En effet, la valeur 0 est inscrite à l'indice zéro, les autres valeurs sont par défaut initialisé à zéro si non mentionnées&thinsp;:</p>
+<h3 id="initialisation-a-zero">Initialisation à zéro<a class="headerlink" href="#initialisation-a-zero" title="Permanent link">¤</a></h3>
+<p>Enfin, un sucre syntaxique <code>{0}</code> permet d'initialiser tout un tableau à zéro. En effet, la valeur 0 est inscrite à l'indice zéro, les autres valeurs sont par défaut initialisé à zéro si non mentionnées :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-30-1"><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 </span></code></pre></div>
 <p>Cette écriture est nécessaire pour les variables locales, car, nous verrons plus loin les variables globales sont placées dans le segment mémoire <code>.bss</code> et sont initialisées à zéro au démarrage du programme. Toute variable globale est donc initialisée à zéro par défaut.</p>
-<h3 id="initialisation-a-une-valeur-particuliere">Initialisation à une valeur particulière<a class="headerlink" href="#initialisation-a-une-valeur-particuliere" title="Permanent link">¶</a></h3>
+<h3 id="initialisation-a-une-valeur-particuliere">Initialisation à une valeur particulière<a class="headerlink" href="#initialisation-a-une-valeur-particuliere" title="Permanent link">¤</a></h3>
 <p>Cette écriture n'est pas normalisée <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, mais est généralement compatible avec la majorité des compilateurs.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-31-1"><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="mi">1023</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="p">};</span>
 </span></code></pre></div>
-<p>En <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionnelle reste la boucle itérative&thinsp;:</p>
+<p>En <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionnelle reste la boucle itérative :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
 </span><span id="__span-32-2"><a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="w">    </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 </span></code></pre></div>
-<h3 id="tableaux-non-modifiables">Tableaux non modifiables<a class="headerlink" href="#tableaux-non-modifiables" title="Permanent link">¶</a></h3>
+<h3 id="tableaux-non-modifiables">Tableaux non modifiables<a class="headerlink" href="#tableaux-non-modifiables" title="Permanent link">¤</a></h3>
 <p>À présent que l'on sait initialiser un tableau, il peut être utile de définir un tableau avec un contenu qui n'est pas modifiable. Le mot clé <code>const</code> est utilisé à cette fin.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">};</span>
 </span><span id="__span-33-2"><a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="n">sequence</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span><span class="w"> </span><span class="c1">// Interdit !</span>
 </span></code></pre></div>
-<p>Dans l'exemple ci-dessus, la seconde ligne génèrera l'erreur suivante&thinsp;:</p>
+<p>Dans l'exemple ci-dessus, la seconde ligne génèrera l'erreur suivante :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a>error: assignment of read-only location ‘sequence[2]’
 </span></code></pre></div>
-<p>Notons que lors de l'utilisation de pointeurs, il serait possible, de façon détournée, de modifier ce tableau malgré tout&thinsp;:</p>
+<p>Notons que lors de l'utilisation de pointeurs, il serait possible, de façon détournée, de modifier ce tableau malgré tout :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sequence</span><span class="p">;</span>
 </span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Dans ce cas, ce n'est pas une erreur, mais une alerte du compilateur qui survient&thinsp;:</p>
+<p>Dans ce cas, ce n'est pas une erreur, mais une alerte du compilateur qui survient :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a>warning: initialization discards ‘const’ qualifier from pointer
 </span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a>target type [-Wdiscarded-qualifiers]
 </span></code></pre></div>
-<h3 id="tableaux-multidimensionnels">Tableaux multidimensionnels<a class="headerlink" href="#tableaux-multidimensionnels" title="Permanent link">¶</a></h3>
+<h3 id="tableaux-multidimensionnels">Tableaux multidimensionnels<a class="headerlink" href="#tableaux-multidimensionnels" title="Permanent link">¤</a></h3>
 <p>Il est possible de déclarer un tableau à plusieurs dimensions. Si par exemple on souhaite définir une grille de jeu du <em>tic-tac-toe</em> ou morpion, il faudra une grille de 3x3.</p>
-<p>Pour ce faire, il est possible de définir un tableau de 6 éléments comme vu auparavant, et utiliser un artifice pour adresser les lignes et les colonnes&thinsp;:</p>
+<p>Pour ce faire, il est possible de définir un tableau de 6 éléments comme vu auparavant, et utiliser un artifice pour adresser les lignes et les colonnes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-37-1"><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">game</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 </span><span id="__span-37-2"><a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </span><span id="__span-37-3"><a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </span><span id="__span-37-4"><a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="n">game</span><span class="p">[</span><span class="n">row</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">col</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'x'</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Néanmoins, cette écriture n'est pas pratique et le langage C dispose du nécessaire pour alléger l'écriture. La grille de jeu sera simplement initialisée comme suit&thinsp;:</p>
+<p>Néanmoins, cette écriture n'est pas pratique et le langage C dispose du nécessaire pour alléger l'écriture. La grille de jeu sera simplement initialisée comme suit :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">game</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 </span></code></pre></div>
-<p>Jouer <code>x</code> au centre équivaut à écrire&thinsp;:</p>
+<p>Jouer <code>x</code> au centre équivaut à écrire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-39-1"><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="n">game</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'x'</span><span class="p">;</span>
 </span></code></pre></div>
-<p>De la même façon, il est possible de définir une structure tridimensionnelle&thinsp;:</p>
+<p>De la même façon, il est possible de définir une structure tridimensionnelle :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-40-1"><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">volume</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">8</span><span class="p">];</span>
 </span></code></pre></div>
 <p>L'initialisation des tableaux multidimensionnelle est très similaire aux tableaux standards, mais il est possible d'utiliser plusieurs niveaux d'accolades.</p>
-<p>Ainsi le jeu de morpion suivant&thinsp;:</p>
+<p>Ainsi le jeu de morpion suivant :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a> o | x | x
 </span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a>---+---+---
 </span><span id="__span-41-3"><a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a> x | o | o
 </span><span id="__span-41-4"><a href="#__codelineno-41-4" id="__codelineno-41-4" name="__codelineno-41-4"></a>---+---+---
 </span><span id="__span-41-5"><a href="#__codelineno-41-5" id="__codelineno-41-5" name="__codelineno-41-5"></a> x | o | x
 </span></code></pre></div>
-<p>Peut s'initialiser comme suit&thinsp;:</p>
+<p>Peut s'initialiser comme suit :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-42-1"><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">game</span><span class="p">[][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="sc">'x'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="sc">'x'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">}};</span>
 </span></code></pre></div>
-<p>Notons que l'écriture suivante est similaire, car un tableau multidimensionnel est toujours représenté en mémoire de façon linéaire, comme un tableau à une dimension&thinsp;:</p>
+<p>Notons que l'écriture suivante est similaire, car un tableau multidimensionnel est toujours représenté en mémoire de façon linéaire, comme un tableau à une dimension :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">game</span><span class="p">[][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">};</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Détectives privés<span class="exercise-title"></span></p>
-<p>Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 7 : </span>Détectives privés<span class="exercise-title"></span></p>
+<p>Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :</p>
 <table>
 <thead>
 <tr>
@@ -4701,7 +4703,7 @@
 </tr>
 </tbody>
 </table>
-<p>Afin de laisser plus de temps aux détectives à résoudre des affaires, vous êtes mandaté pour écrire une fonction qui reçoit en paramètre le tableau de réels ci-dessus formaté comme suit&thinsp;:</p>
+<p>Afin de laisser plus de temps aux détectives à résoudre des affaires, vous êtes mandaté pour écrire une fonction qui reçoit en paramètre le tableau de réels ci-dessus formaté comme suit :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">accounts</span><span class="p">[][]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-44-2"><a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a><span class="w">    </span><span class="p">{</span><span class="mf">414.38</span><span class="p">,</span><span class="w"> </span><span class="mf">222.72</span><span class="p">,</span><span class="w">  </span><span class="mf">99.17</span><span class="p">,</span><span class="w"> </span><span class="mf">153.81</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
 </span><span id="__span-44-3"><a href="#__codelineno-44-3" id="__codelineno-44-3" name="__codelineno-44-3"></a><span class="w">    </span><span class="p">{</span><span class="mf">403.41</span><span class="p">,</span><span class="w"> </span><span class="mf">390.61</span><span class="p">,</span><span class="w"> </span><span class="mf">174.39</span><span class="p">,</span><span class="w"> </span><span class="mf">18.11</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">},</span>
@@ -4721,9 +4723,9 @@
 <p>Et laquelle complète les valeurs manquantes.</p>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Pot de peinture<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 8 : </span>Pot de peinture<span class="exercise-title"></span></p>
 <p>À l'instar de l'outil <em>pot de peinture</em> des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.</p>
-<p>L'image est représentée par un tableau bidimensionnel contenant des couleurs indexées&thinsp;:</p>
+<p>L'image est représentée par un tableau bidimensionnel contenant des couleurs indexées :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-45-1"><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">BLACK</span><span class="p">,</span><span class="w"> </span><span class="n">RED</span><span class="p">,</span><span class="w"> </span><span class="n">PURPLE</span><span class="p">,</span><span class="w"> </span><span class="n">BLUE</span><span class="p">,</span><span class="w"> </span><span class="n">GREEN</span><span class="w"> </span><span class="n">YELLOW</span><span class="p">,</span><span class="w"> </span><span class="n">WHITE</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">Color</span><span class="p">;</span>
 </span><span id="__span-45-2"><a href="#__codelineno-45-2" id="__codelineno-45-2" name="__codelineno-45-2"></a>
 </span><span id="__span-45-3"><a href="#__codelineno-45-3" id="__codelineno-45-3" name="__codelineno-45-3"></a><span class="cp">#if 0</span><span class="c"> // Image declaration example</span>
@@ -4734,15 +4736,15 @@
 </span></code></pre></div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>Deux approches intéressantes sont possibles&thinsp;: <strong>DFS</strong> (Depth-First-Search) ou <strong>BFS</strong> (Breadth-First-Search), toutes deux récursives.</p>
+<p>Deux approches intéressantes sont possibles : <strong>DFS</strong> (Depth-First-Search) ou <strong>BFS</strong> (Breadth-First-Search), toutes deux récursives.</p>
 </div>
 </div>
-<h2 id="chaines-de-caracteres">Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Permanent link">¶</a></h2>
+<h2 id="chaines-de-caracteres">Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Permanent link">¤</a></h2>
 <p>Une chaîne de caractères est représentée en mémoire comme une succession de bytes, chacun représentant un caractère ASCII spécifique. La chaîne de caractère <code>hello</code> contient donc 5 caractères et sera stockée en mémoire sur 5 bytes. Une chaîne de caractère est donc équivalente à un tableau de <code>char</code>.</p>
-<p>En C, un artifice est utilisé pour faciliter les opérations sur les chaînes de caractères. Tous les caractères de 1 à 255 sont utilisables sauf le 0 qui est utilisé comme sentinelle. Lors de la déclaration d'une chaîne comme ceci&thinsp;:</p>
+<p>En C, un artifice est utilisé pour faciliter les opérations sur les chaînes de caractères. Tous les caractères de 1 à 255 sont utilisables sauf le 0 qui est utilisé comme sentinelle. Lors de la déclaration d'une chaîne comme ceci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-46-1"><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello, world!"</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Le compilateur ajoutera automatiquement un caractère de terminaison <code>'\0'</code> à la fin de la chaîne. Pour comprendre l'utilité, imaginons une fonction qui permet de compter la longueur de la chaîne. Elle aurait comme prototype ceci&thinsp;:</p>
+<p>Le compilateur ajoutera automatiquement un caractère de terminaison <code>'\0'</code> à la fin de la chaîne. Pour comprendre l'utilité, imaginons une fonction qui permet de compter la longueur de la chaîne. Elle aurait comme prototype ceci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-47-1"><a href="#__codelineno-47-1" id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="nf">strlen</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]);</span>
 </span></code></pre></div>
 <p>On peut donc lui passer un tableau dont la taille n'est pas définie et par conséquent, il n'est pas possible de connaître la taille de la chaîne passée sans le bénéfice d'une sentinelle.</p>
@@ -4753,24 +4755,24 @@
 </span><span id="__span-48-5"><a href="#__codelineno-48-5" id="__codelineno-48-5" name="__codelineno-48-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Une chaîne de caractère est donc strictement identique à un tableau de <code>char</code>.</p>
-<p>Ainsi une chaîne de caractère est initialisée comme suit&thinsp;:</p>
+<p>Ainsi une chaîne de caractère est initialisée comme suit :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-49-1"><a href="#__codelineno-49-1" id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Pulp Fiction"</span><span class="p">;</span>
 </span></code></pre></div>
-<p>La taille de ce tableau sera donc de 12 caractères plus une sentinelle <code>'\0'</code> insérée automatiquement. Cette écriture est donc identique à&thinsp;:</p>
+<p>La taille de ce tableau sera donc de 12 caractères plus une sentinelle <code>'\0'</code> insérée automatiquement. Cette écriture est donc identique à :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-50-1"><a href="#__codelineno-50-1" id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-50-2"><a href="#__codelineno-50-2" id="__codelineno-50-2" name="__codelineno-50-2"></a><span class="w">    </span><span class="sc">'P'</span><span class="p">,</span><span class="w"> </span><span class="sc">'u'</span><span class="p">,</span><span class="w"> </span><span class="sc">'l'</span><span class="p">,</span><span class="w"> </span><span class="sc">'p'</span><span class="p">,</span><span class="w"> </span><span class="sc">' '</span><span class="p">,</span><span class="w"> </span><span class="sc">'F'</span><span class="p">,</span><span class="w"> </span><span class="sc">'i'</span><span class="p">,</span><span class="w"> </span><span class="sc">'c'</span><span class="p">,</span><span class="w"> </span><span class="sc">'t'</span><span class="p">,</span><span class="w"> </span><span class="sc">'i'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'n'</span><span class="p">,</span><span class="w"> </span><span class="sc">'\0'</span>
 </span><span id="__span-50-3"><a href="#__codelineno-50-3" id="__codelineno-50-3" name="__codelineno-50-3"></a><span class="p">};</span>
 </span></code></pre></div>
-<h3 id="tableaux-de-chaines-de-caracteres">Tableaux de chaînes de caractères<a class="headerlink" href="#tableaux-de-chaines-de-caracteres" title="Permanent link">¶</a></h3>
-<p>Un tableau de chaîne de caractères est identique à un tableau multidimensionnel&thinsp;:</p>
+<h3 id="tableaux-de-chaines-de-caracteres">Tableaux de chaînes de caractères<a class="headerlink" href="#tableaux-de-chaines-de-caracteres" title="Permanent link">¤</a></h3>
+<p>Un tableau de chaîne de caractères est identique à un tableau multidimensionnel :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-51-1"><a href="#__codelineno-51-1" id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">conjunctions</span><span class="p">[][</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-51-2"><a href="#__codelineno-51-2" id="__codelineno-51-2" name="__codelineno-51-2"></a><span class="w">    </span><span class="s">"mais"</span><span class="p">,</span><span class="w"> </span><span class="s">"ou"</span><span class="p">,</span><span class="w"> </span><span class="s">"est"</span><span class="p">,</span><span class="w"> </span><span class="s">"donc"</span><span class="p">,</span><span class="w"> </span><span class="s">"or"</span><span class="p">,</span><span class="w"> </span><span class="s">"ni"</span><span class="p">,</span><span class="w"> </span><span class="s">"car"</span>
 </span><span id="__span-51-3"><a href="#__codelineno-51-3" id="__codelineno-51-3" name="__codelineno-51-3"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>Il est ici nécessaire de définir la taille de la seconde dimension, comme pour les tableaux. C'est à dire que la variable <code>conjunctions</code> aura une taille de 7x10 caractères et le contenu mémoire de <code>conjunctions[1]</code> sera équivalent à&thinsp;:</p>
+<p>Il est ici nécessaire de définir la taille de la seconde dimension, comme pour les tableaux. C'est à dire que la variable <code>conjunctions</code> aura une taille de 7x10 caractères et le contenu mémoire de <code>conjunctions[1]</code> sera équivalent à :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-52-1"><a href="#__codelineno-52-1" id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="p">{</span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'u'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span>
 </span></code></pre></div>
-<p>D'ailleurs, ce tableau aurait pu être initialisé d'une tout autre façon&thinsp;:</p>
+<p>D'ailleurs, ce tableau aurait pu être initialisé d'une tout autre façon :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-53-1"><a href="#__codelineno-53-1" id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">conjunctions</span><span class="p">[][</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-53-2"><a href="#__codelineno-53-2" id="__codelineno-53-2" name="__codelineno-53-2"></a><span class="w">    </span><span class="sc">'m'</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="sc">'i'</span><span class="p">,</span><span class="w"> </span><span class="sc">'s'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'u'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 </span><span id="__span-53-3"><a href="#__codelineno-53-3" id="__codelineno-53-3" name="__codelineno-53-3"></a><span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="sc">'e'</span><span class="p">,</span><span class="w"> </span><span class="sc">'s'</span><span class="p">,</span><span class="w"> </span><span class="sc">'t'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="sc">'d'</span><span class="p">,</span>
@@ -4780,17 +4782,17 @@
 </span><span id="__span-53-7"><a href="#__codelineno-53-7" id="__codelineno-53-7" name="__codelineno-53-7"></a><span class="p">};</span>
 </span></code></pre></div>
 <p>Notons que la valeur <code>0</code> est strictement identique au caractère 0 de la table ASCII <code>'\0'</code>. La chaîne de caractère <code>"mais"</code> aura une taille de 5 caractères, ponctuée de la sentinelle <code>\0</code>.</p>
-<h2 id="structures">Structures<a class="headerlink" href="#structures" title="Permanent link">¶</a></h2>
+<h2 id="structures">Structures<a class="headerlink" href="#structures" title="Permanent link">¤</a></h2>
 <p>Les structures sont des déclarations spécifiques permettant de regrouper une liste de variables dans un même bloc mémoire et permettant de s'y référer à partir d'une référence commune. Historiquement le type <code>struct</code> a été dérivé de <code>ALGOL 68</code>. Il est également utilisé en C++ et est similaire à une classe.</p>
 <p>Il faut voir une structure comme un conteneur à variables qu'il est possible de véhiculer comme un tout.</p>
-<p>La structure suivante décrit un agrégat de trois grandeurs scalaires formant un point tridimensionnel&thinsp;:</p>
+<p>La structure suivante décrit un agrégat de trois grandeurs scalaires formant un point tridimensionnel :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-54-1"><a href="#__codelineno-54-1" id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-54-2"><a href="#__codelineno-54-2" id="__codelineno-54-2" name="__codelineno-54-2"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </span><span id="__span-54-3"><a href="#__codelineno-54-3" id="__codelineno-54-3" name="__codelineno-54-3"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 </span><span id="__span-54-4"><a href="#__codelineno-54-4" id="__codelineno-54-4" name="__codelineno-54-4"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
 </span><span id="__span-54-5"><a href="#__codelineno-54-5" id="__codelineno-54-5" name="__codelineno-54-5"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>Il ne faut pas confondre l'écriture ci-dessus avec ceci, dans lequel il y a un bloc de code avec trois variables locales déclarées&thinsp;:</p>
+<p>Il ne faut pas confondre l'écriture ci-dessus avec ceci, dans lequel il y a un bloc de code avec trois variables locales déclarées :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-55-1"><a href="#__codelineno-55-1" id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="p">{</span>
 </span><span id="__span-55-2"><a href="#__codelineno-55-2" id="__codelineno-55-2" name="__codelineno-55-2"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </span><span id="__span-55-3"><a href="#__codelineno-55-3" id="__codelineno-55-3" name="__codelineno-55-3"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
@@ -4811,8 +4813,8 @@
 </span><span id="__span-57-3"><a href="#__codelineno-57-3" id="__codelineno-57-3" name="__codelineno-57-3"></a><span class="n">point</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4581359.381</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Comme <code>point</code> n'est pas une primitive standard, mais un conteneur à primitive, il n'est pas correct d'écrire <code>point = 12</code>. Il est essentiel d'indiquer quel élément de ce conteneur on souhaite accéder.</p>
-<p>Ces coordonnées sont un clin d'œil aux <a href="https://fr.wikipedia.org/wiki/Pierres_du_Niton">Pierres du Niton</a> qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré&thinsp;; l'origine étant le centre de la Terre. Ces pierres sont donc situées à 4.5 km du centre de la Terre, et donc un sacré défi pour <a href="https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre">Axel Lidenbrock</a> et son fulmicoton.</p>
-<h3 id="structures-nommees">Structures nommées<a class="headerlink" href="#structures-nommees" title="Permanent link">¶</a></h3>
+<p>Ces coordonnées sont un clin d'œil aux <a href="https://fr.wikipedia.org/wiki/Pierres_du_Niton">Pierres du Niton</a> qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la Terre. Ces pierres sont donc situées à 4.5 km du centre de la Terre, et donc un sacré défi pour <a href="https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre">Axel Lidenbrock</a> et son fulmicoton.</p>
+<h3 id="structures-nommees">Structures nommées<a class="headerlink" href="#structures-nommees" title="Permanent link">¤</a></h3>
 <p>L'écriture que l'on a vue initialement <code>struct { ... };</code> est appelée structure anonyme, c'est-à-dire qu'elle n'a pas de nom. Telle quelle elle ne peut pas être utilisée et elle ne sert donc pas à grand chose. En revanche, il est possible de déclarer une variable de ce type en ajoutant un identificateur à la fin de la déclaration <code>struct { ... } nom;</code>. Néanmoins la structure est toujours anonyme.</p>
 <p>Le langage C prévoit la possibilité de nommer une structure pour une utilisation ultérieure en rajoutant un nom après le mot clé <code>struct</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-58-1"><a href="#__codelineno-58-1" id="__codelineno-58-1" name="__codelineno-58-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
@@ -4821,12 +4823,12 @@
 </span><span id="__span-58-4"><a href="#__codelineno-58-4" id="__codelineno-58-4" name="__codelineno-58-4"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
 </span><span id="__span-58-5"><a href="#__codelineno-58-5" id="__codelineno-58-5" name="__codelineno-58-5"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>Pour ne pas confondre un nom de structure avec un nom de variable, on préférera un identificateur en capitales ou en écriture <em>camel-case</em>. Maintenant qu'elle est nommée, il est possible de déclarer plusieurs variables de ce type ailleurs dans le code&thinsp;:</p>
+<p>Pour ne pas confondre un nom de structure avec un nom de variable, on préférera un identificateur en capitales ou en écriture <em>camel-case</em>. Maintenant qu'elle est nommée, il est possible de déclarer plusieurs variables de ce type ailleurs dans le code :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-59-1"><a href="#__codelineno-59-1" id="__codelineno-59-1" name="__codelineno-59-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 </span><span id="__span-59-2"><a href="#__codelineno-59-2" id="__codelineno-59-2" name="__codelineno-59-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Dans cet exemple, on déclare deux variables <code>foo</code> et <code>bar</code> de type <code>struct Point</code>. Il est donc possible d'accéder à <code>foo.x</code> ou <code>bar.z</code>.</p>
-<p>Rien n'empêche de déclarer une structure nommée et d'également déclarer une variable par la même occasion&thinsp;:</p>
+<p>Rien n'empêche de déclarer une structure nommée et d'également déclarer une variable par la même occasion :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-60-1"><a href="#__codelineno-60-1" id="__codelineno-60-1" name="__codelineno-60-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-60-2"><a href="#__codelineno-60-2" id="__codelineno-60-2" name="__codelineno-60-2"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </span><span id="__span-60-3"><a href="#__codelineno-60-3" id="__codelineno-60-3" name="__codelineno-60-3"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
@@ -4834,21 +4836,21 @@
 </span><span id="__span-60-5"><a href="#__codelineno-60-5" id="__codelineno-60-5" name="__codelineno-60-5"></a><span class="p">}</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 </span><span id="__span-60-6"><a href="#__codelineno-60-6" id="__codelineno-60-6" name="__codelineno-60-6"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Notons que les noms de structures sont stockés dans un espace de noms différent de celui des variables. C'est-à-dire qu'il n'y a pas de collision possible et qu'un identifiant de fonction ou de variable ne pourra jamais être comparé à un identifiant de structure. Aussi, l'écriture suivante, bien que perturbante, est tout à fait possible&thinsp;:</p>
+<p>Notons que les noms de structures sont stockés dans un espace de noms différent de celui des variables. C'est-à-dire qu'il n'y a pas de collision possible et qu'un identifiant de fonction ou de variable ne pourra jamais être comparé à un identifiant de structure. Aussi, l'écriture suivante, bien que perturbante, est tout à fait possible :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-61-1"><a href="#__codelineno-61-1" id="__codelineno-61-1" name="__codelineno-61-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 </span><span id="__span-61-2"><a href="#__codelineno-61-2" id="__codelineno-61-2" name="__codelineno-61-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="n">point</span><span class="p">;</span>
 </span><span id="__span-61-3"><a href="#__codelineno-61-3" id="__codelineno-61-3" name="__codelineno-61-3"></a><span class="n">point</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </span></code></pre></div>
-<h3 id="initialisation_1">Initialisation<a class="headerlink" href="#initialisation_1" title="Permanent link">¶</a></h3>
-<p>Une structure se comporte à peu de chose près comme un tableau sauf que les éléments de la structure ne s'accèdent pas avec l'opérateur crochet, <code>[]</code> mais avec l'opérateur <code>.</code>. Néanmoins une structure est représentée en mémoire comme un contenu linéaire. Notre structure <code>struct Point</code> serait identique à un tableau de trois <code>double</code> et par conséquent l'initialisation suivante est possible&thinsp;:</p>
+<h3 id="initialisation_1">Initialisation<a class="headerlink" href="#initialisation_1" title="Permanent link">¤</a></h3>
+<p>Une structure se comporte à peu de chose près comme un tableau sauf que les éléments de la structure ne s'accèdent pas avec l'opérateur crochet, <code>[]</code> mais avec l'opérateur <code>.</code>. Néanmoins une structure est représentée en mémoire comme un contenu linéaire. Notre structure <code>struct Point</code> serait identique à un tableau de trois <code>double</code> et par conséquent l'initialisation suivante est possible :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-62-1"><a href="#__codelineno-62-1" id="__codelineno-62-1" name="__codelineno-62-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">3060426.957</span><span class="p">,</span><span class="w"> </span><span class="mf">3192003.220</span><span class="p">,</span><span class="w"> </span><span class="mf">4581359.381</span><span class="w"> </span><span class="p">};</span>
 </span></code></pre></div>
-<p>Néanmoins on préfèrera la notation suivante, équivalente&thinsp;:</p>
+<p>Néanmoins on préfèrera la notation suivante, équivalente :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-63-1"><a href="#__codelineno-63-1" id="__codelineno-63-1" name="__codelineno-63-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mf">3060426.957</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mf">3192003.220</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mf">4581359.381</span><span class="w"> </span><span class="p">};</span>
 </span></code></pre></div>
 <p>Comme pour un tableau, les valeurs omises sont initialisées à zéro. Et de la même manière qu'un tableau, il est possible d'initialiser une structure à zéro avec <code>= {0};</code>.</p>
 <p>Il faut savoir que <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> restreint l'ordre dans lequel les éléments peuvent être initialisés. Ce dernier doit être l'ordre dans lequel les variables sont déclarées dans la structure.</p>
-<p>Notons que des structures comportant des types différents peuvent aussi être initialisées de la même manière&thinsp;:</p>
+<p>Notons que des structures comportant des types différents peuvent aussi être initialisées de la même manière :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-64-1"><a href="#__codelineno-64-1" id="__codelineno-64-1" name="__codelineno-64-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Product</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-64-2"><a href="#__codelineno-64-2" id="__codelineno-64-2" name="__codelineno-64-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span><span class="w"> </span><span class="c1">// Grams</span>
 </span><span id="__span-64-3"><a href="#__codelineno-64-3" id="__codelineno-64-3" name="__codelineno-64-3"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="c1">// Swiss francs</span>
@@ -4858,19 +4860,19 @@
 </span><span id="__span-64-7"><a href="#__codelineno-64-7" id="__codelineno-64-7" name="__codelineno-64-7"></a>
 </span><span id="__span-64-8"><a href="#__codelineno-64-8" id="__codelineno-64-8" name="__codelineno-64-8"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Product</span><span class="w"> </span><span class="n">apple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">321</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="s">"Pomme Golden"</span><span class="p">};</span>
 </span></code></pre></div>
-<h3 id="tableaux-de-structures">Tableaux de structures<a class="headerlink" href="#tableaux-de-structures" title="Permanent link">¶</a></h3>
-<p>Une structure est un type comme un autre. Tout ce qui peut être fait avec <code>char</code> ou <code>double</code> peut donc être fait avec <code>struct</code>. Et donc, il est aussi possible de déclarer un tableau de structures. Ici, donnons l'exemple d'un tableau de points initialisés&thinsp;:</p>
+<h3 id="tableaux-de-structures">Tableaux de structures<a class="headerlink" href="#tableaux-de-structures" title="Permanent link">¤</a></h3>
+<p>Une structure est un type comme un autre. Tout ce qui peut être fait avec <code>char</code> ou <code>double</code> peut donc être fait avec <code>struct</code>. Et donc, il est aussi possible de déclarer un tableau de structures. Ici, donnons l'exemple d'un tableau de points initialisés :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-65-1"><a href="#__codelineno-65-1" id="__codelineno-65-1" name="__codelineno-65-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">points</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-65-2"><a href="#__codelineno-65-2" id="__codelineno-65-2" name="__codelineno-65-2"></a><span class="w">    </span><span class="p">{.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">},</span>
 </span><span id="__span-65-3"><a href="#__codelineno-65-3" id="__codelineno-65-3" name="__codelineno-65-3"></a><span class="w">    </span><span class="p">{.</span><span class="n">z</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">},</span>
 </span><span id="__span-65-4"><a href="#__codelineno-65-4" id="__codelineno-65-4" name="__codelineno-65-4"></a><span class="w">    </span><span class="p">{.</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span>
 </span><span id="__span-65-5"><a href="#__codelineno-65-5" id="__codelineno-65-5" name="__codelineno-65-5"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>Assigner une nouvelle valeur à un point est facile&thinsp;:</p>
+<p>Assigner une nouvelle valeur à un point est facile :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-66-1"><a href="#__codelineno-66-1" id="__codelineno-66-1" name="__codelineno-66-1"></a><span class="n">point</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
 </span></code></pre></div>
-<h3 id="structures-en-parametres">Structures en paramètres<a class="headerlink" href="#structures-en-parametres" title="Permanent link">¶</a></h3>
-<p>L'intérêt d'une structure est de pouvoir passer ou retourner un ensemble de données à une fonction. On a vu qu'une fonction ne permet de retourner qu'une seule primitive. Une structure est ici considérée comme un seul conteneur et l'écriture suivante est possible&thinsp;:</p>
+<h3 id="structures-en-parametres">Structures en paramètres<a class="headerlink" href="#structures-en-parametres" title="Permanent link">¤</a></h3>
+<p>L'intérêt d'une structure est de pouvoir passer ou retourner un ensemble de données à une fonction. On a vu qu'une fonction ne permet de retourner qu'une seule primitive. Une structure est ici considérée comme un seul conteneur et l'écriture suivante est possible :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-67-1"><a href="#__codelineno-67-1" id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">generate_point</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-67-2"><a href="#__codelineno-67-2" id="__codelineno-67-2" name="__codelineno-67-2"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-67-3"><a href="#__codelineno-67-3" id="__codelineno-67-3" name="__codelineno-67-3"></a><span class="w">        </span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(),</span>
@@ -4881,7 +4883,7 @@
 </span><span id="__span-67-8"><a href="#__codelineno-67-8" id="__codelineno-67-8" name="__codelineno-67-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-67-9"><a href="#__codelineno-67-9" id="__codelineno-67-9" name="__codelineno-67-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Il est également possible de passer une structure en paramètre d'une fonction&thinsp;:</p>
+<p>Il est également possible de passer une structure en paramètre d'une fonction :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-68-1"><a href="#__codelineno-68-1" id="__codelineno-68-1" name="__codelineno-68-1"></a><span class="kt">double</span><span class="w"> </span><span class="nf">norm</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-68-2"><a href="#__codelineno-68-2" id="__codelineno-68-2" name="__codelineno-68-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
 </span><span id="__span-68-3"><a href="#__codelineno-68-3" id="__codelineno-68-3" name="__codelineno-68-3"></a><span class="p">}</span>
@@ -4892,7 +4894,7 @@
 </span><span id="__span-68-8"><a href="#__codelineno-68-8" id="__codelineno-68-8" name="__codelineno-68-8"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">norm</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 </span><span id="__span-68-9"><a href="#__codelineno-68-9" id="__codelineno-68-9" name="__codelineno-68-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Contrairement aux tableaux, les structures sont toujours passées par valeur, c'est-à-dire que l'entier du contenu de la structure sera copié sur la pile (<em>stack</em>) en cas d'appel à une fonction. En revanche, en cas de passage par pointeur, seule l'adresse de la structure est passée à la fonction appelée qui peut dès lors modifier le contenu&thinsp;:</p>
+<p>Contrairement aux tableaux, les structures sont toujours passées par valeur, c'est-à-dire que l'entier du contenu de la structure sera copié sur la pile (<em>stack</em>) en cas d'appel à une fonction. En revanche, en cas de passage par pointeur, seule l'adresse de la structure est passée à la fonction appelée qui peut dès lors modifier le contenu :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-69-1"><a href="#__codelineno-69-1" id="__codelineno-69-1" name="__codelineno-69-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-69-2"><a href="#__codelineno-69-2" id="__codelineno-69-2" name="__codelineno-69-2"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </span><span id="__span-69-3"><a href="#__codelineno-69-3" id="__codelineno-69-3" name="__codelineno-69-3"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
@@ -4914,7 +4916,7 @@
 <p class="admonition-title">Hint</p>
 <p>Lorsqu'un membre d'une structure est accédé, via son pointeur, on utilise la notation <code>-&gt;</code> au lieu de <code>.</code> car il est nécessaire de déréférencer le pointeur. Il s'agit d'un sucre syntaxique permettant d'écrire <code>p-&gt;x</code> au lieu de <code>(*p).x</code></p>
 </div>
-<h3 id="structures-flexibles">Structures flexibles<a class="headerlink" href="#structures-flexibles" title="Permanent link">¶</a></h3>
+<h3 id="structures-flexibles">Structures flexibles<a class="headerlink" href="#structures-flexibles" title="Permanent link">¤</a></h3>
 <p>Introduits avec <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, les membres de structures flexibles ou <em>flexible array members</em> (§6.7.2.1) est un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-70-1"><a href="#__codelineno-70-1" id="__codelineno-70-1" name="__codelineno-70-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Vector</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-70-2"><a href="#__codelineno-70-2" id="__codelineno-70-2" name="__codelineno-70-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span><span class="w"> </span><span class="c1">// name of the vector</span>
@@ -4930,7 +4932,7 @@
 </span><span id="__span-71-5"><a href="#__codelineno-71-5" id="__codelineno-71-5" name="__codelineno-71-5"></a><span class="w">    </span><span class="n">vector</span><span class="o">-&gt;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
 </span></code></pre></div>
 <p>Ce type d'écriture est souvent utilisé pour des contenus ayant un en-tête fixe comme des images BMP ou des fichiers sons WAVE.</p>
-<h3 id="structure-de-structures">Structure de structures<a class="headerlink" href="#structure-de-structures" title="Permanent link">¶</a></h3>
+<h3 id="structure-de-structures">Structure de structures<a class="headerlink" href="#structure-de-structures" title="Permanent link">¤</a></h3>
 <p>On comprend aisément que l'avantage des structures et le regroupement de variables. Une structure peut être la composition d'autres types composites.</p>
 <p>Nous déclarons ici une structure <code>struct Line</code> composée de <code>struct Point</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-72-1"><a href="#__codelineno-72-1" id="__codelineno-72-1" name="__codelineno-72-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Line</span><span class="w"> </span><span class="p">{</span>
@@ -4938,12 +4940,12 @@
 </span><span id="__span-72-3"><a href="#__codelineno-72-3" id="__codelineno-72-3" name="__codelineno-72-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 </span><span id="__span-72-4"><a href="#__codelineno-72-4" id="__codelineno-72-4" name="__codelineno-72-4"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>L'accès à ces différentes valeurs s'effectue de la façon suivante&thinsp;:</p>
+<p>L'accès à ces différentes valeurs s'effectue de la façon suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-73-1"><a href="#__codelineno-73-1" id="__codelineno-73-1" name="__codelineno-73-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Line</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">33</span><span class="p">};</span>
 </span><span id="__span-73-2"><a href="#__codelineno-73-2" id="__codelineno-73-2" name="__codelineno-73-2"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%g, %g"</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
 </span></code></pre></div>
-<h3 id="alignement-memoire">Alignement mémoire<a class="headerlink" href="#alignement-memoire" title="Permanent link">¶</a></h3>
-<p>Une structure est agencée en mémoire dans l'ordre de sa déclaration. C'est donc un agencement linéaire en mémoire&thinsp;:</p>
+<h3 id="alignement-memoire">Alignement mémoire<a class="headerlink" href="#alignement-memoire" title="Permanent link">¤</a></h3>
+<p>Une structure est agencée en mémoire dans l'ordre de sa déclaration. C'est donc un agencement linéaire en mémoire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-74-1"><a href="#__codelineno-74-1" id="__codelineno-74-1" name="__codelineno-74-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Line</span><span class="w"> </span><span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"> </span><span class="c1">// Chaque point est un double, codé sur 8 bytes.</span>
 </span></code></pre></div>
 <p>Ci-dessous est représenté l'offset mémoire (en bytes) à laquelle est stocké chaque membre de la structure, ainsi que l'élément correspondant.</p>
@@ -4960,7 +4962,7 @@
 </span><span id="__span-75-11"><a href="#__codelineno-75-11" id="__codelineno-75-11" name="__codelineno-75-11"></a>0x0050 line[1].b.y
 </span><span id="__span-75-12"><a href="#__codelineno-75-12" id="__codelineno-75-12" name="__codelineno-75-12"></a>0x0048 line[1].b.z
 </span></code></pre></div>
-<p>Néanmoins dans certains cas, le compilateur se réserve le droit d'optimiser l' <a href="https://fr.wikipedia.org/wiki/Alignement_en_m%C3%A9moire">alignement mémoire</a>. Une architecture 32-bits aura plus de facilité à accéder à des grandeurs de 32 bits or, une structure composée de plusieurs entiers 8-bits demanderait au processeur un coût additionnel pour optimiser le stockage d'information. Considérons par exemple la structure suivante&thinsp;:</p>
+<p>Néanmoins dans certains cas, le compilateur se réserve le droit d'optimiser l' <a href="https://fr.wikipedia.org/wiki/Alignement_en_m%C3%A9moire">alignement mémoire</a>. Une architecture 32-bits aura plus de facilité à accéder à des grandeurs de 32 bits or, une structure composée de plusieurs entiers 8-bits demanderait au processeur un coût additionnel pour optimiser le stockage d'information. Considérons par exemple la structure suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-76-1"><a href="#__codelineno-76-1" id="__codelineno-76-1" name="__codelineno-76-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">NoAlign</span>
 </span><span id="__span-76-2"><a href="#__codelineno-76-2" id="__codelineno-76-2" name="__codelineno-76-2"></a><span class="p">{</span>
 </span><span id="__span-76-3"><a href="#__codelineno-76-3" id="__codelineno-76-3" name="__codelineno-76-3"></a><span class="w">    </span><span class="kt">int8_t</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
@@ -4969,7 +4971,7 @@
 </span><span id="__span-76-6"><a href="#__codelineno-76-6" id="__codelineno-76-6" name="__codelineno-76-6"></a><span class="w">    </span><span class="kt">int8_t</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
 </span><span id="__span-76-7"><a href="#__codelineno-76-7" id="__codelineno-76-7" name="__codelineno-76-7"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>Imaginons pour comprendre qu'un casier mémoire sur une architecture 32-bits est assez grand pour y stocker 4 bytes. Tentons de représenter en mémoire cette structure en <em>little-endian</em>, en considérant des casiers de 32-bits&thinsp;:</p>
+<p>Imaginons pour comprendre qu'un casier mémoire sur une architecture 32-bits est assez grand pour y stocker 4 bytes. Tentons de représenter en mémoire cette structure en <em>little-endian</em>, en considérant des casiers de 32-bits :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-77-1"><a href="#__codelineno-77-1" id="__codelineno-77-1" name="__codelineno-77-1"></a> c    d             i           a
 </span><span id="__span-77-2"><a href="#__codelineno-77-2" id="__codelineno-77-2" name="__codelineno-77-2"></a>┞─╀─┬─┬─┐ ┌─╀─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─╀─┬─┬─┐
 </span><span id="__span-77-3"><a href="#__codelineno-77-3" id="__codelineno-77-3" name="__codelineno-77-3"></a>│c│d│d│d│ │d│i│i│i│ │i│i│i│i│ │i│a│a│a│
@@ -4978,10 +4980,10 @@
 </span><span id="__span-77-6"><a href="#__codelineno-77-6" id="__codelineno-77-6" name="__codelineno-77-6"></a>    A         B         C         D
 </span></code></pre></div>
 <p>On constate que la valeur <code>d</code> est à cheval entre deux casiers. De même que la valeur <code>i</code> est répartie sur trois casiers au lieu de deux. Le processeur communique avec la mémoire en  utilisant des <em>bus mémoire</em>, ils sont l'analogie d'une autoroute qui ne peut accueillir que des voitures, chacune ne pouvant transporter que 4 passagers. Un passager ne peut pas arpenter l'autoroute sans voiture. Le processeur est la gare de triage et s'occupe de réassembler les passagers, et l'opération consistant à demander à un passager de sortir de la voiture <code>B</code> pour s'installer dans une autre, ou même se déplacer de la place du conducteur à la place du passager arrière prend du temps.</p>
-<p>Le compilateur sera donc obligé de faire du zèle pour accéder à d. formellement l'accès à <code>d</code> pourrait s'écrire ainsi&thinsp;:</p>
+<p>Le compilateur sera donc obligé de faire du zèle pour accéder à d. formellement l'accès à <code>d</code> pourrait s'écrire ainsi :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-78-1"><a href="#__codelineno-78-1" id="__codelineno-78-1" name="__codelineno-78-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x0F</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Pour éviter ces manœuvres, le compilateur, selon l'architecture donnée, va insérer des éléments de rembourrage (<em>padding</em>) pour forcer l'alignement mémoire et ainsi optimiser les lectures. La même structure que ci-dessus sera fort probablement implémentée de la façon suivante&thinsp;:</p>
+<p>Pour éviter ces manœuvres, le compilateur, selon l'architecture donnée, va insérer des éléments de rembourrage (<em>padding</em>) pour forcer l'alignement mémoire et ainsi optimiser les lectures. La même structure que ci-dessus sera fort probablement implémentée de la façon suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-79-1"><a href="#__codelineno-79-1" id="__codelineno-79-1" name="__codelineno-79-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Align</span>
 </span><span id="__span-79-2"><a href="#__codelineno-79-2" id="__codelineno-79-2" name="__codelineno-79-2"></a><span class="p">{</span>
 </span><span id="__span-79-3"><a href="#__codelineno-79-3" id="__codelineno-79-3" name="__codelineno-79-3"></a><span class="w">    </span><span class="kt">int8_t</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
@@ -4992,7 +4994,7 @@
 </span><span id="__span-79-8"><a href="#__codelineno-79-8" id="__codelineno-79-8" name="__codelineno-79-8"></a><span class="w">    </span><span class="kt">int8_t</span><span class="w"> </span><span class="n">__pad2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Inséré par le compilateur</span>
 </span><span id="__span-79-9"><a href="#__codelineno-79-9" id="__codelineno-79-9" name="__codelineno-79-9"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>En reprenant notre analogie de voitures, le stockage est maintenant fait comme ceci&thinsp;:</p>
+<p>En reprenant notre analogie de voitures, le stockage est maintenant fait comme ceci :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-80-1"><a href="#__codelineno-80-1" id="__codelineno-80-1" name="__codelineno-80-1"></a>┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐
 </span><span id="__span-80-2"><a href="#__codelineno-80-2" id="__codelineno-80-2" name="__codelineno-80-2"></a>│c│ │ │ │ │d│d│d│d│ │i│i│i│i│ │i│i│i│i│ │a│a│a│ │
 </span><span id="__span-80-3"><a href="#__codelineno-80-3" id="__codelineno-80-3" name="__codelineno-80-3"></a>│0│ │ │ │ │0│1│2│3│ │0│1│2│3│ │4│5│6│7│ │0│1│2│ │
@@ -5001,7 +5003,7 @@
 </span></code></pre></div>
 <p>Le compromis est qu'une voiture supplémentaire est nécessaire, mais le processeur n'a plus besoin de réagencer les passagers.
 L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substantielle de l'espace de stockage.</p>
-<p>Ceci étant, en changeant l'ordre des éléments dans la structure pour que chaque membre soit aligné sur 32-bits, il est possible d'obtenir un meilleur compromis&thinsp;:</p>
+<p>Ceci étant, en changeant l'ordre des éléments dans la structure pour que chaque membre soit aligné sur 32-bits, il est possible d'obtenir un meilleur compromis :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-81-1"><a href="#__codelineno-81-1" id="__codelineno-81-1" name="__codelineno-81-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Align</span>
 </span><span id="__span-81-2"><a href="#__codelineno-81-2" id="__codelineno-81-2" name="__codelineno-81-2"></a><span class="p">{</span>
 </span><span id="__span-81-3"><a href="#__codelineno-81-3" id="__codelineno-81-3" name="__codelineno-81-3"></a><span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
@@ -5017,7 +5019,7 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-82-5"><a href="#__codelineno-82-5" id="__codelineno-82-5" name="__codelineno-82-5"></a>    A         B         C         D
 </span></code></pre></div>
 <p>L'option <code>-Wpadded</code> de GCC permet de lever une alerte lorsqu'une structure est alignée par le compilateur. Si l'on utilise par exemple une structure pour écrire un fichier binaire respectant un format précis par exemple l'en-tête d'un fichier BMP. Et que cette structure <code>BitmapFileHeader</code> est enregistrée avec <code>fwrite(header, sizeof(BitmapFileHeader), ...)</code>. Si le compilateur rajoute des éléments de rembourrage, le fichier BMP serait alors compromis. Il faudrait donc considérer l'alerte <code>Wpadded</code> comme une erreur critique.</p>
-<p>Pour pallier à ce problème, lorsqu'une structure mémoire doit être respectée dans un ordre précis. Une option de compilation non standard existe. La directive <code>#pragma pack</code> permet de forcer un type d'alignement pour une certaine structure. Considérons par exemple la structure suivante&thinsp;:</p>
+<p>Pour pallier à ce problème, lorsqu'une structure mémoire doit être respectée dans un ordre précis. Une option de compilation non standard existe. La directive <code>#pragma pack</code> permet de forcer un type d'alignement pour une certaine structure. Considérons par exemple la structure suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-83-1"><a href="#__codelineno-83-1" id="__codelineno-83-1" name="__codelineno-83-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Test</span>
 </span><span id="__span-83-2"><a href="#__codelineno-83-2" id="__codelineno-83-2" name="__codelineno-83-2"></a><span class="p">{</span>
 </span><span id="__span-83-3"><a href="#__codelineno-83-3" id="__codelineno-83-3" name="__codelineno-83-3"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
@@ -5025,23 +5027,23 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-83-5"><a href="#__codelineno-83-5" id="__codelineno-83-5" name="__codelineno-83-5"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 </span><span id="__span-83-6"><a href="#__codelineno-83-6" id="__codelineno-83-6" name="__codelineno-83-6"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>Elle serait très probablement représentée en mémoire de la façon suivante&thinsp;:</p>
+<p>Elle serait très probablement représentée en mémoire de la façon suivante :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-84-1"><a href="#__codelineno-84-1" id="__codelineno-84-1" name="__codelineno-84-1"></a>┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐
 </span><span id="__span-84-2"><a href="#__codelineno-84-2" id="__codelineno-84-2" name="__codelineno-84-2"></a>│a│ │ │ │ │b│b│b│b│ │c│ │ │ │
 </span><span id="__span-84-3"><a href="#__codelineno-84-3" id="__codelineno-84-3" name="__codelineno-84-3"></a>│0│ │ │ │ │0│1│2│3│ │0│ │ │ │
 </span><span id="__span-84-4"><a href="#__codelineno-84-4" id="__codelineno-84-4" name="__codelineno-84-4"></a>└─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
 </span><span id="__span-84-5"><a href="#__codelineno-84-5" id="__codelineno-84-5" name="__codelineno-84-5"></a>    A         B         C
 </span></code></pre></div>
-<p>En revanche si elle est décrite en utilisant un <em>packing</em> sur 8-bits, avec <code>#pragma pack(1)</code> on aura l'alignement mémoire suivant&thinsp;:</p>
+<p>En revanche si elle est décrite en utilisant un <em>packing</em> sur 8-bits, avec <code>#pragma pack(1)</code> on aura l'alignement mémoire suivant :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-85-1"><a href="#__codelineno-85-1" id="__codelineno-85-1" name="__codelineno-85-1"></a>┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐
 </span><span id="__span-85-2"><a href="#__codelineno-85-2" id="__codelineno-85-2" name="__codelineno-85-2"></a>│a│b│b│b│ │b│c│ │ │
 </span><span id="__span-85-3"><a href="#__codelineno-85-3" id="__codelineno-85-3" name="__codelineno-85-3"></a>│0│0│1│2│ │3│1│ │ │
 </span><span id="__span-85-4"><a href="#__codelineno-85-4" id="__codelineno-85-4" name="__codelineno-85-4"></a>└─┴─┴─┴─┘ └─┴─┴─┴─┘
 </span><span id="__span-85-5"><a href="#__codelineno-85-5" id="__codelineno-85-5" name="__codelineno-85-5"></a>    A         B
 </span></code></pre></div>
-<h2 id="champs-de-bits">Champs de bits<a class="headerlink" href="#champs-de-bits" title="Permanent link">¶</a></h2>
-<p>Les champs de bits sont des structures dont une information supplémentaire est ajoutée&thinsp;: le nombre de bits utilisés.</p>
-<p>Prenons l'exemple du <a href="http://www.ti.com/lit/ug/sprug03b/sprug03b.pdf">module I2C</a> du microcontrôleur TMS320F28335. Le registre <code>I2CMDR</code> décrit à la page 23 est un registre 16-bits qu'il conviendrait de décrire avec un champ de bits&thinsp;:</p>
+<h2 id="champs-de-bits">Champs de bits<a class="headerlink" href="#champs-de-bits" title="Permanent link">¤</a></h2>
+<p>Les champs de bits sont des structures dont une information supplémentaire est ajoutée : le nombre de bits utilisés.</p>
+<p>Prenons l'exemple du <a href="http://www.ti.com/lit/ug/sprug03b/sprug03b.pdf">module I2C</a> du microcontrôleur TMS320F28335. Le registre <code>I2CMDR</code> décrit à la page 23 est un registre 16-bits qu'il conviendrait de décrire avec un champ de bits :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-86-1"><a href="#__codelineno-86-1" id="__codelineno-86-1" name="__codelineno-86-1"></a>struct I2CMDR {
 </span><span id="__span-86-2"><a href="#__codelineno-86-2" id="__codelineno-86-2" name="__codelineno-86-2"></a>    int  bc  :3;
 </span><span id="__span-86-3"><a href="#__codelineno-86-3" id="__codelineno-86-3" name="__codelineno-86-3"></a>    bool fdf :1;
@@ -5059,19 +5061,19 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-86-15"><a href="#__codelineno-86-15" id="__codelineno-86-15" name="__codelineno-86-15"></a>    bool nackmod :1;
 </span><span id="__span-86-16"><a href="#__codelineno-86-16" id="__codelineno-86-16" name="__codelineno-86-16"></a>};
 </span></code></pre></div>
-<p>Activer le bit <code>stp</code> (bit numéro 12) devient une opération triviale&thinsp;:</p>
+<p>Activer le bit <code>stp</code> (bit numéro 12) devient une opération triviale :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-87-1"><a href="#__codelineno-87-1" id="__codelineno-87-1" name="__codelineno-87-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">I2CMDR</span><span class="w"> </span><span class="n">i2cmdr</span><span class="p">;</span>
 </span><span id="__span-87-2"><a href="#__codelineno-87-2" id="__codelineno-87-2" name="__codelineno-87-2"></a>
 </span><span id="__span-87-3"><a href="#__codelineno-87-3" id="__codelineno-87-3" name="__codelineno-87-3"></a><span class="n">i2cmdr</span><span class="p">.</span><span class="n">stp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Alors qu'elle demanderait une manipulation de bit sinon&thinsp;:</p>
+<p>Alors qu'elle demanderait une manipulation de bit sinon :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-88-1"><a href="#__codelineno-88-1" id="__codelineno-88-1" name="__codelineno-88-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">i2cmdr</span><span class="p">;</span>
 </span><span id="__span-88-2"><a href="#__codelineno-88-2" id="__codelineno-88-2" name="__codelineno-88-2"></a>
 </span><span id="__span-88-3"><a href="#__codelineno-88-3" id="__codelineno-88-3" name="__codelineno-88-3"></a><span class="n">i2cmdr</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Notons que les champs de bits, ainsi que les structures seront déclarés différemment selon que l'architecture cible est <em>little-endian</em> ou <em>big-endian</em>.</p>
-<h2 id="unions">Unions<a class="headerlink" href="#unions" title="Permanent link">¶</a></h2>
-<p>Une <a href="https://en.wikipedia.org/wiki/Union_type">union</a> est une variable qui peut avoir plusieurs représentations d'un même contenu mémoire. Rappelez-vous, nous nous demandions quelle était l'interprétation d'un contenu mémoire donné. Il est possible en C d'avoir toutes les interprétations à la fois&thinsp;:</p>
+<h2 id="unions">Unions<a class="headerlink" href="#unions" title="Permanent link">¤</a></h2>
+<p>Une <a href="https://en.wikipedia.org/wiki/Union_type">union</a> est une variable qui peut avoir plusieurs représentations d'un même contenu mémoire. Rappelez-vous, nous nous demandions quelle était l'interprétation d'un contenu mémoire donné. Il est possible en C d'avoir toutes les interprétations à la fois :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-89-1"><a href="#__codelineno-89-1" id="__codelineno-89-1" name="__codelineno-89-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
 </span><span id="__span-89-2"><a href="#__codelineno-89-2" id="__codelineno-89-2" name="__codelineno-89-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-89-3"><a href="#__codelineno-89-3" id="__codelineno-89-3" name="__codelineno-89-3"></a>
@@ -5124,7 +5126,7 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-90-18"><a href="#__codelineno-90-18" id="__codelineno-90-18" name="__codelineno-90-18"></a><span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">all</span><span class="p">;</span>
 </span><span id="__span-90-19"><a href="#__codelineno-90-19" id="__codelineno-90-19" name="__codelineno-90-19"></a><span class="p">};</span>
 </span></code></pre></div>
-<h2 id="creation-de-types">Création de types<a class="headerlink" href="#creation-de-types" title="Permanent link">¶</a></h2>
+<h2 id="creation-de-types">Création de types<a class="headerlink" href="#creation-de-types" title="Permanent link">¤</a></h2>
 <p>Le mot clé <code>typedef</code> permet de déclarer un nouveau type. Il est particulièrement utilisé conjointement avec les structures et les unions afin de s'affranchir de la lourdeur d'écriture (préfixe <code>struct</code>), et dans le but de cacher la complexité d'un type à l'utilisateur qui le manipule.</p>
 <p>L'exemple suivant déclare un type <code>Point</code> et un prototype de fonction permettant l'addition de deux points.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-91-1"><a href="#__codelineno-91-1" id="__codelineno-91-1" name="__codelineno-91-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
@@ -5134,9 +5136,9 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-91-5"><a href="#__codelineno-91-5" id="__codelineno-91-5" name="__codelineno-91-5"></a>
 </span><span id="__span-91-6"><a href="#__codelineno-91-6" id="__codelineno-91-6" name="__codelineno-91-6"></a><span class="n">Point</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </span></code></pre></div>
-<h2 id="compound-literals">Compound Literals<a class="headerlink" href="#compound-literals" title="Permanent link">¶</a></h2>
-<p>Naïvement traduit en <em>littéraux composés</em>, un <em>compound literal</em> est une méthode de création d'un type composé «&thinsp;à la volée&thinsp;» utilisé de la même façon que les transtypages.</p>
-<p>Reprenons notre structure Point <code>struct Point</code> vue plus haut. Si l'on souhaite changer la valeur du point <code>p</code> il faudrait on pourrait écrire ceci&thinsp;:</p>
+<h2 id="compound-literals">Compound Literals<a class="headerlink" href="#compound-literals" title="Permanent link">¤</a></h2>
+<p>Naïvement traduit en <em>littéraux composés</em>, un <em>compound literal</em> est une méthode de création d'un type composé « à la volée » utilisé de la même façon que les transtypages.</p>
+<p>Reprenons notre structure Point <code>struct Point</code> vue plus haut. Si l'on souhaite changer la valeur du point <code>p</code> il faudrait on pourrait écrire ceci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-92-1"><a href="#__codelineno-92-1" id="__codelineno-92-1" name="__codelineno-92-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// Déclaré plus haut</span>
 </span><span id="__span-92-2"><a href="#__codelineno-92-2" id="__codelineno-92-2" name="__codelineno-92-2"></a>
 </span><span id="__span-92-3"><a href="#__codelineno-92-3" id="__codelineno-92-3" name="__codelineno-92-3"></a><span class="c1">// ...</span>
@@ -5146,10 +5148,10 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-92-7"><a href="#__codelineno-92-7" id="__codelineno-92-7" name="__codelineno-92-7"></a><span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
 </span><span id="__span-92-8"><a href="#__codelineno-92-8" id="__codelineno-92-8" name="__codelineno-92-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Notons que passer par une variable intermédiaire <code>q</code> n'est pas très utile. Il serait préférable d'écrire ceci&thinsp;:</p>
+<p>Notons que passer par une variable intermédiaire <code>q</code> n'est pas très utile. Il serait préférable d'écrire ceci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-93-1"><a href="#__codelineno-93-1" id="__codelineno-93-1" name="__codelineno-93-1"></a><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span>
 </span></code></pre></div>
-<p>Néanmoins cette écriture mènera à une erreur de compilation, car le compilateur cherchera à déterminer le type de l'expression <code>{.x=1, .y=2, .z=3}</code>. Il est alors essentiel d'utiliser la notation suivante&thinsp;:</p>
+<p>Néanmoins cette écriture mènera à une erreur de compilation, car le compilateur cherchera à déterminer le type de l'expression <code>{.x=1, .y=2, .z=3}</code>. Il est alors essentiel d'utiliser la notation suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-94-1"><a href="#__codelineno-94-1" id="__codelineno-94-1" name="__codelineno-94-1"></a><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="p">){.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span>
 </span></code></pre></div>
 <p>Cette notation de littéraux composés peut également s'appliquer aux tableaux. L'exemple suivant montre l'initialisation d'un tableau à la volée passé à la fonction <code>foo</code> :</p>
@@ -5162,8 +5164,8 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-95-7"><a href="#__codelineno-95-7" id="__codelineno-95-7" name="__codelineno-95-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Mendeleïev<span class="exercise-title"></span></p>
-<p>Chaque élément du tableau périodique des éléments comporte les propriétés suivantes&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 9 : </span>Mendeleïev<span class="exercise-title"></span></p>
+<p>Chaque élément du tableau périodique des éléments comporte les propriétés suivantes :</p>
 <ul>
 <li>Un nom jusqu'à 20 lettres</li>
 <li>Un symbole jusqu'à 2 lettres</li>
@@ -5177,11 +5179,11 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </ul>
 </li>
 <li>
-<p>La période&thinsp;: un entier de 1 à 7</p>
+<p>La période : un entier de 1 à 7</p>
 </li>
-<li>Le groupe&thinsp;: un entier de 1 à 18</li>
+<li>Le groupe : un entier de 1 à 18</li>
 </ul>
-<p>Déclarer une structure de données permettant de stocker tous les éléments chimiques de telle façon qu'ils puissent être accédés comme&thinsp;:</p>
+<p>Déclarer une structure de données permettant de stocker tous les éléments chimiques de telle façon qu'ils puissent être accédés comme :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-96-1"><a href="#__codelineno-96-1" id="__codelineno-96-1" name="__codelineno-96-1"></a><span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">table</span><span class="p">.</span><span class="n">element</span><span class="p">[</span><span class="mi">6</span><span class="p">].</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s">"Helium"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </span><span id="__span-96-2"><a href="#__codelineno-96-2" id="__codelineno-96-2" name="__codelineno-96-2"></a><span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">table</span><span class="p">.</span><span class="n">element</span><span class="p">[</span><span class="mi">54</span><span class="p">].</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="s">"Gaz noble"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </span><span id="__span-96-3"><a href="#__codelineno-96-3" id="__codelineno-96-3" name="__codelineno-96-3"></a><span class="n">assert</span><span class="p">(</span><span class="n">table</span><span class="p">.</span><span class="n">element</span><span class="p">[</span><span class="mi">11</span><span class="p">].</span><span class="n">period</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
@@ -5276,7 +5278,7 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -5416,7 +5418,7 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3884,9 +3886,9 @@
 
   <h1>Standard library</h1>
 
-<h2 id="bibliotheques-standard">Bibliothèques standard<a class="headerlink" href="#bibliotheques-standard" title="Permanent link">¶</a></h2>
+<h2 id="bibliotheques-standard">Bibliothèques standard<a class="headerlink" href="#bibliotheques-standard" title="Permanent link">¤</a></h2>
 <p>Les bibliothèques standard (<a href="https://fr.wikipedia.org/wiki/Biblioth%C3%A8que_standard_du_C">C standard library</a>) sont une collection normalisée d'en-têtes portables. C'est à dire que quelque soit le compilateur et l'architecture cible, cette collection sera accessible.</p>
-<p>Le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> définit un certain nombre d'en-têtes dont les plus utilisés (et ceux utilisés dans ce cours) sont&thinsp;:</p>
+<p>Le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> définit un certain nombre d'en-têtes dont les plus utilisés (et ceux utilisés dans ce cours) sont :</p>
 <dl>
 <dt><code>&lt;assert.h&gt;</code></dt>
 <dd>
@@ -3938,8 +3940,8 @@
 </dd>
 </dl>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Arc-cosinus<span class="exercise-title"></span></p>
-<p>La fonction Arc-Cosinus <code>acos</code> est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée&thinsp;? Un fichier d'en-tête se termine avec l'extension <code>.h</code>.</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Arc-cosinus<span class="exercise-title"></span></p>
+<p>La fonction Arc-Cosinus <code>acos</code> est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée ? Un fichier d'en-tête se termine avec l'extension <code>.h</code>.</p>
 <details class="solution">
 <summary>Solution</summary>
 <p>En cherchant <code>man acos header</code> dans Google, on trouve que la fonction <code>acos</code> est définie dans le header <code>&lt;math.h&gt;</code>.</p>
@@ -3958,7 +3960,7 @@
 </span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>cacoshl<span class="w"> </span><span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w">  </span>-<span class="w"> </span>complex<span class="w"> </span>arc<span class="w"> </span>hyperbolic<span class="w"> </span>cosine
 </span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>cacosl<span class="w"> </span><span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w">   </span>-<span class="w"> </span>complex<span class="w"> </span>arc<span class="w"> </span>cosine
 </span></code></pre></div>
-<p>Le premier résultat permet ensuite de voir&thinsp;:</p>
+<p>Le premier résultat permet ensuite de voir :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>$<span class="w"> </span>man<span class="w"> </span>acos<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-10
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>ACOS<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w">    </span>Linux<span class="w"> </span>Programmer<span class="err">'</span>s<span class="w"> </span>Manual<span class="w">         </span>ACOS<span class="o">(</span><span class="m">3</span><span class="o">)</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
@@ -3976,12 +3978,12 @@
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Date<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Date<span class="exercise-title"></span></p>
 <p>Lors du formatage d'une date, on y peut y lire <code>%w</code>, par quoi sera remplacé ce <em>token</em> ?</p>
 </div>
-<h3 id="fonctions-dinteret">Fonctions d'intérêt<a class="headerlink" href="#fonctions-dinteret" title="Permanent link">¶</a></h3>
+<h3 id="fonctions-dinteret">Fonctions d'intérêt<a class="headerlink" href="#fonctions-dinteret" title="Permanent link">¤</a></h3>
 <p>Il serait inutile ici de lister toutes les fonctions, les bibliothèques standard étant largement documentées sur internet. Il ne fait aucun doute que le développeur sera trouver comment calculer un sinus avec la fonction <code>sin</code>. Néanmoins l'existence de certaines fonctions peut passer inaperçues et c'est de celles-ci don't j'aimerais parler.</p>
-<h4 id="math">Math<a class="headerlink" href="#math" title="Permanent link">¶</a></h4>
+<h4 id="math">Math<a class="headerlink" href="#math" title="Permanent link">¤</a></h4>
 <table id="_table-1">
 <caption style="caption-side:top"> Constantes mathématiques</caption><thead>
 <tr>
@@ -3992,15 +3994,15 @@
 <tbody>
 <tr>
 <td><code>M_PI</code></td>
-<td>Valeur de :math&thinsp;:<code>\pi</code></td>
+<td>Valeur de :math :<code>\pi</code></td>
 </tr>
 <tr>
 <td><code>M_E</code></td>
-<td>Valeur de :math&thinsp;:<code>e</code></td>
+<td>Valeur de :math :<code>e</code></td>
 </tr>
 <tr>
 <td><code>M_SQRT1_2</code></td>
-<td>Valeur de :math&thinsp;:<code>1/\sqrt(2)</code></td>
+<td>Valeur de :math :<code>1/\sqrt(2)</code></td>
 </tr>
 </tbody>
 </table>
@@ -4014,35 +4016,35 @@
 <tbody>
 <tr>
 <td><code>exp(x)</code></td>
-<td>Exponentielle :math&thinsp;:<code>e^x</code></td>
+<td>Exponentielle :math :<code>e^x</code></td>
 </tr>
 <tr>
 <td><code>ldexp(x,n)</code></td>
-<td>Exposant d'un nombre flottant :math&thinsp;:<code>x\cdot2^n</code></td>
+<td>Exposant d'un nombre flottant :math :<code>x\cdot2^n</code></td>
 </tr>
 <tr>
 <td><code>log(x)</code></td>
-<td>Logarithme binaire :math&thinsp;:<code>\log_{2}(x)</code></td>
+<td>Logarithme binaire :math :<code>\log_{2}(x)</code></td>
 </tr>
 <tr>
 <td><code>log10(x)</code></td>
-<td>Logarithme décimal :math&thinsp;:<code>\log_{10}(x)</code></td>
+<td>Logarithme décimal :math :<code>\log_{10}(x)</code></td>
 </tr>
 <tr>
 <td><code>pow(x,y)</code></td>
-<td>Puissance :math&thinsp;:<code>x^y</code></td>
+<td>Puissance :math :<code>x^y</code></td>
 </tr>
 <tr>
 <td><code>sqrt(x)</code></td>
-<td>Racine carrée :math&thinsp;:<code>\sqrt(x)</code></td>
+<td>Racine carrée :math :<code>\sqrt(x)</code></td>
 </tr>
 <tr>
 <td><code>cbrt(x)</code></td>
-<td>Racine cubique :math&thinsp;:<code>\sqrt[3](x)</code></td>
+<td>Racine cubique :math :<code>\sqrt[3](x)</code></td>
 </tr>
 <tr>
 <td><code>hypot(x,y)</code></td>
-<td>Hypoténuse optimisé :math&thinsp;:<code>\sqrt(x^2 + y^2)</code></td>
+<td>Hypoténuse optimisé :math :<code>\sqrt(x^2 + y^2)</code></td>
 </tr>
 <tr>
 <td><code>ceil</code></td>
@@ -4054,13 +4056,13 @@
 </tr>
 </tbody>
 </table>
-<p>Notons par exemple que la fonction <code>hypot</code> peut très bien être émulée facilement en utilisant la fonction <code>sqrt</code>. Néanmoins elle existe pour deux raisons élémentaires&thinsp;:</p>
+<p>Notons par exemple que la fonction <code>hypot</code> peut très bien être émulée facilement en utilisant la fonction <code>sqrt</code>. Néanmoins elle existe pour deux raisons élémentaires :</p>
 <ol>
 <li>Éviter les dépassements (<em>overflow</em>).</li>
 <li>Une meilleure optimisation du code.</li>
 </ol>
 <p>Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables de calculer certaines fonctions plus rapidement.</p>
-<h4 id="chaines-de-caracteres">Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Permanent link">¶</a></h4>
+<h4 id="chaines-de-caracteres">Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Permanent link">¤</a></h4>
 <dl>
 <dt><code>strcopy(dst, src)</code></dt>
 <dd>
@@ -4073,7 +4075,7 @@
   les deux régions mémoire se superposent.</p>
 </dd>
 </dl>
-<h4 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Permanent link">¶</a></h4>
+<h4 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Permanent link">¤</a></h4>
 <p>Test d'une propriété d'un caractère passé en paramètre</p>
 <table id="_table-3">
 <caption style="caption-side:top"> Fonctions de test de caractères</caption><thead>
@@ -4129,7 +4131,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="limites">Limites<a class="headerlink" href="#limites" title="Permanent link">¶</a></h4>
+<h4 id="limites">Limites<a class="headerlink" href="#limites" title="Permanent link">¤</a></h4>
 <table id="_table-4">
 <caption style="caption-side:top"> Valeurs limites pour les entiers signés et non signés</caption><thead>
 <tr>
@@ -4274,7 +4276,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4414,7 +4416,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

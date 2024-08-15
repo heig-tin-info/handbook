@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3873,12 +3875,12 @@
   
 
 
-<h1 id="generateur-congruentiel-lineaire">Générateur congruentiel linéaire<a class="headerlink" href="#generateur-congruentiel-lineaire" title="Permanent link">¶</a></h1>
-<p>Le générateur congruentiel linéaire (GCL) est un algorithme simple pour générer des nombres pseudo-aléatoires. Il est défini par la relation de récurrence suivante&thinsp;:</p>
+<h1 id="generateur-congruentiel-lineaire">Générateur congruentiel linéaire<a class="headerlink" href="#generateur-congruentiel-lineaire" title="Permanent link">¤</a></h1>
+<p>Le générateur congruentiel linéaire (GCL) est un algorithme simple pour générer des nombres pseudo-aléatoires. Il est défini par la relation de récurrence suivante :</p>
 <div class="arithmatex">\[
 X_{n+1} = (a \cdot X_n + c) \mod m
 \]</div>
-<p>Où&thinsp;:</p>
+<p>Où :</p>
 <dl>
 <dt><span class="arithmatex">\(X_n\)</span></dt>
 <dd>
@@ -3897,8 +3899,8 @@ X_{n+1} = (a \cdot X_n + c) \mod m
 <p>est le modulo</p>
 </dd>
 </dl>
-<p>Les informaticiens ont remarqué que ce générateur fonctionne bien pour certaines valeurs de <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(c\)</span> et <span class="arithmatex">\(m\)</span>. Par exemple, si <span class="arithmatex">\(m = 2^k\)</span>, le générateur est dit à «&thinsp;congruence binaire&thinsp;». Si <span class="arithmatex">\(c = 0\)</span>, le générateur est dit «&thinsp;multiplicatif&thinsp;».</p>
-<p>En C c'est un générateur congruentiel linéaire qui est utilisé pour la fonction <code>rand()</code>. Voici une implémentation de ce générateur&thinsp;:</p>
+<p>Les informaticiens ont remarqué que ce générateur fonctionne bien pour certaines valeurs de <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(c\)</span> et <span class="arithmatex">\(m\)</span>. Par exemple, si <span class="arithmatex">\(m = 2^k\)</span>, le générateur est dit à « congruence binaire ». Si <span class="arithmatex">\(c = 0\)</span>, le générateur est dit « multiplicatif ».</p>
+<p>En C c'est un générateur congruentiel linéaire qui est utilisé pour la fonction <code>rand()</code>. Voici une implémentation de ce générateur :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
@@ -3917,7 +3919,7 @@ X_{n+1} = (a \cdot X_n + c) \mod m
 </span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>La valeur statique <code>seed</code> permet de conserver l'état du générateur entre les appels à la fonction <code>rand()</code>. Si elle n'est pas initialisée, le générateur retournera toujours la même séquence de nombres pseudo-aléatoires. La fonction <code>srand()</code> permet donc d'initialiser la graine du générateur.</p>
-<p>En pratique, on utilise <code>srand()</code> avec comme valeur d'initialisation le temps courant en secondes pour obtenir une séquence de nombres pseudo-aléatoires différente à chaque exécution du programme&thinsp;:</p>
+<p>En pratique, on utilise <code>srand()</code> avec comme valeur d'initialisation le temps courant en secondes pour obtenir une séquence de nombres pseudo-aléatoires différente à chaque exécution du programme :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -3927,7 +3929,7 @@ X_{n+1} = (a \cdot X_n + c) \mod m
 </span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Néanmoins si vous rappelez votre programme durant la même seconde, vous obtiendrez la même séquence de nombres pseudo-aléatoires. Pour obtenir une séquence différente à chaque exécution, vous pouvez utiliser inclure le PID du processus&thinsp;:</p>
+<p>Néanmoins si vous rappelez votre programme durant la même seconde, vous obtiendrez la même séquence de nombres pseudo-aléatoires. Pour obtenir une séquence différente à chaque exécution, vous pouvez utiliser inclure le PID du processus :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
@@ -3938,8 +3940,8 @@ X_{n+1} = (a \cdot X_n + c) \mod m
 </span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="valeurs-remarquables">Valeurs remarquables<a class="headerlink" href="#valeurs-remarquables" title="Permanent link">¶</a></h2>
-<p>Voici quelques valeurs de <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(c\)</span> et <span class="arithmatex">\(m\)</span> qui donnent de bons résultats&thinsp;:</p>
+<h2 id="valeurs-remarquables">Valeurs remarquables<a class="headerlink" href="#valeurs-remarquables" title="Permanent link">¤</a></h2>
+<p>Voici quelques valeurs de <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(c\)</span> et <span class="arithmatex">\(m\)</span> qui donnent de bons résultats :</p>
 <table>
 <thead>
 <tr>
@@ -4062,7 +4064,7 @@ X_{n+1} = (a \cdot X_n + c) \mod m
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4202,7 +4204,7 @@ X_{n+1} = (a \cdot X_n + c) \mod m
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

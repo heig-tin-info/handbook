@@ -1,4 +1,4 @@
-document$.subscribe(async function(el) {
+document$.subscribe(async function (el) {
     const ul = el.querySelector('.md-tabs__list');
     if (!ul) {
         return;
@@ -13,20 +13,28 @@ document$.subscribe(async function(el) {
     }
     const href = a.getAttribute('href');
 
-    if (href.includes('/course-c/')) {
-        color = 'red'
+    config = {
+        'default': {
+            '/course-c/': 'red',
+            '/course-cpp/': 'cyan',
+            '/course-python/': 'green',
+            '/environment/': 'gray',
+            'default': 'red'
+        },
+        'slate': {
+            '/course-c/': 'black',
+            '/course-cpp/': 'cyan',
+            '/course-python/': 'green',
+            '/environment/': 'gray',
+            'default': 'black'
+        }
     }
-    else if (href.includes('/course-cpp/')) {
-        color = 'cyan'
+
+    let scheme = document.querySelector('body').getAttribute('data-md-color-scheme');
+    for (let key in config[scheme]) {
+        if (href.includes(key)) {
+            color = config[scheme][key];
+            document.querySelector('body').setAttribute('data-md-color-primary', color);
+        }
     }
-    else if (href.includes('/course-python/')) {
-        color = 'green'
-    }
-    else if (href.includes('/environment/')) {
-        color = 'gray'
-    }
-    else {
-        color = 'red'
-    }
-    document.querySelector('body').setAttribute('data-md-color-primary', color);
 });

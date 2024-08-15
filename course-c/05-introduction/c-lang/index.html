@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4108,22 +4110,22 @@
   
 
 
-<h1 id="le-langage-c">Le langage C<a class="headerlink" href="#le-langage-c" title="Permanent link">¶</a></h1>
+<h1 id="le-langage-c">Le langage C<a class="headerlink" href="#le-langage-c" title="Permanent link">¤</a></h1>
 <blockquote class="epigraph">C is quirky, flawed, and an enormous success.<footer>Dennis Ritchie</footer></blockquote>
-<p>Le langage C est l'un des premiers langages de programmation dit de haut niveau. Il est très proche de l'assembleur&thinsp;: le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation de système complexe à la simple <a class="autorefs autorefs-internal" href="../programming/#les-systemes-a-microcontroleurs">machine à café</a>.</p>
+<p>Le langage C est l'un des premiers langages de programmation dit de haut niveau. Il est très proche de l'assembleur : le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation de système complexe à la simple <a class="autorefs autorefs-internal" href="../programming/#les-systemes-a-microcontroleurs">machine à café</a>.</p>
 <p>Même s'il est très ancien (1972), il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.</p>
 <p>À vrai dire, en 2024, il n'y a pas d'alternative viable au C pour programmer des applications embarquées, des systèmes d'exploitation ou des applications nécessitant des performances élevées.</p>
 <p><a href="" id="c-history"></a></p>
-<h2 id="historique">Historique<a class="headerlink" href="#historique" title="Permanent link">¶</a></h2>
+<h2 id="historique">Historique<a class="headerlink" href="#historique" title="Permanent link">¤</a></h2>
 <p>En 1964 naît, d'une collaboration avec les laboratoires Bell (<em>Bell Telephone Laboratories</em>), General Electric et le <abbr title="Massachusetts Institute of Technology">MIT</abbr>, le projet <a href="https://fr.wikipedia.org/wiki/Multics">Multics</a> (<em>Multiplexed Information and Computing Service</em>), qui vise le développement d'un nouveau système d'exploitation.</p>
-<p>Malheureusement, la fin de la décennie est assez tumultueuse car les laboratoires Bell, ne croyant plus aux promesses de Multics, décidèrent de se retirer du projet pour créer leur propre système d'exploitation. Un groupe informel, dirigé notamment par <a href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a> et <a href="https://fr.wikipedia.org/wiki/Dennis_Ritchie">Dennis Ritchie</a>, souhaitait revoir et améliorer certains concepts de Multics qu'ils n'appréciaient pas. Notamment le langage de programmation PL/I (<em>Programming Language number 1</em>), pourtant alors dominant pour l'écriture de systèmes d'exploitation. Ken Thompson avait développé le langage B, largement inspiré de BCPL, mais dans lequel il supprima tout ce qu'il ne pensait pas être essentiel pour pouvoir être utilisé sur de petits ordinateurs. L'un comme l'autre n'avaient qu'un seul type de donnée, à savoir le «&thinsp;mot&thinsp;» (<em>word</em>).</p>
+<p>Malheureusement, la fin de la décennie est assez tumultueuse car les laboratoires Bell, ne croyant plus aux promesses de Multics, décidèrent de se retirer du projet pour créer leur propre système d'exploitation. Un groupe informel, dirigé notamment par <a href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a> et <a href="https://fr.wikipedia.org/wiki/Dennis_Ritchie">Dennis Ritchie</a>, souhaitait revoir et améliorer certains concepts de Multics qu'ils n'appréciaient pas. Notamment le langage de programmation PL/I (<em>Programming Language number 1</em>), pourtant alors dominant pour l'écriture de systèmes d'exploitation. Ken Thompson avait développé le langage B, largement inspiré de BCPL, mais dans lequel il supprima tout ce qu'il ne pensait pas être essentiel pour pouvoir être utilisé sur de petits ordinateurs. L'un comme l'autre n'avaient qu'un seul type de donnée, à savoir le « mot » (<em>word</em>).</p>
 <p>BCPL, qui fut conçu par Martin Richards au milieu des années 1960 pendant qu'il était en visite au <abbr title="Massachusetts Institute of Technology">MIT</abbr>, n'est autre que le grand-père de B et l'arrière-grand-père de C. Dennis Ritchie, alors collègue de Ken Thompson, retravailla B pour y ajouter la gestion des types de données.</p>
 <p>Ce système d'exploitation que Ken Thompson et Dennis Ritchie développaient au sein des laboratoires Bell se nommait initialement UNICS, en contradiction de Multics, là où <em>Multiplexed</em> fut remplacé par <em>Uniplexed</em>. Le nom fut ensuite modifié en <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>, qui fut central dans l'histoire de l'informatique.</p>
-<p>Par la suite, <a href="https://fr.wikipedia.org/wiki/Brian_Kernighan">Brian Kernighan</a> aida à populariser ce nouveau langage. Il est le principal auteur du livre «&thinsp;The C Programming Language&thinsp;», tandis que Dennis Ritchie s'est davantage occupé des annexes.</p>
-<p>Les évolutions continuerons plus tard avec <a href="https://fr.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne Stroustrup</a> qui décidera d'étendre C en apportant une saveur nouvelle&thinsp;: la programmation orientée objet (OOP), qui fait l'objet d'un autre cours.</p>
+<p>Par la suite, <a href="https://fr.wikipedia.org/wiki/Brian_Kernighan">Brian Kernighan</a> aida à populariser ce nouveau langage. Il est le principal auteur du livre « The C Programming Language », tandis que Dennis Ritchie s'est davantage occupé des annexes.</p>
+<p>Les évolutions continuerons plus tard avec <a href="https://fr.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne Stroustrup</a> qui décidera d'étendre C en apportant une saveur nouvelle : la programmation orientée objet (OOP), qui fait l'objet d'un autre cours.</p>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/thompson-kernighan-ritchie.webp"><img alt="Les pères fondateurs du C" src="../../../assets/images/thompson-kernighan-ritchie.webp"/></a><figcaption> Les pères fondateurs du C</figcaption></figure></p>
 <p>Il faut attendre 1989 pour que le langage C fasse l'objet d'une normalisation par l'<abbr title="American National Standards Institute">ANSI</abbr> (<em>American National Standards Institute</em>). L'année suivante le comité ISO (<em>International Organization for Standardization</em>) ratifie le standard <em>ISO/IEC 9899:1990</em> communément appelé <strong>C90</strong>. Dès lors, le langage C est devenu un standard international et devient le langage dominant dans le monde de l'informatique.</p>
-<p></p><pre class="mermaid"><code>%% Influences des langages de programmation
+<figure class="mermaid-figure"><pre class="mermaid"><code>%% Influences des langages de programmation
 flowchart LR
     COBOL --&gt; PLI["PL/I"]
     FORTRAN --&gt; ALGOL
@@ -4136,11 +4138,11 @@ flowchart LR
     BCPL --&gt; B
     ALGOL --&gt; PLI
     PLI --&gt; C("C")
-    B --&gt; C</code></pre>
-Les années se succèdent et le standard évolue pour soit corriger certaines de ses faiblesses soit pour apporter de nouvelles fonctionnalités.
+    B --&gt; C</code></pre><figcaption>Influences des langages de programmation</figcaption></figure>
+<p>Les années se succèdent et le standard évolue pour soit corriger certaines de ses faiblesses soit pour apporter de nouvelles fonctionnalités.</p>
 <p>Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés par les ingénieurs, car il allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances telles que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.</p>
 <p>Il faut retenir que <strong>C</strong> est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C.</p>
-<h2 id="standardisation">Standardisation<a class="headerlink" href="#standardisation" title="Permanent link">¶</a></h2>
+<h2 id="standardisation">Standardisation<a class="headerlink" href="#standardisation" title="Permanent link">¤</a></h2>
 <p>Le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.</p>
 <p>Le standard le plus couramment utilisé en 2024 est encore <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a>. C11 le remplace peu à peu dans l'industrie, mais la saga continue avec C17, C18 et C23 qui sont des évolutions.</p>
 <table id="_table-1">
@@ -4201,19 +4203,19 @@ Les années se succèdent et le standard évolue pour soit corriger certaines de
 <p>Vous entendrez ou lirez souvent des références à <strong><abbr title="American National Standards Institute">ANSI</abbr> C</strong> ou <strong><abbr title="Kernighan and Ritchie">K&amp;R</abbr></strong>, préférez plutôt une compatibilité avec <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> au minimum.</p>
 </div>
 <p>Le standard est lourd, difficile à lire et avec 552 pages pour <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, vous n'aurez probablement jamais le moindre plaisir à y plonger les yeux qui se rempliront de larmes à chaque lecture.</p>
-<p>Armez-vous de mouchoirs, car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà&thinsp;?</p>
-<p>Vous vous demandez probablement&thinsp;: «&thinsp;pourquoi l'industrie a-t-elle autant de retard sur le dernier standard&thinsp;?&thinsp;» Lorsque Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglés par des validations strictes qui décrivent les standards utilisés. Migrer vers un standard plus récent est une aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée qu'on enverra sur Mars n'aura pas d'issue fatale. Ces validations sont longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèles à un ancien standard.</p>
+<p>Armez-vous de mouchoirs, car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà ?</p>
+<p>Vous vous demandez probablement : « pourquoi l'industrie a-t-elle autant de retard sur le dernier standard ? » Lorsque Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglés par des validations strictes qui décrivent les standards utilisés. Migrer vers un standard plus récent est une aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée qu'on enverra sur Mars n'aura pas d'issue fatale. Ces validations sont longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèles à un ancien standard.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise<span class="exercise-title"></span></p>
-<p>Ouvrez le standard <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a> et cherchez la valeur maximale possible de la constante <code>ULLONG_MAX</code>. Que vaut-elle&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Exercice<span class="exercise-title"></span></p>
+<p>Ouvrez le standard <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a> et cherchez la valeur maximale possible de la constante <code>ULLONG_MAX</code>. Que vaut-elle ?</p>
 <details class="solution">
 <summary>Solution</summary>
 <p>Au paragraphe §5.2.4.2.1-1 on peut lire que <code>ULLONG_MAX</code> est encodé sur 64-bits et donc que sa valeur est <span class="arithmatex">\(2^{64}-1\)</span> donc <code>18'446'744'073'709'551'615</code>.</p>
 </details>
 </div>
-<h2 id="le-c-et-les-autres">Le C et les autres...<a class="headerlink" href="#le-c-et-les-autres" title="Permanent link">¶</a></h2>
+<h2 id="le-c-et-les-autres">Le C et les autres...<a class="headerlink" href="#le-c-et-les-autres" title="Permanent link">¤</a></h2>
 <p>Si ce cours se concentre sur le C, ce n'est pas le seul langage de programmation et surtout ce n'est certainement pas le seul que vous apprendrez.</p>
-<p>Voici une liste non exhaustive de langages de programmation et de leur année de création. Cette liste est intéressante pour comprendre l'évolution des langages de programmation et leur utilisation&thinsp;:</p>
+<p>Voici une liste non exhaustive de langages de programmation et de leur année de création. Cette liste est intéressante pour comprendre l'évolution des langages de programmation et leur utilisation :</p>
 <table id="_table-2">
 <caption style="caption-side:top"> Langages de programmation et leur année de création</caption><thead>
 <tr>
@@ -4311,7 +4313,7 @@ Les années se succèdent et le standard évolue pour soit corriger certaines de
 </tbody>
 </table>
 <p>L'index <a href="https://www.tiobe.com/tiobe-index/">TIOBE</a> est un bon indicateur de la popularité des langages de programmation. Il est mis à jour chaque mois et permet de suivre l'évolution de la popularité des langages de programmation.</p>
-<p>En 2024, le top 10 des langages de programmation les plus populaires est le suivant&thinsp;:</p>
+<p>En 2024, le top 10 des langages de programmation les plus populaires est le suivant :</p>
 <table id="_table-3">
 <caption style="caption-side:top"> Top 10 des langages de programmation en 2024</caption><thead>
 <tr>
@@ -4364,32 +4366,32 @@ Les années se succèdent et le standard évolue pour soit corriger certaines de
 </table>
 <p>Python est un langage de très haut niveau, simple à apprendre, mais éloigné du matériel. C++ est un langage de programmation orientée objet, très puissant, mais complexe à apprendre. C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C. J'espère avoir réussi à vous convaincre.</p>
 <p><a href="" id="structured-text-programming"></a></p>
-<h2 id="programmation-texte-structuree">Programmation texte structurée<a class="headerlink" href="#programmation-texte-structuree" title="Permanent link">¶</a></h2>
+<h2 id="programmation-texte-structuree">Programmation texte structurée<a class="headerlink" href="#programmation-texte-structuree" title="Permanent link">¤</a></h2>
 <p>Le C comme la plupart des langages de programmation utilise du texte structuré, c'est-à-dire que le langage peut être défini par un <strong>vocabulaire</strong>, une <strong>grammaire</strong> et se compose d'un <strong>alphabet</strong>.</p>
 <p>À l'inverse des <a href="https://en.wikipedia.org/wiki/Natural_language">langages naturels</a> comme le Français, un langage de programmation est un <a href="https://fr.wikipedia.org/wiki/Langage_formel">langage formel</a> et se veut exact dans sa grammaire et son vocabulaire, il n'y a pas de cas particuliers ni d'ambiguïtés possibles dans l'écriture.</p>
 <p>Les <strong>compilateurs</strong> sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.</p>
 <p><a href="" id="omelette"></a></p>
-<p>L'exemple suivant est un <a href="https://fr.wikipedia.org/wiki/Pseudo-code">pseudo-code</a> utilisant une grammaire simple&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>POUR CHAQUE oeuf DANS le panier :
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    jaune, blanc 🠔 CASSER(oeuf)
+<p>L'exemple suivant est un <a href="https://fr.wikipedia.org/wiki/Pseudo-code">pseudo-code</a> utilisant une grammaire simple :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>POUR CHAQUE œuf DANS le panier :
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    jaune, blanc 🠔 CASSER(œuf)
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    omelette 🠔 MELANGER(jaune, blanc)
 </span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    omelette_cuite 🠔 CUIRE(omelette)
 </span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
 </span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>SERVIR(omelette_cuite)
 </span></code></pre></div>
-<p>La structure de la phrase permettant de traiter tous les éléments d'un ensemble d'éléments peut alors s'écrire&thinsp;:</p>
+<p>La structure de la phrase permettant de traiter tous les éléments d'un ensemble d'éléments peut alors s'écrire :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>POUR CHAQUE 〜 DANS 〜:
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>    〜
 </span></code></pre></div>
 <p>Où les <code>〜</code> sont des marques substitutives (<a href="https://fr.wikipedia.org/wiki/Marque_substitutive">placeholder</a>) qui seront remplacées par le développeur par ce qui convient.</p>
 <p>Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. La <a class="autorefs autorefs-internal" href="../../15-fundations/grammar/#la-grammaire">grammaire</a> du langage C utilisé dans ce cours peut ainsi s'exprimer en utilisant la forme Backus-Naur ou <strong><abbr title="Backus-Naur Form">BNF</abbr></strong> disponible en annexe.</p>
 <p><a href="" id="paradigm"></a></p>
-<h2 id="les-paradigmes-de-programmation">Les paradigmes de programmation<a class="headerlink" href="#les-paradigmes-de-programmation" title="Permanent link">¶</a></h2>
+<h2 id="les-paradigmes-de-programmation">Les paradigmes de programmation<a class="headerlink" href="#les-paradigmes-de-programmation" title="Permanent link">¤</a></h2>
 <p>Chaque langage de programmation que ce soit C, C++, Python, ADA, COBOL et Lisp sont d'une manière générale assez proche les uns des autres. Nous citions par exemple le langage B, précurseur du C (c.f. [thompson]{c-history}). Ces deux langages, et bien que leurs syntaxes soient différentes, ils demeurent assez proches, comme l'espagnol et l'italien qui partagent des racines latines. En programmation on dit que ces langages partagent le même <a href="https://fr.wikipedia.org/wiki/Paradigme_(programmation)">paradigme de programmation</a>.</p>
 <p>Certains paradigmes sont plus adaptés que d'autres à la résolution de certains problèmes et de nombreux langages de programmation sont dit <strong>multi-paradigmes</strong>, c'est-à-dire qu'ils supportent différents paradigmes.</p>
 <p>Nous citions plus haut le C++ qui permet la programmation orientée objet, laquelle est un paradigme de programmation qui n'existe pas en C.</p>
 <p>Ce qu'il est essentiel de retenir c'est qu'un langage de programmation peut aisément être substitué par un autre pour autant qu'ils s'appuient sur les mêmes paradigmes.</p>
-<p>Le langage C répond aux paradigmes suivants&thinsp;:</p>
+<p>Le langage C répond aux paradigmes suivants :</p>
 <dl>
 <dt><a href="https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative">Impératif</a></dt>
 <dd>
@@ -4404,7 +4406,7 @@ Les années se succèdent et le standard évolue pour soit corriger certaines de
 <p>programmation impérative avec appels de procédures qui regroupent des instructions.</p>
 </dd>
 </dl>
-<p>Le C++ quant à lui apporte les paradigmes suivants à C&thinsp;:</p>
+<p>Le C++ quant à lui apporte les paradigmes suivants à C :</p>
 <dl>
 <dt><a href="https://fr.wikipedia.org/wiki/Programmation_fonctionnelle">Fonctionnel</a></dt>
 <dd>
@@ -4416,10 +4418,10 @@ Les années se succèdent et le standard évolue pour soit corriger certaines de
 </dd>
 </dl>
 <p>Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la <a href="https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)">programmation réflective</a>.</p>
-<p>Ce que nous devons retenir c'est que le langage C est impératif et procédural, c'est-à-dire qu'il est basé sur des séquences d'instructions qui se lisent de haut en bas, lesquelles peuvent être regroupées en procédures. Si nous reprenons notre exemple de l'<a class="autorefs autorefs-internal" href="#omelette">omelette</a>, si nous souhaitons réaliser une pâte à crêpes nous pourrions écrire&thinsp;:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>POUR REALISER un oeuf:
+<p>Ce que nous devons retenir c'est que le langage C est impératif et procédural, c'est-à-dire qu'il est basé sur des séquences d'instructions qui se lisent de haut en bas, lesquelles peuvent être regroupées en procédures. Si nous reprenons notre exemple de l'<a class="autorefs autorefs-internal" href="#omelette">omelette</a>, si nous souhaitons réaliser une pâte à crêpes nous pourrions écrire :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>POUR REALISER un œuf:
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>    CHERCHER poule
-</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    oeuf 🠔 PONDRE(poule)
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    œuf 🠔 PONDRE(poule)
 </span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>
 </span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>POUR REALISER du lait:
 </span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>    CHERCHER vache
@@ -4432,16 +4434,16 @@ Les années se succèdent et le standard évolue pour soit corriger certaines de
 </span><span id="__span-2-13"><a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>    farine 🠔 MOUDRE(moisson)
 </span><span id="__span-2-14"><a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>
 </span><span id="__span-2-15"><a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>POUR REALISER une pâte à crèpes:
-</span><span id="__span-2-16"><a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>    oeuf 🠔 REALISER(oeuf)
-</span><span id="__span-2-17"><a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a>    jaune, blanc 🠔 CASSER(oeuf)
-</span><span id="__span-2-18"><a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>    oeuf-liquide 🠔 MELANGER(jaune, blanc)
+</span><span id="__span-2-16"><a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>    œuf 🠔 REALISER(œuf)
+</span><span id="__span-2-17"><a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a>    jaune, blanc 🠔 CASSER(œuf)
+</span><span id="__span-2-18"><a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>    œuf-liquide 🠔 MELANGER(jaune, blanc)
 </span><span id="__span-2-19"><a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a>    farine 🠔 REALISER(farine)
 </span><span id="__span-2-20"><a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>    lait 🠔 REALISER(lait)
-</span><span id="__span-2-21"><a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a>    pâte 🠔 MELANGER(oeuf-liquide, farine, lait)
+</span><span id="__span-2-21"><a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a>    pâte 🠔 MELANGER(œuf-liquide, farine, lait)
 </span></code></pre></div>
 <p>On a regroupé des instructions en procédures pour réaliser une pâte à crêpes. C'est ce que l'on appelle la programmation procédurale.</p>
-<h2 id="cycle-de-developpement">Cycle de développement<a class="headerlink" href="#cycle-de-developpement" title="Permanent link">¶</a></h2>
-<p>Le cycle de développement logiciel comprend la suite des étapes menant de l'étude et l'analyse d'un problème jusqu'à la réalisation d'un programme informatique exécutable. Dans l'industrie, il existe de nombreux modèles comme le <a href="https://fr.wikipedia.org/wiki/Cycle_en_V">Cycle en V</a> ou le <a href="https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade">modèle en cascade</a>. Quel que soit le modèle utilisé, il comprendra les étapes suivantes&thinsp;:</p>
+<h2 id="cycle-de-developpement">Cycle de développement<a class="headerlink" href="#cycle-de-developpement" title="Permanent link">¤</a></h2>
+<p>Le cycle de développement logiciel comprend la suite des étapes menant de l'étude et l'analyse d'un problème jusqu'à la réalisation d'un programme informatique exécutable. Dans l'industrie, il existe de nombreux modèles comme le <a href="https://fr.wikipedia.org/wiki/Cycle_en_V">Cycle en V</a> ou le <a href="https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade">modèle en cascade</a>. Quel que soit le modèle utilisé, il comprendra les étapes suivantes :</p>
 <ol>
 <li><strong>Étude</strong> et analyse du problème</li>
 <li>Écriture d'un <strong>cahier des charges</strong> (spécifications)</li>
@@ -4456,7 +4458,7 @@ Les années se succèdent et le standard évolue pour soit corriger certaines de
 <p>Mis à part la dernière étape où il n'y a pas de retour en arrière possible, les autres étapes sont <strong>itératives</strong>. Il est très rare d'écrire un programme juste du premier coup. Durant tout le cycle de développement logiciel, des itérations successives sont faites pour permettre d'optimiser le programme, de résoudre des bogues, d'affiner les spécifications, d'écrire davantage de tests pour renforcer l'assurance d'un bon fonctionnement du programme et éviter une coulée de lave <a href="" id="code_smell"></a>.</p>
 <p>Le modèle en cascade suivant résume le cycle de développement d'un programme. Il s'agit d'un modèle simple, mais qu'il faut garder à l'esprit que ce soit pour le développement d'un produit logiciel que durant les travaux pratiques liés à ce cours.</p>
 <p><figure id="_figure-2"><img alt="Modèle en cascade" class="drawio-diagram" src="../../../assets/images/waterfall.drawio"/><figcaption> Modèle en cascade</figcaption></figure></p>
-<h2 id="cycle-de-compilation">Cycle de compilation<a class="headerlink" href="#cycle-de-compilation" title="Permanent link">¶</a></h2>
+<h2 id="cycle-de-compilation">Cycle de compilation<a class="headerlink" href="#cycle-de-compilation" title="Permanent link">¤</a></h2>
 <p>Le langage C à une particularité que d'autres langages n'ont pas, c'est-à-dire qu'il comporte une double <a class="autorefs autorefs-internal" href="../../15-fundations/grammar/#la-grammaire">grammaire</a>. Le processus de compilation s'effectue donc en deux passes.</p>
 <ol>
 <li>Préprocesseur qui enlève les commentaires et inclut les fichiers nécessaires.</li>
@@ -4465,8 +4467,8 @@ Les années se succèdent et le standard évolue pour soit corriger certaines de
 <p>Vient ensuite la phase d'édition des liens ou <em>linkage</em> lors de laquelle l'exécutable binaire est créé.</p>
 <p><figure id="_figure-3"><img alt="Cycle de compilation illustré" class="drawio-diagram" src="../../../assets/images/build-cycle.drawio"/><figcaption> Cycle de compilation illustré</figcaption></figure></p>
 <p>Voyons plus en détail chacune de ces étapes.</p>
-<h3 id="preprocesseur-pre-processing">Préprocesseur (<em>pre-processing</em>)<a class="headerlink" href="#preprocesseur-pre-processing" title="Permanent link">¶</a></h3>
-<p>La phase de <em>preprocessing</em> permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le <em>preprocessing</em> réalise&thinsp;:</p>
+<h3 id="preprocesseur-pre-processing">Préprocesseur (<em>pre-processing</em>)<a class="headerlink" href="#preprocesseur-pre-processing" title="Permanent link">¤</a></h3>
+<p>La phase de <em>preprocessing</em> permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le <em>preprocessing</em> réalise :</p>
 <ul>
 <li>Le remplacement des <a class="autorefs autorefs-internal" href="../../15-fundations/preprocessor/#define">définitions</a> par leurs valeurs (<code>#define</code>),</li>
 <li>Le remplacement des <a class="autorefs autorefs-internal" href="../../15-fundations/preprocessor/#include">fichiers inclus</a> par leurs contenus (<code>#include</code>),</li>
@@ -4475,19 +4477,19 @@ Les années se succèdent et le standard évolue pour soit corriger certaines de
 </ul>
 <p>Avec <code>gcc</code> il est possible de demander que l'exécution du préprocesseur en utilisant l'option <code>-E</code>.</p>
 <p><figure id="_figure-4"><img alt="Processus de prépressing" class="drawio-diagram" src="../../../assets/images/preprocessing.drawio"/><figcaption> Processus de prépressing</figcaption></figure></p>
-<h3 id="compilation-build">Compilation (<em>build</em>)<a class="headerlink" href="#compilation-build" title="Permanent link">¶</a></h3>
+<h3 id="compilation-build">Compilation (<em>build</em>)<a class="headerlink" href="#compilation-build" title="Permanent link">¤</a></h3>
 <p>La phase de compilation consiste en une analyse syntaxique du fichier à compiler puis en sa traduction en langage assembleur pour le processeur cible. Le fichier généré est un fichier binaire (extension <code>.o</code> ou <code>.obj</code>) qui sera utilisé pour la phase suivante. Lors de la <em>compilation</em>, des erreurs peuvent survenir et empêcher le déroulement complet de la génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.</p>
 <p>Avec <code>gcc</code> il est possible de ne demander que l'assemblage d'un code avec l'option <code>-S</code>.</p>
 <p><figure id="_figure-5"><img alt="Assemblage d'un programme C pré-processé en assembleur" class="drawio-diagram" src="../../../assets/images/assembly.drawio"/><figcaption> Assemblage d'un programme C pré-processé en assembleur</figcaption></figure></p>
 <p><figure id="_figure-6"><img alt="Traduction d'un programme C pré-processé en objet binaire" class="drawio-diagram" src="../../../assets/images/build.drawio"/><figcaption> Traduction d'un programme C pré-processé en objet binaire</figcaption></figure></p>
-<h3 id="edition-de-liens-link">Édition de liens (<em>link</em>)<a class="headerlink" href="#edition-de-liens-link" title="Permanent link">¶</a></h3>
+<h3 id="edition-de-liens-link">Édition de liens (<em>link</em>)<a class="headerlink" href="#edition-de-liens-link" title="Permanent link">¤</a></h3>
 <p>La phase d'édition de liens permet de rassembler le fichier binaire issu de la compilation et les autres fichiers binaires nécessaires au programme pour former un exécutable complet. Les autres fichiers binaires sont appelés des <strong>librairies</strong>. Elles peuvent appartenir au système (installée avec l'environnement de développement) ou provenir d'autres applications avec lesquelles votre programme doit interagir. Lors de l'édition de liens, des erreurs peuvent survenir et empêcher le
 déroulement complet de génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.</p>
 <p><figure id="_figure-7"><img alt="Édition des liens de plusieurs objets" class="drawio-diagram" src="../../../assets/images/link.drawio"/><figcaption> Édition des liens de plusieurs objets</figcaption></figure></p>
 <p><a href="" id="hello-world"></a></p>
-<h2 id="hello-world_1">Hello World&thinsp;!<a class="headerlink" href="#hello-world_1" title="Permanent link">¶</a></h2>
+<h2 id="hello-world_1">Hello World !<a class="headerlink" href="#hello-world_1" title="Permanent link">¤</a></h2>
 <p>Il est traditionnellement coutume depuis la publication en 1978 du livre <a href="https://en.wikipedia.org/wiki/The_C_Programming_Language">The C Programming Language</a> de reprendre l'exemple de Brian Kernighan comme premier programme.</p>
-<div class="language-c highlight"><span class="filename">Exercise&thinsp;: hello.c</span><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="language-c highlight"><span class="filename">hello.c</span><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 </span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">{</span>
@@ -4498,11 +4500,11 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <p>Ce programme est composé de deux parties. L'inclusion de la <em>library</em> standard d'entrées sorties (<em>STandarD Inputs Outputs</em>) qui définit la fonction <code>printf</code>, et le programme principal nommé <code>main</code>. Tout ce qui se situe à l'intérieur des accolades <code>{ }</code> appartient au programme <code>main</code>.</p>
 <p>L'ensemble que définit <code>main</code> et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction <code>printf</code> dont le nom vient de <em>print formatted</em>.</p>
 <p>L'appel de <code>printf</code> prend en <strong>paramètre</strong> le texte <code>Hello world!\n</code> dont le <code>\n</code> représente un retour à la ligne.</p>
-<p>Une fois le code écrit, il faut le compiler. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande&thinsp;; plus tard, l'IDE se chargera de l'opération automatiquement.</p>
+<p>Une fois le code écrit, il faut le compiler. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard, l'IDE se chargera de l'opération automatiquement.</p>
 <p>Une console lancée ressemble à ceci, c'est intimidant si l'on n’en a pas l'habitude, mais vraiment puissant.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>$
 </span></code></pre></div>
-<p>La première étape est de s'assurer que le fichier <code>test.c</code> contient bien notre programme. Pour ce faire on utilise un autre programme [cat]<a href="https://fr.wikipedia.org/wiki/Cat_(Unix">https://fr.wikipedia.org/wiki/Cat_(Unix</a>)) qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console&thinsp;:</p>
+<p>La première étape est de s'assurer que le fichier <code>test.c</code> contient bien notre programme. Pour ce faire on utilise un autre programme [cat]<a href="https://fr.wikipedia.org/wiki/Cat_(Unix">https://fr.wikipedia.org/wiki/Cat_(Unix</a>)) qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>$<span class="w"> </span>cat<span class="w"> </span>hello.c
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1">#include &lt;stdio.h&gt;</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
@@ -4511,7 +4513,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 </span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span>printf<span class="o">(</span><span class="s2">"hello, world"</span><span class="o">)</span><span class="p">;</span>
 </span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="o">}</span>
 </span></code></pre></div>
-<p>À présent on peut utiliser notre compilateur par défaut&thinsp;: <code>cc</code> pour <em>C Compiler</em>. Ce compilateur prend en argument un fichier C et sans autre option, il génèrera un fichier <a href="https://fr.wikipedia.org/wiki/A.out">a.out</a> pour <em>assembler output</em>. C'est un fichier exécutable que l'on peut donc exécuter.</p>
+<p>À présent on peut utiliser notre compilateur par défaut : <code>cc</code> pour <em>C Compiler</em>. Ce compilateur prend en argument un fichier C et sans autre option, il génèrera un fichier <a href="https://fr.wikipedia.org/wiki/A.out">a.out</a> pour <em>assembler output</em>. C'est un fichier exécutable que l'on peut donc exécuter.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>$<span class="w"> </span>gcc<span class="w"> </span>hello.c
 </span></code></pre></div>
 <p>Il ne s'est rien passé, c'est une bonne nouvelle. La philosophie Unix est qu'un programme soit le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur.</p>
@@ -4519,16 +4521,16 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>$<span class="w"> </span>ls
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>hello.c<span class="w">       </span>a.out
 </span></code></pre></div>
-<p>Très bien&thinsp;! À présent, exécutons le programme en prenant soin de préfixer le nom par, <code>./</code> car étant un programme local <code>a.out</code> ne peut pas être accédé directement. Imaginons qu'un fourbe hackeur ait décidé de créer dans ce répertoire un programme nommé <code>ls</code> qui efface toutes vos données. La ligne de commande ci-dessus aurait eu un effet désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement nommé.</p>
+<p>Très bien ! À présent, exécutons le programme en prenant soin de préfixer le nom par, <code>./</code> car étant un programme local <code>a.out</code> ne peut pas être accédé directement. Imaginons qu'un fourbe hackeur ait décidé de créer dans ce répertoire un programme nommé <code>ls</code> qui efface toutes vos données. La ligne de commande ci-dessus aurait eu un effet désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement nommé.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="gp">$ </span>./a.out
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="go">hello, world</span>
 </span></code></pre></div>
 <p>Félicitations, le programme s'est exécuté.</p>
-<p>Pouvons-nous en savoir plus sur ce programme&thinsp;? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à sa taille sur le disque. Une fois de plus <code>ls</code> nous sera utile, mais cette fois-ci avec l'option <code>l</code>:</p>
+<p>Pouvons-nous en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à sa taille sur le disque. Une fois de plus <code>ls</code> nous sera utile, mais cette fois-ci avec l'option <code>l</code>:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="gp">$ </span>ls<span class="w"> </span>-l<span class="w"> </span>a.out
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="go">-rwxr-xr-- 1 ycr iai 8.2K Jul 24 09:50 a.out*</span>
 </span></code></pre></div>
-<p>Décortiquons tout cela&thinsp;:</p>
+<p>Décortiquons tout cela :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="go">-             Il s'agit d'un fichier</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="go">rwx           Lisible (r), Éditable (w) et Exécutable (x) par le propriétaire</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="go">r-x           Lisible (r) et Exécutable (x) par le groupe</span>
@@ -4544,21 +4546,21 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <p class="admonition-title">Note</p>
 <p>Les puristes peuvent se demander s'il faut écrire <code>hello, world</code>, <code>hello, world!</code> ou <code>Hello, world!\n</code>. Dans son livre, Brian Kernighan a choisi <code>hello, world\n</code> et c'est ce que nous avons repris ici.</p>
 <p>Outre le caractère pinailleur de cette remarque qui prête attention aux détails, il peut être noté que la casse des caractères est importante en informatique. <code>Hello</code> n'est pas la même chose que <code>hello</code>, le stockage en mémoire n'est pas le même, et donc le résultat de l'exécution d'un programme peut être différent.</p>
-<p>Il est donc essentiel d'avoir l'oeil sur ces détails, vous le verrez par la suite, vous développerez une certaine facilité à repérer les <code>;</code> manquants, les <code>{}</code> mal placées, les <code>==</code> qui devraient être <code>=</code>, etc.</p>
+<p>Il est donc essentiel d'avoir l'œil sur ces détails, vous le verrez par la suite, vous développerez une certaine facilité à repérer les <code>;</code> manquants, les <code>{}</code> mal placées, les <code>==</code> qui devraient être <code>=</code>, etc.</p>
 <p>Mais avant tout, c'est la cohérence de l'ensemble qui doit primer. Si vous avez choisi d'écrire <code>Hello, World!</code>, alors écrivez-le partout de la même manière, dans tous vos exemples, dans tous vos commentaires, dans toute votre documentation.</p>
 </div>
-<h2 id="exercices-de-revision">Exercices de Révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¶</a></h2>
+<h2 id="exercices-de-revision">Exercices de Révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¤</a></h2>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Hello World<span class="exercise-title"></span></p>
-<p>Pouvez-vous écrire, puis compiler votre premier programme en C&thinsp;? Rédiger le programme <code>hello.c</code> qui affiche <code>Hello, World!</code> à l'écran.</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Hello World<span class="exercise-title"></span></p>
+<p>Pouvez-vous écrire, puis compiler votre premier programme en C ? Rédiger le programme <code>hello.c</code> qui affiche <code>Hello, World!</code> à l'écran.</p>
 <p>Exécutez le programme et vérifiez que le message s'affiche bien.</p>
 </div>
 <div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise&thinsp;: Auteurs<span class="exercise-title"></span></p>
-<p>Qui a inventé le C&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 3 : </span>Auteurs<span class="exercise-title"></span></p>
+<p>Qui a inventé le C ?</p>
 <ul class="exercise-list">
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="good" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4570,7 +4572,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4579,7 +4582,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
    Ken Thompson
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4591,7 +4594,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4600,7 +4604,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
    Brian Kernighan
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4612,7 +4616,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4621,7 +4626,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
    Bjarne Stroustrup
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4633,7 +4638,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4642,7 +4648,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
    Linus Torvalds
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="good" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4654,7 +4660,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4663,7 +4670,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
    Dennis Ritchie
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4675,7 +4682,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4686,11 +4694,11 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 </ul>
 </div>
 <div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise&thinsp;: Standardisation<span class="exercise-title"></span></p>
-<p>Quel est le standard C à utiliser dans l'industrie en 2024 et pourquoi&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 4 : </span>Standardisation<span class="exercise-title"></span></p>
+<p>Quel est le standard C à utiliser dans l'industrie en 2024 et pourquoi ?</p>
 <ul class="exercise-list">
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4702,7 +4710,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4711,7 +4720,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
    C89
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4723,7 +4732,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4732,7 +4742,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4744,7 +4754,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4753,7 +4764,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
    C11
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="good" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4765,7 +4776,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4774,7 +4786,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
    C17
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4786,7 +4798,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4804,11 +4817,11 @@ que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
 </details>
 </div>
 <div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise&thinsp;: Paradigmes<span class="exercise-title"></span></p>
-<p>Quels est le paradigme de programmation supportés par C&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 5 : </span>Paradigmes<span class="exercise-title"></span></p>
+<p>Quels est le paradigme de programmation supportés par C ?</p>
 <ul class="exercise-list">
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4820,7 +4833,8 @@ que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4829,7 +4843,7 @@ que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
    Fonctionnel
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4841,7 +4855,8 @@ que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4850,7 +4865,7 @@ que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
    Orienté objet
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4862,7 +4877,8 @@ que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4871,7 +4887,7 @@ que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
    Réflectif
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="good" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4883,7 +4899,8 @@ que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4892,7 +4909,7 @@ que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
    Impératif
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4904,7 +4921,8 @@ que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4919,8 +4937,8 @@ que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Langage impératif<span class="exercise-title"></span></p>
-<p>Pourriez-vous définir ce qu'est la programmation impérative&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 6 : </span>Langage impératif<span class="exercise-title"></span></p>
+<p>Pourriez-vous définir ce qu'est la programmation impérative ?</p>
 <details class="solution">
 <summary>Solution</summary>
 <p>La programmation impérative consiste en des séquences de commandes ordonnées.
@@ -4928,8 +4946,8 @@ C'est-à-dire que les séquences sont exécutées dans un ordre définis les une
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Coulée de lave<span class="exercise-title"></span></p>
-<p>Qu'est-ce qu'une coulée de lave en informatique&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 7 : </span>Coulée de lave<span class="exercise-title"></span></p>
+<p>Qu'est-ce qu'une coulée de lave en informatique ?</p>
 <details class="solution">
 <summary>Solution</summary>
 <p>Lorsqu'un code immature est mis en production, l'industriel qui le publie risque un retour de flamme dû aux bogues et mécontentement des clients. Afin d'éviter une <em>coulée de lave</em>
@@ -4940,11 +4958,11 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
 </details>
 </div>
 <div class="admonition exercise checkbox">
-<p class="admonition-title">Exercise&thinsp;: Cat<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 8 : </span>Cat<span class="exercise-title"></span></p>
 <p>Qu'est-ce que <code>cat</code>?</p>
 <ul class="exercise-list">
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4956,7 +4974,8 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4965,7 +4984,7 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
    Un programme de chat
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4977,7 +4996,8 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -4986,7 +5006,7 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
    Un programme de compilation
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="good" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -4998,7 +5018,8 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -5007,7 +5028,7 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
    Un programme d'affichage de fichiers
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -5019,7 +5040,8 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -5028,7 +5050,7 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
    Un programme de copie de fichiers
 </li>
 <li class="flex-container">
-<div class="checkbox-wrapper-12">
+<div class="exercise-checkbox">
 <div class="cbx">
 <input class="" id="cbx-12" type="checkbox"/>
 <label for="cbx-12"></label>
@@ -5040,7 +5062,8 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
 <defs>
 <filter id="goo-12">
 <fegaussianblur in="SourceGraphic" result="blur" stddeviation="4"></fegaussianblur>
-<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"></fecolormatrix>
+<fecolormatrix in="blur" mode="matrix" result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7">
+</fecolormatrix>
 <feblend in="SourceGraphic" in2="goo-12"></feblend>
 </filter>
 </defs>
@@ -5076,7 +5099,7 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 10, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
   </span>
 
     
@@ -5140,7 +5163,7 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -5280,7 +5303,7 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4144,11 +4146,11 @@
   
 
 
-<h1 id="entrees-sorties">Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Permanent link">¶</a></h1>
+<h1 id="entrees-sorties">Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Permanent link">¤</a></h1>
 <p>Un programme informatique se compose d'entrées (<code>stdin</code>) et de sorties (<code>stdout</code> et <code>stderr</code>).</p>
 <p>Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formater les sorties et interpréter les entrées.</p>
-<p>Les fonctions phares sont <code>printf</code> pour le formatage de chaîne de caractères et <code>scanf</code> pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes que nous verrons plus tard. La liste citée est non exhaustive, mais largement documentée ici&thinsp;: <a href="http://man7.org/linux/man-pages/man3/stdio.3.html"><code>&lt;stdio.h&gt;</code></a>.</p>
-<p>Les fonctions que nous allons aborder dans ce chapitre sont les suivantes&thinsp;:</p>
+<p>Les fonctions phares sont <code>printf</code> pour le formatage de chaîne de caractères et <code>scanf</code> pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes que nous verrons plus tard. La liste citée est non exhaustive, mais largement documentée ici : <a href="http://man7.org/linux/man-pages/man3/stdio.3.html"><code>&lt;stdio.h&gt;</code></a>.</p>
+<p>Les fonctions que nous allons aborder dans ce chapitre sont les suivantes :</p>
 <table>
 <thead>
 <tr>
@@ -4190,10 +4192,10 @@
 </tr>
 </tbody>
 </table>
-<h2 id="sorties-non-formatees">Sorties non formatées<a class="headerlink" href="#sorties-non-formatees" title="Permanent link">¶</a></h2>
+<h2 id="sorties-non-formatees">Sorties non formatées<a class="headerlink" href="#sorties-non-formatees" title="Permanent link">¤</a></h2>
 <p>Ces fonctions sont très basiques et permettent d'écrire des caractères ou des chaînes de caractères sur la sortie standard.</p>
 <p><a href="" id="putchar"></a></p>
-<h3 id="putchar_1">Putchar<a class="headerlink" href="#putchar_1" title="Permanent link">¶</a></h3>
+<h3 id="putchar_1">Putchar<a class="headerlink" href="#putchar_1" title="Permanent link">¤</a></h3>
 <p>Cette fonction prend en paramètre un <strong>seul</strong> caractère et l'écrit sur la sortie standard. Elle est définie dans la bibliothèque <code>stdio.h</code>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
@@ -4210,7 +4212,7 @@
 <p class="admonition-title">Avertissement</p>
 <p>Attention à utiliser des apostrophes simples <code>'</code> pour les caractères. Si vous utilisez des guillemets doubles <code>"</code> vous obtiendrez une erreur de compilation.</p>
 </div>
-<p>On sait que les caractères sont des entiers, donc on peut écrire <code>putchar(65)</code> pour écrire le caractère <code>A</code>. Donc le programme suivant écrit la même chose que le précédent&thinsp;:</p>
+<p>On sait que les caractères sont des entiers, donc on peut écrire <code>putchar(65)</code> pour écrire le caractère <code>A</code>. Donc le programme suivant écrit la même chose que le précédent :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -4223,7 +4225,7 @@
 </span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <p><a href="" id="puts"></a></p>
-<h3 id="puts_1">Puts<a class="headerlink" href="#puts_1" title="Permanent link">¶</a></h3>
+<h3 id="puts_1">Puts<a class="headerlink" href="#puts_1" title="Permanent link">¤</a></h3>
 <p>La fonction <code>puts</code> est une fonction de la bibliothèque standard C qui permet d'écrire une chaîne de caractères sur la sortie standard. Notons qu'elle ajoute automatiquement un retour à la ligne à la fin de la chaîne.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
@@ -4232,8 +4234,8 @@
 </span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Notez ici qu'on utilise des guillemets doubles <code>"</code> pour les chaînes de caractères.</p>
-<h2 id="sorties-formatees">Sorties formatées<a class="headerlink" href="#sorties-formatees" title="Permanent link">¶</a></h2>
-<p>Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'exemple de la valeur <code>123</code>. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste&thinsp;:</p>
+<h2 id="sorties-formatees">Sorties formatées<a class="headerlink" href="#sorties-formatees" title="Permanent link">¤</a></h2>
+<p>Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'exemple de la valeur <code>123</code>. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>Etape  Opération  Resultat  Reste
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>-----  ---------  --------  -----
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>1      123 / 10   12        3
@@ -4241,7 +4243,7 @@
 </span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>3      1 / 10     0         1
 </span></code></pre></div>
 <p>Comme on ne sait pas à priori combien de caractères on aura, et que ces caractères sont fournis depuis le chiffre le moins significatif, il faudra inverser la chaîne de caractères produite.</p>
-<p>Voici un exemple possible d'implémentation&thinsp;:</p>
+<p>Voici un exemple possible d'implémentation :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
@@ -4291,7 +4293,7 @@
 </span><span id="__span-4-47"><a href="#__codelineno-4-47" id="__codelineno-4-47" name="__codelineno-4-47"></a><span class="w">    </span><span class="n">reverse</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 </span><span id="__span-4-48"><a href="#__codelineno-4-48" id="__codelineno-4-48" name="__codelineno-4-48"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Cette implémentation pourrait être utilisée de la façon suivante&thinsp;:</p>
+<p>Cette implémentation pourrait être utilisée de la façon suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
@@ -4303,7 +4305,7 @@
 </span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <p><a href="" id="printf"></a></p>
-<h3 id="printf_1">Printf<a class="headerlink" href="#printf_1" title="Permanent link">¶</a></h3>
+<h3 id="printf_1">Printf<a class="headerlink" href="#printf_1" title="Permanent link">¤</a></h3>
 <p>Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi <code>printf</code> rend l'opération bien plus aisée en utilisant des marques substitutives (<em>placeholder</em>). Ces spécifié débutent par le caractère <code>%</code> suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise <code>%d</code> pour formater un entier non signé.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
@@ -4313,12 +4315,12 @@
 </span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"La circonférence de la terre vaut vaut %d km"</span><span class="p">,</span><span class="w"> </span><span class="n">earth_perimeter</span><span class="p">);</span>
 </span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Le standard C défini le prototype de <code>printf</code> comme étant&thinsp;:</p>
+<p>Le standard C défini le prototype de <code>printf</code> comme étant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">printf</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="kr">restrict</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
 </span></code></pre></div>
-<p>Il définit que la fonction <code>printf</code> prend en paramètre un format suivi de <code>...</code>. La fonction <code>printf</code> comme toutes celles de la même catégorie sont dites <a href="https://fr.wikipedia.org/wiki/Fonction_variadique#C">variadiques</a>, c'est-à-dire qu'elles peuvent prendre un nombre variable d'arguments. Il y aura autant d'arguments additionnels que de marqueurs utilisés dans le format. Ainsi le format <code>"Mes nombres préférés sont %d et %d, mais surtout %s"</code> demandera trois paramètres additionnels&thinsp;:</p>
+<p>Il définit que la fonction <code>printf</code> prend en paramètre un format suivi de <code>...</code>. La fonction <code>printf</code> comme toutes celles de la même catégorie sont dites <a href="https://fr.wikipedia.org/wiki/Fonction_variadique#C">variadiques</a>, c'est-à-dire qu'elles peuvent prendre un nombre variable d'arguments. Il y aura autant d'arguments additionnels que de marqueurs utilisés dans le format. Ainsi le format <code>"Mes nombres préférés sont %d et %d, mais surtout %s"</code> demandera trois paramètres additionnels :</p>
 <p>La fonction retourne le nombre de caractères formatés ou <code>-1</code> en cas d'erreur.</p>
-<p>La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaître et la page Wikipédia <a href="https://en.wikipedia.org/wiki/Printf_format_string">printf format string</a> est d'une grande aide. Le format de construction est le suivant&thinsp;:</p>
+<p>La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaître et la page Wikipédia <a href="https://en.wikipedia.org/wiki/Printf_format_string">printf format string</a> est d'une grande aide. Le format de construction est le suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="o">%</span><span class="p">[</span><span class="n">parameter</span><span class="p">][</span><span class="n">flags</span><span class="p">][</span><span class="n">width</span><span class="p">][.</span><span class="n">precision</span><span class="p">][</span><span class="n">length</span><span class="p">]</span><span class="n">type</span>
 </span></code></pre></div>
 <dl>
@@ -4328,7 +4330,7 @@
 </dd>
 <dt><code>flags</code> (optionnel)</dt>
 <dd>
-<p>Modificateurs&thinsp;: préfixe, signe plus, alignement à gauche ...</p>
+<p>Modificateurs : préfixe, signe plus, alignement à gauche ...</p>
 </dd>
 <dt><code>width</code> (optionnel)</dt>
 <dd>
@@ -4348,7 +4350,7 @@
 </dd>
 </dl>
 <p><figure id="_figure-1"><img alt="Formatage d'un marqueur" class="drawio-diagram" src="../../../assets/images/formats.drawio"/><figcaption> Formatage d'un marqueur</figcaption></figure></p>
-<p>Voici quelques exemples&thinsp;:</p>
+<p>Voici quelques exemples :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Exemple de formatage avec printf</caption><thead>
 <tr>
@@ -4440,9 +4442,9 @@
 </span><span id="__span-9-30"><a href="#__codelineno-9-30" id="__codelineno-9-30" name="__codelineno-9-30"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise<span class="exercise-title"></span></p>
-<p>Indiquez les erreurs dans les instructions suivantes&thinsp;:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"Exercise: %d%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Exercice<span class="exercise-title"></span></p>
+<p>Indiquez les erreurs dans les instructions suivantes :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%d%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%d, %d, %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%d, %d, %d, %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mf">40.</span><span class="p">);</span>
 </span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%*d, %*d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
@@ -4450,9 +4452,9 @@
 </span><span id="__span-10-6"><a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%10s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mh">0x9f</span><span class="p">);</span>
 </span></code></pre></div>
 </div>
-<h2 id="entrees-non-formatees">Entrées non formatées<a class="headerlink" href="#entrees-non-formatees" title="Permanent link">¶</a></h2>
+<h2 id="entrees-non-formatees">Entrées non formatées<a class="headerlink" href="#entrees-non-formatees" title="Permanent link">¤</a></h2>
 <p><a href="" id="getchar"></a></p>
-<h3 id="getchar_1">Getchar<a class="headerlink" href="#getchar_1" title="Permanent link">¶</a></h3>
+<h3 id="getchar_1">Getchar<a class="headerlink" href="#getchar_1" title="Permanent link">¤</a></h3>
 <p>La fonction <code>getchar</code> est une fonction de la bibliothèque standard C qui permet de lire un caractère sur l'entrée standard. Elle est définie dans la bibliothèque <code>stdio.h</code>. Elle retourne un entier qui correspond à la valeur ASCII du caractère lu.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
@@ -4466,7 +4468,7 @@
 <p>Notez ici l'utilisation de <code>EOF</code> qui est une constante définie dans la bibliothèque <code>stdio.h</code> et qui signifie <em>End Of File</em>. Elle est utilisée pour détecter la fin d'un fichier.</p>
 <p>Lorsque vous exécutez ce programme, vous pouvez saisir des caractères au clavier. Pour terminer la saisie, vous pouvez utiliser la combinaison de touches ++Ctrl+D++ sur Linux ou ++Ctrl+Z++ sur Windows.</p>
 <p><a href="" id="gets"></a></p>
-<h3 id="gets_1">Gets<a class="headerlink" href="#gets_1" title="Permanent link">¶</a></h3>
+<h3 id="gets_1">Gets<a class="headerlink" href="#gets_1" title="Permanent link">¤</a></h3>
 <p>La fonction <code>gets</code> est une fonction de la bibliothèque standard C qui permet de lire une chaîne de caractères sur l'entrée standard. Elle est définie dans la bibliothèque <code>stdio.h</code>.</p>
 <p>Elle est déconseillée, car elle ne permet pas de spécifier la taille maximale de la chaîne à lire. Cela peut entraîner des débordements de mémoire si un utilisateur saisit une chaîne de caractères trop longue que le programme ne peut pas stocker.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -4481,12 +4483,12 @@
 <p class="admonition-title">Avertissement</p>
 <p>La fonction <code>gets</code> est déconseillée. Il est préférable d'utiliser la fonction <code>fgets</code> qui permet de spécifier la taille maximale de la chaîne à lire.</p>
 </div>
-<h2 id="entrees-formatees">Entrées formatées<a class="headerlink" href="#entrees-formatees" title="Permanent link">¶</a></h2>
+<h2 id="entrees-formatees">Entrées formatées<a class="headerlink" href="#entrees-formatees" title="Permanent link">¤</a></h2>
 <p>Les fonctions de lecture de chaînes de caractères sont plus complexes que les fonctions d'écriture. En effet, il est nécessaire de spécifier le format de la chaîne à lire.</p>
 <p><a href="" id="scanf"></a></p>
-<h3 id="scanf_1">Scanf<a class="headerlink" href="#scanf_1" title="Permanent link">¶</a></h3>
+<h3 id="scanf_1">Scanf<a class="headerlink" href="#scanf_1" title="Permanent link">¤</a></h3>
 <p>À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou <em>parser</em> une chaîne de caractères, c'est-à-dire faire une <a href="https://fr.wikipedia.org/wiki/Analyse_syntaxique">analyse syntaxique</a> de son contenu pour en extraire de l'information.</p>
-<p>La fonction <code>scanf</code> est par exemple utilisée à cette fin&thinsp;:</p>
+<p>La fonction <code>scanf</code> est par exemple utilisée à cette fin :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
@@ -4501,12 +4503,12 @@
 </span><span id="__span-13-12"><a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">        </span><span class="n">favorite</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"impair"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">"pair"</span><span class="p">);</span>
 </span><span id="__span-13-13"><a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Cette fonction utilise l'entrée standard <code>stdin</code>. Il est donc possible soit d'exécuter ce programme en mode interactif&thinsp;:</p>
+<p>Cette fonction utilise l'entrée standard <code>stdin</code>. Il est donc possible soit d'exécuter ce programme en mode interactif :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="gp">$ </span>./a.out
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="go">Quelle est votre nombre favori ? 2</span>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="go">Saviez-vous que votre nombre favori, 2, est pair ?</span>
 </span></code></pre></div>
-<p>soit d'exécuter ce programme en fournissant le nécessaire à stdin&thinsp;:</p>
+<p>soit d'exécuter ce programme en fournissant le nécessaire à stdin :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"23"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>./a.out
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="go">Quel est votre nombre favori ? Saviez-vous que votre nombre favori, 23, est impair ?</span>
 </span></code></pre></div>
@@ -4526,12 +4528,12 @@
 </span><span id="__span-16-9"><a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-16-10"><a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Si le code est exécuté avec une suite arbitraire de nombres&thinsp;:</p>
+<p>Si le code est exécuté avec une suite arbitraire de nombres :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>456 123 789     456 12
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>456 1
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>    2378
 </span></code></pre></div>
-<p>il affichera chacun des nombres dans l'ordre d'apparition&thinsp;:</p>
+<p>il affichera chacun des nombres dans l'ordre d'apparition :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="gp">$ </span>cat<span class="w"> </span>&lt;&lt;<span class="w"> </span>EOF<span class="w"> </span><span class="p">|</span><span class="w"> </span>./a.out
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="go">456 123 789     456 12</span>
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="go">456 1</span>
@@ -4556,7 +4558,7 @@
 </span><span id="__span-19-7"><a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%*[^</span><span class="se">\n</span><span class="s">]"</span><span class="p">);</span>
 </span><span id="__span-19-8"><a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">feof</span><span class="p">(</span><span class="n">stdin</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">ferror</span><span class="p">(</span><span class="n">stdin</span><span class="p">));</span>
 </span></code></pre></div>
-<p>Lorsqu'exécuté avec ce contenu&thinsp;:</p>
+<p>Lorsqu'exécuté avec ce contenu :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>2 litres de lait
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>-12.8degrés Celsius
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>beaucoup de chance
@@ -4564,7 +4566,7 @@
 </span><span id="__span-20-5"><a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>poussière
 </span><span id="__span-20-6"><a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a>100ergs d’énergie
 </span></code></pre></div>
-<p>Le programme se déroule comme suit&thinsp;:</p>
+<p>Le programme se déroule comme suit :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span><span class="w"> </span><span class="s">"litres"</span><span class="p">);</span><span class="w"> </span><span class="n">strcpy</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="s">"lait"</span><span class="p">);</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 </span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>
@@ -4595,8 +4597,8 @@
 </span></code></pre></div>
 <p>Ensuite, <code>[^\n]</code>. Le marqueur <code>[</code>, terminé par <code>]</code> cherche à capturer une séquence de caractères parmi une liste de caractères acceptés. Cette syntaxe est inspirée des <a href="https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re">expressions régulières</a> très utilisées en informatique. Le caractère <code>^</code> à une signification particulière, il indique que l'on cherche à capturer une séquence de caractères parmi une liste de caractères <strong>qui ne sont pas acceptés</strong>. C'est une sorte de négation. Dans le cas présent, cette directive <code>scanf</code> cherche à consommer tous les caractères jusqu'à une fin de ligne, car, dans le cas ou la capture échoue à <code>C</code> de <code>Celsius</code>, le pointeur de fichier est bloqué au caractère <code>C</code> et au prochain tour de boucle, <code>scanf</code> échouera au même endroit. Cette instruction est donc utilisée pour repartir sur des bases saines en sautant à la prochaine ligne.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: scanf sur des entiers et des réels<span class="exercise-title"></span></p>
-<p>Considérant les déclarations&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>scanf sur des entiers et des réels<span class="exercise-title"></span></p>
+<p>Considérant les déclarations :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 </span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 </span></code></pre></div>
@@ -4609,8 +4611,8 @@
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Saisie de valeurs<span class="exercise-title"></span></p>
-<p>Considérant les déclarations suivantes, donner la valeur des variables après l'exécution des instructions données avec les captures associées&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 3 : </span>Saisie de valeurs<span class="exercise-title"></span></p>
+<p>Considérant les déclarations suivantes, donner la valeur des variables après l'exécution des instructions données avec les captures associées :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span></code></pre></div>
@@ -4815,7 +4817,7 @@
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Chaînes de formats<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 4 : </span>Chaînes de formats<span class="exercise-title"></span></p>
 <ol>
 <li>Saisir 3 caractères consécutifs dans des variables <code>i</code>, <code>j</code>, <code>k</code>.</li>
 <li>Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables <code>x</code>, <code>y</code> et <code>z</code>.</li>
@@ -4844,7 +4846,7 @@
 </ol>
 </details>
 </div>
-<h3 id="saisie-de-chaine-de-caracteres">Saisie de chaîne de caractères<a class="headerlink" href="#saisie-de-chaine-de-caracteres" title="Permanent link">¶</a></h3>
+<h3 id="saisie-de-chaine-de-caracteres">Saisie de chaîne de caractères<a class="headerlink" href="#saisie-de-chaine-de-caracteres" title="Permanent link">¤</a></h3>
 <p>Lors d'une saisie de chaîne de caractères, il est nécessaire de <strong>toujours</strong> indiquer une taille maximum de chaîne comme <code>%20s</code> qui limite la capture à 20 caractères, soit une chaîne de 21 caractères avec son <code>\0</code>. Sinon, il y a risque de <a href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-29-2"><a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
@@ -4867,15 +4869,15 @@
 </span><span id="__span-31-3"><a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a>│ │ │ │ │ │ ││R│â│t│e│a│u│ │ │ │ │
 </span><span id="__span-31-4"><a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a>└─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
 </span></code></pre></div>
-<h3 id="saisie-arbitraire">Saisie arbitraire<a class="headerlink" href="#saisie-arbitraire" title="Permanent link">¶</a></h3>
-<p>Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur <code>[</code> pour capturer une séquence de caractères. Imaginons que je souhaite capturer un nombre en <a href="https://en.wikipedia.org/wiki/Base64">tetrasexagesimal</a> (base 64). Je peux écrire&thinsp;:</p>
+<h3 id="saisie-arbitraire">Saisie arbitraire<a class="headerlink" href="#saisie-arbitraire" title="Permanent link">¤</a></h3>
+<p>Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur <code>[</code> pour capturer une séquence de caractères. Imaginons que je souhaite capturer un nombre en <a href="https://en.wikipedia.org/wiki/Base64">tetrasexagesimal</a> (base 64). Je peux écrire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">input</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Q2hvY29sYXQ"</span><span class="p">;</span>
 </span><span id="__span-32-2"><a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="kt">char</span><span class="w"> </span><span class="n">output</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
 </span><span id="__span-32-3"><a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="n">sscanf</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="s">"%127[0-9A-Za-z+/]"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">output</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Dans cet exemple je capture les nombres de 0 à 9 <code>0-9</code> (10), les caractères majuscules et minuscules <code>A-Za-z</code> (52), ainsi que les caractères <code>+</code>, <code>/</code> (2), soit 64 caractères. Le buffer d'entrée étant fixé à 128 positions, la saisie est contrainte à 127 caractères imprimables.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Bugs<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 5 : </span>Bugs<span class="exercise-title"></span></p>
 <p>Parmi les instructions ci-dessous, indiquez celles qui sont correctes et celle qui comporte des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="kt">short</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 </span><span id="__span-33-2"><a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="kt">long</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
@@ -4947,11 +4949,11 @@
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Test de saisir correcte<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 6 : </span>Test de saisir correcte<span class="exercise-title"></span></p>
 <p>Écrivez un programme déclarant des variables réelles <code>x</code>, <code>y</code> et <code>z</code>, permettant de
 saisir leur valeur en une seule instruction, et vérifiant que les 3 valeurs ont bien
-été assignées. Dans le cas contraire, afficher un message du type «&thinsp;données
-invalides&thinsp;».</p>
+été assignées. Dans le cas contraire, afficher un message du type « données
+invalides ».</p>
 <details class="solution">
 <summary>Solution</summary>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
@@ -4964,8 +4966,8 @@ invalides&thinsp;».</p>
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Produit scalaire<span class="exercise-title"></span></p>
-<p>Écrire un programme effectuant les opérations suivantes&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 7 : </span>Produit scalaire<span class="exercise-title"></span></p>
+<p>Écrire un programme effectuant les opérations suivantes :</p>
 <ul>
 <li>Saisir les coordonnées réelles <code>x1</code> et <code>y1</code> d’un vecteur <code>v1</code>.</li>
 <li>Saisir les coordonnées réelles <code>x2</code> et <code>y2</code> d’un vecteur <code>v2</code>.</li>
@@ -4996,15 +4998,15 @@ invalides&thinsp;».</p>
 On peut corriger ce problème en modifiant le test pour vérifier si le produit scalaire est très petit, par exemple compris entre <code>-0.000001</code> et <code>+0.000001</code>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-37-1"><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dot_product</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">-1E-6</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dot_product</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">1E-6</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Ce qui peut encore s’écrire en utilisant la fonction valeur absolue&thinsp;:</p>
+<p>Ce qui peut encore s’écrire en utilisant la fonction valeur absolue :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">dot_product</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">1E-6</span><span class="p">)</span>
 </span></code></pre></div>
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Crampes de doigts<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 8 : </span>Crampes de doigts<span class="exercise-title"></span></p>
 <p>Votre collègue n'a pas cessé de se plaindre de crampes... aux doigts... Il a écrit le programme suivant avant de prendre congé pour se rendre chez son médecin.</p>
-<p>Grâce à votre esprit affuté et votre œil perçant, vous identifiez 13 erreurs. Lesquelles sont-elles&thinsp;?</p>
+<p>Grâce à votre esprit affuté et votre œil perçant, vous identifiez 13 erreurs. Lesquelles sont-elles ?</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a>#include &lt;std_io.h&gt;
 </span><span id="__span-39-2"><a href="#__codelineno-39-2" id="__codelineno-39-2" name="__codelineno-39-2"></a>#jnclude &lt;stdlib.h&gt;
 </span><span id="__span-39-3"><a href="#__codelineno-39-3" id="__codelineno-39-3" name="__codelineno-39-3"></a>INT Main()
@@ -5028,7 +5030,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </span></code></pre></div>
 <details class="solution">
 <summary>Solution</summary>
-<p>Une fois la correction effectuée, vous utilisez l'outil de <code>diff</code> pour montrer les différences&thinsp;:</p>
+<p>Une fois la correction effectuée, vous utilisez l'outil de <code>diff</code> pour montrer les différences :</p>
 <div class="language-diff highlight"><pre><span></span><code><span id="__span-40-1"><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="gu">1,3c1,3</span>
 </span><span id="__span-40-2"><a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a><span class="gd">&lt;         #include &lt;stdio.h&gt;</span>
 </span><span id="__span-40-3"><a href="#__codelineno-40-3" id="__codelineno-40-3" name="__codelineno-40-3"></a><span class="gd">&lt;         #include &lt;stdlib.h&gt;</span>
@@ -5062,8 +5064,8 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Géométrie affine<span class="exercise-title"></span></p>
-<p>Considérez le programme suivant&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 9 : </span>Géométrie affine<span class="exercise-title"></span></p>
+<p>Considérez le programme suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-41-3"><a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a>
@@ -5087,11 +5089,11 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </span><span id="__span-41-21"><a href="#__codelineno-41-21" id="__codelineno-41-21" name="__codelineno-41-21"></a><span class="p">}</span>
 </span></code></pre></div>
 <ol>
-<li>À quelle ligne commence l'exécution de ce programme&thinsp;?</li>
-<li>Dans quel ordre s'exécutent les instructions&thinsp;?</li>
+<li>À quelle ligne commence l'exécution de ce programme ?</li>
+<li>Dans quel ordre s'exécutent les instructions ?</li>
 <li>Décrivez ce que fait ce programme étape par étape</li>
-<li>Que verra l'utilisateur à l'écran&thinsp;?</li>
-<li>Quelle est l'utilité de ce programme&thinsp;?</li>
+<li>Que verra l'utilisateur à l'écran ?</li>
+<li>Quelle est l'utilité de ce programme ?</li>
 </ol>
 <details class="solution">
 <summary>Solution</summary>
@@ -5099,7 +5101,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 <li>Ligne 6</li>
 <li>C est un langage impératif, l'ordre est séquentiel du haut vers le bas</li>
 <li>
-<p>Les étapes sont les suivantes&thinsp;:</p>
+<p>Les étapes sont les suivantes :</p>
 <ol>
 <li>Demande de la valeur de <code>a</code> à l'utilisateur</li>
 <li>Demande de la valeur de <code>b</code> à l'utilisateur</li>
@@ -5109,13 +5111,13 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </ol>
 </li>
 <li>
-<p>Que verra l'utilisateur à l'écran&thinsp;?</p>
+<p>Que verra l'utilisateur à l'écran ?</p>
 <ul>
 <li>Il verra <code>y = 12</code> pour <code>a = 2; x = 5; b = 2</code></li>
 </ul>
 </li>
 <li>
-<p>Quelle est l'utilité de ce programme&thinsp;?</p>
+<p>Quelle est l'utilité de ce programme ?</p>
 <ul>
 <li>Le calcul d'un point d'une droite</li>
 </ul>
@@ -5124,19 +5126,19 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Équation de droite<span class="exercise-title"></span></p>
-<p>L'exercice précédent souffre de nombreux défauts. Sauriez-vous les identifier et perfectionner l'implémentation de ce programme&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 10 : </span>Équation de droite<span class="exercise-title"></span></p>
+<p>L'exercice précédent souffre de nombreux défauts. Sauriez-vous les identifier et perfectionner l'implémentation de ce programme ?</p>
 <details class="solution">
 <summary>Solution</summary>
-<p>Citons les défauts de ce programme&thinsp;:</p>
+<p>Citons les défauts de ce programme :</p>
 <ul>
 <li>Le programme ne peut pas être utilisé avec les arguments, uniquement en mode interactif</li>
-<li>Les invités de dialogue <code>a =</code>, <code>b =</code> ne sont pas clair, <code>a</code> et <code>b</code> sont associés à quoi&thinsp;?</li>
+<li>Les invités de dialogue <code>a =</code>, <code>b =</code> ne sont pas clair, <code>a</code> et <code>b</code> sont associés à quoi ?</li>
 <li>La valeur de retour n'est pas exploitable directement.</li>
 <li>Le nom des variables utilisé n'est pas clair.</li>
 <li>Aucune valeur par défaut.</li>
 </ul>
-<p>Une solution possible serait&thinsp;:</p>
+<p>Une solution possible serait :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-42-1"><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-42-2"><a href="#__codelineno-42-2" id="__codelineno-42-2" name="__codelineno-42-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-42-3"><a href="#__codelineno-42-3" id="__codelineno-42-3" name="__codelineno-42-3"></a>
@@ -5181,12 +5183,12 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Loi d'Ohm<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 11 : </span>Loi d'Ohm<span class="exercise-title"></span></p>
 <p>Écrivez un programme demandant deux réels <code>tension</code> et <code>résistance</code>, et affichez ensuite le <code>courant</code>. Prévoir un test pour le cas où la résistance serait nulle.</p>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Tour Eiffel<span class="exercise-title"></span></p>
-<p>Considérons le programme suivant&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 12 : </span>Tour Eiffel<span class="exercise-title"></span></p>
+<p>Considérons le programme suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-43-2"><a href="#__codelineno-43-2" id="__codelineno-43-2" name="__codelineno-43-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-43-3"><a href="#__codelineno-43-3" id="__codelineno-43-3" name="__codelineno-43-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span>
@@ -5207,18 +5209,18 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </span><span id="__span-43-18"><a href="#__codelineno-43-18" id="__codelineno-43-18" name="__codelineno-43-18"></a><span class="p">}</span>
 </span></code></pre></div>
 <ol>
-<li>Que fait le programme étape par étape&thinsp;?</li>
-<li>Que verra l'utilisateur à l'écran&thinsp;?</li>
-<li>À quoi sert ce programme&thinsp;?</li>
-<li>Euh, mais&thinsp;? Ce programme comporte des erreurs, lesquelles&thinsp;?</li>
+<li>Que fait le programme étape par étape ?</li>
+<li>Que verra l'utilisateur à l'écran ?</li>
+<li>À quoi sert ce programme ?</li>
+<li>Euh, mais ? Ce programme comporte des erreurs, lesquelles ?</li>
 <li>Implémentez-le et testez-le.</li>
 </ol>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Hyperloop<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 13 : </span>Hyperloop<span class="exercise-title"></span></p>
 <p><a href="https://fr.wikipedia.org/wiki/Hyperloop">Hyperloop</a> (aussi orthographié <strong>Hyperl∞p</strong>) est un projet ambitieux d'Elon Musk visant à construire un moyen de transport ultra rapide utilisant des capsules voyageant dans un tube sous vide. Ce projet est analogue à celui étudié en suisse et nommé <a href="https://fr.wikipedia.org/wiki/Swissmetro">Swissmetro</a>, mais abandonné en 2009.</p>
 <p>Néanmoins, les ingénieurs suisses avaient à l'époque écrit un programme pour calculer, compte tenu d'une vitesse donnée, le temps de parcours entre deux villes de Suisse.</p>
-<p>Écrire un programme pour calculer la distance entre deux villes de suisse parmi lesquelles proposées sont&thinsp;:</p>
+<p>Écrire un programme pour calculer la distance entre deux villes de suisse parmi lesquelles proposées sont :</p>
 <ul>
 <li>Genève</li>
 <li>Zürich</li>
@@ -5314,7 +5316,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -5454,7 +5456,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

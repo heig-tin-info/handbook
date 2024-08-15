@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3902,28 +3904,28 @@
   
 
 
-<h1 id="preface">Préface<a class="headerlink" href="#preface" title="Permanent link">¶</a></h1>
-<h2 id="a-qui-sadresse-cet-ouvrage">À qui s'adresse cet ouvrage&thinsp;?<a class="headerlink" href="#a-qui-sadresse-cet-ouvrage" title="Permanent link">¶</a></h2>
+<h1 id="preface">Préface<a class="headerlink" href="#preface" title="Permanent link">¤</a></h1>
+<h2 id="a-qui-sadresse-cet-ouvrage">À qui s'adresse cet ouvrage ?<a class="headerlink" href="#a-qui-sadresse-cet-ouvrage" title="Permanent link">¤</a></h2>
 <p>Conçu comme un résumé du savoir nécessaire à l'ingénieur pour s'initier à la programmation et prendre en main le langage C, cet ouvrage n'est pas un manuel de référence. Il se réfère à de nombreuses ressources internet et livres que le lecteur pourra consulter au besoin pour approfondir certains concepts.</p>
-<p>Chaque chapitre est composé d'exercices, mais à des fins pédagogiques, l'intégralité des solutions ne sont pas fournies&thinsp;; certains exercices sont destinés à être faits en études.</p>
+<p>Chaque chapitre est composé d'exercices, mais à des fins pédagogiques, l'intégralité des solutions ne sont pas fournies ; certains exercices sont destinés à être faits en études.</p>
 <p>Cet ouvrage est destiné à des étudiants ingénieurs de première année n'ayant aucune expérience en programmation.</p>
 <p>Le contenu concerne principalement les cours d'informatique 1 et 2 de l'enseignement de base du département des technologies industrielles (TIN) de la HEIG-VD.</p>
-<h2 id="cours-dinformatique-cursus-bachelor">Cours d'informatique cursus bachelor<a class="headerlink" href="#cours-dinformatique-cursus-bachelor" title="Permanent link">¶</a></h2>
+<h2 id="cours-dinformatique-cursus-bachelor">Cours d'informatique cursus bachelor<a class="headerlink" href="#cours-dinformatique-cursus-bachelor" title="Permanent link">¤</a></h2>
 <p>Ce cours d'informatique à la HEIG-VD est donné par le département TIN dans les cours du cursus Bachelor en Génie électrique. Il concerne tout particulièrement les étudiants des cours suivants :</p>
 <ul>
 <li>Informatique 1 (INFO1) - 101 Première année</li>
 <li>Informatique 2 (INFO2) - 102 Première année</li>
 <li>Microinformatique (MICROINFO) - 101 Première année</li>
 </ul>
-<h2 id="quel-programmeur-etes-vous">Quel programmeur êtes-vous&thinsp;?<a class="headerlink" href="#quel-programmeur-etes-vous" title="Permanent link">¶</a></h2>
+<h2 id="quel-programmeur-etes-vous">Quel programmeur êtes-vous ?<a class="headerlink" href="#quel-programmeur-etes-vous" title="Permanent link">¤</a></h2>
 <p>Les études en écoles d'ingénieurs sont souvent cloisonnées. On observe, entre les différentes facultés (électronique, informatique, etc.), que l'enseignement de l'informatique s'inscrit dans une culture distincte avec un langage spécifique. Les informaticiens, dotés d'un esprit d'abstraction remarquable, acquièrent des connaissances approfondies du fonctionnement interne des systèmes d'exploitation et possèdent une expertise étendue en programmation. Néanmoins, ils manquent parfois d'une expérience pratique avec le matériel électronique et les contraintes imposées par des architectures matérielles légères (systèmes embarqués, microcontrôleurs, etc.). Les électroniciens, quant à eux, disposent d'une compréhension approfondie des systèmes à bas niveau. Ils ont une vision pragmatique des systèmes et des contraintes matérielles. Cependant, ils manquent souvent de connaissances poussées en programmation et en algorithmique.</p>
 <p>Ces deux profils, bien que complémentaires, ont souvent du mal à se comprendre. Les informaticiens perçoivent les électroniciens comme trop terre-à-terre, tandis que les électroniciens jugent les informaticiens trop abstraits. Des divergences d'opinions peuvent émerger de ces différences culturelles, notamment dans des notions communes dont les définitions varient. Par exemple, la notion de temps réel diffère pour un informaticien et un électronicien. Pour un informaticien, le temps réel désigne un système qui répond dans un délai déterminé pour un utilisateur (environ 100 ms). Pour un électronicien, le temps réel désigne un système qui répond dans un délai déterminé et qui est déterministe (environ 100 µs).</p>
 <p>Un autre exemple est la complexité algorithmique. Pour un informaticien, la complexité algorithmique mesure la performance d'un algorithme en termes généraux. Un accès à un dictionnaire est en <span class="arithmatex">\(O(1)\)</span>, même s'il implique le calcul d'un <code>sha256</code>, une opération triviale sur un ordinateur. Pour un électronicien, il est impossible de réaliser un <code>sha256</code> sur un microcontrôleur 8 bits, ce qui l'incite à rechercher des optimisations profondes de l'algorithme, quitte à le rendre moins générique et modulaire.</p>
 <p>Cet ouvrage a pour objectif de rapprocher ces deux cultures en fournissant aux électroniciens les bases de la véritable informatique, de la programmation et de sa culture, en rendant accessibles des concepts complexes tels que les arbres et les graphes.</p>
-<h2 id="organisation-de-louvrage">Organisation de l'ouvrage<a class="headerlink" href="#organisation-de-louvrage" title="Permanent link">¶</a></h2>
+<h2 id="organisation-de-louvrage">Organisation de l'ouvrage<a class="headerlink" href="#organisation-de-louvrage" title="Permanent link">¤</a></h2>
 <div class="latex-ignore">
-<h3 id="raccourcis-clavier">Raccourcis clavier<a class="headerlink" href="#raccourcis-clavier" title="Permanent link">¶</a></h3>
-<p>Pour améliorer votre navigation sur ce site, voici quelques raccourcis clavier que vous pouvez utiliser&thinsp;:</p>
+<h3 id="raccourcis-clavier">Raccourcis clavier<a class="headerlink" href="#raccourcis-clavier" title="Permanent link">¤</a></h3>
+<p>Pour améliorer votre navigation sur ce site, voici quelques raccourcis clavier que vous pouvez utiliser :</p>
 <dl>
 <dt><span class="keys"><kbd class="key-f">F</kbd></span>, <span class="keys"><kbd class="key-s">S</kbd></span>, <span class="keys"><kbd class="key-slash">/</kbd></span></dt>
 <dd>
@@ -3951,31 +3953,31 @@
 </dd>
 </dl>
 </div>
-<h3 id="conventions-decriture">Conventions d'écriture<a class="headerlink" href="#conventions-decriture" title="Permanent link">¶</a></h3>
-<h4 id="encodage-de-caractere">Encodage de caractère<a class="headerlink" href="#encodage-de-caractere" title="Permanent link">¶</a></h4>
-<p>Il sera souvent fait mention dans cet ouvrage la notation du type <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/1F4A9" target="_blank">1F4A9</a>, il s'agit d'une notation Unicode qui ne dépend pas d'un quelconque encodage. Parler du caractère ASCII 234 est incorrect, car cela dépend de la table d'encodage utilisée&thinsp;; en revanche, la notation Unicode est plus précise.</p>
+<h3 id="conventions-decriture">Conventions d'écriture<a class="headerlink" href="#conventions-decriture" title="Permanent link">¤</a></h3>
+<h4 id="encodage-de-caractere">Encodage de caractère<a class="headerlink" href="#encodage-de-caractere" title="Permanent link">¤</a></h4>
+<p>Il sera souvent fait mention dans cet ouvrage la notation du type <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//1F4A9" target="_blank">1F4A9</a>, il s'agit d'une notation Unicode qui ne dépend pas d'un quelconque encodage. Parler du caractère ASCII 234 est incorrect, car cela dépend de la table d'encodage utilisée ; en revanche, la notation Unicode est plus précise.</p>
 <div class="latex-ignore">
 <p>La notation est cliquable et vous redirigera vers le site <a href="https://www.symbl.cc/">symbl.cc</a>.</p>
 </div>
-<h4 id="expressions-regulieres">Expressions régulières<a class="headerlink" href="#expressions-regulieres" title="Permanent link">¶</a></h4>
+<h4 id="expressions-regulieres">Expressions régulières<a class="headerlink" href="#expressions-regulieres" title="Permanent link">¤</a></h4>
 <p>Les expressions régulières sont utilisées pour décrire des motifs de texte. Elles sont utilisées pour rechercher, remplacer ou valider des chaînes de caractères. Les expressions régulières sont utilisées dans de nombreux langages de programmation, d'outils de recherche et de traitement de texte.</p>
-<p>Aussi dans cet ouvrage, les expressions régulières sont mises en évidence avec <a href="https://regex101.com/?regex=regex&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/regex/</a>. Le lien mène au site <a href="https://regex101.com/">regex101.com</a>. Pour tester les expressions régulières, il vous suffit alors d'ajouter votre propre texte pour tester l'exemple donné.</p>
-<h4 id="symbole-degalite">Symbole d'égalité<a class="headerlink" href="#symbole-degalite" title="Permanent link">¶</a></h4>
-<p>Nous verrons que le signe d'égalité <code>=</code> peut aisément être confondu avec l'opérateur d'affectation du langage C qui s'écrit de la même manière. Dans certains exemples où l'on montre une égalité entre différentes écritures, le signe d'égalité triple <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/2261" target="_blank">2261</a> sera utilisé pour dissiper toute ambiguïté éventuelle&thinsp;:</p>
+<p>Aussi dans cet ouvrage, les expressions régulières sont mises en évidence avec <a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=regex&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/regex/</code></a>. Le lien mène au site <a href="https://regex101.com/">regex101.com</a>. Pour tester les expressions régulières, il vous suffit alors d'ajouter votre propre texte pour tester l'exemple donné.</p>
+<h4 id="symbole-degalite">Symbole d'égalité<a class="headerlink" href="#symbole-degalite" title="Permanent link">¤</a></h4>
+<p>Nous verrons que le signe d'égalité <code>=</code> peut aisément être confondu avec l'opérateur d'affectation du langage C qui s'écrit de la même manière. Dans certains exemples où l'on montre une égalité entre différentes écritures, le signe d'égalité triple <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//2261" target="_blank">2261</a> sera utilisé pour dissiper toute ambiguïté éventuelle :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>'a' ≡ 0b1100001 ≡ 97 ≡ 0x61 ≡ 00141
 </span></code></pre></div>
-<h4 id="symbole-de-remplissage">Symbole de remplissage<a class="headerlink" href="#symbole-de-remplissage" title="Permanent link">¶</a></h4>
-<p>Dans les exemples qui seront donnés, on pourra voir <code class="language-c highlight"><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">〜</span><span class="w"> </span><span class="p">}</span></code> ou le caractère <code>〜</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/3030" target="_blank">3030</a> indique une continuité logique d'opération. Le symbole exprime ainsi <code>...</code> (<a href="https://fr.wikipedia.org/wiki/Points_de_suspension">points de suspension</a> ou <em>ellipsis</em>). Or, pour ne pas confondre avec le symbole C <code>...</code> utilisé dans les fonctions à arguments variables tels que <code>printf</code>.</p>
-<h4 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Permanent link">¶</a></h4>
-<p>Les conventions C s'appliquent à la manière d'exprimer les grandeurs suivantes&thinsp;:</p>
+<h4 id="symbole-de-remplissage">Symbole de remplissage<a class="headerlink" href="#symbole-de-remplissage" title="Permanent link">¤</a></h4>
+<p>Dans les exemples qui seront donnés, on pourra voir <code class="language-c highlight"><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">〜</span><span class="w"> </span><span class="p">}</span></code> ou le caractère <code>〜</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//3030" target="_blank">3030</a> indique une continuité logique d'opération. Le symbole exprime ainsi <code>...</code> (<a href="https://fr.wikipedia.org/wiki/Points_de_suspension">points de suspension</a> ou <em>ellipsis</em>). Or, pour ne pas confondre avec le symbole C <code>...</code> utilisé dans les fonctions à arguments variables tels que <code>printf</code>.</p>
+<h4 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Permanent link">¤</a></h4>
+<p>Les conventions C s'appliquent à la manière d'exprimer les grandeurs suivantes :</p>
 <ul>
-<li><code>0xABCD</code> pour les valeurs hexadécimales <a href="https://regex101.com/?regex=0x[0-9a-f]+&flags=i&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/0x[0-9a-f]+/i</a></li>
-<li><code>00217</code> pour les valeurs octales <a href="https://regex101.com/?regex=0[0-7]+&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/0[0-7]+/</a></li>
-<li><code>'c'</code> pour les caractères <a href="https://regex101.com/?regex='([^']|\\[nrftvba'])'&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/'([^']|\\[nrftvba'])'/</a></li>
-<li><code>123</code> pour les grandeurs entières <a href="https://regex101.com/?regex=-?[1-9][0-9]*&flags=&flavor=pcre2" class="ycr-callout ycr-regex" target="_blank">/-?[1-9][0-9]*/</a></li>
+<li><code>0xABCD</code> pour les valeurs hexadécimales <a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=0x%5B0-9a-f%5D%2B&amp;flags=i&amp;flavor=pcre2" target="_blank"><code>/0x[0-9a-f]+/i</code></a></li>
+<li><code>00217</code> pour les valeurs octales <a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=0%5B0-7%5D%2B&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/0[0-7]+/</code></a></li>
+<li><code>'c'</code> pour les caractères <a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=%27%28%5B%5E%27%5D%7C%5C%5C%5Bnrftvba%27%5D%29%27&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/'([^']|\\[nrftvba'])'/</code></a></li>
+<li><code>123</code> pour les grandeurs entières <a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=-%3F%5B1-9%5D%5B0-9%5D%2A&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/-?[1-9][0-9]*/</code></a></li>
 <li><code>12.</code> pour les grandeurs réelles en virgule flottante</li>
 </ul>
-<h4 id="encadres">Encadrés<a class="headerlink" href="#encadres" title="Permanent link">¶</a></h4>
+<h4 id="encadres">Encadrés<a class="headerlink" href="#encadres" title="Permanent link">¤</a></h4>
 <p>Des encadrés sont utilisés pour mettre en avant des informations complémentaires ou des astuces. Ils sont également utilisés pour donner des informations sur des concepts avancés ou des détails techniques.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-evenly;">
 <div class="admonition info inline">
@@ -4007,12 +4009,12 @@
 <p>Limitations ou bugs possibles d'une méthode proposée.</p>
 </div>
 <div class="admonition exercise inline">
-<p class="admonition-title">Exercise&thinsp;: Quelle icône&thinsp;?<span class="exercise-title"></span></p>
-<p>Quelle icône est utilisée pour les exercices&thinsp;?</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Quelle icône ?<span class="exercise-title"></span></p>
+<p>Quelle icône est utilisée pour les exercices ?</p>
 </div>
 </div>
-<h2 id="anglicismes">Anglicismes<a class="headerlink" href="#anglicismes" title="Permanent link">¶</a></h2>
-<p>Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exercice difficile. Il est parfois moins lourd de parler de <em>hardware</em> que de <em>matériel informatique</em>. Certains termes n'ont pas de traduction en français. Par exemple, le terme <em>set</em> appliqué à un ensemble de données n'a pas de traduction crédible en français. La table <a class="autorefs autorefs-internal" href="#anglisismes"></a> quelques termes qui seront utilisés dans cet ouvrage&thinsp;:</p>
+<h2 id="anglicismes">Anglicismes<a class="headerlink" href="#anglicismes" title="Permanent link">¤</a></h2>
+<p>Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exercice difficile. Il est parfois moins lourd de parler de <em>hardware</em> que de <em>matériel informatique</em>. Certains termes n'ont pas de traduction en français. Par exemple, le terme <em>set</em> appliqué à un ensemble de données n'a pas de traduction crédible en français. La table <a class="autorefs autorefs-internal" href="#anglisismes"></a> quelques termes qui seront utilisés dans cet ouvrage :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Anglicismes</caption><thead>
 <tr>
@@ -4072,12 +4074,12 @@
 <p><a href="" id="anglisismes"></a></p>
 <p>Notons que <em>byte</em> et <em>octet</em> ne sont pas exactement synonymes. Un <em>byte</em> est un ensemble généralement admis de 8 bits mais dont la taille a pu varier selon les années, alors qu'un <em>octet</em> est un ensemble de 8 bits sans exception. En pratique, les deux termes sont souvent utilisés de manière interchangeable. En anglais il n'existe pas de mot pour <em>octet</em>.</p>
 <p>Les termes anglais sont généralement indiqués en italique.</p>
-<h2 id="copyright-et-references">Copyright et références<a class="headerlink" href="#copyright-et-references" title="Permanent link">¶</a></h2>
+<h2 id="copyright-et-references">Copyright et références<a class="headerlink" href="#copyright-et-references" title="Permanent link">¤</a></h2>
 <p>Le contenu de ce livre est sous licence <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons</a>. Vous êtes libre de partager et d'adapter ce contenu pour toute utilisation, même commerciale, à condition de citer l'auteur et de partager vos travaux dérivés sous la même licence.</p>
 <p>De nombreuses références et sources de ce livre sont issues de Wikipedia, de la documentation officielle de la norme C, de StackOverflow, de forums de discussion et de blogs.</p>
-<h2 id="comment-contribuer">Comment contribuer&thinsp;?<a class="headerlink" href="#comment-contribuer" title="Permanent link">¶</a></h2>
-<p>Vous avez remarqué une erreur, une faute de frappe ou une information manquante&thinsp;? Vous auriez désiré une explication plus détaillée sur un sujet&thinsp;? Vous pouvez contribuer à l'amélioration de ce livre en soumettant une <a href="https://github.com/heig-tin-info/handbook/issues">issue</a>. Alternativement, vous pouvez faire un <em>fork</em> du projet et proposer une <em>pull request</em>.</p>
-<h2 id="colophon">Colophon<a class="headerlink" href="#colophon" title="Permanent link">¶</a></h2>
+<h2 id="comment-contribuer">Comment contribuer ?<a class="headerlink" href="#comment-contribuer" title="Permanent link">¤</a></h2>
+<p>Vous avez remarqué une erreur, une faute de frappe ou une information manquante ? Vous auriez désiré une explication plus détaillée sur un sujet ? Vous pouvez contribuer à l'amélioration de ce livre en soumettant une <a href="https://github.com/heig-tin-info/handbook/issues">issue</a>. Alternativement, vous pouvez faire un <em>fork</em> du projet et proposer une <em>pull request</em>.</p>
+<h2 id="colophon">Colophon<a class="headerlink" href="#colophon" title="Permanent link">¤</a></h2>
 <p>Ce livre est écrit en <a href="https://fr.wikipedia.org/wiki/Markdown">Markdown</a> et généré en <abbr title="Hyper Text Markup Language">HTML</abbr> par <a href="https://www.mkdocs.org/">MkDocs</a>. Le thème utilisé est <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>. Les sources sont disponibles sur <a href="https://fr.wikipedia.org/wiki/GitHub">GitHub</a> et l'hébergement est assuré par <a href="https://pages.github.com/">GitHub Pages</a>.</p>
 <p>La plupart des illustrations sont réalisées avec <a href="https://www.draw.io/">Draw.io</a>, un outil de dessin vectoriel en ligne. Les schémas sont rendus dans le navigateur avec <code>GraphViewer</code>. Les diagrammes utilisent la technologie <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid</a>. Les autres sources d'images sont issues en grande partie de <a href="https://commons.wikimedia.org/">Wikimedia Commons</a> et <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 <p>La génération de l'ouvrage en PDF est utilise son propre convertisseur vers LaTeX. Les extraits de code sources sont colorés avec <a href="https://pygments.org/">Pygments</a> en utilisant le paquet <a href="https://ctan.org/pkg/minted">minted</a>.</p>
@@ -4104,7 +4106,7 @@
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 7, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 13, 2024</span>
   </span>
 
     
@@ -4168,7 +4170,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4308,7 +4310,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

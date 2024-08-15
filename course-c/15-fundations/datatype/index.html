@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4386,31 +4388,31 @@
   
 
 
-<h1 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Permanent link">¶</a></h1>
-<h2 id="typage">Typage<a class="headerlink" href="#typage" title="Permanent link">¶</a></h2>
+<h1 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Permanent link">¤</a></h1>
+<h2 id="typage">Typage<a class="headerlink" href="#typage" title="Permanent link">¤</a></h2>
 <p>Inhérent au fonctionnement interne de l'ordinateur, un langage de programmation s'abstrait plus ou moins du mode de stockage interne des données telles qu'elles sont enregistrées dans la mémoire. De la même manière que dans la vie réelle, il n'est pas possible de rendre de la monnaie à un vendeur à moins d'un cinquième de centime près, il n'est pas possible pour un ordinateur de stocker des informations numériques avec une précision infinie.</p>
 <p>Aussi, les langages de programmation sont dits <strong>typés</strong> lorsqu'ils confient au programmeur la responsabilité de choisir comment une information sera stockée en mémoire, et <strong>non typés</strong> lorsque ce choix est implicite. Chacun des langages à ses avantages et ses inconvénients et pour reprendre l'exemple du rendu de monnaie, il serait ennuyant d'autoriser d'enregistrer des informations financières avec une précision meilleure qu'une pièce de cinq centimes, car il serait alors impossible à un caissier de rendre la monnaie correctement. Dans cette situation on préférera les langages <strong>typés</strong> et heureusement C est un langage fortement typé.</p>
 <p>Les types de données ne se bornent pas qu'aux informations numériques, il existe des types plus complexes qui permettent par exemple de traiter des caractères tels que <code>A</code> ou <code>B</code>. Ce chapitre à pour objectif de familiariser le lecteur aux différents types de données disponibles en C.</p>
 <div class="admonition note">
 <p class="admonition-title">Standard ISO 80000-2</p>
-<p>Les ingénieurs sont friands des standards et qui plus est lorsqu'ils sont  internationaux. Ainsi afin d'éviter le crash malheureux d'une fusée causé par la mésentente de deux ingénieurs de différents pays, il existe la norme <strong>ISO 80000-2</strong> qui définit précisément ce qu'est un entier, s'il doit inclure ou non le zéro, que sont les nombres réels, etc. Bien entendu les compilateurs, s'ils sont bien faits, cherchent à respecter au mieux ces normes internationales, et vous&thinsp;?</p>
+<p>Les ingénieurs sont friands des standards et qui plus est lorsqu'ils sont  internationaux. Ainsi afin d'éviter le crash malheureux d'une fusée causé par la mésentente de deux ingénieurs de différents pays, il existe la norme <strong>ISO 80000-2</strong> qui définit précisément ce qu'est un entier, s'il doit inclure ou non le zéro, que sont les nombres réels, etc. Bien entendu les compilateurs, s'ils sont bien faits, cherchent à respecter au mieux ces normes internationales, et vous ?</p>
 </div>
-<h2 id="stockage-et-interpretation">Stockage et interprétation<a class="headerlink" href="#stockage-et-interpretation" title="Permanent link">¶</a></h2>
+<h2 id="stockage-et-interpretation">Stockage et interprétation<a class="headerlink" href="#stockage-et-interpretation" title="Permanent link">¤</a></h2>
 <p>Rappelez-vous qu'un ordinateur ne peut stocker l'information que sous forme binaire et qu'il n'est à même de manipuler ces informations que par paquets d’octets. Aussi un ordinateur 64-bits manipulera avec aisance des paquets de 64-bits, mais plus difficilement des paquets de 32-bits. Ajoutons qu'il existe encore des microcontrôleurs 8-bits utilisés dans des dispositifs à faible consommation et qui peinent à manipuler des types de plus grande taille. Stocker une température avec une trop grande précision et effectuer des opérations mathématiques sur toute la précision serait une erreur, car le microcontrôleur n'est simplement pas adapté à manipuler ce type d'information.</p>
-<p>Considérons le paquet de 32-bit suivant, êtes-vous à même d'en donner une signification&thinsp;?</p>
+<p>Considérons le paquet de 32-bit suivant, êtes-vous à même d'en donner une signification ?</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>01000000 01001001 00001111 11011011
 </span></code></pre></div>
-<p>Il y a plusieurs interprétations possibles&thinsp;:</p>
+<p>Il y a plusieurs interprétations possibles :</p>
 <ol>
-<li>4 caractères de 8-bits&thinsp;: <code>01000000</code> <code>@</code>, <code>01001001</code> <code>I</code>, <code>00001111</code> <code>\x0f</code> et <code>11011011</code> <code>Û</code>.</li>
-<li>4 nombres de 8-bits&thinsp;: <code>64</code>, <code>73</code>, <code>15</code>, <code>219</code>.</li>
+<li>4 caractères de 8-bits : <code>01000000</code> <code>@</code>, <code>01001001</code> <code>I</code>, <code>00001111</code> <code>\x0f</code> et <code>11011011</code> <code>Û</code>.</li>
+<li>4 nombres de 8-bits : <code>64</code>, <code>73</code>, <code>15</code>, <code>219</code>.</li>
 <li>Deux nombres de 16-bits <code>18752</code> et <code>56079</code>.</li>
 <li>Un seul nombre de 32-bit <code>3675212096</code>.</li>
 <li>Peut-être le nombre <code>-40331460896358400.000000</code> lu en <em>little endian</em>.</li>
 <li>Ou encore <code>3.141592</code> lu en <em>big endian</em>.</li>
 </ol>
-<p>Qu'en pensez-vous&thinsp;?</p>
-<p>Lorsque l'on souhaite programmer à bas niveau, vous voyez que la notion de type de donnée est essentielle, car en dehors d'une interprétation subjective&thinsp;: «&thinsp;c'est forcément PI la bonne réponse&thinsp;», rien ne permet à l'ordinateur d'interpréter convenablement l'information enregistrée en mémoire.</p>
+<p>Qu'en pensez-vous ?</p>
+<p>Lorsque l'on souhaite programmer à bas niveau, vous voyez que la notion de type de donnée est essentielle, car en dehors d'une interprétation subjective : « c'est forcément PI la bonne réponse », rien ne permet à l'ordinateur d'interpréter convenablement l'information enregistrée en mémoire.</p>
 <p>Le typage permet de résoudre toute ambiguïté.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="k">union</span><span class="w"> </span><span class="p">{</span>
@@ -4435,21 +4437,21 @@
 </span><span id="__span-1-21"><a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="p">}</span>
 </span></code></pre></div>
 <p><a href="" id="endianess"></a></p>
-<h2 id="boutisme">Boutisme<a class="headerlink" href="#boutisme" title="Permanent link">¶</a></h2>
+<h2 id="boutisme">Boutisme<a class="headerlink" href="#boutisme" title="Permanent link">¤</a></h2>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/endian.jpg"><img alt="Boutisme par J. J. Grandville (1838)" src="../../../assets/images/endian.jpg" width="70%"/></a><figcaption> Boutisme par J. J. Grandville (1838)</figcaption></figure></p>
 <p>La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé <em>endianess</em>. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les œufs à la coque par le petit bout (petit boutisme/<em>little endian</em>), la répression incite les rebelles à manger leurs œufs par le gros bout (gros boutisme/<em>big endian</em>).</p>
-<p>Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en <em>big endian</em> alors que d'autres sont en <em>little endian</em>. C'est-à-dire que si une information est stockée en mémoire comme suit&thinsp;:</p>
+<p>Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en <em>big endian</em> alors que d'autres sont en <em>little endian</em>. C'est-à-dire que si une information est stockée en mémoire comme suit :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>[0x40, 0x49, 0xf, 0xdb]
 </span></code></pre></div>
-<p>Faut-il la lire de gauche à droite ou de droite à gauche&thinsp;? Cela vous paraît trivial, mais si cet exemple était mentionné dans un livre rédigé en arabe, quelle serait alors votre réponse&thinsp;?</p>
-<p>Imaginons qu'un programme exécuté sur un microcontrôleur <em>big-endian</em> 8-bit envoie par Bluetooth la valeur <code>1'111'704'645</code>, qui correspond au nombre de photons ayant frappé un détecteur optique. Il transmet donc les 4 octets suivants&thinsp;: <code>0x42, 0x43, 0x44, 0x45</code>. L'ordinateur qui reçoit les informations décode <code>1'162'101'570</code>. Les deux ordinateurs n'interprètent pas les données de la même façon, et c'est un problème que la plupart des ingénieurs électroniciens rencontrent un jour dans leur carrière.</p>
-<h2 id="les-nombres-entiers">Les nombres entiers<a class="headerlink" href="#les-nombres-entiers" title="Permanent link">¶</a></h2>
+<p>Faut-il la lire de gauche à droite ou de droite à gauche ? Cela vous paraît trivial, mais si cet exemple était mentionné dans un livre rédigé en arabe, quelle serait alors votre réponse ?</p>
+<p>Imaginons qu'un programme exécuté sur un microcontrôleur <em>big-endian</em> 8-bit envoie par Bluetooth la valeur <code>1'111'704'645</code>, qui correspond au nombre de photons ayant frappé un détecteur optique. Il transmet donc les 4 octets suivants : <code>0x42, 0x43, 0x44, 0x45</code>. L'ordinateur qui reçoit les informations décode <code>1'162'101'570</code>. Les deux ordinateurs n'interprètent pas les données de la même façon, et c'est un problème que la plupart des ingénieurs électroniciens rencontrent un jour dans leur carrière.</p>
+<h2 id="les-nombres-entiers">Les nombres entiers<a class="headerlink" href="#les-nombres-entiers" title="Permanent link">¤</a></h2>
 <p>Les <strong>nombres entiers</strong> sont des nombres sans virgule et incluant le zéro. Ils peuvent donc être négatifs, nuls ou positifs. Mathématiquement ils appartiennent à l'ensemble des <a href="https://fr.wikipedia.org/wiki/Entier_relatif">entiers relatifs</a>.</p>
 <p>Comme aucun ordinateur ne dispose d'un espace de stockage infini, ces nombres excluent les infinis positifs et négatifs, et sont donc bornés, cela va de soi.</p>
-<h3 id="les-entiers-naturels">Les entiers naturels<a class="headerlink" href="#les-entiers-naturels" title="Permanent link">¶</a></h3>
+<h3 id="les-entiers-naturels">Les entiers naturels<a class="headerlink" href="#les-entiers-naturels" title="Permanent link">¤</a></h3>
 <p>En informatique, ces nombres sont par conséquent <strong>non signés</strong>, et peuvent prendre des valeurs comprises entre <span class="arithmatex">\(0\)</span> et <span class="arithmatex">\(2^N-1\)</span> où <span class="arithmatex">\(N\)</span> correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Il faut naturellement que l'ordinateur sur lequel s'exécute le programme soit capable de supporter le nombre de bits demandé par le programmeur.</p>
-<p>En C, on nomme ce type de donnée <code>unsigned int</code>, <code>int</code> étant le dénominatif du latin <em>integer</em> signifiant «&thinsp;entier&thinsp;».</p>
-<p>Voici quelques exemples des valeurs minimales et maximales possibles selon le nombre de bits utilisés pour coder l'information numérique&thinsp;:</p>
+<p>En C, on nomme ce type de donnée <code>unsigned int</code>, <code>int</code> étant le dénominatif du latin <em>integer</em> signifiant « entier ».</p>
+<p>Voici quelques exemples des valeurs minimales et maximales possibles selon le nombre de bits utilisés pour coder l'information numérique :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Stockage d'un entier non signé sur différentes profondeurs</caption><thead>
 <tr>
@@ -4482,10 +4484,10 @@
 </tbody>
 </table>
 <p>Notez l'importance du <span class="arithmatex">\(-1\)</span> dans la définition du maximum, car la valeur minimum <span class="arithmatex">\(0\)</span> fait partie de l'information même si elle représente une quantité nulle. Il y a donc 256 valeurs possibles pour un nombre entier non signé 8-bits, bien que la valeur maximale ne soit que de 255.</p>
-<h3 id="les-entiers-bornes-signes">Les entiers bornés signés<a class="headerlink" href="#les-entiers-bornes-signes" title="Permanent link">¶</a></h3>
+<h3 id="les-entiers-bornes-signes">Les entiers bornés signés<a class="headerlink" href="#les-entiers-bornes-signes" title="Permanent link">¤</a></h3>
 <p>Les entiers signés peuvent être <strong>négatifs</strong>, <strong>nuls</strong> ou <strong>positifs</strong> et peuvent prendre des valeurs comprises entre <span class="arithmatex">\(-2^{N-1}\)</span> et <span class="arithmatex">\(+2^{N-1}-1\)</span> où <span class="arithmatex">\(N\)</span> correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Notez l'asymétrie entre la borne positive et négative.</p>
 <p>Comme il sont signés (<em>signed</em> en anglais), il est par conséquent correct d'écrire <code>signed int</code> bien que le préfixe <code>signed</code> soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.</p>
-<p>Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information&thinsp;:</p>
+<p>Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information :</p>
 <table id="_table-2">
 <caption style="caption-side:top"> Stockage d'un entier signé sur différentes profondeurs</caption><thead>
 <tr>
@@ -4513,17 +4515,17 @@
 </tbody>
 </table>
 <p>En mémoire, ces nombres sont stockés en utilisant le <a class="autorefs autorefs-internal" href="../../10-numeration/numbers/#complement-a-deux">complément à deux</a> qui fait l'objet d'une section à part entière.</p>
-<h3 id="les-entiers-bornes">Les entiers bornés<a class="headerlink" href="#les-entiers-bornes" title="Permanent link">¶</a></h3>
-<p>Comme nous l'avons vu, les degrés de liberté pour définir un entier sont&thinsp;:</p>
+<h3 id="les-entiers-bornes">Les entiers bornés<a class="headerlink" href="#les-entiers-bornes" title="Permanent link">¤</a></h3>
+<p>Comme nous l'avons vu, les degrés de liberté pour définir un entier sont :</p>
 <ul>
 <li>Signé ou non signé</li>
 <li>Nombre de bits avec lesquels l'information est stockée en mémoire</li>
 </ul>
 <p>À l'origine le standard C restait flou quant au nombre de bits utilisés pour chacun des types et aucune réelle cohérence n'existait pour la construction d'un type. Le modificateur <code>signed</code> était optionnel, le préfixe <code>long</code> ne pouvait s'appliquer qu'au type <code>int</code> et <code>long</code> et la confusion entre <code>long</code> (préfixe) et <code>long</code> (type) restait possible. En fait, la plupart des développeurs s'y perdaient et s'y perd toujours ce qui menait à des problèmes de compatibilités des programmes entre eux.</p>
-<h4 id="types-standards">Types standards<a class="headerlink" href="#types-standards" title="Permanent link">¶</a></h4>
-<p>La construction d'un type entier C est la suivante&thinsp;:</p>
+<h4 id="types-standards">Types standards<a class="headerlink" href="#types-standards" title="Permanent link">¤</a></h4>
+<p>La construction d'un type entier C est la suivante :</p>
 <p><figure id="_figure-2"><img alt="Entiers standardisés" class="drawio-diagram" src="../../../assets/images/ansi-integers.drawio"/><figcaption> Entiers standardisés</figcaption></figure></p>
-<p>Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins <span class="arithmatex">\(N\)</span> bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée ci-dessous&thinsp;:</p>
+<p>Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins <span class="arithmatex">\(N\)</span> bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée ci-dessous :</p>
 <table id="_table-3">
 <caption style="caption-side:top"> Table des types entiers en C</caption><thead>
 <tr>
@@ -4560,21 +4562,12 @@
 </tr>
 <tr>
 <td><code>short int</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>signed short</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>signed short int</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>unsigned short</code></td>
@@ -4584,9 +4577,6 @@
 </tr>
 <tr>
 <td><code>unsigned short int</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>unsigned</code></td>
@@ -4596,9 +4586,6 @@
 </tr>
 <tr>
 <td><code>unsigned int</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>int</code></td>
@@ -4608,15 +4595,9 @@
 </tr>
 <tr>
 <td><code>signed</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>signed int</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>unsigned</code></td>
@@ -4626,9 +4607,6 @@
 </tr>
 <tr>
 <td><code>unsigned int</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>long</code></td>
@@ -4638,21 +4616,12 @@
 </tr>
 <tr>
 <td><code>long int</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>signed long</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>signed long int</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>unsigned long</code></td>
@@ -4662,9 +4631,6 @@
 </tr>
 <tr>
 <td><code>unsigned long int</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>long long</code></td>
@@ -4674,21 +4640,12 @@
 </tr>
 <tr>
 <td><code>long long int</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>signed long long</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>signed long long int</code></td>
-
-
-
 </tr>
 <tr>
 <td><code>unsigned long long</code></td>
@@ -4698,16 +4655,13 @@
 </tr>
 <tr>
 <td><code>unsigned long long int</code></td>
-
-
-
 </tr>
 </tbody>
 </table>
-<p>Avec l'avènement de <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, une meilleure cohésion des types a été proposée dans le fichier d'en-tête <code>stdint.h</code>. Cette bibliothèque standard offre les types suivants&thinsp;:</p>
+<p>Avec l'avènement de <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, une meilleure cohésion des types a été proposée dans le fichier d'en-tête <code>stdint.h</code>. Cette bibliothèque standard offre les types suivants :</p>
 <p><figure id="_figure-3"><img alt="Flux de construction d'un entier standardisé" class="drawio-diagram" src="../../../assets/images/c99-integers.drawio"/><figcaption> Flux de construction d'un entier standardisé</figcaption></figure></p>
 <p><a href="" id="reformed-types"></a></p>
-<h3 id="types-reformes">Types réformés<a class="headerlink" href="#types-reformes" title="Permanent link">¶</a></h3>
+<h3 id="types-reformes">Types réformés<a class="headerlink" href="#types-reformes" title="Permanent link">¤</a></h3>
 <p>Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.</p>
 <table id="_table-4">
 <caption style="caption-side:top"> Entiers standard défini par stdint</caption><thead>
@@ -4772,8 +4726,8 @@
 <p>À ces types s'ajoutent les types <strong>rapides</strong> (<em>fast</em>) et <strong>minimums</strong> (<em>least</em>). Un type nommé <code>uint_least32_t</code> garanti l'utilisation du type de donnée utilisant le moins de mémoire et garantissant une profondeur d'au minimum 32 bits. Il est strictement équivalent à <code>unsigned int</code>.</p>
 <p>Les types rapides, moins utilisés vont automatiquement choisir le type adapté le plus rapide à l'exécution. Par exemple si l'architecture matérielle permet un calcul natif sur 48-bits, elle sera privilégiée par rapport au type 32-bits.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Expressions arithmétiques entières<span class="exercise-title"></span></p>
-<p>Donnez la valeur des expressions ci-dessous&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Expressions arithmétiques entières<span class="exercise-title"></span></p>
+<p>Donnez la valeur des expressions ci-dessous :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>25 + 10 + 7 – 3
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>5 / 2
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>24 + 5 / 2
@@ -4789,15 +4743,15 @@
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Débordement<span class="exercise-title"></span></p>
-<p>Quel sera le contenu de <code>j</code> après l'exécution de l'instruction suivante&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Débordement<span class="exercise-title"></span></p>
+<p>Quel sera le contenu de <code>j</code> après l'exécution de l'instruction suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">uint16_t</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span>
 </span></code></pre></div>
 </div>
-<h2 id="modele-de-donnee">Modèle de donnée<a class="headerlink" href="#modele-de-donnee" title="Permanent link">¶</a></h2>
+<h2 id="modele-de-donnee">Modèle de donnée<a class="headerlink" href="#modele-de-donnee" title="Permanent link">¤</a></h2>
 <p>Comme nous l'avons évoqué plus haut, la taille des entiers <code>short</code>, <code>int</code>, ... n'est pas précisément définie par le standard. On sait qu'un <code>int</code> contient <strong>au moins</strong> 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment consciencieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.</p>
-<p>Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un <code>int</code> comme valeur de comptage allant au-delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du <code>int</code> sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème&thinsp;?</p>
-<p>La première solution est de toujours utiliser les types proposés par <code>&lt;stdint.h&gt;</code> lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données&thinsp;:</p>
+<p>Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un <code>int</code> comme valeur de comptage allant au-delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du <code>int</code> sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème ?</p>
+<p>La première solution est de toujours utiliser les types proposés par <code>&lt;stdint.h&gt;</code> lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :</p>
 <table id="_table-5">
 <caption style="caption-side:top"> Modèle de données</caption><thead>
 <tr>
@@ -4867,7 +4821,7 @@
 </tr>
 </tbody>
 </table>
-<p>Pour les ordinateurs modernes, on peut faire l'hypothèse raisonnable que&thinsp;:</p>
+<p>Pour les ordinateurs modernes, on peut faire l'hypothèse raisonnable que :</p>
 <ul>
 <li><code>char</code> est de 8-bits,</li>
 <li><code>short</code> est de 16-bits,</li>
@@ -4875,29 +4829,29 @@
 <li><code>long long</code> est de 64-bits,</li>
 </ul>
 <p>Pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les <a class="autorefs autorefs-internal" href="#types-reformes">types réformés</a> de <code>&lt;stdint.h&gt;</code>. Ainsi pour s'assurer qu'un type soit <strong>au moins</strong> de 32-bits, on utilisera <code>uint_least32_t</code>.</p>
-<h2 id="les-caracteres">Les caractères<a class="headerlink" href="#les-caracteres" title="Permanent link">¶</a></h2>
+<h2 id="les-caracteres">Les caractères<a class="headerlink" href="#les-caracteres" title="Permanent link">¤</a></h2>
 <p>Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement représentés par des grandeurs exprimées sur 1 octet (8-bits):</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>97 ≡ 0b1100001 ≡ 'a'
 </span></code></pre></div>
 <p>Un caractère du clavier enregistré en mémoire c'est donc un nombre entier de 8-bits. En C, le type de donnée <code>char</code> est utilisé pour stocker un caractère.</p>
 <p>Mais comment un ordinateur sait-il que <code>97</code> correspond à <code>a</code> ? C'est là que la notion d'encodage entre en jeu.</p>
-<h3 id="la-table-ascii">La table ASCII<a class="headerlink" href="#la-table-ascii" title="Permanent link">¶</a></h3>
+<h3 id="la-table-ascii">La table ASCII<a class="headerlink" href="#la-table-ascii" title="Permanent link">¤</a></h3>
 <p>Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'<a href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ASA</a>, l'<em>American Standards Association</em> aujourd'hui <strong><abbr title="American National Standards Institute">ANSI</abbr></strong> qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.</p>
 <p><figure id="_figure-4"><img alt="Table ASCII ASA X3.4 établie en 1963" class="drawio-diagram" src="../../../assets/images/ascii-1963.drawio"/><figcaption> Table ASCII ASA X3.4 établie en 1963</figcaption></figure></p>
 <p>Aujourd'hui la table ASCII de base définit 128 caractères qui n'incluent pas les caractères accentués.</p>
 <p><figure id="_figure-5"><img alt="Table ANSI INCITS 4-1986 (standard actuel)" class="drawio-diagram" src="../../../assets/images/ascii.drawio"/><figcaption> Table ANSI INCITS 4-1986 (standard actuel)</figcaption></figure></p>
 <p>Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard <strong>ISO/IEC 8859</strong> aussi appelé standard <em>Latin</em> définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables <strong>ISO-8859-1</strong> ou (<strong>latin1</strong>) et <strong>ISO-8859-15</strong> (<strong>latin9</strong>):</p>
 <p><figure id="_figure-6"><img alt="Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)" class="drawio-diagram" src="../../../assets/images/latin1.drawio"/><figcaption> Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)</figcaption></figure></p>
-<p>Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement&thinsp;? C'est un problème typique d'encodage.</p>
+<p>Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.</p>
 <p>Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a proposé un standard nommé <a href="https://fr.wikipedia.org/wiki/Windows-1252">Windows-1252</a> s'inspirant de <a href="https://fr.wikipedia.org/wiki/ISO/CEI_8859-1">ISO-8859-1</a>. En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...</p>
-<h3 id="unicode">Unicode<a class="headerlink" href="#unicode" title="Permanent link">¶</a></h3>
-<p>Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب), les Coréens (한국어), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage&thinsp;; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.</p>
+<h3 id="unicode">Unicode<a class="headerlink" href="#unicode" title="Permanent link">¤</a></h3>
+<p>Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب), les Coréens (한국어), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage ; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.</p>
 <p>Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard <strong>Unicode</strong> (<em>Universal Coded Character Set</em>) plus précisément nommé <strong>UTF-8</strong>.</p>
 <p><figure id="_figure-7"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/encoding-trends.png"><img alt="Utiliation de l'UTF-8 dès 2008" src="../../../assets/images/encoding-trends.png"/></a><figcaption> Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008</figcaption></figure></p>
 <p>Cette tendance est accessible <a href="https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html">ici</a>.</p>
-<p>L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. <a href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>, dont nous avons déjà parlé en introduction, <a href="" id="thompson"></a> est à l'origine de ce standard. Par exemple le <em>devanagari</em> caractère <code>ह</code> utilisé en Sanskrit possède la dénomination Unicode <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/0939" target="_blank">0939</a> et s'encode sur 3 octets&thinsp;: <code>0xE0 0xA4 0xB9</code></p>
+<p>L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. <a href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>, dont nous avons déjà parlé en introduction, <a href="" id="thompson"></a> est à l'origine de ce standard. Par exemple le <em>devanagari</em> caractère <code>ह</code> utilisé en Sanskrit possède la dénomination Unicode <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//0939" target="_blank">0939</a> et s'encode sur 3 octets : <code>0xE0 0xA4 0xB9</code></p>
 <p>En programmation C, un caractère <code>char</code> ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.</p>
-<p>Voici par exemple comment déclarer une variable contenant le caractère dollar&thinsp;:</p>
+<p>Voici par exemple comment déclarer une variable contenant le caractère dollar :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'$'</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Attention donc au caractère <code>'3'</code> qui correspond à la grandeur hexadécimale <code>0x33</code>:</p>
@@ -4913,22 +4867,22 @@
 <p class="admonition-title">Note</p>
 <p>L'unicode permet notament de représenter des caractères spéciaux tels que les émoticônes (💩).</p>
 </div>
-<h3 id="les-emojis">Les emojis<a class="headerlink" href="#les-emojis" title="Permanent link">¶</a></h3>
+<h3 id="les-emojis">Les emojis<a class="headerlink" href="#les-emojis" title="Permanent link">¤</a></h3>
 <p>Les emojis sont des caractères spéciaux qui ont été introduits en 2010 par le standard Unicode 6.0. Ils sont donc codés sur 4 octets et permettent de représenter des émotions, des objets, des animaux, des symboles, etc.</p>
-<p>Les émoticônes que vous pouvez envoyer à votre grand-mère sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère <a class="ycr-callout ycr-unicode" href="https://symbl.cc/en/2764" target="_blank">2764</a> qui est le caractère <code>❤</code>. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.</p>
+<p>Les émoticônes que vous pouvez envoyer à votre grand-mère sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//2764" target="_blank">2764</a> qui est le caractère <code>❤</code>. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.</p>
 <p>Ceci est vrai, mais encore faut-il que la police d'écriture utilisée par votre chère grand-maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère � qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.</p>
-<h2 id="chaine-de-caracteres">Chaîne de caractères<a class="headerlink" href="#chaine-de-caracteres" title="Permanent link">¶</a></h2>
+<h2 id="chaine-de-caracteres">Chaîne de caractères<a class="headerlink" href="#chaine-de-caracteres" title="Permanent link">¤</a></h2>
 <p>Une <strong>chaîne de caractères</strong> est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit <code>NUL</code> ou <code>\0</code>. On appelle ce caractère le caractère de fin de chaîne. Il s'agit d'une sentinelle.</p>
 <div class="admonition example">
 <p class="admonition-title">Les légumes et les choux</p>
-<p>Imaginez que l'on vous demande de vous placer dans un champ et de déterrer n'importe quel légume sauf un chou. Votre algorithme est&thinsp;:</p>
-<pre class="mermaid"><code>%% Algorithme de déterrage de légumes
+<p>Imaginez que l'on vous demande de vous placer dans un champ et de déterrer n'importe quel légume sauf un chou. Votre algorithme est :</p>
+<figure class="mermaid-figure"><pre class="mermaid"><code>%% Algorithme de déterrage de légumes
 flowchart LR
     start(Début) --&gt; pick[Déterrer]
     pick --&gt; if{Choux?}
     if --Non--&gt; step[Avancer de 1 pas]
     step --&gt; pick
-    if --Oui--&gt; stop(Fin)</code></pre>
+    if --Oui--&gt; stop(Fin)</code></pre><figcaption>Algorithme de déterrage de légumes</figcaption></figure>
 <p>Si vous trouvez un chou, vous savez que vous êtes arrivés au bout du champ. Le chou fait office de sentinelle.</p>
 <p>Sans sentinelle, vous êtes obligé de connaître à l'avance le nombre de pas à faire pour arriver au bout du champ. Vous devez donc stocker en mémoire cette information additionnelle ce qui n'est pas pratique.</p>
 </div>
@@ -4947,7 +4901,7 @@ flowchart LR
 </span><span id="__span-9-10"><a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a> 0x04 01101111
 </span><span id="__span-9-11"><a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a> 0x05 00000000
 </span></code></pre></div>
-<p>On utilise le caractère nul <code>\0</code> pour plusieurs raisons&thinsp;:</p>
+<p>On utilise le caractère nul <code>\0</code> pour plusieurs raisons :</p>
 <ol>
 <li>Il est facilement reconnaissable.</li>
 <li>Dans un test il vaut <code>false</code>.</li>
@@ -4958,7 +4912,7 @@ flowchart LR
 <p>Ne pas confondre le caractère nul <code>\0</code> avec le caractère <code>0</code>. Le premier est un caractère de fin de chaîne, le second est un caractère numérique qui vaut <code>0x30</code>.</p>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Constantes littérales caractérielles<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 3 : </span>Constantes littérales caractérielles<span class="exercise-title"></span></p>
 <p>Indiquez si les constantes littérales suivantes sont valides ou invalides.</p>
 <div class="two-column-list">
 <ol>
@@ -4980,7 +4934,7 @@ flowchart LR
 </div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Chaînes de formatage<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 4 : </span>Chaînes de formatage<span class="exercise-title"></span></p>
 <p>Pour les instructions ci-dessous, indiquer quel est l'affichage obtenu.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'a'</span><span class="p">;</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">sh1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
@@ -5010,7 +4964,7 @@ flowchart LR
 <li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Value: %hu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span></code></li>
 </ol>
 </div>
-<h2 id="les-booleens">Les booléens<a class="headerlink" href="#les-booleens" title="Permanent link">¶</a></h2>
+<h2 id="les-booleens">Les booléens<a class="headerlink" href="#les-booleens" title="Permanent link">¤</a></h2>
 <p>Un <a href="https://fr.wikipedia.org/wiki/Bool%C3%A9en">booléen</a> est un type de donnée à deux états consensuellement nommés <em>vrai</em> (<code>true</code>) et <em>faux</em> (<code>false</code>) et destinés à représenter les états en logique booléenne (Nom venant de <a href="https://fr.wikipedia.org/wiki/George_Boole">George Boole,</a> fondateur de l'algèbre éponyme).</p>
 <p>La convention est d'utiliser <code>1</code> pour mémoriser un état vrai, et <code>0</code> pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.</p>
 <p>Les <strong>booléens</strong> ont été introduits formellement en C avec <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> et nécessitent l'inclusion du fichier d'en-tête <code>stdbool.h</code>. Avant cela le type booléen était <code>_Bool</code> et définir les états vrais et faux était à la charge du développeur.</p>
@@ -5021,7 +4975,7 @@ flowchart LR
 </span></code></pre></div>
 <p>Afin de faciliter la lecture du code, il est courant de préfixer les variables booléennes avec les préfixes <code>is_</code> ou <code>has_</code>.</p>
 <p>À titre d'exemple, si l'on souhaite stocker le genre d'un individu (mâle, ou femelle), on pourrait utiliser la variable <code>is_male</code>.</p>
-<h2 id="enumerations">Énumérations<a class="headerlink" href="#enumerations" title="Permanent link">¶</a></h2>
+<h2 id="enumerations">Énumérations<a class="headerlink" href="#enumerations" title="Permanent link">¤</a></h2>
 <p>Ce style d'écriture permet de définir un type de données contenant un
 nombre fini de valeurs. Ces valeurs sont nommées textuellement et
 définies numériquement dans le type énuméré.</p>
@@ -5039,14 +4993,14 @@ définies numériquement dans le type énuméré.</p>
 </span><span id="__span-12-12"><a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="p">};</span>
 </span></code></pre></div>
 <p>Le type d'une énumération est apparenté à un entier <code>int</code>. Sans autres précisions, la première valeur vaut 0, la suivante 1, etc.</p>
-<p>Il est possible de forcer les valeurs de la manière suivante&thinsp;:</p>
+<p>Il est possible de forcer les valeurs de la manière suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">country_codes</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="n">CODE_SWITZERLAND</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="n">CODE_FRANCE</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span>
 </span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="n">CODE_US</span><span class="o">=</span><span class="mi">1</span>
 </span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="p">}</span><span class="w"> </span><span class="n">CountryCodes</span><span class="p">;</span>
 </span></code></pre></div>
-<p>ou encore&thinsp;:</p>
+<p>ou encore :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">country_codes</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">    </span><span class="n">CODE_SWITZERLAND</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="n">CODE_BELGIUM</span><span class="o">=</span><span class="mi">32</span>
@@ -5056,7 +5010,7 @@ définies numériquement dans le type énuméré.</p>
 </span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="p">}</span><span class="w"> </span><span class="n">CountryCodes</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Pour ne pas confondre un type énuméré avec une variable, on utilise souvent la convention d'une notation en capitales. Pour éviter d’éventuelles collisions avec d'autres types, un préfixe est souvent ajouté.</p>
-<p>L'utilisation d'un type énuméré peut être la suivante&thinsp;:</p>
+<p>L'utilisation d'un type énuméré peut être la suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="k">enum</span><span class="w"> </span><span class="n">country_codes</span><span class="w"> </span><span class="n">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">CODE_SWITZERLAND</span><span class="w"> </span><span class="p">:</span>
@@ -5073,13 +5027,13 @@ définies numériquement dans le type énuméré.</p>
 </span><span id="__span-15-14"><a href="#__codelineno-15-14" id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-15-15"><a href="#__codelineno-15-15" id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="type-incomplets">Type incomplets<a class="headerlink" href="#type-incomplets" title="Permanent link">¶</a></h2>
+<h2 id="type-incomplets">Type incomplets<a class="headerlink" href="#type-incomplets" title="Permanent link">¤</a></h2>
 <p>Un <strong>type incomplet</strong> est un qualificatif de type de donnée décrivant un objet dont sa taille en mémoire n'est pas connue.</p>
-<h3 id="vlq">VLQ<a class="headerlink" href="#vlq" title="Permanent link">¶</a></h3>
+<h3 id="vlq">VLQ<a class="headerlink" href="#vlq" title="Permanent link">¤</a></h3>
 <p>Dans certains systèmes, on peut stocker des nombres entiers à taille variables. C'est à dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">VLQ</a> utilisés dans le protocole MIDI.</p>
 <p>On peut stocker un nombre VLQ en mémoire, mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée, mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.</p>
-<h3 id="type-vide-void">Type vide (<em>void</em>)<a class="headerlink" href="#type-vide-void" title="Permanent link">¶</a></h3>
-<p>Le type <code>void</code> est particulier. Il s'agit d'un type dit <strong>incomplet</strong>, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien&thinsp;:</p>
+<h3 id="type-vide-void">Type vide (<em>void</em>)<a class="headerlink" href="#type-vide-void" title="Permanent link">¤</a></h3>
+<p>Le type <code>void</code> est particulier. Il s'agit d'un type dit <strong>incomplet</strong>, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">shout</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hey!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="p">}</span>
@@ -5087,14 +5041,14 @@ définies numériquement dans le type énuméré.</p>
 <p>Il peut être également utilisé comme type générique comme la fonction de copie mémoire <code>memcpy</code></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Le mot clé <code>void</code> ne peut être utilisé que dans les contextes suivants&thinsp;:</p>
+<p>Le mot clé <code>void</code> ne peut être utilisé que dans les contextes suivants :</p>
 <ul>
 <li>Comme paramètre unique d'une fonction, indiquant que cette fonction n'a pas de paramètres <code>int main(void)</code></li>
 <li>Comme type de retour pour une fonction indiquant que cette fonction ne retourne rien <code>void display(char c)</code></li>
 <li>Comme pointeur dont le type de destination n'est pas spécifié <code>void* ptr</code></li>
 </ul>
-<h2 id="transtypage">Transtypage<a class="headerlink" href="#transtypage" title="Permanent link">¶</a></h2>
-<h3 id="promotion-implicite">Promotion implicite<a class="headerlink" href="#promotion-implicite" title="Permanent link">¶</a></h3>
+<h2 id="transtypage">Transtypage<a class="headerlink" href="#transtypage" title="Permanent link">¤</a></h2>
+<h3 id="promotion-implicite">Promotion implicite<a class="headerlink" href="#promotion-implicite" title="Permanent link">¤</a></h3>
 <p>Généralement le type <code>int</code> est de la même largeur que le bus mémoire de donnée d'un ordinateur.
 C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein
 du processeur. Les <em>registres</em> du processeur, autrement dit ses casiers mémoires, sont au moins
@@ -5133,13 +5087,13 @@ assez grand pour  contenir un <code>int</code>.</p>
 <p>Notez qu'il n'y a pas de promotion numérique vers le type <em>short</em>. On
 passe directement à un type <em>int</em>.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Expressions mixtes<span class="exercise-title"></span></p>
-<p>Soit les instructions suivantes&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 5 : </span>Expressions mixtes<span class="exercise-title"></span></p>
+<p>Soit les instructions suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.5</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Donnez le type et la valeur des expressions suivantes&thinsp;:</p>
+<p>Donnez le type et la valeur des expressions suivantes :</p>
 <div class="two-column-list">
 <ol>
 <li><code>x + n % p</code></li>
@@ -5154,8 +5108,8 @@ passe directement à un type <em>int</em>.</p>
 </div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Promotion numérique<span class="exercise-title"></span></p>
-<p>Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 6 : </span>Promotion numérique<span class="exercise-title"></span></p>
+<p>Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="p">;</span>
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
@@ -5171,7 +5125,7 @@ passe directement à un type <em>int</em>.</p>
 </ol>
 </div>
 </div>
-<h3 id="promotion-explicite">Promotion explicite<a class="headerlink" href="#promotion-explicite" title="Permanent link">¶</a></h3>
+<h3 id="promotion-explicite">Promotion explicite<a class="headerlink" href="#promotion-explicite" title="Permanent link">¤</a></h3>
 <p>Il est possible de forcer la promotion d'un type vers un autre en utilisant un transtypage explicite. Par exemple, pour forcer la promotion d'un <code>int</code> vers un <code>double</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">n</span><span class="p">;</span>
@@ -5181,8 +5135,8 @@ différents types engendre des effets de bord qu'il faut connaître. Lors
 d'un changement de type vers un type dont le pouvoir de représentation
 est plus important, il n'y a pas de problème. À l'inverse, on peut
 rencontrer des erreurs sur la précision ou une modification radicale de
-la valeur représentée&thinsp;!</p>
-<h4 id="transtypage-dun-entier-en-flottant">Transtypage d'un entier en flottant<a class="headerlink" href="#transtypage-dun-entier-en-flottant" title="Permanent link">¶</a></h4>
+la valeur représentée !</p>
+<h4 id="transtypage-dun-entier-en-flottant">Transtypage d'un entier en flottant<a class="headerlink" href="#transtypage-dun-entier-en-flottant" title="Permanent link">¤</a></h4>
 <p>Par exemple, la conversion d'un nombre flottant (<em>double</em> ou <em>float</em>) en entier (signé) doit être étudiée pour éviter tout problème. Le type entier doit être
 capable de recevoir la valeur (attention aux valeurs maxi).</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mf">3.9</span><span class="p">;</span>
@@ -5201,7 +5155,7 @@ des erreurs de calculs par la suite.</p>
 </span></code></pre></div>
 <p>L'utilisation d'un type non signé pour convertir un nombre réel conduit
 également à une modification de la valeur numérique.</p>
-<h4 id="transtypage-dun-double-en-float">Transtypage d'un double en float<a class="headerlink" href="#transtypage-dun-double-en-float" title="Permanent link">¶</a></h4>
+<h4 id="transtypage-dun-double-en-float">Transtypage d'un double en float<a class="headerlink" href="#transtypage-dun-double-en-float" title="Permanent link">¤</a></h4>
 <p>La conversion d'un nombre réel de type <em>double</em> en réel de type <em>float</em>
 pose un problème de précision de calcul.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mf">0.1111111111111111</span><span class="p">;</span>
@@ -5210,8 +5164,8 @@ pose un problème de précision de calcul.</p>
 <p>À l'exécution, il y a une perte de précision lors de la conversion, ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Conversion de types<span class="exercise-title"></span></p>
-<p>On considère les déclarations suivantes&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 7 : </span>Conversion de types<span class="exercise-title"></span></p>
+<p>On considère les déclarations suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 </span><span id="__span-25-3"><a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
@@ -5240,7 +5194,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Un casting explicite<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 8 : </span>Un casting explicite<span class="exercise-title"></span></p>
 <p>Que valent les valeurs de <code>p</code>, <code>x</code> et <code>n</code>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </span><span id="__span-28-2"><a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
@@ -5258,12 +5212,12 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Opérateurs de relation et opérateurs logiques<span class="exercise-title"></span></p>
-<p>Soit les déclarations suivantes&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 9 : </span>Opérateurs de relation et opérateurs logiques<span class="exercise-title"></span></p>
+<p>Soit les déclarations suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-30-1"><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 </span><span id="__span-30-2"><a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Réécrire l'expression ci-dessous en mettant des parenthèses montrant l'ordre des opérations&thinsp;:</p>
+<p>Réécrire l'expression ci-dessous en mettant des parenthèses montrant l'ordre des opérations :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-31-1"><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Donner la valeur de <code>condition</code> évaluée avec les valeurs suivantes de <code>x</code> et <code>y</code>:</p>
@@ -5300,8 +5254,8 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Casse-tête<span class="exercise-title"></span></p>
-<p>Vous participez à une revue de code et tombez sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures&thinsp;? Le code est écrit pour un modèle de donnée <strong>LLP64</strong>.</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 10 : </span>Casse-tête<span class="exercise-title"></span></p>
+<p>Vous participez à une revue de code et tombez sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée <strong>LLP64</strong>.</p>
 <p>Pour chaque exemple, donner la valeur des variables après exécution du code.</p>
 <ol>
 <li>
@@ -5326,10 +5280,10 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </li>
 </ol>
 </div>
-<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¶</a></h2>
+<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¤</a></h2>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Évaluation d'expressions<span class="exercise-title"></span></p>
-<p>Considérons les déclarations suivantes&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 11 : </span>Évaluation d'expressions<span class="exercise-title"></span></p>
+<p>Considérons les déclarations suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 </span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
 </span><span id="__span-36-3"><a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
@@ -5337,7 +5291,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </span><span id="__span-36-5"><a href="#__codelineno-36-5" id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.3</span><span class="p">;</span>
 </span><span id="__span-36-6"><a href="#__codelineno-36-6" id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.7</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Que vaut le type et la valeur des expressions suivantes&thinsp;?</p>
+<p>Que vaut le type et la valeur des expressions suivantes ?</p>
 <div class="two-column-list">
 <ol>
 <li><code>c / 2</code></li>
@@ -5355,13 +5309,13 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </div>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Précision des flottants<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 12 : </span>Précision des flottants<span class="exercise-title"></span></p>
 <p>Que vaut <code>x</code>?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-37-1"><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10000000.</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span>
 </span></code></pre></div>
 <details class="solution">
 <summary>Solution</summary>
-<p>Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc&thinsp;:</p>
+<p>Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-38-2"><a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a>
 </span><span id="__span-38-3"><a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5375,10 +5329,10 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Type de donnée idoine<span class="exercise-title"></span></p>
-<p>Pour chaque entrée suivante, indiquez le nom et le type des variables que vous utiliseriez pour représenter les données dans ce programme&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 13 : </span>Type de donnée idoine<span class="exercise-title"></span></p>
+<p>Pour chaque entrée suivante, indiquez le nom et le type des variables que vous utiliseriez pour représenter les données dans ce programme :</p>
 <ol>
-<li>Gestion d'un parking&thinsp;: nombre de voitures présente</li>
+<li>Gestion d'un parking : nombre de voitures présente</li>
 <li>Station météo
     a. Température moyenne de la journée
     b. Nombre de valeurs utilisées pour la moyenne</li>
@@ -5390,25 +5344,25 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </ol>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Construction d'expressions<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 14 : </span>Construction d'expressions<span class="exercise-title"></span></p>
 <p>On considère un disque, divisé en 12 secteurs angulaires égaux, numérotés de 0
 à 11. On mesure l’angle de rotation du disque en degrés, sous la forme d’un
 nombre entier non signé. Une flèche fixe désigne un secteur. Entre 0 et 29 °, le
 secteur désigné est le n° 0, entre 30 ° et 59 °, c’est le secteur 1, ...</p>
 <p>Donnez une expression arithmétique permettant, en fonction d’un angle donné,
-d’indiquer quel est le secteur du disque se trouve devant la flèche. Note&thinsp;:
+d’indiquer quel est le secteur du disque se trouve devant la flèche. Note :
 l’angle de rotation peut être supérieur à 360 °. Vérifiez cette expression avec
 les angles de 0, 15, 29, 30, 59, 60, 360, 389, 390 degrés.</p>
 <p>Écrivez un programme demandant l’angle et affichant le numéro de secteur
 correspondant.</p>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Somme des entiers<span class="exercise-title"></span></p>
-<p>Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimée comme&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 15 : </span>Somme des entiers<span class="exercise-title"></span></p>
+<p>Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimée comme :</p>
 <div class="arithmatex">\[
 \sum_{k=1}^n k = \frac{n(n+1)}{2}
 \]</div>
-<p>சீனிவாச இராமானுஜன், un grand mathématicien (<a href="https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan">Srinivasa Ramanujan</a>) à démontré que ce la somme à l'infini donne&thinsp;:</p>
+<p>சீனிவாச இராமானுஜன், un grand mathématicien (<a href="https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan">Srinivasa Ramanujan</a>) à démontré que ce la somme à l'infini donne :</p>
 <div class="arithmatex">\[
 \sum_{k=1}^{\inf} k = -\frac{1}{12}
 \]</div>
@@ -5421,7 +5375,7 @@ correspondant.</p>
 </span><span id="__span-40-5"><a href="#__codelineno-40-5" id="__codelineno-40-5" name="__codelineno-40-5"></a><span class="go">user    0m0.172s</span>
 </span><span id="__span-40-6"><a href="#__codelineno-40-6" id="__codelineno-40-6" name="__codelineno-40-6"></a><span class="go">sys     0m0.016s</span>
 </span></code></pre></div>
-<p>À partir de quelle valeur, le temps de calcul devient significativement palpable&thinsp;?</p>
+<p>À partir de quelle valeur, le temps de calcul devient significativement palpable ?</p>
 <details class="solution">
 <summary>Solution</summary>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -5437,19 +5391,19 @@ correspondant.</p>
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Système de vision industriel<span class="exercise-title"></span></p>
-<p>La société japonaise Nakainœil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes&thinsp;:</p>
+<p class="admonition-title"><span class="exercise-label">Exercice 16 : </span>Système de vision industriel<span class="exercise-title"></span></p>
+<p>La société japonaise Nakainœil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-42-1"><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="kt">uint32_t</span><span class="w"> </span><span class="n">inspected_parts</span><span class="p">,</span><span class="w"> </span><span class="n">bad_parts</span><span class="p">;</span>
 </span><span id="__span-42-2"><a href="#__codelineno-42-2" id="__codelineno-42-2" name="__codelineno-42-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">percentage_good_parts</span><span class="p">;</span>
 </span></code></pre></div>
-<p>À un moment du programme, on peut lire&thinsp;:</p>
+<p>À un moment du programme, on peut lire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="n">percentage_good_parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">inspected_parts</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bad_parts</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">inspected_parts</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Sachant que <code>inspected_parts = 2000</code> et <code>bad_parts = 200</code>:</p>
 <ol>
-<li>Quel résultat le développeur s'attend-il à obtenir&thinsp;?</li>
-<li>Qu'obtient-il en pratique&thinsp;?</li>
-<li>Pourquoi&thinsp;?</li>
+<li>Quel résultat le développeur s'attend-il à obtenir ?</li>
+<li>Qu'obtient-il en pratique ?</li>
+<li>Pourquoi ?</li>
 <li>Corrigez les éventuelles erreurs.</li>
 </ol>
 <details class="solution">
@@ -5458,7 +5412,7 @@ correspondant.</p>
 <li>Le développeur s'attend à obtenir le pourcentage de bonnes pièces avec plusieurs décimales après la virgule.</li>
 <li>En pratique, il obtient un entier, c'est à dire toujours 0.</li>
 <li>
-<p>La promotion implicite des entiers peut être découpée comme suit&thinsp;:</p>
+<p>La promotion implicite des entiers peut être découpée comme suit :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">numerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">inspected_parts</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">bad_parts</span><span class="p">;</span>
 </span><span id="__span-44-2"><a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">percentage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">inspected_parts</span><span class="p">;</span>
 </span><span id="__span-44-3"><a href="#__codelineno-44-3" id="__codelineno-44-3" name="__codelineno-44-3"></a><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">percentage_good_parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">percentage</span><span class="p">;</span>
@@ -5468,7 +5422,7 @@ correspondant.</p>
 <p>La division est donc appliquée à des entiers et non des flottants.</p>
 <ol>
 <li>
-<p>Une possible correction consiste à forcer le type d'un des membres de la division&thinsp;:</p>
+<p>Une possible correction consiste à forcer le type d'un des membres de la division :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-45-1"><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="n">percentage_good_parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">inspected_parts</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bad_parts</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">inspected_parts</span><span class="p">;</span>
 </span></code></pre></div>
 </li>
@@ -5476,19 +5430,19 @@ correspondant.</p>
 </details>
 </div>
 <div class="admonition exercise">
-<p class="admonition-title">Exercise&thinsp;: Missile Patriot<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 17 : </span>Missile Patriot<span class="exercise-title"></span></p>
 <p>Durant la guerre du Golfe le 25 février 1991, une batterie de missile américaine à Dharan en Arabie saoudite à échoué à intercepter un missile irakien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport <strong>GAO/OMTEC-92-26</strong> du commandement général.</p>
 <p>Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixième de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24^e décimale après la virgule. Des erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduite par 600 mètres d'erreur lors de la tentative d'interception.</p>
-<p>Le stockage de la valeur 0.1 est donné par&thinsp;:</p>
+<p>Le stockage de la valeur 0.1 est donné par :</p>
 <div class="arithmatex">\[
 0.1_{10} \approx \lfloor 0.1_{10}\cdot 2^{23} \rfloor = 11001100110011001100_{2} \approx 0.09999990463256836
 \]</div>
-<p>Un registre contient donc le nombre d'heures écoulées exprimées en dixième de seconde soit pour 100 heures&thinsp;:</p>
+<p>Un registre contient donc le nombre d'heures écoulées exprimées en dixième de seconde soit pour 100 heures :</p>
 <div class="arithmatex">\[
 100 \cdot 60 \cdot 60 \cdot 10 = 3'600'000
 \]</div>
-<p>En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne <code>Q1.23 x Q0.24 = Q1.47</code> le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par :math&thinsp;:<code>2^{47}</code> pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.</p>
-<p>Quel est l'erreur en seconde cumulée sur les 100 heures de fonctionnement&thinsp;?</p>
+<p>En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne <code>Q1.23 x Q0.24 = Q1.47</code> le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par :math :<code>2^{47}</code> pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.</p>
+<p>Quel est l'erreur en seconde cumulée sur les 100 heures de fonctionnement ?</p>
 </div>
 
 
@@ -5576,7 +5530,7 @@ correspondant.</p>
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -5716,7 +5670,7 @@ correspondant.</p>
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

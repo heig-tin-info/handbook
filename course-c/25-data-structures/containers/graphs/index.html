@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -4151,31 +4153,31 @@
   
 
 
-<h1 id="graphes">Graphes<a class="headerlink" href="#graphes" title="Permanent link">¶</a></h1>
+<h1 id="graphes">Graphes<a class="headerlink" href="#graphes" title="Permanent link">¤</a></h1>
 <p>Un graphe est un ensemble de sommets reliés par des arêtes. Les graphes sont utilisés pour modéliser des relations entre des objets. Par exemple, un graphe peut être utilisé pour représenter un réseau social, un réseau de transport, un réseau de distribution, etc.</p>
 <p>C'est une variante générale des arbres. Un arbre est un graphe particulier où chaque sommet est relié à un autre sommet par un chemin unique. Un graphe peut avoir des cycles, c'est-à-dire des chemins qui reviennent à leur point de départ.</p>
-<h2 id="types-de-graphes">Types de graphes<a class="headerlink" href="#types-de-graphes" title="Permanent link">¶</a></h2>
-<h3 id="forets">Forêts<a class="headerlink" href="#forets" title="Permanent link">¶</a></h3>
+<h2 id="types-de-graphes">Types de graphes<a class="headerlink" href="#types-de-graphes" title="Permanent link">¤</a></h2>
+<h3 id="forets">Forêts<a class="headerlink" href="#forets" title="Permanent link">¤</a></h3>
 <p>Un graphe sans cycle est appelé une forêt. Une forêt est un ensemble d'arbres. Un arbre est un graphe connexe sans cycle.</p>
-<h3 id="graphes-orientes">Graphes orientés<a class="headerlink" href="#graphes-orientes" title="Permanent link">¶</a></h3>
+<h3 id="graphes-orientes">Graphes orientés<a class="headerlink" href="#graphes-orientes" title="Permanent link">¤</a></h3>
 <p>Un graphe orienté est un graphe dont les arêtes ont une direction. Les graphes orientés sont utilisés pour modéliser des relations asymétriques. Par exemple, un graphe orienté peut être utilisé pour représenter un réseau de transport où les arêtes représentent des routes à sens unique.</p>
-<h3 id="graphes-ponderes">Graphes pondérés<a class="headerlink" href="#graphes-ponderes" title="Permanent link">¶</a></h3>
+<h3 id="graphes-ponderes">Graphes pondérés<a class="headerlink" href="#graphes-ponderes" title="Permanent link">¤</a></h3>
 <p>Un graphe pondéré est un graphe dont les arêtes ont un poids. Les graphes pondérés sont utilisés pour modéliser des relations quantitatives. Par exemple, un graphe pondéré peut être utilisé pour représenter un réseau de transport où les arêtes représentent des routes avec une longueur ou un coût associé.</p>
-<h3 id="graphes-bipartis">Graphes bipartis<a class="headerlink" href="#graphes-bipartis" title="Permanent link">¶</a></h3>
+<h3 id="graphes-bipartis">Graphes bipartis<a class="headerlink" href="#graphes-bipartis" title="Permanent link">¤</a></h3>
 <p>Un graphe biparti est un graphe dont les sommets peuvent être divisés en deux ensembles disjoints. Les arêtes d'un graphe biparti relient les sommets des deux ensembles. Les graphes bipartis sont utilisés pour modéliser des relations binaires. Par exemple, un graphe biparti peut être utilisé pour représenter des relations d'adjacence entre deux ensembles d'objets.</p>
-<h2 id="representation-des-graphes">Représentation des graphes<a class="headerlink" href="#representation-des-graphes" title="Permanent link">¶</a></h2>
+<h2 id="representation-des-graphes">Représentation des graphes<a class="headerlink" href="#representation-des-graphes" title="Permanent link">¤</a></h2>
 <p>Il existe plusieurs façons de représenter un graphe en mémoire. Les deux représentations les plus courantes sont les listes d'adjacence et les matrices d'adjacence.</p>
-<h3 id="liste-dadjacence">Liste d'adjacence<a class="headerlink" href="#liste-dadjacence" title="Permanent link">¶</a></h3>
+<h3 id="liste-dadjacence">Liste d'adjacence<a class="headerlink" href="#liste-dadjacence" title="Permanent link">¤</a></h3>
 <p>Dans une liste d'adjacence, chaque sommet est associé à une liste de ses voisins. Une liste d'adjacence est une structure de données dynamique qui permet d'ajouter et de supprimer des arêtes facilement. Cependant, elle nécessite plus de mémoire que les matrices d'adjacence.</p>
-<h3 id="matrice-dadjacence">Matrice d'adjacence<a class="headerlink" href="#matrice-dadjacence" title="Permanent link">¶</a></h3>
+<h3 id="matrice-dadjacence">Matrice d'adjacence<a class="headerlink" href="#matrice-dadjacence" title="Permanent link">¤</a></h3>
 <p>Dans une matrice d'adjacence, chaque sommet est associé à une ligne et une colonne de la matrice. La valeur de la case (i, j) de la matrice indique s'il existe une arête entre les sommets i et j. Une matrice d'adjacence est une structure de données statique qui permet de vérifier rapidement l'existence d'une arête. Cependant, elle nécessite plus de mémoire que les listes d'adjacence.</p>
-<h2 id="parcours-de-graphes">Parcours de graphes<a class="headerlink" href="#parcours-de-graphes" title="Permanent link">¶</a></h2>
+<h2 id="parcours-de-graphes">Parcours de graphes<a class="headerlink" href="#parcours-de-graphes" title="Permanent link">¤</a></h2>
 <p>Il existe plusieurs algorithmes pour parcourir un graphe. Les deux algorithmes les plus courants sont le parcours en profondeur (DFS) et le parcours en largeur (BFS).</p>
-<h3 id="dfs">DFS<a class="headerlink" href="#dfs" title="Permanent link">¶</a></h3>
+<h3 id="dfs">DFS<a class="headerlink" href="#dfs" title="Permanent link">¤</a></h3>
 <p>Le parcours en profondeur (Depth-First Search) est un algorithme récursif qui explore le graphe en profondeur. Il commence par un sommet de départ et explore tous les sommets accessibles depuis ce sommet avant de passer au suivant. L'algorithme DFS est utilisé pour trouver des cycles dans un graphe, pour vérifier la connexité d'un graphe, pour trouver des composantes fortement connexes, etc.</p>
-<h3 id="bfs">BFS<a class="headerlink" href="#bfs" title="Permanent link">¶</a></h3>
+<h3 id="bfs">BFS<a class="headerlink" href="#bfs" title="Permanent link">¤</a></h3>
 <p>Le parcours en largeur (Breadth-First Search) est un algorithme itératif qui explore le graphe en largeur. Il commence par un sommet de départ et explore tous les sommets à une distance k avant de passer à la distance k+1. L'algorithme BFS est utilisé pour trouver le plus court chemin entre deux sommets, pour trouver le nombre de composantes connexes, pour trouver le nombre de sommets à une distance donnée, etc.</p>
-<h3 id="dijkstra">Dijkstra<a class="headerlink" href="#dijkstra" title="Permanent link">¶</a></h3>
+<h3 id="dijkstra">Dijkstra<a class="headerlink" href="#dijkstra" title="Permanent link">¤</a></h3>
 <p>L'algorithme de Dijkstra est un algorithme qui permet de trouver le plus court chemin entre un sommet de départ et tous les autres sommets d'un graphe pondéré. L'algorithme de Dijkstra est basé sur le parcours en largeur et utilise une file de priorité pour explorer les sommets dans l'ordre croissant de leur distance par rapport au sommet de départ.</p>
 
 
@@ -4263,7 +4265,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4403,7 +4405,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>

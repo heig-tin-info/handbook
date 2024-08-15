@@ -6,7 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un manuel pour apprendre le langage C en partant de zéro.
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
 ">
       
       
@@ -107,8 +109,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CConsolas:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Consolas"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -214,7 +216,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -224,7 +226,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -3870,16 +3872,16 @@
   
 
 
-<h1 id="bash-ligne-de-commande">Bash (Ligne de commande)<a class="headerlink" href="#bash-ligne-de-commande" title="Permanent link">¶</a></h1>
+<h1 id="bash-ligne-de-commande">Bash (Ligne de commande)<a class="headerlink" href="#bash-ligne-de-commande" title="Permanent link">¤</a></h1>
 <p>La maîtrise de la ligne de commande n'est pas indispensable pour ce cours, mais la compréhension de quelques commandes est utile pour bien comprendre les exemples donnés.</p>
 <p>Dans un environnement <strong><abbr title="Portable Operating System Interface">POSIX</abbr></strong> l'interaction avec le système s'effectue pour la plupart du temps via un terminal. Le programme utilisé pour interagir avec le système d'exploitation est appelé un <a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_interpreter">interpréteur de commande</a>. Sous Windows vous utilisez le programme <code>cmd.exe</code> ou <code>PowerShell.exe</code>. Sous Linux vous utilisez très souvent un dérivé de <a href="https://en.wikipedia.org/wiki/Bourne_shell">Bourne shell</a> nom éponyme de <a href="https://en.wikipedia.org/wiki/Stephen_R._Bourne">Stephen Bourne</a> et apparu en 1979. La compatibilité est toujours maintenue aujourd'hui via son successeur <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a> dont le nom est un acronyme de <em>Bourne-again shell</em>.</p>
-<p>Bash est écrit en C et les sources sont naturellement disponibles sur internet. Lorsque vous lancez Bash, vous aurez un simple prompt&thinsp;:</p>
+<p>Bash est écrit en C et les sources sont naturellement disponibles sur internet. Lorsque vous lancez Bash, vous aurez un simple prompt :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">$</span>
 </span></code></pre></div>
-<p>Ce dernier vous invite à taper une commande laquelle est le plus souvent le nom d'un programme. Voici un exemple&thinsp;:</p>
+<p>Ce dernier vous invite à taper une commande laquelle est le plus souvent le nom d'un programme. Voici un exemple :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="gp">$ </span>cat<span class="w"> </span>foo.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>hexdump<span class="w"> </span>-C<span class="w"> </span>-n100
 </span></code></pre></div>
-<h2 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">¶</a></h2>
+<h2 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">¤</a></h2>
 <p>Pour naviguer dans l'arborescence, le programme <code>cd</code> est utilisé. Il est l'acronyme de <em>change directory</em>. Ce programme prend en argument un chemin relatif ou absolu.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/usr
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="go">/usr$ cd bin</span>
@@ -3889,8 +3891,8 @@
 </span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="go">/var/tmp$ cd</span>
 </span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="go">~$</span>
 </span></code></pre></div>
-<p>La dernière commande est singulière&thinsp;: si <code>cd</code> est appelé sans argument, il nous ramène dans notre répertoire personnel nommé <em>home</em> et abbrégé <code>~</code>.</p>
-<h2 id="affichage">Affichage<a class="headerlink" href="#affichage" title="Permanent link">¶</a></h2>
+<p>La dernière commande est singulière : si <code>cd</code> est appelé sans argument, il nous ramène dans notre répertoire personnel nommé <em>home</em> et abbrégé <code>~</code>.</p>
+<h2 id="affichage">Affichage<a class="headerlink" href="#affichage" title="Permanent link">¤</a></h2>
 <p>L'affichage du contenu courant de l'arborescence est possible avec le programme <code>ls</code> pour <em>list structure</em>.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gp">$ </span>ls<span class="w"> </span>/usr/bin/as*
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="go">/usr/bin/as                 /usr/bin/asciitopgm     /usr/bin/assistant</span>
@@ -3905,15 +3907,15 @@
 </span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="go">-rwxr-xr-x 1 root root 4.3M 2020-02-10 15:52 /usr/bin/asy</span>
 </span></code></pre></div>
 <p>On utilise souvent les options <code>a</code> (pour <em>all</em>) et <code>l</code> (pour <em>long</em>) permettant d'afficher les résultats avec plus de détails. Dans l'ordre on peut lire les permissions du fichier, le propriétaire, le groupe, la taille du fichier, sa date de dernière modification et enfin son nom.</p>
-<h2 id="pipe">Pipe<a class="headerlink" href="#pipe" title="Permanent link">¶</a></h2>
+<h2 id="pipe">Pipe<a class="headerlink" href="#pipe" title="Permanent link">¤</a></h2>
 <p>Le signe pipe <code>|</code> permet de rediriger le flux de sortie d'un programme vers le flux d'entrée d'un autre programme et ainsi les exécuter à la chaîne.</p>
-<p>% code-block&thinsp;::text
+<p>% code-block ::text
 %
-% $ echo «&thinsp;Bonjour&thinsp;» | cowsay</p>
+% $ echo « Bonjour » | cowsay</p>
 <p>Il se peut que vous souhaitiez rediriger la sortie d'erreur vers la sortie standard et ainsi concaténer les deux flux sur l'entrée standard d'un autre programme.</p>
-<p>% code-block&thinsp;::text
+<p>% code-block ::text
 %
-% $ echo «&thinsp;Bonjour&thinsp;» 2&gt;&amp;1 | cowsay</p>
+% $ echo « Bonjour » 2&gt;&amp;1 | cowsay</p>
 
 
 
@@ -3977,7 +3979,7 @@
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Cette page vous a-t-elle été utile ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
@@ -4117,7 +4119,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.1e90e0fb.min.js", "tags": {"bar": "Alice", "baz": "Eve", "foo": "Bob"}, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.4a1b0f67.min.js"></script>
