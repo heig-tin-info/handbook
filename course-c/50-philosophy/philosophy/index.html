@@ -2665,6 +2665,10 @@ les outils associés.
     
       
         
+          
+        
+      
+        
       
         
       
@@ -2683,8 +2687,10 @@ les outils associés.
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
         
           
-          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../45-project-management/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     
@@ -2697,8 +2703,14 @@ les outils associés.
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_10">
@@ -2710,6 +2722,8 @@ les outils associés.
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -2943,6 +2957,17 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
+  <a href="#ultracrepidarianisme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ultracrépidarianisme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#philosophie-de-conception" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3030,6 +3055,17 @@ les outils associés.
     <span class="md-ellipsis">
       
         L'odeur du code (code smell)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -3870,6 +3906,17 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
+  <a href="#ultracrepidarianisme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ultracrépidarianisme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#philosophie-de-conception" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3957,6 +4004,17 @@ les outils associés.
     <span class="md-ellipsis">
       
         L'odeur du code (code smell)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -4067,57 +4125,55 @@ les outils associés.
 
 
 <h1 id="philosophie">Philosophie<a class="headerlink" href="#philosophie" title="Permanent link">¤</a></h1>
-<p>La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur. Les vaudois l'appelant parfois : <strong>le bon sens paysan</strong> comme l'aurait sans doute confirmé feu <a href="https://fr.wikipedia.org/wiki/Jean_Villard">Jean Villard dit Gilles</a>.</p>
+<p>La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur. Les vaudois l'appelant parfois : <strong>le bon sens paysan</strong> comme l'aurait sans doute confirmé  <a href="https://fr.wikipedia.org/wiki/Jean_Villard">Jean Villard dit Gilles</a>.</p>
 <h2 id="rasoir-dockham">Rasoir d'Ockham<a class="headerlink" href="#rasoir-dockham" title="Permanent link">¤</a></h2>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/razor.jpg"><img alt="Illustration humoristique du rasoir d'Ockham" src="../../../assets/images/razor.jpg"/></a><figcaption> Illustration humoristique du rasoir d'Ockham</figcaption></figure></p>
-<p>Le <a href="https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham">rasoir d'Ockham</a> expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise <a href="https://en.wikipedia.org/wiki/Les_Shadoks">Shadok</a> : « Pourquoi faire simple quand on peut faire compliqué ? »</p>
-<p>En philosophie un <a href="https://fr.wikipedia.org/wiki/Rasoir_(philosophie)">rasoir</a> est un principe qui permet de <em>raser</em> des explications improbables d'un phénomène. Ce principe tient son nom de Guillaume d'Ockham (XIVe siècle) alors qu'il date probablement d'Empédocle (Ἐμπεδοκλῆς) vers 450 av. J.-C.</p>
-<p>Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent le développeur de la noyade, car un programme peut rester simple, quelle que soit sa taille et si chaque strate de conception reste évidente et compréhensible pour celui qui chercherait à contribuer au projet d'autrui.</p>
+<p>Le <a href="https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham">rasoir d'Ockham</a> expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise <a href="https://en.wikipedia.org/wiki/Les_Shadoks">Shadok</a>, non sans une pointe d'ironie : « Pourquoi faire simple quand on peut faire compliqué ? »</p>
+<p>En philosophie, un <a href="https://fr.wikipedia.org/wiki/Rasoir_(philosophie)">rasoir</a> est une méthode heuristique visant à éliminer les explications invraisemblables d'un phénomène donné. Ce principe tire son nom de Guillaume d'Ockham, un penseur du XIVe siècle, bien que son origine remonte probablement à Empédocle (Ἐμπεδοκλῆς), aux environs de 450 avant J.-C.</p>
+<p>Ce principe trouve une résonance particulière en programmation, domaine où le développeur ne peut appréhender la totalité d'un logiciel, intrinsèquement insaisissable à l'œil humain. Seuls la simplicité et l'art de la conception logicielle peuvent le préserver du chaos, car un programme, quel qu'en soit l'envergure, peut demeurer limpide pour peu que chaque strate de son architecture reste claire et intelligible pour quiconque souhaiterait contribuer à l'œuvre d'autrui.</p>
 <h2 id="leffet-dunning-kruger">L'effet Dunning-Kruger<a class="headerlink" href="#leffet-dunning-kruger" title="Permanent link">¤</a></h2>
-<p>L'<a href="https://fr.wikipedia.org/wiki/Effet_Dunning-Kruger">effet Dunning-Kruger</a> est un biais cognitif qui se manifeste par une surestimation des compétences d'une personne. Les personnes les moins compétentes dans un domaine ont tendance à surestimer leurs compétences, tandis que les personnes les plus compétentes ont tendance à les sous-estimer.</p>
+<p>L' est un biais cognitif qui se manifeste par une surestimation des compétences d'une personne. Les personnes les moins compétentes dans un domaine ont tendance à surestimer leurs compétences, tandis que les personnes les plus compétentes ont tendance à les sous-estimer.</p>
+<p>L'effet <a href="https://fr.wikipedia.org/wiki/Effet_Dunning-Kruger">Dunning-Kruger</a> est un biais cognitif où les individus tendent à surestimer leurs compétences. Paradoxalement, ce sont les moins expérimentés dans un domaine qui s'illusionnent le plus sur leurs capacités, tandis que les experts, eux, ont tendance à sous-évaluer leur maîtrise.</p>
 <p><figure id="_figure-2"><img alt="Illustration satirique de l'effet Dunning-Kruger" class="drawio-diagram" src="../../../assets/images/dunning-kruger.drawio"/><figcaption> Illustration satirique de l'effet Dunning-Kruger</figcaption></figure></p>
-<p>J'ai vu bien souvent chez mes étudiants et collègues ce biais de surconfiance, et je l'ai moi-même expérimenté. Il est difficile de se rendre compte de son propre niveau de compétence, et il est souvent nécessaire de se confronter à des pairs pour se rendre compte de ses lacunes. Soumettre son code à la critique est par bien des égard une perspective effrayante, mais c'est aussi une source d'enrichissement inestimable.</p>
+<p>J'ai souvent observé ce biais de surconfiance chez mes étudiants et collègues, et je n'en ai pas été exempt moi-même. Il est en effet difficile de jauger avec précision son propre niveau de compétence, et ce n'est qu'en se confrontant au regard critique de ses pairs que l'on prend véritablement conscience de ses lacunes. Soumettre son code à l'examen d'autrui peut être une démarche intimidante, mais elle s'avère être une source d'enrichissement inestimable.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>L'effet Dunning-Kruger ne fait pas consensus au sein de la communauté scientifique, mais il est souvent cité en psychologie populaire.</p>
 </div>
+<h2 id="ultracrepidarianisme">Ultracrépidarianisme<a class="headerlink" href="#ultracrepidarianisme" title="Permanent link">¤</a></h2>
+<p>L'<a href="https://fr.wikipedia.org/wiki/Ultracr%C3%A9pidarianisme">ultracrépidarianisme</a>, terme rare mais puissant, désigne l'art de s'exprimer avec assurance sur des sujets que l'on ne maîtrise guère. Ce phénomène, aussi ancien que la parole elle-même, se manifeste lorsque des individus, ignorants des nuances et des subtilités d'un domaine, s'érigent en experts. Étienne Klein, physicien et philosophe des sciences, a popularisé ce mot en France, mettant en garde contre les dangers de cette posture, notamment à l'époque du Covid-19, où les voix des véritables spécialistes furent souvent noyées par le vacarme de ceux qui, en sachant moins, parlaient davantage.</p>
+<p>Dans le domaine de l'informatique, ce travers est particulièrement prégnant. Les développeurs, en première ligne de la complexité technique, se voient fréquemment dictés leur conduite par ceux qui ne partagent ni leur expertise ni leur compréhension des enjeux. Directeurs, managers, clients – tous s'autorisent à émettre des avis, à imposer des choix, souvent au mépris des réalités techniques. Cette immixtion, loin d'être anodine, est une source constante de frustration. Pire encore, elle peut mener à des désastres techniques, notamment lorsque des décisions mal avisées entraînent une accumulation de dette technique, cette gangrène silencieuse du code que l'on reporte de corriger, jusqu'au jour où l'effort nécessaire pour la résorber devient titanesque, voire impossible.</p>
+<p>Ainsi, l'ultracrépidarianisme, en s'infiltrant dans les rouages du développement logiciel, menace l'équilibre délicat entre création et rigueur, innovation et solidité. Il est un rappel de l'importance de la modestie, de la nécessité d'écouter ceux qui savent, et de la sagesse qu'il y a à reconnaître ses propres limites.</p>
 <h2 id="philosophie-de-conception">Philosophie de conception<a class="headerlink" href="#philosophie-de-conception" title="Permanent link">¤</a></h2>
-<p>Ces principes sont des lignes directrices aidant le développeur à organiser son code pour le rendre plus lisible, plus maintenable, et moins sensible aux erreurs humaines.</p>
-<p>Il ne suffit pas d'avoir un programme qui fonctionne, et un supérieur hiérarchique heureux, l'attitude du programmeur transcende l'acte singulier de coder. Cette état d'esprit ne s'enseigne pas, elle vient avec l'exérience.</p>
-<p>Voici les quatre principes les plus connus :</p>
-<div class="grid cards">
-<ul>
-<li>
-<p><strong>DRY</strong> <a class="autorefs autorefs-internal" href="#dry_1">Ne vous répétez pas.</a></p>
-<hr/>
-<p><em>Do not repeat yourself.</em></p>
-</li>
-<li>
-<p><strong>KISS</strong> <a class="autorefs autorefs-internal" href="#kiss_1">Restez simple, stupide.</a></p>
-<hr/>
-<p><em>Keep it simple, stupid.</em></p>
-<hr/>
-</li>
-<li>
-<p><strong>SSOT</strong> <a class="autorefs autorefs-internal" href="#ssot_1">Une seule source de vérité.</a></p>
-<hr/>
-<p><em>Single source of truth.</em></p>
-</li>
-<li>
-<p><strong>YAGNI</strong> <a class="autorefs autorefs-internal" href="#yagni_1">Vous n'en aurez pas besoin.</a></p>
-<hr/>
-<p><em>You ain't gonna need it.</em></p>
-</li>
-</ul>
-</div>
+<p>Ces principes constituent des lignes directrices essentielles pour aider le développeur à structurer son code de manière à le rendre plus lisible, plus maintenable et moins susceptible de contenir des erreurs humaines.</p>
+<p>Il ne suffit pas qu'un programme fonctionne correctement ou qu'il satisfasse les attentes d'un supérieur hiérarchique ; l'attitude du programmeur va bien au-delà du simple acte de coder. Cet état d'esprit ne s'enseigne pas, il s'acquiert avec l'expérience.</p>
+<p>Voici les quatre principes les plus emblématiques :</p>
+<dl>
+<dt>DRY</dt>
+<dd>
+<p><a class="autorefs autorefs-internal" href="#dry_1">Ne vous répétez pas.</a> (<em>Do not repeat yourself.</em>)</p>
+</dd>
+<dt>KISS</dt>
+<dd>
+<p><a class="autorefs autorefs-internal" href="#kiss_1">Restez simple, stupide.</a> (<em>Keep it simple, stupid.</em>)</p>
+</dd>
+<dt>SSOT</dt>
+<dd>
+<p><a class="autorefs autorefs-internal" href="#ssot_1">Une seule source de vérité.</a> (<em>Single source of truth.</em>)</p>
+</dd>
+<dt>YAGNI</dt>
+<dd>
+<p><a class="autorefs autorefs-internal" href="#yagni_1">Vous n'en aurez pas besoin.</a> (<em>You ain't gonna need it.</em>)</p>
+</dd>
+</dl>
 <p><a href="" id="dry"></a></p>
 <h3 id="dry_1">DRY<a class="headerlink" href="#dry_1" title="Permanent link">¤</a></h3>
-<p><strong>Ne vous répétez pas</strong> (<em>Don't Repeat Yourself</em>)! Je répète, <strong>ne vous répétez pas</strong> ! Il s'agit d'une philosophie de développement logiciel évitant la <a href="https://fr.wikipedia.org/wiki/Duplication_de_code">redondance de code</a>. L'excellent livre <a href="https://en.wikipedia.org/wiki/The_Pragmatic_Programmer">The Pragmatic Programmer</a> de Andrew Hunt et David Thomas décrit cette philosophie en ces termes :</p>
+<p><strong>Ne vous répétez pas</strong> (<em>Don't Repeat Yourself</em>) ! Je le répète : <strong>ne vous répétez pas</strong> ! Ce principe fondamental du développement logiciel vise à éviter la <a href="https://fr.wikipedia.org/wiki/Duplication_de_code">redondance de code</a>. Dans leur ouvrage incontournable, <a href="https://en.wikipedia.org/wiki/The_Pragmatic_Programmer">The Pragmatic Programmer</a>, Andrew Hunt et David Thomas le formulent ainsi :</p>
 <blockquote>
-<p>Dans un système, toute connaissance doit avoir une représentation unique, non ambiguë, faisant autorité.</p>
+<p>Dans un système, toute connaissance doit avoir une représentation unique, non ambiguë et faisant autorité.</p>
 </blockquote>
-<p>En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> ( <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-c">C</kbd></span> ) suivi de <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-v">V</kbd></span> ( <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-v">V</kbd></span> ). Dupliquez du code et, quelle que soit l'envergure de texte concerné est <strong>toujours</strong> une mauvaise pratique, car c'est le plus souvent le signe évident d'un <a href="https://fr.wikipedia.org/wiki/Code_smell">code smell</a> indiquant que le code peut être simplifié et optimisé.</p>
-<p>Le code suivant comprend une erreur <strong>DRY</strong> car la fonction display est appelée deux fois. Dans les deux cas de figure, la fonction <code>display</code> reçoit un pointeur sur un fichier, il est donc possible de simplifier ce code.</p>
+<p>En d'autres termes, le programmeur doit rester constamment vigilant, prêt à entendre une alarme mentale, rouge, vive et bruyante dès qu'il s'apprête à utiliser la combinaison <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> (ou <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-c">C</kbd></span>), suivie de <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-v">V</kbd></span> (ou <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-v">V</kbd></span>). Dupliquer du code, quelle que soit la quantité, est <strong>toujours</strong> une mauvaise pratique, car cela trahit souvent un <a href="https://fr.wikipedia.org/wiki/Code_smell">code smell</a>, signal évident que le code pourrait être simplifié et optimisé.</p>
+<p>L'exemple de code suivant présente une violation du principe <strong>DRY</strong> : la fonction <code>display</code> est appelée deux fois. Dans les deux cas, elle reçoit un pointeur sur un fichier, ce qui indique qu'une simplification est possible.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">"r"</span><span class="p">);</span>
@@ -4205,7 +4261,6 @@ les outils associés.
 </li>
 </ul>
 <h2 id="zen-de-python">Zen de Python<a class="headerlink" href="#zen-de-python" title="Permanent link">¤</a></h2>
-<p>Python est un langage de programmation qui devient très populaire, il est certes moins performant que C, mais il se veut être de très haut niveau.</p>
 <p>Le <a href="https://fr.wikipedia.org/wiki/Zen_de_Python">Zen de Python</a> est un ensemble de 19 principes publiés en 1999 par Tim Peters. Largement accepté par la communauté de développeurs et il est connu sous le nom de <strong>PEP 20</strong>.</p>
 <p>Voici le texte original anglais :</p>
 <blockquote>
@@ -4232,8 +4287,9 @@ Namespaces are one honking great idea—let's do more of those !<br/></p>
 <p>Un code est meilleur s'il est beau, esthétique, que les noms des variables, l'alignement et la mise en forme sont cohérents et forment une unité.</p>
 <p>Un code se doit être explicite, et réellement traduire l'intention du développeur. Il est ainsi préférable d'écrire <code class="language-c highlight"><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span></code> plutôt que <code class="language-c highlight"><span class="n">u</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="mi">2</span></code>. De la même manière, détecter si un nombre est pair est plus explicite avec <code class="language-c highlight"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span></code> que <code class="language-c highlight"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span></code>.</p>
 <h2 id="the-code-taste">The code taste<a class="headerlink" href="#the-code-taste" title="Permanent link">¤</a></h2>
-<p>Dans une <a href="https://www.ted.com/talks/linus_torvalds_the_mind_behind_linux">conférence</a> TED en 2016, le créateur de Linux, Linus Torvald évoqua un principe nommé <em>code taste</em> traduisible par <em>avoir du goût pour le code</em>.</p>
-<p>Il évoqua l'exemple C suivant et demanda à l'auditoire si ce code est de bon goût :</p>
+<p>Voici une version améliorée de votre texte, en tenant compte du style que vous appréciez :</p>
+<p>Lors d'une <a href="https://www.ted.com/talks/linus_torvalds_the_mind_behind_linux">conférence TED</a> en 2016, le créateur de Linux, Linus Torvalds, introduisit un concept qu'il nomma <em>code taste</em>, que l'on pourrait traduire par <em>le goût du code</em>.</p>
+<p>Il présenta l'exemple de code C suivant, interrogeant son auditoire sur le fait de savoir si ce code était de bon goût :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">remove_list_entry</span><span class="p">(</span><span class="n">List</span><span class="o">*</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="n">Entry</span><span class="o">*</span><span class="w"> </span><span class="n">entry</span><span class="p">)</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="p">{</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="n">Entry</span><span class="o">*</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
@@ -4250,13 +4306,13 @@ Namespaces are one honking great idea—let's do more of those !<br/></p>
 </span><span id="__span-9-14"><a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">        </span><span class="n">prev</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
 </span><span id="__span-9-15"><a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Il répondit que ce code est de mauvais goût, qu'il est <em>vilain</em> et <em>moche</em>, car ce test placé après la boucle <code>while</code> jure avec le reste du code et que parce que ce code semble laid, il doit y avoir une meilleure implémentation de meilleur goût. On dit dans ce cas de figure que le code <em>sent</em>, ce test est de trop, et il doit y avoir un moyen d'éviter de traiter un cas particulier en utilisant un algorithme meilleur.</p>
-<p>Enlever un élément d'une liste chaînée nécessite de traiter deux cas :</p>
+<p>Torvalds répondit sans détour que ce code était de mauvais goût, le qualifiant de <em>vilain</em> et <em>moche</em>. En effet, ce test placé après la boucle <code>while</code> dénote par rapport au reste du code. Cette dissonance esthétique suggère qu'il existe une implémentation plus élégante, car lorsque le code paraît laid, il y a fort à parier qu'une solution de meilleur goût peut être trouvée. On dit dans ces cas-là que le code <em>sent</em> : ce test est superflu, et il doit exister une manière d'éviter de traiter un cas particulier en choisissant un algorithme mieux conçu.</p>
+<p>En réalité, retirer un élément d'une liste chaînée requiert de gérer deux cas distincts :</p>
 <ul>
-<li>Si l'élément est au début de la liste, il faut modifier <code>head</code></li>
-<li>Sinon il faut modifier l'élément précédent <code>prev-&gt;next</code></li>
+<li>Si l'élément se trouve au début de la liste, il faut ajuster le pointeur <code>head</code>.</li>
+<li>Dans le cas contraire, il convient de modifier <code>prev-&gt;next</code>.</li>
 </ul>
-<p>Après avoir longuement questionné l'auditoire, il présente cette nouvelle implémentation :</p>
+<p>Après avoir questionné l'auditoire, Torvalds dévoila une nouvelle implémentation :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">remove_list_entry</span><span class="p">(</span><span class="n">List</span><span class="o">*</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="n">Entry</span><span class="o">*</span><span class="w"> </span><span class="n">entry</span><span class="p">)</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="p">{</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="n">Entry</span><span class="o">**</span><span class="w"> </span><span class="n">indirect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">head</span><span class="p">;</span>
@@ -4267,9 +4323,9 @@ Namespaces are one honking great idea—let's do more of those !<br/></p>
 </span><span id="__span-10-8"><a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="o">*</span><span class="n">indirect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
 </span><span id="__span-10-9"><a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>La fonction originale de 10 lignes de code a été réduite à 4 lignes et bien que le nombre de lignes compte moins que la lisibilité du code, cette nouvelle implémentation élimine le traitement des cas d'exception en utilisant un adressage indirect beaucoup plus élégant.</p>
-<p>Néanmoins, le néophyte en programmation C pourrait être dérouté par l'usage de double pointeurs et trouverait que la première implémentation est plus lisible. Cela souligne l'importance de la connaissance des structures de données et des algorithmes pour écrire du code de qualité, on ne s'improvise pas développeur : c'est un art.</p>
-<p>Un autre exemple similaire et plus simple à comprendre est présenté par Brian Barto sur un article publié sur <a href="https://medium.com/@bartobri/applying-the-linus-tarvolds-good-taste-coding-requirement-99749f37684a">Medium</a>. Il donne l'exemple de l'initialisation à zéro de la bordure d'un tableau bidimensionnel :</p>
+<p>La fonction originellement étalée sur dix lignes est désormais réduite à quatre. Bien que le nombre de lignes importe moins que la lisibilité, cette nouvelle version élimine la gestion des cas particuliers grâce à un adressage indirect beaucoup plus raffiné.</p>
+<p>Cependant, un programmeur novice en C pourrait être déconcerté par l'emploi des doubles pointeurs et juger la première version plus lisible. Cela illustre à quel point la connaissance des structures de données et des algorithmes est cruciale pour écrire du code de qualité : on ne s'improvise pas développeur, c'est un art qui demande patience et apprentissage.</p>
+<p>Un exemple similaire, plus accessible, est présenté par Brian Barto dans un article publié sur <a href="https://medium.com/@bartobri/applying-the-linus-tarvolds-good-taste-coding-requirement-99749f37684a">Medium</a>. Il y discute de l'initialisation à zéro de la bordure d'un tableau bidimensionnel :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">GRID_SIZE</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">row</span><span class="p">)</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="p">{</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">GRID_SIZE</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">col</span><span class="p">)</span>
@@ -4306,34 +4362,41 @@ Namespaces are one honking great idea—let's do more of those !<br/></p>
 </span></code></pre></div>
 <h2 id="lodeur-du-code-code-smell">L'odeur du code (<em>code smell</em>)<a class="headerlink" href="#lodeur-du-code-code-smell" title="Permanent link">¤</a></h2>
 <p>Un code <em>sent</em> si certains indicateurs sont au rouge. On appelle ces indicateurs des <a href="https://fr.wikipedia.org/wiki/Antipattern">antipatterns</a>. Voici quelques indicateurs les plus courants :</p>
-<ul>
-<li>
-<p><strong>Mastodonte</strong> Une fonction est plus longue qu'un écran de haut (~50 lignes)</p>
-</li>
-<li>
+<dl>
+<dt><strong>Mastodonte</strong></dt>
+<dd>
+<p>Une fonction est plus longue qu'un écran de haut (~50 lignes)</p>
+</dd>
+<dt><strong>Titan</strong></dt>
+<dd>
 <p>Un fichier est plus long que <strong>1000 lignes</strong>.</p>
-</li>
-<li>
-<p><strong>Ligne Dieu</strong>, une ligne beaucoup trop longue et <em>de facto</em> illisible.</p>
-</li>
-<li>
+</dd>
+<dt><strong>Ligne Dieu</strong></dt>
+<dd>
+<p>Une ligne beaucoup trop longue et <em>de facto</em> illisible.</p>
+</dd>
+<dt><strong>Usine à gaz</strong></dt>
+<dd>
 <p>Une fonction à plus de <strong>trois</strong> paramètres</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">make_coffee</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mouture</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cup_size</span><span class="p">,</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">with_milk</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">cow_milk</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">number_of_sugars</span><span class="p">);</span>
 </span></code></pre></div>
-</li>
-<li>
-<p><strong>Copier coller</strong>, du code est dupliqué</p>
-</li>
-<li>
+</dd>
+<dt><strong>Miroir magique</strong></dt>
+<dd>
+<p>Du code est dupliqué. Du code est dupliqué.</p>
+</dd>
+<dt><strong>Pamphlets touristiques</strong></dt>
+<dd>
 <p>Les commentaires expliquent le comment du code et non le pourquoi</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="c1">// Additionne une constante avec une autre pour ensuite l'utiliser</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cst</span><span class="p">);</span>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">u</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mf">1.11123445143</span><span class="p">;</span><span class="w"> </span><span class="c1">// division par une constante inférieure à 2</span>
 </span></code></pre></div>
-</li>
-<li>
-<p><strong>Arbre de Noël</strong>, plus de deux structures de contrôles sont impliquées</p>
+</dd>
+<dt><strong>Arbre de Noël</strong></dt>
+<dd>
+<p>plus de deux structures de contrôles sont impliquées</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4344,9 +4407,10 @@ Namespaces are one honking great idea—let's do more of those !<br/></p>
 </span><span id="__span-15-8"><a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-15-9"><a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="p">}</span>
 </span></code></pre></div>
-</li>
-<li>
-<p>Usage de <code>goto</code></p>
+</dd>
+<dt><strong>Téléportation sauvage</strong></dt>
+<dd>
+<p>Usage de <code>goto</code>, où quand le code saute d'un endroit à l'autre sans logique apparente.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nl">loop</span><span class="p">:</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
@@ -4361,46 +4425,60 @@ Namespaces are one honking great idea—let's do more of those !<br/></p>
 </span><span id="__span-16-12"><a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">happy</span><span class="p">;</span>
 </span><span id="__span-16-13"><a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="nl">end</span><span class="p">:</span>
 </span></code></pre></div>
-</li>
-<li>
+</dd>
+<dt><strong>Jumeaux diaboliques</strong></dt>
+<dd>
 <p>Plusieurs variables avec des noms très similaires</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">advice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">advise</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
 </span></code></pre></div>
-</li>
-<li>
-<p><strong>Action à distance</strong> par l'emploi immodéré de variables globales</p>
+</dd>
+<dt><strong>Action à distance</strong></dt>
+<dd>
+<p>Une fonction qui tire les ficelles à distance grâce aux variables globales.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">make_coffee</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="n">powerup_nuclear_reactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="n">number_of_coffee_beans_to_harvest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">62</span><span class="p">;</span>
 </span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">    </span><span class="p">...</span>
 </span><span id="__span-18-5"><a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="p">}</span>
 </span></code></pre></div>
-</li>
-<li>
-<p><strong>Ancre de bateau</strong>, un composant inutilisé, mais gardé dans le logiciel pour des raisons politiques (YAGNI)</p>
-</li>
-<li>
-<p><strong>Cyclomatisme aigu</strong>, quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple</p>
-</li>
-<li>
-<p><strong>Attente active</strong>, une boucle qui ne contient qu'une instruction de test, attendant la condition</p>
+</dd>
+<dt><strong>Ancre de bateau</strong></dt>
+<dd>
+<p>Un composant inutilisé, mais gardé dans le logiciel pour des raisons politiques (YAGNI)</p>
+</dd>
+<dt><strong>Cyclomatisme aigu</strong></dt>
+<dd>
+<p>Quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple</p>
+</dd>
+<dt><strong>Attente active</strong></dt>
+<dd>
+<p>Une boucle qui ne contient qu'une instruction de test, attendant la condition</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">finished</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="p">}</span>
 </span></code></pre></div>
-</li>
-<li>
-<p><strong>Objet divin</strong> quand un composant logiciel assure trop de fonctions essentielles (KISS)</p>
-</li>
-<li>
-<p><strong>Coulée de lave</strong> lorsqu'un code immature est mis en production</p>
-<p>En novembre 1990 à 14h25, la société AT&amp;T effecue une mise à jour de son   réseau téléphonique. Un bug dans le code de mise à jour provoque un crash du   réseau entraînant une interruption de service de 9 heures affectant quelque   50 millions d'appels et coûtant à l'entreprise 60 millions de dollars. (Source : <a href="https://users.csc.calpoly.edu/~jdalbey/SWE/Papers/att_collapse">The 1990 AT&amp;T Long Distance Network Collapse</a>)</p>
-</li>
-<li>
-<p><strong>Chirurgie au fusil de chasse</strong> quand l'ajout d'une fonctionnalité logicielle demande des changements multiples et disparates dans le code (<a href="https://en.wikipedia.org/wiki/Shotgun_surgery">Shotgun surgery</a>).</p>
-</li>
-</ul>
+</dd>
+<dt><strong>Objet divin</strong></dt>
+<dd>
+<p>Quand un composant logiciel assure trop de fonctions essentielles (KISS)</p>
+</dd>
+<dt><strong>Coulée de lave</strong></dt>
+<dd>
+<p>Lorsqu'un code immature est mis en production</p>
+</dd>
+</dl>
+<p>En novembre 1990 à 14h25, la société AT&amp;T effecue une mise à jour de son   réseau téléphonique. Un bug dans le code de mise à jour provoque un crash du réseau entraînant une interruption de service de 9 heures affectant quelque 50 millions d'appels et coûtant à l'entreprise 60 millions de dollars. (Source : <a href="https://users.csc.calpoly.edu/~jdalbey/SWE/Papers/att_collapse">The 1990 AT&amp;T Long Distance Network Collapse</a>)</p>
+<dl>
+<dt><strong>Chirurgie au fusil de chasse</strong></dt>
+<dd>
+<p>Quand l'ajout d'une fonctionnalité logicielle demande des changements multiples et disparates dans le code (<a href="https://en.wikipedia.org/wiki/Shotgun_surgery">Shotgun surgery</a>).</p>
+</dd>
+</dl>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¤</a></h2>
+<p>La quête d'un code de qualité repose sur des principes philosophiques et méthodologiques essentiels. Le <strong>rasoir d'Ockham</strong> encourage la simplicité en éliminant les éléments superflus, tandis que l'<strong>effet Dunning-Kruger</strong> met en garde contre la surestimation de ses compétences, rappelant l'importance de la remise en question et du retour critique. Des doctrines telles que <strong>DRY</strong> (ne vous répétez pas), <strong>KISS</strong> (restez simple), <strong>SSOT</strong> (une seule source de vérité) et <strong>YAGNI</strong> (vous n'en aurez pas besoin) guident le développeur vers une conception épurée et efficace.</p>
+<p>Le <strong>Zen de Python</strong> illustre cette philosophie par dix-neuf aphorismes valorisant la beauté, la lisibilité et la simplicité du code. Linus Torvalds, créateur de Linux et de Git, a souligné l'importance du <em>code taste</em> ou « goût du code », démontrant qu'une implémentation élégante résulte souvent d'une réflexion profonde sur les structures de données et les algorithmes, plutôt que d'une complexité inutile.</p>
+<p>Enfin, reconnaître et éviter les <strong>odeurs de code</strong> (<em>code smells</em>), ces indicateurs de mauvaise conception comme les fonctions tentaculaires, les duplications ou les commentaires mal pensés, est crucial. En identifiant ces <em>antipatterns</em> — qu'ils se manifestent sous la forme d'un « Arbre de Noël » de structures conditionnelles imbriquées ou d'une « Téléportation sauvage » via des <code>goto</code> intempestifs—le développeur s'assure de produire un code maintenable, clair et performant.</p>
 
 
 
@@ -4423,7 +4501,7 @@ Namespaces are one honking great idea—let's do more of those !<br/></p>
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 7, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
   </span>
 
     
