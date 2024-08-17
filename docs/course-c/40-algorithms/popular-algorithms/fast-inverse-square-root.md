@@ -1,12 +1,12 @@
 # Racine carrée inverse rapide
 
-![Quake III Arena]({assets}/images/quake-iii-arena.jpg)
+![Quake III Arena](/assets/images/quake-iii-arena.jpg)
 
 Cet algorithme a été développé chez Silicon Graphics au début des années 90. Il a été utilisé dans des jeux vidéos comme [Quake III Arena](https://fr.wikipedia.org/wiki/Quake_III_Arena) pour améliorer la performance du calcul des angles d'incidence dans la réflexion des lumières et est attribué à John Carmack, un des fondateurs de [id Software](https://fr.wikipedia.org/wiki/Id_Software), qui a publié le code source de Quake III Arena en 2005.
 
 Il est utilisé pour les vecteurs normaux dans les calculs de réflexion de la lumière.
 
-![Réflexion de la lumière]({assets}/images/vector-field.svg)
+![Réflexion de la lumière](/assets/images/vector-field.svg)
 
 ```c
 float Q_rsqrt(float number)

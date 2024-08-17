@@ -51,7 +51,7 @@ En 1991 naît un éditeur de code qui va révolutionner le monde de la programma
 
 Puisque nous nommons Vim, nous devons aussi nommer Emacs. Le rival de Vim. Emacs est un éditeur de code qui est aussi très puissant mais il semble moins utilisé de nos jours. Vim comme Emacs sont disponibles sur tous les systèmes d'exploitation.
 
-![Guerre d'éditeurs]({assets}/images/vim-vs-emacs.png)
+![Guerre d'éditeurs](/assets/images/vim-vs-emacs.png)
 
 Nous ferons l'impasse sur d'autres éditeurs qui ont été populaires en leurs temps, mais qui sont technologiquement dépassés : TextPad, UltraEdit, Sublime Text, Atom, NotePad++... Le grand gagnant de ces dernières années est Visual Studio Code, un éditeur de code qui est très puissant, qui est très utilisé de nos jours, et qui est aussi disponible sur tous les systèmes d'exploitation.
 
@@ -164,7 +164,7 @@ L'ensemble des outils nécessaire à créer un produit logiciel est appelé cha�
 
 Figure: Représentation graphique des notions de compilateur, IDE, toolchain...
 
-![Notions de compilateur, IDE, toolchain...]({assets}/images/toolchain.drawio)
+![Notions de compilateur, IDE, toolchain...](/assets/images/toolchain.drawio)
 
 
 !!! exercise "Eclipse"

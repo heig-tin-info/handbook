@@ -50,6 +50,76 @@ Puis pour lancer le développement :
 poetry install
 poetry run mkdocs serve
 ```
+## Hooks
+
+### French
+
+- Adds a thin space before `:`, `;`, `!`, `?`, `»`, `«`, `)` and `!`.
+- Adds a thin space after `«`, `(`, `!` and `?`.
+- Adds a non-breaking space after `n°`, `N°`, `§`, `art.`, `p.`, `pp.`, `chap.`, `fig.`, `tab.`, `eq.`, `cf.`, `c.-à-d.`, `c.-à-p.`, `c.-à-s.`, `d.-à-d.`, `d.-à-g.`, `d.-à-v.`, `l.-à-d.`, `l.-à-g.`.
+- Translate admonitions to french.
+- Change the default bullet list marker `•` to `-`.
+- Warns about missing ligatures
+
+### Wiki
+
+- Fetch from Wikipedia links, thumbnails and extracts
+- Provide popup on Wikipedia links
+- Provide transformer for LaTeX plugin
+
+### Unicode and Regex
+
+- Adds rounded box around regexes identified with `#!re s/a/b/i` or `#!re /a/sx`
+- Adds links to regex101.com`
+- Adds rounded box around unicode characters identified with U+abcd
+- Adds links to unicode site.
+- Provide transformer for LaTeX plugin
+
+### SpanTable
+
+- Adds directive to horizontal span cells in tables {sh3}
+- Adds directive to vertical span cells in tables {sv3}
+- Adds directive to change border in tables {br0} {bl2}...
+- Provide transformer for LaTeX plugin
+
+### Mermaid
+
+- Extract title from mermaid code as figure caption
+- Provide transformer for LaTeX plugin
+
+````md
+```mermaid
+---
+title: "Figure title"
+---
+graph TD
+    A[Square Rect] -- Link text --> B((Circle))
+    A --> C(Round Rect)
+    B --> D{Rhombus}
+    C --> D
+```
+````
+
+### Drawio
+
+- Render drawio figures directly in the browser
+- Support for MkDocs Material theme default/slate layouts by overriding the `mxgraph` colors
+- Provide transformer for LaTeX plugin
+
+### AbsoluteIsRelative
+
+- Absolute links are relative to somewhere
+- By default relative to docs directory
+- It can be configured
+    ```yaml
+    plugins:
+      - absolute-is-relative:
+          enabled: Bool
+          path: docs/
+          ignore_patterns:
+            - ^/usr/src
+    ```
+
 
 ## References
 

@@ -9,7 +9,7 @@ Ce chapitre se concentre sur quatre caractéristiques d'une variable :
 
 Dans les quatre cas, elles décrivent l'accessibilité, c'est à dire jusqu'à ou jusqu'à quand une variable est accessible, et de quelle manière
 
-![Brouillard matinal sur le Golden Gate Bridge, San Francisco]({assets}/images/visibility.jpg)
+![Brouillard matinal sur le Golden Gate Bridge, San Francisco](/assets/images/visibility.jpg)
 
 ## Espace de nommage
 

@@ -12,7 +12,7 @@ Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un program
 
 Figure: Programmeuse en tenue décontractée à côté de 62'500 cartes perforées
 
-![Programmeuse à côté de cartes perforées]({assets}/images/vintage-programmer.jpg){width="60%"}
+![Programmeuse à côté de cartes perforées](/assets/images/vintage-programmer.jpg){width="60%"}
 
 ### Code source
 
@@ -139,7 +139,7 @@ Ainsi qu'à des sorties :
 
 La figure suivante résume les interactions qu'un programme peut avoir sur son environnement. Les appels système ([syscall](https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me)) sont des ordres transmis directement au système d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.
 
-![Résumé des interactions avec un programme]({assets}/images/program.drawio)
+![Résumé des interactions avec un programme](/assets/images/program.drawio)
 
 [](){#signals}
 ### Signaux

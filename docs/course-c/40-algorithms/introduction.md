@@ -149,7 +149,7 @@ Table: Temps pour différentes complexités d'algorithmes
 
 Les différentes complexités peuvent être résumées sur la figure suivante :
 
-![Différentes complexités d'algorithmes]({assets}/images/complexity.drawio)
+![Différentes complexités d'algorithmes](/assets/images/complexity.drawio)
 
 Un algorithme en $O(n^2)$, doit éveiller chez le développeur la volonté de voir s'il n'y a pas moyen d'optimiser l'algorithme en réduisant sa complexité, souvent on s'aperçoit qu'un algorithme peut être optimisé et s'intéresser à sa complexité est un excellent point d'entrée.
 

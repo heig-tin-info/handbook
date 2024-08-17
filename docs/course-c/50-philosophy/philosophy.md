@@ -4,7 +4,7 @@ La philosophie d'un bon développeur repose sur plusieurs principes de programma
 
 ## Rasoir d'Ockham
 
-![Illustration humoristique du rasoir d'Ockham]({assets}/images/razor.jpg)
+![Illustration humoristique du rasoir d'Ockham](/assets/images/razor.jpg)
 
 Le [rasoir d'Ockham](https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham) expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise [Shadok](https://en.wikipedia.org/wiki/Les_Shadoks), non sans une pointe d'ironie : "Pourquoi faire simple quand on peut faire compliqué ?"
 
@@ -18,7 +18,7 @@ L' est un biais cognitif qui se manifeste par une surestimation des compétences
 
 L'effet [Dunning-Kruger](wiki:dunning-kruger) est un biais cognitif où les individus tendent à surestimer leurs compétences. Paradoxalement, ce sont les moins expérimentés dans un domaine qui s'illusionnent le plus sur leurs capacités, tandis que les experts, eux, ont tendance à sous-évaluer leur maîtrise.
 
-![Illustration satirique de l'effet Dunning-Kruger]({assets}/images/dunning-kruger.drawio)
+![Illustration satirique de l'effet Dunning-Kruger](/assets/images/dunning-kruger.drawio)
 
 J'ai souvent observé ce biais de surconfiance chez mes étudiants et collègues, et je n'en ai pas été exempt moi-même. Il est en effet difficile de jauger avec précision son propre niveau de compétence, et ce n'est qu'en se confrontant au regard critique de ses pairs que l'on prend véritablement conscience de ses lacunes. Soumettre son code à l'examen d'autrui peut être une démarche intimidante, mais elle s'avère être une source d'enrichissement inestimable.
 

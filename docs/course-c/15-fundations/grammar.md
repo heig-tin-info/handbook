@@ -22,7 +22,7 @@ int main() {
 
 On peut hiérarchiser les éléments de ce programme de la manière suivante :
 
-![Exemple d'arbre syntaxique (AST)]({assets}/images/parsing.drawio)
+![Exemple d'arbre syntaxique (AST)](/assets/images/parsing.drawio)
 
 La grammaire formelle du langage C est très complexe et comporte de nombreuses règles. Elle est définie par le standard du langage C, qui est un document officiel publié par l'ANSI (American National Standards Institute) et l'ISO (International Organization for Standardization).
 

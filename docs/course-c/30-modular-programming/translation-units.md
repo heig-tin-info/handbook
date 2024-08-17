@@ -107,7 +107,7 @@ Lorsqu'un seul fichier est fourni à GCC, les trois opérations sont effectuées
 
 La figure suivante résume les différentes étapes de GCC. Les pointillés indiquent à quel niveau les opérations peuvent s'arrêter. Il est dès lors possible de passer par des fichiers intermédiaires assembleur (`.s`) ou objets (`.o`) en utilisant la bonne commande.
 
-![Étapes intermédiaires de compilation avec GCC]({assets}/images/gcc.drawio)
+![Étapes intermédiaires de compilation avec GCC](/assets/images/gcc.drawio)
 
 
 Notons que ces étapes existent, quel que soit le compilateur ou le système d'exploitation. Nous retrouverons ces exactes mêmes étapes avec Microsoft Visual Studio, mais le nom des commandes et les extensions des fichiers peuvent varier s'ils ne respectent pas la norme POSIX (et GNU).

@@ -14,11 +14,11 @@ Néanmoins, quelle que soit la taille de l'ordinateur, les composants de base so
 
 La mémoire vive est une mémoire de stockage temporaire, on l'appelle également mémoire non volatile. Le plus souvent une mémoire vive est amovible, il s'agit d'une barrette enfichable sur la carte mère. Avec l'évolution de la technologie, ces mémoires sont carénées et munies d'un dissipateur thermique :
 
-![2 x 16 GB DDR5 DIMM Corsair Vengeance]({assets}/images/sdram-corsair-vengeance.avif){ width=50% }
+![2 x 16 GB DDR5 DIMM Corsair Vengeance](/assets/images/sdram-corsair-vengeance.avif){ width=50% }
 
 Sous le capôt, on peut voir les puces de mémoire&nbsp;:
 
-![Crucial DDR4 16 GB]({assets}/images/sdram.webp){ width=50% }
+![Crucial DDR4 16 GB](/assets/images/sdram.webp){ width=50% }
 
 Cette mémoire dispose de 16 Gibioctets de mémoire, soit $16 \times 2^30 = 17179869184$ octets. Chaque octet est composé de $8$ bits, soit $17179869184 \times 8 = 137438953472$ bits. Comme nous voyons $4$ puces de mémoire, chaque puce contient $4$ Gibioctets.
 
@@ -26,7 +26,7 @@ Généralement, ces mémoires sont vendues en nombre de bits, soit ici 32 Gibibi
 
 Sur le circuit électronique ou PCB (*Printed Circuit Board*), on voit les 4 puces de mémoire soudées. Il s'agit d'un composant de la société Micron, un MT40A1G8. La structure interne de cette mémoire est donnée par la *datasheet* du composant&nbsp;:
 
-![MT40A1G8]({assets}/images/mt40a1g8-functional.svg)
+![MT40A1G8](/assets/images/mt40a1g8-functional.svg)
 
 Pour décoder ce schéma, intéressons-nous aux flèches de couleur. Il s'agit du bus d'adresse. Ce bus comporte 16 lignes en parallèle qui sont interfacées à deux blocs : le *Row Address MUX* et le *Column address counter*. Ces deux blocs permettent de sélectionner une cellule mémoire selon la mémoire, une cellule peut valoir 4, 8, 16 ou 32 bits.
 
@@ -57,7 +57,7 @@ Il existe plusieurs technologies de mémoire vive. Les plus courantes sont&nbsp;
 
 ### Vitesse de la lumière
 
-![Autoroute de l'information]({assets}/images/highway.png)
+![Autoroute de l'information](/assets/images/highway.png)
 
 La vitesse de la lumière est de 299 792 458 m/s. Elle est fixée par la convention du mètre. C'est la vitesse maximale que peut atteindre un objet dans l'univers. Pour donner un ordre de grandeur, un signal électrique se propage dans un câble à environ 2/3 de la vitesse de la lumière. Cela signifie que pour parcourir 1 mètre, un signal électrique met environ 5 ns.
 
@@ -71,7 +71,7 @@ Pour transmettre une information, par exemple un nombre entier de 64 bits (`long
 
 Sur la figure suivante, on voit le routage d'un circuit électronique. En rose, ce sont les composants physiques. À gauche un processeur et au milieu en bas deux circuits mémoire labélisés *DDR1* et *DDR2*. En bleu clair ce sont les lignes électriques qui relient les composants. On observe des tas de petites circonvolutions. Les lignes sont artificiellement rallongées pour que la longueur de chaque voie de l'autoroute soit la même, afin de garantir une vitesse de propagation identique pour chaque ligne de donnée.
 
-![Routage d'une mémoire]({assets}/images/sdram-layout.png)
+![Routage d'une mémoire](/assets/images/sdram-layout.png)
 
 Vous me direz, oui, mais 540 millions de km/h c'est super rapide et sur ce circuit les lignes ne font pas plus de 10 cm ce qui représente 600 ps pour parcourir la distance. Oui, mais voilà, on communique sur cette autoroute à 2000 MT/s (mégatransferts par seconde). Cela signifie que 2'000'000 de véhicules entrent sur chaque voie de l'autoroute chaque seconde circuler sur chaque voie de l'autoroute chaque seconde. N'est-ce pas incroyable&nbsp;?
 
@@ -79,13 +79,13 @@ Malgré ces performances, la mémoire reste un goulot d'étranglement pour les p
 
 ## Le disque dur
 
-![Disque dur]({assets}/images/hdd.jpg)
+![Disque dur](/assets/images/hdd.jpg)
 
 Le disque dur est un dispositif de stockage de masse. Il est composé de plusieurs plateaux magnétiques qui tournent à grande vitesse. Un bras mécanique se déplace sur les plateaux pour lire ou écrire les données. Les disques durs sont lents par rapport à la mémoire vive. Ils sont utilisés pour stocker des données de manière permanente.
 
 De nos jours ces disques sont remplacés par des disques SSD (*Solid State Drive*) qui sont plus rapides et plus fiables. Les disques SSD sont composés de mémoire flash qui ne nécessite pas de pièces mobiles. Contrairement à la mémoire vive, les disques SSD sont des mémoires non volatiles. Cela signifie que les données sont conservées même lorsque l'alimentation est coupée.
 
-![SSD de 2 TiB]({assets}/images/ssd-990pro.avif){ width=50% }
+![SSD de 2 TiB](/assets/images/ssd-990pro.avif){ width=50% }
 
 Mais si les SSD peuvent stocker beaucoup plus de données sur le même espace, pourquoi sont-ils plus lents que la mémoire vive&nbsp;? La raison est simple. Les disques SSD sont organisés en blocs de données, que l'on appelle *pages* et *clusters*. Pour lire ou écrire une donnée, il faut lire ou écrire tout le bloc. Cela signifie que si l'on veut lire un octet, il faut lire 4'096 octets. C'est ce que l'on appelle le *page size*.
 
@@ -95,7 +95,7 @@ Pour interfacer le processeur avec le disque dur, on utilise un contrôleur de d
 
 ## La carte mère
 
-![Carte mère]({assets}/images/motherboard.webp){ width=50% }
+![Carte mère](/assets/images/motherboard.webp){ width=50% }
 
 La carte mère est le composant principal de l'ordinateur. C'est elle qui relie tous les composants entre eux. Elle est composée d'un circuit imprimé sur lequel sont soudés les différents composants et une grande quantité de connecteurs.
 

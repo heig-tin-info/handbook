@@ -2,7 +2,7 @@
 
 Figure: Illustration du mécanisme de pré-processing avant la compilation
 
-![Mécanisme de pré-processing avant compilation]({assets}/images/preprocessing-fun.drawio)
+![Mécanisme de pré-processing avant compilation](/assets/images/preprocessing-fun.drawio)
 
 Comme nous l'avons vu en introduction ([Texte structuré][structured-text-programming]) le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.
 

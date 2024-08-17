@@ -18,9 +18,7 @@ repo_url: https://github.com/heig-tin-info/handbook
 edit_uri: edit/master/docs/
 docs_dir: !ENV [DOCS, docs]
 validation:
-  omitted_files: warn
-  absolute_links: warn
-  unrecognized_links: warn
+  absolute_links: relative_to_docs
 theme:
   name: material
   language: fr
@@ -253,7 +251,6 @@ watch:
   - overrides
 hooks:
   - hooks/drawio.py # Embedded draw.io diagrams
-  - hooks/links.py # Prefix in links {assets}/...
   - hooks/unicode.py # Box around unicode codes U+XXXX
   - hooks/spantable.py # Adds span table support
   - hooks/regex.py # Box around regex `#!regex a/b`

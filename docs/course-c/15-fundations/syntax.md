@@ -60,7 +60,7 @@ Table: Caractères non imprimables
 
 Voici en pratique comment ces caractères peuvent être utilisés :
 
-![Distinction de différents caractères non imprimables]({assets}/images/crlf.drawio)
+![Distinction de différents caractères non imprimables](/assets/images/crlf.drawio)
 
 La ponctuation utilise les 29 symboles graphiques suivants :
 
@@ -72,7 +72,7 @@ La ponctuation utilise les 29 symboles graphiques suivants :
 
 Peut-être avez-vous déjà été confronté à une machine à écrire mécanique. Elles disposent d'un levier sur la gauche du chariot qui a deux fonctionnalités. D'une part il permet de faire revenir le chariot au début de la ligne, mais également de faire avancer le papier d'une ligne. C'est ce levier qui a donné son nom au caractère de retour à la ligne `CR` pour *Carriage Return*. Quant au caractère de nouvelle ligne `LF` pour *Line Feed*, il est associé à la rotation du cylindre qui porte la feuille de papier.
 
-![Machine à écrire Hermès 3000 hébraïque]({assets}/images/hermes-3000.webp){width=50%}
+![Machine à écrire Hermès 3000 hébraïque](/assets/images/hermes-3000.webp){width=50%}
 
 Historiquement il y a donc bien une distinction entre les deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens.
 
@@ -177,7 +177,7 @@ Ces mots clés font partie intégrante de la [grammaire][grammar] du langage et 
 
 Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par une grammaire régulière qui peut être exprimée comme suit :
 
-![Grammaire d'un identificateur C]({assets}/images/identifier.drawio)
+![Grammaire d'un identificateur C](/assets/images/identifier.drawio)
 
 La notation `#!re /[a-z]/` signifie que l'on peut utiliser n'importe quelle lettre minuscule de l'alphabet latin, `#!re /[A-Z]/` pour les lettres majuscules, `#!re /[0-9]/` pour les chiffres et `_` pour le caractère souligné.
 
@@ -260,7 +260,7 @@ L'**adresse** est l'emplacement exact de la plage où le mot a été écrit (47.
 
 On voit que sans connaître le **type** de la variable, il est impossible de savoir comment interpréter sa **valeur**.
 
-![La plage de Donnant]({assets}/images/donnant.png)
+![La plage de Donnant](/assets/images/donnant.png)
 
 En pratique l'adresse sera plutôt de la forme `0x7fffbf7f1b4c`, la valeur serait plutôt `0100001101001111010010010100111000000000` et le type serait une chaîne de caractères `char[]`.
 
@@ -340,7 +340,7 @@ int i, j, k;
 
 ### Convention de nommage
 
-![Différentes casses illustrées]({assets}/images/kebab.png)
+![Différentes casses illustrées](/assets/images/kebab.png)
 
 Il existe autant de conventions de nommage qu'il y a de développeurs, mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation dit que :
 
@@ -608,7 +608,7 @@ int main() {
 
 Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source.
 
-![Les carafes dans la Vivonne]({assets}/images/vivonne.drawio)
+![Les carafes dans la Vivonne](/assets/images/vivonne.drawio)
 
 Il existe deux manières d'écrire un commentaire en C :
 

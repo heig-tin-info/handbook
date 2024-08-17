@@ -117,7 +117,7 @@ Les embranchements sont des instructions de prise de décision. Une prise de dé
 
 On peut représenter ces embranchements par des diagrammes de flux [BPMN](wiki:bpmn) (Business Process Modelling Notation) ou des [structogrammes](wiki:structogramme) NSD (Nassi-Shneiderman):
 
-![Diagrammes BPMN]({assets}/images/branching-diagram.drawio)
+![Diagrammes BPMN](/assets/images/branching-diagram.drawio)
 
 Les embranchements s'appuient naturellement sur les séquences puisque chaque branche est composée d'une séquence.
 
@@ -444,7 +444,7 @@ Notons quelques observations :
 
 ## Les boucles
 
-![Bien choisir sa structure de contrôle]({assets}/images/road-runner.drawio)
+![Bien choisir sa structure de contrôle](/assets/images/road-runner.drawio)
 
 Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :
 
@@ -454,7 +454,7 @@ Une boucle est une structure itérative permettant de répéter l'exécution d'u
 
 Elles peuvent être représentées par les diagrammes de flux suivants :
 
-![Aperçu des trois structures de boucles]({assets}/images/for.drawio)
+![Aperçu des trois structures de boucles](/assets/images/for.drawio)
 
 On observe que quelque soit la structure de boucle, une condition de maintien est nécessaire. Cette condition est évaluée avant ou après l'exécution de la séquence. Si la condition est fausse, la séquence est interrompue et le programme continue son exécution.
 

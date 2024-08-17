@@ -12,7 +12,7 @@ L'essentiel pour le programmeur est la traduction d'algorithmes en un **langage 
 
 Dans un cursus académique, on parle souvent de cours d'**Algorithmique et Programmation**. Nous allons donc éclaircir ces deux termes.
 
-![L'un des premiers ordinateurs: l'Eniac]({assets}/images/eniac.jpg)
+![L'un des premiers ordinateurs: l'Eniac](/assets/images/eniac.jpg)
 
 ## Algorithmique
 
@@ -30,7 +30,7 @@ Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l
 
 Il est un algorithme permettant de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD). Voici la description de l'algorithme sous forme d'un diagramme de flux :
 
-![Algorithme de calcul du PGCD d'Euclide.]({assets}/images/pgcd.drawio)
+![Algorithme de calcul du PGCD d'Euclide.](/assets/images/pgcd.drawio)
 
 Souvent, les informaticiens et ingénieurs aiment utiliser des diagrammes pour synthétiser leurs idées. Le diagramme de flux est un outil de communication visuelle permettant de représenter des **processus**. Ici on observe des formes géométriques et des flèches. Les flèches indiquent le sens de lecture du processus. Les formes géométriques sont des boîtes de texte contenant des instructions. Les formes de début et de fin sont par convention des ovales. Les formes de traitement sont des rectangles et les formes de décision sont quant à elles des losanges. Une forme de décision contient une question et deux flèches de sortie, une pour chaque réponse possible. Généralement une flèche de sortie est étiquetée avec la réponse attendue. On le verra plus tard, mais un processus de traitement d'information dispose toujours d'une entrée et d'une sortie.
 
@@ -72,7 +72,7 @@ Dans la vie de tous les jours, imaginez que vous ayez un jeu de 54 cartes à jou
 
 Voici un diagramme de flux de l'algorithme de tri à bulles :
 
-![Algorithme de tri à bulles.]({assets}/images/bubblesort.drawio)
+![Algorithme de tri à bulles.](/assets/images/bubblesort.drawio)
 
 Soit un tableau de $N = 5$ valeurs à trier :
 
@@ -80,7 +80,7 @@ $$T = {5, 3, 8, 4, 2}$$
 
 Le cycle se répète jusqu'à ce que le tableau soit trié. Si $s$ est égal à 0, il n'y a pas eu d'échange lors du parcours du tableau et le tableau est donc trié.
 
-![Étape par étape du tri à bulles.]({assets}/images/bubblesort-steps.drawio)
+![Étape par étape du tri à bulles.](/assets/images/bubblesort-steps.drawio)
 
 Pour les cycles $3$ et $4$, nous ne montrons pas les étapes ou il n'y a pas eu d'échange. Au cinqième cycle, aucun échange n'est nécessaire, l'algorithme se termine.
 
@@ -96,7 +96,7 @@ En tant que développeur vous devrez souvent écrire des algorithmes pour résou
 
 Parlons couture ! La machine Jacquard est un [métier à tisser](https://fr.wikipedia.org/wiki/M%C3%A9tier_Jacquard) mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
 
-![Mécanisme Jacquard au Musée des arts et métiers de Paris.]({assets}/images/loom.png)
+![Mécanisme Jacquard au Musée des arts et métiers de Paris.](/assets/images/loom.png)
 
 Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. Elles sont donc le programme de la machine et dont le format (largeur, dimension des trous, etc.) est spécifique à la machine. En termes informatiques, on dirait que les cartes perforées sont écrites en **langage machine**.
 
@@ -108,7 +108,7 @@ La [programmation](https://fr.wikipedia.org/wiki/Programmation_informatique) dé
 
 Les *informaticiens-tisserands* responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons par exemple un ouvrier spécialisé en [héraldique](https://fr.wikipedia.org/wiki/H%C3%A9raldique) et devant créer des motifs complexes de blasons.
 
-![Armoiries des ducs de Mayenne]({assets}/images/armoiries.drawio)
+![Armoiries des ducs de Mayenne](/assets/images/armoiries.drawio)
 
 Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qui le maîtrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de [[Mayenne|Mayenne, Duc de]] aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :
 
@@ -179,13 +179,13 @@ L'être humain a appris depuis des millénaires à communiquer avec des symboles
 
     [Scratch](https://fr.wikipedia.org/wiki/Scratch_(langage)) est un langage de programmation visuel développé par le MIT. Il est utilisé pour enseigner les bases de la programmation aux enfants. Il permet de créer des animations, des jeux et des histoires interactives. [[|Scratch|Scratch, langage]]
 
-    ![Interface de scratch]({assets}/images/scratch.png)
+    ![Interface de scratch](/assets/images/scratch.png)
 
 ??? info "LabView"
 
     [LabView](https://fr.wikipedia.org/wiki/LabVIEW) est un langage de programmation visuel développé par National Instruments. Il est utilisé pour la programmation de systèmes de mesure et de contrôle. Il est très utilisé dans l'industrie et la recherche. [[|LabView|LabView, programme]]
 
-    ![Interface de LabView]({assets}/images/labview.webp)
+    ![Interface de LabView](/assets/images/labview.webp)
 
     Son interface est composée de blocs graphiques que l'on relie entre eux pour créer un programme.
 
@@ -249,13 +249,13 @@ Lorsque l'on parle d'un ordinateur Turing complet, on fait référence à un ord
 
 Prenons l'exemple d'un programme visant à additionner `1` à un nombre `n` en binaire. L'algorithme peut être exprimé comme suit :
 
-![Algorithme d'addition binaire]({assets}/images/turing-add.drawio)
+![Algorithme d'addition binaire](/assets/images/turing-add.drawio)
 
 On commence par l'état de gauche, on lit un symbole sur la bande. Tant que ce symbole est `0` ou `1` on avance à droite. Lorsque l'on rencontre une case vide, on se déplace à gauche et on entre dans le second état. Tant qu’on lit un `1`, on le remplace par un `0` et on avance à gauche. Lorsqu’on lit un `0` ou une case vide, on le remplace par un `1` et on se déplace à gauche. On revient à l'état initial et on continue jusqu'à ce que l'on rencontre une case vide.
 
 Sur la figure ci-dessous, on peut voir l'exécution de l'algorithme sur une bande après chaque étape. La case centrale est celle sous la tête de lecture/écriture. On voit bien qu'au début on a le nombre `101` (5) et à la fin on obtient le nombre `110` (6). L'algorithme a bien fonctionné.
 
-![Exécution de l'algorithme sur une bande]({assets}/images/turing-animation.drawio)
+![Exécution de l'algorithme sur une bande](/assets/images/turing-animation.drawio)
 
 On peut essayer de traduire cet algorithme dans un langage formel :
 
@@ -330,7 +330,7 @@ On peut essayer de traduire cet algorithme dans un langage formel :
 [](){#teletype}
 ## L'ordinateur d'antan
 
-![Téléscripteur Siemens T100]({assets}/images/siemens-t100.jpg)
+![Téléscripteur Siemens T100](/assets/images/siemens-t100.jpg)
 
 Le [téléscripteur](https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur) Siemens T100 est un exemple d'ordinateur des années 1960. Il était utilisé pour la transmission de messages télégraphiques. Il était composé d'un clavier et d'une imprimante. Il était capable de lire et d'écrire des messages sur une bande de papier. Il était programmé en utilisant des cartes perforées.
 
@@ -425,17 +425,17 @@ Les microcontrôleurs sont des ordinateurs complets intégrés dans un seul circ
 
 Ces derniers sont aussi programmés en implémentant des algorithmes. Le plus souvent ces algorithmes sont écrits en langage C car c'est un langage de programmation très proche du langage machine. Les microcontrôleurs sont souvent utilisés pour contrôler des systèmes en temps réel. Ils sont capables de lire des capteurs, de contrôler des actionneurs et de communiquer avec d'autres systèmes.
 
-![Machine à café Citiz de Nespresso]({assets}/images/citiz-cherry-red.png)
+![Machine à café Citiz de Nespresso](/assets/images/citiz-cherry-red.png)
 
 Prenons l'exemple de cette machine à café. C'est une machine qui coûte environ 100 CHF. Elle est équipée d'un microcontrôleur à 30 centimes qui contrôle le chauffage, la pompe à eau et les leds. Le microcontrôleur est programmé pour lire les boutons de commande, contrôler les actionneurs et afficher des messages à l'utilisateur.
 
-![Schéma bloc de la machine à café Citiz]({assets}/images/citiz-diagram.drawio)
+![Schéma bloc de la machine à café Citiz](/assets/images/citiz-diagram.drawio)
 
 Derrière se cache un programme, bien complexe. Si vous avez une de ces machines mettez là en service, vous verrez que s'il manque de l'eau vous aurez un message d'erreur. Au démarrage, les LEDs clignotent le temps que la machine chauffe. Une fois en température, vous pouvez l'utiliser. Ce sont des algorithmes qui sont derrière tout cela.
 
 ## Historique
 
-![Historique]({assets}/images/history.drawio)
+![Historique](/assets/images/history.drawio)
 
 Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates clés :
 

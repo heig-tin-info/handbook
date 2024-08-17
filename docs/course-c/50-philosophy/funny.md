@@ -42,16 +42,16 @@ Compiler un programme est une tâche qui peut prendre du temps. Parfois, il est 
 
 Le code des autres est souvent difficile à comprendre. Parfois, il est même difficile de comprendre son propre code. C'est pourquoi il est important de commenter son code, de le documenter, de le tester, de le relire, de le refactoriser, etc.
 
-![Le bon code]({assets}/images/Le-code-des-autres-650.jpg)
+![Le bon code](/assets/images/Le-code-des-autres-650.jpg)
 
 ## La faute à personne
 
 La collaboration au sein d'une équipe de développement est cruciale pour le succès d'un projet. Lorsque chaque membre se contente de respecter les spécifications des API sans communication réelle, les composants logiciels risquent de ne pas fonctionner ensemble. Chacun pense avoir bien fait, et le blâme se déplace de l'un à l'autre, tandis que personne ne veut corriger le problème. Ce dilemme, souvent lié aux coûts du travail, rappelle que la solution ne réside pas dans la recherche d'un coupable, mais dans un compromis et une coopération pour le bien commun.
 
-![La faute à personne]({assets}/images/Communication-de-Chantier-650-final.jpg)
+![La faute à personne](/assets/images/Communication-de-Chantier-650-final.jpg)
 
 ## Commentaire de commit
 
 La tentation est grande de miniser le temps passé à rédiger des commentaires de commit. Pourtant, ces messages sont essentiels pour comprendre l'évolution du code, pour suivre les modifications apportées, pour identifier les erreurs, etc. Un bon commentaire de commit est clair, concis, informatif et utile. Il permet de retracer l'historique du code, de faciliter la collaboration entre les développeurs, de documenter les changements, etc.
 
-![Commentaire de commit]({assets}/images/Commentaires-de-Commit-600-final.jpg)
+![Commentaire de commit](/assets/images/Commentaires-de-Commit-600-final.jpg)

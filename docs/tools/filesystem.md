@@ -2,7 +2,7 @@
 
 ## Introduction
 
-![Fourmi portant des données]({assets}/images/ant.png)
+![Fourmi portant des données](/assets/images/ant.png)
 
 Un *système de fichier* est une structure de données qui permet de stocker des fichiers et des répertoires sur un support de stockage. Les systèmes de fichiers sont utilisés pour organiser les données sur les disques durs, les clés USB, les cartes mémoire, etc.
 

@@ -5,7 +5,7 @@ $$
 \mathbb{N} \in \mathbb{Z} \in \mathbb{Q} \in \mathbb{R} \in \mathbb{C} \in \mathbb{H} \in \mathbb{O} \in \mathbb{S}
 $$
 
-![Ensemble des nombres]({assets}/images/ensembles.drawio)
+![Ensemble des nombres](/assets/images/ensembles.drawio)
 
 Les ensembles de nombres sont :
 

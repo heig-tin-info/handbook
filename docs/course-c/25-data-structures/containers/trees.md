@@ -1,6 +1,6 @@
 # Arbres
 
-![Arbre binaire IRL]({assets}/images/binary-tree.jpg)
+![Arbre binaire IRL](/assets/images/binary-tree.jpg)
 
 Les [[arbres]] sont des structures de données non linéaires qui sont composées de nœuds. Chaque nœud a un ou plusieurs enfants, sauf pour le nœud racine qui n'a pas de parent. Les arbres sont souvent utilisés pour représenter des hiérarchies, comme les systèmes de fichiers, les arbres généalogiques, les arbres de décision, etc.
 
@@ -142,7 +142,7 @@ Table: Opération d'accès à un élément d'un heap
 | Enfant de droite | $2*k  + 2$       | $2 * k + 1$    |
 | Parent           | $floor(k-1) / 2$ | $floor(k) / 2$ |
 
-![Représentation d'un *heap*]({assets}/images/heap.drawio)
+![Représentation d'un *heap*](/assets/images/heap.drawio)
 
 ### Min-heap
 
@@ -244,7 +244,7 @@ Un [arbres binaires de recherche](https://fr.wikipedia.org/wiki/Arbre_binaire_de
 
 L'implémentation d'un arbre binaire est souvent implémentée avec une liste chaînée comportant deux enfants un `left` et un `right` :
 
-![Arbre binaire équilibré]({assets}/images/binary-tree.drawio)
+![Arbre binaire équilibré](/assets/images/binary-tree.drawio)
 
 Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours :
 
@@ -328,7 +328,7 @@ L'implémentation de ce type de structure de donnée s'appuie le plus souvent su
 
 Un arbre AVL est un arbre binaire de recherche équilibré. Il est équilibré car la hauteur de ses sous-arbres gauche et droit diffère d'au plus un. Cela signifie que la hauteur de l'arbre est en $O(log n)$, ce qui rend les opérations de recherche, d'insertion et de suppression en $O(log n)$.
 
-![AVL Tree]({assets}/images/avl-tree.drawio)
+![AVL Tree](/assets/images/avl-tree.drawio)
 
 AVL tire son nom de ses inventeurs *Adelson-Velsky and Landis*. C'est une structure de données très utilisée en informatique pour implémenter des dictionnaires, des bases de données, des compilateurs, etc.
 
@@ -342,7 +342,7 @@ C'est cette opération de rotation qui est la plus complexe dans un arbre AVL. I
 
 Un arbre rouge-noir est un arbre binaire de recherche équilibré. Il est équilibré car la hauteur de ses sous-arbres gauche et droit diffère d'au plus deux. Cela signifie que la hauteur de l'arbre est en $O(log n)$, ce qui rend les opérations de recherche, d'insertion et de suppression en $O(log n)$.
 
-![Arbre rouge et noir]({assets}/images/red-black-tree.drawio)
+![Arbre rouge et noir](/assets/images/red-black-tree.drawio)
 
 Contrairement à l'arbre AVL, l'arbre rouge-noir est plus simple à implémenter. Il utilise un **bit de couleur** pour chaque nœud pour indiquer si le nœud est rouge ou noir. L'arbre rouge-noir a cinq propriétés :
 
@@ -369,7 +369,7 @@ char *words[] = {
 
 On peut construire le trie suivant :
 
-![Trie]({assets}/images/trie.drawio)
+![Trie](/assets/images/trie.drawio)
 
 En vert, les nœuds qui marquent la fin d'un mot. En orange la racine de l'arbre. La structure de données de chaque noeud pourrait être la suivante :
 
@@ -437,7 +437,7 @@ Exemple d'implémentation:
 
     Demandons-nous s'il ne serait pas préférable de regrouper les noeuds communs ensemble comme le montre la figure suivante :
 
-    ![Trie: arbre avec noeuds communs]({assets}/images/trie-not.drawio)
+    ![Trie: arbre avec noeuds communs](/assets/images/trie-not.drawio)
 
     D'après vous est-ce une bonne idée ? Pourquoi ?
 

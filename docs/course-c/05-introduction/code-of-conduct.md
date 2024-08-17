@@ -14,7 +14,7 @@ Néanmoins, les valeurs humaines fondamentales d'un développement logiciel sont
 
 En 1750 av. J.-C., le roi Hammurabi de Babylone a promulgué le premier code de lois connu de l'histoire de l'humanité. Ce code, gravé sur une stèle de basalte, contient 282 lois qui régissent la vie quotidienne des habitants de la Mésopotamie. Il est considéré comme l'un des premiers exemples de justice équitable et de respect des droits de l'homme.
 
-![Code d'Hammurabi (1750 av. J.-C.)]({assets}/images/hammurabi.png)
+![Code d'Hammurabi (1750 av. J.-C.)](/assets/images/hammurabi.png)
 
 Néanmoins, le terme équitable est à prendre avec des pincettes, car les lois de l'époque étaient souvent très sévères et punissaient les contrevenants par des châtiments corporels, des mutilations, des esclavages ou des exécutions. La loi du talion, "œil pour œil, dent pour dent", était souvent appliquée pour punir les criminels.
 
@@ -24,7 +24,7 @@ En d'autres termes, ce que je vous transmet aujourd'hui dans ce cours, n'est pas
 
 ## L'Anglais
 
-![La langue une barrière]({assets}/images/english.png)
+![La langue une barrière](/assets/images/english.png)
 
 En programmation, quel que soit le langage utilisé, la langue **anglaise** est omniprésente. D'une part, les mots clés des langages de programmation sont majoritairement empruntés à l'anglais, mais souvent les outils de développement ne sont disponibles qu'en anglais. Il existe une raison à cela. Un article de journal publié dans une revue locale sera certainement lu par madame Machin et monsieur Bidule, mais n'aura aucun intérêt pour les habitants de l'antipode néo-zélandais. En programmation, le code se veut **réutilisable** pour économiser des coûts de développement.
 
@@ -42,7 +42,7 @@ Un autre point méritant d'être mentionné est la constante interaction d'un d�
 
 ## Apprendre à pêcher
 
-![Un père et son fils pêchant]({assets}/images/fisherman.png)
+![Un père et son fils pêchant](/assets/images/fisherman.png)
 
 Un jeune homme s'en va à la mer avec son père et lui demande: "papa, j'ai faim, comment ramènes-tu du poisson?" Le père, fier, lance sa ligne à la mer et lui ramène un beau poisson. Plus tard, alors que le jeune homme revient d'une balade sur les estrans, il demande à son père: "papa, j'ai faim, me ramènerais-tu du poisson?" Le père, sort de son étui sa plus belle canne et l'équipant d'un bel hameçon, lance sa ligne à la mer et ramène un gros poisson. Durant longtemps, le jeune homme mange ainsi à sa faim cependant que le père ramène du poisson pour son fils.
 
