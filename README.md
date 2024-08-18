@@ -106,19 +106,10 @@ graph TD
 - Support for MkDocs Material theme default/slate layouts by overriding the `mxgraph` colors
 - Provide transformer for LaTeX plugin
 
-### AbsoluteIsRelative
+### Epigraph
 
-- Absolute links are relative to somewhere
-- By default relative to docs directory
-- It can be configured
-    ```yaml
-    plugins:
-      - absolute-is-relative:
-          enabled: Bool
-          path: docs/
-          ignore_patterns:
-            - ^/usr/src
-    ```
+- Use meta epigraph information to add citation in pages.
+
 
 
 ## References

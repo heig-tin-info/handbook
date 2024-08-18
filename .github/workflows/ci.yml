@@ -6,7 +6,7 @@ on:
       - master
       - main
     tags:
-      - '*'
+      - "*"
 
 permissions:
   contents: write
@@ -96,7 +96,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
         with:
           install: true
-          driver: 'docker-container'
+          driver: "docker-container"
           buildkitd-flags: --oci-worker=true --oci-worker-gc=false
 
       - name: Build Docker image
@@ -107,20 +107,12 @@ jobs:
                               -t latex-ycr:latest .
 
       - name: Build LaTeX Book (using Docker)
-        run: |
-          docker run -v ${{ github.workspace }}:/workspace \
-                     -w /workspace \
-                     -u $(id -u):$(id -g) \
-                     -v /etc/passwd:/etc/passwd:ro \
-                     -e HOME=/workspace \
-                     latex-ycr \
-                     make latex optimize
-
+        run: make ci
       - name: Upload PDF Artifact
         uses: actions/upload-artifact@v4
         with:
           name: PDF
-          path: build/l-informatique-pour-l-ingenieur/output-print.pdf
+          path: build/book/output-print.pdf
 
   release:
     name: Create GitHub Release
@@ -140,7 +132,7 @@ jobs:
       - name: Rename PDF file
         run: |
           TAG_NAME=$(echo ${{ github.ref }} | sed 's/refs\/tags\///')
-          mv ./build/l-informatique-pour-l-ingenieur/output-print.pdf ./build/handbook-$TAG_NAME.pdf
+          mv ./build/book/output-print.pdf ./build/handbook-$TAG_NAME.pdf
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
