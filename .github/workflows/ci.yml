@@ -130,8 +130,7 @@ jobs:
           path: ./build
       - name: Rename PDF file
         run: |
-          TAG_NAME=$(echo ${{ github.ref }} | sed 's/refs\/tags\///')
-          mv ./build/output-print.pdf ./build/handbook-$TAG_NAME.pdf
+          mv ./build/output-print.pdf ./build/handbook.pdf
 
       - name: Create GitHub Release
         id: create_release
@@ -149,7 +148,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/handbook-*.pdf
+          asset_path: ./build/handbook.pdf
           asset_name: handbook.pdf
           asset_content_type: application/pdf
         env:
