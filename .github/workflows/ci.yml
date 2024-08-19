@@ -142,6 +142,8 @@ jobs:
           draft: false
           prerelease: false
           body: "Release notes"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
