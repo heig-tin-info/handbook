@@ -30,10 +30,10 @@ Rappelez-vous que les entiers sont stockés en mémoire en *little-endian*, c'es
 Comme le tableau est de type `int16_t`, chaque élément est de taille 2 bytes, donc lorsque l'on accède à l'élément 3, une arithmétique sur les adresse est effectuée:
 
 $$
-\begin{align*}
+\begin{aligned}
 \text{array} & = 0xffacb10 \\
 \text{array[3]} & = 0xffacb10 + 3 \times 2 = 0xffacb16
-\end{align*}
+\end{aligned}
 $$
 
 L'opérateur `sizeof` qui permet de retourner la taille d'une structure de donnée en mémoire est très utile pour les tableaux. Cependant, cet opérateur retourne la taille du tableau en bytes, et non le nombre d'éléments qui le compose. Dans l'exemple suivant `sizeof(array)` retourne $5\cdot2 = 40$ tandis que `sizeof(array[0])` retourne la taille d'un seul élément $2$; et donc, `sizeof(array) / sizeof(array[0])` est le nombre d'éléments de ce tableau, soit 5.
@@ -714,20 +714,20 @@ memcpy(b, a, 5);
     Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :
 
 
-    | Mois      | Bosley | Sabrina | Jill   | Kelly |
-    |-----------|--------|---------|--------|-------|
+    | Mois      | Bosley | Sabrina | Jill   | Kelly  |
+    | --------- | ------ | ------- | ------ | ------ |
     | Janvier   | 414.38 | 222.72  | 99.17  | 153.81 |
-    | Février   | 403.41 | 390.61  | 174.39 | 18.11 |
+    | Février   | 403.41 | 390.61  | 174.39 | 18.11  |
     | Mars      | 227.55 | 73.86   | 291.08 | 416.55 |
-    | Avril     | 220.20 | 342.25  | 139.45 | 86.98 |
-    | Mai       |  13.46 | 172.66  | 252.33 | 265.32 |
+    | Avril     | 220.20 | 342.25  | 139.45 | 86.98  |
+    | Mai       | 13.46  | 172.66  | 252.33 | 265.32 |
     | Juin      | 259.37 | 378.72  | 173.02 | 208.43 |
     | Juillet   | 327.06 | 16.53   | 391.05 | 266.84 |
-    | Août      |  50.82 | 3.37    | 201.71 | 170.84 |
+    | Août      | 50.82  | 3.37    | 201.71 | 170.84 |
     | Septembre | 450.78 | 9.33    | 111.63 | 337.07 |
     | Octobre   | 434.45 | 77.80   | 459.46 | 479.17 |
     | Novembre  | 420.13 | 474.69  | 343.64 | 273.28 |
-    | Décembre  | 147.76 | 250.73  | 201.47 | 9.75 |
+    | Décembre  | 147.76 | 250.73  | 201.47 | 9.75   |
 
     Afin de laisser plus de temps aux détectives à résoudre des affaires, vous êtes mandaté pour écrire une fonction qui reçoit en paramètre le tableau de réels ci-dessus formaté comme suit :
 

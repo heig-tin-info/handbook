@@ -126,16 +126,16 @@ class LaTeXRenderer:
             self.render_links,
             # After escaping LaTeX special characters
             self.render_abbreviation,
-            self.render_list,
-            self.render_description_list,
             self.render_quote,
             self.render_admonition,
+            self.render_list,
+            self.render_description_list,
             self.render_mermaid,
             self.render_figure,
             self.render_table,
+            # At last
             self.render_inlines,
             self.render_format,
-            # At last
             self.render_columns,
             self.render_paragraph,
         ]
@@ -187,7 +187,7 @@ class LaTeXRenderer:
         Expected no Tag objects, only NavigableString
         """
         if not all(isinstance(c, NavigableString) for c in element.children):
-            raise ValueError("Expected only NavigableString children")
+            raise ValueError(f"Expected only NavigableString children: {element}")
 
         return element.get_text()
 
@@ -917,7 +917,9 @@ class LaTeXRenderer:
         if solution_el := soup.find("details", class_=["solution"]):
             if solution_el.find("summary"):
                 solution_el.find("summary").extract()
-            solution_el = self.render_inlines(solution_el)
+            solution_el = self.render_after(
+                self.render_admonition, solution_el, **kwargs
+            )
             solution += self.get_safe_text(solution_el)
             self.apply(solution_el, "label", label)
 
@@ -1044,9 +1046,11 @@ class LaTeXRenderer:
 
     def render_columns(self, soup: Tag, **kwargs):
         for div in soup.find_all(["div"], class_="two-column-list"):
+            div = self.render_after(self.render_columns, div, **kwargs)
             self.apply(div, "multicolumn", self.get_safe_text(div), columns=2)
 
         for div in soup.find_all(["div"], class_="three-column-list"):
+            div = self.render_after(self.render_columns, div, **kwargs)
             self.apply(div, "multicolumn", self.get_safe_text(div), columns=3)
 
     def render_inlines(self, soup: Tag, **kwargs):
@@ -1154,6 +1158,13 @@ class LaTeXRenderer:
             r"(\b[^\W\d_]{2,}-)([^\W\d_]{7,})\b", r"\1\\allowhyphens \2", latex
         )
 
+    def render_elements(self, soup: Tag, **kwargs):
+        start = kwargs.get("ordered_item", 0)
+
+        for i, render in enumerate(self.renderering_order[start:]):
+            render(soup, **kwargs)
+        return soup
+
     def render(self, html, output_path, file_path, base_level=0, numbered=True):
         soup = BeautifulSoup(html, "html.parser")
 
@@ -1164,8 +1175,7 @@ class LaTeXRenderer:
             "numbered": numbered,
         }
 
-        for render in self.renderering_order:
-            render(soup, **kwargs)
+        self.render_elements(soup, **kwargs)
 
         # Unwrap remaining div
         for div in soup.find_all(["div"]):
