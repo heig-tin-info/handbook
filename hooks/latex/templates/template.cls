@@ -461,10 +461,10 @@
 
 % Allow for short text below parts
 % https://tex.stackexchange.com/a/336401/85416
-\makeatletter
-\newcommand{\extraPartText}[1]{\def\@extraPartText{#1}}
-\pretocmd{\@endpart}{\vspace{8ex}\begingroup\centering\@extraPartText\par\endgroup\let\@extraPartText\relax}{}{}
-\makeatother
+% \makeatletter
+% \newcommand{\extraPartText}[1]{\def\@extraPartText{#1}}
+% \pretocmd{\@endpart}{\vspace{8ex}\begingroup\centering\@extraPartText\par\endgroup\let\@extraPartText\relax}{}{}
+% \makeatother
 
 
 % Description item and text are displayed by default on the same line

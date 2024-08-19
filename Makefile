@@ -20,7 +20,7 @@ latex-clean:
 	latexmk -cd $(BUILD_DIR)/index.tex -C
 
 latex: $(BUILD_DIR)/index.tex | latex-clean
-	latexmk -cd $(BUILD_DIR)/index.tex -gg -silent \
+	latexmk -cd $(BUILD_DIR)/index.tex -gg \
 	-time -logfilewarninglist --interaction=nonstopmode --halt-on-error
 
 $(BUILD_DIR)/output-print.pdf: $(BUILD_DIR)/index.pdf

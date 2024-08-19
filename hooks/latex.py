@@ -21,11 +21,10 @@ def path_representer(dumper, data):
 yaml.add_representer(PosixPath, path_representer)
 
 
-def excepthook(type, value, traceback):
-    ipdb.post_mortem(traceback)
+# def excepthook(type, value, traceback):
+#     ipdb.post_mortem(traceback)
 
-
-sys.excepthook = excepthook
+# sys.excepthook = excepthook
 
 saved_nav = []
 latex_dir = Path("build")
