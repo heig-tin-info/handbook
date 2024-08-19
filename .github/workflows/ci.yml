@@ -128,11 +128,12 @@ jobs:
         with:
           name: PDF
           path: ./build
-
+      - name: Check
+        run: ls -al ./build
       - name: Rename PDF file
         run: |
           TAG_NAME=$(echo ${{ github.ref }} | sed 's/refs\/tags\///')
-          mv ./build/book/output-print.pdf ./build/handbook-$TAG_NAME.pdf
+          mv ./build/output-print.pdf ./build/handbook-$TAG_NAME.pdf
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
