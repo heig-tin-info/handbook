@@ -20,7 +20,9 @@ Néanmoins, le terme équitable est à prendre avec des pincettes, car les lois 
 
 Ce que l'on doit retenir c'est que comme conventions sociales, les règles et les consensus de l'informatique évoluent avec le temps et les bonnes pratiques d'aujourd'hui seront tout autre demain.
 
-En d'autres termes, ce que je vous transmet aujourd'hui dans ce cours, n'est pas une vérité absolue, elle dépend de mon contexte, de mes expériences et de mes valeurs. Vous devez donc les prendre avec du recul, les remettre en question et faire preuve d'esprit critique.
+Hélas, l'inertie des institutions, des entreprises et des individus fait que les habitudes ont la vie dure et que les dogmes s'installent sans que l'on s'en rende compte. Il est donc essentiel de faire preuve d'ouverture d'esprit, de remise en question et de curiosité pour s'adapter à un monde en perpétuelle évolution.
+
+En d'autres termes, ce que je vous transmet aujourd'hui dans ce cours, n'est pas une vérité absolue, elle dépend de mon contexte de vie, de mes expériences et de mes valeurs. Vous devez donc les prendre avec du recul, les remettre en question et faire preuve d'esprit critique.
 
 ## L'Anglais
 

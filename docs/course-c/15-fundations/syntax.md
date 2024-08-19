@@ -419,7 +419,7 @@ En effet, lorsque l'on veut saisir un nombre, on ne veut pas que le compilateur 
 Les constantes littérales sont généralement identifiées avec des préfixes et des suffixes pour indiquer leur nature. Voici quelques exemples :
 
 ```c
-6      // Grandeur valant le nombre d'heures sur l'horloge du Palais du Quirinal à Rome
+6      // Le nombre d'heures sur l'horloge du Palais du Quirinal à Rome
 12u    // Grandeur non signée
 6l     // Grandeur entière signée codée sur un entier long
 42ul   // Grandeur entière non signée codée sur un entier long

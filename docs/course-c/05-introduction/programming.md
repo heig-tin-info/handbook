@@ -6,35 +6,37 @@ epigraph:
 
 # Programmation
 
-La **programmation** aussi nommée **codage** est la branche de l'informatique qui consiste en l'écriture de programmes agencés en séquences d'instructions qui reflètent des ordres donnés à l'ordinateur. Un programme est donc une succession d'étapes respectant un **algorithme**.
+La **programmation**, également appelée **codage**, est l'art subtil et rigoureux de transformer des concepts abstraits en instructions exécutables par une machine. À travers cette discipline, le programmeur devient l'architecte d'un univers logique, où chaque ligne de code est une brique ajoutée à une structure plus vaste, guidée par un plan précis : l'**algorithme**. Ce dernier, semblable à une partition musicale, dicte la succession des opérations que la machine, fidèle exécutante, doit suivre sans faillir.
 
-L'essentiel pour le programmeur est la traduction d'algorithmes en un **langage formel** compréhensible par une machine. La programmation est donc une activité de communication entre un humain et une machine. Elle est un art, une science et une technique.
+L'essence même de la programmation réside donc dans la traduction de ces algorithmes en un **langage formel**, une sorte de langage commun, épuré et sans ambiguïté, où l'esprit humain et le processeur se rencontrent. Cette activité, à la croisée des chemins entre la science, l'ingénierie et l'art, est avant tout une quête de précision, d'efficacité, et d'élégance.
 
-Dans un cursus académique, on parle souvent de cours d'**Algorithmique et Programmation**. Nous allons donc éclaircir ces deux termes.
+Dans le cadre d'un enseignement académique, on parle souvent de **cours d'Algorithmique et de Programmation**, soulignant ainsi la dualité indissociable entre la conception d'une solution (l'algorithme) et sa mise en œuvre concrète (la programmation). Ces deux notions, bien que distinctes, s'entrelacent pour former le cœur battant de l'informatique, où l'abstraction des idées prend forme dans la rigueur du code. C'est à ce croisement que nous allons maintenant nous attarder, pour éclaircir ces concepts et en dévoiler toute la richesse.
 
 ![L'un des premiers ordinateurs: l'Eniac](/assets/images/eniac.jpg)
 
 ## Algorithmique
 
-L'algorithmique (n.f.) et non l'*algorithmie* (qui n'est pas français), est la science qui étudie la production de règles et techniques impliquées dans la définition et la conception d'[algorithmes](wiki:algorithme). Nous verrons l'algorithmique plus en détail dans le chapitre [algorithmes][algorithms-and-design]. Retenons pour l'heure que l'algorithmique est un domaine bien plus vaste que celui appliqué aux ordinateurs; elle intervient tous les jours dans :
+L'**algorithmique**, et non l'*algorithmie* (qui n'a pas sa place dans la langue française), est la science qui se consacre à l'élaboration des règles et techniques régissant la création et la conception des [algorithmes](wiki:algorithme). Ce domaine, que nous explorerons plus en détail dans le chapitre dédié aux [algorithmes et à leur conception][algorithms-and-design], dépasse largement le cadre de l'informatique. L'algorithmique ne se cantonne pas aux ordinateurs; elle est omniprésente dans notre quotidien, se manifestant dans des contextes aussi variés que :
 
-- une recette de cuisine,
-- le tissage de tapis persans,
-- les casse-tête ([Rubik's Cube](https://fr.wikipedia.org/wiki/Rubik%27s_Cube)),
-- les tactiques sportives,
-- les procédures administratives.
+- l'art de concocter une recette de cuisine,
+- la maîtrise du tissage des tapis persans,
+- la résolution de casse-tête comme le [Rubik's Cube](https://fr.wikipedia.org/wiki/Rubik%27s_Cube),
+- l'élaboration de tactiques sportives,
+- ou encore dans les méandres des procédures administratives.
+
+Ainsi, l'algorithmique n'est rien de moins que l'essence même de la pensée organisée, une discipline qui transcende les frontières du numérique pour s'infiltrer dans les moindres recoins de la vie courante, là où la logique et la méthode s'imposent comme les guides naturels de toute action efficace.
 
 ### Algorithme d'Euclide
 
-Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l'[algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide) datant probablement de 300 av. J.-C.
-
-Il est un algorithme permettant de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD). Voici la description de l'algorithme sous forme d'un diagramme de flux :
+Dans le cadre mathématique et scientifique qui nous occupe, l'[algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide), datant probablement de 300 av. J.-C., constitue un exemple emblématique. Cet algorithme, d'une élégance intemporelle, permet de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD) de deux nombres. Sa logique, simple, mais puissante, se prête parfaitement à une représentation sous forme de diagramme de flux.
 
 ![Algorithme de calcul du PGCD d'Euclide.](/assets/images/pgcd.drawio)
 
-Souvent, les informaticiens et ingénieurs aiment utiliser des diagrammes pour synthétiser leurs idées. Le diagramme de flux est un outil de communication visuelle permettant de représenter des **processus**. Ici on observe des formes géométriques et des flèches. Les flèches indiquent le sens de lecture du processus. Les formes géométriques sont des boîtes de texte contenant des instructions. Les formes de début et de fin sont par convention des ovales. Les formes de traitement sont des rectangles et les formes de décision sont quant à elles des losanges. Une forme de décision contient une question et deux flèches de sortie, une pour chaque réponse possible. Généralement une flèche de sortie est étiquetée avec la réponse attendue. On le verra plus tard, mais un processus de traitement d'information dispose toujours d'une entrée et d'une sortie.
+Les informaticiens et ingénieurs apprécient particulièrement l'usage des diagrammes pour synthétiser et clarifier leurs idées complexes. Le diagramme de flux, en tant qu'outil de communication visuelle, permet de représenter un **processus** de manière structurée et accessible. Dans ce type de diagramme, les formes géométriques symbolisent des étapes du processus, tandis que les flèches en indiquent le déroulement. Par convention, les formes ovales marquent le début et la fin du processus, les rectangles désignent les opérations de traitement, et les losanges représentent les décisions à prendre. Une forme de décision pose une question et offre deux chemins possibles, chacun correspondant à une réponse spécifique. Comme nous le verrons plus tard, tout processus de traitement d'information comporte nécessairement une entrée et une sortie, illustrant ainsi la dynamique intrinsèque de l'algorithme.
 
-Si l'on souhaite trouver le plus grand diviseur commun de 42 et 30, il suffit d'applique l'algorithme d'Euclide du *début* à la *fin* :
+Ainsi, l'algorithme d'Euclide, par sa simplicité de conception et sa pertinence universelle, demeure un exemple parfait de la manière dont les idées abstraites peuvent être traduites en instructions claires, tant pour l'esprit que pour la machine.
+
+Si l'on désire déterminer le plus grand commun diviseur de 42 et 30, il suffit de suivre pas à pas l'algorithme d'Euclide, depuis le *début* jusqu'à la *conclusion* :
 
 Table: Exemple de calcul du PGCD entre 42 et 30
 
@@ -66,11 +68,11 @@ Table: Exemple de calcul du PGCD entre 42 et 30
 
 ### Tri à bulles
 
-Un autre algorithme célèbre est l'algorithme de tri de [Bulles](https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles). Il s'agit d'un algorithme de tri simple qui consiste à comparer les éléments adjacents et à les permuter si nécessaire.
+Un autre algorithme célèbre est celui du [tri à bulles](https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles), un procédé de tri simple qui consiste à comparer les éléments adjacents et à les échanger si nécessaire afin de les organiser dans l'ordre souhaité.
 
-Dans la vie de tous les jours, imaginez que vous ayez un jeu de 54 cartes à jouer mélangé et vous souhaitez trier le jeu par valeurs (As, 2, 3, ..., 10, Valet, Dame, Roi). Vous commencez par déposer les cartes les unes à côté des autres et pour trier le jeu vous vous allez intervertir deux cartes jusqu'à ce que le jeu soit trié.
+Pour mieux l'illustrer, imaginez que vous avez un jeu de 54 cartes mélangé et que vous souhaitez le trier par ordre croissant (As, 2, 3, ..., 10, Valet, Dame, Roi). Vous disposez les cartes en ligne et procédez par échanges successifs de deux cartes adjacentes mal placées, répétant l'opération jusqu'à ce que l'ensemble du jeu soit correctement ordonné.
 
-Voici un diagramme de flux de l'algorithme de tri à bulles :
+Voici un diagramme de flux représentant l'algorithme du tri à bulles :
 
 ![Algorithme de tri à bulles.](/assets/images/bubblesort.drawio)
 
@@ -82,15 +84,15 @@ Le cycle se répète jusqu'à ce que le tableau soit trié. Si $s$ est égal à 
 
 ![Étape par étape du tri à bulles.](/assets/images/bubblesort-steps.drawio)
 
-Pour les cycles $3$ et $4$, nous ne montrons pas les étapes ou il n'y a pas eu d'échange. Au cinqième cycle, aucun échange n'est nécessaire, l'algorithme se termine.
+Pour les cycles $3$ et $4$, nous ne montrons pas les étapes ou il n'y a pas eu d'échange. Au cinquième cycle, aucun échange n'est nécessaire, l'algorithme se termine.
 
 On peut compter le nombre de cycles assez facilement. Pour ce tableau de $N = 5$ valeurs, il y a $5$ cycles. Durant un cycle, il faut regarder $N - 1$ paires d'éléments. Donc pour un tableau de $N$ valeurs, il y a $N^2 - N$ comparaisons. Ce type d'algorithme est dit de complexité $O(N^2)$. Cela signifie que le nombre d'opérations à effectuer est proportionnel au carré du nombre d'éléments à trier. Nous verrons plus tard que la complexité d'un algorithme est un critère important. Nous verrons comment le calculer.
 
 ### Conclusion
 
-Les algorithmes, il y en a de toutes sortes, des plus simples aux plus complexes. Ils sont utilisés dans de nombreux domaines, de la cryptographie à la bio-informatique en passant par la finance et la robotique.
+Les algorithmes se déclinent en une multitude de formes, des plus simples aux plus complexes, et trouvent leur utilité dans des domaines aussi variés que la cryptographie, la bio-informatique, la finance ou encore la robotique.
 
-En tant que développeur vous devrez souvent écrire des algorithmes pour résoudre des problèmes. Souvent, la meilleure approche est de prendre une feuille de papier, un crayon et de faire chauffer vos neurones. Il est crucial de bien comprendre le problème avant de se lancer dans l'écriture d'un algorithme. Les jeunes développeurs vont souvent au combat sans une reflexion préalable et passent leur temps à *touiller* leur code à la *vaudoise*. Prenez votre temps, réfléchissez, imaginez des exemples, faites des tests et vous verrez que la programmation deviendra un jeu d'enfant.
+En tant que développeur, vous serez souvent amené à concevoir des algorithmes pour résoudre divers problèmes. Avant de plonger tête baissée dans l'écriture du code, il est essentiel de prendre un moment pour réfléchir posément. Sortez une feuille de papier, un crayon, et laissez vos neurones travailler. Comprendre profondément le problème est une étape cruciale, souvent négligée par les jeunes développeurs qui, pressés de passer à l'action, se jettent dans le code sans plan précis, "touillant" leur syntaxe à la vaudoise à la recherche d'une solution miraculeuse qui naîtrait du hasard. Prenez le temps de mûrir votre réflexion, imaginez des exemples concrets, testez vos hypothèses, et vous découvrirez que la programmation, loin d'être un combat, peut devenir un jeu d'enfant, empreint de logique et de clarté.
 
 ## Programmation
 
@@ -144,15 +146,15 @@ En 2 et 3 contre-écartelé :
 
 [[|heraldique]]
 
-Tout l'art est de pouvoir traduire ce texte compréhensible par tout héraldiste en un programme en [[langage machine]] compréhensible par un métier à tisser. Cette traduction est le rôle du [[compilateur]] que nous verrons plus tard. Quant au texte, et bien qu'il nous viens tout droit du moyen-âge, il partage avec les langages de programmation modernes des caractéristiques communes :
+Tout l'art est de pouvoir traduire ce texte compréhensible par tout héraldiste en un programme en [[langage machine]] compréhensible par un métier à tisser. Cette traduction est le rôle du [[compilateur]] que nous verrons plus tard. Quant au texte, et bien qu'il nous vient tout droit du moyen-âge, il partage avec les langages de programmation modernes des caractéristiques communes :
 
 Lexique
 
-: le texte est composé de mots et de symboles qui ont un sens précis, les couleurs (émaux) ont des termes spécifiques (gueules pour le rouge, azur pour le bleu, sable pour le noir etc.), les figures (meubles) aussi (lys, croix, lion, aigle, etc.). [[|lexique]]
+: le texte est composé de mots et de symboles qui ont un sens précis, les couleurs (émaux) ont des termes spécifiques (gueules pour le rouge, azur pour le bleu, sable pour le noir, etc.), les figures (meubles) aussi (lys, croix, lion, aigle, etc.). [[|lexique]]
 
 Syntaxe
 
-: le texte suit une structure grammaticale précise, le fond (champ) est toujours mentionnées en premier, les figures en second suivi de leurs attributs. [[|syntaxe]]
+: le texte suit une structure grammaticale précise, le fond (champ) est toujours mentionné en premier, les figures en second suivi de leurs attributs. [[|syntaxe]]
 
 Sémantique
 
@@ -173,7 +175,7 @@ Traduire un algorithme en une suite d'ordres compréhensibles par une machine es
 1. Les langages textuels qui utilisent du texte pour décrire les instructions.
 2. Les langages visuels qui utilisent des éléments graphiques pour décrire les instructions.
 
-L'être humain a appris depuis des millénaires à communiquer avec des symboles, il stocke son savoir dans des livres ou feu une époque sur des tablettes de cire. Au début de l'ère de l'informatique, l'ordinateur ne pouvait communiquer que par du texte. Les premiers langages de programmation étaient donc textuels. Avec l'avènement des interfaces graphiques, les langages visuels ont vu le jour, mais ils sont davantage réservés pour enseigner la programmation aux enfants ou pour faciliter la programmation de robots ou de jeux vidéos.
+L'être humain a appris depuis des millénaires à communiquer avec des symboles, il stocke son savoir dans des livres ou à une certaine époque, sur des tablettes de cire. Au début de l'ère de l'informatique, l'ordinateur ne pouvait communiquer que par du texte. Les premiers langages de programmation étaient donc textuels. Avec l'avènement des interfaces graphiques, les langages visuels ont vu le jour, mais ils sont davantage réservés pour enseigner la programmation aux enfants ou pour faciliter la programmation de robots ou de jeux vidéos.
 
 ??? info "Scratch"
 
@@ -241,13 +243,13 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par [[Jacques
 
 ## La machine de Turing
 
-Comment pourrait-on introduire les notions d'ordinateur, de programmes et d'algorithmes sans évoquer la machine de Turing ? Alan Turing est un mathématicien britannique qui a joué un rôle majeur dans la création de l'informatique. Il est notamment connu pour avoir cassé le code de la machine Enigma utilisée par les forces allemandes pendant la Seconde Guerre mondiale.
+Il est impossible d'introduire les notions d'ordinateur, de programmes et d'algorithmes sans évoquer la figure emblématique d'Alan Turing. Ce mathématicien britannique, véritable pionnier de l'informatique, a joué un rôle crucial dans l'histoire, notamment en déchiffrant le code de la machine Enigma utilisée par les forces allemandes pendant la Seconde Guerre mondiale.
 
-La machine de Turing est un modèle théorique d'un ordinateur. Elle est composée d'une bande infinie divisée en cases, d'une tête de lecture/écriture et d'un ensemble fini d'états. La machine de Turing est capable de lire et d'écrire des symboles sur la bande, de se déplacer à gauche ou à droite et de changer d'état. Elle est capable de simuler n'importe quel algorithme. La machine de Turing est un modèle abstrait qui a permis de définir la notion de calculabilité et de démontrer des résultats fondamentaux en informatique théorique.
+La **machine de Turing** est un modèle théorique fondamental qui représente la conception d'un ordinateur. Imaginée comme une bande infinie divisée en cases, elle est dotée d'une tête de lecture/écriture et d'un ensemble fini d'états. Cette machine peut lire et écrire des symboles sur la bande, se déplacer à gauche ou à droite, et changer d'état en fonction des instructions reçues. Capable de simuler n'importe quel algorithme, la machine de Turing est un modèle abstrait qui a permis de définir la notion de **calculabilité** et de poser les bases de l'informatique théorique.
 
-Lorsque l'on parle d'un ordinateur Turing complet, on fait référence à un ordinateur capable de simuler n'importe quel algorithme. Tous les ordinateurs modernes sont Turing complets. Selon le modèle, ces ordinateurs se composent d'un programme et d'une mémoire. Le programme est une suite d'instructions qui sont exécutées par le processeur. La mémoire est un espace de stockage qui contient les données et les instructions du programme.
+Lorsqu'on parle d'un **ordinateur Turing-complet**, on fait référence à un dispositif capable de simuler n'importe quel algorithme, condition sine qua non pour les ordinateurs modernes. Ces machines se composent d'un programme et d'une mémoire : le programme, une suite d'instructions précises, est exécuté par le processeur, tandis que la mémoire sert d'espace de stockage pour les données et les instructions.
 
-Prenons l'exemple d'un programme visant à additionner `1` à un nombre `n` en binaire. L'algorithme peut être exprimé comme suit :
+Prenons l'exemple d'un programme visant à ajouter `1` à un nombre `n` en binaire. L'algorithme correspondant pourrait être décrit ainsi :
 
 ![Algorithme d'addition binaire](/assets/images/turing-add.drawio)
 
@@ -356,7 +358,7 @@ Les périphériques d'entrée/sortie
 
 : ce sont les interfaces qui permettent à l'ordinateur de communiquer avec l'utilisateur (clavier, souris, écran, imprimante, etc.).
 
-Contrairement à la machine de Turing, les ordinateurs sont équipés d'une mémoire à accès aléatoire qui permet d'accéder n'importe quel élément de la mémoire sans avoir à parcourir toute la bande. Également, ces ordinateurs disposent d'un processeur capable de calculer des opérations arithmétiques et logiques en un temps très court. Ces processeurs peuvent même calculer des fonctions trigonométriques, exponentielles et logarithmiques facilement. En reprenant notre programme d'addition binaire, il est beaucoup plus facile de l'écrire en C&nbsp;:
+Contrairement à la machine de Turing, les ordinateurs sont équipés d'une mémoire à accès aléatoire qui permet d'accéder n'importe quel élément de la mémoire sans avoir à parcourir toute la bande. Également, ces ordinateurs disposent d'un processeur capable de calculer des opérations arithmétiques et logiques en un temps très court. Ces processeurs peuvent même calculer des fonctions trigonométriques, exponentielles et logarithmiques facilement. En reprenant notre programme d'addition binaire, il est beaucoup plus facile de l'écrire en C :
 
 ```c
 #include <stdio.h>
@@ -441,7 +443,7 @@ Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates cl�
 
 87 av. J.-C.
 
-: La [machine d'Anticythère](https://fr.wikipedia.org/wiki/Machine_d%27Anticyth%C3%A8re) considéré comme le premier calculateur analogique pour positions astronomiques permettant de prédire des éclipses. Cette machine encore si mystérieuse à inspiré de nombreux scénarios comme le film Indiana Jones et le Cadran de la destinée. Elle a été découverte en 1901 dans une épave au large de l'île d'Anticythère. Grâce aux techniques modernes de radiographie, on a pu reconstruire une partie de son mécanisme.
+: La [machine d'Anticythère](https://fr.wikipedia.org/wiki/Machine_d%27Anticyth%C3%A8re) considéré comme le premier calculateur analogique pour positions astronomiques permettant de prédire des éclipses. Cette machine encore si mystérieuse a inspiré de nombreux scénarios comme le film Indiana Jones et le Cadran de la destinée. Elle a été découverte en 1901 dans une épave au large de l'île d'Anticythère. Grâce aux techniques modernes de radiographie, on a pu reconstruire une partie de son mécanisme.
 
 1642
 
@@ -534,3 +536,7 @@ Aujourd'hui, les superordinateurs sont capables de réaliser des milliards de mi
     - [x] Un modèle théorique d'un ordinateur capable de simuler n'importe quel algorithme.
     - [ ] Le premier ordinateur électronique.
     - [ ] Un modèle théorique d'un ordinateur ne pouvant pas simuler n'importe quel algorithme.
+
+!!! exercise "Machine à café"
+
+    Une machine à café est équipée d'un {{microcontrôleur}}, qui est l'organe de contrôle de la machine. Ce dernier comporte des {{entrées}} comme les boutons de commande ou les capteurs ainsi que des {{sorties}} comme les LEDs et les actionneurs. Une {{mémoire}} permet de stocker les paramètres de configuration de la machine ainsi que son programme.

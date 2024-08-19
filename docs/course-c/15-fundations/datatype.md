@@ -283,6 +283,8 @@ Ce standard a généré durant des décennies de grandes frustrations et de prof
 
 Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a proposé un standard nommé [Windows-1252](https://fr.wikipedia.org/wiki/Windows-1252) s'inspirant de [ISO-8859-1](https://fr.wikipedia.org/wiki/ISO/CEI_8859-1). En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...
 
+[](){#unicode}
+
 ### Unicode
 
 Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب), les Coréens (한국어), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.
@@ -312,7 +314,8 @@ Attention donc au caractère `'3'` qui correspond à la grandeur hexadécimale `
 
 int main(void) {
     char c = '3';
-    printf("Le caractère %c vaut 0x%x en hexadécimal ou %d en décimal.\n", c, c, c);
+    printf("Le caractère %c vaut 0x%x en hexadécimal ou %d en décimal.\n",
+           c, c, c);
     return 0;
 }
 ```

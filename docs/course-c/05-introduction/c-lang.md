@@ -5,7 +5,7 @@ epigraph:
 ---
 # Le langage C
 
-Le langage C est l'un des premiers langages de programmation dit de haut niveau. Il est très proche de l'assembleur: le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation de système complexe à la simple [machine à café][mcu].
+Le langage C est l'un des premiers langages de programmation dits de haut niveau. Il est très proche de l'assembleur: le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation de système complexe à la simple [machine à café][mcu].
 
 Même s'il est très ancien (1972), il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.
 
@@ -17,7 +17,7 @@ Même s'il est très ancien (1972), il continue d'être utilisé et enseigné, c
 
 En 1964 naît, d'une collaboration avec les laboratoires Bell (*Bell Telephone Laboratories*), General Electric et le MIT, le projet [Multics](wiki:multics) (*Multiplexed Information and Computing Service*), qui vise le développement d'un nouveau système d'exploitation.
 
-Malheureusement, la fin de la décennie est assez tumultueuse car les laboratoires Bell, ne croyant plus aux promesses de Multics, décidèrent de se retirer du projet pour créer leur propre système d'exploitation. Un groupe informel, dirigé notamment par [Ken Thompson](wiki:ken-thompson) et [Dennis Ritchie](wiki:dennis-ritchie), souhaitait revoir et améliorer certains concepts de Multics qu'ils n'appréciaient pas. Notamment le langage de programmation PL/I (*Programming Language number 1*), pourtant alors dominant pour l'écriture de systèmes d'exploitation. Ken Thompson avait développé le langage B, largement inspiré de BCPL, mais dans lequel il supprima tout ce qu'il ne pensait pas être essentiel pour pouvoir être utilisé sur de petits ordinateurs. L'un comme l'autre n'avaient qu'un seul type de donnée, à savoir le "mot" (*word*).
+Malheureusement, la fin de la décennie est assez tumultueuse, car les laboratoires Bell, ne croyant plus aux promesses de Multics, décidèrent de se retirer du projet pour créer leur propre système d'exploitation. Un groupe informel, dirigé notamment par [Ken Thompson](wiki:ken-thompson) et [Dennis Ritchie](wiki:dennis-ritchie), souhaitait revoir et améliorer certains concepts de Multics qu'ils n'appréciaient pas. Notamment le langage de programmation PL/I (*Programming Language number 1*), pourtant alors dominant pour l'écriture de systèmes d'exploitation. Ken Thompson avait développé le langage B, largement inspiré de BCPL, mais dans lequel il supprima tout ce qu'il ne pensait pas être essentiel pour pouvoir être utilisé sur de petits ordinateurs. L'un comme l'autre n'avait qu'un seul type de donnée, à savoir le "mot" (*word*).
 
 BCPL, qui fut conçu par Martin Richards au milieu des années 1960 pendant qu'il était en visite au MIT, n'est autre que le grand-père de B et l'arrière-grand-père de C. Dennis Ritchie, alors collègue de Ken Thompson, retravailla B pour y ajouter la gestion des types de données.
 
@@ -25,9 +25,9 @@ Ce système d'exploitation que Ken Thompson et Dennis Ritchie développaient au 
 
 Par la suite, [Brian Kernighan](wiki:brian-kernighan) aida à populariser ce nouveau langage. Il est le principal auteur du livre "The C Programming Language", tandis que Dennis Ritchie s'est davantage occupé des annexes.
 
-Les évolutions continuerons plus tard avec [Bjarne Stroustrup](wiki:bjarne-stroustrup) qui décidera d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fait l'objet d'un autre cours.
+Les évolutions continueront plus tard avec [Bjarne Stroustrup](wiki:bjarne-stroustrup) qui décidera d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fait l'objet d'un autre cours.
 
-![Les pères fondateurs du C](/assets/images/thompson-kernighan-ritchie.webp)
+![Les pères fondateurs du C](/assets/images/thompson-kernighan-ritchie.drawio)
 
 Il faut attendre 1989 pour que le langage C fasse l'objet d'une normalisation par l'ANSI (*American National Standards Institute*). L'année suivante le comité ISO (*International Organization for Standardization*) ratifie le standard *ISO/IEC 9899:1990* communément appelé **C90**. Dès lors, le langage C est devenu un standard international et devient le langage dominant dans le monde de l'informatique.
 
@@ -182,7 +182,7 @@ Les grammaires des langages de programmation sont souvent formalisées à l'aide
 
 ## Les paradigmes de programmation
 
-Chaque langage de programmation que ce soit C, C++, Python, ADA, COBOL et Lisp sont d'une manière générale assez proche les uns des autres. Nous citions par exemple le langage B, précurseur du C (c.f. [thompson]{c-history}). Ces deux langages, et bien que leurs syntaxes soient différentes, ils demeurent assez proches, comme l'espagnol et l'italien qui partagent des racines latines. En programmation on dit que ces langages partagent le même [paradigme de programmation](https://fr.wikipedia.org/wiki/Paradigme_(programmation)).
+Chaque langage de programmation que ce soit C, C++, Python, ADA, COBOL et Lisp sont d'une manière générale assez proche les uns des autres. Nous citions par exemple le langage B, précurseur du C (c. f. [thompson]{c-history}). Ces deux langages, et bien que leurs syntaxes soient différentes, ils demeurent assez proches, comme l'espagnol et l'italien qui partagent des racines latines. En programmation on dit que ces langages partagent le même [paradigme de programmation](https://fr.wikipedia.org/wiki/Paradigme_(programmation)).
 
 Certains paradigmes sont plus adaptés que d'autres à la résolution de certains problèmes et de nombreux langages de programmation sont dit **multi-paradigmes**, c'est-à-dire qu'ils supportent différents paradigmes.
 
@@ -258,7 +258,7 @@ Le cycle de développement logiciel comprend la suite des étapes menant de l'é
 8. **Vérification** que le cahier des charges est respecté
 9. **Livraison** du programme
 
-Mis à part la dernière étape où il n'y a pas de retour en arrière possible, les autres étapes sont **itératives**. Il est très rare d'écrire un programme juste du premier coup. Durant tout le cycle de développement logiciel, des itérations successives sont faites pour permettre d'optimiser le programme, de résoudre des bogues, d'affiner les spécifications, d'écrire davantage de tests pour renforcer l'assurance d'un bon fonctionnement du programme et éviter une coulée de lave [](){#code_smell}.
+Mis à part la dernière étape où il n'y a pas de retour en arrière possible, les autres étapes sont **itératives**. Il est très rare d'écrire un programme juste du premier coup. Durant tout le cycle de développement logiciel, des itérations successives sont faites pour permettre d'optimiser le programme, de résoudre des bogues, d'affiner les spécifications, d'écrire davantage de tests pour renforcer l'assurance d'un bon fonctionnement du programme et éviter une [coulée de lave][lava-flow].
 
 Le modèle en cascade suivant résume le cycle de développement d'un programme. Il s'agit d'un modèle simple, mais qu'il faut garder à l'esprit que ce soit pour le développement d'un produit logiciel que durant les travaux pratiques liés à ce cours.
 

@@ -129,14 +129,7 @@ bool is_negative(int32_t n) {
 
     Pour les nombres suivants stockés sur 8-bit, pouvez-vous dire s'ils sont pairs ou impairs, positifs ou négatifs ?
 
-    1. `0b01100000`
-    2. `0b00001001`
-    3. `0b10000000`
-    4. `0b11011011`
-
-    ??? solution
-
-        1. Pair, positif
-        2. Impair, positif
-        3. Pair, négatif
-        4. Impair, négatif
+    1. `0b01100000` est {{pair}} et de signe {{positif}}
+    2. `0b00001001` est {{impair}} et de signe {{positif}}
+    3. `0b10000000` est {{pair}} et de signe {{négatif}}
+    4. `0b11011011` est {{impair}} et de signe {{négatif}}

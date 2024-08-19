@@ -1,18 +1,18 @@
 # Mon ordinateur et moi
 
-Vous êtes devant votre ordinateur, vous avez en théorie un clavier devant vous, une souris à droite de votre clavier, et un ou plusieurs écrans devant vous. Votre ordinateur démarre et vous verrez apparaître très probablement soit :
+Vous êtes devant votre ordinateur, vous avez certainement devant vous un clavier, une souris à droite de votre clavier, et un ou plusieurs écrans. Votre ordinateur démarre et vous voyez apparaître soit :
 
 - une pomme croquée (Apple);
 - une fenêtre à carreaux (Windows);
 - un manchot Adélie (Linux).
 
-C'est votre système d'exploitation et peu importe lequel vous avez, la bonne nouvelle c'est que vous pourrez écrire vos premiers programmes avec n'importe lequel de ces systèmes.
+Le responsable de cet écran de démarrage c'est votre système d'exploitation et peu importe lequel vous utilisez, la bonne nouvelle c'est que vous pourrez écrire vos premiers programmes avec n'importe lequel de ces systèmes.
 
 ## Système d'exploitation
 
-Dans cet ouvrage, la plupart des exemples seront donnés sous Linux. Linux présente l'avantage d'être normalisé et de suivre les standards POSIX, lesquels sont communs, du moins en partie avec macOS. Windows, quant à lui, est un peu à part, mais il est possible d'installer un sous-système Linux pour Windows (WSL2), ce qui permet d'exécuter des programmes Linux sur Windows.
+Dans cet ouvrage, la plupart des exemples seront présentés sous Linux. Linux a l'avantage d'être normalisé, respectant les standards POSIX, qui sont en grande partie communs avec macOS. Windows, bien que légèrement différent, permet toutefois l'installation d'un sous-système Linux (WSL2), facilitant ainsi l'exécution de programmes Linux sur un environnement Windows.
 
-Le système d'exploitation c'est aussi un programme qui offre une couche d'abstraction entre le matériel et les autres programmes. On peut le voir comme le chef d'orchestre de votre ordinateur. Il permet de gérer les ressources matérielles, de lancer des programmes, de gérer les fichiers, de gérer les utilisateurs, etc.
+Le système d'exploitation, en lui-même, n'est rien d'autre qu'un programme sophistiqué qui sert d'intermédiaire entre le matériel et les autres logiciels. On peut le comparer à un chef d'orchestre, coordonnant les ressources de votre ordinateur, lançant les programmes, gérant les fichiers, et supervisant les utilisateurs. C'est cette couche d'abstraction qui permet à votre machine de fonctionner harmonieusement, en masquant la complexité du matériel sous-jacent pour vous offrir une interface conviviale et cohérente.
 
 ## Éditeur de code source
 
@@ -118,7 +118,7 @@ Complétion automatique (*auto-completion*)
 
 Intelligence artificielle (*AI*)
 
-: L'éditeur de code vous permet de compléter automatiquement le code en utilisant une intelligence artificielle.
+: L'éditeur de code vous permet de compléter automatiquement le code en utilisant une intelligence artificielle comme [GitHub Copilot](https://copilot.github.com/). Cette technologie propose des suggestions de code en fonction de ce que vous avez déjà écrit basé sur des millions de lignes de code open-source.
 
 Gestion d'extensions (*extensions*)
 
@@ -184,3 +184,21 @@ Figure: Représentation graphique des notions de compilateur, IDE, toolchain...
         Il suffit pour cela de se rendre sur le site de [Stackoverflow](https://stackoverflow.com/tags/c) et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
 
         Seriez-vous capable de répondre à une question posée?
+
+!!! exercise "Quel système d'exploitation ?"
+
+    Quel système d'exploitation doit-on utiliser pour exécuter un programme écrit en C ?
+
+    - [ ] Windows
+    - [ ] Linux
+    - [ ] macOS
+    - [x] N'imorte lequel
+
+!!! exercise "Copilot"
+
+    Qu'est-ce que Copilot ?
+
+    - [x] Une intelligence artificielle
+    - [ ] Un éditeur de code
+    - [ ] Un compilateur
+    - [ ] Un IDE

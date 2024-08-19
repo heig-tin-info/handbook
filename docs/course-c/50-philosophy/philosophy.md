@@ -423,7 +423,7 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
 
 : Quand un composant logiciel assure trop de fonctions essentielles (KISS)
 
-**Coulée de lave**
+**Coulée de lave** [](){#lava-flow}
 
 : Lorsqu'un code immature est mis en production
 

@@ -26,7 +26,7 @@ Généralement, ces mémoires sont vendues en nombre de bits, soit ici 32 Gibibi
 
 Sur le circuit électronique ou PCB (*Printed Circuit Board*), on voit les 4 puces de mémoire soudées. Il s'agit d'un composant de la société Micron, un MT40A1G8. La structure interne de cette mémoire est donnée par la *datasheet* du composant&nbsp;:
 
-![MT40A1G8](/assets/images/mt40a1g8-functional.svg)
+![MT40A1G8](/assets/images/mt40a1g8-functional.drawio)
 
 Pour décoder ce schéma, intéressons-nous aux flèches de couleur. Il s'agit du bus d'adresse. Ce bus comporte 16 lignes en parallèle qui sont interfacées à deux blocs : le *Row Address MUX* et le *Column address counter*. Ces deux blocs permettent de sélectionner une cellule mémoire selon la mémoire, une cellule peut valoir 4, 8, 16 ou 32 bits.
 
