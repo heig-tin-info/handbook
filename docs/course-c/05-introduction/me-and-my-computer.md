@@ -22,28 +22,29 @@ Si vous prenez une Doloréane munie d'un convecteur temporel, et que vous dépas
 
 C'est un éditeur qui a été écrit à l'époque des [télétypes][teletype] et qui, curieusement a traversé les âges car il est encore intégré au standard POSIX. Il est par conséquent toujours disponible sur nos systèmes d'exploitation modernes. Il faut noter qu'à cette époque il n'y avait pas d'écran, et que l'on utilisait des imprimantes pour afficher le texte. L'éditeur n'est donc pas très interactif, mais il a le mérite d'exister.
 
-C'est un des premier éditeur modale, son utilisation est assez déroutante car il n'y a pas de retour visuel immédiat. Il faut taper des commandes pour écrire du texte, pour sauvegarder, pour quitter, etc. Voici l'exemple pour éditer `hello.c` :
+C'est un des premier éditeur modale, son utilisation est assez déroutante car il n'y a pas de retour visuel immédiat. Il faut taper des commandes pour écrire du texte, pour sauvegarder, pour quitter, etc. Voici un exemple:
 
 ```text
 $ ed
 a
-void main() {
-    printf("hello, world"); }
+Souvent, pour s'amuser, les homes d'équipage
+Prennent des albatros,
+vastes oiseaux des mers,
+Le navire glissant sur les gouffres amers.
 .
-1
-void main() {
-s/void/int/
-1i
-#include <stdio.h>
+i
+Qui suivent, indolents compagnons de voyage,
 .
-w hello.c
-62
+2,3j
+,p
+Souvent, pour s'amuser, les homes d'équipage
+%s/homes/hommes/g
+w albatros.txt
+164
 q
 ```
 
-Dans les étapes ci-dessus, nous avons : (1) lancé l'éditeur `ed`, (2) écrit `a` pour passer en mode édition, (3) écrit le code, puis (4) saisi `.` pour revenir en mode commande. Nous avons (5) entré `1` pour afficher la première ligne (qui comporte une erreur) puis (6) saisi `s/void/int/` pour remplacer `void` par `int`. Nous avons (7) tapé `1i` pour insérer une ligne avant la première ligne puis (8) écrit `#include <stdio.h>` que l'on a oublié et (9) entré `.` pour revenir en mode commande. Enfin (10) écrit `w hello.c` pour sauvegarder le fichier et (11) `q` pour quitter l'éditeur.
-
-Rappelons que ce programme est écrit en C. Donc le plus amusant, c'est que vous pouvez le compiler, le modifier et même ajouter des fonctionnalités. On trouve bien entendu le code source sur [GitHub](https://raw.githubusercontent.com/yves-chevallier/ed/master/main_loop.c).
+Dans les étapes ci-dessus, nous avons lancé l'éditeur `ed` puis basculé en mode d'insertion avec la commande `a` pour ajouter du texte. Nous avons ensuite ajouté un texte mais comme il n'y a pas de retour visuel, nous ne somme pas certain d'avoir orthographié juste tous les mots. À la fin de la saise, on revient en mode commande avec `.` puis on décide de poursuivre en insérant une nouvelle ligne `i`. Passons à la correction, on sait déjà que l'on a ajouté un retour à la ligne en trop entre la ligne 2 et 3. On peut les joindres avec `2,3j`. Enfin, on imprime (physiquement sur une imprimante) la première ligne avec `1p`. Constatant l'erreur, on remplace `homes` par `hommes` avec `%s/homes/hommes/g`. Enfin on sauvegarde le fichier avec `w albatros.txt`, la commande nous imprime le nombre de caractères sauvegardés: `164`. À la fin de cette corvée de travail, on quitte avec `q`.
 
 Trève de plaisanteries, vous n'allez probablement pas utiliser `ed` mais connaître son existence permet de mieux saisir le contexte général. Je vous propose de continuer un peu notre voyage spatio-temporel...
 

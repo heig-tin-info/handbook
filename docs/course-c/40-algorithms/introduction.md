@@ -208,8 +208,6 @@ for (size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++)
 
     Une fois le travail terminé, votre manager vient vous voir pour vous annoncer que le cahier des charges a été modifié. Le client dit qu'il n'a que 10 MiB. Pensez-vous pouvoir résoudre le problème quand même ?
 
-## Machines d'états
-
 ## Diagrammes visuels
 
 - Diagrammes en flux

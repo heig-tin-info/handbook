@@ -1,0 +1,13 @@
+# Préface de chapitre
+
+### Introduction aux Algorithmes
+
+Les algorithmes sont au cœur de l'informatique. Ils constituent des ensembles d'instructions claires et précises permettant de résoudre des problèmes spécifiques ou d'accomplir des tâches variées. Qu'il s'agisse de trier une liste de nombres, de rechercher un élément dans une base de données ou de déterminer le chemin le plus court entre deux points, les algorithmes offrent des solutions optimisées pour ces défis.
+
+Dans ce chapitre, nous explorerons plusieurs aspects fondamentaux des algorithmes. Tout d'abord, nous nous pencherons sur la complexité de la récursion. La récursion est une technique puissante où une fonction s'appelle elle-même pour résoudre des sous-problèmes. Cependant, bien que très utile, elle peut parfois engendrer des problèmes de performance ou de consommation de mémoire, en particulier si elle est mal maîtrisée. Nous analyserons comment évaluer la complexité des algorithmes récursifs afin de s'assurer de leur efficacité.
+
+Nous aborderons également les algorithmes de recherche et de tri, deux opérations parmi les plus courantes en informatique. Il est essentiel de comprendre les mécanismes de base des algorithmes de recherche, comme la recherche linéaire ou la recherche binaire, ainsi que les différents algorithmes de tri, tels que le tri par insertion ou le tri rapide. Maîtriser ces concepts permet d'optimiser le traitement des données au sein des programmes.
+
+Enfin, nous nous intéresserons à quelques algorithmes classiques et largement utilisés dans divers domaines. Parmi ceux-ci, l'algorithme Shunting-yard, créé par Edsger Dijkstra, qui sert à analyser et évaluer des expressions mathématiques en notation infixée et à les convertir en notation postfixée. Cet algorithme est particulièrement utile pour les calculatrices et les compilateurs. Nous examinerons également l'algorithme Rabin-Karp, un algorithme de recherche de sous-chaînes qui utilise le hachage pour trouver rapidement des occurrences d'une sous-chaîne dans une chaîne plus grande. Cet exemple illustre bien l'application de la théorie des nombres en informatique.
+
+À travers ces thèmes, ce chapitre vous permettra d'acquérir une compréhension approfondie des fondements des algorithmes, de leur efficacité et de leurs diverses applications. Que vous soyez débutant ou que vous cherchiez à enrichir vos connaissances, vous découvrirez ici les principes qui sous-tendent les algorithmes et les clés pour résoudre des problèmes complexes de manière optimale.

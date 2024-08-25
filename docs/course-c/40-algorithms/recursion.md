@@ -65,23 +65,23 @@ graph TD
 
 Au final, `fib(1)` est appelé 5 fois, `fib(2)` 3 fois, `fib(3)` 2 fois, `fib(4)` et `fib(5)` 1 fois. Ce sont donc 12 appels à la fonction `fib` pour calculer `fib(5)`.
 
-| Calcul | Appels |
-|--------|--------|
-| fib(1) | 1      |
-| fib(2) | 2      |
-| fib(3) | 4      |
-| fib(4) | 7      |
-| fib(5) | 12     |
-| fib(6) | 20     |
-| fib(7) | 33     |
-| fib(8) | 54     |
-| fib(9) | 88     |
-| fib(10)| 143    |
-| ...    | ...    |
-| fib(30)| 2'178'308 |
-| fib(40)| 267'914'295 |
-| fib(50)| 32'951'280'098 |
-| fib(100)| 927'372'692'193'078'999'175 |
+| Calcul   | Appels                      |
+| -------- | --------------------------- |
+| fib(1)   | 1                           |
+| fib(2)   | 2                           |
+| fib(3)   | 4                           |
+| fib(4)   | 7                           |
+| fib(5)   | 12                          |
+| fib(6)   | 20                          |
+| fib(7)   | 33                          |
+| fib(8)   | 54                          |
+| fib(9)   | 88                          |
+| fib(10)  | 143                         |
+| ...      | ...                         |
+| fib(30)  | 2'178'308                   |
+| fib(40)  | 267'914'295                 |
+| fib(50)  | 32'951'280'098              |
+| fib(100) | 927'372'692'193'078'999'175 |
 
 Il s'agit de la suite [A000071](https://oeis.org/A000071) de l'OEIS. On constate que le nombre d'appels est exponentiel. Pour `fib(100)` il faudra neuf cent vingt-sept quintillions trois cent soixante-douze quadrillions six cent quatre-vingt-douze trillions cent quatre-vingt-treize milliards soixante-dix-huit millions neuf cent quatre-vingt-dix-neuf mille cent soixante-quinze appels à la fonction `fib`. Pour un processeur capable de calculer 100 GFLOPS (milliards d'opérations par seconde), il faudra tout de même 294 ans. C'est un peu long...
 
@@ -257,3 +257,23 @@ int fibonacci(int n) {
 ```
 
 Sa complexité est ainsi réduite à $O(2\cdot n)$ et donc $O(n)$. En revanche, l'approche dynamique demande un espace mémoire supplémentaire. On n'a rien sans rien et l'éternel dilemme mémoire versus performance s'applique toujours.
+
+## Backtracking
+
+Le [backtracking](https://fr.wikipedia.org/wiki/Backtracking) est une technique algorithmique qui consiste à explorer toutes les solutions possibles d'un problème en testant chaque solution partielle. Lorsqu'une solution partielle ne peut pas être complétée pour former une solution valide, on revient en arrière (backtrack) pour explorer une autre branche de l'arbre de recherche. Cette approche est souvent utilisée pour rechercher une solution optimale à un problème combinatoire.
+
+Par exemple, le problème des huit dames consiste à placer huit dames sur un échiquier de manière à ce qu'aucune dame ne puisse attaquer une autre dame. Le backtracking est une méthode efficace pour résoudre ce type de problème.
+
+### Les huit dames
+
+Le problème des huit dames est un problème classique de placement de huit dames sur un échiquier de 8x8 cases de manière à ce qu'aucune dame ne puisse attaquer une autre dame. Une dame peut attaquer une autre dame si elles se trouvent sur la même ligne, la même colonne ou la même diagonale.
+
+La solution naïve est de tester toutes les combinaisons possibles de placement des huit dames et de vérifier si elles sont valides. Cependant, cette approche est inefficace car le nombre de combinaisons possibles est très élevé. Si nous considérons simplement toutes les manières de placer 8 dames sur un échiquier 8x8 sans tenir compte des contraintes d'attaque (c'est-à-dire sans tenir compte des lignes, colonnes ou diagonales), le nombre de configurations possibles est donné par le nombre de combinaisons de 64 cases (l'échiquier) prises 8 à la fois soit :
+
+$$\binom{64}{8} = \frac{64!}{8!(64-8)!} = 4'426'165'368$$
+
+Néanmoins ce problème qui est connu admet 92 solutions. C'est un problème de recherche exhaustive. On peut le résoudre en utilisant une approche de backtracking.
+
+```c
+--8<-- "docs/assets/src/eight-queens.c"
+```

@@ -40,23 +40,23 @@ Si l'on désire déterminer le plus grand commun diviseur de 42 et 30, il suffit
 
 Table: Exemple de calcul du PGCD entre 42 et 30
 
-| Étape | $a$ | $b$ | $r$ |
-|-------|-----|-----|-----|
-| Prendre deux entiers naturels $a$ et $b$ | 42  | 30  | non défini |
-| Est-ce que $b$ est nul ? non ! | 42  | 30  | non défini |
-| Calculer le reste de la division euclidienne de $a$ par $b$ | 42  | 30  | 12  |
-| Remplacer $a$ par $b$ | 30  | 30  | 12 |
-| Remplacer $b$ par $r$ | 30  | 12  | 12 |
-| Est-ce que $b$ est nul ? non ! | 30  | 12  | 12 |
-| Calculer le reste de la division euclidienne de $a$ par $b$ | 30  | 12  | 6   |
-| Remplacer $a$ par $b$ | 12  | 12  | 6   |
-| Remplacer $b$ par $r$ | 12  | 6   | 6   |
-| Est-ce que $b$ est nul ? non ! | 12  | 6   | 6   |
-| Calculer le reste de la division euclidienne de $a$ par $b$ | 12  | 6   | 0   |
-| Remplacer $a$ par $b$ | 6   | 6   | 0   |
-| Remplacer $b$ par $r$ | 6   | 0   | 0   |
-| Est-ce que $b$ est nul ? oui ! | 6   | 0   | 0   |
-| Le PGCD de 42 et 30 est 6 |  6  |  0  |  0   |
+| Étape                                                       | $a$ | $b$ | $r$        |
+| ----------------------------------------------------------- | --- | --- | ---------- |
+| Prendre deux entiers naturels $a$ et $b$                    | 42  | 30  | non défini |
+| Est-ce que $b$ est nul ? non !                              | 42  | 30  | non défini |
+| Calculer le reste de la division euclidienne de $a$ par $b$ | 42  | 30  | 12         |
+| Remplacer $a$ par $b$                                       | 30  | 30  | 12         |
+| Remplacer $b$ par $r$                                       | 30  | 12  | 12         |
+| Est-ce que $b$ est nul ? non !                              | 30  | 12  | 12         |
+| Calculer le reste de la division euclidienne de $a$ par $b$ | 30  | 12  | 6          |
+| Remplacer $a$ par $b$                                       | 12  | 12  | 6          |
+| Remplacer $b$ par $r$                                       | 12  | 6   | 6          |
+| Est-ce que $b$ est nul ? non !                              | 12  | 6   | 6          |
+| Calculer le reste de la division euclidienne de $a$ par $b$ | 12  | 6   | 0          |
+| Remplacer $a$ par $b$                                       | 6   | 6   | 0          |
+| Remplacer $b$ par $r$                                       | 6   | 0   | 0          |
+| Est-ce que $b$ est nul ? oui !                              | 6   | 0   | 0          |
+| Le PGCD de 42 et 30 est 6                                   | 6   | 0   | 0          |
 
 !!! exercise "Algorithme d'Euclide"
 
@@ -240,6 +240,8 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par [[Jacques
 >Il me semble que je pencherais pour **ordonnatrice électronique**. Je souhaite que ces suggestions stimulent, orientent vos propres facultés d’invention. N’hésitez pas à me donner un coup de téléphone si vous avez une idée qui vous paraisse requérir l’avis d’un philologue.
 
 >Vôtre, Jacques Perret »
+
+()[]{#turing-machine}
 
 ## La machine de Turing
 
