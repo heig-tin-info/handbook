@@ -277,3 +277,117 @@ Néanmoins ce problème qui est connu admet 92 solutions. C'est un problème de 
 ```c
 --8<-- "docs/assets/src/eight-queens.c"
 ```
+
+On commence par définir un échiquier de `N`x`N` cases sous la forme d'une tableau bidimensionnel `bool board[N][N]`. Chaque case de l'échiquier peut contenir une dame (`true`) ou être vide (`false`).
+
+La fonction `is_safe` prend en paramètre l'échiquier actuel et les coordonnées `(row, col)` d'une nouvelle dame à placer. Elle vérifie si la nouvelle dame peut être placée sans être attaquée par une autre dame déjà placée sur l'échiquier. Pour cela, elle vérifie les colonnes et les diagonales de la nouvelle dame pour s'assurer qu'aucune autre dame ne peut l'attaquer. Il n'est pas nécessaire de vérifier les lignes car chaque dame est placée sur une ligne différente.
+
+Le coeur de l'algorithme est la fonction `solve` qui utilise une approche de backtracking pour placer les huit dames sur l'échiquier. C'est une fonction récursive. La fonction prend en paramètre l'échiquier actuel et la ligne courante `row` à explorer. Comme la fonction s'appelle elle-même il faut impérativement une condition de sortie. Dans notre cas si `row` est égal à `N` alors toutes les dames ont été placées et on peut afficher la solution.
+
+Pour chaque ligne, on explore chaque colonne en commencant par la première. Si la case est sûre, on place une dame et on appelle récursivement la fonction `solve` pour explorer la ligne suivante. A chaque appel successif de `solve` on place une dame supplémentaire. Si d'avenure on se rend compte que la configuration n'est pas valide, on retire la dame et on explore une autre colonne.
+
+Pour mieux comprendre, réduisons le problème à un échiquier 4x4 et ajoutons un affichage dans solve. Pour connaître la profondeur de la récursion, on passe un paramètre `depth` à la fonction `solve` qui sera incrémente à chaque appel.
+
+```c
+#define PAD(depth)                                   \
+   {                                                 \
+      for (int i = 0; i < depth; i++) printf("   "); \
+   }
+
+void solve(bool board[N][N], int row, int depth) {
+   if (row >= N) {
+      PAD(depth);
+      printf("END\n");
+      return;
+   }
+
+   PAD(depth);
+   for (int col = 0; col < N; col++) {
+      printf("%c%d ", 'A' + col, row);
+      if (is_safe(board, row, col)) {
+         board[row][col] = QUEEN;
+         printf("\n");
+         solve(board, row + 1, depth + 1);
+         board[row][col] = EMPTY;  // BACKTRACK
+      }
+   }
+   printf("\n");
+   PAD(depth - 1);
+}
+```
+
+L'exécution commentée donne ceci:
+
+```
+------------------------> Niveau de récursion
+A0                    Une dame est placée puis on explore la ligne suivante
+   A1 B1 C1           Les positions A1, B1 sont invalides mais C1 est valide
+      A2 B2 C2 D2     Explore la ligne 2 mais aucune position n'est valide
+   D1                 On backtrack et explore la position suivante D1
+      A2 B2           Qui est valide, donc on explore la ligne 2
+         A3 B3 C3 D3  Et la ligne 3 car B2 était valide
+      C2 D2
+... Jusqu'ici aucune solution valide alors on backtrack
+
+B0
+   A1 B1 C1 D1
+      A2
+         A3 B3 C3
+            END       Une solution trouvée avec B0, D1, A2, C3
+D3
+      B2 C2 D2
+C0
+   A1
+      A2 B2 C2 D2
+         A3 B3
+            END       Une autre solution trouvée avec C0, A1, D2, B3
+C3 D3
+   B1 C1 D1
+D0
+   A1
+      A2 B2 C2
+         A3 B3 C3 D3
+      D2
+   B1
+      A2 B2 C2 D2
+   C1 D1
+```
+
+Le problème des 8 dames peut être aussi implémenté sous forme itérative. La technique est toujours la même, on utilise une pile pour stocker les positions des dames. On notera que le code est bien plus complexe que la version récursive.
+
+```c
+void solve(bool board[N][N]) {
+   int row = 0, col = 0;
+   int stack[N] = {0};  // Stack to store column positions
+
+   while (row >= 0) {
+      bool placed = false;
+      while (col < N) {
+         if (is_safe(board, row, col)) {
+            board[row][col] = QUEEN;
+            stack[row] = col;
+            placed = true;
+            break;
+         }
+         col++;
+      }
+
+      if (placed) {
+         if (row == N - 1) {
+            printSolution(board);
+            board[row][col] = EMPTY;  // Backtrack
+            col = stack[row] + 1;     // Try next column in the same row
+         } else {
+            row++;
+            col = 0;
+         }
+      } else {
+         row--;
+         if (row >= 0) {
+            col = stack[row] + 1;  // Backtrack
+            board[row][stack[row]] = EMPTY;
+         }
+      }
+   }
+}
+```
