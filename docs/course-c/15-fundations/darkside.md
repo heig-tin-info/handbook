@@ -19,7 +19,7 @@
         }
     }
 
-    - [ ] 42
+    - [x] 42
     - [ ] 23
     - [ ] 0
     - [ ] 1
@@ -47,7 +47,7 @@
     ```
 
     - [ ] Erreur de compilation
-    - [ ] 'o'
+    - [x] 'o'
     - [ ] 'h'
     - [ ] 0
 
@@ -90,7 +90,7 @@
     $ gcc a.c b.c && ./a.out
     ```
 
-    - [ ] 42
+    - [x] 42
     - [ ] 0
     - [ ] Indéfini
     - [ ] Erreur de compilation

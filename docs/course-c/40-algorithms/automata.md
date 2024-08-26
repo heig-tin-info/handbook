@@ -181,7 +181,7 @@ Dans ces exemples, à chaque état un caractère est capturé sur la chaîne de 
 
 Ce diagramme d'état peut être représenté sous forme de tableau de transition :
 
-Table: Table de transition pour l'expression régulière `Z|X(X|Y)*`
+Table: Table de transition
 
 |     | X   | Y   | Z   | ε     |
 | --- | --- | --- | --- | ----- |

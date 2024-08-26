@@ -238,6 +238,42 @@ La rédiction aussi appelée [Divide and Conquer](https://fr.wikipedia.org/wiki/
 
 Le raisonnement par l'inverse consiste à partir de la solution pour remonter au problème en posant des hypothèses. Par exemple, si vous avez un problème de recherche de chemin, vous pouvez partir de la destination pour remonter au point de départ. C'est une méthode très utilisée en mathématiques pour résoudre des problèmes complexes. Par exemple, la méthode de Newton pour trouver les racines d'une fonction est basée sur le raisonnement par l'inverse.
 
+## Les Problèmes NP et NP-Complet
+
+La théorie de la complexité computationnelle est une branche fascinante de l'informatique théorique qui s'intéresse à la classification des problèmes en fonction de la difficulté à les résoudre. Au cœur de cette théorie se trouvent les classes de problèmes NP et NP-complet, concepts essentiels pour comprendre pourquoi certains problèmes sont si difficiles à résoudre. Pour les néophytes, ces termes peuvent sembler abstraits, mais leur compréhension révèle des enjeux fondamentaux pour la science et l'ingénierie modernes.
+
+### Qu'est-ce qu'un problème NP ?
+
+Pour saisir ce qu'est un problème NP, il faut d'abord comprendre la notion de temps de calcul. Le temps de calcul d'un algorithme correspond au nombre d'étapes nécessaires pour résoudre un problème, en fonction de la taille de l'entrée. Par exemple, trier une liste de mille éléments prend généralement plus de temps que trier une liste de dix éléments.
+
+Un problème est dit "en P" (pour "Polynomial") si une solution peut être trouvée par un algorithme en un temps raisonnable, c'est-à-dire en un temps qui croît de manière polynomiale avec la taille de l'entrée. Par exemple, l'algorithme qui permet de trier une liste en utilisant un tri par insertion appartient à la classe P car son temps de calcul est proportionnel au carré de la taille de la liste.
+
+Cependant, certains problèmes semblent beaucoup plus complexes à résoudre. Un problème est dit "en NP" (pour "Nondeterministic Polynomial time") si, bien qu'il puisse être difficile de trouver une solution, il est relativement facile de vérifier la validité d'une solution donnée. Autrement dit, si on vous fournit une solution supposée correcte à un problème en NP, vous pouvez vérifier cette solution en temps polynomial. Le terme "nondeterministic" fait référence à l'idée théorique d'une machine qui pourrait essayer simultanément toutes les solutions possibles et choisir la bonne.
+
+Un exemple classique de problème en NP est le problème du *Knapsack* (ou problème du sac à dos). Ce problème consiste à déterminer quels objets, parmi une collection donnée, doivent être placés dans un sac à dos de capacité limitée de manière à maximiser la valeur totale des objets. Trouver la meilleure combinaison d'objets à mettre dans le sac peut être très difficile car le nombre de combinaisons possibles croît de manière exponentielle avec le nombre d'objets. En revanche, si quelqu'un vous donne une combinaison prétendument optimale, vous pouvez rapidement vérifier si elle respecte la capacité du sac et si sa valeur est maximale.
+
+### Les Problèmes NP-Complet
+
+Parmi les problèmes en NP, certains sont particulièrement redoutables : ce sont les problèmes NP-complet. Un problème est dit NP-complet s'il est à la fois en NP et au moins aussi difficile que tous les autres problèmes en NP. En d'autres termes, si vous pouviez trouver une méthode efficace pour résoudre un problème NP-complet, alors vous pourriez utiliser cette méthode pour résoudre tous les autres problèmes en NP.
+
+Le problème du *Knapsack* que nous avons mentionné plus tôt est un exemple de problème NP-complet. D'autres exemples bien connus incluent le problème du voyageur de commerce (TSP), où il s'agit de trouver le chemin le plus court pour visiter un ensemble de villes une fois et revenir au point de départ, ou encore le problème de la coloration de graphe, qui consiste à déterminer le nombre minimum de couleurs nécessaires pour colorier les sommets d'un graphe de manière que deux sommets adjacents n'aient pas la même couleur.
+
+### Le Problème P = NP
+
+Le problème millénaire P = NP, formulé par Stephen Cook en 1971, est l'une des questions les plus célèbres et les plus importantes de la science informatique. Il se demande si tous les problèmes qui peuvent être vérifiés rapidement (c'est-à-dire en temps polynomial) peuvent également être résolus rapidement. En d'autres termes, P est-il égal à NP ?
+
+Si P = NP, cela signifierait qu'il existe un algorithme rapide pour résoudre chaque problème dont la solution peut être rapidement vérifiée. Cela bouleverserait notre compréhension de la complexité computationnelle et aurait des implications énormes dans de nombreux domaines, de la cryptographie à la logistique. À ce jour, personne n'a réussi à prouver ou à réfuter cette conjecture, et elle reste l'un des grands mystères non résolus de la science.
+
+### Pourquoi les Problèmes NP-Complet sont-ils Importants ?
+
+Les problèmes NP-complet sont essentiels car ils nous montrent les limites de ce que nous pouvons résoudre efficacement avec des ordinateurs. Ils nous forcent à accepter qu'il existe des problèmes pour lesquels, en l'état actuel de nos connaissances, il n'existe pas de solution rapide, ce qui a des conséquences pratiques. Par exemple, en cryptographie, la sécurité des systèmes repose souvent sur l'hypothèse que certains problèmes sont difficiles à résoudre, ce qui les rend résistants aux attaques.
+
+En outre, comprendre ces problèmes nous pousse à développer de nouvelles techniques pour les résoudre ou les contourner. Parfois, cela signifie trouver des algorithmes approximatifs, qui fournissent des solutions proches de l'optimum en un temps raisonnable. D'autres fois, cela peut conduire à l'innovation en matière de matériel informatique, comme l'exploration des ordinateurs quantiques, qui pourraient potentiellement résoudre certains de ces problèmes beaucoup plus rapidement que les ordinateurs classiques.
+
+### Conclusion
+
+La classification des problèmes en P, NP, et NP-complet est une pierre angulaire de l'informatique théorique. Les problèmes NP-complet, en particulier, représentent certains des défis les plus redoutables auxquels nous sommes confrontés dans le domaine. Ils ne sont pas seulement des énigmes abstraites pour les théoriciens ; ils ont des implications profondes et très concrètes pour la science, la technologie, et même notre vie quotidienne. Comprendre ces concepts, c'est plonger au cœur de ce que signifie la complexité et la difficulté dans le monde des algorithmes, et reconnaître les limites actuelles de ce que nous pouvons accomplir avec des machines de calcul.
+
 ## Exercices de révision
 
 !!! exercise "Intégrateur de Kahan"
