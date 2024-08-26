@@ -135,11 +135,9 @@ void search_closest(Node* root, double x, double y, int depth,
 ClosestNode find_closest(Node* root, double x, double y) {
    ClosestNode closest;
    closest.node = NULL;
-   closest.distance = DBL_MAX;  // Distance maximale initiale
+   closest.distance = DBL_MAX;
 
    search_closest(root, x, y, 0, &closest);
-
-   // Retourner le résultat final (le point le plus proche)
    return closest;
 }
 

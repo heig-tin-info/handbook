@@ -268,6 +268,8 @@ Par exemple, le problème des huit dames consiste à placer huit dames sur un é
 
 Le problème des huit dames est un problème classique de placement de huit dames sur un échiquier de 8x8 cases de manière à ce qu'aucune dame ne puisse attaquer une autre dame. Une dame peut attaquer une autre dame si elles se trouvent sur la même ligne, la même colonne ou la même diagonale.
 
+![Les huit dames](/assets/images/eight-queens.drawio)
+
 La solution naïve est de tester toutes les combinaisons possibles de placement des huit dames et de vérifier si elles sont valides. Cependant, cette approche est inefficace car le nombre de combinaisons possibles est très élevé. Si nous considérons simplement toutes les manières de placer 8 dames sur un échiquier 8x8 sans tenir compte des contraintes d'attaque (c'est-à-dire sans tenir compte des lignes, colonnes ou diagonales), le nombre de configurations possibles est donné par le nombre de combinaisons de 64 cases (l'échiquier) prises 8 à la fois soit :
 
 $$\binom{64}{8} = \frac{64!}{8!(64-8)!} = 4'426'165'368$$
