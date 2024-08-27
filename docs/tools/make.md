@@ -16,7 +16,7 @@ OBJS=$(SRCS:.c=.o)
 
 all: $(EXEC)
 
-!include $(OBJS:.o=.d)
+-include $(OBJS:.o=.d)
 
 $(EXEC): $(OBJS)
     $(CC) -o $@ $^ $(LDFLAGS)
@@ -32,20 +32,20 @@ clean:
 
 Make utilise des variables spéciales et l'appel de macros. Les variables sont définies avec `VAR=valeur` et appelées avec `$(VAR)`.
 
-| Variable | Description |
-|----------|-------------|
-| `CC` | Compilateur (convention) |
-| `CFLAGS` | Options de compilation (convention) |
-| `LDFLAGS` | Options d'édition de liens (convention) |
-| `EXEC` | Nom du fichier exécutable (convention) |
-| `SRCS` | Liste des fichiers sources |
-| `OBJS` | Liste des fichiers objets |
-| `$@` | Nom de la cible |
-| `$^` | Liste des dépendances |
-| `$<` | Première dépendance |
-| `%.o` | Jalon générique pour tous les fichiers en `.o` |
-| `$(wildcard *.foo)` | Liste des fichiers `.foo` dans le répertoire courant |
-| `$(RM)` | Commande de suppression de fichiers sur le système courant |
+| Variable            | Description                                                |
+| ------------------- | ---------------------------------------------------------- |
+| `CC`                | Compilateur (convention)                                   |
+| `CFLAGS`            | Options de compilation (convention)                        |
+| `LDFLAGS`           | Options d'édition de liens (convention)                    |
+| `EXEC`              | Nom du fichier exécutable (convention)                     |
+| `SRCS`              | Liste des fichiers sources                                 |
+| `OBJS`              | Liste des fichiers objets                                  |
+| `$@`                | Nom de la cible                                            |
+| `$^`                | Liste des dépendances                                      |
+| `$<`                | Première dépendance                                        |
+| `%.o`               | Jalon générique pour tous les fichiers en `.o`             |
+| `$(wildcard *.foo)` | Liste des fichiers `.foo` dans le répertoire courant       |
+| `$(RM)`             | Commande de suppression de fichiers sur le système courant |
 
 Le fonctionnement de Make est en soi assez simple. Des règles sont définies avec `cible: dépendances` et les commandes à exécuter pour générer la cible.
 
