@@ -5,7 +5,7 @@ epigraph:
 ---
 [](){#numeration}
 
-# Numération
+# L'information
 
 La [[numération]] désigne le mode de représentation des nombres (p. ex. cardinaux, ordinaux), leur base (système binaire, ternaire, quinaire, décimal ou vicésimal), ainsi que leur codification, IEEE 754, [[complément à un]], [[complément à deux]]. Bien comprendre les bases de la numération est important pour l'ingénieur développeur, car il est souvent amené à effectuer des opérations de bas niveau sur les nombres.
 
@@ -70,7 +70,7 @@ En informatique, comme on utilise un système binaire en puissance de deux, rajo
     Table: Préfixes standards
 
     | Préfixe | Symbole | $10^n$    |
-    |---------|---------|-----------|
+    | ------- | ------- | --------- |
     | Kilo    | K       | $10^3$    |
     | Méga    | M       | $10^6$    |
     | Giga    | G       | $10^9$    |
@@ -85,7 +85,7 @@ En informatique, comme on utilise un système binaire en puissance de deux, rajo
     Table: Préfixes binaires
 
     | Préfixe | Symbole | $2^{10n}$ |
-    |---------|---------|-----------|
+    | ------- | ------- | --------- |
     | Kibi    | Ki      | $2^{10}$  |
     | Mébi    | Mi      | $2^{20}$  |
     | Gibi    | Gi      | $2^{30}$  |
@@ -105,11 +105,15 @@ La numération est un système de représentation des nombres. La numération d�
 
 $$1 \times 10^2 + 2 \times 10^1 + 3 \times 10^0$$
 
-On parle de notation positionnelle, car la position des chiffres est importante. Le chiffre le plus à droite est le chiffre des unités, le chiffre à sa gauche est le chiffre des dizaines, puis des centaines, etc.
+On parle de notation positionnelle, car la position des chiffres est importante. Le chiffre le plus à droite est le chiffre des unités, le chiffre à sa gauche est le chiffre des dizaines, puis des centaines, etc. Cela semble pour vous et moi une évidence et notre civilisation y est familiarisée depuis des siècles. Les systèmes de numération les plus anciens, comme ceux basés sur les os d'Ishango (datant d'environ 20'000 ans avant notre ère), n'utilisaient pas ce concept. Ces systèmes se contentaient souvent de représenter des quantités par des marques ou des symboles sans utiliser la position pour indiquer des valeurs différentes.
 
-En informatique, et particulièrement en binaire on nomme **LSB** ([[Least Significant Bit]]) le bit de poids faible et **MSB** ([[Most Significant Bit]]) le bit de poids fort. Le bit de poids faible est le bit le plus à droite, et le bit de poids fort est le bit le plus à gauche.
+La véritable apparition de la notation positionnelle est attribuée aux mathématiciens indiens, autour du 5^e siècle de notre ère. Le système de numération indien utilisait dix symboles (0-9), et la position de chaque chiffre dans un nombre indiquait sa valeur multiplicative par une puissance de dix. Ce système a été révolutionnaire car il simplifiait grandement les calculs, rendant les opérations arithmétiques plus efficaces.
 
-On notera que le **LSB** permet de savoir si le nombre est pair ou impair, si le **LSB** est à `0`, le nombre est pair, et s'il est à `1`, le nombre est impair :
+Ce système indien a ensuite été transmis aux Arabes, qui l'ont adopté et perfectionné avant de le diffuser en Europe au cours du Moyen Âge. C'est ce système, connu aujourd'hui sous le nom de "système décimal" ou "système indo-arabe", qui est à la base de la notation positionnelle utilisée universellement de nos jours.
+
+En informatique, c'est naturellement cette notation qui est utilisée. En binaire on nomme **LSB** ([[Least Significant Bit]]) le bit de poids faible et **MSB** ([[Most Significant Bit]]) le bit de poids fort. Le bit de poids faible est le bit le plus à droite, et le bit de poids fort est le bit le plus à gauche.
+
+Il est remarquable de noter que le **LSB** permet de savoir si le nombre est pair ou impair, si le **LSB** est à `0`, le nombre est pair, et s'il est à `1`, le nombre est impair :
 
 ```c
 bool is_even(int n) {
@@ -117,7 +121,7 @@ bool is_even(int n) {
 }
 ```
 
-Le **MSB** quant à lui permet de savoir si le nombre est positif ou négatif dans un nombre signé. Si le **MSB** est à `0`, le nombre est positif, et s'il est à `1`, le nombre est négatif (on préfèrera plutôt utiliser `n < 0` pour vérifier si un nombre est négatif).
+Le **MSB** quant à lui permet de savoir si le nombre est positif ou négatif dans un nombre signé utilisant le comlément à deux. Si le **MSB** est à `0`, le nombre est positif, et s'il est à `1`, le nombre est négatif (on préfèrera plutôt utiliser `n < 0` pour vérifier si un nombre est négatif).
 
 ```c
 bool is_negative(int32_t n) {
@@ -133,3 +137,33 @@ bool is_negative(int32_t n) {
     2. `0b00001001` est {{impair}} et de signe {{positif}}
     3. `0b10000000` est {{pair}} et de signe {{négatif}}
     4. `0b11011011` est {{impair}} et de signe {{négatif}}
+
+## Codification des nombres en informatique
+
+On a vu plus haut que les nombres en informatiques sont stockés sous forme de bits agencés en octets et dont l'ordre est important. Cette méthode permet de représenter les nombres entiers positifs mais pour représenter les nombres négatifs ou les nombres à virgule, il faut utiliser des méthodes de codification spécifiques.
+
+On utilise la norme IEEE 754 pour représenter les nombres à virgule et le complément à deux pour représenter les nombres négatifs. Ces deux méthodes sont essentielles pour comprendre comment les nombres sont stockés en mémoire et comment les opérations arithmétiques sont effectuées. Nous allons les étudier en détail dans les sections suivantes.
+
+Voici une version enrichie et plus précise de votre texte, intégrant des exemples concrets de vitesse de communication et de quantité d'informations transmises :
+
+## Transmission de l'information
+
+Il est fondamental de comprendre que le stockage de l'information n'acquiert toute sa valeur que lorsque cette information peut être efficacement transmise et reçue. Ce processus ne se limite pas à la simple conservation des données : le protocole d'encodage joue un rôle tout aussi crucial. L'histoire regorge d'exemples où les vestiges des civilisations passées nous ont transmis des messages énigmatiques, dont le déchiffrement reste incertain. Parmi ces exemples, on peut citer les hiéroglyphes égyptiens, les tablettes cunéiformes sumériennes ou encore les manuscrits de la mer Morte, qui ont été partiellement révélés grâce aux travaux érudits de Jean-François Champollion sur la pierre de Rosette, d'Henry Rawlinson sur l'inscription de Behistun, ou encore de William F. Albright sur les manuscrits de Qumrân. Toutefois, il subsiste des écritures anciennes qui demeurent hermétiques, comme l'écriture rongorongo de l'île de Pâques. Les khipus, ces cordes nouées par les Incas, constituent un autre exemple fascinant d'un système d'encodage dont le secret nous échappe encore.
+
+L'évolution des moyens de communication nous permet aujourd'hui de transmettre des informations sur des distances inimaginables à une vitesse vertigineuse. Par exemple, la transmission d'un signal entre la Terre et Mars, à une distance moyenne d'environ 225 millions de kilomètres, prend environ 12,5 minutes. Cette durée, bien que rapide à l'échelle cosmique, impose des contraintes significatives pour les missions spatiales, obligeant à une planification méticuleuse et à une anticipation des échanges. Un autre exemple marquant est la communication avec la sonde Voyager 1, située actuellement à plus de 23 milliards de kilomètres de la Terre. Les signaux radio, voyageant à la vitesse de la lumière, mettent plus de 21 heures pour atteindre notre planète, illustrant les défis de la transmission à travers les vastes étendues de l'espace.
+
+En ce qui concerne la quantité d'informations, l'expérience internationale de mesure utilisant des radiotélescopes, telle que l'observation des trous noirs via l'Event Horizon Telescope (EHT), a généré des volumes de données si immenses qu'il a été plus rapide de transporter les disques durs contenant des pétaoctets d'informations par avion que de les transmettre via les réseaux de communication. Cette réalité témoigne des limites actuelles des infrastructures de télécommunication face à l'immensité des données générées par les sciences modernes.
+
+Ainsi, la transmission de l'information est un enjeu majeur, non seulement dans sa capacité à franchir les distances, mais aussi dans son aptitude à préserver et à interpréter les données codées, que ce soit à travers le temps ou l'espace.
+
+Voici une version révisée de votre chapitre en tenant compte des informations correctes concernant le projet en Arctique :
+
+## Pérennité de l'information
+
+La pérennité de l'information représente un défi tout aussi crucial que sa transmission. En effet, les supports physiques sur lesquels nous conservons nos données sont souvent fragiles et périssables. Le papier, qui a servi de base à la transmission du savoir pendant des siècles, s'use et se dégrade au fil du temps, même lorsqu'il est conservé dans des conditions optimales. Les bandes magnétiques, autrefois utilisées pour stocker de grandes quantités de données numériques, ont une durée de vie limitée, avec une détérioration progressive de l'information qu'elles contiennent. De même, les CD et les DVD, longtemps perçus comme des solutions de stockage robustes, ont montré leurs limites : leur surface peut se corroder, entraînant une perte irrémédiable des données.
+
+Consciente de ces limitations, l'humanité a entrepris de consolider ses connaissances en les stockant dans des endroits spécialement conçus pour résister à l'épreuve du temps. Un des projets les plus ambitieux en la matière est l'[Arctic World Archive (AWA)](https://en.wikipedia.org/wiki/Arctic_World_Archive), situé dans l'archipel de Svalbard, en Norvège, à proximité du **Global Seed Vault**. L'Arctic World Archive, ouvert en 2017, est une installation sécurisée dans une ancienne mine de charbon, enfouie sous des centaines de mètres de pergélisol. Ce projet vise à préserver les données numériques pour des siècles, voire des millénaires, en utilisant une technologie de stockage sur **PiqlFilm**, un film photosensible spécialement conçu pour garantir la durabilité des informations sans nécessiter d'électricité ou de maintenance continue.
+
+Des institutions du monde entier, telles que les Archives nationales du Brésil, l'Agence spatiale européenne (ESA) et même GitHub, y ont déjà déposé des données importantes. Par exemple, GitHub a archivé 21 téraoctets de données provenant de l'ensemble des dépôts publics actifs de la plateforme, garantissant ainsi la pérennité de précieuses ressources en code source pour les générations futures (voir [GitHub Archive Program](https://archiveprogram.github.com/)).
+
+Ainsi, Svalbard, avec l'Arctic World Archive, s'affirme comme un bastion de la conservation des connaissances numériques, soulignant l'importance de la préservation des données dans un monde où la technologie évolue rapidement, mais où la fiabilité des supports de stockage demeure un enjeu majeur.

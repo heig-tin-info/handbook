@@ -58,3 +58,39 @@ union i2cmdr {
     uint16_t all;
 };
 ```
+
+Dans cet exemple on peut soit accéder à l'ensemble des bits via le champ `all` soit à chacun des bits via les champs `bc`, `fdf`, `stb`, etc.
+
+```c
+union i2cmdr cmdr = { .all = 0x1234 };
+
+cmdr.bits.bc = 0b101;
+
+uint16_t all = cmdr.all;
+```
+
+Les unions peuvent être imbriquées, c'est-à-dire contenir des unions elles-mêmes. Cela permet de définir des structures de données complexes.
+
+```c
+union {
+    union {
+        int a;
+        int b;
+    } u1;
+    union {
+        int c;
+        int d;
+    } u2;
+} u;
+```
+
+## Taille
+
+La taille d'une union est égale à la taille de son plus grand champ. Donc dans l'exemple suivant, la taille de `u` est de 4 octets.
+
+```c
+union {
+    char c;
+    int i;
+} u;
+```

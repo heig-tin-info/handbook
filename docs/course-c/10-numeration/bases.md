@@ -18,7 +18,7 @@ j4b12
 九千 零十八
 ```
 
-Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche à droite) la base du système de numération utilisé est essentielle pour décoder ces nombres. Cette base définit combien de symboles différents possibles peuvent être utilisés pour coder une position.
+En effet, au-delà de l'ordre des symboles (de gauche à droite), la base du système utilisé est cruciale pour interpréter ces nombres. Cette base détermine le nombre de symboles distincts qui peuvent être employés pour chaque position, et par conséquent, elle régit la structure même du nombre. Par exemple, une base dix (décimale) utilise dix symboles (0-9), tandis qu'une base deux (binaire) n'en utilise que deux (0 et 1). Sans cette compréhension, les nombres demeurent incompréhensibles et dépourvus de signification.
 
 !!! exercise "Symboles binaires"
 
@@ -30,8 +30,7 @@ Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche �
 
 ## Système décimal
 
-
-Le [[système décimal]] est le système de numération utilisant la base **dix** et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base [[sexagésimale]] (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
+Le [[système décimal]] est le système de numération utilisant la base **dix** et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base [[sexagésimale]] (60) toujours utilisé pour la représentation des heures ou des angles, la civilisation maya utilisait un système de base 20 encore ancrée dans la culture française de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
 
 L'exemple suivant montre l'écriture de 1506 en écriture [hiéroglyphique](wiki:hiéroglyphique) de :
 
@@ -180,24 +179,24 @@ L'ingénieur qui se respecte doit connaître par cœur la correspondance hexadé
 
 Table: Correspondance binaire, octale, hexadécimale
 
-| Binaire    | Hexadécimal | Octal  | Décimal |
-|------------|-------------|--------|---------|
-| `0b0000` | `0x0`     | `00` | `0`   |
-| `0b0001` | `0x1`     | `01` | `1`   |
-| `0b0010` | `0x2`     | `02` | `2`   |
-| `0b0011` | `0x3`     | `03` | `3`   |
-| `0b0100` | `0x4`     | `04` | `4`   |
-| `0b0101` | `0x5`     | `05` | `5`   |
-| `0b0110` | `0x6`     | `06` | `6`   |
-| `0b0111` | `0x7`     | `07` | `7`   |
-| `0b1000` | `0x8`     | `10` | `8`   |
-| `0b1001` | `0x9`     | `11` | `0`   |
-| `0b1010` | `0xA`     | `12` | `10`  |
-| `0b1011` | `0xB`     | `13` | `11`  |
-| `0b1100` | `0xC`     | `14` | `12`  |
-| `0b1101` | `0xD`     | `15` | `13`  |
-| `0b1110` | `0xE`     | `16` | `14`  |
-| `0b1111` | `0xF`     | `17` | `15`  |
+| Binaire  | Hexadécimal | Octal | Décimal |
+| -------- | ----------- | ----- | ------- |
+| `0b0000` | `0x0`       | `00`  | `0`     |
+| `0b0001` | `0x1`       | `01`  | `1`     |
+| `0b0010` | `0x2`       | `02`  | `2`     |
+| `0b0011` | `0x3`       | `03`  | `3`     |
+| `0b0100` | `0x4`       | `04`  | `4`     |
+| `0b0101` | `0x5`       | `05`  | `5`     |
+| `0b0110` | `0x6`       | `06`  | `6`     |
+| `0b0111` | `0x7`       | `07`  | `7`     |
+| `0b1000` | `0x8`       | `10`  | `8`     |
+| `0b1001` | `0x9`       | `11`  | `0`     |
+| `0b1010` | `0xA`       | `12`  | `10`    |
+| `0b1011` | `0xB`       | `13`  | `11`    |
+| `0b1100` | `0xC`       | `14`  | `12`    |
+| `0b1101` | `0xD`       | `15`  | `13`    |
+| `0b1110` | `0xE`       | `16`  | `14`    |
+| `0b1111` | `0xF`       | `17`  | `15`    |
 
 
 Le fichier `albatros.txt` contient un extrait du poème de Baudelaire. Un ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à le résoudre et utilise le programme `hexdump`

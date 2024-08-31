@@ -135,14 +135,19 @@ assert(4[a] == a[4]);
 
 ## Arithmétique de pointeurs
 
-Fondamentalement un pointeur est une variable qui contient un [ordinal](https://fr.wikipedia.org/wiki/Nombre_ordinal), c'est-à-dire qu'il peut être imaginé l'ajout à un pointeur une grandeur finie :
+Fondamentalement un pointeur est une variable qui contient un [ordinal](https://fr.wikipedia.org/wiki/Nombre_ordinal), c'est-à-dire qu'il peut être imaginé l'ajout à un pointeur une grandeur finie. Dans l'exemple suivant, la boucle `for` affiche les caractères de la chaîne de caractères `str` jusqu'à ce qu'il rencontre le caractère nul `'\0'` :
 
 ```c
 char str[] = "Le vif zéphyr jubile sur les kumquats du clown gracieux";
 
-for (char* ptr = str; *ptr; ptr++) {
-    putchar(*ptr);
-}
+for (char* ptr = str; *ptr; ptr++) { putchar(*ptr); }
+```
+
+En pratique cette écriture serait plus élégante avec une boucle `while` car le nombre d'itération est inconnu, il dépend de la longueur de la chaîne de caractères :
+
+```c
+char* ptr = str;
+while (*ptr) { putchar(*ptr++); }
 ```
 
 Imaginons que l'on souhaite représenter le carré magique suivant :
@@ -171,7 +176,7 @@ for (size_t row = 0; row < 3; row++) {
 }
 ```
 
-Mais ? N'est-ce pas là ce que fait le compilateur lorsque l'adresse les éléments d'un tableau multidimensionnel ?
+Mais ? N'est-ce pas ce que fait le compilateur lorsque l'adresse les éléments d'un tableau multidimensionnel ?
 
 ```c
 char magic[][3] = {"792", "357", "816"};
@@ -189,23 +194,25 @@ L'arithmétique de pointeur est donc chose courante avec les tableaux. À vrai d
 
 Table: Arithmétique sur tableau unidimensionnel
 
-| Élément        | Premier  | Deuxième     | Troisième    | n ième |
-|----------------|----------|--------------|--------------|--------|
-| Accès tableau  | `a[0]` | `a[1]`     | `a[2]`     | `a[n - 1]` |
-| Accès pointeur | `*a`   | `*(a + 1)` | `*(a + 2)` | `*(a + n - 1)` |
+| Élément        | Premier | Deuxième   | Troisième  | n ième         |
+| -------------- | ------- | ---------- | ---------- | -------------- |
+| Accès tableau  | `a[0]`  | `a[1]`     | `a[2]`     | `a[n - 1]`     |
+| Accès pointeur | `*a`    | `*(a + 1)` | `*(a + 2)` | `*(a + n - 1)` |
 
 
 De même, l'exercice peut être répété avec des tableaux à deux dimensions :
 
 Table: Arithmétique sur tableau bidimensionnel
 
-| Élément        | Premier         | Deuxième        | n ligne m colonne|
-|----------------|-----------------|-----------------|------------------|
-| Accès tableau  | `a[0][0]`     | `a[1][1]`     | `a[n - 1][m - 1]`|
-| Accès pointeur | `*(*(a+0)+0)` | `*(*(a+1)+1)` | `*(*(a+i-1)+j-1)`|
+| Élément        | Premier       | Deuxième      | n ligne m colonne |
+| -------------- | ------------- | ------------- | ----------------- |
+| Accès tableau  | `a[0][0]`     | `a[1][1]`     | `a[n - 1][m - 1]` |
+| Accès pointeur | `*(*(a+0)+0)` | `*(*(a+1)+1)` | `*(*(a+i-1)+j-1)` |
 
 
-## Pointeur et chaînes de caractères
+## Chaînes de caractères
+
+Les chaînes de caractères sont des tableaux de caractères terminés par un caractère nul `'\0'`. Il est donc possible de déclarer une chaîne de caractères de la manière suivante :
 
 ```c
 static const char* conjonctions[] = {
@@ -217,7 +224,23 @@ static const char* conjonctions[] = {
 
 Cette structure est très exactement la même que pour les arguments transmis à la fonction `main`: la définition `char *argv[]`.
 
-## Structures et pointeurs
+On se retrouve donc avec une indirection sur un tableau de pointeurs. Pour accéder à un élément de la chaîne de caractères, on utilisera l'opérateur crochet `[]`. Il faut noter que dans ce cas, rien ne garanti que les éléments soient contigus en mémoire. Le type du tableau est un tableau de pointeurs sur des chaînes de caractères. Chaque élément peut donc pointer n'importe où en mémoire:
+
+```c
+char *a = "Pomme";
+char *b = "Poire";
+char *c = "Banane";
+
+char *fruits[] = {a, b, c};
+```
+
+L'accès à un élément `fruits[1]` retourne donc un `char*` donc un pointeur sur une chaîne de caractères. Pour accéder à un caractère de la chaîne de caractères, on utilisera l'opérateur crochet `[]` une seconde fois:
+
+```c
+assert(fruits[1][1] == 'o');
+```
+
+## Structures
 
 ### Initialisation d'un pointeur sur une structure
 
@@ -520,11 +543,11 @@ Cette [règle](http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html) est une recette ma
 
 Table: Règles gauche droite
 
-| Symbole | Traduction              | Direction         |
-|---------|-------------------------|-------------------|
-| `*`   | `pointeur sur`        | Toujours à gauche |
-| `[]`  | `tableau de`          | Toujours à droite |
-| `()`  | `fonction retournant` | Toujours à droite |
+| Symbole | Traduction            | Direction         |
+| ------- | --------------------- | ----------------- |
+| `*`     | `pointeur sur`        | Toujours à gauche |
+| `[]`    | `tableau de`          | Toujours à droite |
+| `()`    | `fonction retournant` | Toujours à droite |
 
 Première étape
 

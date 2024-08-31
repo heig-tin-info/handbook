@@ -9,13 +9,11 @@ Conçu comme un résumé du savoir nécessaire à l'ingénieur pour s'initier à
 
 Chaque chapitre est composé d'exercices, mais à des fins pédagogiques, l'intégralité des solutions ne sont pas fournies; certains exercices sont destinés à être faits en études.
 
-Cet ouvrage est destiné à des étudiants ingénieurs de première année n'ayant aucune expérience en programmation.
-
-Le contenu concerne principalement les cours d'informatique 1 et 2 de l'enseignement de base du département des technologies industrielles (TIN) de la HEIG-VD.
+Cet ouvrage est destiné aux étudiants futurs ingénieurs de première année n'ayant aucune expérience en programmation.
 
 ## Cours d'informatique cursus bachelor
 
-Ce cours d'informatique à la HEIG-VD est donné par le département TIN dans les cours du cursus Bachelor en Génie électrique. Il concerne tout particulièrement les étudiants des cours suivants&nbsp;:
+Ce cours d'informatique à la HEIG-VD est donné par le département TIN dans les cours du cursus Bachelor en Génie Électrique. Il concerne tout particulièrement les étudiants des cours suivants :
 
 - Informatique 1 (INFO1) - 101 Première année
 - Informatique 2 (INFO2) - 102 Première année
@@ -150,17 +148,17 @@ Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exer
 Table: Anglicismes
 
 
-| Anglais | Français | Préférence |
-|---------|----------|------------|
+| Anglais    | Français              | Préférence |
+| ---------- | --------------------- | ---------- |
 | *hardware* | matériel informatique | *hardware* |
 | *software* | logiciel informatique | *software* |
-| *byte* | octet | *byte* |
-| *set* | ensemble | *set* |
-| *pipe* | tube | *pipe* |
-| *stream* | flux de données | *stream* |
-| *listing* | extrait de code | *listing* |
-| *process* | processus | processus |
-| *seekable* | positionnable | *seekable* |
+| *byte*     | octet                 | *byte*     |
+| *set*      | ensemble              | *set*      |
+| *pipe*     | tube                  | *pipe*     |
+| *stream*   | flux de données       | *stream*   |
+| *listing*  | extrait de code       | *listing*  |
+| *process*  | processus             | processus  |
+| *seekable* | positionnable         | *seekable* |
 
 [](){#anglisismes}
 
@@ -176,7 +174,9 @@ De nombreuses références et sources de ce livre sont issues de Wikipedia, de l
 
 ## Comment contribuer ?
 
-Vous avez remarqué une erreur, une faute de frappe ou une information manquante ? Vous auriez désiré une explication plus détaillée sur un sujet ? Vous pouvez contribuer à l'amélioration de ce livre en soumettant une [issue](https://github.com/heig-tin-info/handbook/issues). Alternativement, vous pouvez faire un *fork* du projet et proposer une *pull request*.
+Vous avez remarqué une erreur, une faute de frappe ou une information manquante ? Vous auriez désiré une explication plus détaillée sur un sujet ? Vous pouvez contribuer à l'amélioration de ce livre en soumettant une [issue](https://github.com/heig-tin-info/handbook/issues). Alternativement, vous pouvez faire un *fork* du projet et proposer une *pull request*. Ce travail est donc une oeuvre vivante qui évolue avec le temps et les contributions de chacun.
+
+La version imprimée sera néanmoins figée à un moment donné, mais la version en ligne sera toujours mise à jour.
 
 ## Colophon
 

@@ -1,5 +1,6 @@
 # Bugs
 
+- [ ] See solution of exercises without specific type.
 - [ ] Gray colors for drawio. Use a smart way to convert gray in slate/default theme.
 - [ ] Multicolumn for exercises (Validité des identificateurs)
 - [ ] Exercise numbering (restart at each section)

@@ -16,7 +16,7 @@ Dans le cadre d'un enseignement académique, on parle souvent de **cours d'Algor
 
 ## Algorithmique
 
-L'**algorithmique**, et non l'*algorithmie* (qui n'a pas sa place dans la langue française), est la science qui se consacre à l'élaboration des règles et techniques régissant la création et la conception des [algorithmes](wiki:algorithme). Ce domaine, que nous explorerons plus en détail dans le chapitre dédié aux [algorithmes et à leur conception][algorithms-and-design], dépasse largement le cadre de l'informatique. L'algorithmique ne se cantonne pas aux ordinateurs; elle est omniprésente dans notre quotidien, se manifestant dans des contextes aussi variés que :
+L'**algorithmique**, et non l'*algorithmie* (qui n'a pas sa place dans la langue française), est la science qui se consacre à l'élaboration des règles et techniques régissant la création et la conception des [algorithmes](wiki:algorithme). Ce domaine, que nous explorerons plus en détail dans le chapitre dédié aux [algorithmes et à leur conception][algorithmsanddesign], dépasse largement le cadre de l'informatique. L'algorithmique ne se cantonne pas aux ordinateurs; elle est omniprésente dans notre quotidien, se manifestant dans des contextes aussi variés que :
 
 - l'art de concocter une recette de cuisine,
 - la maîtrise du tissage des tapis persans,
@@ -216,6 +216,8 @@ Un [[calculateur]] du latin *calculare*: calculer avec des cailloux, originellem
 
 Les [os d'Ishango](https://fr.wikipedia.org/wiki/Os_d%27Ishango) datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
 
+![Os d'Ishango](/assets/images/ishango.drawio)
+
 Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur, car même une calculatrice de poche doit gérer en plus des calculs un certain nombre de périphériques comme :
 
 - l'interface de saisie ([pavé numérique]);
@@ -241,7 +243,7 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par [[Jacques
 
 >Vôtre, Jacques Perret »
 
-()[]{#turing-machine}
+()[]{#turingmachine}
 
 ## La machine de Turing
 

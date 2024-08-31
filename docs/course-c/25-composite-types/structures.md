@@ -46,7 +46,34 @@ point.z = 4581359.381;
 
 Comme `point` n'est pas une primitive standard, mais un conteneur à primitive, il n'est pas correct d'écrire `point = 12`. Il est essentiel d'indiquer quel élément de ce conteneur on souhaite accéder.
 
-Ces coordonnées sont un clin d'œil aux [Pierres du Niton](https://fr.wikipedia.org/wiki/Pierres_du_Niton) qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la Terre. Ces pierres sont donc situées à 4.5 km du centre de la Terre, et donc un sacré défi pour [Axel Lidenbrock](https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre) et son fulmicoton.
+Ces coordonnées sont un clin d'œil aux [Pierres du Niton](https://fr.wikipedia.org/wiki/Pierres_du_Niton) qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la Terre. Ces pierres sont donc situées à 4.5 km du centre de la Terre, une valeur qui aurait représenté, pour être convenablement déterminée, un sacré défi pour [Axel Lidenbrock](https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre) et son fulmicoton.
+
+Généralement les structures sont utilisées pour communiquer des données complexes entre différentes fonctions d'un même fichier ou entre différents fichiers. C'est pour cette raison que l'on retrouve généralement ces définitions en dehors de toute fonction :
+
+```c
+struct Point {
+    double x;
+    double y;
+};
+
+struct Point point_add(struct Point a, struct Point b) {
+    return (struct Point){
+        .x = a.x + b.x,
+        .y = a.y + b.y
+    };
+}
+
+void point_print(struct Point p) {
+    printf("(%g,%g)", p.x, p.y);
+}
+
+int main(void) {
+    struct Point p = {1., 2.};
+    struct Point q = {3., 4.};
+    struct Point r = point_add(p, q);
+    point_print(r);
+}
+```
 
 ## Structures nommées
 
@@ -278,7 +305,7 @@ struct NoAlign
 Imaginons pour comprendre qu'un casier mémoire sur une architecture 32-bits est assez grand pour y stocker 4 bytes. Tentons de représenter en mémoire cette structure en *little-endian*, en considérant des casiers de 32-bits :
 
 ```text
- c    d             i           a
+ c    d             i              a
 ┞─╀─┬─┬─┐ ┌─╀─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─╀─┬─┬─┐
 │c│d│d│d│ │d│i│i│i│ │i│i│i│i│ │i│a│a│a│
 │0│0│1│2│ │3│0│1│2│ │3│4│5│6│ │7│0│1│2│
@@ -294,7 +321,9 @@ Le compilateur sera donc obligé de faire du zèle pour accéder à d. formellem
 int32_t d = (data[0] << 8) | (data[1] & 0x0F);
 ```
 
-Pour éviter ces manœuvres, le compilateur, selon l'architecture donnée, va insérer des éléments de rembourrage (*padding*) pour forcer l'alignement mémoire et ainsi optimiser les lectures. La même structure que ci-dessus sera fort probablement implémentée de la façon suivante :
+Pour éviter ces manœuvres, le compilateur, selon l'architecture donnée, va insérer des éléments de rembourrage (*padding*) pour forcer l'alignement mémoire et ainsi optimiser les lectures. Ce sont des éléments vides qui ne sont pas accessibles par l'utilisateur final. Dit autrement, c'est comme choisir de ne mettre qu'un seul passager dans la voiture. Ce n'est pas optimal sur le plan du bilan carbone, mais c'est plus rapide pour le processeur.
+
+La même structure que ci-dessus sera fort probablement implémentée de la façon suivante :
 
 ```c
 struct Align
@@ -374,13 +403,120 @@ En revanche si elle est décrite en utilisant un *packing* sur 8-bits, avec `#pr
     A         B
 ```
 
+## Fichier WAV
+
+Le format de fichier WAV est un format de fichier standard pour les fichiers audio numériques. Il est basé sur le format RIFF (Resource Interchange File Format) qui est un format de fichier générique pour l'échange de données. Ce format est très ancien et a été introduit par Microsoft en 1991. Il est néanmoins encore utilisé aujourd'hui pour stocker des fichiers audio non compressés car il est simple et ne nécessite pas de licence.
+
+Prenons l'exemple concrêt de la structure d'un fichier audio WAV :
+
+![Fichier WAV](/assets/images/wav.drawio)
+
+Cette structure peut être définie de la façon suivante :
+
+```c
+#pragma pack(1)
+struct WavHeader
+{
+    char riff_tag[4];
+    uint32_t file_size;
+    char wave_tag[4];
+    char fmt_tag[4];
+    uint32_t fmt_length;
+    uint16_t audio_format;
+    uint16_t num_channels;
+    uint32_t sample_rate;
+    uint32_t byte_rate;
+    uint16_t block_align;
+    uint16_t bits_per_sample;
+    char data_tag[4];
+    uint32_t data_size;
+};
+```
+
+Conserver le bon alignement mémoire est ici crutial car l'objectif est d'écrire les données dans un fichier audio. Voici l'exemple d'un programme qui génère un fichier audio :
+
+```c
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define SAMPLE_RATE 44100 // Fréquence d'échantillonnage [Hz]
+#define AMPLITUDE 32760   // Amplitude du signal (valeur maximale pour 16 bits)
+
+#pragma pack(1)
+struct WavHeader
+{
+    char riff_tag[4];
+    uint32_t file_size;
+    char wave_tag[4];
+    char fmt_tag[4];
+    uint32_t fmt_length;
+    uint16_t audio_format;
+    uint16_t num_channels;
+    uint32_t sample_rate;
+    uint32_t byte_rate;
+    uint16_t block_align;
+    uint16_t bits_per_sample;
+    char data_tag[4];
+    uint32_t data_size;
+};
+
+int generate_sine_wave(const char *filename, double frequency, double duration)
+{
+    const int num_samples = (int)(SAMPLE_RATE * duration);
+    int16_t *buffer = (int16_t *)malloc(num_samples * sizeof(int16_t));
+
+    // Remplissage du buffer avec le signal sinusoidal
+    for (int i = 0; i < num_samples; ++i) {
+        buffer[i] = (int16_t)(AMPLITUDE * sin(2.0 * M_PI *
+                              frequency * i / SAMPLE_RATE));
+    }
+
+    // Initialisation de l'en-tête WAV avec une liste d'initialisation
+    struct WavHeader header = {
+        .riff_tag = {'R', 'I', 'F', 'F'},
+        .file_size = 36 + num_samples * sizeof(int16_t),
+        .wave_tag = {'W', 'A', 'V', 'E'},
+        .fmt_tag = {'f', 'm', 't', ' '},
+        .fmt_length = 16,
+        .audio_format = 1,
+        .num_channels = 1,
+        .sample_rate = SAMPLE_RATE,
+        .byte_rate = SAMPLE_RATE * sizeof(int16_t),
+        .block_align = sizeof(int16_t),
+        .bits_per_sample = 16,
+        .data_tag = {'d', 'a', 't', 'a'},
+        .data_size = num_samples * sizeof(int16_t)};
+
+    // Écriture dans le fichier
+    FILE *file = fopen(filename, "wb");
+    if (!file)
+    {
+        printf("Erreur lors de l'ouverture du fichier %s\n", filename);
+        free(buffer);
+        return -1;
+    }
+
+    fwrite(&header, sizeof(struct WavHeader), 1, file);
+    fwrite(buffer, sizeof(int16_t), num_samples, file);
+    fclose(file);
+    free(buffer);
+    return 0;
+}
+
+int main() {
+    generate_sine_wave("sine.wav", 440.0, 5.0);
+}
+```
+
 # Champs de bits
 
 Les champs de bits sont des structures dont une information supplémentaire est ajoutée: le nombre de bits utilisés.
 
 Prenons l'exemple du [module I2C](http://www.ti.com/lit/ug/sprug03b/sprug03b.pdf) du microcontrôleur TMS320F28335. Le registre `I2CMDR` décrit à la page 23 est un registre 16-bits qu'il conviendrait de décrire avec un champ de bits :
 
-```
+```c
 struct I2CMDR {
     int  bc  :3;
     bool fdf :1;
@@ -417,6 +553,7 @@ i2cmdr |= 1 << 12;
 
 Notons que les champs de bits, ainsi que les structures seront déclarés différemment selon que l'architecture cible est *little-endian* ou *big-endian*.
 
+Cette technique est particulièrement utile pour manipuler des registres de microcontrôleurs ou des fichiers binaires, elle est souvent couplée à des unions pour permettre un accès soit par champ de bits, soit par entier.
 
 ## Compound Literals
 

@@ -314,7 +314,8 @@ void update_ptr(size_t *a, size_t *b, const size_t *value) {
 Le compilateur, n'ayant aucune information sur les pointeurs fournis, ne peut faire aucune hypothèse d'optimisation. En effet, ces deux pointeurs `a` et `b` ainsi que `value` pourraient très bien pointer sur la même région mémoire, et dans ce cas `*a += *value` aurait pour effet d'incrémenter `value`. En revanche, dans le cas où la fonction est déclarée de la façon suivante :
 
 ```c
-void update_ptr(size_t *restrict a, size_t * restrict b, const size_t *restrict value) {
+void update_ptr(size_t *restrict a, size_t * restrict b,
+                const size_t *restrict value) {
     *a += *value;
     *b += *value;
 }

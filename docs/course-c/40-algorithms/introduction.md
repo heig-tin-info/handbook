@@ -4,7 +4,7 @@ epigraph:
   source: René Descartes, Discours de la méthode
 ---
 
-[](){#algorithms-and-design}
+[](){#algorithmsanddesign}
 
 # Introduction
 
@@ -26,16 +26,16 @@ Pour être qualifiées d'algorithmes, certaines propriétés doivent être respe
 4. **Finitude**, un algorithme doit comporter un nombre fini d'étapes.
 5. **Répétable**, un algorithme doit fournir un résultat répétable.
 
-## Complexité d'un algorithme
+## Complexité Algorithmique
 
-Il est souvent utile de savoir quelle est la performance d'un algorithme afin de le comparer à un autre algorithme équivalent. Il existe deux indicateurs :
+Il est souvent utile de savoir quelle est la performance d'un algorithme afin de le comparer à un autre algorithme équivalent. On peut s'intéresser à deux indicateurs :
 
-- La complexité en temps : combien de temps CPU consomme un algorithme pour s'exécuter.
-- La complexité en mémoire : combien de mémoire tampon consomme un algorithme pour s'exécuter.
+- **La complexité en temps** : combien de temps CPU consomme un algorithme pour s'exécuter.
+- **La complexité en mémoire** : combien de mémoire tampon consomme un algorithme pour s'exécuter.
 
 Bien évidemment, la complexité d'un algorithme dépend des données en entrée. Par exemple si on vous donne à corriger un examen de 100 copies, et le protocol de correction associé, votre temps de travail dépendra du nombre de copies à corriger, je sais de quoi je parle...
 
-La complexité en temps et en mémoire d'un algorithme est souvent exprimée en utilisant la notation en O (*big O notation*). Cette notation a été ontroduite par le mathématicien et informaticien allemand Paul Bachmann en 1984 dans son ouvrage *Analytische Zahlentheorie*. Cependant, c'est le mathématicien austro-hongrois Edmund Landau qui a popularisé cette notation dans le contexte de la théorie des nombres.
+La complexité en temps et en mémoire d'un algorithme est souvent exprimée en utilisant la notation en O (*Big O notation*). Cette notation a été introduite par le mathématicien et informaticien allemand Paul Bachmann en 1984 dans son ouvrage *Analytische Zahlentheorie*. Cependant, c'est le mathématicien austro-hongrois Edmund Landau qui a popularisé cette notation dans le contexte de la théorie des nombres.
 
 En substance, la complexité en temps d'un algorithme qui demanderait 10 étapes pour être résolu s'écrirait :
 
@@ -43,35 +43,113 @@ $$
 O(10)
 $$
 
-Un algorithme qui ferait une recherche dichotomique sur un tableau de $n$ éléments à une complexité $O(log(n))$. La recherche dichotomique c'est comme chercher un mot dans un dictionnaire. Vous ouvrez le dictionnaire à la moitié, si le mot est avant, vous répétez l'opération sur la première moitié, sinon sur la seconde. Vous répétez l'opération jusqu'à trouver le mot. À chaque étape vous éliminez la moitié restante des mots du dictionnaire. Si le dictionnaire contient 100'000 mots, vous aurez trouvé le mot en :
+Un algorithme qui ferait une recherche dichotomique sur un tableau de $n$ éléments à une complexité $O(log(n))$. La recherche dichotomique c'est comme chercher un mot dans un dictionnaire. Vous ouvrez le dictionnaire à la moitié, si le mot est avant, vous répétez l'opération sur la première moitié, sinon sur la seconde. Vous répétez l'opération jusqu'à trouver le mot. À chaque étape vous éliminez la moitié restante des mots du dictionnaire. Si le dictionnaire contient 100'000 mots, vous aurez trouvé le mot en un nombre d'étapes équivalent à :
 
 $$
 \log_2(100'000) = 16.6
 $$
 
-étapes. C'est bien plus rapide que de parcourir le dictionnaire de manière linéaire, en tournant les pages une à une.
+C'est bien plus rapide que de parcourir le dictionnaire de manière linéaire, en tournant les pages une à une.
 
 Prenons un algoritme qui prend un certain temps pour s'exécuter. L'algorithme $A$ prend $f(n)$ unités de temps pour une entrée de taille $n$. On peut dire que $A$ est en $O(g(n))$ si $f(n) \leq c \cdot g(n)$ pour tout $n \geq n_0$, où $c$ est une constante et $n_0$ est un entier.
 
+On pourrait faire le raccourcis que la complexité algorithmique mesure le nombre d'opérations élémentaires nécessaires pour résoudre un problème. Cepender, la complexité algorithmique ne mesure ni le temps en secondes ni le nombre d'opérations élémentaires. Elle mesure la croissance du nombre d'opérations élémentaires en fonction de la taille de l'entrée. C'est très différent. Prenons l'exemple suivant :
+
+```c
+for (int i, i < n, i++) {
+    printf("%d ", a[i]);
+}
+
+for (int i, i < m, i++) {
+    printf("%d ", b[i]);
+}
+```
+
+On itère sur deux tableaux `a` et `b` respectivement de taille `n` et `m`. La complexité de cet algorithme est $O(n + m)$. Maintenant considérons l'exemple suivant :
+
+```c
+for (int i, i < n, i++) {
+    for (int j, j < m, j++) {
+        printf("%d ", a[i] + b[j]);
+    }
+}
+```
+
+Cette fois-ci on observe une imbrication de deux boucles `for`. La complexité de cet algorithme est $O(n \cdot m)$. On peut dire que la complexité de cet algorithme est quadratique.
+
+Enfin, imaginons que nous devons appliquer 10 opérations sur chaque élément avant l'affichage:
+
+```c
+for (int i, i < n, i++) {
+    for (int j, j < m, j++) {
+        for (int k, k < 10, k++) {
+            printf("%d ", a[i] + b[j]);
+        }
+    }
+}
+```
+
+Naïvement on pourrait penser que la complexité de cet algorithme est $O(10 \cdot n \cdot m) = O(n \cdot m)$. Cependant, la complexité de cet algorithme est $O(10 \cdot n \cdot m) = O(n \cdot m)$. En effet, la constante 10 n'a pas d'impact sur la croissance de la complexité de l'algorithme. On peut dire que la complexité de cet algorithme est quadratique.
+
+### Suppression des constantes
+
+Dans la notation Big O, les constantes sont ignorées. Par exemple, si un algorithme prend $5n^2 + 3n + 2$ unités de temps pour une entrée de taille $n$, on dira que cet algorithme est en $O(n^2)$. En effet, pour de grandes valeurs de $n$, la croissance de $5n^2 + 3n + 2$ est dominée par $n^2$.
+
+Table: Suppression des constantes
+
+| Complexité         | Complexité sans les constantes |
+| ------------------ | ------------------------------ |
+| $O(5n^2)$          | $O(n^2)$                       |
+| $O(3n)$            | $O(n)$                         |
+| $O(2)$             | $O(1)$                         |
+| $O(n^2 + n)$       | $O(n^2)$                       |
+| $O(5n^2 + 3n + 2)$ | $O(n^2)$                       |
+| $O(n + \log(n))$   | $O(n)$                         |
+
+Cette règle est valable our l'addition, mais pour la multiplication, les constantes ne sont pas ignorées. Dans le cas de $O(n\cdot\log(n))$ la valeur de $\log(n)$ est importante.
+
+### Indicateurs de Landau
+
 Il existe différents indicateurs de Landau :
 
-**Notation Big O (O)** :
+**Notation Big O (O)**
 
 : Utilisée pour décrire une borne supérieure asymptotique. Cela signifie qu'une fonction \( f(n) \) est en \( O(g(n)) \) s'il existe des constantes \( c > 0 \) et \( n_0 \) telles que \( f(n) \leq c \cdot g(n) \) pour tout \( n \geq n_0 \). En d'autres termes, \( g(n) \) est une limite supérieure sur le comportement de \( f(n) \) pour de grandes valeurs de \( n \).
 
 : Big O est souvent utilisée pour décrire le pire cas.
 
-**Notation Big Omega (Ω)** :
+**Notation Big Omega (Ω)**
 
 : Utilisée pour décrire une borne inférieure asymptotique. Cela signifie qu'une fonction \( f(n) \) est en \( \Omega(g(n)) \) s'il existe des constantes \( c > 0 \) et \( n_0 \) telles que \( f(n) \geq c \cdot g(n) \) pour tout \( n \geq n_0 \). En d'autres termes, \( g(n) \) est une limite inférieure sur le comportement de \( f(n) \) pour de grandes valeurs de \( n \).
 
 : Big Omega est souvent utilisée pour décrire le meilleur cas.
 
-**Notation Big Theta (Θ)** :
+**Notation Big Theta (Θ)**
 
 : Utilisée pour décrire une borne asymptotique stricte. Cela signifie qu'une fonction \( f(n) \) est en \( \Theta(g(n)) \) s'il existe des constantes \( c_1, c_2 > 0 \) et \( n_0 \) telles que \( c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \) pour tout \( n \geq n_0 \). En d'autres termes, \( g(n) \) est une approximation asymptotique exacte de \( f(n) \).
 
 : Big Theta est utilisée pour décrire un comportement asymptotique précis, souvent interprété comme le cas moyen.
+
+!!! exercise "Quelle Complexité ?"
+
+    Quelle est la complexité en temps de cet algorithme ?
+    ```c
+    void foo(int a[], int n) {
+        int sum = 0, product = 1;
+        for (int i = 0; i < n; i++) {
+            sum += a[i];
+        }
+        for (int i = 0; i < n; i++) {
+            product *= a[i];
+        }
+        printf("Sum: %d, Product: %d\n", sum, product);
+    }
+    ```
+
+    - [ ] $O(2n)$
+    - [x] $O(n)$
+    - [ ] $O(n^2)$
+    - [ ] $O(n \log(n))$
 
 !!! example "Identifier les valeurs paires et impaires"
 

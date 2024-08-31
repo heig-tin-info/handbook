@@ -104,13 +104,13 @@ Pour les curieux, vous pouvez consulter la grammaire complète du C dans le stan
 
 ## Définir mon propre langage
 
-Imaginons que l'on souaite réaliser notre propre langage formel, par exemple pour analyser une expression mathématique de la forme
+Imaginons que l'on souaite réaliser notre propre langage formel, par exemple pour analyser une expression mathématique de la forme suivante :
 
 ```c
 3 + 4 * 5 + ( sin(3.14) + sqrt(2) / 8 )
 ```
 
-On pourrait définir une grammaire formelle pour ce langage de la manière suivante :
+On pourrait définir une grammaire formelle pour ce langage en utilisant la notation BNF :
 
 ```text
 <expression> ::= <term> { "+" <term> | "-" <term> }*
@@ -123,4 +123,4 @@ On pourrait définir une grammaire formelle pour ce langage de la manière suiva
 <function> ::= "sin" | "cos" | "sqrt"
 ```
 
-Des outils comme `lex` et `yacc` permettent de générer un analyseur lexical et un analyseur syntaxique utilisables en C à partir de cette grammaire. Ces outils sont très puissants et sont utilisés dans de nombreuses bibliothèques et logiciels pour analyser des fichiers de configuration ou des syntaxes spécifiques.
+Des outils comme `lex` et `yacc` populaires sur les systèmes Unix permettent de générer un analyseur lexical et un analyseur syntaxique utilisables en C à partir de cette grammaire. Ces outils sont très puissants et sont utilisés dans de nombreuses bibliothèques et logiciels pour analyser des fichiers de configuration ou des syntaxes spécifiques.
