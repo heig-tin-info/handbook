@@ -1,4 +1,6 @@
 
+[](){#linkedlist}
+
 # Listes chaînées
 
 ## Définition

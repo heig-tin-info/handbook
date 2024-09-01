@@ -187,7 +187,6 @@ Table: Exemple de formatage avec printf
 
 On peut s'intéresser à comment `printf` fonctionne en interne. Le premier argument est une chaîne de caractère qui est le motif de formatage. Il peut contenir des caractères spéciaux *placeholder* qui seront interceptés par `printf` pour être remplacés par les arguments suivants après avoir été convertis.
 
-
 Pour bien comprendre, on peut imaginer une implémentation naïve de `printf` que nous appellerons `my_printf` et qui se basera sur une fonction de sortie non formatée `putchar`.
 
 Cette fonction ne sera capable que de traiter les marqueurs `%d` et `%c`, c'est suffisant pour comprendre le principe. Également, elle prendra toujours deux arguments, donc une valeur à afficher, ceci pour ne pas s'encombrer de la gestion de la liste variable d'arguments qui est un sujet avancé.
@@ -912,3 +911,46 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
     - St-Galle
 
     Considérez une accélération de 0.5 g pour le calcul de mouvement, et une vitesse maximale de 1220 km/h.
+
+## Portabilité des formats
+
+Les formats de `scanf` et `printf` sont dépendants de la plateforme. Par exemple, `%d` est un entier signé, `%u` un entier non signé, `%ld` est un entier long signé. Néanmoins ces formats ne sont pas portables, car selon le [modèle de données][datamodel] de la machine, un entier long peut être de 32 bits ou de 64 bits.
+
+Cela n'a pas une grande importance si vous utilisez les types standards (comme `int`, `long`, `short`, `char`), mais si vous utilisez des types spécifiques comme `int32_t`, `int64_t`, `uint32_t`, `uint64_t`, vous devez utiliser les formats spécifiques de la bibliothèque `inttypes.h`. Voici la table de correspondance des formats :
+
+Table: Formats portables
+
+| Type     | Format |
+| -------- | ------ |
+| int8_t   | PRId8  |
+| int16_t  | PRId16 |
+| int32_t  | PRId32 |
+| int64_t  | PRId64 |
+| uint8_t  | PRIu8  |
+| uint16_t | PRIu16 |
+| uint32_t | PRIu32 |
+| uint64_t | PRIu64 |
+
+On peut ajouter des options à ces formats, par exemple pour afficher un entier en hexadécimal, on utilise `%PRIx32` pour un entier 32 bits. Pour la valeur en octal, on utilise `%PRIo32`.
+
+Table: Options des formats portables
+
+| Option | Description |
+| ------ | ----------- |
+| x      | Hexadécimal |
+| o      | Octal       |
+| u      | Non signé   |
+| d      | Signé       |
+
+L'utilisation est particulière car il faut utiliser la macro `PRI` pour définir le format. Par exemple, pour afficher un entier 32 bits en hexadécimal, on utilise :
+
+```c
+#include <inttypes.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int32_t i = 0x12345678;
+    printf("i = %" PRIx32 "\n", i);
+}
+```

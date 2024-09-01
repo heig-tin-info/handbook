@@ -352,8 +352,8 @@ Selon les standards adoptés, chaque société on trouve ceux qui préfèrent no
 
 Table: Conventions de nommage
 
-| Convention   | Nom français     | Exemple              |
-| ------------ | ---------------- | -------------------- |
+| Convention   | Nom français     | Exemple            |
+| ------------ | ---------------- | ------------------ |
 | *camelcase*  | Casse de chameau | `userLoginCount`   |
 | *snakecase*  | Casse de serpent | `user_login_count` |
 | *pascalcase* | Casse de Pascal  | `UserLoginCount`   |
@@ -445,12 +445,12 @@ Quant aux guillemets simples `'`, ils sont utilisés pour délimiter un caractè
 
     Il est plus facile pour un informaticien de comprendre la syntaxe des constantes littérales en utilisant des expressions régulières. Voici les expressions régulières qui définissent les différentes constantes littérales :
 
-    | Type | Expression régulière | Exemple |
-    | ---- | --------------------- | ------- |
-    | Nombre signé | `#!re /[1-9][0-9]*/` | `42` |
-    | Nombre non signé | `#!re /[1-9][0-9]*u/` | `42u` |
-    | Nombre hexadécimal | `#!re /0x[0-9a-fA-F]+/` | `0x2a` |
-    | Nombre octal | `#!re /0[0-7]+/` | `052` |
+    | Type               | Expression régulière    | Exemple |
+    | ------------------ | ----------------------- | ------- |
+    | Nombre signé       | `#!re /[1-9][0-9]*/`    | `42`    |
+    | Nombre non signé   | `#!re /[1-9][0-9]*u/`   | `42u`   |
+    | Nombre hexadécimal | `#!re /0x[0-9a-fA-F]+/` | `0x2a`  |
+    | Nombre octal       | `#!re /0[0-7]+/`        | `052`   |
 
     Vous pouvez essayer de les tester sur [regex101.com](https://regex101.com/).
 

@@ -1,3 +1,5 @@
+[](){#functions}
+
 # Fonctions
 
 Figure: Margaret Hamilton, directrice projet AGC (1969), photo du MIT Museum

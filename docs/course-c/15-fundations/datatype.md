@@ -226,6 +226,8 @@ Les types rapides, moins utilisés vont automatiquement choisir le type adapté 
     uint16_t j = 1024 * 64;
     ```
 
+[](){#datamodel}
+
 ## Modèle de donnée
 
 Comme nous l'avons évoqué plus haut, la taille des entiers `short`, `int`, ... n'est pas précisément définie par le standard. On sait qu'un `int` contient **au moins** 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment consciencieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.
@@ -236,14 +238,14 @@ La première solution est de toujours utiliser les types proposés par `<stdint.
 
 Table: Modèle de données
 
-| Modèle | short | int | long | long long | size_t | Système d'exploitation                                                                                                    |
-| ---------------- | ------- | ----- | ------ | ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **LP32**         | 16      | 16    | 32     |             | 32       | Windows 16-bits, Apple Macintosh                                                                             |
-| **ILP32**        | 16      | 32    | 32     | 64          | 32       | Windows x86, Linux 32-bits                                                                                           |
-| **LLP64**        | 16      | 32    | 32     | 64          | 64       | [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) x86-64 |
-| **LP64**         | 16      | 32    | 64     | 64          | 64       | Unix, Linux, macOS                                                                                                |
-| **ILP64**        | 16      | 64    | 64     | 64          | 64       | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC)                                                         |
-| **SILP64**       | 64      | 64    | 64     | 64          | 64       | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur)                                                         |
+| Modèle     | short | int | long | long long | size_t | Système d'exploitation                                                      |
+| ---------- | ----- | --- | ---- | --------- | ------ | --------------------------------------------------------------------------- |
+| **LP32**   | 16    | 16  | 32   |           | 32     | Windows 16-bits, Apple Macintosh                                            |
+| **ILP32**  | 16    | 32  | 32   | 64        | 32     | Windows x86, Linux 32-bits                                                  |
+| **LLP64**  | 16    | 32  | 32   | 64        | 64     | [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) x86-64 |
+| **LP64**   | 16    | 32  | 64   | 64        | 64     | Unix, Linux, macOS                                                          |
+| **ILP64**  | 16    | 64  | 64   | 64        | 64     | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC)           |
+| **SILP64** | 64    | 64  | 64   | 64        | 64     | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur)           |
 
 Pour les ordinateurs modernes, on peut faire l'hypothèse raisonnable que :
 
@@ -253,6 +255,7 @@ Pour les ordinateurs modernes, on peut faire l'hypothèse raisonnable que :
 - `long long` est de 64-bits,
 
 Pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les [types réformés][reformed-types] de `<stdint.h>`. Ainsi pour s'assurer qu'un type soit **au moins** de 32-bits, on utilisera `uint_least32_t`.
+
 ## Les caractères
 
 Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement représentés par des grandeurs exprimées sur 1 octet (8-bits):
