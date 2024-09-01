@@ -1,4 +1,4 @@
-# Cours de programmation concurrente
+# Résumé
 
 POSIX (Portable Operating System Interface) est une norme qui définit une interface système standard pour les systèmes d'exploitation de type UNIX. Cette norme a été définie par l'IEEE (Institute of Electrical and Electronics Engineers) et l'ISO (International Organization for Standardization). Elle a été inventée en 1988 pour permettre la portabilité des applications entre les systèmes UNIX.
 
@@ -55,8 +55,8 @@ En C++ le mutex est une classe qui permet de protéger des ressources partagées
 std::mutex mtx;
 
 void func() {
-    mtx.lock(); 
-    // Section critique 
+    mtx.lock();
+    // Section critique
     std::cout << "Hello" << std::endl;
     mtx.unlock();
 }
@@ -65,7 +65,7 @@ int main() {
     std::thread t(func);
     t.join();
 }
-``` 
+```
 
 On appelle section critique une portion de code qui accède à des ressources partagées. Il est important de protéger cette section critique avec un mutex pour éviter les accès concurrents.
 
@@ -75,13 +75,13 @@ En général on utilise pas le `lock`/`unlock` directement mais plutôt un `std:
 void func() {
     {
         std::lock_guard<std::mutex> lock(mtx);
-        // Section critique 
+        // Section critique
         std::cout << "Hello" << std::endl;
     }
 }
 ```
 
-On peut implémenter très facilement un lock_guard de la manière suivante: 
+On peut implémenter très facilement un lock_guard de la manière suivante:
 
 ```cpp
 struct LockGuard {
@@ -97,7 +97,7 @@ Aternativement au `lock_guard` on peut utiliser un `std::unique_lock`. La diffé
 ```cpp
 void func() {
     std::unique_lock<std::mutex> lock(mtx);
-    // Section critique 
+    // Section critique
     std::cout << "Hello" << std::endl;
 }
 ```
@@ -141,18 +141,18 @@ int main() {
 
 Dans cet exemple, il y a un problème c'est que la copine (gf) peut mettre une bière dans le frigo alors qu'il est déjà plein. Il faudrait ajouter un sémaphore pour gérer le nombre de bières dans le frigo. Puisqu'un sémaphore est un compteur de ressources.
 
-Mais ici, on est dans un cas de producteur-consommateur. Un producteur met des bières dans le frigo et un consommateur les boit. 
+Mais ici, on est dans un cas de producteur-consommateur. Un producteur met des bières dans le frigo et un consommateur les boit.
 
 #### Producteur-Consommateur
 
-Le problème du producteur-consommateur est un problème classique de synchronisation. 
+Le problème du producteur-consommateur est un problème classique de synchronisation.
 
-On peut le résoudre de deux manières: 
+On peut le résoudre de deux manières:
 
 1. Avec deux sémaphores: un pour le producteur et un pour le consommateur.
 2. Avec une variable condition.
 
-#### Moniteur 
+#### Moniteur
 
 Un moniteur est un objet de synchronisation qui encapsule des données et des opérations sur ces données. Il permet de protéger les données et de synchroniser les threads qui accèdent à ces données.
 
@@ -207,7 +207,7 @@ int main() {
 
 Le deadlock est une situation où deux threads se bloquent mutuellement en attendant une ressource que l'autre thread possède. C'est un problème classique de synchronisation.
 
-Typiquement si la copine (gf) attend que le frigo soit vide pour mettre une bière et que le buveur (drinker) attend que le frigo soit plein pour boire une bière. C'est un deadlock. 
+Typiquement si la copine (gf) attend que le frigo soit vide pour mettre une bière et que le buveur (drinker) attend que le frigo soit plein pour boire une bière. C'est un deadlock.
 
 C'est aussi le cas dans le dilemme des philosophes. Chaque philosophe a besoin de deux fourchettes pour manger. Si chaque philosophe prend une fourchette et attend que l'autre fourchette soit libre, il y a un deadlock: y'a cinq philosophes, une fouchette à gauche et une fourchette à droite, la table est ronde. Donc on a 5 fourchettes et 5 philosophes ce qui ne permet pas que tout le monde mange en même temps.
 
@@ -243,7 +243,7 @@ La programmation asynchrone est un style de programmation qui permet d'exécuter
 En C++ on peut utiliser les threads, les promesses et les tâches pour réaliser de la programmation asynchrone.
 
 - `std::async` : Exécute une fonction de manière asynchrone et renvoie un `std::future` qui permet de récupérer le résultat de la fonction.
-- `std::promise` : Permet de communiquer entre deux threads en envoyant une valeur d'un thread à un autre.	
+- `std::promise` : Permet de communiquer entre deux threads en envoyant une valeur d'un thread à un autre.
 - `std::future` : Permet de récupérer le résultat d'une fonction asynchrone.
 
 ## Programmation Parallèle

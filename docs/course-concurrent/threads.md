@@ -1,12 +1,5 @@
 # Threads
 
-- [Threads](#threads)
-  - [Introduction](#introduction)
-  - [Threads au Niveau Utilisateur](#threads-au-niveau-utilisateur)
-  - [Threads au Niveau Noyau](#threads-au-niveau-noyau)
-  - [Modèle N:M](#modèle-nm)
-  - [Conclusion](#conclusion)
-
 ## Introduction
 
 La gestion de l'ordonnancement des processus et des threads (processus légers) par le noyau d'un système d'exploitation a évolué avec le temps, notamment sous les systèmes UNIX et Linux. Historiquement, en effet, les threads étaient souvent gérés au niveau utilisateur par des bibliothèques de threads, comme la bibliothèque POSIX Threads (pthreads) sous UNIX. Cette approche est connue sous le nom de threads au niveau utilisateur (User-Level Threads). Cependant, les systèmes modernes, y compris Linux, utilisent une approche différente qui permet une meilleure intégration avec l'ordonnanceur du noyau.

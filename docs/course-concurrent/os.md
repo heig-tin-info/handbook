@@ -1,28 +1,5 @@
 # Système d'exploitation (POSIX)
 
-- [Système d'exploitation (POSIX)](#système-dexploitation-posix)
-  - [Processus](#processus)
-    - [États d'un processus](#états-dun-processus)
-  - [Etat du processus](#etat-du-processus)
-  - [Création d'un processus](#création-dun-processus)
-    - [`fork()`](#fork)
-    - [`exec()`](#exec)
-    - [Exemple de zombie](#exemple-de-zombie)
-    - [Status des processus avec `ps`](#status-des-processus-avec-ps)
-    - [Communication inter-processus (IPC)](#communication-inter-processus-ipc)
-      - [Exemple](#exemple)
-      - [Synchronisation de la mémoire partagée](#synchronisation-de-la-mémoire-partagée)
-  - [Processus léger versus processus (clone/fork)](#processus-léger-versus-processus-clonefork)
-    - [Processus](#processus-1)
-    - [Thread (Processus léger)](#thread-processus-léger)
-    - [Différences clés](#différences-clés)
-  - [Appel système `clone()`](#appel-système-clone)
-  - [Signaux](#signaux)
-  - [Information sur un processus](#information-sur-un-processus)
-    - [`pstree`](#pstree)
-    - [`proc`](#proc)
-  - [Appels systèmes utiles](#appels-systèmes-utiles)
-
 ## Processus
 
 Un processus est un programme en cours d'exécution. Il est composé d'un espace d'adressage, d'un ensemble de ressources (fichiers, sockets, etc.) et d'un ou plusieurs threads. Un processus est identifié par un PID (Process IDentifier).
@@ -368,39 +345,39 @@ Sous les systèmes d'exploitation POSIX, les signaux sont des messages logiciels
 
 Voici les signaux POSIX standard et leurs descriptions :
 
-| Signal | Description |
-| ------ | ----------- |
-| SIGHUP(1) | Terminaison du terminal ou du processus contrôlant |
-| SIGINT(2) | Interruption depuis le clavier |
-| SIGQUIT(3) | Interruption depuis le clavier avec un core dump |
-| SIGILL(4) | Instruction illégale |
-| SIGTRAP(5) | Trace ou point d'arrêt |
-| SIGABRT(6) | Signal d'abandon |
-| SIGBUS(7) | Erreur de bus |
-| SIGFPE(8) | Erreur arithmétique |
-| SIGKILL(9) | Terminaison forcée |
-| SIGUSR1(10) | Signal utilisateur 1 |
-| SIGSEGV(11) | Violation de la segmentation |
-| SIGUSR2(12) | Signal utilisateur 2 |
-| SIGPIPE(13) | Écriture sur un tube sans lecteur |
-| SIGALRM(14) | Alarme horloge |
-| SIGTERM(15) | Terminaison |
-| SIGSTKFLT(16) | Erreur de pile |
-| SIGCHLD(17) | Enfant terminé ou arrêté |
-| SIGCONT(18) | Continuer l'exécution, si arrêté |
-| SIGSTOP(19) | Arrêt de l'exécution du processus |
-| SIGTSTP(20) | Arrêt de l'exécution du processus depuis le clavier |
-| SIGTTIN(21) | Lecture depuis le terminal en arrière-plan |
-| SIGTTOU(22) | Écriture sur le terminal en arrière-plan |
-| SIGURG(23) | Données urgentes sur le socket |
-| SIGXCPU(24) | Temps CPU écoulé |
-| SIGXFSZ(25) | Taille de fichier maximale dépassée |
-| SIGVTALRM(26) | Alarme virtuelle |
-| SIGPROF(27) | Profilage du signal |
-| SIGWINCH(28) | Changement de taille de fenêtre |
-| SIGIO(29) | Événement d'entrée/sortie asynchrone |
-| SIGPWR(30) | Événement d'alimentation |
-| SIGSYS(31) | Erreur système |
+| Signal        | Description                                         |
+| ------------- | --------------------------------------------------- |
+| SIGHUP(1)     | Terminaison du terminal ou du processus contrôlant  |
+| SIGINT(2)     | Interruption depuis le clavier                      |
+| SIGQUIT(3)    | Interruption depuis le clavier avec un core dump    |
+| SIGILL(4)     | Instruction illégale                                |
+| SIGTRAP(5)    | Trace ou point d'arrêt                              |
+| SIGABRT(6)    | Signal d'abandon                                    |
+| SIGBUS(7)     | Erreur de bus                                       |
+| SIGFPE(8)     | Erreur arithmétique                                 |
+| SIGKILL(9)    | Terminaison forcée                                  |
+| SIGUSR1(10)   | Signal utilisateur 1                                |
+| SIGSEGV(11)   | Violation de la segmentation                        |
+| SIGUSR2(12)   | Signal utilisateur 2                                |
+| SIGPIPE(13)   | Écriture sur un tube sans lecteur                   |
+| SIGALRM(14)   | Alarme horloge                                      |
+| SIGTERM(15)   | Terminaison                                         |
+| SIGSTKFLT(16) | Erreur de pile                                      |
+| SIGCHLD(17)   | Enfant terminé ou arrêté                            |
+| SIGCONT(18)   | Continuer l'exécution, si arrêté                    |
+| SIGSTOP(19)   | Arrêt de l'exécution du processus                   |
+| SIGTSTP(20)   | Arrêt de l'exécution du processus depuis le clavier |
+| SIGTTIN(21)   | Lecture depuis le terminal en arrière-plan          |
+| SIGTTOU(22)   | Écriture sur le terminal en arrière-plan            |
+| SIGURG(23)    | Données urgentes sur le socket                      |
+| SIGXCPU(24)   | Temps CPU écoulé                                    |
+| SIGXFSZ(25)   | Taille de fichier maximale dépassée                 |
+| SIGVTALRM(26) | Alarme virtuelle                                    |
+| SIGPROF(27)   | Profilage du signal                                 |
+| SIGWINCH(28)  | Changement de taille de fenêtre                     |
+| SIGIO(29)     | Événement d'entrée/sortie asynchrone                |
+| SIGPWR(30)    | Événement d'alimentation                            |
+| SIGSYS(31)    | Erreur système                                      |
 
 Les signaux les plus couramment utilisés sont `SIGINT` (interruption depuis le clavier), `SIGTERM` (terminaison) et `SIGKILL` (terminaison forcée). Ces signaux sont souvent utilisés pour demander à un processus de se terminer ou de réagir à des événements utilisateur.
 
@@ -446,23 +423,23 @@ $ cat /proc/12345/smaps
 
 ## Appels systèmes utiles
 
-| Appel système | Description |
-| ------------- | ----------- |
-| `fork()` | Crée un nouveau processus en dupliquant le processus appelant. |
-| `exec()` | Exécute un nouveau programme dans le contexte du processus appelant. |
-| `wait()` | Attend la terminaison d'un processus enfant. |
-| `waitpid()` | Attend la terminaison d'un processus enfant spécifique. |
-| `clone()` | Crée un nouveau processus léger (thread) avec des options de partage personnalisées. |
-| `kill()` | Envoie un signal à un processus. |
-| `signal()` | Configure un gestionnaire de signal pour un signal donné. |
-| `pipe()` | Crée un tube (pipe) pour la communication entre processus. |
-| `shmget()` | Alloue un segment de mémoire partagée. |
-| `shmat()` | Attache un segment de mémoire partagée à l'espace d'adressage d'un processus. |
-| `sem_init()` | Initialise un sémaphore pour la synchronisation entre processus. |
-| `mmap()` | Mappe un fichier ou un périphérique dans l'espace d'adressage d'un processus. |
-| `mprotect()` | Modifie les protections d'accès pour une région de mémoire. |
-| `munmap()` | Supprime un mappage de mémoire. |
-| `nice()` | Modifie la priorité de planification d'un processus. |
-| `sched_setaffinity()` | Modifie l'affinité du processeur pour un processus. |
-| `getpriority()` | Obtient la priorité de planification d'un processus. |
-| `setpriority()` | Modifie la priorité de planification d'un processus. |
+| Appel système         | Description                                                                          |
+| --------------------- | ------------------------------------------------------------------------------------ |
+| `fork()`              | Crée un nouveau processus en dupliquant le processus appelant.                       |
+| `exec()`              | Exécute un nouveau programme dans le contexte du processus appelant.                 |
+| `wait()`              | Attend la terminaison d'un processus enfant.                                         |
+| `waitpid()`           | Attend la terminaison d'un processus enfant spécifique.                              |
+| `clone()`             | Crée un nouveau processus léger (thread) avec des options de partage personnalisées. |
+| `kill()`              | Envoie un signal à un processus.                                                     |
+| `signal()`            | Configure un gestionnaire de signal pour un signal donné.                            |
+| `pipe()`              | Crée un tube (pipe) pour la communication entre processus.                           |
+| `shmget()`            | Alloue un segment de mémoire partagée.                                               |
+| `shmat()`             | Attache un segment de mémoire partagée à l'espace d'adressage d'un processus.        |
+| `sem_init()`          | Initialise un sémaphore pour la synchronisation entre processus.                     |
+| `mmap()`              | Mappe un fichier ou un périphérique dans l'espace d'adressage d'un processus.        |
+| `mprotect()`          | Modifie les protections d'accès pour une région de mémoire.                          |
+| `munmap()`            | Supprime un mappage de mémoire.                                                      |
+| `nice()`              | Modifie la priorité de planification d'un processus.                                 |
+| `sched_setaffinity()` | Modifie l'affinité du processeur pour un processus.                                  |
+| `getpriority()`       | Obtient la priorité de planification d'un processus.                                 |
+| `setpriority()`       | Modifie la priorité de planification d'un processus.                                 |
