@@ -1,10 +1,7 @@
 import shutil
-import sys
 from pathlib import Path, PosixPath
 
-import ipdb
 import yaml
-from IPython import embed
 from latex.config import BookConfig, LaTeXConfig
 from latex.renderer import LaTeXRenderer
 from mkdocs.structure import StructureItem
@@ -119,12 +116,16 @@ class Book:
     def _propagate_meta(self, item: StructureItem, level=0, numbered=True):
         item.level = level
         item.numbered = numbered
+        item.drop_title = False
 
         if getattr(item.parent, "frontmatter", False):
             item.frontmatter = True
         if item.is_page:
             item.tex_path = item.file.src_path.replace(".md", ".tex")
             if self.config.index_is_foreword and item.file.name == "index":
+                if self.config.drop_title_index:
+                    item.drop_title = True
+                    level -= 1
                 item.numbered = False
 
         for child in item.children or []:
@@ -147,12 +148,13 @@ class Book:
                 latex.append(
                     renderer.formatter.include(element.tex_path, title=element.title)
                 )
-            elif element.level > self.config.base_level:
+            elif element.level > self.config.base_level and not element.drop_title:
                 latex.append(
                     renderer.formatter.heading(
                         element.title, level=element.level, numbered=True
                     )
                 )
+
         return "\n".join(latex)
 
     def build(self, build_dir: Path):

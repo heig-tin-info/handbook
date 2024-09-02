@@ -1,4 +1,4 @@
-# Préface du Chapitre
+# Algorithmes
 
 Les algorithmes constituent l'essence même de l'informatique. Ces ensembles d'instructions, définis avec rigueur et précision, offrent des solutions claires à une multitude de problèmes, allant du tri d'une simple liste de nombres à la détermination du chemin le plus court entre deux points. Chaque algorithme, par sa structure et sa logique, permet d'accomplir des tâches variées avec une efficacité souvent surprenante.
 

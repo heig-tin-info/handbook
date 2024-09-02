@@ -1,4 +1,4 @@
-# Préambule
+# Gestion de projets
 
 Dans ce chapitre, nous allons aborder la gestion de projets informatiques. Travailler seul ou en équipe sur un projet informatique nécessite une organisation rigoureuse pour garantir la qualité, le respect des délais et le succès du projet. La gestion de projets informatiques est une discipline à part entière, qui repose sur des méthodes, des outils et des bonnes pratiques spécifiques.
 

@@ -1,4 +1,4 @@
-# Types composites
+# Types Composites
 
 Un type composite est un type de données qui est construit à partir d'autres types de données plus simples ou primitifs (comme `int`, `char`, etc.). Ces types permettent de regrouper plusieurs éléments de données sous une seule entité, ce qui est essentiel pour organiser des structures de données plus complexes dans les programmes.
 
