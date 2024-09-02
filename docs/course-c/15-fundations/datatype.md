@@ -286,7 +286,7 @@ Ce standard a généré durant des décennies de grandes frustrations et de prof
 
 Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a proposé un standard nommé [Windows-1252](https://fr.wikipedia.org/wiki/Windows-1252) s'inspirant de [ISO-8859-1](https://fr.wikipedia.org/wiki/ISO/CEI_8859-1). En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...
 
-[](){#unicode}
+[](){#encodingunicode}
 
 ### Unicode
 

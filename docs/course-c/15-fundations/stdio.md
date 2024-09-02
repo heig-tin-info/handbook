@@ -111,7 +111,7 @@ int main(void)
 }
 ```
 
-[](){#printf}
+[](){#functionprintf}
 
 ### Printf
 

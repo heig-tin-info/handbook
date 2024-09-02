@@ -44,12 +44,15 @@ ci:
 update: docs/js/viewer.min.js
 	poetry update
 
-docs/js/viewer.min.js:
+docs/js/viewer.min.js: FORCE
 	wget https://raw.githubusercontent.com/jgraph/drawio/dev/src/main/webapp/js/viewer.min.js -O docs/js/viewer.min.js
+
 
 optimize: $(BUILD_DIR)/output-print.pdf
 
 clean:
 	$(RM) -rf build site __pycache__ _minted-*
 
-.PHONY: all serve build clean optimize latex latex-clean docker-image ci update-viewer
+FORCE:
+
+.PHONY: all serve build clean update optimize latex latex-clean docker-image ci update-viewer
