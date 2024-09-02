@@ -1,0 +1,5467 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
+">
+      
+      
+        <meta name="author" content="Yves Chevallier">
+      
+      
+        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/40-algorithms/searching/">
+      
+      
+        <link rel="prev" href="../automata/">
+      
+      
+        <link rel="next" href="../sorting/count-sort/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/icons/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.31+insiders-4.53.12">
+    
+    
+      
+        <title>Recherche - L'informatique pour ingénieurs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.dad623df.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.637 2.363h-.001l1.676.335c.09.018.164.084.19.173a.25.25 0 0 1-.062.249l-1.373 1.374a.876.876 0 0 1-.619.256H12.31L9.45 7.611A1.5 1.5 0 1 1 6.5 8a1.501 1.501 0 0 1 1.889-1.449l2.861-2.862V2.552c0-.232.092-.455.256-.619L12.88.559a.25.25 0 0 1 .249-.062c.089.026.155.1.173.19Z"/><path d="M2 8a6 6 0 1 0 11.769-1.656.751.751 0 1 1 1.442-.413 7.502 7.502 0 0 1-12.513 7.371A7.501 7.501 0 0 1 10.069.789a.75.75 0 0 1-.413 1.442A6.001 6.001 0 0 0 2 8Z"/><path d="M5 8a3.002 3.002 0 0 0 4.699 2.476 3 3 0 0 0 1.28-2.827.748.748 0 0 1 1.045-.782.75.75 0 0 1 .445.61A4.5 4.5 0 1 1 8.516 3.53a.75.75 0 1 1-.17 1.49A3 3 0 0 0 5 8Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.217 6.962A3.75 3.75 0 0 1 0 3.25v-.5C0 1.784.784 1 1.75 1h1.356c.228-.585.796-1 1.462-1h6.864c.647 0 1.227.397 1.462 1h1.356c.966 0 1.75.784 1.75 1.75v.5a3.75 3.75 0 0 1-3.217 3.712 5.014 5.014 0 0 1-2.771 3.117l.144 1.446c.005.05.03.12.114.204.086.087.217.17.373.227.283.103.618.274.89.568.285.31.467.723.467 1.226v.75h1.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H4v-.75c0-.503.182-.916.468-1.226.27-.294.606-.465.889-.568.139-.048.266-.126.373-.227.084-.085.109-.153.114-.204l.144-1.446a5.015 5.015 0 0 1-2.77-3.117ZM4.5 1.568V5.5a3.5 3.5 0 1 0 7 0V1.568a.068.068 0 0 0-.068-.068H4.568a.068.068 0 0 0-.068.068Zm2.957 8.902-.12 1.204c-.093.925-.858 1.47-1.467 1.691a.766.766 0 0 0-.3.176c-.037.04-.07.093-.07.21v.75h5v-.75c0-.117-.033-.17-.07-.21a.766.766 0 0 0-.3-.176c-.609-.221-1.374-.766-1.466-1.69l-.12-1.204a5.064 5.064 0 0 1-1.087 0ZM13 2.5v2.872a2.25 2.25 0 0 0 1.5-2.122v-.5a.25.25 0 0 0-.25-.25H13Zm-10 0H1.75a.25.25 0 0 0-.25.25v.5c0 .98.626 1.813 1.5 2.122Z"/></svg>');--md-admonition-icon--hint:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg>');--md-admonition-icon--foobar:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg>');--md-admonition-icon--reload:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../css/french.css">
+    
+      <link rel="stylesheet" href="../../../css/callout.css">
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/tables.css">
+    
+      <link rel="stylesheet" href="../../../exercise.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-FVF0WYPMYM"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-FVF0WYPMYM",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-FVF0WYPMYM",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#recherche" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="https://heig-tin-info.github.io/handbook" title="L&#39;informatique pour ingénieurs" class="md-header__button md-logo" aria-label="L'informatique pour ingénieurs" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/HEIG-VD/logos/main/heig-vd/heig-vd-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            L'informatique pour ingénieurs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Recherche
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Partager" aria-label="Partager" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/heig-tin-info/handbook" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    heig-tin-info/handbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../00-preface/" class="md-tabs__link">
+          
+  
+    
+  
+  Cours C
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../course-concurrent/os/" class="md-tabs__link">
+          
+  
+    
+  
+  Concurrence
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tools/environment/" class="md-tabs__link">
+          
+  
+    
+  
+  Outils
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../appendix/bibliography/" class="md-tabs__link">
+          
+  
+    
+  
+  Annexes
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://heig-tin-info.github.io/handbook" title="L&#39;informatique pour ingénieurs" class="md-nav__button md-logo" aria-label="L'informatique pour ingénieurs" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/HEIG-VD/logos/main/heig-vd/heig-vd-white.svg" alt="logo">
+
+    </a>
+    L'informatique pour ingénieurs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/heig-tin-info/handbook" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    heig-tin-info/handbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours C
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cours C
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../00-preface/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Préface
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Préface
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-introduction/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-introduction/code-of-conduct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Être développeur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-introduction/me-and-my-computer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Mon ordinateur et moi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-introduction/c-lang/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Le langage C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Numération
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Numération
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-numeration/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-numeration/bases/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Bases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-numeration/numbers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Nombres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Éléments du langage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Éléments du langage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/syntax/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Syntaxe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/datatype/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Types de données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Opérateurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/stdio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrées Sorties
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/control-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Structures de contrôle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/preprocessor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Préprocesseur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/scope/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Portée et visibilité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/grammar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Grammar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../20-composite-types/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Types composites
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Types composites
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/arrays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tableaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/strings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Chaînes de caractères
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/unions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Unions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/pointers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture et Systèmes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture et Systèmes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/computer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    L'ordinateur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/mcu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes à microcontrôleurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/memory-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion de la Mémoire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/programs-and-processes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmes et Processus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fichiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../27-data-structures/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Conteneurs de données
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Conteneurs de données
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-data-structures/dynamic-array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tableau dynamique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-data-structures/lists/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-data-structures/trees/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Arbres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-data-structures/maps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tableaux de hachage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-data-structures/graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Graphes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-data-structures/performances/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Performances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../30-modular-programming/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmation Modulaire
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programmation Modulaire
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30-modular-programming/translation-units/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Compilation séparée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30-modular-programming/libraries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Bibliothèques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Bibliothèques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bibliothèques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../35-libraries/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Bibliothèques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../35-libraries/standard-library/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Standard library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../35-libraries/third-party-libraries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Autres bibliothèques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithmes et Conception
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithmes et Conception
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithmes utilitaires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Récursivité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Automates finis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Recherche
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Recherche
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recherche-lineaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche linéaire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recherche-dichotomique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche dichotomique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recherche-par-hashage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche par hashage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#localite-des-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Localité des données
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recherche-sur-de-gros-volumes-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche sur de gros volumes de données
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-malediction-de-la-dimensionnalite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Malédiction de la Dimensionnalité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k-d-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K-D Tree
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K-D Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recherche-du-voisin-le-plus-proche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche du voisin le plus proche
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recherche-des-k-voisins-les-plus-proches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche des k-voisins les plus proches
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recherche-des-voisins-dans-un-cercle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche des voisins dans un cercle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implémentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10_7" id="__nav_2_10_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithmes de tris
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithmes de tris
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sorting/count-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Counting Sort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sorting/heap-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Heap Sort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sorting/quick-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Sort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10_8" id="__nav_2_10_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Quelques algorithmes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_10_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quelques algorithmes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/a-star/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    A-Star
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/conway/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Jeu de la vie de Conway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/fast-exp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Exponentiation rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/fast-inverse-square-root/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Racine carrée inverse rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/fast-sin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fast sin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/huffman/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Codage de Huffman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/lindenmayer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    L-Système (Lindenmayer System)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/rabin-karp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithme de Rabin-Karp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/random/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Générateur congruentiel linéaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../popular-algorithms/shunting-yard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithme de Shunting Yard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../45-project-management/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion de projets
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestion de projets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-project-management/teamwork/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail en équipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-project-management/software-project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Organisation d'un projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-project-management/dependencies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des dépendances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-project-management/contribute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Projet open-source
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-project-management/licenses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-project-management/testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualité et Testabilité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../47-gui/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces graphiques
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interfaces graphiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Philosophe et attitude
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Philosophe et attitude
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../50-philosophy/philosophy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Philosophie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../50-philosophy/funny/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Humour d'informaticien
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../90-exercises/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrence
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concurrence
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/os/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Système d'exploitation (POSIX)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/arch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture processeur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/threads/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Threads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/mutex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Exclusion Mutuelle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/semaphores/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Semaphore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Mémoire cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/async/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmation Asynchrone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/thread-pool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Thread Pool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Résumé
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Outils
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outils
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/environment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    L'environnement de travail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/filesystem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Système de fichier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/gcc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Compilateur C/C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/make/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Make
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Studio Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilitaires
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Utilitaires
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/utilities/binutils/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Binutils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Bash (Ligne de commande)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fichiers de configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/gdb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    GDB (GNU Debugger)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Annexes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Annexes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/bibliography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Bibliographie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/grammar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Grammaire C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/laboratories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Laboratoires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/unit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Fiches d'unités de cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/refcards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Cartes de référence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recherche-lineaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche linéaire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recherche-dichotomique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche dichotomique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recherche-par-hashage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche par hashage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#localite-des-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Localité des données
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recherche-sur-de-gros-volumes-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche sur de gros volumes de données
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-malediction-de-la-dimensionnalite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Malédiction de la Dimensionnalité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k-d-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K-D Tree
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K-D Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recherche-du-voisin-le-plus-proche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche du voisin le plus proche
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recherche-des-k-voisins-les-plus-proches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche des k-voisins les plus proches
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recherche-des-voisins-dans-un-cercle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche des voisins dans un cercle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implémentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+    
+    
+      
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../00-preface/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cours C
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Algorithmes et Conception
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/40-algorithms/searching.md" title="Editer cette page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/40-algorithms/searching.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
+    </a>
+  
+
+
+<h1 id="recherche">Recherche<a class="headerlink" href="#recherche" title="Permanent link">¤</a></h1>
+<p>La recherche est une opération courante en informatique. Il existe plusieurs algorithmes de recherche, chacun ayant ses avantages et inconvénients. Les algorithmes de recherche les plus courants sont la recherche linéaire et la recherche binaire.</p>
+<h2 id="recherche-lineaire">Recherche linéaire<a class="headerlink" href="#recherche-lineaire" title="Permanent link">¤</a></h2>
+<p>La recherche linéaire est une méthode simple pour trouver un élément dans un tableau. Elle consiste à parcourir naïvement tous les éléments du tableau, un par un, jusqu'à trouver l'élément recherché. Si l'élément est trouvé, la recherche s'arrête et renvoie la position de l'élément dans le tableau. Si l'élément n'est pas trouvé, la recherche renvoie une valeur spéciale pour indiquer que l'élément est absent.</p>
+<p>Une implémentation pour une recherche d'entier serait la suivante :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">linear_search</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">search</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">search</span><span class="p">)</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Une implémentation plus générique pour une recherche d'élément de type variable peut être réalisée en utilisant une fonction de comparaison laquelle retourne 0 si les deux éléments sont égaux, 1 si le premier est plus grand et -1 si le premier est plus petit.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">cmp_int</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p">}</span>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">linear_search</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">element_size</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">search</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">cmp</span><span class="p">)(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cmp</span><span class="p">(</span><span class="n">array</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">element_size</span><span class="p">,</span><span class="w"> </span><span class="n">search</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>La complexité de la recherche linéaire est en <span class="arithmatex">\(O(n)\)</span>, où <span class="arithmatex">\(n\)</span> est la taille du tableau. Si les recherches sont fréquentes, et que la fonction de comparaison est complexe, cette méthode n'est pas la plus efficace.</p>
+<p>L'utilisation d'une fonction de comparaison permet de réaliser des recherches sur des tableaux qui ne se limites pas à des entiers. On peut ainsi rechercher des chaînes de caractères, des structures ou des objets plus complexes. Voici par exemple une fonction de comparaison pour des chaînes de caractères :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">cmp_str</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">strcmp</span><span class="p">((</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">b</span><span class="p">);</span>
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="recherche-dichotomique">Recherche dichotomique<a class="headerlink" href="#recherche-dichotomique" title="Permanent link">¤</a></h2>
+<p>La recherche dichotomique est une méthode plus efficace pour trouver un élément dans un tableau mais elle impose que ce dernier soit trié. Elle consiste à diviser le tableau en deux parties égales et à comparer l'élément recherché avec l'élément au milieu du tableau. Si l'élément est égal à l'élément au milieu, la recherche s'arrête. Sinon, si l'élément est plus petit, la recherche continue dans la première moitié du tableau, sinon dans la seconde moitié.</p>
+<p>Cette méthode est celle que vous appliquez quand on demande de devinez un nombre choisi par un tier entre 1 et 100. Plutôt que choisir une valeur aléatoire à chaque essai, vous annoncez en premier 50, puis 25 ou 75, puis 12 ou 37 ou 62 ou 87, etc. À chaque essai vous éliminez la moitié des possibilités. On dit que la progression est logarithmique en base 2.</p>
+<p>Une implémentation pour une recherche d'entier serait la suivante :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binary_search</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">search</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">search</span><span class="p">)</span>
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span>
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">search</span><span class="p">)</span>
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">            </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">        </span><span class="k">else</span>
+</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">            </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-3-13"><a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Elle peut également être généralisée avec une fonction de comparaison ou spécialisée pour un type particulier. La complexité de la recherche dichotomique est en <span class="arithmatex">\(O(\log n)\)</span>, où <span class="arithmatex">\(n\)</span> est la taille du tableau. Cette méthode est donc beaucoup plus efficace que la recherche linéaire pour des tableaux de grande taille mais elle impose un tri préalable en <span class="arithmatex">\(O(n \log n)\)</span>.</p>
+<h2 id="recherche-par-hashage">Recherche par hashage<a class="headerlink" href="#recherche-par-hashage" title="Permanent link">¤</a></h2>
+<p>L'utilisation d'un tableau de hachage permet de réaliser des recherches en temps constant, en moyenne (<span class="arithmatex">\(O(1)\)</span>). C'est donc une méthode encore plus performante que la recherche dichotomique. Elle nécessite également un prétraitement pour construire la table de hachage, en <span class="arithmatex">\(O(n)\)</span>, mais elle est particulièrement adaptée pour des recherches fréquentes dans des ensembles de données volumineux.</p>
+<p>La performance de la recherche dépend grandement de la fonction de hachage utilisée et du facteur de charge de la table de hachage. Si le facteur de charge est trop élevé, la recherche peut devenir linéaire.</p>
+<p>Il est possible de s'affranchir du risque de collision en utilisant une table de hachage parfaite, mais cela implique une complexité bien plus grande pour la construction de la table. Une fonction de hashage parfaite est une fonction injective, c'est-à-dire qu'elle associe un élément unique à chaque clé sans risque de collision. Cette approche est particulièrement adaptés pour des ensemble de données statiques (connus à l'avance) et de petite taille.</p>
+<h2 id="localite-des-donnees">Localité des données<a class="headerlink" href="#localite-des-donnees" title="Permanent link">¤</a></h2>
+<p>La complexité de recherche n'est pas le seul critère à prendre en compte pour choisir un algorithme de recherche. Le fonctionnement de l'ordinateur impose des contraintes matérielles qui peuvent influencer les performances. Par exemple, la recherche linéaire peut être plus rapide que la recherche dichotomique pour des tableaux de petite taille, car elle exploite mieux la localité des données en mémoire.</p>
+<p>Nous l'avons abordé lors de l'explication du [fonctionnement de la mémoire][light-speed] que l'accès à la RAM est lent par rapport au processeur. Pour ce faire le processeur fait appel à une mémoire cache très rapide mais beaucoup plus petite. Lorsque vous parcourez un tableau, les éléments sont chargés en mémoire cache et la recherche linéaire exploite mieux cette localité des données. Si le tableau est très grand, à chaque saut de la recherche dichotomique vous ne profitez pas de la mémoire cache et le temps d'accès à la RAM devient prépondérant. Aussi dans l'élaboration d'un algorithme on cherche à optimiser la <strong>localité des données</strong>, à la foi spatiale (les éléments sont proches en mémoire) et temporelle (les éléments sont utilisés dans un court laps de temps) afin de minimiser les temps d'accès à la RAM.</p>
+<h2 id="recherche-sur-de-gros-volumes-de-donnees">Recherche sur de gros volumes de données<a class="headerlink" href="#recherche-sur-de-gros-volumes-de-donnees" title="Permanent link">¤</a></h2>
+<p>Si on prend l'exemple d'un moteur de recherche sur internet, la recherche dichotomique n'est pas adaptée. En effet, les données sont stockées sur des serveurs distants et le temps d'accès à ces données est bien plus long que le temps de calcul de l'algorithme. Dans ce cas, la recherche par hashage est plus adaptée car elle permet de réduire le temps d'accès aux données en les regroupant localement. D'autre part, ce type de problème n'est pas implémenté avec un tableau d'entiers programmé en C. Lorsque la collection et le traitement des données deviennent trop volumineux, on utilise des bases de données car d'une part elles offrent les outils nécessaire à la gestion des données et d'autre part elles permettent le stockage des données sur un disque dur.</p>
+<p>Dans les problèmes courant d'ingénierie, une base de donnée SqlLite peut être un excellent choix pour stocker des données structurées et effectuer des recherches complexes. Voici un exemple de recherche sur une base de donnée SqlLite :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sqlite3.h&gt;</span>
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">create_and_insert</span><span class="p">(</span><span class="n">sqlite3</span><span class="w"> </span><span class="o">*</span><span class="n">db</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="c1">// Créer la table Personnes</span>
+</span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">sql_create_table</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-4-8"><a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="s">"CREATE TABLE IF NOT EXISTS people("</span>
+</span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">        </span><span class="s">"id INTEGER PRIMARY KEY AUTOINCREMENT,"</span>
+</span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">        </span><span class="s">"age INT,"</span>
+</span><span id="__span-4-11"><a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="s">"firstname TEXT,"</span>
+</span><span id="__span-4-12"><a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="s">"lastname TEXT,"</span>
+</span><span id="__span-4-13"><a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">        </span><span class="s">"salary REAL);"</span><span class="p">;</span>
+</span><span id="__span-4-14"><a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">    </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlite3_exec</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="w"> </span><span class="n">sql_create_table</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">err_msg</span><span class="p">);</span>
+</span><span id="__span-4-16"><a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">SQLITE_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-18"><a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"SQL error: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">err_msg</span><span class="p">);</span>
+</span><span id="__span-4-19"><a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">        </span><span class="n">sqlite3_free</span><span class="p">(</span><span class="n">err_msg</span><span class="p">);</span>
+</span><span id="__span-4-20"><a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="w">        </span><span class="n">sqlite3_close</span><span class="p">(</span><span class="n">db</span><span class="p">);</span>
+</span><span id="__span-4-21"><a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-4-22"><a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-23"><a href="#__codelineno-4-23" id="__codelineno-4-23" name="__codelineno-4-23"></a>
+</span><span id="__span-4-24"><a href="#__codelineno-4-24" id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="w">    </span><span class="c1">// Insérer des données dans la table</span>
+</span><span id="__span-4-25"><a href="#__codelineno-4-25" id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">sql_insert</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-4-26"><a href="#__codelineno-4-26" id="__codelineno-4-26" name="__codelineno-4-26"></a><span class="w">        </span><span class="s">"INSERT INTO people (age, lastname, firstname, salary) VALUES "</span>
+</span><span id="__span-4-27"><a href="#__codelineno-4-27" id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="w">        </span><span class="s">"(25, 'Anderson', 'Alexandre', 4500),"</span>
+</span><span id="__span-4-28"><a href="#__codelineno-4-28" id="__codelineno-4-28" name="__codelineno-4-28"></a><span class="w">        </span><span class="s">"(35, 'Dupont',   'François',  3200),"</span>
+</span><span id="__span-4-29"><a href="#__codelineno-4-29" id="__codelineno-4-29" name="__codelineno-4-29"></a><span class="w">        </span><span class="s">"(28, 'Martin',   'Annabelle', 4800),"</span>
+</span><span id="__span-4-30"><a href="#__codelineno-4-30" id="__codelineno-4-30" name="__codelineno-4-30"></a><span class="w">        </span><span class="s">"(42, 'Favre',    'Fabrice',   5200),"</span>
+</span><span id="__span-4-31"><a href="#__codelineno-4-31" id="__codelineno-4-31" name="__codelineno-4-31"></a><span class="w">        </span><span class="s">"(30, 'Armand',   'Aurelie',   4100);"</span><span class="p">;</span>
+</span><span id="__span-4-32"><a href="#__codelineno-4-32" id="__codelineno-4-32" name="__codelineno-4-32"></a>
+</span><span id="__span-4-33"><a href="#__codelineno-4-33" id="__codelineno-4-33" name="__codelineno-4-33"></a><span class="w">    </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlite3_exec</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="w"> </span><span class="n">sql_insert</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">err_msg</span><span class="p">);</span>
+</span><span id="__span-4-34"><a href="#__codelineno-4-34" id="__codelineno-4-34" name="__codelineno-4-34"></a>
+</span><span id="__span-4-35"><a href="#__codelineno-4-35" id="__codelineno-4-35" name="__codelineno-4-35"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">SQLITE_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-36"><a href="#__codelineno-4-36" id="__codelineno-4-36" name="__codelineno-4-36"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"SQL error: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">err_msg</span><span class="p">);</span>
+</span><span id="__span-4-37"><a href="#__codelineno-4-37" id="__codelineno-4-37" name="__codelineno-4-37"></a><span class="w">        </span><span class="n">sqlite3_free</span><span class="p">(</span><span class="n">err_msg</span><span class="p">);</span>
+</span><span id="__span-4-38"><a href="#__codelineno-4-38" id="__codelineno-4-38" name="__codelineno-4-38"></a><span class="w">        </span><span class="n">sqlite3_close</span><span class="p">(</span><span class="n">db</span><span class="p">);</span>
+</span><span id="__span-4-39"><a href="#__codelineno-4-39" id="__codelineno-4-39" name="__codelineno-4-39"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-4-40"><a href="#__codelineno-4-40" id="__codelineno-4-40" name="__codelineno-4-40"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-41"><a href="#__codelineno-4-41" id="__codelineno-4-41" name="__codelineno-4-41"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-4-42"><a href="#__codelineno-4-42" id="__codelineno-4-42" name="__codelineno-4-42"></a><span class="p">}</span>
+</span><span id="__span-4-43"><a href="#__codelineno-4-43" id="__codelineno-4-43" name="__codelineno-4-43"></a>
+</span><span id="__span-4-44"><a href="#__codelineno-4-44" id="__codelineno-4-44" name="__codelineno-4-44"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-45"><a href="#__codelineno-4-45" id="__codelineno-4-45" name="__codelineno-4-45"></a><span class="w">    </span><span class="n">sqlite3</span><span class="w"> </span><span class="o">*</span><span class="n">db</span><span class="p">;</span>
+</span><span id="__span-4-46"><a href="#__codelineno-4-46" id="__codelineno-4-46" name="__codelineno-4-46"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">err_msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-4-47"><a href="#__codelineno-4-47" id="__codelineno-4-47" name="__codelineno-4-47"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">rc</span><span class="p">;</span>
+</span><span id="__span-4-48"><a href="#__codelineno-4-48" id="__codelineno-4-48" name="__codelineno-4-48"></a>
+</span><span id="__span-4-49"><a href="#__codelineno-4-49" id="__codelineno-4-49" name="__codelineno-4-49"></a><span class="w">    </span><span class="c1">// Ouvrir ou créer la base de données</span>
+</span><span id="__span-4-50"><a href="#__codelineno-4-50" id="__codelineno-4-50" name="__codelineno-4-50"></a><span class="w">    </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlite3_open</span><span class="p">(</span><span class="s">"people.db"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">db</span><span class="p">);</span>
+</span><span id="__span-4-51"><a href="#__codelineno-4-51" id="__codelineno-4-51" name="__codelineno-4-51"></a>
+</span><span id="__span-4-52"><a href="#__codelineno-4-52" id="__codelineno-4-52" name="__codelineno-4-52"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">SQLITE_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-53"><a href="#__codelineno-4-53" id="__codelineno-4-53" name="__codelineno-4-53"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Cannot open database: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">sqlite3_errmsg</span><span class="p">(</span><span class="n">db</span><span class="p">));</span>
+</span><span id="__span-4-54"><a href="#__codelineno-4-54" id="__codelineno-4-54" name="__codelineno-4-54"></a><span class="w">        </span><span class="n">sqlite3_close</span><span class="p">(</span><span class="n">db</span><span class="p">);</span>
+</span><span id="__span-4-55"><a href="#__codelineno-4-55" id="__codelineno-4-55" name="__codelineno-4-55"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-4-56"><a href="#__codelineno-4-56" id="__codelineno-4-56" name="__codelineno-4-56"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-57"><a href="#__codelineno-4-57" id="__codelineno-4-57" name="__codelineno-4-57"></a>
+</span><span id="__span-4-58"><a href="#__codelineno-4-58" id="__codelineno-4-58" name="__codelineno-4-58"></a><span class="w">    </span><span class="c1">// Créer et insérer des données dans la base de données</span>
+</span><span id="__span-4-59"><a href="#__codelineno-4-59" id="__codelineno-4-59" name="__codelineno-4-59"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">create_and_insert</span><span class="p">(</span><span class="n">db</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-60"><a href="#__codelineno-4-60" id="__codelineno-4-60" name="__codelineno-4-60"></a><span class="w">        </span><span class="n">sqlite3_close</span><span class="p">(</span><span class="n">db</span><span class="p">);</span>
+</span><span id="__span-4-61"><a href="#__codelineno-4-61" id="__codelineno-4-61" name="__codelineno-4-61"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-4-62"><a href="#__codelineno-4-62" id="__codelineno-4-62" name="__codelineno-4-62"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-63"><a href="#__codelineno-4-63" id="__codelineno-4-63" name="__codelineno-4-63"></a>
+</span><span id="__span-4-64"><a href="#__codelineno-4-64" id="__codelineno-4-64" name="__codelineno-4-64"></a><span class="w">    </span><span class="c1">// Requête pour trouver les personnes correspondant aux critères</span>
+</span><span id="__span-4-65"><a href="#__codelineno-4-65" id="__codelineno-4-65" name="__codelineno-4-65"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">sql_query</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-4-66"><a href="#__codelineno-4-66" id="__codelineno-4-66" name="__codelineno-4-66"></a><span class="w">        </span><span class="s">"SELECT * FROM people WHERE "</span>
+</span><span id="__span-4-67"><a href="#__codelineno-4-67" id="__codelineno-4-67" name="__codelineno-4-67"></a><span class="w">        </span><span class="s">"age BETWEEN 23 AND 42 AND "</span>
+</span><span id="__span-4-68"><a href="#__codelineno-4-68" id="__codelineno-4-68" name="__codelineno-4-68"></a><span class="w">        </span><span class="s">"(lastname LIKE 'A%' OR nom LIKE 'F%') AND "</span>
+</span><span id="__span-4-69"><a href="#__codelineno-4-69" id="__codelineno-4-69" name="__codelineno-4-69"></a><span class="w">        </span><span class="s">"LENGTH(firstname) = 8 AND "</span>
+</span><span id="__span-4-70"><a href="#__codelineno-4-70" id="__codelineno-4-70" name="__codelineno-4-70"></a><span class="w">        </span><span class="s">"salary &gt; 4000;"</span><span class="p">;</span>
+</span><span id="__span-4-71"><a href="#__codelineno-4-71" id="__codelineno-4-71" name="__codelineno-4-71"></a>
+</span><span id="__span-4-72"><a href="#__codelineno-4-72" id="__codelineno-4-72" name="__codelineno-4-72"></a><span class="w">    </span><span class="n">sqlite3_stmt</span><span class="w"> </span><span class="o">*</span><span class="n">stmt</span><span class="p">;</span>
+</span><span id="__span-4-73"><a href="#__codelineno-4-73" id="__codelineno-4-73" name="__codelineno-4-73"></a><span class="w">    </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlite3_prepare_v2</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="w"> </span><span class="n">sql_query</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stmt</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-4-74"><a href="#__codelineno-4-74" id="__codelineno-4-74" name="__codelineno-4-74"></a>
+</span><span id="__span-4-75"><a href="#__codelineno-4-75" id="__codelineno-4-75" name="__codelineno-4-75"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">SQLITE_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-76"><a href="#__codelineno-4-76" id="__codelineno-4-76" name="__codelineno-4-76"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Failed to execute query: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">sqlite3_errmsg</span><span class="p">(</span><span class="n">db</span><span class="p">));</span>
+</span><span id="__span-4-77"><a href="#__codelineno-4-77" id="__codelineno-4-77" name="__codelineno-4-77"></a><span class="w">        </span><span class="n">sqlite3_close</span><span class="p">(</span><span class="n">db</span><span class="p">);</span>
+</span><span id="__span-4-78"><a href="#__codelineno-4-78" id="__codelineno-4-78" name="__codelineno-4-78"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-4-79"><a href="#__codelineno-4-79" id="__codelineno-4-79" name="__codelineno-4-79"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-80"><a href="#__codelineno-4-80" id="__codelineno-4-80" name="__codelineno-4-80"></a>
+</span><span id="__span-4-81"><a href="#__codelineno-4-81" id="__codelineno-4-81" name="__codelineno-4-81"></a><span class="w">    </span><span class="c1">// Exécuter la requête et afficher les résultats</span>
+</span><span id="__span-4-82"><a href="#__codelineno-4-82" id="__codelineno-4-82" name="__codelineno-4-82"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Résultats de la recherche:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-4-83"><a href="#__codelineno-4-83" id="__codelineno-4-83" name="__codelineno-4-83"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">sqlite3_step</span><span class="p">(</span><span class="n">stmt</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SQLITE_ROW</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-84"><a href="#__codelineno-4-84" id="__codelineno-4-84" name="__codelineno-4-84"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlite3_column_int</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-4-85"><a href="#__codelineno-4-85" id="__codelineno-4-85" name="__codelineno-4-85"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlite3_column_int</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-4-86"><a href="#__codelineno-4-86" id="__codelineno-4-86" name="__codelineno-4-86"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlite3_column_text</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-4-87"><a href="#__codelineno-4-87" id="__codelineno-4-87" name="__codelineno-4-87"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">prenom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlite3_column_text</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-4-88"><a href="#__codelineno-4-88" id="__codelineno-4-88" name="__codelineno-4-88"></a><span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">salaire</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlite3_column_double</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+</span><span id="__span-4-89"><a href="#__codelineno-4-89" id="__codelineno-4-89" name="__codelineno-4-89"></a>
+</span><span id="__span-4-90"><a href="#__codelineno-4-90" id="__codelineno-4-90" name="__codelineno-4-90"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"ID: %d, Age: %d, Nom: %s, Prénom: %s, Salaire: %.2f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+</span><span id="__span-4-91"><a href="#__codelineno-4-91" id="__codelineno-4-91" name="__codelineno-4-91"></a><span class="w">               </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">lastname</span><span class="p">,</span><span class="w"> </span><span class="n">firstname</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">);</span>
+</span><span id="__span-4-92"><a href="#__codelineno-4-92" id="__codelineno-4-92" name="__codelineno-4-92"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-93"><a href="#__codelineno-4-93" id="__codelineno-4-93" name="__codelineno-4-93"></a>
+</span><span id="__span-4-94"><a href="#__codelineno-4-94" id="__codelineno-4-94" name="__codelineno-4-94"></a><span class="w">    </span><span class="n">sqlite3_finalize</span><span class="p">(</span><span class="n">stmt</span><span class="p">);</span>
+</span><span id="__span-4-95"><a href="#__codelineno-4-95" id="__codelineno-4-95" name="__codelineno-4-95"></a><span class="w">    </span><span class="n">sqlite3_close</span><span class="p">(</span><span class="n">db</span><span class="p">);</span>
+</span><span id="__span-4-96"><a href="#__codelineno-4-96" id="__codelineno-4-96" name="__codelineno-4-96"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="la-malediction-de-la-dimensionnalite">La Malédiction de la Dimensionnalité<a class="headerlink" href="#la-malediction-de-la-dimensionnalite" title="Permanent link">¤</a></h2>
+<p>L'un des principaux problèmes rencontrés lorsqu'on travaille avec des données en plusieurs dimensions est ce que l'on appelle aussi le « fléau de la dimension ». Ce terme inventé par Richard Bellman en 1961 décrit plusieurs phénomènes qui rendent la manipulation des données multidimensionnelles plus complexe que celle des données unidimensionnelles. En particulier, les points de données deviennent de plus en plus dispersés dans l'espace au fur et à mesure que la dimension augmente, ce qui rend plus difficile la localisation rapide d'un voisin proche.</p>
+<p>La difficulté réside dans l'imposibilité d'inférer des relations entre les données pour optimiser la recherche. Par exemple, si vous avez un tableau de 1000 éléments, vous pouvez diviser le tableau en 10 blocs de 100 éléments et effectuer une recherche dichotomique sur chaque bloc. Si vous avez un tableau de 1000 éléments en 2 dimensions, vous ne pouvez pas diviser le tableau en 10 blocs de 100 éléments dans chaque dimension. Vous devez diviser le tableau en 100 blocs de 10 éléments dans chaque dimension, soit 1000 blocs au total. La recherche dichotomique n'est plus efficace.</p>
+<p>Le problème est encore plus complexe lorsque la recherche porte sur une combinaison de plusieurs dimensions. Par exemple, vous stocker des coordonnées géographiques (latitude et longitude) et vous cherchez à trouver les points les plus proches d'un point donné. La recherche dichotomique ne fonctionne pas dans ce cas. Une approche courante pour ce type de recherche est d'utiliser des arbres de recherche multidimensionnels, tels que les arbres KD (K-dimensional trees) ou les arbres R (R-trees).</p>
+<h2 id="k-d-tree">K-D Tree<a class="headerlink" href="#k-d-tree" title="Permanent link">¤</a></h2>
+<p>Le K-D Tree est une structure de données arborescente qui permet de stocker des points en plusieurs dimensions. Il est utilisé pour effectuer des recherches spatiales efficaces, telles que la recherche des points les plus proches d'un point donné. Le principe de l'arbre KD est de diviser l'espace en deux à chaque niveau de l'arbre, en alternant les dimensions.</p>
+<p><figure id="_figure-1"><img alt="Représentation du K-D Tree" class="drawio-diagram" src="../../../assets/images/kd-tree.drawio"/><figcaption> Représentation du K-D Tree</figcaption></figure></p>
+<p>Lors de l'insertion de chaque point, le plan est divisé en deux parties égales (gauche/droite) ou (haut/bas) selon la parité du niveau de l'arbre. Au niveau stockage, on utilise un arbre binaire :</p>
+<p><figure id="_figure-2"><img alt="Arbre binaire du K-D Tree" class="drawio-diagram" src="../../../assets/images/kd-tree-nodes.drawio"/><figcaption> Arbre binaire du K-D Tree</figcaption></figure></p>
+<p>On sait qu'un arbre binaire peut être représenté sous forme d'une liste, la représentation ci-dessus peut-être ainsi représentée avec avec :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">nodes</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">};</span>
+</span></code></pre></div>
+<p>La valeur <code>-1</code> indique un noeud vide. La racine de l'arbre est le premier élément de la liste, ici <code>1</code>. Les enfants d'un noeud <code>i</code> sont <code>2*i</code> et <code>2*i+1</code>. Par exemple, les enfants de <code>1</code> sont <code>2</code> et <code>3</code>. Si l'arbre n'est pas complet et fortement déséquilibré, le stockage ne sera pas optimal car la plupart des noeuds seront vides. Dans ce cas il est plus élégant de représenter l'arbre avec une liste chaînée.</p>
+<p>Bien entendu, les noeuds seront plus complexes que des entiers, un noeud peut par exemple être associé à un identifiant, et ses coordonnées X et Y :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Dans notre exemple pour économiser de l'espace, nous pouvons utiliser une liste pour les noeuds, et un tableau pour l'arbre :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">Node</span><span class="w"> </span><span class="n">nodes</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">10.6</span><span class="p">,</span><span class="w"> </span><span class="mf">4.6</span><span class="p">},</span>
+</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w">  </span><span class="mf">7.1</span><span class="p">,</span><span class="w"> </span><span class="mf">3.9</span><span class="p">},</span>
+</span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mf">12.6</span><span class="p">,</span><span class="w"> </span><span class="mf">6.7</span><span class="p">},</span>
+</span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mf">14.6</span><span class="p">,</span><span class="w"> </span><span class="mf">1.6</span><span class="p">},</span>
+</span><span id="__span-7-6"><a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w">  </span><span class="mf">3.6</span><span class="p">,</span><span class="w"> </span><span class="mf">2.6</span><span class="p">},</span>
+</span><span id="__span-7-7"><a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="w">  </span><span class="mf">2.6</span><span class="p">,</span><span class="w"> </span><span class="mf">0.6</span><span class="p">},</span>
+</span><span id="__span-7-8"><a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="w">  </span><span class="mf">2.4</span><span class="p">,</span><span class="w"> </span><span class="mf">1.6</span><span class="p">},</span>
+</span><span id="__span-7-9"><a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="p">{</span><span class="mi">8</span><span class="p">,</span><span class="w">  </span><span class="mf">4.6</span><span class="p">,</span><span class="w"> </span><span class="mf">1.4</span><span class="p">}</span>
+</span><span id="__span-7-10"><a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="p">};</span>
+</span><span id="__span-7-11"><a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="kt">int</span><span class="w"> </span><span class="n">tree</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">};</span>
+</span></code></pre></div>
+<p>L'accès à un élément s'écrirait alors : <code>nodes[tree[1]]</code> pour accéder au noeud <code>2</code>, à condition que le noeud ne soit pas vide.</p>
+<h3 id="recherche-du-voisin-le-plus-proche">Recherche du voisin le plus proche<a class="headerlink" href="#recherche-du-voisin-le-plus-proche" title="Permanent link">¤</a></h3>
+<p>Pour rechercher le voisin le plus proche d'un point donné dans un K-D Tree, on utilise une méthode de recherche récursive qui exploite la structure de l'arbre pour réduire efficacement l'espace de recherche. Le processus commence par la recherche du point cible en parcourant l'arbre, en suivant les divisions du plan à chaque niveau. Lorsque le point cible est trouvé ou que l'on atteint une feuille, on remonte l'arbre en vérifiant à chaque nœud si celui-ci est plus proche du point cible que les <span class="arithmatex">\(k\)</span> points actuellement dans la liste des plus proches voisins. Pour maintenir cette liste, on utilise généralement une file de priorité (ou un max-heap) qui garde toujours les
+<span class="arithmatex">\(k\)</span> points les plus proches trouvés jusqu'à présent.</p>
+<p>Lors de la remontée, on compare également la distance entre le plan de séparation du nœud courant et le point cible. Si cette distance est inférieure à la distance du plus éloigné des <span class="arithmatex">\(k\)</span> voisins actuels, cela signifie qu'il pourrait y avoir un voisin plus proche de l'autre côté du plan. Dans ce cas, la recherche est également effectuée dans la sous-arborescence opposée.</p>
+<p>Prenons un exemple concret. Sur la figure suivante, on prend le point P <span class="arithmatex">\((3.2, 2.3)\)</span> comme point cible comme présenté sur la figure suivante :</p>
+<p><figure id="_figure-3"><img alt="Recherche d'une zone dans un K-D Tree" class="drawio-diagram" src="../../../assets/images/kd-tree-search.drawio"/><figcaption> Recherche d'une zone dans un K-D Tree</figcaption></figure></p>
+<p>Pour trouver le voisin le plus proche voici les opérations :</p>
+<ol>
+<li><strong>Descente dans l'arbre (recherche initiale)</strong>:</li>
+<li>On commence par comparer le point <span class="arithmatex">\( P \)</span> avec le nœud de la racine en fonction de la dimension actuelle (par exemple, si l'arbre est divisé selon les coordonnées <span class="arithmatex">\( x \)</span> et <span class="arithmatex">\( y \)</span>, on commence par comparer les <span class="arithmatex">\( x \)</span>).</li>
+<li>
+<p>On continue de descendre dans l'arbre en suivant les enfants gauche ou droit en fonction de la position du point <span class="arithmatex">\( P \)</span> par rapport au plan de séparation de chaque nœud. À chaque étape, on réduit l'espace de recherche en alternant les dimensions, jusqu'à atteindre une feuille. Cette feuille correspond au point de l'arbre qui est le plus proche dans l'une des dimensions de <span class="arithmatex">\( P \)</span>.</p>
+</li>
+<li>
+<p><strong>Remontée dans l'arbre (recherche du point le plus proche)</strong>:</p>
+</li>
+<li>Une fois la feuille atteinte, on enregistre ce point comme le point le plus proche trouvé jusqu'à présent. Cependant, il est possible que le point le plus proche ne soit pas dans la sous-arborescence de cette feuille, mais plutôt dans une autre branche de l'arbre.</li>
+<li>
+<p>En remontant l'arbre, on évalue chaque nœud parent pour vérifier s'il pourrait contenir un point plus proche que le point le plus proche actuel. Pour cela, on calcule la distance entre <span class="arithmatex">\( P \)</span> et le point stocké dans le nœud courant, ainsi que la distance entre <span class="arithmatex">\( P \)</span> et le plan de séparation de ce nœud.</p>
+</li>
+<li>
+<p>Si la distance du plan de séparation est inférieure à la distance au point le plus proche actuel, cela signifie que l'autre sous-arborescence (côté opposé du plan) pourrait contenir un point plus proche de <span class="arithmatex">\( P \)</span>. On doit donc explorer cette autre sous-arborescence, ce qui implique de descendre dans cette sous-arborescence comme on l'a fait initialement.</p>
+</li>
+<li>
+<p><strong>Exploration de la sous-arborescence opposée</strong>:</p>
+</li>
+<li>Lors de l'exploration de cette sous-arborescence opposée, on suit un processus similaire en descendant jusqu'à une feuille et en comparant chaque nœud avec le point le plus proche actuellement connu.</li>
+<li>
+<p>Si un point plus proche est trouvé dans cette sous-arborescence, il remplace le point le plus proche actuel.</p>
+</li>
+<li>
+<p><strong>Terminaison</strong>:</p>
+</li>
+<li>Le processus se poursuit jusqu'à ce que l'on ait remonté jusqu'à la racine, en explorant potentiellement plusieurs sous-arborescences opposées en fonction de la distance au plan de séparation.</li>
+<li>À la fin de ce processus, le point le plus proche trouvé sera le plus proche de <span class="arithmatex">\( P \)</span> dans l'ensemble du K-D Tree.</li>
+</ol>
+<p>En pratique, suivant notre exemple, on part de (1). Au premier niveau de l'arbre on sait que les enfants correspondent à l'axe des abscisses et comme <span class="arithmatex">\(3.2 &lt; 10.6\)</span> on prend le fils gauche. On descend donc jusqu'à (2). Cette fois-ci c'es selon l'axe des ordonnées que l'on compare ce qui nous emmène à (5), puis (6), puis (7). La descente s'arrête là car on à atteint une feuille. À partir de maintenant on entre dans la seconde phase. On remonte alors l'arbre en vérifiant si le sous-arbre opposé pourrait contenir des points plus proches.Comme le plan de séparation de (6) est plus éloigné que (7) on explore pas la région au dessus de (6). On continue la remontée jusqu'à (5). Cette fois-ci la distance de séparation est plus proche (<code>abs(P.x - 7.x) = 0.8</code> et <code>abs(P.x - 5,x) = 0.4</code>) donc, il se peut que la région à droite de (5) contienne un point plus proche. On entre alors dans a troisième phase : l'exploration de la partie droite de (5). On descend alors jusqu'à (8) qui est une feuille, et qui de surcroît est plus éloigné que (7).</p>
+<h3 id="recherche-des-k-voisins-les-plus-proches">Recherche des k-voisins les plus proches<a class="headerlink" href="#recherche-des-k-voisins-les-plus-proches" title="Permanent link">¤</a></h3>
+<p>Pour rechercher les <span class="arithmatex">\(k\)</span> voisins les plus proches d'un point donné dans un K-D Tree, on utilise une méthode similaire à la recherche du voisin le plus proche, mais en maintenant une liste des <span class="arithmatex">\(k\)</span> points les plus proches trouvés jusqu'à présent. Lors de la remontée dans l'arbre, on compare chaque nœud parent avec les points de la liste des <span class="arithmatex">\(k\)</span> voisins les plus proches. Si le nœud parent est plus proche que le point le plus éloigné de la liste, on l'ajoute à la liste et on retire le point le plus éloigné. On continue ce processus jusqu'à ce que l'arbre soit entièrement exploré. Cela correspond à utiliser une structure de données de file de priorité (ou max-heap) pour maintenir les <span class="arithmatex">\(k\)</span> points les plus proches. La méthode est donc très similaire à la recherche du voisin le plus proche, mais avec une gestion plus complexe de la liste des voisins.</p>
+<p>La recherche des <span class="arithmatex">\(k\)</span> voisins est donc une opération en <span class="arithmatex">\(O(k \log n)\)</span>.</p>
+<h3 id="recherche-des-voisins-dans-un-cercle">Recherche des voisins dans un cercle<a class="headerlink" href="#recherche-des-voisins-dans-un-cercle" title="Permanent link">¤</a></h3>
+<p>Reconsidérons notre figure précédente. On souhaite maintenant chercher les points à l'intérieur du cercle jaune de diamètre <span class="arithmatex">\(3.75\)</span>. Pour cela on commence par chercher le point le plus proche de <span class="arithmatex">\(P\)</span> comme précédemment. On remonte l'arbre en vérifiant si le plan de séparation est à une distance inférieure à <span class="arithmatex">\(3.75\)</span> du point <span class="arithmatex">\(P\)</span>. Dit autrement, est-ce que le cercle coupe le plan de séparation. Si c'est le cas on explore l'autre sous-arbre. On continue ce processus jusqu'à ce que l'on ait exploré tous les sous-arbres dont le plan de séparation est à une distance inférieure à <span class="arithmatex">\(3.75\)</span> de <span class="arithmatex">\(P\)</span>.</p>
+<h3 id="implementation">Implémentation<a class="headerlink" href="#implementation" title="Permanent link">¤</a></h3>
+<p>L'implémentation passe par la définition d'un noeud :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">   </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">   </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">right</span><span class="p">;</span>
+</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
+</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">new_node</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depth</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">new_node</span><span class="p">;</span>
+</span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">depth</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-8-11"><a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>
+</span><span id="__span-8-12"><a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">cd</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">new_node</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">cd</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">new_node</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">))</span>
+</span><span id="__span-8-13"><a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">      </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">new_node</span><span class="p">,</span><span class="w"> </span><span class="n">depth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-8-14"><a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">   </span><span class="k">else</span>
+</span><span id="__span-8-15"><a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">      </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">new_node</span><span class="p">,</span><span class="w"> </span><span class="n">depth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-8-16"><a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a>
+</span><span id="__span-8-17"><a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+</span><span id="__span-8-18"><a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="p">}</span>
+</span><span id="__span-8-19"><a href="#__codelineno-8-19" id="__codelineno-8-19" name="__codelineno-8-19"></a>
+</span><span id="__span-8-20"><a href="#__codelineno-8-20" id="__codelineno-8-20" name="__codelineno-8-20"></a><span class="kt">void</span><span class="w"> </span><span class="nf">search_closest</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">depth</span><span class="p">,</span>
+</span><span id="__span-8-21"><a href="#__codelineno-8-21" id="__codelineno-8-21" name="__codelineno-8-21"></a><span class="w">                    </span><span class="n">ClosestNode</span><span class="o">*</span><span class="w"> </span><span class="n">closest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-22"><a href="#__codelineno-8-22" id="__codelineno-8-22" name="__codelineno-8-22"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-8-23"><a href="#__codelineno-8-23" id="__codelineno-8-23" name="__codelineno-8-23"></a>
+</span><span id="__span-8-24"><a href="#__codelineno-8-24" id="__codelineno-8-24" name="__codelineno-8-24"></a><span class="w">   </span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">squared_distance</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+</span><span id="__span-8-25"><a href="#__codelineno-8-25" id="__codelineno-8-25" name="__codelineno-8-25"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">closest</span><span class="o">-&gt;</span><span class="n">distance</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-26"><a href="#__codelineno-8-26" id="__codelineno-8-26" name="__codelineno-8-26"></a><span class="w">      </span><span class="n">closest</span><span class="o">-&gt;</span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+</span><span id="__span-8-27"><a href="#__codelineno-8-27" id="__codelineno-8-27" name="__codelineno-8-27"></a><span class="w">      </span><span class="n">closest</span><span class="o">-&gt;</span><span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+</span><span id="__span-8-28"><a href="#__codelineno-8-28" id="__codelineno-8-28" name="__codelineno-8-28"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-8-29"><a href="#__codelineno-8-29" id="__codelineno-8-29" name="__codelineno-8-29"></a>
+</span><span id="__span-8-30"><a href="#__codelineno-8-30" id="__codelineno-8-30" name="__codelineno-8-30"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">depth</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-8-31"><a href="#__codelineno-8-31" id="__codelineno-8-31" name="__codelineno-8-31"></a>
+</span><span id="__span-8-32"><a href="#__codelineno-8-32" id="__codelineno-8-32" name="__codelineno-8-32"></a><span class="w">   </span><span class="c1">// Quelle sous-arborescence est la plus proche ?</span>
+</span><span id="__span-8-33"><a href="#__codelineno-8-33" id="__codelineno-8-33" name="__codelineno-8-33"></a><span class="w">   </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">nearer_subtree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-8-34"><a href="#__codelineno-8-34" id="__codelineno-8-34" name="__codelineno-8-34"></a><span class="w">   </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">farther_subtree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-8-35"><a href="#__codelineno-8-35" id="__codelineno-8-35" name="__codelineno-8-35"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">cd</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">cd</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-36"><a href="#__codelineno-8-36" id="__codelineno-8-36" name="__codelineno-8-36"></a><span class="w">      </span><span class="n">nearer_subtree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+</span><span id="__span-8-37"><a href="#__codelineno-8-37" id="__codelineno-8-37" name="__codelineno-8-37"></a><span class="w">      </span><span class="n">farther_subtree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+</span><span id="__span-8-38"><a href="#__codelineno-8-38" id="__codelineno-8-38" name="__codelineno-8-38"></a><span class="w">   </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-39"><a href="#__codelineno-8-39" id="__codelineno-8-39" name="__codelineno-8-39"></a><span class="w">      </span><span class="n">nearer_subtree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+</span><span id="__span-8-40"><a href="#__codelineno-8-40" id="__codelineno-8-40" name="__codelineno-8-40"></a><span class="w">      </span><span class="n">farther_subtree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+</span><span id="__span-8-41"><a href="#__codelineno-8-41" id="__codelineno-8-41" name="__codelineno-8-41"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-8-42"><a href="#__codelineno-8-42" id="__codelineno-8-42" name="__codelineno-8-42"></a>
+</span><span id="__span-8-43"><a href="#__codelineno-8-43" id="__codelineno-8-43" name="__codelineno-8-43"></a><span class="w">   </span><span class="c1">// Rechercher d'abord dans la sous-arborescence la plus proche</span>
+</span><span id="__span-8-44"><a href="#__codelineno-8-44" id="__codelineno-8-44" name="__codelineno-8-44"></a><span class="w">   </span><span class="n">search_closest</span><span class="p">(</span><span class="n">nearer_subtree</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">depth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">closest</span><span class="p">);</span>
+</span><span id="__span-8-45"><a href="#__codelineno-8-45" id="__codelineno-8-45" name="__codelineno-8-45"></a>
+</span><span id="__span-8-46"><a href="#__codelineno-8-46" id="__codelineno-8-46" name="__codelineno-8-46"></a><span class="w">   </span><span class="c1">// Vérifier si nous devons explorer la sous-arborescence plus éloignée</span>
+</span><span id="__span-8-47"><a href="#__codelineno-8-47" id="__codelineno-8-47" name="__codelineno-8-47"></a><span class="w">   </span><span class="kt">double</span><span class="w"> </span><span class="n">dist_to_plane</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">cd</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">);</span>
+</span><span id="__span-8-48"><a href="#__codelineno-8-48" id="__codelineno-8-48" name="__codelineno-8-48"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dist_to_plane</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dist_to_plane</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">closest</span><span class="o">-&gt;</span><span class="n">distance</span><span class="p">)</span>
+</span><span id="__span-8-49"><a href="#__codelineno-8-49" id="__codelineno-8-49" name="__codelineno-8-49"></a><span class="w">      </span><span class="n">search_closest</span><span class="p">(</span><span class="n">farther_subtree</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">depth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">closest</span><span class="p">);</span>
+</span><span id="__span-8-50"><a href="#__codelineno-8-50" id="__codelineno-8-50" name="__codelineno-8-50"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Pour insérer un noeud à la position <code>x</code>, <code>y</code>, on utilisera :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">new_node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">new_node</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">new_node</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">new_node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_node</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="o">*</span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="o">*</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">new_node</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Et pour rechercher l'élément le plus proche de <code>x</code>, <code>y</code> on utilisera :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">ClosestNode</span><span class="w"> </span><span class="n">closest</span><span class="p">;</span>
+</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">closest</span><span class="p">.</span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="n">closest</span><span class="p">.</span><span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DBL_MAX</span><span class="p">;</span>
+</span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="n">search_closest</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">closest</span><span class="p">);</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Dernière mise à jour">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 26, 2024</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Créé">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 26, 2024</span>
+  </span>
+
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Contributeurs">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+      
+    </span>
+    <nav>
+      
+        <a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Avez-vous trouvé ce que vous cherchiez ?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="Cette page m'a été utile" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="Cette page pourrait être améliorée" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Merci pour votre retour !
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../automata/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Automates finis">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Automates finis
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../sorting/count-sort/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Counting Sort">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Counting Sort
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier <a href="#__consent">Changer les paramètres des cookies</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs Insiders
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/heig-tin-info/handbook" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>Nous utilisons des cookies pour reconnaître vos visites répétées et vos préférences, ainsi que pour mesurer l'efficacité de notre documentation et savoir si les utilisateurs trouvent ce qu'ils recherchent. Avec votre consentement, vous nous aidez à améliorer notre documentation.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accepter</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Paramétrer vos choix</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.4a1b0f67.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="../../../js/viewer.min.js"></script>
+      
+        <script src="../../../js/drawio.js"></script>
+      
+        <script src="../../../js/wiki-tips.js"></script>
+      
+        <script src="../../../js/feedback.js"></script>
+      
+        <script src="../../../js/mathjax.js"></script>
+      
+        <script src="../../../js/navcolor.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+      
+        <script src="../../../exercise.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
