@@ -13,6 +13,11 @@
 - [ ] Tentez de récupérer vous même le poème l'[Albatros](/assets/src/albatros.txt) ref null -> use web page from site, add link
 - [ ] Weird position of ^ : | `^=`                 | Affectation par XOR             | `x ^= y`                 | `x = x ^ y`                 |
 
+- [ ] array.drawio p 252
+- [ ] remove preambule… text introductif dans introductions ?
+- [ ] Table un peu plus petite par défaut
+- [ ] Mal géré en LaTeX enumate followed by itemize
+
 ## Missing features
 
 - [ ] Anotate code with circled number that can be used in text:
