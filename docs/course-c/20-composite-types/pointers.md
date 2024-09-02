@@ -618,7 +618,12 @@ void process(struct Data *data) {
 }
 ```
 
-Si la structure `Data` est très grande, lors de l'appel d'une fonction `process(struct Data data)` la structure sera copiée intégralement sur la pile à chaque appel. En revanche, si on passe un pointeur `process(struct Data *data)` seul l'adresse de la structure sera copiée. En pratique on préfèrera toujours passer des pointeurs pour les structures.
+Si la structure `Data` est très grande, lors de l'appel d'une fonction la structure sera copiée intégralement sur la pile à chaque appel. En revanche, si on passe un pointeur seul l'adresse de la structure sera copiée. En pratique on préfèrera toujours passer des pointeurs pour les structures :
+
+```c
+process(struct Data data)  // Copie sur la pile
+process(struct Data *data) // Passage par référence (adresse)
+```
 
 ### Plusieurs valeurs de retour
 

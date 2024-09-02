@@ -284,14 +284,14 @@ L'appel `rewind()` est équivalent à `(void) fseek(stream, 0L, SEEK_SET)` et pe
 
 La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues `printf` et `scanf` pour les flux standards (*stdout*, *stderr*), mais en utilisant les variantes préfixées de `f` :
 
-| Fonction | Description |
-| -------- | ----------- |
-| `#!c int fscanf(FILE *stream, const char *format, ...)` | Lecture formattée |
-| `#!c int fprintf(FILE *stream, const char *format, ...)` | Écriture formattée |
-| `#!c int fgetc(FILE *stream)` | Lecture d'un caractère |
-| `#!c int fputc(FILE *stream, char char)` | Écriture d'un caractère |
-| `#!c char *fgets(char * restrict s, int n, FILE * restrict stream)` | Lecture d'une ligne |
-| `#!c int fputs(const char * restrict s, FILE * restrict stream)` | Écriture d'une ligne |
+| Fonction                                                            | Description             |
+| ------------------------------------------------------------------- | ----------------------- |
+| `#!c int fscanf(FILE *stream, const char *format, ...)`             | Lecture formattée       |
+| `#!c int fprintf(FILE *stream, const char *format, ...)`            | Écriture formattée      |
+| `#!c int fgetc(FILE *stream)`                                       | Lecture d'un caractère  |
+| `#!c int fputc(FILE *stream, char char)`                            | Écriture d'un caractère |
+| `#!c char *fgets(char * restrict s, int n, FILE * restrict stream)` | Lecture d'une ligne     |
+| `#!c int fputs(const char * restrict s, FILE * restrict stream)`    | Écriture d'une ligne    |
 
 L'utilisation avec `stdin` et `stdout` comme descripteur de fichier est possible, mais il est préférable dans ce cas d'utiliser les fonctions `scanf` et `printf` qui ont les mêmes fonctionnalités.
 
@@ -398,11 +398,11 @@ Historiquement les descripteurs de fichiers sont appelés `FILE` alors qu'ils so
 
 Table: Flux de données standards
 
-| Flux   | Numéro | Description |
-| ------ | --- | ----------- |
-| `stdin`  | 0 | Flux d'entrée standard |
-| `stdout` | 1 | Flux de sortie standard |
-| `stderr` | 2 | Flux d'erreur standard |
+| Flux     | Numéro | Description             |
+| -------- | ------ | ----------------------- |
+| `stdin`  | 0      | Flux d'entrée standard  |
+| `stdout` | 1      | Flux de sortie standard |
+| `stderr` | 2      | Flux d'erreur standard  |
 
 Ces trois descripteurs de fichiers sont ouverts au début du programme. Le premier fichier ouvert par exemple avec `fopen` sera très probablement assigné à l'identifiant `3`, le suivant à `4`, etc.
 
@@ -457,45 +457,45 @@ Il existe plusieurs manières d'écrire ces informations dans un fichier :
 Un fichier dit tabulé, utilise une [sentinelle](https://fr.wikipedia.org/wiki/Valeur_sentinelle), souvent le caractère de tabulation `\t` pour séparer les données. Chaque ligne du tableau est physiquement séparée de la suivante avec un `\n`:
 
 ```text
-Pays\tVille\t01\t02\t03\t04\t05\t06\t07\t08\t09\t10\t11\t12\n
-Suisse\tZürich\t0.3\t1.3\t5.3\t8.8\t13.3\t16.4\t18.6\t18.0\t14.1\t9.9\t4.4\t1.4\n
-Italie\tRome\t7.5\t8.2\t10.2\t12.6\t17.2\t21.1\t24.1\t24.5\t20.8\t16.4\t11.4\t8.4\n
-Allemagne\tBerlin\t0.6\t2.3\t5.1\t10.2\t14.8\t17.9\t20.3\t19.7\t15.3\t10.5\t6.0\t1.33\n
-Yémen\tAden\t25.7\t26.0\t27.2\t28.9\t31.0\t32.7\t32.7\t31.5\t31.6\t28.9\t27.1\t26.01\n
-Russie\tYakutsk\t-38.6\t-33.8\t-20.1\t-4.8\t7.5\t16.4\t19.5\t15.2\t6.1\t-7.8\t-27.0\t-37.6\n
+Pays\tVille\t01\t02\t03\t04\t05\t06\t07\t08\t09\t10\n
+CH\tZürich\t0.3\t1.3\t5.3\t8.8\t13.3\t16.4\t18.6\t18.0\t14.1\t9.9\n
+IT\tRome\t7.5\t8.2\t10.2\t12.6\t17.2\t21.1\t24.1\t24.5\t20.8\t16.4\n
+DE\tBerlin\t0.6\t2.3\t5.1\t10.2\t14.8\t17.9\t20.3\t19.7\t15.3\t10.5\n
+YE\tAden\t25.7\t26.0\t27.2\t28.9\t31.0\t32.7\t32.7\t31.5\t31.6\t28.9\n
+RU\tYakutsk\t-38.6\t-33.8\t-20.1\t-4.8\t7.5\t16.4\t19.5\t15.2\t6.1\t-7.8\n
 ```
 
 Ce fichier peut être observé avec un lecteur hexadécimal :
 
 ```console
 $ hexdump -C data.dat
-00000000  50 61 79 73 09 56 69 6c  6c 65 09 30 31 09 30 32  |Pays.Ville.01.02|
-00000010  09 30 33 09 30 34 09 30  35 09 30 36 09 30 37 09  |.03.04.05.06.07.|
-00000020  30 38 09 30 39 09 31 30  09 31 31 09 31 32 0a 53  |08.09.10.11.12.S|
-00000030  75 69 73 73 65 09 5a c3  bc 72 69 63 68 09 30 2e  |uisse.Z..rich.0.|
-00000040  33 09 31 2e 33 09 35 2e  33 09 38 2e 38 09 31 33  |3.1.3.5.3.8.8.13|
-00000050  2e 33 09 31 36 2e 34 09  31 38 2e 36 09 31 38 2e  |.3.16.4.18.6.18.|
-00000060  30 09 31 34 2e 31 09 39  2e 39 09 34 2e 34 09 31  |0.14.1.9.9.4.4.1|
-00000070  2e 34 0a 49 74 61 6c 69  65 09 52 6f 6d 65 09 37  |.4.Italie.Rome.7|
-00000080  2e 35 09 38 2e 32 09 31  30 2e 32 09 31 32 2e 36  |.5.8.2.10.2.12.6|
-00000090  09 31 37 2e 32 09 32 31  2e 31 09 32 34 2e 31 09  |.17.2.21.1.24.1.|
-000000a0  32 34 2e 35 09 32 30 2e  38 09 31 36 2e 34 09 31  |24.5.20.8.16.4.1|
-000000b0  31 2e 34 09 38 2e 34 0a  41 6c 6c 65 6d 61 67 6e  |1.4.8.4.Allemagn|
-000000c0  65 09 42 65 72 6c 69 6e  09 30 2e 36 09 32 2e 33  |e.Berlin.0.6.2.3|
-000000d0  09 35 2e 31 09 31 30 2e  32 09 31 34 2e 38 09 31  |.5.1.10.2.14.8.1|
-000000e0  37 2e 39 09 32 30 2e 33  09 31 39 2e 37 09 31 35  |7.9.20.3.19.7.15|
-000000f0  2e 33 09 31 30 2e 35 09  36 2e 30 09 31 2e 33 33  |.3.10.5.6.0.1.33|
-00000100  0a 59 c3 a9 6d 65 6e 09  41 64 65 6e 09 32 35 2e  |.Y..men.Aden.25.|
-00000110  37 09 32 36 2e 30 09 32  37 2e 32 09 32 38 2e 39  |7.26.0.27.2.28.9|
-00000120  09 33 31 2e 30 09 33 32  2e 37 09 33 32 2e 37 09  |.31.0.32.7.32.7.|
-00000130  33 31 2e 35 09 33 31 2e  36 09 32 38 2e 39 09 32  |31.5.31.6.28.9.2|
-00000140  37 2e 31 09 32 36 2e 30  31 0a 52 75 73 73 69 65  |7.1.26.01.Russie|
-00000150  09 59 61 6b 75 74 73 6b  09 2d 33 38 2e 36 09 2d  |.Yakutsk.-38.6.-|
-00000160  33 33 2e 38 09 2d 32 30  2e 31 09 2d 34 2e 38 09  |33.8.-20.1.-4.8.|
-00000170  37 2e 35 09 31 36 2e 34  09 31 39 2e 35 09 31 35  |7.5.16.4.19.5.15|
-00000180  2e 32 09 36 2e 31 09 2d  37 2e 38 09 2d 32 37 2e  |.2.6.1.-7.8.-27.|
-00000190  30 09 2d 33 37 2e 36 0a                           |0.-37.6.|
-00000198
+0000  50 61 79 73 09 56 69 6c  6c 65 09 30 31 09 30 32 |Pays.Ville.01.02|
+0010  09 30 33 09 30 34 09 30  35 09 30 36 09 30 37 09 |.03.04.05.06.07.|
+0020  30 38 09 30 39 09 31 30  09 31 31 09 31 32 0a 53 |08.09.10.11.12.S|
+0030  75 69 73 73 65 09 5a c3  bc 72 69 63 68 09 30 2e |uisse.Z..rich.0.|
+0040  33 09 31 2e 33 09 35 2e  33 09 38 2e 38 09 31 33 |3.1.3.5.3.8.8.13|
+0050  2e 33 09 31 36 2e 34 09  31 38 2e 36 09 31 38 2e |.3.16.4.18.6.18.|
+0060  30 09 31 34 2e 31 09 39  2e 39 09 34 2e 34 09 31 |0.14.1.9.9.4.4.1|
+0070  2e 34 0a 49 74 61 6c 69  65 09 52 6f 6d 65 09 37 |.4.Italie.Rome.7|
+0080  2e 35 09 38 2e 32 09 31  30 2e 32 09 31 32 2e 36 |.5.8.2.10.2.12.6|
+0090  09 31 37 2e 32 09 32 31  2e 31 09 32 34 2e 31 09 |.17.2.21.1.24.1.|
+00a0  32 34 2e 35 09 32 30 2e  38 09 31 36 2e 34 09 31 |24.5.20.8.16.4.1|
+00b0  31 2e 34 09 38 2e 34 0a  41 6c 6c 65 6d 61 67 6e |1.4.8.4.Allemagn|
+00c0  65 09 42 65 72 6c 69 6e  09 30 2e 36 09 32 2e 33 |e.Berlin.0.6.2.3|
+00d0  09 35 2e 31 09 31 30 2e  32 09 31 34 2e 38 09 31 |.5.1.10.2.14.8.1|
+00e0  37 2e 39 09 32 30 2e 33  09 31 39 2e 37 09 31 35 |7.9.20.3.19.7.15|
+00f0  2e 33 09 31 30 2e 35 09  36 2e 30 09 31 2e 33 33 |.3.10.5.6.0.1.33|
+0100  0a 59 c3 a9 6d 65 6e 09  41 64 65 6e 09 32 35 2e |.Y..men.Aden.25.|
+0110  37 09 32 36 2e 30 09 32  37 2e 32 09 32 38 2e 39 |7.26.0.27.2.28.9|
+0120  09 33 31 2e 30 09 33 32  2e 37 09 33 32 2e 37 09 |.31.0.32.7.32.7.|
+0130  33 31 2e 35 09 33 31 2e  36 09 32 38 2e 39 09 32 |31.5.31.6.28.9.2|
+0140  37 2e 31 09 32 36 2e 30  31 0a 52 75 73 73 69 65 |7.1.26.01.Russie|
+0150  09 59 61 6b 75 74 73 6b  09 2d 33 38 2e 36 09 2d |.Yakutsk.-38.6.-|
+0160  33 33 2e 38 09 2d 32 30  2e 31 09 2d 34 2e 38 09 |33.8.-20.1.-4.8.|
+0170  37 2e 35 09 31 36 2e 34  09 31 39 2e 35 09 31 35 |7.5.16.4.19.5.15|
+0180  2e 32 09 36 2e 31 09 2d  37 2e 38 09 2d 32 37 2e |.2.6.1.-7.8.-27.|
+0190  30 09 2d 33 37 2e 36 0a                          |0.-37.6.|
+0198
 ```
 
 L'inconvénient de ce format est que pour obtenir directement la température du mois de mars à Berlin, sachant que Berlin est la quatrième ligne du fichier, il est nécessaire de parcourir le fichier depuis le début, car la longueur des lignes n'est à priori pas connue. On dit que la lecture séquentielle est facilitée, mais la lecture aléatoire est plus lente.
@@ -506,16 +506,16 @@ Pour pallier au défaut du format tabulé, il est possible d'écrire le fichier 
 48e colonne :
 
 ```text
- 0000000000111111111122222222223333333333444444444455555555556666666666777777777788
- 0123456789012345678901234567890123456789012345678901234567890123456789012345678901
-+---------+-------+-----+-----+-----+----+----+----+----+----+----+----+-----+---->
+ 000000000011111111112222222222333333333344444444445555555555666666666
+ 012345678901234567890123456789012345678901234567890123456789012345678
++---------+-------+-----+-----+-----+----+----+----+----+----+----+--->
 
-Pays      Ville   01    02    03    04   05   06   07   08   09   10   11    12
-Suisse    Zürich  0.3   1.3   5.3   8.8  13.3 16.4 18.6 18.0 14.1 9.9  4.4   1.4
-Italie    Rome    7.5   8.2   10.2  12.6 17.2 21.1 24.1 24.5 20.8 16.4 11.4  8.4
-Allemagne Berlin  0.6   2.3   5.1   10.2 14.8 17.9 20.3 19.7 15.3 10.5 6.0   1.33
-Yémen     Aden    25.7  26.0  27.2  28.9 31.0 32.7 32.7 31.5 31.6 28.9 27.1  26.01
-Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37.6
+Pays      Ville   01    02    03    04   05   06   07   08   09   10
+Suisse    Zürich  0.3   1.3   5.3   8.8  13.3 16.4 18.6 18.0 14.1 9.9
+Italie    Rome    7.5   8.2   10.2  12.6 17.2 21.1 24.1 24.5 20.8 16.4
+Allemagne Berlin  0.6   2.3   5.1   10.2 14.8 17.9 20.3 19.7 15.3 10.5
+Yémen     Aden    25.7  26.0  27.2  28.9 31.0 32.7 32.7 31.5 31.6 28.9
+Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8
 ```
 
 Idéalement on utilise comme caractère de remplissage le caractère nul `\0`, mais le caractère espace peut aussi convenir à condition que les données ne contiennent pas d'espace.
@@ -541,44 +541,20 @@ L'inconvénient de ce format de fichier est la place qu'il prend en mémoire. L'
 Des langages de sérialisation permettent de structurer de l'information en utilisant un format spécifique. Ici [JSON](https://fr.wikipedia.org/wiki/JavaScript_Object_Notation) :
 
 ```json
-[
-    {
-        "pays": "Suisse",
-        "ville": "Zürich",
-        "mois": {
-            "janvier": 0.3,
-            "février": 1.3,
-            "mars": 5.3,
-            "avril": 8.8,
-            "mai": 13.3,
-            "juin": 16.4,
-            "juillet": 18.6,
-            "août": 18.0,
-            "septembre": 14.1,
-            "octobre": 9.9,
-            "novembre": 4.4,
-            "décembre": 1.4
-        }
-    },
-    {
-        "pays": "Italie",
-        "ville": "Rome",
-        "mois": {
-            "janvier": 7.5,
-            "février": 8.2,
-            "mars": 10.2,
-            "avril": 12.6,
-            "mai": 17.2,
-            "juin": 21.1,
-            "juillet": 24.1,
-            "août": 24.5,
-            "septembre": 20.8,
-            "octobre": 16.4,
-            "novembre": 11.4,
-            "décembre": 8.4
-        }
-    }
-]
+[{ "pays": "Suisse",
+   "ville": "Zürich",
+   "mois": {
+     "janvier": 0.3, "février": 1.3, "mars": 5.3, "avril": 8.8,
+     "mai": 13.3, "juin": 16.4, "juillet": 18.6, "août": 18.0,
+     "septembre": 14.1, "octobre": 9.9, "novembre": 4.4, "décembre": 1.4}
+ }, {
+   "pays": "Italie",
+   "ville": "Rome",
+   "mois": {
+     "janvier": 7.5, "février": 8.2, "mars": 10.2, "avril": 12.6,
+     "mai": 17.2, "juin": 21.1, "juillet": 24.1, "août": 24.5,
+     "septembre": 20.8, "octobre": 16.4, "novembre": 11.4, "décembre": 8.4}
+}]
 ```
 
 L'avantage de ce type de format est qu'il est facilement modifiable avec un éditeur de texte et qu'il est très interopérable. C'est-à-dire qu'il est facilement lisible depuis différents langages de programmation.

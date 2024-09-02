@@ -28,31 +28,31 @@ Les licences Creative Commons (CC), bien qu'initialement conçues pour les œuvr
 
 Voici un aperçu des licences logicielles les plus couramment utilisées :
 
-1. **GNU General Public License (GPL)**
-   - **Avantages** : Garantit que le logiciel reste libre à jamais, encourage la collaboration.
-   - **Inconvénients** : Incompatibilité avec les licences plus permissives, contraignante pour les projets commerciaux.
+**GNU General Public License (GPL)**
 
-2. **GNU Lesser General Public License (LGPL)**
-   - **Avantages** : Permet l'utilisation de bibliothèques open-source dans des logiciels propriétaires.
-   - **Inconvénients** : Moins contraignante que la GPL, mais impose des restrictions sur les modifications du code source.
+: Garantit que le logiciel reste libre à jamais, encourage la collaboration, mais incompatibilité avec les licences plus permissives, contraignante pour les projets commerciaux.
 
-3. **MIT License**
-   - **Avantages** : Simplicité, grande permissivité, utilisée dans une multitude de projets.
-   - **Inconvénients** : Permet la réutilisation du code dans des logiciels propriétaires sans obligation de partage.
+**GNU Lesser General Public License (LGPL)**
 
-4. **Apache License 2.0**
-   - **Avantages** : Clauses explicites sur les brevets, permissive mais protège les contributeurs.
-   - **Inconvénients** : Moins simple que la licence MIT, moins contraignante que la GPL pour garantir la liberté du logiciel.
+: Permet l'utilisation de bibliothèques open-source dans des logiciels propriétaires mais moins contraignante que la GPL, mais impose des restrictions sur les modifications du code source.
 
-5. **Berkeley Software Distribution (BSD) License**
-   - **Avantages** : Très permissive, flexible pour les intégrations dans des logiciels propriétaires.
-   - **Inconvénients** : Ne garantit pas que les versions dérivées resteront libres.
+**MIT License**
 
-6. **Creative Commons (CC0, BY, BY-SA, etc.)**
-   - **Avantages** : Idéal pour la diffusion de contenus créatifs, permet une large diffusion avec un choix de niveaux de protection.
-   - **Inconvénients** : Moins couramment utilisée pour les logiciels purs, difficulté d’adaptation pour certains projets techniques.
+: Simplicité, grande permissivité, utilisée dans une multitude de projets, mais permet la réutilisation du code dans des logiciels propriétaires sans obligation de partage.
 
-Le choix d'une licence dépend souvent des objectifs du projet :
+**Apache License 2.0**
+
+: Clauses explicites sur les brevets, permissive mais protège les contributeurs, mais moins simple que la licence MIT, moins contraignante que la GPL pour garantir la liberté du logiciel.
+
+**Berkeley Software Distribution (BSD) License**
+
+: Très permissive, flexible pour les intégrations dans des logiciels propriétaires mais ne garantit pas que les versions dérivées resteront libres.
+
+**Creative Commons (CC0, BY, BY-SA, etc.)**
+
+: Idéal pour la diffusion de contenus créatifs, permet une large diffusion avec un choix de niveaux de protection, mais moins couramment utilisée pour les logiciels purs, difficulté d’adaptation pour certains projets techniques.
+
+Le choix d'une licence dépend donc des objectifs du projet. On peut citer par exemple les cas de figures suivant:
 
 **Développement Commercial**
 
@@ -74,58 +74,6 @@ Le choix d'une licence dépend souvent des objectifs du projet :
 
 : Les licences Creative Commons sont idéales pour protéger et partager des documentations, des illustrations, ou des contenus audiovisuels associés aux projets logiciels.
 
-## Brevets logiciels
-
-### Section : Les Brevets Logiciels : Enjeux, Coûts et Défis
-
-#### Introduction aux Brevets Logiciels
-
-Un brevet logiciel est une protection juridique accordée à une invention logicielle, permettant à son détenteur de contrôler l'utilisation, la production, et la vente de cette invention pendant une période donnée, généralement 20 ans. Contrairement aux licences logicielles, qui régissent l'utilisation d'un logiciel, un brevet protège une idée ou une méthode spécifique implémentée dans le logiciel. Les brevets logiciels sont particulièrement controversés en raison de leur complexité, de leur coût, et de leurs implications sur l'innovation technologique.
-
-#### Implications des Brevets Logiciels
-
-Les brevets logiciels confèrent à leurs détenteurs un monopole sur une certaine technologie ou méthode, leur permettant d'empêcher d'autres entreprises ou individus d'utiliser cette technologie sans autorisation. Cela peut être avantageux pour les entreprises qui investissent massivement en R&D, car un brevet peut fournir un retour sur investissement en protégeant leur innovation des concurrents.
-
-Cependant, ces brevets peuvent également freiner l'innovation en empêchant d'autres développeurs de construire sur des idées existantes. Ils peuvent créer un environnement juridique complexe où les entreprises doivent naviguer prudemment pour éviter les poursuites en contrefaçon de brevet. Cela est particulièrement problématique dans le développement de logiciels, où de nombreuses innovations sont incrémentales et construites à partir d'idées préexistantes.
-
-#### Coûts des Brevets Logiciels
-
-Le dépôt d'un brevet logiciel est un processus coûteux, tant en termes de temps que d'argent. Les coûts incluent :
-
-1. **Frais de dépôt** : Les frais de dépôt peuvent varier de quelques milliers à plusieurs dizaines de milliers d'euros/dollars, selon le pays et la complexité du brevet.
-
-2. **Frais juridiques** : L'assistance d'avocats spécialisés est souvent nécessaire pour préparer et déposer un brevet, ce qui peut coûter plusieurs milliers d'euros supplémentaires.
-
-3. **Frais de maintenance** : Une fois accordé, le brevet doit être maintenu en vigueur, ce qui implique des frais périodiques (annuaires) qui peuvent également être élevés.
-
-En raison de ces coûts, le dépôt de brevets logiciels est souvent hors de portée des petites entreprises et des développeurs individuels. Même pour les grandes entreprises, le coût et la gestion des portefeuilles de brevets peuvent devenir un fardeau.
-
-#### Restrictions par Pays
-
-Les brevets logiciels ne sont pas universellement reconnus, et leur statut juridique varie d'un pays à l'autre :
-
-1. **États-Unis** : Aux États-Unis, les brevets logiciels sont largement reconnus et accordés par l'Office des brevets et des marques de commerce des États-Unis (USPTO). Cependant, une série de décisions judiciaires récentes, comme l'affaire *Alice Corp. v. CLS Bank International* en 2014, a restreint la portée des brevets logiciels en exigeant que les inventions brevetables ne soient pas de simples "idées abstraites".
-
-2. **Union Européenne** : En Europe, les brevets logiciels sont plus restrictifs. L'Office européen des brevets (OEB) n'accorde des brevets logiciels que si l'invention apporte une "contribution technique" au-delà de l'algorithme ou du code lui-même.
-
-3. **Japon et autres pays** : Le Japon accepte également les brevets logiciels sous certaines conditions, tandis que d'autres pays comme l'Inde sont beaucoup plus restrictifs, voire opposés, au concept de brevets logiciels.
-
-Ces différences de traitement rendent complexe la protection globale d'une innovation logicielle par un brevet, obligeant les entreprises à adapter leurs stratégies en fonction des juridictions.
-
-#### Pourquoi les Entreprises Évitent les Brevets Logiciels
-
-Beaucoup d'entreprises choisissent d'éviter les brevets logiciels pour plusieurs raisons :
-
-1. **Coût et Complexité** : Comme mentionné, le coût élevé et la complexité juridique rendent les brevets peu attrayants pour de nombreuses entreprises, surtout les start-ups et les PME.
-
-2. **Risque de Litiges** : Les brevets logiciels peuvent entraîner des litiges coûteux si une autre entreprise ou un individu conteste le brevet ou si l'entreprise brevetée engage des poursuites pour contrefaçon. Les litiges en matière de brevets sont non seulement coûteux, mais aussi longs et complexes.
-
-3. **Difficulté de Vérification et Contournement** : Vérifier la violation d'un brevet logiciel est notoirement difficile. Les logiciels peuvent être écrits de plusieurs façons pour atteindre un même objectif fonctionnel, ce qui permet aux développeurs de contourner un brevet en modifiant légèrement leur code. Cela limite l'efficacité des brevets logiciels en tant que mécanisme de protection.
-
-4. **Frein à l'Innovation** : Dans un domaine où l'innovation est rapide et collaborative, les brevets peuvent créer un frein à l'innovation. Les développeurs peuvent éviter d'explorer certaines idées par crainte de violer un brevet existant, limitant ainsi la créativité et la progression technologique.
-
-5. **Stratégies Alternatives** : De nombreuses entreprises préfèrent recourir à d'autres stratégies de protection telles que le secret commercial, qui est souvent moins coûteux et ne nécessite pas de divulgation publique de l'invention, contrairement aux brevets.
-
 ## Brevets Logiciels
 
 Un brevet logiciel est une protection juridique accordée à une invention logicielle, permettant à son détenteur de contrôler l'utilisation, la production, et la vente de cette invention pendant une période donnée, généralement 20 ans. Contrairement aux licences logicielles, qui régissent l'utilisation d'un logiciel, un brevet protège une idée ou une méthode spécifique implémentée dans le logiciel. Les brevets logiciels sont particulièrement controversés en raison de leur complexité, de leur coût, et de leurs implications sur l'innovation technologique.
@@ -136,11 +84,17 @@ Cependant, ces brevets peuvent également freiner l'innovation en empêchant d'a
 
 Le dépôt d'un brevet logiciel est un processus coûteux, tant en termes de temps que d'argent. Les coûts incluent :
 
-1. **Frais de dépôt** : Les frais de dépôt peuvent varier de quelques milliers à plusieurs dizaines de milliers d'euros/dollars, selon le pays et la complexité du brevet.
+**Frais de dépôt**
 
-2. **Frais juridiques** : L'assistance d'avocats spécialisés est souvent nécessaire pour préparer et déposer un brevet, ce qui peut coûter plusieurs milliers d'euros supplémentaires.
+: Les frais de dépôt peuvent varier de quelques milliers à plusieurs dizaines de milliers d'euros/dollars, selon le pays et la complexité du brevet.
 
-3. **Frais de maintenance** : Une fois accordé, le brevet doit être maintenu en vigueur, ce qui implique des frais périodiques (annuaires) qui peuvent également être élevés.
+**Frais juridiques**
+
+: L'assistance d'avocats spécialisés est souvent nécessaire pour préparer et déposer un brevet, ce qui peut coûter plusieurs milliers d'euros supplémentaires.
+
+**Frais de maintenance**
+
+: Une fois accordé, le brevet doit être maintenu en vigueur, ce qui implique des frais périodiques (annuaires) qui peuvent également être élevés.
 
 En raison de ces coûts, le dépôt de brevets logiciels est souvent hors de portée des petites entreprises et des développeurs individuels. Même pour les grandes entreprises, le coût et la gestion des portefeuilles de brevets peuvent devenir un fardeau.
 

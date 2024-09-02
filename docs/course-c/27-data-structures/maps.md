@@ -219,7 +219,19 @@ $ md5sum chanson.txt
 699bfc5c3fd42a06e99797bfa635f410  chanson.txt
 ```
 
-Le *hash* de ce texte est exprimé en hexadécimal ( `0x699bfc5c3fd42a06e99797bfa635f410`). Converti en décimal `140378864046454182829995736237591622672` il peut être réduit en utilisant le modulo. Voici un exemple en C :
+Le *hash* de ce texte est exprimé en hexadécimal:
+
+```
+0x699bfc5c3fd42a06e99797bfa635f410
+```
+
+Converti en décimal il peut être réduit en utilisant le modulo.
+
+```
+140378864046454182829995736237591622672
+```
+
+Voici un exemple en C :
 
 ```c
 #include <stdlib.h>

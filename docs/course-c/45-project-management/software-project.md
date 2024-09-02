@@ -15,7 +15,7 @@ Tout commence avec un dossier racine. Ce dossier racine contient tous les fichie
 !!! note "Les Majuscules"
     Les noms de fichiers et de dossiers sont sensibles à la casse sur les systèmes POSIX mais pas sous Windows. Cela crée certains problèmes de compatibilité entre les systèmes d'exploitation.
 
-    D'autre part, l'usage des majuscules peut créer des ambiguïtés. Par exemple, `NomDuFichier` et `nomdufichier` sont deux noms différents. Comment allez-vous expliquer par téléphone à un collègue que le fichier s'écrit de cette manière ? L'ennui c'est les acronymes. Par exemple, `XMLParser`, `XmlParser` ou `XMLparser` ? Vous aurez tendance à choisir la troisième solution pour que `XML` ressort bien mais vous êtes incohérent puisque vous avez pas utilisé de majuscul pour `Parser`.
+    D'autre part, l'usage des majuscules peut créer des ambiguïtés. Par exemple, `NomDuFichier` et `nomdufichier` sont deux noms différents. Comment allez-vous expliquer par téléphone à un collègue que le fichier s'écrit de cette manière ? L'ennui c'est les acronymes. Par exemple, XMLParser, XmlParser ou XMLparser ? Vous aurez tendance à choisir la troisième solution pour que `XML` ressort bien mais vous êtes incohérent puisque vous avez pas utilisé de majuscul pour `Parser`.
 
     Le problème est bien résolu avec l'utilisation d'underscores ou de tirets (notation kekbab-case ou snake_case). Par exemple, `xml_parser` est plus lisible et plus facile à expliquer.
 

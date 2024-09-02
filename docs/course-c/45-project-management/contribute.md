@@ -1,4 +1,4 @@
-# Prendre en main un projet open-source
+# Projet open-source
 
 Le langage C est encore beaucoup utilisé dans de gros projets qui demande une grande performance. On peut notament citer les projets suivants :
 

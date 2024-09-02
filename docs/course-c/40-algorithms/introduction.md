@@ -341,8 +341,6 @@ Le problème millénaire P = NP, formulé par Stephen Cook en 1971, est l'une de
 
 Si P = NP, cela signifierait qu'il existe un algorithme rapide pour résoudre chaque problème dont la solution peut être rapidement vérifiée. Cela bouleverserait notre compréhension de la complexité computationnelle et aurait des implications énormes dans de nombreux domaines, de la cryptographie à la logistique. À ce jour, personne n'a réussi à prouver ou à réfuter cette conjecture, et elle reste l'un des grands mystères non résolus de la science.
 
-### Pourquoi les Problèmes NP-Complet sont-ils Importants ?
-
 Les problèmes NP-complet sont essentiels car ils nous montrent les limites de ce que nous pouvons résoudre efficacement avec des ordinateurs. Ils nous forcent à accepter qu'il existe des problèmes pour lesquels, en l'état actuel de nos connaissances, il n'existe pas de solution rapide, ce qui a des conséquences pratiques. Par exemple, en cryptographie, la sécurité des systèmes repose souvent sur l'hypothèse que certains problèmes sont difficiles à résoudre, ce qui les rend résistants aux attaques.
 
 En outre, comprendre ces problèmes nous pousse à développer de nouvelles techniques pour les résoudre ou les contourner. Parfois, cela signifie trouver des algorithmes approximatifs, qui fournissent des solutions proches de l'optimum en un temps raisonnable. D'autres fois, cela peut conduire à l'innovation en matière de matériel informatique, comme l'exploration des ordinateurs quantiques, qui pourraient potentiellement résoudre certains de ces problèmes beaucoup plus rapidement que les ordinateurs classiques.
