@@ -33,6 +33,14 @@ Cet ouvrage a pour objectif de rapprocher ces deux cultures en fournissant aux �
 
 /// html | div[class="latex-ignore"]
 
+### Recherche
+
+Pour faciliter la recherche d'informations, vous pouvez utiliser la barre de recherche en haut à droite de la page. Vous pouvez également utiliser les raccourcis clavier pour naviguer plus rapidement (voir ci-dessous). Notez que recherche est instantanée et vous permet de trouver des informations dans le texte, les titres et les liens.
+
+### Theme
+
+Selon votre préférence, vous pouvez choisir entre deux thèmes pour la lecture de ce livre (clair :material-lightbulb-outline: ou sombre :material-lightbulb:). Pour changer de thème, cliquez sur l'icône à gauche de la barre de recherche.
+
 ### Raccourcis clavier
 
 Pour améliorer votre navigation sur ce site, voici quelques raccourcis clavier que vous pouvez utiliser:
@@ -60,6 +68,12 @@ Pour améliorer votre navigation sur ce site, voici quelques raccourcis clavier 
 ++h++
 
 : Afficher/cacher la table des matières
+
+### Cookies
+
+Ce site utilise des cookies pour sauvegarder vos préférences de thème ainsi que votre progression dans les exericices.
+
+Des information d'analyse de fréquentation sont également collectées pour améliorer le contenu de ce livre.
 
 ///
 

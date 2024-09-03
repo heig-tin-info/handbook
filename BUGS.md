@@ -18,6 +18,15 @@
 - [ ] remove preambule… text introductif dans introductions ?
 - [ ] Table un peu plus petite par défaut
 - [ ] Mal géré en LaTeX enumate followed by itemize
+- [x] Permanent link not translated : add config/markdown_extension/toc/permalink_title to translate
+- [x] Remove feedback title : feedback_title: "" as the field is required
+- [ ] Size caption of tables and figures is different
+
+## Fix in mkdocs-material
+
+- [ ] Allow for optional feedback title
+- [ ] Translation for permalink title
+- [ ] Tags spacing in theme (search) (.md-tag margin-right: 0.5em;)
 
 ## Missing features
 

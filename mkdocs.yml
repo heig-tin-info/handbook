@@ -135,6 +135,7 @@ markdown_extensions:
   - toc:
       toc_depth: 3
       permalink: "¤"
+      permalink_title: Lien permanent
   - pymdownx.betterem:
       smart_enable: all
   - tables
@@ -230,7 +231,7 @@ extra:
     provider: google
     property: G-FVF0WYPMYM
     feedback:
-      title: Avez-vous trouvé ce que vous cherchiez ?
+      title: ""
       ratings:
         - icon: material/emoticon-happy-outline
           name: Cette page m'a été utile
