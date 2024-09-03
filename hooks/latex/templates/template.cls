@@ -44,6 +44,10 @@
 \makeindex
 \dominitoc
 
+% Prevent too many overful \hbox (with some fonts)
+\tolerance=2000
+\emergencystretch=10pt
+
 % Give more spaces on Table of content (between numbers and text)
 \setlength{\cftsecnumwidth}{3em}
 \setlength{\cftsubsecnumwidth}{3.5em}
@@ -69,13 +73,21 @@
     }
   )}
 
-\setmainfont{Noto Serif}[
+\setmainfont{Latin Modern Roman}[
   RawFeature={fallback=fontfallback}
 ]
 
-\setsansfont{Noto Sans}[
+\setsansfont{Latin Modern Sans}[
   RawFeature={fallback=fontfallback}
 ]
+
+% \setmainfont{Noto Serif}[
+%   RawFeature={fallback=fontfallback}
+% ]
+
+% \setsansfont{Noto Sans}[
+%   RawFeature={fallback=fontfallback}
+% ]
 
 \setmonofont{Noto Sans Mono}[
   Scale=0.9,
@@ -490,7 +502,7 @@
 \newcommand\choice{$\bigcirc$}
 
 \def\title{\VAR{title}}
-\def\subtitle{Programmation en C}
+\def\subtitle{\VAR{subtitle}}
 
 \definecolor{indigo(dye)}{rgb}{0.0, 0.25, 0.42}
 
@@ -570,10 +582,10 @@
   \vspace{6cm}
   \vfil
   \begin{center}
-    {\huge\bfseries Le C pour l'ingénieur\\}
+    {\huge\bfseries \VAR{title}\\}
     \vspace{1.5cm}
-    {\Large\bfseries Prof. Yves Chevallier}\\[5pt]
-    yves.chevallier@heig-vd.ch\\[14pt]
+    {\Large\bfseries \VAR{author}}\\[5pt]
+    \VAR{email}\\[14pt]
     \vspace{2cm}
     {Cours d'informatique pour} \\[5pt]
     \emph{{La Haute École d'Ingénieurie et de Gestion du canton de Vaud}}\\[2cm]
@@ -634,6 +646,9 @@ Imprimé en Suisse
 \end{center}
 \vfil
 \endgroup
+
+% Avoid discusting pages
+\raggedbottom
 
 \frontmatter
 

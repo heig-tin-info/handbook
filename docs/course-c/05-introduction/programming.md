@@ -30,7 +30,7 @@ Ainsi, l'algorithmique n'est rien de moins que l'essence même de la pensée org
 
 Dans le cadre mathématique et scientifique qui nous occupe, l'[algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide), datant probablement de 300 av. J.-C., constitue un exemple emblématique. Cet algorithme, d'une élégance intemporelle, permet de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD) de deux nombres. Sa logique, simple, mais puissante, se prête parfaitement à une représentation sous forme de diagramme de flux.
 
-![Algorithme de calcul du PGCD d'Euclide.](/assets/images/pgcd.drawio)
+![Algorithme de calcul du PGCD d'Euclide](/assets/images/pgcd.drawio)
 
 Les informaticiens et ingénieurs apprécient particulièrement l'usage des diagrammes pour synthétiser et clarifier leurs idées complexes. Le diagramme de flux, en tant qu'outil de communication visuelle, permet de représenter un **processus** de manière structurée et accessible. Dans ce type de diagramme, les formes géométriques symbolisent des étapes du processus, tandis que les flèches en indiquent le déroulement. Par convention, les formes ovales marquent le début et la fin du processus, les rectangles désignent les opérations de traitement, et les losanges représentent les décisions à prendre. Une forme de décision pose une question et offre deux chemins possibles, chacun correspondant à une réponse spécifique. Comme nous le verrons plus tard, tout processus de traitement d'information comporte nécessairement une entrée et une sortie, illustrant ainsi la dynamique intrinsèque de l'algorithme.
 

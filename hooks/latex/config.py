@@ -21,6 +21,9 @@ class BookConfig(CommonConfig):
     root: Optional[str] = None  # Section title used as root
     title: str = None  # Book title
     subtitle: Optional[str] = None
+    author: Optional[str] = None
+    year: Optional[int] = None
+    email: Optional[str] = None
     folder: Optional[Path] = None
     frontmatter: Optional[List[str]] = []
     backmatter: Optional[List[str]] = []

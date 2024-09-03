@@ -13,6 +13,7 @@
 - [ ] Tentez de récupérer vous même le poème l'[Albatros](/assets/src/albatros.txt) ref null -> use web page from site, add link
 - [ ] Weird position of ^ : | `^=`                 | Affectation par XOR             | `x ^= y`                 | `x = x ^ y`                 |
 
+- [x] Author not in title page
 - [ ] array.drawio p 252
 - [ ] remove preambule… text introductif dans introductions ?
 - [ ] Table un peu plus petite par défaut

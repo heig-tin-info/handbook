@@ -1,7 +1,10 @@
 import shutil
+from datetime import datetime
 from pathlib import Path, PosixPath
+from typing import List
 
 import yaml
+from IPython import embed
 from latex.config import BookConfig, LaTeXConfig
 from latex.renderer import LaTeXRenderer
 from mkdocs.structure import StructureItem
@@ -71,11 +74,23 @@ def on_nav(nav, config, files):
         current_config.books = [
             BookConfig(
                 root=nav.pages[0].title,
-                title=current_config.site_name,
-                author=current_config.site_author,
+                title=config.site_name,
+                author=config.site_author,
+                year=config.site_date.year,
+                email=config.site_email,
+                subtitle=config.site_description,
             )
         ]
 
+    for book in current_config.books:
+        if book.title is None:
+            book.title = config.site_name
+        if book.author is None:
+            book.author = config.site_author
+        if book.year is None:
+            book.year = datetime.now().year
+        if book.subtitle is None:
+            book.subtitle = config.site_description
     if is_serve:
         current_config.enabled = False
         return
@@ -125,7 +140,7 @@ class Book:
             if self.config.index_is_foreword and item.file.name == "index":
                 if self.config.drop_title_index:
                     item.drop_title = True
-                    level -= 1
+                    #level -= 1
                 item.numbered = False
 
         for child in item.children or []:
@@ -141,14 +156,14 @@ class Book:
         for section in item.children or []:
             self._sort_by_part(section)
 
-    def _get_latex(self, elements: [StructureItem], renderer: LaTeXRenderer):
+    def _get_latex(self, elements: List[StructureItem], renderer: LaTeXRenderer):
         latex = []
         for element in elements:
             if element.is_page:
                 latex.append(
                     renderer.formatter.include(element.tex_path, title=element.title)
                 )
-            elif element.level > self.config.base_level and not element.drop_title:
+            elif element.level > self.config.base_level:
                 latex.append(
                     renderer.formatter.heading(
                         element.title, level=element.level, numbered=True
@@ -177,8 +192,9 @@ class Book:
                 html,
                 build_dir,
                 Path(file.abs_src_path),
-                file.page.level,
-                file.page.numbered,
+                base_level=file.page.level,
+                numbered=file.page.numbered,
+                drop_title=file.page.drop_title,
             )
 
             path.write_text(latex)
@@ -200,6 +216,9 @@ class Book:
         index = renderer.formatter.template(
             title=self.config.title,
             author=self.config.author,
+            subtitle=self.config.subtitle,
+            email=self.config.email,
+            year=self.config.year,
             frontmatter=self._get_latex(self.frontmatter, renderer),
             mainmatter=self._get_latex(self.mainmatter, renderer),
         )

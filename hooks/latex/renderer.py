@@ -474,6 +474,10 @@ class LaTeXRenderer:
             title = self.get_safe_text(el)
             level = int(el.name[1:]) + base_level - 1
             ref = el.get("id", None)
+            if kwargs.get("drop_title", False):
+                kwargs['drop_title'] = False
+                self.apply(el, "pagestyle", "plain")
+                continue
             self.apply(
                 el,
                 "heading",
@@ -1165,7 +1169,7 @@ class LaTeXRenderer:
             render(soup, **kwargs)
         return soup
 
-    def render(self, html, output_path, file_path, base_level=0, numbered=True):
+    def render(self, html, output_path, file_path, base_level=0, numbered=True, drop_title=False):
         soup = BeautifulSoup(html, "html.parser")
 
         kwargs = {
@@ -1173,6 +1177,7 @@ class LaTeXRenderer:
             "output_path": output_path,
             "base_level": base_level,
             "numbered": numbered,
+            "drop_title": drop_title,
         }
 
         self.render_elements(soup, **kwargs)
