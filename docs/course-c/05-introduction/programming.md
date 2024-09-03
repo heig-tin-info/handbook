@@ -28,7 +28,7 @@ Ainsi, l'algorithmique n'est rien de moins que l'essence même de la pensée org
 
 ### Algorithme d'Euclide
 
-Dans le cadre mathématique et scientifique qui nous occupe, l'[algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide), datant probablement de 300 av. J.-C., constitue un exemple emblématique. Cet algorithme, d'une élégance intemporelle, permet de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD) de deux nombres. Sa logique, simple, mais puissante, se prête parfaitement à une représentation sous forme de diagramme de flux.
+Dans le cadre mathématique et scientifique qui nous occupe, l'[algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide), datant probablement de 300 av. J.-C., constitue un exemple emblématique. Cet algorithme, d'une élégance intemporelle, permet de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD) de deux nombres. Sa logique, simple, mais puissante, se prête parfaitement à une représentation sous forme de diagramme de flux comme représenté sur cette figure:
 
 ![Algorithme de calcul du PGCD d'Euclide](/assets/images/pgcd.drawio)
 
@@ -36,7 +36,7 @@ Les informaticiens et ingénieurs apprécient particulièrement l'usage des diag
 
 Ainsi, l'algorithme d'Euclide, par sa simplicité de conception et sa pertinence universelle, demeure un exemple parfait de la manière dont les idées abstraites peuvent être traduites en instructions claires, tant pour l'esprit que pour la machine.
 
-Si l'on désire déterminer le plus grand commun diviseur de 42 et 30, il suffit de suivre pas à pas l'algorithme d'Euclide, depuis le *début* jusqu'à la *conclusion* :
+Si l'on désire déterminer le plus grand commun diviseur de 42 et 30, il suffit de suivre pas à pas l'algorithme d'Euclide, depuis le *début* jusqu'à la *conclusion* comme le montre le tableau ci-dessous :
 
 Table: Exemple de calcul du PGCD entre 42 et 30
 
@@ -76,11 +76,11 @@ Voici un diagramme de flux représentant l'algorithme du tri à bulles :
 
 ![Algorithme de tri à bulles.](/assets/images/bubblesort.drawio)
 
-Soit un tableau de $N = 5$ valeurs à trier :
+Soit un tableau de $N = 5$ valeurs à trier donné ci-dessous, le cycle se répète jusqu'à ce que le tableau soit complètement trié. Si $s$ est égal à 0, il n'y a pas eu d'échange lors du parcours du tableau et le tableau est donc trié.
 
 $$T = {5, 3, 8, 4, 2}$$
 
-Le cycle se répète jusqu'à ce que le tableau soit trié. Si $s$ est égal à 0, il n'y a pas eu d'échange lors du parcours du tableau et le tableau est donc trié.
+Les différentes étapes du tri à bulles sont illustrées ci-dessous :
 
 ![Étape par étape du tri à bulles.](/assets/images/bubblesort-steps.drawio)
 
