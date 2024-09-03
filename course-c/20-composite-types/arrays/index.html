@@ -4820,7 +4820,7 @@ les outils associés.
   
 
 
-<h1 id="tableaux">Tableaux<a class="headerlink" href="#tableaux" title="Permanent link">¤</a></h1>
+<h1 id="tableaux">Tableaux<a class="headerlink" href="#tableaux" title="Lien permanent">¤</a></h1>
 <p>Les <a href="https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)">tableaux</a> (<em>arrays</em>) représentent une séquence finie d'éléments d'un type donné que l'on peut accéder par leur position (indice) dans la séquence. Un tableau est par conséquent une liste indexée de variables du même type.</p>
 <p>L'opérateur crochet <code>[]</code> est utilisé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau :</p>
 <p>La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon suivante :</p>
@@ -4896,7 +4896,7 @@ les outils associés.
 </span><span id="__span-10-6"><a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="p">}</span>
 </span></code></pre></div>
 </div>
-<h2 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">¤</a></h2>
+<h2 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Lien permanent">¤</a></h2>
 <p>Lors de la déclaration d'un tableau, le compilateur réserve un espace mémoire de la taille suffisante pour contenir tous les éléments du tableau. La déclaration suivante réserve un espace pour 6 entiers, chacun d'une taille de 32-bits (4 bytes). L'espace mémoire réservé est donc de 24 bytes.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">even</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
 </span></code></pre></div>
@@ -4961,7 +4961,7 @@ les outils associés.
 </span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span>
 </span></code></pre></div>
 </div>
-<h2 id="initialisation-a-zero">Initialisation à zéro<a class="headerlink" href="#initialisation-a-zero" title="Permanent link">¤</a></h2>
+<h2 id="initialisation-a-zero">Initialisation à zéro<a class="headerlink" href="#initialisation-a-zero" title="Lien permanent">¤</a></h2>
 <p>Pour initialiser un tableau à zéro, on devrait être autorisé à écrire le code suivant puisque tous les éléments non explicitement initialisés sont initialisés à zéro :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
 </span></code></pre></div>
@@ -4975,7 +4975,7 @@ les outils associés.
 </span></code></pre></div>
 <p>Seul le premier élément est initialisé à 42, les autres éléments sont initialisés à zéro.</p>
 </div>
-<h2 id="initialisation-a-une-valeur-particuliere">Initialisation à une valeur particulière<a class="headerlink" href="#initialisation-a-une-valeur-particuliere" title="Permanent link">¤</a></h2>
+<h2 id="initialisation-a-une-valeur-particuliere">Initialisation à une valeur particulière<a class="headerlink" href="#initialisation-a-une-valeur-particuliere" title="Lien permanent">¤</a></h2>
 <p>Cette écriture n'est pas normalisée <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, mais est généralement compatible avec la majorité des compilateurs.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="mi">1023</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="p">};</span>
 </span></code></pre></div>
@@ -4983,7 +4983,7 @@ les outils associés.
 <div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
 </span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="w">    </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="tableaux-non-modifiables">Tableaux non modifiables<a class="headerlink" href="#tableaux-non-modifiables" title="Permanent link">¤</a></h2>
+<h2 id="tableaux-non-modifiables">Tableaux non modifiables<a class="headerlink" href="#tableaux-non-modifiables" title="Lien permanent">¤</a></h2>
 <p>Maintenant que nous savons initialiser un tableau, il peut être utile de définir un tableau avec un contenu qui n'est pas modifiable. Le mot clé <code>const</code> est utilisé à cette fin.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">};</span>
 </span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="n">sequence</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span><span class="w"> </span><span class="c1">// Interdit !</span>
@@ -4999,7 +4999,7 @@ les outils associés.
 <div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a>warning: initialization discards ‘const’ qualifier from pointer
 </span><span id="__span-28-2"><a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a>target type [-Wdiscarded-qualifiers]
 </span></code></pre></div>
-<h2 id="tableaux-multidimensionnels">Tableaux multidimensionnels<a class="headerlink" href="#tableaux-multidimensionnels" title="Permanent link">¤</a></h2>
+<h2 id="tableaux-multidimensionnels">Tableaux multidimensionnels<a class="headerlink" href="#tableaux-multidimensionnels" title="Lien permanent">¤</a></h2>
 <p>Il est possible de déclarer un tableau à plusieurs dimensions. Si par exemple on souhaite définir une grille de jeu du <em>tic-tac-toe</em> ou morpion, il faudra une grille de 3x3.</p>
 <p>Pour ce faire, il est possible de définir un tableau de 6 éléments comme vu auparavant, et utiliser un artifice pour adresser les lignes et les colonnes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">game</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
@@ -5054,7 +5054,7 @@ les outils associés.
 </span><span id="__span-38-6"><a href="#__codelineno-38-6" id="__codelineno-38-6" name="__codelineno-38-6"></a><span class="p">};</span>
 </span></code></pre></div>
 <p>Pour cette raison, il est plus courant d'inverser les dimensions pour les tableaux multidimensionnels. Un tableau x-y à deux dimensions est souvent déclaré <code>array[y][x]</code> pour faciliter l'initialisation.</p>
-<h2 id="tableaux-et-fonctions">Tableaux et fonctions<a class="headerlink" href="#tableaux-et-fonctions" title="Permanent link">¤</a></h2>
+<h2 id="tableaux-et-fonctions">Tableaux et fonctions<a class="headerlink" href="#tableaux-et-fonctions" title="Lien permanent">¤</a></h2>
 <p>Le passage d'un tableau à une fonction est un peu particulier. En effet, comme nous l'avons évoqué, un tableau est en réalité un pointeur, c'est-à-dire l'adresse mémoire du premier élément du tableau.</p>
 <p>Pour le cas le plus simple, lorsqu'une fonction reçoit un tableau, il est utile de passer la taille du tableau en paramètre, ceci permet de ne pas déborder du tableau. La fonction suivante reçoit un tableau de 5 entiers, passé par référence :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-39-1"><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">5</span><span class="p">]);</span>
@@ -5068,7 +5068,7 @@ les outils associés.
 </span><span id="__span-41-3"><a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a><span class="w">     </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">80</span><span class="p">)</span><span class="w">              </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w">           </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Le seul élément qui n'est pas nécessaire c'est la première dimension.</p>
-<h2 id="allocation-memoire">Allocation mémoire<a class="headerlink" href="#allocation-memoire" title="Permanent link">¤</a></h2>
+<h2 id="allocation-memoire">Allocation mémoire<a class="headerlink" href="#allocation-memoire" title="Lien permanent">¤</a></h2>
 <p>Jusqu'ici lorsque l'on déclarait un tableau, au sein d'une fonction, il est déclaré sur la pile. Cette dernière est limitée en taille et il est possible de déborder et d'obtenir l'erreur tant redoutée <code>stack smashing detected</code> aussi appelée <code>stack overflow</code>.</p>
 <p>En pratique lorsque l'on a besoin de grands espaces mémoire, il est préférable de déclarer le tableau sur le tas (allocation dynamique) ou en variable globale.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-42-1"><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w">           </span><span class="c1">// Déclaration globale dans le segment de données</span>
@@ -5095,7 +5095,7 @@ les outils associés.
 </dd>
 </dl>
 <p><a href="" id="vla"></a></p>
-<h2 id="tableau-de-longueur-variable-vla">Tableau de longueur variable (VLA)<a class="headerlink" href="#tableau-de-longueur-variable-vla" title="Permanent link">¤</a></h2>
+<h2 id="tableau-de-longueur-variable-vla">Tableau de longueur variable (VLA)<a class="headerlink" href="#tableau-de-longueur-variable-vla" title="Lien permanent">¤</a></h2>
 <p>Un <a href="https://en.wikipedia.org/wiki/Variable-length_array">VLA</a> (<em>Variable Length Array</em>) est un tableau dont la taille est déterminée à l'exécution du programme. Cette fonctionnalité est disponible depuis le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-43-2"><a href="#__codelineno-43-2" id="__codelineno-43-2" name="__codelineno-43-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
@@ -5132,7 +5132,7 @@ les outils associés.
 <p>Cette fois, l'utilisateur peut choisir la taille du tableau alloué sur la pile. Vous voyez le problème ?</p>
 </div>
 <p>Pour les raisons évoquées, les VLA sont très controversés et il est recommandé de ne pas les utiliser. Il est préférable d'utiliser l'allocation dynamique de mémoire pour allouer des tableaux de taille variable. Du reste, avec C11, le support des VLA sont devenus optionnels, c'est à dire qu'un compilateur peut être compatible C11 sans supporter les VLA.</p>
-<h2 id="copie-dun-tableau">Copie d'un tableau<a class="headerlink" href="#copie-dun-tableau" title="Permanent link">¤</a></h2>
+<h2 id="copie-dun-tableau">Copie d'un tableau<a class="headerlink" href="#copie-dun-tableau" title="Lien permanent">¤</a></h2>
 <p>Imagions le code suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-46-1"><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
 </span><span id="__span-46-2"><a href="#__codelineno-46-2" id="__codelineno-46-2" name="__codelineno-46-2"></a><span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
@@ -5151,7 +5151,7 @@ les outils associés.
 </span><span id="__span-49-2"><a href="#__codelineno-49-2" id="__codelineno-49-2" name="__codelineno-49-2"></a>
 </span><span id="__span-49-3"><a href="#__codelineno-49-3" id="__codelineno-49-3" name="__codelineno-49-3"></a><span class="n">memcpy</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
 </span></code></pre></div>
-<h2 id="exercices">Exercices<a class="headerlink" href="#exercices" title="Permanent link">¤</a></h2>
+<h2 id="exercices">Exercices<a class="headerlink" href="#exercices" title="Lien permanent">¤</a></h2>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Assignation<span class="exercise-title"></span></p>
 <p>Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.</p>
@@ -5527,7 +5527,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

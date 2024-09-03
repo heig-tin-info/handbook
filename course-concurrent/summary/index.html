@@ -4804,10 +4804,10 @@ les outils associés.
   
 
 
-<h1 id="resume">Résumé<a class="headerlink" href="#resume" title="Permanent link">¤</a></h1>
+<h1 id="resume">Résumé<a class="headerlink" href="#resume" title="Lien permanent">¤</a></h1>
 <p><abbr title="Portable Operating System Interface">POSIX</abbr> (Portable Operating System Interface) est une norme qui définit une interface système standard pour les systèmes d'exploitation de type <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>. Cette norme a été définie par l'IEEE (Institute of Electrical and Electronics Engineers) et l'ISO (International Organization for Standardization). Elle a été inventée en 1988 pour permettre la portabilité des applications entre les systèmes <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>.</p>
-<h2 id="os">OS<a class="headerlink" href="#os" title="Permanent link">¤</a></h2>
-<h3 id="appels-systemes">Appels Systèmes<a class="headerlink" href="#appels-systemes" title="Permanent link">¤</a></h3>
+<h2 id="os">OS<a class="headerlink" href="#os" title="Lien permanent">¤</a></h2>
+<h3 id="appels-systemes">Appels Systèmes<a class="headerlink" href="#appels-systemes" title="Lien permanent">¤</a></h3>
 <ul>
 <li><code>fork</code> : Crée un nouveau processus en copiant le processus appelant.</li>
 <li><code>clone</code> : Crée un nouveau processus léger en copiant le processus appelant.</li>
@@ -4821,12 +4821,12 @@ les outils associés.
 <li><code>mmap</code> : Mappe un fichier en mémoire (new, malloc).</li>
 <li>...</li>
 </ul>
-<h3 id="processus">Processus<a class="headerlink" href="#processus" title="Permanent link">¤</a></h3>
+<h3 id="processus">Processus<a class="headerlink" href="#processus" title="Lien permanent">¤</a></h3>
 <p>Un processus c'est un programme en cours d'exécution. Il possède un espace d'adressage, un identifiant unique (PID), un état (running, waiting, sleeping, zombie), un parent (PPID), des ressources (fichiers ouverts, mémoire allouée, ...).</p>
 <p>Pour créer un processus on a vu que l'appel système <code>fork</code> permet de dupliquer le processus appelant. Le processus fils hérite de l'espace d'adressage du processus parent. A ce moment là la mémoire est copiée en mode « copy-on-write ». Cela signifie que la mémoire n'est pas copiée immédiatement mais seulement lorsqu'elle est modifiée. Et les deux processus sont indépendants. Donc c'est lourd en mémoire.</p>
-<h3 id="processus-legers-ou-threads">Processus légers ou threads<a class="headerlink" href="#processus-legers-ou-threads" title="Permanent link">¤</a></h3>
+<h3 id="processus-legers-ou-threads">Processus légers ou threads<a class="headerlink" href="#processus-legers-ou-threads" title="Lien permanent">¤</a></h3>
 <p>Un processus léger se crée avec l'appel système <code>clone</code>. Il est plus léger qu'un processus car il partage le même espace d'adressage que le processus parent. Cela signifie que les threads partagent les mêmes variables globales, les mêmes fichiers ouverts, les mêmes signaux, ... Mais cela peut poser des problèmes de synchronisation : des accès concurrents à des ressources partagées.</p>
-<h3 id="mecanismes-de-synchronisation">Mécanismes de synchronisation<a class="headerlink" href="#mecanismes-de-synchronisation" title="Permanent link">¤</a></h3>
+<h3 id="mecanismes-de-synchronisation">Mécanismes de synchronisation<a class="headerlink" href="#mecanismes-de-synchronisation" title="Lien permanent">¤</a></h3>
 <p>Pour synchroniser les threads on utilise des primitives de synchronisation. Les plus courantes sont les mutex, les sémaphores et les moniteurs.</p>
 <p>La notion de concurrence a été imaginée par Edsger Dijkstra en 1965 pour résoudre les problèmes de synchronisation dans les systèmes d'exploitation. Il était d'origine néerlandaise et a travaillé pour la compagnie Philips.</p>
 <p>Il a inventé le concept de sémaphore. Un sémaphore est un objet de synchronisation qui possède un compteur. Il possède deux opérations atomiques : <code>wait</code> et <code>post</code>. <code>wait</code> décrémente le compteur et bloque si le compteur est négatif. <code>post</code> incrémente le compteur et réveille un thread en attente si le compteur est négatif.
@@ -4834,7 +4834,7 @@ Historiquement les noms donnés par Dijkstra étaient <code>P</code> et <code>V<
 <p>Le sémaphore compte des ressources disponibles. Si le sémaphore est à zéro, il n'y a plus de ressources disponibles. Si le sémaphore est à un, il y a une ressource disponible. Si le sémaphore est à deux...</p>
 <p>Plus tard sont venu des opérations atomiques dans les processeurs comme le <code>test-and-set</code> ou le <code>compare-and-swap</code>. Ces opérations permettent de réaliser des primitives de synchronisation plus complexes comme les mutex. Le gros avantage c'est l'absence d'attente active. L'attente active c'est une boucle qui teste une condition en permanence. C'est très gourmand en CPU.</p>
 <p>Une opération atomique dans le cadre de l'informatique c'est une opération qui s'exécute en une seule instruction machine. Cela signifie que l'opération est indivisible. C'est soit tout ou rien. C'est soit l'opération s'exécute complètement, soit elle ne s'exécute pas du tout.</p>
-<h4 id="mutex">Mutex<a class="headerlink" href="#mutex" title="Permanent link">¤</a></h4>
+<h4 id="mutex">Mutex<a class="headerlink" href="#mutex" title="Lien permanent">¤</a></h4>
 <p>En C++ le mutex est une classe qui permet de protéger des ressources partagées entre plusieurs threads. Il possède deux méthodes : <code>lock</code> et <code>unlock</code>. <code>lock</code> bloque le mutex si il est déjà verrouillé. <code>unlock</code> déverrouille le mutex.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span>
@@ -4880,7 +4880,7 @@ Historiquement les noms donnés par Dijkstra étaient <code>P</code> et <code>V<
 </span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Le unique_lock sera utilisé par exemple dans les variables conditions.</p>
-<h4 id="variable-condition">Variable condition<a class="headerlink" href="#variable-condition" title="Permanent link">¤</a></h4>
+<h4 id="variable-condition">Variable condition<a class="headerlink" href="#variable-condition" title="Lien permanent">¤</a></h4>
 <p>Une variable condition est un objet de synchronisation qui permet de mettre un thread en attente tant qu'une condition n'est pas remplie. Elle utilise un mutex pour protéger la condition et permet de notifier des threads.</p>
 <p>Les méthodes les plus courantes sont <code>wait</code>, <code>wait_for</code>, <code>wait_until</code>, <code>notify_one</code> et <code>notify_all</code>.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">beers_in_fridge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -4912,14 +4912,14 @@ Historiquement les noms donnés par Dijkstra étaient <code>P</code> et <code>V<
 </span></code></pre></div>
 <p>Dans cet exemple, il y a un problème c'est que la copine (gf) peut mettre une bière dans le frigo alors qu'il est déjà plein. Il faudrait ajouter un sémaphore pour gérer le nombre de bières dans le frigo. Puisqu'un sémaphore est un compteur de ressources.</p>
 <p>Mais ici, on est dans un cas de producteur-consommateur. Un producteur met des bières dans le frigo et un consommateur les boit.</p>
-<h4 id="producteur-consommateur">Producteur-Consommateur<a class="headerlink" href="#producteur-consommateur" title="Permanent link">¤</a></h4>
+<h4 id="producteur-consommateur">Producteur-Consommateur<a class="headerlink" href="#producteur-consommateur" title="Lien permanent">¤</a></h4>
 <p>Le problème du producteur-consommateur est un problème classique de synchronisation.</p>
 <p>On peut le résoudre de deux manières :</p>
 <ol>
 <li>Avec deux sémaphores : un pour le producteur et un pour le consommateur.</li>
 <li>Avec une variable condition.</li>
 </ol>
-<h4 id="moniteur">Moniteur<a class="headerlink" href="#moniteur" title="Permanent link">¤</a></h4>
+<h4 id="moniteur">Moniteur<a class="headerlink" href="#moniteur" title="Lien permanent">¤</a></h4>
 <p>Un moniteur est un objet de synchronisation qui encapsule des données et des opérations sur ces données. Il permet de protéger les données et de synchroniser les threads qui accèdent à ces données.</p>
 <p>Concrètement c'est un classe qui contient des données et des méthodes pour accéder à ces données. Les méthodes sont protégées par un mutex pour éviter les accès concurrents.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Fridge</span><span class="w"> </span><span class="p">{</span>
@@ -4962,21 +4962,21 @@ Historiquement les noms donnés par Dijkstra étaient <code>P</code> et <code>V<
 </span><span id="__span-6-14"><a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">    </span><span class="n">t2</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
 </span><span id="__span-6-15"><a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="deadlock-et-starvation">Deadlock et starvation<a class="headerlink" href="#deadlock-et-starvation" title="Permanent link">¤</a></h3>
+<h3 id="deadlock-et-starvation">Deadlock et starvation<a class="headerlink" href="#deadlock-et-starvation" title="Lien permanent">¤</a></h3>
 <p>Le deadlock est une situation où deux threads se bloquent mutuellement en attendant une ressource que l'autre thread possède. C'est un problème classique de synchronisation.</p>
 <p>Typiquement si la copine (gf) attend que le frigo soit vide pour mettre une bière et que le buveur (drinker) attend que le frigo soit plein pour boire une bière. C'est un deadlock.</p>
 <p>C'est aussi le cas dans le dilemme des philosophes. Chaque philosophe a besoin de deux fourchettes pour manger. Si chaque philosophe prend une fourchette et attend que l'autre fourchette soit libre, il y a un deadlock : y'a cinq philosophes, une fouchette à gauche et une fourchette à droite, la table est ronde. Donc on a 5 fourchettes et 5 philosophes ce qui ne permet pas que tout le monde mange en même temps.</p>
 <p>En théorie de programmation concurrente ce problème des philosphophe peut être décrit comme ayant un cycle dans le graphe des ressources. Chaque philosophe est un noeud et chaque fourchette est une arête. Si on a un cycle dans le graphe, il y a un deadlock.</p>
 <p>La starvation (famine) est une situation où un thread n'arrive pas à accéder à une ressource partagée à cause de l'ordonnancement du système. C'est un problème de synchronisation.</p>
 <p>Un exmple de famine serait si le buveur (drinker) boit toutes les bières et que la copine (gf) ne peut jamais mettre de bière dans le frigo. C'est une famine.</p>
-<h3 id="termes-de-programmation-concurrente">Termes de programmation concurrente<a class="headerlink" href="#termes-de-programmation-concurrente" title="Permanent link">¤</a></h3>
+<h3 id="termes-de-programmation-concurrente">Termes de programmation concurrente<a class="headerlink" href="#termes-de-programmation-concurrente" title="Lien permanent">¤</a></h3>
 <ul>
 <li><em>Section Critique</em>: Une portion de code qui accède à des ressources partagées, dans laquelle un seul thread doit s'exécuter à la fois sinon il y a risque de corruption des données.</li>
 <li><em>Deadlock</em>: Situation où deux threads se bloquent mutuellement en attendant une ressource que l'autre thread possède.</li>
 <li><em>Starvation</em>: Situation où un thread n'arrive pas à accéder à une ressource partagée à cause de l'ordonnancement du système</li>
 <li><em>Condition de course</em>: Situation où le résultat d'une opération dépend de l'ordre d'exécution des threads.</li>
 </ul>
-<h2 id="memoire-cache">Mémoire Cache<a class="headerlink" href="#memoire-cache" title="Permanent link">¤</a></h2>
+<h2 id="memoire-cache">Mémoire Cache<a class="headerlink" href="#memoire-cache" title="Lien permanent">¤</a></h2>
 <p>La mémoire cache est une mémoire rapide située entre le processeur et la mémoire principale. Elle permet d'accélérer l'accès aux données en stockant les données les plus fréquemment utilisées par le processeur.</p>
 <p>Les problèmes typiques que l'on rencontre en programmation concurrente sont :</p>
 <ul>
@@ -4985,7 +4985,7 @@ Historiquement les noms donnés par Dijkstra étaient <code>P</code> et <code>V<
 <li><em>True Sharing</em>: Situation où deux threads accèdent à des données qui sont stockées dans la même ligne de cache, mais où les données sont réellement partagées entre les threads.</li>
 </ul>
 <p>Pour résoudre ces problèmes on va s'assurer que l'alignement mémoire que l'on utilise dans nos thread ne crée pas de situation de false sharing. On peut aussi utiliser des attributs de compilation pour forcer l'alignement mémoire.</p>
-<h2 id="programmation-asynchrone">Programmation Asynchrone<a class="headerlink" href="#programmation-asynchrone" title="Permanent link">¤</a></h2>
+<h2 id="programmation-asynchrone">Programmation Asynchrone<a class="headerlink" href="#programmation-asynchrone" title="Lien permanent">¤</a></h2>
 <p>La programmation asynchrone est un style de programmation qui permet d'exécuter des tâches de manière concurrente sans bloquer le thread principal. Cela permet d'améliorer les performances en évitant les attentes inutiles.</p>
 <p>En C++ on peut utiliser les threads, les promesses et les tâches pour réaliser de la programmation asynchrone.</p>
 <ul>
@@ -4993,7 +4993,7 @@ Historiquement les noms donnés par Dijkstra étaient <code>P</code> et <code>V<
 <li><code>std::promise</code> : Permet de communiquer entre deux threads en envoyant une valeur d'un thread à un autre.</li>
 <li><code>std::future</code> : Permet de récupérer le résultat d'une fonction asynchrone.</li>
 </ul>
-<h2 id="programmation-parallele">Programmation Parallèle<a class="headerlink" href="#programmation-parallele" title="Permanent link">¤</a></h2>
+<h2 id="programmation-parallele">Programmation Parallèle<a class="headerlink" href="#programmation-parallele" title="Lien permanent">¤</a></h2>
 <p>La programmation parallèle est un style de programmation qui permet d'exécuter des tâches de manière concurrente sur plusieurs processeurs ou cœurs de processeur. Cela permet d'améliorer les performances en répartissant la charge de calcul sur plusieurs unités de calcul.</p>
 <p>En C++ on va souvent utiliser <code>std::hardware_concurrency</code> pour connaître le nombre de coeurs disponibles sur la machine. Pourquoi on va créer uniquement le nombre de thread qui correspond au nombre de coeurs ? Parce que si on crée plus de threads que de coeurs, on va créer des threads qui vont se partager le temps de calcul des coeurs. On va perdre beaucoup de temps dans les changements de contexte.</p>
 <p>En pratique il est rare d'utiliser directement les thread pour paralléliser des tâches. On va plutôt utiliser des librairies comme OpenMP ou des frameworks comme Qt.</p>
@@ -5072,7 +5072,7 @@ Historiquement les noms donnés par Dijkstra étaient <code>P</code> et <code>V<
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

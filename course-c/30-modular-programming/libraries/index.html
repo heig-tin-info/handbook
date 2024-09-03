@@ -4688,13 +4688,13 @@ les outils associés.
   
 
 
-<h1 id="bibliotheques">Bibliothèques<a class="headerlink" href="#bibliotheques" title="Permanent link">¤</a></h1>
+<h1 id="bibliotheques">Bibliothèques<a class="headerlink" href="#bibliotheques" title="Lien permanent">¤</a></h1>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/library.jpg"><img alt="Bibliothèque du Trinity College de Dublin" src="../../../assets/images/library.jpg"/></a><figcaption> Bibliothèque du Trinity College de Dublin</figcaption></figure></p>
 <p>Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La <code>printf</code> est une de ces fonctionnalités et offerte par le header <code>&lt;stdio.h&gt;</code> faisant partie de la bibliothèque <code>libc6</code>.</p>
 <p>L'anglicisme <em>library</em>, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme <code>&lt;stdlib.h&gt;</code> étant la concaténation de <em>standard library</em> par exemple. Notez que librairie n'est pas la traduction correcte de <em>library</em> qui est un <a href="https://fr.wikipedia.org/wiki/Faux-ami">faux ami</a>.</p>
 <p>Une <em>library</em>, à l'instar d'une bibliothèque, contient du contenu (livre écrit dans une langue donnée) et un index (registre). En informatique il s'agit d'un fichier binaire compilé pour une architecture donnée ainsi qu'un ou plusieurs fichiers d'en-tête (<em>header</em>) contenant les définitions de cette bibliothèque.</p>
 <p>Dans ce chapitre on donnera plusieurs exemples sur un environnement <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Windows, les procédures choses sont plus compliquées, mais les concepts restent les mêmes.</p>
-<h2 id="exemple-libgmp">Exemple : libgmp<a class="headerlink" href="#exemple-libgmp" title="Permanent link">¤</a></h2>
+<h2 id="exemple-libgmp">Exemple : libgmp<a class="headerlink" href="#exemple-libgmp" title="Lien permanent">¤</a></h2>
 <p>Voyons ensemble le cas de <a href="https://packages.ubuntu.com/jammy/libgmp-dev">libgmp</a>. Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que <code>libgmp</code> est disponible pour différentes architectures <code>amd64</code>, <code>arm64</code>, <code>s390x</code>, <code>i386</code>, ... Un développement sur un Raspberry-PI nécessitera <code>arm64</code> alors qu'un développement sur un PC utilisera <code>amd64</code>. En <a href="https://packages.ubuntu.com/jammy/amd64/libgmp-dev/filelist">cliquant</a> sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C):</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a># Fichier d'en-tête C
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>/usr/include/x86_64-linux-gnu/gmp.h
@@ -4816,7 +4816,7 @@ les outils associés.
 </span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="go">text    data     bss     dec     hex filename</span>
 </span><span id="__span-8-11"><a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="go">2752     680      16    3448     d78 ./a.out</span>
 </span></code></pre></div>
-<h2 id="exemple-ncurses">Exemple : ncurses<a class="headerlink" href="#exemple-ncurses" title="Permanent link">¤</a></h2>
+<h2 id="exemple-ncurses">Exemple : ncurses<a class="headerlink" href="#exemple-ncurses" title="Lien permanent">¤</a></h2>
 <p>La bibliothèque <a href="https://fr.wikipedia.org/wiki/Ncurses">ncurses</a> traduction de <em>nouvelles malédictions</em> est une évolution de <a href="https://fr.wikipedia.org/wiki/Curses">curses</a> développé originellement par <a href="https://en.wikipedia.org/wiki/Ken_Arnold">Ken Arnold</a> . Il s'agit d'une bibliothèque pour la création d'interfaces graphique en ligne de commande, toujours très utilisée.</p>
 <p>La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...</p>
 <p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/linux-menuconfig.png"><img alt="Exemple avec ncurses" src="../../../assets/images/linux-menuconfig.png"/></a><figcaption> Exemple d'interface graphique écrite avec <code>ncurses</code>. Ici la configuration du noyau Linux.</figcaption></figure></p>
@@ -4841,7 +4841,7 @@ les outils associés.
 </ol>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>ncurses-hello.c<span class="w"> </span>-ohello<span class="w"> </span>-lncurses
 </span></code></pre></div>
-<h2 id="bibliotheques-statiques">Bibliothèques statiques<a class="headerlink" href="#bibliotheques-statiques" title="Permanent link">¤</a></h2>
+<h2 id="bibliotheques-statiques">Bibliothèques statiques<a class="headerlink" href="#bibliotheques-statiques" title="Lien permanent">¤</a></h2>
 <p>Une <em>static library</em> est un fichier binaire compilé pour une architecture donnée et portant les extensions :</p>
 <ul>
 <li><code>.a</code> sur un système <abbr title="Portable Operating System Interface">POSIX</abbr> (Android, Mac OS, Linux, Unix)</li>
@@ -4899,7 +4899,7 @@ les outils associés.
 <div class="language-console highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>encrypt.c<span class="w"> </span>-I.<span class="w"> </span>-L.<span class="w"> </span>-l:caesar.a
 </span></code></pre></div>
 <p>La procédure sous Windows est plus compliquée et ne sera pas décrite ici.</p>
-<h2 id="bibliotheques-dynamiques">Bibliothèques dynamiques<a class="headerlink" href="#bibliotheques-dynamiques" title="Permanent link">¤</a></h2>
+<h2 id="bibliotheques-dynamiques">Bibliothèques dynamiques<a class="headerlink" href="#bibliotheques-dynamiques" title="Lien permanent">¤</a></h2>
 <p>Une <em>dynamic library</em> est un fichier binaire compilé pour une architecture donnée et portant les extensions :</p>
 <ul>
 <li><code>.so</code> sur un système <abbr title="Portable Operating System Interface">POSIX</abbr> (Android, Mac OS, Linux, Unix)</li>
@@ -5007,7 +5007,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

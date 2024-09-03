@@ -4792,8 +4792,8 @@ les outils associés.
   
 
 
-<h1 id="systeme-de-fichier">Système de fichier<a class="headerlink" href="#systeme-de-fichier" title="Permanent link">¤</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
+<h1 id="systeme-de-fichier">Système de fichier<a class="headerlink" href="#systeme-de-fichier" title="Lien permanent">¤</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Lien permanent">¤</a></h2>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/ant.png"><img alt="Fourmi portant des données" src="../../assets/images/ant.png"/></a><figcaption> Fourmi portant des données</figcaption></figure></p>
 <p>Un <em>système de fichier</em> est une structure de données qui permet de stocker des fichiers et des répertoires sur un support de stockage. Les systèmes de fichiers sont utilisés pour organiser les données sur les disques durs, les clés USB, les cartes mémoire, etc.</p>
 <p>Nous savons maintenant que les données informatiques sont stockées sous forme binaire. Sur une clé USB ou un disque dur, c'est pareil. On aura des 0 et des 1 stockés à perte de vue sur le silicium. Si votre disque dur de 1 Tio est la surface de la terre, sans les océans et d'environ <span class="arithmatex">\(148.9\)</span> millions de <span class="arithmatex">\(\text{km}^2\)</span>. Notre disque contient <span class="arithmatex">\(2^{40}\)</span> octets, soit <span class="arithmatex">\(2^{43}\)</span> bits :</p>
@@ -4804,7 +4804,7 @@ N_{bits} = 8'796'093'022'208
 <p>Oui ce n'est pas très réaliste, et le calcul que nous avons fourni est très simplifié. Mais cela permet de comprendre que les données stockées doivent être organisées car elles ne sont pas accessibles immédiatement. Pour un disque dur, la tête de lecture doit parcourir le disque pour atteindre les données. Sur une clé USB, la mémoire doit être configurée pour accéder une région précise.</p>
 <p>Nous avons donc besoin d'une carte pour savoir où sont stockées les données. C'est le rôle du système de fichier. Il permet de stocker les fichiers, les organiser en dossiers. N'importe qui n'aura pas accès à toutes les données, il faut les droits d'accès. Et les données peuvent être corrompues, détruites par des <a href="https://fr.wikipedia.org/wiki/Rayonnement_cosmique">rayonnements cosmiques</a>. Il faut aussi gérer les erreurs.</p>
 <p>Le premier système de fichier a été inventé par IBM en 1956 pour le disque dur IBM 305 RAMAC. Il s'appelait le <em>système de fichier à index</em>. Il a été inventé par Hans Peter Luhn. Il permettait de stocker 5 Mo de données sur un disque de 24 pouces. Depuis</p>
-<h2 id="fat-et-les-autres">FAT et les autres<a class="headerlink" href="#fat-et-les-autres" title="Permanent link">¤</a></h2>
+<h2 id="fat-et-les-autres">FAT et les autres<a class="headerlink" href="#fat-et-les-autres" title="Lien permanent">¤</a></h2>
 <p>Le système de fichier FAT (File Allocation Table) est un système de fichier simple et robuste. Il a été inventé par Microsoft en 1977 pour le système d'exploitation MS-DOS. Il est toujours utilisé aujourd'hui pour les clés USB, les cartes mémoire, etc. C'est très certainement celui-ci qu'un ingénieur embarqué utiliserait sur une carte SD interfacée avec un microcontrôleur.</p>
 <p>L'API de FAT, c'est à dire les fonctions primitives pour contrôler le système de fichier contient par exemple les fonctions suivantes :</p>
 <ul>
@@ -4864,7 +4864,7 @@ N_{bits} = 8'796'093'022'208
 </tr>
 </tbody>
 </table>
-<h2 id="organisation">Organisation<a class="headerlink" href="#organisation" title="Permanent link">¤</a></h2>
+<h2 id="organisation">Organisation<a class="headerlink" href="#organisation" title="Lien permanent">¤</a></h2>
 <p>Un système de fichier comporte en général :</p>
 <ul>
 <li>Des répertoires (des dossiers) qui contiennent des fichiers ou d'autres répertoires.</li>
@@ -4884,7 +4884,7 @@ N_{bits} = 8'796'093'022'208
 <p>Sur Windows, le répertoire racine est <code>C:\</code> pour le disque dur principal. Donc un chemin absolu sur Windows ressemblerait à <code>C:\maison\cuisine\frigo\rayonnage2\droite\pomme.jpg</code>.</p>
 <p>L'usage de <code>C</code> est historique. À l'origine il n'y avait pas de disques durs mais des disquettes. Ceux qui avaient la chance d'avoir un lecteur de disquette avaient un unique lecteur <code>A</code>. Ceux qui voulaient faire des copies de disquettes devaient en avoir un deuxième, c'était le lecteur <code>B</code>. En général, le disque dur était le troisième lecteur, le lecteur <code>C</code>. Et depuis Windows 95, c'est resté comme ça.</p>
 </div>
-<h2 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">¤</a></h2>
+<h2 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Lien permanent">¤</a></h2>
 <p>Nous savons qu'un chemin est une suite de répertoires séparés par des slashes mais ce que nous ne savons pas c'est où on se trouve. Lorsque vous ouvrez un terminal, ou une application vous êtes dans un répertoire, c'est le répertoire courant, ou le répertoire de travail (<em>working directory</em>). Pour savoir où vous trouvez vous pouvez ouvrir un terminal et taper :</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1"><abbr title="Portable Operating System Interface">POSIX</abbr></label><label for="__tabbed_1_2">Windows</label></div>
 <div class="tabbed-content">
@@ -4916,7 +4916,7 @@ N_{bits} = 8'796'093'022'208
 <p>Il existe un fichier spécial qui permet de remonter d'un niveau c'est le fichier <code>..</code>.</p>
 <p>Et si je suis dans le jardin et que j'aimerais tondre la pelouse. J'aimerais appeler le programme <code>tondre</code> en lui donnant le chemin jusque là où je me trouve. Je pourrais écrire : <code>../jardin</code> mais c'est redondant, et cela implique de connaître le nom de là ou je me trouve. Il existe pour cela un deuxième fichier spécial qui permet de désigner le répertoire courant, c'est le fichier <code>.</code>.</p>
 <p>Enfin, si je souhaite me déplacer dans l'arborescence, je peux utiliser la commande <code>cd</code> pour <em>change directory</em>. Ce programme prend en argument un chemin absolu ou relatif.</p>
-<h2 id="commandes-utiles">Commandes utiles<a class="headerlink" href="#commandes-utiles" title="Permanent link">¤</a></h2>
+<h2 id="commandes-utiles">Commandes utiles<a class="headerlink" href="#commandes-utiles" title="Lien permanent">¤</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1"><abbr title="Portable Operating System Interface">POSIX</abbr></label><label for="__tabbed_2_2">Windows CMD</label><label for="__tabbed_2_3">Windows PowerShell</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5103,7 +5103,7 @@ N_{bits} = 8'796'093'022'208
 <p class="admonition-title">Avertissement</p>
 <p>Les commandes <code>rm</code>, <code>mv</code>, <code>cp</code> sont très dangereuses. Elles peuvent détruire des données. Il est important de faire attention à ce que vous faites. Il est recommandé de faire des sauvegardes régulières de vos données.</p>
 </div>
-<h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">¤</a></h2>
+<h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Lien permanent">¤</a></h2>
 <p>Les systèmes de fichiers modernes permettent de définir des permissions sur les fichiers et les répertoires. Ces permissions permettent de contrôler qui peut lire, écrire ou exécuter un fichier. Les permissions sont définies pour trois catégories d'utilisateurs :</p>
 <ul>
 <li>Le propriétaire du fichier</li>
@@ -5184,7 +5184,7 @@ N_{bits} = 8'796'093'022'208
 </ul>
 <p>Chaque chiffre représente dans l'ordre le propriétaire, le groupe et les autres. Ainsi la permission du fichier <code>~/.ssh/id_rsa</code> est <code>400</code> ce qui signifie que le propriétaire a le droit de lire le fichier mais ni d'écrire ni d'exécuter. Le groupe et les autres n'ont aucun droit. C'est normal c'est la clé privée SSH, elle ne doit être lue que par le propriétaire.</p>
 </div>
-<h2 id="proprietaire-et-groupe">Propriétaire et groupe<a class="headerlink" href="#proprietaire-et-groupe" title="Permanent link">¤</a></h2>
+<h2 id="proprietaire-et-groupe">Propriétaire et groupe<a class="headerlink" href="#proprietaire-et-groupe" title="Lien permanent">¤</a></h2>
 <p>Chaque fichier a un propriétaire et un groupe. Le propriétaire est l'utilisateur qui a créé le fichier. Le groupe est le groupe auquel appartient le fichier. Les utilisateurs peuvent appartenir à plusieurs groupes. Les groupes permettent de définir des permissions pour plusieurs utilisateurs. Par exemple, un groupe <code>admin</code> pourrait avoir des droits d'écriture sur un répertoire.</p>
 <p>Pour changer le propriétaire d'un fichier, on utilise la commande <code>chown</code> dans <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Windows, il est préférable de passer par l'interface graphique.</p>
 <table>
@@ -5225,7 +5225,7 @@ N_{bits} = 8'796'093'022'208
 </tr>
 </tbody>
 </table>
-<h2 id="acl-access-control-list">ACL (Access Control List)<a class="headerlink" href="#acl-access-control-list" title="Permanent link">¤</a></h2>
+<h2 id="acl-access-control-list">ACL (Access Control List)<a class="headerlink" href="#acl-access-control-list" title="Lien permanent">¤</a></h2>
 <p>Les systèmes de fichiers modernes permettent de définir des ACL (Access Control List) sur les fichiers et les répertoires. Les ACL permettent de définir des permissions plus fines que les permissions <abbr title="Portable Operating System Interface">POSIX</abbr>. Les ACL permettent de définir des permissions pour des utilisateurs individuels ou des groupes d'utilisateurs. Les ACL sont plus complexes à gérer que les permissions <abbr title="Portable Operating System Interface">POSIX</abbr> mais elles permettent de définir des permissions plus précises.</p>
 <p>En général, les ACL sont gérées par des outils graphiques ou des commandes spécifiques. Les ACL sont stockées dans les métadonnées des fichiers et des répertoires. Les ACL sont utilisées dans les environnements professionnels où les données sont sensibles et où il est nécessaire de définir des permissions très précises. Cela permet de se rapprocher de systèmes de fichiers comme NTFS de Microsoft.</p>
 <p>Sur votre ordinateur ou dans votre carrière professionnelle vous n'aurez très certainement jamais besoin de gérer des ACL. C'est un sujet complexe et réservé aux administrateurs système. Mais pour les plus curieux voici quelques exemples :</p>
@@ -5263,7 +5263,7 @@ N_{bits} = 8'796'093'022'208
 </tr>
 </tbody>
 </table>
-<h2 id="manipulation-bas-niveau">Manipulation bas niveau<a class="headerlink" href="#manipulation-bas-niveau" title="Permanent link">¤</a></h2>
+<h2 id="manipulation-bas-niveau">Manipulation bas niveau<a class="headerlink" href="#manipulation-bas-niveau" title="Lien permanent">¤</a></h2>
 <p>Une question que l'on peut se poser est s'il est possible d'accéder aux données brutes d'un disque dur (les 1 et les 0) : la réponse est oui. Il est possible d'accéder aux données brutes d'un disque dur en utilisant des outils spécifiques. Ces outils permettent de lire et d'écrire des données directement sur le disque dur sans passer par le système de fichiers.</p>
 <p>La commande <code>dd</code> dans <abbr title="Portable Operating System Interface">POSIX</abbr> permet de lire et d'écrire des données brutes sur un disque dur. Cette commande est très puissante et <strong>très dangereuse</strong>. Elle permet de lire et d'écrire des données directement sur le disque dur. Il est très facile de détruire des données avec cette commande.</p>
 <p>On peut utiliser des fichiers spéciaux comme <code>/dev/zero</code> ou <code>/dev/random</code> pour générer des fichiers de données.</p>
@@ -5276,7 +5276,7 @@ N_{bits} = 8'796'093'022'208
 <p>On peut aussi lire des données brutes sur un disque dur. Par exemple lire les 100 premiers bytes d'un disque dur :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>$<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/sda<span class="w"> </span><span class="nv">of</span><span class="o">=</span>file<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">1</span>
 </span></code></pre></div>
-<h2 id="arborescence-posix">Arborescence <abbr title="Portable Operating System Interface">POSIX</abbr><a class="headerlink" href="#arborescence-posix" title="Permanent link">¤</a></h2>
+<h2 id="arborescence-posix">Arborescence <abbr title="Portable Operating System Interface">POSIX</abbr><a class="headerlink" href="#arborescence-posix" title="Lien permanent">¤</a></h2>
 <p>L'arborescence <abbr title="Portable Operating System Interface">POSIX</abbr> est une convention pour organiser les fichiers et les répertoires sur un système de fichiers. L'arborescence <abbr title="Portable Operating System Interface">POSIX</abbr> est utilisée par la plupart des systèmes d'exploitation basés sur <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>. L'arborescence <abbr title="Portable Operating System Interface">POSIX</abbr> est organisée de la manière suivante :</p>
 <ul>
 <li><code>/</code> : Le répertoire racine</li>
@@ -5376,7 +5376,7 @@ N_{bits} = 8'796'093'022'208
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

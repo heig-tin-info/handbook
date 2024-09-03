@@ -4900,10 +4900,10 @@ les outils associés.
   
 
 
-<h1 id="organisation-dun-projet">Organisation d'un projet<a class="headerlink" href="#organisation-dun-projet" title="Permanent link">¤</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
+<h1 id="organisation-dun-projet">Organisation d'un projet<a class="headerlink" href="#organisation-dun-projet" title="Lien permanent">¤</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Lien permanent">¤</a></h2>
 <p>Dans ce chapitre, nous allons voir comment organiser un projet logiciel. Nous allons voir comment structurer un projet, comment gérer les dépendances, comment gérer les tests unitaires et comment gérer les tests fonctionnels.</p>
-<h2 id="structure-dun-projet">Structure d'un projet<a class="headerlink" href="#structure-dun-projet" title="Permanent link">¤</a></h2>
+<h2 id="structure-dun-projet">Structure d'un projet<a class="headerlink" href="#structure-dun-projet" title="Lien permanent">¤</a></h2>
 <p>La structure d'un projet logiciel est un élément important pour sa maintenabilité. Une bonne structure permet de retrouver facilement les fichiers sources, les fichiers d'en-tête, les tests, etc.</p>
 <p>Si votre projet est accessible par d'autres développeurs, il y a certaines conventions à respecter pour que tout le monde puisse s'y retrouver.</p>
 <p>Tout commence avec un dossier racine. Ce dossier racine contient tous les fichiers sources, les fichiers d'en-tête, les tests, les dépendances, etc. Encore faut-il bien nommer ce projet. Un nom de projet doit être court, explicite et unique. Il est recommandé de ne pas utiliser d'espaces, de caractères spéciaux ou de majuscules.</p>
@@ -4930,7 +4930,7 @@ les outils associés.
 </span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>└── README.md
 </span></code></pre></div>
 <p>Le point d'entrée pour le développeur c'est le fichier <code>README.md</code>. Ce fichier contient une description du projet, des instructions pour l'installation, des instructions pour la compilation, des instructions pour les tests, etc.</p>
-<h3 id="readmemd">README.md<a class="headerlink" href="#readmemd" title="Permanent link">¤</a></h3>
+<h3 id="readmemd">README.md<a class="headerlink" href="#readmemd" title="Lien permanent">¤</a></h3>
 <p>Jadis, le fichier <code>README</code> était un fichier texte simple. Aujourd'hui, c'est un fichier <code>Markdown</code>. Le <code>Markdown</code> est un langage de balisage léger créé en 2004 par John Gruber et Aaron Swartz. Il est facile à lire et à écrire. Il est utilisé sur de très nombreux supports : GitHub, GitLab, Bitbucket, Reddit, Stack Overflow, etc. C'est d'ailleurs le format utilisé pour rédiger cet ouvrage.</p>
 <p>Voici un exemple de fichier <code>README.md</code> :</p>
 <div class="language-markdown highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="gh"># Nom du Projet</span>
@@ -4946,7 +4946,7 @@ les outils associés.
 </span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>cd projet
 </span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>make
 </span></code></pre></div>
-<h2 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Permanent link">¤</a></h2>
+<h2 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Lien permanent">¤</a></h2>
 <p>Comment utiliser le projet :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>./projet
 </span></code></pre></div>
@@ -4958,7 +4958,7 @@ les outils associés.
 <li>Comment l'utiliser ?</li>
 <li>Comment contribuer ?</li>
 </ol>
-<h3 id="dotfiles">Dotfiles<a class="headerlink" href="#dotfiles" title="Permanent link">¤</a></h3>
+<h3 id="dotfiles">Dotfiles<a class="headerlink" href="#dotfiles" title="Lien permanent">¤</a></h3>
 <p>Dans un système <abbr title="Portable Operating System Interface">POSIX</abbr>, les fichiers commençant par un point sont des fichiers cachés. C'est une convention utilisée pour les fichiers de configuration. Ces fichiers sont appelés <code>dotfiles</code>.</p>
 <p>On va trouver toute une panoplie de fichiers de configuration dans un projet logiciel tel que :</p>
 <ul>
@@ -4967,25 +4967,25 @@ les outils associés.
 <li><code>.github/</code> : dossier contenant l'intégration continue, les actions GitHub, etc.</li>
 <li><code>.env</code> : variables d'environnement pour le projet.</li>
 </ul>
-<h3 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">¤</a></h3>
+<h3 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Lien permanent">¤</a></h3>
 <p>Le <code>Makefile</code> est un fichier de configuration pour le programme <code>make</code>. C'est généralement le point d'entrée pour construire un projet. Si vous trouvez un <code>Makefile</code>, vous savez que vous pourrez très probablement simplement utiliser la commande <code>make</code> pour construire le projet.</p>
 <p>Néanmoins, parfois le <code>Makefile</code> n'est pas suffisant car votre projet est plus complexe et dépend de plusieurs bibliothèques tierces qui peuvent être fastidieuses à installer. C'est là qu'interviennent les gestionnaires de dépendances que nous verrons plus tard.</p>
 <p>Alternativement, on peut trouver simplement un script <code>build.sh</code> ou <code>build.bat</code> pour construire le projet que vous appelerer avec <code>./build.sh</code> ou <code>.\build.bat</code>.</p>
-<h3 id="organisation-des-fichiers-sources">Organisation des fichiers sources<a class="headerlink" href="#organisation-des-fichiers-sources" title="Permanent link">¤</a></h3>
+<h3 id="organisation-des-fichiers-sources">Organisation des fichiers sources<a class="headerlink" href="#organisation-des-fichiers-sources" title="Lien permanent">¤</a></h3>
 <p>Lorsque le projet dépasse 5 à 10 fichiers, il est habituel de les déplacer dans un dossier pour ne pas encombrer la racine du projet. On crée un dossier <code>src</code> pour les fichiers sources qui va contenir tous les fichiers <code>.c</code>.</p>
 <p>Faut-il séparer les fichiers sources des fichiers d'en-tête ? C'est une question de goût. Certains développeurs préfèrent tout mettre dans un seul dossier <code>src</code> pour simplifier la navigation. D'autres préfèrent séparer les fichiers sources des fichiers d'en-tête. Cela permet de mieux organiser le projet et de mieux gérer les dépendances. Il n'y a pas de consensus établi mais on peut noter plusieurs points.</p>
 <p>Lorsqu'un projet est destiné à devenir une bibliothèque partagée, vous devez fournir les fichiers d'en-tête pour que les autres développeurs puissent utiliser votre bibliothèque. S'ils sont séparés, c'est plus facile de les extraire et les distribuer.</p>
 <p>Néanmoins, séplacer les fichiers d'en-tête dans un dossier <code>include</code> nécessite d'informer le compilateur de l'emplacement des fichiers d'en-tête. C'est généralement fait avec l'option <code>-I</code> de GCC :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>gcc<span class="w"> </span>-Iinclude<span class="w"> </span>-c<span class="w"> </span>src/*.c
 </span></code></pre></div>
-<h3 id="repertoire-de-construction">Répertoire de construction<a class="headerlink" href="#repertoire-de-construction" title="Permanent link">¤</a></h3>
+<h3 id="repertoire-de-construction">Répertoire de construction<a class="headerlink" href="#repertoire-de-construction" title="Lien permanent">¤</a></h3>
 <p>Lorsque vous compilez un projet, vous allez générer des fichiers intermédiaires (fichiers objets) et des fichiers finaux (exécutables, bibliothèques). Selon le projet il peut y avoir beaucoup de fichiers. Afin d'éviter de ne voir ces fichiers dans votre explorateur de fichiers, on crée un dossier <code>build</code> pour les stocker.</p>
 <p>Ceci est une convention. Vous pouvez choisir un autre nom pour ce dossier. Par exemple, <code>bin</code>, <code>out</code>, <code>dist</code>, etc.</p>
 <p>Néanmoins, il faut d'une part penser à ajouter ce dossier dans le <code>.gitignore</code> pour ne pas le versionner, mais également modifier la configuration de votre compilateur pour qu'il place les fichiers objets dans ce dossier :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>build
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>gcc<span class="w"> </span>-Iinclude<span class="w"> </span>-c<span class="w"> </span>src/*.c<span class="w"> </span>-o<span class="w"> </span>build/*.o
 </span></code></pre></div>
-<h2 id="en-tetes-de-fichiers">En-têtes de fichiers<a class="headerlink" href="#en-tetes-de-fichiers" title="Permanent link">¤</a></h2>
+<h2 id="en-tetes-de-fichiers">En-têtes de fichiers<a class="headerlink" href="#en-tetes-de-fichiers" title="Lien permanent">¤</a></h2>
 <p>Historiquement, les développeurs C utilisait l'outil <a href="https://fr.wikipedia.org/wiki/Doxygen">Doxygen</a> pour générer de la documentation à partir des commentaires dans le code source. Cela a donné naissance à une convention pour les commentaires de documentation qui est souvent utilisée de manière abusive.</p>
 <p>Aujourd'hui, avec les éditeurs modernes, il est plus facile de naviguer dans le code source et de trouver des informations sur les fonctions et les structures. Les commentaires de documentation sont souvent redondants et inutiles, ils polluent plus qu'ils n'aident. Néanmoins, je peux vous donner un exemple de commentaires de documentation pour un fichier d'en-tête :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/**</span>
@@ -5099,14 +5099,14 @@ les outils associés.
 <p>Aujourd'hui, un fichier est fini au sens que lorsqu'on en atteint la fin, on le sait. Il n'est alors pas pertinent de le préciser.</p>
 <p>C'est un peu la même chose que ces pages dans les livres laissées blanches, ou presque, avec un commentaire <em>« Cette page a été intentionnellement laissée blanche »</em> qui remontait à l'époque de l'impression en offset. Lorsqu'on imprimait un livre, on imprimait les pages par feuille de 16 pages. Si le livre faisait 200 pages, il fallait ajouter 4 pages blanches à la fin pour que l'impression soit correcte. Aujourd'hui, les livres sont imprimés en numérique et il n'y a plus besoin de ces pages blanches.</p>
 </div>
-<h2 id="gestion-de-configuration">Gestion de configuration<a class="headerlink" href="#gestion-de-configuration" title="Permanent link">¤</a></h2>
+<h2 id="gestion-de-configuration">Gestion de configuration<a class="headerlink" href="#gestion-de-configuration" title="Lien permanent">¤</a></h2>
 <p>La gestion de configuration est un élément important pour un projet logiciel. Elle permet de stocker des informations qui peuvent varier d'un environnement à un autre. Par exemple, les informations de connexion à une base de données, les clés d'API, les adresses IP, etc.</p>
 <p>Il existe plusieurs solutions pour gérer la configuration d'un projet :</p>
 <ul>
 <li>Les variables d'environnement.</li>
 <li>Les fichiers de configuration.</li>
 </ul>
-<h3 id="variables-denvironnement">Variables d'environnement<a class="headerlink" href="#variables-denvironnement" title="Permanent link">¤</a></h3>
+<h3 id="variables-denvironnement">Variables d'environnement<a class="headerlink" href="#variables-denvironnement" title="Lien permanent">¤</a></h3>
 <p>Les variables d'environnement sont des variables stockées dans l'environnement d'exécution d'un programme. Elles sont accessibles par le programme et peuvent être modifiées par l'utilisateur. Ces variables sont propagées à tous les processus enfants pour autant qu'elles ait été exportées. Elles peuvent être utile dans un projet pour stocker des informations sensibles qui ne devraient pas être versionnées.</p>
 <p>Prenons l'exemple d'une clé d'API. Cette clé vous permet d'accéder à un service tiers depuis votre programme. Chaque utilisateur de votre programme doit avoir sa propre clé d'API. Si vous stockez cette clé dans le code source, vous risquez de la versionner et de la rendre publique. Si vous stockez cette clé dans un fichier de configuration, vous risquez de le versionner et de le rendre public également. Une bonne solution est de stocker cette clé dans une variable d'environnement.</p>
 <p>Il se peut d'ailleurs que votre projet nécessite plusieurs variables d'environnement. On utilise couramment un fichier <code>.env.example</code> pour lister les variables d'environnement nécessaires au projet. Ce fichier est versionné et contient des valeurs par défaut. L'utilisateur doit copier ce fichier en <code>.env</code> et renseigner les valeurs.</p>
@@ -5123,7 +5123,7 @@ les outils associés.
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>for /f "delims== tokens=1,2" %i in (.env) do set %i=%j
 </span></code></pre></div>
 <p>Ces commandes sont généralement intégrées dans un script <code>start.sh</code> ou <code>start.bat</code> pour démarrer votre projet, ou alors directement dans le <code>Makefile</code>.</p>
-<h3 id="fichier-den-tete">Fichier d'en-tête<a class="headerlink" href="#fichier-den-tete" title="Permanent link">¤</a></h3>
+<h3 id="fichier-den-tete">Fichier d'en-tête<a class="headerlink" href="#fichier-den-tete" title="Lien permanent">¤</a></h3>
 <p>On trouve très souvent dans un projet C un fichier d'en-tête <code>.h</code> qui contient des définitions de configuration. Par exemple, un fichier <code>config.h</code> qui contient des constantes, des macros, des structures, etc.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#ifndef CONFIG_H</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="cp">#define CONFIG_H</span>
@@ -5206,7 +5206,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

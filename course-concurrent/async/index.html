@@ -4616,7 +4616,7 @@ les outils associés.
   
 
 
-<h1 id="programmation-asynchrone">Programmation Asynchrone<a class="headerlink" href="#programmation-asynchrone" title="Permanent link">¤</a></h1>
+<h1 id="programmation-asynchrone">Programmation Asynchrone<a class="headerlink" href="#programmation-asynchrone" title="Lien permanent">¤</a></h1>
 <p>Un paradigme de programmation asynchrone est un style de programmation concurrente qui permet de gérer des événements de manière non bloquante. C'est une manière de gérer des événements qui ne sont pas nécessairement liés à l'exécution du programme et une amélioation de la programmation concurrente classique utilisant explicitement des threads.</p>
 <p>Ce paradigme est devenu populaire avec l'arrivée des applications web et des interfaces graphiques. En effet, ces applications ont besoin de réagir à des événements de manière asynchrone pour ne pas bloquer l'interface utilisateur. Le langage JavaScript est un exemple de langage qui utilise ce paradigme.</p>
 <p>Prenons l'exemple d'une page web qui affiche des données provenant d'un serveur. Lorsque la page est chargée, une requête est envoyée au serveur pour récupérer les données. Si la requête était bloquante, l'interface utilisateur serait figée jusqu'à ce que les données soient reçues. Avec la programmation asynchrone, la requête est envoyée et le programme continue de s'exécuter. Lorsque les données sont reçues, un événement est déclenché et le programme réagit à cet événement en affichant les données. Voici un exemple web simplifié :</p>
@@ -4668,7 +4668,7 @@ les outils associés.
 <li>Une fois les données transformées, on promet de les afficher dans la page</li>
 </ol>
 <p>C'est une manière de gérer des événements de manière asynchrone sans bloquer le programme.</p>
-<h2 id="c-et-la-programmation-asynchrone">C++ et la programmation asynchrone<a class="headerlink" href="#c-et-la-programmation-asynchrone" title="Permanent link">¤</a></h2>
+<h2 id="c-et-la-programmation-asynchrone">C++ et la programmation asynchrone<a class="headerlink" href="#c-et-la-programmation-asynchrone" title="Lien permanent">¤</a></h2>
 <p>En C++ la notion de promesse et de future ont été introduites en C++11. Leur fonctionnement est similaire à celui des promesses en JavaScript.</p>
 <p>Une future est un objet qui contient une valeur qui sera disponible dans le futur. Elle est associée à une promesse qui est l'objet qui promet de fournir la valeur.</p>
 <p>L'exemple donné en JavaScript n'est pas directement transposable en C++ car le langage ne possède pas de fonction <code>fetch</code> qui permet de faire des requêtes HTTP de manière asynchrone. Néanmoins l'utilisation de la bibliothèque <strong>CURL</strong> et <code>nlohmann/json</code> peut nous aider.</p>
@@ -4732,7 +4732,7 @@ les outils associés.
 </span><span id="__span-3-56"><a href="#__codelineno-3-56" id="__codelineno-3-56" name="__codelineno-3-56"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>On peut observer que le code est moins concis que le code JavaScript. L'asynchronisme est plus explicite et nécessite la création d'un thread pour effectuer la requête. La promesse est utilisée pour transmettre le résultat de la requête au thread principal.</p>
-<h2 id="stdasync">std ::async<a class="headerlink" href="#stdasync" title="Permanent link">¤</a></h2>
+<h2 id="stdasync">std ::async<a class="headerlink" href="#stdasync" title="Lien permanent">¤</a></h2>
 <p>Async est une fonction qui permet de lancer une fonction de manière asynchrone, autrement dit dans un thread séparé mais sans avoir à gérer la création du thread.</p>
 <p>Elle retourne une future qui contient le résultat de la fonction. C'est une manière plus simple de lancer une fonction de manière asynchrone sans avoir à gérer la création d'un thread.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -4842,7 +4842,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

@@ -4682,7 +4682,7 @@ les outils associés.
   
 
 
-<h1 id="exclusion-mutuelle">Exclusion Mutuelle<a class="headerlink" href="#exclusion-mutuelle" title="Permanent link">¤</a></h1>
+<h1 id="exclusion-mutuelle">Exclusion Mutuelle<a class="headerlink" href="#exclusion-mutuelle" title="Lien permanent">¤</a></h1>
 <p>Les exclusions mutuelles sont un concept fondamental en programmation concurrente et parallèle. L'idée est de garantir que certaines parties du code ne sont pas exécutées simultanément par plusieurs threads, afin d'éviter des conditions de concurrence et des résultats imprévisibles.</p>
 <p>Les <em>race conditions</em> ou en français <em>conditions de course</em> sont des situations où le résultat d'une opération dépend de l'ordre d'exécution des threads, ce qui peut conduire à des résultats incorrects ou incohérents. Les exclusions mutuelles permettent de protéger les <strong>sections critiques</strong> du code pour éviter ces problèmes.</p>
 <p>En C++, les exclusions mutuelles sont souvent mises en œuvre à l'aide de verrous (locks) fournis par la bibliothèque standard. Ces verrous sont des objets qui peuvent être verrouillés (locked) par un thread pour empêcher d'autres threads d'accéder à une section critique, puis déverrouillés (unlocked) pour permettre à d'autres threads d'accéder à cette section.</p>
@@ -4695,13 +4695,13 @@ les outils associés.
 <li>Synchroniser la terminaison de threads</li>
 <li>etc.</li>
 </ul>
-<h2 id="histoire">Histoire<a class="headerlink" href="#histoire" title="Permanent link">¤</a></h2>
+<h2 id="histoire">Histoire<a class="headerlink" href="#histoire" title="Lien permanent">¤</a></h2>
 <p>Le concept d'exclusion mutuelle a été introduit par Edsger Dijkstra en 1965. Il a inventé le terme « exclusion mutuelle » pour décrire une propriété souhaitable des systèmes informatiques, à savoir que deux processus ne peuvent pas être simultanément dans une section critique. Dijkstra a également inventé l'algorithme du « banquier » pour éviter les interblocages dans les systèmes informatiques.</p>
 <p>Dans son article (Solution of a Problem in Concurrent Programming Control)[<a href="https://www.cs.utexas.edu/users/EWD/ewd01xx/EWD123.PDF">https://www.cs.utexas.edu/users/EWD/ewd01xx/EWD123.PDF</a>], Dijkstra a introduit le concept de sémaphores, qui sont des variables entières utilisées pour la synchronisation entre processus ou threads. Les sémaphores peuvent être utilisés pour implémenter l'exclusion mutuelle, ainsi que d'autres formes de synchronisation.</p>
 <p>Dekker a introduit un autre algorithme pour l'exclusion mutuelle entre deux processus en 1968. Cet algorithme est similaire à l'algorithme de Peterson, mais utilise des variables supplémentaires pour éviter les problèmes de synchronisation.</p>
 <p>Peterson a introduit un algorithme pour l'exclusion mutuelle entre deux processus en 1981. Cet algorithme est souvent utilisé pour illustrer les concepts d'exclusion mutuelle et de synchronisation dans les cours d'informatique.</p>
 <p>À cette époque les processeurs multi-cœurs n'existaient pas, et les systèmes informatiques étaient généralement des systèmes à un seul processeur. Les problèmes de synchronisation et d'exclusion mutuelle étaient donc moins complexes que dans les systèmes modernes. Un processeur moderne dispose de plusieurs cœurs, et chaque cœur peut exécuter plusieurs threads simultanément. La synchronisation et l'exclusion mutuelle sont donc des problèmes plus complexes dans les systèmes modernes.</p>
-<h2 id="exemple-du-compteur-partage">Exemple du compteur partagé<a class="headerlink" href="#exemple-du-compteur-partage" title="Permanent link">¤</a></h2>
+<h2 id="exemple-du-compteur-partage">Exemple du compteur partagé<a class="headerlink" href="#exemple-du-compteur-partage" title="Lien permanent">¤</a></h2>
 <p>Considérons un exemple simple où deux threads partagent un compteur. Chaque thread incrémente le compteur 1000000 fois. Si les threads ne sont pas synchronisés, le résultat final dépendra de l'ordre d'exécution des threads.</p>
 <p>En effet, si les deux threads tentent d'incrémenter le compteur simultanément, le résultat final sera imprévisible car l'exécution des instructions n'est pas <strong>atomique</strong>. Le processeur va devoir décomposer l'opération d'incrémentation en plusieurs étapes :</p>
 <ol>
@@ -4745,9 +4745,9 @@ les outils associés.
 </span><span id="__span-0-32"><a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Actual Counter: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-0-33"><a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="verrous-mutex">Verrous Mutex<a class="headerlink" href="#verrous-mutex" title="Permanent link">¤</a></h2>
+<h2 id="verrous-mutex">Verrous Mutex<a class="headerlink" href="#verrous-mutex" title="Lien permanent">¤</a></h2>
 <p>En C++, les verrous sont généralement implémentés à l'aide de la classe <code>std::mutex</code> de la bibliothèque standard. Un verrou de type <code>std::mutex</code> peut être verrouillé à l'aide de la méthode <code>lock()</code> et déverrouillé à l'aide de la méthode <code>unlock()</code>.</p>
-<h2 id="exemple-simple">Exemple simple<a class="headerlink" href="#exemple-simple" title="Permanent link">¤</a></h2>
+<h2 id="exemple-simple">Exemple simple<a class="headerlink" href="#exemple-simple" title="Lien permanent">¤</a></h2>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
@@ -4769,7 +4769,7 @@ les outils associés.
 </span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>$<span class="w"> </span>wc<span class="w"> </span>-c<span class="w"> </span>&lt;<span class="w"> </span>data
 </span></code></pre></div>
 <p>On peut voir qu'il y a environ 1 change sur 10000 d'avoir un 7.</p>
-<h2 id="autre-exemple">Autre Exemple<a class="headerlink" href="#autre-exemple" title="Permanent link">¤</a></h2>
+<h2 id="autre-exemple">Autre Exemple<a class="headerlink" href="#autre-exemple" title="Lien permanent">¤</a></h2>
 <p>Dans cet exemple, nous avons deux threads <code>a</code> et <code>b</code> qui partagent une variable globale <code>x</code>. Le thread <code>a</code> affecte la valeur <code>5</code> à <code>x</code> et l'affiche, tandis que le thread <code>b</code> affecte la valeur <code>7</code> à <code>x</code>. Les threads s'exécutent indépendamment et peuvent modifier <code>x</code> simultanément, ce qui peut entraîner des résultats imprévisibles.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span>
@@ -4858,7 +4858,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

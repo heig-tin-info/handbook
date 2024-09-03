@@ -4710,7 +4710,7 @@ les outils associés.
   
 
 
-<h1 id="chaines-de-caracteres">Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Permanent link">¤</a></h1>
+<h1 id="chaines-de-caracteres">Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent">¤</a></h1>
 <p>Une chaîne de caractères est représentée en mémoire comme une succession de bytes, chacun représentant un caractère ASCII spécifique. La chaîne de caractère <code>hello</code> contient donc 5 caractères et sera stockée en mémoire sur 5 bytes. Une chaîne de caractère est donc équivalente à un tableau de <code>char</code>.</p>
 <p>En C, un artifice est utilisé pour faciliter les opérations sur les chaînes de caractères. Tous les caractères de 1 à 255 sont utilisables sauf le 0 qui est utilisé comme sentinelle. Lors de la déclaration d'une chaîne comme ceci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello, world!"</span><span class="p">;</span>
@@ -4734,7 +4734,7 @@ les outils associés.
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="sc">'P'</span><span class="p">,</span><span class="w"> </span><span class="sc">'u'</span><span class="p">,</span><span class="w"> </span><span class="sc">'l'</span><span class="p">,</span><span class="w"> </span><span class="sc">'p'</span><span class="p">,</span><span class="w"> </span><span class="sc">' '</span><span class="p">,</span><span class="w"> </span><span class="sc">'F'</span><span class="p">,</span><span class="w"> </span><span class="sc">'i'</span><span class="p">,</span><span class="w"> </span><span class="sc">'c'</span><span class="p">,</span><span class="w"> </span><span class="sc">'t'</span><span class="p">,</span><span class="w"> </span><span class="sc">'i'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'n'</span><span class="p">,</span><span class="w"> </span><span class="sc">'\0'</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">};</span>
 </span></code></pre></div>
-<h2 id="tableaux-de-chaines-de-caracteres">Tableaux de chaînes de caractères<a class="headerlink" href="#tableaux-de-chaines-de-caracteres" title="Permanent link">¤</a></h2>
+<h2 id="tableaux-de-chaines-de-caracteres">Tableaux de chaînes de caractères<a class="headerlink" href="#tableaux-de-chaines-de-caracteres" title="Lien permanent">¤</a></h2>
 <p>Un tableau de chaîne de caractères est identique à un tableau multidimensionnel :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">conjunctions</span><span class="p">[][</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="s">"mais"</span><span class="p">,</span><span class="w"> </span><span class="s">"ou"</span><span class="p">,</span><span class="w"> </span><span class="s">"est"</span><span class="p">,</span><span class="w"> </span><span class="s">"donc"</span><span class="p">,</span><span class="w"> </span><span class="s">"or"</span><span class="p">,</span><span class="w"> </span><span class="s">"ni"</span><span class="p">,</span><span class="w"> </span><span class="s">"car"</span>
@@ -4753,7 +4753,7 @@ les outils associés.
 </span><span id="__span-7-7"><a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="p">};</span>
 </span></code></pre></div>
 <p>Notons que la valeur <code>0</code> est strictement identique au caractère 0 de la table ASCII <code>'\0'</code>. La chaîne de caractère <code>"mais"</code> aura une taille de 5 caractères, ponctuée de la sentinelle <code>\0</code>.</p>
-<h2 id="wide-chars">Wide-chars<a class="headerlink" href="#wide-chars" title="Permanent link">¤</a></h2>
+<h2 id="wide-chars">Wide-chars<a class="headerlink" href="#wide-chars" title="Lien permanent">¤</a></h2>
 <p>Les chaînes de caractères larges sont des chaînes de caractères qui utilisent plus d'un byte pour représenter un caractère. En C, les chaînes de caractères larges sont représentées par le type <code>wchar_t</code>. Pour déclarer une chaîne de caractères larges, il est nécessaire d'utiliser le préfixe <code>L</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">wchar_t</span><span class="w"> </span><span class="n">wstr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">L</span><span class="s">"Hello, 世界"</span><span class="p">;</span>
 </span></code></pre></div>
@@ -4819,7 +4819,7 @@ les outils associés.
 </span><span id="__span-14-19"><a href="#__codelineno-14-19" id="__codelineno-14-19" name="__codelineno-14-19"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"The string length is: %zu characters</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span>
 </span><span id="__span-14-20"><a href="#__codelineno-14-20" id="__codelineno-14-20" name="__codelineno-14-20"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="buffer-tampon">Buffer (tampon)<a class="headerlink" href="#buffer-tampon" title="Permanent link">¤</a></h2>
+<h2 id="buffer-tampon">Buffer (tampon)<a class="headerlink" href="#buffer-tampon" title="Lien permanent">¤</a></h2>
 <p>Bien souvent, les chaînes de caractères sont manipulées dans des buffers. Un buffer est un tableau de caractères d'une taille fixe utilisé pour stocker des données intermédiaires. Un cas typique est la lecture depuis l'entrée standard.</p>
 <p>Admettons que l'on souhaite lire le nom d'un utilisateur depuis l'entrée standard. On peut définir un buffer de 256 caractères pour stocker le nom de l'utilisateur :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -4831,13 +4831,13 @@ les outils associés.
 </span><span id="__span-15-7"><a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Dans cet exemple, <code>name</code> est un buffer de 32 caractères. La fonction <code>scanf</code> lit au maximum 31 caractères depuis l'entrée standard et les stocke dans <code>name</code>. La taille du buffer est de 32 caractères pour laisser de la place pour la sentinelle <code>\0</code>. Sans cette sécurité, il serait possible de déborder le buffer et d'écrire dans des zones mémoires qui ne nous appartiennent pas.</p>
-<h2 id="chaine-de-caracteres-multi-lignes">Chaîne de caractères multi-lignes<a class="headerlink" href="#chaine-de-caracteres-multi-lignes" title="Permanent link">¤</a></h2>
+<h2 id="chaine-de-caracteres-multi-lignes">Chaîne de caractères multi-lignes<a class="headerlink" href="#chaine-de-caracteres-multi-lignes" title="Lien permanent">¤</a></h2>
 <p>En C, il n'est pas possible de déclarer une chaîne de caractères sur plusieurs lignes. Pour ce faire, il est nécessaire de concaténer plusieurs chaînes de caractères :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, "</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">            </span><span class="s">"World!"</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Dans cet exemple, <code>str</code> contiendra la chaîne de caractères <code>Hello, World!</code>.</p>
-<h2 id="chaine-de-caracteres-constantes">Chaîne de caractères constantes<a class="headerlink" href="#chaine-de-caracteres-constantes" title="Permanent link">¤</a></h2>
+<h2 id="chaine-de-caracteres-constantes">Chaîne de caractères constantes<a class="headerlink" href="#chaine-de-caracteres-constantes" title="Lien permanent">¤</a></h2>
 <p>Les chaînes de caractères constantes sont des chaînes de caractères qui ne peuvent pas être modifiées. Elles sont stockées dans la section <code>.rodata</code> de la mémoire. Pour déclarer une chaîne de caractères constante, il est nécessaire d'utiliser le mot-clé <code>const</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, World!"</span><span class="p">;</span>
 </span></code></pre></div>
@@ -4928,7 +4928,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

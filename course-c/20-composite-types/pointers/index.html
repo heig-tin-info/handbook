@@ -5179,7 +5179,7 @@ les outils associés.
 
 
 <p><a href="" id="pointers"></a></p>
-<h1 id="pointeurs">Pointeurs<a class="headerlink" href="#pointeurs" title="Permanent link">¤</a></h1>
+<h1 id="pointeurs">Pointeurs<a class="headerlink" href="#pointeurs" title="Lien permanent">¤</a></h1>
 <p><a href="https://fr.wikiquote.org/wiki/Le_Jour_de_gloire">Attention les vélos</a>, nous nous aventurons aujourd'hui sur un terrain délicat, subtil et parfois déroutant, mais ô combien fondamental pour quiconque aspire à maîtriser l'art de la programmation. Un sujet d'une importance cruciale, presque incontournable : les <a href="https://fr.wikipedia.org/wiki/Pointeur_(programmation)">pointeurs</a>.</p>
 <p>Les pointeurs sont des <strong>variables</strong> d'une nature singulière : au lieu de contenir directement une valeur, ils stockent une <strong>adresse mémoire</strong>. À quoi bon, me demanderez-vous ? L'objectif est de permettre des indirections, d'optimiser la gestion des données et de rendre l'exécution du code plus fluide et efficiente.</p>
 <p>Imaginons une scène tirée des intrigues galantes du XVIIIe siècle. Le <a href="https://fr.wikipedia.org/wiki/Vicomte_de_Valmont">Vicomte de Valmont</a>, séducteur invétéré, s'apprête à écrire une missive enflammée à la Marquise de Merteuil. Après avoir rédigé sa lettre, il la scelle soigneusement avant de la déposer dans sa boîte aux lettres, en espérant que le facteur l'acheminera à bon port. Ce simple geste pourrait se traduire dans le langage des machines par la déclaration suivante :</p>
@@ -5228,7 +5228,7 @@ les outils associés.
 <li><strong>L'adresse d'une variable</strong> peut être obtenue avec une esperluette (<code>&amp;</code>).</li>
 </ul>
 <p>Ainsi, nous voyons que les pointeurs, loin d'être une simple abstraction technique, peuvent se révéler de précieux alliés dans l'écriture d'un code à la fois efficace et élégant.</p>
-<h2 id="pointeur-simple">Pointeur simple<a class="headerlink" href="#pointeur-simple" title="Permanent link">¤</a></h2>
+<h2 id="pointeur-simple">Pointeur simple<a class="headerlink" href="#pointeur-simple" title="Lien permanent">¤</a></h2>
 <p>Le format le plus simple d'un pointeur sur un entier s'écrit avec l'astérisque <code>*</code>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 </span></code></pre></div>
@@ -5280,7 +5280,7 @@ les outils associés.
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// a et b sont des pointeurs</span>
 </span></code></pre></div>
 </div>
-<h2 id="dereferencement-et-adresse">Déréférencement et adresse<a class="headerlink" href="#dereferencement-et-adresse" title="Permanent link">¤</a></h2>
+<h2 id="dereferencement-et-adresse">Déréférencement et adresse<a class="headerlink" href="#dereferencement-et-adresse" title="Lien permanent">¤</a></h2>
 <p>Avec les pointeurs, certains opérateurs sont recyclés pour de nouvelles fonctions. C'est déroutant au début mais le nombre de caractère spéciaux dans la table ASCII étant limité, il faut bien faire avec. Dans le cas précis des pointeurs deux opérateurs sont à connaître :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Opérateurs de pointeurs</caption><thead>
@@ -5300,7 +5300,7 @@ les outils associés.
 </tr>
 </tbody>
 </table>
-<h3 id="adresse-dune-variable">Adresse d'une variable<a class="headerlink" href="#adresse-dune-variable" title="Permanent link">¤</a></h3>
+<h3 id="adresse-dune-variable">Adresse d'une variable<a class="headerlink" href="#adresse-dune-variable" title="Lien permanent">¤</a></h3>
 <p>L'opérateur <code>&amp;</code> utilisé comme opérateur unaire permet d'obtenir l'adresse mémoire d'une variable. C'est à dire que si <code>a</code> est une variable, <code>&amp;a</code> est l'adresse mémoire de cette variable. Par exemple :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%p"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span><span class="w">  </span><span class="c1">// Affiche l'adresse mémoire de la variable a</span>
@@ -5309,7 +5309,7 @@ les outils associés.
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"0x%08lx"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">uintptr_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Le type <code>uintptr_t</code> est un type entier non signé qui est assez grand pour contenir une adresse mémoire. Il est défini dans le fichier d'en-tête <code>stdint.h</code> et il est généralement défini comme un alias pour <code>unsigned long</code>. Il est utilisé généralement pour faire un <em>cast</em> d'une adresse mémoire en un entier.</p>
-<h3 id="dereferencement">Déréférencement<a class="headerlink" href="#dereferencement" title="Permanent link">¤</a></h3>
+<h3 id="dereferencement">Déréférencement<a class="headerlink" href="#dereferencement" title="Lien permanent">¤</a></h3>
 <p>Le déréférencement correspond à l'opération de lecture de la valeur pointée par un pointeur. C'est à dire que si <code>ptr</code> est un pointeur sur un entier, <code>*ptr</code> est la valeur de cet entier. Dit autrement, si vous avez un post-it avec l'adresse d'un magasin de chaussures, la simple pocession de ce post-it ne vous permet pas d'avoir de nouvelles chaussures. Il vous faut vous rendre à l'adresse indiquée pour obtenir les chaussures. C'est exactement ce que fait l'opérateur <code>*</code>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">shoe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Nike Mag"</span><span class="p">;</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
@@ -5342,7 +5342,7 @@ les outils associés.
 </span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a>
 </span><span id="__span-18-5"><a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="n">assert</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 </span></code></pre></div>
-<h2 id="arithmetique-de-pointeurs">Arithmétique de pointeurs<a class="headerlink" href="#arithmetique-de-pointeurs" title="Permanent link">¤</a></h2>
+<h2 id="arithmetique-de-pointeurs">Arithmétique de pointeurs<a class="headerlink" href="#arithmetique-de-pointeurs" title="Lien permanent">¤</a></h2>
 <p>Fondamentalement un pointeur n'est rien d'autre qu'une variable qui contient une adresse mémoire. Dès lors on peut imaginer vouloir incrémenter cette adresse pour révéler la valeur suivante en mémoire. On dit qu'un pointeur est un <a href="https://fr.wikipedia.org/wiki/Nombre_ordinal">ordinal</a>.</p>
 <p>Dans l'exemple suivant, la boucle <code>for</code> affiche les caractères de la chaîne de caractères <code>str</code> jusqu'à ce qu'il rencontre le caractère nul <code>'\0'</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Le vif zéphyr jubile sur les kumquats du clown gracieux"</span><span class="p">;</span>
@@ -5364,7 +5364,7 @@ les outils associés.
 </span><span id="__span-21-5"><a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">assert</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="kt">int64_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="mi">17</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Il convient de souligner que l'arithmétique des pointeurs se limite aux opérations d'addition et de soustraction. Les autres opérations arithmétiques, telles que la multiplication ou la division, ne sont pas définies pour les pointeurs.</p>
-<h3 id="carre-magique">Carré magique<a class="headerlink" href="#carre-magique" title="Permanent link">¤</a></h3>
+<h3 id="carre-magique">Carré magique<a class="headerlink" href="#carre-magique" title="Lien permanent">¤</a></h3>
 <p>Prenons un autre exemple. Imaginons que l'on souhaite représenter le carré magique suivant :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>┌───┬───┬───┐
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>│ 4 │ 9 │ 2 │
@@ -5435,7 +5435,7 @@ les outils associés.
 <p>Pour terminer l'exemple, on peut mentionner que l'on peut simplifier l'écriture en s'affranchissant du pointeur intermédiaire. On peut directement caster le pointeur <code>magic</code> dans la boucle <code>for</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="n">putchar</span><span class="p">(((</span><span class="kt">char</span><span class="p">(</span><span class="o">*</span><span class="p">)[</span><span class="n">size</span><span class="p">])</span><span class="n">magic</span><span class="p">)[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]);</span>
 </span></code></pre></div>
-<h3 id="cas-dun-tableau">Cas d'un tableau<a class="headerlink" href="#cas-dun-tableau" title="Permanent link">¤</a></h3>
+<h3 id="cas-dun-tableau">Cas d'un tableau<a class="headerlink" href="#cas-dun-tableau" title="Lien permanent">¤</a></h3>
 <p>Cela n'aura plus de secret pour vous, un tableau est un pointeur. Néanmoins il existe quelques subtilités. D'une part un tableau est un pointeur constant, c'est à dire que l'adresse mémoire ne peut être modifiée. L'écriture suivante est donc incorrecte :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
 </span><span id="__span-29-2"><a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a>
@@ -5497,7 +5497,7 @@ les outils associés.
 </span><span id="__span-31-8"><a href="#__codelineno-31-8" id="__codelineno-31-8" name="__codelineno-31-8"></a>
 </span><span id="__span-31-9"><a href="#__codelineno-31-9" id="__codelineno-31-9" name="__codelineno-31-9"></a><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="n">array</span><span class="p">)[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">matrices</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"> </span><span class="c1">// Parenthèses facultatives [] &gt; &amp;</span>
 </span></code></pre></div>
-<h3 id="resume">Résumé<a class="headerlink" href="#resume" title="Permanent link">¤</a></h3>
+<h3 id="resume">Résumé<a class="headerlink" href="#resume" title="Lien permanent">¤</a></h3>
 <p>L'arithmétique de pointeur est donc chose courante avec les tableaux. À vrai dire, les deux concepts sont interchangeables :</p>
 <table id="_table-3">
 <caption style="caption-side:top"> Arithmétique sur tableau unidimensionnel</caption><thead>
@@ -5551,7 +5551,7 @@ les outils associés.
 </tr>
 </tbody>
 </table>
-<h2 id="chaines-de-caracteres">Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Permanent link">¤</a></h2>
+<h2 id="chaines-de-caracteres">Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent">¤</a></h2>
 <p>Les chaînes de caractères sont des tableaux de caractères terminés par un caractère nul <code>'\0'</code>. Il est donc possible de déclarer une chaîne de caractères de la manière suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">conjonctions</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-32-2"><a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="w">    </span><span class="s">"mais"</span><span class="p">,</span><span class="w"> </span><span class="s">"ou"</span><span class="p">,</span><span class="w"> </span><span class="s">"est"</span><span class="p">,</span><span class="w"> </span><span class="s">"donc"</span><span class="p">,</span><span class="w"> </span><span class="s">"or"</span><span class="p">,</span><span class="w"> </span><span class="s">"ni"</span><span class="p">,</span><span class="w"> </span><span class="s">"car"</span>
@@ -5578,7 +5578,7 @@ les outils associés.
 </span><span id="__span-34-3"><a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="p">};</span>
 </span></code></pre></div>
 <p>Néanmoins dans ce cas, de l'espace mémoire est gaspillé car chaque chaîne de caractères doit avoir la même taille, et pour déclarer le tableau il faut connaître la taille de la plus grande chaîne de caractères. En revanche cette méthode est de réduire le niveau d'imbrications. Il n'y a plus de tableau intermédiaire de pointeurs.</p>
-<h2 id="structures">Structures<a class="headerlink" href="#structures" title="Permanent link">¤</a></h2>
+<h2 id="structures">Structures<a class="headerlink" href="#structures" title="Lien permanent">¤</a></h2>
 <p>Les pointeurs peuvent bien entendu être utilisés avec n'importe quel type de données. Les structures ne font pas exception à la règle. On peut définir une structure de données et déclarer un pointeur sur cette structure :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
@@ -5624,7 +5624,7 @@ les outils associés.
 </span><span id="__span-40-2"><a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d/%d/%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">date</span><span class="o">-&gt;</span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="n">date</span><span class="o">-&gt;</span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="n">date</span><span class="o">-&gt;</span><span class="n">year</span><span class="p">);</span>
 </span><span id="__span-40-3"><a href="#__codelineno-40-3" id="__codelineno-40-3" name="__codelineno-40-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="structure-recursive">Structure récursive<a class="headerlink" href="#structure-recursive" title="Permanent link">¤</a></h3>
+<h3 id="structure-recursive">Structure récursive<a class="headerlink" href="#structure-recursive" title="Lien permanent">¤</a></h3>
 <p>Lorsqu'on utilise des structures de données plus complexes comme les <a class="autorefs autorefs-internal" href="../../27-data-structures/lists/#listes-chainees">listes chaînées</a>, on a besoin de créer une structure contenant des données ainsi qu'un pointeur sur l'élémnent suivant. On peut définir une structure récursive de la manière suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span><span class="w">  </span><span class="c1">// Pointeur sur l'élément suivant</span>
@@ -5655,7 +5655,7 @@ les outils associés.
 </span></code></pre></div>
 <p>En effet, tant que le pointeur n'est pas <code>NULL</code>, on peut continuer à parcourir la liste. Le dernier élément de la liste pointe sur <code>NULL</code> qui fait office de valeur sentinelle pour indiquer la fin de la liste.</p>
 <p>Les structures récursives sont très utilisées en informatique pour représenter des données hiérarchiques. Nous verrons plus tard les notions d'arbres et de graphes qui reposent sur ce concept.</p>
-<h2 id="arguments-de-fonctions">Arguments de fonctions<a class="headerlink" href="#arguments-de-fonctions" title="Permanent link">¤</a></h2>
+<h2 id="arguments-de-fonctions">Arguments de fonctions<a class="headerlink" href="#arguments-de-fonctions" title="Lien permanent">¤</a></h2>
 <p>Lors de l'introduction aux <a class="autorefs autorefs-internal" href="../../15-fundations/functions/#fonctions">fonctions</a> nous avons vu que ces dernières peuvent recevoir des arguments. Ces arguments peuvent être de n'importe quel type, y compris des pointeurs et dans de nombreux cas de figure le passage par pointeur est préférable. Voici quelques cas de figure où le passage par pointeur est recommandé :</p>
 <p><strong>Modification de la valeur d'une variable dans une fonction</strong></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">increment</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5683,7 +5683,7 @@ les outils associés.
 <div class="language-c highlight"><pre><span></span><code><span id="__span-46-1"><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="n">process</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Data</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w">  </span><span class="c1">// Copie sur la pile</span>
 </span><span id="__span-46-2"><a href="#__codelineno-46-2" id="__codelineno-46-2" name="__codelineno-46-2"></a><span class="n">process</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Data</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="c1">// Passage par référence (adresse)</span>
 </span></code></pre></div>
-<h3 id="plusieurs-valeurs-de-retour">Plusieurs valeurs de retour<a class="headerlink" href="#plusieurs-valeurs-de-retour" title="Permanent link">¤</a></h3>
+<h3 id="plusieurs-valeurs-de-retour">Plusieurs valeurs de retour<a class="headerlink" href="#plusieurs-valeurs-de-retour" title="Lien permanent">¤</a></h3>
 <p>Lorsqu'une fonction doit retourner plusieurs valeurs, il est possible de passer des pointeurs en argument pour stocker les valeurs de retour. Par exemple la fonction <code>compute</code> retourne un statut d'exécution et une valeur calculée :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-47-1"><a href="#__codelineno-47-1" id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-47-2"><a href="#__codelineno-47-2" id="__codelineno-47-2" name="__codelineno-47-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
@@ -5700,7 +5700,7 @@ les outils associés.
 </span><span id="__span-48-6"><a href="#__codelineno-48-6" id="__codelineno-48-6" name="__codelineno-48-6"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Error: Division by zero</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-48-7"><a href="#__codelineno-48-7" id="__codelineno-48-7" name="__codelineno-48-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="transtypage-cast">Transtypage (<em>cast</em>)<a class="headerlink" href="#transtypage-cast" title="Permanent link">¤</a></h2>
+<h2 id="transtypage-cast">Transtypage (<em>cast</em>)<a class="headerlink" href="#transtypage-cast" title="Lien permanent">¤</a></h2>
 <p>Nous avons expliqué plus haut qu'un pointeur est généralement associé à un type permettant l'arithmétique de pointeurs. Néanmoins il existe un cas particulier, celui du type <code>void</code>. Un pointeur sur <code>void</code> est un pointeur neutre, c'est à dire qu'il peut pointer sur n'importe quel type de données. Comme le type n'est pas connu, l'arithmétique de pointeurs n'est pas possible. Il est nécessaire alors de transtyper le pointeur pour pouvoir l'utiliser.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-49-1"><a href="#__codelineno-49-1" id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </span><span id="__span-49-2"><a href="#__codelineno-49-2" id="__codelineno-49-2" name="__codelineno-49-2"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
@@ -5923,7 +5923,7 @@ les outils associés.
 <p>Un pointeur reste un pointeur, c'est une variable qui contient une adresse mémoire. Sur une architecture 64-bits, un pointeur est codé sur 8 bytes. <code>sizeof(void*)</code> retourne donc 8.</p>
 </details>
 </div>
-<h2 id="pointeurs-de-fonctions">Pointeurs de fonctions<a class="headerlink" href="#pointeurs-de-fonctions" title="Permanent link">¤</a></h2>
+<h2 id="pointeurs-de-fonctions">Pointeurs de fonctions<a class="headerlink" href="#pointeurs-de-fonctions" title="Lien permanent">¤</a></h2>
 <p>Un pointeur peut pointer n'importe où en mémoire, et donc il peut également pointer non pas sur une variable, mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel (<a href="https://fr.wikipedia.org/wiki/Fonction_de_rappel">callback</a>).</p>
 <p>Par exemple si on veut appliquer une transformation sur tous les éléments d'un tableau, mais que la transformation n'est pas connue à l'avance. On pourrait alors écrire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-59-1"><a href="#__codelineno-59-1" id="__codelineno-59-1" name="__codelineno-59-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">is_odd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -6016,7 +6016,7 @@ les outils associés.
 </span><span id="__span-63-4"><a href="#__codelineno-63-4" id="__codelineno-63-4" name="__codelineno-63-4"></a>26.000000 - 4.000000
 </span><span id="__span-63-5"><a href="#__codelineno-63-5" id="__codelineno-63-5" name="__codelineno-63-5"></a>22
 </span></code></pre></div>
-<h2 id="la-regle-gauche-droite">La règle gauche-droite<a class="headerlink" href="#la-regle-gauche-droite" title="Permanent link">¤</a></h2>
+<h2 id="la-regle-gauche-droite">La règle gauche-droite<a class="headerlink" href="#la-regle-gauche-droite" title="Lien permanent">¤</a></h2>
 <p>Cette <a href="http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html">règle</a> est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs. Il faut tout d'abord lire :</p>
 <table id="_table-5">
 <caption style="caption-side:top"> Règles gauche droite</caption><thead>
@@ -6093,7 +6093,7 @@ les outils associés.
 </span></code></pre></div>
 </li>
 </ol>
-<h3 id="cdecl">cdecl<a class="headerlink" href="#cdecl" title="Permanent link">¤</a></h3>
+<h3 id="cdecl">cdecl<a class="headerlink" href="#cdecl" title="Lien permanent">¤</a></h3>
 <p>Il existe un programme nommé <a href="https://github.com/paul-j-lucas/cdecl">cdecl</a> qui permet de décoder de complexes déclaration c :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-69-1"><a href="#__codelineno-69-1" id="__codelineno-69-1" name="__codelineno-69-1"></a><span class="gp">$ </span>cdecl<span class="w"> </span><span class="s1">'char (*(*x[3])())[5]'</span>
 </span><span id="__span-69-2"><a href="#__codelineno-69-2" id="__codelineno-69-2" name="__codelineno-69-2"></a><span class="go">declare x as array 3 of pointer to function returning pointer to array 5 of char</span>
@@ -6109,7 +6109,7 @@ les outils associés.
 </span><span id="__span-70-7"><a href="#__codelineno-70-7" id="__codelineno-70-7" name="__codelineno-70-7"></a>     &gt;             ^^^  un tableau de 5
 </span><span id="__span-70-8"><a href="#__codelineno-70-8" id="__codelineno-70-8" name="__codelineno-70-8"></a>^^^^                  &lt; char
 </span></code></pre></div>
-<h3 id="implementation">Implémentation<a class="headerlink" href="#implementation" title="Permanent link">¤</a></h3>
+<h3 id="implementation">Implémentation<a class="headerlink" href="#implementation" title="Lien permanent">¤</a></h3>
 <p>Pour l'exemple, voici une implémentation très rudimentaire de <code>cdecl</code>. Elle n'est pas complète mais elle donne le principe de fonctionnement :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-71-1"><a href="#__codelineno-71-1" id="__codelineno-71-1" name="__codelineno-71-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctype.h&gt;</span>
 </span><span id="__span-71-2"><a href="#__codelineno-71-2" id="__codelineno-71-2" name="__codelineno-71-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span>
@@ -6216,7 +6216,7 @@ les outils associés.
 <li>Afficher les arguments et la taille des tableaux en explorant à gauche</li>
 <li>Gérer les pluriels (tableau, tableaux, etc.)</li>
 </ul>
-<h2 id="initialisation-par-transtypage">Initialisation par transtypage<a class="headerlink" href="#initialisation-par-transtypage" title="Permanent link">¤</a></h2>
+<h2 id="initialisation-par-transtypage">Initialisation par transtypage<a class="headerlink" href="#initialisation-par-transtypage" title="Lien permanent">¤</a></h2>
 <p>L'utilisation de structure peut être utile pour initialiser un type de donnée en utilisant un autre type de donnée. Nous citons ici deux exemples.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-72-1"><a href="#__codelineno-72-1" id="__codelineno-72-1" name="__codelineno-72-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)(</span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="p">}){</span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="sc">'b'</span><span class="p">,</span><span class="w"> </span><span class="sc">'c'</span><span class="p">,</span><span class="w"> </span><span class="sc">'d'</span><span class="p">};</span>
 </span></code></pre></div>
@@ -6225,7 +6225,7 @@ les outils associés.
 </span><span id="__span-73-3"><a href="#__codelineno-73-3" id="__codelineno-73-3" name="__codelineno-73-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">vector</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
 </span><span id="__span-73-4"><a href="#__codelineno-73-4" id="__codelineno-73-4" name="__codelineno-73-4"></a><span class="p">}</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="enchevetrement-ou-aliasing">Enchevêtrement ou <em>Aliasing</em><a class="headerlink" href="#enchevetrement-ou-aliasing" title="Permanent link">¤</a></h2>
+<h2 id="enchevetrement-ou-aliasing">Enchevêtrement ou <em>Aliasing</em><a class="headerlink" href="#enchevetrement-ou-aliasing" title="Lien permanent">¤</a></h2>
 <p>Travailler avec les pointeurs demande une attention particulière à tous
 les problèmes d'<em>alisasing</em> dans lesquels différents pointeurs pointent sur
 une même région mémoire.</p>
@@ -6267,7 +6267,7 @@ une même région mémoire.</p>
 </span></code></pre></div>
 <p>Notre simple fonction de déplacement mémoire ne fonctionne pas avec des régions mémoires qui s'enchevêtrent. En revanche, la fonction standard <code>memmove</code> de <code>&lt;stdlib.h&gt;</code> fonctionne, car elle autorise, au détriment d'une plus grande complexité, de gérer ce type de situation.</p>
 <p>Notons que sa fonction voisine <code>memcpy</code> ne dois <strong>jamais</strong> être utilisée en cas d'<em>aliasing</em>. Cette fonction se veut performante, c'est-à-dire qu'elle peut être implémentée en suivant le même principe que notre exemple <code>memory_move</code>. Le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> ne définit pas le comportement de <code>memcpy</code> pour des pointeurs qui se chevauchent.</p>
-<h2 id="double-pointeurs">Double Pointeurs<a class="headerlink" href="#double-pointeurs" title="Permanent link">¤</a></h2>
+<h2 id="double-pointeurs">Double Pointeurs<a class="headerlink" href="#double-pointeurs" title="Lien permanent">¤</a></h2>
 <p>Nous avons vu qu'un pointeur peut référencer un autre pointeur. Dans le langage C, il est courant de rencontrer des fonctions acceptant des double pointeurs, comme illustré ci-dessous :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-78-1"><a href="#__codelineno-78-1" id="__codelineno-78-1" name="__codelineno-78-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">**</span><span class="n">ptr</span><span class="p">);</span>
 </span></code></pre></div>
@@ -6286,7 +6286,7 @@ une même région mémoire.</p>
 </span><span id="__span-79-9"><a href="#__codelineno-79-9" id="__codelineno-79-9" name="__codelineno-79-9"></a><span class="w">    </span><span class="n">painter</span><span class="p">(</span><span class="o">&amp;</span><span class="n">address</span><span class="p">);</span><span class="w"> </span><span class="c1">// Le patron transmet l'adresse du post-it</span>
 </span><span id="__span-79-10"><a href="#__codelineno-79-10" id="__codelineno-79-10" name="__codelineno-79-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="cas-dutilisation">Cas d'utilisation<a class="headerlink" href="#cas-dutilisation" title="Permanent link">¤</a></h3>
+<h3 id="cas-dutilisation">Cas d'utilisation<a class="headerlink" href="#cas-dutilisation" title="Lien permanent">¤</a></h3>
 <p>Les double pointeurs sont employés dans plusieurs scénarios en programmation C :</p>
 <ol>
 <li>
@@ -6303,7 +6303,7 @@ une même région mémoire.</p>
 </li>
 </ol>
 <p>Nous verrons certains de ces cas d'utilisation dans des sections ultérieures.</p>
-<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¤</a></h2>
+<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Lien permanent">¤</a></h2>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Esperluettes cascadées<span class="exercise-title"></span></p>
 <p>Quel est le type de :</p>
@@ -6422,7 +6422,7 @@ une même région mémoire.</p>
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

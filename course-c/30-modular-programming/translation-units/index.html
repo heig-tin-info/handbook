@@ -4766,10 +4766,10 @@ les outils associés.
   
 
 
-<h1 id="compilation-separee">Compilation séparée<a class="headerlink" href="#compilation-separee" title="Permanent link">¤</a></h1>
-<h2 id="unite-de-traduction">Unité de traduction<a class="headerlink" href="#unite-de-traduction" title="Permanent link">¤</a></h2>
+<h1 id="compilation-separee">Compilation séparée<a class="headerlink" href="#compilation-separee" title="Lien permanent">¤</a></h1>
+<h2 id="unite-de-traduction">Unité de traduction<a class="headerlink" href="#unite-de-traduction" title="Lien permanent">¤</a></h2>
 <p>En programmation, on appelle <em>translation unit</em> (unité de traduction), un code qui peut être <strong>compilé</strong> en un <strong>objet</strong> sans autre dépendance externe. Le plus souvent, une unité de traduction correspond à un fichier C.</p>
-<h2 id="diviser-pour-mieux-regner">Diviser pour mieux régner<a class="headerlink" href="#diviser-pour-mieux-regner" title="Permanent link">¤</a></h2>
+<h2 id="diviser-pour-mieux-regner">Diviser pour mieux régner<a class="headerlink" href="#diviser-pour-mieux-regner" title="Lien permanent">¤</a></h2>
 <p>De même qu'un magazine illustré est divisé en sections pour accroître la lisibilité (sport, news, annonces, météo) de même un code source est organisé en éléments fonctionnels le plus souvent séparés en plusieurs fichiers et ces derniers parfois maintenus par différents développeurs.</p>
 <p>Rappelons-le (et c'est très important) :</p>
 <ul>
@@ -4828,7 +4828,7 @@ réinventer la roue à chaque application !</p>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="go">gcc complex.o main.o -oprogram -lm</span>
 </span></code></pre></div>
 <p>Nous verrons plus bas les éléments théoriques vous permettant de mieux comprendre ces lignes.</p>
-<h2 id="module-logiciel">Module logiciel<a class="headerlink" href="#module-logiciel" title="Permanent link">¤</a></h2>
+<h2 id="module-logiciel">Module logiciel<a class="headerlink" href="#module-logiciel" title="Lien permanent">¤</a></h2>
 <p>Les applications modernes dépendent souvent de nombreux modules logiciels externes aussi utilisés dans d'autres projets. C'est avantageux à plus d'un titre :</p>
 <ul>
 <li>les modules externes sont sous la responsabilité d'autres développeurs et le programme a développer comporte moins de code ;</li>
@@ -4838,7 +4838,7 @@ réinventer la roue à chaque application !</p>
 </ul>
 <p>Lorsque vous utilisez la fonction <code>printf</code>, vous dépendez d'un module externe nommé <code>stdio</code>. En réalité l'ensemble des modules <code>stdio</code>, <code>stdlib</code>, <code>stdint</code>, <code>ctype</code>... sont tous groupés dans une seule bibliothèque logicielle nommée <code>libc</code> disponible sur tous les systèmes compatibles <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Linux, le pendant libre <code>glibc</code> est utilisé. Il s'agit de la bibliothèque <a href="https://fr.wikipedia.org/wiki/GNU_C_Library"><abbr title="GNU's Not Unix">GNU</abbr> C Library</a>.</p>
 <p>Un module logiciel peut se composer de fichiers sources, c'est-à-dire un ensemble de fichiers <code>.c</code> et <code>.h</code> ainsi qu'une documentation et un script de compilation (<code>Makefile</code>). Alternativement, un module logiciel peut se composer de bibliothèques déjà compilées sous la forme de fichiers <code>.h</code>, <code>.a</code> et <code>.so</code>. Sous Windows on rencontre fréquemment l'extension <code>.dll</code>. Ces fichiers compilés ne donnent pas accès au code source, mais permettent d'utiliser les fonctionnalités quelles offrent dans des programmes C en mettant à disposition un ensemble de fonctions documentées.</p>
-<h2 id="compilation-avec-assemblage-differe">Compilation avec assemblage différé<a class="headerlink" href="#compilation-avec-assemblage-differe" title="Permanent link">¤</a></h2>
+<h2 id="compilation-avec-assemblage-differe">Compilation avec assemblage différé<a class="headerlink" href="#compilation-avec-assemblage-differe" title="Lien permanent">¤</a></h2>
 <p>Lorsque nous avions compilé notre premier exemple <a class="autorefs autorefs-internal" href="../../05-introduction/c-lang/#hello-world_1">Hello World</a> nous avions simplement appelé <code>gcc</code> avec le fichier source <code>hello.c</code> qui nous avait créé un exécutable <code>a.out</code>. En réalité, GCC est passé par plusieurs sous-étapes de compilation :</p>
 <ol>
 <li><strong>Préprocessing</strong> : les commentaires sont retirés, les directives préprocesseur sont remplacées par leur équivalent C.</li>
@@ -4854,7 +4854,7 @@ réinventer la roue à chaque application !</p>
 <li>Compilation avec <code>gcc -c &lt;fichier.c&gt;</code>, ceci génère automatiquement un fichier <code>.o</code> du même nom que le fichier d'entrée.</li>
 <li>Édition des liens avec <code>gcc &lt;fichier1.o&gt; &lt;fichier2.o&gt; ...</code>, ceci génère automatiquement un fichier exécutable <code>a.out</code>.</li>
 </ol>
-<h2 id="fichiers-den-tete-header">Fichiers d'en-tête (<em>header</em>)<a class="headerlink" href="#fichiers-den-tete-header" title="Permanent link">¤</a></h2>
+<h2 id="fichiers-den-tete-header">Fichiers d'en-tête (<em>header</em>)<a class="headerlink" href="#fichiers-den-tete-header" title="Lien permanent">¤</a></h2>
 <p>Les fichiers d'en-tête (<code>.h</code>) sont des fichiers écrits en langage C, mais qui ne contiennent pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de <code>while</code>, de <code>for</code> ou même de <code>if</code>. Par convention, ces fichiers ne contiennent que :</p>
 <ul>
 <li>Des prototypes de fonctions (ou de variables).</li>
@@ -4907,7 +4907,7 @@ réinventer la roue à chaque application !</p>
 </span></code></pre></div>
 <p>Notons qu'ici le prototype est précédé par le mot clé <code>extern</code>. Il s'agit d'un mot clé <strong>optionnel</strong> permettant de renforcer l'intention du développeur que la fonction déclarée n'est pas inclue dans fichier courant, mais qu'elle est implémentée ailleurs, dans un autre fichier. Et c'est le cas, car <code>printf</code> est déjà compilée quelque part dans la bibliothèque <code>libc</code> inclue par défaut lorsqu'un programme C est compilé dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr>.</p>
 <p>Un fichier d'en-tête contiendra donc tout le nécessaire utile à pouvoir utiliser une bibliothèque externe.</p>
-<h3 id="protection-de-reentrance">Protection de réentrance<a class="headerlink" href="#protection-de-reentrance" title="Permanent link">¤</a></h3>
+<h3 id="protection-de-reentrance">Protection de réentrance<a class="headerlink" href="#protection-de-reentrance" title="Lien permanent">¤</a></h3>
 <p>La protection de réentrence aussi nommée <em>header guards</em> est une solution au problème d'inclusion multiple. Si par exemple on définit dans un fichier d'en-tête un nouveau type et que l'on inclut ce fichier, mais que ce dernier est déjà inclus par une autre bibliothèque, une erreur de compilation apparaîtra :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>$<span class="w"> </span>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; main.c</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="s">→ #include "foo.h"</span>
@@ -4981,7 +4981,7 @@ réinventer la roue à chaque application !</p>
 </span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="p">}</span><span class="w"> </span><span class="n">Bar</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un <code>#endif</code> à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT, car le nom du fichier <code>bar.h</code> n'apparaît pas dans le fichier <code>BAR_H</code>.</p>
-<h2 id="en-profondeur">En profondeur<a class="headerlink" href="#en-profondeur" title="Permanent link">¤</a></h2>
+<h2 id="en-profondeur">En profondeur<a class="headerlink" href="#en-profondeur" title="Lien permanent">¤</a></h2>
 <p>Pour mieux comprendre la compilation séparée, tentons d'observer le code assembleur généré. Considérons le fichier <code>foo.c</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
@@ -5202,7 +5202,7 @@ réinventer la roue à chaque application !</p>
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

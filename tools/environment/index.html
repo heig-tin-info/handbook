@@ -4794,9 +4794,9 @@ les outils associés.
   
 
 
-<h1 id="lenvironnement-de-travail">L'environnement de travail<a class="headerlink" href="#lenvironnement-de-travail" title="Permanent link">¤</a></h1>
+<h1 id="lenvironnement-de-travail">L'environnement de travail<a class="headerlink" href="#lenvironnement-de-travail" title="Lien permanent">¤</a></h1>
 <p>Vous êtes étudiant et vous êtes perdus avec l'utilisation de Python, LaTeX, Git, etc. sous Windows, Linux ou encore Docker Ce document est fait pour vous. Il vous guidera dans l'installation et l'utilisation de ces outils. L'objectif est de comprendre les avantages et les inconvénients de chaque outil et de vous permettre de les utiliser de manière efficace.</p>
-<h2 id="preambule">Préambule<a class="headerlink" href="#preambule" title="Permanent link">¤</a></h2>
+<h2 id="preambule">Préambule<a class="headerlink" href="#preambule" title="Lien permanent">¤</a></h2>
 <p>Les applications utilisées typiquement par un ingénieur aujourd'hui sont Python, Git, GCC, LaTeX ou même Docker. Ces applications ont un point commun, c'est qu'elles ont d'abord été écrites pour un environnement <strong><abbr title="Portable Operating System Interface">POSIX</abbr></strong> (Unix).</p>
 <p><strong><abbr title="Portable Operating System Interface">POSIX</abbr></strong> est une norme internationale (IEEE 1003) qui définit l'interface de programmation d'un système d'exploitation. Elle est basée sur <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>. Elle est utilisée pour les systèmes d'exploitation de type <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>. Windows n'est pas un système qui respecte cette norme ce qui complique l'utilisation de ces applications.</p>
 <p>Afin de pouvoir porter Python ou Git sous Windows, il a fallu ajouter une couche d'abstraction pour rendre compatible le monde Linux avec le monde Windows. Historiquement le projet <a href="https://en.wikipedia.org/wiki/Cygwin">Cygwin</a> né en 1995 a été le premier à proposer une telle couche. Il s'agissait d'un environnement <abbr title="Portable Operating System Interface">POSIX</abbr> pour Windows muni d'un terminal, d'un gestionnaire de paquets et d'une bibliothèque d'émulation <abbr title="Portable Operating System Interface">POSIX</abbr>. Les outils en ligne de commande type <code>ls</code>, <code>cat</code> ou même <code>grep</code> étaient proposés. Néanmoins, Cygwin n'était pas parfait, il nécessitait son propre environnement de travail et n'était pas bien intégré à Windows. Le projet <a href="https://en.wikipedia.org/wiki/MSYS">MSYS</a> a été créé en 2003 pour pallier à ces problèmes. Il s'agissait d'une couche d'abstraction <abbr title="Portable Operating System Interface">POSIX</abbr> pour Windows qui se voulait plus légère. Au lieu de compiler des applications Linux qui devaient impérativement être lancées sous Cygwin, MSYS intégrait la couche d'abstraction dans les applications elles-mêmes, ces dernières étaient compilées en <code>.exe</code> et pouvaient être lancées directement depuis l'explorateur Windows. MSYS a été un franc succès et a été intégré dans le projet <a href="https://en.wikipedia.org/wiki/MinGW">MinGW</a> (Minimalist <abbr title="GNU's Not Unix">GNU</abbr> for Windows) qui est un portage de GCC pour Windows.</p>
@@ -4810,14 +4810,14 @@ les outils associés.
 <li><strong>Choix facile mais source d'incohérences</strong>: Travailler exclusivement sous Windows et installer <code>Python</code>, <code>Git</code>, <code>LaTeX</code> sous Windows. L'inconvénient est que chacune de ses applications ne profitent pas d'une unité de travail commune. A force d'installer des applications, vous aurez dans votre système plusieurs installation de Python, plusieurs exécutables Git ce qui peut vite devenir compliqué à gérer.</li>
 <li><strong>Choix plus difficile mais offrant davantage de flexibilité</strong>: Travailler sous WSL 2 et de faire tourner <code>Python</code>, <code>Git</code>, <code>LaTeX</code> sous Linux. L'avantage est que vous aurez une unité de travail commune. Vous pourrez installer des applications Linux directement depuis le gestionnaire de paquets de votre distribution Linux. Néanmoins vous devrez vous familiariser avec la ligne de commande Linux.</li>
 </ol>
-<h2 id="le-terminal">Le terminal<a class="headerlink" href="#le-terminal" title="Permanent link">¤</a></h2>
+<h2 id="le-terminal">Le terminal<a class="headerlink" href="#le-terminal" title="Lien permanent">¤</a></h2>
 <p>Historiquement sous Windows, le terminal était une application graphique appelée <code>cmd</code>. Elle n'a pas évoluée depuis Windows NT. Son interface est limitée à un nombre fini de caractères par ligne et ne supportait que quelques couleurs. Elle ne supportait pas les caractères Unicode et ne supportait pas les raccourcis clavier comme <code>Ctrl+C</code> ou <code>Ctrl+V</code>.</p>
 <p>Heursement Windows a évolué et propose PowerShell. PowerShell est un terminal plus moderne qui supporte les couleurs, les raccourcis clavier, les caractères Unicode, etc. PowerShell est un terminal plus puissant que <code>cmd</code>.</p>
 <p>L'interface du terminal était également rudimentaire (pas d'onglets, pas de séparateurs, etc.). Heureusement Windows propose depuis 2019 <a href="https://en.wikipedia.org/wiki/Windows_Terminal">Windows Terminal</a>. Windows Terminal est un terminal moderne multi-onglets qui supporte plusieurs terminaux (cmd, PowerShell, WSL, etc.). S'il n'est pas installé vous pouvez le faire via le <a href="https://www.microsoft.com/fr-ch/p/windows-terminal/9n0dx20hk701">Microsoft Store</a>.</p>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/cmd.png"><img alt="Interface de cmd.exe dans Windows Terminal" src="../../assets/images/cmd.png"/></a><figcaption> Interface de cmd.exe dans Windows Terminal</figcaption></figure></p>
 <p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/powershell.png"><img alt="Interface de PowerShell dans Windows Terminal" src="../../assets/images/powershell.png"/></a><figcaption> Interface de PowerShell dans Windows Terminal</figcaption></figure></p>
 <p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/bash.png"><img alt="Interface de Ubuntu dans Windows Terminal" src="../../assets/images/bash.png"/></a><figcaption> Interface de Ubuntu dans Windows Terminal</figcaption></figure></p>
-<h2 id="variables-denvironnement">Variables d'environnement<a class="headerlink" href="#variables-denvironnement" title="Permanent link">¤</a></h2>
+<h2 id="variables-denvironnement">Variables d'environnement<a class="headerlink" href="#variables-denvironnement" title="Lien permanent">¤</a></h2>
 <p>Que vous soyez sous <abbr title="Portable Operating System Interface">POSIX</abbr> ou Windows, votre système d'exploitation dispose de variables d'environnement. Il s'agit de variables qui sont accessibles par toutes les applications. Elles sont utilisées pour stocker des informations comme le chemin d'accès à un exécutable, le nom de l'utilisateur, le répertoire de travail, etc.</p>
 <p>La variable la plus importante est <code>PATH</code>. Elle contient une liste de chemins d'accès aux exécutables. Lorsque vous tapez une commande dans un terminal, le système d'exploitation parcourt les chemins d'accès de la variable <code>PATH</code> pour trouver l'exécutable correspondant à la commande. Si vous avez installé Python, Git, LaTeX, etc. dans des répertoires différents, il est nécessaire de les ajouter à la variable <code>PATH</code>. Parfois les installateurs le font automatiquement, parfois non. Il est donc nécessaire de vérifier manuellement.</p>
 <p>Une variable d'environnement n'est propagée à un processus que si ce dernier est lancé après la modification de la variable. Si vous modifiez la variable <code>PATH</code> les processus déjà lancés ne verront pas la modification. Il est nécessaire de fermer le terminal et de le rouvrir (relancer Visual Studio Code, votre terminal, etc.).</p>
@@ -4840,13 +4840,13 @@ les outils associés.
 </div>
 </div>
 </div>
-<h3 id="latex">LaTeX<a class="headerlink" href="#latex" title="Permanent link">¤</a></h3>
+<h3 id="latex">LaTeX<a class="headerlink" href="#latex" title="Lien permanent">¤</a></h3>
 <p>Sous Linux/WSL, le plus simple est d'installer LaTeX avec le gestionnaire de paquets de votre distribution Linux. Ouvrez un terminal et tapez la commande suivante :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>texlive-full<span class="w"> </span>latexmk
 </span></code></pre></div>
 <p>Sous Windows c'est plus compliqué. Il existe plusieurs distributions LaTeX pour Windows. La plus courante est <a href="https://miktex.org">MiKTeX</a>. Téléchargez l'installateur et suivez les instructions.</p>
-<h2 id="commandes-principales">Commandes principales<a class="headerlink" href="#commandes-principales" title="Permanent link">¤</a></h2>
-<h3 id="gcc">GCC<a class="headerlink" href="#gcc" title="Permanent link">¤</a></h3>
+<h2 id="commandes-principales">Commandes principales<a class="headerlink" href="#commandes-principales" title="Lien permanent">¤</a></h2>
+<h3 id="gcc">GCC<a class="headerlink" href="#gcc" title="Lien permanent">¤</a></h3>
 <table>
 <thead>
 <tr>
@@ -4892,7 +4892,7 @@ les outils associés.
 </div>
 </div>
 </div>
-<h3 id="linuxwsl">Linux/WSL<a class="headerlink" href="#linuxwsl" title="Permanent link">¤</a></h3>
+<h3 id="linuxwsl">Linux/WSL<a class="headerlink" href="#linuxwsl" title="Lien permanent">¤</a></h3>
 <table>
 <thead>
 <tr>
@@ -4939,12 +4939,12 @@ les outils associés.
 </tr>
 </tbody>
 </table>
-<h4 id="afficher-les-fichiers-du-repertoire-courant">Afficher les fichiers du répertoire courant<a class="headerlink" href="#afficher-les-fichiers-du-repertoire-courant" title="Permanent link">¤</a></h4>
+<h4 id="afficher-les-fichiers-du-repertoire-courant">Afficher les fichiers du répertoire courant<a class="headerlink" href="#afficher-les-fichiers-du-repertoire-courant" title="Lien permanent">¤</a></h4>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>ls<span class="w"> </span>-al<span class="w"> </span><span class="c1"># Par noms</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>ls<span class="w"> </span>-lt<span class="w"> </span><span class="c1"># Par date de modification</span>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>ls<span class="w"> </span>-lh<span class="w"> </span><span class="c1"># En format lisible</span>
 </span></code></pre></div>
-<h3 id="python">Python<a class="headerlink" href="#python" title="Permanent link">¤</a></h3>
+<h3 id="python">Python<a class="headerlink" href="#python" title="Lien permanent">¤</a></h3>
 <table>
 <thead>
 <tr>
@@ -4971,7 +4971,7 @@ les outils associés.
 </tr>
 </tbody>
 </table>
-<h3 id="latex_1">LaTeX<a class="headerlink" href="#latex_1" title="Permanent link">¤</a></h3>
+<h3 id="latex_1">LaTeX<a class="headerlink" href="#latex_1" title="Lien permanent">¤</a></h3>
 <table>
 <thead>
 <tr>
@@ -5049,7 +5049,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

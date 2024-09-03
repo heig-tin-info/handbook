@@ -4857,7 +4857,7 @@ les outils associés.
 
 
 <p><a href="" id="functions"></a></p>
-<h1 id="fonctions">Fonctions<a class="headerlink" href="#fonctions" title="Permanent link">¤</a></h1>
+<h1 id="fonctions">Fonctions<a class="headerlink" href="#fonctions" title="Lien permanent">¤</a></h1>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/hamilton.png"><img alt="Margaret Hamilton (1969)" src="../../../assets/images/hamilton.png" width="70%"/></a><figcaption> Margaret Hamilton, directrice projet AGC (1969), photo du <abbr title="Massachusetts Institute of Technology">MIT</abbr> Museum</figcaption></figure></p>
 <p>Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.</p>
 <p>À l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du <a href="https://github.com/chrislgarry/Apollo-11">Apollo Guidance Computer</a> ont été publiées sur GitHub. Le langage est l'assembler <a href="https://www.ibiblio.org/apollo/yaYUL.html">yaYUL</a> dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.</p>
@@ -4880,7 +4880,7 @@ les outils associés.
 <li>D'accroître la traçabilité à l'exécution</li>
 </ul>
 <p>En revanche, une fonction apporte quelques désavantages qui à l'échelle des ordinateurs moderne sont parfaitement négligeables. L'appel à une fonction ou sous-routine requiert du <a href="https://fr.wikipedia.org/wiki/Sous-programme">housekeeping</a>, qui se compose d'un prélude et d'un aboutissant et dans lequel le <a href="https://fr.wikipedia.org/wiki/Commutation_de_contexte">contexte</a> doit être sauvegardé.</p>
-<h2 id="conventions-dappel">Conventions d'appel<a class="headerlink" href="#conventions-dappel" title="Permanent link">¤</a></h2>
+<h2 id="conventions-dappel">Conventions d'appel<a class="headerlink" href="#conventions-dappel" title="Lien permanent">¤</a></h2>
 <p>Dans le <a href="https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro">Voyage de Chihiro</a> (千と千尋の神隠し) de Hayao Miyazaki, le vieux Kamaji (釜爺) travaille dans la chaudière des bains pour l'alimenter en charbon et préparer les décoctions d'herbes pour parfumer les bains des clients.</p>
 <p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/kamaji.jpg"><img alt="Le vieux Kamaji et ses bras extensibles." src="../../../assets/images/kamaji.jpg"/></a><figcaption> Le vieux Kamaji et ses bras extensibles.</figcaption></figure></p>
 <p>Je vous propose de bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel il mélange les herbes ; ils sont à l'instar de l'<a href="https://en.wikipedia.org/wiki/Arithmetic_logic_unit">ALU</a> d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie : le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaires aux registres du processeur.</p>
@@ -4920,7 +4920,7 @@ les outils associés.
 <li>ceux qui doivent être sauvegardés par le <em>callee</em> (la fonction qui est appelée).</li>
 </ul>
 <p>En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à se soucier du processeur, du nom des registres, de la correspondance entre le nom des herbes et le casier ou elles sont entreposées. Néanmoins, l'électronicien développeur, proche du matériel, doit parfois bien comprendre ces mécanismes et ce qu'ils coûtent (en temps et en place mémoire) à l'exécution d'un programme.</p>
-<h3 id="overhead">Overhead<a class="headerlink" href="#overhead" title="Permanent link">¤</a></h3>
+<h3 id="overhead">Overhead<a class="headerlink" href="#overhead" title="Lien permanent">¤</a></h3>
 <p>L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés :</p>
 <p><figure id="_figure-4"><img alt="Convention d'appel de fonction" class="drawio-diagram" src="../../../assets/images/calling-convention.drawio"/><figcaption> Sauvegarde des registres du processeur et convention d'appel de fonction.</figcaption></figure></p>
 <p>Ce coût est faible, très faible, un ordinateur fonctionnant à 3 GHz et une fonction complexe utilisant tous les registres disponibles, mettons 10 registres, consommera entre l'appel de la fonction et son retour 0.000'000'003 seconde, ça va, c'est raisonnable. Sauf que, si la fonction ne comporte qu'une seule opération comme ci-dessous, l'overhead sera aussi plus faible.</p>
@@ -4928,12 +4928,12 @@ les outils associés.
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">¤</a></h3>
+<h3 id="stack">Stack<a class="headerlink" href="#stack" title="Lien permanent">¤</a></h3>
 <p>En français la <a href="https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution">pile d'exécution</a>, est un emplacement mémoire utilisé pour sauvegarder les registres du processeur entre les appels de fonctions, sauvegarder les adresses de retour des fonctions qui sont analogue à sauvegarder le numéro de page du livre de recettes : p 443. Recette du Bras de Vénus : commencer par réaliser une génoise de 300g (p. 225). Une fois la génoise terminée, il faut se rappeler de retourner à la page 443. Enfin le <em>stack</em> est utilisé pour mémoriser les paramètres des fonctions supplémentaires qui ne tiendraient pas dans les registres d'entrées. La convention d'appel de la plupart des architectures prévoit généralement 3 registres pour les paramètres d'entrées, si bien qu'une fonction à 4 paramètres pourrait bien aussi utiliser le <em>stack</em>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">double</span><span class="w"> </span><span class="nf">quaternion_norm</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">d1</span><span class="p">);</span>
 </span></code></pre></div>
 <p>La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont empilés et dépilés les éléments au besoin. À chaque appel d'une fonction, la valeur des registres à sauvegarder est empilée et au retour d'une fonction les registres sont dépilés si bien que la fonction d'appel retrouve le <em>stack</em> dans le même état qu'il était avant l'appel d'une fonction enfant.</p>
-<h2 id="prototype">Prototype<a class="headerlink" href="#prototype" title="Permanent link">¤</a></h2>
+<h2 id="prototype">Prototype<a class="headerlink" href="#prototype" title="Lien permanent">¤</a></h2>
 <p><a href="" id="function-prototype"></a></p>
 <p>Le <a href="https://en.wikipedia.org/wiki/Function_prototype">prototype</a> d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour construire des bibliothèques logicielles. La fonction <code>printf</code> que nous ne cessons pas d'utiliser voit son prototype résider dans le fichier <code>&lt;stdio.h&gt;</code> et il est déclaré sous la forme :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>​int printf(const char* format, ...);
@@ -4970,7 +4970,7 @@ les outils associés.
 </span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Un <strong>prototype</strong> de fonction diffère de son <strong>implémentation</strong> par le fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les conventions d'appel <a href="" id="calling_conventions"></a> de la fonction.</p>
-<h2 id="syntaxe">Syntaxe<a class="headerlink" href="#syntaxe" title="Permanent link">¤</a></h2>
+<h2 id="syntaxe">Syntaxe<a class="headerlink" href="#syntaxe" title="Lien permanent">¤</a></h2>
 <p>La syntaxe d'écriture d'une fonction peut être assez compliquée et la source de vérité est issue de la grammaire du langage, qui n'est pas nécessairement accessible au profane. Or, depuis <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, une fonction prend la forme :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>&lt;storage-class&gt; &lt;return-type&gt; &lt;function-name&gt; (
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>    &lt;parameter-type&gt; &lt;parameter-name&gt;, ... )
@@ -5004,7 +5004,7 @@ les outils associés.
 <p>On poursuit avec l'implémentation du code <code>{ ... }</code></p>
 </dd>
 </dl>
-<h3 id="void">void<a class="headerlink" href="#void" title="Permanent link">¤</a></h3>
+<h3 id="void">void<a class="headerlink" href="#void" title="Lien permanent">¤</a></h3>
 <p>Le type <code>void</code> est à une signification particulière dans la syntaxe d'une fonction. Il peut être utilisé de trois manières différentes :</p>
 <ul>
 <li>
@@ -5032,7 +5032,7 @@ les outils associés.
 </span><span id="__span-13-6"><a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Aussi, il est impératif de toujours écrire des prototypes complets et d'explicitement utiliser <code>void</code> lorsque la fonction ne prend aucun paramètre en entrée. Si vous utilisez un compilateur C++, une déclaration incomplète génèrera une erreur.</p>
-<h2 id="parametres">Paramètres<a class="headerlink" href="#parametres" title="Permanent link">¤</a></h2>
+<h2 id="parametres">Paramètres<a class="headerlink" href="#parametres" title="Lien permanent">¤</a></h2>
 <p>Comme nous l'avons vu plus haut, pour de meilleures performances à l'exécution, il est préférable de s'en tenir à un maximum de trois paramètres, c'est également plus lisible pour le développeur, mais rien n'empêche d'en avoir plus.</p>
 <p>En plus de cela, les <a href="https://fr.wikipedia.org/wiki/Param%C3%A8tre_(programmation_informatique)">paramètres</a> peuvent être passés de deux manières :</p>
 <ul>
@@ -5064,9 +5064,9 @@ les outils associés.
 <p>Par abus de langage et en comparaison avec d'autres langages de programmation, on appellera ceci un passage par référence, car ce n'est pas une copie du tableau qui est passée à la fonction <code>alter</code>, mais seulement une référence sur ce tableau.</p>
 <p>En des termes plus corrects, mais nous verrons cela au chapitre sur les pointeurs, c'est bien un passage par valeur dans lequel la valeur d'un pointeur sur un tableau est passée à la fonction <code>alter</code>.</p>
 <p>Retenez simplement que lors d'un passage par référence, on cherche à rendre la valeur passée en paramètre modifiable par le <em>caller</em>.</p>
-<h2 id="exemples-de-fonctions">Exemples de fonctions<a class="headerlink" href="#exemples-de-fonctions" title="Permanent link">¤</a></h2>
+<h2 id="exemples-de-fonctions">Exemples de fonctions<a class="headerlink" href="#exemples-de-fonctions" title="Lien permanent">¤</a></h2>
 <p><a href="" id="fib-iterative"></a></p>
-<h3 id="suite-de-fibonacci">Suite de Fibonacci<a class="headerlink" href="#suite-de-fibonacci" title="Permanent link">¤</a></h3>
+<h3 id="suite-de-fibonacci">Suite de Fibonacci<a class="headerlink" href="#suite-de-fibonacci" title="Lien permanent">¤</a></h3>
 <p>La suite de Fibonacci est une suite d'entiers dans laquelle chaque terme est la somme des deux termes précédents. La suite commence par 0 et 1. La suite commence donc par 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...</p>
 <p>Voici une implémentation de la suite de Fibonacci en utilisant une approche itérative :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
@@ -5084,7 +5084,7 @@ les outils associés.
 </span><span id="__span-16-13"><a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
 </span><span id="__span-16-14"><a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¤</a></h2>
+<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Lien permanent">¤</a></h2>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Dans la moyenne<span class="exercise-title"></span></p>
 <p>Écrire une fonction <code>mean</code> qui reçoit 3 paramètres réels et qui retourne la moyenne.</p>
@@ -5311,7 +5311,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

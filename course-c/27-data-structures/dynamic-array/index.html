@@ -4854,14 +4854,14 @@ les outils associés.
   
 
 
-<h1 id="tableau-dynamique">Tableau dynamique<a class="headerlink" href="#tableau-dynamique" title="Permanent link">¤</a></h1>
-<h2 id="definition">Définition<a class="headerlink" href="#definition" title="Permanent link">¤</a></h2>
+<h1 id="tableau-dynamique">Tableau dynamique<a class="headerlink" href="#tableau-dynamique" title="Lien permanent">¤</a></h1>
+<h2 id="definition">Définition<a class="headerlink" href="#definition" title="Lien permanent">¤</a></h2>
 <p>Un tableau dynamique (aussi nommé vecteur en C++ ou liste en Python) est une structure de données qui transcende les limitations rigides du tableau classique en offrant une flexibilité d’utilisation accrue. Dans un tableau statique, la taille est déterminée dès l'initialisation et ne peut plus être modifiée, ce qui impose au développeur de prédire, parfois avec difficulté, la quantité exacte d'espace nécessaire. Un tableau dynamique, en revanche, s’ajuste à la croissance ou à la diminution des données qu’il contient, répondant ainsi aux besoins évolutifs du programme.</p>
 <p>Le fonctionnement d’un tableau dynamique repose sur un mécanisme fondamental : la gestion dynamique de la mémoire. Initialement, un tableau dynamique est alloué avec une taille déterminée, souvent modeste, pour accueillir les premiers éléments. Cependant, lorsque le tableau atteint sa capacité maximale, une nouvelle allocation de mémoire plus vaste est effectuée. Ce processus implique la création d'un nouveau tableau plus grand, la copie des éléments du tableau original vers ce nouveau tableau, et enfin la libération de la mémoire allouée au tableau initial.</p>
 <p>Cette flexibilité a un coût, celui de la performance, car la réallocation et la copie des éléments lors de l'agrandissement du tableau sont des opérations coûteuses en temps, surtout si elles sont fréquentes. Pour atténuer cet inconvénient, les tableaux dynamiques sont souvent conçus pour doubler leur capacité à chaque réallocation, réduisant ainsi la fréquence de ces opérations.</p>
 <p>Outre la gestion de la capacité, un tableau dynamique offre également des opérations d'insertion et de suppression d'éléments plus souples que celles d'un tableau statique. Là où un tableau statique nécessiterait de déplacer manuellement les éléments pour insérer ou supprimer une valeur, le tableau dynamique gère ces opérations en interne, rendant son utilisation plus intuitive.</p>
 <p>Néanmoins, cette puissance de flexibilité s'accompagne d'une exigence de gestion rigoureuse. Le développeur doit rester conscient de la manière dont la mémoire est utilisée, surtout dans des langages comme le C où le contrôle manuel de l'allocation et de la libération de la mémoire est requis. Une mauvaise gestion de ces aspects peut conduire à des fuites de mémoire ou à des inefficacités critiques.</p>
-<h2 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Permanent link">¤</a></h2>
+<h2 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Lien permanent">¤</a></h2>
 <p>Prenons un exemple simple pour illustrer le concept de tableau dynamique en C. Imaginons que nous souhaitons créer un buffer pour stocker une séquence de trois caractères :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
@@ -4885,7 +4885,7 @@ les outils associés.
 <p>Lors de la réallocation, la taille du nouvel espace mémoire est souvent augmentée selon un facteur de croissance prédéfini. Ce facteur varie généralement entre 1,5 et 2, selon le langage de programmation ou le compilateur utilisé. Ainsi, si l’on suit un facteur de 2, les tailles successives du tableau pourraient être 1, 2, 4, 8, 16, 32, et ainsi de suite.</p>
 <p>Il est également possible de réduire la taille allouée lorsque le nombre d'éléments devient significativement inférieur à la taille effective du tableau. Toutefois, en pratique, cette opération est rarement mise en œuvre, car elle peut s’avérer inefficace et coûteuse en termes de performance, comme l’explique cette <a href="https://stackoverflow.com/a/60827815/2612235">réponse sur StackOverflow</a>.</p>
 <p>Ainsi, la gestion dynamique de la mémoire à travers des opérations de réallocation permet une flexibilité précieuse, mais elle nécessite une gestion attentive pour éviter des inefficacités et des problèmes de performances.</p>
-<h2 id="anatomie">Anatomie<a class="headerlink" href="#anatomie" title="Permanent link">¤</a></h2>
+<h2 id="anatomie">Anatomie<a class="headerlink" href="#anatomie" title="Lien permanent">¤</a></h2>
 <p>Un tableau dynamique est représenté en mémoire comme un contenu séquentiel qui possède un début et une fin. On appelle son début la <strong>tête</strong> (<em>head</em>) ou <em>front</em> et la fin du tableau, sa <strong>queue</strong> (<em>tail</em>) ou <em>back</em>. Selon que l'on souhaite ajouter des éléments au début ou à la fin du tableau, la complexité n'est pas la même.</p>
 <p>Nous définirons par la suite les opérations suivantes :</p>
 <p><figure id="_figure-1"><img alt="Opérations sur un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-operations.drawio"/><figcaption> Opérations sur un tableau dynamique</figcaption></figure></p>
@@ -4953,19 +4953,19 @@ les outils associés.
 </span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
 </span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">}</span><span class="w"> </span><span class="n">Vector</span><span class="err">```</span>
 </span></code></pre></div>
-<h3 id="pop-pop_back">Pop (<em>pop_back</em>)<a class="headerlink" href="#pop-pop_back" title="Permanent link">¤</a></h3>
+<h3 id="pop-pop_back">Pop (<em>pop_back</em>)<a class="headerlink" href="#pop-pop_back" title="Lien permanent">¤</a></h3>
 <p>L'opération <code>pop</code> retire l'élément de la fin du tableau. Le nombre d'éléments est donc ajusté en conséquence.</p>
 <p><figure id="_figure-3"><img alt="Suppression d'un élément dans un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-pop.drawio"/><figcaption> Suppression d'un élément dans un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elements</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="o">--</span><span class="n">elements</span><span class="p">];</span>
 </span></code></pre></div>
-<h3 id="push-push_back">Push (<em>push_back</em>)<a class="headerlink" href="#push-push_back" title="Permanent link">¤</a></h3>
+<h3 id="push-push_back">Push (<em>push_back</em>)<a class="headerlink" href="#push-push_back" title="Lien permanent">¤</a></h3>
 <p>L'opération <code>push</code> ajoute un élément à la fin du tableau.</p>
 <p><figure id="_figure-4"><img alt="Ajout d'un élément dans un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-push.drawio"/><figcaption> Ajout d'un élément dans un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elements</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">capacity</span><span class="p">)</span><span class="w"> </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">data</span><span class="p">[</span><span class="n">elements</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 </span></code></pre></div>
-<h3 id="shift-pop_front">Shift (<em>pop_front</em>)<a class="headerlink" href="#shift-pop_front" title="Permanent link">¤</a></h3>
+<h3 id="shift-pop_front">Shift (<em>pop_front</em>)<a class="headerlink" href="#shift-pop_front" title="Lien permanent">¤</a></h3>
 <p>L'opération <code>shift</code> retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque élément qu'il contient.</p>
 <p><figure id="_figure-5"><img alt="Tableau dynamique: pop front" class="drawio-diagram" src="../../../assets/images/dyn-array-shift.drawio"/><figcaption> Suppression du premier élément dans un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elements</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
@@ -4980,7 +4980,7 @@ les outils associés.
 </span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="n">data</span><span class="o">++</span><span class="p">;</span>
 </span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">capacity</span><span class="o">--</span><span class="p">;</span>
 </span></code></pre></div>
-<h3 id="unshift-push_front">Unshift (<em>push_front</em>)<a class="headerlink" href="#unshift-push_front" title="Permanent link">¤</a></h3>
+<h3 id="unshift-push_front">Unshift (<em>push_front</em>)<a class="headerlink" href="#unshift-push_front" title="Lien permanent">¤</a></h3>
 <p>Enfin, l'opération <code>unshift</code> ajoute un élément depuis le début du tableau :</p>
 <p><figure id="_figure-6"><img alt="Ajout d'un élément en début d'un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-unshift.drawio"/><figcaption> Ajout d'un élément en début d'un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elements</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">--</span><span class="p">)</span>
@@ -4992,7 +4992,7 @@ les outils associés.
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">realloc</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">capacity</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="analyse-de-la-complexite">Analyse de la complexité<a class="headerlink" href="#analyse-de-la-complexite" title="Permanent link">¤</a></h2>
+<h2 id="analyse-de-la-complexite">Analyse de la complexité<a class="headerlink" href="#analyse-de-la-complexite" title="Lien permanent">¤</a></h2>
 <dl>
 <dt>Accès par index <span class="arithmatex">\(O(1)\)</span></dt>
 <dd>
@@ -5031,14 +5031,14 @@ les outils associés.
 </span><span id="__span-10-13"><a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a>33..64    64        6 (64)
 </span></code></pre></div>
 <p>Si on insert 64 éléments on a du redimensionner le tableau 6 fois et on à du copier <span class="arithmatex">\(64 + 32 + 16 + 8 + 4 + 2 = 126\)</span> éléments en totalité. En moyenne c'est comme si chaque insertion avait coûté <span class="arithmatex">\(126 / 64 \approx 2\)</span>, soit une constante que l'on écrit <span class="arithmatex">\(O(1)\)</span>. Comme ce coût est amorti sur l'ensemble des éléments, on dit que la complexité d'insertion est de <span class="arithmatex">\(O(1)\)</span> <em>amorti</em>.</p>
-<h2 id="pile">Pile<a class="headerlink" href="#pile" title="Permanent link">¤</a></h2>
+<h2 id="pile">Pile<a class="headerlink" href="#pile" title="Lien permanent">¤</a></h2>
 <p>Une pile est une structure de données utilisée pour empiler des données de manière temporaire. C'est ce que l'on appelle un LIFO (<em>Last In, First Out</em>).</p>
 <p><figure id="_figure-7"><img alt="Pile ou *stack*" class="drawio-diagram" src="../../../assets/images/dyn-array-stack.drawio"/><figcaption> Pile ou *stack*</figcaption></figure></p>
 <p>Nous avons vu que certaines opérations sont plus onéreuses que d'autres. Les opérations <code>push-back</code> et <code>pop-back</code> sont les moins gourmandes. Puisque la pile n'a que deux opérations, on peut en tirer parti.</p>
 <p>Une pile peut donc être implémentée sous forme d'un tableau dynamique dans lequel on ne conserverai que deux opérations.</p>
-<h2 id="queue">Queue<a class="headerlink" href="#queue" title="Permanent link">¤</a></h2>
+<h2 id="queue">Queue<a class="headerlink" href="#queue" title="Lien permanent">¤</a></h2>
 <p>Une queue est une structure de données utilisée comme file d'attente. C'est ce que l'on nomme un FIFO (<em>First In, First Out</em>). Les éléments sont ajoutés à la fin et retirés au début. Néanmoins, afin d'éviter le déplacement constant des éléments en <span class="arithmatex">\(O(n)\)</span>, une file circulaire est souvent utilisée.</p>
-<h2 id="buffer-circulaire">Buffer circulaire<a class="headerlink" href="#buffer-circulaire" title="Permanent link">¤</a></h2>
+<h2 id="buffer-circulaire">Buffer circulaire<a class="headerlink" href="#buffer-circulaire" title="Lien permanent">¤</a></h2>
 <p>Un <strong>tampon circulaire</strong> aussi appelé <em>buffer circulaire</em> ou <em>ring buffer</em> en anglais est généralement d'une taille fixe et possède deux pointeurs. L'un pointant sur le dernier élément (<em>tail</em>) et l'un sur le premier élément (<em>head</em>).</p>
 <p>Lorsqu'un élément est supprimé du buffer, le pointeur de fin est incrémenté. Lorsqu'un élément est ajouté, le pointeur de début est incrémenté.</p>
 <p>Pour permettre la circulation, les indices sont calculés modulo la taille du buffer.</p>
@@ -5178,7 +5178,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

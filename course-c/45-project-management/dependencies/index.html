@@ -4700,10 +4700,10 @@ les outils associés.
   
 
 
-<h1 id="gestion-des-dependances">Gestion des dépendances<a class="headerlink" href="#gestion-des-dependances" title="Permanent link">¤</a></h1>
+<h1 id="gestion-des-dependances">Gestion des dépendances<a class="headerlink" href="#gestion-des-dependances" title="Lien permanent">¤</a></h1>
 <p>Les dépendances sont des bibliothèques ou des modules qui sont utilisés dans un projet. Elles peuvent être des bibliothèques tierces, des modules internes ou des fichiers de configuration. La gestion des dépendances est un aspect important du développement logiciel, car elle permet de gérer les dépendances entre les différents composants d'un projet.</p>
 <p>Lorsque vous travaillez sur un projet en C ou d'ailleurs dans un autre langage, vous aurez souvent besoin d'utiliser des bibliothèques tierces pour étendre les fonctionnalités de votre programme et ne nous le cachons pas c'est toujours un enfer de gérer les dépendances. Nous allons voir quelques outils qui peuvent vous aider à gérer les dépendances de votre projet.</p>
-<h2 id="gestionnaire-de-dependances">Gestionnaire de dépendances<a class="headerlink" href="#gestionnaire-de-dependances" title="Permanent link">¤</a></h2>
+<h2 id="gestionnaire-de-dependances">Gestionnaire de dépendances<a class="headerlink" href="#gestionnaire-de-dependances" title="Lien permanent">¤</a></h2>
 <p>Imagions le projet suivant. C'est un fichier unique qui utilise les bibliothèques Curl, SQLite et PCRE. Voici le code source :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;curl/curl.h&gt;</span>
@@ -4734,7 +4734,7 @@ les outils associés.
 </span><span id="__span-0-27"><a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Pour gérer les dépendances de ce projet il est possible d'utiliser différents outils tels que CMake, Meson, Conan, etc.</p>
-<h3 id="meson">Meson<a class="headerlink" href="#meson" title="Permanent link">¤</a></h3>
+<h3 id="meson">Meson<a class="headerlink" href="#meson" title="Lien permanent">¤</a></h3>
 <p><a href="https://mesonbuild.com/">Meson</a> est un système de build open-source conçu pour être rapide, facile à utiliser et extensible. Il est écrit en Python et est compatible avec de nombreux langages de programmation, y compris C, C++, Rust, Java, etc. Meson est particulièrement utile pour les projets C/C++ car il prend en charge la compilation croisée, la génération de fichiers de configuration et la gestion des dépendances. Il se base sur <a href="https://ninja-build.org/">Ninja</a> pour la compilation. Il s'agit d'une alternative à Make plus moderne et plus rapide.</p>
 <p>Commencez par installer Meson sur votre système :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>meson<span class="w"> </span>ninja-build<span class="w"> </span><span class="se">\</span>
@@ -4759,7 +4759,7 @@ les outils associés.
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>$<span class="w"> </span>ninja<span class="w"> </span>-C<span class="w"> </span>build
 </span></code></pre></div>
 <p>Meson ne gère pas les dépendances tierces, il faut donc les installer manuellement. Dans notre cas, nous avons installé les dépendances avec <code>apt-get</code> avant de configurer le projet.</p>
-<h3 id="conan">Conan<a class="headerlink" href="#conan" title="Permanent link">¤</a></h3>
+<h3 id="conan">Conan<a class="headerlink" href="#conan" title="Lien permanent">¤</a></h3>
 <p><a href="https://conan.io/">Conan</a> est un gestionnaire de dépendances C/C++ open-source, décentralisé et multiplateforme. Il permet de gérer les dépendances de vos projets C/C++ en automatisant le processus de téléchargement, de compilation et d'installation des bibliothèques tierces. Il est particulièrement utile sous Windows où la gestion des dépendances est souvent plus complexe.</p>
 <p>Conan est écrit en Python et est compatible avec de nombreux systèmes de build, tels que CMake, Make, Visual Studio, Xcode, etc. Pour l'installer sur votre système utilisez la commande suivante :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span>conan
@@ -4836,7 +4836,7 @@ les outils associés.
 <p>Ensuite, configurez le projet avec CMake :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>$<span class="w"> </span>cmake<span class="w"> </span>-B<span class="w"> </span>build
 </span></code></pre></div>
-<h3 id="_1"><a class="headerlink" href="#_1" title="Permanent link">¤</a></h3>
+<h3 id="_1"><a class="headerlink" href="#_1" title="Lien permanent">¤</a></h3>
 
 
 
@@ -4900,7 +4900,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

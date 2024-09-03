@@ -4866,7 +4866,7 @@ les outils associés.
   
 
 
-<h1 id="arbres">Arbres<a class="headerlink" href="#arbres" title="Permanent link">¤</a></h1>
+<h1 id="arbres">Arbres<a class="headerlink" href="#arbres" title="Lien permanent">¤</a></h1>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/binary-tree.jpg"><img alt="Arbre binaire IRL" src="../../../assets/images/binary-tree.jpg"/></a><figcaption> Arbre binaire IRL</figcaption></figure></p>
 <p>Les <span class="ycr-hashtag" data-index-entry="arbres" data-tag="arbres">arbres</span> sont des structures de données non linéaires qui sont composées de nœuds. Chaque nœud a un ou plusieurs enfants, sauf pour le nœud racine qui n'a pas de parent. Les arbres sont souvent utilisés pour représenter des hiérarchies, comme les systèmes de fichiers, les arbres généalogiques, les arbres de décision, etc.</p>
 <p>Voici un exemple d'arbre, il représente par exemple une structure de documents stockés sur un ordinateur. En haut on voit le disque C : qui contient des dossiers et des fichiers. Chaque dossier peut contenir d'autres dossiers ou des fichiers. Il y a donc une <span class="ycr-hashtag" data-index-entry="hiérarchie" data-tag="hierarchie">hiérarchie</span> entre les éléments. Chaque dossier peut contenir plusieurs éléments, mais chaque élément ne peut être contenu que dans un seul dossier.</p>
@@ -4915,7 +4915,7 @@ graph LR
     Documents_Alice --&gt; Notes(Notes.txt)
 
     Downloads_Alice --&gt; App(App.exe)</code></pre><figcaption>Arbre n-aire dirigé</figcaption></figure>
-<h2 id="arbre-binaire">Arbre binaire<a class="headerlink" href="#arbre-binaire" title="Permanent link">¤</a></h2>
+<h2 id="arbre-binaire">Arbre binaire<a class="headerlink" href="#arbre-binaire" title="Lien permanent">¤</a></h2>
 <p>Un <span class="ycr-hashtag" data-index-entry="arbre binaire" data-tag="arbre-binaire">arbre binaire</span> est un arbre où chaque nœud a au plus deux enfants. Les enfants sont généralement appelés le fils gauche et le fils droit. Les arbres binaires sont souvent utilisés pour implémenter des structures de données comme les arbres de recherche binaires, les tas binaires, les arbres d'expression, etc.</p>
 <p>C'est une structure de donnée très utilisée en informatique. En pratique, il est rare d'implémenter un arbre binaire de manière explicite. On utilise plutôt des structures de données qui sont basées sur des arbres binaires.</p>
 <p>Le C étant un langage très bas niveau, il n'y a pas de structure de données arbre binaire dans la bibliothèque standard. En C++ en revanche il y a de nombreux conteneurs qui utilisent des arbres binaires comme <code>std::set</code>, <code>std::map</code>, <code>std::multiset</code>, <code>std::multimap</code>, <code>std::priority_queue</code>, etc.</p>
@@ -4975,7 +4975,7 @@ graph LR
     10 --&gt; 12((12))
     10 --&gt; 23((23))
     23 --&gt; 35((35))</code></pre><figcaption>Arbre binaire déséquilibré</figcaption></figure>
-<h3 id="heap">Heap<a class="headerlink" href="#heap" title="Permanent link">¤</a></h3>
+<h3 id="heap">Heap<a class="headerlink" href="#heap" title="Lien permanent">¤</a></h3>
 <p>La structure de donnée <code>heap</code> aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit « presque complet », dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est-à-dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.</p>
 <p>Un tas peut aisément être représenté sous forme de tableau en utilisant la règle suivante :</p>
 <table id="_table-1">
@@ -5005,7 +5005,7 @@ graph LR
 </tbody>
 </table>
 <p><figure id="_figure-2"><img alt="Représentation d'un *heap*" class="drawio-diagram" src="../../../assets/images/heap.drawio"/><figcaption> Représentation d'un *heap*</figcaption></figure></p>
-<h3 id="min-heap">Min-heap<a class="headerlink" href="#min-heap" title="Permanent link">¤</a></h3>
+<h3 id="min-heap">Min-heap<a class="headerlink" href="#min-heap" title="Lien permanent">¤</a></h3>
 <p>Un <span class="ycr-hashtag" data-index-entry="tas binaire" data-tag="tas-binaire">tas binaire</span> est une structure de données qui permet de stocker des éléments de manière ordonnée. Un tas binaire est un arbre binaire complet où chaque nœud est <strong>plus petit que ses enfants</strong>. Un tas binaire est souvent utilisé pour implémenter une file de priorité.</p>
 <div class="admonition example">
 <p class="admonition-title">Implémentation en C</p>
@@ -5226,7 +5226,7 @@ graph LR
 </li>
 </ul>
 <p>Ces complexités font des min-heaps une structure de données efficace pour les files de priorité et les algorithmes nécessitant des opérations fréquentes d'insertion et d'extraction du minimum.</p>
-<h3 id="arbre-binaire-de-recherche">Arbre binaire de recherche<a class="headerlink" href="#arbre-binaire-de-recherche" title="Permanent link">¤</a></h3>
+<h3 id="arbre-binaire-de-recherche">Arbre binaire de recherche<a class="headerlink" href="#arbre-binaire-de-recherche" title="Lien permanent">¤</a></h3>
 <p>Un <a href="https://fr.wikipedia.org/wiki/Arbre_binaire_de_recherche">arbres binaires de recherche</a> (<em>Binary Search Tree</em>, <strong>BST</strong>) est un arbre binaire dans lequel chaque nœud a une valeur et les valeurs des nœuds de l'arbre sont ordonnées. Pour chaque nœud, toutes les valeurs des nœuds du sous-arbre gauche sont inférieures à la valeur du nœud et toutes les valeurs des nœuds du sous-arbre droit sont supérieures à la valeur du nœud.</p>
 <p>L'implémentation d'un arbre binaire est souvent implémentée avec une liste chaînée comportant deux enfants un <code>left</code> et un <code>right</code> :</p>
 <p><figure id="_figure-3"><img alt="Arbre binaire équilibré" class="drawio-diagram" src="../../../assets/images/binary-tree.drawio"/><figcaption> Arbre binaire équilibré</figcaption></figure></p>
@@ -5262,7 +5262,7 @@ graph LR
 </span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>L'insertion et la suppression d'éléments dans un arbre binaire font appel à des <a href="https://fr.wikipedia.org/wiki/Rotation_d%27un_arbre_binaire_de_recherche">rotations</a>, puisque les éléments doivent être insérés dans le correct ordre et que l'arbre, pour être performant, doit toujours être équilibré. Ces rotations sont donc des mécanismes de rééquilibrage de l'arbre ne sont pas triviaux, mais dont la complexité d'exécution reste simple, et donc performante.</p>
-<h3 id="queue-prioritaire">Queue prioritaire<a class="headerlink" href="#queue-prioritaire" title="Permanent link">¤</a></h3>
+<h3 id="queue-prioritaire">Queue prioritaire<a class="headerlink" href="#queue-prioritaire" title="Lien permanent">¤</a></h3>
 <p>Une queue prioritaire ou <em>priority queue</em>, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux mœurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée, mais, par importance aristocratique.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">;</span>
@@ -5295,14 +5295,14 @@ graph LR
 </span></code></pre></div>
 <p>La queue prioritaire dispose donc aussi des méthodes <code>enqueue</code> et <code>dequeue</code> mais le <code>dequeue</code> retournera l'élément le plus prioritaire de la liste. Ceci se traduit par trier la file d'attente à chaque opération <code>enqueue</code> ou <code>dequeue</code>. L'une de ces deux opérations pourrait donc avoir une complexité de <span class="arithmatex">\(O(n log n)\)</span>. Heureusement, il existe des méthodes de tris performantes si un tableau est déjà trié et qu'un seul nouvel élément y est ajouté.</p>
 <p>L'implémentation de ce type de structure de donnée s'appuie le plus souvent sur un <em>heap</em>, soit construite à partir d'un tableau statique, soit un tableau dynamique.</p>
-<h3 id="arbre-avl">Arbre AVL<a class="headerlink" href="#arbre-avl" title="Permanent link">¤</a></h3>
+<h3 id="arbre-avl">Arbre AVL<a class="headerlink" href="#arbre-avl" title="Lien permanent">¤</a></h3>
 <p>Un arbre AVL est un arbre binaire de recherche équilibré. Il est équilibré car la hauteur de ses sous-arbres gauche et droit diffère d'au plus un. Cela signifie que la hauteur de l'arbre est en <span class="arithmatex">\(O(log n)\)</span>, ce qui rend les opérations de recherche, d'insertion et de suppression en <span class="arithmatex">\(O(log n)\)</span>.</p>
 <p><figure id="_figure-4"><img alt="AVL Tree" class="drawio-diagram" src="../../../assets/images/avl-tree.drawio"/><figcaption> AVL Tree</figcaption></figure></p>
 <p>AVL tire son nom de ses inventeurs <em>Adelson-Velsky and Landis</em>. C'est une structure de données très utilisée en informatique pour implémenter des dictionnaires, des bases de données, des compilateurs, etc.</p>
 <p>Son implémentation complète sort du cadre de ce cours mais il est intéressant de comprendre comment il fonctionne. L'arbre AVL est un arbre binaire de recherche où chaque nœud a un <strong>facteur d'équilibre</strong> qui est la différence entre la hauteur de son sous-arbre gauche et la hauteur de son sous-arbre droit. Si le facteur d'équilibre d'un nœud est supérieur à <span class="arithmatex">\(1\)</span> ou inférieur à <span class="arithmatex">\(-1\)</span>, l'arbre est déséquilibré et il faut le rééquilibrer. Cela donne un critère de rééquilibrage en fonction du facteur d'équilibre.</p>
 <p>L'opération d'insertion dans un arbre AVL est similaire à celle d'un arbre binaire de recherche. On insère le nœud à la bonne place dans l'arbre. Puis on met à jour le facteur d'équilibre de chaque nœud sur le chemin de la racine. Si le facteur d'équilibre d'un nœud est supérieur à <span class="arithmatex">\(1\)</span> ou inférieur à <span class="arithmatex">\(-1\)</span>, on rééquilibre l'arbre en effectuant des rotations.</p>
 <p>C'est cette opération de rotation qui est la plus complexe dans un arbre AVL. Il existe plusieurs types de rotations en fonction du facteur d'équilibre du nœud. Il y a les rotations simples et les rotations doubles. Les rotations simples sont les rotations droite et gauche. Les rotations doubles sont les rotations gauche-droite et droite-gauche.</p>
-<h3 id="arbre-rouge-noir">Arbre rouge-noir<a class="headerlink" href="#arbre-rouge-noir" title="Permanent link">¤</a></h3>
+<h3 id="arbre-rouge-noir">Arbre rouge-noir<a class="headerlink" href="#arbre-rouge-noir" title="Lien permanent">¤</a></h3>
 <p>Un arbre rouge-noir est un arbre binaire de recherche équilibré. Il est équilibré car la hauteur de ses sous-arbres gauche et droit diffère d'au plus deux. Cela signifie que la hauteur de l'arbre est en <span class="arithmatex">\(O(log n)\)</span>, ce qui rend les opérations de recherche, d'insertion et de suppression en <span class="arithmatex">\(O(log n)\)</span>.</p>
 <p><figure id="_figure-5"><img alt="Arbre rouge et noir" class="drawio-diagram" src="../../../assets/images/red-black-tree.drawio"/><figcaption> Arbre rouge et noir</figcaption></figure></p>
 <p>Contrairement à l'arbre AVL, l'arbre rouge-noir est plus simple à implémenter. Il utilise un <strong>bit de couleur</strong> pour chaque nœud pour indiquer si le nœud est rouge ou noir. L'arbre rouge-noir a cinq propriétés :</p>
@@ -5314,7 +5314,7 @@ graph LR
 <li>Tout chemin simple d'un nœud donné à ses feuilles descendantes contient le même nombre de nœuds noirs.</li>
 </ol>
 <p>De la même manière que l'arbre AVL, il y a des opérations de rotation pour rééquilibrer l'arbre rouge-noir. Les rotations sont plus simples que dans un arbre AVL car il n'y a que deux types de rotations : la rotation gauche et la rotation droite.</p>
-<h2 id="trie">Trie<a class="headerlink" href="#trie" title="Permanent link">¤</a></h2>
+<h2 id="trie">Trie<a class="headerlink" href="#trie" title="Lien permanent">¤</a></h2>
 <p>Un <em>trie</em> est une structure de données qui stocke un ensemble de chaînes de caractères. Il est souvent utilisé pour stocker des mots dans un dictionnaire ou pour rechercher des mots dans un texte. Un trie est donc un arbre où chaque nœud est associé à une lettre et un marqueur de fin de mot. Un noeud peut avoir de 1 à 26 enfants, un pour chaque lettre de l'alphabet (si on se limite à l'alphabet latin minuscule).</p>
 <p>Prenons l'exemple des mots suivants :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">words</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
@@ -5561,16 +5561,16 @@ Comment allez-vous implémenter le trie ?</p>
 <p>Non, ce n'est pas une bonne idée. D'une part la figure n'est plus un arbre mais un graphe. Un graph peut avoir des cycles et donc des boucles infinies. Ensuite, regrouper les éléments communs ne peut être fait qu'à la fin de la construction du trie, lorsqu'elle est déjà allouée en mémoire. La complexité de l'optimisation n'est pas à négliger. Si la contrainte est l'utilisation de la mémoire, il est préférable d'utiliser une autre structure de donnée comme un <em>radix trie</em>.</p>
 </details>
 </div>
-<h2 id="radix-trie">Radix Trie<a class="headerlink" href="#radix-trie" title="Permanent link">¤</a></h2>
+<h2 id="radix-trie">Radix Trie<a class="headerlink" href="#radix-trie" title="Lien permanent">¤</a></h2>
 <p>On l'a vu l'implémentation d'un trie est simple mais elle peut conduire à une utilisation excessive de la mémoire. En effet, chaque noeud contient un tableau de 26 éléments, même si un mot ne contient que quelques lettres. Pour réduire la consommation de mémoire, on peut utiliser un <a href="https://fr.wikipedia.org/wiki/Arbre_radix">radix trie</a>. Cet arbre est également nommé <em>PATRICIA trie</em> pour <em>Practical Algorithm to Retrieve Information Coded in Alphanumeric</em>.</p>
 <p>Plutôt que de stocker une seule lettre par noeud, on stocke un préfixe commun à plusieurs mots. On peut alors réduire le nombre de noeuds et donc la consommation de mémoire.</p>
-<h2 id="navigation-dans-un-arbre">Navigation dans un arbre<a class="headerlink" href="#navigation-dans-un-arbre" title="Permanent link">¤</a></h2>
+<h2 id="navigation-dans-un-arbre">Navigation dans un arbre<a class="headerlink" href="#navigation-dans-un-arbre" title="Lien permanent">¤</a></h2>
 <p>La navigation dans un arbre binaire est une opération courante. Il existe plusieurs façons de parcourir un arbre binaire :</p>
 <ul>
 <li><strong>Parcours en profondeur</strong> (DFS pour <em>Depth First Search</em>) On commence par la racine, puis on visite le sous-arbre gauche, puis le sous-arbre droit. On peut faire un parcours en profondeur en pré-ordre, en in-ordre ou en post-ordre.</li>
 <li><strong>Parcours en largeur</strong> (BFS pour <em>Breadth First Search</em>) On visite les nœuds de l'arbre de haut en bas et de gauche à droite. On utilise une file pour stocker les nœuds à visiter.</li>
 </ul>
-<h3 id="parcours-en-profondeur">Parcours en profondeur<a class="headerlink" href="#parcours-en-profondeur" title="Permanent link">¤</a></h3>
+<h3 id="parcours-en-profondeur">Parcours en profondeur<a class="headerlink" href="#parcours-en-profondeur" title="Lien permanent">¤</a></h3>
 <p>Le parcours en profondeur est une méthode de parcours d'un arbre binaire qui commence par la racine, puis visite le sous-arbre gauche, puis le sous-arbre droit. Il existe trois façons de parcourir un arbre en profondeur :</p>
 <ul>
 <li><strong>Pré-ordre</strong> : On visite d'abord la racine, puis le sous-arbre gauche, puis le sous-arbre droit.</li>
@@ -5693,7 +5693,7 @@ Comment allez-vous implémenter le trie ?</p>
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

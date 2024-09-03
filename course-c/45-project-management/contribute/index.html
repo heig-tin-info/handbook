@@ -4766,7 +4766,7 @@ les outils associés.
   
 
 
-<h1 id="projet-open-source">Projet open-source<a class="headerlink" href="#projet-open-source" title="Permanent link">¤</a></h1>
+<h1 id="projet-open-source">Projet open-source<a class="headerlink" href="#projet-open-source" title="Lien permanent">¤</a></h1>
 <p>Le langage C est encore beaucoup utilisé dans de gros projets qui demande une grande performance. On peut notament citer les projets suivants :</p>
 <table>
 <thead>
@@ -4882,7 +4882,7 @@ les outils associés.
 <p>Autre serveur web très populaire, il est utilisé sur une part significative des sites web. Bien que Nginx l'ait surpassé en popularité dans certains cas, Apache reste extrêmement répandu.</p>
 </dd>
 </dl>
-<h2 id="cas-de-figure-git">Cas de figure Git<a class="headerlink" href="#cas-de-figure-git" title="Permanent link">¤</a></h2>
+<h2 id="cas-de-figure-git">Cas de figure Git<a class="headerlink" href="#cas-de-figure-git" title="Lien permanent">¤</a></h2>
 <p>Vous souhaitez contribuer au projet Git. La première étape est de trouver le code source. Ce n'est pas une grosse difficulté. Google donne rapidement l'information que Git est hébergé sur GitHub :</p>
 <p>Il suffit alors de cloner le projet Git sur votre machine locale sans historique. Cela permet de gagner du temps et de l'espace disque.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>https://github.com/git/git.git
@@ -5057,7 +5057,7 @@ les outils associés.
 </span><span id="__span-13-18"><a href="#__codelineno-13-18" id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="c1"># passed all 2600 test(s)</span>
 </span></code></pre></div>
 <p>Ce projet est assez simple à compiler et à tester. Il est bien documenté et les tests sont clairs. Néanmoins il ne dépend pas de beaucoup de bibliothèques externes. Pour des projets plus complexes, la gestion des dépendances peut être un vrai casse-tête. Prenons un autre exemple, celui de Gimp.</p>
-<h2 id="cas-de-figure-gimp">Cas de figure Gimp<a class="headerlink" href="#cas-de-figure-gimp" title="Permanent link">¤</a></h2>
+<h2 id="cas-de-figure-gimp">Cas de figure Gimp<a class="headerlink" href="#cas-de-figure-gimp" title="Lien permanent">¤</a></h2>
 <p>Gimp est un logiciel de retouche d'image très populaire. C'est la version libre de Adobe Photoshop. Il est écrit en C et utilise de nombreuses bibliothèques externes. Pour compiler Gimp, il faut donc installer toutes ces bibliothèques. La liste des dépendances est longue et varie selon les distributions.</p>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/gimp.png"><img alt="Gimp" src="../../../assets/images/gimp.png"/></a><figcaption> Gimp</figcaption></figure></p>
 <p>En cherchant sous Google « gimp source code », on tombe sur le site officiel :</p>
@@ -5129,19 +5129,19 @@ les outils associés.
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>libaa1-dev<span class="w"> </span>libgs-dev<span class="w"> </span>libheif-dev<span class="w"> </span>gobject-introspection<span class="w"> </span>libgirepository1.0-dev
 </span></code></pre></div>
 <p>500 MB plus tard, nous avons installé les dépendances de base. Nous allons maintenant cloner le projet Gimp :</p>
-<h3 id="installation-de-babl">Installation de BABL<a class="headerlink" href="#installation-de-babl" title="Permanent link">¤</a></h3>
+<h3 id="installation-de-babl">Installation de BABL<a class="headerlink" href="#installation-de-babl" title="Lien permanent">¤</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>https://gitlab.gnome.org/GNOME/babl.git
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="nb">cd</span><span class="w"> </span>babl
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>meson<span class="w"> </span>setup<span class="w"> </span>--prefix<span class="w"> </span><span class="nv">$GIMP_PREFIX</span><span class="w"> </span>-Denable-gir<span class="o">=</span><span class="nb">true</span><span class="w"> </span>_build
 </span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a>ninja<span class="w"> </span>-C<span class="w"> </span>_build<span class="w"> </span>install
 </span></code></pre></div>
-<h3 id="installation-de-gegl">Installation de GEGL<a class="headerlink" href="#installation-de-gegl" title="Permanent link">¤</a></h3>
+<h3 id="installation-de-gegl">Installation de GEGL<a class="headerlink" href="#installation-de-gegl" title="Lien permanent">¤</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>https://gitlab.gnome.org/GNOME/gegl.git
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="nb">cd</span><span class="w"> </span>gegl
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>meson<span class="w"> </span>setup<span class="w"> </span>--prefix<span class="w"> </span><span class="nv">$GIMP_PREFIX</span><span class="w"> </span>-Dintrospection<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-Dcairo<span class="o">=</span>enabled<span class="w"> </span>-Dumfpack<span class="o">=</span>enabled<span class="w"> </span>-Dworkshop<span class="o">=</span><span class="nb">true</span><span class="w"> </span>_build
 </span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>ninja<span class="w"> </span>-C<span class="w"> </span>_build<span class="w"> </span>install
 </span></code></pre></div>
-<h3 id="installation-de-gimp">Installation de GIMP<a class="headerlink" href="#installation-de-gimp" title="Permanent link">¤</a></h3>
+<h3 id="installation-de-gimp">Installation de GIMP<a class="headerlink" href="#installation-de-gimp" title="Lien permanent">¤</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>--shallow-submodules<span class="w">  </span>https://gitlab.gnome.org/GNOME/gimp.git
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="nb">cd</span><span class="w"> </span>gimp
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init
@@ -5170,7 +5170,7 @@ les outils associés.
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a>ninja<span class="w"> </span>-C<span class="w"> </span>_build<span class="w"> </span>install
 </span></code></pre></div>
 <p>Et voilà, Gimp est installé dans le répertoire <code>_install</code>.</p>
-<h3 id="reproduction">Reproduction<a class="headerlink" href="#reproduction" title="Permanent link">¤</a></h3>
+<h3 id="reproduction">Reproduction<a class="headerlink" href="#reproduction" title="Lien permanent">¤</a></h3>
 <p>Si vous essayez de reproduire cet exemple vous aurez probablement d'autres erreurs car vous n'avez pas les mêmes version. Dans cet exemple, nous avons utilisé Debian Bookworm (12)</p>
 <dl>
 <dt>gimp</dt>
@@ -5186,7 +5186,7 @@ les outils associés.
 <p>c5f97c86224a473cc3fea231f17adef84580f2cc</p>
 </dd>
 </dl>
-<h3 id="dependances">Dépendances<a class="headerlink" href="#dependances" title="Permanent link">¤</a></h3>
+<h3 id="dependances">Dépendances<a class="headerlink" href="#dependances" title="Lien permanent">¤</a></h3>
 <p>On voit après cet exemple que certains projets peuvent être complexes à compiler. Les problèmes récurrents sont :</p>
 <ul>
 <li>Vous ne lisez pas la documentation</li>
@@ -5260,7 +5260,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

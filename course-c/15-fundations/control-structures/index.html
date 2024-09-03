@@ -5132,7 +5132,7 @@ les outils associés.
   
 
 
-<h1 id="structures-de-controle">Structures de contrôle<a class="headerlink" href="#structures-de-controle" title="Permanent link">¤</a></h1>
+<h1 id="structures-de-controle">Structures de contrôle<a class="headerlink" href="#structures-de-controle" title="Lien permanent">¤</a></h1>
 <p>Les structures de contrôle appartiennent aux langages de programmation étant de <a class="autorefs autorefs-internal" href="../../05-introduction/c-lang/#les-paradigmes-de-programmation">paradigme</a> impératif et <a href="https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e">structuré</a>.</p>
 <p>Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. On peut citer les catégories suivantes :</p>
 <ul>
@@ -5162,9 +5162,9 @@ les outils associés.
 </ul>
 <p>Sans structure de contrôle, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènements extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement.</p>
 <p>L'intelligence d'un programme réside dans sa capacité à prendre des décisions en fonction de l'état du système et des données qu'il manipule. Les structures de contrôle permettent de définir ces décisions, un peu comme un livre dont vous êtes le héros où chaque choix vous mène à une page différente par un saut.</p>
-<h2 id="sequences">Séquences<a class="headerlink" href="#sequences" title="Permanent link">¤</a></h2>
+<h2 id="sequences">Séquences<a class="headerlink" href="#sequences" title="Lien permanent">¤</a></h2>
 <p><a href="" id="sequence-code"></a></p>
-<h3 id="sequences-de-code">Séquences de code<a class="headerlink" href="#sequences-de-code" title="Permanent link">¤</a></h3>
+<h3 id="sequences-de-code">Séquences de code<a class="headerlink" href="#sequences-de-code" title="Lien permanent">¤</a></h3>
 <p>En C, chaque instruction est séparée de la suivante par un point-virgule <code>;</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//003B" target="_blank">003B</a>. On appelle ce caractère le délimiteur d'instruction.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </span></code></pre></div>
@@ -5182,7 +5182,7 @@ les outils associés.
 <p>N'allez pas confondre le point virgule <code>;</code> (<a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//003B" target="_blank">003B</a>) avec le <code>;</code> (<a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//037E" target="_blank">037E</a>), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.</p>
 </div>
 <p><a href="" id="sequence-block"></a></p>
-<h3 id="sequences-de-bloc">Séquences de bloc<a class="headerlink" href="#sequences-de-bloc" title="Permanent link">¤</a></h3>
+<h3 id="sequences-de-bloc">Séquences de bloc<a class="headerlink" href="#sequences-de-bloc" title="Lien permanent">¤</a></h3>
 <p>Une séquence bloc est une suite d'instructions regroupées en un bloc matérialisé par des accolades <code>{}</code>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="p">{</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
@@ -5209,7 +5209,7 @@ les outils associés.
 <p>Ceci étant, le nombre d'imbrication de structures conditionnelles est limité à 63, ce qui est déjà beaucoup trop. Si vous avez besoin de plus de 63 niveaux d'imbrication, il est temps de revoir votre conception !</p>
 </div>
 <p><a href="" id="sequence-point"></a></p>
-<h3 id="point-de-sequence">Point de séquence<a class="headerlink" href="#point-de-sequence" title="Permanent link">¤</a></h3>
+<h3 id="point-de-sequence">Point de séquence<a class="headerlink" href="#point-de-sequence" title="Lien permanent">¤</a></h3>
 <p>On appelle un point de séquence ou <a href="https://en.wikipedia.org/wiki/Sequence_point">sequence point</a> décrite dans l'annexe du standard C que certains ordres d'évaluation sont garantis.</p>
 <p>Les règles sont les suivantes :</p>
 <ol>
@@ -5219,7 +5219,7 @@ les outils associés.
 </ol>
 <p>L'opérateur d'assignation <code>=</code> n'est donc pas un point de séquence et l'exécution du code <code>(a = 2) + a + (a = 2)</code> est par conséquent indéterminée.</p>
 <p><a href="" id="conditional-jumps"></a></p>
-<h2 id="les-sauts-conditionnels">Les sauts conditionnels<a class="headerlink" href="#les-sauts-conditionnels" title="Permanent link">¤</a></h2>
+<h2 id="les-sauts-conditionnels">Les sauts conditionnels<a class="headerlink" href="#les-sauts-conditionnels" title="Lien permanent">¤</a></h2>
 <p>Les embranchements sont des instructions de prise de décision. Une prise de décision est binaire lorsqu'il y a un choix <em>vrai</em> et un choix <em>faux</em>, ou multiple lorsque la condition est scalaire. En C il y en a deux types d'embranchements :</p>
 <ol>
 <li><code>if</code>, <code>if else</code></li>
@@ -5229,7 +5229,7 @@ les outils associés.
 <p><figure id="_figure-1"><img alt="Diagrammes BPMN" class="drawio-diagram" src="../../../assets/images/branching-diagram.drawio"/><figcaption> Diagrammes BPMN</figcaption></figure></p>
 <p>Les embranchements s'appuient naturellement sur les séquences puisque chaque branche est composée d'une séquence.</p>
 <p><a href="" id="if"></a></p>
-<h3 id="if_1"><code>if</code><a class="headerlink" href="#if_1" title="Permanent link">¤</a></h3>
+<h3 id="if_1"><code>if</code><a class="headerlink" href="#if_1" title="Lien permanent">¤</a></h3>
 <p>L'instruction <code>if</code> traduite par <em>si</em> est la plus utilisée. L'exemple suivant illustre un embranchement binaire. Il affiche <code>odd</code> si le nombre est impair et <code>even</code> s'il est pair :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="p">{</span>
@@ -5322,23 +5322,23 @@ les outils associés.
 </span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"La valeur %d n'est pas valide"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 </span><span id="__span-14-10"><a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="point-virgule-en-trop">Point virgule en trop<a class="headerlink" href="#point-virgule-en-trop" title="Permanent link">¤</a></h3>
+<h3 id="point-virgule-en-trop">Point virgule en trop<a class="headerlink" href="#point-virgule-en-trop" title="Lien permanent">¤</a></h3>
 <p>Il est courant de placer un point virgule derrière un <code>if</code>. Le point virgule correspondant à une instruction vide, c'est cette instruction qui sera exécutée si la condition du test est vraie.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">printf</span><span class="p">(</span><span class="s">"z est nul"</span><span class="p">);</span><span class="w"> </span><span class="c1">// ALWAYS executed</span>
 </span></code></pre></div>
-<h3 id="affectation-dans-un-test">Affectation dans un test<a class="headerlink" href="#affectation-dans-un-test" title="Permanent link">¤</a></h3>
+<h3 id="affectation-dans-un-test">Affectation dans un test<a class="headerlink" href="#affectation-dans-un-test" title="Lien permanent">¤</a></h3>
 <p>Le test de la valeur d'une variable s'écrit avec l'opérateur d'égalité <code>==</code> et non l'opérateur d'affectation <code>=</code>. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">               </span><span class="c1">// set z to zero !!</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"z est nul"</span><span class="p">);</span><span class="w"> </span><span class="c1">// NEVER executed</span>
 </span></code></pre></div>
-<h3 id="loubli-des-accolades">L'oubli des accolades<a class="headerlink" href="#loubli-des-accolades" title="Permanent link">¤</a></h3>
+<h3 id="loubli-des-accolades">L'oubli des accolades<a class="headerlink" href="#loubli-des-accolades" title="Lien permanent">¤</a></h3>
 <p>Dans le cas ou vous souhaitez exécuter plusieurs instructions, vous devez impérativement déclarer un bloc d'instructions. Si vous omettez les accolades, seule la première instruction sera exécutée puisque la séquence se termine par un point virgule ou un bloc.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"z est nul"</span><span class="p">);</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="n">is_valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// Ne fait par partie du bloc et s'exécute toujours</span>
 </span></code></pre></div>
-<h3 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Permanent link">¤</a></h3>
+<h3 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Lien permanent">¤</a></h3>
 <p>On peut utiliser des conditions multiples pour déterminer le comportement d'un programme. Par exemple, le programme suivant affiche un message différent en fonction de la valeur de <code>value</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="p">{</span>
@@ -5427,7 +5427,7 @@ les outils associés.
 </ol>
 </div>
 <p><a href="" id="switch"></a></p>
-<h3 id="switch_1"><code>switch</code><a class="headerlink" href="#switch_1" title="Permanent link">¤</a></h3>
+<h3 id="switch_1"><code>switch</code><a class="headerlink" href="#switch_1" title="Lien permanent">¤</a></h3>
 <p>L'instruction <code>switch</code> n'est pas fondamentale et certains langages de programmation comme Python ne la connaissaient pas. Elle permet essentiellement de simplifier l'écriture pour minimiser les répétitions. On l'utilise lorsque les conditions multiples portent toujours sur la même variable. Par exemple, le code suivant peut être réécrit plus simplement en utilisant un <code>switch</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-30-1"><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">defcon</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 </span><span id="__span-30-2"><a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Guerre nucléaire imminente"</span><span class="p">);</span>
@@ -5490,7 +5490,7 @@ les outils associés.
 <li>Le compilateur est mieux à même d'optimiser un choix multiple lorsque les valeurs scalaires de la condition triées se suivent directement p. ex. <code>{12, 13, 14, 15}</code>.</li>
 <li>L'ordre des cas d'un <code>switch</code> n'a pas d'importance, le compilateur peut même choisir de réordonner les cas pour optimiser l'exécution.</li>
 </ul>
-<h2 id="les-boucles">Les boucles<a class="headerlink" href="#les-boucles" title="Permanent link">¤</a></h2>
+<h2 id="les-boucles">Les boucles<a class="headerlink" href="#les-boucles" title="Lien permanent">¤</a></h2>
 <p><figure id="_figure-2"><img alt="Bien choisir sa structure de contrôle" class="drawio-diagram" src="../../../assets/images/road-runner.drawio"/><figcaption> Bien choisir sa structure de contrôle</figcaption></figure></p>
 <p>Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :</p>
 <ol>
@@ -5502,7 +5502,7 @@ les outils associés.
 <p><figure id="_figure-3"><img alt="Aperçu des trois structures de boucles" class="drawio-diagram" src="../../../assets/images/for.drawio"/><figcaption> Aperçu des trois structures de boucles</figcaption></figure></p>
 <p>On observe que quelque soit la structure de boucle, une condition de maintien est nécessaire. Cette condition est évaluée avant ou après l'exécution de la séquence. Si la condition est fausse, la séquence est interrompue et le programme continue son exécution.</p>
 <p><a href="" id="loop-while"></a></p>
-<h3 id="while">while<a class="headerlink" href="#while" title="Permanent link">¤</a></h3>
+<h3 id="while">while<a class="headerlink" href="#while" title="Lien permanent">¤</a></h3>
 <p>La structure <code>while</code> répète une séquence <strong>tant que</strong> la condition est vraie.</p>
 <p>Dans l'exemple suivant tant que le poids d'un objet déposé sur une balance est inférieur à une valeur constante, une masse est ajoutée et le système patiente avant stabilisation.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">get_weight</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">420</span><span class="w"> </span><span class="cm">/* newtons */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5525,7 +5525,7 @@ les outils associés.
 </ol>
 </div>
 <p><a href="" id="loop-do-while"></a></p>
-<h3 id="dowhile">do..while<a class="headerlink" href="#dowhile" title="Permanent link">¤</a></h3>
+<h3 id="dowhile">do..while<a class="headerlink" href="#dowhile" title="Lien permanent">¤</a></h3>
 <p>De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle <code>do</code>...<code>while</code> permet justement ceci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-34-2"><a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a>
@@ -5536,7 +5536,7 @@ les outils associés.
 </span></code></pre></div>
 <p>Contrairement à la boucle <code>while</code>, la séquence est ici exécutée <strong>au moins une fois</strong>.</p>
 <p><a href="" id="loop-for"></a></p>
-<h3 id="for">for<a class="headerlink" href="#for" title="Permanent link">¤</a></h3>
+<h3 id="for">for<a class="headerlink" href="#for" title="Lien permanent">¤</a></h3>
 <p>La boucle <code>for</code> est un <code>while</code> amélioré qui permet en une ligne de résumer les conditions de la boucle :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="cm">/* expression 1 */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* expression 2 */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* expression 3 */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="w">    </span><span class="cm">/* séquence */</span>
@@ -5609,7 +5609,7 @@ les outils associés.
 </span></code></pre></div>
 <p>Proposer une meilleure implémentation de ce programme.</p>
 </div>
-<h3 id="boucles-infinies">Boucles infinies<a class="headerlink" href="#boucles-infinies" title="Permanent link">¤</a></h3>
+<h3 id="boucles-infinies">Boucles infinies<a class="headerlink" href="#boucles-infinies" title="Lien permanent">¤</a></h3>
 <p>Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort <em>La boucle principale</em> aussi nommée <a href="https://en.wikipedia.org/wiki/Event_loop">run loop</a>. Lorsqu'un programme est exécuté <em>bare-metal</em>, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction <code>main</code> telle que :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">main_loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="w">    </span><span class="c1">// Boucle principale</span>
@@ -5660,7 +5660,7 @@ les outils associés.
 </span><span id="__span-44-22"><a href="#__codelineno-44-22" id="__codelineno-44-22" name="__codelineno-44-22"></a><span class="p">}</span>
 </span></code></pre></div>
 <p><a href="" id="jumps"></a></p>
-<h2 id="les-sauts">Les sauts<a class="headerlink" href="#les-sauts" title="Permanent link">¤</a></h2>
+<h2 id="les-sauts">Les sauts<a class="headerlink" href="#les-sauts" title="Lien permanent">¤</a></h2>
 <p>Il existe 4 instructions en C permettant de contrôler le déroulement de
 l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un autre endroit du programme.</p>
 <ul>
@@ -5680,7 +5680,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <li><code>goto</code>: interrompt l'exécution et saute à un label situé ailleurs dans la fonction</li>
 <li><code>return</code></li>
 </ul>
-<h3 id="goto"><code>goto</code><a class="headerlink" href="#goto" title="Permanent link">¤</a></h3>
+<h3 id="goto"><code>goto</code><a class="headerlink" href="#goto" title="Lien permanent">¤</a></h3>
 <p>Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison, car dans la très vaste majorité des cas où vous pensez avoir besoin de <code>goto</code>, une autre solution plus élégante existe.</p>
 <p>Néanmoins, il est important de comprendre que <code>goto</code> était dans certain langage de programmation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine, car la plupart des processeurs ne connaissent que cette instruction souvent appelée <code>JUMP</code>. Il est par conséquent possible d'imiter le comportement de n'importe quelle structure de contrôle si l'on dispose de <code>if</code> et de <code>goto</code>.</p>
 <p><code>goto</code> effectue un saut inconditionnel à un <em>label</em> défini en C par un identificateur <a href="" id="identifiers"></a> suivi d'un <code>:</code>.</p>
@@ -5707,7 +5707,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </span><span id="__span-45-20"><a href="#__codelineno-45-20" id="__codelineno-45-20" name="__codelineno-45-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 </span><span id="__span-45-21"><a href="#__codelineno-45-21" id="__codelineno-45-21" name="__codelineno-45-21"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="continue"><code>continue</code><a class="headerlink" href="#continue" title="Permanent link">¤</a></h3>
+<h3 id="continue"><code>continue</code><a class="headerlink" href="#continue" title="Lien permanent">¤</a></h3>
 <p>Le mot clé <code>continue</code> ne peut exister qu'à l'intérieur d'une boucle. Il permet d'interrompre le cycle en cours et directement passer au cycle suivant.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-46-1"><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="kt">uint8_t</span><span class="w"> </span><span class="n">airplane_seat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </span><span id="__span-46-2"><a href="#__codelineno-46-2" id="__codelineno-46-2" name="__codelineno-46-2"></a>
@@ -5732,9 +5732,9 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </span><span id="__span-47-9"><a href="#__codelineno-47-9" id="__codelineno-47-9" name="__codelineno-47-9"></a><span class="w">    </span><span class="nl">next</span><span class="p">:</span>
 </span><span id="__span-47-10"><a href="#__codelineno-47-10" id="__codelineno-47-10" name="__codelineno-47-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="break"><code>break</code><a class="headerlink" href="#break" title="Permanent link">¤</a></h3>
+<h3 id="break"><code>break</code><a class="headerlink" href="#break" title="Lien permanent">¤</a></h3>
 <p>Le mot-clé <code>break</code> peut être utilisé dans une boucle ou dans un <code>switch</code>. Il permet d'interrompre l'exécution de la boucle ou de la structure <code>switch</code> la plus proche. Nous avions déjà évoqué l'utilisation dans un <code>switch</code> (c.f. <a class="autorefs autorefs-internal" href="#switch_1">switch</a>).</p>
-<h3 id="return"><code>return</code><a class="headerlink" href="#return" title="Permanent link">¤</a></h3>
+<h3 id="return"><code>return</code><a class="headerlink" href="#return" title="Lien permanent">¤</a></h3>
 <p>Le mot clé <code>return</code> suivi d'une valeur de retour ne peut apparaître que dans une fonction dont le type de retour n'est pas <code>void</code>. Ce mot-clé permet de stopper l'exécution d'une fonction et de retourner à son point d'appel.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-48-1"><a href="#__codelineno-48-1" id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">unlock</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">password</span><span class="p">)</span>
 </span><span id="__span-48-2"><a href="#__codelineno-48-2" id="__codelineno-48-2" name="__codelineno-48-2"></a><span class="p">{</span>
@@ -5752,7 +5752,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </span><span id="__span-48-14"><a href="#__codelineno-48-14" id="__codelineno-48-14" name="__codelineno-48-14"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-48-15"><a href="#__codelineno-48-15" id="__codelineno-48-15" name="__codelineno-48-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¤</a></h2>
+<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Lien permanent">¤</a></h2>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 8 : </span>Faute d'erreur<span class="exercise-title"></span></p>
 <p>Considérons les déclarations suivantes :</p>
@@ -5966,7 +5966,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

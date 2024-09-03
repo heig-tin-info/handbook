@@ -4744,7 +4744,7 @@ les outils associés.
   
 
 
-<h1 id="recursivite">Récursivité<a class="headerlink" href="#recursivite" title="Permanent link">¤</a></h1>
+<h1 id="recursivite">Récursivité<a class="headerlink" href="#recursivite" title="Lien permanent">¤</a></h1>
 <p>La <a href="https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9">récursivité</a> est une technique de programmation dans laquelle une fonction s'appelle elle-même pour résoudre un problème. Cela signifie que la fonction résout une partie du problème et appelle ensuite la fonction elle-même pour résoudre le reste du problème.</p>
 <p>La récursivité est utilisée pour résoudre des problèmes qui peuvent être décomposés en problèmes plus petits de la même nature. Par exemple, la factorielle d'un nombre est le produit de tous les entiers positifs inférieurs ou égaux à ce nombre. La factorielle d'un nombre <code>n</code> est <code>n! = n * (n-1)!</code>.</p>
 <p>Au chapitre sur les fonctions, nous avions donné l'<a class="autorefs autorefs-internal" href="../../15-fundations/functions/#suite-de-fibonacci">exemple du calcul de la somme de la suite de Fibonacci</a> jusqu'à <code>n</code> :</p>
@@ -4869,7 +4869,7 @@ graph TD
 <p>En revanche, dans l'approche itérative, on constate qu'une seule boucle <code>for</code>. C'est-à-dire qu'il faudra seulement 100 itérations pour calculer la somme.</p>
 <p>Généralement les algorithmes récursifs (s'appelant eux-mêmes) sont moins performants que les algorithmes itératifs (utilisant des boucles). Néanmoins il est parfois plus facile d'écrire un algorithme récursif.</p>
 <p>Notons que tout algorithme récursif peut être écrit en un algorithme itératif, mais ce n'est pas toujours facile.</p>
-<h2 id="les-tours-de-hanoi">Les tours de Hanoï<a class="headerlink" href="#les-tours-de-hanoi" title="Permanent link">¤</a></h2>
+<h2 id="les-tours-de-hanoi">Les tours de Hanoï<a class="headerlink" href="#les-tours-de-hanoi" title="Lien permanent">¤</a></h2>
 <p>Les <a href="https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF">tours de Hanoï</a> est un jeu de réflexion inventé par le mathématicien français Édouard Lucas en 1889 et publié dans le tome 3 de ses Récréations mathématiques. Le jeu est composé de trois tiges et d'un certain nombre de disques de diamètres différents qui peuvent être empilés sur une tige. Le but du jeu est de déplacer tous les disques d'une tige à une autre, en respectant les règles suivantes :</p>
 <ol>
 <li>On ne peut déplacer qu'un seul disque à la fois.</li>
@@ -4996,7 +4996,7 @@ graph TD
 </span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>Déplacer le disque 1 de A à C
 </span></code></pre></div>
 <p>On voit que l'implémentation itérative est bien plus complexe que l'implémentation récursive. C'est pourquoi il est souvent plus simple d'écrire un algorithme récursif, mais pas nécessairement plus performant.</p>
-<h2 id="utilisation-du-stack">Utilisation du stack<a class="headerlink" href="#utilisation-du-stack" title="Permanent link">¤</a></h2>
+<h2 id="utilisation-du-stack">Utilisation du stack<a class="headerlink" href="#utilisation-du-stack" title="Lien permanent">¤</a></h2>
 <p>En C, la récursivité est gérée par le stack. Chaque appel de fonction est empilé sur le stack. Lorsque la fonction retourne, elle est dépilée du stack. Il est important de noter que le stack a une taille limitée. Par défaut, sous Linux la taille du stack est de 8 Mio (donné par la commande <code>ulimit -s</code>), sous Windows c'est 1 Mio. Si la récursivité est trop profonde, il y a un risque de stack overflow.</p>
 <p>D'autre part, une fonction récursive qui utilise beaucoup de variables locales et beaucoup de paramètres seront tous empilés sur le stack. Cela peut rapidement saturer la mémoire.</p>
 <p>Prenons l'exemple suivant d'une fonction récursive qui déclare un tableau de 1Mio de caractères :</p>
@@ -5031,7 +5031,7 @@ graph TD
 <p>Avant d'implémenter une fonction récursive, il est important de vérifier que la profondeur de la récursivité ne dépasse pas la taille du stack.</p>
 <p>Limitez l'utilisation du stack en utilisant soit des variables globales, soit des variables statiques, soit des allocations dynamiques.</p>
 </div>
-<h2 id="memoisation">Mémoïsation<a class="headerlink" href="#memoisation" title="Permanent link">¤</a></h2>
+<h2 id="memoisation">Mémoïsation<a class="headerlink" href="#memoisation" title="Lien permanent">¤</a></h2>
 <p>En informatique la <a href="https://fr.wikipedia.org/wiki/M%C3%A9mo%C3%AFsation">mémoïsation</a> est une technique d'optimisation du code souvent utilisée conjointement avec des algorithmes récursifs. Cette technique est largement utilisée en <a href="https://fr.wikipedia.org/wiki/Programmation_dynamique">programmation dynamique</a>.</p>
 <p>Nous l'avons vu précédemment, l'algorithme récursif du calcul de la somme de la suite de Fibonacci n'est pas efficace du fait que les mêmes appels sont répétés un nombre inutile de fois. La parade est de mémoriser pour chaque appel de <code>fib</code>, la sortie correspondante à l'entrée.</p>
 <p>Dans cet exemple nous utiliserons un mécanisme composé de trois fonctions :</p>
@@ -5085,7 +5085,7 @@ graph TD
 <li>Quelle est la complexité de votre algorithme ?</li>
 </ol>
 </div>
-<h2 id="programmation-dynamique">Programmation dynamique<a class="headerlink" href="#programmation-dynamique" title="Permanent link">¤</a></h2>
+<h2 id="programmation-dynamique">Programmation dynamique<a class="headerlink" href="#programmation-dynamique" title="Lien permanent">¤</a></h2>
 <p>La programmation dynamique est une méthode algorithmique datant des années 1950, mais devenue populaire ces dernières années. Elle permet de coupler des algorithmes récursifs avec le concept de mémoïsation.</p>
 <p>Prenons par exemple l'algorithme de Fibonacci récursif :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5104,10 +5104,10 @@ graph TD
 </span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Sa complexité est ainsi réduite à <span class="arithmatex">\(O(2\cdot n)\)</span> et donc <span class="arithmatex">\(O(n)\)</span>. En revanche, l'approche dynamique demande un espace mémoire supplémentaire. On n'a rien sans rien et l'éternel dilemme mémoire versus performance s'applique toujours.</p>
-<h2 id="backtracking">Backtracking<a class="headerlink" href="#backtracking" title="Permanent link">¤</a></h2>
+<h2 id="backtracking">Backtracking<a class="headerlink" href="#backtracking" title="Lien permanent">¤</a></h2>
 <p>Le <a href="https://fr.wikipedia.org/wiki/Backtracking">backtracking</a> est une technique algorithmique qui consiste à explorer toutes les solutions possibles d'un problème en testant chaque solution partielle. Lorsqu'une solution partielle ne peut pas être complétée pour former une solution valide, on revient en arrière (backtrack) pour explorer une autre branche de l'arbre de recherche. Cette approche est souvent utilisée pour rechercher une solution optimale à un problème combinatoire.</p>
 <p>Par exemple, le problème des huit dames consiste à placer huit dames sur un échiquier de manière à ce qu'aucune dame ne puisse attaquer une autre dame. Le backtracking est une méthode efficace pour résoudre ce type de problème.</p>
-<h3 id="les-huit-dames">Les huit dames<a class="headerlink" href="#les-huit-dames" title="Permanent link">¤</a></h3>
+<h3 id="les-huit-dames">Les huit dames<a class="headerlink" href="#les-huit-dames" title="Lien permanent">¤</a></h3>
 <p>Le problème des huit dames est un problème classique de placement de huit dames sur un échiquier de 8x8 cases de manière à ce qu'aucune dame ne puisse attaquer une autre dame. Une dame peut attaquer une autre dame si elles se trouvent sur la même ligne, la même colonne ou la même diagonale.</p>
 <p><figure id="_figure-2"><img alt="Les huit dames" class="drawio-diagram" src="../../../assets/images/eight-queens.drawio"/><figcaption> Les huit dames</figcaption></figure></p>
 <p>La solution naïve est de tester toutes les combinaisons possibles de placement des huit dames et de vérifier si elles sont valides. Cependant, cette approche est inefficace car le nombre de combinaisons possibles est très élevé. Si nous considérons simplement toutes les manières de placer 8 dames sur un échiquier 8x8 sans tenir compte des contraintes d'attaque (c'est-à-dire sans tenir compte des lignes, colonnes ou diagonales), le nombre de configurations possibles est donné par le nombre de combinaisons de 64 cases (l'échiquier) prises 8 à la fois soit :</p>
@@ -5362,7 +5362,7 @@ graph TD
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

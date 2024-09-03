@@ -5154,8 +5154,8 @@ les outils associés.
   
 
 
-<h1 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Permanent link">¤</a></h1>
-<h2 id="typage">Typage<a class="headerlink" href="#typage" title="Permanent link">¤</a></h2>
+<h1 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Lien permanent">¤</a></h1>
+<h2 id="typage">Typage<a class="headerlink" href="#typage" title="Lien permanent">¤</a></h2>
 <p>Inhérent au fonctionnement interne de l'ordinateur, un langage de programmation s'abstrait plus ou moins du mode de stockage interne des données telles qu'elles sont enregistrées dans la mémoire. De la même manière que dans la vie réelle, il n'est pas possible de rendre de la monnaie à un vendeur à moins d'un cinquième de centime près, il n'est pas possible pour un ordinateur de stocker des informations numériques avec une précision infinie.</p>
 <p>Aussi, les langages de programmation sont dits <strong>typés</strong> lorsqu'ils confient au programmeur la responsabilité de choisir comment une information sera stockée en mémoire, et <strong>non typés</strong> lorsque ce choix est implicite. Chacun des langages à ses avantages et ses inconvénients et pour reprendre l'exemple du rendu de monnaie, il serait ennuyant d'autoriser d'enregistrer des informations financières avec une précision meilleure qu'une pièce de cinq centimes, car il serait alors impossible à un caissier de rendre la monnaie correctement. Dans cette situation on préférera les langages <strong>typés</strong> et heureusement C est un langage fortement typé.</p>
 <p>Les types de données ne se bornent pas qu'aux informations numériques, il existe des types plus complexes qui permettent par exemple de traiter des caractères tels que <code>A</code> ou <code>B</code>. Ce chapitre à pour objectif de familiariser le lecteur aux différents types de données disponibles en C.</p>
@@ -5163,7 +5163,7 @@ les outils associés.
 <p class="admonition-title">Standard ISO 80000-2</p>
 <p>Les ingénieurs sont friands des standards et qui plus est lorsqu'ils sont  internationaux. Ainsi afin d'éviter le crash malheureux d'une fusée causé par la mésentente de deux ingénieurs de différents pays, il existe la norme <strong>ISO 80000-2</strong> qui définit précisément ce qu'est un entier, s'il doit inclure ou non le zéro, que sont les nombres réels, etc. Bien entendu les compilateurs, s'ils sont bien faits, cherchent à respecter au mieux ces normes internationales, et vous ?</p>
 </div>
-<h2 id="stockage-et-interpretation">Stockage et interprétation<a class="headerlink" href="#stockage-et-interpretation" title="Permanent link">¤</a></h2>
+<h2 id="stockage-et-interpretation">Stockage et interprétation<a class="headerlink" href="#stockage-et-interpretation" title="Lien permanent">¤</a></h2>
 <p>Rappelez-vous qu'un ordinateur ne peut stocker l'information que sous forme binaire et qu'il n'est à même de manipuler ces informations que par paquets d’octets. Aussi un ordinateur 64-bits manipulera avec aisance des paquets de 64-bits, mais plus difficilement des paquets de 32-bits. Ajoutons qu'il existe encore des microcontrôleurs 8-bits utilisés dans des dispositifs à faible consommation et qui peinent à manipuler des types de plus grande taille. Stocker une température avec une trop grande précision et effectuer des opérations mathématiques sur toute la précision serait une erreur, car le microcontrôleur n'est simplement pas adapté à manipuler ce type d'information.</p>
 <p>Considérons le paquet de 32-bit suivant, êtes-vous à même d'en donner une signification ?</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>01000000 01001001 00001111 11011011
@@ -5203,7 +5203,7 @@ les outils associés.
 </span><span id="__span-1-21"><a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="p">}</span>
 </span></code></pre></div>
 <p><a href="" id="endianess"></a></p>
-<h2 id="boutisme">Boutisme<a class="headerlink" href="#boutisme" title="Permanent link">¤</a></h2>
+<h2 id="boutisme">Boutisme<a class="headerlink" href="#boutisme" title="Lien permanent">¤</a></h2>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/endian.jpg"><img alt="Boutisme par J. J. Grandville (1838)" src="../../../assets/images/endian.jpg" width="70%"/></a><figcaption> Boutisme par J. J. Grandville (1838)</figcaption></figure></p>
 <p>La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé <em>endianess</em>. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les œufs à la coque par le petit bout (petit boutisme/<em>little endian</em>), la répression incite les rebelles à manger leurs œufs par le gros bout (gros boutisme/<em>big endian</em>).</p>
 <p>Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en <em>big endian</em> alors que d'autres sont en <em>little endian</em>. C'est-à-dire que si une information est stockée en mémoire comme suit :</p>
@@ -5211,10 +5211,10 @@ les outils associés.
 </span></code></pre></div>
 <p>Faut-il la lire de gauche à droite ou de droite à gauche ? Cela vous paraît trivial, mais si cet exemple était mentionné dans un livre rédigé en arabe, quelle serait alors votre réponse ?</p>
 <p>Imaginons qu'un programme exécuté sur un microcontrôleur <em>big-endian</em> 8-bit envoie par Bluetooth la valeur <code>1'111'704'645</code>, qui correspond au nombre de photons ayant frappé un détecteur optique. Il transmet donc les 4 octets suivants : <code>0x42, 0x43, 0x44, 0x45</code>. L'ordinateur qui reçoit les informations décode <code>1'162'101'570</code>. Les deux ordinateurs n'interprètent pas les données de la même façon, et c'est un problème que la plupart des ingénieurs électroniciens rencontrent un jour dans leur carrière.</p>
-<h2 id="les-nombres-entiers">Les nombres entiers<a class="headerlink" href="#les-nombres-entiers" title="Permanent link">¤</a></h2>
+<h2 id="les-nombres-entiers">Les nombres entiers<a class="headerlink" href="#les-nombres-entiers" title="Lien permanent">¤</a></h2>
 <p>Les <strong>nombres entiers</strong> sont des nombres sans virgule et incluant le zéro. Ils peuvent donc être négatifs, nuls ou positifs. Mathématiquement ils appartiennent à l'ensemble des <a href="https://fr.wikipedia.org/wiki/Entier_relatif">entiers relatifs</a>.</p>
 <p>Comme aucun ordinateur ne dispose d'un espace de stockage infini, ces nombres excluent les infinis positifs et négatifs, et sont donc bornés, cela va de soi.</p>
-<h3 id="les-entiers-naturels">Les entiers naturels<a class="headerlink" href="#les-entiers-naturels" title="Permanent link">¤</a></h3>
+<h3 id="les-entiers-naturels">Les entiers naturels<a class="headerlink" href="#les-entiers-naturels" title="Lien permanent">¤</a></h3>
 <p>En informatique, ces nombres sont par conséquent <strong>non signés</strong>, et peuvent prendre des valeurs comprises entre <span class="arithmatex">\(0\)</span> et <span class="arithmatex">\(2^N-1\)</span> où <span class="arithmatex">\(N\)</span> correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Il faut naturellement que l'ordinateur sur lequel s'exécute le programme soit capable de supporter le nombre de bits demandé par le programmeur.</p>
 <p>En C, on nomme ce type de donnée <code>unsigned int</code>, <code>int</code> étant le dénominatif du latin <em>integer</em> signifiant « entier ».</p>
 <p>Voici quelques exemples des valeurs minimales et maximales possibles selon le nombre de bits utilisés pour coder l'information numérique :</p>
@@ -5250,7 +5250,7 @@ les outils associés.
 </tbody>
 </table>
 <p>Notez l'importance du <span class="arithmatex">\(-1\)</span> dans la définition du maximum, car la valeur minimum <span class="arithmatex">\(0\)</span> fait partie de l'information même si elle représente une quantité nulle. Il y a donc 256 valeurs possibles pour un nombre entier non signé 8-bits, bien que la valeur maximale ne soit que de 255.</p>
-<h3 id="les-entiers-bornes-signes">Les entiers bornés signés<a class="headerlink" href="#les-entiers-bornes-signes" title="Permanent link">¤</a></h3>
+<h3 id="les-entiers-bornes-signes">Les entiers bornés signés<a class="headerlink" href="#les-entiers-bornes-signes" title="Lien permanent">¤</a></h3>
 <p>Les entiers signés peuvent être <strong>négatifs</strong>, <strong>nuls</strong> ou <strong>positifs</strong> et peuvent prendre des valeurs comprises entre <span class="arithmatex">\(-2^{N-1}\)</span> et <span class="arithmatex">\(+2^{N-1}-1\)</span> où <span class="arithmatex">\(N\)</span> correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Notez l'asymétrie entre la borne positive et négative.</p>
 <p>Comme il sont signés (<em>signed</em> en anglais), il est par conséquent correct d'écrire <code>signed int</code> bien que le préfixe <code>signed</code> soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.</p>
 <p>Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information :</p>
@@ -5281,14 +5281,14 @@ les outils associés.
 </tbody>
 </table>
 <p>En mémoire, ces nombres sont stockés en utilisant le <a class="autorefs autorefs-internal" href="../../10-numeration/numbers/#complement-a-deux">complément à deux</a> qui fait l'objet d'une section à part entière.</p>
-<h3 id="les-entiers-bornes">Les entiers bornés<a class="headerlink" href="#les-entiers-bornes" title="Permanent link">¤</a></h3>
+<h3 id="les-entiers-bornes">Les entiers bornés<a class="headerlink" href="#les-entiers-bornes" title="Lien permanent">¤</a></h3>
 <p>Comme nous l'avons vu, les degrés de liberté pour définir un entier sont :</p>
 <ul>
 <li>Signé ou non signé</li>
 <li>Nombre de bits avec lesquels l'information est stockée en mémoire</li>
 </ul>
 <p>À l'origine le standard C restait flou quant au nombre de bits utilisés pour chacun des types et aucune réelle cohérence n'existait pour la construction d'un type. Le modificateur <code>signed</code> était optionnel, le préfixe <code>long</code> ne pouvait s'appliquer qu'au type <code>int</code> et <code>long</code> et la confusion entre <code>long</code> (préfixe) et <code>long</code> (type) restait possible. En fait, la plupart des développeurs s'y perdaient et s'y perd toujours ce qui menait à des problèmes de compatibilités des programmes entre eux.</p>
-<h4 id="types-standards">Types standards<a class="headerlink" href="#types-standards" title="Permanent link">¤</a></h4>
+<h4 id="types-standards">Types standards<a class="headerlink" href="#types-standards" title="Lien permanent">¤</a></h4>
 <p>La construction d'un type entier C est la suivante :</p>
 <p><figure id="_figure-2"><img alt="Entiers standardisés" class="drawio-diagram" src="../../../assets/images/ansi-integers.drawio"/><figcaption> Entiers standardisés</figcaption></figure></p>
 <p>Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins <span class="arithmatex">\(N\)</span> bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée ci-dessous :</p>
@@ -5427,7 +5427,7 @@ les outils associés.
 <p>Avec l'avènement de <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, une meilleure cohésion des types a été proposée dans le fichier d'en-tête <code>stdint.h</code>. Cette bibliothèque standard offre les types suivants :</p>
 <p><figure id="_figure-3"><img alt="Flux de construction d'un entier standardisé" class="drawio-diagram" src="../../../assets/images/c99-integers.drawio"/><figcaption> Flux de construction d'un entier standardisé</figcaption></figure></p>
 <p><a href="" id="reformed-types"></a></p>
-<h3 id="types-reformes">Types réformés<a class="headerlink" href="#types-reformes" title="Permanent link">¤</a></h3>
+<h3 id="types-reformes">Types réformés<a class="headerlink" href="#types-reformes" title="Lien permanent">¤</a></h3>
 <p>Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.</p>
 <table id="_table-4">
 <caption style="caption-side:top"> Entiers standard défini par stdint</caption><thead>
@@ -5515,7 +5515,7 @@ les outils associés.
 </span></code></pre></div>
 </div>
 <p><a href="" id="datamodel"></a></p>
-<h2 id="modele-de-donnee">Modèle de donnée<a class="headerlink" href="#modele-de-donnee" title="Permanent link">¤</a></h2>
+<h2 id="modele-de-donnee">Modèle de donnée<a class="headerlink" href="#modele-de-donnee" title="Lien permanent">¤</a></h2>
 <p>Comme nous l'avons évoqué plus haut, la taille des entiers <code>short</code>, <code>int</code>, ... n'est pas précisément définie par le standard. On sait qu'un <code>int</code> contient <strong>au moins</strong> 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment consciencieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.</p>
 <p>Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un <code>int</code> comme valeur de comptage allant au-delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du <code>int</code> sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème ?</p>
 <p>La première solution est de toujours utiliser les types proposés par <code>&lt;stdint.h&gt;</code> lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :</p>
@@ -5596,13 +5596,13 @@ les outils associés.
 <li><code>long long</code> est de 64-bits,</li>
 </ul>
 <p>Pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les <a class="autorefs autorefs-internal" href="#types-reformes">types réformés</a> de <code>&lt;stdint.h&gt;</code>. Ainsi pour s'assurer qu'un type soit <strong>au moins</strong> de 32-bits, on utilisera <code>uint_least32_t</code>.</p>
-<h2 id="les-caracteres">Les caractères<a class="headerlink" href="#les-caracteres" title="Permanent link">¤</a></h2>
+<h2 id="les-caracteres">Les caractères<a class="headerlink" href="#les-caracteres" title="Lien permanent">¤</a></h2>
 <p>Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement représentés par des grandeurs exprimées sur 1 octet (8-bits):</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>97 ≡ 0b1100001 ≡ 'a'
 </span></code></pre></div>
 <p>Un caractère du clavier enregistré en mémoire c'est donc un nombre entier de 8-bits. En C, le type de donnée <code>char</code> est utilisé pour stocker un caractère.</p>
 <p>Mais comment un ordinateur sait-il que <code>97</code> correspond à <code>a</code> ? C'est là que la notion d'encodage entre en jeu.</p>
-<h3 id="la-table-ascii">La table ASCII<a class="headerlink" href="#la-table-ascii" title="Permanent link">¤</a></h3>
+<h3 id="la-table-ascii">La table ASCII<a class="headerlink" href="#la-table-ascii" title="Lien permanent">¤</a></h3>
 <p>Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'<a href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ASA</a>, l'<em>American Standards Association</em> aujourd'hui <strong><abbr title="American National Standards Institute">ANSI</abbr></strong> qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.</p>
 <p><figure id="_figure-4"><img alt="Table ASCII ASA X3.4 établie en 1963" class="drawio-diagram" src="../../../assets/images/ascii-1963.drawio"/><figcaption> Table ASCII ASA X3.4 établie en 1963</figcaption></figure></p>
 <p>Aujourd'hui la table ASCII de base définit 128 caractères qui n'incluent pas les caractères accentués.</p>
@@ -5612,7 +5612,7 @@ les outils associés.
 <p>Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.</p>
 <p>Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a proposé un standard nommé <a href="https://fr.wikipedia.org/wiki/Windows-1252">Windows-1252</a> s'inspirant de <a href="https://fr.wikipedia.org/wiki/ISO/CEI_8859-1">ISO-8859-1</a>. En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...</p>
 <p><a href="" id="encodingunicode"></a></p>
-<h3 id="unicode">Unicode<a class="headerlink" href="#unicode" title="Permanent link">¤</a></h3>
+<h3 id="unicode">Unicode<a class="headerlink" href="#unicode" title="Lien permanent">¤</a></h3>
 <p>Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب), les Coréens (한국어), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage ; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.</p>
 <p>Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard <strong>Unicode</strong> (<em>Universal Coded Character Set</em>) plus précisément nommé <strong>UTF-8</strong>.</p>
 <p><figure id="_figure-7"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/encoding-trends.png"><img alt="Utiliation de l'UTF-8 dès 2008" src="../../../assets/images/encoding-trends.png"/></a><figcaption> Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008</figcaption></figure></p>
@@ -5636,11 +5636,11 @@ les outils associés.
 <p class="admonition-title">Note</p>
 <p>L'unicode permet notament de représenter des caractères spéciaux tels que les émoticônes (💩).</p>
 </div>
-<h3 id="les-emojis">Les emojis<a class="headerlink" href="#les-emojis" title="Permanent link">¤</a></h3>
+<h3 id="les-emojis">Les emojis<a class="headerlink" href="#les-emojis" title="Lien permanent">¤</a></h3>
 <p>Les emojis sont des caractères spéciaux qui ont été introduits en 2010 par le standard Unicode 6.0. Ils sont donc codés sur 4 octets et permettent de représenter des émotions, des objets, des animaux, des symboles, etc.</p>
 <p>Les émoticônes que vous pouvez envoyer à votre grand-mère sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//2764" target="_blank">2764</a> qui est le caractère <code>❤</code>. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.</p>
 <p>Ceci est vrai, mais encore faut-il que la police d'écriture utilisée par votre chère grand-maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère � qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.</p>
-<h2 id="chaine-de-caracteres">Chaîne de caractères<a class="headerlink" href="#chaine-de-caracteres" title="Permanent link">¤</a></h2>
+<h2 id="chaine-de-caracteres">Chaîne de caractères<a class="headerlink" href="#chaine-de-caracteres" title="Lien permanent">¤</a></h2>
 <p>Une <strong>chaîne de caractères</strong> est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit <code>NUL</code> ou <code>\0</code>. On appelle ce caractère le caractère de fin de chaîne. Il s'agit d'une sentinelle.</p>
 <div class="admonition example">
 <p class="admonition-title">Les légumes et les choux</p>
@@ -5733,7 +5733,7 @@ flowchart LR
 <li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Value: %hu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span></code></li>
 </ol>
 </div>
-<h2 id="les-booleens">Les booléens<a class="headerlink" href="#les-booleens" title="Permanent link">¤</a></h2>
+<h2 id="les-booleens">Les booléens<a class="headerlink" href="#les-booleens" title="Lien permanent">¤</a></h2>
 <p>Un <a href="https://fr.wikipedia.org/wiki/Bool%C3%A9en">booléen</a> est un type de donnée à deux états consensuellement nommés <em>vrai</em> (<code>true</code>) et <em>faux</em> (<code>false</code>) et destinés à représenter les états en logique booléenne (Nom venant de <a href="https://fr.wikipedia.org/wiki/George_Boole">George Boole,</a> fondateur de l'algèbre éponyme).</p>
 <p>La convention est d'utiliser <code>1</code> pour mémoriser un état vrai, et <code>0</code> pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.</p>
 <p>Les <strong>booléens</strong> ont été introduits formellement en C avec <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> et nécessitent l'inclusion du fichier d'en-tête <code>stdbool.h</code>. Avant cela le type booléen était <code>_Bool</code> et définir les états vrais et faux était à la charge du développeur.</p>
@@ -5744,7 +5744,7 @@ flowchart LR
 </span></code></pre></div>
 <p>Afin de faciliter la lecture du code, il est courant de préfixer les variables booléennes avec les préfixes <code>is_</code> ou <code>has_</code>.</p>
 <p>À titre d'exemple, si l'on souhaite stocker le genre d'un individu (mâle, ou femelle), on pourrait utiliser la variable <code>is_male</code>.</p>
-<h2 id="enumerations">Énumérations<a class="headerlink" href="#enumerations" title="Permanent link">¤</a></h2>
+<h2 id="enumerations">Énumérations<a class="headerlink" href="#enumerations" title="Lien permanent">¤</a></h2>
 <p>Ce style d'écriture permet de définir un type de données contenant un
 nombre fini de valeurs. Ces valeurs sont nommées textuellement et
 définies numériquement dans le type énuméré.</p>
@@ -5796,12 +5796,12 @@ définies numériquement dans le type énuméré.</p>
 </span><span id="__span-15-14"><a href="#__codelineno-15-14" id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-15-15"><a href="#__codelineno-15-15" id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="type-incomplets">Type incomplets<a class="headerlink" href="#type-incomplets" title="Permanent link">¤</a></h2>
+<h2 id="type-incomplets">Type incomplets<a class="headerlink" href="#type-incomplets" title="Lien permanent">¤</a></h2>
 <p>Un <strong>type incomplet</strong> est un qualificatif de type de donnée décrivant un objet dont sa taille en mémoire n'est pas connue.</p>
-<h3 id="vlq">VLQ<a class="headerlink" href="#vlq" title="Permanent link">¤</a></h3>
+<h3 id="vlq">VLQ<a class="headerlink" href="#vlq" title="Lien permanent">¤</a></h3>
 <p>Dans certains systèmes, on peut stocker des nombres entiers à taille variables. C'est à dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">VLQ</a> utilisés dans le protocole MIDI.</p>
 <p>On peut stocker un nombre VLQ en mémoire, mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée, mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.</p>
-<h3 id="type-vide-void">Type vide (<em>void</em>)<a class="headerlink" href="#type-vide-void" title="Permanent link">¤</a></h3>
+<h3 id="type-vide-void">Type vide (<em>void</em>)<a class="headerlink" href="#type-vide-void" title="Lien permanent">¤</a></h3>
 <p>Le type <code>void</code> est particulier. Il s'agit d'un type dit <strong>incomplet</strong>, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">shout</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hey!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
@@ -5816,8 +5816,8 @@ définies numériquement dans le type énuméré.</p>
 <li>Comme type de retour pour une fonction indiquant que cette fonction ne retourne rien <code>void display(char c)</code></li>
 <li>Comme pointeur dont le type de destination n'est pas spécifié <code>void* ptr</code></li>
 </ul>
-<h2 id="transtypage">Transtypage<a class="headerlink" href="#transtypage" title="Permanent link">¤</a></h2>
-<h3 id="promotion-implicite">Promotion implicite<a class="headerlink" href="#promotion-implicite" title="Permanent link">¤</a></h3>
+<h2 id="transtypage">Transtypage<a class="headerlink" href="#transtypage" title="Lien permanent">¤</a></h2>
+<h3 id="promotion-implicite">Promotion implicite<a class="headerlink" href="#promotion-implicite" title="Lien permanent">¤</a></h3>
 <p>Généralement le type <code>int</code> est de la même largeur que le bus mémoire de donnée d'un ordinateur.
 C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein
 du processeur. Les <em>registres</em> du processeur, autrement dit ses casiers mémoires, sont au moins
@@ -5894,7 +5894,7 @@ passe directement à un type <em>int</em>.</p>
 </ol>
 </div>
 </div>
-<h3 id="promotion-explicite">Promotion explicite<a class="headerlink" href="#promotion-explicite" title="Permanent link">¤</a></h3>
+<h3 id="promotion-explicite">Promotion explicite<a class="headerlink" href="#promotion-explicite" title="Lien permanent">¤</a></h3>
 <p>Il est possible de forcer la promotion d'un type vers un autre en utilisant un transtypage explicite. Par exemple, pour forcer la promotion d'un <code>int</code> vers un <code>double</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">n</span><span class="p">;</span>
@@ -5905,7 +5905,7 @@ d'un changement de type vers un type dont le pouvoir de représentation
 est plus important, il n'y a pas de problème. À l'inverse, on peut
 rencontrer des erreurs sur la précision ou une modification radicale de
 la valeur représentée !</p>
-<h4 id="transtypage-dun-entier-en-flottant">Transtypage d'un entier en flottant<a class="headerlink" href="#transtypage-dun-entier-en-flottant" title="Permanent link">¤</a></h4>
+<h4 id="transtypage-dun-entier-en-flottant">Transtypage d'un entier en flottant<a class="headerlink" href="#transtypage-dun-entier-en-flottant" title="Lien permanent">¤</a></h4>
 <p>Par exemple, la conversion d'un nombre flottant (<em>double</em> ou <em>float</em>) en entier (signé) doit être étudiée pour éviter tout problème. Le type entier doit être
 capable de recevoir la valeur (attention aux valeurs maxi).</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mf">3.9</span><span class="p">;</span>
@@ -5924,7 +5924,7 @@ des erreurs de calculs par la suite.</p>
 </span></code></pre></div>
 <p>L'utilisation d'un type non signé pour convertir un nombre réel conduit
 également à une modification de la valeur numérique.</p>
-<h4 id="transtypage-dun-double-en-float">Transtypage d'un double en float<a class="headerlink" href="#transtypage-dun-double-en-float" title="Permanent link">¤</a></h4>
+<h4 id="transtypage-dun-double-en-float">Transtypage d'un double en float<a class="headerlink" href="#transtypage-dun-double-en-float" title="Lien permanent">¤</a></h4>
 <p>La conversion d'un nombre réel de type <em>double</em> en réel de type <em>float</em>
 pose un problème de précision de calcul.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mf">0.1111111111111111</span><span class="p">;</span>
@@ -6049,7 +6049,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </li>
 </ol>
 </div>
-<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¤</a></h2>
+<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Lien permanent">¤</a></h2>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 11 : </span>Évaluation d'expressions<span class="exercise-title"></span></p>
 <p>Considérons les déclarations suivantes :</p>
@@ -6299,7 +6299,7 @@ correspondant.</p>
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

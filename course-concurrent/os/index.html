@@ -5038,11 +5038,11 @@ les outils associés.
   
 
 
-<h1 id="systeme-dexploitation-posix">Système d'exploitation (<abbr title="Portable Operating System Interface">POSIX</abbr>)<a class="headerlink" href="#systeme-dexploitation-posix" title="Permanent link">¤</a></h1>
-<h2 id="processus">Processus<a class="headerlink" href="#processus" title="Permanent link">¤</a></h2>
+<h1 id="systeme-dexploitation-posix">Système d'exploitation (<abbr title="Portable Operating System Interface">POSIX</abbr>)<a class="headerlink" href="#systeme-dexploitation-posix" title="Lien permanent">¤</a></h1>
+<h2 id="processus">Processus<a class="headerlink" href="#processus" title="Lien permanent">¤</a></h2>
 <p>Un processus est un programme en cours d'exécution. Il est composé d'un espace d'adressage, d'un ensemble de ressources (fichiers, sockets, etc.) et d'un ou plusieurs threads. Un processus est identifié par un PID (Process IDentifier).</p>
-<h3 id="etats-dun-processus">États d'un processus<a class="headerlink" href="#etats-dun-processus" title="Permanent link">¤</a></h3>
-<h2 id="etat-du-processus">Etat du processus<a class="headerlink" href="#etat-du-processus" title="Permanent link">¤</a></h2>
+<h3 id="etats-dun-processus">États d'un processus<a class="headerlink" href="#etats-dun-processus" title="Lien permanent">¤</a></h3>
+<h2 id="etat-du-processus">Etat du processus<a class="headerlink" href="#etat-du-processus" title="Lien permanent">¤</a></h2>
 <p>Nouveau (<em>New</em>) : Un processus vient d'être créé mais n'a pas encore été admis par l'ordonnanceur du système d'exploitation pour exécution.</p>
 <p>Prêt (<em>Ready</em>) : Le processus est chargé en mémoire et attend qu'un processeur lui soit attribué par l'ordonnanceur pour exécuter ses instructions.</p>
 <p>Exécution (<em>Running</em>) : Le processus est en cours d'exécution sur un processeur. Dans cet état, le processus effectue les opérations pour lesquelles il a été conçu.</p>
@@ -5051,14 +5051,14 @@ les outils associés.
 <p>Orphelin (<em>Orphan</em>) : Un processus devient orphelin si son processus parent se termine avant lui. Les processus orphelins sont adoptés par le processus init (PID 1), qui récupère automatiquement leur statut de sortie, évitant ainsi la création de zombies.</p>
 <p>Interrompu (<em>Stopped</em>) : Un processus peut être mis en pause (ou arrêté temporairement) par un signal (par exemple, SIGSTOP). Il peut être repris plus tard (par exemple, avec le signal SIGCONT).</p>
 <p>Zombie (<em>Zombie</em>) : Comme mentionné précédemment, un processus « zombie » ou « processus défunt » est un processus qui a terminé son exécution mais reste dans la table des processus parce que son processus parent n'a pas encore récupéré son statut de sortie. Cela permet au parent de récupérer les informations sur le statut de fin de son enfant. Un processus zombie ne consomme pas de ressources à part une entrée dans la table des processus.</p>
-<h2 id="creation-dun-processus">Création d'un processus<a class="headerlink" href="#creation-dun-processus" title="Permanent link">¤</a></h2>
+<h2 id="creation-dun-processus">Création d'un processus<a class="headerlink" href="#creation-dun-processus" title="Lien permanent">¤</a></h2>
 <p>Sous les systèmes d'exploitation <abbr title="Portable Operating System Interface">POSIX</abbr>, il existe principalement deux façons de créer un processus :</p>
-<h3 id="fork"><code>fork()</code><a class="headerlink" href="#fork" title="Permanent link">¤</a></h3>
+<h3 id="fork"><code>fork()</code><a class="headerlink" href="#fork" title="Lien permanent">¤</a></h3>
 <p>La fonction <code>fork()</code> est utilisée pour créer un nouveau processus, appelé processus enfant, qui est une copie du processus appelant (processus parent). L'enfant reçoit une copie des données du parent, mais les deux processus ont des espaces d'adressage séparés. Après le <code>fork()</code>, les deux processus (parent et enfant) continuent leur exécution à partir de l'instruction suivante après l'appel <code>fork()</code>. La principale différence entre eux est la valeur de retour de <code>fork()</code>: 0 pour l'enfant et l'ID du processus enfant (PID) pour le parent, ou -1 en cas d'échec.</p>
-<h3 id="exec"><code>exec()</code><a class="headerlink" href="#exec" title="Permanent link">¤</a></h3>
+<h3 id="exec"><code>exec()</code><a class="headerlink" href="#exec" title="Lien permanent">¤</a></h3>
 <p>La famille de fonctions <code>exec()</code> est utilisée pour exécuter un nouveau programme dans l'espace d'adressage d'un processus. Cela remplace l'image du processus actuel par une nouvelle image de programme. Les différentes variantes de <code>exec()</code> (comme <code>execl()</code>, <code>execp()</code>, <code>execv()</code>, etc.) permettent de spécifier le programme à exécuter et de passer des arguments de différentes manières. Habituellement, <code>exec()</code> est appelé par un processus enfant après un fork() pour remplacer son image par celle du programme à exécuter, permettant ainsi au processus parent de continuer à exécuter son code original tout en lançant un nouveau programme dans le processus enfant.
 Ces deux fonctions sont souvent utilisées ensemble pour créer un nouveau processus et exécuter un nouveau programme au sein de ce processus. Le modèle « fork-exec » est un motif commun dans les systèmes <abbr title="Portable Operating System Interface">POSIX</abbr> pour la création de processus et l'exécution de programmes. Ce mécanisme permet une grande flexibilité dans la gestion des processus, en permettant à un processus parent de contrôler l'exécution de processus enfants et de récupérer leur statut de sortie une fois qu'ils ont terminé.</p>
-<h3 id="exemple-de-zombie">Exemple de zombie<a class="headerlink" href="#exemple-de-zombie" title="Permanent link">¤</a></h3>
+<h3 id="exemple-de-zombie">Exemple de zombie<a class="headerlink" href="#exemple-de-zombie" title="Lien permanent">¤</a></h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="c1"> // Pour fork(), getpid(), sleep()</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/wait.h&gt;</span><span class="c1"> // Pour wait()</span>
@@ -5084,7 +5084,7 @@ Ces deux fonctions sont souvent utilisées ensemble pour créer un nouveau proce
 </span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="status-des-processus-avec-ps">Status des processus avec <code>ps</code><a class="headerlink" href="#status-des-processus-avec-ps" title="Permanent link">¤</a></h3>
+<h3 id="status-des-processus-avec-ps">Status des processus avec <code>ps</code><a class="headerlink" href="#status-des-processus-avec-ps" title="Lien permanent">¤</a></h3>
 <p>Lorsque vous utilisez la commande <code>ps -l</code> sur un système <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr> ou Linux pour lister les processus avec des informations détaillées, vous pouvez observer différents états de processus représentés par des lettres. Voici les principaux états que vous pourriez voir :</p>
 <p><strong>D</strong>: Non interrompible (uninterruptible sleep) - Le processus est en attente d'une opération d'entrée/sortie et ne peut pas être interrompu.</p>
 <p><strong>R</strong>: Exécutable (running or runnable) - Le processus est en cours d'exécution sur un processeur ou en attente d'être exécuté.</p>
@@ -5094,7 +5094,7 @@ Ces deux fonctions sont souvent utilisées ensemble pour créer un nouveau proce
 <p><strong>I</strong> : Processus inactif (idle) - Utilisé pour les tâches du noyau.</p>
 <p><strong>W</strong> : Paginé - Un état obsolète non utilisé dans les versions modernes de Unix/Linux, indiquant qu'un processus était échangé (swapped out).
 L'état du processus est une information clé pour comprendre ce que fait un processus à un moment donné. Les états comme « D » et « S » indiquent qu'un processus attend quelque chose pour continuer, tandis que « R » signifie que le processus est soit en cours d'exécution, soit prêt à être exécuté dès qu'un processeur est disponible. Les états « T » et « Z » sont des cas spéciaux, indiquant respectivement un processus arrêté et un processus qui s'est terminé mais dont les ressources ne sont pas encore totalement libérées par le système.</p>
-<h3 id="communication-inter-processus-ipc">Communication inter-processus (IPC)<a class="headerlink" href="#communication-inter-processus-ipc" title="Permanent link">¤</a></h3>
+<h3 id="communication-inter-processus-ipc">Communication inter-processus (IPC)<a class="headerlink" href="#communication-inter-processus-ipc" title="Lien permanent">¤</a></h3>
 <p>Les processus dans les systèmes d'exploitation <abbr title="Portable Operating System Interface">POSIX</abbr> peuvent communiquer entre eux par plusieurs mécanismes de communication interprocessus (IPC - Inter-Process Communication). Ces mécanismes permettent aux processus de partager des données et de coordonner leurs actions. Voici les principaux moyens de communication interprocessus :</p>
 <p><strong>Pipes (tuyaux)</strong> : Un pipe permet à un flux de données de passer d'un processus à l'autre. Les pipes anonymes sont utilisés pour la communication entre un processus parent et son enfant ou entre enfants d'un même parent. Les pipes nommés (FIFOs) peuvent être utilisés entre n'importe quels processus sur le système.</p>
 <p><strong>Signaux</strong> : Les signaux sont des messages simples envoyés à un processus pour lui indiquer qu'un événement particulier s'est produit. Bien qu'ils ne transportent pas de grandes quantités de données, ils sont utiles pour contrôler les opérations des processus et pour la gestion d'événements asynchrones.</p>
@@ -5103,7 +5103,7 @@ L'état du processus est une information clé pour comprendre ce que fait un pro
 <p><strong>Files de messages</strong> : Les files de messages permettent aux processus d'envoyer et de recevoir des messages sous forme de files d'attente. Chaque message est une structure de données qui peut contenir des informations variées. Les files de messages sont utiles pour échanger de petites quantités de données de manière asynchrone.</p>
 <p><strong>Sockets</strong> : Les sockets permettent la communication entre processus sur le même ordinateur ou entre processus sur des ordinateurs différents dans un réseau. Ils supportent la communication en mode connecté (TCP) et non connecté (UDP) et sont la base de nombreuses communications réseau, y compris le Web.</p>
 <p>Ces mécanismes offrent divers degrés d'abstraction et peuvent être choisis en fonction des besoins spécifiques en matière de communication interprocessus, comme la quantité de données à transférer, la nécessité de synchronisation ou la préférence entre la communication locale et la communication en réseau.</p>
-<h4 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Permanent link">¤</a></h4>
+<h4 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Lien permanent">¤</a></h4>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/wait.h&gt;</span>
@@ -5173,7 +5173,7 @@ L'état du processus est une information clé pour comprendre ce que fait un pro
 <p>Avec <code>htop</code>, vous pouvez observer les processus enfants en attente de signal. Utilisez la fonction <code>t</code> pour afficher le mode arbre. Vous pouvez également observer la mémoire partagée avec <code>ipcs -m</code>.</p>
 <p>Dans cet exemple, un segment de mémoire partagée est créé pour stocker une valeur entière. Le processus parent écrit une valeur dans la mémoire partagée et envoie un signal à chaque processus enfant. Chaque processus enfant est configuré pour exécuter un gestionnaire de signal qui lit la valeur de la mémoire partagée. Cela permet de communiquer des données entre le processus parent et les processus enfants de manière asynchrone.</p>
 <p>Néanmoins il faut d'avantage pour gérer la synchronisation et la communication entre les processus. Les exemples ci-dessus sont des simplifications pour illustrer les concepts de base.</p>
-<h4 id="synchronisation-de-la-memoire-partagee">Synchronisation de la mémoire partagée<a class="headerlink" href="#synchronisation-de-la-memoire-partagee" title="Permanent link">¤</a></h4>
+<h4 id="synchronisation-de-la-memoire-partagee">Synchronisation de la mémoire partagée<a class="headerlink" href="#synchronisation-de-la-memoire-partagee" title="Lien permanent">¤</a></h4>
 <p>Dans cet exemple, on se contente d'informer l'utilisateur qu'une valeur a été déposée dans la mémoire partagée mais on ne peut pas la lire directement. On a besoin d'un mécanisme de synchronisation.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
@@ -5254,20 +5254,20 @@ L'état du processus est une information clé pour comprendre ce que fait un pro
 </span><span id="__span-2-77"><a href="#__codelineno-2-77" id="__codelineno-2-77" name="__codelineno-2-77"></a><span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">sem</span><span class="p">;</span>
 </span><span id="__span-2-78"><a href="#__codelineno-2-78" id="__codelineno-2-78" name="__codelineno-2-78"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="processus-leger-versus-processus-clonefork">Processus léger versus processus (clone/fork)<a class="headerlink" href="#processus-leger-versus-processus-clonefork" title="Permanent link">¤</a></h2>
+<h2 id="processus-leger-versus-processus-clonefork">Processus léger versus processus (clone/fork)<a class="headerlink" href="#processus-leger-versus-processus-clonefork" title="Lien permanent">¤</a></h2>
 <p>Sous Linux, l'appel système utilisé pour créer des threads est <code>clone()</code> ou, dans certains cas, des variantes comme <code>fork()</code> ou <code>vfork()</code>. Cependant, <code>clone()</code> est plus flexible et permet une plus grande personnalisation du partage d'espace d'adressage, des fichiers, des signaux, etc., ce qui le rend particulièrement adapté pour la création de threads.</p>
 <p><code>clone()</code> : Cet appel système est utilisé pour créer un processus léger (un thread, dans ce contexte). Contrairement à <code>fork()</code>, qui duplique le processus appelant dans un nouveau processus avec un espace d'adressage séparé, <code>clone()</code> permet de spécifier exactement quels éléments (espace d'adressage, table des fichiers ouverts, espace des signaux, etc.) doivent être partagés entre le thread appelant et le nouveau thread. Cela permet une création de thread plus efficace et un partage de ressources entre les threads.</p>
-<h3 id="processus_1">Processus<a class="headerlink" href="#processus_1" title="Permanent link">¤</a></h3>
+<h3 id="processus_1">Processus<a class="headerlink" href="#processus_1" title="Lien permanent">¤</a></h3>
 <p>Un processus est une instance d'un programme en cours d'exécution. Chaque processus possède son propre espace d'adressage virtuel, ses propres ressources (comme des descripteurs de fichiers) et son propre contexte d'exécution (registres, pile, etc.). Les processus sont isolés les uns des autres, ce qui signifie que sans mécanismes de communication inter-processus (IPC), ils ne peuvent pas directement partager de données. L'isolation entre les processus assure la sécurité et la stabilité du système, car l'erreur dans un processus ne peut pas corrompre directement l'espace mémoire d'un autre processus.</p>
-<h3 id="thread-processus-leger">Thread (Processus léger)<a class="headerlink" href="#thread-processus-leger" title="Permanent link">¤</a></h3>
+<h3 id="thread-processus-leger">Thread (Processus léger)<a class="headerlink" href="#thread-processus-leger" title="Lien permanent">¤</a></h3>
 <p>Un thread, souvent appelé un processus léger, est une unité d'exécution qui peut être créée au sein d'un processus. Contrairement aux processus, les threads d'un même processus partagent le même espace d'adressage et peuvent accéder aux mêmes données en mémoire. Cela facilite le partage d'informations et la communication entre les threads, mais requiert également une synchronisation soignée pour éviter les conditions de course et les incohérences de données. Les threads ont leur propre pile d'exécution et leur propre contexte de registres, mais partagent d'autres ressources avec les threads du même processus, comme les descripteurs de fichiers et les segments de mémoire alloués.</p>
-<h3 id="differences-cles">Différences clés<a class="headerlink" href="#differences-cles" title="Permanent link">¤</a></h3>
+<h3 id="differences-cles">Différences clés<a class="headerlink" href="#differences-cles" title="Lien permanent">¤</a></h3>
 <p>Isolation : Les processus sont isolés les uns des autres, tandis que les threads partagent l'espace d'adressage du processus qui les a créés.
 Création et terminaison : Créer un nouveau processus est généralement plus coûteux en termes de ressources et de temps que créer un thread. De même, terminer un processus et nettoyer ses ressources est plus lourd que terminer un thread.</p>
 <p>Communication : La communication entre processus nécessite l'utilisation de mécanismes IPC, tels que les files de messages, les tubes (pipes), la mémoire partagée, etc. En revanche, les threads peuvent communiquer directement en lisant et écrivant dans la mémoire partagée du processus, bien que cela nécessite une synchronisation, comme l'utilisation de verrous ou de sémaphores.
 Utilisation : Les processus sont utiles pour exécuter des tâches isolées et sécurisées, sans risque d'interférence directe entre elles. Les threads sont préférés pour les tâches qui nécessitent un partage intensif de données ou une communication rapide entre les unités d'exécution au sein d'une même application.</p>
 <p>En résumé, bien que les threads (ou processus légers) et les processus servent tous deux à exécuter des tâches de manière concurrente, ils diffèrent par leur niveau d'isolation, leurs coûts de création et de gestion, ainsi que par leur manière de communiquer et de partager des données.</p>
-<h2 id="appel-systeme-clone">Appel système <code>clone()</code><a class="headerlink" href="#appel-systeme-clone" title="Permanent link">¤</a></h2>
+<h2 id="appel-systeme-clone">Appel système <code>clone()</code><a class="headerlink" href="#appel-systeme-clone" title="Lien permanent">¤</a></h2>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sched.h&gt;</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
@@ -5315,7 +5315,7 @@ Utilisation : Les processus sont utiles pour exécuter des tâches isolées et
 </span><span id="__span-3-45"><a href="#__codelineno-3-45" id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Thread terminé</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-3-46"><a href="#__codelineno-3-46" id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="signaux">Signaux<a class="headerlink" href="#signaux" title="Permanent link">¤</a></h2>
+<h2 id="signaux">Signaux<a class="headerlink" href="#signaux" title="Lien permanent">¤</a></h2>
 <p>Sous les systèmes d'exploitation <abbr title="Portable Operating System Interface">POSIX</abbr>, les signaux sont des messages logiciels envoyés à un processus pour lui indiquer qu'un événement particulier s'est produit. Les signaux sont utilisés pour gérer les interruptions, les erreurs et les événements asynchrones, et peuvent être envoyés par le noyau, par d'autres processus ou par le processus lui-même.</p>
 <p>Voici les signaux <abbr title="Portable Operating System Interface">POSIX</abbr> standard et leurs descriptions :</p>
 <table>
@@ -5453,14 +5453,14 @@ Utilisation : Les processus sont utiles pour exécuter des tâches isolées et
 </tbody>
 </table>
 <p>Les signaux les plus couramment utilisés sont <code>SIGINT</code> (interruption depuis le clavier), <code>SIGTERM</code> (terminaison) et <code>SIGKILL</code> (terminaison forcée). Ces signaux sont souvent utilisés pour demander à un processus de se terminer ou de réagir à des événements utilisateur.</p>
-<h2 id="information-sur-un-processus">Information sur un processus<a class="headerlink" href="#information-sur-un-processus" title="Permanent link">¤</a></h2>
-<h3 id="pstree"><code>pstree</code><a class="headerlink" href="#pstree" title="Permanent link">¤</a></h3>
+<h2 id="information-sur-un-processus">Information sur un processus<a class="headerlink" href="#information-sur-un-processus" title="Lien permanent">¤</a></h2>
+<h3 id="pstree"><code>pstree</code><a class="headerlink" href="#pstree" title="Lien permanent">¤</a></h3>
 <p>Pour afficher l'arborescence des processus, vous pouvez utiliser la commande pstree. Par exemple, pour afficher l'arborescence des processus pour l'utilisateur actuel, vous pouvez exécuter :</p>
 <p>Exercice :</p>
 <p>Essayez de lancer un programme en arrière-plan (par exemple, ./myprogram &amp;) et utilisez pstree pour voir comment il est lié à d'autres processus.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>$<span class="w"> </span>pstree
 </span></code></pre></div>
-<h3 id="proc"><code>proc</code><a class="headerlink" href="#proc" title="Permanent link">¤</a></h3>
+<h3 id="proc"><code>proc</code><a class="headerlink" href="#proc" title="Lien permanent">¤</a></h3>
 <p>Exécutez le programme suivant :</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1">// Read string and print it</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5480,7 +5480,7 @@ Utilisation : Les processus sont utiles pour exécuter des tâches isolées et
 </span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>$<span class="w"> </span>cat<span class="w"> </span>/proc/12345/maps
 </span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>$<span class="w"> </span>cat<span class="w"> </span>/proc/12345/smaps
 </span></code></pre></div>
-<h2 id="appels-systemes-utiles">Appels systèmes utiles<a class="headerlink" href="#appels-systemes-utiles" title="Permanent link">¤</a></h2>
+<h2 id="appels-systemes-utiles">Appels systèmes utiles<a class="headerlink" href="#appels-systemes-utiles" title="Lien permanent">¤</a></h2>
 <table>
 <thead>
 <tr>
@@ -5626,7 +5626,7 @@ Utilisation : Les processus sont utiles pour exécuter des tâches isolées et
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

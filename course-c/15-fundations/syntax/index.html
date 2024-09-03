@@ -4976,9 +4976,9 @@ les outils associés.
   
 
 
-<h1 id="syntaxe">Syntaxe<a class="headerlink" href="#syntaxe" title="Permanent link">¤</a></h1>
+<h1 id="syntaxe">Syntaxe<a class="headerlink" href="#syntaxe" title="Lien permanent">¤</a></h1>
 <p>Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il traite des généralités propres au langage, mais aussi des notions élémentaires permettant d'interpréter du code source. Notons que ce chapitre est transversal, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maîtrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.</p>
-<h2 id="lalphabet">L'alphabet<a class="headerlink" href="#lalphabet" title="Permanent link">¤</a></h2>
+<h2 id="lalphabet">L'alphabet<a class="headerlink" href="#lalphabet" title="Lien permanent">¤</a></h2>
 <p><span class="ycr-hashtag" data-index-entry="alphabet, l'" data-tag=""></span></p>
 <p>Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 <a href="https://fr.wikipedia.org/wiki/Chiffres_arabes">chiffres indo-arabes</a> :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
@@ -5059,7 +5059,7 @@ les outils associés.
 <p>La ponctuation utilise les 29 symboles graphiques suivants :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>! # % ^ &amp; * ( _ ) - + = ~ [ ] ' | \ ; : " { } , . &lt; &gt; / ?
 </span></code></pre></div>
-<h2 id="la-machine-a-ecrire">La machine à écrire<a class="headerlink" href="#la-machine-a-ecrire" title="Permanent link">¤</a></h2>
+<h2 id="la-machine-a-ecrire">La machine à écrire<a class="headerlink" href="#la-machine-a-ecrire" title="Lien permanent">¤</a></h2>
 <p>Peut-être avez-vous déjà été confronté à une machine à écrire mécanique. Elles disposent d'un levier sur la gauche du chariot qui a deux fonctionnalités. D'une part il permet de faire revenir le chariot au début de la ligne, mais également de faire avancer le papier d'une ligne. C'est ce levier qui a donné son nom au caractère de retour à la ligne <code>CR</code> pour <em>Carriage Return</em>. Quant au caractère de nouvelle ligne <code>LF</code> pour <em>Line Feed</em>, il est associé à la rotation du cylindre qui porte la feuille de papier.</p>
 <p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/hermes-3000.webp"><img alt="Machine à écrire Hermès 3000 hébraïque" src="../../../assets/images/hermes-3000.webp" width="50%"/></a><figcaption> Machine à écrire Hermès 3000 hébraïque</figcaption></figure></p>
 <p>Historiquement il y a donc bien une distinction entre les deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens.</p>
@@ -5096,7 +5096,7 @@ les outils associés.
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">main</span><span class="p">(</span><span class="n">i</span><span class="p">){</span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">160</span><span class="p">;</span><span class="n">i</span><span class="o">--</span><span class="p">;</span><span class="n">putchar</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">32</span><span class="o">?</span><span class="s">"œ™cæRJ""</span><span class="se">\\</span><span class="s">J•äRJ""œ]dä"</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">8</span><span class="p">]</span><span class="o">&amp;</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">%</span><span class="mi">8</span><span class="o">?</span><span class="mi">42</span><span class="o">:</span><span class="mi">32</span><span class="o">:</span><span class="mi">10</span><span class="p">));}</span>
 </span></code></pre></div>
 </details>
-<h2 id="fin-de-lignes-eol">Fin de lignes (EOL)<a class="headerlink" href="#fin-de-lignes-eol" title="Permanent link">¤</a></h2>
+<h2 id="fin-de-lignes-eol">Fin de lignes (EOL)<a class="headerlink" href="#fin-de-lignes-eol" title="Lien permanent">¤</a></h2>
 <p><span class="ycr-hashtag" data-index-entry="EOL, fin de ligne" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="CR, retour chariot" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="LF, nouvelle ligne" data-tag=""></span></p>
 <p>À l'instar des premières machines à écrire, les <a href="https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur">téléscripteurs</a> possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme <a href="https://fr.wikipedia.org/wiki/Retour_chariot">retour chariot</a> est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC <a href="https://fr.wikipedia.org/wiki/Compatible_PC">IBM compatibles</a> ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères : un retour chariot (<code>CR</code>) et une nouvelle ligne (<code>LF</code>) ou en C <code>\r\n</code>. Les premiers <a href="https://fr.wikipedia.org/wiki/Macintosh">Macintosh</a> d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère <code>\r</code>. Enfin, les ordinateurs <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr> ont eu le même raisonnement, mais ils ont choisi de ne garder que <code>\n</code>.</p>
 <p>Fort heureusement depuis que Apple a migré son système sur une base <a href="https://en.wikipedia.org/wiki/Berkeley_Software_Distribution"><abbr title="Berkeley Software Distribution">BSD</abbr></a> (<abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>) en 2001, les systèmes d'exploitation modernes ont adopté le standard <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr> et il n'y a plus de problème de compatibilité entre les systèmes.</p>
@@ -5106,7 +5106,7 @@ les outils associés.
 <li><code>CRLF</code> ou <code>\r\n</code> sur les ordinateurs Windows.</li>
 </ul>
 <p>Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (<code>EOL</code>: <em>End Of Line</em>) il faut utiliser, faite preuve de bon sens et surtout, soyez cohérent.</p>
-<h2 id="mots-cles">Mots clés<a class="headerlink" href="#mots-cles" title="Permanent link">¤</a></h2>
+<h2 id="mots-cles">Mots clés<a class="headerlink" href="#mots-cles" title="Lien permanent">¤</a></h2>
 <p><span class="ycr-hashtag" data-index-entry="mot clé" data-tag=""></span></p>
 <p>Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">_Bool</span><span class="w">       </span><span class="k">do</span><span class="w">        </span><span class="kt">int</span><span class="w">       </span><span class="k">switch</span>
@@ -5133,7 +5133,7 @@ les outils associés.
 <p>Le Perl par exemple n'a environ que 20 mots clés, mais il est réputé pour être un langage difficile à apprendre. Le C++ dans sa version 2020 en a plus de 84.</p>
 </details>
 <p><a href="" id="identifier"></a></p>
-<h2 id="identificateurs">Identificateurs<a class="headerlink" href="#identificateurs" title="Permanent link">¤</a></h2>
+<h2 id="identificateurs">Identificateurs<a class="headerlink" href="#identificateurs" title="Lien permanent">¤</a></h2>
 <p>Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par une grammaire régulière qui peut être exprimée comme suit :</p>
 <p><figure id="_figure-3"><img alt="Grammaire d'un identificateur C" class="drawio-diagram" src="../../../assets/images/identifier.drawio"/><figcaption> Grammaire d'un identificateur C</figcaption></figure></p>
 <p>La notation <a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=%5Ba-z%5D&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/[a-z]/</code></a> signifie que l'on peut utiliser n'importe quelle lettre minuscule de l'alphabet latin, <a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=%5BA-Z%5D&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/[A-Z]/</code></a> pour les lettres majuscules, <a class="ycr-callout ycr-regex" href="https://regex101.com/?regex=%5B0-9%5D&amp;flags=&amp;flavor=pcre2" target="_blank"><code>/[0-9]/</code></a> pour les chiffres et <code>_</code> pour le caractère souligné.</p>
@@ -5193,7 +5193,7 @@ les outils associés.
 </div>
 </details>
 </div>
-<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">¤</a></h2>
+<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Lien permanent">¤</a></h2>
 <p>Une variable est un symbole qui associe un nom (<strong>identificateur</strong>) à une <strong>valeur</strong>. Comme son nom l'indique, une variable peut voir son contenu varier au cours du temps.</p>
 <p>Une variable est définie par :</p>
 <ul>
@@ -5229,7 +5229,7 @@ application (qui est exécuté avant le <code>main</code>).</p>
 <p>Par ce fait, dès que l'exécution du logiciel est effectuée, on a, lors
 de l'exécution du <code>main</code>, des variables correctement initialisées.</p>
 </div>
-<h3 id="declaration">Déclaration<a class="headerlink" href="#declaration" title="Permanent link">¤</a></h3>
+<h3 id="declaration">Déclaration<a class="headerlink" href="#declaration" title="Lien permanent">¤</a></h3>
 <p>Avant de pouvoir être utilisée, une variable doit être <strong>déclarée</strong> afin que le compilateur puisse réserver un emplacement en mémoire pour stocker sa valeur.</p>
 <p>Voici quelques déclarations valides :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'€'</span><span class="p">;</span>
@@ -5392,7 +5392,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 </table>
 </details>
 </div>
-<h3 id="convention-de-nommage">Convention de nommage<a class="headerlink" href="#convention-de-nommage" title="Permanent link">¤</a></h3>
+<h3 id="convention-de-nommage">Convention de nommage<a class="headerlink" href="#convention-de-nommage" title="Lien permanent">¤</a></h3>
 <p><figure id="_figure-5"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/kebab.png"><img alt="Différentes casses illustrées" src="../../../assets/images/kebab.png"/></a><figcaption> Différentes casses illustrées</figcaption></figure></p>
 <p>Il existe autant de conventions de nommage qu'il y a de développeurs, mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation dit que :</p>
 <ul>
@@ -5436,7 +5436,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <p class="admonition-title">Note</p>
 <p>La casse de kebab n'est pas acceptée par le standard C car les noms formés ne sont pas des identificateurs valides. Néanmoins cette notation est beaucoup utilisée par exemple sur GitHub.</p>
 </div>
-<h3 id="variable-metasyntaxique">Variable métasyntaxique<a class="headerlink" href="#variable-metasyntaxique" title="Permanent link">¤</a></h3>
+<h3 id="variable-metasyntaxique">Variable métasyntaxique<a class="headerlink" href="#variable-metasyntaxique" title="Lien permanent">¤</a></h3>
 <p>Souvent lors d'exemples donnés en programmation, on utilise des variables génériques dites <a href="https://fr.wikipedia.org/wiki/Variable_m%C3%A9tasyntaxique">métasyntaxiques</a>. En français les valeurs <code>toto</code>, <code>titi</code>, <code>tata</code> et <code>tutu</code> sont régulièrement utilisées tandis qu'en anglais
 <code>foo</code>, <code>bar</code>, <code>baz</code> et <code>qux</code> sont régulièrement utilisés. Les valeurs <code>spam</code>, <code>ham</code> et <code>eggs</code> sont quant à elles souvent utilisée en Python, en référence au sketch <a href="https://en.wikipedia.org/wiki/Spam_(Monty_Python)">Spam</a> des Monthy Python.</p>
 <p>Leur usage est conseillé pour appuyer le cadre générique d'un exemple sans lui donner la consonance d'un problème plus spécifique.</p>
@@ -5446,7 +5446,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <p>L'origine de <code>foo</code> et <code>bar</code> remonte à la <a href="https://en.wikipedia.org/wiki/FUBAR">deuxième guerre mondiale</a> où les militaires américains utilisaient ces termes pour désigner des objets non identifiés.</p>
 <p>Titi et Toto sont des personnages de bande dessinée créés par <a href="https://fr.wikipedia.org/wiki/Maurice_Cuvillier">Maurice Cuvillier</a> en 1931.</p>
 </div>
-<h2 id="les-constantes">Les constantes<a class="headerlink" href="#les-constantes" title="Permanent link">¤</a></h2>
+<h2 id="les-constantes">Les constantes<a class="headerlink" href="#les-constantes" title="Lien permanent">¤</a></h2>
 <p>Une constante par opposition à une variable voit son contenu <strong>fixe</strong> et <strong>immuable</strong>.</p>
 <p>Formellement, une constante se déclare comme une variable, mais préfixée du mot-clé <code>const</code>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">scale_factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12.67</span><span class="p">;</span>
@@ -5467,7 +5467,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <li>Indiquer au compilateur que la valeur ne changera pas et qu'il peut optimiser le code en conséquence.</li>
 <li>Indiquer au développeur que la valeur ne sera pas modifiée plus tard dans le programme.</li>
 </ul>
-<h2 id="constantes-litterales">Constantes littérales<a class="headerlink" href="#constantes-litterales" title="Permanent link">¤</a></h2>
+<h2 id="constantes-litterales">Constantes littérales<a class="headerlink" href="#constantes-litterales" title="Lien permanent">¤</a></h2>
 <p>Les constantes littérales représentent des <strong>grandeurs scalaires</strong> numériques ou de caractères et initialisées lors de la phase de compilation.</p>
 <p>En effet, lorsque l'on veut saisir un nombre, on ne veut pas que le compilateur la comprenne comme un identificateur, mais bien comme une valeur numérique. C'est d'ailleurs la raison pour laquelle un identificateur ne peut pas commencer par un chiffre.</p>
 <p>Les constantes littérales sont généralement identifiées avec des préfixes et des suffixes pour indiquer leur nature. Voici quelques exemples :</p>
@@ -5552,7 +5552,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 <p class="admonition-title">Avertissement</p>
 <p>Il ne faut pas confondre l'exponentiation avec le nombre d'Euler (2.71828...) <code>e</code> avec la notation scientifique <code>e</code> qui est utilisée pour indiquer une puissance de 10.</p>
 </div>
-<h2 id="operateur-daffectation">Opérateur d'affectation<a class="headerlink" href="#operateur-daffectation" title="Permanent link">¤</a></h2>
+<h2 id="operateur-daffectation">Opérateur d'affectation<a class="headerlink" href="#operateur-daffectation" title="Lien permanent">¤</a></h2>
 <p>Dans les exemples ci-dessus, on utilise l'opérateur d'affectation pour associer une valeur à une variable.</p>
 <p>Historiquement, et fort malheureusement, le symbole choisi pour cet opérateur est le signe égal <code>=</code> or, l'égalité est une notion mathématique qui n'est en aucun cas reliée à l'affectation.</p>
 <p>Pour mieux saisir la nuance, considérons le programme suivant :</p>
@@ -5635,7 +5635,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 </ol>
 </details>
 </div>
-<h2 id="espaces-de-noms">Espaces de noms<a class="headerlink" href="#espaces-de-noms" title="Permanent link">¤</a></h2>
+<h2 id="espaces-de-noms">Espaces de noms<a class="headerlink" href="#espaces-de-noms" title="Lien permanent">¤</a></h2>
 <p>En C, il est possible d'utiliser le même identificateur pour autant qu'il n'appartient pas au même espace de nom. Il existe en C plusieurs espaces de noms :</p>
 <ul>
 <li>étiquettes utilisées pour l'instruction <code>goto</code>;</li>
@@ -5652,7 +5652,7 @@ de l'exécution du <code>main</code>, des variables correctement initialisées.<
 </span><span id="__span-21-6"><a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">};</span><span class="w"> </span><span class="c1">// x est une variable de type x</span>
 </span><span id="__span-21-7"><a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="commentaires">Commentaires<a class="headerlink" href="#commentaires" title="Permanent link">¤</a></h2>
+<h2 id="commentaires">Commentaires<a class="headerlink" href="#commentaires" title="Lien permanent">¤</a></h2>
 <p>Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des <strong>commentaires</strong>. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source.</p>
 <p><figure id="_figure-6"><img alt="Les carafes dans la Vivonne" class="drawio-diagram" src="../../../assets/images/vivonne.drawio"/><figcaption> Les carafes dans la Vivonne</figcaption></figure></p>
 <p>Il existe deux manières d'écrire un commentaire en C :</p>
@@ -5683,7 +5683,7 @@ nécessairement un bon programme.</p>
 <p>Les commentaires de blocs peuvent être utilisés pour documenter une fonction ou un bloc de code, mais également pour insérer un commentaire à l'intérieur d'une ligne :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">deep_throught</span><span class="w"> </span><span class="cm">/* Name of the computer */</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">// The answer</span>
 </span></code></pre></div>
-<h3 id="commenter-du-code">Commenter du code ?<a class="headerlink" href="#commenter-du-code" title="Permanent link">¤</a></h3>
+<h3 id="commenter-du-code">Commenter du code ?<a class="headerlink" href="#commenter-du-code" title="Lien permanent">¤</a></h3>
 <p>Lorsque vous développez, vous avez souvent besoin de désactiver des portions de code pour des raisons de débogage ou de test. Il est tentant de commenter ces portions de code plutôt que de les supprimer.</p>
 <p>Néanmoins une règle à retenir est que l'on ne commente <strong>jamais</strong> des portions de code, et ce pour plusieurs raisons :</p>
 <ol>
@@ -5699,7 +5699,7 @@ désactiver cette portion de code.</p>
 </span><span id="__span-27-4"><a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="c">}</span>
 </span><span id="__span-27-5"><a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="cp">#endif</span>
 </span></code></pre></div>
-<h3 id="quelques-conseils">Quelques conseils<a class="headerlink" href="#quelques-conseils" title="Permanent link">¤</a></h3>
+<h3 id="quelques-conseils">Quelques conseils<a class="headerlink" href="#quelques-conseils" title="Lien permanent">¤</a></h3>
 <p>D'une manière générale l'utilisation des commentaires ne devrait pas être utilisée pour :</p>
 <ul>
 <li>Désactiver temporairement une portion de code sans l'effacer.</li>
@@ -5878,7 +5878,7 @@ désactiver cette portion de code.</p>
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

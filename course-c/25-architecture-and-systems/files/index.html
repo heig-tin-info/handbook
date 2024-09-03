@@ -4988,8 +4988,8 @@ les outils associés.
   
 
 
-<h1 id="fichiers">Fichiers<a class="headerlink" href="#fichiers" title="Permanent link">¤</a></h1>
-<h2 id="systeme-de-fichiers">Système de fichiers<a class="headerlink" href="#systeme-de-fichiers" title="Permanent link">¤</a></h2>
+<h1 id="fichiers">Fichiers<a class="headerlink" href="#fichiers" title="Lien permanent">¤</a></h1>
+<h2 id="systeme-de-fichiers">Système de fichiers<a class="headerlink" href="#systeme-de-fichiers" title="Lien permanent">¤</a></h2>
 <p>Dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr> tout est fichier. <code>stdin</code> est un fichier, une souris USB est un fichier, un clavier est un fichier, un terminal est un fichier, un programme est un fichier.</p>
 <p>Les fichiers sont organisés dans une arborescence gérée par un <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_fichiers">système de fichiers</a>. Sous Windows l'arborescence classique est :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>C :
@@ -5037,7 +5037,7 @@ les outils associés.
 <p>Le chemin <code>/usr/bin/.././bin/../../home/john/documents</code> est correct, mais il n'est pas <a href="https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)">canonique</a>, on dit qu'il n'est pas résolu. La forme canonique est <code>/home/john/documents</code>.</p>
 <p>Un chemin peut être relatif s'il ne commence <strong>pas</strong> par un <code>/</code>: <code>../bin</code>. Sous Windows du même acabit, mais la racine différemment selon le type de média <code>C:\</code>, <code>\\network</code>...</p>
 <p>Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier, donc le chemin peut être soit relatif, soit absolu.</p>
-<h3 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">¤</a></h3>
+<h3 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Lien permanent">¤</a></h3>
 <p>Sous Windows (PowerShell) ou un système <strong><abbr title="Portable Operating System Interface">POSIX</abbr></strong> (Bash/Sh/Zsh), la navigation dans une arborescence peut être effectuée en ligne de commande à l'aide des commandes (programmes) suivants :</p>
 <dl>
 <dt><code>ls</code></dt>
@@ -5049,7 +5049,7 @@ les outils associés.
 <p>pour <em>change directory</em> permets de naviguer dans l'arborescence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.</p>
 </dd>
 </dl>
-<h2 id="format-dun-fichier">Format d'un fichier<a class="headerlink" href="#format-dun-fichier" title="Permanent link">¤</a></h2>
+<h2 id="format-dun-fichier">Format d'un fichier<a class="headerlink" href="#format-dun-fichier" title="Lien permanent">¤</a></h2>
 <p>Un fichier peut avoir un contenu arbitraire ; une suite de zéro et d’un binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un <a href="https://fr.wikipedia.org/wiki/Fichier_texte">fichier texte</a>. C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un <a href="https://fr.wikipedia.org/wiki/Fichier_binaire">fichier binaire</a>.</p>
 <p>La frontière est parfois assez mince, car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -5073,7 +5073,7 @@ les outils associés.
 </span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>0750  c8 00 00 00 58 ff ff ff  e8 00 00 00 c8 ff ff ff | ....X........... |
 </span></code></pre></div>
 <p>Sous un système <abbr title="Portable Operating System Interface">POSIX</abbr>, il n'existe aucune distinction formelle entre un fichier binaire et un fichier texte. En revanche sous Windows, il existe une subtile différence concernant surtout le caractère de fin de ligne. La commande <code>copy a.txt + b.txt c.txt</code> considère des fichiers textes et ajoutera automatiquement une fin de ligne entre chaque partie concaténée, mais celle-ci <code>copy /b a.bin + b.bin c.bin</code> ne le fera pas.</p>
-<h2 id="ouverture-dun-fichier">Ouverture d'un fichier<a class="headerlink" href="#ouverture-dun-fichier" title="Permanent link">¤</a></h2>
+<h2 id="ouverture-dun-fichier">Ouverture d'un fichier<a class="headerlink" href="#ouverture-dun-fichier" title="Lien permanent">¤</a></h2>
 <p>Sous <abbr title="Portable Operating System Interface">POSIX</abbr>, un programme doit demander au système d'exploitation l'accès à un fichier soit en lecture, soit en écriture soit les deux. Le système d'exploitation retourne un descripteur de fichier qui est simplement un entier unique pour le programme.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -5165,10 +5165,10 @@ les outils associés.
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>$<span class="w"> </span>grep<span class="w"> </span>foo.txt<span class="w"> </span>bulbe
 </span></code></pre></div>
 </div>
-<h2 id="navigation-dans-un-fichier">Navigation dans un fichier<a class="headerlink" href="#navigation-dans-un-fichier" title="Permanent link">¤</a></h2>
+<h2 id="navigation-dans-un-fichier">Navigation dans un fichier<a class="headerlink" href="#navigation-dans-un-fichier" title="Lien permanent">¤</a></h2>
 <p>Lorsqu'un fichier est ouvert, un curseur virtuel est positionné soit au début soit à la fin du fichier. Lorsque des données sont lues ou écrites, c'est à la position de ce curseur, lequel peut être déplacé en utilisant plusieurs fonctions utilitaires.</p>
 <p>La navigation dans un fichier n'est possible que si le fichier est <em>seekable</em>. Généralement les pointeurs de fichiers <code>stdin</code>, <code>stdout</code> et <code>stderr</code> ne sont pas <em>seekable</em>, et il n'est pas possible de se déplacer dans le fichier, mais seulement écrire dedans.</p>
-<h3 id="fseek">fseek<a class="headerlink" href="#fseek" title="Permanent link">¤</a></h3>
+<h3 id="fseek">fseek<a class="headerlink" href="#fseek" title="Lien permanent">¤</a></h3>
 <p>La fonction <code>fseek</code> permet de déplacer le curseur dans un fichier ouvert. La signature de la fonction est la suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">fseek</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">whence</span><span class="p">)</span>
 </span></code></pre></div>
@@ -5201,7 +5201,7 @@ les outils associés.
 </span><span id="__span-11-11"><a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%c</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 </span><span id="__span-11-12"><a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="ftell">ftell<a class="headerlink" href="#ftell" title="Permanent link">¤</a></h3>
+<h3 id="ftell">ftell<a class="headerlink" href="#ftell" title="Lien permanent">¤</a></h3>
 <p>Il est parfois utile de savoir où se trouve le curseur. <code>ftell()</code> retourne la position actuelle du curseur dans un fichier ouvert.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">filename</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"foo"</span><span class="p">;</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
@@ -5211,9 +5211,9 @@ les outils associés.
 </span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>
 </span><span id="__span-12-7"><a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">printf</span><span class="p">(</span><span class="s">"The file %s has a size of %ld Bytes</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 </span></code></pre></div>
-<h3 id="rewind">rewind<a class="headerlink" href="#rewind" title="Permanent link">¤</a></h3>
+<h3 id="rewind">rewind<a class="headerlink" href="#rewind" title="Lien permanent">¤</a></h3>
 <p>L'appel <code>rewind()</code> est équivalent à <code>(void) fseek(stream, 0L, SEEK_SET)</code> et permet de se positionner au début du fichier.</p>
-<h2 id="lecture-ecriture">Lecture / Écriture<a class="headerlink" href="#lecture-ecriture" title="Permanent link">¤</a></h2>
+<h2 id="lecture-ecriture">Lecture / Écriture<a class="headerlink" href="#lecture-ecriture" title="Lien permanent">¤</a></h2>
 <p>La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues <code>printf</code> et <code>scanf</code> pour les flux standards (<em>stdout</em>, <em>stderr</em>), mais en utilisant les variantes préfixées de <code>f</code> :</p>
 <table>
 <thead>
@@ -5268,7 +5268,7 @@ les outils associés.
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">fwrite</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">nmemb</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">)</span>
 </span></code></pre></div>
 <p>La fonction est similaire à <code>fread</code> mais pour écrire sur un flux des données brutes.</p>
-<h2 id="buffer-de-fichier">Buffer de fichier<a class="headerlink" href="#buffer-de-fichier" title="Permanent link">¤</a></h2>
+<h2 id="buffer-de-fichier">Buffer de fichier<a class="headerlink" href="#buffer-de-fichier" title="Lien permanent">¤</a></h2>
 <p>Pour améliorer les performances, <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> prévoit (§7.19.3-3), un espace tampon pour les descripteurs de fichiers qui peuvent être :</p>
 <ol>
 <li><code>unbuffered</code> (<code>_IONBF</code>) : Pas de buffer, les caractères lus ou écrits sont acheminés le plus vite possible de la source à la destination.</li>
@@ -5321,7 +5321,7 @@ les outils associés.
 </span><span id="__span-19-11"><a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>La fonction <code>fflush</code> force l'écriture malgré l'utilisation d'un buffer.</p>
-<h2 id="fichiers-et-flux">Fichiers et Flux<a class="headerlink" href="#fichiers-et-flux" title="Permanent link">¤</a></h2>
+<h2 id="fichiers-et-flux">Fichiers et Flux<a class="headerlink" href="#fichiers-et-flux" title="Lien permanent">¤</a></h2>
 <p>Historiquement les descripteurs de fichiers sont appelés <code>FILE</code> alors qu'ils sont préférablement appelés <code>streams</code> en C++. Un fichier au même titre que <code>stdin</code>, <code>stdout</code> et <code>stderr</code> sont des flux de données. La norme <abbr title="Portable Operating System Interface">POSIX</abbr>, décrit que par défaut les flux :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Flux de données standards</caption><thead>
@@ -5371,7 +5371,7 @@ les outils associés.
 </span><span id="__span-21-6"><a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="go">write(1, "l", 1l)                        = 1</span>
 </span></code></pre></div>
 <p>On peut voir qu’on lit <code>k\n</code> sur le flux <code>0</code>, soit <code>stdin</code>, puis que le fichier <code>file</code> est ouvert, il porte l'identifiant <code>3</code>, enfin on écrit sur <code>1</code>, <code>2</code> et <code>3</code>.</p>
-<h2 id="formats-de-serialisation">Formats de sérialisation<a class="headerlink" href="#formats-de-serialisation" title="Permanent link">¤</a></h2>
+<h2 id="formats-de-serialisation">Formats de sérialisation<a class="headerlink" href="#formats-de-serialisation" title="Lien permanent">¤</a></h2>
 <p>Souvent les fichiers sont utilisés pour stocker de l'information organisée en grille, par exemple, la liste des températures maximales par ville et par mois :</p>
 <table>
 <thead>
@@ -5481,7 +5481,7 @@ les outils associés.
 <li>Écriture avec remplissage</li>
 <li>Utiliser un langage de sérialisation de haut niveau comme JSON, YAML ou XML</li>
 </ul>
-<h3 id="format-tabule">Format tabulé<a class="headerlink" href="#format-tabule" title="Permanent link">¤</a></h3>
+<h3 id="format-tabule">Format tabulé<a class="headerlink" href="#format-tabule" title="Lien permanent">¤</a></h3>
 <p>Un fichier dit tabulé, utilise une <a href="https://fr.wikipedia.org/wiki/Valeur_sentinelle">sentinelle</a>, souvent le caractère de tabulation <code>\t</code> pour séparer les données. Chaque ligne du tableau est physiquement séparée de la suivante avec un <code>\n</code>:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>Pays\tVille\t01\t02\t03\t04\t05\t06\t07\t08\t09\t10\n
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>CH\tZürich\t0.3\t1.3\t5.3\t8.8\t13.3\t16.4\t18.6\t18.0\t14.1\t9.9\n
@@ -5521,7 +5521,7 @@ les outils associés.
 </span><span id="__span-23-28"><a href="#__codelineno-23-28" id="__codelineno-23-28" name="__codelineno-23-28"></a><span class="go">0198</span>
 </span></code></pre></div>
 <p>L'inconvénient de ce format est que pour obtenir directement la température du mois de mars à Berlin, sachant que Berlin est la quatrième ligne du fichier, il est nécessaire de parcourir le fichier depuis le début, car la longueur des lignes n'est à priori pas connue. On dit que la lecture séquentielle est facilitée, mais la lecture aléatoire est plus lente.</p>
-<h3 id="format-avec-remplissage">Format avec remplissage<a class="headerlink" href="#format-avec-remplissage" title="Permanent link">¤</a></h3>
+<h3 id="format-avec-remplissage">Format avec remplissage<a class="headerlink" href="#format-avec-remplissage" title="Lien permanent">¤</a></h3>
 <p>Pour pallier au défaut du format tabulé, il est possible d'écrire le fichier en utilisant un caractère de remplissage. Dans le fichier suivant, les mois de mai sont toujours alignés avec la
 48e colonne :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a> 000000000011111111112222222222333333333344444444445555555555666666666
@@ -5547,7 +5547,7 @@ les outils associés.
 </span><span id="__span-25-7"><a href="#__codelineno-25-7" id="__codelineno-25-7" name="__codelineno-25-7"></a><span class="n">fscanf</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="s">"%lf"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">temperature</span><span class="p">);</span>
 </span></code></pre></div>
 <p>L'inconvénient de ce format de fichier est la place qu'il prend en mémoire. L'autre problème est que si le nom d'une ville dépasse les 9 caractères alloués, il faut réécrire tout le fichier. Généralement ce problème est contourné en allouant des champs d'une taille suffisante, par exemple 256 caractères pour le nom des villes.</p>
-<h3 id="format-serialise">Format sérialisé<a class="headerlink" href="#format-serialise" title="Permanent link">¤</a></h3>
+<h3 id="format-serialise">Format sérialisé<a class="headerlink" href="#format-serialise" title="Lien permanent">¤</a></h3>
 <p>Des langages de sérialisation permettent de structurer de l'information en utilisant un format spécifique. Ici <a href="https://fr.wikipedia.org/wiki/JavaScript_Object_Notation">JSON</a> :</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="p">[{</span><span class="w"> </span><span class="nt">"pays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suisse"</span><span class="p">,</span>
 </span><span id="__span-26-2"><a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="w">   </span><span class="nt">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zürich"</span><span class="p">,</span>
@@ -5566,7 +5566,7 @@ les outils associés.
 </span></code></pre></div>
 <p>L'avantage de ce type de format est qu'il est facilement modifiable avec un éditeur de texte et qu'il est très interopérable. C'est-à-dire qu'il est facilement lisible depuis différents langages de programmation.</p>
 <p>En C, on pourra utiliser la bibliothèque logicielle <a href="https://github.com/json-c/json-c">json-c</a>.</p>
-<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Permanent link">¤</a></h2>
+<h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Lien permanent">¤</a></h2>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Variantes<span class="exercise-title"></span></p>
 <p>Considérez les deux programmes ci-dessous très similaires.</p>
@@ -5684,7 +5684,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

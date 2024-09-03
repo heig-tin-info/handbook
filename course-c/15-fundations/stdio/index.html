@@ -4934,7 +4934,7 @@ les outils associés.
   
 
 
-<h1 id="entrees-sorties">Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Permanent link">¤</a></h1>
+<h1 id="entrees-sorties">Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Lien permanent">¤</a></h1>
 <p>Un programme informatique se compose d'entrées (<code>stdin</code>) et de sorties (<code>stdout</code> et <code>stderr</code>).</p>
 <p>Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formater les sorties et interpréter les entrées.</p>
 <p>Les fonctions phares sont <code>printf</code> pour le formatage de chaîne de caractères et <code>scanf</code> pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes que nous verrons plus tard. La liste citée est non exhaustive, mais largement documentée ici : <a href="http://man7.org/linux/man-pages/man3/stdio.3.html"><code>&lt;stdio.h&gt;</code></a>.</p>
@@ -4980,10 +4980,10 @@ les outils associés.
 </tr>
 </tbody>
 </table>
-<h2 id="sorties-non-formatees">Sorties non formatées<a class="headerlink" href="#sorties-non-formatees" title="Permanent link">¤</a></h2>
+<h2 id="sorties-non-formatees">Sorties non formatées<a class="headerlink" href="#sorties-non-formatees" title="Lien permanent">¤</a></h2>
 <p>Ces fonctions sont très basiques et permettent d'écrire des caractères ou des chaînes de caractères sur la sortie standard.</p>
 <p><a href="" id="putchar"></a></p>
-<h3 id="putchar_1">Putchar<a class="headerlink" href="#putchar_1" title="Permanent link">¤</a></h3>
+<h3 id="putchar_1">Putchar<a class="headerlink" href="#putchar_1" title="Lien permanent">¤</a></h3>
 <p>Cette fonction prend en paramètre un <strong>seul</strong> caractère et l'écrit sur la sortie standard. Elle est définie dans la bibliothèque <code>stdio.h</code>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
@@ -5013,7 +5013,7 @@ les outils associés.
 </span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <p><a href="" id="puts"></a></p>
-<h3 id="puts_1">Puts<a class="headerlink" href="#puts_1" title="Permanent link">¤</a></h3>
+<h3 id="puts_1">Puts<a class="headerlink" href="#puts_1" title="Lien permanent">¤</a></h3>
 <p>La fonction <code>puts</code> est une fonction de la bibliothèque standard C qui permet d'écrire une chaîne de caractères sur la sortie standard. Notons qu'elle ajoute automatiquement un retour à la ligne à la fin de la chaîne.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
@@ -5022,7 +5022,7 @@ les outils associés.
 </span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Notez ici qu'on utilise des guillemets doubles <code>"</code> pour les chaînes de caractères.</p>
-<h2 id="sorties-formatees">Sorties formatées<a class="headerlink" href="#sorties-formatees" title="Permanent link">¤</a></h2>
+<h2 id="sorties-formatees">Sorties formatées<a class="headerlink" href="#sorties-formatees" title="Lien permanent">¤</a></h2>
 <p>Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'exemple de la valeur <code>123</code>. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>Etape  Opération  Resultat  Reste
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>-----  ---------  --------  -----
@@ -5093,7 +5093,7 @@ les outils associés.
 </span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <p><a href="" id="functionprintf"></a></p>
-<h3 id="printf">Printf<a class="headerlink" href="#printf" title="Permanent link">¤</a></h3>
+<h3 id="printf">Printf<a class="headerlink" href="#printf" title="Lien permanent">¤</a></h3>
 <p>Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi <code>printf</code> rend l'opération bien plus aisée en utilisant des marques substitutives (<em>placeholder</em>). Ces spécifié débutent par le caractère <code>%</code> suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise <code>%d</code> pour formater un entier non signé.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
@@ -5240,9 +5240,9 @@ les outils associés.
 </span><span id="__span-10-6"><a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%10s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mh">0x9f</span><span class="p">);</span>
 </span></code></pre></div>
 </div>
-<h2 id="entrees-non-formatees">Entrées non formatées<a class="headerlink" href="#entrees-non-formatees" title="Permanent link">¤</a></h2>
+<h2 id="entrees-non-formatees">Entrées non formatées<a class="headerlink" href="#entrees-non-formatees" title="Lien permanent">¤</a></h2>
 <p><a href="" id="getchar"></a></p>
-<h3 id="getchar_1">Getchar<a class="headerlink" href="#getchar_1" title="Permanent link">¤</a></h3>
+<h3 id="getchar_1">Getchar<a class="headerlink" href="#getchar_1" title="Lien permanent">¤</a></h3>
 <p>La fonction <code>getchar</code> est une fonction de la bibliothèque standard C qui permet de lire un caractère sur l'entrée standard. Elle est définie dans la bibliothèque <code>stdio.h</code>. Elle retourne un entier qui correspond à la valeur ASCII du caractère lu.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
@@ -5256,7 +5256,7 @@ les outils associés.
 <p>Notez ici l'utilisation de <code>EOF</code> qui est une constante définie dans la bibliothèque <code>stdio.h</code> et qui signifie <em>End Of File</em>. Elle est utilisée pour détecter la fin d'un fichier.</p>
 <p>Lorsque vous exécutez ce programme, vous pouvez saisir des caractères au clavier. Pour terminer la saisie, vous pouvez utiliser la combinaison de touches ++Ctrl+D++ sur Linux ou ++Ctrl+Z++ sur Windows.</p>
 <p><a href="" id="gets"></a></p>
-<h3 id="gets_1">Gets<a class="headerlink" href="#gets_1" title="Permanent link">¤</a></h3>
+<h3 id="gets_1">Gets<a class="headerlink" href="#gets_1" title="Lien permanent">¤</a></h3>
 <p>La fonction <code>gets</code> est une fonction de la bibliothèque standard C qui permet de lire une chaîne de caractères sur l'entrée standard. Elle est définie dans la bibliothèque <code>stdio.h</code>.</p>
 <p>Elle est déconseillée, car elle ne permet pas de spécifier la taille maximale de la chaîne à lire. Cela peut entraîner des débordements de mémoire si un utilisateur saisit une chaîne de caractères trop longue que le programme ne peut pas stocker.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -5271,10 +5271,10 @@ les outils associés.
 <p class="admonition-title">Avertissement</p>
 <p>La fonction <code>gets</code> est déconseillée. Il est préférable d'utiliser la fonction <code>fgets</code> qui permet de spécifier la taille maximale de la chaîne à lire.</p>
 </div>
-<h2 id="entrees-formatees">Entrées formatées<a class="headerlink" href="#entrees-formatees" title="Permanent link">¤</a></h2>
+<h2 id="entrees-formatees">Entrées formatées<a class="headerlink" href="#entrees-formatees" title="Lien permanent">¤</a></h2>
 <p>Les fonctions de lecture de chaînes de caractères sont plus complexes que les fonctions d'écriture. En effet, il est nécessaire de spécifier le format de la chaîne à lire.</p>
 <p><a href="" id="scanf"></a></p>
-<h3 id="scanf_1">Scanf<a class="headerlink" href="#scanf_1" title="Permanent link">¤</a></h3>
+<h3 id="scanf_1">Scanf<a class="headerlink" href="#scanf_1" title="Lien permanent">¤</a></h3>
 <p>À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou <em>parser</em> une chaîne de caractères, c'est-à-dire faire une <a href="https://fr.wikipedia.org/wiki/Analyse_syntaxique">analyse syntaxique</a> de son contenu pour en extraire de l'information.</p>
 <p>La fonction <code>scanf</code> est par exemple utilisée à cette fin :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -5634,7 +5634,7 @@ les outils associés.
 </ol>
 </details>
 </div>
-<h3 id="saisie-de-chaine-de-caracteres">Saisie de chaîne de caractères<a class="headerlink" href="#saisie-de-chaine-de-caracteres" title="Permanent link">¤</a></h3>
+<h3 id="saisie-de-chaine-de-caracteres">Saisie de chaîne de caractères<a class="headerlink" href="#saisie-de-chaine-de-caracteres" title="Lien permanent">¤</a></h3>
 <p>Lors d'une saisie de chaîne de caractères, il est nécessaire de <strong>toujours</strong> indiquer une taille maximum de chaîne comme <code>%20s</code> qui limite la capture à 20 caractères, soit une chaîne de 21 caractères avec son <code>\0</code>. Sinon, il y a risque de <a href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-29-2"><a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
@@ -5657,7 +5657,7 @@ les outils associés.
 </span><span id="__span-31-3"><a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a>│ │ │ │ │ │ ││R│â│t│e│a│u│ │ │ │ │
 </span><span id="__span-31-4"><a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a>└─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
 </span></code></pre></div>
-<h3 id="saisie-arbitraire">Saisie arbitraire<a class="headerlink" href="#saisie-arbitraire" title="Permanent link">¤</a></h3>
+<h3 id="saisie-arbitraire">Saisie arbitraire<a class="headerlink" href="#saisie-arbitraire" title="Lien permanent">¤</a></h3>
 <p>Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur <code>[</code> pour capturer une séquence de caractères. Imaginons que je souhaite capturer un nombre en <a href="https://en.wikipedia.org/wiki/Base64">tetrasexagesimal</a> (base 64). Je peux écrire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">input</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Q2hvY29sYXQ"</span><span class="p">;</span>
 </span><span id="__span-32-2"><a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="kt">char</span><span class="w"> </span><span class="n">output</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
@@ -6018,7 +6018,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </ul>
 <p>Considérez une accélération de 0.5 g pour le calcul de mouvement, et une vitesse maximale de 1220 km/h.</p>
 </div>
-<h2 id="portabilite-des-formats">Portabilité des formats<a class="headerlink" href="#portabilite-des-formats" title="Permanent link">¤</a></h2>
+<h2 id="portabilite-des-formats">Portabilité des formats<a class="headerlink" href="#portabilite-des-formats" title="Lien permanent">¤</a></h2>
 <p>Les formats de <code>scanf</code> et <code>printf</code> sont dépendants de la plateforme. Par exemple, <code>%d</code> est un entier signé, <code>%u</code> un entier non signé, <code>%ld</code> est un entier long signé. Néanmoins ces formats ne sont pas portables, car selon le <a class="autorefs autorefs-internal" href="../datatype/#modele-de-donnee">modèle de données</a> de la machine, un entier long peut être de 32 bits ou de 64 bits.</p>
 <p>Cela n'a pas une grande importance si vous utilisez les types standards (comme <code>int</code>, <code>long</code>, <code>short</code>, <code>char</code>), mais si vous utilisez des types spécifiques comme <code>int32_t</code>, <code>int64_t</code>, <code>uint32_t</code>, <code>uint64_t</code>, vous devez utiliser les formats spécifiques de la bibliothèque <code>inttypes.h</code>. Voici la table de correspondance des formats :</p>
 <table id="_table-2">
@@ -6186,7 +6186,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

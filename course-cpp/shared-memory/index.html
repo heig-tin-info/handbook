@@ -4547,7 +4547,7 @@ les outils associés.
 
   <h1>Shared memory</h1>
 
-<h2 id="memoire-partagee">Mémoire partagée<a class="headerlink" href="#memoire-partagee" title="Permanent link">¤</a></h2>
+<h2 id="memoire-partagee">Mémoire partagée<a class="headerlink" href="#memoire-partagee" title="Lien permanent">¤</a></h2>
 <p>Nous le verrons plus loin au chapitre sur la MMU, mais la mémoire d'un processus mémoire (programme) ne peut pas être accédée par un autre programme. Le système d'exploitation l'en empêche.</p>
 <p>Lorsque l'on souhaite communiquer entre plusieurs programmes, il est possible d'utiliser différentes méthodes :</p>
 <ul>
@@ -4586,7 +4586,7 @@ les outils associés.
 </span><span id="__span-1-16"><a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">protection</span><span class="p">,</span><span class="w"> </span><span class="n">visibility</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </span><span id="__span-1-17"><a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="file-memory-mapping">File memory mapping<a class="headerlink" href="#file-memory-mapping" title="Permanent link">¤</a></h3>
+<h3 id="file-memory-mapping">File memory mapping<a class="headerlink" href="#file-memory-mapping" title="Lien permanent">¤</a></h3>
 <p>Traditionnellement lorsque l'on souhaite travailler sur un fichier, il convient de l'ouvrir avec <code>fopen</code> et de lire son contenu. Lorsque cela est nécessaire, ce fichier est copié en mémoire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">"foo"</span><span class="p">,</span><span class="w"> </span><span class="s">"r"</span><span class="p">);</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">SEEK_END</span><span class="p">);</span>
@@ -4678,7 +4678,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

@@ -4966,7 +4966,7 @@ les outils associés.
   
 
 
-<h1 id="nombres">Nombres<a class="headerlink" href="#nombres" title="Permanent link">¤</a></h1>
+<h1 id="nombres">Nombres<a class="headerlink" href="#nombres" title="Lien permanent">¤</a></h1>
 <p>Vous avez tous appris dans votre enfance à compter, puis vous avez appris que les nombres se classifient dans des ensembles. Les mathématiciens ont défini des ensembles de nombres pour lesquels des propriétés particulières sont vérifiées ; ces ensembles sont imbriqués les uns dans les autres, et chaque ensemble est un sous-ensemble de l'ensemble suivant.</p>
 <div class="arithmatex">\[
 \mathbb{N} \in \mathbb{Z} \in \mathbb{Q} \in \mathbb{R} \in \mathbb{C} \in \mathbb{H} \in \mathbb{O} \in \mathbb{S}
@@ -5004,7 +5004,7 @@ les outils associés.
 </div>
 <p>Les mémoires des ordinateurs ne sont pas infinies, elles sont limitées par la quantité de transistors qui les composent. Il n'est donc pas possible d'y stocker n'importe quel nombre. <span class="arithmatex">\(\pi\)</span> ne peut pas être stocké en mémoire, mais une approximation de <span class="arithmatex">\(\pi\)</span> peut l'être.</p>
 <p>Aussi, l'informatique impose certaines limitations sur les nombres que l'on peut manipuler. Les nombres entiers sont les plus simples à manipuler, mais ils sont limités par la taille de la mémoire et la manière dont on les enregistre en mémoire. C'est ce que nous allons voir.</p>
-<h2 id="entiers-naturels">Entiers naturels<a class="headerlink" href="#entiers-naturels" title="Permanent link">¤</a></h2>
+<h2 id="entiers-naturels">Entiers naturels<a class="headerlink" href="#entiers-naturels" title="Lien permanent">¤</a></h2>
 <p>En mathématiques, un <a href="https://fr.wikipedia.org/wiki/Entier_naturel">entier naturel</a> est un nombre positif ou nul. Chaque nombre à un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, et donc sans signe et sans virgule. L'ensemble des entiers naturels est défini de la façon suivante :</p>
 <div class="arithmatex">\[
 \mathbb{N} = {0, 1, 2, 3, ...}
@@ -5021,7 +5021,7 @@ les outils associés.
 \]</div>
 </div>
 <p>La taille de stockage d'un entier détermine donc ses limites. Si cette manière est élégante, elle ne permet pas de représenter des valeurs négatives. Pour cela, on aura recours aux entiers relatifs.</p>
-<h2 id="entiers-relatifs">Entiers relatifs<a class="headerlink" href="#entiers-relatifs" title="Permanent link">¤</a></h2>
+<h2 id="entiers-relatifs">Entiers relatifs<a class="headerlink" href="#entiers-relatifs" title="Lien permanent">¤</a></h2>
 <p>Mathématiquement un <strong>entier relatif</strong> appartient à l'ensemble <span class="arithmatex">\(\mathbb{Z}\)</span>:</p>
 <div class="arithmatex">\[
 \mathbb{Z} = {..., -3, -2, -1, 0, 1, 2, 3, ...}
@@ -5030,7 +5030,7 @@ les outils associés.
 <p>Une approche naïve serait de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. Un peu comme si vous aviez deux boîtes chez vous, l'une pour les choses qui se mangent (le frigo) et une pour les choses qui ne se mangent plus (la poubelle).</p>
 <p>L'ennui pour les <strong>variables</strong> c'est que le contenu peut changer et qu'un nombre négatif pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meilleure méthode.</p>
 <p>On pourrait alors renseigner la nature du nombre, c'est-à-dire son signe avec sa valeur.</p>
-<h3 id="bit-de-signe">Bit de signe<a class="headerlink" href="#bit-de-signe" title="Permanent link">¤</a></h3>
+<h3 id="bit-de-signe">Bit de signe<a class="headerlink" href="#bit-de-signe" title="Lien permanent">¤</a></h3>
 <p>Pourquoi ne pas se réserver un <span class="ycr-hashtag" data-index-entry="bit de signe" data-tag="bit-de-signe">bit de signe</span>, par exemple le 8<sup>e</sup> bit de notre nombre de 8 bits, pour indiquer si le nombre est positif ou négatif ?</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>┌─┐┌─┬─┬─┬─┬─┬─┬─┐
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>│0││1│0│1│0│0│1│1│ = (0 * (-1)) * 0b1010011 = 83
@@ -5060,7 +5060,7 @@ les outils associés.
 <li>Les opérations ne sont plus triviales, et un algorithme particulier doit être mis en place pour les gérer.</li>
 <li>Le double zéro (positif et négatif) est gênant.</li>
 </ol>
-<h3 id="complement-a-un">Complément à un<a class="headerlink" href="#complement-a-un" title="Permanent link">¤</a></h3>
+<h3 id="complement-a-un">Complément à un<a class="headerlink" href="#complement-a-un" title="Lien permanent">¤</a></h3>
 <p>Le <strong>complément à un</strong> est une méthode plus maline utilisée dans les premiers ordinateurs comme le <a href="https://fr.wikipedia.org/wiki/Control_Data_6600">CDC 6600</a> (1964) ou le <a href="https://en.wikipedia.org/wiki/UNIVAC_1100/2200_series">UNIVAC 1107</a> (1962). Il existe également un bit de signe, mais il est implicite. <span class="ycr-hashtag" data-index-entry="complément à un" data-tag=""></span></p>
 <p>Le complément à un tire son nom de sa définition générique nommée <em>radix-complement</em> ou complément de base et s'exprime par :</p>
 <div class="arithmatex">\[
@@ -5117,7 +5117,7 @@ b^n - y
 <li>Le double zéro (positif et négatif) est gênant.</li>
 </ol>
 <p><a href="" id="twos_complement"></a></p>
-<h3 id="complement-a-deux">Complément à deux<a class="headerlink" href="#complement-a-deux" title="Permanent link">¤</a></h3>
+<h3 id="complement-a-deux">Complément à deux<a class="headerlink" href="#complement-a-deux" title="Lien permanent">¤</a></h3>
 <p>Le <span class="ycr-hashtag" data-index-entry="complément à deux" data-tag="complement-a-deux">complément à deux</span> n'est rien d'autre que le complément à un <strong>plus</strong> un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles et de 2 (<code>0</code> et <code>1</code>). On ne peut pas trouver un chiffre tel que la somme fasse <code>2</code>. C'est la même idée que de demander le complément à 10 en base 10.</p>
 <p>Pour réaliser ce complément à deux (complément à un plus un), il y a deux étapes :</p>
 <ol>
@@ -5144,12 +5144,12 @@ b^n - y
 <li>On gagne une valeur négative <code>[-128..+127]</code> contre <code>[-127..+127]</code> avec les méthodes précédemment étudiées.</li>
 </ol>
 <p>Vous l'aurez compris, le complément à deux est le mécanisme le plus utilisé dans les ordinateurs modernes pour représenter les nombres entiers négatifs.</p>
-<h2 id="les-nombres-reels">Les nombres réels<a class="headerlink" href="#les-nombres-reels" title="Permanent link">¤</a></h2>
+<h2 id="les-nombres-reels">Les nombres réels<a class="headerlink" href="#les-nombres-reels" title="Lien permanent">¤</a></h2>
 <p>Mathématiquement, les <a href="https://fr.wikipedia.org/wiki/Nombre_r%C3%A9el">nombres réels</a> <span class="arithmatex">\(\mathbb{R}\)</span>, sont des nombres qui peuvent être représentés par une partie entière, et une liste finie ou infinie de décimales. En informatique, stocker une liste infinie de décimale demanderait une quantité infinie de mémoire et donc, la <a href="https://fr.wikipedia.org/wiki/Pr%C3%A9cision_arithm%C3%A9tique">précision arithmétique</a> est contrainte.</p>
 <p>Au début de l'ère des ordinateurs, il n'était possible de stocker que des nombres entiers, mais
 le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La transition s'est faite progressivement, d'abord par l'apparition de la <a href="https://fr.wikipedia.org/wiki/Virgule_fixe">virgule fixe</a>, puis par la <a href="https://fr.wikipedia.org/wiki/Virgule_flottante">virgule flottante</a>.</p>
 <p>Le premier ordinateur avec une capacité de calcul en virgule flottante date de 1942 (ni vous ni moi n'étions probablement nés) avec le <a href="https://fr.wikipedia.org/wiki/Zuse_4">Zuse's Z4</a>, du nom de son inventeur <a href="https://fr.wikipedia.org/wiki/Konrad_Zuse">Konrad Zuse</a>.</p>
-<h3 id="virgule-fixe">Virgule fixe<a class="headerlink" href="#virgule-fixe" title="Permanent link">¤</a></h3>
+<h3 id="virgule-fixe">Virgule fixe<a class="headerlink" href="#virgule-fixe" title="Lien permanent">¤</a></h3>
 <p>Prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facilement que bien qu'il s'agisse d'un nombre entier, une virgule pourrait être ajoutée au bit zéro sans en modifier sa signification.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>┌─┬─┬─┬─┬─┬─┬─┬─┐
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>│0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
@@ -5171,7 +5171,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 </span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>          └─┴─┴─┘
 </span></code></pre></div>
 <p>Cette solution est élégante, mais demande à présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.</p>
-<h3 id="virgule-flottante">Virgule flottante<a class="headerlink" href="#virgule-flottante" title="Permanent link">¤</a></h3>
+<h3 id="virgule-flottante">Virgule flottante<a class="headerlink" href="#virgule-flottante" title="Lien permanent">¤</a></h3>
 <p>Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' <a href="https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)">exposant</a> et le reste de l'information la <a href="https://fr.wikipedia.org/wiki/Mantisse">mantisse</a>, qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la <a href="https://fr.wikipedia.org/wiki/Stomatopoda">mantis shrimp</a>, une quille ou crevette-mante boxeuse aux couleurs particulièrement chatoyantes). <span class="ycr-hashtag" data-index-entry="virgule flottante" data-tag=""></span></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>  exp.  mantisse
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>┞─┬─┬─╀─┬─┬─┬─┬─┦
@@ -5250,7 +5250,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <li>Un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent <a href="https://stackoverflow.com/a/15585448/2612235">(10 à 100x)</a> pour faire des calculs en virgule flottante.</li>
 <li>Bien que le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> définisse les types virgule flottante <code>float</code>, <code>double</code> et <code>long double</code>, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé. <span class="ycr-hashtag" data-index-entry="double" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="long double" data-tag=""></span></li>
 </ul>
-<h3 id="simple-precision">Simple précision<a class="headerlink" href="#simple-precision" title="Permanent link">¤</a></h3>
+<h3 id="simple-precision">Simple précision<a class="headerlink" href="#simple-precision" title="Lien permanent">¤</a></h3>
 <p>Le type <code>float</code> aussi dit à précision simple utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :</p>
 <ul>
 <li><span class="arithmatex">\(\pm\inf\)</span> lorsque l'exposant vaut <code>0xff</code></li>
@@ -5307,7 +5307,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <div class="arithmatex">\[ (-1)^s \times (1.m) \times 2^{(e - Bias)} \]</div>
 <p>Les <span class="ycr-hashtag" data-index-entry="nombre subnormal" data-tag="">nombres subnormaux</span> sont des nombres qui ne respectent pas la norme IEEE 754, mais qui sont tout de même représentables. Ils sont utilisés pour représenter des nombres très petits, proches de zéro. En effet, la norme IEEE 754 impose que le premier bit de la mantisse soit toujours égal à 1, ce qui implique que le nombre 0 ne peut pas être représenté. Les nombres subnormaux permettent de représenter des nombres très proches de zéro, en diminuant la précision de la mantisse.</p>
 </div>
-<h3 id="double-precision">Double précision<a class="headerlink" href="#double-precision" title="Permanent link">¤</a></h3>
+<h3 id="double-precision">Double précision<a class="headerlink" href="#double-precision" title="Lien permanent">¤</a></h3>
 <p>La double précision est similaire à la simple précision, mais avec une mantisse à <strong>52 bits</strong> et <strong>11 bits</strong> d'exposants.</p>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Expressions arithmétiques flottantes<span class="exercise-title"></span></p>
@@ -5321,7 +5321,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </span><span id="__span-16-7"><a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a>1.3E30 + 1.
 </span></code></pre></div>
 </div>
-<h3 id="quadruple-precision">Quadruple précision<a class="headerlink" href="#quadruple-precision" title="Permanent link">¤</a></h3>
+<h3 id="quadruple-precision">Quadruple précision<a class="headerlink" href="#quadruple-precision" title="Lien permanent">¤</a></h3>
 <p>Bien que ce soit marginal dans le monde de l'informatique, la <span class="ycr-hashtag" data-index-entry="quadruple précision" data-tag="quadruple-precision">quadruple précision</span> est une norme IEEE 754 qui utilise 128 bits pour stocker les nombres réels. Elle est utilisée pour des calculs scientifiques nécessitant une très grande précision comme au <span class="ycr-hashtag" data-index-entry="CERN" data-tag="cern">CERN</span> ou pour l'étude de modèles cosmologiques.</p>
 <p>La quadruple précision offre une précision de 34 chiffres significatifs, soit environ 112 bits de précision. Elle est codée sur 128 bits.</p>
 <p>Il est possible de l'utiliser avec certains compilateurs C comme GCC en utilisant le type <code>__float128</code> de la bibliothèque <code>&lt;quadmath.h&gt;</code>.</p>
@@ -5329,7 +5329,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <p class="admonition-title">Avertissement</p>
 <p>Son utilisation ralenti considérablement les calculs, car les processeurs actuels ne sont pas optimisés pour ce type de calculs. Un processeur peut faire des calculs sur 64 bits en une seule opération, mais pour des calculs en quadruple précision, il doit faire plusieurs opérations pour chaque chiffre.</p>
 </div>
-<h2 id="nombres-complexes">Nombres complexes<a class="headerlink" href="#nombres-complexes" title="Permanent link">¤</a></h2>
+<h2 id="nombres-complexes">Nombres complexes<a class="headerlink" href="#nombres-complexes" title="Lien permanent">¤</a></h2>
 <p>En C, il est possible de définir des nombres complexes en utilisant le type <code>complex</code> de la bibliothèque <code>&lt;complex.h&gt;</code>. Les nombres complexes sont composés de deux parties, la partie réelle et la partie imaginaire. Ils sont souvent utilisés en mathématiques pour représenter des nombres qui ne peuvent pas être exprimés avec des nombres réels. Ils ont été introduits avec la version <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> du langage C.</p>
 <p>Néanmoins les nombres complexes ne sont pas supportés par les opérateurs du langage, il est nécessaire d'utiliser des fonctions spécifiques pour effectuer des opérations sur les nombres complexes.</p>
 <div class="admonition note">
@@ -5362,7 +5362,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </span><span id="__span-18-17"><a href="#__codelineno-18-17" id="__codelineno-18-17" name="__codelineno-18-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-18-18"><a href="#__codelineno-18-18" id="__codelineno-18-18" name="__codelineno-18-18"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="format-q-virgule-fixe">Format Q (virgule fixe)<a class="headerlink" href="#format-q-virgule-fixe" title="Permanent link">¤</a></h2>
+<h2 id="format-q-virgule-fixe">Format Q (virgule fixe)<a class="headerlink" href="#format-q-virgule-fixe" title="Lien permanent">¤</a></h2>
 <p>Le format <a href="https://en.wikipedia.org/wiki/Q_(number_format)">Q</a> est une notation en <span class="ycr-hashtag" data-index-entry="virgule fixe" data-tag="virgule-fixe">virgule fixe</span> dans laquelle le format d'un nombre est représenté par la lettre <strong>Q</strong> suivie de deux nombres :</p>
 <ol>
 <li>Le nombre de bits entiers</li>
@@ -5390,7 +5390,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </span></code></pre></div>
 <p>On note une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : <span class="arithmatex">\(1 / 2^12 = 0.00024\)</span>. Il convient alors d'arrondir le nombre à la troisième décimale, soit 3.141.</p>
 <p>Les opérations arithmétiques sont possibles facilement entre des nombres de mêmes types. Le chapitre sur les <a class="autorefs autorefs-internal" href="../../40-algorithms/popular-algorithms/fast-sin/#sinus-rapide">algorithmes</a> décrit une implémentation de calcul de sinus en utilisant ce format.</p>
-<h3 id="addition">Addition<a class="headerlink" href="#addition" title="Permanent link">¤</a></h3>
+<h3 id="addition">Addition<a class="headerlink" href="#addition" title="Lien permanent">¤</a></h3>
 <p>L'addition peut se faire avec ou sans saturation :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">typedef</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="n">Q</span><span class="p">;</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="k">typedef</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">Q12</span><span class="p">;</span>
@@ -5406,7 +5406,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </span><span id="__span-21-12"><a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="n">res</span><span class="p">;</span>
 </span><span id="__span-21-13"><a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="multiplication">Multiplication<a class="headerlink" href="#multiplication" title="Permanent link">¤</a></h3>
+<h3 id="multiplication">Multiplication<a class="headerlink" href="#multiplication" title="Lien permanent">¤</a></h3>
 <p>Soit deux nombres 0.9 et 3.141 :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>┌─┬─┬─┬─╀─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>│0│0│0│0│1│1│1│0││0│1│1│0│0│1│1│0│ Q4.12 (0.9) 3686
@@ -5532,7 +5532,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

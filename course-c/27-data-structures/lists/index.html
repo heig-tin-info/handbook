@@ -4921,13 +4921,13 @@ les outils associés.
 
 
 <p><a href="" id="linkedlist"></a></p>
-<h1 id="listes-chainees">Listes chaînées<a class="headerlink" href="#listes-chainees" title="Permanent link">¤</a></h1>
-<h2 id="definition">Définition<a class="headerlink" href="#definition" title="Permanent link">¤</a></h2>
+<h1 id="listes-chainees">Listes chaînées<a class="headerlink" href="#listes-chainees" title="Lien permanent">¤</a></h1>
+<h2 id="definition">Définition<a class="headerlink" href="#definition" title="Lien permanent">¤</a></h2>
 <p>Les listes chaînées, en informatique, représentent une structure de données d'une élégance discrète, dont la simplicité apparente dissimule une puissance d'adaptation remarquable. Contrairement aux tableaux dynamiques, qui dépendent d'une allocation contiguë en mémoire et nécessitent des réallocations coûteuses lorsque leur capacité est dépassée, les listes chaînées se distinguent par leur nature flexible et décentralisée.</p>
 <p>Une liste chaînée se compose d'une série de nœuds, chacun contenant un élément de données ainsi qu'un pointeur vers le nœud suivant. Cette architecture singulière permet à la liste de croître et de se contracter sans nécessiter de réallocation massive de mémoire : il suffit d'ajouter ou de retirer des nœuds au gré des besoins, sans déplacer les éléments existants. En d'autres termes, la mémoire n'est allouée que lorsque cela est nécessaire, éliminant ainsi les gâchis d'espace que peuvent entraîner les tableaux dynamiques lorsque ceux-ci sont sous-utilisés.</p>
 <p>L’avantage principal de cette structure réside dans sa capacité à insérer ou supprimer des éléments avec une efficacité redoutable. Là où un tableau dynamique doit parfois déplacer de grandes portions de données pour insérer ou retirer un élément, une liste chaînée ne demande que la modification des quelques pointeurs concernés. Cette opération, d'une légèreté exemplaire, confère à la liste chaînée une fluidité dans la manipulation des données que les tableaux, même dynamiques, ne sauraient égaler.</p>
 <p>Cependant, cette flexibilité n'est pas sans contrepartie. L'accès direct à un élément particulier est plus lent dans une liste chaînée que dans un tableau, car il faut parcourir les nœuds un à un, en suivant les pointeurs. Cette absence d'accès indexé, qui fait la force du tableau, devient ici une faiblesse relative, surtout pour les opérations qui nécessitent de fréquentes consultations des données.</p>
-<h2 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Permanent link">¤</a></h2>
+<h2 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Lien permanent">¤</a></h2>
 <p>Pour illustrer cette idée, imaginons un tableau statique dans lequel chaque élément est décrit par la structure suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
@@ -5021,7 +5021,7 @@ les outils associés.
 </tr>
 </tbody>
 </table>
-<h2 id="liste-simplement-chainee-linked-list">Liste simplement chaînée (<em>linked-list</em>)<a class="headerlink" href="#liste-simplement-chainee-linked-list" title="Permanent link">¤</a></h2>
+<h2 id="liste-simplement-chainee-linked-list">Liste simplement chaînée (<em>linked-list</em>)<a class="headerlink" href="#liste-simplement-chainee-linked-list" title="Lien permanent">¤</a></h2>
 <p>La figure suivante illustre un set d'éléments liés entre eux à l'aide d'un pointeur rattaché à chaque élément. On peut s'imaginer que chaque élément peut se situer n'importe où en mémoire et
 qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.</p>
 <p>Il est indispensable de bien identifier le dernier élément de la liste grâce à son pointeur associé
@@ -5066,7 +5066,7 @@ qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.<
 </span><span id="__span-3-37"><a href="#__codelineno-3-37" id="__codelineno-3-37" name="__codelineno-3-37"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-3-38"><a href="#__codelineno-3-38" id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="operations-sur-une-liste-chainee">Opérations sur une liste chaînée<a class="headerlink" href="#operations-sur-une-liste-chainee" title="Permanent link">¤</a></h3>
+<h3 id="operations-sur-une-liste-chainee">Opérations sur une liste chaînée<a class="headerlink" href="#operations-sur-une-liste-chainee" title="Lien permanent">¤</a></h3>
 <ul>
 <li>Création</li>
 <li>Nombre d'éléments</li>
@@ -5081,7 +5081,7 @@ de l'allocation dynamique ce qui permet de récupérer l'adresse de
 l'élément et de faciliter sa manipulation au travers de la liste.  Ne
 pas oublier de libérer la mémoire allouée pour les éléments lors de leur
 suppression…</p>
-<h3 id="calcul-du-nombre-delements-dans-la-liste">Calcul du nombre d'éléments dans la liste<a class="headerlink" href="#calcul-du-nombre-delements-dans-la-liste" title="Permanent link">¤</a></h3>
+<h3 id="calcul-du-nombre-delements-dans-la-liste">Calcul du nombre d'éléments dans la liste<a class="headerlink" href="#calcul-du-nombre-delements-dans-la-liste" title="Lien permanent">¤</a></h3>
 <p>Pour évaluer le nombre d'éléments dans une liste, on effectue le
 parcours de la liste à partir de la tête, et on passe d'élément en
 élément grâce au champ <em>next</em> de la structure <code>Element</code>. On incrément
@@ -5091,7 +5091,7 @@ le nombre d'éléments jusqu'à ce que le pointeur <em>next</em> soit égal à <
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Element</span><span class="w"> </span><span class="o">*</span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
 </span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 </span></code></pre></div>
-<h3 id="detection-des-boucles">Détection des boucles<a class="headerlink" href="#detection-des-boucles" title="Permanent link">¤</a></h3>
+<h3 id="detection-des-boucles">Détection des boucles<a class="headerlink" href="#detection-des-boucles" title="Lien permanent">¤</a></h3>
 <p>Attention, la technique précédente ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant :</p>
 <p><figure id="_figure-3"><img alt="Boucle dans une liste chaînée" class="drawio-diagram" src="../../../assets/images/loop.drawio"/><figcaption> Boucle dans une liste chaînée</figcaption></figure></p>
 <p>La liste se terminant par une boucle, il n'y aura jamais d'élément de fin et le nombre d'éléments
@@ -5138,7 +5138,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <p class="admonition-title">Astuce</p>
 <p>Une bonne idée pour se simplifier la vie est simplement d'éviter la création de boucles.</p>
 </div>
-<h3 id="insertion">Insertion<a class="headerlink" href="#insertion" title="Permanent link">¤</a></h3>
+<h3 id="insertion">Insertion<a class="headerlink" href="#insertion" title="Lien permanent">¤</a></h3>
 <p>L'insertion d'un élément dans une liste chaînée peut-être implémentée de la façon suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">Element</span><span class="o">*</span><span class="w"> </span><span class="nf">insert_after</span><span class="p">(</span><span class="n">Element</span><span class="o">*</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">payload</span><span class="p">)</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="p">{</span>
@@ -5152,7 +5152,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">new</span><span class="p">;</span>
 </span><span id="__span-6-11"><a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="suppression">Suppression<a class="headerlink" href="#suppression" title="Permanent link">¤</a></h3>
+<h3 id="suppression">Suppression<a class="headerlink" href="#suppression" title="Lien permanent">¤</a></h3>
 <p>La suppression implique d'accéder à l'élément parent, il n'est donc pas possible à partir d'un élément donné de le supprimer de la liste.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">delete_after</span><span class="p">(</span><span class="n">Element</span><span class="o">*</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="p">{</span>
@@ -5160,17 +5160,17 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
 </span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="recherche">Recherche<a class="headerlink" href="#recherche" title="Permanent link">¤</a></h3>
+<h3 id="recherche">Recherche<a class="headerlink" href="#recherche" title="Lien permanent">¤</a></h3>
 <p>Rechercher dans une liste chaînée est une question qui peut-être complexe et il est nécessaire de ce poser un certain nombre de questions :</p>
 <ul>
 <li>Est-ce que la liste est triée ?</li>
 <li>Combien d'espace mémoire puis-je utiliser ?</li>
 </ul>
 <p>On sait qu'une recherche idéale s'effectue en <span class="arithmatex">\(O(log(n))\)</span>, mais que la solution triviale en <span class="arithmatex">\(O(n)\)</span> est la suivante :</p>
-<h2 id="liste-doublement-chainee">Liste doublement chaînée<a class="headerlink" href="#liste-doublement-chainee" title="Permanent link">¤</a></h2>
+<h2 id="liste-doublement-chainee">Liste doublement chaînée<a class="headerlink" href="#liste-doublement-chainee" title="Lien permanent">¤</a></h2>
 <p>La liste doublement chaînée n'est qu'une extension de la liste chaînée simple dans laquelle on rajoute un pointeur vers l'élément précédent. Cela augmente l'emprunte mémoire de chaque élément mais permet de parcourir la liste dans les deux sens.</p>
 <p><figure id="_figure-5"><img alt="Liste chaînée simple" class="drawio-diagram" src="../../../assets/images/list-double.drawio"/><figcaption> Liste chaînée simple</figcaption></figure></p>
-<h2 id="liste-chainee-xor">Liste chaînée XOR<a class="headerlink" href="#liste-chainee-xor" title="Permanent link">¤</a></h2>
+<h2 id="liste-chainee-xor">Liste chaînée XOR<a class="headerlink" href="#liste-chainee-xor" title="Lien permanent">¤</a></h2>
 <p>L'inconvénient d'une liste doublement chaînée est le surcoût nécessaire au stockage d'un élément. Chaque élément contient en effet deux pointeurs sur l'élément précédent (<em>prev</em>) et suivant (<em>next</em>).</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>...  A       B         C         D         E  ...
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>        –&gt;  next –&gt;  next  –&gt;  next  –&gt;
@@ -5187,7 +5187,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <li>Complexité de mise en œuvre</li>
 </ul>
 <p>L'avantage principal étant le gain de place en mémoire.</p>
-<h2 id="liste-chainee-deroulee-unrolled-linked-list">Liste chaînée déroulée (Unrolled linked list)<a class="headerlink" href="#liste-chainee-deroulee-unrolled-linked-list" title="Permanent link">¤</a></h2>
+<h2 id="liste-chainee-deroulee-unrolled-linked-list">Liste chaînée déroulée (Unrolled linked list)<a class="headerlink" href="#liste-chainee-deroulee-unrolled-linked-list" title="Lien permanent">¤</a></h2>
 <p>Une liste chaînée déroulée rassemble les avantages d'un tableau et d'une liste chaînée. Elle permet d'accroître les performances en réduisant l'overhead de réservation mémoire avec <code>malloc</code>.</p>
 <p><figure id="_figure-6"><img alt="Liste chaînée déroulée" class="drawio-diagram" src="../../../assets/images/unrolled-linked-list.drawio"/><figcaption> Liste chaînée déroulée</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
@@ -5196,7 +5196,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">elements</span><span class="p">[];</span><span class="w"> </span><span class="c1">// Membre flexible contenant les éléments</span>
 </span><span id="__span-10-5"><a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="piles-ou-lifo-last-in-first-out">Piles ou LIFO (<em>Last In First Out</em>)<a class="headerlink" href="#piles-ou-lifo-last-in-first-out" title="Permanent link">¤</a></h2>
+<h2 id="piles-ou-lifo-last-in-first-out">Piles ou LIFO (<em>Last In First Out</em>)<a class="headerlink" href="#piles-ou-lifo-last-in-first-out" title="Lien permanent">¤</a></h2>
 <p>Une pile est une structure de donnée très similaire à un tableau dynamique, mais dans laquelle les opérations sont limitées. Par exemple, il n'est possible que :</p>
 <ul>
 <li>d'ajouter un élément (<em>push</em>) ;</li>
@@ -5225,7 +5225,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </span><span id="__span-11-17"><a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Les piles peuvent être implémentées avec des tableaux dynamiques ou des listes chaînées (voir plus bas).</p>
-<h2 id="queues-ou-fifo-first-in-first-out">Queues ou FIFO (<em>First In First Out</em>)<a class="headerlink" href="#queues-ou-fifo-first-in-first-out" title="Permanent link">¤</a></h2>
+<h2 id="queues-ou-fifo-first-in-first-out">Queues ou FIFO (<em>First In First Out</em>)<a class="headerlink" href="#queues-ou-fifo-first-in-first-out" title="Lien permanent">¤</a></h2>
 <p>Les queues sont aussi des structures très similaires à des tableaux dynamiques, mais elles ne permettent que les opérations suivantes :</p>
 <ul>
 <li>ajouter un élément à la queue (<em>push</em>) aussi nommé <em>enqueue</em> ;</li>
@@ -5348,7 +5348,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

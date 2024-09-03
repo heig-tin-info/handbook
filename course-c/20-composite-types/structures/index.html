@@ -4776,7 +4776,7 @@ les outils associés.
   
 
 
-<h1 id="structures">Structures<a class="headerlink" href="#structures" title="Permanent link">¤</a></h1>
+<h1 id="structures">Structures<a class="headerlink" href="#structures" title="Lien permanent">¤</a></h1>
 <p>Les structures sont des déclarations spécifiques permettant de regrouper une liste de variables dans un même bloc mémoire et permettant de s'y référer à partir d'une référence commune. Historiquement le type <code>struct</code> a été dérivé de <code>ALGOL 68</code>. Il est également utilisé en C++ et est similaire à une classe.</p>
 <p>Il faut voir une structure comme un conteneur à variables qu'il est possible de véhiculer comme un tout.</p>
 <p>La structure suivante décrit un agrégat de trois grandeurs scalaires formant un point tridimensionnel :</p>
@@ -4832,7 +4832,7 @@ les outils associés.
 </span><span id="__span-4-21"><a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">    </span><span class="n">point_print</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
 </span><span id="__span-4-22"><a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="structures-nommees">Structures nommées<a class="headerlink" href="#structures-nommees" title="Permanent link">¤</a></h2>
+<h2 id="structures-nommees">Structures nommées<a class="headerlink" href="#structures-nommees" title="Lien permanent">¤</a></h2>
 <p>L'écriture que l'on a vue initialement <code>struct { ... };</code> est appelée structure anonyme, c'est-à-dire qu'elle n'a pas de nom. Telle quelle elle ne peut pas être utilisée et elle ne sert donc pas à grand chose. En revanche, il est possible de déclarer une variable de ce type en ajoutant un identificateur à la fin de la déclaration <code>struct { ... } nom;</code>. Néanmoins la structure est toujours anonyme.</p>
 <p>Le langage C prévoit la possibilité de nommer une structure pour une utilisation ultérieure en rajoutant un nom après le mot clé <code>struct</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
@@ -4859,7 +4859,7 @@ les outils associés.
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="n">point</span><span class="p">;</span>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">point</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">¤</a></h2>
+<h2 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Lien permanent">¤</a></h2>
 <p>Une structure se comporte à peu de chose près comme un tableau sauf que les éléments de la structure ne s'accèdent pas avec l'opérateur crochet, <code>[]</code> mais avec l'opérateur <code>.</code>. Néanmoins une structure est représentée en mémoire comme un contenu linéaire. Notre structure <code>struct Point</code> serait identique à un tableau de trois <code>double</code> et par conséquent l'initialisation suivante est possible :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">3060426.957</span><span class="p">,</span><span class="w"> </span><span class="mf">3192003.220</span><span class="p">,</span><span class="w"> </span><span class="mf">4581359.381</span><span class="w"> </span><span class="p">};</span>
 </span></code></pre></div>
@@ -4878,7 +4878,7 @@ les outils associés.
 </span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a>
 </span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Product</span><span class="w"> </span><span class="n">apple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">321</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="s">"Pomme Golden"</span><span class="p">};</span>
 </span></code></pre></div>
-<h2 id="tableaux-de-structures">Tableaux de structures<a class="headerlink" href="#tableaux-de-structures" title="Permanent link">¤</a></h2>
+<h2 id="tableaux-de-structures">Tableaux de structures<a class="headerlink" href="#tableaux-de-structures" title="Lien permanent">¤</a></h2>
 <p>Une structure est un type comme un autre. Tout ce qui peut être fait avec <code>char</code> ou <code>double</code> peut donc être fait avec <code>struct</code>. Et donc, il est aussi possible de déclarer un tableau de structures. Ici, donnons l'exemple d'un tableau de points initialisés :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">points</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="p">{.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">},</span>
@@ -4889,7 +4889,7 @@ les outils associés.
 <p>Assigner une nouvelle valeur à un point est facile :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">point</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="structures-en-parametres">Structures en paramètres<a class="headerlink" href="#structures-en-parametres" title="Permanent link">¤</a></h2>
+<h2 id="structures-en-parametres">Structures en paramètres<a class="headerlink" href="#structures-en-parametres" title="Lien permanent">¤</a></h2>
 <p>L'intérêt d'une structure est de pouvoir passer ou retourner un ensemble de données à une fonction. On a vu qu'une fonction ne permet de retourner qu'une seule primitive. Une structure est ici considérée comme un seul conteneur et l'écriture suivante est possible :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">generate_point</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
@@ -4934,7 +4934,7 @@ les outils associés.
 <p class="admonition-title">Hint</p>
 <p>Lorsqu'un membre d'une structure est accédé, via son pointeur, on utilise la notation <code>-&gt;</code> au lieu de <code>.</code> car il est nécessaire de déréférencer le pointeur. Il s'agit d'un sucre syntaxique permettant d'écrire <code>p-&gt;x</code> au lieu de <code>(*p).x</code></p>
 </div>
-<h2 id="structures-flexibles">Structures flexibles<a class="headerlink" href="#structures-flexibles" title="Permanent link">¤</a></h2>
+<h2 id="structures-flexibles">Structures flexibles<a class="headerlink" href="#structures-flexibles" title="Lien permanent">¤</a></h2>
 <p>Introduits avec <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, les membres de structures flexibles ou <em>flexible array members</em> (§6.7.2.1) est un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Vector</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span><span class="w"> </span><span class="c1">// name of the vector</span>
@@ -4950,7 +4950,7 @@ les outils associés.
 </span><span id="__span-18-5"><a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="w">    </span><span class="n">vector</span><span class="o">-&gt;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
 </span></code></pre></div>
 <p>Ce type d'écriture est souvent utilisé pour des contenus ayant un en-tête fixe comme des images BMP ou des fichiers sons WAVE.</p>
-<h2 id="structure-de-structures">Structure de structures<a class="headerlink" href="#structure-de-structures" title="Permanent link">¤</a></h2>
+<h2 id="structure-de-structures">Structure de structures<a class="headerlink" href="#structure-de-structures" title="Lien permanent">¤</a></h2>
 <p>On comprend aisément que l'avantage des structures et le regroupement de variables. Une structure peut être la composition d'autres types composites.</p>
 <p>Nous déclarons ici une structure <code>struct Line</code> composée de <code>struct Point</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Line</span><span class="w"> </span><span class="p">{</span>
@@ -4962,7 +4962,7 @@ les outils associés.
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Line</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">33</span><span class="p">};</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%g, %g"</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
 </span></code></pre></div>
-<h2 id="alignement-memoire">Alignement mémoire<a class="headerlink" href="#alignement-memoire" title="Permanent link">¤</a></h2>
+<h2 id="alignement-memoire">Alignement mémoire<a class="headerlink" href="#alignement-memoire" title="Lien permanent">¤</a></h2>
 <p>Une structure est agencée en mémoire dans l'ordre de sa déclaration. C'est donc un agencement linéaire en mémoire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Line</span><span class="w"> </span><span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"> </span><span class="c1">// Chaque point est un double, codé sur 8 bytes.</span>
 </span></code></pre></div>
@@ -5060,7 +5060,7 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-32-4"><a href="#__codelineno-32-4" id="__codelineno-32-4" name="__codelineno-32-4"></a>└─┴─┴─┴─┘ └─┴─┴─┴─┘
 </span><span id="__span-32-5"><a href="#__codelineno-32-5" id="__codelineno-32-5" name="__codelineno-32-5"></a>    A         B
 </span></code></pre></div>
-<h2 id="fichier-wav">Fichier WAV<a class="headerlink" href="#fichier-wav" title="Permanent link">¤</a></h2>
+<h2 id="fichier-wav">Fichier WAV<a class="headerlink" href="#fichier-wav" title="Lien permanent">¤</a></h2>
 <p>Le format de fichier WAV est un format de fichier standard pour les fichiers audio numériques. Il est basé sur le format RIFF (Resource Interchange File Format) qui est un format de fichier générique pour l'échange de données. Ce format est très ancien et a été introduit par Microsoft en 1991. Il est néanmoins encore utilisé aujourd'hui pour stocker des fichiers audio non compressés car il est simple et ne nécessite pas de licence.</p>
 <p>Prenons l'exemple concrêt de la structure d'un fichier audio WAV :</p>
 <p><figure id="_figure-1"><img alt="Fichier WAV" class="drawio-diagram" src="../../../assets/images/wav.drawio"/><figcaption> Fichier WAV</figcaption></figure></p>
@@ -5157,7 +5157,7 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-34-71"><a href="#__codelineno-34-71" id="__codelineno-34-71" name="__codelineno-34-71"></a><span class="w">    </span><span class="n">generate_sine_wave</span><span class="p">(</span><span class="s">"sine.wav"</span><span class="p">,</span><span class="w"> </span><span class="mf">440.0</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="p">);</span>
 </span><span id="__span-34-72"><a href="#__codelineno-34-72" id="__codelineno-34-72" name="__codelineno-34-72"></a><span class="p">}</span>
 </span></code></pre></div>
-<h1 id="champs-de-bits">Champs de bits<a class="headerlink" href="#champs-de-bits" title="Permanent link">¤</a></h1>
+<h1 id="champs-de-bits">Champs de bits<a class="headerlink" href="#champs-de-bits" title="Lien permanent">¤</a></h1>
 <p>Les champs de bits sont des structures dont une information supplémentaire est ajoutée : le nombre de bits utilisés.</p>
 <p>Prenons l'exemple du <a href="http://www.ti.com/lit/ug/sprug03b/sprug03b.pdf">module I2C</a> du microcontrôleur TMS320F28335. Le registre <code>I2CMDR</code> décrit à la page 23 est un registre 16-bits qu'il conviendrait de décrire avec un champ de bits :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">I2CMDR</span><span class="w"> </span><span class="p">{</span>
@@ -5189,7 +5189,7 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span></code></pre></div>
 <p>Notons que les champs de bits, ainsi que les structures seront déclarés différemment selon que l'architecture cible est <em>little-endian</em> ou <em>big-endian</em>.</p>
 <p>Cette technique est particulièrement utile pour manipuler des registres de microcontrôleurs ou des fichiers binaires, elle est souvent couplée à des unions pour permettre un accès soit par champ de bits, soit par entier.</p>
-<h2 id="compound-literals">Compound Literals<a class="headerlink" href="#compound-literals" title="Permanent link">¤</a></h2>
+<h2 id="compound-literals">Compound Literals<a class="headerlink" href="#compound-literals" title="Lien permanent">¤</a></h2>
 <p>Naïvement traduit en <em>littéraux composés</em>, un <em>compound literal</em> est une méthode de création d'un type composé « à la volée » utilisé de la même façon que les transtypages.</p>
 <p>Reprenons notre structure Point <code>struct Point</code> vue plus haut. Si l'on souhaite changer la valeur du point <code>p</code> il faudrait on pourrait écrire ceci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// Déclaré plus haut</span>
@@ -5245,7 +5245,7 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-42-6"><a href="#__codelineno-42-6" id="__codelineno-42-6" name="__codelineno-42-6"></a><span class="n">assert</span><span class="p">(</span><span class="n">el</span><span class="o">-&gt;</span><span class="n">atomic_weight</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">92</span><span class="p">);</span>
 </span></code></pre></div>
 </div>
-<h2 id="creation-de-types">Création de types<a class="headerlink" href="#creation-de-types" title="Permanent link">¤</a></h2>
+<h2 id="creation-de-types">Création de types<a class="headerlink" href="#creation-de-types" title="Lien permanent">¤</a></h2>
 <p>Le mot clé <code>typedef</code> permet de déclarer un nouveau type. Il est particulièrement utilisé conjointement avec les structures et les unions afin de s'affranchir de la lourdeur d'écriture (préfixe <code>struct</code>), et dans le but de cacher la complexité d'un type à l'utilisateur qui le manipule.</p>
 <p>L'exemple suivant déclare un type <code>Point</code> et un prototype de fonction permettant l'addition de deux points.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
@@ -5255,7 +5255,7 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
 </span><span id="__span-43-5"><a href="#__codelineno-43-5" id="__codelineno-43-5" name="__codelineno-43-5"></a>
 </span><span id="__span-43-6"><a href="#__codelineno-43-6" id="__codelineno-43-6" name="__codelineno-43-6"></a><span class="n">Point</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </span></code></pre></div>
-<h2 id="types-de-donnees-abstraits">Types de données abstraits<a class="headerlink" href="#types-de-donnees-abstraits" title="Permanent link">¤</a></h2>
+<h2 id="types-de-donnees-abstraits">Types de données abstraits<a class="headerlink" href="#types-de-donnees-abstraits" title="Lien permanent">¤</a></h2>
 <p>Un <a href="https://fr.wikipedia.org/wiki/Type_abstrait">type de donnée abstrait</a> (<strong>ADT</strong> pour Abstract Data Type) cache généralement une structure dont le contenu n'est pas connu de l'utilisateur final. Ceci est rendu possible par le standard (<abbr title="Standard ISO/IEC 9899:1999">C99</abbr> §6.2.5) par l'usage de types incomplets.</p>
 <p>Pour mémoire, un type incomplet décrit un objet dont on ne connaît pas sa taille en mémoire.</p>
 <p>L'exemple suivant déclare un nouveau type structure qui n'est alors pas (encore) connu dans le fichier courant :</p>
@@ -5411,7 +5411,7 @@ L'accès à <code>d</code> est ainsi facilité au détriment d'une perte substan
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">

@@ -4682,25 +4682,25 @@ les outils associés.
   
 
 
-<h1 id="threads">Threads<a class="headerlink" href="#threads" title="Permanent link">¤</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
+<h1 id="threads">Threads<a class="headerlink" href="#threads" title="Lien permanent">¤</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Lien permanent">¤</a></h2>
 <p>La gestion de l'ordonnancement des processus et des threads (processus légers) par le noyau d'un système d'exploitation a évolué avec le temps, notamment sous les systèmes <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr> et Linux. Historiquement, en effet, les threads étaient souvent gérés au niveau utilisateur par des bibliothèques de threads, comme la bibliothèque <abbr title="Portable Operating System Interface">POSIX</abbr> Threads (pthreads) sous <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>. Cette approche est connue sous le nom de threads au niveau utilisateur (User-Level Threads). Cependant, les systèmes modernes, y compris Linux, utilisent une approche différente qui permet une meilleure intégration avec l'ordonnanceur du noyau.</p>
-<h2 id="threads-au-niveau-utilisateur">Threads au Niveau Utilisateur<a class="headerlink" href="#threads-au-niveau-utilisateur" title="Permanent link">¤</a></h2>
+<h2 id="threads-au-niveau-utilisateur">Threads au Niveau Utilisateur<a class="headerlink" href="#threads-au-niveau-utilisateur" title="Lien permanent">¤</a></h2>
 <p>Dans les modèles de threads au niveau utilisateur, l'ordonnancement des threads est géré entièrement par la bibliothèque de threads dans l'espace utilisateur. Le noyau n'est pas conscient de la présence de threads au sein des processus ; il ne voit et n'ordonnance que des processus. Cette approche permet une grande flexibilité et une portabilité entre différents systèmes d'exploitation, mais présente plusieurs inconvénients :</p>
 <ul>
 <li><strong>Manque de Connaissance du Noyau</strong> : comme le noyau n'est pas conscient des threads, il ne peut pas prendre de décisions d'ordonnancement basées sur l'état de tous les threads dans le système. Cela peut conduire à une utilisation sous-optimale des ressources, notamment sur les systèmes multiprocesseurs.</li>
 <li><strong>Blocage au Niveau du Processus</strong> : Si un thread effectue un appel système bloquant, tout le processus (et donc tous ses threads) peut être bloqué, ce qui n'est pas idéal pour la concurrence.</li>
 </ul>
-<h2 id="threads-au-niveau-noyau">Threads au Niveau Noyau<a class="headerlink" href="#threads-au-niveau-noyau" title="Permanent link">¤</a></h2>
+<h2 id="threads-au-niveau-noyau">Threads au Niveau Noyau<a class="headerlink" href="#threads-au-niveau-noyau" title="Lien permanent">¤</a></h2>
 <p>Pour surmonter ces limitations, la plupart des systèmes d'exploitation modernes, y compris Linux, gèrent désormais les threads au niveau du noyau (Kernel-Level Threads). Dans ce modèle, le noyau est pleinement conscient de chaque thread et peut les ordonnancer indépendamment. Cela permet une meilleure utilisation des ressources sur les systèmes multicœurs, car le noyau peut répartir les threads sur différents processeurs.</p>
 <ul>
 <li><strong>Meilleure Concurrency</strong> : Chaque thread peut être ordonnancé indépendamment, permettant à un processus de continuer à s'exécuter même si l'un de ses threads est bloqué.</li>
 <li><strong>Gestion des Priorités</strong> : Le noyau peut ajuster les priorités des threads individuellement, offrant une granularité fine dans la gestion de l'ordonnancement.</li>
 <li><strong>Support Multiprocesseur</strong> : Le noyau peut répartir les threads d'un même processus sur plusieurs cœurs, exploitant pleinement le matériel multiprocesseur.</li>
 </ul>
-<h2 id="modele-nm">Modèle N:M<a class="headerlink" href="#modele-nm" title="Permanent link">¤</a></h2>
+<h2 id="modele-nm">Modèle N:M<a class="headerlink" href="#modele-nm" title="Lien permanent">¤</a></h2>
 <p>Il existe également un modèle hybride, le modèle N:M, qui tente de combiner les avantages des threads au niveau utilisateur et au niveau noyau. Dans ce modèle, N threads au niveau utilisateur sont mappés sur M threads au niveau noyau. Cela permet une certaine flexibilité dans la gestion des threads et peut améliorer la performance en réduisant le nombre de changements de contexte nécessaires. Cependant, ce modèle est complexe à implémenter et n'est pas largement utilisé dans les systèmes d'exploitation modernes.</p>
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¤</a></h2>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Lien permanent">¤</a></h2>
 <p>L'approche moderne de la gestion de l'ordonnancement des processus et des threads par le noyau offre une flexibilité, une efficacité et une scalabilité significativement meilleures par rapport aux méthodes historiques. Les threads au niveau noyau permettent une utilisation optimale du matériel multiprocesseur et multicœur, tout en offrant une gestion fine de la concurrence et de la parallélisation au sein des applications.</p>
 <p>C++20 lui-même n'introduit pas de nouvelles fonctionnalités spécifiquement conçues pour les threads au niveau utilisateur, mais il continue de supporter le multithreading à travers sa bibliothèque standard, notamment avec <code>&lt;thread&gt;</code>, <code>&lt;mutex&gt;</code>, <code>&lt;future&gt;</code>, <code>&lt;atomic&gt;</code>, et d'autres facilités de synchronisation et de communication entre threads.</p>
 <p>Les threads gérés par la bibliothèque standard C++ sont des threads au niveau système (ou noyau), ce qui signifie que leur création, destruction, et ordonnancement sont gérés par le système d'exploitation. Cela offre des avantages en termes de performances et d'utilisation sur des systèmes multicœurs, mais peut ne pas être idéal pour tous les cas d'utilisation, particulièrement ceux nécessitant un grand nombre de threads avec des changements de contexte fréquents.</p>
@@ -4767,7 +4767,7 @@ les outils associés.
   <form class="md-feedback" name="feedback" hidden>
     <fieldset>
       <legend class="md-feedback__title">
-        Avez-vous trouvé ce que vous cherchiez ?
+        
       </legend>
       <div class="md-feedback__inner">
         <div class="md-feedback__list">
