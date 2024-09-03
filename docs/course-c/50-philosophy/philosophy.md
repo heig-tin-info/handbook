@@ -427,7 +427,7 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
 
 : Lorsqu'un code immature est mis en production
 
-  En novembre 1990 à 14h25, la société AT&T effecue une mise à jour de son   réseau téléphonique. Un bug dans le code de mise à jour provoque un crash du réseau entraînant une interruption de service de 9 heures affectant quelque 50 millions d'appels et coûtant à l'entreprise 60 millions de dollars. (Source&nbsp;: [The 1990 AT&T Long Distance Network Collapse](https://users.csc.calpoly.edu/~jdalbey/SWE/Papers/att_collapse))
+  En novembre 1990 à 14h25, la société AT&T effecue une mise à jour de son   réseau téléphonique. Un bug dans le code de mise à jour provoque un crash du réseau entraînant une interruption de service de 9 heures affectant quelque 50 millions d'appels et coûtant à l'entreprise 60 millions de dollars. (Source: [The 1990 AT&T Long Distance Network Collapse](https://users.csc.calpoly.edu/~jdalbey/SWE/Papers/att_collapse))
 
 **Chirurgie au fusil de chasse**
 

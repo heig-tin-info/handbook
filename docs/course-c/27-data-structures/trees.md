@@ -213,7 +213,7 @@ Les utilisations les plus courantes de cette structure de donnée sont:
 - Une queue prioritaire (*Priority queue*)
 - Déterminer le k-ième élément le plus petit d'une collection (*k-th smallest element*)
 
-Voici un tableau résumant les complexités des différentes opérations dans un tas binaire minimal&nbsp;:
+Voici un tableau résumant les complexités des différentes opérations dans un tas binaire minimal:
 
 | Opération                | Complexité             |
 | ------------------------ | ---------------------- |
