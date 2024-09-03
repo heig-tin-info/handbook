@@ -243,7 +243,8 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par [[Jacques
 
 >Vôtre, Jacques Perret »
 
-()[]{#turingmachine}
+[](){#turingmachine}
+
 ## La machine de Turing
 
 Il est impossible d'introduire les notions d'ordinateur, de programmes et d'algorithmes sans évoquer la figure emblématique d'Alan Turing. Ce mathématicien britannique, véritable pionnier de l'informatique, a joué un rôle crucial dans l'histoire, notamment en déchiffrant le code de la machine Enigma utilisée par les forces allemandes pendant la Seconde Guerre mondiale.
