@@ -4959,11 +4959,11 @@ les outils associés.
 </ul>
 <p>Ainsi, l'algorithmique n'est rien de moins que l'essence même de la pensée organisée, une discipline qui transcende les frontières du numérique pour s'infiltrer dans les moindres recoins de la vie courante, là où la logique et la méthode s'imposent comme les guides naturels de toute action efficace.</p>
 <h3 id="algorithme-deuclide">Algorithme d'Euclide<a class="headerlink" href="#algorithme-deuclide" title="Permanent link">¤</a></h3>
-<p>Dans le cadre mathématique et scientifique qui nous occupe, l'<a href="https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide">algorithme d'Euclide</a>, datant probablement de 300 av. J.-C., constitue un exemple emblématique. Cet algorithme, d'une élégance intemporelle, permet de déterminer le <a href="https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur">plus grand commun diviseur</a> (PGCD) de deux nombres. Sa logique, simple, mais puissante, se prête parfaitement à une représentation sous forme de diagramme de flux.</p>
-<p><figure id="_figure-2"><img alt="Algorithme de calcul du PGCD d'Euclide." class="drawio-diagram" src="../../../assets/images/pgcd.drawio"/><figcaption> Algorithme de calcul du PGCD d'Euclide.</figcaption></figure></p>
+<p>Dans le cadre mathématique et scientifique qui nous occupe, l'<a href="https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide">algorithme d'Euclide</a>, datant probablement de 300 av. J.-C., constitue un exemple emblématique. Cet algorithme, d'une élégance intemporelle, permet de déterminer le <a href="https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur">plus grand commun diviseur</a> (PGCD) de deux nombres. Sa logique, simple, mais puissante, se prête parfaitement à une représentation sous forme de diagramme de flux comme représenté sur cette figure :</p>
+<p><figure id="_figure-2"><img alt="Algorithme de calcul du PGCD d'Euclide" class="drawio-diagram" src="../../../assets/images/pgcd.drawio"/><figcaption> Algorithme de calcul du PGCD d'Euclide</figcaption></figure></p>
 <p>Les informaticiens et ingénieurs apprécient particulièrement l'usage des diagrammes pour synthétiser et clarifier leurs idées complexes. Le diagramme de flux, en tant qu'outil de communication visuelle, permet de représenter un <strong>processus</strong> de manière structurée et accessible. Dans ce type de diagramme, les formes géométriques symbolisent des étapes du processus, tandis que les flèches en indiquent le déroulement. Par convention, les formes ovales marquent le début et la fin du processus, les rectangles désignent les opérations de traitement, et les losanges représentent les décisions à prendre. Une forme de décision pose une question et offre deux chemins possibles, chacun correspondant à une réponse spécifique. Comme nous le verrons plus tard, tout processus de traitement d'information comporte nécessairement une entrée et une sortie, illustrant ainsi la dynamique intrinsèque de l'algorithme.</p>
 <p>Ainsi, l'algorithme d'Euclide, par sa simplicité de conception et sa pertinence universelle, demeure un exemple parfait de la manière dont les idées abstraites peuvent être traduites en instructions claires, tant pour l'esprit que pour la machine.</p>
-<p>Si l'on désire déterminer le plus grand commun diviseur de 42 et 30, il suffit de suivre pas à pas l'algorithme d'Euclide, depuis le <em>début</em> jusqu'à la <em>conclusion</em> :</p>
+<p>Si l'on désire déterminer le plus grand commun diviseur de 42 et 30, il suffit de suivre pas à pas l'algorithme d'Euclide, depuis le <em>début</em> jusqu'à la <em>conclusion</em> comme le montre le tableau ci-dessous :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Exemple de calcul du PGCD entre 42 et 30</caption><thead>
 <tr>
@@ -5077,9 +5077,9 @@ les outils associés.
 <p>Pour mieux l'illustrer, imaginez que vous avez un jeu de 54 cartes mélangé et que vous souhaitez le trier par ordre croissant (As, 2, 3, ..., 10, Valet, Dame, Roi). Vous disposez les cartes en ligne et procédez par échanges successifs de deux cartes adjacentes mal placées, répétant l'opération jusqu'à ce que l'ensemble du jeu soit correctement ordonné.</p>
 <p>Voici un diagramme de flux représentant l'algorithme du tri à bulles :</p>
 <p><figure id="_figure-3"><img alt="Algorithme de tri à bulles." class="drawio-diagram" src="../../../assets/images/bubblesort.drawio"/><figcaption> Algorithme de tri à bulles.</figcaption></figure></p>
-<p>Soit un tableau de <span class="arithmatex">\(N = 5\)</span> valeurs à trier :</p>
+<p>Soit un tableau de <span class="arithmatex">\(N = 5\)</span> valeurs à trier donné ci-dessous, le cycle se répète jusqu'à ce que le tableau soit complètement trié. Si <span class="arithmatex">\(s\)</span> est égal à 0, il n'y a pas eu d'échange lors du parcours du tableau et le tableau est donc trié.</p>
 <div class="arithmatex">\[T = {5, 3, 8, 4, 2}\]</div>
-<p>Le cycle se répète jusqu'à ce que le tableau soit trié. Si <span class="arithmatex">\(s\)</span> est égal à 0, il n'y a pas eu d'échange lors du parcours du tableau et le tableau est donc trié.</p>
+<p>Les différentes étapes du tri à bulles sont illustrées ci-dessous :</p>
 <p><figure id="_figure-4"><img alt="Étape par étape du tri à bulles." class="drawio-diagram" src="../../../assets/images/bubblesort-steps.drawio"/><figcaption> Étape par étape du tri à bulles.</figcaption></figure></p>
 <p>Pour les cycles <span class="arithmatex">\(3\)</span> et <span class="arithmatex">\(4\)</span>, nous ne montrons pas les étapes ou il n'y a pas eu d'échange. Au cinquième cycle, aucun échange n'est nécessaire, l'algorithme se termine.</p>
 <p>On peut compter le nombre de cycles assez facilement. Pour ce tableau de <span class="arithmatex">\(N = 5\)</span> valeurs, il y a <span class="arithmatex">\(5\)</span> cycles. Durant un cycle, il faut regarder <span class="arithmatex">\(N - 1\)</span> paires d'éléments. Donc pour un tableau de <span class="arithmatex">\(N\)</span> valeurs, il y a <span class="arithmatex">\(N^2 - N\)</span> comparaisons. Ce type d'algorithme est dit de complexité <span class="arithmatex">\(O(N^2)\)</span>. Cela signifie que le nombre d'opérations à effectuer est proportionnel au carré du nombre d'éléments à trier. Nous verrons plus tard que la complexité d'un algorithme est un critère important. Nous verrons comment le calculer.</p>
@@ -5204,7 +5204,7 @@ les outils associés.
 <p>Il me semble que je pencherais pour <strong>ordonnatrice électronique</strong>. Je souhaite que ces suggestions stimulent, orientent vos propres facultés d’invention. N’hésitez pas à me donner un coup de téléphone si vous avez une idée qui vous paraisse requérir l’avis d’un philologue.</p>
 <p>Vôtre, Jacques Perret »</p>
 </blockquote>
-<p>()[]{#turingmachine}</p>
+<p><a href="" id="turingmachine"></a></p>
 <h2 id="la-machine-de-turing">La machine de Turing<a class="headerlink" href="#la-machine-de-turing" title="Permanent link">¤</a></h2>
 <p>Il est impossible d'introduire les notions d'ordinateur, de programmes et d'algorithmes sans évoquer la figure emblématique d'Alan Turing. Ce mathématicien britannique, véritable pionnier de l'informatique, a joué un rôle crucial dans l'histoire, notamment en déchiffrant le code de la machine Enigma utilisée par les forces allemandes pendant la Seconde Guerre mondiale.</p>
 <p>La <strong>machine de Turing</strong> est un modèle théorique fondamental qui représente la conception d'un ordinateur. Imaginée comme une bande infinie divisée en cases, elle est dotée d'une tête de lecture/écriture et d'un ensemble fini d'états. Cette machine peut lire et écrire des symboles sur la bande, se déplacer à gauche ou à droite, et changer d'état en fonction des instructions reçues. Capable de simuler n'importe quel algorithme, la machine de Turing est un modèle abstrait qui a permis de définir la notion de <strong>calculabilité</strong> et de poser les bases de l'informatique théorique.</p>
@@ -5659,7 +5659,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 2, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 3, 2024</span>
   </span>
 
     
