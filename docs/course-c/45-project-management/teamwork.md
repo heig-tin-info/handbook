@@ -343,14 +343,21 @@ En termes matériels cela peut être la proposition d'un schéma électrique, d'
 
 Une fois la solution technique validée, il est possible de passer à l'étape de développement du système. Cette étape consiste à réaliser les organes du système, à les assembler, à les tester, et à les valider. C'est à ce moment que l'on passe de la théorie à la pratique, de la spécification à la réalisation.
 
+[](){#development-models}
+
 ## Modèles de développement
 
 Il existe de nombreux modèles de développement logiciel, chacun ayant ses avantages et ses inconvénients. Voici les deux modèles les plus couramment utilisés :
 
-**Modèle en cascade**
+### Modèle en cascade
 
-: Le modèle en cascade est un modèle linéaire qui divise le projet en plusieurs phases distinctes (analyse, conception, développement, test, déploiement). Chaque phase doit être complétée avant de passer à la suivante. Ce modèle convient bien aux projets où les exigences sont claires et peu susceptibles de changer.
+Le modèle en cascade est un modèle linéaire qui divise le projet en plusieurs phases distinctes (analyse, conception, développement, test, déploiement). Chaque phase doit être complétée avant de passer à la suivante. Ce modèle convient bien aux projets où les exigences sont claires et peu susceptibles de changer.
 
+Le modèle en cascade suivant résume le cycle de développement d'un programme. Il s'agit d'un modèle simple, mais qu'il faut garder à l'esprit que ce soit pour le développement d'un produit logiciel que durant les travaux pratiques liés à ce cours.
+
+![Modèle en cascade](/assets/images/waterfall.drawio)
 **Modèle en V**
 
-: Le modèle en V est une extension du modèle en cascade qui met l'accent sur la validation et la vérification à chaque étape du processus. Chaque phase de développement est associée à une phase de test correspondante
+### Modèle en V
+
+Le modèle en V est une extension du modèle en cascade qui met l'accent sur la validation et la vérification à chaque étape du processus. Chaque phase de développement est associée à une phase de test correspondante

@@ -5,11 +5,11 @@ epigraph:
 ---
 # Le langage C
 
-Le langage C est l'un des premiers langages de programmation dits de haut niveau. Il est très proche de l'assembleur: le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation de système complexe à la simple [machine à café][mcu].
+Le langage C est l'un des premiers langages de programmation. Il est très proche de l'assembleur: le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, d'une montre connectée à un stimulateur cardiaque (*pacemaker) en passant par une [machine à café][mcu].
 
-Même s'il est très ancien (1972), il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.
+Même s'il est ancien (1972), il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.
 
-À vrai dire, en 2024, il n'y a pas d'alternative viable au C pour programmer des applications embarquées, des systèmes d'exploitation ou des applications nécessitant des performances élevées.
+À vrai dire, en 2024, il n'y a pas d'alternative mature et éprouvée que le C pour programmer des applications embarquées à hautes performances ou le noyau des systèmes d'exploitation. Des langages plus récents comme le Rust ou le Zig commencent à émerger, mais ils sont loin d'être adoptés par l'industrie.
 
 [](){ #c-history }
 
@@ -25,11 +25,13 @@ Ce système d'exploitation que Ken Thompson et Dennis Ritchie développaient au 
 
 Par la suite, [Brian Kernighan](wiki:brian-kernighan) aida à populariser ce nouveau langage. Il est le principal auteur du livre "The C Programming Language", tandis que Dennis Ritchie s'est davantage occupé des annexes.
 
-Les évolutions continueront plus tard avec [Bjarne Stroustrup](wiki:bjarne-stroustrup) qui décidera d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fait l'objet d'un autre cours.
+Les évolutions continueront plus tard avec [Bjarne Stroustrup](wiki:bjarne-stroustrup) qui décidera d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fait l'objet d'un autre cours. Sur la figure suivante, on peut voir le trio fondateur du langage C.
 
 ![Les pères fondateurs du C](/assets/images/thompson-kernighan-ritchie.drawio)
 
 Il faut attendre 1989 pour que le langage C fasse l'objet d'une normalisation par l'ANSI (*American National Standards Institute*). L'année suivante le comité ISO (*International Organization for Standardization*) ratifie le standard *ISO/IEC 9899:1990* communément appelé **C90**. Dès lors, le langage C est devenu un standard international et devient le langage dominant dans le monde de l'informatique.
+
+Les langages sont souvent influencés les uns par les autres, et le C n'échappe pas à la règle. La figure suivante illustre quelques influences des langages de programmation :
 
 ```mermaid
 %% Influences des langages de programmation
@@ -48,17 +50,15 @@ flowchart LR
     B --> C
 ```
 
-Les années se succèdent et le standard évolue pour soit corriger certaines de ses faiblesses soit pour apporter de nouvelles fonctionnalités.
-
 Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés par les ingénieurs, car il allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances telles que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.
 
-Il faut retenir que **C** est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C.
+Retenons simplement que **C** est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C, du moins en partie.
 
 ## Standardisation
 
-Le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.
+Nous l'avons vu, le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.
 
-Le standard le plus couramment utilisé en 2024 est encore [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf). C11 le remplace peu à peu dans l'industrie, mais la saga continue avec C17, C18 et C23 qui sont des évolutions.
+Le standard le plus couramment utilisé en 2024 est certainement encore [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf). C11 le remplace peu à peu dans l'industrie, mais l'histoire continue avec C17, C18 et C23 qui sont des évolutions. La figure suivante résume les différents standards internationaux du langage C.
 
 Table: Normes internationales du langage C
 
@@ -73,33 +73,21 @@ Table: Normes internationales du langage C
 | C17/C18         | [ISO/IEC 9899:2018](https://www.iso.org/standard/74528.html) | 2018 |
 | C23             | [ISO/IEC 9899:2023](https://www.iso.org/standard/82075.html) | 2023 |
 
-En substance, **C18** n'apporte pas de nouvelles fonctionnalités au langage, mais vise à clarifier de nombreuses zones d'ombres laissées par **C11**.
-
-**C11** apporte peu de grands changements fondamentaux pour le développement sur microcontrôleur.
+En substance, **C18** n'apporte pas de nouvelles fonctionnalités au langage, mais vise à clarifier de nombreuses zones d'ombres laissées par **C11** qui n'apportent que peu de grands changements fondamentaux pour le développement sur microcontrôleur.
 
 !!! info
 
     Vous entendrez ou lirez souvent des références à **ANSI C** ou **K&R**, préférez plutôt une compatibilité avec **C99** au minimum.
 
-Le standard est lourd, difficile à lire et avec 552 pages pour C99, vous n'aurez probablement jamais le moindre plaisir à y plonger les yeux qui se rempliront de larmes à chaque lecture.
+Il faut l'admettre, le standard C est lourd, difficile à lire, et avec ses quelque 552 pages pour C99, vous n'aurez probablement jamais le moindre plaisir à y plonger vos yeux qui se rempliront de larmes à chaque lecture.
 
-Armez-vous de mouchoirs, car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà ?
+Armez-vous de mouchoirs, car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Dans l'industrie, vous vous heurterez un jour ou l'autre à des problèmes qui ne sont pas documentés dans les livres et bien souvent la réponse est à chercher dans le standard.
 
-Vous vous demandez probablement : "pourquoi l'industrie a-t-elle autant de retard sur le dernier standard?" Lorsque Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglés par des validations strictes qui décrivent les standards utilisés. Migrer vers un standard plus récent est une aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée qu'on enverra sur Mars n'aura pas d'issue fatale. Ces validations sont longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèles à un ancien standard.
-
-!!! exercise
-
-    Ouvrez le standard [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf) et cherchez la valeur maximale possible de la constante `ULLONG_MAX`. Que vaut-elle ?
-
-    ??? solution
-
-        Au paragraphe §5.2.4.2.1-1 on peut lire que `ULLONG_MAX` est encodé sur 64-bits et donc que sa valeur est $2^{64}-1$ donc `18'446'744'073'709'551'615`.
+Je vous le disais plus haut, C99 est le standard le plus couramment utilisé en 2024, pourtant il a plus de 25 ans. Vous vous demandez probablement pourquoi l'industrie a autant de retard sur le dernier standard. Lorsque Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglés par des validations strictes qui imposent une version du standard bien précise. Migrer vers un standard plus récent est une vaste aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée envoyée sur Mars n'aura pas d'issue fatale ou que le robot chirurgical qui vous sauvera un jour d'une misère n'ait pas de velléités assassines à la suite d'un bogue logiciel. Ces validations sont donc longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèles à un ancien standard qui fonctionne.
 
 ## Le C et les autres...
 
-Si ce cours se concentre sur le C, ce n'est pas le seul langage de programmation et surtout ce n'est certainement pas le seul que vous apprendrez.
-
-Voici une liste non exhaustive de langages de programmation et de leur année de création. Cette liste est intéressante pour comprendre l'évolution des langages de programmation et leur utilisation:
+Si ce cours se concentre sur le C, il n'est de loin pas le seul langage de programmation et surtout, ce n'est certainement l'unique langage que vous apprendrez dans votre carrière. Sur la table suivante, une liste non exhaustive de langages de programmation et de leur année de création vous est donnée. Cette liste est intéressante pour comprendre l'évolution des langages de programmation et leurs utilisations typiques :
 
 Table: Langages de programmation et leur année de création
 
@@ -123,11 +111,9 @@ Table: Langages de programmation et leur année de création
 | [Swift](wiki:swift-lang)     | 2014  | Applications mobiles      |
 | [Zig](wiki:zig-lang)         | 2016  | Systèmes embarqués        |
 
-L'index [TIOBE](https://www.tiobe.com/tiobe-index/) est un bon indicateur de la popularité des langages de programmation. Il est mis à jour chaque mois et permet de suivre l'évolution de la popularité des langages de programmation.
+L'index [TIOBE](https://www.tiobe.com/tiobe-index/) est un bon indicateur de la popularité des langages de programmation. Il est mis à jour chaque mois et permet de suivre l'évolution de la popularité des langages de programmation. En 2024, le top 10 des langages de programmation les plus populaires est donné par la table suivante :
 
-En 2024, le top 10 des langages de programmation les plus populaires est le suivant :
-
-Table: Top 10 des langages de programmation en 2024
+Table: Top 10 des langages de programmation
 
 | Top 10 | Langage de programmation |
 | ------ | ------------------------ |
@@ -142,21 +128,17 @@ Table: Top 10 des langages de programmation en 2024
 | 9      | Visual Basic             |
 | 10     | Fortran                  |
 
-Python est un langage de très haut niveau, simple à apprendre, mais éloigné du matériel. C++ est un langage de programmation orientée objet, très puissant, mais complexe à apprendre. C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C. J'espère avoir réussi à vous convaincre.
+Sur le podium, Python est un langage de très haut niveau simple à apprendre, mais éloigné du matériel. C++ est un langage de programmation orientée objet, très puissant, mais complexe à dompter. Avec la médaille d'argent, C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C. Ai-je réussi à vous convaincre ?
 
 [](){#structured-text-programming}
 
 ## Programmation texte structurée
 
-Le C comme la plupart des langages de programmation utilise du texte structuré, c'est-à-dire que le langage peut être défini par un **vocabulaire**, une **grammaire** et se compose d'un **alphabet**.
-
-À l'inverse des [langages naturels](https://en.wikipedia.org/wiki/Natural_language) comme le Français, un langage de programmation est un [langage formel](https://fr.wikipedia.org/wiki/Langage_formel) et se veut exact dans sa grammaire et son vocabulaire, il n'y a pas de cas particuliers ni d'ambiguïtés possibles dans l'écriture.
-
-Les **compilateurs** sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.
+Le C comme la plupart des langages de programmation utilise du texte structuré, c'est-à-dire que le langage peut être défini par un **vocabulaire**, une **grammaire** et se compose d'un **alphabet**. À l'inverse des [langages naturels](https://en.wikipedia.org/wiki/Natural_language) comme le Français, un langage de programmation est un [langage formel](https://fr.wikipedia.org/wiki/Langage_formel) et se veut exact dans sa grammaire et son vocabulaire, il n'y a pas de cas particuliers ni d'ambiguïtés possibles dans l'écriture. Les **compilateurs** sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.
 
 [](){ #omelette }
 
-L'exemple suivant est un [pseudo-code](https://fr.wikipedia.org/wiki/Pseudo-code) utilisant une grammaire simple :
+Pour mieux comprendre, voici un exemple sous forme de [pseudo-code](https://fr.wikipedia.org/wiki/Pseudo-code) utilisant une grammaire simple :
 
 ```text
 POUR CHAQUE œuf DANS le panier :
@@ -167,16 +149,16 @@ POUR CHAQUE œuf DANS le panier :
 SERVIR(omelette_cuite)
 ```
 
-La structure de la phrase permettant de traiter tous les éléments d'un ensemble d'éléments peut alors s'écrire :
+La structure de la phrase permettant de traiter tous les éléments d'un ensemble d'éléments (les œufs d'un panier) peut alors s'écrire de façon générique comme suit :
 
 ```text
 POUR CHAQUE 〜 DANS 〜:
     〜
 ```
 
-Où les `〜` sont des marques substitutives ([placeholder](https://fr.wikipedia.org/wiki/Marque_substitutive)) qui seront remplacées par le développeur par ce qui convient.
+où les `〜` sont des marques substitutives ([placeholder](https://fr.wikipedia.org/wiki/Marque_substitutive)) qui seront remplacées par le développeur par ce qui convient.
 
-Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. La [grammaire][grammar] du langage C utilisé dans ce cours peut ainsi s'exprimer en utilisant la forme Backus-Naur ou **BNF** disponible en annexe.
+Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. On l'appelle la [grammaire][grammar] du langage C. C'est un peu le Bescherelle du C. On observe dans ce formalisme une syntaxe rigoureuse, l'utilisation de termes en majuscules, la séparation de mots par des virgules, la présence de parenthèses et de flèches (`🠔`). Cette syntaxe diffère d'un langage à l'autre, mais selon le paradigme du langage de grandes similarités peuvent exister.
 
 [](){#paradigm}
 
@@ -186,37 +168,35 @@ Chaque langage de programmation que ce soit C, C++, Python, ADA, COBOL et Lisp s
 
 Certains paradigmes sont plus adaptés que d'autres à la résolution de certains problèmes et de nombreux langages de programmation sont dit **multi-paradigmes**, c'est-à-dire qu'ils supportent différents paradigmes.
 
-Nous citions plus haut le C++ qui permet la programmation orientée objet, laquelle est un paradigme de programmation qui n'existe pas en C.
-
-Ce qu'il est essentiel de retenir c'est qu'un langage de programmation peut aisément être substitué par un autre pour autant qu'ils s'appuient sur les mêmes paradigmes.
+Nous citions plus haut le C++ qui permet la programmation orientée objet, laquelle est un paradigme de programmation qui n'existe pas en C. Ce qu'il est essentiel de retenir c'est qu'un langage de programmation peut aisément être substitué par un autre pour autant qu'ils s'appuient sur les mêmes paradigmes.
 
 Le langage C répond aux paradigmes suivants :
 
 [Impératif](https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative)
 
-: programmation en séquences de commandes, qui se lisent de haut en bas.
+: Programmation en séquences de commandes, qui se lisent dans un ordre donné (de haut en bas).
 
 [Structuré](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e)
 
-: programmation impérative avec des structures de contrôle imbriquées, comme les boucles et les conditions.
+: Programmation impérative possédant des structures de décision imbriquées comme les boucles et les conditions.
 
 [Procédural](https://fr.wikipedia.org/wiki/Programmation_proc%C3%A9durale)
 
-: programmation impérative avec appels de procédures qui regroupent des instructions.
+: Programmation impérative possédant des appels de procédures isolées qui regroupent une séquence d'instructions.
 
-Le C++ quant à lui apporte les paradigmes suivants à C :
+D'autres langages comme le C++ apportent les paradigmes supplémentaires à C :
 
 [Fonctionnel](https://fr.wikipedia.org/wiki/Programmation_fonctionnelle)
 
-: programmation basée sur l'appel de fonction. Utilisé dans les langages Lisp, Haskell, Erlang.
+: Programmation basée sur l'appel de fonction. Utilisé dans les langages Lisp, Haskell, Erlang.
 
 [Orienté objet](https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet)
 
-: programmation basée sur la définition de classes et d'objets. Utilisé dans les langages C++, Java, Python. Une classe associe des données a des actions qui manipulent ces données.
+: Programmation basée sur la définition de classes et d'objets. Utilisé dans les langages C++, Java, Python. Une classe associe des données à des actions qui manipulent ces données.
 
-Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la [programmation réflective](https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)).
+Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la [programmation réflective](https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)) ou la [programmation événementielle](https://fr.wikipedia.org/wiki/Programmation_%C3%A9v%C3%A9nementielle).
 
-Ce que nous devons retenir c'est que le langage C est impératif et procédural, c'est-à-dire qu'il est basé sur des séquences d'instructions qui se lisent de haut en bas, lesquelles peuvent être regroupées en procédures. Si nous reprenons notre exemple de l'[omelette][omelette], si nous souhaitons réaliser une pâte à crêpes nous pourrions écrire :
+Ce que nous devons retenir c'est que le langage C est **impératif** et **procédural**, c'est-à-dire qu'il est basé sur des séquences d'instructions séparées les unes des autres qui s'exécutent dans un ordre donné et lesquelles peuvent être regroupées en procédures. En reprenant notre exemple d'[omelette][omelette], si nous souhaitons cette fois-ci réaliser une bonne pâte à crêpes, nous pourrions écrire :
 
 ```text
 POUR REALISER un œuf:
@@ -242,11 +222,11 @@ POUR REALISER une pâte à crèpes:
     pâte 🠔 MELANGER(œuf-liquide, farine, lait)
 ```
 
-On a regroupé des instructions en procédures pour réaliser une pâte à crêpes. C'est ce que l'on appelle la programmation procédurale.
+Dans cet exemple, les séquences d'instructions ont été regroupées en procédures, c'est de la programmation procédurale. Les procédures permettent de découper un programme en morceaux plus petits, plus faciles à comprendre et à maintenir.
 
 ## Cycle de développement
 
-Le cycle de développement logiciel comprend la suite des étapes menant de l'étude et l'analyse d'un problème jusqu'à la réalisation d'un programme informatique exécutable. Dans l'industrie, il existe de nombreux modèles comme le [Cycle en V](https://fr.wikipedia.org/wiki/Cycle_en_V) ou le [modèle en cascade](https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade). Quel que soit le modèle utilisé, il comprendra les étapes suivantes :
+Savoir écrire un programme en C n'est qu'une facette de la programmation. Il est important de comprendre que la programmation est un processus itératif qui nécessite de suivre un cycle de développement logiciel. Ce cycle de développement comprend des étapes menant de l'étude à l'analyse d'un problème jusqu'à la réalisation d'un programme informatique exécutable. Dans l'industrie, il existe de nombreux modèles comme le [Cycle en V](https://fr.wikipedia.org/wiki/Cycle_en_V) ou le [modèle en cascade](https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade) que nous verrons plus en détail plus tard ([Modèles de développement][development-models]). Quel que soit le modèle utilisé, il comprendra les étapes suivantes :
 
 1. **Étude** et analyse du problème
 2. Écriture d'un **cahier des charges** (spécifications)
@@ -258,52 +238,48 @@ Le cycle de développement logiciel comprend la suite des étapes menant de l'é
 8. **Vérification** que le cahier des charges est respecté
 9. **Livraison** du programme
 
-Mis à part la dernière étape où il n'y a pas de retour en arrière possible, les autres étapes sont **itératives**. Il est très rare d'écrire un programme juste du premier coup. Durant tout le cycle de développement logiciel, des itérations successives sont faites pour permettre d'optimiser le programme, de résoudre des bogues, d'affiner les spécifications, d'écrire davantage de tests pour renforcer l'assurance d'un bon fonctionnement du programme et éviter une [coulée de lave][lava-flow].
-
-Le modèle en cascade suivant résume le cycle de développement d'un programme. Il s'agit d'un modèle simple, mais qu'il faut garder à l'esprit que ce soit pour le développement d'un produit logiciel que durant les travaux pratiques liés à ce cours.
-
-![Modèle en cascade](/assets/images/waterfall.drawio)
+Mis à part la dernière étape où il n'y a pas de retour en arrière possible, les autres étapes sont **itératives**. Il est très rare d'écrire un programme juste du premier coup. Durant tout le cycle de développement logiciel, des itérations successives sont faites pour permettre d'optimiser le programme, de résoudre des bogues, d'affiner les spécifications, d'écrire davantage de tests pour renforcer l'assurance d'un bon fonctionnement du programme et d’éviter une [coulée de lave][lava-flow].
 
 ## Cycle de compilation
 
-Le langage C à une particularité que d'autres langages n'ont pas, c'est-à-dire qu'il comporte une double [grammaire][grammar]. Le processus de compilation s'effectue donc en deux passes.
+Le langage C à une particularité que d'autres langages n'ont pas, il comporte une double [grammaire][grammar]. Le processus de compilation s'effectue donc en deux étapes.
 
-1. Préprocesseur qui enlève les commentaires et inclut les fichiers nécessaires.
-2. Compilation du code source en fichiers objet.
+1. Le préprocesseur qui enlève les commentaires du développeur et regroupe en un fichier les différentes parties du programme.
+2. La compilation à proprement parler du code source en un fichier binaire.
 
-Vient ensuite la phase d'édition des liens ou *linkage* lors de laquelle l'exécutable binaire est créé.
+Vient ensuite la phase d'édition des liens ou *linkage* lors de laquelle le programme exécutable est créé à partir des fichiers binaires générés lors de la compilation. La figure suivante illustre le cycle de compilation d'un programme C.
 
 ![Cycle de compilation illustré](/assets/images/build-cycle.drawio)
 
-Voyons plus en détail chacune de ces étapes.
-
 ### Préprocesseur (*pre-processing*)
 
-La phase de *preprocessing* permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le *preprocessing* réalise :
+La phase de *preprocessing* permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le *preprocessing* réalise le remplacement des directives du préprocesseur [de définitions][preprocessor-define] par leurs valeurs résultantes. Ce préprocesseur permet d'inclure des fichiers externes, de définir des valeurs constantes ou de conditionner l'exécution de certaines parties du code par exemple avec des options de configuration. Avec le compilateur `gcc` il est possible de demander uniquement cette étape avec l'option `-E`. Cette étape est illustrée dans la figure suivante.
 
-- Le remplacement des [définitions][preprocessor-define] par leurs valeurs (`#define`),
-- Le remplacement des [fichiers inclus][preprocessor-include] par leurs contenus (`#include`),
-- La conservation ou la suppression des zones de compilation conditionnelles (`#if`, `#ifdef`, `#elif`, `#else`, `#endif`).
-- La suppression des commentaires (`#!c /* ... */`, `#!c // ...`)
+![Processus de préprocessing](/assets/images/preprocessing.drawio)
 
-Avec `gcc` il est possible de demander que l'exécution du préprocesseur en utilisant l'option `-E`.
-
-![Processus de prépressing](/assets/images/preprocessing.drawio)
+Lorsque vous écrivez votre programme, vous le faites en utilisant des fichiers sources avec l'extension `.c`. Néanmoins, dans votre programme, vous vous basez sur de nombreuses bibliothèques logicielles qui donnent accès à des fonctions prédéfinies. Ces bibliothèques sont incluses dans votre programme à l'aide de la directive `#include`. Lors de la compilation, le préprocesseur va remplacer ces directives par le contenu des fichiers d'en-tête correspondants. Par exemple, la directive `#include <stdio.h>` sera remplacée par le contenu du fichier `stdio.h` qui contient les déclarations des fonctions de la bibliothèque standard d'entrées sorties. Cette procédure prend donc en entrée un fichier source et un ou plusieurs fichiers d'en-tête et le transforme en un fichier source unique.
 
 ### Compilation (*build*)
 
-La phase de compilation consiste en une analyse syntaxique du fichier à compiler puis en sa traduction en langage assembleur pour le processeur cible. Le fichier généré est un fichier binaire (extension `.o` ou `.obj`) qui sera utilisé pour la phase suivante. Lors de la *compilation*, des erreurs peuvent survenir et empêcher le déroulement complet de la génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.
+La phase de compilation consiste en une analyse syntaxique du fichier à compiler selon la grammaire du langage puis en sa traduction en langage assembleur pour le processeur cible. Le fichier généré est un fichier binaire (extension `.o` ou `.obj`) qui sera utilisé pour la phase suivante. Lors de la *compilation*, des erreurs peuvent survenir et empêcher le déroulement complet de la génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur.
 
-Avec `gcc` il est possible de ne demander que l'assemblage d'un code avec l'option `-S`.
+À l'instar de l'option `-E` vue plus haut, il est aussi possible de ne demander que l'assemblage d'un code avec l'option `-S`. À partir d'un fichier pré-processé, le compilateur génère un fichier assembleur qui est un fichier texte lisible par un humain (qui connaît l'assembleur) et qui contient les instructions du processeur cible. Cette étape est illustrée dans la figure suivante.
 
 ![Assemblage d'un programme C pré-processé en assembleur](/assets/images/assembly.drawio)
+
+Une fois généré le fichier assembleur, il doit encore est transformé en langage machine, c'est-à-dire en un fichier binaire. Cette étape est réalisée par un programme appelé *as* qui prend en entrée le fichier assembleur et génère un fichier binaire comme le montre la figure suivante.
 
 ![Traduction d'un programme C pré-processé en objet binaire](/assets/images/build.drawio)
 
 ### Édition de liens (*link*)
 
-La phase d'édition de liens permet de rassembler le fichier binaire issu de la compilation et les autres fichiers binaires nécessaires au programme pour former un exécutable complet. Les autres fichiers binaires sont appelés des **librairies**. Elles peuvent appartenir au système (installée avec l'environnement de développement) ou provenir d'autres applications avec lesquelles votre programme doit interagir. Lors de l'édition de liens, des erreurs peuvent survenir et empêcher le
-déroulement complet de génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.
+L'édition de liens permet d'assembler ensemble les différents fichiers binaires (`.o`) issus de la compilation et d'autres fichiers binaires nécessaires au programme pour former un exécutable complet. Ces autres fichiers binaires sont appelés des **bibliothèques** ou plus communément *librairies*. Elles peuvent appartenir au système d'exploitation, ou avoir été installées manuellement avec l'environnement de développement. L'édition de liens à pour rôle de résoudre les références entre les différents fichiers binaires et de générer un exécutable complet.
+
+Imaginez un livre dont vous êtes le héros. Plusieurs auteurs différents peuvent prendre en charge des chapitres différents et lors des choix laissez des marques substitutives pour le numéro de page où le lecteur doit se rendre :
+
+> Face à cette horde de créatures, vous avez le choix entre : attaquer le Golème qui semble être le chef, rendez-vous à la page XXX, ou fuir par la porte dérobée, rendez-vous à la page XXX.
+
+Naturellement vous ne connaîtrez le numéro de page exact qu'une fois que tous les chapitres seront réunis. L'édition de liens est un peu comme l'assemblage de tous les chapitres pour former un livre complet, elle s'occupe de remplacer les marques substitutives par les bons numéros de pages. Cette étape est illustrée dans la figure suivante.
 
 ![Édition des liens de plusieurs objets](/assets/images/link.drawio)
 
@@ -317,65 +293,66 @@ Il est traditionnellement coutume depuis la publication en 1978 du livre [The C 
 --8<-- "docs/assets/src/hello.c"
 ```
 
-Ce programme est composé de deux parties. L'inclusion de la *library* standard d'entrées sorties (*STandarD Inputs Outputs*) qui définit la fonction `printf`, et le programme principal nommé `main`. Tout ce qui se situe à l'intérieur des accolades `{ }` appartient au programme `main`.
+Ce programme est composé de deux parties. L'inclusion de la bibliothèque standard d'entrées sorties (*STandarD Inputs Outputs*) à l'aide d'une directive préprocesseur qui définit l'existence de la fonction `printf` qui vous permet d'écrire sur le terminal. Le programme principal est nommé `main` et tout ce qui se situe à l'intérieur des accolades `{ }` appartient à ce dernier. L'ensemble que définit `main` et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction `printf`. On prend soin de terminer chaque instruction par un point-virgule `;`.
 
-L'ensemble que définit `main` et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction `printf` dont le nom vient de *print formatted*.
+L'appel d'une fonction comme  `printf` peut prendre des **paramètres** comme ici le texte `Hello world!\n` dont le `\n` représente un retour à la ligne.
 
-L'appel de `printf` prend en **paramètre** le texte `Hello world!\n` dont le `\n` représente un retour à la ligne.
+Une fois ce code écrit, il faut le compiler. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard vous utiliserez votre éditeur de texte favori pour écrire vos programmes.
 
-Une fois le code écrit, il faut le compiler. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard, l'IDE se chargera de l'opération automatiquement.
-
-Une console lancée ressemble à ceci, c'est intimidant si l'on n’en a pas l'habitude, mais vraiment puissant.
+Pour obtenir un invité de commande, vous devez ouvrir un terminal. Comme nous avons choisi de travailler sur un système compatible POSIX, sur n'importe quel système d'exploitation vous lancez un terminal et sous Windows vous devez installer WSL2. Une fois lancée la console ressemble à ceci :
 
 ```bash
 $
 ```
 
-La première étape est de s'assurer que le fichier `test.c` contient bien notre programme. Pour ce faire on utilise un autre programme [cat]https://fr.wikipedia.org/wiki/Cat_(Unix)) qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :
+C'est intimidant si l'on n’en a pas l'habitude, mais vraiment puissant, croyez-moi ! La première étape est de s'assurer que le fichier `test.c` contient bien notre programme. Pour ce faire on utilise un autre programme [cat](https://fr.wikipedia.org/wiki/Cat_(Unix)) qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :
 
 ```bash
 $ cat hello.c
 #include <stdio.h>
 
-int main( )
+int main()
 {
     printf("hello, world");
 }
 ```
 
+Évidemment, vous devez avoir écrit le programme `hello.c` au préalable. Alternativement vous pouvez utiliser la commande suivante pour créer le fichier `hello.c` :
+
+```bash
+echo '#include <stdio.h>\n\nint main()\n{\n  printf("hello, world");\n}' > hello.c
+```
+
 À présent on peut utiliser notre compilateur par défaut: `cc` pour *C Compiler*. Ce compilateur prend en argument un fichier C et sans autre option, il génèrera un fichier [a.out](https://fr.wikipedia.org/wiki/A.out) pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter.
+
+Utilisez donc la commande suivante pour compiler votre programme :
 
 ```bash
 $ gcc hello.c
 ```
 
-Il ne s'est rien passé, c'est une bonne nouvelle. La philosophie Unix est qu'un programme soit le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur.
-
-
-On s'attend donc à trouver dans le répertoire courant, notre fichier source ainsi que le résultat de la compilation. Utilisons le programme [ls](https://fr.wikipedia.org/wiki/Ls) pour le vérifier.
+Rien ne s'est affiché ? C'est une bonne nouvelle ! La philosophie POSIX est qu'un programme doit se faire le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur. Cela ne veut pas dire que la commande n'a eu aucun effet. Au contraire, on s'attend à trouver dans le répertoire courant notre fichier source ainsi que le résultat de la compilation, le fichier `a.out`. Pour le vérifier, nous utiliserons le programme [ls](https://fr.wikipedia.org/wiki/Ls) qui liste les fichiers d'un dossier :
 
 ```bash
 $ ls
 hello.c       a.out
 ```
 
-Très bien ! À présent, exécutons le programme en prenant soin de préfixer le nom par, `./` car étant un programme local `a.out` ne peut pas être accédé directement. Imaginons qu'un fourbe hackeur ait décidé de créer dans ce répertoire un programme nommé `ls` qui efface toutes vos données. La ligne de commande ci-dessus aurait eu un effet désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement nommé.
+Très bien, nous avons bel et bien les deux fichiers. À présent, exécutons le programme en prenant soin de préfixer le nom par, `./` car les programmes générés localement comme `a.out` ne peuvent pas être accédés directement par leur nom pour des raisons de sécurité. En effet, imaginons qu'un fourbe hackeur ait décidé de créer dans ce répertoire un programme nommé `ls` qui efface toutes vos données. Lorsque vous écrivez `ls` pour voir le contenu du répertoire que vous ignorez, vous exécutez en réalité le programme `ls` contenu dans ce répertoire et l'effet serait pour vous désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement préfixé par `./` pour être exécuté. À vous de jouer :
 
 ```console
 $ ./a.out
 hello, world
 ```
 
-Félicitations, le programme s'est exécuté.
-
-Pouvons-nous en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à sa taille sur le disque. Une fois de plus `ls` nous sera utile, mais cette fois-ci avec l'option `l`:
+Félicitations, le programme s'est exécuté correctement. Mais maintenant, peut-on en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à la taille qu'il occupe dans votre espace de stockage (disque dur). Une fois de plus `ls` nous est utile, mais cette fois-ci avec l'option `l` :
 
 ```console
 $ ls -l a.out
 -rwxr-xr-- 1 ycr iai 8.2K Jul 24 09:50 a.out*
 ```
 
-Décortiquons tout cela:
+Voyons ensemble le détail de ce charabia lu de gauche à droite :
 
 ```console
 -             Il s'agit d'un fichier
@@ -400,7 +377,23 @@ a.out         Nom du fichier
 
     Mais avant tout, c'est la cohérence de l'ensemble qui doit primer. Si vous avez choisi d'écrire `Hello, World!`, alors écrivez-le partout de la même manière, dans tous vos exemples, dans tous vos commentaires, dans toute votre documentation.
 
+## Conclusion
+
+Le langage C inventé dans les années 70 par des pionniers de l'informatique demeure aujourd'hui un pilier fondamental dans le monde de la programmation, en particulier pour le développement d'applications embarquées et de systèmes d'exploitation. Son efficacité, sa proximité avec le matériel, et sa capacité à offrir un contrôle précis sur les ressources en font un langage toujours pertinent, malgré l'émergence de concurrents modernes comme Rust ou Zig.
+
+Son histoire riche, marquée par des figures emblématiques comme Dennis Ritchie et Ken Thompson, ainsi que son influence sur une multitude d'autres langages, témoigne de sa longévité et de son importance. Apprendre le C, c'est non seulement comprendre les fondations de la programmation, mais aussi acquérir des compétences essentielles pour tout développeur souhaitant maîtriser les rouages du matériel et des systèmes informatiques.
+
+Le développement en C suit un cycle de développement rigoureux passant par différentes étapes que le développeur doit comprendre. Maintenant que vous avez réussi à compiler votre premier programme, vous êtes prêt pour la suite...
+
 ## Exercices de Révision
+
+!!! exercise
+
+    Ouvrez le standard [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf) et cherchez la valeur maximale possible de la constante `ULLONG_MAX`. Que vaut-elle ?
+
+    ??? solution
+
+        Au paragraphe §5.2.4.2.1-1 on peut lire que `ULLONG_MAX` est encodé sur 64-bits et donc que sa valeur est $2^{64}-1$ donc `18'446'744'073'709'551'615`.
 
 !!! exercise "Hello World"
 
@@ -419,7 +412,7 @@ a.out         Nom du fichier
     - [x] Dennis Ritchie
     - [ ] Guido van Rossum
 
-!!! exercise "Standardisation"
+!!! exercise "Standard International"
 
     Quel est le standard C à utiliser dans l'industrie en 2024 et pourquoi ?
 

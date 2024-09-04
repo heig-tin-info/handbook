@@ -1,4 +1,4 @@
-# Être développeur
+# Développement logiciel
 
 Être développeur logiciel que ce soit professionnellement ou comme loisir, ce n'est pas simplement écrire du code. Il y a l'art et la manière de le faire, il y a des règles à respecter, des consensus à suivre et de bonnes pratiques à adopter.
 

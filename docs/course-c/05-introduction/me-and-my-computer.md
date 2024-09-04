@@ -2,27 +2,31 @@
 
 Vous êtes devant votre ordinateur, vous avez certainement devant vous un clavier, une souris à droite de votre clavier, et un ou plusieurs écrans. Votre ordinateur démarre et vous voyez apparaître soit :
 
-- une pomme croquée (Apple);
-- une fenêtre à carreaux (Windows);
-- un manchot Adélie (Linux).
+- une pomme croquée (:fontawesome-brands-apple: Apple);
+- une fenêtre à carreaux (:fontawesome-brands-windows: Windows);
+- un manchot Adélie (:fontawesome-brands-linux: Linux).
 
-Le responsable de cet écran de démarrage c'est votre système d'exploitation et peu importe lequel vous utilisez, la bonne nouvelle c'est que vous pourrez écrire vos premiers programmes avec n'importe lequel de ces systèmes.
+Le responsable de cet écran de démarrage, c'est votre système d'exploitation et peu importe lequel vous utilisez, la bonne nouvelle c'est que vous pourrez écrire vos premiers programmes.
+
+Familiarisons-nous un peu avec l'ordinateur, le voulez-vous bien ?
 
 ## Système d'exploitation
 
-Dans cet ouvrage, la plupart des exemples seront présentés sous Linux. Linux a l'avantage d'être normalisé, respectant les standards POSIX, qui sont en grande partie communs avec macOS. Windows, bien que légèrement différent, permet toutefois l'installation d'un sous-système Linux (WSL2), facilitant ainsi l'exécution de programmes Linux sur un environnement Windows.
+Dans cet ouvrage, la plupart des exemples seront présentés sous Linux. C'est un choix dogmatique parce que je préfère Linux à Windows, mais c'est aussi pour des raisons objectives et respectables. D'une part, Linux a l'avantage d'être normalisé. Il respecte en grande partie le standard POSIX, comme d'ailleurs Apple macOS. D'autre part, même sous Windows, il est possible à tout utilisateur d'installer d'un sous-système Linux nommé WSL2 (*Windows Subsystem for Linux*), facilitant ainsi l'exécution de programmes Linux sur un environnement Windows. Aussi quelque soient votre obédience *geeko-spirituelle*, vous aurez toujours la possibilité de suivre les exemples de ce cours.
 
-Le système d'exploitation, en lui-même, n'est rien d'autre qu'un programme sophistiqué qui sert d'intermédiaire entre le matériel et les autres logiciels. On peut le comparer à un chef d'orchestre, coordonnant les ressources de votre ordinateur, lançant les programmes, gérant les fichiers, et supervisant les utilisateurs. C'est cette couche d'abstraction qui permet à votre machine de fonctionner harmonieusement, en masquant la complexité du matériel sous-jacent pour vous offrir une interface conviviale et cohérente.
+Notons qu'un système d'exploitation en lui-même n'est rien d'autre qu'un programme sophistiqué qui sert d'intermédiaire entre le matériel et les autres logiciels. On peut le comparer à un chef d'orchestre, coordonnant les ressources de votre ordinateur, lançant les programmes, gérant les fichiers, et supervisant les utilisateurs. C'est une **couche d'abstraction** qui permet à votre machine de fonctionner harmonieusement, en masquant la complexité du matériel. Vous n'avez pas à vous soucier des milliards de changements d'états électroniques par seconde survenant dans le processeur ou des quelque deux millions de pixels de votre écran qui peuvent être configurés selon 16 millions de couleurs différentes environ soixante fois par seconde.
+
+Votre système d'exploitation c'est votre interface cohérente et conviviale humain-machine.
 
 ## Éditeur de code source
 
-Pour écrire un programme, vous aurez besoin d'un *éditeur de code*, c'est un programme (oui, lui aussi) qui vous permet d'écrire du texte et de le sauvegarder dans un fichier. Il en existe des centaines !
+Pour écrire un programme, vous aurez besoin d'un **éditeur de code**, c'est un programme (oui, lui aussi) qui vous permet d'écrire du texte et de le sauvegarder dans un fichier ; il en existe des centaines, certains plus aboutis que d'autres.
 
-Si vous prenez une Doloréane munie d'un convecteur temporel, et que vous dépassez les 88 miles à l'heure, avec une énergie de 2.21 Gigot-Watt vous pouvez vous rendre en 1973 et utiliser un éditeur de code qui s'appelle `ed` (prononcé "idi") écrit par Ken Thompson (un des créateurs d'Unix et du langage C, mais nous reviendrons sur lui).
+Si vous trouvez une [Doloréane](https://fr.wikipedia.org/wiki/DeLorean_(Retour_vers_le_futur)) munie d'un convecteur temporel, et que vous dépassez les 88 miles à l'heure, avec une énergie de 2.21 Gigot-Watt vous pouvez vous rendre en 1973 et utiliser un éditeur de code qui s'appelle `ed` (prononcé "idi") écrit par Ken Thompson (un des créateurs d'Unix et du langage C, mais nous reviendrons sur lui plus tard).
 
-C'est un éditeur qui a été écrit à l'époque des [télétypes][teletype] et qui, curieusement a traversé les âges car il est encore intégré au standard POSIX. Il est par conséquent toujours disponible sur nos systèmes d'exploitation modernes. Il faut noter qu'à cette époque il n'y avait pas d'écran, et que l'on utilisait des imprimantes pour afficher le texte. L'éditeur n'est donc pas très interactif, mais il a le mérite d'exister.
+C'est un éditeur de texte qui a été écrit à l'époque des [télétypes][teletype] et qui curieusement a traversé les âges, car il est encore intégré au standard POSIX. Il est par conséquent toujours disponible sur nos systèmes d'exploitation modernes. Toutefois à cette époque, il n'y avait pas d'écran, et nos homologues de cette époque utilisaient des imprimantes pour afficher un résultat. Cet éditeur primitif n'était donc pas très interactif.
 
-C'est un des premier éditeur modale, son utilisation est assez déroutante car il n'y a pas de retour visuel immédiat. Il faut taper des commandes pour écrire du texte, pour sauvegarder, pour quitter, etc. Voici un exemple:
+Autre fait notable c'est que `ed` est l'un des premiers éditeurs dit *modale*. En effet, son utilisation étant assez déroutante puisqu'il n'y a pas de retour visuel immédiat (n'imaginez tout de même pas qu'à cette époque nous imprimions chaque lettre frappée au clavier sur du papier), donc pour saisir du texte il fallait entrer taper des commandes, certaines pour sauvegarder, pour quitter, pour rechercher et remplacer, etc. Un exemple vaut mieux qu'un long discours. Imaginons que nous voulions saisir le poème "L'albatros" de Charles Baudelaire dans un fichier nommé `albatros.txt`. Voici comment nous pourrions procéder :
 
 ```text
 $ ed
@@ -44,19 +48,19 @@ w albatros.txt
 q
 ```
 
-Dans les étapes ci-dessus, nous avons lancé l'éditeur `ed` puis basculé en mode d'insertion avec la commande `a` pour ajouter du texte. Nous avons ensuite ajouté un texte mais comme il n'y a pas de retour visuel, nous ne somme pas certain d'avoir orthographié juste tous les mots. À la fin de la saise, on revient en mode commande avec `.` puis on décide de poursuivre en insérant une nouvelle ligne `i`. Passons à la correction, on sait déjà que l'on a ajouté un retour à la ligne en trop entre la ligne 2 et 3. On peut les joindres avec `2,3j`. Enfin, on imprime (physiquement sur une imprimante) la première ligne avec `1p`. Constatant l'erreur, on remplace `homes` par `hommes` avec `%s/homes/hommes/g`. Enfin on sauvegarde le fichier avec `w albatros.txt`, la commande nous imprime le nombre de caractères sauvegardés: `164`. À la fin de cette corvée de travail, on quitte avec `q`.
+Dans les étapes ci-dessus, nous avons lancé l'éditeur `ed` puis basculé en mode d'insertion avec la commande `a` pour ajouter du texte. Nous avons ensuite ajouté un texte, mais comme il n'y a pas de retour visuel, nous ne sommes pas certains d'avoir orthographié juste tous les mots. À la fin de la saisie, on revient en mode commande avec `.` puis nous décidons de poursuivre en insérant une nouvelle ligne `i`. Passons maintenant à la correction. On sait déjà que l'on a ajouté un retour à la ligne en trop entre la ligne 2 et 3. Nous pouvons les joindre avec `2,3j` (*joindre lignes 2 et 3*). Enfin, nous imprimons (physiquement sur une imprimante) la première ligne avec `1p` (*print ligne 1*). Constatant l'erreur, nous remplaçons `homes` par `hommes` avec `%s/homes/hommes/g`. Enfin, on sauvegarde le fichier avec `w albatros.txt`, la commande retourne (sur l'imprimante) le nombre de caractères sauvegardés, soit `164`. À la fin de ce laborieux exercice, nous quittons `ed` avec la commande `q`.
 
-Trève de plaisanteries, vous n'allez probablement pas utiliser `ed` mais connaître son existence permet de mieux saisir le contexte général. Je vous propose de continuer un peu notre voyage spatio-temporel...
+Trêve de plaisanteries, je vous rassure, vous n'allez probablement pas utiliser `ed` au quotidien, ni probablement même jamais. Cependant connaître son existence permet de mieux comprendre le contexte général. Aussi, je vous propose de continuer un peu notre voyage spatio-temporel...
 
-En 1991 naît un éditeur de code qui va révolutionner le monde de la programmation, il s'appelle `vim`. C'est un éditeur de code qui est très puissant, mais qui a une courbe d'apprentissage assez velue. Il est toujours très utilisé de nos jours, et il est disponible sur tous les systèmes d'exploitation. Vous seriez surpris de constater le nombre de programmeurs qui l'utilisent encore. Comme `ed`, c'est un éditeur modal: un mode pour écrire du texte, un mode pour éditer du texte, un mode pour naviguer dans le texte, etc.
+En 1991 naît un éditeur de code qui va révolutionner le monde de la programmation, il s'appelle `vim` (*Vi Improved*). C'est un éditeur de code qui est ultra puissant, mais dont la courbe d'apprentissage assez *velue*. Il est toujours très utilisé de nos jours, et il est disponible sur tous les systèmes d'exploitation. En outre, la plupart des éditeurs modernes disposent d'une extension pour émuler, du moins en partie `vim`. Comme `ed`, c'est un éditeur modal: un mode pour écrire du texte, un mode pour éditer du texte, un mode pour naviguer dans le texte, un mode pour saisir des commandes, etc.
 
-Puisque nous nommons Vim, nous devons aussi nommer Emacs. Le rival de Vim. Emacs est un éditeur de code qui est aussi très puissant mais il semble moins utilisé de nos jours. Vim comme Emacs sont disponibles sur tous les systèmes d'exploitation.
+Puisque nous nommons Vim, je dois aussi nommer son plus féroce concurrent: Emacs. Emacs est un éditeur de code inventé par Richard Stallman, le père fondateur de l'open source. Rival de Vim depuis des décennies, Emacs est un éditeur qui est aussi incroyablement puissant, mais il semble un peu moins utilisé de nos jours. Si je prends le soin de mentionner les deux éditeurs, c'est que leurs utilisateurs sont souvent très passionnés et très engagés dans leur choix d'éditeurs. Il y a même des blagues d'informaticiens sur le sujet :
 
 ![Guerre d'éditeurs](/assets/images/vim-vs-emacs.png)
 
-Nous ferons l'impasse sur d'autres éditeurs qui ont été populaires en leurs temps, mais qui sont technologiquement dépassés : TextPad, UltraEdit, Sublime Text, Atom, NotePad++... Le grand gagnant de ces dernières années est Visual Studio Code, un éditeur de code qui est très puissant, qui est très utilisé de nos jours, et qui est aussi disponible sur tous les systèmes d'exploitation.
+Je fais volontiers l'impasse sur d'autres éditeurs qui ont aussi été populaires en leurs temps, mais qui me semblent technologiquement dépassés : TextPad, UltraEdit, Sublime Text, Atom, NotePad++... L'Usain Bolt, le Michael Phelps des éditeurs c'est Visual Studio Code, l'éditeur phare de Microsoft qui a conquis le les doigts agiles des développeurs du monde entier. Il est gratuit, open source, et il est disponible sur tous les systèmes d'exploitation. Il dispose de nombreuses extensions (notamment l'extension Vim utilisée par 6'700'000 personnes et l'extension Emacs utilisée par 55'000 personnes). Il est très rapide, très puissant, et il est très bien intégré la plupart des outils tiers que nous utiliserons dans ce cours. Il est donc l'éditeur que je vous recommande jusqu'à la prochaine révolution.
 
-Le résultat de l'étude annuelle 2023 de [Stackoverflow](https://survey.stackoverflow.co/2023/#overview) donne une idée de la popularité des éditeurs et IDE les plus utilisés par les développeurs :
+De manière plus factuelle, le résultat de l'étude annuelle 2023 de [Stackoverflow](https://survey.stackoverflow.co/2023/#overview) donne une idée généralement assez bonne de la popularité des éditeurs et environnements de développement intégrés les plus utilisés par les développeurs de logiciels :
 
 ```mermaid
 %% Utilisation des éditeurs de code
@@ -73,33 +77,35 @@ pie
 
 ### Fonctionnalités attendues
 
+Les éditeurs de code modernes contrairement à des outils comme *notepad* sous Windows, disposent de nombreuses fonctionnalités qui facilitent la vie des développeurs. Voici quelques-unes des fonctionnalités que vous pouvez attendre d'un éditeur de code moderne :
+
 Coloration Synatxique (*syntax highlighting*)
 
-: L'éditeur de code colore les mots-clés du langage de programmation que vous utilisez. Cela permet de mieux visualiser la structure du code.
+: L'éditeur de code colorise les mots-clés du langage de programmation que vous utilisez, les parenthèses, les erreurs. Cela permet de mieux visualiser la structure du code.
 
 Correspondance des parenthèses (*brace matching*)
 
-: L'éditeur de code vous permet de voir la correspondance des parenthèses, accolades, crochets, etc. Cela permet de voir en un tournemain si vous avez oublié une parenthèse.
+: L'éditeur de code vous permet de voir la correspondance des parenthèses, accolades, crochets, etc. Cela permet de voir en un tournemain si vous avez oublié une parenthèse fermante.
 
 Indentation automatique (*auto-indent*)
 
-: L'éditeur de code vous permet d'indenter automatiquement votre code. Cela permet de voir la structure du code. Il est consensuellement admis qu' une région de code sélectionnée peut être indentée avec ++tab++ et désindentée avec ++shift+tab++.
+: L'éditeur de code vous permet d'indenter automatiquement votre code. Cela permet de voir la structure du code. Il est consensuellement admis qu'une région de code sélectionnée peut être indentée avec ++tab++ et désindentée avec ++shift+tab++.
 
 Repli de code (*code folding*)
 
-: L'éditeur de code vous permet de replier le code. En cliquant sur une petite flèche à gauche du code, vous pouvez replier le code pour ne voir que les en-têtes des fonctions, des boucles, des conditions, etc.
+: L'éditeur de code vous permet de replier le code. En cliquant sur une petite flèche à gauche du code, vous pouvez regrouper les éléments hiérarchiques de votre code pour mieux visualiser la structure.
 
 Structure du code (*outline*)
 
-: L'éditeur de code vous permet de voir dans une fenêtre séparée les éléments de votre code. Cela permet de naviguer rapidement dans votre code.
+: L'éditeur de code vous permet de voir dans une fenêtre séparée les éléments clé de votre programme. Cela permet de naviguer plus rapidement.
 
 Navigation hiérarchique (*go to definition*)
 
-: L'éditeur de code vous permet de naviguer rapidement dans votre code. En cliquant sur un mot-clé, vous pouvez vous rendre à la définition de ce mot-clé. Habituellement ++alt+arrow-left++ vous permet de revenir en arrière là où vous étiez.
+: L'éditeur de code vous permet de naviguer rapidement entre différents fichiers. En cliquant sur un mot-clé, vous pouvez vous rendre à la définition de ce mot-clé située ailleurs dans un projet. Habituellement ++alt+arrow-left++ vous permet de revenir en arrière là où vous étiez.
 
 Expressions régulières (*regular expressions*)
 
-:   L'éditeur de code vous permet de rechercher ou remplacer des éléments en utilisant des expressions régulières. Par exemple si vous voulez inverser l'ordre des mots écrits, vous activez le mode regex (▪⃰ dans vscode). Vous pouvez alors utiliser l'expression régulière suivante :
+:   L'éditeur de code vous permet de rechercher ou remplacer des éléments en utilisant des expressions régulières. Par exemple, si vous voulez inverser l'ordre des mots écrits, vous activez le mode *regex* (▪⃰ dans vscode). Vous pouvez alors utiliser l'expression régulière suivante :
 
     ```text
     /(M.|Mme.)\s+([^ ]+)\s+([^ ]+)/\1 \3 \2/
@@ -111,33 +117,33 @@ Expressions régulières (*regular expressions*)
 
 Multicurseurs (*multi-cursor*)
 
-: L'éditeur de code vous permet de placer plusieurs curseurs dans votre code. Cela permet de modifier plusieurs lignes en même temps.
+: L'éditeur de code vous permet de placer plusieurs curseurs dans votre code. Cela permet de modifier plusieurs lignes ou mots en même temps. Dans vscode vous pouvez ajouter un curseur avec la touche ++alt++. Vous pouvez aussi sélectionner le prochain mot identique avec ++ctrl+d++.
 
 Complétion automatique (*auto-completion*)
 
-: L'éditeur de code vous permet de compléter automatiquement le code en utilisant la touche ++tab++. Il utilise une technologie nommée *IntelliSense* qui, en ayant connaissance des mots-clés du langage de programmation et de ce que vous avez déjà écrit, vous propose les possibilités de complétion.
+: L'éditeur de code vous permet de compléter automatiquement le code en utilisant la touche ++tab++. Il utilise une technologie nommée *IntelliSense* qui, ayant connaissance des mots-clés du langage de programmation et de ce que vous avez déjà écrit, vous propose les possibilités de complétion.
 
 Intelligence artificielle (*AI*)
 
-: L'éditeur de code vous permet de compléter automatiquement le code en utilisant une intelligence artificielle comme [GitHub Copilot](https://copilot.github.com/). Cette technologie propose des suggestions de code en fonction de ce que vous avez déjà écrit basé sur des millions de lignes de code open-source.
+: L'éditeur de code vous permet de compléter automatiquement le code en utilisant une intelligence artificielle comme [GitHub Copilot](https://copilot.github.com/). Cette technologie propose des suggestions de code en fonction de ce que vous avez déjà écrit basé sur des millions programmes open-source disponibles sur internet.
 
 Gestion d'extensions (*extensions*)
 
-: L'éditeur de code vous permet d'ajouter des extensions permettant d'ajouter des fonctionnalités à votre éditeur de code.
+: L'éditeur de code vous permet d'ajouter des extensions permettant d'ajouter des fonctionnalités à votre éditeur de code tel que l'extension `Vim` ou `Emacs`, celle de `GitHub Copilot`, ou encore celle pour développer en langage `C`.
 
 Intégration du terminal (*terminal integration*)
 
-: L'éditeur de code vous permet d'intégrer un terminal (TTY) dans votre éditeur de code pour lancer directement des commandes.
+: L'éditeur de code vous permet d'intégrer un terminal (TTY) dans votre éditeur de code pour lancer directement des commandes. Cela permet d'exécuter votre programme dans la même interface et récupérer les résultats produits.
 
-Intégration de Git (*git integration*)
+Gestion de version (*git integration*)
 
-: L'éditeur de code vous permet d'intégrer Git dans votre éditeur de code pour gérer les versions de votre code.
+: L'éditeur de code vous permet d'intégrer Git, l'outil dominant pour gérer les différentes versions de votre programme.
 
 ## Compilateur
 
-Un **compilateur** est un programme qui permet de transformer un programme écrit dans un langage de programmation en un programme exécutable. Il existe de nombreux compilateurs, et chaque langage de programmation a son propre compilateur.
+Un **compilateur** est un programme qui permet de transformer un programme écrit dans un langage de programmation en un **programme exécutable**. Il existe de nombreux compilateurs, et chaque langage de programmation a son propre compilateur pour autant qu'il ne soit pas interprété (comme Python, Ruby, JavaScript, etc.).
 
-En C, les compilateurs les plus populaires et qui respectent les normes sont GCC et CLANG.
+Parmi quelques compilateurs populaires, on peut citer :
 
 [GCC](https://gcc.gnu.org/)
 
@@ -147,26 +153,43 @@ En C, les compilateurs les plus populaires et qui respectent les normes sont GCC
 
 : Un **compilateur** *open-source* gagnant en popularité, une alternative à GCC. Il est sous licence Apache et utilise la bibliothèque LLVM.
 
+[IAR](https://www.iar.com/)
+
+: Un **compilateur** propriétaire assez onéreux utilisé pour les systèmes médicaux, ou les systèmes embarqués critiques.
+
 ## IDE
 
 Un **IDE** est un *Integrated Development Environment*, c'est un environnement de développement intégré. C'est un programme qui vous permet d'écrire du code, de le compiler, de le déboguer, de le tester, de le déployer, etc.
 
-Tous les éditeurs ne sont pas des IDE, mais tous les IDE sont des éditeurs. En fin de compte, un IDE est un éditeur qui a des fonctionnalités supplémentaires telles que:
+Tous les éditeurs ne sont pas des IDE, mais tous les IDE sont des éditeurs. En fin de compte, un IDE est un éditeur qui possède des fonctionnalités supplémentaires telles que:
 
-- Un compilateur
-- Un débogueur avec des points d'arrêt
-- Gestion de paramètres par projet
-- Gestion de dépendances logicielles
-- Gestion de versions
+- un compilateur pour générer un programme exécutable ;
+- un débogueur avec des points d'arrêt pour exécuter le programme ligne par ligne ;
+- une gestion de paramètres par projet pour compiler le programme avec des options spécifiques ;
+- une gestion de dépendances logicielles pour inclure des ressources externes développées par d'autres développeurs ;
+- une gestion de versions pour suivre l'évolution du code et collaborer avec d'autres développeurs.
 
-Un autre composant essentiel de l'environnement de développement est le **compilateur**. Il s'agit généralement d'un ensemble de programmes qui permettent de convertir le **code** écrit en un programme exécutable. Ce programme peut-être par la suite intégré dans un *smartphone*, dans un système embarqué sur un satellite, sur des cartes de prototypage comme un Raspberry PI, ou encore sur un ordinateur personnel.
-
-L'ensemble des outils nécessaire à créer un produit logiciel est appelé chaîne de compilation, plus communément appelée [toolchain](https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_compilation).
+La figure suivante illustre les relations entre les différents outils que nous avons évoqués jusqu'à présent.
 
 Figure: Représentation graphique des notions de compilateur, IDE, toolchain...
 
 ![Notions de compilateur, IDE, toolchain...](/assets/images/toolchain.drawio)
 
+Parmi les plus connus on peut citer IntelliJ IDEA, Eclipse, Visual Studio, Visual Studio Code, Xcode, etc.
+
+On notera que l'ensemble des outils nécessaires à créer un logiciel exécutable est appelé chaîne de compilation, plus communément appelée [toolchain](https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_compilation). Cette dernière est communément associée à une [SDK](https://fr.wikipedia.org/wiki/Kit_de_d%C3%A9veloppement) (*Software Development Kit*), un ensemble d'outils logiciels permettant de développer des logiciels pour une cible donnée (microcontroller, Raspberry Pi, smartphones, etc.).
+
+## Exercices de révision
+
+!!! exercise "Norme"
+
+    {{posix}} est la norme respectée par la plupart systèmes d'exploitation modernes sauf Windows? Elle unifie les systèmes d'exploitation en définissant une interface standardisée pour les programmes.
+
+    ??? solution
+
+        La norme POSIX (*Portable Operating System Interface*) est une norme qui définit une interface standardisée pour les systèmes d'exploitation. Elle est respectée en grande partie par Unix, Linux, Solaris, BSD, macOS, Android, QNX, Cygwin, Haiku, VxWorks, RTEMS, etc.
+
+        Hélas, Windows ne respecte pas cette norme ce qui le positionne en marge des autres systèmes d'exploitation.
 
 !!! exercise "Eclipse"
 
@@ -203,3 +226,13 @@ Figure: Représentation graphique des notions de compilateur, IDE, toolchain...
     - [ ] Un éditeur de code
     - [ ] Un compilateur
     - [ ] Un IDE
+
+!!! exercise "POSIX sous Windows ?"
+
+    Si je souhaite pouvoir développer des programmes en C sous Windows compatibles avec la norme POSIX, que dois-je faire ?
+
+    - [ ] Rien, Windows est compatible POSIX
+    - [x] Installer un sous-système Linux comme WSL2
+    - [ ] Installer un compilateur GCC
+    - [ ] Installer un IDE
+    - [ ] Changer de système d'exploitation
