@@ -7,7 +7,7 @@ epigraph:
 
 Une [[base]] désigne la valeur dont les puissances successives interviennent dans l'écriture des nombres dans la numération positionnelle, laquelle est un procédé par lequel l'écriture des nombres est composée de chiffres ou symboles reliés à leur position voisine par un multiplicateur, appelé base du système de numération.
 
-Sans cette connaissance à priori du système de numération utilisé, il vous est impossible d'interpréter ces nombres :
+Sans cette connaissance à priori du système de numération utilisé, il vous est impossible d'interpréter les nombres suivants :
 
 ```
 69128
@@ -30,7 +30,7 @@ En effet, au-delà de l'ordre des symboles (de gauche à droite), la base du sys
 
 ## Système décimal
 
-Le [[système décimal]] est le système de numération utilisant la base **dix** et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base [[sexagésimale]] (60) toujours utilisé pour la représentation des heures ou des angles, la civilisation maya utilisait un système de base 20 encore ancrée dans la culture française de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
+Le [[système décimal]] est le système de numération utilisant la base **dix** et le plus utilisé par l'humanité au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base [[sexagésimale]] (60) toujours utilisé pour la représentation des heures ou des angles, la civilisation maya utilisait un système de base 20 encore ancrée dans la culture française de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
 
 L'exemple suivant montre l'écriture de 1506 en écriture [hiéroglyphique](wiki:hiéroglyphique) de :
 
@@ -40,19 +40,13 @@ Il s'agit d'une numération additive.
 
 ![1506 en écriture hiéroglyphique](../../assets/images/hieroglyph.drawio)
 
-Notre système de représentation des nombres décimaux est le système de numération [[indo-arabe]] qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf :
-
-```c
-0 1 2 3 4 5 6 7 8 9
-```
-
-Un nombre peut être décomposé en puissance successive :
+Notre système de représentation des nombres décimaux est le système de numération [[indo-arabe]] qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf et un nombre peut se décomposer en puissance successive :
 
 $$
 1506_{10} = 1 \cdot 10^{3} + 5 \cdot 10^{2} + 0 \cdot 10^{1} + 6 \cdot 10^{0}
 $$
 
-La base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la manipulation de dix états, ce qui est difficile avec les systèmes logiques à deux états; le stockage d'un bit en mémoire étant généralement assuré par des transistors.
+Nous l'avons vu au chapitre précédent, la base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la manipulation de dix états, ce qui est difficile avec les systèmes logiques à deux états; le stockage d'un bit en mémoire étant généralement assuré par des transistors.
 
 !!! exercise "Deux mains"
 
@@ -119,9 +113,7 @@ Inventé par [Charles XII de Suède](https://fr.wikipedia.org/wiki/Charles_XII) 
 0 1 2 3 4 5 6 7
 ```
 
-Notons que l'utilisation des 8 premiers symboles du système indo-arabe est une convention d'usage bien pratique, car tout humain occidental est familier de ces symboles. L'inconvénient est qu'un nombre écrit en octal pourrait être confondu avec un nombre écrit en décimal.
-
-Comme pour le système décimal, un nombre octal peut également être décomposé en puissance successive :
+Notons que l'utilisation des 8 premiers symboles du système indo-arabe est une convention d'usage bien pratique, car tout humain occidental est familier de ces symboles. L'inconvénient est qu'un nombre écrit en octal pourrait être confondu avec un nombre écrit en décimal. Comme pour le système décimal, un nombre octal peut également être décomposé en puissance successive :
 
 $$
 1607_{8} = 1 \cdot 8^{3} + 6 \cdot 8^{2} + 0 \cdot 8^{1} + 7 \cdot 8^{0}
@@ -157,25 +149,25 @@ char msg = "Hell\0157\040World!";
 
 ## Système hexadécimal
 
-Ce système de numération positionnel en base 16 est le plus utilisé en informatique pour exprimer des grandeurs binaires. Il utilise les dix symboles du système indo-arabe, plus les lettres de A à F. Il n'y a pas de réel consensus quant à la casse des lettres qui peuvent être soit majuscules ou minuscules. Veillez néanmoins à respecter une certaine cohérence, ne mélangez pas les casses dans un même projet.
+Ce système de numération positionnel en base 16 est le plus utilisé en informatique pour exprimer des grandeurs binaires. Il utilise les dix symboles du système indo-arabe, plus les lettres de A à F. Il n'y a pas de réel consensus quant à la casse des lettres qui peuvent être soit majuscules ou minuscules. Veillez néanmoins à respecter une certaine cohérence, ne mélangez pas les casses (majuscules/minuscules) dans un même projet.
 
 ```text
 0 1 2 3 4 5 6 7 8 9 A B C D E F
 ```
 
-L'écriture peut également être décomposée en puissance successive :
+Comme pour les autres bases, l'écriture peut également être décomposée en puissance successive :
 
 $$
 1AC7_{16} = (1 \cdot 16^{3} + 10 \cdot 16^{2} + 12 \cdot 16^{1} + 7 \cdot 16^{0})_{10} = 41415_{10}
 $$
 
-Il est très pratique en électronique et en informatique d'utiliser ce système de représentation ou chaque chiffre hexadécimal représente un quadruplet, soit deux caractères hexadécimaux par octet (n'est-ce pas élégant?):
+La notation hexadécimale est très pratique en électronique et en informatique, car chaque chiffre hexadécimal représente un quadruplet de bits, soit deux caractères hexadécimaux par octet :
 
 ```text
 0101'1110'0001₂ = 5E1₁₆
 ```
 
-L'ingénieur qui se respecte doit connaître par cœur la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplication (qu'il connaît d'ailleurs parfaitement, n'est-ce pas ?)
+Tout ingénieur devrait connaître par cœur la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplication (qu'il connaît d'ailleurs parfaitement, n'est-ce pas ?). La table suivante vous aidera à convertir rapidement un nombre hexadécimal en décimal :
 
 Table: Correspondance binaire, octale, hexadécimale
 
@@ -199,7 +191,7 @@ Table: Correspondance binaire, octale, hexadécimale
 | `0b1111` | `0xF`       | `17`  | `15`    |
 
 
-Le fichier `albatros.txt` contient un extrait du poème de Baudelaire. Un ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à le résoudre et utilise le programme `hexdump`
+Le fichier `albatros.txt` (rédigé avec `ed`, [rappelez-vous][ed]) contient un extrait du poème de Baudelaire. Un ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à le résoudre et utilise le programme `hexdump`
 pour lister le contenu hexadécimal de son fichier. Il obtient la sortie suivante sur son terminal :
 
 ```text
@@ -232,13 +224,15 @@ $ hexdump -C albatros.txt
 018d
 ```
 
-Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadécimal, chaque caractère encodé sur 8 bits étant symbolisés par deux caractères hexadécimaux, et à droite le texte où chaque caractère non imprimable est remplacé par un point. On observe notamment ici que :
+Il lit à gauche sur la première colonne l'offset mémoire de chaque ligne, au milieu le contenu hexadécimal, chaque caractère encodé sur 8 bits étant symbolisés par deux caractères hexadécimaux, et à droite le texte où chaque caractère non imprimable est remplacé par un point. On observe notamment ici que :
 
 - `é` de *équipage* est encodé avec `\xc3\xa9` ce qui est le caractère Unicode U+0065
 - `é` de *ailé* est encodé avec `e\xcc\x81`, soit le caractère e suivi du diacritique `´` U+0301
 - Une espace fine insécable `\xe2\x80\xaf` est utilisée avant les `!`, ce qui est le caractère Unicode U+202F, conformément à la recommandation de l'Académie française.
 
-Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur, il concerne très probablement les deux manières distinctes utilisées pour encoder le `é`. On observe néanmoins l'élégance de l'encodage hexadécimal qui permet de visualiser facilement, par groupe de 8 bits, le contenu du fichier.
+Ce fichier est donc encodé en UTF-8 quant au bogue de notre ami ingénieur, il concerne très probablement les deux manières distinctes utilisées pour encoder le `é`. La saisie du poème manque donc de cohérence et le diable est dans les détails.
+
+Par cet exercice, on observe néanmoins l'élégance de l'encodage hexadécimal qui permet de visualiser facilement, par groupe de 8 bits, le contenu du fichier, ce qui aurait été beaucoup moins évident en binaire.
 
 !!! exercise "Les chiffres hexadécimaux"
 
@@ -375,7 +369,7 @@ Une autre base couramment utilisée est la [base64](wiki:base64), qui utilise le
 
 Elle n'est pas à proprement parler une base fondamentale, mais plutôt une méthode de codage qui utilise 64 caractères imprimables.
 
-On peut transmettre de l'information en binaire mais cela implique de pouvoir gérer un contenu arbitraire qui n'est pas toujours évident dans des environnements prévus pour des caractères imprimables. On pourrait se dire qu'on utilise la représentation ASCII des caractères mais de nombreux caractères ne sont pas imprimables. La base64 est une solution élégante pour encoder des données binaires en ASCII.
+On peut transmettre de l'information en binaire, mais cela implique de pouvoir gérer un contenu arbitraire qui n'est pas toujours évident dans des environnements prévus pour des caractères imprimables. On pourrait se dire qu'on utilise la représentation ASCII des caractères, mais de nombreux caractères ne sont pas imprimables. La base64 est une solution élégante pour encoder des données binaires en ASCII.
 
 Prenons l'exemple de la phrase suivante:
 

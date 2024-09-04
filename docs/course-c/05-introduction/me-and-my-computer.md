@@ -28,6 +28,8 @@ C'est un éditeur de texte qui a été écrit à l'époque des [télétypes][tel
 
 Autre fait notable c'est que `ed` est l'un des premiers éditeurs dit *modale*. En effet, son utilisation étant assez déroutante puisqu'il n'y a pas de retour visuel immédiat (n'imaginez tout de même pas qu'à cette époque nous imprimions chaque lettre frappée au clavier sur du papier), donc pour saisir du texte il fallait entrer taper des commandes, certaines pour sauvegarder, pour quitter, pour rechercher et remplacer, etc. Un exemple vaut mieux qu'un long discours. Imaginons que nous voulions saisir le poème "L'albatros" de Charles Baudelaire dans un fichier nommé `albatros.txt`. Voici comment nous pourrions procéder :
 
+[](){#ed}
+
 ```text
 $ ed
 a

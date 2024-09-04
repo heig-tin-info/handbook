@@ -1,0 +1,5 @@
+# Numération
+
+La [[numération]] désigne le mode de représentation des nombres (p. ex. cardinaux, ordinaux), leur base (système binaire, ternaire, quinaire, décimal ou vicésimal), ainsi que leur codification comme IEEE 754, [[complément à un]], [[complément à deux]]. Bien comprendre les bases de la numération est important pour l'ingénieur développeur, car il est souvent amené à effectuer des opérations de bas niveau sur les nombres.
+
+Ce chapitre n'est strictement essentiel qu'au programmeur de bas niveau, l'électronicien ou l'informaticien technique. Bien comprendre la manière dont les nombres sont représentés dans un ordinateur et de manière plus générale l'information traitée par ces machines est très utile pour écrire des programmes performants et élaborer des algorithmes. En somme, la numération permet de mieux se représenter la manière dont l'ordinateur traite les données au niveau le plus fondamental: le [[bit|bit|bit, le]].
