@@ -27,6 +27,43 @@
 - [ ] Allow for optional feedback title
 - [ ] Translation for permalink title
 - [ ] Tags spacing in theme (search) (.md-tag margin-right: 0.5em;)
+- [ ] Exercises are all checked
+- [ ] Resized tables make them sometime too large (resize but don't enlarge ?)
+- [ ] Bug with examples
+    ```latex
+    \begin{enumerate}
+    \item
+
+
+    %\leavevmode % Required to avoid a bug in the tcolorbox package
+    \begin{code}{c}{}{}
+    unsigned short i = 32767;
+    i++;
+    \end{code}
+
+    \item
+
+
+    %\leavevmode % Required to avoid a bug in the tcolorbox package
+    \begin{code}{c}{}{}
+    short i = 32767;
+    i++;
+    \end{code}
+
+    \item
+
+
+    %\leavevmode % Required to avoid a bug in the tcolorbox package
+    \begin{code}{c}{}{}
+    short i = 0;
+    i = i--;
+    i = --i;
+    i = i--;
+    \end{code}
+
+
+    \end{enumerate}
+    ```
 
 ## Missing features
 
