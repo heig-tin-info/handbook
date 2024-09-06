@@ -740,7 +740,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Être développeur
+    Développement logiciel
   
 
     
@@ -826,6 +826,10 @@ les outils associés.
     
       
         
+          
+        
+      
+        
       
         
       
@@ -844,8 +848,10 @@ les outils associés.
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../10-numeration/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     
@@ -858,8 +864,14 @@ les outils associés.
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
@@ -873,19 +885,21 @@ les outils associés.
           <ul class="md-nav__list" data-md-scrollfix>
             
               
+            
+              
                 
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../10-numeration/introduction/" class="md-nav__link">
+      <a href="../../10-numeration/data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    Data
   
 
     
@@ -3280,6 +3294,34 @@ les outils associés.
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Modèles de développement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modele-en-cascade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modèle en cascade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modele-en-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modèle en V
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -4905,6 +4947,34 @@ les outils associés.
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Modèles de développement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modele-en-cascade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modèle en cascade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modele-en-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modèle en V
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -5399,18 +5469,15 @@ les outils associés.
 <p>En termes matériels cela peut être la proposition d'un schéma électrique, d'un plan mécanique, d'un choix de composants, d'une architecture matérielle, etc.</p>
 <h3 id="developpement">Développement<a class="headerlink" href="#developpement" title="Lien permanent">¤</a></h3>
 <p>Une fois la solution technique validée, il est possible de passer à l'étape de développement du système. Cette étape consiste à réaliser les organes du système, à les assembler, à les tester, et à les valider. C'est à ce moment que l'on passe de la théorie à la pratique, de la spécification à la réalisation.</p>
+<p><a href="" id="development-models"></a></p>
 <h2 id="modeles-de-developpement">Modèles de développement<a class="headerlink" href="#modeles-de-developpement" title="Lien permanent">¤</a></h2>
 <p>Il existe de nombreux modèles de développement logiciel, chacun ayant ses avantages et ses inconvénients. Voici les deux modèles les plus couramment utilisés :</p>
-<dl>
-<dt><strong>Modèle en cascade</strong></dt>
-<dd>
+<h3 id="modele-en-cascade">Modèle en cascade<a class="headerlink" href="#modele-en-cascade" title="Lien permanent">¤</a></h3>
 <p>Le modèle en cascade est un modèle linéaire qui divise le projet en plusieurs phases distinctes (analyse, conception, développement, test, déploiement). Chaque phase doit être complétée avant de passer à la suivante. Ce modèle convient bien aux projets où les exigences sont claires et peu susceptibles de changer.</p>
-</dd>
-<dt><strong>Modèle en V</strong></dt>
-<dd>
+<p>Le modèle en cascade suivant résume le cycle de développement d'un programme. Il s'agit d'un modèle simple, mais qu'il faut garder à l'esprit que ce soit pour le développement d'un produit logiciel que durant les travaux pratiques liés à ce cours.</p>
+<p><figure id="_figure-3"><img alt="Modèle en cascade" class="drawio-diagram" src="../../../assets/images/waterfall.drawio"/><figcaption> Modèle en cascade</figcaption></figure></p>
+<h3 id="modele-en-v">Modèle en V<a class="headerlink" href="#modele-en-v" title="Lien permanent">¤</a></h3>
 <p>Le modèle en V est une extension du modèle en cascade qui met l'accent sur la validation et la vérification à chaque étape du processus. Chaque phase de développement est associée à une phase de test correspondante</p>
-</dd>
-</dl>
 
 
 
@@ -5433,7 +5500,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 2, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2024</span>
   </span>
 
     

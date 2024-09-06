@@ -740,7 +740,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Être développeur
+    Développement logiciel
   
 
     
@@ -826,6 +826,10 @@ les outils associés.
     
       
         
+          
+        
+      
+        
       
         
       
@@ -844,8 +848,10 @@ les outils associés.
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../10-numeration/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     
@@ -858,8 +864,14 @@ les outils associés.
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
@@ -873,19 +885,21 @@ les outils associés.
           <ul class="md-nav__list" data-md-scrollfix>
             
               
+            
+              
                 
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../10-numeration/introduction/" class="md-nav__link">
+      <a href="../../10-numeration/data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    Data
   
 
     
@@ -6100,6 +6114,59 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </span><span id="__span-44-7"><a href="#__codelineno-44-7" id="__codelineno-44-7" name="__codelineno-44-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"i = %"</span><span class="w"> </span><span class="n">PRIx32</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 </span><span id="__span-44-8"><a href="#__codelineno-44-8" id="__codelineno-44-8" name="__codelineno-44-8"></a><span class="p">}</span>
 </span></code></pre></div>
+<div class="admonition exercise">
+<p class="admonition-title"><span class="exercise-label">Exercice 14 : </span>Constantes littérales caractérielles<span class="exercise-title"></span></p>
+<p>Indiquez si les constantes littérales suivantes sont valides ou invalides.</p>
+<div class="two-column-list">
+<ol>
+<li><code>'a'</code></li>
+<li><code>'A'</code></li>
+<li><code>'ab'</code></li>
+<li><code>'\x41'</code></li>
+<li><code>'\041'</code></li>
+<li><code>'\0x41'</code></li>
+<li><code>'\n'</code></li>
+<li><code>'\w'</code></li>
+<li><code>'\t'</code></li>
+<li><code>'\xp2'</code></li>
+<li><code>"abcdef"</code></li>
+<li><code>"\abc\ndef"</code></li>
+<li><code>"\'\"\\"</code></li>
+<li><code>"hello \world!\n"</code></li>
+</ol>
+</div>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title"><span class="exercise-label">Exercice 15 : </span>Chaînes de formatage<span class="exercise-title"></span></p>
+<p>Pour les instructions ci-dessous, indiquer quel est l'affichage obtenu.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-45-1"><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'a'</span><span class="p">;</span>
+</span><span id="__span-45-2"><a href="#__codelineno-45-2" id="__codelineno-45-2" name="__codelineno-45-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">sh1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-45-3"><a href="#__codelineno-45-3" id="__codelineno-45-3" name="__codelineno-45-3"></a><span class="kt">float</span><span class="w"> </span><span class="n">f1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.0f</span><span class="p">;</span>
+</span><span id="__span-45-4"><a href="#__codelineno-45-4" id="__codelineno-45-4" name="__codelineno-45-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'a'</span><span class="p">;</span>
+</span></code></pre></div>
+<ol>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Next char: %c.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Char: %3c.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Char: %-3c.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Chars: </span><span class="se">\n</span><span class="s">-%c.</span><span class="se">\n</span><span class="s">-%c.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="sc">'z'</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Sum: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Taux d’erreur</span><span class="se">\t</span><span class="s">%i %%</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Quel charabia horrible:</span><span class="se">\\\a\a\a</span><span class="s">%g</span><span class="se">\b\a</span><span class="s">%%</span><span class="se">\a\\\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Inventaire: %i4 pieces</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Inventory: %i %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="s">"pieces"</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Inventaire: %4i pieces</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Inventaire: %-4i pieces</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Mixed sum: %f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">sh1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Tension: %5.2f mV</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Tension: %5.2e mV</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Code: %X</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Code: %x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Code: %o</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Value: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Value: %hi</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">65535u</span><span class="p">);</span></code></li>
+<li><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"Value: %hu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span></code></li>
+</ol>
+</div>
 
 
 
@@ -6122,7 +6189,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 2, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2024</span>
   </span>
 
     

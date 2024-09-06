@@ -740,7 +740,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Être développeur
+    Développement logiciel
   
 
     
@@ -826,6 +826,10 @@ les outils associés.
     
       
         
+          
+        
+      
+        
       
         
       
@@ -844,8 +848,10 @@ les outils associés.
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../10-numeration/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     
@@ -858,8 +864,14 @@ les outils associés.
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
@@ -873,19 +885,21 @@ les outils associés.
           <ul class="md-nav__list" data-md-scrollfix>
             
               
+            
+              
                 
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../10-numeration/introduction/" class="md-nav__link">
+      <a href="../../10-numeration/data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    Data
   
 
     
@@ -5135,31 +5149,34 @@ les outils associés.
 <h1 id="structures-de-controle">Structures de contrôle<a class="headerlink" href="#structures-de-controle" title="Lien permanent">¤</a></h1>
 <p>Les structures de contrôle appartiennent aux langages de programmation étant de <a class="autorefs autorefs-internal" href="../../05-introduction/c-lang/#les-paradigmes-de-programmation">paradigme</a> impératif et <a href="https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e">structuré</a>.</p>
 <p>Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. On peut citer les catégories suivantes :</p>
-<ul>
-<li>
-<p>Les séquences</p>
+<dl>
+<dt>Les séquences</dt>
+<dd>
+<p>Les séquences de code sont des instructions qui s'exécutent les unes après les autres.</p>
 <ul>
 <li><a class="autorefs autorefs-internal" href="#sequences-de-code">Les séquences de code</a> (<code>;</code>)</li>
 <li><a class="autorefs autorefs-internal" href="#sequences-de-bloc">Les blocs de code</a> (<code>{}</code>)</li>
 <li><a class="autorefs autorefs-internal" href="#point-de-sequence">Les points de séquences</a></li>
 </ul>
-</li>
-<li>
-<p>Les sauts (<code>jumps</code>)</p>
+</dd>
+<dt>Les sauts (<code>jumps</code>)</dt>
+<dd>
+<p>Les sauts sont des instructions qui permettent de modifier le flux d'exécution du programme.</p>
 <ul>
-<li><a class="autorefs autorefs-internal" href="#les-sauts-conditionnels">Conditionnels</a> (<code>if</code>, <code>switch</code>)</li>
-<li><a class="autorefs autorefs-internal" href="#les-sauts">Inconditionnels</a> (<code>break</code>, <code>continue</code>, <code>goto</code>, <code>return</code>)</li>
+<li><a class="autorefs autorefs-internal" href="#les-sauts-conditionnels">Saut conditionnel</a> (<code>if</code>, <code>switch</code>)</li>
+<li><a class="autorefs autorefs-internal" href="#les-sauts">Saut inconditionnel</a> (<code>break</code>, <code>continue</code>, <code>goto</code>, <code>return</code>)</li>
 </ul>
-</li>
-<li>
-<p>Les boucles (<code>loops</code>)</p>
+</dd>
+<dt>Les boucles (<code>loops</code>)</dt>
+<dd>
+<p>Les boucles sont des structures de contrôle qui permettent de répéter une séquence d'instructions.</p>
 <ul>
 <li><a class="autorefs autorefs-internal" href="#for">Boucle itérative</a> sur une valeur connue <code>for</code></li>
 <li><a class="autorefs autorefs-internal" href="#while">Boucle sur condition</a> <code>while</code></li>
 <li><a class="autorefs autorefs-internal" href="#dowhile">Boucle sur condition avec test à la fin</a> <code>do</code>...<code>while</code></li>
 </ul>
-</li>
-</ul>
+</dd>
+</dl>
 <p>Sans structure de contrôle, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènements extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement.</p>
 <p>L'intelligence d'un programme réside dans sa capacité à prendre des décisions en fonction de l'état du système et des données qu'il manipule. Les structures de contrôle permettent de définir ces décisions, un peu comme un livre dont vous êtes le héros où chaque choix vous mène à une page différente par un saut.</p>
 <h2 id="sequences">Séquences<a class="headerlink" href="#sequences" title="Lien permanent">¤</a></h2>
@@ -5902,7 +5919,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2024</span>
   </span>
 
     

@@ -21,7 +21,7 @@ les outils associés.
         <link rel="prev" href="../me-and-my-computer/">
       
       
-        <link rel="next" href="../../10-numeration/introduction/">
+        <link rel="next" href="../../10-numeration/">
       
       
         
@@ -742,7 +742,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Être développeur
+    Développement logiciel
   
 
     
@@ -975,6 +975,17 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercices-de-revision" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1012,6 +1023,10 @@ les outils associés.
     
       
         
+          
+        
+      
+        
       
         
       
@@ -1030,8 +1045,10 @@ les outils associés.
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../10-numeration/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     
@@ -1044,8 +1061,14 @@ les outils associés.
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
@@ -1059,19 +1082,21 @@ les outils associés.
           <ul class="md-nav__list" data-md-scrollfix>
             
               
+            
+              
                 
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../10-numeration/introduction/" class="md-nav__link">
+      <a href="../../10-numeration/data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    Data
   
 
     
@@ -4763,6 +4788,17 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercices-de-revision" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4878,9 +4914,9 @@ les outils associés.
 
 <h1 id="le-langage-c">Le langage C<a class="headerlink" href="#le-langage-c" title="Lien permanent">¤</a></h1>
 <blockquote class="epigraph">C is quirky, flawed, and an enormous success.<footer>Dennis Ritchie</footer></blockquote>
-<p>Le langage C est l'un des premiers langages de programmation dits de haut niveau. Il est très proche de l'assembleur : le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, de l'embarqué à la programmation de système complexe à la simple <a class="autorefs autorefs-internal" href="../programming/#les-systemes-a-microcontroleurs">machine à café</a>.</p>
-<p>Même s'il est très ancien (1972), il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.</p>
-<p>À vrai dire, en 2024, il n'y a pas d'alternative viable au C pour programmer des applications embarquées, des systèmes d'exploitation ou des applications nécessitant des performances élevées.</p>
+<p>Le langage C est l'un des premiers langages de programmation. Il est très proche de l'assembleur : le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, d'une montre connectée à un stimulateur cardiaque (*pacemaker) en passant par une <a class="autorefs autorefs-internal" href="../programming/#les-systemes-a-microcontroleurs">machine à café</a>.</p>
+<p>Même s'il est ancien (1972), il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.</p>
+<p>À vrai dire, en 2024, il n'y a pas d'alternative mature et éprouvée que le C pour programmer des applications embarquées à hautes performances ou le noyau des systèmes d'exploitation. Des langages plus récents comme le Rust ou le Zig commencent à émerger, mais ils sont loin d'être adoptés par l'industrie.</p>
 <p><a href="" id="c-history"></a></p>
 <h2 id="historique">Historique<a class="headerlink" href="#historique" title="Lien permanent">¤</a></h2>
 <p>En 1964 naît, d'une collaboration avec les laboratoires Bell (<em>Bell Telephone Laboratories</em>), General Electric et le <abbr title="Massachusetts Institute of Technology">MIT</abbr>, le projet <a href="https://fr.wikipedia.org/wiki/Multics">Multics</a> (<em>Multiplexed Information and Computing Service</em>), qui vise le développement d'un nouveau système d'exploitation.</p>
@@ -4888,9 +4924,10 @@ les outils associés.
 <p>BCPL, qui fut conçu par Martin Richards au milieu des années 1960 pendant qu'il était en visite au <abbr title="Massachusetts Institute of Technology">MIT</abbr>, n'est autre que le grand-père de B et l'arrière-grand-père de C. Dennis Ritchie, alors collègue de Ken Thompson, retravailla B pour y ajouter la gestion des types de données.</p>
 <p>Ce système d'exploitation que Ken Thompson et Dennis Ritchie développaient au sein des laboratoires Bell se nommait initialement UNICS, en contradiction de Multics, là où <em>Multiplexed</em> fut remplacé par <em>Uniplexed</em>. Le nom fut ensuite modifié en <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>, qui fut central dans l'histoire de l'informatique.</p>
 <p>Par la suite, <a href="https://fr.wikipedia.org/wiki/Brian_Kernighan">Brian Kernighan</a> aida à populariser ce nouveau langage. Il est le principal auteur du livre « The C Programming Language », tandis que Dennis Ritchie s'est davantage occupé des annexes.</p>
-<p>Les évolutions continueront plus tard avec <a href="https://fr.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne Stroustrup</a> qui décidera d'étendre C en apportant une saveur nouvelle : la programmation orientée objet (OOP), qui fait l'objet d'un autre cours.</p>
+<p>Les évolutions continueront plus tard avec <a href="https://fr.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne Stroustrup</a> qui décidera d'étendre C en apportant une saveur nouvelle : la programmation orientée objet (OOP), qui fait l'objet d'un autre cours. Sur la figure suivante, on peut voir le trio fondateur du langage C.</p>
 <p><figure id="_figure-1"><img alt="Les pères fondateurs du C" class="drawio-diagram" src="../../../assets/images/thompson-kernighan-ritchie.drawio"/><figcaption> Les pères fondateurs du C</figcaption></figure></p>
 <p>Il faut attendre 1989 pour que le langage C fasse l'objet d'une normalisation par l'<abbr title="American National Standards Institute">ANSI</abbr> (<em>American National Standards Institute</em>). L'année suivante le comité ISO (<em>International Organization for Standardization</em>) ratifie le standard <em>ISO/IEC 9899:1990</em> communément appelé <strong>C90</strong>. Dès lors, le langage C est devenu un standard international et devient le langage dominant dans le monde de l'informatique.</p>
+<p>Les langages sont souvent influencés les uns par les autres, et le C n'échappe pas à la règle. La figure suivante illustre quelques influences des langages de programmation :</p>
 <figure class="mermaid-figure"><pre class="mermaid"><code>%% Influences des langages de programmation
 flowchart LR
     COBOL --&gt; PLI["PL/I"]
@@ -4905,12 +4942,11 @@ flowchart LR
     ALGOL --&gt; PLI
     PLI --&gt; C("C")
     B --&gt; C</code></pre><figcaption>Influences des langages de programmation</figcaption></figure>
-<p>Les années se succèdent et le standard évolue pour soit corriger certaines de ses faiblesses soit pour apporter de nouvelles fonctionnalités.</p>
 <p>Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés par les ingénieurs, car il allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances telles que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.</p>
-<p>Il faut retenir que <strong>C</strong> est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C.</p>
+<p>Retenons simplement que <strong>C</strong> est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C, du moins en partie.</p>
 <h2 id="standardisation">Standardisation<a class="headerlink" href="#standardisation" title="Lien permanent">¤</a></h2>
-<p>Le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.</p>
-<p>Le standard le plus couramment utilisé en 2024 est encore <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a>. C11 le remplace peu à peu dans l'industrie, mais la saga continue avec C17, C18 et C23 qui sont des évolutions.</p>
+<p>Nous l'avons vu, le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.</p>
+<p>Le standard le plus couramment utilisé en 2024 est certainement encore <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a>. C11 le remplace peu à peu dans l'industrie, mais l'histoire continue avec C17, C18 et C23 qui sont des évolutions. La figure suivante résume les différents standards internationaux du langage C.</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Normes internationales du langage C</caption><thead>
 <tr>
@@ -4962,26 +4998,16 @@ flowchart LR
 </tr>
 </tbody>
 </table>
-<p>En substance, <strong>C18</strong> n'apporte pas de nouvelles fonctionnalités au langage, mais vise à clarifier de nombreuses zones d'ombres laissées par <strong>C11</strong>.</p>
-<p><strong>C11</strong> apporte peu de grands changements fondamentaux pour le développement sur microcontrôleur.</p>
+<p>En substance, <strong>C18</strong> n'apporte pas de nouvelles fonctionnalités au langage, mais vise à clarifier de nombreuses zones d'ombres laissées par <strong>C11</strong> qui n'apportent que peu de grands changements fondamentaux pour le développement sur microcontrôleur.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Vous entendrez ou lirez souvent des références à <strong><abbr title="American National Standards Institute">ANSI</abbr> C</strong> ou <strong><abbr title="Kernighan and Ritchie">K&amp;R</abbr></strong>, préférez plutôt une compatibilité avec <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> au minimum.</p>
 </div>
-<p>Le standard est lourd, difficile à lire et avec 552 pages pour <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, vous n'aurez probablement jamais le moindre plaisir à y plonger les yeux qui se rempliront de larmes à chaque lecture.</p>
-<p>Armez-vous de mouchoirs, car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà ?</p>
-<p>Vous vous demandez probablement : « pourquoi l'industrie a-t-elle autant de retard sur le dernier standard ? » Lorsque Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglés par des validations strictes qui décrivent les standards utilisés. Migrer vers un standard plus récent est une aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée qu'on enverra sur Mars n'aura pas d'issue fatale. Ces validations sont longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèles à un ancien standard.</p>
-<div class="admonition exercise">
-<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Exercice<span class="exercise-title"></span></p>
-<p>Ouvrez le standard <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a> et cherchez la valeur maximale possible de la constante <code>ULLONG_MAX</code>. Que vaut-elle ?</p>
-<details class="solution">
-<summary>Solution</summary>
-<p>Au paragraphe §5.2.4.2.1-1 on peut lire que <code>ULLONG_MAX</code> est encodé sur 64-bits et donc que sa valeur est <span class="arithmatex">\(2^{64}-1\)</span> donc <code>18'446'744'073'709'551'615</code>.</p>
-</details>
-</div>
+<p>Il faut l'admettre, le standard C est lourd, difficile à lire, et avec ses quelque 552 pages pour <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, vous n'aurez probablement jamais le moindre plaisir à y plonger vos yeux qui se rempliront de larmes à chaque lecture.</p>
+<p>Armez-vous de mouchoirs, car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Dans l'industrie, vous vous heurterez un jour ou l'autre à des problèmes qui ne sont pas documentés dans les livres et bien souvent la réponse est à chercher dans le standard.</p>
+<p>Je vous le disais plus haut, <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> est le standard le plus couramment utilisé en 2024, pourtant il a plus de 25 ans. Vous vous demandez probablement pourquoi l'industrie a autant de retard sur le dernier standard. Lorsque Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglés par des validations strictes qui imposent une version du standard bien précise. Migrer vers un standard plus récent est une vaste aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée envoyée sur Mars n'aura pas d'issue fatale ou que le robot chirurgical qui vous sauvera un jour d'une misère n'ait pas de velléités assassines à la suite d'un bogue logiciel. Ces validations sont donc longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèles à un ancien standard qui fonctionne.</p>
 <h2 id="le-c-et-les-autres">Le C et les autres...<a class="headerlink" href="#le-c-et-les-autres" title="Lien permanent">¤</a></h2>
-<p>Si ce cours se concentre sur le C, ce n'est pas le seul langage de programmation et surtout ce n'est certainement pas le seul que vous apprendrez.</p>
-<p>Voici une liste non exhaustive de langages de programmation et de leur année de création. Cette liste est intéressante pour comprendre l'évolution des langages de programmation et leur utilisation :</p>
+<p>Si ce cours se concentre sur le C, il n'est de loin pas le seul langage de programmation et surtout, ce n'est certainement l'unique langage que vous apprendrez dans votre carrière. Sur la table suivante, une liste non exhaustive de langages de programmation et de leur année de création vous est donnée. Cette liste est intéressante pour comprendre l'évolution des langages de programmation et leurs utilisations typiques :</p>
 <table id="_table-2">
 <caption style="caption-side:top"> Langages de programmation et leur année de création</caption><thead>
 <tr>
@@ -5078,10 +5104,9 @@ flowchart LR
 </tr>
 </tbody>
 </table>
-<p>L'index <a href="https://www.tiobe.com/tiobe-index/">TIOBE</a> est un bon indicateur de la popularité des langages de programmation. Il est mis à jour chaque mois et permet de suivre l'évolution de la popularité des langages de programmation.</p>
-<p>En 2024, le top 10 des langages de programmation les plus populaires est le suivant :</p>
+<p>L'index <a href="https://www.tiobe.com/tiobe-index/">TIOBE</a> est un bon indicateur de la popularité des langages de programmation. Il est mis à jour chaque mois et permet de suivre l'évolution de la popularité des langages de programmation. En 2024, le top 10 des langages de programmation les plus populaires est donné par la table suivante :</p>
 <table id="_table-3">
-<caption style="caption-side:top"> Top 10 des langages de programmation en 2024</caption><thead>
+<caption style="caption-side:top"> Top 10 des langages de programmation</caption><thead>
 <tr>
 <th>Top 10</th>
 <th>Langage de programmation</th>
@@ -5130,14 +5155,12 @@ flowchart LR
 </tr>
 </tbody>
 </table>
-<p>Python est un langage de très haut niveau, simple à apprendre, mais éloigné du matériel. C++ est un langage de programmation orientée objet, très puissant, mais complexe à apprendre. C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C. J'espère avoir réussi à vous convaincre.</p>
+<p>Sur le podium, Python est un langage de très haut niveau simple à apprendre, mais éloigné du matériel. C++ est un langage de programmation orientée objet, très puissant, mais complexe à dompter. Avec la médaille d'argent, C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C. Ai-je réussi à vous convaincre ?</p>
 <p><a href="" id="structured-text-programming"></a></p>
 <h2 id="programmation-texte-structuree">Programmation texte structurée<a class="headerlink" href="#programmation-texte-structuree" title="Lien permanent">¤</a></h2>
-<p>Le C comme la plupart des langages de programmation utilise du texte structuré, c'est-à-dire que le langage peut être défini par un <strong>vocabulaire</strong>, une <strong>grammaire</strong> et se compose d'un <strong>alphabet</strong>.</p>
-<p>À l'inverse des <a href="https://en.wikipedia.org/wiki/Natural_language">langages naturels</a> comme le Français, un langage de programmation est un <a href="https://fr.wikipedia.org/wiki/Langage_formel">langage formel</a> et se veut exact dans sa grammaire et son vocabulaire, il n'y a pas de cas particuliers ni d'ambiguïtés possibles dans l'écriture.</p>
-<p>Les <strong>compilateurs</strong> sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.</p>
+<p>Le C comme la plupart des langages de programmation utilise du texte structuré, c'est-à-dire que le langage peut être défini par un <strong>vocabulaire</strong>, une <strong>grammaire</strong> et se compose d'un <strong>alphabet</strong>. À l'inverse des <a href="https://en.wikipedia.org/wiki/Natural_language">langages naturels</a> comme le Français, un langage de programmation est un <a href="https://fr.wikipedia.org/wiki/Langage_formel">langage formel</a> et se veut exact dans sa grammaire et son vocabulaire, il n'y a pas de cas particuliers ni d'ambiguïtés possibles dans l'écriture. Les <strong>compilateurs</strong> sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.</p>
 <p><a href="" id="omelette"></a></p>
-<p>L'exemple suivant est un <a href="https://fr.wikipedia.org/wiki/Pseudo-code">pseudo-code</a> utilisant une grammaire simple :</p>
+<p>Pour mieux comprendre, voici un exemple sous forme de <a href="https://fr.wikipedia.org/wiki/Pseudo-code">pseudo-code</a> utilisant une grammaire simple :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>POUR CHAQUE œuf DANS le panier :
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    jaune, blanc 🠔 CASSER(œuf)
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    omelette 🠔 MELANGER(jaune, blanc)
@@ -5145,46 +5168,45 @@ flowchart LR
 </span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
 </span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>SERVIR(omelette_cuite)
 </span></code></pre></div>
-<p>La structure de la phrase permettant de traiter tous les éléments d'un ensemble d'éléments peut alors s'écrire :</p>
+<p>La structure de la phrase permettant de traiter tous les éléments d'un ensemble d'éléments (les œufs d'un panier) peut alors s'écrire de façon générique comme suit :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>POUR CHAQUE 〜 DANS 〜:
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>    〜
 </span></code></pre></div>
-<p>Où les <code>〜</code> sont des marques substitutives (<a href="https://fr.wikipedia.org/wiki/Marque_substitutive">placeholder</a>) qui seront remplacées par le développeur par ce qui convient.</p>
-<p>Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. La <a class="autorefs autorefs-internal" href="../../15-fundations/grammar/#la-grammaire">grammaire</a> du langage C utilisé dans ce cours peut ainsi s'exprimer en utilisant la forme Backus-Naur ou <strong><abbr title="Backus-Naur Form">BNF</abbr></strong> disponible en annexe.</p>
+<p>où les <code>〜</code> sont des marques substitutives (<a href="https://fr.wikipedia.org/wiki/Marque_substitutive">placeholder</a>) qui seront remplacées par le développeur par ce qui convient.</p>
+<p>Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. On l'appelle la <a class="autorefs autorefs-internal" href="../../15-fundations/grammar/#la-grammaire">grammaire</a> du langage C. C'est un peu le Bescherelle du C. On observe dans ce formalisme une syntaxe rigoureuse, l'utilisation de termes en majuscules, la séparation de mots par des virgules, la présence de parenthèses et de flèches (<code>🠔</code>). Cette syntaxe diffère d'un langage à l'autre, mais selon le paradigme du langage de grandes similarités peuvent exister.</p>
 <p><a href="" id="paradigm"></a></p>
 <h2 id="les-paradigmes-de-programmation">Les paradigmes de programmation<a class="headerlink" href="#les-paradigmes-de-programmation" title="Lien permanent">¤</a></h2>
 <p>Chaque langage de programmation que ce soit C, C++, Python, ADA, COBOL et Lisp sont d'une manière générale assez proche les uns des autres. Nous citions par exemple le langage B, précurseur du C (c. f. [thompson]{c-history}). Ces deux langages, et bien que leurs syntaxes soient différentes, ils demeurent assez proches, comme l'espagnol et l'italien qui partagent des racines latines. En programmation on dit que ces langages partagent le même <a href="https://fr.wikipedia.org/wiki/Paradigme_(programmation)">paradigme de programmation</a>.</p>
 <p>Certains paradigmes sont plus adaptés que d'autres à la résolution de certains problèmes et de nombreux langages de programmation sont dit <strong>multi-paradigmes</strong>, c'est-à-dire qu'ils supportent différents paradigmes.</p>
-<p>Nous citions plus haut le C++ qui permet la programmation orientée objet, laquelle est un paradigme de programmation qui n'existe pas en C.</p>
-<p>Ce qu'il est essentiel de retenir c'est qu'un langage de programmation peut aisément être substitué par un autre pour autant qu'ils s'appuient sur les mêmes paradigmes.</p>
+<p>Nous citions plus haut le C++ qui permet la programmation orientée objet, laquelle est un paradigme de programmation qui n'existe pas en C. Ce qu'il est essentiel de retenir c'est qu'un langage de programmation peut aisément être substitué par un autre pour autant qu'ils s'appuient sur les mêmes paradigmes.</p>
 <p>Le langage C répond aux paradigmes suivants :</p>
 <dl>
 <dt><a href="https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative">Impératif</a></dt>
 <dd>
-<p>programmation en séquences de commandes, qui se lisent de haut en bas.</p>
+<p>Programmation en séquences de commandes, qui se lisent dans un ordre donné (de haut en bas).</p>
 </dd>
 <dt><a href="https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e">Structuré</a></dt>
 <dd>
-<p>programmation impérative avec des structures de contrôle imbriquées, comme les boucles et les conditions.</p>
+<p>Programmation impérative possédant des structures de décision imbriquées comme les boucles et les conditions.</p>
 </dd>
 <dt><a href="https://fr.wikipedia.org/wiki/Programmation_proc%C3%A9durale">Procédural</a></dt>
 <dd>
-<p>programmation impérative avec appels de procédures qui regroupent des instructions.</p>
+<p>Programmation impérative possédant des appels de procédures isolées qui regroupent une séquence d'instructions.</p>
 </dd>
 </dl>
-<p>Le C++ quant à lui apporte les paradigmes suivants à C :</p>
+<p>D'autres langages comme le C++ apportent les paradigmes supplémentaires à C :</p>
 <dl>
 <dt><a href="https://fr.wikipedia.org/wiki/Programmation_fonctionnelle">Fonctionnel</a></dt>
 <dd>
-<p>programmation basée sur l'appel de fonction. Utilisé dans les langages Lisp, Haskell, Erlang.</p>
+<p>Programmation basée sur l'appel de fonction. Utilisé dans les langages Lisp, Haskell, Erlang.</p>
 </dd>
 <dt><a href="https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet">Orienté objet</a></dt>
 <dd>
-<p>programmation basée sur la définition de classes et d'objets. Utilisé dans les langages C++, Java, Python. Une classe associe des données a des actions qui manipulent ces données.</p>
+<p>Programmation basée sur la définition de classes et d'objets. Utilisé dans les langages C++, Java, Python. Une classe associe des données à des actions qui manipulent ces données.</p>
 </dd>
 </dl>
-<p>Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la <a href="https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)">programmation réflective</a>.</p>
-<p>Ce que nous devons retenir c'est que le langage C est impératif et procédural, c'est-à-dire qu'il est basé sur des séquences d'instructions qui se lisent de haut en bas, lesquelles peuvent être regroupées en procédures. Si nous reprenons notre exemple de l'<a class="autorefs autorefs-internal" href="#omelette">omelette</a>, si nous souhaitons réaliser une pâte à crêpes nous pourrions écrire :</p>
+<p>Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la <a href="https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)">programmation réflective</a> ou la <a href="https://fr.wikipedia.org/wiki/Programmation_%C3%A9v%C3%A9nementielle">programmation événementielle</a>.</p>
+<p>Ce que nous devons retenir c'est que le langage C est <strong>impératif</strong> et <strong>procédural</strong>, c'est-à-dire qu'il est basé sur des séquences d'instructions séparées les unes des autres qui s'exécutent dans un ordre donné et lesquelles peuvent être regroupées en procédures. En reprenant notre exemple d'<a class="autorefs autorefs-internal" href="#omelette">omelette</a>, si nous souhaitons cette fois-ci réaliser une bonne pâte à crêpes, nous pourrions écrire :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>POUR REALISER un œuf:
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>    CHERCHER poule
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    œuf 🠔 PONDRE(poule)
@@ -5207,9 +5229,9 @@ flowchart LR
 </span><span id="__span-2-20"><a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>    lait 🠔 REALISER(lait)
 </span><span id="__span-2-21"><a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a>    pâte 🠔 MELANGER(œuf-liquide, farine, lait)
 </span></code></pre></div>
-<p>On a regroupé des instructions en procédures pour réaliser une pâte à crêpes. C'est ce que l'on appelle la programmation procédurale.</p>
+<p>Dans cet exemple, les séquences d'instructions ont été regroupées en procédures, c'est de la programmation procédurale. Les procédures permettent de découper un programme en morceaux plus petits, plus faciles à comprendre et à maintenir.</p>
 <h2 id="cycle-de-developpement">Cycle de développement<a class="headerlink" href="#cycle-de-developpement" title="Lien permanent">¤</a></h2>
-<p>Le cycle de développement logiciel comprend la suite des étapes menant de l'étude et l'analyse d'un problème jusqu'à la réalisation d'un programme informatique exécutable. Dans l'industrie, il existe de nombreux modèles comme le <a href="https://fr.wikipedia.org/wiki/Cycle_en_V">Cycle en V</a> ou le <a href="https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade">modèle en cascade</a>. Quel que soit le modèle utilisé, il comprendra les étapes suivantes :</p>
+<p>Savoir écrire un programme en C n'est qu'une facette de la programmation. Il est important de comprendre que la programmation est un processus itératif qui nécessite de suivre un cycle de développement logiciel. Ce cycle de développement comprend des étapes menant de l'étude à l'analyse d'un problème jusqu'à la réalisation d'un programme informatique exécutable. Dans l'industrie, il existe de nombreux modèles comme le <a href="https://fr.wikipedia.org/wiki/Cycle_en_V">Cycle en V</a> ou le <a href="https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade">modèle en cascade</a> que nous verrons plus en détail plus tard (<a class="autorefs autorefs-internal" href="../../45-project-management/teamwork/#modeles-de-developpement">Modèles de développement</a>). Quel que soit le modèle utilisé, il comprendra les étapes suivantes :</p>
 <ol>
 <li><strong>Étude</strong> et analyse du problème</li>
 <li>Écriture d'un <strong>cahier des charges</strong> (spécifications)</li>
@@ -5221,37 +5243,34 @@ flowchart LR
 <li><strong>Vérification</strong> que le cahier des charges est respecté</li>
 <li><strong>Livraison</strong> du programme</li>
 </ol>
-<p>Mis à part la dernière étape où il n'y a pas de retour en arrière possible, les autres étapes sont <strong>itératives</strong>. Il est très rare d'écrire un programme juste du premier coup. Durant tout le cycle de développement logiciel, des itérations successives sont faites pour permettre d'optimiser le programme, de résoudre des bogues, d'affiner les spécifications, d'écrire davantage de tests pour renforcer l'assurance d'un bon fonctionnement du programme et éviter une <a class="autorefs autorefs-internal" href="../../50-philosophy/philosophy/#lava-flow">coulée de lave</a>.</p>
-<p>Le modèle en cascade suivant résume le cycle de développement d'un programme. Il s'agit d'un modèle simple, mais qu'il faut garder à l'esprit que ce soit pour le développement d'un produit logiciel que durant les travaux pratiques liés à ce cours.</p>
-<p><figure id="_figure-2"><img alt="Modèle en cascade" class="drawio-diagram" src="../../../assets/images/waterfall.drawio"/><figcaption> Modèle en cascade</figcaption></figure></p>
+<p>Mis à part la dernière étape où il n'y a pas de retour en arrière possible, les autres étapes sont <strong>itératives</strong>. Il est très rare d'écrire un programme juste du premier coup. Durant tout le cycle de développement logiciel, des itérations successives sont faites pour permettre d'optimiser le programme, de résoudre des bogues, d'affiner les spécifications, d'écrire davantage de tests pour renforcer l'assurance d'un bon fonctionnement du programme et d’éviter une <a class="autorefs autorefs-internal" href="../../50-philosophy/philosophy/#lava-flow">coulée de lave</a>.</p>
 <h2 id="cycle-de-compilation">Cycle de compilation<a class="headerlink" href="#cycle-de-compilation" title="Lien permanent">¤</a></h2>
-<p>Le langage C à une particularité que d'autres langages n'ont pas, c'est-à-dire qu'il comporte une double <a class="autorefs autorefs-internal" href="../../15-fundations/grammar/#la-grammaire">grammaire</a>. Le processus de compilation s'effectue donc en deux passes.</p>
+<p>Le langage C à une particularité que d'autres langages n'ont pas, il comporte une double <a class="autorefs autorefs-internal" href="../../15-fundations/grammar/#la-grammaire">grammaire</a>. Le processus de compilation s'effectue donc en deux étapes.</p>
 <ol>
-<li>Préprocesseur qui enlève les commentaires et inclut les fichiers nécessaires.</li>
-<li>Compilation du code source en fichiers objet.</li>
+<li>Le préprocesseur qui enlève les commentaires du développeur et regroupe en un fichier les différentes parties du programme.</li>
+<li>La compilation à proprement parler du code source en un fichier binaire.</li>
 </ol>
-<p>Vient ensuite la phase d'édition des liens ou <em>linkage</em> lors de laquelle l'exécutable binaire est créé.</p>
-<p><figure id="_figure-3"><img alt="Cycle de compilation illustré" class="drawio-diagram" src="../../../assets/images/build-cycle.drawio"/><figcaption> Cycle de compilation illustré</figcaption></figure></p>
-<p>Voyons plus en détail chacune de ces étapes.</p>
+<p>Vient ensuite la phase d'édition des liens ou <em>linkage</em> lors de laquelle le programme exécutable est créé à partir des fichiers binaires générés lors de la compilation. La figure suivante illustre le cycle de compilation d'un programme C.</p>
+<p><figure id="_figure-2"><img alt="Cycle de compilation illustré" class="drawio-diagram" src="../../../assets/images/build-cycle.drawio"/><figcaption> Cycle de compilation illustré</figcaption></figure></p>
+<p><a href="" id="preproc-intro"></a></p>
 <h3 id="preprocesseur-pre-processing">Préprocesseur (<em>pre-processing</em>)<a class="headerlink" href="#preprocesseur-pre-processing" title="Lien permanent">¤</a></h3>
-<p>La phase de <em>preprocessing</em> permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le <em>preprocessing</em> réalise :</p>
-<ul>
-<li>Le remplacement des <a class="autorefs autorefs-internal" href="../../15-fundations/preprocessor/#define">définitions</a> par leurs valeurs (<code>#define</code>),</li>
-<li>Le remplacement des <a class="autorefs autorefs-internal" href="../../15-fundations/preprocessor/#include">fichiers inclus</a> par leurs contenus (<code>#include</code>),</li>
-<li>La conservation ou la suppression des zones de compilation conditionnelles (<code>#if</code>, <code>#ifdef</code>, <code>#elif</code>, <code>#else</code>, <code>#endif</code>).</li>
-<li>La suppression des commentaires (<code class="language-c highlight"><span class="cm">/* ... */</span></code>, <code class="language-c highlight"><span class="c1">// ...</span></code>)</li>
-</ul>
-<p>Avec <code>gcc</code> il est possible de demander que l'exécution du préprocesseur en utilisant l'option <code>-E</code>.</p>
-<p><figure id="_figure-4"><img alt="Processus de prépressing" class="drawio-diagram" src="../../../assets/images/preprocessing.drawio"/><figcaption> Processus de prépressing</figcaption></figure></p>
+<p>La phase de <em>preprocessing</em> permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le <em>preprocessing</em> réalise le remplacement des directives du préprocesseur <a class="autorefs autorefs-internal" href="../../15-fundations/preprocessor/#define">de définitions</a> par leurs valeurs résultantes. Ce préprocesseur permet d'inclure des fichiers externes, de définir des valeurs constantes ou de conditionner l'exécution de certaines parties du code par exemple avec des options de configuration. Avec le compilateur <code>gcc</code> il est possible de demander uniquement cette étape avec l'option <code>-E</code>. Cette étape est illustrée dans la figure suivante.</p>
+<p><figure id="_figure-3"><img alt="Processus de préprocessing" class="drawio-diagram" src="../../../assets/images/preprocessing.drawio"/><figcaption> Processus de préprocessing</figcaption></figure></p>
+<p>Lorsque vous écrivez votre programme, vous le faites en utilisant des fichiers sources avec l'extension <code>.c</code>. Néanmoins, dans votre programme, vous vous basez sur de nombreuses bibliothèques logicielles qui donnent accès à des fonctions prédéfinies. Ces bibliothèques sont incluses dans votre programme à l'aide de la directive <code>#include</code>. Lors de la compilation, le préprocesseur va remplacer ces directives par le contenu des fichiers d'en-tête correspondants. Par exemple, la directive <code>#include &lt;stdio.h&gt;</code> sera remplacée par le contenu du fichier <code>stdio.h</code> qui contient les déclarations des fonctions de la bibliothèque standard d'entrées sorties. Cette procédure prend donc en entrée un fichier source et un ou plusieurs fichiers d'en-tête et le transforme en un fichier source unique.</p>
 <h3 id="compilation-build">Compilation (<em>build</em>)<a class="headerlink" href="#compilation-build" title="Lien permanent">¤</a></h3>
-<p>La phase de compilation consiste en une analyse syntaxique du fichier à compiler puis en sa traduction en langage assembleur pour le processeur cible. Le fichier généré est un fichier binaire (extension <code>.o</code> ou <code>.obj</code>) qui sera utilisé pour la phase suivante. Lors de la <em>compilation</em>, des erreurs peuvent survenir et empêcher le déroulement complet de la génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.</p>
-<p>Avec <code>gcc</code> il est possible de ne demander que l'assemblage d'un code avec l'option <code>-S</code>.</p>
-<p><figure id="_figure-5"><img alt="Assemblage d'un programme C pré-processé en assembleur" class="drawio-diagram" src="../../../assets/images/assembly.drawio"/><figcaption> Assemblage d'un programme C pré-processé en assembleur</figcaption></figure></p>
-<p><figure id="_figure-6"><img alt="Traduction d'un programme C pré-processé en objet binaire" class="drawio-diagram" src="../../../assets/images/build.drawio"/><figcaption> Traduction d'un programme C pré-processé en objet binaire</figcaption></figure></p>
+<p>La phase de compilation consiste en une analyse syntaxique du fichier à compiler selon la grammaire du langage puis en sa traduction en langage assembleur pour le processeur cible. Le fichier généré est un fichier binaire (extension <code>.o</code> ou <code>.obj</code>) qui sera utilisé pour la phase suivante. Lors de la <em>compilation</em>, des erreurs peuvent survenir et empêcher le déroulement complet de la génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur.</p>
+<p>À l'instar de l'option <code>-E</code> vue plus haut, il est aussi possible de ne demander que l'assemblage d'un code avec l'option <code>-S</code>. À partir d'un fichier pré-processé, le compilateur génère un fichier assembleur qui est un fichier texte lisible par un humain (qui connaît l'assembleur) et qui contient les instructions du processeur cible. Cette étape est illustrée dans la figure suivante.</p>
+<p><figure id="_figure-4"><img alt="Assemblage d'un programme C pré-processé en assembleur" class="drawio-diagram" src="../../../assets/images/assembly.drawio"/><figcaption> Assemblage d'un programme C pré-processé en assembleur</figcaption></figure></p>
+<p>Une fois généré le fichier assembleur, il doit encore est transformé en langage machine, c'est-à-dire en un fichier binaire. Cette étape est réalisée par un programme appelé <em>as</em> qui prend en entrée le fichier assembleur et génère un fichier binaire comme le montre la figure suivante.</p>
+<p><figure id="_figure-5"><img alt="Traduction d'un programme C pré-processé en objet binaire" class="drawio-diagram" src="../../../assets/images/build.drawio"/><figcaption> Traduction d'un programme C pré-processé en objet binaire</figcaption></figure></p>
 <h3 id="edition-de-liens-link">Édition de liens (<em>link</em>)<a class="headerlink" href="#edition-de-liens-link" title="Lien permanent">¤</a></h3>
-<p>La phase d'édition de liens permet de rassembler le fichier binaire issu de la compilation et les autres fichiers binaires nécessaires au programme pour former un exécutable complet. Les autres fichiers binaires sont appelés des <strong>librairies</strong>. Elles peuvent appartenir au système (installée avec l'environnement de développement) ou provenir d'autres applications avec lesquelles votre programme doit interagir. Lors de l'édition de liens, des erreurs peuvent survenir et empêcher le
-déroulement complet de génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.</p>
-<p><figure id="_figure-7"><img alt="Édition des liens de plusieurs objets" class="drawio-diagram" src="../../../assets/images/link.drawio"/><figcaption> Édition des liens de plusieurs objets</figcaption></figure></p>
+<p>L'édition de liens permet d'assembler ensemble les différents fichiers binaires (<code>.o</code>) issus de la compilation et d'autres fichiers binaires nécessaires au programme pour former un exécutable complet. Ces autres fichiers binaires sont appelés des <strong>bibliothèques</strong> ou plus communément <em>librairies</em>. Elles peuvent appartenir au système d'exploitation, ou avoir été installées manuellement avec l'environnement de développement. L'édition de liens à pour rôle de résoudre les références entre les différents fichiers binaires et de générer un exécutable complet.</p>
+<p>Imaginez un livre dont vous êtes le héros. Plusieurs auteurs différents peuvent prendre en charge des chapitres différents et lors des choix laissez des marques substitutives pour le numéro de page où le lecteur doit se rendre :</p>
+<blockquote>
+<p>Face à cette horde de créatures, vous avez le choix entre : attaquer le Golème qui semble être le chef, rendez-vous à la page XXX, ou fuir par la porte dérobée, rendez-vous à la page XXX.</p>
+</blockquote>
+<p>Naturellement vous ne connaîtrez le numéro de page exact qu'une fois que tous les chapitres seront réunis. L'édition de liens est un peu comme l'assemblage de tous les chapitres pour former un livre complet, elle s'occupe de remplacer les marques substitutives par les bons numéros de pages. Cette étape est illustrée dans la figure suivante.</p>
+<p><figure id="_figure-6"><img alt="Édition des liens de plusieurs objets" class="drawio-diagram" src="../../../assets/images/link.drawio"/><figcaption> Édition des liens de plusieurs objets</figcaption></figure></p>
 <p><a href="" id="hello-world"></a></p>
 <h2 id="hello-world_1">Hello World !<a class="headerlink" href="#hello-world_1" title="Lien permanent">¤</a></h2>
 <p>Il est traditionnellement coutume depuis la publication en 1978 du livre <a href="https://en.wikipedia.org/wiki/The_C_Programming_Language">The C Programming Language</a> de reprendre l'exemple de Brian Kernighan comme premier programme.</p>
@@ -5263,50 +5282,51 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 </span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Ce programme est composé de deux parties. L'inclusion de la <em>library</em> standard d'entrées sorties (<em>STandarD Inputs Outputs</em>) qui définit la fonction <code>printf</code>, et le programme principal nommé <code>main</code>. Tout ce qui se situe à l'intérieur des accolades <code>{ }</code> appartient au programme <code>main</code>.</p>
-<p>L'ensemble que définit <code>main</code> et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction <code>printf</code> dont le nom vient de <em>print formatted</em>.</p>
-<p>L'appel de <code>printf</code> prend en <strong>paramètre</strong> le texte <code>Hello world!\n</code> dont le <code>\n</code> représente un retour à la ligne.</p>
-<p>Une fois le code écrit, il faut le compiler. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard, l'IDE se chargera de l'opération automatiquement.</p>
-<p>Une console lancée ressemble à ceci, c'est intimidant si l'on n’en a pas l'habitude, mais vraiment puissant.</p>
+<p>Ce programme est composé de deux parties. L'inclusion de la bibliothèque standard d'entrées sorties (<em>STandarD Inputs Outputs</em>) à l'aide d'une directive préprocesseur qui définit l'existence de la fonction <code>printf</code> qui vous permet d'écrire sur le terminal. Le programme principal est nommé <code>main</code> et tout ce qui se situe à l'intérieur des accolades <code>{ }</code> appartient à ce dernier. L'ensemble que définit <code>main</code> et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction <code>printf</code>. On prend soin de terminer chaque instruction par un point-virgule <code>;</code>. <span class="ycr-hashtag" data-index-entry="hello, world" data-tag=""></span></p>
+<p>L'appel d'une fonction comme  <code>printf</code> peut prendre des <strong>paramètres</strong> comme ici le texte <code>Hello world!\n</code> dont le <code>\n</code> représente un retour à la ligne.</p>
+<p>Une fois ce code écrit, il faut le compiler. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard vous utiliserez votre éditeur de texte favori pour écrire vos programmes.</p>
+<p>Pour obtenir un invité de commande, vous devez ouvrir un terminal. Comme nous avons choisi de travailler sur un système compatible <abbr title="Portable Operating System Interface">POSIX</abbr>, sur n'importe quel système d'exploitation vous lancez un terminal et sous Windows vous devez installer WSL2. Une fois lancée la console ressemble à ceci :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>$
 </span></code></pre></div>
-<p>La première étape est de s'assurer que le fichier <code>test.c</code> contient bien notre programme. Pour ce faire on utilise un autre programme [cat]<a href="https://fr.wikipedia.org/wiki/Cat_(Unix">https://fr.wikipedia.org/wiki/Cat_(Unix</a>)) qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :</p>
+<p>C'est intimidant si l'on n’en a pas l'habitude, mais vraiment puissant, croyez-moi ! La première étape est de s'assurer que le fichier <code>test.c</code> contient bien notre programme. Pour ce faire on utilise un autre programme <a href="https://fr.wikipedia.org/wiki/Cat_(Unix)">cat</a> qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>$<span class="w"> </span>cat<span class="w"> </span>hello.c
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1">#include &lt;stdio.h&gt;</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>int<span class="w"> </span>main<span class="o">(</span><span class="w"> </span><span class="o">)</span>
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>int<span class="w"> </span>main<span class="o">()</span>
 </span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="o">{</span>
 </span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span>printf<span class="o">(</span><span class="s2">"hello, world"</span><span class="o">)</span><span class="p">;</span>
 </span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="o">}</span>
 </span></code></pre></div>
-<p>À présent on peut utiliser notre compilateur par défaut : <code>cc</code> pour <em>C Compiler</em>. Ce compilateur prend en argument un fichier C et sans autre option, il génèrera un fichier <a href="https://fr.wikipedia.org/wiki/A.out">a.out</a> pour <em>assembler output</em>. C'est un fichier exécutable que l'on peut donc exécuter.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>$<span class="w"> </span>gcc<span class="w"> </span>hello.c
+<p>Évidemment, vous devez avoir écrit le programme <code>hello.c</code> au préalable. Alternativement vous pouvez utiliser la commande suivante pour créer le fichier <code>hello.c</code> : <span class="ycr-hashtag" data-index-entry="echo" data-tag=""></span></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'#include &lt;stdio.h&gt;\n\nint main()\n{\n  printf("hello, world");\n}'</span><span class="w"> </span>&gt;<span class="w"> </span>hello.c
 </span></code></pre></div>
-<p>Il ne s'est rien passé, c'est une bonne nouvelle. La philosophie Unix est qu'un programme soit le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur.</p>
-<p>On s'attend donc à trouver dans le répertoire courant, notre fichier source ainsi que le résultat de la compilation. Utilisons le programme <a href="https://fr.wikipedia.org/wiki/Ls">ls</a> pour le vérifier.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>$<span class="w"> </span>ls
-</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>hello.c<span class="w">       </span>a.out
+<p>À présent on peut utiliser notre compilateur par défaut : <code>cc</code> pour <em>C Compiler</em>. Ce compilateur prend en argument un fichier C et sans autre option, il génèrera un fichier <a href="https://fr.wikipedia.org/wiki/A.out">a.out</a> pour <em>assembler output</em>. C'est un fichier exécutable que l'on peut donc exécuter. <span class="ycr-hashtag" data-index-entry="cc" data-tag=""></span></p>
+<p>Utilisez donc la commande suivante pour compiler votre programme :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>$<span class="w"> </span>gcc<span class="w"> </span>hello.c
 </span></code></pre></div>
-<p>Très bien ! À présent, exécutons le programme en prenant soin de préfixer le nom par, <code>./</code> car étant un programme local <code>a.out</code> ne peut pas être accédé directement. Imaginons qu'un fourbe hackeur ait décidé de créer dans ce répertoire un programme nommé <code>ls</code> qui efface toutes vos données. La ligne de commande ci-dessus aurait eu un effet désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement nommé.</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="gp">$ </span>./a.out
-</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="go">hello, world</span>
+<p>Rien ne s'est affiché ? C'est une bonne nouvelle ! La philosophie <abbr title="Portable Operating System Interface">POSIX</abbr> est qu'un programme doit se faire le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur. Cela ne veut pas dire que la commande n'a eu aucun effet. Au contraire, on s'attend à trouver dans le répertoire courant notre fichier source ainsi que le résultat de la compilation, le fichier <code>a.out</code>. Pour le vérifier, nous utiliserons le programme <a href="https://fr.wikipedia.org/wiki/Ls">ls</a> qui liste les fichiers d'un dossier : <span class="ycr-hashtag" data-index-entry="ls" data-tag=""></span></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>$<span class="w"> </span>ls
+</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>hello.c<span class="w">       </span>a.out
 </span></code></pre></div>
-<p>Félicitations, le programme s'est exécuté.</p>
-<p>Pouvons-nous en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à sa taille sur le disque. Une fois de plus <code>ls</code> nous sera utile, mais cette fois-ci avec l'option <code>l</code>:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="gp">$ </span>ls<span class="w"> </span>-l<span class="w"> </span>a.out
-</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="go">-rwxr-xr-- 1 ycr iai 8.2K Jul 24 09:50 a.out*</span>
+<p>Très bien, nous avons bel et bien les deux fichiers. À présent, exécutons le programme en prenant soin de préfixer le nom par, <code>./</code> car les programmes générés localement comme <code>a.out</code> ne peuvent pas être accédés directement par leur nom pour des raisons de sécurité. En effet, imaginons qu'un fourbe hackeur ait décidé de créer dans ce répertoire un programme nommé <code>ls</code> qui efface toutes vos données. Lorsque vous écrivez <code>ls</code> pour voir le contenu du répertoire que vous ignorez, vous exécutez en réalité le programme <code>ls</code> contenu dans ce répertoire et l'effet serait pour vous désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement préfixé par <code>./</code> pour être exécuté. À vous de jouer :</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="gp">$ </span>./a.out
+</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="go">hello, world</span>
 </span></code></pre></div>
-<p>Décortiquons tout cela :</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="go">-             Il s'agit d'un fichier</span>
-</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="go">rwx           Lisible (r), Éditable (w) et Exécutable (x) par le propriétaire</span>
-</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="go">r-x           Lisible (r) et Exécutable (x) par le groupe</span>
-</span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="go">r--           Lisible (r) par les autres utilisateurs</span>
-</span><span id="__span-10-5"><a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="go">1             Nombre de liens matériels pour ce fichier</span>
-</span><span id="__span-10-6"><a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="go">ycr           Nom du propriétaire</span>
-</span><span id="__span-10-7"><a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="go">iai           Nom du groupe</span>
-</span><span id="__span-10-8"><a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="go">8.2K          Taille du fichier, soit 8200 bytes soit 65'600 bits</span>
-</span><span id="__span-10-9"><a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="go">Jul 24 09:50  Date de création du fichier</span>
-</span><span id="__span-10-10"><a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="go">a.out         Nom du fichier</span>
+<p>Félicitations, le programme s'est exécuté correctement. Mais maintenant, peut-on en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à la taille qu'il occupe dans votre espace de stockage (disque dur). Une fois de plus <code>ls</code> nous est utile, mais cette fois-ci avec l'option <code>l</code> :</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="gp">$ </span>ls<span class="w"> </span>-l<span class="w"> </span>a.out
+</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="go">-rwxr-xr-- 1 ycr iai 8.2K Jul 24 09:50 a.out*</span>
+</span></code></pre></div>
+<p>Voyons ensemble le détail de ce charabia lu de gauche à droite :</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="go">-             Il s'agit d'un fichier</span>
+</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="go">rwx           Lisible (r), Éditable (w) et Exécutable (x) par le propriétaire</span>
+</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="go">r-x           Lisible (r) et Exécutable (x) par le groupe</span>
+</span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="go">r--           Lisible (r) par les autres utilisateurs</span>
+</span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="go">1             Nombre de liens matériels pour ce fichier</span>
+</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="go">ycr           Nom du propriétaire</span>
+</span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="go">iai           Nom du groupe</span>
+</span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="go">8.2K          Taille du fichier, soit 8200 bytes soit 65'600 bits</span>
+</span><span id="__span-11-9"><a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="go">Jul 24 09:50  Date de création du fichier</span>
+</span><span id="__span-11-10"><a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="go">a.out         Nom du fichier</span>
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -5315,7 +5335,19 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <p>Il est donc essentiel d'avoir l'œil sur ces détails, vous le verrez par la suite, vous développerez une certaine facilité à repérer les <code>;</code> manquants, les <code>{}</code> mal placées, les <code>==</code> qui devraient être <code>=</code>, etc.</p>
 <p>Mais avant tout, c'est la cohérence de l'ensemble qui doit primer. Si vous avez choisi d'écrire <code>Hello, World!</code>, alors écrivez-le partout de la même manière, dans tous vos exemples, dans tous vos commentaires, dans toute votre documentation.</p>
 </div>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Lien permanent">¤</a></h2>
+<p>Le langage C inventé dans les années 70 par des pionniers de l'informatique demeure aujourd'hui un pilier fondamental dans le monde de la programmation, en particulier pour le développement d'applications embarquées et de systèmes d'exploitation. Son efficacité, sa proximité avec le matériel, et sa capacité à offrir un contrôle précis sur les ressources en font un langage toujours pertinent, malgré l'émergence de concurrents modernes comme Rust ou Zig.</p>
+<p>Son histoire riche, marquée par des figures emblématiques comme Dennis Ritchie et Ken Thompson, ainsi que son influence sur une multitude d'autres langages, témoigne de sa longévité et de son importance. Apprendre le C, c'est non seulement comprendre les fondations de la programmation, mais aussi acquérir des compétences essentielles pour tout développeur souhaitant maîtriser les rouages du matériel et des systèmes informatiques.</p>
+<p>Le développement en C suit un cycle de développement rigoureux passant par différentes étapes que le développeur doit comprendre. Maintenant que vous avez réussi à compiler votre premier programme, vous êtes prêt pour la suite...</p>
 <h2 id="exercices-de-revision">Exercices de Révision<a class="headerlink" href="#exercices-de-revision" title="Lien permanent">¤</a></h2>
+<div class="admonition exercise">
+<p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Exercice<span class="exercise-title"></span></p>
+<p>Ouvrez le standard <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a> et cherchez la valeur maximale possible de la constante <code>ULLONG_MAX</code>. Que vaut-elle ?</p>
+<details class="solution">
+<summary>Solution</summary>
+<p>Au paragraphe §5.2.4.2.1-1 on peut lire que <code>ULLONG_MAX</code> est encodé sur 64-bits et donc que sa valeur est <span class="arithmatex">\(2^{64}-1\)</span> donc <code>18'446'744'073'709'551'615</code>.</p>
+</details>
+</div>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Hello World<span class="exercise-title"></span></p>
 <p>Pouvez-vous écrire, puis compiler votre premier programme en C ? Rédiger le programme <code>hello.c</code> qui affiche <code>Hello, World!</code> à l'écran.</p>
@@ -5460,7 +5492,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 </ul>
 </div>
 <div class="admonition exercise checkbox">
-<p class="admonition-title"><span class="exercise-label">Exercice 4 : </span>Standardisation<span class="exercise-title"></span></p>
+<p class="admonition-title"><span class="exercise-label">Exercice 4 : </span>Standard International<span class="exercise-title"></span></p>
 <p>Quel est le standard C à utiliser dans l'industrie en 2024 et pourquoi ?</p>
 <ul class="exercise-list">
 <li class="flex-container">
@@ -5865,7 +5897,7 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 19, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2024</span>
   </span>
 
     
@@ -6007,13 +6039,13 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
         
         
           
-          <a href="../../10-numeration/introduction/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Introduction">
+          <a href="../../10-numeration/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Numération">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Introduction
+                Numération
               </div>
             </div>
             <div class="md-footer__button md-icon">

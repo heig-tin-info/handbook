@@ -740,7 +740,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Être développeur
+    Développement logiciel
   
 
     
@@ -828,6 +828,10 @@ les outils associés.
     
       
         
+          
+        
+      
+        
       
         
       
@@ -846,8 +850,10 @@ les outils associés.
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     
@@ -860,8 +866,14 @@ les outils associés.
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
@@ -875,19 +887,21 @@ les outils associés.
           <ul class="md-nav__list" data-md-scrollfix>
             
               
+            
+              
                 
   
   
   
   
     <li class="md-nav__item">
-      <a href="../introduction/" class="md-nav__link">
+      <a href="../data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    Data
   
 
     
@@ -4928,7 +4942,7 @@ les outils associés.
     
     
       <li class="md-path__item">
-        <a href="../introduction/" class="md-path__link">
+        <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
     Numération
@@ -4967,7 +4981,7 @@ les outils associés.
 
 
 <h1 id="nombres">Nombres<a class="headerlink" href="#nombres" title="Lien permanent">¤</a></h1>
-<p>Vous avez tous appris dans votre enfance à compter, puis vous avez appris que les nombres se classifient dans des ensembles. Les mathématiciens ont défini des ensembles de nombres pour lesquels des propriétés particulières sont vérifiées ; ces ensembles sont imbriqués les uns dans les autres, et chaque ensemble est un sous-ensemble de l'ensemble suivant.</p>
+<p>Vous avez tous appris dans votre enfance à compter, puis vous avez appris que les nombres se classifient dans des ensembles. Les mathématiciens ont défini des ensembles de nombres pour lesquels des propriétés particulières sont vérifiées ; ces ensembles sont imbriqués les uns dans les autres, et chaque ensemble est un sous-ensemble de l'ensemble suivant. La figure suivante illustre cette hiérarchie.</p>
 <div class="arithmatex">\[
 \mathbb{N} \in \mathbb{Z} \in \mathbb{Q} \in \mathbb{R} \in \mathbb{C} \in \mathbb{H} \in \mathbb{O} \in \mathbb{S}
 \]</div>
@@ -4988,28 +5002,23 @@ les outils associés.
 <p class="admonition-title">Quaternions, octonions et sédénions</p>
 <p>Les <span class="ycr-hashtag" data-index-entry="quaternions" data-tag="quaternions">quaternions</span>, <span class="ycr-hashtag" data-index-entry="octonions" data-tag="octonions">octonions</span> et <span class="ycr-hashtag" data-index-entry="sédénions" data-tag="sedenions">sédénions</span> sont des <span class="ycr-hashtag" data-index-entry="nombres hypercomplexes" data-tag="nombres-hypercomplexes">nombres hypercomplexes</span> qui généralisent les <span class="ycr-hashtag" data-index-entry="nombres complexes" data-tag="nombres-complexes">nombres complexes</span>. Ils sont utilisés en physique pour décrire les rotations dans l'espace.</p>
 <p>Les quaternions sont utilisés en informatique pour représenter les rotations en 3D. Les octonions et sédénions sont des généralisations des quaternions, mais ils sont moins utilisés en pratique.</p>
-<p>A chaque fois que s'éloigne du réel (et c'est une manière amusante de le dire), on perd des propriétés intéressantes. Les nombres complexes ne sont pas ordonnés, les quaternions ne sont pas commutatifs, les octonions ne sont pas associatifs, et les sédénions ne sont même pas alternatifs. Un nombre alternatif est un nombre pour lequel la formule suivante est vérifiée :</p>
+<p>À chaque fois que s'éloigne du réel (et c'est une manière amusante de le dire), on perd des propriétés intéressantes. Les nombres complexes ne sont pas ordonnés, les quaternions ne sont pas commutatifs, les octonions ne sont pas associatifs, et les sédénions ne sont même pas alternatifs. Un nombre alternatif est un nombre pour lequel la formule suivante est vérifiée :</p>
 <div class="arithmatex">\[
 (a \cdot a) \cdot b = a \cdot (a \cdot b)
 \]</div>
-<p>En pratique dans une carrière d'ingénieur, vous n'aurez jamais à manipuler ni des quaternions, ni octonions ou sédénions. Les nombres complexes sont néanmoins une extension des nombres réels qui sont utilisés en physique et en mathématiques.</p>
+<p>En pratique dans une carrière d'ingénieur, vous n'aurez jamais à manipuler ni des quaternions, ni des octonions ou des sédénions. Les nombres complexes sont néanmoins une extension des nombres réels qui sont utilisés en physique et en mathématiques et qui peuvent être utilisés en C sous certaines conditions.</p>
 </div>
-<p>Un nombre arbitraire n'est pas directement associé à une quantité d'information. Le nombre <span class="arithmatex">\(\pi\)</span> est irrationnel, c'est-à-dire qu'il ne se termine jamais et ne se répète jamais. Il est donc impossible de stocker <span class="arithmatex">\(\pi\)</span> en mémoire, car il faudrait une quantité infinie de bits pour le représenter.</p>
-<p><span class="ycr-hashtag" data-index-entry="Archimède" data-tag="archimede">Archimède</span> disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (Donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : Donnez moi un nombre et je vous construirai l'univers ! Bien entendu la quantité d'information dans l'univers est colossale, elle croît avec l'entropie et donc avec le temps qui passe.</p>
-<div class="admonition info">
-<p class="admonition-title">Minecraft</p>
-<p>Dans <span class="ycr-hashtag" data-index-entry="Minecraft" data-tag="minecraft">Minecraft</span>, lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un monde aléatoire. Cette <span class="ycr-hashtag" data-index-entry="graine" data-tag="graine">graine</span> est un nombre fini qui sert de base à l'algorithme de génération de monde. Si vous utilisez la même graine, vous obtiendrez le même monde. La graine -5584399987456711267 permet par exemple d'obtenir de merveilleux cerisiers en fleurs qui rappelle la saison de Sakura à Kyoto.</p>
-<p>Mais pour que cela fonctionne il vous faut le code source de Minecraft, lui aussi c'est une succession de 0 et de 1, et donc c'est un nombre, lui aussi fini.</p>
-<p>Enfin, lorsque vous jouez, vos actions génèrent de l'information qui influence le monde, et donc la quantité d'information dans le monde croît. C'est pour cela que plus vous jouez, plus la sauvegarde de votre monde devient grande, mais vous pouvez la représenter aussi avec un nombre fini.</p>
-</div>
-<p>Les mémoires des ordinateurs ne sont pas infinies, elles sont limitées par la quantité de transistors qui les composent. Il n'est donc pas possible d'y stocker n'importe quel nombre. <span class="arithmatex">\(\pi\)</span> ne peut pas être stocké en mémoire, mais une approximation de <span class="arithmatex">\(\pi\)</span> peut l'être.</p>
-<p>Aussi, l'informatique impose certaines limitations sur les nombres que l'on peut manipuler. Les nombres entiers sont les plus simples à manipuler, mais ils sont limités par la taille de la mémoire et la manière dont on les enregistre en mémoire. C'est ce que nous allons voir.</p>
+<p><span class="ycr-hashtag" data-index-entry="Archimède" data-tag="archimede">Archimède</span> disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : donnez-moi un nombre et je vous construirai un univers ! Bien entendu la quantité d'information dans l'univers est gargantuesque, elle croît avec l'entropie et donc avec le temps qui passe, mais à sa genèse à l'origine du temps et de l'espace, il n'est pas impensable que l'univers ait pu être créé à partir d'un nombre. C'est une idée qui a été explorée par <span class="ycr-hashtag" data-index-entry="Stephen Wolfram" data-tag="stephen-wolfram">Stephen Wolfram</span> dans son livre <span class="ycr-hashtag" data-index-entry="A New Kind of Science" data-tag="a-new-kind-of-science">A New Kind of Science</span>. Cette vision repose sur l'idée que l'univers pourrait être vu comme une sorte de système informatique ou algorithmique, où des lois fondamentales simples évoluent pour produire la diversité des phénomènes que nous observons.</p>
+<p>Dans le jeu <span class="ycr-hashtag" data-index-entry="Minecraft" data-tag="minecraft">Minecraft</span>, lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un monde aléatoire. Cette <span class="ycr-hashtag" data-index-entry="graine" data-tag="graine">graine</span> est un nombre fini qui sert de base à l'algorithme de génération de monde. Si vous utilisez la même graine, vous obtiendrez le même <span class="ycr-hashtag" data-index-entry="monde" data-tag="monde">monde</span>. La graine -5584399987456711267 permet par exemple d'obtenir de merveilleux cerisiers en fleurs qui rappelle la saison de <span class="ycr-hashtag" data-index-entry="Sakura" data-tag="sakura">Sakura</span> à <span class="ycr-hashtag" data-index-entry="Kyoto" data-tag="kyoto">Kyoto</span>. Mais pour que cela fonctionne il vous faut le code source de Minecraft, lui aussi c'est une succession de 0 et de 1, et donc c'est un nombre, lui aussi fini.</p>
+<p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/minecraft.png"><img alt="Monde correspondant à la graine -5584399987456711267" src="../../../assets/images/minecraft.png"/></a><figcaption> Monde correspondant à la graine -5584399987456711267</figcaption></figure></p>
+<p>Lorsque vous jouez, vos actions génèrent de l'information qui influence le monde, et donc la quantité d'information dans le monde croît avec l'entropie que vous injectez dans le système. C'est pour cela que plus vous jouez, plus la sauvegarde de votre monde devient grande, mais vous pouvez toujours la représenter aussi avec un nombre fini : une succession de 0 et de 1.</p>
+<p>À noter que les mémoires des ordinateurs ne sont pas infinies, elles sont limitées par la quantité de transistors qui les composent. Il n'est donc pas possible d'y stocker n'importe quel nombre. <span class="arithmatex">\(\pi\)</span> ne peut pas être stocké en mémoire, mais une approximation de <span class="arithmatex">\(\pi\)</span> peut l'être. Aussi, l'informatique impose certaines limitations sur les nombres que l'on peut manipuler. Les nombres entiers sont les plus simples à manipuler, mais ils sont limités par la taille de la mémoire et la manière dont on les enregistre en mémoire. Il est donc utile de se fixer des limites, de définir des bornes en fonction de l'usage que l'on veut en faire. La graine de Minecraft est par exemple un nombre de 64 bits et c'est un nombre entier.</p>
 <h2 id="entiers-naturels">Entiers naturels<a class="headerlink" href="#entiers-naturels" title="Lien permanent">¤</a></h2>
 <p>En mathématiques, un <a href="https://fr.wikipedia.org/wiki/Entier_naturel">entier naturel</a> est un nombre positif ou nul. Chaque nombre à un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, et donc sans signe et sans virgule. L'ensemble des entiers naturels est défini de la façon suivante :</p>
 <div class="arithmatex">\[
 \mathbb{N} = {0, 1, 2, 3, ...}
 \]</div>
-<p>Les entiers sont les premiers types de données manipulés par les ordinateurs. Ils sont stockés en mémoire sous forme de bits. En choisissant la taille de stockage des entiers, on détermine la plage de valeurs que l'on peut représenter. Un entier de 8 bits peut représenter <span class="arithmatex">\(2^8 = 256\)</span> valeurs différentes, de 0 à 255. Un entier de 16 bits peut représenter <span class="arithmatex">\(2^{16} = 65536\)</span> valeurs différentes, de 0 à 65535.</p>
+<p>Les entiers sont les premiers types de données manipulés par les ordinateurs. Ils sont stockés en mémoire sous forme de bits. En choisissant la taille de stockage des entiers, on détermine la plage de valeurs que l'on peut représenter. Un entier de 8 bits peut par exemple représenter <span class="arithmatex">\(2^8 = 256\)</span> valeurs différentes, de 0 à 255. Un entier de 16 bits peut quant à lui représenter <span class="arithmatex">\(2^{16} = 65536\)</span> valeurs différentes, de 0 à 65535. À chaque bit supplémentaire, on double la plage de valeurs représentables.</p>
 <div class="admonition example">
 <p class="admonition-title">Exemple</p>
 <p>Le nombre 142 peut s'écrire sur 8 bits en binaire, avec une notation positionnelle (où les bits sont alignés par poids décroissants) on peut écrire :</p>
@@ -5020,18 +5029,18 @@ les outils associés.
 \end{array}
 \]</div>
 </div>
-<p>La taille de stockage d'un entier détermine donc ses limites. Si cette manière est élégante, elle ne permet pas de représenter des valeurs négatives. Pour cela, on aura recours aux entiers relatifs.</p>
+<p>La taille de stockage d'un entier détermine donc ses limites. Si cette manière est élégante, elle ne permet hélas pas de représenter des valeurs négatives. Pour cela, on aura recours aux entiers relatifs.</p>
 <h2 id="entiers-relatifs">Entiers relatifs<a class="headerlink" href="#entiers-relatifs" title="Lien permanent">¤</a></h2>
 <p>Mathématiquement un <strong>entier relatif</strong> appartient à l'ensemble <span class="arithmatex">\(\mathbb{Z}\)</span>:</p>
 <div class="arithmatex">\[
 \mathbb{Z} = {..., -3, -2, -1, 0, 1, 2, 3, ...}
 \]</div>
-<p>Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car manque une information permettant d'encoder le symbole pour le signe <code>-</code> (ni même d'ailleurs <code>+</code>).</p>
+<p>Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son <span class="ycr-hashtag" data-index-entry="encodage" data-tag="encodage">encodage</span> et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car manque une information permettant d'encoder le symbole pour le signe <code>-</code> (ni même d'ailleurs <code>+</code>).</p>
 <p>Une approche naïve serait de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. Un peu comme si vous aviez deux boîtes chez vous, l'une pour les choses qui se mangent (le frigo) et une pour les choses qui ne se mangent plus (la poubelle).</p>
-<p>L'ennui pour les <strong>variables</strong> c'est que le contenu peut changer et qu'un nombre négatif pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meilleure méthode.</p>
+<p>L'ennui pour les <strong>variables</strong> c'est que le contenu peut changer et qu'un <span class="ycr-hashtag" data-index-entry="nombre négatif" data-tag="nombre-negatif">nombre négatif</span> pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meilleure méthode.</p>
 <p>On pourrait alors renseigner la nature du nombre, c'est-à-dire son signe avec sa valeur.</p>
 <h3 id="bit-de-signe">Bit de signe<a class="headerlink" href="#bit-de-signe" title="Lien permanent">¤</a></h3>
-<p>Pourquoi ne pas se réserver un <span class="ycr-hashtag" data-index-entry="bit de signe" data-tag="bit-de-signe">bit de signe</span>, par exemple le 8<sup>e</sup> bit de notre nombre de 8 bits, pour indiquer si le nombre est positif ou négatif ?</p>
+<p>Pourquoi ne pas se réserver un <span class="ycr-hashtag" data-index-entry="bit de signe" data-tag="bit-de-signe">bit de signe</span>, par exemple le 8<sup>e</sup> bit de notre nombre de 8 bits, pour indiquer si le nombre est positif ou négatif ? C'est cet exemple qui est montré ici :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>┌─┐┌─┬─┬─┬─┬─┬─┬─┐
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>│0││1│0│1│0│0│1│1│ = (0 * (-1)) * 0b1010011 = 83
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>└─┘└─┴─┴─┴─┴─┴─┴─┘
@@ -5039,9 +5048,9 @@ les outils associés.
 </span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>│1││1│0│1│0│0│1│1│ = (1 * (-1)) * 0b1010011 = -83
 </span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>└─┘└─┴─┴─┴─┴─┴─┴─┘
 </span></code></pre></div>
-<p>Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable est ici n'est plus que de <code>[-127..127]</code>. Elle présente un autre inconvénient majeur : la représentation de zéro.</p>
-<p>Il existe alors deux zéros, le zéro négatif <code>0b00000000</code>, et le zéro positif <code>0b10000000</code> ce qui peut poser des problèmes pour les comparaisons. Est-ce que <span class="arithmatex">\(0\)</span> est égal <span class="arithmatex">\(-0\)</span> ? En un sens oui, mais en termes de l'information stockée, ce n'est pas le même nombre.</p>
-<p>En termes de calcul, l'addition ne fonctionne plus si on raisonne sur les bits. Car si on additionne au zéro positif (<code>0b10000000</code>) la valeur 1 on aura 1, mais si on additionne au zéro négatif (<code>0b00000000</code>) la valeur 1 on obtiendra -1. C'est un peu déroutant.</p>
+<p>Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable est n'est plus que de <code>[-127..127]</code>. Néanmoins, elle présente un autre inconvénient majeur : la représentation du zéro.</p>
+<p>Dans cette représentation, il existe deux zéros : le <span class="ycr-hashtag" data-index-entry="zéro" data-tag="zero">zéro</span> négatif <code>0b00000000</code>, et le zéro positif <code>0b10000000</code> ce qui peut poser des problèmes pour les comparaisons. Est-ce que <span class="arithmatex">\(0\)</span> est égal <span class="arithmatex">\(-0\)</span> ? En un sens oui, mais en termes de l'information stockée, ce n'est pas le même nombre.</p>
+<p>En termes de calculs, l'<span class="ycr-hashtag" data-index-entry="addition" data-tag="addition">addition</span> ne fonctionne plus si on raisonne sur les bits. Car si on additionne au zéro positif (<code>0b10000000</code>) la valeur 1 on aura 1, mais si on additionne au zéro négatif (<code>0b00000000</code>) la valeur 1 on obtiendra -1 et c'est un peu déroutant :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>000   001   010   011   100   101   110   111
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>─┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼───&gt;
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
@@ -5049,7 +5058,7 @@ les outils associés.
 </span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>─┼─────┼─────┼─────┼─&gt;  ─┼─────┼─────┼─────┼───&gt; Méthode du bit de signe
 </span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a> 0     1     2     3     0    -1    -2    -3
 </span></code></pre></div>
-<p>Il faudrait donc trouver une méthode qui permettrait de conserver la possibilité de faire les opérations directement en binaire. En d'autres termes on aimerait pouvoir calculer en base deux sans se soucier du signe :</p>
+<p>Il faudrait donc trouver une méthode qui permettrait de conserver la possibilité de faire les opérations directement en binaire. En d'autres termes, on souhaiterait pouvoir calculer en base deux sans se soucier du signe :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>  00000010 (2)
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>- 00000101 (5)
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>----------
@@ -5061,7 +5070,7 @@ les outils associés.
 <li>Le double zéro (positif et négatif) est gênant.</li>
 </ol>
 <h3 id="complement-a-un">Complément à un<a class="headerlink" href="#complement-a-un" title="Lien permanent">¤</a></h3>
-<p>Le <strong>complément à un</strong> est une méthode plus maline utilisée dans les premiers ordinateurs comme le <a href="https://fr.wikipedia.org/wiki/Control_Data_6600">CDC 6600</a> (1964) ou le <a href="https://en.wikipedia.org/wiki/UNIVAC_1100/2200_series">UNIVAC 1107</a> (1962). Il existe également un bit de signe, mais il est implicite. <span class="ycr-hashtag" data-index-entry="complément à un" data-tag=""></span></p>
+<p>Le <strong><span class="ycr-hashtag" data-index-entry="complément à un" data-tag="complement-a-un">complément à un</span></strong> est une méthode plus maline utilisée dans les premiers ordinateurs comme le <a href="https://fr.wikipedia.org/wiki/Control_Data_6600">CDC 6600</a> (1964) ou le <a href="https://en.wikipedia.org/wiki/UNIVAC_1100/2200_series">UNIVAC 1107</a> (1962). Il existe également un bit de signe, mais il est implicite.</p>
 <p>Le complément à un tire son nom de sa définition générique nommée <em>radix-complement</em> ou complément de base et s'exprime par :</p>
 <div class="arithmatex">\[
 b^n - y
@@ -5082,13 +5091,15 @@ b^n - y
 </dd>
 </dl>
 <p>Ainsi, il est facile d'écrire le <span class="ycr-hashtag" data-index-entry="complément à neuf" data-tag="complement-a-neuf">complément à neuf</span> d'un nombre en base dix, car on s'arrange pour que chaque chiffre composant le nombre on trouve un autre chiffre dont la somme est égale à neuf.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>0 1 2 3 4 5 6 7 8 9
-</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>        |
-</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>        | Complément à 9
-</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>        v
-</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>9 8 7 6 5 4 3 2 1 0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>  0 1 2 3 4 5 6 7 8 9
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>          |
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>          | Complément à 9
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>          v
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>+ 9 8 7 6 5 4 3 2 1 0
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>  -------------------
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>  9 9 9 9 9 9 9 9 9 9
 </span></code></pre></div>
-<p>On notera avec beaucoup d'intérêt qu'un calcul est possible avec cette méthode. À gauche on a une soustraction classique, à droite on remplace la soustraction par une addition ainsi que les valeurs négatives par leur complément à 9. Le résultat <code>939</code> correspond à <code>60</code>.</p>
+<p>On notera avec beaucoup d'intérêt qu'un calcul est possible avec cette méthode. Sur l'exemple suivant, à gauche, on montre une soustraction classique, à droite on remplace la soustraction par une addition ainsi que les valeurs négatives par leur complément à 9. Le résultat <code>939</code> correspond après complément à un à <code>60</code>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>  150      150
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>- 210    + 789
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>-----    -----
@@ -5111,58 +5122,62 @@ b^n - y
 </span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>----------
 </span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>  11111011 (-4)
 </span></code></pre></div>
-<p>En résumé, la méthode du complément à 1 :</p>
+<p>Pour résumer les avantages et inconvénients du complément à un :</p>
 <ol>
 <li>Les opérations redeviennent presque triviales, mais il est nécessaire de soustraire 1 au résultat (c'est dommage).</li>
 <li>Le double zéro (positif et négatif) est gênant.</li>
 </ol>
 <p><a href="" id="twos_complement"></a></p>
 <h3 id="complement-a-deux">Complément à deux<a class="headerlink" href="#complement-a-deux" title="Lien permanent">¤</a></h3>
-<p>Le <span class="ycr-hashtag" data-index-entry="complément à deux" data-tag="complement-a-deux">complément à deux</span> n'est rien d'autre que le complément à un <strong>plus</strong> un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles et de 2 (<code>0</code> et <code>1</code>). On ne peut pas trouver un chiffre tel que la somme fasse <code>2</code>. C'est la même idée que de demander le complément à 10 en base 10.</p>
+<p>Le <span class="ycr-hashtag" data-index-entry="complément à deux" data-tag="complement-a-deux">complément à deux</span> n'est rien d'autre que le complément à un <strong>plus</strong> un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles et de 2 (<code>0</code> et <code>1</code>). On ne peut pas trouver un chiffre tel que la somme donne <code>2</code>. C'est la même idée que de demander le complément à 10 en base 10. Vous ne pouvez pas sur la base d'un chiffre unique obtenir un autre chiffre dont la somme est égale à 10 sans avoir recours à un autre chiffre.</p>
 <p>Pour réaliser ce complément à deux (complément à un plus un), il y a deux étapes :</p>
 <ol>
 <li>Calculer le complément à un du nombre d'entrées.</li>
 <li>Ajouter 1 au résultat.</li>
 </ol>
-<p>Oui, et alors, en quoi cela change la donne ? Surprenamment, on résout tous les problèmes amenés par le complément à un :</p>
+<p>Oui, et alors, en quoi cela change le <a href="https://fr.wikipedia.org/wiki/Schmilblick">Schmilblick</a> ? Surprenamment, on résout tous les problèmes amenés par le complément à un. Prenons les différentes représentations que nous avons vues jusqu'à présent :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>000   001   010   011   100   101   110   111
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>─┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼───&gt;
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a> 0     1     2     3     4     5     6     7     sans complément
-</span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a> 0     1     2     3    -3    -2    -1     0     complément à un
-</span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a> 0     1     2     3    -4    -3    -2    -1     complément à deux
+</span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a> 0     1     2     3     0    -1    -2    -3     avec bit de signe
+</span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a> 0     1     2     3    -3    -2    -1     0     complément à un
+</span><span id="__span-7-6"><a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a> 0     1     2     3    -4    -3    -2    -1     complément à deux
 </span></code></pre></div>
-<p>Au niveau du calcul :</p>
+<p>On peut également les représenter sous forme d'un cercle comme illustré sur la figure suivante :</p>
+<p><figure id="_figure-3"><img alt="Cercle des nombres" class="drawio-diagram" src="../../../assets/images/complement-circle.drawio"/><figcaption> Cercle des nombres</figcaption></figure></p>
+<p>Avec le bit de signe, on observe deux ruptures dans la continuité de la représentation. Un saut de <code>3,0</code> et un autre <code>-3,0</code>. Avec le complément à un, on n'observe toujours deux sauts <code>0,0</code> et <code>-3,-3</code>. Avec le complément à deux, on n'observe plus qu'un seul saut <code>3, -4</code>, et la continuité est assurée de <code>-1</code> à <code>0</code>. Par ailleurs, le zéro n'a plus de double représentation.</p>
+<p>Au niveau du calcul, l'addition et la soustraction fonctionnent de manière identique. Prenons l'exemple de la soustraction suivante :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>  2        00000010
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>- 5      + 11111011   (~0b101 + 1 == 0b11111011)
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>---     -----------
 </span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a> -3        11111101   (~0b11111101 + 1 == 0b11 == 3)
 </span></code></pre></div>
-<p>Les avantages :</p>
+<p>Cette notation est donc très élégante, car :</p>
 <ol>
 <li>Les opérations sont triviales.</li>
 <li>Le problème du double zéro est résolu.</li>
 <li>On gagne une valeur négative <code>[-128..+127]</code> contre <code>[-127..+127]</code> avec les méthodes précédemment étudiées.</li>
 </ol>
-<p>Vous l'aurez compris, le complément à deux est le mécanisme le plus utilisé dans les ordinateurs modernes pour représenter les nombres entiers négatifs.</p>
+<p>Vous l'aurez compris, le complément à deux est bien le mécanisme de représentation des nombres négatifs qui a été retenu par les informaticiens, et le plus utilisé de nos jours dans les ordinateurs. Gardez cependant à l'esprit que ces mécanismes ne sont qu'une interprétation d'un contenu binaire stocké en mémoire.</p>
 <h2 id="les-nombres-reels">Les nombres réels<a class="headerlink" href="#les-nombres-reels" title="Lien permanent">¤</a></h2>
 <p>Mathématiquement, les <a href="https://fr.wikipedia.org/wiki/Nombre_r%C3%A9el">nombres réels</a> <span class="arithmatex">\(\mathbb{R}\)</span>, sont des nombres qui peuvent être représentés par une partie entière, et une liste finie ou infinie de décimales. En informatique, stocker une liste infinie de décimale demanderait une quantité infinie de mémoire et donc, la <a href="https://fr.wikipedia.org/wiki/Pr%C3%A9cision_arithm%C3%A9tique">précision arithmétique</a> est contrainte.</p>
-<p>Au début de l'ère des ordinateurs, il n'était possible de stocker que des nombres entiers, mais
-le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La transition s'est faite progressivement, d'abord par l'apparition de la <a href="https://fr.wikipedia.org/wiki/Virgule_fixe">virgule fixe</a>, puis par la <a href="https://fr.wikipedia.org/wiki/Virgule_flottante">virgule flottante</a>.</p>
+<p>Au début de l'ère des ordinateurs, il n'était possible de stocker que des nombres entiers, mais le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir et la transition s'est faite progressivement. D'abord par l'apparition de la <a href="https://fr.wikipedia.org/wiki/Virgule_fixe">virgule fixe</a>, puis par la <a href="https://fr.wikipedia.org/wiki/Virgule_flottante">virgule flottante</a>.</p>
 <p>Le premier ordinateur avec une capacité de calcul en virgule flottante date de 1942 (ni vous ni moi n'étions probablement nés) avec le <a href="https://fr.wikipedia.org/wiki/Zuse_4">Zuse's Z4</a>, du nom de son inventeur <a href="https://fr.wikipedia.org/wiki/Konrad_Zuse">Konrad Zuse</a>.</p>
+<p>Attardons-nous un peu sur ces concepts de <span class="ycr-hashtag" data-index-entry="virgule fixe" data-tag="virgule-fixe">virgule fixe</span> et de <span class="ycr-hashtag" data-index-entry="virgule flottante" data-tag="virgule-flottante">virgule flottante</span>.</p>
 <h3 id="virgule-fixe">Virgule fixe<a class="headerlink" href="#virgule-fixe" title="Lien permanent">¤</a></h3>
-<p>Prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facilement que bien qu'il s'agisse d'un nombre entier, une virgule pourrait être ajoutée au bit zéro sans en modifier sa signification.</p>
+<p>Pour illustrer notre propos, prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facilement que bien qu'il s'agisse d'un nombre entier, une virgule pourrait être ajoutée au bit zéro sans en modifier sa signification. Dans cet exemple, ajoutons une virgule à la position 0 :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>┌─┬─┬─┬─┬─┬─┬─┬─┐
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>│0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>└─┴─┴─┴─┴─┴─┴─┴─┘
 </span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>                , / 2^0     ----&gt; 83 / 1 = 83
 </span></code></pre></div>
-<p>Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre <code>0b01010011</code> avec une <span class="ycr-hashtag" data-index-entry="virgule fixe" data-tag="virgule-fixe">virgule fixe</span> positionnée au quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisée par 8 (<span class="arithmatex">\(2^3\)</span>). On parvient alors à exprimer une grandeur réelle comportant une partie décimale :</p>
+<p>Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre <code>0b01010011</code> avec une virgule fixe positionnée à droite du quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisée par 8 (<span class="arithmatex">\(2^3\)</span>). On parvient alors à exprimer une grandeur réelle comportant une partie décimale :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>┌─┬─┬─┬─┬─┬─┬─┬─┐
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>│0│1│0│1│0│0│1│1│ = 2⁶ + 2⁴ + 2¹ + 2⁰ = 64 + 16 + 2 + 1 = 83
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>└─┴─┴─┴─┴─┴─┴─┴─┘
 </span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>          ,       / 2³     ----&gt; 83 / 8 = 10.375
 </span></code></pre></div>
-<p>Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens, est incapable sans information additionnelle d'interpréter correctement la position de la virgule puisque sa position n'est encodée nulle part. Et puisque la position de cette virgule est dans l'intervalle <code>[0..7]</code>, il serait possible d'utiliser trois bits supplémentaires à cette fin :</p>
+<p>Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens, est incapable sans information additionnelle d'interpréter correctement la position de la virgule puisque sa position n'est encodée nulle part dans le nombre. En outre, puisque la position de cette virgule est dans l'intervalle <code>[0..7]</code>, il serait possible d'utiliser trois bits supplémentaires à cette fin :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>┌─┬─┬─┬─┬─┬─┬─┬─┐
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>│0│1│0│1│0│0│1│1│ = 2⁶ + 2⁴ + 2¹ + 2⁰ = 64 + 16 + 2 + 1 = 83
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>└─┴─┴─┴─┴─┴─┴─┴─┘
@@ -5170,9 +5185,9 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 </span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>          │0│1│1│ / 2³     ----&gt; 83 / 8 = 10.375
 </span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>          └─┴─┴─┘
 </span></code></pre></div>
-<p>Cette solution est élégante, mais demande à présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.</p>
+<p>Cette solution est élégante, mais demande à présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.</p>
 <h3 id="virgule-flottante">Virgule flottante<a class="headerlink" href="#virgule-flottante" title="Lien permanent">¤</a></h3>
-<p>Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' <a href="https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)">exposant</a> et le reste de l'information la <a href="https://fr.wikipedia.org/wiki/Mantisse">mantisse</a>, qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la <a href="https://fr.wikipedia.org/wiki/Stomatopoda">mantis shrimp</a>, une quille ou crevette-mante boxeuse aux couleurs particulièrement chatoyantes). <span class="ycr-hashtag" data-index-entry="virgule flottante" data-tag=""></span></p>
+<p>Depuis l'exemple précédent, imaginons que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' <a href="https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)">exposant</a> et le reste de l'information la <a href="https://fr.wikipedia.org/wiki/Mantisse">mantisse</a>, qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la <a href="https://fr.wikipedia.org/wiki/Stomatopoda">mantis shrimp</a>, une quille ou crevette-mante boxeuse aux couleurs particulièrement chatoyantes). <span class="ycr-hashtag" data-index-entry="virgule flottante" data-tag=""></span></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>  exp.  mantisse
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>┞─┬─┬─╀─┬─┬─┬─┬─┦
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>│0│1│0│1│0│0│1│1│ = 2⁴ + 2¹ + 2⁰ = 16 + 2 + 1 = 19
@@ -5180,7 +5195,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 </span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>   └────────────&gt; / 2¹ ----&gt; 19 / 2 = 9.5
 </span></code></pre></div>
 <p>Notre construction nous permet toujours d'exprimer des grandeurs réelles, mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre <span class="arithmatex">\(1\cdot2^{7}=0.0078125\)</span> et <span class="arithmatex">\(63\)</span>. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32-bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.</p>
-<p>Dernière itération, choisissons d'étendre notre espace de stockage à ,4 octets. Réservons un bit de signe pour exprimer les grandeurs négatives, 8 bits pour l'exposant et 23 bits pour la mantisse :</p>
+<p>Poursuivons notre raisonnement. Cette fois-ci nous choisissons d'étendre notre espace de stockage à 4 octets. Un bit de signe est réservé pour exprimer les grandeurs négatives, 8 bits pour l'<span class="ycr-hashtag" data-index-entry="exposant" data-tag="exposant">exposant</span> et 23 bits pour la <span class="ycr-hashtag" data-index-entry="mantisse" data-tag="mantisse">mantisse</span> :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a> ┌ Signe 1 bit
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a> │        ┌ Exposant 8 bits
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a> │        │                             ┌ Mantisse 23 bits
@@ -5216,7 +5231,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <p>Entier non négatif plus petit que la base <span class="arithmatex">\(b\)</span>.</p>
 </dd>
 </dl>
-<p>Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres <code>binary16</code>, <code>binary32</code> ou <code>binary64</code>, selon le nombre de bits utilisé pour coder l'information. Les termes de <em>Single precision</em> ou <em>Double precision</em> sont aussi couramment utilisés. <span class="ycr-hashtag" data-index-entry="virgule flottante" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="IEEE 754" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="FPU" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="single precision" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="double precision" data-tag=""></span></p>
+<p>Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres <code>binary16</code>, <code>binary32</code> ou <code>binary64</code>, selon le nombre de bits utilisé pour coder l'information. Les termes de <em>Single precision</em> ou <em>Double precision</em> sont aussi couramment utilisés. <span class="ycr-hashtag" data-index-entry="virgule flottante" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="IEEE 754" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="FPU" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="single precision" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="double precision" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="binary XX" data-tag=""></span></p>
 <p>Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante (<a href="https://en.wikipedia.org/wiki/Floating-point_unit">FPU</a> pour <em>Floating point unit</em>) sont les suivants :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Formats de nombres en virgule flottante</caption><thead>
@@ -5242,22 +5257,22 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </tr>
 </tbody>
 </table>
-<p>Prenons le temps de faire quelques observations :</p>
+<p>Il est temps de faire quelques observations :</p>
 <ul>
-<li>Une valeur encodée en virgule flottante sera toujours une approximation d'une grandeur réelle.</li>
-<li>La précision est d'autant plus grande que le nombre de bits de la mantisse est grand.</li>
-<li>La base ayant été fixée à 2, il est possible d'exprimer <span class="arithmatex">\(1/1024\)</span> sans erreur de précision, mais pas <span class="arithmatex">\(1/1000\)</span>.</li>
-<li>Un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent <a href="https://stackoverflow.com/a/15585448/2612235">(10 à 100x)</a> pour faire des calculs en virgule flottante.</li>
-<li>Bien que le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> définisse les types virgule flottante <code>float</code>, <code>double</code> et <code>long double</code>, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé. <span class="ycr-hashtag" data-index-entry="double" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="long double" data-tag=""></span></li>
+<li>une valeur encodée en virgule flottante sera toujours une approximation d'une grandeur réelle ;</li>
+<li>la précision est d'autant plus grande que le nombre de bits de la mantisse est grand ;</li>
+<li>la base ayant été fixée à 2, il est possible d'exprimer <span class="arithmatex">\(1/1024\)</span> sans erreur de précision, mais pas <span class="arithmatex">\(1/1000\)</span> ;</li>
+<li>un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent <a href="https://stackoverflow.com/a/15585448/2612235">(10 à 100x)</a> pour faire des calculs en virgule flottante ;</li>
+<li>bien que le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> définisse les types virgule flottante <code>float</code>, <code>double</code> et <code>long double</code>, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé. <span class="ycr-hashtag" data-index-entry="double" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="long double" data-tag=""></span></li>
 </ul>
 <h3 id="simple-precision">Simple précision<a class="headerlink" href="#simple-precision" title="Lien permanent">¤</a></h3>
 <p>Le type <code>float</code> aussi dit à précision simple utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :</p>
 <ul>
 <li><span class="arithmatex">\(\pm\inf\)</span> lorsque l'exposant vaut <code>0xff</code></li>
-<li><span class="arithmatex">\((-1)^{\text{sign}}\cdot2^{\text{exp} - 127}\cdot1.\text{significand}\)</span></li>
+<li><span class="arithmatex">\((-1)^{\text{sign}}\cdot2^{\text{exp} - 127}\cdot1.\text{mantisse}\)</span></li>
 <li><span class="arithmatex">\(0\)</span> lorsque la mantisse vaut <code>0x00000</code></li>
 </ul>
-<p>La valeur de 1.0 est encodée :</p>
+<p>Voici quelques exemples. Tout d'abord, la valeur de 1.0 est encodée de la manière suivante :</p>
 <div class="arithmatex">\[
 \begin{aligned}
 0\:01111111\:00000000000000000000000_2 &amp;= \text{3f80}\: \text{0000}_{16} \\
@@ -5265,7 +5280,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 &amp;= 2^{0} \cdot 1.0 = 1.0
 \end{aligned}
 \]</div>
-<p>La valeur maximale exprimable :</p>
+<p>La valeur positive maximale exprimable est lorsque l'exposant vaut <code>0xfe</code> et la mantisse <code>0x7fffff</code> :</p>
 <div class="arithmatex">\[
 \begin{aligned}
 0\:11111110\:11111111111111111111111_2 &amp;= \text{7f7f}\: \text{ffff}_{16} \\
@@ -5283,15 +5298,15 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 &amp;≈ -3.14159274101
 \end{aligned}
 \]</div>
-<p>Vient s'ajouter les valeurs particulières suivantes :</p>
+<p>On peut encore noter quelques valeurs particulières :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>0 00000000 00000000000000000000000₂ ≡ 0000 0000₁₆ ≡ 0
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>0 11111111 00000000000000000000000₂ ≡ 7f80 0000₁₆ ≡ inf
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>1 11111111 00000000000000000000000₂ ≡ ff80 0000₁₆ ≡ −inf
 </span></code></pre></div>
 <div class="admonition bug">
 <p class="admonition-title">Dépassement de capacité</p>
-<p>Il ne faut pas oublier que la représentation des nombres en virgule flottante n'est pas exacte. Il est possible de dépasser la capacité de stockage d'un nombre en virgule flottante. La précision maximale d'un nombre en virgule flottante dépend de sa mantisse.</p>
-<p>Par exemple si l'on souhaite réaliser un intégrateur simple, nous disposons d'un compteur <code>u</code> initialisé à 1.0. À chaque itération, on incrémente <code>u</code> de 1.0. Lorsque la valeur cesse de croître, on affiche la valeur de <code>u</code>.</p>
+<p>Il ne faut pas oublier que la représentation des nombres en virgule flottante n'est pas exacte et il est possible de dépasser la capacité de stockage d'un nombre en virgule flottante. Quant à la précision maximale d'un nombre en virgule flottante, il dépend de sa mantisse.</p>
+<p>Par exemple, si l'on souhaite réaliser un intégrateur simple, nous disposons d'un compteur <code>u</code> initialisé à 1.0. À chaque itération, on incrémente <code>u</code> de 1.0. Lorsque la valeur cesse de croître, on affiche la valeur de <code>u</code>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
@@ -5308,7 +5323,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <p>Les <span class="ycr-hashtag" data-index-entry="nombre subnormal" data-tag="">nombres subnormaux</span> sont des nombres qui ne respectent pas la norme IEEE 754, mais qui sont tout de même représentables. Ils sont utilisés pour représenter des nombres très petits, proches de zéro. En effet, la norme IEEE 754 impose que le premier bit de la mantisse soit toujours égal à 1, ce qui implique que le nombre 0 ne peut pas être représenté. Les nombres subnormaux permettent de représenter des nombres très proches de zéro, en diminuant la précision de la mantisse.</p>
 </div>
 <h3 id="double-precision">Double précision<a class="headerlink" href="#double-precision" title="Lien permanent">¤</a></h3>
-<p>La double précision est similaire à la simple précision, mais avec une mantisse à <strong>52 bits</strong> et <strong>11 bits</strong> d'exposants.</p>
+<p>La double précision est similaire à la simple précision, mais avec une mantisse à <strong>52 bits</strong> et <strong>11 bits</strong> d'exposants. Le nombre est donc représentable sur <strong>64 bits</strong>. La valeur maximale est de <span class="arithmatex">\(1.7976931348623157 \times 10^{308}\)</span> et la valeur minimale de <span class="arithmatex">\(2.2250738585072014 \times 10^{-308}\)</span>. La résolution en nombre de chiffres significatifs est de 15 à 16 chiffres contre 6 à 7 pour la simple précision. Cette notation est donc très pertinente pour les calculs scientifiques, mais elle requiert aussi plus de mémoire.</p>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Expressions arithmétiques flottantes<span class="exercise-title"></span></p>
 <p>Donnez la valeur des expressions ci-dessous :</p>
@@ -5322,16 +5337,15 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </span></code></pre></div>
 </div>
 <h3 id="quadruple-precision">Quadruple précision<a class="headerlink" href="#quadruple-precision" title="Lien permanent">¤</a></h3>
-<p>Bien que ce soit marginal dans le monde de l'informatique, la <span class="ycr-hashtag" data-index-entry="quadruple précision" data-tag="quadruple-precision">quadruple précision</span> est une norme IEEE 754 qui utilise 128 bits pour stocker les nombres réels. Elle est utilisée pour des calculs scientifiques nécessitant une très grande précision comme au <span class="ycr-hashtag" data-index-entry="CERN" data-tag="cern">CERN</span> ou pour l'étude de modèles cosmologiques.</p>
-<p>La quadruple précision offre une précision de 34 chiffres significatifs, soit environ 112 bits de précision. Elle est codée sur 128 bits.</p>
-<p>Il est possible de l'utiliser avec certains compilateurs C comme GCC en utilisant le type <code>__float128</code> de la bibliothèque <code>&lt;quadmath.h&gt;</code>.</p>
+<p>Bien que ce soit marginal dans le monde de l'informatique, la <span class="ycr-hashtag" data-index-entry="quadruple précision" data-tag="quadruple-precision">quadruple précision</span> est une norme définie dans <span class="ycr-hashtag" data-index-entry="IEEE 754" data-tag="ieee-754">IEEE 754</span> qui utilise 128 bits pour stocker les nombres réels. Elle est utilisée pour des calculs scientifiques nécessitant une très grande précision comme au <span class="ycr-hashtag" data-index-entry="CERN" data-tag="cern">CERN</span> ou pour l'étude de modèles cosmologiques. La quadruple précision offre une précision de 34 chiffres significatifs, soit environ 112 bits de précision.</p>
+<p>Seul un nombre réduit de langages de programmation peut gérer nativement cette notation, et la grande majorité des processeurs n'est pas prévue pour les traiter efficacement. Il est néanmoins possible de l'utiliser avec certains compilateurs C comme GCC en utilisant le type <code>__float128</code> de la bibliothèque <code>&lt;quadmath.h&gt;</code>.</p>
 <div class="admonition warning">
-<p class="admonition-title">Avertissement</p>
-<p>Son utilisation ralenti considérablement les calculs, car les processeurs actuels ne sont pas optimisés pour ce type de calculs. Un processeur peut faire des calculs sur 64 bits en une seule opération, mais pour des calculs en quadruple précision, il doit faire plusieurs opérations pour chaque chiffre.</p>
+<p class="admonition-title">Lenteurs</p>
+<p>Utiliser la quadruple précision ralenti considérablement les calculs, car les processeurs actuels ne sont pas optimisés pour travailler sur 128 bits. Un processeur peut faire des calculs sur 64 bits en une seule opération, mais pour des calculs en quadruple précision, l'effort est considérablement plus grand.</p>
 </div>
 <h2 id="nombres-complexes">Nombres complexes<a class="headerlink" href="#nombres-complexes" title="Lien permanent">¤</a></h2>
-<p>En C, il est possible de définir des nombres complexes en utilisant le type <code>complex</code> de la bibliothèque <code>&lt;complex.h&gt;</code>. Les nombres complexes sont composés de deux parties, la partie réelle et la partie imaginaire. Ils sont souvent utilisés en mathématiques pour représenter des nombres qui ne peuvent pas être exprimés avec des nombres réels. Ils ont été introduits avec la version <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> du langage C.</p>
-<p>Néanmoins les nombres complexes ne sont pas supportés par les opérateurs du langage, il est nécessaire d'utiliser des fonctions spécifiques pour effectuer des opérations sur les nombres complexes.</p>
+<p>En C, il est possible de définir des nombres complexes en utilisant le type <code>complex</code> de la bibliothèque <code>&lt;complex.h&gt;</code>. Les nombres complexes sont composés de deux parties, la partie réelle et la partie imaginaire. Ils sont souvent utilisés en mathématiques pour représenter des nombres qui ne peuvent pas être exprimés avec des nombres réels. Ils ont été introduits avec la version <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> du standard C.  <span class="ycr-hashtag" data-index-entry="nombre complexe" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="&lt;complex.h&gt;" data-tag=""></span></p>
+<p>Néanmoins les nombres complexes ne sont pas supportés par les opérateurs du langage, il est donc nécessaire d'utiliser des fonctions spécifiques pour effectuer des opérations complexes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Dans des langages plus haut niveau comme le C++, le C# ou Python, les nombres complexes sont supportés nativement.</p>
@@ -5343,6 +5357,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </span></code></pre></div>
 <p><code>x1</code> et <code>x2</code> sont des nombres complexes.</p>
 </div>
+<p>Voici un exemple en C :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;complex.h&gt;</span>
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>
@@ -5365,86 +5380,79 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <h2 id="format-q-virgule-fixe">Format Q (virgule fixe)<a class="headerlink" href="#format-q-virgule-fixe" title="Lien permanent">¤</a></h2>
 <p>Le format <a href="https://en.wikipedia.org/wiki/Q_(number_format)">Q</a> est une notation en <span class="ycr-hashtag" data-index-entry="virgule fixe" data-tag="virgule-fixe">virgule fixe</span> dans laquelle le format d'un nombre est représenté par la lettre <strong>Q</strong> suivie de deux nombres :</p>
 <ol>
-<li>Le nombre de bits entiers</li>
-<li>Le nombre de bits fractionnaires</li>
+<li>Le nombre de bits entiers.</li>
+<li>Le nombre de bits fractionnaires.</li>
 </ol>
 <p>Ainsi, un registre 16 bits contenant un nombre allant de +0.999 à -1.0 s'exprimera <strong>Q1.15</strong> soit 1 + 15 valant 16 bits.</p>
 <p>Pour exprimer la valeur pi (3.1415...) il faudra au minimum 3 bits pour représenter la partie entière, car le bit de signe doit rester à zéro. Le format sur 16 bits sera ainsi <strong>Q4.12</strong>.</p>
 <p>La construction de ce nombre est facile :</p>
 <ol>
-<li>Prendre le nombre réel</li>
-<li>Le multiplier par 2 à la puissance du nombre de bits</li>
-<li>Prendre la partie entière</li>
+<li>Prendre le nombre réel à encoder (<span class="arithmatex">\(3.1415926535\)</span>)</li>
+<li>Le multiplier par 2 à la puissance du nombre de bits (<span class="arithmatex">\(2^{12} * 3.1415926535 = 12867.963508736\)</span>)</li>
+<li>Prendre la partie entière (<span class="arithmatex">\(12867\)</span>)</li>
 </ol>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>1.    3.1415926535
-</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>2.    2**12 * 3.1415926535 = 12867.963508736
-</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>3.    12867
-</span></code></pre></div>
 <p>Pour convertir un nombre <strong>Q4.12</strong> en sa valeur réelle il faut :</p>
 <ol>
-<li>Prendre le nombre encodé en <strong>Q4.12</strong></li>
-<li>Diviser sa valeur 2 à la puissance du nombre de bits</li>
+<li>Prendre le nombre encodé en <strong>Q4.12</strong> (<span class="arithmatex">\(12867\)</span>)</li>
+<li>Diviser sa valeur 2 à la puissance du nombre de bits (<span class="arithmatex">\(12867 / 2^{12} = 3.141357421875\)</span>)</li>
 </ol>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>1.    12867
-</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>2.    12867 / 2**12 = 3.141357421875
-</span></code></pre></div>
-<p>On note une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : <span class="arithmatex">\(1 / 2^12 = 0.00024\)</span>. Il convient alors d'arrondir le nombre à la troisième décimale, soit 3.141.</p>
-<p>Les opérations arithmétiques sont possibles facilement entre des nombres de mêmes types. Le chapitre sur les <a class="autorefs autorefs-internal" href="../../40-algorithms/popular-algorithms/fast-sin/#sinus-rapide">algorithmes</a> décrit une implémentation de calcul de sinus en utilisant ce format.</p>
+<p>On peut noter une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : <span class="arithmatex">\(1 / 2^12 = 0.00024\)</span>. Il convient alors d'arrondir le nombre à la troisième décimale, soit <span class="arithmatex">\(3.141\)</span>.</p>
+<p>Les opérations arithmétiques restent triviales entre des nombres de mêmes types. Le chapitre sur les <a class="autorefs autorefs-internal" href="../../40-algorithms/popular-algorithms/fast-sin/#sinus-rapide">algorithmes</a> décrit une implémentation de calcul de sinus en utilisant ce format. <span class="ycr-hashtag" data-index-entry="q format" data-tag=""></span></p>
 <h3 id="addition">Addition<a class="headerlink" href="#addition" title="Lien permanent">¤</a></h3>
 <p>L'addition peut se faire avec ou sans saturation :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">typedef</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="n">Q</span><span class="p">;</span>
-</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="k">typedef</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">Q12</span><span class="p">;</span>
-</span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>
-</span><span id="__span-21-4"><a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="n">Q</span><span class="w"> </span><span class="nf">q_add</span><span class="p">(</span><span class="n">Q</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-21-5"><a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-</span><span id="__span-21-6"><a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="p">}</span>
-</span><span id="__span-21-7"><a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a>
-</span><span id="__span-21-8"><a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="n">Q</span><span class="w"> </span><span class="nf">q_add_sat</span><span class="p">(</span><span class="n">Q</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-21-9"><a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">b</span><span class="p">;</span>
-</span><span id="__span-21-10"><a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">res</span>
-</span><span id="__span-21-11"><a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x8000</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x8000</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
-</span><span id="__span-21-12"><a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="n">res</span><span class="p">;</span>
-</span><span id="__span-21-13"><a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">typedef</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="n">Q</span><span class="p">;</span>
+</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="k">typedef</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">Q12</span><span class="p">;</span>
+</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>
+</span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">Q</span><span class="w"> </span><span class="nf">q_add</span><span class="p">(</span><span class="n">Q</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-5"><a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-19-6"><a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="p">}</span>
+</span><span id="__span-19-7"><a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a>
+</span><span id="__span-19-8"><a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="n">Q</span><span class="w"> </span><span class="nf">q_add_sat</span><span class="p">(</span><span class="n">Q</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-9"><a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-19-10"><a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">res</span>
+</span><span id="__span-19-11"><a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x8000</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x8000</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+</span><span id="__span-19-12"><a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="n">res</span><span class="p">;</span>
+</span><span id="__span-19-13"><a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="multiplication">Multiplication<a class="headerlink" href="#multiplication" title="Lien permanent">¤</a></h3>
 <p>Soit deux nombres 0.9 et 3.141 :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>┌─┬─┬─┬─╀─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
-</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>│0│0│0│0│1│1│1│0││0│1│1│0│0│1│1│0│ Q4.12 (0.9) 3686
-</span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
-</span><span id="__span-22-4"><a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a>
-</span><span id="__span-22-5"><a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a>┌─┬─┬─┬─╀─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
-</span><span id="__span-22-6"><a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>│0│0│1│1│0│0│1│0││0│1│0│0│0│0│1│1│ Q4.12 (3.141) 12867
-</span><span id="__span-22-7"><a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a>└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>┌─┬─┬─┬─╀─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
+</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>│0│0│0│0│1│1│1│0││0│1│1│0│0│1│1│0│ Q4.12 (0.9) 3686
+</span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
+</span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a>
+</span><span id="__span-20-5"><a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>┌─┬─┬─┬─╀─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
+</span><span id="__span-20-6"><a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a>│0│0│1│1│0│0│1│0││0│1│0│0│0│0│1│1│ Q4.12 (3.141) 12867
+</span><span id="__span-20-7"><a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a>└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
 </span></code></pre></div>
 <p>Multiplier ces deux valeurs revient à une multiplication sur 2 fois la taille. Le résultat doit être obtenu sur 32-bits sachant que les nombres <strong>Q</strong> s'additionnent comme <strong>Q4.12</strong> x <strong>Q4.12</strong> donnera <strong>Q8.24</strong>.</p>
 <p>On voit immédiatement que la partie entière vaut 2, donc 90% de 3.14 donnera une valeur en dessous de 3. Pour reconstruire une valeur <strong>Q8.8</strong> il convient de supprimer les 16-bits de poids faible.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a>3686 * 12867 = 47227762
-</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>
-</span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a>┌─┬─┬─┬─┬─┬─┬─┬─┦┌─┬─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
-</span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a>│0│0│0│0│0│0│1│0││1│1│0│1│0│0│0│0││1│0│1│0│0│0│1│1││0│1│1│1│0│0│1│0│ Q8.24
-</span><span id="__span-23-5"><a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a>└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
-</span><span id="__span-23-6"><a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a>
-</span><span id="__span-23-7"><a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a>┌─┬─┬─┬─┬─┬─┬─┬─┦┌─┬─┬─┬─┬─┬─┬─┬─┦
-</span><span id="__span-23-8"><a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a>│0│0│0│0│0│0│1│0││1│1│0│1│0│0│0│0│ Q8.8
-</span><span id="__span-23-9"><a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a>└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>3686 * 12867 = 47227762
+</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>┌─┬─┬─┬─┬─┬─┬─┬─┦┌─┬─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
+</span><span id="__span-21-4"><a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a>│0│0│0│0│0│0│1│0││1│1│0│1│0│0│0│0││1│0│1│0│0│0│1│1││0│1│1│1│0│0│1│0│ Q8.24
+</span><span id="__span-21-5"><a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a>└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
+</span><span id="__span-21-6"><a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a>
+</span><span id="__span-21-7"><a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a>┌─┬─┬─┬─┬─┬─┬─┬─┦┌─┬─┬─┬─┬─┬─┬─┬─┦
+</span><span id="__span-21-8"><a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a>│0│0│0│0│0│0│1│0││1│1│0│1│0│0│0│0│ Q8.8
+</span><span id="__span-21-9"><a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a>└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
 </span></code></pre></div>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="nf">q_sat</span><span class="p">(</span><span class="kt">int32_t</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span>
-</span><span id="__span-24-3"><a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x8000</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x8000</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-</span><span id="__span-24-4"><a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="n">x</span><span class="p">;</span>
-</span><span id="__span-24-5"><a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="p">}</span>
-</span><span id="__span-24-6"><a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a>
-</span><span id="__span-24-7"><a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="nf">q_mul</span><span class="p">(</span><span class="kt">int16_t</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">q</span><span class="p">)</span>
-</span><span id="__span-24-8"><a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="p">{</span>
-</span><span id="__span-24-9"><a href="#__codelineno-24-9" id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">b</span><span class="p">;</span>
-</span><span id="__span-24-10"><a href="#__codelineno-24-10" id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-</span><span id="__span-24-11"><a href="#__codelineno-24-11" id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sat</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">);</span>
-</span><span id="__span-24-12"><a href="#__codelineno-24-12" id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="p">}</span>
-</span><span id="__span-24-13"><a href="#__codelineno-24-13" id="__codelineno-24-13" name="__codelineno-24-13"></a>
-</span><span id="__span-24-14"><a href="#__codelineno-24-14" id="__codelineno-24-14" name="__codelineno-24-14"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="nf">q12_mul</span><span class="p">(</span><span class="kt">int16_t</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-</span><span id="__span-24-15"><a href="#__codelineno-24-15" id="__codelineno-24-15" name="__codelineno-24-15"></a><span class="p">{</span>
-</span><span id="__span-24-16"><a href="#__codelineno-24-16" id="__codelineno-24-16" name="__codelineno-24-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">q_mul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span>
-</span><span id="__span-24-17"><a href="#__codelineno-24-17" id="__codelineno-24-17" name="__codelineno-24-17"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="nf">q_sat</span><span class="p">(</span><span class="kt">int32_t</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span>
+</span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x8000</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x8000</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-22-4"><a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-22-5"><a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="p">}</span>
+</span><span id="__span-22-6"><a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>
+</span><span id="__span-22-7"><a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="nf">q_mul</span><span class="p">(</span><span class="kt">int16_t</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">q</span><span class="p">)</span>
+</span><span id="__span-22-8"><a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="p">{</span>
+</span><span id="__span-22-9"><a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-22-10"><a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-22-11"><a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sat</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">);</span>
+</span><span id="__span-22-12"><a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="p">}</span>
+</span><span id="__span-22-13"><a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a>
+</span><span id="__span-22-14"><a href="#__codelineno-22-14" id="__codelineno-22-14" name="__codelineno-22-14"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="nf">q12_mul</span><span class="p">(</span><span class="kt">int16_t</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</span><span id="__span-22-15"><a href="#__codelineno-22-15" id="__codelineno-22-15" name="__codelineno-22-15"></a><span class="p">{</span>
+</span><span id="__span-22-16"><a href="#__codelineno-22-16" id="__codelineno-22-16" name="__codelineno-22-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">q_mul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span>
+</span><span id="__span-22-17"><a href="#__codelineno-22-17" id="__codelineno-22-17" name="__codelineno-22-17"></a><span class="p">}</span>
 </span></code></pre></div>
 
 
@@ -5468,7 +5476,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2024</span>
   </span>
 
     
