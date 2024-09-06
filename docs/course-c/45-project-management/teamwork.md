@@ -356,7 +356,6 @@ Le modèle en cascade est un modèle linéaire qui divise le projet en plusieurs
 Le modèle en cascade suivant résume le cycle de développement d'un programme. Il s'agit d'un modèle simple, mais qu'il faut garder à l'esprit que ce soit pour le développement d'un produit logiciel que durant les travaux pratiques liés à ce cours.
 
 ![Modèle en cascade](/assets/images/waterfall.drawio)
-**Modèle en V**
 
 ### Modèle en V
 

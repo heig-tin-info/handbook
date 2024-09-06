@@ -559,6 +559,7 @@ class LaTeXRenderer:
                 raise ValueError("Expected SVG element in twemoji")
             svgdata = str(svg)
             filename = svg2pdf(svgdata, self.output_path)
+            filename = filename.name
             self.assets_map[filename] = {"type": "twemoji", "inline": True}
             self.apply(span, "icon", filename)
         return soup
@@ -1076,6 +1077,7 @@ class LaTeXRenderer:
             text = self.get_safe_text(el)
             tag = el.get("data-tag")
             entry = el.get("data-index-entry", text if text else tag)
+            entry = escape_latex_chars(entry)
             self.apply(el, "index", text, tag=tag, entry=entry)
         return soup
 

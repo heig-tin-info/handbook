@@ -232,81 +232,10 @@ plugins:
 
 ## Book size
 
-| Book | Width | Height | Thickness |
-| ---- | ----- | ------ | --------- |
-| Cracking coding interview | 178 | 254 | 0.1 |
-| Presses polytechniques romandes | 160 | 240 | 0.1 |
-| Springer | 177 | 235 | 0.1 |
-| Eyrolles | 190 | 230 | 0.1 |
-| Dunod | 175 | 250 | 0.1 |
-
-## To-Do
-
-- [ ] Termes et définitions
-  - [ ] Glossaire
-  - [ ] Acronymes
-- [ ] Index
-- [ ] Crédits des illustrations
-- [ ] Summary Wikipedia
-- [ ] Bibliographie
-
-- [ ] LaTeX
-  - [x] Mint inline in titles cause weird behavior in the toc.
-  - [x] Avoid breaking code block if contains boxchars or special chars (ascii art?)
-  - [x] Do not use adjustbox on small tables
-  - [ ] Code with title doesn't display well in LaTeX
-  - [ ] Image with width should be included with the correct size
-  - [ ] Implement local links to code, copy them in appencies
-  - [ ] Table des opérateurs, find a way
-  - [ ] Autres tables, largeur, ajuster au contenu ? tabularx ?
-  - [ ] Find a way to have "short caption" on figures (maybe use alt text)
-- [ ] Add tags anywhere (inline tags) to summary concepts
-- [ ] Build another nav with only the required sections for INFO1, INFO2.
-- [ ] Label for tables are cropped, should be placed above tables
-- [ ] Exercise plugin cause code to be renamed exercise
-- [ ] Make all figures compatible with both light/dark theme
-- [ ] Tables
-  - [x] Caption above table
-  - [ ] Addfull parameter for adjusting width, fullwidth
-- [ ] Slides for each course with inteactive examples
-- [ ] Embedded Interactive examples (linked-list)...
-- [ ] Interactive exercices
-  - [ ] Multiple choice
-  - [ ] Code execution
-  - [ ] Fill the gap
-- [ ] Two/Three columns for exercises ?
-- [ ] Exercises style bullet is wrong
-
-## Changelog
-
-- [x] LaTeX
-  - [x] Generate PDF with LaTeX
-  - [x] Only generate LaTeX on build
-  - [x] Replace weavydash with 〜 ?
-  - [x] Fetch solution to exercises and display them later in document
-  - [x] Number exercises with a counter
-  - [x] Support unicode chars in LaTeX (Use lualatex?)
-  - [x] Auto number tables?
-  - [x] \leavevmode only if item is right before code block
-- [x] Find a way to add unbreakable space before semi-colon in paragraphs
-- [x] Center mermaid diagrams
-- [x] Center tables
-- [x] Two columns for itemize ?
-- [x] Drawio
-  - [x] Allow to click on drawio image to see it full screen
-  - [x] Drawio and SVG size is not correct
-  - [x] Update drawio plugin to use theme colors.
-  - [x] Drawio export doesn't accept attributes {width=100%}
-  - Fixed by rendering the drawio frontend with a mygraph parser
-- [x] When I enable navigation.tabs, I dont see the fold/unfold
-  - Fixed by not enabling the navigation.sections
-- [x] CI cannot get insiders version of mkdocs.
-  - Fixed by adding git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "git@github.com:"
-- [x] Tables
-  - [x] Rowspan
-
-### Custom extensions
-
-- [ ] Flexible table
-  - [ ] Full Width
-  - [ ] X column
+| Book                            | Width | Height | Thickness |
+| ------------------------------- | ----- | ------ | --------- |
+| Cracking coding interview       | 178   | 254    | 0.1       |
+| Presses polytechniques romandes | 160   | 240    | 0.1       |
+| Springer                        | 177   | 235    | 0.1       |
+| Eyrolles                        | 190   | 230    | 0.1       |
+| Dunod                           | 175   | 250    | 0.1       |

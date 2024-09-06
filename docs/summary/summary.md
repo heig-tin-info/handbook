@@ -20,11 +20,7 @@ Ce sont ses paradigmes de programmation
 
 ## Cycle de développement
 
-Le cycle de développement se compose toujours des phases: étude, écriture du cahier des charges, de l'écriture des tests, de la conception du logiciel, du codage à proprement parler et des validations finales. Le modèle en cascade est un bon résumé très utilisé dans l'industrie :
-
-:::{figure} {assets}/figures/dist/software-life-cycle/waterfall.*
-Modèle en cascade
-:::
+Le cycle de développement se compose toujours des phases: étude, écriture du cahier des charges, de l'écriture des tests, de la conception du logiciel, du codage à proprement parler et des validations finales. Le modèle en cascade est un bon résumé très utilisé dans l'industrie.
 
 ## Cycle de compilation
 
