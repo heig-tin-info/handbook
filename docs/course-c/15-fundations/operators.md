@@ -1,22 +1,22 @@
 # Opérateurs
 
-En programmation, un opérateur est une **fonction** qui effectue une opération. sur des valeurs. Les opérateurs utilisent des identificateurs spécifiques propres à chaque langage de programmation, ce qui permet de simplifier l'écriture des expressions. Par exemple, l'opérateur d'addition `+` permet d'additionner deux valeurs.
+En programmation, un opérateur est une **fonction** qui effectue une opération sur des valeurs. Les opérateurs utilisent des identificateurs spécifiques propres à chaque langage de programmation, ce qui permet de simplifier l'écriture des expressions. Par exemple, l'opérateur d'addition `+` permet d'additionner deux valeurs.
 
-L'unité de calcul arithmétique du processeur est responsable d'effectuer les opérations fondamentales. Un ordinateur à 2 GHz pourrait par exemple effectuer plus de 2'000'000'000 opérations par seconde.
+L'unité de calcul arithmétique du processeur (ALU) est responsable d'effectuer les opérations fondamentales. Un ordinateur à 2 GHz pourrait par exemple effectuer plus de 2 milliards (2'000'000'000) d'opérations par seconde.
 
-Un **opérateur** prend habituellement deux opérandes et retourne un résultat. On dit alors que cette classe d'opérateurs a une [arité](https://fr.wikipedia.org/wiki/Arit%C3%A9) de 2. Il existe également des opérateurs à arité de 1, aussi appelés opérateurs [unaires](https://fr.wikipedia.org/wiki/Op%C3%A9ration_unaire) comme pour obtenir l'opposé d'un nombre ($-x$). Connaissant le complément à deux, on sait que pour obtenir l'opposé d'un nombre, il suffit d'inverser tous les bits et d'ajouter 1. C'est-à-dire de faire l'opération de négation `~` puis de faire une addition `+1`.
+Un **opérateur** prend habituellement deux opérandes et retourne un résultat. On dit alors que cette classe d'opérateurs a une [arité](https://fr.wikipedia.org/wiki/Arit%C3%A9) de 2. Il existe également des opérateurs à arité de 1, aussi appelés opérateurs [unaires](https://fr.wikipedia.org/wiki/Op%C3%A9ration_unaire) comme pour obtenir l'opposé d'un nombre ($-x$). Connaissant le complément à deux, on sait que pour obtenir l'opposé d'un nombre, il suffit d'inverser tous les bits et d'ajouter 1. C'est-à-dire de faire l'opération de négation `~` puis de faire une addition `+1`. [[||arité]] [[||unaire]] [[||opérande]]
 
 Un opérateur possède plusieurs propriétés :
 
-Une **priorité**
+Une **priorité** [[||priorité]]
 
 : La multiplication `*` est plus prioritaire que l'addition `+`
 
-Une **associativité**
+Une **associativité** [[||associativité]]
 
 : L'opérateur d'affectation `=` possède une associativité à droite, c'est-à-dire que l'opérande à droite de l'opérateur sera évalué en premier
 
-Un **point de séquence**
+Un **point de séquence** [[||point de séquence]]
 
 : Certains opérateurs comme `&&`, `||`, `?` ou `,` possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression `i < 12 && j > 2` la valeur de `i` est plus grande que 12, le test `j > 2` ne sera jamais effectué. L'opérateur `&&` garantit l'ordre des choses, ce qui n'est pas le cas avec l'affectation `=`.
 
@@ -51,7 +51,7 @@ Le langage C définit un certain nombre d'opérateurs qui peuvent être classés
 - Les opérateurs de pré/post-incrémentation
 - Les opérateurs de condition
 
-Nous allons tous les voir un par un ; ce chapitre est long...
+Nous allons tous les voir un par un...
 
 ### Opérateurs arithmétiques
 
@@ -59,22 +59,23 @@ Aux 4 opérations de base (+, -, ×, ÷) le C ajoute l'opération [modulo](https
 
 Table: Opérateurs arithmétiques
 
-| Opérateur | Abréviation | Description    | Assertion vraie  |
-| --------- | ------------ | -------------- | ---------------- |
-| `+`     | *add*        | Addition       | `5 == 2 + 3`   |
-| `-`     | *sub*        | Soustraction   | `8 == 12 - 4`  |
-| `*`     | *mul*        | Multiplication | `42 == 21 * 2` |
-| `/`     | *div*        | Division       | `2 == 5 / 2`   |
-| `%`     | *mod*        | Modulo         | `13 % 4 == 1`  |
+| Opérateur | Abréviation | Description    | Assertion vraie |
+| --------- | ----------- | -------------- | --------------- |
+| `+`       | *add*       | Addition       | `5 == 2 + 3`    |
+| `-`       | *sub*       | Soustraction   | `8 == 12 - 4`   |
+| `*`       | *mul*       | Multiplication | `42 == 21 * 2`  |
+| `/`       | *div*       | Division       | `2 == 5 / 2`    |
+| `%`       | *mod*       | Modulo         | `13 % 4 == 1`   |
 
-Lors d'opérations il faut faire attention aux types des variables impliquées. La division `5 / 2` donnera `2` et non, `2.5` car les deux valeurs fournies sont entières et le résultat est donc un entier. Pour obtenir un résultat flottant, il faut que l'une des valeurs soit un flottant, ici le `5` est exprimé en `double`, la propagation de type fera que le résultat sera aussi un `double` :
+Lors d'opérations, il faut faire attention aux types des variables impliquées. La division `5 / 2` donnera `2` et non, `2.5` car les deux valeurs fournies sont entières et le résultat est donc un entier. Pour obtenir un résultat flottant, il faut que l'une des valeurs soit un flottant, ici le `5` est exprimé en `double`, la propagation de type fera que le résultat sera aussi un `double` : [[||division]]
 
 ```c
 int a = 5 / 2;      // 2
 double b = 5.0 / 2; // 2.5
 ```
 
-Le modulo (*mod*, `%`) est le reste de la division entière. L'assertion suivante est donc vraie, car 13 divisé par 4 égal 3 et il reste 1 :
+Le modulo (*mod*, `%`) est le reste de la division entière. L'assertion suivante est donc vraie, car 13 divisé par 4 égal 3 et il reste 1 : [[||modulo]]
+[[||%]]
 
 ```c
 assert(13 % 4 == 1)
@@ -218,13 +219,13 @@ Les opérateurs relationnels sont les suivants :
 Table: Opérateurs relationnels
 
 | Opérateur | Abréviation | Description           | Exemple vrai     |
-| --------- | ------------ | --------------------- | ---------------- |
-| `==`      | *eq*         | Égal                  | `42 == 0x101010` |
-| `!=`      | *ne*         | Différent             | `'a' != 'c'`     |
-| `>=`      | *ge*         | Supérieur ou égal     | `9 >= 9`         |
-| `<=`      | *le*         | Inférieur ou égal     | `-8 <= 8`        |
-| `>`       | *gt*         | Strictement supérieur | `0x31 > '0'`     |
-| `<`       | *lg*         | Strictement inférieur | `8 < 12.33`      |
+| --------- | ----------- | --------------------- | ---------------- |
+| `==`      | *eq*        | Égal                  | `42 == 0x101010` |
+| `!=`      | *ne*        | Différent             | `'a' != 'c'`     |
+| `>=`      | *ge*        | Supérieur ou égal     | `9 >= 9`         |
+| `<=`      | *le*        | Inférieur ou égal     | `-8 <= 8`        |
+| `>`       | *gt*        | Strictement supérieur | `0x31 > '0'`     |
+| `<`       | *lg*        | Strictement inférieur | `8 < 12.33`      |
 
 Un opérateur relationnel est plus prioritaire qu'un opérateur d'affectation et donc l'écriture suivante applique le test d'égalité entre `a` et `b` et le résultat de ce test `1` ou `0` sera affecté à la variable `c` :
 
@@ -353,14 +354,14 @@ Les **opérations bit à bit** (*bitwise*) agissent sur chaque bit d'une valeur.
 
 Table: Opérateurs bit à bit
 
-| Opérateur | Description                                | Exemple                          |
-| --------- | ------------------------------------------ | -------------------------------- |
-| `&`     | [Conjonction (ET)][operator-and]          | `(0b1101 & 0b1010) == 0b1000`  |
-| `        | `                                         | [Disjonction (OU)][operator-or] | `(0b1101 | 0b1010) == 0b1111` |
-| `^`     | [XOR binaire][operator-xor]               | `(0b1101 ^ 0b1010) == 0b0111`  |
-| `~`     | [Complément à un][operator-not]           | `~0b11011010 == 0b00100101`    |
-| `<<`    | [Décalage à gauche][operator-shift-left]  | `(0b1101 << 3) == 0b1101000`   |
-| `>>`    | [Décalage à droite][operator-shift-right] | `(0b1101 >> 2) == 0b11`        |
+| Opérateur | Description                               | Exemple                         |
+| --------- | ----------------------------------------- | ------------------------------- |
+| `&`       | [Conjonction (ET)][operator-and]          | `(0b1101 & 0b1010) == 0b1000`   |
+| `         | `                                         | [Disjonction (OU)][operator-or] | `(0b1101 | 0b1010) == 0b1111` |
+| `^`       | [XOR binaire][operator-xor]               | `(0b1101 ^ 0b1010) == 0b0111`   |
+| `~`       | [Complément à un][operator-not]           | `~0b11011010 == 0b00100101`     |
+| `<<`      | [Décalage à gauche][operator-shift-left]  | `(0b1101 << 3) == 0b1101000`    |
+| `>>`      | [Décalage à droite][operator-shift-right] | `(0b1101 >> 2) == 0b11`         |
 
 
 !!! important
@@ -375,10 +376,10 @@ La conjonction ou **ET logique** ($\wedge$) est identique à la multiplication a
 
 Table: Conjonction bit à bit
 
-| $A ∧ B$  | $A=0$ | $A=1$ |
-| --------------- | ----- | ----- |
-| $B=0$           | 0     | 0     |
-| $B=1$           | 0     | 1     |
+| $A ∧ B$ | $A=0$ | $A=1$ |
+| ------- | ----- | ----- |
+| $B=0$   | 0     | 0     |
+| $B=1$   | 0     | 1     |
 
 Avec cette opération l'état dominant est le `0` et l'état récessif est le `1`. Il suffit qu'une seule valeur soit à zéro pour forcer le résultat à zéro :
 
@@ -596,7 +597,7 @@ La priorité des opérateurs logiques est plus faible que celle des opérateurs 
 
 Les opérateurs d'affectation permettent d'assigner de nouvelles valeurs à une variable. En C, il existe des sucres syntaxiques permettant de simplifier l'écriture lorsqu'une affectation est couplée à un autre opérateur.
 
-Originellement, la syntaxe héritée de l'Algol-68 était de positionner le symbole `=` à gauche suivi de l'opérateur arithmétique. Cette forme était confuse car elle pouvait mener à des incohérences d'écriture. Par exemple, l'expression `x =- 3` peut être confondue avec `x = -3`. Pour éviter ces ambiguïtés, le C a inversé la logique en plaçant l'opérateur arithmétique à gauche de l'opérateur d'affectation. L'histoire apporte parfois des réponses là où la logique échoue...
+Originellement, la syntaxe héritée de l'Algol-68 était de positionner le symbole `=` à gauche suivi de l'opérateur arithmétique. Cette forme était confuse, car elle pouvait mener à des incohérences d'écriture. Par exemple, l'expression `x =- 3` peut être confondue avec `x = -3`. Pour éviter ces ambiguïtés, le C a inversé la logique en plaçant l'opérateur arithmétique à gauche de l'opérateur d'affectation. L'histoire apporte parfois des réponses là où la logique échoue...
 
 Voici la liste des différents opérateurs d'affectation :
 
@@ -647,9 +648,9 @@ Table: Opérateurs arithmétiques
 | `()--`    | Post-décrémentation | `i--`           |
 | `--()`    | Pré-décrémentation  | `--i`           |
 
-Ces opérateurs furent conçu initialement par Ken Thompson pour le langage B, le prédécesseur du C. Ils ont été repris par Dennis Ritchie pour le C. Une croyance est que ces opérateurs furent restés dans le langage car le PDP-11, la machine sur laquelle le C fut développé, possédait des instructions spécifiques pour ces opérations.
+Ces opérateurs furent conçus initialement par Ken Thompson pour le langage B, le prédécesseur du C. Ils ont été repris par Dennis Ritchie pour le C. Une croyance est que ces opérateurs furent restés dans le langage, car le PDP-11, la machine sur laquelle le C fut développé, possédait des instructions spécifiques pour ces opérations.
 
-La pré-incrémentation ou pré-décrémentation effectue en premier la modification de la variable impliquée puis retourne le résultat de cette variable modifiée. Dans le cas de la post-incrémentation ou pré-décrémentation, la valeur actuelle de la variable est d'abord retournée, puis dans un second temps cette variable est incrémentée.
+La préincrémentation ou prédécrémentation effectue en premier la modification de la variable impliquée puis retourne le résultat de cette variable modifiée. Dans le cas de la post-incrémentation ou prédécrémentation, la valeur actuelle de la variable est d'abord retournée, puis dans un second temps cette variable est incrémentée.
 
 Notons qu'on peut toujours décomposer ces opérateurs en deux instructions explicites. Le code :
 
@@ -897,7 +898,7 @@ while (array[i] != -1) {
 }
 ```
 
-Cette écriture reste malgré tout très mauvaise, car le tableau de 128 éléments doit être initialisé à priori ce qui mène aux mêmes performances. D'autre part l'histoire racontée par le développeur est moins claire que la première implémentation.
+Cette écriture reste malgré tout très mauvaise, car le tableau de 128 éléments doit être initialisé à priori, ce qui mène aux mêmes performances. D'autre part l'histoire racontée par le développeur est moins claire que la première implémentation.
 
 ## Priorité des opérateurs
 
@@ -909,37 +910,37 @@ La table suivante indique les règles à suivre pour les précédences des opér
 
 Table: Priorité des opérateurs
 
-| Priorité | Opérateur                 | Description @flex                       | Associativité   |
-| -------- | ------------------------- | --------------------------------------- | --------------- |
-| 1 @span  | `++`, `--`                | Postfix incréments/décréments           | Gauche à Droite @span |
-|          | `()`                      | Appel de fonction                       |                 |
-|          | `[]`                      | Indexage des tableaux                   |                 |
-|          | `.`                       | Élément d'une structure                 |                 |
-|          | `->`                      | Élément d'une structure                 |                 |
-| 2 @span  | `++`, `--`                | Préfixe incréments/décréments           | Droite à Gauche @span |
-|          | `+`, `-`                  | Signe                                   |                 |
-|          | `!`, `~`                  | NON logique et NON binaire              |                 |
-|          | `(type)`                  | [Cast (Transtypage)][operator-cast]{ data-preview }    |                 |
-|          | `*`                       | Indirection, déréférencement            |                 |
-|          | `&`                       | Adresse de...                           |                 |
-|          | `sizeof`                  | Taille de...                            |                 |
-| 3        | `*`, `/`, `%`             | Multiplication, Division, Mod           | Gauche à Droite @span |
-| 4        | `+`, `-`                  | Addition, soustraction                  |                 |
-| 5        | `<<`, `>>`                | Décalages binaires                      |                 |
-| 6 @span  | `<`, `<=`                 | Comparaison plus petit que              |                 |
-|          | `>`, `>=`                 | Comparaison plus grand que              |                 |
-| 7        | `==`, `!=`                | Égalité, non égalité                    |                 |
-| 8        | `&`                       | ET binaire                              |                 |
-| 9        | `^`                       | OU exclusif binaire                     |                 |
-| 10       | <code>&#124;</code>       | OU inclusif binaire                     |                 |
-| 11       | `&&`                      | ET logique                              |                 |
-| 12       | <code>&#124;&#124;</code> | OU logique                              |                 |
+| Priorité | Opérateur                 | Description @flex                                      | Associativité         |
+| -------- | ------------------------- | ------------------------------------------------------ | --------------------- |
+| 1 @span  | `++`, `--`                | Postfix incréments/décréments                          | Gauche à Droite @span |
+|          | `()`                      | Appel de fonction                                      |                       |
+|          | `[]`                      | Indexage des tableaux                                  |                       |
+|          | `.`                       | Élément d'une structure                                |                       |
+|          | `->`                      | Élément d'une structure                                |                       |
+| 2 @span  | `++`, `--`                | Préfixe incréments/décréments                          | Droite à Gauche @span |
+|          | `+`, `-`                  | Signe                                                  |                       |
+|          | `!`, `~`                  | NON logique et NON binaire                             |                       |
+|          | `(type)`                  | [Cast (Transtypage)][operator-cast]{ data-preview }    |                       |
+|          | `*`                       | Indirection, déréférencement                           |                       |
+|          | `&`                       | Adresse de...                                          |                       |
+|          | `sizeof`                  | Taille de...                                           |                       |
+| 3        | `*`, `/`, `%`             | Multiplication, Division, Mod                          | Gauche à Droite @span |
+| 4        | `+`, `-`                  | Addition, soustraction                                 |                       |
+| 5        | `<<`, `>>`                | Décalages binaires                                     |                       |
+| 6 @span  | `<`, `<=`                 | Comparaison plus petit que                             |                       |
+|          | `>`, `>=`                 | Comparaison plus grand que                             |                       |
+| 7        | `==`, `!=`                | Égalité, non égalité                                   |                       |
+| 8        | `&`                       | ET binaire                                             |                       |
+| 9        | `^`                       | OU exclusif binaire                                    |                       |
+| 10       | <code>&#124;</code>       | OU inclusif binaire                                    |                       |
+| 11       | `&&`                      | ET logique                                             |                       |
+| 12       | <code>&#124;&#124;</code> | OU logique                                             |                       |
 | 13       | `?:`                      | [Opérateur ternaire][operator-ternary]{ data-preview } | Droite à Gauche @span |
-| 14 @span | `=`                       | Assignation simple                      |                 |
-|          | `+=`, `-=`                | Assignation par somme/diff              |                 |
-|          | `*=`, `/=`, `%=`          | Assignation par produit/quotient/modulo |                 |
-|          | `<<=`, `>>=`              | Assignation par décalage binaire        |                 |
-| 15       | `,`                       | [Virgule][operator-comma]{ data-preview }              | Gauche à Droite |
+| 14 @span | `=`                       | Assignation simple                                     |                       |
+|          | `+=`, `-=`                | Assignation par somme/diff                             |                       |
+|          | `*=`, `/=`, `%=`          | Assignation par produit/quotient/modulo                |                       |
+|          | `<<=`, `>>=`              | Assignation par décalage binaire                       |                       |
+| 15       | `,`                       | [Virgule][operator-comma]{ data-preview }              | Gauche à Droite       |
 
 
 Considérons l'exemple suivant :

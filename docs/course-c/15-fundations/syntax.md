@@ -6,7 +6,7 @@ Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il 
 
 [[||alphabet, l']]
 
-Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 [chiffres indo-arabes](https://fr.wikipedia.org/wiki/Chiffres_arabes) :
+Heureusement pour nous occidentaux, l'alphabet de C est composé de 52 caractères latins et de 10 [chiffres indo-arabes](https://fr.wikipedia.org/wiki/Chiffres_arabes) :
 
 ```text
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
@@ -14,7 +14,7 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 0 1 2 3 4 5 6 7 8 9
 ```
 
-Pour comparaison, le système d'écriture coréen ([[Hangul]]) est [[alphasyllabique]], c'est-à-dire que chaque caractère représente une syllabe. Les lettres de base sont composées de 14 consonnes de base et 10 voyelles. Quant aux chiffres ils sont les mêmes qu'en occident.
+Pour comparaison, le système d'écriture coréen ([[Hangul]]) est [[alphasyllabique]], c'est-à-dire que chaque caractère représente une syllabe. Les lettres de base sont composées de 14 consonnes de base et 10 voyelles. Quant aux chiffres, ils sont les mêmes qu'en occident.
 
 ```text
 g n d r/l m b s ng j ch k t p h
@@ -24,7 +24,7 @@ a ya eo yeo o yo u yu eu i
 ㅏ ㅑ ㅓ ㅕ ㅗ ㅛ ㅜ ㅠ ㅡ ㅣ
 ```
 
-Les japonais quant à eux utilisent trois systèmes d'écriture, le [[Hiragana]], le [[Katakana]] et le [[Kanji]]. Les deux premiers sont des syllabaires et le dernier est un système d'[[écriture logographique]]. Le Hiragana et Katakana ont tous deux 46 caractères de base. Voici l'exemple du Katakana:
+Les Japonais quant à eux utilisent trois systèmes d'écriture, le [[Hiragana]], le [[Katakana]] et le [[Kanji]]. Les deux premiers sont des syllabaires et le dernier est un système d'[[écriture logographique]]. Le Hiragana et Katakana ont tous deux 46 caractères de base. Voici l'exemple du Katakana:
 
 ```text
 あ (a),  い (i),   う (u),   え (e),  お (o)
@@ -40,11 +40,11 @@ Les japonais quant à eux utilisent trois systèmes d'écriture, le [[Hiragana]]
 ん (n)
 ```
 
-On notera que l'alphabet latin est tout particulièrement adapté à la programmation car, d'une part ce fut le premier alphabet à être utilisé pour l'écriture de programmes informatiques et d'autre part, il reste assez simple pour être utilisé par des machines. On peut noter en outre que les pays qui utilisent leur propre alphabet doivent impérativement apprendre et maîtriser l'alphabet latin pour pouvoir programmer. Ceci implique qu'ils doivent également disposer d'un clavier latin pour pouvoir saisir leur code. Nous avons donc privilégiés nous francophones de ne pas devoir jongler avec plusieurs alphabets pour écrire du code...
+On notera ici que l'alphabet latin est tout particulièrement adapté à la programmation, car, d'une part ce fut le premier alphabet à être utilisé pour l'écriture de programmes informatiques et d'autre part, il reste assez simple pour être utilisé par des machines. On peut noter en outre que les pays qui utilisent leur propre alphabet doivent impérativement apprendre et maîtriser l'alphabet latin pour pouvoir programmer. Ceci implique qu'ils doivent également disposer d'un clavier latin pour pouvoir saisir leur code. Ayez à l'esprit que nous sommes des privilégiés de ne pas devoir jongler avec plusieurs alphabets pour écrire du code...
 
-Outre ces caractères, la séparation des symboles est assurée par [une espace](https://fr.wikipedia.org/wiki/Espace_(typographie)), une tabulation horizontale, une [[tabulation]] verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le [pied-de-mouche](https://fr.wikipedia.org/wiki/Pied-de-mouche) `¶` U+00B6 pour indiquer les fins de paragraphes qui sont également des caractères non imprimables.
+Outre ces caractères, la séparation des symboles est assurée par [une espace](https://fr.wikipedia.org/wiki/Espace_(typographie)), une tabulation horizontale, une [[tabulation]] verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le [pied-de-mouche](https://fr.wikipedia.org/wiki/Pied-de-mouche) `¶` U+00B6 pour indiquer les fins de paragraphes qui sont également des caractères non imprimables. [[||pied-de-mouche (¶)]] [[||caractère non imprimable]] [[||U+00B6]]
 
-On nomme les caractères non imprimables soit par leur acronyme `LF` pour *Line Feed* ou soit par leur convention C échappée par un *backslash* `\n`:
+La convention est de nommer les caractères non imprimables soit par leur acronyme `LF` pour *Line Feed* ou soit par leur convention C échappée par un *backslash* `\n`:
 
 Table: Caractères non imprimables
 
@@ -70,18 +70,16 @@ La ponctuation utilise les 29 symboles graphiques suivants :
 
 ## La machine à écrire
 
-Peut-être avez-vous déjà été confronté à une machine à écrire mécanique. Elles disposent d'un levier sur la gauche du chariot qui a deux fonctionnalités. D'une part il permet de faire revenir le chariot au début de la ligne, mais également de faire avancer le papier d'une ligne. C'est ce levier qui a donné son nom au caractère de retour à la ligne `CR` pour *Carriage Return*. Quant au caractère de nouvelle ligne `LF` pour *Line Feed*, il est associé à la rotation du cylindre qui porte la feuille de papier.
+Peut-être avez-vous déjà été confronté à une machine à écrire mécanique. Elles disposent d'un levier sur la gauche du chariot qui dispose de deux fonctionnalités. D'une part il permet de faire revenir le chariot au début de la ligne, mais également de faire avancer le papier d'une ligne par une rotation du cylindre. C'est ce levier de retour chariot qui a donné son nom au caractère de retour à la ligne `CR` pour *Carriage Return*. Quant au caractère de nouvelle ligne `LF` pour *Line Feed*, il est associé à la rotation du rouleau qui entraîne la feuille de papier.
 
 ![Machine à écrire Hermès 3000 hébraïque](/assets/images/hermes-3000.webp){width=50%}
 
-Historiquement il y a donc bien une distinction entre les deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens.
-
-Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de souligement ([[tiret bas]], ou *underscore*) `_` pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère `-` pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin pour ajouter un accent circonflexe, il fallait utiliser la touche `^` pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.
+Historiquement il y a donc bien une distinction entre ces deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens. Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de soulignement ([[tiret bas]], ou *underscore*) `_` pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère `-` pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin, pour ajouter un accent circonflexe, il fallait utiliser la touche `^` pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.
 
 Ces subtilités de la machine à écrire ont été partiellement reprises dans le format [Unicode][unicode]. Aussi pour écrire un accent aigu, il y a aujourd'hui plusieurs façons de le faire.
 
-1. Utiliser le caractère `e` U+0065 suivi du caractère `´` U+0301 aussi appelé *combining acute accent* pour obtenir `é`.
-2. Utiliser le caractère `é` U+00E9 directement.
+1. Utiliser le caractère `e` U+0065 suivi du caractère `´` U+0301 aussi appelé *combining acute accent* pour obtenir `é`. [[||U+0301]]
+2. Utiliser le caractère `é` U+00E9 directement. [[||U+0065]] [[||U+00E9]]
 
 Ces héritages historiques font qu'il est difficile aujourd'hui de traiter sans bogue les textes multilingues. Les cas particuliers sont nombreux et bien souvent, les informaticiens utilisent des bibliothèques logicielles pour gérer ces cas particuliers.
 
@@ -123,11 +121,9 @@ c=0)                            :( O
 
 À l'instar des premières machines à écrire, les [téléscripteurs](https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur) possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme [retour chariot](https://fr.wikipedia.org/wiki/Retour_chariot) est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC [IBM compatibles](https://fr.wikipedia.org/wiki/Compatible_PC) ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères: un retour chariot (`CR`) et une nouvelle ligne (`LF`) ou en C `\r\n`. Les premiers [Macintosh](https://fr.wikipedia.org/wiki/Macintosh) d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère `\r`. Enfin, les ordinateurs UNIX ont eu le même raisonnement, mais ils ont choisi de ne garder que `\n`.
 
-Fort heureusement depuis que Apple a migré son système sur une base [BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) (UNIX) en 2001, les systèmes d'exploitation modernes ont adopté le standard UNIX et il n'y a plus de problème de compatibilité entre les systèmes.
+Heureusement, depuis qu'Apple a migré son système sur une base [BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) (UNIX) en 2001, les systèmes d'exploitation modernes ont adopté le standard UNIX et il n'y a plus de problème de compatibilité entre les systèmes. En sommes, il existe aujourd'hui deux types de fin de ligne :
 
-En sommes, il existe aujourd'hui deux types de fin de ligne :
-
-- `LF` ou `\n` sur les ordinateurs POSIX comme Linux, Android, Unix ou macOS
+- `LF` ou `\n` sur tous les ordinateurs de la planète à l'exception de Windows,
 - `CRLF` ou `\r\n` sur les ordinateurs Windows.
 
 Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (`EOL`: *End Of Line*) il faut utiliser, faite preuve de bon sens et surtout, soyez cohérent.
@@ -150,6 +146,8 @@ const       goto      sizeof
 continue    if        static
 default     inline    struct
 ```
+
+[[||_Bool]] [[||_Complex]] [[||_Imaginary]] [[||auto]] [[||break]] [[||case]] [[||char]] [[||const]] [[||continue]] [[||default]] [[||do]] [[||double]] [[||else]] [[||enum]] [[||extern]] [[||float]] [[||for]] [[||goto]] [[||if]] [[||inline]] [[||int]] [[||long]] [[||register]] [[||restrict]] [[||return]] [[||short]] [[||signed]] [[||sizeof]] [[||static]] [[||struct]] [[||switch]] [[||typedef]] [[||union]] [[||unsigned]] [[||void]] [[||volatile]] [[||while]]
 
 Dans ce cours, l'usage des mots clés suivants est découragé, car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.
 
@@ -243,7 +241,7 @@ En addition de cette grammaire, voici quelques règles :
 
 ## Variables
 
-Une variable est un symbole qui associe un nom (**identificateur**) à une **valeur**. Comme son nom l'indique, une variable peut voir son contenu varier au cours du temps.
+Une [[variable]] est un [[symbole]] qui associe un nom (**identificateur**) à une **valeur**. Comme son nom l'indique, une variable peut voir son contenu varier au cours du temps.
 
 Une variable est définie par :
 
@@ -254,7 +252,7 @@ Une variable est définie par :
 - Sa **portée** (*scope*) qui est la portion de code ou le symbole est définie et accessible.
 - Sa **visibilité** (*visibility*) qui ne peut être que *public* en C.
 
-Pour mieux comprendre ce concept fondamental, imaginons la plage de Donnant à Belle-Île-en-Mer. Quelqu'un a écrit sur le sable, bien visible depuis la colline adjacente, le mot `COIN`. L'identificateur c'est `Donnant`, la valeur c'est `COIN`, le type permet de savoir comment interpréter la valeur. Cela peut s'agir d'une pièce de monnaie en anglais, du coin d'une table en français ou du lapin en neerlandais.
+Pour mieux comprendre ce concept fondamental, imaginons la plage de Donnant à Belle-Île-en-Mer. Quelqu'un a écrit sur le sable, bien visible depuis la colline adjacente, le mot `COIN`. L'identificateur c'est `Donnant`, la valeur c'est `COIN`, le type permet de savoir comment interpréter la valeur. Cela peut s'agir d'une pièce de monnaie en anglais, du coin d'une table en français ou du lapin en néerlandais.
 
 L'**adresse** est l'emplacement exact de la plage où le mot a été écrit (47.32638670571° N, 3.2363350691522° W), la portée est la plage de Donnant et la visibilité est la colline adjacente.
 
@@ -299,7 +297,7 @@ char message[] = "Jarvis, il faut parfois savoir "
                  "courir avant de savoir marcher.";
 ```
 
-Il n'est pas nécessaire d'associer une valeur initiale à une variable, une déclaration peut se faire sans initialisation comme montré dans l'exemple suivant dans lequel on réserve trois variables `i`, `j`, `k`.
+Il n'est pas nécessaire d'associer une valeur initiale à une variable, une [[déclaration]] peut se faire sans [[initialisation]] comme montré dans l'exemple suivant dans lequel on réserve trois variables `i`, `j`, `k`.
 
 ```c
 int i, j, k;
@@ -344,9 +342,9 @@ int i, j, k;
 
 Il existe autant de conventions de nommage qu'il y a de développeurs, mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation dit que :
 
-- La longueur du nom d'une variable est généralement proportionnelle à sa portée et donc il est d'autant plus court que l'utilisation d'une variable est localisée.
-- Le nom doit être concis et précis et ne pas laisser place à une quelconque ambiguïté.
-- Le nom doit participer à l'autodocumentation du code et permettre à un lecteur de comprendre facilement le programme qu'il lit.
+- la longueur du nom d'une variable est généralement proportionnelle à sa portée et donc il est d'autant plus court que l'utilisation d'une variable est localisée ;
+- le nom doit être concis et précis et ne pas laisser place à une quelconque ambiguïté ;
+- le nom doit participer à l'autodocumentation du code et permettre à un lecteur de comprendre facilement le programme qu'il lit.
 
 Selon les standards adoptés, chaque société on trouve ceux qui préfèrent nommer les variables en utilisant un *underscore* (`_`) comme séparateur et ceux qui préfèrent nommer une variable en utilisant des majuscules comme séparateurs de mots.
 
@@ -359,6 +357,8 @@ Table: Conventions de nommage
 | *pascalcase* | Casse de Pascal  | `UserLoginCount`   |
 | *kebabcase*  | Casse de kebab   | `user-login-count` |
 
+[[||camelCase]] [[||snake_case]] [[||PascalCase]] [[||kebab-case]]
+
 !!! note
 
     La casse de kebab n'est pas acceptée par le standard C car les noms formés ne sont pas des identificateurs valides. Néanmoins cette notation est beaucoup utilisée par exemple sur GitHub.
@@ -366,7 +366,7 @@ Table: Conventions de nommage
 ### Variable métasyntaxique
 
 Souvent lors d'exemples donnés en programmation, on utilise des variables génériques dites [métasyntaxiques](https://fr.wikipedia.org/wiki/Variable_m%C3%A9tasyntaxique). En français les valeurs `toto`, `titi`, `tata` et `tutu` sont régulièrement utilisées tandis qu'en anglais
-`foo`, `bar`, `baz` et `qux` sont régulièrement utilisés. Les valeurs `spam`, `ham` et `eggs` sont quant à elles souvent utilisée en Python, en référence au sketch [Spam](https://en.wikipedia.org/wiki/Spam_(Monty_Python)) des Monthy Python.
+`foo`, `bar`, `baz` et `qux` sont régulièrement utilisés. Les valeurs `spam`, `ham` et `eggs` sont quant à elles souvent utilisée en Python, en référence au sketch [Spam](https://en.wikipedia.org/wiki/Spam_(Monty_Python)) des Monthy Python. [[||Monty Python]] [[||foo]] [[||bar]] [[||baz]] [[||qux]] [[||spam]] [[||ham]] [[||eggs]]
 
 Leur usage est conseillé pour appuyer le cadre générique d'un exemple sans lui donner la consonance d'un problème plus spécifique.
 
@@ -380,15 +380,13 @@ On trouvera une [table](http://www.catb.org/jargon/html/M/metasyntactic-variable
 
 ## Les constantes
 
-Une constante par opposition à une variable voit son contenu **fixe** et **immuable**.
-
-Formellement, une constante se déclare comme une variable, mais préfixée du mot-clé `const`.
+Une constante par opposition à une variable voit son contenu **fixe** et **immuable**. Il s'agit d'un espace mémoire qui ne peut être modifié après son initialisation. Formellement, une constante se déclare comme une variable, mais préfixée du mot-clé `const`.
 
 ```c
 const double scale_factor = 12.67;
 ```
 
-La constante est principalement utilisée pour indiquer au développeur que la valeur ne doit pas être modifiée. Le compilateur peut également s'en servir pour mieux optimiser le code et donc améliorer les performances d'exécution.
+Une [[constante]] est principalement utilisée pour indiquer au développeur que la valeur ne doit pas être modifiée. Le compilateur peut également s'en servir pour mieux optimiser le code et donc améliorer les performances d'exécution.
 
 !!! warning
 
@@ -412,7 +410,7 @@ En résumé, les constantes sont utilisées pour:
 
 ## Constantes littérales
 
-Les constantes littérales représentent des **grandeurs scalaires** numériques ou de caractères et initialisées lors de la phase de compilation.
+Les constantes littérales représentent des **grandeurs scalaires** numériques ou de caractères et initialisées lors de la phase de compilation. [[||constante littérale]]
 
 En effet, lorsque l'on veut saisir un nombre, on ne veut pas que le compilateur la comprenne comme un identificateur, mais bien comme une valeur numérique. C'est d'ailleurs la raison pour laquelle un identificateur ne peut pas commencer par un chiffre.
 
@@ -433,11 +431,11 @@ Les constantes littérales sont généralement identifiées avec des préfixes e
 
 Nous l'avons vu plus haut, le **type** d'une variable est important pour déterminer comment une valeur est stockée en mémoire.
 
-Nous le verrons dans le chapitre sur la [numération][numeration], les valeurs numériques peuvent être stockées en mémoire de différentes manières. Ainsi, une valeur `48` peut être stockée sur un octet, un mot de 16 bits, un mot de 32 bits ou un mot de 64 bits. De plus, la valeur peut faire référence au caractère `0` en ASCII, mais aussi au nombre `72` s'il est exprimé en hexadécimal.
+Comme vu dans le chapitre sur la [numération][numeration], les valeurs numériques peuvent être stockées en mémoire de différentes manières. Ainsi, une valeur `48` peut être stockée sur un octet, un mot de 16 bits, un mot de 32 bits ou un mot de 64 bits. De plus, la valeur peut faire référence au caractère `0` en ASCII, mais aussi au nombre `72` s'il est exprimé en hexadécimal.
 
-Aussi, on utilisera un préfixe devant un nombre `0x` pour indiquer qu'il est en hexadécimal, `0b` pour indiquer qu'il est en binaire et `0` pour indiquer qu'il est en octal. Sans préfixe il s'agit d'un nombre décimal (base 10).
+On utilisera un préfixe devant un nombre `0x` pour indiquer qu'il est en hexadécimal, `0b` pour indiquer qu'il est en binaire et `0` pour indiquer qu'il est en octal. Sans préfixe il s'agit d'un nombre décimal (base 10). [[||0x]] [[||0b]]
 
-On utilisera un suffixe `u` pour indiquer que le nombre est non signé (n’admettant pas de valeurs négatives) et `l` pour indiquer qu'il est long ou `ll` pour indiquer qu'il est très long.
+On utilisera un suffixe `u` pour indiquer que le nombre est non signé (n'admettant pas de valeurs négatives) et `l` pour indiquer qu'il est long ou `ll` pour indiquer qu'il est très long.
 
 Quant aux guillemets simples `'`, ils sont utilisés pour délimiter un caractère de la table ASCII.
 
@@ -479,17 +477,19 @@ Quant aux guillemets simples `'`, ils sont utilisés pour délimiter un caractè
 
     ///
 
-La notation scientifique, aussi appelée notation exponentielle, est une manière d'écrire des nombres très grands ou très petits de manière plus compacte. Par exemple, `1.23e3` est équivalent à `1230.` et `1.23e-3` est équivalent à `0.00123`. Le caractère `e` est utilisé pour indiquer la puissance de 10 par laquelle le nombre doit être multiplié. Il tire probablement son origine du Fortran qui l'utilisait déjà en 1957.
+La [[notation scientifique]], aussi appelée [[notation exponentielle]], est une manière d'écrire des nombres très grands ou très petits de manière plus compacte. Par exemple, `1.23e3` est équivalent à `1230.` et `1.23e-3` est équivalent à `0.00123`. Le caractère `e` est utilisé pour indiquer la puissance de 10 par laquelle le nombre doit être multiplié. Il tire probablement son origine du Fortran qui l'utilisait déjà en 1957.
 
-!!! warning
+!!! warning "Pas Euler"
 
     Il ne faut pas confondre l'exponentiation avec le nombre d'Euler (2.71828...) `e` avec la notation scientifique `e` qui est utilisée pour indiquer une puissance de 10.
 
+!!! warning "La notation scientifique est un double"
+
+    En C, la notation scientifique est toujours un nombre en virgule flottante de type `double`. Ainsi, `1e3` est un `double` et non un `int`. Ne prenez donc pas l'habitude d'écrire `int i = 1e3;`, mais plutôt `int i = 1000;`.
+
 ## Opérateur d'affectation
 
-Dans les exemples ci-dessus, on utilise l'opérateur d'affectation pour associer une valeur à une variable.
-
-Historiquement, et fort malheureusement, le symbole choisi pour cet opérateur est le signe égal `=` or, l'égalité est une notion mathématique qui n'est en aucun cas reliée à l'affectation.
+Dans les exemples ci-dessus, on utilise l'opérateur d'affectation pour associer une valeur à une variable. Historiquement, et malheureusement, le symbole choisi pour cet opérateur est le signe égal `=` or, l'égalité est une notion mathématique qui n'est en aucun cas reliée à l'affectation. [[||=]]
 
 Pour mieux saisir la nuance, considérons le programme suivant :
 
@@ -503,21 +503,15 @@ Mathématiquement, la valeur de `b` devrait être égale à 42 ce qui n'est pas 
 1. J'assigne la valeur 42 à la variable symbolisée par `a`
 2. Puis, j'assigne la valeur de la variable `b` au contenu de `a`.
 
-Comme on ne connaît pas la valeur de `b`, avec cet exemple, on ne peut pas connaître la valeur de `a`.
+Comme on ne connaît pas la valeur de `b`, avec cet exemple, on ne peut pas connaître la valeur de `a`. Certains langages de programmation ont été sensibilisés à l'importance de cette distinction et dans les langages **F#**, **OCaml**, **R** ou **S**, l'opérateur d'affectation est `<-` et une affectation pourrait s'écrire par exemple: `a <- 42` ou `42 -> a`.
 
-Certains langages de programmation ont été sensibilisés à l'importance de cette distinction et dans les langages **F#**, **OCaml**, **R** ou **S**, l'opérateur d'affectation est `<-` et une affectation pourrait s'écrire par exemple: `a <- 42` ou `42 -> a`.
+En C, l'opérateur d'égalité que nous verrons plus loin s'écrit `==` (deux `=` concaténés). [[||==]]
 
-En C, l'opérateur d'égalité que nous verrons plus loin s'écrit `==` (deux `=` concaténés).
-
-Remarquez ici que l'opérateur d'affectation de C agit toujours de droite à gauche c'est-à-dire que la valeur à **droite** de l'opérateur est affectée à la variable située à **gauche** de l'opérateur.
-
-S'agissant d'un opérateur il est possible de chaîner les opérations, comme on le ferait avec l'opérateur `+` et dans l'exemple suivant il faut lire que `42` est assigné à `c`, que la valeur de `c` est ensuite assigné à `b` et enfin la valeur de `b` est assignée à `a`.
+Remarquez ici que l'opérateur d'affectation de C agit toujours de droite à gauche c'est-à-dire que la valeur à **droite** de l'opérateur est affectée à la variable située à **gauche** de l'opérateur. S'agissant d'un opérateur il est possible de chaîner les opérations, comme on le ferait avec l'opérateur `+` et dans l'exemple suivant il faut lire que `42` est assigné à `c`, que la valeur de `c` est ensuite assigné à `b` et enfin la valeur de `b` est assignée à `a`. Nous verrons plus tard comment l'ordre des opérations et l'associativité de chaque opérateur.
 
 ```c
 a = b = c = 42;
 ```
-
-Nous verrons plus tard comment l'ordre des opérations et l'associativité de chaque opérateur.
 
 !!! exercise "Affectations simples"
 
@@ -590,48 +584,46 @@ En C, il est possible d'utiliser le même identificateur pour autant qu'il n'app
 - étiquettes utilisées pour l'instruction `goto`;
 - tag de structures, d'énumérations et d'union;
 - membres de structures, d'énumérations et d'union;
-- identificateurs de variable ou fonctions;
+- identificateurs de variable ou fonctions.
 
 Ces espaces de noms sont indépendants les uns des autres, il est donc possible d'utiliser le même nom sans conflit. Par exemple:
 
 ```c
-typedef struct x { // Espace de nom des structures
-    int x; // Membre de la structure point
-} x; // Espace de nom des types
+typedef struct x {  // Espace de nom des structures
+    int x;  // Membre de la structure point
+} x;  // Espace de nom des types
 
 int main() {
-    x x = {.x = 42}; // x est une variable de type x
+    x x = {.x = 42};  // x est une variable de type x
 }
 ```
 
 ## Commentaires
 
-Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source.
+Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source. Par ailleurs, comme nous l'avons vu en [introduction][preproc-intro], le préprocesseur C supprime les commentaires du code source avant la compilation. [[||commentaire]]
 
 ![Les carafes dans la Vivonne](/assets/images/vivonne.drawio)
 
-Il existe deux manières d'écrire un commentaire en C :
+Il existe deux manières d'écrire un commentaire en C, les commentaires de lignes apparus avec le C++ et C99, ainsi que les commentaires de blocs. Les commentaires de blocs sont plus anciens et sont compatibles avec les versions antérieures du langage.
 
-Les commentaires de lignes (depuis C99):
+=== "Commentaire de ligne"
 
-```c
-// This is a single line comment.
-```
+    ```c
+    // This is a single line comment.
+    ```
 
-Les commentaires de blocs:
+=== "Commentaire de bloc"
 
-```c
-/* This is a
-    Multi-line comment */
-```
+    ```c
+    /* This is a
+       Multi-line comment */
+    ```
 
-Les commentaires sont parsés par le préprocesseur, aussi ils n'influencent pas le fonctionnement d'un programme, mais seulement sa lecture. Rappelons qu'un code est plus souvent lu qu'écrit, car on ne l'écrit qu'une seule fois, mais comme tout développement doit être si possible **réutilisable**,
-il est plus probable qu'il soit lu part d'autres développeurs.
+Il est important de rappeler que les commentaires sont traités par le préprocesseur, aussi ils n'influencent pas le fonctionnement d'un programme, mais seulement sa lecture. Rappelons qu'un code est plus souvent lu qu'écrit, car on ne l'écrit qu'une seule fois, mais comme tout développement doit être si possible **réutilisable**, il est plus probable qu'il soit lu part d'autres développeurs.
 
 En conséquence, il est important de clarifier toute zone d'ombre lorsque l'on s'éloigne des consensus établis, ou lorsque le code seul n'est pas suffisant pour bien comprendre son fonctionnement.
 
-D'une façon générale, les commentaires servent à expliquer **pourquoi** et non **comment**. Un bon programme devrait pouvoir se passer de commentaires, mais un programme sans commentaires n'est pas
-nécessairement un bon programme.
+D'une façon générale, les commentaires servent à expliquer **pourquoi** et non **comment**. Un bon programme devrait pouvoir se passer de commentaires, mais un programme sans commentaires n'est pas nécessairement un bon programme.
 
 !!! note
 
@@ -657,13 +649,11 @@ int deep_throught /* Name of the computer */ = 42; // The answer
 
 ### Commenter du code ?
 
-Lorsque vous développez, vous avez souvent besoin de désactiver des portions de code pour des raisons de débogage ou de test. Il est tentant de commenter ces portions de code plutôt que de les supprimer.
+Lorsque vous développez, vous avez souvent besoin de désactiver des portions de code pour des raisons de débogage ou de test. Il est tentant de commenter ces portions de code plutôt que de les supprimer. Néanmoins une règle à retenir est que l'on ne commente **jamais** des portions de code, et ce pour plusieurs raisons :
 
-Néanmoins une règle à retenir est que l'on ne commente **jamais** des portions de code, et ce pour plusieurs raisons :
-
-1. Les outils de *refactoring* ne pourront pas accéder du code commenté
-2. La syntaxe ne pourra plus être vérifiée par l'IDE
-3. Les outils de gestion de configuration (e.g. Git) devraient être utilisés à cette fin
+1. Les outils de *refactoring* ne pourront pas accéder du code commenté.
+2. La syntaxe ne pourra plus être vérifiée par l'IDE.
+3. Les outils de gestion de configuration (e.g. Git) devraient être utilisés à cette fin.
 
 Si d'aventure vous souhaitez quand même exclure temporairement du code de la compilation, il est recommandé d'utiliser la directive de préprocesseur suivante, et n'oubliez pas d'expliquer pourquoi vous avez souhaité
 désactiver cette portion de code.
@@ -680,16 +670,12 @@ if (divisor == 0) {
 
 D'une manière générale l'utilisation des commentaires ne devrait pas être utilisée pour :
 
-- Désactiver temporairement une portion de code sans l'effacer.
-- Expliquer le **comment** du fonctionnement du code.
-- Faire dans le dithyrambique pompeux et notarial, des phrases à rallonge bien trop romanesques.
-- Créer de jolies séparations telles que `#!c /*************************/`.
+- désactiver temporairement une portion de code sans l'effacer ;
+- expliquer le **comment** du fonctionnement du code ;
+- faire dans le dithyrambique pompeux et notarial, des phrases à rallonge bien trop romanesques ;
+- créer de jolies séparations telles que `#!c /*************************/`.
 
-Exemple d'entête de fichier :
-
-!!! note inline end "SSOT"
-
-    Vous verrez souvent, trop souvent le nom de l'auteur et du fichiers dans les en-têtes. Ce n'est pas une bonne pratique si vous utilisez Git, car ces informations sont déjà présentes dans les métadonnées du fichier.
+Il n'est pas rare de voir au début d'un fichier un commentaire de la forme suivante :
 
 ```c
 /**
@@ -705,6 +691,10 @@ Exemple d'entête de fichier :
  * TODO: Things to fix...
  */
 ```
+
+!!! note end "SSOT"
+
+    Vous verrez souvent, trop souvent le nom de l'auteur et du fichiers dans les en-têtes. Ce n'est pas une bonne pratique si vous utilisez Git, car ces informations sont déjà présentes dans les métadonnées du fichier.
 
 Voici un exemple de ce qu'il ne faut pas faire :
 
@@ -752,10 +742,7 @@ Voici un exemple de ce qu'il ne faut pas faire :
      */
     ```
 
-Le format des commentaires est par essence libre au développeur, mais il est généralement souhaité que :
-
-- Les commentaires soient concis et précis.
-- Les commentaires soient écrits en anglais.
+Le format des commentaires est par essence libre au développeur, mais il est généralement souhaité que : Les commentaires soient concis et précis et qu'ils soient écrits en anglais.
 
 !!! exercise "Verbosité"
 

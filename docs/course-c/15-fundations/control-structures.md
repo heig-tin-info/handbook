@@ -4,18 +4,24 @@ Les structures de contrôle appartiennent aux langages de programmation étant d
 
 Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. On peut citer les catégories suivantes:
 
-- Les séquences
+Les séquences
+
+: Les séquences de code sont des instructions qui s'exécutent les unes après les autres.
 
     - [Les séquences de code][sequence-code] (`;`)
     - [Les blocs de code][sequence-block] (`{}`)
     - [Les points de séquences][sequence-point]
 
-- Les sauts (`jumps`)
+Les sauts (`jumps`)
 
-    - [Conditionnels][conditional-jumps] (`if`, `switch`)
-    - [Inconditionnels][jumps] (`break`, `continue`, `goto`, `return`)
+: Les sauts sont des instructions qui permettent de modifier le flux d'exécution du programme.
 
-- Les boucles (`loops`)
+    - [Saut conditionnel][conditional-jumps] (`if`, `switch`)
+    - [Saut inconditionnel][jumps] (`break`, `continue`, `goto`, `return`)
+
+Les boucles (`loops`)
+
+: Les boucles sont des structures de contrôle qui permettent de répéter une séquence d'instructions.
 
     - [Boucle itérative][loop-for] sur une valeur connue `for`
     - [Boucle sur condition][loop-while] `while`

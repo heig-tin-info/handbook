@@ -33,19 +33,15 @@ Les ensembles de nombres sont :
 
     En pratique dans une carrière d'ingénieur, vous n'aurez jamais à manipuler ni des quaternions, ni des octonions ou des sédénions. Les nombres complexes sont néanmoins une extension des nombres réels qui sont utilisés en physique et en mathématiques et qui peuvent être utilisés en C sous certaines conditions.
 
-Prenons le cas du nombre $\pi$ qui est irrationnel, c'est-à-dire qu'il ne se termine jamais et ne se répète jamais. Il est donc impossible de stocker $\pi$ en mémoire, car il faudrait une quantité infinie de bits pour le représenter.
+[[Archimède]] disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : donnez-moi un nombre et je vous construirai un univers ! Bien entendu la quantité d'information dans l'univers est gargantuesque, elle croît avec l'entropie et donc avec le temps qui passe, mais à sa genèse à l'origine du temps et de l'espace, il n'est pas impensable que l'univers ait pu être créé à partir d'un nombre. C'est une idée qui a été explorée par [[Stephen Wolfram]] dans son livre [[A New Kind of Science]]. Cette vision repose sur l'idée que l'univers pourrait être vu comme une sorte de système informatique ou algorithmique, où des lois fondamentales simples évoluent pour produire la diversité des phénomènes que nous observons.
 
-[[Archimède]] disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : donnez-moi un nombre et je vous construirai l'univers ! Bien entendu la quantité d'information dans l'univers est gargantuesque, elle croît avec l'entropie et donc avec le temps qui passe.
+Dans le jeu [[Minecraft]], lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un monde aléatoire. Cette [[graine]] est un nombre fini qui sert de base à l'algorithme de génération de monde. Si vous utilisez la même graine, vous obtiendrez le même [[monde]]. La graine -5584399987456711267 permet par exemple d'obtenir de merveilleux cerisiers en fleurs qui rappelle la saison de [[Sakura]] à [[Kyoto]]. Mais pour que cela fonctionne il vous faut le code source de Minecraft, lui aussi c'est une succession de 0 et de 1, et donc c'est un nombre, lui aussi fini.
 
-!!! info "Minecraft"
+![Monde correspondant à la graine -5584399987456711267](/assets/images/minecraft.png)
 
-    Dans [[Minecraft]], lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un monde aléatoire. Cette [[graine]] est un nombre fini qui sert de base à l'algorithme de génération de monde. Si vous utilisez la même graine, vous obtiendrez le même monde. La graine -5584399987456711267 permet par exemple d'obtenir de merveilleux cerisiers en fleurs qui rappelle la saison de Sakura à Kyoto.
+Lorsque vous jouez, vos actions génèrent de l'information qui influence le monde, et donc la quantité d'information dans le monde croît avec l'entropie que vous injectez dans le système. C'est pour cela que plus vous jouez, plus la sauvegarde de votre monde devient grande, mais vous pouvez toujours la représenter aussi avec un nombre fini : une succession de 0 et de 1.
 
-    Mais pour que cela fonctionne il vous faut le code source de Minecraft, lui aussi c'est une succession de 0 et de 1, et donc c'est un nombre, lui aussi fini.
-
-    Enfin, lorsque vous jouez, vos actions génèrent de l'information qui influence le monde, et donc la quantité d'information dans le monde croît. C'est pour cela que plus vous jouez, plus la sauvegarde de votre monde devient grande, mais vous pouvez la représenter aussi avec un nombre fini.
-
-Les mémoires des ordinateurs ne sont pas infinies, elles sont limitées par la quantité de transistors qui les composent. Il n'est donc pas possible d'y stocker n'importe quel nombre. $\pi$ ne peut pas être stocké en mémoire, mais une approximation de $\pi$ peut l'être. Aussi, l'informatique impose certaines limitations sur les nombres que l'on peut manipuler. Les nombres entiers sont les plus simples à manipuler, mais ils sont limités par la taille de la mémoire et la manière dont on les enregistre en mémoire. C'est ce que nous allons voir.
+À noter que les mémoires des ordinateurs ne sont pas infinies, elles sont limitées par la quantité de transistors qui les composent. Il n'est donc pas possible d'y stocker n'importe quel nombre. $\pi$ ne peut pas être stocké en mémoire, mais une approximation de $\pi$ peut l'être. Aussi, l'informatique impose certaines limitations sur les nombres que l'on peut manipuler. Les nombres entiers sont les plus simples à manipuler, mais ils sont limités par la taille de la mémoire et la manière dont on les enregistre en mémoire. Il est donc utile de se fixer des limites, de définir des bornes en fonction de l'usage que l'on veut en faire. La graine de Minecraft est par exemple un nombre de 64 bits et c'est un nombre entier.
 
 ## Entiers naturels
 
@@ -55,7 +51,7 @@ $$
 \mathbb{N} = {0, 1, 2, 3, ...}
 $$
 
-Les entiers sont les premiers types de données manipulés par les ordinateurs. Ils sont stockés en mémoire sous forme de bits. En choisissant la taille de stockage des entiers, on détermine la plage de valeurs que l'on peut représenter. Un entier de 8 bits peut représenter $2^8 = 256$ valeurs différentes, de 0 à 255. Un entier de 16 bits peut représenter $2^{16} = 65536$ valeurs différentes, de 0 à 65535.
+Les entiers sont les premiers types de données manipulés par les ordinateurs. Ils sont stockés en mémoire sous forme de bits. En choisissant la taille de stockage des entiers, on détermine la plage de valeurs que l'on peut représenter. Un entier de 8 bits peut par exemple représenter $2^8 = 256$ valeurs différentes, de 0 à 255. Un entier de 16 bits peut quant à lui représenter $2^{16} = 65536$ valeurs différentes, de 0 à 65535. À chaque bit supplémentaire, on double la plage de valeurs représentables.
 
 !!! example
 
@@ -68,7 +64,7 @@ Les entiers sont les premiers types de données manipulés par les ordinateurs. 
     \end{array}
     $$
 
-La taille de stockage d'un entier détermine donc ses limites. Si cette manière est élégante, elle ne permet pas de représenter des valeurs négatives. Pour cela, on aura recours aux entiers relatifs.
+La taille de stockage d'un entier détermine donc ses limites. Si cette manière est élégante, elle ne permet hélas pas de représenter des valeurs négatives. Pour cela, on aura recours aux entiers relatifs.
 
 ## Entiers relatifs
 
@@ -78,17 +74,17 @@ $$
 \mathbb{Z} = {..., -3, -2, -1, 0, 1, 2, 3, ...}
 $$
 
-Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car manque une information permettant d'encoder le symbole pour le signe `-` (ni même d'ailleurs `+`).
+Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son [[encodage]] et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car manque une information permettant d'encoder le symbole pour le signe `-` (ni même d'ailleurs `+`).
 
 Une approche naïve serait de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. Un peu comme si vous aviez deux boîtes chez vous, l'une pour les choses qui se mangent (le frigo) et une pour les choses qui ne se mangent plus (la poubelle).
 
-L'ennui pour les **variables** c'est que le contenu peut changer et qu'un nombre négatif pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meilleure méthode.
+L'ennui pour les **variables** c'est que le contenu peut changer et qu'un [[nombre négatif]] pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meilleure méthode.
 
 On pourrait alors renseigner la nature du nombre, c'est-à-dire son signe avec sa valeur.
 
 ### Bit de signe
 
-Pourquoi ne pas se réserver un [[bit de signe]], par exemple le 8^e^ bit de notre nombre de 8 bits, pour indiquer si le nombre est positif ou négatif ?
+Pourquoi ne pas se réserver un [[bit de signe]], par exemple le 8^e^ bit de notre nombre de 8 bits, pour indiquer si le nombre est positif ou négatif ? C'est cet exemple qui est montré ici :
 
 ```text
 ┌─┐┌─┬─┬─┬─┬─┬─┬─┐
@@ -99,11 +95,11 @@ Pourquoi ne pas se réserver un [[bit de signe]], par exemple le 8^e^ bit de not
 └─┘└─┴─┴─┴─┴─┴─┴─┘
 ```
 
-Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable est ici n'est plus que de `[-127..127]`. Elle présente un autre inconvénient majeur : la représentation de zéro.
+Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable est n'est plus que de `[-127..127]`. Néanmoins, elle présente un autre inconvénient majeur : la représentation du zéro.
 
-Il existe alors deux zéros, le zéro négatif `0b00000000`, et le zéro positif `0b10000000` ce qui peut poser des problèmes pour les comparaisons. Est-ce que $0$ est égal $-0$ ? En un sens oui, mais en termes de l'information stockée, ce n'est pas le même nombre.
+Dans cette représentation, il existe deux zéros : le [[zéro]] négatif `0b00000000`, et le zéro positif `0b10000000` ce qui peut poser des problèmes pour les comparaisons. Est-ce que $0$ est égal $-0$ ? En un sens oui, mais en termes de l'information stockée, ce n'est pas le même nombre.
 
-En termes de calcul, l'addition ne fonctionne plus si on raisonne sur les bits. Car si on additionne au zéro positif (`0b10000000`) la valeur 1 on aura 1, mais si on additionne au zéro négatif (`0b00000000`) la valeur 1 on obtiendra -1. C'est un peu déroutant.
+En termes de calculs, l'[[addition]] ne fonctionne plus si on raisonne sur les bits. Car si on additionne au zéro positif (`0b10000000`) la valeur 1 on aura 1, mais si on additionne au zéro négatif (`0b00000000`) la valeur 1 on obtiendra -1 et c'est un peu déroutant :
 
 ```text
 000   001   010   011   100   101   110   111
@@ -114,7 +110,7 @@ En termes de calcul, l'addition ne fonctionne plus si on raisonne sur les bits. 
  0     1     2     3     0    -1    -2    -3
 ```
 
-Il faudrait donc trouver une méthode qui permettrait de conserver la possibilité de faire les opérations directement en binaire. En d'autres termes on aimerait pouvoir calculer en base deux sans se soucier du signe :
+Il faudrait donc trouver une méthode qui permettrait de conserver la possibilité de faire les opérations directement en binaire. En d'autres termes, on souhaiterait pouvoir calculer en base deux sans se soucier du signe :
 
 ```text
   00000010 (2)
@@ -130,7 +126,7 @@ Si on résume, la solution proposée qui utilise un bit de signe pose deux probl
 
 ### Complément à un
 
-Le **complément à un** est une méthode plus maline utilisée dans les premiers ordinateurs comme le [CDC 6600](https://fr.wikipedia.org/wiki/Control_Data_6600) (1964) ou le [UNIVAC 1107](https://en.wikipedia.org/wiki/UNIVAC_1100/2200_series) (1962). Il existe également un bit de signe, mais il est implicite. [[||complément à un]]
+Le **[[complément à un]]** est une méthode plus maline utilisée dans les premiers ordinateurs comme le [CDC 6600](https://fr.wikipedia.org/wiki/Control_Data_6600) (1964) ou le [UNIVAC 1107](https://en.wikipedia.org/wiki/UNIVAC_1100/2200_series) (1962). Il existe également un bit de signe, mais il est implicite.
 
 Le complément à un tire son nom de sa définition générique nommée *radix-complement* ou complément de base et s'exprime par :
 
@@ -155,14 +151,16 @@ $y$
 Ainsi, il est facile d'écrire le [[complément à neuf]] d'un nombre en base dix, car on s'arrange pour que chaque chiffre composant le nombre on trouve un autre chiffre dont la somme est égale à neuf.
 
 ```
-0 1 2 3 4 5 6 7 8 9
-        |
-        | Complément à 9
-        v
-9 8 7 6 5 4 3 2 1 0
+  0 1 2 3 4 5 6 7 8 9
+          |
+          | Complément à 9
+          v
++ 9 8 7 6 5 4 3 2 1 0
+  -------------------
+  9 9 9 9 9 9 9 9 9 9
 ```
 
-On notera avec beaucoup d'intérêt qu'un calcul est possible avec cette méthode. À gauche on a une soustraction classique, à droite on remplace la soustraction par une addition ainsi que les valeurs négatives par leur complément à 9. Le résultat `939` correspond à `60`.
+On notera avec beaucoup d'intérêt qu'un calcul est possible avec cette méthode. Sur l'exemple suivant, à gauche, on montre une soustraction classique, à droite on remplace la soustraction par une addition ainsi que les valeurs négatives par leur complément à 9. Le résultat `939` correspond après complément à un à `60`.
 
 ```
   150      150
@@ -194,7 +192,7 @@ Reprenons l'exemple précédent de soustraction, on notera que l'opération fonc
   11111011 (-4)
 ```
 
-En résumé, la méthode du complément à 1 :
+Pour résumer les avantages et inconvénients du complément à un :
 
 1. Les opérations redeviennent presque triviales, mais il est nécessaire de soustraire 1 au résultat (c'est dommage).
 2. Le double zéro (positif et négatif) est gênant.
@@ -202,24 +200,31 @@ En résumé, la méthode du complément à 1 :
 [](){#twos_complement}
 ### Complément à deux
 
-Le [[complément à deux]] n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles et de 2 (`0` et `1`). On ne peut pas trouver un chiffre tel que la somme fasse `2`. C'est la même idée que de demander le complément à 10 en base 10.
+Le [[complément à deux]] n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles et de 2 (`0` et `1`). On ne peut pas trouver un chiffre tel que la somme donne `2`. C'est la même idée que de demander le complément à 10 en base 10. Vous ne pouvez pas sur la base d'un chiffre unique obtenir un autre chiffre dont la somme est égale à 10 sans avoir recours à un autre chiffre.
 
 Pour réaliser ce complément à deux (complément à un plus un), il y a deux étapes :
 
 1. Calculer le complément à un du nombre d'entrées.
 2. Ajouter 1 au résultat.
 
-Oui, et alors, en quoi cela change la donne ? Surprenamment, on résout tous les problèmes amenés par le complément à un :
+Oui, et alors, en quoi cela change le [Schmilblick](https://fr.wikipedia.org/wiki/Schmilblick) ? Surprenamment, on résout tous les problèmes amenés par le complément à un. Prenons les différentes représentations que nous avons vues jusqu'à présent :
 
 ```
 000   001   010   011   100   101   110   111
 ─┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼───>
  0     1     2     3     4     5     6     7     sans complément
+ 0     1     2     3     0    -1    -2    -3     avec bit de signe
  0     1     2     3    -3    -2    -1     0     complément à un
  0     1     2     3    -4    -3    -2    -1     complément à deux
 ```
 
-Au niveau du calcul :
+On peut également les représenter sous forme d'un cercle comme illustré sur la figure suivante :
+
+![Cercle des nombres](/assets/images/complement-circle.drawio)
+
+Avec le bit de signe, on observe deux ruptures dans la continuité de la représentation. Un saut de `3,0` et un autre `-3,0`. Avec le complément à un, on n'observe toujours deux sauts `0,0` et `-3,-3`. Avec le complément à deux, on n'observe plus qu'un seul saut `3, -4`, et la continuité est assurée de `-1` à `0`. Par ailleurs, le zéro n'a plus de double représentation.
+
+Au niveau du calcul, l'addition et la soustraction fonctionnent de manière identique. Prenons l'exemple de la soustraction suivante :
 
 ```
   2        00000010
@@ -228,26 +233,27 @@ Au niveau du calcul :
  -3        11111101   (~0b11111101 + 1 == 0b11 == 3)
 ```
 
-Les avantages :
+Cette notation est donc très élégante, car :
 
 1. Les opérations sont triviales.
 2. Le problème du double zéro est résolu.
 3. On gagne une valeur négative `[-128..+127]` contre `[-127..+127]` avec les méthodes précédemment étudiées.
 
-Vous l'aurez compris, le complément à deux est le mécanisme le plus utilisé dans les ordinateurs modernes pour représenter les nombres entiers négatifs.
+Vous l'aurez compris, le complément à deux est bien le mécanisme de représentation des nombres négatifs qui a été retenu par les informaticiens, et le plus utilisé de nos jours dans les ordinateurs. Gardez cependant à l'esprit que ces mécanismes ne sont qu'une interprétation d'un contenu binaire stocké en mémoire.
 
 ## Les nombres réels
 
 Mathématiquement, les [nombres réels](https://fr.wikipedia.org/wiki/Nombre_r%C3%A9el) $\mathbb{R}$, sont des nombres qui peuvent être représentés par une partie entière, et une liste finie ou infinie de décimales. En informatique, stocker une liste infinie de décimale demanderait une quantité infinie de mémoire et donc, la [précision arithmétique](https://fr.wikipedia.org/wiki/Pr%C3%A9cision_arithm%C3%A9tique) est contrainte.
 
-Au début de l'ère des ordinateurs, il n'était possible de stocker que des nombres entiers, mais
-le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La transition s'est faite progressivement, d'abord par l'apparition de la [virgule fixe](https://fr.wikipedia.org/wiki/Virgule_fixe), puis par la [virgule flottante](https://fr.wikipedia.org/wiki/Virgule_flottante).
+Au début de l'ère des ordinateurs, il n'était possible de stocker que des nombres entiers, mais le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir et la transition s'est faite progressivement. D'abord par l'apparition de la [virgule fixe](https://fr.wikipedia.org/wiki/Virgule_fixe), puis par la [virgule flottante](https://fr.wikipedia.org/wiki/Virgule_flottante).
 
 Le premier ordinateur avec une capacité de calcul en virgule flottante date de 1942 (ni vous ni moi n'étions probablement nés) avec le [Zuse's Z4](https://fr.wikipedia.org/wiki/Zuse_4), du nom de son inventeur [Konrad Zuse](https://fr.wikipedia.org/wiki/Konrad_Zuse).
 
+Attardons-nous un peu sur ces concepts de [[virgule fixe]] et de [[virgule flottante]].
+
 ### Virgule fixe
 
-Prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facilement que bien qu'il s'agisse d'un nombre entier, une virgule pourrait être ajoutée au bit zéro sans en modifier sa signification.
+Pour illustrer notre propos, prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facilement que bien qu'il s'agisse d'un nombre entier, une virgule pourrait être ajoutée au bit zéro sans en modifier sa signification. Dans cet exemple, ajoutons une virgule à la position 0 :
 
 ```text
 ┌─┬─┬─┬─┬─┬─┬─┬─┐
@@ -256,7 +262,7 @@ Prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facil
                 , / 2^0     ----> 83 / 1 = 83
 ```
 
-Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre `0b01010011` avec une [[virgule fixe]] positionnée au quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisée par 8 ($2^3$). On parvient alors à exprimer une grandeur réelle comportant une partie décimale :
+Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre `0b01010011` avec une virgule fixe positionnée à droite du quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisée par 8 ($2^3$). On parvient alors à exprimer une grandeur réelle comportant une partie décimale :
 
 ```text
 ┌─┬─┬─┬─┬─┬─┬─┬─┐
@@ -265,7 +271,7 @@ Imaginons à présent que nous déplacions cette virgule virtuelle de trois él�
           ,       / 2³     ----> 83 / 8 = 10.375
 ```
 
-Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens, est incapable sans information additionnelle d'interpréter correctement la position de la virgule puisque sa position n'est encodée nulle part. Et puisque la position de cette virgule est dans l'intervalle `[0..7]`, il serait possible d'utiliser trois bits supplémentaires à cette fin :
+Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens, est incapable sans information additionnelle d'interpréter correctement la position de la virgule puisque sa position n'est encodée nulle part dans le nombre. En outre, puisque la position de cette virgule est dans l'intervalle `[0..7]`, il serait possible d'utiliser trois bits supplémentaires à cette fin :
 
 ```text
 ┌─┬─┬─┬─┬─┬─┬─┬─┐
@@ -276,11 +282,11 @@ Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens,
           └─┴─┴─┘
 ```
 
-Cette solution est élégante, mais demande à présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.
+Cette solution est élégante, mais demande à présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.
 
 ### Virgule flottante
 
-Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' [exposant](https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)) et le reste de l'information la [mantisse](https://fr.wikipedia.org/wiki/Mantisse), qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la [mantis shrimp](https://fr.wikipedia.org/wiki/Stomatopoda), une quille ou crevette-mante boxeuse aux couleurs particulièrement chatoyantes). [[||virgule flottante]]
+Depuis l'exemple précédent, imaginons que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' [exposant](https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)) et le reste de l'information la [mantisse](https://fr.wikipedia.org/wiki/Mantisse), qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la [mantis shrimp](https://fr.wikipedia.org/wiki/Stomatopoda), une quille ou crevette-mante boxeuse aux couleurs particulièrement chatoyantes). [[||virgule flottante]]
 
 ```
   exp.  mantisse
@@ -292,7 +298,7 @@ Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de
 
 Notre construction nous permet toujours d'exprimer des grandeurs réelles, mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre $1\cdot2^{7}=0.0078125$ et $63$. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32-bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.
 
-Dernière itération, choisissons d'étendre notre espace de stockage à ,4 octets. Réservons un bit de signe pour exprimer les grandeurs négatives, 8 bits pour l'exposant et 23 bits pour la mantisse :
+Poursuivons notre raisonnement. Cette fois-ci nous choisissons d'étendre notre espace de stockage à 4 octets. Un bit de signe est réservé pour exprimer les grandeurs négatives, 8 bits pour l'[[exposant]] et 23 bits pour la [[mantisse]] :
 
 ```
  ┌ Signe 1 bit
@@ -332,7 +338,7 @@ $f_k$
 
 : Entier non négatif plus petit que la base $b$.
 
-Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres `binary16`, `binary32` ou `binary64`, selon le nombre de bits utilisé pour coder l'information. Les termes de *Single precision* ou *Double precision* sont aussi couramment utilisés. [[||virgule flottante]] [[||IEEE 754]] [[||FPU]] [[||single precision]] [[||double precision]]
+Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres `binary16`, `binary32` ou `binary64`, selon le nombre de bits utilisé pour coder l'information. Les termes de *Single precision* ou *Double precision* sont aussi couramment utilisés. [[||virgule flottante]] [[||IEEE 754]] [[||FPU]] [[||single precision]] [[||double precision]] [[||binary XX]]
 
 Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante ([FPU](https://en.wikipedia.org/wiki/Floating-point_unit) pour *Floating point unit*) sont les suivants :
 
@@ -343,23 +349,23 @@ Table: Formats de nombres en virgule flottante
 | `binary32` | 8 bits   | 23 bits  | 1 bit |
 | `binary64` | 11 bits  | 52 bits  | 1 bit |
 
-Prenons le temps de faire quelques observations :
+Il est temps de faire quelques observations :
 
-- Une valeur encodée en virgule flottante sera toujours une approximation d'une grandeur réelle.
-- La précision est d'autant plus grande que le nombre de bits de la mantisse est grand.
-- La base ayant été fixée à 2, il est possible d'exprimer $1/1024$ sans erreur de précision, mais pas $1/1000$.
-- Un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent [(10 à 100x)](https://stackoverflow.com/a/15585448/2612235) pour faire des calculs en virgule flottante.
-- Bien que le standard **C99** définisse les types virgule flottante `float`, `double` et `long double`, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé. [[||double]] [[||long double]]
+- une valeur encodée en virgule flottante sera toujours une approximation d'une grandeur réelle ;
+- la précision est d'autant plus grande que le nombre de bits de la mantisse est grand ;
+- la base ayant été fixée à 2, il est possible d'exprimer $1/1024$ sans erreur de précision, mais pas $1/1000$ ;
+- un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent [(10 à 100x)](https://stackoverflow.com/a/15585448/2612235) pour faire des calculs en virgule flottante ;
+- bien que le standard **C99** définisse les types virgule flottante `float`, `double` et `long double`, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé. [[||double]] [[||long double]]
 
 ### Simple précision
 
 Le type `float` aussi dit à précision simple utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :
 
 - $\pm\inf$ lorsque l'exposant vaut `0xff`
-- $(-1)^{\text{sign}}\cdot2^{\text{exp} - 127}\cdot1.\text{significand}$
+- $(-1)^{\text{sign}}\cdot2^{\text{exp} - 127}\cdot1.\text{mantisse}$
 - $0$ lorsque la mantisse vaut `0x00000`
 
-La valeur de 1.0 est encodée :
+Voici quelques exemples. Tout d'abord, la valeur de 1.0 est encodée de la manière suivante :
 
 $$
 \begin{aligned}
@@ -369,7 +375,7 @@ $$
 \end{aligned}
 $$
 
-La valeur maximale exprimable :
+La valeur positive maximale exprimable est lorsque l'exposant vaut `0xfe` et la mantisse `0x7fffff` :
 
 $$
 \begin{aligned}
@@ -391,7 +397,7 @@ $$
 \end{aligned}
 $$
 
-Vient s'ajouter les valeurs particulières suivantes :
+On peut encore noter quelques valeurs particulières :
 
 ```
 0 00000000 00000000000000000000000₂ ≡ 0000 0000₁₆ ≡ 0
@@ -401,9 +407,9 @@ Vient s'ajouter les valeurs particulières suivantes :
 
 !!! bug "Dépassement de capacité"
 
-    Il ne faut pas oublier que la représentation des nombres en virgule flottante n'est pas exacte. Il est possible de dépasser la capacité de stockage d'un nombre en virgule flottante. La précision maximale d'un nombre en virgule flottante dépend de sa mantisse.
+    Il ne faut pas oublier que la représentation des nombres en virgule flottante n'est pas exacte et il est possible de dépasser la capacité de stockage d'un nombre en virgule flottante. Quant à la précision maximale d'un nombre en virgule flottante, il dépend de sa mantisse.
 
-    Par exemple si l'on souhaite réaliser un intégrateur simple, nous disposons d'un compteur `u` initialisé à 1.0. À chaque itération, on incrémente `u` de 1.0. Lorsque la valeur cesse de croître, on affiche la valeur de `u`.
+    Par exemple, si l'on souhaite réaliser un intégrateur simple, nous disposons d'un compteur `u` initialisé à 1.0. À chaque itération, on incrémente `u` de 1.0. Lorsque la valeur cesse de croître, on affiche la valeur de `u`.
 
     ```c
     #include <stdio.h>
@@ -426,7 +432,7 @@ Vient s'ajouter les valeurs particulières suivantes :
 
 ### Double précision
 
-La double précision est similaire à la simple précision, mais avec une mantisse à **52 bits** et **11 bits** d'exposants.
+La double précision est similaire à la simple précision, mais avec une mantisse à **52 bits** et **11 bits** d'exposants. Le nombre est donc représentable sur **64 bits**. La valeur maximale est de $1.7976931348623157 \times 10^{308}$ et la valeur minimale de $2.2250738585072014 \times 10^{-308}$. La résolution en nombre de chiffres significatifs est de 15 à 16 chiffres contre 6 à 7 pour la simple précision. Cette notation est donc très pertinente pour les calculs scientifiques, mais elle requiert aussi plus de mémoire.
 
 !!! exercise "Expressions arithmétiques flottantes"
 
@@ -444,21 +450,19 @@ La double précision est similaire à la simple précision, mais avec une mantis
 
 ### Quadruple précision
 
-Bien que ce soit marginal dans le monde de l'informatique, la [[quadruple précision]] est une norme IEEE 754 qui utilise 128 bits pour stocker les nombres réels. Elle est utilisée pour des calculs scientifiques nécessitant une très grande précision comme au [[CERN]] ou pour l'étude de modèles cosmologiques.
+Bien que ce soit marginal dans le monde de l'informatique, la [[quadruple précision]] est une norme définie dans [[IEEE 754]] qui utilise 128 bits pour stocker les nombres réels. Elle est utilisée pour des calculs scientifiques nécessitant une très grande précision comme au [[CERN]] ou pour l'étude de modèles cosmologiques. La quadruple précision offre une précision de 34 chiffres significatifs, soit environ 112 bits de précision.
 
-La quadruple précision offre une précision de 34 chiffres significatifs, soit environ 112 bits de précision. Elle est codée sur 128 bits.
+Seul un nombre réduit de langages de programmation peut gérer nativement cette notation, et la grande majorité des processeurs n'est pas prévue pour les traiter efficacement. Il est néanmoins possible de l'utiliser avec certains compilateurs C comme GCC en utilisant le type `__float128` de la bibliothèque `<quadmath.h>`.
 
-Il est possible de l'utiliser avec certains compilateurs C comme GCC en utilisant le type `__float128` de la bibliothèque `<quadmath.h>`.
+!!! warning "Lenteurs"
 
-!!! warning
-
-    Son utilisation ralenti considérablement les calculs, car les processeurs actuels ne sont pas optimisés pour ce type de calculs. Un processeur peut faire des calculs sur 64 bits en une seule opération, mais pour des calculs en quadruple précision, il doit faire plusieurs opérations pour chaque chiffre.
+    Utiliser la quadruple précision ralenti considérablement les calculs, car les processeurs actuels ne sont pas optimisés pour travailler sur 128 bits. Un processeur peut faire des calculs sur 64 bits en une seule opération, mais pour des calculs en quadruple précision, l'effort est considérablement plus grand.
 
 ## Nombres complexes
 
-En C, il est possible de définir des nombres complexes en utilisant le type `complex` de la bibliothèque `<complex.h>`. Les nombres complexes sont composés de deux parties, la partie réelle et la partie imaginaire. Ils sont souvent utilisés en mathématiques pour représenter des nombres qui ne peuvent pas être exprimés avec des nombres réels. Ils ont été introduits avec la version C99 du langage C.
+En C, il est possible de définir des nombres complexes en utilisant le type `complex` de la bibliothèque `<complex.h>`. Les nombres complexes sont composés de deux parties, la partie réelle et la partie imaginaire. Ils sont souvent utilisés en mathématiques pour représenter des nombres qui ne peuvent pas être exprimés avec des nombres réels. Ils ont été introduits avec la version C99 du standard C.  [[||nombre complexe]] [[||<complex.h>]]
 
-Néanmoins les nombres complexes ne sont pas supportés par les opérateurs du langage, il est nécessaire d'utiliser des fonctions spécifiques pour effectuer des opérations sur les nombres complexes.
+Néanmoins les nombres complexes ne sont pas supportés par les opérateurs du langage, il est donc nécessaire d'utiliser des fonctions spécifiques pour effectuer des opérations complexes.
 
 !!! note
 
@@ -474,6 +478,8 @@ Néanmoins les nombres complexes ne sont pas supportés par les opérateurs du l
     ```
 
     `x1` et `x2` sont des nombres complexes.
+
+Voici un exemple en C :
 
 ```c
 #include <stdio.h>
@@ -500,8 +506,8 @@ int main() {
 
 Le format [Q](https://en.wikipedia.org/wiki/Q_(number_format)) est une notation en [[virgule fixe]] dans laquelle le format d'un nombre est représenté par la lettre **Q** suivie de deux nombres :
 
-1. Le nombre de bits entiers
-2. Le nombre de bits fractionnaires
+1. Le nombre de bits entiers.
+2. Le nombre de bits fractionnaires.
 
 Ainsi, un registre 16 bits contenant un nombre allant de +0.999 à -1.0 s'exprimera **Q1.15** soit 1 + 15 valant 16 bits.
 
@@ -509,29 +515,18 @@ Pour exprimer la valeur pi (3.1415...) il faudra au minimum 3 bits pour représe
 
 La construction de ce nombre est facile :
 
-1. Prendre le nombre réel
-2. Le multiplier par 2 à la puissance du nombre de bits
-3. Prendre la partie entière
-
-```text
-1.    3.1415926535
-2.    2**12 * 3.1415926535 = 12867.963508736
-3.    12867
-```
+1. Prendre le nombre réel à encoder ($3.1415926535$)
+2. Le multiplier par 2 à la puissance du nombre de bits ($2^{12} * 3.1415926535 = 12867.963508736$)
+3. Prendre la partie entière ($12867$)
 
 Pour convertir un nombre **Q4.12** en sa valeur réelle il faut :
 
-1. Prendre le nombre encodé en **Q4.12**
-2. Diviser sa valeur 2 à la puissance du nombre de bits
+1. Prendre le nombre encodé en **Q4.12** ($12867$)
+2. Diviser sa valeur 2 à la puissance du nombre de bits ($12867 / 2^{12} = 3.141357421875$)
 
-```text
-1.    12867
-2.    12867 / 2**12 = 3.141357421875
-```
+On peut noter une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : $1 / 2^12 = 0.00024$. Il convient alors d'arrondir le nombre à la troisième décimale, soit $3.141$.
 
-On note une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : $1 / 2^12 = 0.00024$. Il convient alors d'arrondir le nombre à la troisième décimale, soit 3.141.
-
-Les opérations arithmétiques sont possibles facilement entre des nombres de mêmes types. Le chapitre sur les [algorithmes][fast-sin] décrit une implémentation de calcul de sinus en utilisant ce format.
+Les opérations arithmétiques restent triviales entre des nombres de mêmes types. Le chapitre sur les [algorithmes][fast-sin] décrit une implémentation de calcul de sinus en utilisant ce format. [[||q format]]
 
 ### Addition
 

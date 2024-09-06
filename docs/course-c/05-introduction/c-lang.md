@@ -251,6 +251,8 @@ Vient ensuite la phase d'édition des liens ou *linkage* lors de laquelle le pro
 
 ![Cycle de compilation illustré](/assets/images/build-cycle.drawio)
 
+[](){#preproc-intro}
+
 ### Préprocesseur (*pre-processing*)
 
 La phase de *preprocessing* permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le *preprocessing* réalise le remplacement des directives du préprocesseur [de définitions][preprocessor-define] par leurs valeurs résultantes. Ce préprocesseur permet d'inclure des fichiers externes, de définir des valeurs constantes ou de conditionner l'exécution de certaines parties du code par exemple avec des options de configuration. Avec le compilateur `gcc` il est possible de demander uniquement cette étape avec l'option `-E`. Cette étape est illustrée dans la figure suivante.
@@ -293,7 +295,7 @@ Il est traditionnellement coutume depuis la publication en 1978 du livre [The C 
 --8<-- "docs/assets/src/hello.c"
 ```
 
-Ce programme est composé de deux parties. L'inclusion de la bibliothèque standard d'entrées sorties (*STandarD Inputs Outputs*) à l'aide d'une directive préprocesseur qui définit l'existence de la fonction `printf` qui vous permet d'écrire sur le terminal. Le programme principal est nommé `main` et tout ce qui se situe à l'intérieur des accolades `{ }` appartient à ce dernier. L'ensemble que définit `main` et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction `printf`. On prend soin de terminer chaque instruction par un point-virgule `;`.
+Ce programme est composé de deux parties. L'inclusion de la bibliothèque standard d'entrées sorties (*STandarD Inputs Outputs*) à l'aide d'une directive préprocesseur qui définit l'existence de la fonction `printf` qui vous permet d'écrire sur le terminal. Le programme principal est nommé `main` et tout ce qui se situe à l'intérieur des accolades `{ }` appartient à ce dernier. L'ensemble que définit `main` et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction `printf`. On prend soin de terminer chaque instruction par un point-virgule `;`. [[||hello, world]]
 
 L'appel d'une fonction comme  `printf` peut prendre des **paramètres** comme ici le texte `Hello world!\n` dont le `\n` représente un retour à la ligne.
 
@@ -317,13 +319,13 @@ int main()
 }
 ```
 
-Évidemment, vous devez avoir écrit le programme `hello.c` au préalable. Alternativement vous pouvez utiliser la commande suivante pour créer le fichier `hello.c` :
+Évidemment, vous devez avoir écrit le programme `hello.c` au préalable. Alternativement vous pouvez utiliser la commande suivante pour créer le fichier `hello.c` : [[||echo]]
 
 ```bash
 echo '#include <stdio.h>\n\nint main()\n{\n  printf("hello, world");\n}' > hello.c
 ```
 
-À présent on peut utiliser notre compilateur par défaut: `cc` pour *C Compiler*. Ce compilateur prend en argument un fichier C et sans autre option, il génèrera un fichier [a.out](https://fr.wikipedia.org/wiki/A.out) pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter.
+À présent on peut utiliser notre compilateur par défaut: `cc` pour *C Compiler*. Ce compilateur prend en argument un fichier C et sans autre option, il génèrera un fichier [a.out](https://fr.wikipedia.org/wiki/A.out) pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter. [[||cc]]
 
 Utilisez donc la commande suivante pour compiler votre programme :
 
@@ -331,7 +333,7 @@ Utilisez donc la commande suivante pour compiler votre programme :
 $ gcc hello.c
 ```
 
-Rien ne s'est affiché ? C'est une bonne nouvelle ! La philosophie POSIX est qu'un programme doit se faire le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur. Cela ne veut pas dire que la commande n'a eu aucun effet. Au contraire, on s'attend à trouver dans le répertoire courant notre fichier source ainsi que le résultat de la compilation, le fichier `a.out`. Pour le vérifier, nous utiliserons le programme [ls](https://fr.wikipedia.org/wiki/Ls) qui liste les fichiers d'un dossier :
+Rien ne s'est affiché ? C'est une bonne nouvelle ! La philosophie POSIX est qu'un programme doit se faire le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur. Cela ne veut pas dire que la commande n'a eu aucun effet. Au contraire, on s'attend à trouver dans le répertoire courant notre fichier source ainsi que le résultat de la compilation, le fichier `a.out`. Pour le vérifier, nous utiliserons le programme [ls](https://fr.wikipedia.org/wiki/Ls) qui liste les fichiers d'un dossier : [[||ls]]
 
 ```bash
 $ ls

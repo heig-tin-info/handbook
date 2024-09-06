@@ -954,3 +954,58 @@ int main(void)
     printf("i = %" PRIx32 "\n", i);
 }
 ```
+
+!!! exercise "Constantes littérales caractérielles"
+
+    Indiquez si les constantes littérales suivantes sont valides ou invalides.
+
+    /// html | div[class='two-column-list']
+
+    1. `'a'`
+    2. `'A'`
+    3. `'ab'`
+    4. `'\x41'`
+    5. `'\041'`
+    6. `'\0x41'`
+    7. `'\n'`
+    8. `'\w'`
+    9. `'\t'`
+    10. `'\xp2'`
+    11. `"abcdef"`
+    12. `"\abc\ndef"`
+    13. `"\'\"\\"`
+    14. `"hello \world!\n"`
+
+    ///
+
+!!! exercise "Chaînes de formatage"
+
+    Pour les instructions ci-dessous, indiquer quel est l'affichage obtenu.
+
+    ```c
+    char a = 'a';
+    short sh1 = 5;
+    float f1 = 7.0f;
+    int i1 = 7, i2 = 'a';
+    ```
+
+    1. `#!c printf("Next char: %c.\n", a + 1);`
+    2. `#!c printf("Char: %3c.\n", a);`
+    3. `#!c printf("Char: %-3c.\n", a);`
+    4. `#!c printf("Chars: \n-%c.\n-%c.\n", a, 'z' - 1);`
+    5. `#!c printf("Sum: %i\n", i1 + i2 - a);`
+    6. `#!c printf("Taux d’erreur\t%i %%\n", i1);`
+    7. `#!c printf("Quel charabia horrible:\\\a\a\a%g\b\a%%\a\\\n", f1);`
+    8. `#!c printf("Inventaire: %i4 pieces\n", i1);`
+    9. `#!c printf("Inventory: %i %s\n", i1, "pieces");`
+    10. `#!c printf("Inventaire: %4i pieces\n", i1);`
+    11. `#!c printf("Inventaire: %-4i pieces\n", i1);`
+    12. `#!c printf("Mixed sum: %f\n", sh1 + i1 + f1);`
+    13. `#!c printf("Tension: %5.2f mV\n", f1);`
+    14. `#!c printf("Tension: %5.2e mV\n", f1);`
+    15. `#!c printf("Code: %X\n", 12);`
+    16. `#!c printf("Code: %x\n", 12);`
+    17. `#!c printf("Code: %o\n", 12);`
+    18. `#!c printf("Value: %i\n", -1);`
+    19. `#!c printf("Value: %hi\n", 65535u);`
+    20. `#!c printf("Value: %hu\n", -1);`

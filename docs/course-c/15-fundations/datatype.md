@@ -1,28 +1,28 @@
 # Types de données
 
-## Typage
+Inhérent au fonctionnement interne d’un ordinateur, un langage de programmation opère à un certain degré d’abstraction par rapport au mode de stockage des données dans la mémoire. De la même façon qu’il est impossible, dans la vie quotidienne, de rendre la monnaie à une fraction de centime près, un ordinateur ne peut enregistrer des informations numériques avec une précision infinie. Ce principe est intrinsèque aux limites matérielles et au modèle mathématique des nombres. [[||type]]
 
-Inhérent au fonctionnement interne de l'ordinateur, un langage de programmation s'abstrait plus ou moins du mode de stockage interne des données telles qu'elles sont enregistrées dans la mémoire. De la même manière que dans la vie réelle, il n'est pas possible de rendre de la monnaie à un vendeur à moins d'un cinquième de centime près, il n'est pas possible pour un ordinateur de stocker des informations numériques avec une précision infinie.
+Les langages de programmation se divisent ainsi en deux grandes catégories : ceux que l’on qualifie de **typés**, où le programmeur a la charge explicite de définir la manière dont les données seront stockées, et ceux dits **non typés**, où ce choix est géré implicitement. Chaque approche présente des avantages et des inconvénients. Reprenons l’exemple du rendu de monnaie : s’il était possible d’enregistrer des montants avec une précision supérieure à celle des pièces en circulation, disons à la fraction de centime, cela poserait problème pour qu’un caissier puisse rendre la monnaie correctement. Dans de telles situations, un langage **typé** s’avère plus adapté, car il permet de fixer des bornes pertinentes à la précision des données. C, en ce sens, est un langage fortement typé, ce qui convient particulièrement à la manipulation rigoureuse des données financières, entre autres.
 
-Aussi, les langages de programmation sont dits **typés** lorsqu'ils confient au programmeur la responsabilité de choisir comment une information sera stockée en mémoire, et **non typés** lorsque ce choix est implicite. Chacun des langages à ses avantages et ses inconvénients et pour reprendre l'exemple du rendu de monnaie, il serait ennuyant d'autoriser d'enregistrer des informations financières avec une précision meilleure qu'une pièce de cinq centimes, car il serait alors impossible à un caissier de rendre la monnaie correctement. Dans cette situation on préférera les langages **typés** et heureusement C est un langage fortement typé.
-
-Les types de données ne se bornent pas qu'aux informations numériques, il existe des types plus complexes qui permettent par exemple de traiter des caractères tels que `A` ou `B`. Ce chapitre à pour objectif de familiariser le lecteur aux différents types de données disponibles en C.
+Il convient de noter que les types de données ne se limitent pas aux seules informations numériques. On trouve des types plus élaborés, capables de représenter des caractères individuels comme `A` ou `B`, ou même des structures plus complexes. Ce chapitre a pour vocation de familiariser le lecteur avec les différents types de données disponibles en C et leur utilisation optimale.
 
 !!! note "Standard ISO 80000-2"
 
-    Les ingénieurs sont friands des standards et qui plus est lorsqu'ils sont  internationaux. Ainsi afin d'éviter le crash malheureux d'une fusée causé par la mésentente de deux ingénieurs de différents pays, il existe la norme **ISO 80000-2** qui définit précisément ce qu'est un entier, s'il doit inclure ou non le zéro, que sont les nombres réels, etc. Bien entendu les compilateurs, s'ils sont bien faits, cherchent à respecter au mieux ces normes internationales, et vous ?
+    Les ingénieurs ont une prédilection marquée pour les standards, et cela d'autant plus lorsqu’ils sont de portée internationale. Pour prévenir des erreurs aussi regrettables que le crash d'une fusée dû à une incompréhension entre deux ingénieurs de nations différentes, il existe des normes telles que l'[[ISO 80000-2]], qui définit avec rigueur ce que l'on entend par un entier (incluant ou non le zéro), la nature des nombres réels, et bien d'autres concepts mathématiques fondamentaux. Il va sans dire que les compilateurs, lorsqu’ils sont correctement conçus, s'efforcent de respecter ces normes internationales au plus près. Et vous, en tant que développeur, faites-vous de même ?
 
 ## Stockage et interprétation
 
-Rappelez-vous qu'un ordinateur ne peut stocker l'information que sous forme binaire et qu'il n'est à même de manipuler ces informations que par paquets d’octets. Aussi un ordinateur 64-bits manipulera avec aisance des paquets de 64-bits, mais plus difficilement des paquets de 32-bits. Ajoutons qu'il existe encore des microcontrôleurs 8-bits utilisés dans des dispositifs à faible consommation et qui peinent à manipuler des types de plus grande taille. Stocker une température avec une trop grande précision et effectuer des opérations mathématiques sur toute la précision serait une erreur, car le microcontrôleur n'est simplement pas adapté à manipuler ce type d'information.
+Ancrez-vous ça bien dans la cabosse : un ordinateur ne peut stocker l'information que sous forme binaire et il ne peut manipuler ces informations que par paquets d'octets.
 
-Considérons le paquet de 32-bit suivant, êtes-vous à même d'en donner une signification?
+Un ordinateur 64-bits manipulera avec aisance des paquets de 64-bits, mais plus difficilement des paquets de 32-bits. Un microcontrôleur 8-bit devra quant à lui faire plusieurs manipulations pour lire une donnée 32-bits. Il est donc important par souci d'efficacité d'utiliser la taille appropriée à la quantité d'information que l'on souhaite stocker.
+
+Quant à la représentation, considérons le paquet de 32-bit suivant, êtes-vous à même d'en donner une signification?
 
 ```text
 01000000 01001001 00001111 11011011
 ```
 
-Il y a plusieurs interprétations possibles :
+Il y a une infinité d'interprétations possibles, mais voici quelques pistes les plus probables:
 
 1. 4 caractères de 8-bits : `01000000` `@`, `01001001` `I`, `00001111` `\x0f` et `11011011` `Û`.
 2. 4 nombres de 8-bits: `64`, `73`, `15`, `219`.
@@ -33,9 +33,9 @@ Il y a plusieurs interprétations possibles :
 
 Qu'en pensez-vous ?
 
-Lorsque l'on souhaite programmer à bas niveau, vous voyez que la notion de type de donnée est essentielle, car en dehors d'une interprétation subjective: "c'est forcément PI la bonne réponse", rien ne permet à l'ordinateur d'interpréter convenablement l'information enregistrée en mémoire.
+Lorsque l'on souhaite programmer à bas niveau, vous voyez que la notion de type de donnée est essentielle, car en dehors d'une interprétation subjective: "c'est forcément PI la bonne réponse", rien ne permet à l'ordinateur d'interpréter convenablement l'information enregistrée en mémoire. Le typage permet de résoudre toute ambiguïté.
 
-Le typage permet de résoudre toute ambiguïté.
+À titre d'exemple, le programme suivant reprend notre question précédente et affiche les différentes interprétations possibles selon différents types de données du langage C. Vous n'avez pas encore vu tous les éléments pour comprendre ce programme, mais vous pouvez déjà en deviner le sens et surtout vous pouvez déjà essayer de l'exécuter pour voir si vos hypothèses étaient correctes.
 
 ```c
 int main() {
@@ -66,29 +66,51 @@ int main() {
 
 ![Boutisme par J. J. Grandville (1838)](/assets/images/endian.jpg){width=70%}
 
-La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé *endianess*. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les œufs à la coque par le petit bout (petit boutisme/*little endian*), la répression incite les rebelles à manger leurs œufs par le gros bout (gros boutisme/*big endian*).
+La hantise de l’ingénieur bas-niveau, c’est le concept de **boutisme**, ou *endianess* en anglais. Ce terme, popularisé par l’informaticien Danny Cohen, fait référence au livre *Les Voyages de Gulliver* de Jonathan Swift. Dans cette satire, les habitants de Lilliput se divisent en deux factions : ceux qui mangent leurs œufs à la coque en commençant par le petit bout (les *Little Endians*) et ceux qui préfèrent le gros bout (les *Big Endians*), engendrant un conflit absurde. [[||endianess]] [[||Gulliver, les voyages de]] [[||boutisme]]
 
-Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en *big endian* alors que d'autres sont en *little endian*. C'est-à-dire que si une information est stockée en mémoire comme suit :
+En informatique, cette question, loin d’être triviale, persiste dans le monde des microprocesseurs. Certains fonctionnent en **big endian**, où les octets sont stockés en mémoire du plus significatif au moins significatif, tandis que d'autres adoptent le format **little endian**, inversant cet ordre. Imaginons qu’une donnée soit enregistrée en mémoire ainsi :
 
 ```text
-[0x40, 0x49, 0xf, 0xdb]
+[0x40, 0x49, 0x0F, 0xDB]
 ```
 
-Faut-il la lire de gauche à droite ou de droite à gauche? Cela vous paraît trivial, mais si cet exemple était mentionné dans un livre rédigé en arabe, quelle serait alors votre réponse ?
+Doit-on lire ces octets de gauche à droite (comme en *big endian*) ou de droite à gauche (comme en *little endian*) ? Ce problème, bien qu’il semble anodin, devient crucial dans des contextes internationaux. Si ce texte était écrit en arabe, une langue lue de droite à gauche, votre perception pourrait être différente.
 
-Imaginons qu'un programme exécuté sur un microcontrôleur *big-endian* 8-bit envoie par Bluetooth la valeur `1'111'704'645`, qui correspond au nombre de photons ayant frappé un détecteur optique. Il transmet donc les 4 octets suivants: `0x42, 0x43, 0x44, 0x45`. L'ordinateur qui reçoit les informations décode `1'162'101'570`. Les deux ordinateurs n'interprètent pas les données de la même façon, et c'est un problème que la plupart des ingénieurs électroniciens rencontrent un jour dans leur carrière.
+Prenons un exemple plus concret. Un microcontrôleur *big endian* 8 bits envoie via Bluetooth la valeur `1'111'704'645` – représentant, par exemple, le nombre de photons détectés par un capteur optique. Il transmet les octets suivants : `0x42, 0x43, 0x44, 0x45`. Cependant, l’ordinateur qui reçoit ces données en mode *little endian* interprète cette séquence comme `1'162'101'570`. Ce décalage dans la lecture est un problème courant auquel les ingénieurs en électronique se heurtent fréquemment dans leur carrière.
+
+Le **boutisme** intervient donc dans la manière de stocker et transmettre des données, chaque approche ayant ses avantages et inconvénients. Personnellement, en matière d’œufs, je préfère le *gros boutisme* : je trouve qu’il est plus pratique de manger un œuf à la coque en le commençant par le gros bout. En informatique, cependant, les arguments des deux camps se valent, et les choix dépendent souvent des exigences du système.
+
+Pour mieux illustrer ce concept, prenons un exemple en base 10, plus accessible. Imaginez que je doive transmettre un nombre, comme `532`, par un tuyau dans lequel une seule boule peut passer à la fois, chaque boule représentant un chiffre. Dois-je envoyer la boule marquée `5`, puis `3`, puis `2` ? Ou devrais-je commencer par la boule marquée `2` et terminer par celle portant le `5` ? Dans notre culture, nous lisons de gauche à droite, mais lorsque les données sont stockées dans un nombre fixe de bits, comme c’est le cas en informatique, les deux méthodes se justifient.
+
+Par exemple, si je vous transmets le nombre `7` et vous dis qu'il est inférieur à 10, en *big endian*, vous devrez attendre deux boules supplémentaires (0, 0, 7), tandis qu’en *little endian*, vous saurez immédiatement que c'est `7` (7, 0, 0). C’est cette raison de simplicité dans la gestion des petites valeurs qui a largement contribué à la popularité du *little endian* dans les systèmes modernes.
+
+Techniquement parlant, voici la représentation en mémoire de trois entiers 32 bits :
+
+```text
+16909060, 42, 10000
+01 02 03 04  00 00 00 2a  00 00 27 10 (big endian)
+04 03 02 01  2a 00 00 00  10 27 00 00 (little endian)
+```
+
+Ainsi, le **boutisme** n'est pas qu'un détail technique : c'est une question cruciale pour l'interopérabilité des systèmes numériques.
+
+!!! warning "Organisation par type"
+
+    Selon le boutisme, ce n'est pas toute l'information qui est inversée, mais l'ordre des octets au sein de chaque nombre.
+
+!!! note "Réseau informatique"
+
+    Le réseau informatique comme les protocoles TCP/IP, UDP, Wi-Fi utilisent le *network byte order* qui impose le *big endian* pour l'envoi des données. Cela remonte aux premières normes dont l'idée était d'adopter une convention unique et standardisée à une époque ou les ordinateurs *big endian* étaient majoritaires. Or aujourd'hui la très vaste majorité des ordinateurs sont en *little endian* et donc les données transmises et réceptionnées doivent être converties. C'est le rôle de la fonction `htonl` (*host to network long*) qui convertit un entier 32 bits en *big endian* ou `ntohl` (*network to host long*) qui fait l'opération inverse.
+
+    Pour vous lecteurs, cela n'a pas de grande importance, car nous n'allons pas approfondir le fonctionnement du réseau informatique dans cet ouvrage.
 
 ## Les nombres entiers
 
-Les **nombres entiers** sont des nombres sans virgule et incluant le zéro. Ils peuvent donc être négatifs, nuls ou positifs. Mathématiquement ils appartiennent à l'ensemble des [entiers relatifs](https://fr.wikipedia.org/wiki/Entier_relatif).
-
-Comme aucun ordinateur ne dispose d'un espace de stockage infini, ces nombres excluent les infinis positifs et négatifs, et sont donc bornés, cela va de soi.
+Les **nombres entiers** que nous avons définis plus tôt peuvent être négatifs, nuls ou positifs. En C, il existe plusieurs types de données pour les représenter, chacun ayant ses propres caractéristiques.
 
 ### Les entiers naturels
 
-En informatique, ces nombres sont par conséquent **non signés**, et peuvent prendre des valeurs comprises entre $0$ et $2^N-1$ où $N$ correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Il faut naturellement que l'ordinateur sur lequel s'exécute le programme soit capable de supporter le nombre de bits demandé par le programmeur.
-
-En C, on nomme ce type de donnée `unsigned int`, `int` étant le dénominatif du latin *integer* signifiant "entier".
+En informatique, les entiers naturels de l'ensemble $\mathbb{N}$ sont **non signés**, et peuvent prendre des valeurs comprises entre $0$ et $2^N-1$ où $N$ correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Il faut naturellement que l'ordinateur sur lequel s'exécute le programme soit capable de supporter le nombre de bits demandé par le programmeur. En C, on nomme ce type de donnée `unsigned int`, `int` étant le dénominatif du latin *integer* signifiant "entier".
 
 Voici quelques exemples des valeurs minimales et maximales possibles selon le nombre de bits utilisés pour coder l'information numérique :
 
@@ -113,13 +135,14 @@ Voici quelques exemples de valeurs minimales et maximales selon le nombre de bit
 
 Table: Stockage d'un entier signé sur différentes profondeurs
 
-| Profondeur | Minimum        | Maximum        |
-| ---------- | -------------- | -------------- |
-| 8 bits     | -128           | +127           |
-| 16 bits    | -32'768        | +32'767        |
-| 32 bits    | -2'147'483'648 | +2'147'483'647 |
+| Profondeur | Minimum                    | Maximum                    |
+| ---------- | -------------------------- | -------------------------- |
+| 8 bits     | -128                       | +127                       |
+| 16 bits    | -32'768                    | +32'767                    |
+| 32 bits    | -2'147'483'648             | +2'147'483'647             |
+| 64 bits    | -9'223'372'036'854'775'808 | +9'223'372'036'854'775'807 |
 
-En mémoire, ces nombres sont stockés en utilisant le [complément à deux][twos_complement] qui fait l'objet d'une section à part entière.
+En mémoire, ces nombres sont stockés en utilisant le [complément à deux][twos_complement] que nous avons déjà évoqué.
 
 ### Les entiers bornés
 
@@ -132,44 +155,53 @@ Comme nous l'avons vu, les degrés de liberté pour définir un entier sont :
 
 #### Types standards
 
-La construction d'un type entier C est la suivante :
+La construction d'un type entier C peut être résumée par la figure suivante :
 
 ![Entiers standardisés](/assets/images/ansi-integers.drawio)
 
-Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins $N$ bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée ci-dessous :
+Le préfixe `signed` est implicite, mais il est possible de l'utiliser pour plus de clarté. En pratique il sera rarement utilisé. De même, lorsque `short`, `long` ou `long long` est utilsé, le suffixe `int` est implicite.
+
+Les types suivants sont donc des synonymes:
+
+```c
+// Entier signé
+signed int, int, signed
+
+// Entier non signé
+unsigned int, unsigned
+
+// Entier court signé
+signed short int, short, signed short
+
+// Entier court non signé
+unsigned short int, unsigned short
+
+// Entier long signé
+signed long int, long, long int, signed long
+
+// Entier très long signé
+signed long long int, long long, signed long long
+```
+
+En revanche `char` est un type à part entière signé par défaut qui n'aura pas de suffixe `int`, mais il est possible de le déclarer `unsigned char`.
+
+Ci-dessous la table des entiers standards en C. Le format est celui utilisé par la fonction `printf` de la bibliothèque standard C.
 
 Table: Table des types entiers en C
 
-| Type                     | Signe          | Profondeur              | Format       |
-| ------------------------ | -------------- | ----------------------- | ------------ |
-| `char`                   | ?              | `CHAR_BIT`              | `%c`         |
-| `signed char`            | signed         | au moins 8 bits         | `%c`         |
-| `unsigned char`          | unsigned       | au moins 8 bits         | `%c`         |
-| `short`                  | signed @span   | au moins 16 bits  @span | `%hi` @span  |
-| `short int`              |                |                         |              |
-| `signed short`           |                |                         |              |
-| `signed short int`       |                |                         |              |
-| `unsigned short`         | unsigned @span | au moins 16 bits @span  | `%hu` @span  |
-| `unsigned short int`     |                |                         |              |
-| `unsigned`               | unsigned @span | au moins 32 bits @span  | `%u`  @span  |
-| `unsigned int`           |                |                         |              |
-| `int`                    | signed @span   | au moins 32 bits @span  | `%d` @span   |
-| `signed`                 |                |                         |              |
-| `signed int`             |                |                         |              |
-| `unsigned`               | unsigned @span | au moins 32 bits @span  | `%u` @span   |
-| `unsigned int`           |                |                         |              |
-| `long`                   | signed @span   | au moins 32 bits @span  | `%li` @span  |
-| `long int`               |                |                         |              |
-| `signed long`            |                |                         |              |
-| `signed long int`        |                |                         |              |
-| `unsigned long`          | unsigned @span | au moins 32 bits @span  | `%lu` @span  |
-| `unsigned long int`      |                |                         |              |
-| `long long`              | signed @span   | au moins 64 bits @span  | `%lli` @span |
-| `long long int`          |                |                         |              |
-| `signed long long`       |                |                         |              |
-| `signed long long int`   |                |                         |              |
-| `unsigned long long`     | unsigned @span | au moins 64 bits @span  | `%llu` @span |
-| `unsigned long long int` |                |                         |              |
+| Type                            | Signe      | Profondeur       | Format |
+| ------------------------------- | ---------- | ---------------- | ------ |
+| `char`, `signed char`           | *signed*   | au moins 8 bits  | `%c`   |
+| `unsigned char`                 | *unsigned* | au moins 8 bits  | `%uc`  |
+| `short`, `short int`, ...       | *signed*   | au moins 16 bits | `%hi`  |
+| `unsigned short`, ...           | *unsigned* | au moins 16 bits | `%hu`  |
+| `unsigned`, `unsigned int`      | *unsigned* | au moins 32 bits | `%u`   |
+| `int`, `signed`, `signed int`   | *signed*   | au moins 32 bits | `%d`   |
+| `unsigned`, `unsigned int`, ... | *unsigned* | au moins 32 bits | `%u`   |
+| `long`, `long int`, ...         | *signed*   | au moins 32 bits | `%li`  |
+| `unsigned long`, ..             | *unsigned* | au moins 32 bits | `%lu`  |
+| `long long`, ...                | *signed*   | au moins 64 bits | `%lli` |
+| `unsigned long long`, ...       | *unsigned* | au moins 64 bits | `%llu` |
 
 
 Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête `stdint.h`. Cette bibliothèque standard offre les types suivants :
@@ -178,9 +210,11 @@ Avec l'avènement de **C99**, une meilleure cohésion des types a été proposé
 
 [](){#reformed-types}
 
-### Types réformés
+### Nouveaux types standard
 
-Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.
+Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête `stdint.h`. Cette bibliothèque standard offre les types suivants. Comme nous l'avons vu, la taille des types historiques n'est pas précisément définie par le standard. On sait qu'un `int` contient **au moins** 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment consciencieux et qu'il ne s'appuie pas sur une batterie de tests automatisés. En conséquence, il est recommandé d'utiliser les types de `<stdint.h>` lorsque la taille du type doit être garantie.
+
+Attention cependant à noter que garantir un type à taille fixe n'est pas toujours la meilleure solution. En effet, si vous avez besoin d'un entier de 32-bits, il est préférable d'utiliser `int` qui sera adapté à l'architecture matérielle. Si vous utilisez `int32_t` vous risquez de perdre en performance si l'architecture matérielle est capable de traiter des entiers 64-bits de manière plus efficace. Voici les types à taille fixe de `<stdint.h>` :
 
 Table: Entiers standard défini par stdint
 
@@ -195,28 +229,7 @@ Table: Entiers standard défini par stdint
 | `uint64_t` | unsigned | 64 bits    | `%llu` |
 | `int64_t`  | signed   | 64 bits    | `%lli` |
 
-À ces types s'ajoutent les types **rapides** (*fast*) et **minimums** (*least*). Un type nommé `uint_least32_t` garanti l'utilisation du type de donnée utilisant le moins de mémoire et garantissant une profondeur d'au minimum 32 bits. Il est strictement équivalent à `unsigned int`.
-
-Les types rapides, moins utilisés vont automatiquement choisir le type adapté le plus rapide à l'exécution. Par exemple si l'architecture matérielle permet un calcul natif sur 48-bits, elle sera privilégiée par rapport au type 32-bits.
-
-!!! exercise "Expressions arithmétiques entières"
-
-    Donnez la valeur des expressions ci-dessous :
-
-    ```text
-    25 + 10 + 7 – 3
-    5 / 2
-    24 + 5 / 2
-    (24 + 5) / 2
-    25 / 5 / 2
-    25 / (5 / 2)
-    72 % 5 – 5
-    72 / 5 – 5
-    8 % 3
-    -8 % 3
-    8 % -3
-    -8 % -3
-    ```
+À ces types s'ajoutent les types **rapides** (*fast*) et **minimums** (*least*). Un type nommé `uint_least32_t` garanti l'utilisation du type de donnée utilisant le moins de mémoire et garantissant une profondeur d'au minimum 32 bits. Les types rapides, moins utilisés, vont automatiquement choisir le type adapté le plus rapide à l'exécution. Par exemple, si l'architecture matérielle permet un calcul natif sur 48-bits, elle sera privilégiée par rapport au type 32-bits.
 
 !!! exercise "Débordement"
 
@@ -226,15 +239,21 @@ Les types rapides, moins utilisés vont automatiquement choisir le type adapté 
     uint16_t j = 1024 * 64;
     ```
 
+    - [ ] 0
+    - [x] 1
+    - [ ] 64
+    - [ ] 1024
+    - [ ] 65536
+
 [](){#datamodel}
 
 ## Modèle de donnée
 
-Comme nous l'avons évoqué plus haut, la taille des entiers `short`, `int`, ... n'est pas précisément définie par le standard. On sait qu'un `int` contient **au moins** 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment consciencieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.
+Comme nous l'avons évoqué plus haut, la taille des entiers `short`, `int`, ... n'est pas précisément définie par le standard. On sait qu'un `int` contient **au moins** 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure.
 
-Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un `int` comme valeur de comptage allant au-delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du `int` sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème?
+Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine 64-bits en utilisant un `int` comme valeur de comptage allant au-delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du `int` sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème ?
 
-La première solution est de toujours utiliser les types proposés par `<stdint.h>` lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :
+La première solution est de toujours utiliser les types proposés par `<stdint.h>` lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données. Le modèle de données est une convention qui définit la taille des types de données de base. Il est déterminé par l'architecture matérielle et le système d'exploitation. Voici un tableau résumant les modèles de données les plus courants :
 
 Table: Modèle de données
 
@@ -247,6 +266,8 @@ Table: Modèle de données
 | **ILP64**  | 16    | 64  | 64   | 64        | 64     | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC)           |
 | **SILP64** | 64    | 64  | 64   | 64        | 64     | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur)           |
 
+[[||LP32]] [[||ILP32]] [[||LLP64]] [[||LP64]] [[||ILP64]] [[||SILP64]]
+
 Pour les ordinateurs modernes, on peut faire l'hypothèse raisonnable que :
 
 - `char` est de 8-bits,
@@ -254,7 +275,7 @@ Pour les ordinateurs modernes, on peut faire l'hypothèse raisonnable que :
 - `int` est de 32-bits,
 - `long long` est de 64-bits,
 
-Pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les [types réformés][reformed-types] de `<stdint.h>`. Ainsi pour s'assurer qu'un type soit **au moins** de 32-bits, on utilisera `uint_least32_t`.
+Pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les [nouveaux types standards][reformed-types] de `<stdint.h>`. Ainsi pour s'assurer qu'un type soit **au moins** de 32-bits, on utilisera `uint_least32_t`.
 
 ## Les caractères
 
@@ -270,21 +291,23 @@ Mais comment un ordinateur sait-il que `97` correspond à `a` ? C'est là que la
 
 ### La table ASCII
 
-Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'[ASA](https://fr.wikipedia.org/wiki/American_National_Standards_Institute), l'*American Standards Association* aujourd'hui **ANSI** qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.
+Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'[ASA](https://fr.wikipedia.org/wiki/American_National_Standards_Institute), l'*American Standards Association* aujourd'hui **ANSI** qui ne définissait alors que 63 caractères imprimables. Comme la mémoire à cette époque était très cher, un caractère n'était codé que sur 7 bits. La première table [[ASCII]] définissait donc 128 caractères et est donnée par la figure suivante : [[||ANSI]]
 
 ![Table ASCII ASA X3.4 établie en 1963](/assets/images/ascii-1963.drawio)
 
-Aujourd'hui la table ASCII de base définit 128 caractères qui n'incluent pas les caractères accentués.
+En 1986, la table ASCII a été étendue pour couvrir les caractères majuscules et minuscules. Cette réforme est donnée par la figure suivante. Il s'agit de la table ASCII standard actuelle.
 
 ![Table ANSI INCITS 4-1986 (standard actuel)](/assets/images/ascii.drawio)
 
-Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard **ISO/IEC 8859** aussi appelé standard *Latin* définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**):
+Ainsi qu'évoqué plusieurs fois dans cet ouvrage, chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions offertes pour ajouter les caractères manquants telles que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard **ISO/IEC 8859** aussi appelé standard *Latin* définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**). Voici la table d'extension de l'[[ISO-8859-1]] et de l'[[ISO-8859-15]] :
 
 ![Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)](/assets/images/latin1.drawio)
 
-Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.
+Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.
 
 Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a proposé un standard nommé [Windows-1252](https://fr.wikipedia.org/wiki/Windows-1252) s'inspirant de [ISO-8859-1](https://fr.wikipedia.org/wiki/ISO/CEI_8859-1). En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...
+
+C'est pourquoi, en 1991, l'**ISO** a proposé un standard universel nommé **Unicode** qui est capable d'encoder tous les caractères de toutes les langues du monde.
 
 [](){#encodingunicode}
 
@@ -292,17 +315,15 @@ Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a
 
 Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب), les Coréens (한국어), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.
 
-Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) plus précisément nommé **UTF-8**.
+Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) et son encodage **UTF-8** (*Unicode Transformation Format*). Ce standard est capable d'encoder tous les caractères de toutes les langues du monde. Il est utilisé par la plupart des systèmes d'exploitation, des navigateurs web et des applications informatiques. Il est capable d'encoder 1'112'064 caractères en utilisant de 1 à 4 octets. La figure suivante montre la tendance de l'adoption de 2001 à 2012. Cette tendance est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
 
 Figure: Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008
 
 ![Utiliation de l'UTF-8 dès 2008](/assets/images/encoding-trends.png)
 
-Cette tendance est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
+[Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en introduction, [](){#thompson} est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination Unicode U+0939 et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
 
-L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en introduction, [](){#thompson} est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination Unicode U+0939 et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
-
-En programmation C, un caractère `char` ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.
+En programmation C, un caractère `char` ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension. C'est-à-dire que vous ne pouvez pas exprimer un caractère Unicode en utilisant un `char`. Pour cela, il faudra utiliser un tableau de caractères `char` ou un tableau de caractères `wchar_t` qui est capable de stocker un caractère Unicode, mais nous verrons cela plus tard. [[||wchar]] [[||unicode]] [[||utf8]] [[||Ken Thompson]]
 
 Voici par exemple comment déclarer une variable contenant le caractère dollar :
 
@@ -310,34 +331,32 @@ Voici par exemple comment déclarer une variable contenant le caractère dollar 
 char c = '$';
 ```
 
-Attention donc au caractère `'3'` qui correspond à la grandeur hexadécimale `0x33`:
+!!! warning "3 ou '3'"
 
-```c
-#include <stdio.h>
+    Attention à la présence des guillemets simples car le caractère `'3'` n'est pas égal au nombre `3`. Le caractère 3 correspond selon la table ASCII standard à la valeur `0x33` et donc au nombre 51 en décimal.
 
-int main(void) {
-    char c = '3';
-    printf("Le caractère %c vaut 0x%x en hexadécimal ou %d en décimal.\n",
-           c, c, c);
-    return 0;
-}
-```
+    ```c
+    #include <stdio.h>
 
-!!! note
-
-    L'unicode permet notament de représenter des caractères spéciaux tels que les émoticônes (💩).
+    int main(void) {
+        char c = '3';
+        printf("Le caractère %c vaut 0x%x en hexadécimal ou %d en décimal.\n",
+            c, c, c);
+        return 0;
+    }
+    ```
 
 ### Les emojis
 
-Les emojis sont des caractères spéciaux qui ont été introduits en 2010 par le standard Unicode 6.0. Ils sont donc codés sur 4 octets et permettent de représenter des émotions, des objets, des animaux, des symboles, etc.
+Les [[emojis]] sont des caractères spéciaux qui ont été introduits en 2010 par le standard Unicode 6.0. Ils sont donc codés sur 4 octets et permettent de représenter des émotions, des objets, des animaux, des symboles ou des étrons (💩).
 
-Les émoticônes que vous pouvez envoyer à votre grand-mère sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère U+2764 qui est le caractère `❤`. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.
+Les émoticônes que vous pouvez envoyer à votre grand-mère via WhatsApp sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère U+2764 qui est le caractère `❤`. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.
 
 Ceci est vrai, mais encore faut-il que la police d'écriture utilisée par votre chère grand-maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère � qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.
 
 ## Chaîne de caractères
 
-Une **chaîne de caractères** est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit `NUL` ou `\0`. On appelle ce caractère le caractère de fin de chaîne. Il s'agit d'une sentinelle.
+Une **chaîne de caractères** est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit `NUL` ou `\0`. On appelle ce caractère le caractère de fin de chaîne. Il s'agit d'une [[sentinelle]].
 
 !!! example "Les légumes et les choux"
 
@@ -369,86 +388,31 @@ char string[] = "Hello";
 │ 72│101│108│108│111│ 0 │
 └───┴───┴───┴───┴───┴───┘
 
- 0x00 01001000
- 0x01 01100101
- 0x02 01101100
- 0x03 01101100
- 0x04 01101111
- 0x05 00000000
+ 0x00  0b01001000
+ 0x01  0b01100101
+ 0x02  0b01101100
+ 0x03  0b01101100
+ 0x04  0b01101111
+ 0x05  0b00000000
 ```
 
 On utilise le caractère nul `\0` pour plusieurs raisons:
 
 1. Il est facilement reconnaissable.
 2. Dans un test il vaut `false`.
-3. Il n'est pas imprimable et n'appartient à aucun caractère spécial.
+3. Il n'est pas imprimable.
 
 !!! warning
 
-    Ne pas confondre le caractère nul `\0` avec le caractère `0`. Le premier est un caractère de fin de chaîne, le second est un caractère numérique qui vaut `0x30`.
+    Ne pas confondre le caractère nul `\0` avec le caractère `0`. Le premier est un caractère de fin de chaîne, le second est un caractère numérique qui vaut `0x30`. Le caractère nul est la valeur `0` selon la table ASCII.
 
-!!! exercise "Constantes littérales caractérielles"
+## Booléens
 
-    Indiquez si les constantes littérales suivantes sont valides ou invalides.
-
-    /// html | div[class='two-column-list']
-
-    1. `'a'`
-    2. `'A'`
-    3. `'ab'`
-    4. `'\x41'`
-    5. `'\041'`
-    6. `'\0x41'`
-    7. `'\n'`
-    8. `'\w'`
-    9. `'\t'`
-    10. `'\xp2'`
-    11. `"abcdef"`
-    12. `"\abc\ndef"`
-    13. `"\'\"\\"`
-    14. `"hello \world!\n"`
-
-    ///
-
-!!! exercise "Chaînes de formatage"
-
-    Pour les instructions ci-dessous, indiquer quel est l'affichage obtenu.
-
-    ```c
-    char a = 'a';
-    short sh1 = 5;
-    float f1 = 7.0f;
-    int i1 = 7, i2 = 'a';
-    ```
-
-    1. `#!c printf("Next char: %c.\n", a + 1);`
-    2. `#!c printf("Char: %3c.\n", a);`
-    3. `#!c printf("Char: %-3c.\n", a);`
-    4. `#!c printf("Chars: \n-%c.\n-%c.\n", a, 'z' - 1);`
-    5. `#!c printf("Sum: %i\n", i1 + i2 - a);`
-    6. `#!c printf("Taux d’erreur\t%i %%\n", i1);`
-    7. `#!c printf("Quel charabia horrible:\\\a\a\a%g\b\a%%\a\\\n", f1);`
-    8. `#!c printf("Inventaire: %i4 pieces\n", i1);`
-    9. `#!c printf("Inventory: %i %s\n", i1, "pieces");`
-    10. `#!c printf("Inventaire: %4i pieces\n", i1);`
-    11. `#!c printf("Inventaire: %-4i pieces\n", i1);`
-    12. `#!c printf("Mixed sum: %f\n", sh1 + i1 + f1);`
-    13. `#!c printf("Tension: %5.2f mV\n", f1);`
-    14. `#!c printf("Tension: %5.2e mV\n", f1);`
-    15. `#!c printf("Code: %X\n", 12);`
-    16. `#!c printf("Code: %x\n", 12);`
-    17. `#!c printf("Code: %o\n", 12);`
-    18. `#!c printf("Value: %i\n", -1);`
-    19. `#!c printf("Value: %hi\n", 65535u);`
-    20. `#!c printf("Value: %hu\n", -1);`
-
-## Les booléens
-
-Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est un type de donnée à deux états consensuellement nommés *vrai* (`true`) et *faux* (`false`) et destinés à représenter les états en logique booléenne (Nom venant de [George Boole,](https://fr.wikipedia.org/wiki/George_Boole) fondateur de l'algèbre éponyme).
+Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est un type de donnée à deux états consensuellement nommés *vrai* (`true`) et *faux* (`false`) et destinés à représenter les états en logique booléenne (Nom venant de [George Boole,](https://fr.wikipedia.org/wiki/George_Boole) fondateur de l'algèbre éponyme). [[||booléen]] [[||George Boole]] [[||Boole, George]] [[||true]] [[||false]]
 
 La convention est d'utiliser `1` pour mémoriser un état vrai, et `0` pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.
 
-Les **booléens** ont été introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête `stdbool.h`. Avant cela le type booléen était `_Bool` et définir les états vrais et faux était à la charge du développeur.
+Les **booléens** ont été introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête `<stdbool.h>`. Avant cela le type booléen était `_Bool` et définir les états vrais et faux était à la charge du développeur. [[||<stdbool.h>]]
 
 ```c
 #include <stdbool.h>
@@ -457,13 +421,31 @@ bool is_enabled = false;
 bool has_tail = true;
 ```
 
-Afin de faciliter la lecture du code, il est courant de préfixer les variables booléennes avec les préfixes `is_` ou `has_`.
+Afin de faciliter la lecture du code, il est courant de préfixer les variables booléennes avec les préfixes `is_` ou `has_`. À titre d'exemple, si l'on souhaite stocker le genre d'un individu (mâle, ou femelle), on pourrait utiliser la variable `is_male`.
 
-À titre d'exemple, si l'on souhaite stocker le genre d'un individu (mâle, ou femelle), on pourrait utiliser la variable `is_male`.
+Bien qu'un booléen puisse être stocké sur un seul bit, en pratique, il est stocké sur un octet, voire même sur un mot de 32 ou 64 bits. Cela est dû à la manière dont les processeurs manipulent les données en mémoire. Sur une architecture LP64, un booléen sera stocké sur 8 octets. Les valeurs `true` et `false` vaudront donc :
+
+```
+00 00 00 00 00 00 00 00   false
+00 00 00 00 00 00 00 01   true
+```
+
+Néanmoins, il est possible d'utiliser le type `char` pour stocker un booléen. On peut également utiliser de l'arithmétique binaire pour stocker 8 booléen sur un `uint8_t`. Voici un exemple de stockage de 8 booléens sur un `uint8_t` :
+
+```c
+#include <stdint.h>
+
+uint8_t flags = 0b00000000;
+
+int main (void) {
+    flags |= 1 << 3; // Mettre le quatrième bit à 1
+    flags &= ~(1 << 3); // Mettre le quatrième bit à 0
+}
+```
 
 ## Énumérations
 
-Ce style d'écriture permet de définir un type de données contenant un
+Une énumération est un type de donnée un peu particulier qui permet de définir un ensemble de valeurs possibles associées à des noms symboliques. Ce style d'écriture permet de définir un type de données contenant un
 nombre fini de valeurs. Ces valeurs sont nommées textuellement et
 définies numériquement dans le type énuméré.
 
@@ -482,31 +464,19 @@ enum ColorCode {
 };
 ```
 
-Le type d'une énumération est apparenté à un entier `int`. Sans autres précisions, la première valeur vaut 0, la suivante 1, etc.
-
-Il est possible de forcer les valeurs de la manière suivante :
+Le type d'une énumération est apparenté à un entier `int`. Sans précision, la première valeur vaut 0, la suivante 1, etc. Il est néanmoins possible de forcer les valeurs de la manière suivante : [[||enum]]
 
 ```c
 typedef enum country_codes {
     CODE_SWITZERLAND=41,
-    CODE_FRANCE=33,
-    CODE_US=1
-} CountryCodes;
-```
-
-ou encore :
-
-```c
-typedef enum country_codes {
-    CODE_SWITZERLAND=41,
-    CODE_BELGIUM=32
+    CODE_BELGIUM=32,
     CODE_FRANCE, // Sera 33...
-    CODE_SPAIN, // Sera 34...
+    CODE_SPAIN,  // Sera 34...
     CODE_US=1
 } CountryCodes;
 ```
 
-Pour ne pas confondre un type énuméré avec une variable, on utilise souvent la convention d'une notation en capitales. Pour éviter d’éventuelles collisions avec d'autres types, un préfixe est souvent ajouté.
+Pour ne pas confondre un type énuméré avec une variable, on utilise souvent la convention d'une notation en capitales. Pour éviter d’éventuelles collisions avec d'autres types, un préfixe est souvent ajouté ce qu'on appelle un **espace de nommage**.
 
 L'utilisation d'un type énuméré peut être la suivante :
 
@@ -528,19 +498,19 @@ void call(enum country_codes code) {
 }
 ```
 
-## Type incomplets
+## Type incomplet
 
-Un **type incomplet** est un qualificatif de type de donnée décrivant un objet dont sa taille en mémoire n'est pas connue.
+En C, un [[type incomplet]] est un type de données dont la taille n'est pas encore complètement définie au moment de sa déclaration. En d'autres termes, le compilateur sait qu'un type existe, mais ne connaît pas encore la totalité des détails nécessaires pour allouer de la mémoire ou effectuer certaines opérations sur ce type. Un type incomplet peut apparaître dans le cas des structures ou des tableaux, notamment pour l'abstraction de données. Certains types comme `void` sont également incomplets.
 
 ### VLQ
 
-Dans certains systèmes, on peut stocker des nombres entiers à taille variables. C'est à dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers [VLQ](https://en.wikipedia.org/wiki/Variable-length_quantity) utilisés dans le protocole MIDI.
+Dans certains systèmes, on peut stocker des nombres entiers à taille variable. C'est-à-dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers [VLQ](https://en.wikipedia.org/wiki/Variable-length_quantity) utilisés dans le protocole [[MIDI]]
 
-On peut stocker un nombre VLQ en mémoire, mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée, mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.
+On peut stocker un nombre [[VLQ]] en mémoire, mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée, mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.
 
 ### Type vide (*void*)
 
-Le type `void` est particulier. Il s'agit d'un type dit **incomplet**, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :
+Le type `void` est particulier. Il s'agit d'un type dit **incomplet**, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien : [[||void]]
 
 ```c
 void shout() {
@@ -548,7 +518,7 @@ void shout() {
 }
 ```
 
-Il peut être également utilisé comme type générique comme la fonction de copie mémoire `memcpy`
+Il peut être également utilisé comme type générique comme la fonction de copie mémoire `memcpy` [[||memcpy]] :
 
 ```c
 void *memcpy(void * restrict dest, const void * restrict src, size_t n);
@@ -564,10 +534,7 @@ Le mot clé `void` ne peut être utilisé que dans les contextes suivants :
 
 ### Promotion implicite
 
-Généralement le type `int` est de la même largeur que le bus mémoire de donnée d'un ordinateur.
-C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein
-du processeur. Les *registres* du processeur, autrement dit ses casiers mémoires, sont au moins
-assez grand pour  contenir un `int`.
+Généralement le type `int` est de la même largeur que le bus mémoire de donnée d'un ordinateur. [[||promotion]] C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein du processeur. Les *registres* du processeur, autrement dit ses casiers mémoires, sont au moins assez grand pour  contenir un `int`.
 
 Aussi, la plupart des types de taille inférieure à `int` sont automatiquement et implicitement promus en `int`. Le résultat de `a + b` lorsque `a` et `b` sont des `char` sera automatiquement un `int`.
 
@@ -583,6 +550,28 @@ Table: Promotion numérique
 
 Notez qu'il n'y a pas de promotion numérique vers le type *short*. On
 passe directement à un type *int*.
+
+!!! exercise "Promotion numérique"
+
+    Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :
+
+    ```c
+    char c;
+    short sh;
+    int i;
+    float f;
+    double d;
+    ```
+
+    /// html | div[class='two-column-list']
+
+    1. `c * sh - f / i + d;`
+    2. `c * (sh – f) / i + d;`
+    3. `c * sh - f - i + d;`
+    4. `c + sh * f / i + d;`
+
+    ///
+
 
 !!! exercise "Expressions mixtes"
 
@@ -609,27 +598,6 @@ passe directement à un type *int*.
 
     ///
 
-!!! exercise "Promotion numérique"
-
-    Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :
-
-    ```c
-    char c;
-    short sh;
-    int i;
-    float f;
-    double d;
-    ```
-
-    /// html | div[class='two-column-list']
-
-    1. `c * sh - f / i + d;`
-    2. `c * (sh – f) / i + d;`
-    3. `c * sh - f - i + d;`
-    4. `c + sh * f / i + d;`
-
-    ///
-
 ### Promotion explicite
 
 Il est possible de forcer la promotion d'un type vers un autre en utilisant un transtypage explicite. Par exemple, pour forcer la promotion d'un `int` vers un `double` :
@@ -639,7 +607,7 @@ int n = 10;
 double x = (double)n;
 ```
 
-Le changement de type forcé (transtypage) entre des variables de
+Le changement de type forcé ([[transtypage]]) entre des variables de
 différents types engendre des effets de bord qu'il faut connaître. Lors
 d'un changement de type vers un type dont le pouvoir de représentation
 est plus important, il n'y a pas de problème. À l'inverse, on peut
@@ -1022,3 +990,22 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne `Q1.23 x Q0.24 = Q1.47` le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par :math:`2^{47}` pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.
 
     Quel est l'erreur en seconde cumulée sur les 100 heures de fonctionnement ?
+
+!!! exercise "Expressions arithmétiques entières"
+
+    Donnez la valeur des expressions ci-dessous :
+
+    ```text
+    25 + 10 + 7 - 3
+    5 / 2
+    24 + 5 / 2
+    (24 + 5) / 2
+    25 / 5 / 2
+    25 / (5 / 2)
+    72 % 5 - 5
+    72 / 5 - 5
+    8 % 3
+    -8 % 3
+    8 % -3
+    -8 % -3
+    ```

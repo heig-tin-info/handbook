@@ -4,7 +4,7 @@ Figure: Illustration du mécanisme de pré-processing avant la compilation
 
 ![Mécanisme de pré-processing avant compilation](/assets/images/preprocessing-fun.drawio)
 
-Comme nous l'avons vu en introduction ([Texte structuré][structured-text-programming]) le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.
+Comme nous l'avons vu en [introduction][structured-text-programming], le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.
 
 Le cœur de cette opération est appelé **préprocesseur**. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon `#` U+0023, *hash* en anglais et utilisé récemment comme [hashtag](https://fr.wikipedia.org/wiki/Hashtag) sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif *pound* (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse `♯` U+266F présent sur les pavés numériques de téléphone.
 

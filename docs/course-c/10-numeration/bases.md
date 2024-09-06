@@ -367,7 +367,7 @@ n = 209
 
 Une autre base couramment utilisée est la [base64](wiki:base64), qui utilise les 26 lettres de l'alphabet latin (majuscules et minuscules), les 10 chiffres et deux symboles additionnels. Cette base est souvent utilisée pour encoder des données binaires en ASCII, par exemple pour les pièces jointes des courriels.
 
-Elle n'est pas à proprement parler une base fondamentale, mais plutôt une méthode de codage qui utilise 64 caractères imprimables.
+Elle n'est pas à proprement parler une base fondamentale, mais plutôt une méthode de codage qui utilise 64 caractères imprimables. [[||base64]]
 
 On peut transmettre de l'information en binaire, mais cela implique de pouvoir gérer un contenu arbitraire qui n'est pas toujours évident dans des environnements prévus pour des caractères imprimables. On pourrait se dire qu'on utilise la représentation ASCII des caractères, mais de nombreux caractères ne sont pas imprimables. La base64 est une solution élégante pour encoder des données binaires en ASCII.
 
