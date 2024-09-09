@@ -1,3 +1,9 @@
+---
+epigraph:
+    text: "To understand what recursion is, you must first understand recursion."
+    source: Internet
+---
+
 # Récursivité
 
 La [récursivité](https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9) est une technique de programmation dans laquelle une fonction s'appelle elle-même pour résoudre un problème. Cela signifie que la fonction résout une partie du problème et appelle ensuite la fonction elle-même pour résoudre le reste du problème.

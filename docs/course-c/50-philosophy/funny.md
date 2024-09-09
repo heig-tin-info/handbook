@@ -1,3 +1,8 @@
+---
+epigraph:
+    text: "There are only two kinds of programming languages: those people always bitch about and those nobody uses."
+    source: Bjarne Stroustrup
+---
 # Humour d'informaticien
 
 L'humour des informaticiens, souvent empreint de subtilité et d'ironie, s'est peu à peu imposé comme un langage à part entière au sein de la communauté des développeurs. Popularisé par des personnalités et des œuvres emblématiques telles que **XKCD**, le célèbre webcomic de Randall Munroe, cet humour n'est pas simplement un moyen de divertissement, mais un outil précieux pour les professionnels du code. D'autres figures marquantes, comme **The Oatmeal**, **Dilbert** ou encore **CommitStrip**, ont également su capturer l'essence de l'expérience informatique, transformant les défis techniques et les absurdités bureaucratiques en sources de rires partagés.
