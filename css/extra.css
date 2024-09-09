@@ -9,6 +9,11 @@
     --md-code-font: "Noto Sans Mono", monospace;
 }
 
+/* Fixing spacing in hom buttons */
+.mdx-hero .md-button {
+    margin-bottom: 0.5em;
+}
+
 /* Fix line height for code blocks, value depends on the font */
 .md-typeset code {
     line-height: 1.25;
