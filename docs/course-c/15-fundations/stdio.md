@@ -1,3 +1,9 @@
+---
+epigraph:
+    text: "Le problème fondamental de la communication est celui de reproduire en un point, soit exactement, soit approximativement, un message sélectionné à un autre point."
+    source: Claude Shannon
+---
+
 # Entrées Sorties
 
 Un programme informatique se compose d'entrées (`stdin`) et de sorties (`stdout` et `stderr`).

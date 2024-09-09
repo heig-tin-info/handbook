@@ -1,3 +1,8 @@
+---
+epigraph:
+    text: "Tout devrait être rendu aussi simple que possible, mais pas plus simple."
+    source: Albert Einstein
+---
 # Syntaxe
 
 Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il traite des généralités propres au langage, mais aussi des notions élémentaires permettant d'interpréter du code source. Notons que ce chapitre est transversal, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maîtrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.

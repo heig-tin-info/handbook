@@ -1,7 +1,8 @@
 ---
 frontmatter: true
+level: 2
 ---
-# Préface
+# Avant-Propos
 
 ## À qui s'adresse cet ouvrage ?
 

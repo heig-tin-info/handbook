@@ -1,3 +1,8 @@
+---
+epigraph:
+    text: "Les nombres gouvernent le monde."
+    source: Pythagore
+---
 # Nombres
 Vous avez tous appris dans votre enfance à compter, puis vous avez appris que les nombres se classifient dans des ensembles. Les mathématiciens ont défini des ensembles de nombres pour lesquels des propriétés particulières sont vérifiées ; ces ensembles sont imbriqués les uns dans les autres, et chaque ensemble est un sous-ensemble de l'ensemble suivant. La figure suivante illustre cette hiérarchie.
 

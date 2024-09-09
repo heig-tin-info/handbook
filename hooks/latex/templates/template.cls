@@ -1,4 +1,4 @@
-\documentclass[10pt,twoside]{book}
+\documentclass[9pt,twoside]{memoir}
 \usepackage{fontspec}
 \usepackage{xcolor}
 \usepackage{tikz}
@@ -49,10 +49,11 @@
 \emergencystretch=10pt
 
 % Give more spaces on Table of content (between numbers and text)
-\setlength{\cftsecnumwidth}{3em}
-\setlength{\cftsubsecnumwidth}{3.5em}
-\setlength{\cftfignumwidth}{3em}
-\setlength{\cfttabnumwidth}{3em}
+\setlength{\cftpartnumwidth}{4em}
+\setlength{\cftsectionnumwidth}{3em}
+\setlength{\cftsubsectionnumwidth}{3.5em}
+\setlength{\cftfigurenumwidth}{3em}
+\setlength{\cfttablenumwidth}{3em}
 
 \captionsetup[table]{skip=10pt}
 
@@ -577,7 +578,7 @@
 \heiglogo[color=\covercolor!5]
 
 \cleardoublepage
-\begin{titlepage}
+\begin{titlingpage}
   \heiglogo[color=black]
   \vspace{6cm}
   \vfil
@@ -599,8 +600,8 @@
     \vfill
     {\today}
   \end{center}
-\end{titlepage}
-\clearpage
+\end{titlingpage}
+\newpage
 
 \thispagestyle{empty}
 

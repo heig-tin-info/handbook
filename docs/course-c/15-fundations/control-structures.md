@@ -1,3 +1,9 @@
+---
+epigraph:
+    text: "Tout problème informatique peut être résolu en introduisant un niveau d'indirection supplémentaire."
+    source: David J. Wheeler / Butler Lampson
+---
+
 # Structures de contrôle
 
 Les structures de contrôle appartiennent aux langages de programmation étant de [paradigme][paradigm] impératif et [structuré](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e).

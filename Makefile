@@ -30,7 +30,7 @@ $(BUILD_DIR)/output-print.pdf: $(BUILD_DIR)/index.pdf
 	   -dDownsampleMonoImages=true -dColorImageResolution=200 \
 	   -dGrayImageResolution=200 -dMonoImageResolution=200 $<
 
-docker-image: Dockerfile
+image: Dockerfile
 	docker build -t latex-ycr .
 
 ci:

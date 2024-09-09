@@ -1,3 +1,8 @@
+---
+epigraph:
+    text: "Well-typed programs don’t go wrong."
+    source: Robin Milner
+---
 # Types de données
 
 Inhérent au fonctionnement interne d’un ordinateur, un langage de programmation opère à un certain degré d’abstraction par rapport au mode de stockage des données dans la mémoire. De la même façon qu’il est impossible, dans la vie quotidienne, de rendre la monnaie à une fraction de centime près, un ordinateur ne peut enregistrer des informations numériques avec une précision infinie. Ce principe est intrinsèque aux limites matérielles et au modèle mathématique des nombres. [[||type]]

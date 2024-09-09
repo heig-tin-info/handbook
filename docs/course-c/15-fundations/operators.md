@@ -1,3 +1,8 @@
+---
+epigraph:
+    text: "L'un de mes jours les plus productifs a été lorsque j'ai supprimé 1 000 lignes de code. Nous n'avons pas besoin de plus d'opérateurs, nous en avons besoin de moins."
+    source: Ken Thompson
+---
 # Opérateurs
 
 En programmation, un opérateur est une **fonction** qui effectue une opération sur des valeurs. Les opérateurs utilisent des identificateurs spécifiques propres à chaque langage de programmation, ce qui permet de simplifier l'écriture des expressions. Par exemple, l'opérateur d'addition `+` permet d'additionner deux valeurs.
