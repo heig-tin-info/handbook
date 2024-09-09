@@ -1,5 +1,12 @@
 # Développement logiciel
 
+**Objectifs**
+
+- Comprendre les valeurs et les bonnes pratiques du développement logiciel
+- Comprendre l'importance d'apprendre par soi-même
+- Comprendre l'importance de l'anglais en informatique
+- Importance de la communauté des développeurs
+
 Être développeur logiciel que ce soit professionnellement ou comme loisir, ce n'est pas simplement écrire du code. Il y a l'art et la manière de le faire, il y a des règles à respecter, des consensus à suivre et de bonnes pratiques à adopter.
 
 J'ai vu trop souvent dans le milieu académique et professionnel, des soi-disant experts ou professeurs qui inculquent à leurs élèves ou collègues des pratiques dogmatiques basées sur des croyances personnelles ou des habitudes anciennes. L'informatique est une discipline vivante basée avant tout sur la collaboration, l'écoute et l'introspection. Il est donc essentiel d'avoir l'esprit ouvert, et de faire preuve d'humilité.

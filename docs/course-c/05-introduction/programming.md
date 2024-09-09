@@ -6,6 +6,14 @@ epigraph:
 
 # Programmation
 
+**Objectifs**
+
+- Définir les concepts d'algorithmique et de programmation.
+- Exemples d'algorithmes.
+- Origine de la programmation.
+- Bref historique de l'informatique.
+- Introduction à la machine de Turing.
+
 La **programmation**, également appelée **codage**, est l'art subtil et rigoureux de transformer des concepts abstraits en instructions exécutables par une machine. À travers cette discipline, le programmeur devient l'architecte d'un univers logique, où chaque ligne de code est une brique ajoutée à une structure plus vaste, guidée par un plan précis : l'**algorithme**. Ce dernier, semblable à une partition musicale, dicte la succession des opérations que la machine, fidèle exécutante, doit suivre sans faillir.
 
 L'essence même de la programmation réside donc dans la traduction de ces algorithmes en un **langage formel**, une sorte de langage commun, épuré et sans ambiguïté, où l'esprit humain et le processeur se rencontrent. Cette activité, à la croisée des chemins entre la science, l'ingénierie et l'art, est avant tout une quête de précision, d'efficacité, et d'élégance.
