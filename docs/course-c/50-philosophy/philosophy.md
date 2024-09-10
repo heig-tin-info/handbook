@@ -419,6 +419,14 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
     }
     ```
 
+**Valeur Bulgare**
+
+: Popularisé par Jacques-André Porchet, une grandeur Bulgare est une valeur magique qui n'a pas de sens pour un non-initié et qui semble être sortie de nulle part.
+
+    ```c
+    double it_works_with_this_value = 1.11123445143;
+    ```
+
 **Objet divin**
 
 : Quand un composant logiciel assure trop de fonctions essentielles (KISS)
