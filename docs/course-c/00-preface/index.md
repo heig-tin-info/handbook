@@ -165,15 +165,16 @@ Table: Anglicismes
 
 | Anglais    | Français              | Préférence |
 | ---------- | --------------------- | ---------- |
-| *hardware* | matériel informatique | *hardware* |
-| *software* | logiciel informatique | *software* |
 | *byte*     | octet                 | *byte*     |
-| *set*      | ensemble              | *set*      |
-| *pipe*     | tube                  | *pipe*     |
-| *stream*   | flux de données       | *stream*   |
+| *debug*    | déverminer            | *debug*    |
+| *hardware* | matériel informatique | *hardware* |
 | *listing*  | extrait de code       | *listing*  |
+| *pipe*     | tube                  | *pipe*     |
 | *process*  | processus             | processus  |
 | *seekable* | positionnable         | *seekable* |
+| *set*      | ensemble              | *set*      |
+| *software* | logiciel informatique | *software* |
+| *stream*   | flux de données       | *stream*   |
 
 [](){#anglisismes}
 
