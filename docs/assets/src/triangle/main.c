@@ -10,8 +10,11 @@ const char* vert_src =
     "layout (location = 0) in vec3 aPos;\n"
     "layout (location = 1) in vec3 aColor;\n"
     "out vec3 ourColor;\n"
+    "uniform float aspectRatio;\n"
     "void main() {\n"
-    "    gl_Position = vec4(aPos, 1.0);\n"
+    "    vec3 scaledPos = aPos;\n"
+    "    scaledPos.x /= aspectRatio;\n"  // Appliquer la transformation
+    "    gl_Position = vec4(scaledPos, 1.0);\n"
     "    ourColor = aColor;\n"
     "}\n";
 
@@ -132,12 +135,16 @@ int main(int argc, char* argv[]) {
    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, stride,
                          (void*)(3 * sizeof(float)));
    glEnableVertexAttribArray(1);
-
+   int aspectRatioLocation = glGetUniformLocation(shaderProgram, "aspectRatio");
    while (!glfwWindowShouldClose(window)) {
       glClearColor(.0f, .0f, .0f, 1.0f);
       glClear(GL_COLOR_BUFFER_BIT);
       glUseProgram(shaderProgram);
       glBindVertexArray(VAO);
+      int width, height;
+      glfwGetFramebufferSize(window, &width, &height);
+      float aspectRatio = (float)width / (float)height;
+      glUniform1f(aspectRatioLocation, aspectRatio);
       glDrawArrays(GL_TRIANGLES, 0, 3);
       glfwSwapBuffers(window);
       glfwPollEvents();
