@@ -1,14 +1,22 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
 
+// Dimensions de la fenêtre
 const unsigned int WIDTH = 800, HEIGHT = 600;
 
-// Pyramid vertices
-float vertices[] = {-1.0f, 0.0f,  -1.0f, 1.0f, 0.0f, -1.0f, 1.0f, 0.0f,
-                    1.0f,  -1.0f, 0.0f,  1.0f, 0.0f, 1.5f,  0.0f};
+// Sommets de la pyramide (base carrée)
+float vertices[] = {
+    // Base
+    -1.0f, 0.0f, -1.0f,  // Sommet 0
+    1.0f, 0.0f, -1.0f,   // Sommet 1
+    1.0f, 0.0f, 1.0f,    // Sommet 2
+    -1.0f, 0.0f, 1.0f,   // Sommet 3
+
+    // Pointe
+    0.0f, 1.5f, 0.0f  // Sommet 4 (pointe)
+};
 
 // Indexes pour les triangles formant la pyramide
 unsigned int indices[] = {
@@ -18,63 +26,24 @@ unsigned int indices[] = {
     // Faces
     0, 1, 4, 1, 2, 4, 2, 3, 4, 3, 0, 4};
 
+// Vertex Shader GLSL source (pas besoin de matrices ici)
 const char* vertexShaderSource =
     "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
-    "uniform mat4 model;\n"
-    "uniform mat4 view;\n"
-    "uniform mat4 projection;\n"
-    "void main() {\n"
-    "   gl_Position = projection * view * model * vec4(aPos, 1.0);\n"
+    "void main()\n"
+    "{\n"
+    "   gl_Position = vec4(aPos, 1.0);\n"
     "}\n";
 
+// Fragment Shader GLSL source
 const char* fragmentShaderSource =
     "#version 330 core\n"
     "out vec4 FragColor;\n"
-    "void main() {\n"
-    "   FragColor = vec4(0.8, 0.6, 0.4, 1.0);\n"
+    "void main()\n"
+    "{\n"
+    "   FragColor = vec4(0.8, 0.6, 0.4, 1.0);  // Couleur beige pour la "
+    "pyramide\n"
     "}\n";
-
-void multiplyMatrix4x4(float result[16], const float a[16], const float b[16]) {
-   for (int i = 0; i < 4; i++) {
-      for (int j = 0; j < 4; j++) {
-         result[i * 4 + j] = 0;
-         for (int k = 0; k < 4; k++) {
-            result[i * 4 + j] += a[i * 4 + k] * b[k * 4 + j];
-         }
-      }
-   }
-}
-
-void identityMatrix(float matrix[16]) {
-   for (int i = 0; i < 16; i++) matrix[i] = (i % 5 == 0) ? 1.0f : 0.0f;
-}
-
-void translateMatrix(float matrix[16], float x, float y, float z) {
-   identityMatrix(matrix);
-   matrix[12] = x;
-   matrix[13] = y;
-   matrix[14] = z;
-}
-
-void rotateYMatrix(float matrix[16], float angle) {
-   identityMatrix(matrix);
-   matrix[0] = cos(angle);
-   matrix[2] = sin(angle);
-   matrix[8] = -sin(angle);
-   matrix[10] = cos(angle);
-}
-
-void perspectiveMatrix(float matrix[16], float fov, float aspect, float near,
-                       float far) {
-   const float tanHalfFov = tan(fov / 2.0f);
-   for (int i = 0; i < 16; i++) matrix[i] = 0.0f;
-   matrix[0] = 1.0f / (aspect * tanHalfFov);
-   matrix[5] = 1.0f / tanHalfFov;
-   matrix[10] = -(far + near) / (far - near);
-   matrix[11] = -1.0f;
-   matrix[14] = -(2.0f * far * near) / (far - near);
-}
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
    glViewport(0, 0, width, height);
@@ -99,7 +68,6 @@ int compileShader(const char* source, GLenum type) {
       printf("Erreur de compilation du shader : %s\n", infoLog);
       return -1;
    }
-   printf("Shader compilé avec succès\n");
    return shader;
 }
 
@@ -125,8 +93,6 @@ unsigned int createShaderProgram(const char* vertexShaderSource,
    if (!success) {
       glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
       printf("Erreur de linking du programme shader : %s\n", infoLog);
-   } else {
-      printf("Programme shader lié avec succès\n");
    }
 
    glDeleteShader(vertexShader);
@@ -136,7 +102,7 @@ unsigned int createShaderProgram(const char* vertexShaderSource,
 }
 
 int main() {
-   // Init GLFW
+   // Initialisation GLFW
    if (!glfwInit()) {
       printf("Erreur lors de l'initialisation de GLFW\n");
       return -1;
@@ -145,8 +111,8 @@ int main() {
    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-   // Create Window
-   GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Pyramid", NULL, NULL);
+   // Création de la fenêtre
+   GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Pyramide", NULL, NULL);
    if (window == NULL) {
       printf("Erreur lors de la création de la fenêtre GLFW\n");
       glfwTerminate();
@@ -195,36 +161,9 @@ int main() {
 
       // Effacer l'écran et le tampon de profondeur
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-      // glClearColor(1.0f, 0.0f, 0.0f, 1.0f);  // Fond rouge (it works if
-      // uncommented)
 
       // Activer le programme shader
       glUseProgram(shaderProgram);
-
-      // Matrices de transformation
-      float model[16], view[16], projection[16], modelRotation[16];
-      identityMatrix(model);
-      identityMatrix(view);
-      perspectiveMatrix(projection, M_PI / 4.0f, (float)WIDTH / (float)HEIGHT,
-                        0.1f, 100.0f);
-
-      translateMatrix(view, 0.0f, 0.0f, -5.0f);  // Camera View
-
-      // Model rotation
-      rotateYMatrix(modelRotation, glfwGetTime());
-      multiplyMatrix4x4(model, model, modelRotation);
-
-      // Charger les matrices dans les shaders
-      int modelLoc = glGetUniformLocation(shaderProgram, "model");
-      int viewLoc = glGetUniformLocation(shaderProgram, "view");
-      int projectionLoc = glGetUniformLocation(shaderProgram, "projection");
-      glUniformMatrix4fv(modelLoc, 1, GL_FALSE, model);
-      glUniformMatrix4fv(viewLoc, 1, GL_FALSE, view);
-      glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, projection);
-
-      if (modelLoc == -1 || viewLoc == -1 || projectionLoc == -1) {
-         printf("Erreur : impossible de trouver une des matrices uniformes\n");
-      }
 
       // Dessiner la pyramide
       glBindVertexArray(VAO);
