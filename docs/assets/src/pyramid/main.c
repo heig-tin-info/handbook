@@ -6,9 +6,15 @@
 
 const unsigned int WIDTH = 800, HEIGHT = 600;
 
-float vertices[] = {-1.0f, 0.0f,  -1.0f, 1.0f, 0.0f, -1.0f, 1.0f, 0.0f,
-                    1.0f,  -1.0f, 0.0f,  1.0f, 0.0f, 1.5f,  0.0f};
+float vertices[] = {
+    // positions         // normales
+    -1.0f, 0.0f, -1.0f, 0.0f, -1.0f, 0.0f,  // bas gauche
+    1.0f,  0.0f, -1.0f, 0.0f, -1.0f, 0.0f,  // bas droite
+    1.0f,  0.0f, 1.0f,  0.0f, -1.0f, 0.0f,  // haut droite
+    -1.0f, 0.0f, 1.0f,  0.0f, -1.0f, 0.0f,  // haut gauche
 
+    0.0f,  1.5f, 0.0f,  0.0f, 1.0f,  0.0f  // sommet de la pyramide
+};
 unsigned int indices[] = {
     // Base
     0, 1, 2, 2, 3, 0,
@@ -19,18 +25,38 @@ unsigned int indices[] = {
 const char* vert_src =
     "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
+    "layout (location = 1) in vec3 aNormal;\n"  // Nouvelle variable pour les
+                                                // normales
+    "out vec3 FragPos;\n"                       // Position du fragment
+    "out vec3 Normal;\n"                        // Normale du fragment
     "uniform mat4 model;\n"
     "uniform mat4 view;\n"
     "uniform mat4 projection;\n"
     "void main() {\n"
-    "   gl_Position = projection * view * model * vec4(aPos, 1.0);\n"
+    "   FragPos = vec3(model * vec4(aPos, 1.0));\n"  // Calculer la position du
+                                                     // fragment
+    "   Normal = mat3(transpose(inverse(model))) * aNormal;\n"  // Calculer la
+                                                                // normale
+                                                                // transformée
+    "   gl_Position = projection * view * vec4(FragPos, 1.0);\n"
     "}\n";
 
 const char* frag_src =
     "#version 330 core\n"
+    "in vec3 FragPos;\n"
+    "in vec3 Normal;\n"
     "out vec4 FragColor;\n"
+    "uniform vec3 lightPos;\n"
+    "uniform vec3 lightColor;\n"
+    "uniform vec3 objectColor;\n"
     "void main() {\n"
-    "   FragColor = vec4(0.8, 0.6, 0.4, 1.0);\n"
+    "   // Lambert diffuse shading\n"
+    "   vec3 norm = normalize(Normal);\n"
+    "   vec3 lightDir = normalize(lightPos - FragPos);\n"
+    "   float diff = max(dot(norm, lightDir), 0.0);\n"
+    "   vec3 diffuse = diff * lightColor;\n"
+    "   vec3 result = diffuse * objectColor;\n"
+    "   FragColor = vec4(result, 1.0);\n"
     "}\n";
 
 void multiplyMatrix4x4(float result[16], const float a[16], const float b[16]) {
@@ -186,7 +212,7 @@ int main() {
 
       float view[16];
       identityMatrix(view);
-      translateMatrix(view, 0.0f, 0.0f, -5.0f);  // Reculer de 5 unités
+      translateMatrix(view, 0.0f, 1.0f, -7.0f);  // Reculer de 5 unités
 
       // Matrice de modèle (rotation)
       float model[16];
@@ -202,6 +228,25 @@ int main() {
       int projectionLoc = glGetUniformLocation(shaderProgram, "projection");
       glUniformMatrix4fv(viewLoc, 1, GL_FALSE, view);
       glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, projection);
+
+      // Position et couleur de la lumière
+      int lightPosLoc = glGetUniformLocation(shaderProgram, "lightPos");
+      int lightColorLoc = glGetUniformLocation(shaderProgram, "lightColor");
+      int objectColorLoc = glGetUniformLocation(shaderProgram, "objectColor");
+
+      // Définir la position de la lumière (par exemple au-dessus de la
+      // pyramide)
+      glUniform3f(lightPosLoc, 5.0f, 5.0f, 5.0f);
+      glUniform3f(lightColorLoc, 1.0f, 1.0f, 1.0f);   // Lumière blanche
+      glUniform3f(objectColorLoc, 0.8f, 0.6f, 0.4f);  // Couleur de la pyramide
+
+      glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float),
+                            (void*)0);  // Attribut des positions
+      glEnableVertexAttribArray(0);
+      glVertexAttribPointer(
+          1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float),
+          (void*)(3 * sizeof(float)));  // Attribut des normales
+      glEnableVertexAttribArray(1);
 
       // Dessiner la pyramide
       glBindVertexArray(VAO);
