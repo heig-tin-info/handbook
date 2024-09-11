@@ -1,0 +1,137 @@
+\documentclass[a4paper,10pt,oneside]{memoir}
+\usepackage{fontspec}
+\usepackage{imakeidx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{makeidx}
+\usepackage{glossaries}
+\usepackage{lipsum}
+\usepackage{tikzducks}
+\usepackage{graphicx}
+\usepackage{atbegshi}
+\usepackage{hyperref}
+\usepackage{fmtcount}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\usepackage[top=10mm,bottom=10mm]{geometry}
+
+\addbibresource{bibliography.bib}
+
+\newcommand\abspagenumber{\inteval{\ReadonlyShipoutCounter+1}}
+
+\AtBeginDocument{
+    \newwrite\pagefile
+    \immediate\openout\pagefile=\jobname.pages
+}
+
+\makeatletter
+\newcounter{volume}
+\newcommand{\newvolume}{%
+    \stepcounter{volume}%
+    \setcounter{figure}{0}
+    \setcounter{table}{0}
+    \AtBeginShipoutNext{%
+        \immediate\write\pagefile{\abspagenumber}%
+    }%
+    \addtocontents{toc}{\par\centering \bfseries \large Volume \MakeUppercase{\Numberstring{volume}}\par}
+}
+\makeatother
+
+\AtEndDocument{%
+    \immediate\write\pagefile{\abspagenumber}%
+    \immediate\closeout\pagefile
+}
+
+\makeglossaries
+\makeindex[name=vol1idx,title=Index du Volume 1]
+\makeindex[name=vol2idx,title=Index du Volume 2]
+
+\newglossaryentry{glossary2}{%
+    name={Foo},
+    description={Foo is a term that is used to refer to bar.}}
+\newglossaryentry{glossary3}{%
+    name={Bar},
+    description={Bar is a term that is used to refer to foo.}}
+
+\author{Doc Lathrop Brown}
+
+\begin{document}
+\raggedbottom
+%% Volume 1
+\newvolume
+\frontmatter
+\thispagestyle{empty}
+\pagecolor{CadetBlue}
+\begin{center}
+    \vspace*{5cm}
+    {\Huge \bfseries The Book}\\[2cm]
+    {\LARGE Volume \MakeUppercase{\Numberstring{volume}}}
+\end{center}
+\newpage
+\nopagecolor
+
+\title{The Book -- Volume \MakeUppercase{\Numberstring{volume}}}
+\maketitle
+\tableofcontents
+\mainmatter
+\chapter{Chapter 1}
+\section{Introduction Chapter 1}
+\index{chapter1}
+\lipsum[1]
+\chapter{Chapter 2}
+\section{Introduction Chapter 2}
+\lipsum[2]
+\index[vol1idx]{chapter2}
+\gls{glossary2}
+\parencite{Knuth:1996}
+\begin{figure}
+    \centering
+    \includegraphics{example-image-duck}
+    \caption{A figure in the first volume}
+\end{figure}
+\backmatter
+\listoffigures\nobreak\nopagebreak
+\listoftables\nobreak\nopagebreak
+\printglossary
+\printindex[vol1idx]
+\printbibliography
+
+%% Volume 2
+\clearpage
+\newvolume
+\thispagestyle{empty}
+\pagecolor{MidnightBlue}
+\begin{center}
+    \vspace*{5cm}
+    {\Huge \bfseries The Book}\\[2cm]
+    {\LARGE Volume \arabic{volume}}
+\end{center}
+\newpage
+\nopagecolor
+
+\frontmatter
+\title{The Book -- Volume \MakeUppercase{\Numberstring{volume}}}
+\maketitle
+\tableofcontents
+\mainmatter
+\chapter{Chapter 3}
+\section{Introduction Chapter 3}
+\index[vol2idx]{chapter3}
+\lipsum[3]
+\chapter{Chapter 4}
+\section{Introduction Chapter 4}
+\lipsum[4]
+\index{chapter3}
+\parencite{latexcompanion}
+\gls{glossary3}
+\begin{figure}
+    \centering
+    \includegraphics{example-image-duck}
+    \caption{A figure in the first volume}
+\end{figure}
+\backmatter
+\listoffigures\nobreak\nopagebreak
+\listoftables\nobreak\nopagebreak
+\printglossary
+\printindex[vol2idx]
+\printbibliography
+
+\end{document}

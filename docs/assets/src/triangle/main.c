@@ -10,11 +10,9 @@ const char* vert_src =
     "layout (location = 0) in vec3 aPos;\n"
     "layout (location = 1) in vec3 aColor;\n"
     "out vec3 ourColor;\n"
-    "uniform float aspectRatio;\n"
+    "uniform mat4 projection;\n"
     "void main() {\n"
-    "    vec3 scaledPos = aPos;\n"
-    "    scaledPos.x /= aspectRatio;\n"  // Appliquer la transformation
-    "    gl_Position = vec4(scaledPos, 1.0);\n"
+    "    gl_Position = projection * vec4(aPos, 1.0);\n"
     "    ourColor = aColor;\n"
     "}\n";
 
@@ -23,6 +21,29 @@ const char* frag_src =
     "out vec4 FragColor;\n"
     "in vec3 ourColor;\n"
     "void main() { FragColor = vec4(ourColor, 1.0); }\n";
+
+void ortho(float left, float right, float bottom, float top, float near,
+           float far, float* result) {
+   result[0] = 2.0f / (right - left);
+   result[1] = 0.0f;
+   result[2] = 0.0f;
+   result[3] = 0.0f;
+
+   result[4] = 0.0f;
+   result[5] = 2.0f / (top - bottom);
+   result[6] = 0.0f;
+   result[7] = 0.0f;
+
+   result[8] = 0.0f;
+   result[9] = 0.0f;
+   result[10] = -2.0f / (far - near);
+   result[11] = 0.0f;
+
+   result[12] = -(right + left) / (right - left);
+   result[13] = -(top + bottom) / (top - bottom);
+   result[14] = -(far + near) / (far - near);
+   result[15] = 1.0f;
+}
 
 int compileShader(const char* source, GLenum type) {
    unsigned int shader = glCreateShader(type);
@@ -84,9 +105,11 @@ int main(int argc, char* argv[]) {
    }
 
    // Set desired OpenGL version and profile
+   glfwWindowHint(GLFW_SAMPLES, 4);  // 4x antialiasing
    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);  // We want OpenGL 3.3
+   glfwWindowHint(GLFW_OPENGL_PROFILE,
+                  GLFW_OPENGL_CORE_PROFILE);  // We don't want the old OpenGL
 
    // Create window
    GLFWwindow* window = glfwCreateWindow(width, height, "Triangle", NULL, NULL);
@@ -123,6 +146,7 @@ int main(int argc, char* argv[]) {
    glGenVertexArrays(1, &VAO);
    glGenBuffers(1, &VBO);
    glBindVertexArray(VAO);
+
    glBindBuffer(GL_ARRAY_BUFFER, VBO);
    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
@@ -135,16 +159,21 @@ int main(int argc, char* argv[]) {
    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, stride,
                          (void*)(3 * sizeof(float)));
    glEnableVertexAttribArray(1);
-   int aspectRatioLocation = glGetUniformLocation(shaderProgram, "aspectRatio");
+
+   int projectionLocation = glGetUniformLocation(shaderProgram, "projection");
+   float projection[16];
    while (!glfwWindowShouldClose(window)) {
       glClearColor(.0f, .0f, .0f, 1.0f);
       glClear(GL_COLOR_BUFFER_BIT);
       glUseProgram(shaderProgram);
       glBindVertexArray(VAO);
+
       int width, height;
       glfwGetFramebufferSize(window, &width, &height);
       float aspectRatio = (float)width / (float)height;
-      glUniform1f(aspectRatioLocation, aspectRatio);
+      ortho(-aspectRatio, aspectRatio, -1.0f, 1.0f, -1.0f, 1.0f, projection);
+      glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, projection);
+
       glDrawArrays(GL_TRIANGLES, 0, 3);
       glfwSwapBuffers(window);
       glfwPollEvents();
