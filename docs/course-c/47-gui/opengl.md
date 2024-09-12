@@ -1,92 +1,5 @@
 # OpenGL
 
-https://stackoverflow.com/questions/60440682/drawing-a-line-in-modern-opengl
-https://antongerdelan.net/opengl/hellotriangle.html
-https://www.opengl-tutorial.org/print/
-
-## Versions
-
-On distingues plusieurs versions d'OpenGL :
-
-OpenGL 1.0 : Première version d'OpenGL sortie en 1992.
-OpenGL 2.0 : Version sortie en 2004 qui introduit les shaders.
-OpenGL 3.0 : Version sortie en 2008 qui introduit les shaders de géométrie.
-OpenGL 4.0 : Version sortie en 2010 qui introduit les shaders de tessellation.
-OpenGL 4.3 : Version sortie en 2012 qui introduit les shaders de calcul.
-OpenGL 4.6 : Version sortie en 2017 qui introduit les shaders de tâches.
-
-OpenGL ES 2.0 : Version d'OpenGL pour les systèmes embarqués.
-Vulkan : API graphique bas niveau qui succède à OpenGL.
-
-Wayland : Protocole de communication entre le serveur et les clients.
-X11 : Protocole de communication entre le serveur et les clients.
-
-
-## Double Buffer
-
-OpenGL utilise un double buffer pour afficher les images. Le double buffer est composé de deux buffers : un buffer de dessin et un buffer d'affichage. Le buffer de dessin est utilisé pour dessiner les images et le buffer d'affichage est utilisé pour afficher les images. Lorsque l'image est dessinée dans le buffer de dessin, elle est ensuite copiée dans le buffer d'affichage. Cela permet d'éviter les problèmes de scintillement. C'est une pratique très courante dans les applications graphiques.
-
-## Vsync
-
-La synchronisation verticale (Vsync) est une technique qui permet de synchroniser le taux de rafraîchissement de l'écran avec le taux de rafraîchissement de l'application. Cela permet d'éviter les problèmes de déchirure d'écran. La synchronisation verticale est généralement activée par défaut dans les applications graphiques.
-
-## GFLW
-
-La bibliothèque GLFW est une bibliothèque C qui permet de créer des fenêtres avec OpenGL. Elle est compatible avec OpenGL ES et Vulkan. Elle est utilisée pour créer des fenêtres et gérer les événements de fenêtre. On pourrait très bien utiliser GTK néanmoins GLFW est plus simple et plus adapté à OpenGL.
-
-Pour installer GLFW sur Ubuntu, il suffit d'installer la biblothèque avec les fichiers d'en-tête :
-
-```bash
-sudo apt install libglfw3-dev
-```
-
-Pour compiler un programme avec GLFW, il est nécessaire de lier la bibliothèque avec le programme. Pour cela, il suffit d'ajouter l'option `-lglfw` à la commande de compilation.
-
-Un programme simple qui crée une fenêtre avec GLFW :
-
-```c
-#include <GLFW/glfw3.h>
-
-int main() {
-   if (!glfwInit()) return -1;
-   GLFWwindow* window = glfwCreateWindow(800, 400, "Window", NULL, NULL);
-   if (!window) {
-      glfwTerminate();
-      return -2;
-   }
-   glfwMakeContextCurrent(window);
-   while (!glfwWindowShouldClose(window)) {
-      glfwSwapBuffers(window);
-      glfwPollEvents();
-   }
-}
-```
-
-On observe que la bibliothèque est tout d'abord initialisée avec la fonction `glfwInit()`. Ensuite, une fenêtre est créée avec un titre. Les deux derniers paramètres laissés à `NULL` sont des pointeurs sur le moniteur sur laquelle la fenêtre est affichée `GLFWmonitor` et la fenêtre du parent `GLFWwindow` utilisée dans le cas d'une application multi-fenêtres. Dans notre cas on laisse ces paramètres à `NULL` car nous n'avons pas besoin de ces fonctionnalités.
-
-Si la fenêtre n'a pas pu être créée, le programme se termine. Sinon, la fenêtre est affichée avec la fonction `glfwMakeContextCurrent(window)`.
-
-Enfin, une boucle est créée pour afficher la fenêtre tant que l'utilisateur ne la ferme pas. La fonction `glfwSwapBuffers(window)` permet de copier le contenu du buffer de dessin dans le buffer d'affichage. La fonction `glfwPollEvents()` permet de gérer les événements de fenêtre.
-
-Le grand avantage de ce programme est qu'il est portable. Il fonctionne sur Windows, Linux et MacOS.
-
-GLFW permet également de gérer les joystick et gamepads, les évènements du clavier ou de la souris ainsi que le curseurs de la souris. Cela permet de créer des applications graphiques interactives sans nécessité d'avoir recours à d'autres bibliothèques.
-
-Nous n'approfonfirons pas plus GLFW dans ce cours néanmoins, vous avez toujours la possibilité de consulter la documentation officielle de GLFW qui est très complète.
-
-## GLEW
-
-La bibliothèque GLEW (*OpenGL Extension Wrangler Library*) est une bibliothèque qui facilite le chargement des extensions OpenGL. OpenGL a un ensemble de fonctionnalités qui peut varier selon le matériel graphique et le système d'exploitation, et GLEW est utilisé pour accéder à ces fonctionnalités de manière portable. En sommes, la bibliothèque permet de charger dynamiquement des fonctions OpenGL qui ne sont pas directement accessibles par le système, surtout pour les versions modernes d'OpenGL.
-
-Pour disposer d'un contexte OpenGL utilsable nous devons compléter notre programme précédent avec GLEW :
-
-```c
-# OpenGL
-
-https://stackoverflow.com/questions/60440682/drawing-a-line-in-modern-opengl
-https://antongerdelan.net/opengl/hellotriangle.html
-https://www.opengl-tutorial.org/print/
-
 ## Versions
 
 On distingues plusieurs versions d'OpenGL :
@@ -206,6 +119,10 @@ int main() {
             glfwWindowShouldClose(window) == 0);
 }
 ```
+
+## GLUT
+
+GLUT (*OpenGL Utility Toolkit*) est une bibliothèque qui facilite la création de fenêtres OpenGL. Elle est plus ancienne que GLFW et elle est moins utilisée. GLUT est une bibliothèque portable qui permet de créer des fenêtres OpenGL sur Windows, Linux et MacOS. Elle permet également de gérer les événements de fenêtre, les événements de clavier et de souris, et les événements de redimensionnement de fenêtre. Préférez GLFW à GLUT pour vos projets OpenGL.
 
 [](){#opengl-coordinates}
 
