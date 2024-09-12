@@ -17,6 +17,148 @@ Vulkan : API graphique bas niveau qui succède à OpenGL.
 Wayland : Protocole de communication entre le serveur et les clients.
 X11 : Protocole de communication entre le serveur et les clients.
 
+## Fonctionnement
+
+### Vertex
+
+La première étape du pipeline graphique est la transformation des coordonnées des sommets des objets géométriques en coordonnées de l'écran. Cette étape est appelée *vertex processing* et consiste à appliquer des transformations géométriques (comme la translation, la rotation, l'échelle) aux sommets des objets. Les coordonnées des sommets sont généralement définies dans un espace 3D, mais elles doivent être transformées en coordonnées 2D pour l'affichage à l'écran.
+
+Imaginons que l'on souhaite dessiner une pyramide en 3D. Chaque sommet de la pyramide est défini par ses coordonnées (x, y, z) dans l'espace 3D. Les données sont écrites dans un *buffer* de sommets comme dans l'exemple suivant:
+
+```c
+struct Vertex { float x, y, z; }[] = {
+   {0.0f, 1.0f, 0.0f},   // Sommet 0
+   {-1.0f, -1.0f, 1.0f}, // Sommet 1
+   {1.0f, -1.0f, 1.0f},  // Sommet 2
+   {1.0f, -1.0f, -1.0f}, // Sommet 3
+   {-1.0f, -1.0f, -1.0f} // Sommet 4
+};
+```
+
+Un *vertex* (sommet) peut alternativement contenir des informations supplémentaires comme la couleur, la texture ou la normale. Cette dernière est une information importante pour le calcul de l'éclairage.
+
+Dans une carte graphique toute forme géométrique est définie par des sommets, lesquels forment des triangles. Les triangles sont les formes les plus simples à dessiner et sont utilisés pour représenter des surfaces planes. Il faut deux triangles pour dessiner un rectangle, trois pour un quadrilatère, et un certain nombre pour dessiner un cercle. Il est intéressant de noter qu'une carte graphique n'est pas capable de dessiner des cercles à partir de coordonnées simples, ces derniers seront toujours appriximés par des triangles.
+
+### Assemblage des primitives
+
+Les sommets seuls ne forment pas encore une géométrie complète. Ils doivent être assemblés en primitives (triangles, lignes, points). L'assemblage des primitives consiste à prendre des groupes de sommets et à les combiner pour former des triangles ou d'autres formes géométriques. La primitive la plus courante est le triangle, c'est d'ailleurs celle que nous avons utilisée pour définir la pyramide précédente. Néanmoins il existe d'autres primitives comme le point, la ligne, le triangle strip, le triangle fan, etc. Les deux dernières primitives sont utilisées pour optimiser le nombre de sommets à envoyer à la carte graphique, certains sommets peuvent être partagés entre plusieurs triangles.
+
+
+### Traitement des sommets
+
+Une fois les primitives assemblées, les sommets sont traités par le *vertex shader*. Le *vertex shader* est un petit programme écrit en langage de shader (comme [GLSL](wiki:glsl) pour OpenGL ou HLSL pour DirectX sous Windows) qui s'exécute sur chaque sommet de la primitive. Le GLSL est un langage très proche du C mais beaucoup plus limité. En revanche il est capable de tirer parti des capacités de calcul parallèle des cartes graphiques et donc d'être très performant pour certaines opérations.
+
+Le *vertex shader* est responsable de la transformation des coordonnées des sommets, de l'application des textures, de l'éclairage, et d'autres opérations géométriques.
+
+Par exemple, notre pyramide devra être orientée dans l'espace 3D. Selon la position de la caméra, la pyramide devra être tournée, déplacée, et éventuellement éclairée. Par l'application de matrices de transformation (translation, rotation, mise à l'échelle) le *vertex shader* permet de passer de coordonnées locales aux coordonnées de l'espace de la caméra, puis aux coordonnées de l'écran.
+
+Selon l'éclairage de la scène, le *vertex shader* peut également calculer la couleur de chaque sommet en fonction de la position de la lumière. Cette couleur est ensuite interpolée entre les sommets pour obtenir une couleur lisse sur toute la surface du triangle.
+
+Enfin le *vertex shader* peut également calculer les coordonnées de texture pour chaque sommet. Une texture est une image (comme une photo ou une illustration) qui est appliquée à la surface d'un objet pour lui donner un aspect réaliste.
+
+Dans notre exemple, imagions que notre pyramide est celle de Kheops, de Khéphren ou de Mykérinos et que notre caméra est un drone qui survole le Caire. Il est 17h, le soleil est bas sur l'horizon et éclaire la pyramide.
+
+![Pyramide depuis le Caire](/assets/images/caire.png)
+
+(donner un exemple concret avec les données de la caméra, de la lumière et une texture de brique, une transformation de perspective de la lentille de la caméra, let normales des faces pour le calcul de l'éclairage. Donner un exemple en GLSL du vertex shader pour la pyramide.)
+
+### Tessellation
+
+La tessellation est une étape optionnelle du pipeline graphique qui permet de subdiviser les primitives en triangles plus petits. Cette technique est utilisée pour augmenter la densité de triangles dans les zones de la scène qui nécessitent plus de détails, comme les courbes ou les surfaces complexes. La tessellation est particulièrement utile pour le rendu de surfaces lisses et organiques, comme les visages humains ou les paysages naturels.
+
+### Géométrie
+
+L'étape de géométrie est une autre étape optionnelle du pipeline graphique qui permet de générer de nouveaux sommets à partir des sommets d'entrée. Cette étape est utile pour ajouter des détails supplémentaires à la géométrie, comme des arêtes supplémentaires, des plis ou des déformations. La géométrie est souvent utilisée pour générer des ombres, des reflets ou des effets spéciaux dans les jeux vidéo et les applications graphiques.
+
+Par exemple si vous souhaitez dessiner 1000 triangles à l'écran, chacun avec une orientation différente, il n'est pas nécessaire de spécifier les 3000 sommets correspondants. Il suffit de donner les centres des triangles et les orientations. Le *geometry shader* se chargera de générer les sommets correspondants. Voici un exemple ci-dessous de code GLSL pour un *geometry shader* qui génère des triangles à partir de points. Le programme `main` sera appelé par la carte graphique pour chaque point du buffer d'entrée, il s'executera donc en parallèle pour chaque point. Un `vec4` est un vecteur de 4 composantes, ici les coordonnées $x$, $y$, $z$ et $w$. Le $w$ est une composante supplémentaire dont nous n'avons pas besoin ici.
+
+```c
+#version 330 core
+
+layout (points) in;
+layout (triangle_strip, max_vertices = 3) out;
+
+void main() {
+   gl_Position = gl_in[0].gl_Position + vec4(-0.1, -0.1, 0.0, 0.0);
+   EmitVertex();
+
+   gl_Position = gl_in[0].gl_Position + vec4(0.1, -0.1, 0.0, 0.0);
+   EmitVertex();
+
+   gl_Position = gl_in[0].gl_Position + vec4(0.0, 0.1, 0.0, 0.0);
+   EmitVertex();
+
+   EndPrimitive();
+}
+```
+
+### Clipping
+
+L'étape de clipping consiste à éliminer les parties de la géométrie qui ne sont pas visibles à l'écran. Cette étape est nécessaire pour éviter de dessiner des objets qui sont en dehors du champ de vision de la caméra. Le clipping est généralement effectué en coordonnées d'écran, après la projection des sommets en 2D. Le *frustrum* est une forme tronquée qui représente le champ de vision de la caméra. Les parties de la géométrie qui se trouvent en dehors du *frustrum* sont éliminées.
+
+Cette étape n'a pas besoin d'être gérée manuellement par le développeur, elle est généralement effectuée par le matériel graphique de manière transparente.
+
+### Rasterisation
+
+La rasterisation est l'étape du pipeline graphique qui transforme les primitives géométriques en pixels à afficher à l'écran. Cette étape consiste à déterminer quels pixels sont couverts par les primitives et à calculer la couleur de chaque pixel en fonction de la couleur des sommets. La rasterisation est une opération complexe qui nécessite de calculer l'intersection des primitives avec les pixels de l'écran et d'appliquer des algorithmes de remplissage pour déterminer la couleur de chaque pixel.
+
+Par exemple à partir des sommets de notre pyramide, la rasterisation va calculer les pixels couverts par les triangles formés par les sommets de façon à remplir les faces de la pyramide. Les pixels couverts par les triangles sont ensuite colorés en fonction de la couleur des sommets et de l'éclairage de la scène.
+
+On dit que les primitives sont *rasterisées* lorsqu'elles sont transformées en *fragments*. Un fragment est un pixel potentiel qui doit être coloré.
+
+### Fragment
+
+À cette étape du pipeline graphique, nos sommets ont été convertis en des milliers de fragments. Chaque fragment correspond à un pixel de l'écran et doit être coloré. Le *fragment shader* est un autre programme écrit en langage de shader (GLSL) qui s'exécute sur chaque fragment de la primitive.
+
+Le *fragment shader* est responsable de calculer la couleur finale de chaque pixel en fonction de la couleur des sommets, de la texture, de l'éclairage, et d'autres paramètres. Le programme retourne une couleur pour chaque fragment.
+
+(donner un exemple concret avec les données de la caméra, de la lumière, une texture de brique, les normales des faces pour le calcul de l'éclairage. Donner un exemple en GLSL du fragment shader pour la pyramide.)
+
+
+### Test de profondeur
+
+Une fois les fragments calculés, ils subissent une série de tests pour déterminer s'ils doivent être affichés à l'écran. Le test de profondeur est un test qui compare la profondeur de chaque fragment avec la profondeur des fragments déjà affichés à l'écran. Si le fragment est plus proche de la caméra que les fragments déjà affichés, il est affiché à l'écran. Sinon, il est rejeté. Ce test est appelé le *Z-Test*.
+
+Il existe également le *Stencil Test* qui permet de définir une zone de l'écran où les fragments peuvent être affichés. Cela permet de créer des effets spéciaux comme des ombres, des reflets, ou des effets de transparence.
+
+Enfin le *Blending* permet de mélanger le fragment avec les fragments déjà affichés à l'écran. Cela permet de créer des effets de transparence, de luminosité, ou de flou.
+
+### Écriture dans le framebuffer
+
+Une fois que tous les tests et calculs ont été effectués, les fragments restants sont convertis en pixels et écrits dans le framebuffer (la mémoire vidéo). Le framebuffer contient les pixels qui seront envoyés à l’écran pour être affichés.
+
+
+## OpenGL et Vulkan
+
+[OpenGL](wiki:opengl), ou *Open Graphics Library*, est une API graphique multiplateforme utilisée principalement pour le rendu 2D et 3D dans des applications interactives. Elle est très répandue dans l'industrie des jeux vidéo, la visualisation scientifique, la modélisation 3D, et les simulations interactives. Conçue à l'origine pour permettre l'accélération graphique en temps réel via des cartes graphiques, OpenGL a marqué une révolution en facilitant le développement d'applications graphiques de haute performance tout en masquant les détails spécifiques au matériel.
+
+OpenGL a été initialement développé par [Silicon Graphics, Inc.](wiki:silicon graphics) (SGI) en 1992. À l'époque, SGI dominait le marché des stations de travail graphiques de haute performance, utilisées dans des domaines comme la modélisation 3D et la simulation scientifique. SGI voulait une API standardisée qui permettrait aux développeurs de concevoir des applications indépendantes des spécificités matérielles des différentes cartes graphiques, tout en tirant parti de l'accélération matérielle.
+
+Le but d'OpenGL était de fournir une interface simple et uniforme qui fonctionne sur divers systèmes d'exploitation (Windows, Linux, macOS) et plateformes matérielles, permettant ainsi une portabilité accrue des applications graphiques. Depuis, OpenGL a évolué au fil des années, en intégrant de nombreuses fonctionnalités graphiques modernes, comme les shaders et les buffers de trames.
+
+Bien que d'autres API graphiques comme DirectX (pour Windows) ou Direct3D (pour les jeux vidéo) soient également très populaires, OpenGL reste une API de choix pour de nombreux développeurs en raison de sa portabilité, de sa flexibilité et de sa compatibilité avec un large éventail de matériels.
+
+Néanmoins, certaines limitations ont conduit le Khronos Group qui gère OpenGL a développé [Vulkan](wiki:vulkan), une nouvelle API graphique et de calcul, publiée en 2016. Vulkan est considéré comme le successeur d'OpenGL et offre de nombreuses améliorations qui répondent aux besoins modernes des développeurs de jeux et d’applications graphiques.
+
+Les jeux vidéos modernes comme FarCry, The Witcher 3, Red Dead Redemption 2, ou encore Cyberpunk 2077 utilisent des moteurs graphiques basés sur les API Vulkan ou DirectX 12 pour tirer parti des performances des cartes graphiques récentes.
+
+En 2024, sur Windows, DirectX est l'API dominante. Néanmoins avec la technologie [DXVK](wiki:dxvk) qui est une couche de traduction permettant à des applications Vulkan de fonctionner avec DirectX 12.
+
+### Principe de fonctionnement
+
+OpenGL et Vulkan fonctionnent sur le principe de la programmation par états. Cela signifie que l'application configure l'état de l'API graphique en définissant des paramètres comme la couleur, la texture, la lumière, la perspective, etc. Une fois l'état configuré, l'application envoie des commandes graphiques à l'API pour dessiner des objets géométriques, des textures, des effets visuels, etc.
+
+Ces API offrent une abstraction du matériel graphique sous-jacent, permettant aux développeurs de concevoir des applications graphiques sans se soucier des détails spécifiques à la carte graphique. En effet, une carte graphique contient des milliers de cœurs de calcul qui peuvent être programmés pour effectuer des calculs parallèles. Heureusement pour les développeurs, OpenGL et Vulkan fournissent des interfaces de haut niveau pour exploiter ces capacités de calcul sans avoir à gérer les détails complexes du matériel.
+
+L'abstraction consiste principalement à ce que l'on nomme le *pipeline* graphique. Le pipeline graphique est une séquence d'étapes qui transforme les données géométriques en pixels affichés à l'écran. Ces étapes incluent la transformation des coordonnées, l'application des textures, l'éclairage, la perspective, et bien d'autres. Chaque étape du pipeline est configurable par l'application, permettant ainsi de personnaliser le rendu graphique en fonction des besoins.
+
+### Carte graphique
+
+
+### Pipeline
+
+Le pipeline graphique d'OpenGL et de Vulkan est composé de plusieurs étapes, chacune effectuant une transformation spécifique sur les données graphiques. Voici les étapes principales du pipeline graphique :
+
 
 ## Double Buffer
 
@@ -499,7 +641,7 @@ Après compilation avec la commande suivante, on obtient un triangle blanc comme
 gcc -o triangle triangle.c -lglfw -lGLEW -lGL -lm
 ```
 
-![Triangle Blanc](triangle.png)
+![Triangle Blanc](/assets/images/triangle.png)
 
 ## Matrices
 
