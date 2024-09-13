@@ -641,7 +641,7 @@ Après compilation avec la commande suivante, on obtient un triangle blanc comme
 gcc -o triangle triangle.c -lglfw -lGLEW -lGL -lm
 ```
 
-![Triangle Blanc](/assets/images/triangle.png)
+![Triangle Blanc](/assets/images/triangle1.png)
 
 ## Matrices
 
