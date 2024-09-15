@@ -2,6 +2,14 @@
 
 ## To-Do
 
+- [ ] Content
+  - [ ] Sécurité et bonnes pratiques (buffer overflow, vunérabilités, strcpy, gets, ... libfuzzer
+  - [ ] Métaprogrammation avec Jinja/Python...
+  - [ ] Errno, traitement des erreurs
+  - [ ] Compilation croisée
+  - [ ] Threading? SIMD
+  - [ ] libuv, libevent, libev
+  - [ ] valdrind, gdb, strace, ltrace
 - [ ] Termes et définitions
   - [ ] Glossaire
   - [ ] Acronymes

@@ -7,10 +7,10 @@ Dans des architectures sans support pour les nombres réels (comme les processeu
 Les processeurs modernes, lorsqu'ils calculent le sinus, utilisent souvent des **tables de valeurs prédéfinies** (appelées tables de sinus) stockées en mémoire. Ces tables contiennent des valeurs pré-calculées du sinus pour différents angles, généralement entre 0 et $\pi/2$. Lorsqu'un sinus doit être calculé, le processeur se base sur la valeur dans la table la plus proche de l'angle donné, puis utilise une interpolation souvent linéaire pour obtenir un résultat plus précis. Cette méthode permet d'économiser du temps de calcul au prix d'une petite perte de précision. Voici une manière de faire :
 
 $$
-\sin(\theta) \approx \sin(\theta_1) + \frac{\sin(\theta) - \sin(\theta_1)}{\theta_2 - \theta_1} \times (\sin(\theta_2) - \sin(\theta_1))
+\sin(\theta) \approx \sin(\theta_1) + \frac{\theta - \theta_1}{\theta_2 - \theta_1} \times (\sin(\theta_2) - \sin(\theta_1))
 $$
 
-où $\sin(\theta_1)$ et $\sin(\theta_2)$ sont les valeurs de sinus les plus proches de $\theta$ dans la table, $\theta$ est l'angle pour lequel le sinus doit être calculé. La recherche dans la table peut être simplement une table de hachage pour un accès en $O(1)$.
+où $\sin(\theta_1)$ et $\sin(\theta_2)$ sont les valeurs de sinus les plus proches de $\theta$ dans la table, $\theta$ est l'angle pour lequel le sinus doit être calculé. La recherche dans la table peut être simplement une table de hachage pour un accès en $O(1)$. La table serait pré-calculée et stockée sous forme d'un tableau.
 
 ```c
 #include <stdio.h>
@@ -37,103 +37,174 @@ Dans une architecture légère qui ne dispose pas de support pour les nombres en
 
 ### Approximation du cinquième ordre
 
-Ce qui suit est grandement inspiré du travail d'Andrew Steadman et son article [5th Order Polynomial Fixed-Point Sine Approximation](https://www.nullhardware.com/blog/fixed-point-sine-and-cosine-for-embedded-systems/) publié en 2018 lui même inspiré d'un autre travail seulement disponible sur le [web archive](https://web.archive.org/web/20190119030856/https://www.coranac.com/2009/07/sines/).
+L'objectif pédagogique est de montrer que les mathématiques peuvent être très utiles dans l'élaboration d'un algorithme. Nous allons voir comment approximer un sinus en utilisant un polynôme de degré 5 en utilisant les technologies suivantes:
 
-Le domaine du sinus est infini mais il est possible de le réduire à l'intervalle ci-dessous car toutes les autres sorties pouvant être obtenues en utilisant les propriétés de symétrie du sinus.
+- **Systèmes d'équations linéaires** pour résoudre les coefficients du polynôme;
+- **Calcul intégral** pour minimiser l'erreur moyenne (moindre carrés);
+- **Virgule fixe** pour représenter les nombres en mémoire.
+
+Le domaine du sinus est infini mais il est possible de le réduire à l'intervalle ci-dessous car toutes les autres sorties peuvent être obtenues en utilisant les propriétés de symétrie du sinus. En effet il suffit du dessin du quart de sinus pour obtenir le sinus complet.
 
 $$
 x \in [0, \frac{\pi}{2}]
 $$
 
-D'autre part, le sinus est une fonction impaire, c'est-à-dire que $\sin(-x) = -\sin(x)$. Cette propriété induit lors d'une décomposition en série de Fourier que les coefficients de la série de Fourier pour les termes pairs sont nuls. Cela signifie que le sinus peut être approximé par un polynôme de degré impair. On peut donc tenter d'approximer un sinus par un polynôme de degré 5 en ayant seulement 3 coefficients à calculer. D'autre part, afin de faciliter les calculs, on peut réduire l'intervalle de calcul à $[0, 1]$ en posant que :
+D'autre part, le sinus est une fonction impaire, c'est-à-dire que $\sin(-x) = -\sin(x)$. Cette propriété induit, par exemple lors d'une décomposition en série de Fourier, que les coefficients de la série pour les termes pairs sont nuls. Cela signifie aussi que le sinus peut être approximé par un polynôme de degré impair. On peut donc tenter d'approximer un sinus par un polynôme de degré 5 en ayant seulement 3 coefficients à calculer. D'autre part, afin de faciliter les calculs et la représentation en virgule fixe on peut réduire l'intervalle de calcul à $[0, 1]$ en posant que :
 
 $$
-x = z\frac{\pi}{2}
+z = \frac{2x}{\pi}
 $$
 
 Le polynôme de degré 5 peut être exprimé de la manière suivante :
 
 $$
-\sin(z) \approx S_5 = cz - bz^3 + az^5
+\sin(z) \approx S_5(z) = cz - bz^**3** + az^5
 $$
 
-
-Pour résoudre cette équation à trois inconnues, on peut utiliser les propriétés du sinus et de ses dérivées. On peut poser que :
-
-$$
-S_5(z) = az^5 - bz^3 + cz
-S_5'(z) = a5z^4 - b3z^2 + c
-$$
-
-On peut noter quelques conditions aux bords:
-
-- $S_5(1) = 1$ qui est équivalent à $\sin(\frac{\pi}{2}) = 1$
-- $S_5'(1) = 0$ Et la pente est nulle
-- $S_5'(0) = \frac{\pi}{2}$ car la pente est maximale en 0
-
-Ce qui nous permet de poser :
+Pour trouver les coefficients de ce polynôme, on peut utiliser les propriétés du sinus et de ses dérivées. Nous allons donc raisonner sur ces deux fonctions :
 
 $$
-1 = a - b + c
-0 = 5a - 3b + 5c
+\begin{cases}
+S_5(z) = az^5 - bz^3 + cz \\
+S_5'(z) = 5az^4 - 3bz^2 + c
+\end{cases}
+$$
+
+On peut noter quelques conditions aux bords de l'intervalle $[0, 1]$ :
+
+- $S_5(1) = 1$ qui est équivalent à $\sin(\frac{\pi}{2}) = 1$;
+- $S_5'(1) = 0$ car la pente est nulle en son sommet;
+- $S_5'(0) = \frac{\pi}{2}$ car la pente est maximale en 0.
+
+Ces conditions nous permettent d'obtenir trois équations linéaires qu'il est trivial de résoudre :
+
+$$
+\begin{cases}
+1 = a - b + c \\
+0 = 5a - 3b + 5c \\
 \frac{\pi}{2} = a
+\end{cases}
 $$
 
-Le système peut être résolu en utilisant une méthode de résolution de système d'équations linéaires. On obtient les coefficients suivants :
+Ce qui nous donne les coefficients suivants :
 
 $$
-a = \frac{\pi}{2}
-b = \pi-\frac{5}{2}
+a = \frac{\pi}{2},\quad
+b = \pi-\frac{5}{2},\quad
 c = \frac{\pi}{2}-\frac{3}{2}
 $$
 
-Que l'on peut réécrire :
+Que l'on peut simplifier en fonction de $a$ :
 
 $$
-a = \frac{\pi}{2}
-b = 2a-\frac{5}{2}
+a = \frac{\pi}{2},\quad
+b = 2a-\frac{5}{2},\quad
 c = a-\frac{3}{2}
 $$
 
-On peut alors calculer le sinus en utilisant ces coefficients. En outre, lorsqu'on cherche à approximer une fonction, l'une des façons de s'assurer que l'approximation est correcte sur une certaine plage est de minimiser l'erreur moyenne entre la fonction approximée et la vraie fonction. Cela signifie que, sur un intervalle donné, la somme des erreurs (en moyenne) doit être la plus proche possible de zéro. Cette approche permet de redistribuer les erreurs uniformément plutôt que de les concentrer sur certains points.
+Cette solution triviale n'est généralement pas optimale car un critère fondamental n'a pas été respecté, celui de minimiser l'erreur moyenne avec le sacrifice potentiel de la précision des valeurs extrêmes. Une approche plus rigoureuse consiste donc minimiser l'erreur moyenne sur l'intervalle $[0, 1]$. On utilise pour ce faire la méthode des **moindre carrés** qui consiste à minimiser l'erreur quadratique est la somme des carrés des différences entre la fonction cible \( \sin\left(\frac{\pi}{2}x\right) \) et l'approximation polynomiale \( p(x) \). Pour ce faire, on calcule l'intégrale suivante :
 
-L'erreur moyenne pour une fonction est souvent calculée en prenant l'intégrale de la différence entre la fonction approximée etla vraie fonction sur l'intervalle donné. ici $[0, 1]$. En d'autres termes, si $f(x)$ est la fonction que l'on souhaite approximer et $p(x)$ est l'approximation polynomiale, l'erreur moyenne est donnée par :
+\[
+E(a, b, c) = \int_0^1 \left( \sin\left(\frac{\pi}{2}x\right) - (az^5 - bz^3 + cz) \right)^2 dx
+\]
+
+Pour minimiser l'erreur nous avons besoin de trouver les coefficients $a$, $b$ et $c$ qui minimisent cette intégrale. Cela revient à résoudre en prenant les dérivées partielles de l'erreur quadratique $E(a, b, c)$ par rapport à $a$, $b$ et $c$. Cela nous donne trois équations :
+
+\[
+\begin{cases}
+    \frac{\partial E}{\partial a} = 0 \\
+    \frac{\partial E}{\partial b} = 0 \\
+    \frac{\partial E}{\partial c} = 0
+\end{cases}
+\]
+
+Ces trois équations sont indépendantes, ce qui signifie qu'il est possible de résoudre ce système.
+
+Pratiquement on aura plutôt recours à une résolution numérique par exemple avec Python :
+
+```python
+import numpy as np
+from scipy.integrate import quad
+from scipy.linalg import solve
+
+
+def sin_pi_over_2(x):
+    return np.sin(np.pi * x / 2)
+
+
+def z_power_n(n, x):
+    return x**n
+
+
+integrals_matrix = np.zeros((3, 3))
+for i, n1 in enumerate([5, 3, 1]):
+    for j, n2 in enumerate([5, 3, 1]):
+        integrals_matrix[i, j] = quad(lambda x: z_power_n(n1 + n2, x), 0, 1)[0]
+
+integrals_rhs = np.zeros(3)
+for i, n in enumerate([5, 3, 1]):
+    integrals_rhs[i] = quad(lambda x: sin_pi_over_2(x) * z_power_n(n, x), 0, 1)[0]
+
+a, b, c = solve(integrals_matrix, integrals_rhs)
+print(a, b, c)
+```
+
+Ce qui nous donnes les coefficients suivants :
 
 $$
-\int_0^1 [f(x)-p(x)]dx
+a = 1.5704372550337553, \quad
+b = 0.6427098943803898, \quad
+c = 0.07243339903924052
 $$
 
-Appliqué à notre cas de figure, c'est à dire le sinus et une approximation polynomiale de degré $n$, on obtient :
+Une autre approche (j'ai toujours pas compris) est la suivante :
 
 $$
-\int_0^1 \sum_n a_nx^ndx=\int_0^1 \sin(x\cdot\pi/2)dx=\frac{2}{\pi}
-$$
-
-Ceci nous permet d'obtenir des coefficients alternatifs pour l'approximation du sinus :
-
-$$
-a = 4(\frac{3}{\pi}-\frac{9}{16})
-b = 2a-\frac{5}{2}
+a = 4(\frac{3}{\pi}-\frac{9}{16}), \quad
+b = 2a-\frac{5}{2}, \quad
 c = a-\frac{3}{2}
 $$
 
-Sur une architecture en virgule fixe comme un microcontrôleur MSP430 16-bit, on peut par exemple utiliser un entier de 16-bit pour représenter un angle. Ce dernier peut être exprimé en radians en complément à deux et en format Q15.1. Cela signifie que la partie entière représente les radians et la partie fractionnaire représente les décimales. Par exemple, 1.0 en Q15.1 est représenté par 0x8000. En termes binaire notre équation devra être multipliée par $2^{15}$ pour obtenir un résultat correct. On peut rendre générique cette définition en déclarant $a$ l'exponent de la puissance de 2 à appliquer. Notre équation complète est donc :
+Sur une architecture en virgule fixe comme un microcontrôleur MSP430 16-bit, on peut par exemple utiliser un entier de 16-bit pour représenter un angle. Ce dernier peut être exprimé en radians en complément à deux et en format Q15.1. Cela signifie que la partie entière représente les radians et la partie fractionnaire représente les décimales. Par exemple, 1.0 en Q15.1 est représenté par 0x8000. En termes binaire notre équation devra être multipliée par $2^{15}$ pour obtenir un résultat correct. On peut rendre générique cette définition en déclarant $o$ l'exponent de la puissance de 2 à appliquer. Notre équation complète est donc :
 
 $$
-sin_5(x) = 2^a\left(az - bz^3 + cz^5\right)
+fpsin_5(x) = \left. 2^o\left(az - bz^3 + cz^5\right)\right|_{z = \frac{2x}{\pi}}
 $$
 
-Or, l'équation doit pouvoir être réécrite seulement en terme de multiplications d'entiers et de décalages. Comme $z\in[0, 1]$, on peut écrire $z$ comme $y/2^a$ avec $y\in[0, 2^a]$. On peut alors réécrire l'équation en s'affranchissant des puissances:
+Or, l'équation doit pouvoir être réécrite seulement en terme de multiplications d'entiers, d'additions et de décalages. En outre, il est essentiel de factoriser au maximum l'équation pour éviter tout calcul redondant. On commence par factoriser l'équation:
 
 $$
-\begin{aligned}
-sin_5(x) &= 2^a\left(az - bz^3 + cz^5\right)\\
-&= z\left(a-z^2\left[b-z^2c\right]\right)2^a\\
-&= \frac{y}{2^n}\left(a-\frac{y^2}{2^{2n}}\left[b-\frac{y^2}{2^{2n}}c\right]\right)2^a\\
-&= y2^{-n}\left(a-\frac{y^2}{2^{2n}}\left[b-\frac{y^2}{2^{2n}}c\right]\right)2^a\\
-&= y\left(a-\frac{y^2}{2^{2n}}\left[b-\frac{y^2}{2^{2n}}c\right]\right)2^{a-n}\\
-\end{aligned}
+fpsin_5(x) = \left. z2^o\left(a - z^2\left(b + cz^2\right)\right)\right|_{z = \frac{2x}{\pi}}
 $$
+
+Comme $z\in[0, 1]$ n'est pas représentable par un entier, on peut réécrire $z$ comme $y/2^o$ avec $y\in[0, 2^o]$ et où $o$ est le nombre de bits de la partie fractionnaire du domaine d'entrée. On obtient alors :
+
+$$
+fpsin_5(x) = \left. \left[\frac{y}{2^n}\right]2^o\left(a - \left[\frac{y}{2^n}\right]^2\left(b + c\left[\frac{y}{2^n}\right]^2\right)\right)\right|_{z = \frac{2x}{\pi}}
+$$
+
+Après simplification on obtient :
+
+$$
+fpsin_5(x) = \left. y2^{o-n}\Big(a-y2^{-n}y2^{-n}\left(b-y2^{-2n}cy\right)\Big)\right|_{z = \frac{2x}{\pi}}
+$$
+
+Lors d'une multiplication en virgule fixe, on s'intéresse à la partie haute de la multiplication. En effet, pour un produit standard de deux entiers 8-bits, le résultat est un entier 16-bits. C'est d'ailleurs la raison pour laquelle les ALU offrent un registre de résultat deux fois plus grand que les registres d'entrée. Néanmoins, ce sont les 8-bits de poids faible qui sont conservés car si la multiplication n'a pas de dépassement, le résultat tiendra dans les 8-bits de poids faible. On supprime donc les 8-bit de pods fort. Or, dans un calcul en virgule fixe, la logique est différente. Un nombre en Q1.7 peut exprimer des grandeurs entre -1 et 1 avec une précision de 1/128. En multipliant deux nombre en Q1.7, on obtient un résultat en Q2.14. Or, dans ce résultat 16-bit, l'octet de poid faible ne contient que les chiffres après la virgule et none la partie intéressante du calcul.
+On peut donc supprimer cet octet de poids faible et ne conserver que les 8-bits de poids fort formant un nombre en Q2.6. En C standard, il n'est pas possible d'ordonner au compilateur de choisir le mot de poids fort ou faible. En assembleur en revanche de nombreux processeurs offrent cette possibilités. Un ADSP-218x par exemple offre des instructions de multiplication en virgule fixe avec un mot de résultat de 32-bits. On peut alors choisir de conserver le mot de poids fort ou faible.
+
+Une méthode pour maximiser la précision des calculs est d'ajouter des facteurs d'échelle. Par exemple, le coefficient $a$ vaut environ $1.57$ ce qui représente pour la partie entière 1 bit. Avec une ALU d'une profondeur $m$: 32-bits, on peut se permettre de décaler à gauche ce nombre tel que l'équation suivante est satisfaite :
+
+$$
+\text{sign}(a)\cdot\lceil |\log_2(a)| \rceil + k <= m
+$$
+
+où $k$ est le décalage en bits.
+
+Si l'on ajoute un facteur d'échelle, il doit nécessairement être compensé dans l'équation. Commenconç
+
+
+
+en virgule fixe on a intérêt à le multiplier
 
 Afin de maximiser la précision, on a besoin que nos multiplications occupent le plus de bits possibles pour le type choisi. À cette fin, on peut introduire des facteurs d'échelle $2^p$, $2^q$ et $2^r$ sachant qu'ils s'annuleront et n'affecterons pas le résultat final. On peut alors réécrire l'équation en introduisant ces facteurs d'échelle :
 
@@ -291,6 +362,16 @@ int main(int argc, char *argv[]) {
 }
 ```
 
----
 
-Ce programme C dessine les courbes de la fonction sinus en virgule fixe et de la fonction sinus standard en utilisant SDL. La courbe rouge représente la version standard, la courbe verte l'approximation en virgule fixe, et la courbe bleue montre l'erreur.
+
+from sympy import symbols, Eq, solve, pi
+
+a, b, c = symbols('a b c')
+
+solution = solve([
+    Eq(a - b + c, 1),
+    Eq(a - 3*b + 5*c, 0),
+    Eq(a/2 - b/4 + c/6, 2/pi)
+], (a, b, c))
+
+solution

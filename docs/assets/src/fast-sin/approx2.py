@@ -2,6 +2,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+def poly_sin_approx2(z):
+    a = 1.5704
+    b = 0.6427
+    c = 0.0724
+    return a * z - b * z**3 + c * z**5
+
+
+def poly_sin_approx3(z):
+    c = 2 / np.pi
+    b = 1 / np.pi
+    a = 2 / np.pi**3
+    return a * z - b * z**3 + c * z**5
+
+
 def poly_sin_approx1(z):
     a = np.pi / 2.0
     b = np.pi - 5.0 / 2.0
@@ -95,6 +109,8 @@ z_vals = x_to_z(x_vals)
 sin_vals = np.sin(x_vals)  # Sinus exact
 approx_vals = poly_sin_approx(z_vals)  # Approximation polynomiale
 approx_vals1 = poly_sin_approx1(z_vals)  # Approximation polynomiale
+approx_vals2 = poly_sin_approx2(z_vals)  # Approximation polynomiale
+approx_vals3 = poly_sin_approx3(z_vals)  # Approximation polynomiale
 
 # Conversion des valeurs en Q1.15 pour les trois méthodes
 # z_vals_q15 = [to_q15(z) for z in z_vals]
@@ -104,8 +120,10 @@ approx_vals1 = poly_sin_approx1(z_vals)  # Approximation polynomiale
 
 # Tracé des résultats pour les quatre méthodes
 # plt.plot(z_vals, sin_vals, label="Sinus exact", linestyle="--")
-plt.plot(z_vals, sin_vals - approx_vals, label="S51", linestyle="-")
-plt.plot(z_vals, sin_vals - approx_vals1, label="S52", linestyle=":")
+plt.plot(z_vals, approx_vals - sin_vals, label="Minimise erreur", linestyle="-")
+plt.plot(z_vals, approx_vals1 - sin_vals, label="Naïf", linestyle=":")
+plt.plot(z_vals, approx_vals2 - sin_vals, label="Moindre carrés", linestyle="-.")
+plt.plot(z_vals, approx_vals3 - sin_vals, label="Moindre carrés2", linestyle=":")
 # plt.plot(z_vals, sin_pade_q15_vals, label="Padé-Chebyshev Q1.15", linestyle=":")
 # plt.plot(z_vals, sin_remez_q15_vals, label="Remez Q1.15", linestyle="-.")
 # plt.plot(z_vals, sin_cordic_q15_vals, label="CORDIC Q1.15", linestyle=":")
