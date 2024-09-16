@@ -18,7 +18,7 @@ les outils associés.
         <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/48-network/sockets/">
       
       
-        <link rel="prev" href="../osi/">
+        <link rel="prev" href="../protocoles/">
       
       
         <link rel="next" href="../../50-philosophy/philosophy/">
@@ -3361,33 +3361,6 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../47-gui/gui/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Interface utilisateur
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../47-gui/opengl/" class="md-nav__link">
         
   
@@ -3435,6 +3408,33 @@ les outils associés.
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../47-gui/gtk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    GTK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3455,6 +3455,12 @@ les outils associés.
     
       
         
+          
+        
+      
+        
+      
+        
       
         
       
@@ -3471,8 +3477,10 @@ les outils associés.
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" checked>
         
           
-          <label class="md-nav__link" for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     
@@ -3485,8 +3493,14 @@ les outils associés.
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_13">
@@ -3498,6 +3512,8 @@ les outils associés.
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -3512,7 +3528,34 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Le modèle OSI
+    Modèle OSI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protocoles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocoles
   
 
     
@@ -3591,21 +3634,10 @@ les outils associés.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creation-dun-socket" class="md-nav__link">
+  <a href="#fonctionnement-des-sockets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Création d'un socket
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#modele-de-berkeley" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modèle de Berkeley
+        Fonctionnement des sockets
       
     </span>
   </a>
@@ -3617,6 +3649,50 @@ les outils associés.
     <span class="md-ellipsis">
       
         Types de sockets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Portabilité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-dun-socket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Création d'un socket
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-portable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple portable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erreurs-courantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erreurs courantes
       
     </span>
   </a>
@@ -4813,21 +4889,10 @@ les outils associés.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creation-dun-socket" class="md-nav__link">
+  <a href="#fonctionnement-des-sockets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Création d'un socket
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#modele-de-berkeley" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modèle de Berkeley
+        Fonctionnement des sockets
       
     </span>
   </a>
@@ -4839,6 +4904,50 @@ les outils associés.
     <span class="md-ellipsis">
       
         Types de sockets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Portabilité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-dun-socket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Création d'un socket
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-portable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple portable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erreurs-courantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erreurs courantes
       
     </span>
   </a>
@@ -4910,7 +5019,7 @@ les outils associés.
     
     
       <li class="md-path__item">
-        <a href="../osi/" class="md-path__link">
+        <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
     Réseau
@@ -4949,57 +5058,75 @@ les outils associés.
 
 
 <h1 id="sockets">Sockets<a class="headerlink" href="#sockets" title="Lien permanent">¤</a></h1>
-<p>Un socket (prise en français) est un point de communication entre deux processus sur un réseau. Il permet l'échange de données entre les processus en utilisant des protocoles de communication tels que TCP ou UDP.</p>
-<p>Hélas, les sockets ne sont pas disponibles dans la bibliothèque standard de C, ils ne sont donc pas standardisés et donc chaque système d'exploitation a sa propre implémentation. Cependant, la plupart des systèmes d'exploitation modernes supportent les sockets <abbr title="Berkeley Software Distribution">BSD</abbr> (Berkeley Software Distribution) qui sont largement utilisés.</p>
+<p>Un socket (prise en français) est un point de communication entre deux processus sur un réseau. Il permet l'échange de données entre les processus en utilisant majoritairement les protocoles de communication TCP ou UDP.</p>
+<p>Hélas, les sockets ne sont pas disponibles dans la bibliothèque standard de C, ils ne sont donc pas standardisés et donc chaque système d'exploitation a sa propre implémentation. Cependant, la plupart des systèmes d'exploitation modernes supportent (avec de légères variations) les sockets <abbr title="Berkeley Software Distribution">BSD</abbr> (Berkeley Software Distribution).</p>
+<p>Un serveur web est un programme qui utilise les sockets TCP pour écouter les connexions entrantes et répondre aux requêtes des clients. Un client web est un programme qui utilise les sockets TCP pour se connecter à un serveur web et envoyer des requêtes. Une base de données MySQL est un programme qui expose un socket TCP pour permettre aux clients de se connecter et d'envoyer des requêtes SQL. De mêmes, Docker expose un socket Unix pour permettre aux clients de se connecter et de contrôler les conteneurs. Les sockets sont partout.</p>
+<h2 id="fonctionnement-des-sockets">Fonctionnement des sockets<a class="headerlink" href="#fonctionnement-des-sockets" title="Lien permanent">¤</a></h2>
+<p>Les sockets sont une couche d'abstraction de la communication entre deux processus (programmes), que ce soit sur le même appareil ou sur des machines distantes. Le principe de base d'un socket est d'agir comme un canal de communication pour échanger des données binaires. On qualifie souvent un programme de <strong>serveur</strong> s'il écoute les connexions entrantes et de <strong>client</strong> s'il initie une connexion. Une fois la connexion établie, les deux processus peuvent envoyer et recevoir des données de manière bidirectionnelle.</p>
+<p>Les sockets sont identifiés par une adresse IP et un numéro de port. L'adresse IP identifie l'appareil sur le réseau et le numéro de port identifie le processus sur l'appareil. L'organisme IANA (<em>Internet Assigned Numbers Authority</em>) est responsable du maintien des affectations des numéros de port pour les communications TCP et UDP. On notera que les ports de 0 à 1023 sont réservés pour les services système, les ports de 1024 à 49151 sont réservés pour les applications utilisateur et les ports de 49152 à 65535 sont réservés pour les connexions dynamiques (NAT / PAT / UPnP...).</p>
+<p>Le port de loin le plus utilisé est le port 80 pour les connexions HTTP, suivi du port 443 pour les connexions HTTPS. Les ports 20 et 21 étaient utilisés jadis pour les connexions FTP. Les services de messagerie (e-mail) utilisent les ports 25, 465 et 587 etc.</p>
+<p>Pour établir un socket, un programme commence par créer un socket avec la fonction <code>socket()</code>. C'est là qu'est défini la famille d'adresse (IPv4 ou IPv6), le type de socket (TCP/UDP) et le protocole. Le socket est ensuite lié à une adresse et à un port spécifique. Une fois relié, la fonction <code>listen()</code> permet d'écouter sur le socket. Un serveur écoute un socket lorsqu'il attend des connexions entrantes. Une fois une tentative de connexion détectée, la fonction <code>accept()</code> est utilisée pour établie la connexion et permettre l'échange de données. Enfin, les fonctions <code>read()</code>, <code>write()</code> sont utilisées pour échanger des données. Lorsque la communication est terminée, le socket est fermé avec <code>close()</code>.</p>
+<h2 id="types-de-sockets">Types de sockets<a class="headerlink" href="#types-de-sockets" title="Lien permanent">¤</a></h2>
+<p>Il existe principalement trois catégories de sockets encore utilisées : <strong>AF_INET</strong> utilisé pour les connexions IPv4, <strong>AF_INET6</strong> utilisé pour les connexions IPv6 et <strong>AF_UNIX</strong>  Utilisé pour les connexions Unix. Le préfixe <code>AF</code> signifie <em>Address Family</em>. Si l'on jète un oeil à <code>&lt;socket.h&gt;</code> on peut constater d'autres familles peu intéressantes comme <code>AF_AX25</code> utilisé par les radio amateurs, <code>AF_APPLETALK</code> utilisé par les réseaux Macintosh entre 1985 et 1995 ou encore <code>AF_AAL5</code> utilisé par les réseaux ATM de 1990 à 2000. On constate l'héritage de l'histoire des réseaux dans les sockets.</p>
+<p>Une fois la famille choisie, il faut choisir le type de socket. Il existe trois types de sockets principaux : <strong>SOCK_STREAM</strong> pour une connexion TCP, c'est un socket de type flux orienté connexion. Il garantit la livraison des données dans l'ordre et sans perte. <strong>SOCK_DGRAM</strong> pour une connexion UDP. Il ne garantit pas la livraison des données ni l'ordre. Il n'y a pas besoin de connexion préalable. Le type <strong>SOCK_RAW</strong> permet d'accéder directement aux trames réseau au niveau IP, au-dessus de la couche liaison. Utilisé pour implémenter des protocoles réseau au niveau utilisateur ou pour des outils de diagnostic réseau (comme ping, traceroute). Il est généralement utilisé par des programmes ayant des privilèges élevés (root, <code>sudo</code>). Les autres types de sockets sont moins utilisés et ne méritent pas d'être mentionnés ici.</p>
+<h2 id="portabilite">Portabilité<a class="headerlink" href="#portabilite" title="Lien permanent">¤</a></h2>
+<p>Comme il a été évoqué, les sockets sont une API de bas niveau et ne sont pas standardisés. Chaque système d'exploitation a sa propre implémentation des sockets. Heureusement, pour simplifier la portabilité entre systèmes, il existe des bibliothèques externes qui offrent une abstraction (oui, encore une...) des sockets. La bibliothèque la plus populaire est <a href="https://github.com/libuv/libuv">libuv</a> qui a été développée initialement pour <a href="https://nodejs.org/">Node.js</a>. Elle est aujourd'hui utilisée par de nombreux projets open-source et est disponible pour la plupart des systèmes d'exploitation.</p>
+<p>Lorsque vous développez un programme utilisant des sockets, il n'est pas recommandé d'utiliser directement les appels système, ou les fonctions spécifiques à votre système d'exploitation. Préférez utiliser une bibliothèque externe qui vous simplifiera la vie.</p>
+<p>Notons que si vous développez une application graphique avec SDL, GTK, Qt, etc. vous n'aurez pas besoin de gérer les sockets directement. Ces bibliothèques offrent des fonctions pour gérer les connexions réseau de manière plus simple et également portable.</p>
 <h2 id="creation-dun-socket">Création d'un socket<a class="headerlink" href="#creation-dun-socket" title="Lien permanent">¤</a></h2>
-<p>Nous allons créer deux programmes, un serveur et un client, pour illustrer l'utilisation des sockets en C. Le serveur va écouter les connexions entrantes et le client va se connecter au serveur pour envoyer et recevoir des données. Pour les besoins de l'exemple, le serveur va simplement répondre à <code>ping</code> par <code>pong</code>.</p>
+<p>L'exercice du jour est la création de deux programmes : un serveur et un client, pour illustrer l'utilisation des sockets en C. Bien entendu cet exemple sera réalisé sur Linux, sans bibliothèque externe.</p>
+<p>Le serveur va écouter les connexions entrantes et le client va se connecter au serveur pour envoyer et recevoir des données. Pour les besoins de l'exemple, le serveur va simplement répondre à <code>ping</code> par <code>pong</code>.</p>
 <p>Voici le serveur :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
-</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
-</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span>
-</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span>
-</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netinet/in.h&gt;</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netinet/in.h&gt;</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
 </span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
 </span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="cp">#define PORT 8080</span>
 </span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
 </span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">server_fd</span><span class="p">;</span>
-</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">server_fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">"socket failed"</span><span class="p">);</span>
-</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">server_fd</span><span class="p">;</span>
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">server_fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">      </span><span class="n">perror</span><span class="p">(</span><span class="s">"socket failed"</span><span class="p">);</span>
+</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">      </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">   </span><span class="p">}</span>
 </span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_in</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">        </span><span class="p">.</span><span class="n">sin_family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AF_INET</span><span class="p">,</span>
-</span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">        </span><span class="p">.</span><span class="n">sin_addr</span><span class="p">.</span><span class="n">s_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INADDR_ANY</span><span class="p">,</span>
-</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">        </span><span class="p">.</span><span class="n">sin_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">htons</span><span class="p">(</span><span class="n">PORT</span><span class="p">)};</span>
-</span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">addrlen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
-</span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>
-</span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bind</span><span class="p">(</span><span class="n">server_fd</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">address</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-25"><a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">"bind failed"</span><span class="p">);</span>
-</span><span id="__span-0-26"><a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-</span><span id="__span-0-27"><a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-28"><a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a>
-</span><span id="__span-0-29"><a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">listen</span><span class="p">(</span><span class="n">server_fd</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-30"><a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">"listen"</span><span class="p">);</span>
-</span><span id="__span-0-31"><a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-</span><span id="__span-0-32"><a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-33"><a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a>
-</span><span id="__span-0-34"><a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">new_socket</span><span class="p">;</span>
-</span><span id="__span-0-35"><a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">new_socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accept</span><span class="p">(</span><span class="n">server_fd</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">socklen_t</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">addrlen</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-36"><a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">"accept"</span><span class="p">);</span>
-</span><span id="__span-0-37"><a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-</span><span id="__span-0-38"><a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-39"><a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a>
-</span><span id="__span-0-40"><a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-</span><span id="__span-0-41"><a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"pong"</span><span class="p">;</span>
-</span><span id="__span-0-42"><a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">    </span><span class="n">read</span><span class="p">(</span><span class="n">new_socket</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">);</span>
-</span><span id="__span-0-43"><a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Received: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
-</span><span id="__span-0-44"><a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">    </span><span class="n">send</span><span class="p">(</span><span class="n">new_socket</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">response</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-</span><span id="__span-0-45"><a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Response sent</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-</span><span id="__span-0-46"><a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="p">}</span>
+</span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">   </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_in</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">sin_family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AF_INET</span><span class="p">,</span>
+</span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">                                 </span><span class="p">.</span><span class="n">sin_addr</span><span class="p">.</span><span class="n">s_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INADDR_ANY</span><span class="p">,</span>
+</span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">                                 </span><span class="p">.</span><span class="n">sin_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">htons</span><span class="p">(</span><span class="n">PORT</span><span class="p">)};</span>
+</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">addrlen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
+</span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bind</span><span class="p">(</span><span class="n">server_fd</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">address</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">      </span><span class="n">perror</span><span class="p">(</span><span class="s">"bind failed"</span><span class="p">);</span>
+</span><span id="__span-0-25"><a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">      </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+</span><span id="__span-0-26"><a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-0-27"><a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">listen</span><span class="p">(</span><span class="n">server_fd</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-29"><a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">      </span><span class="n">perror</span><span class="p">(</span><span class="s">"listen"</span><span class="p">);</span>
+</span><span id="__span-0-30"><a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">      </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+</span><span id="__span-0-31"><a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-0-32"><a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a>
+</span><span id="__span-0-33"><a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-34"><a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">new_socket</span><span class="p">;</span>
+</span><span id="__span-0-35"><a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">new_socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accept</span><span class="p">(</span><span class="n">server_fd</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">address</span><span class="p">,</span>
+</span><span id="__span-0-36"><a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">                               </span><span class="p">(</span><span class="kt">socklen_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">addrlen</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-37"><a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">         </span><span class="n">perror</span><span class="p">(</span><span class="s">"accept"</span><span class="p">);</span>
+</span><span id="__span-0-38"><a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">         </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+</span><span id="__span-0-39"><a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-0-40"><a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a>
+</span><span id="__span-0-41"><a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">      </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span><span id="__span-0-42"><a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"pong"</span><span class="p">;</span>
+</span><span id="__span-0-43"><a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">      </span><span class="n">read</span><span class="p">(</span><span class="n">new_socket</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">);</span>
+</span><span id="__span-0-44"><a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">"Received: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
+</span><span id="__span-0-45"><a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">      </span><span class="n">send</span><span class="p">(</span><span class="n">new_socket</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">response</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-0-46"><a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">"Response sent</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-0-47"><a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a>
+</span><span id="__span-0-48"><a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">      </span><span class="n">close</span><span class="p">(</span><span class="n">new_socket</span><span class="p">);</span>
+</span><span id="__span-0-49"><a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-0-50"><a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>et voici le client :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span>
@@ -5030,34 +5157,183 @@ les outils associés.
 </span><span id="__span-1-26"><a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="w">   </span><span class="p">}</span>
 </span><span id="__span-1-27"><a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>
 </span><span id="__span-1-28"><a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">ping_msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"ping"</span><span class="p">;</span>
-</span><span id="__span-1-29"><a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-30"><a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">      </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-</span><span id="__span-1-31"><a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">      </span><span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">ping_msg</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">ping_msg</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-</span><span id="__span-1-32"><a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">"Ping sent</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-</span><span id="__span-1-33"><a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">valread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">));</span>
-</span><span id="__span-1-34"><a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">valread</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"Server: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
-</span><span id="__span-1-35"><a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">      </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-</span><span id="__span-1-36"><a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">   </span><span class="p">}</span>
-</span><span id="__span-1-37"><a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">   </span><span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
-</span><span id="__span-1-38"><a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="p">}</span>
+</span><span id="__span-1-29"><a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>
+</span><span id="__span-1-30"><a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span><span id="__span-1-31"><a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">   </span><span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">ping_msg</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">ping_msg</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-1-32"><a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">   </span><span class="n">printf</span><span class="p">(</span><span class="s">"Ping sent</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-1-33"><a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">valread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">));</span>
+</span><span id="__span-1-34"><a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">valread</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"Server: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
+</span><span id="__span-1-35"><a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>
+</span><span id="__span-1-36"><a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">   </span><span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
+</span><span id="__span-1-37"><a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="modele-de-berkeley">Modèle de Berkeley<a class="headerlink" href="#modele-de-berkeley" title="Lien permanent">¤</a></h2>
-<p>Le modèle de Berkeley est un modèle de programmation pour les sockets qui a été introduit dans les années 1980 par l'Université de Berkeley. Il est largement utilisé dans les systèmes Unix et Linux. Le principe est de traiter les sockets comme des fichiers, en utilisant les appels système <code>open</code>, <code>read</code>, <code>write</code> et <code>close</code>.</p>
-<h2 id="types-de-sockets">Types de sockets<a class="headerlink" href="#types-de-sockets" title="Lien permanent">¤</a></h2>
-<p>Il existe trois catégories de sockets :</p>
-<ul>
-<li><strong>AF_INET</strong> : Utilisé pour les connexions IPv4.</li>
-<li><strong>AF_INET6</strong> : Utilisé pour les connexions IPv6.</li>
-<li><strong>AF_UNIX</strong> : Utilisé pour les connexions Unix.</li>
-</ul>
-<p>Il existe trois types de sockets principaux :</p>
-<ul>
-<li><strong>SOCK_STREAM</strong> : Utilisé pour les connexions TCP, garantit la livraison des données dans l'ordre et sans perte.</li>
-<li><strong>SOCK_DGRAM</strong> : Utilisé pour les connexions UDP, ne garantit pas la livraison des données ni l'ordre.</li>
-<li><strong>SOCK_RAW</strong> : Utilisé pour les sockets bruts, permet d'accéder directement aux trames réseau.</li>
-</ul>
-<p>Les sockets Unix (<code>AF_UNIX</code>) sont utilisés pour les communications inter-processus sur un même système. Ils sont similaires aux sockets TCP/IP mais utilisent des fichiers pour la communication. C'est par exemple le cas des sockets utilisés par le serveur X pour communiquer avec les clients graphiques.</p>
-<p>Sous Windows les sockets sont implémentés différemment, il est recommandé d'utiliser la bibliothèque Winsock pour les applications Windows.</p>
+<p>Un descripteur de fichier <code>server_fd</code> est créé pour le serveur. Il s'agit d'un vrai <em>file descriptor</em> selon le principe de Unix :<em>everything is a file</em>. Le socket est créé sur la famille IPv4 en mode TCP (<em>SOCK_STREAM</em>). Si le socket ne peut pas être créé, la valeur <code>-1</code> est retournée et le programme se termine.</p>
+<p>Ensuite une structure <code>sockaddr_in</code> est créée pour définir l'adresse et le port du serveur. L'adresse est définie à <code>INADDR_ANY</code> pour écouter sur toutes les interfaces réseau. Le port est défini à <code>8080</code>. La fonction <code>bind()</code> est utilisée pour lier le socket à l'adresse et au port. Si la fonction échoue, le programme se termine. Pour le type et la famille de socket choisie, nous utilisons ici la structure <code>sockaddr_in</code> qui est spécifique à IPv4. Elle contiendra l'adresse IP et le port du serveur. le port <code>8080</code> utilisé ici sera converti en <em>big-endian</em> avec la fonction <code>htons()</code> puisque le réseau utilise le <em>big-endian</em>, et l'adresse IP est définie à <code>INADDR_ANY</code> pour écouter sur toutes les interfaces réseau.</p>
+<p>L'étape suivante est de lier le socket à l'adresse avec la fonction <code>bind()</code>. Si la fonction échoue, le programme se termine. Si une erreur doit se produire, c'est très souvent le <code>bind</code> qui échoue. En effet, il ne peut y avoir qu'un seul programme écoutant sur un port donné. Si un autre programme écoute déjà sur le port 8080, le <code>bind</code> échouera avec l'erreur : <em>Address already in use</em>. C'est une erreur agaçante parce qu'il faut chercher quel programme écoute sur ce port. La commande <code>ss -tulnp</code> permet de lister les programmes écoutant sur les ports TCP.</p>
+<p>La fonction <code>listen()</code> est ensuite utilisée pour démarrer l'écoute. Cette fonction prend en paramètre le descripteur de fichier du socket et la taille souhaitée de la file d'attente des connexions entrantes. La taille de la file d'attente est fixée à <code>3</code> ici, donc trois clients pourraient être en attente de connexion. Si un quatrième client tente de se connecter, il recevra un message d'erreur.</p>
+<p>Lorsqu'une demande de connexion est détectée, la fonction <code>accept()</code> est utilisée pour accepter la connexion. Cette fonction retourne un nouveau descripteur de fichier <code>new_socket</code> qui est utilisé pour envoyer et recevoir des données. La fonction <code>accept()</code> est bloquante, c'est-à-dire qu'elle attend qu'une connexion soit établie. Si aucune connexion n'est en attente, le programme est mis en pause jusqu'à ce qu'une connexion soit établie.</p>
+<p>La fonction <code>read</code> est similaire à celle utilisée pour lire un fichier. Elle prend en paramètre le descripteur de fichier, un tampon pour stocker les données lues et la taille du tampon. Comme pour les fichiers et l'entrée standard, la fonction est bloquante. Elle attend que des données soient disponibles pour les lire. Si la connexion est fermée par le client, la fonction <code>read</code> retourne <code>0</code>.</p>
+<p>Pourquoi avoir besoin d'un deuxième descripteur de fichier <code>new_socket</code> ? Parce que le socket <code>server_fd</code> est utilisé pour écouter les connexions entrantes, mais une fois une connexion établie, il faut un nouveau socket pour échanger des données avec le client. C'est le socket <code>new_socket</code> qui est utilisé pour envoyer et recevoir des données. Comme analogie <code>server_fd</code> est le bureau de réception où les clients arrivent pour se connecter. Il reste ouvert pour accepter de nouveaux clients et <code>new_socket</code> est comme la cabine téléphonique où le client et le serveur peuvent échanger des données.</p>
+<h2 id="exemple-portable">Exemple portable<a class="headerlink" href="#exemple-portable" title="Lien permanent">¤</a></h2>
+<p>Pour un exemple portable, nous allons utiliser la bibliothèque libuv. Cette bibliothèque est basée sur un modèle de programmation asynchrone et événementielle. C'est-à-dire que le programme ne bloque pas lorsqu'il attend une connexion ou des données, mais qu'il fonctionne avec des <em>callback</em>. C'est un modèle de programmation très populaire pour les applications réseau et les serveurs web.</p>
+<p>Nécessairement l'exemple donné est un peu plus complexe que l'exemple précédent. Il est cependant plus robuste et portable. Voici le serveur :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;uv.h&gt;</span>
+</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="cp">#define PORT 8080</span>
+</span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="kt">void</span><span class="w"> </span><span class="nf">alloc_buffer</span><span class="p">(</span><span class="n">uv_handle_t</span><span class="w"> </span><span class="o">*</span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">suggested_size</span><span class="p">,</span><span class="w"> </span><span class="n">uv_buf_t</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">   </span><span class="n">buf</span><span class="o">-&gt;</span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">suggested_size</span><span class="p">);</span>
+</span><span id="__span-2-10"><a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">   </span><span class="n">buf</span><span class="o">-&gt;</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">suggested_size</span><span class="p">;</span>
+</span><span id="__span-2-11"><a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="p">}</span>
+</span><span id="__span-2-12"><a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">on_write</span><span class="p">(</span><span class="n">uv_write_t</span><span class="w"> </span><span class="o">*</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-14"><a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Write error: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">uv_strerror</span><span class="p">(</span><span class="n">status</span><span class="p">));</span>
+</span><span id="__span-2-15"><a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">   </span><span class="n">printf</span><span class="p">(</span><span class="s">"Response sent</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-2-16"><a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">   </span><span class="n">uv_close</span><span class="p">((</span><span class="n">uv_handle_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+</span><span id="__span-2-17"><a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">   </span><span class="n">free</span><span class="p">(</span><span class="n">req</span><span class="p">);</span>
+</span><span id="__span-2-18"><a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="p">}</span>
+</span><span id="__span-2-19"><a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a>
+</span><span id="__span-2-20"><a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="kt">void</span><span class="w"> </span><span class="nf">on_read</span><span class="p">(</span><span class="n">uv_stream_t</span><span class="w"> </span><span class="o">*</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="kt">ssize_t</span><span class="w"> </span><span class="n">nread</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">uv_buf_t</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-21"><a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nread</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-22"><a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">"Received: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="o">-&gt;</span><span class="n">base</span><span class="p">);</span>
+</span><span id="__span-2-23"><a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">      </span><span class="n">uv_buf_t</span><span class="w"> </span><span class="n">wrbuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uv_buf_init</span><span class="p">(</span><span class="s">"pong"</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+</span><span id="__span-2-24"><a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">      </span><span class="n">uv_write_t</span><span class="w"> </span><span class="o">*</span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">uv_write_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">uv_write_t</span><span class="p">));</span>
+</span><span id="__span-2-25"><a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">      </span><span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">wrbuf</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">on_write</span><span class="p">);</span>
+</span><span id="__span-2-26"><a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">   </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nread</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-27"><a href="#__codelineno-2-27" id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nread</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">UV_EOF</span><span class="p">)</span>
+</span><span id="__span-2-28"><a href="#__codelineno-2-28" id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">         </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Read error: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">uv_err_name</span><span class="p">(</span><span class="n">nread</span><span class="p">));</span>
+</span><span id="__span-2-29"><a href="#__codelineno-2-29" id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">      </span><span class="n">uv_close</span><span class="p">((</span><span class="n">uv_handle_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+</span><span id="__span-2-30"><a href="#__codelineno-2-30" id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-2-31"><a href="#__codelineno-2-31" id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">   </span><span class="n">free</span><span class="p">(</span><span class="n">buf</span><span class="o">-&gt;</span><span class="n">base</span><span class="p">);</span>
+</span><span id="__span-2-32"><a href="#__codelineno-2-32" id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="p">}</span>
+</span><span id="__span-2-33"><a href="#__codelineno-2-33" id="__codelineno-2-33" name="__codelineno-2-33"></a>
+</span><span id="__span-2-34"><a href="#__codelineno-2-34" id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="kt">void</span><span class="w"> </span><span class="nf">on_new_connection</span><span class="p">(</span><span class="n">uv_stream_t</span><span class="w"> </span><span class="o">*</span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-35"><a href="#__codelineno-2-35" id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-36"><a href="#__codelineno-2-36" id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"New connection error: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">uv_strerror</span><span class="p">(</span><span class="n">status</span><span class="p">));</span>
+</span><span id="__span-2-37"><a href="#__codelineno-2-37" id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="w">      </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-2-38"><a href="#__codelineno-2-38" id="__codelineno-2-38" name="__codelineno-2-38"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-2-39"><a href="#__codelineno-2-39" id="__codelineno-2-39" name="__codelineno-2-39"></a><span class="w">   </span><span class="n">uv_tcp_t</span><span class="w"> </span><span class="o">*</span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">uv_tcp_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">uv_tcp_t</span><span class="p">));</span>
+</span><span id="__span-2-40"><a href="#__codelineno-2-40" id="__codelineno-2-40" name="__codelineno-2-40"></a><span class="w">   </span><span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">(),</span><span class="w"> </span><span class="n">client</span><span class="p">);</span>
+</span><span id="__span-2-41"><a href="#__codelineno-2-41" id="__codelineno-2-41" name="__codelineno-2-41"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uv_accept</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">uv_stream_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">client</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-2-42"><a href="#__codelineno-2-42" id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="w">      </span><span class="n">uv_read_start</span><span class="p">((</span><span class="n">uv_stream_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">alloc_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">on_read</span><span class="p">);</span>
+</span><span id="__span-2-43"><a href="#__codelineno-2-43" id="__codelineno-2-43" name="__codelineno-2-43"></a><span class="w">   </span><span class="k">else</span>
+</span><span id="__span-2-44"><a href="#__codelineno-2-44" id="__codelineno-2-44" name="__codelineno-2-44"></a><span class="w">      </span><span class="n">uv_close</span><span class="p">((</span><span class="n">uv_handle_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+</span><span id="__span-2-45"><a href="#__codelineno-2-45" id="__codelineno-2-45" name="__codelineno-2-45"></a><span class="p">}</span>
+</span><span id="__span-2-46"><a href="#__codelineno-2-46" id="__codelineno-2-46" name="__codelineno-2-46"></a>
+</span><span id="__span-2-47"><a href="#__codelineno-2-47" id="__codelineno-2-47" name="__codelineno-2-47"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-48"><a href="#__codelineno-2-48" id="__codelineno-2-48" name="__codelineno-2-48"></a><span class="w">   </span><span class="n">uv_loop_t</span><span class="w"> </span><span class="o">*</span><span class="n">loop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uv_default_loop</span><span class="p">();</span>
+</span><span id="__span-2-49"><a href="#__codelineno-2-49" id="__codelineno-2-49" name="__codelineno-2-49"></a><span class="w">   </span><span class="n">uv_tcp_t</span><span class="w"> </span><span class="n">server</span><span class="p">;</span>
+</span><span id="__span-2-50"><a href="#__codelineno-2-50" id="__codelineno-2-50" name="__codelineno-2-50"></a><span class="w">   </span><span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">server</span><span class="p">);</span>
+</span><span id="__span-2-51"><a href="#__codelineno-2-51" id="__codelineno-2-51" name="__codelineno-2-51"></a><span class="w">   </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_in</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span>
+</span><span id="__span-2-52"><a href="#__codelineno-2-52" id="__codelineno-2-52" name="__codelineno-2-52"></a><span class="w">   </span><span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s">"0.0.0.0"</span><span class="p">,</span><span class="w"> </span><span class="n">PORT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">addr</span><span class="p">);</span>
+</span><span id="__span-2-53"><a href="#__codelineno-2-53" id="__codelineno-2-53" name="__codelineno-2-53"></a><span class="w">   </span><span class="n">uv_tcp_bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-2-54"><a href="#__codelineno-2-54" id="__codelineno-2-54" name="__codelineno-2-54"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uv_listen</span><span class="p">((</span><span class="n">uv_stream_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="n">on_new_connection</span><span class="p">);</span>
+</span><span id="__span-2-55"><a href="#__codelineno-2-55" id="__codelineno-2-55" name="__codelineno-2-55"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-56"><a href="#__codelineno-2-56" id="__codelineno-2-56" name="__codelineno-2-56"></a><span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error listening: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">uv_strerror</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+</span><span id="__span-2-57"><a href="#__codelineno-2-57" id="__codelineno-2-57" name="__codelineno-2-57"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-2-58"><a href="#__codelineno-2-58" id="__codelineno-2-58" name="__codelineno-2-58"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-2-59"><a href="#__codelineno-2-59" id="__codelineno-2-59" name="__codelineno-2-59"></a><span class="w">   </span><span class="n">printf</span><span class="p">(</span><span class="s">"Server listening on port %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">PORT</span><span class="p">);</span>
+</span><span id="__span-2-60"><a href="#__codelineno-2-60" id="__codelineno-2-60" name="__codelineno-2-60"></a><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">uv_run</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span><span class="w"> </span><span class="n">UV_RUN_DEFAULT</span><span class="p">);</span>
+</span><span id="__span-2-61"><a href="#__codelineno-2-61" id="__codelineno-2-61" name="__codelineno-2-61"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Et voici le client</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;uv.h&gt;</span>
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="cp">#define PORT 8080</span>
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="n">uv_loop_t</span><span class="w"> </span><span class="o">*</span><span class="n">loop</span><span class="p">;</span>
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="n">uv_tcp_t</span><span class="w"> </span><span class="n">socket_client</span><span class="p">;</span>
+</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">uv_connect_t</span><span class="w"> </span><span class="n">connect_req</span><span class="p">;</span>
+</span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="kt">void</span><span class="w"> </span><span class="nf">alloc_buffer</span><span class="p">(</span><span class="n">uv_handle_t</span><span class="w"> </span><span class="o">*</span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">suggested_size</span><span class="p">,</span><span class="w"> </span><span class="n">uv_buf_t</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-13"><a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">   </span><span class="n">buf</span><span class="o">-&gt;</span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">suggested_size</span><span class="p">);</span>
+</span><span id="__span-3-14"><a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">   </span><span class="n">buf</span><span class="o">-&gt;</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">suggested_size</span><span class="p">;</span>
+</span><span id="__span-3-15"><a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="p">}</span>
+</span><span id="__span-3-16"><a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="kt">void</span><span class="w"> </span><span class="nf">on_read</span><span class="p">(</span><span class="n">uv_stream_t</span><span class="w"> </span><span class="o">*</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="kt">ssize_t</span><span class="w"> </span><span class="n">nread</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">uv_buf_t</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-18"><a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nread</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-19"><a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">"Server: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="o">-&gt;</span><span class="n">base</span><span class="p">);</span>
+</span><span id="__span-3-20"><a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">   </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nread</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-21"><a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Read error: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">uv_err_name</span><span class="p">(</span><span class="n">nread</span><span class="p">));</span>
+</span><span id="__span-3-22"><a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">      </span><span class="n">uv_close</span><span class="p">((</span><span class="n">uv_handle_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+</span><span id="__span-3-23"><a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-3-24"><a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a>
+</span><span id="__span-3-25"><a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">   </span><span class="n">free</span><span class="p">(</span><span class="n">buf</span><span class="o">-&gt;</span><span class="n">base</span><span class="p">);</span>
+</span><span id="__span-3-26"><a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="p">}</span>
+</span><span id="__span-3-27"><a href="#__codelineno-3-27" id="__codelineno-3-27" name="__codelineno-3-27"></a>
+</span><span id="__span-3-28"><a href="#__codelineno-3-28" id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="kt">void</span><span class="w"> </span><span class="nf">on_write</span><span class="p">(</span><span class="n">uv_write_t</span><span class="w"> </span><span class="o">*</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-29"><a href="#__codelineno-3-29" id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Write error: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">uv_strerror</span><span class="p">(</span><span class="n">status</span><span class="p">));</span>
+</span><span id="__span-3-30"><a href="#__codelineno-3-30" id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="w">   </span><span class="n">printf</span><span class="p">(</span><span class="s">"Ping sent to server</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-3-31"><a href="#__codelineno-3-31" id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="w">   </span><span class="n">uv_read_start</span><span class="p">((</span><span class="n">uv_stream_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="n">alloc_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">on_read</span><span class="p">);</span>
+</span><span id="__span-3-32"><a href="#__codelineno-3-32" id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="w">   </span><span class="n">free</span><span class="p">(</span><span class="n">req</span><span class="p">);</span>
+</span><span id="__span-3-33"><a href="#__codelineno-3-33" id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="p">}</span>
+</span><span id="__span-3-34"><a href="#__codelineno-3-34" id="__codelineno-3-34" name="__codelineno-3-34"></a>
+</span><span id="__span-3-35"><a href="#__codelineno-3-35" id="__codelineno-3-35" name="__codelineno-3-35"></a><span class="kt">void</span><span class="w"> </span><span class="nf">on_connect</span><span class="p">(</span><span class="n">uv_connect_t</span><span class="w"> </span><span class="o">*</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-36"><a href="#__codelineno-3-36" id="__codelineno-3-36" name="__codelineno-3-36"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-37"><a href="#__codelineno-3-37" id="__codelineno-3-37" name="__codelineno-3-37"></a><span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Connection error: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">uv_strerror</span><span class="p">(</span><span class="n">status</span><span class="p">));</span>
+</span><span id="__span-3-38"><a href="#__codelineno-3-38" id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="w">      </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-3-39"><a href="#__codelineno-3-39" id="__codelineno-3-39" name="__codelineno-3-39"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-3-40"><a href="#__codelineno-3-40" id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="w">   </span><span class="n">printf</span><span class="p">(</span><span class="s">"Connected to server</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-3-41"><a href="#__codelineno-3-41" id="__codelineno-3-41" name="__codelineno-3-41"></a>
+</span><span id="__span-3-42"><a href="#__codelineno-3-42" id="__codelineno-3-42" name="__codelineno-3-42"></a><span class="w">   </span><span class="n">uv_write_t</span><span class="w"> </span><span class="o">*</span><span class="n">write_req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">uv_write_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">uv_write_t</span><span class="p">));</span>
+</span><span id="__span-3-43"><a href="#__codelineno-3-43" id="__codelineno-3-43" name="__codelineno-3-43"></a><span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">ping_msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"ping"</span><span class="p">;</span>
+</span><span id="__span-3-44"><a href="#__codelineno-3-44" id="__codelineno-3-44" name="__codelineno-3-44"></a><span class="w">   </span><span class="n">uv_buf_t</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uv_buf_init</span><span class="p">((</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">ping_msg</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">ping_msg</span><span class="p">));</span>
+</span><span id="__span-3-45"><a href="#__codelineno-3-45" id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="w">   </span><span class="n">uv_write</span><span class="p">(</span><span class="n">write_req</span><span class="p">,</span><span class="w"> </span><span class="n">req</span><span class="o">-&gt;</span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">on_write</span><span class="p">);</span>
+</span><span id="__span-3-46"><a href="#__codelineno-3-46" id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="p">}</span>
+</span><span id="__span-3-47"><a href="#__codelineno-3-47" id="__codelineno-3-47" name="__codelineno-3-47"></a>
+</span><span id="__span-3-48"><a href="#__codelineno-3-48" id="__codelineno-3-48" name="__codelineno-3-48"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-49"><a href="#__codelineno-3-49" id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="w">   </span><span class="n">loop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uv_default_loop</span><span class="p">();</span>
+</span><span id="__span-3-50"><a href="#__codelineno-3-50" id="__codelineno-3-50" name="__codelineno-3-50"></a><span class="w">   </span><span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">socket_client</span><span class="p">);</span>
+</span><span id="__span-3-51"><a href="#__codelineno-3-51" id="__codelineno-3-51" name="__codelineno-3-51"></a><span class="w">   </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_in</span><span class="w"> </span><span class="n">dest</span><span class="p">;</span>
+</span><span id="__span-3-52"><a href="#__codelineno-3-52" id="__codelineno-3-52" name="__codelineno-3-52"></a><span class="w">   </span><span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s">"127.0.0.1"</span><span class="p">,</span><span class="w"> </span><span class="n">PORT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">dest</span><span class="p">);</span>
+</span><span id="__span-3-53"><a href="#__codelineno-3-53" id="__codelineno-3-53" name="__codelineno-3-53"></a><span class="w">   </span><span class="n">uv_tcp_connect</span><span class="p">(</span><span class="o">&amp;</span><span class="n">connect_req</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">socket_client</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">dest</span><span class="p">,</span>
+</span><span id="__span-3-54"><a href="#__codelineno-3-54" id="__codelineno-3-54" name="__codelineno-3-54"></a><span class="w">                  </span><span class="n">on_connect</span><span class="p">);</span>
+</span><span id="__span-3-55"><a href="#__codelineno-3-55" id="__codelineno-3-55" name="__codelineno-3-55"></a><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">uv_run</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span><span class="w"> </span><span class="n">UV_RUN_DEFAULT</span><span class="p">);</span><span class="w">  </span><span class="c1">// Boucle d'événements</span>
+</span><span id="__span-3-56"><a href="#__codelineno-3-56" id="__codelineno-3-56" name="__codelineno-3-56"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="erreurs-courantes">Erreurs courantes<a class="headerlink" href="#erreurs-courantes" title="Lien permanent">¤</a></h2>
+<p>Les erreurs les plus courantes lors de la création d'un socket sont :</p>
+<dl>
+<dt><em>Address already in use</em></dt>
+<dd>
+<p>Un autre programme écoute déjà sur le port spécifié. Utilisez la commande <code>ss -tulnp</code> pour lister les programmes écoutant sur les ports TCP ou sous Windows <code>netstat -aon</code>. Essayez de changer de port.</p>
+</dd>
+<dt><em>Permission denied</em></dt>
+<dd>
+<p>Vous n'avez pas les droits pour écouter ou sur le port spécifié. Essayez de lancer le programme avec les droits <code>root</code> ou <code>sudo</code>. Sous Windows, exécutez le programme en tant qu'administrateur et sous Linux, utilisez <code>sudo</code>. Il faut savoir que les ports de 0 à 1023 sont réservés pour les services système et nécessitent des privilèges élevés pour être utilisés. Si votre objectif est d'écrire un programme de test, utilisez un port supérieur à 1024. Dans le cas d'un socket Unix, vérifiez que le fichier de socket n'existe pas déjà ou si vous vous connectez dessus, vérifiez que vous avez les droits nécessaires.</p>
+</dd>
+<dt><em>Connection refused</em></dt>
+<dd>
+<p>Le serveur n'accepte pas la connexion. Cela peut être dû à un pare-feu, à une erreur dans le code du serveur ou à une erreur dans l'adresse IP ou le port du client. Il faut investiguer pour trouver la cause.</p>
+</dd>
+</dl>
+<p>Le problème de l'adresse déjà utilisée peut apparaître même si le programme a été arrêté. Cela est dû au fait que le système d'exploitation conserve les sockets en état <code>TIME_WAIT</code> pendant un certain temps (entre 30 secondes et 2 minutes) après la fermeture du programme. Cela permet de s'assurer que tous les paquets ont été reçus et envoyés. Si vous avez besoin de réutiliser un port immédiatement après la fermeture du programme, vous pouvez utiliser l'option <code>SO_REUSEADDR</code> avec la fonction <code>setsockopt()</code> :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">server_fd</span><span class="p">,</span><span class="w"> </span><span class="n">SOL_SOCKET</span><span class="p">,</span><span class="w"> </span><span class="n">SO_REUSEADDR</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opt</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">opt</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">perror</span><span class="p">(</span><span class="s">"setsockopt failed"</span><span class="p">);</span>
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Une autre solution est de forcer la fermeture du socket immédiatement après la fermeture du programme avec l'option <code>SO_LINGER</code> :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">linger</span><span class="w"> </span><span class="n">so_linger</span><span class="p">;</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">so_linger</span><span class="p">.</span><span class="n">l_onoff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">   </span><span class="c1">// Activer SO_LINGER</span>
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">so_linger</span><span class="p">.</span><span class="n">l_linger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// Fermer immédiatement sans délai</span>
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">server_fd</span><span class="p">,</span><span class="w"> </span><span class="n">SOL_SOCKET</span><span class="p">,</span><span class="w"> </span><span class="n">SO_LINGER</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">so_linger</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">so_linger</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="n">perror</span><span class="p">(</span><span class="s">"setsockopt failed"</span><span class="p">);</span>
+</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+</span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Le délai d'attente sous Linux est déterminé par le paramètre <code>net.ipv4.tcp_fin_timeout</code> du noyau. Vous pouvez le modifier avec la commande <code>sysctl -w net.ipv4.tcp_fin_timeout=30</code> pour le mettre à 30 secondes par exemple. Vous pouvez également le lire avec la commande <code>sysctl net.ipv4.tcp_fin_timeout</code>. Sous Ubuntu 24.04, le délai est de 60 secondes par défaut.</p>
+<p>La dernière solution est de lister les connexions en état <code>TIME_WAIT</code> avec la commande suivante et tuer les connexions qui posent problème :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>ss<span class="w"> </span>-o<span class="w"> </span>state<span class="w"> </span>time-wait<span class="w"> </span><span class="s1">'( sport = :8080 )'</span>
+</span></code></pre></div>
 
 
 
@@ -5080,7 +5356,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 12, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 16, 2024</span>
   </span>
 
     
@@ -5110,6 +5386,29 @@ les outils associés.
   </span>
 
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributeurs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
+          
+          <img src="https://avatars.githubusercontent.com/u/52489316?v=4&size=72" alt="yves-chevallier">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 
@@ -5182,7 +5481,7 @@ les outils associés.
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../osi/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Le modèle OSI">
+          <a href="../protocoles/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Protocoles">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -5192,7 +5491,7 @@ les outils associés.
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Le modèle OSI
+                Protocoles
               </div>
             </div>
           </a>
