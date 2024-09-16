@@ -1,4 +1,4 @@
-# Les protocoles
+# Protocoles
 
 Cet ouvrage n'étant pas un cours consacré au réseau, il n'est pas raisonnable d'y consacrer plus d'un chapitre. Néanmoins, l'ingénieur développeur en C devra tout de même comprendre, du moins conceptuellement les différences entre les différents protocoles de communication, comment ils sont imbriqués et à quoi ils servent. *in fine* en programmation vous aurez probablement simplement besoin de savoir comment ouvrir une connexion TCP ou UDP, comment envoyer des données et comment les recevoir.
 

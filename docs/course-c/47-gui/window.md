@@ -278,9 +278,6 @@ x.c -lgtk-3 -lgdk-3 -lz -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -latk-1.0
 ![Hello tracé avec la souris](/assets/images/framebuffer.png)
 
 
-
-
-
 ## Bibliothèques graphiques de haut niveau
 
 Pour faciliter le développement d'interfaces graphiques, des bibliothèques de plus haut niveau ont été créées. Celles-ci encapsulent les détails complexes du protocole X11 et fournissent des composants graphiques prêts à l'emploi, comme des boutons, des champs de texte, des boîtes de dialogue, et bien plus.

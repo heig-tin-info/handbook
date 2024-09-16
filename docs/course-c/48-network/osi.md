@@ -1,4 +1,4 @@
-# Le modèle OSI
+# Modèle OSI
 
 ## Introduction
 
