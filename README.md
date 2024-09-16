@@ -1,6 +1,6 @@
 # Handbook
 
-![.github/workflows/ci.yml](https://github.com/heig-tin-info/handbook/workflows/.github/workflows/ci.yml/badge.svg?branch=master)
+![.github/workflows/ci.yml](https://github.com/heig-tin-info/handbook/workflows/.github/workflows/ci.yml/badge.svg)
 
 ![version](https://img.shields.io/github/v/release/heig-tin-info/handbook)
 ![downloads](https://img.shields.io/github/downloads/heig-tin-info/handbook/latest/total)
