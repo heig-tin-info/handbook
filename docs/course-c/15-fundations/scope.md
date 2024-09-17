@@ -187,6 +187,8 @@ La fonction suivante est *statique* au module dans lequel elle est déclarée. I
 static int add(int a, int b) { return a + b; }
 ```
 
+On utilisera volontiers le mot clé `static` pour marquer les fonctions qui ne sont pas exportables, c'est-à-dire qui ne sont pas destinées à être utilisées par d'autres modules. Il s'agit des fonctions utlitaires, des fonctions internes à un module. Il en va de même pour les variables. On évitera dans tous les cas d'utiliser des variables globales mais si cela est nécessaire, on les marquera `static` pour éviter qu'elle ne soient accessibles depuis un autre fichier.
+
 ### `volatile`
 
 Cette classe de stockage indique au compilateur qu'il ne peut faire aucune hypothèse d'optimisation concernant cette variable. Elle indique que son contenu peut être modifié en tout temps en arrière-plan par le système d'exploitation ou le matériel. Ce mot clé est davantage utilisé en programmation système, ou sur microcontrôleurs.
