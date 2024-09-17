@@ -15,13 +15,13 @@ les outils associés.
         <meta name="author" content="Yves Chevallier">
       
       
-        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/45-project-management/software-project/">
+        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/45-software-design/licenses/">
       
       
-        <link rel="prev" href="../teamwork/">
+        <link rel="prev" href="../contribute/">
       
       
-        <link rel="next" href="../dependencies/">
+        <link rel="next" href="../testing/">
       
       
         
@@ -32,7 +32,7 @@ les outils associés.
     
     
       
-        <title>Organisation d'un projet - L'informatique pour ingénieurs</title>
+        <title>Les Licences - L'informatique pour ingénieurs</title>
       
     
     
@@ -170,7 +170,7 @@ les outils associés.
     <div data-md-component="skip">
       
         
-        <a href="#organisation-dun-projet" class="md-skip">
+        <a href="#les-licences" class="md-skip">
           Aller au contenu
         </a>
       
@@ -203,7 +203,7 @@ les outils associés.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Organisation d'un projet
+              Les Licences
             
           </span>
         </div>
@@ -1319,6 +1319,8 @@ les outils associés.
       
         
       
+        
+      
     
     
       
@@ -1492,6 +1494,33 @@ les outils associés.
     
   
     Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/generic-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmation générique
   
 
     
@@ -3028,7 +3057,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Gestion de projets
+    Conception Logicielle
   
 
     
@@ -3050,7 +3079,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    Gestion de projets
+    Conception Logicielle
   
 
           </label>
@@ -3089,36 +3118,10 @@ les outils associés.
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    
-  
-    Organisation d'un projet
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../software-project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3133,176 +3136,6 @@ les outils associés.
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Introduction
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#structure-dun-projet" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure d'un projet
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure d'un projet">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#readmemd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        README.md
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#utilisation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Utilisation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Utilisation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dotfiles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dotfiles
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#makefile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Makefile
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#organisation-des-fichiers-sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Organisation des fichiers sources
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#repertoire-de-construction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Répertoire de construction
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#en-tetes-de-fichiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        En-têtes de fichiers
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gestion-de-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gestion de configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Gestion de configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#variables-denvironnement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Variables d'environnement
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fichier-den-tete" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fichier d'en-tête
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3366,10 +3199,36 @@ les outils associés.
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../licenses/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Licences
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -3384,6 +3243,109 @@ les outils associés.
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Historique
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Historique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logiciel-proprietaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logiciel Propriétaire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emergence-de-lopen-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Émergence de l'Open Source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#licences-populaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Licences Populaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brevets-logiciels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brevets Logiciels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4984,22 +4946,33 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
-  <a href="#structure-dun-projet" class="md-nav__link">
+  <a href="#historique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Structure d'un projet
+        Historique
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Structure d'un projet">
+    <nav class="md-nav" aria-label="Historique">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#readmemd" class="md-nav__link">
+  <a href="#logiciel-proprietaire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        README.md
+        Logiciel Propriétaire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emergence-de-lopen-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Émergence de l'Open Source
       
     </span>
   </a>
@@ -5012,71 +4985,10 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
-  <a href="#utilisation" class="md-nav__link">
+  <a href="#licences-populaires" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Utilisation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Utilisation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dotfiles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dotfiles
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#makefile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Makefile
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#organisation-des-fichiers-sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Organisation des fichiers sources
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#repertoire-de-construction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Répertoire de construction
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#en-tetes-de-fichiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        En-têtes de fichiers
+        Licences Populaires
       
     </span>
   </a>
@@ -5084,41 +4996,24 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
-  <a href="#gestion-de-configuration" class="md-nav__link">
+  <a href="#brevets-logiciels" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gestion de configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Gestion de configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#variables-denvironnement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Variables d'environnement
+        Brevets Logiciels
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#fichier-den-tete" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fichier d'en-tête
+        Conclusion
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -5190,7 +5085,7 @@ les outils associés.
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Gestion de projets
+    Conception Logicielle
   </span>
 
         </a>
@@ -5209,7 +5104,7 @@ les outils associés.
 
 
   
-    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/45-project-management/software-project.md" title="Editer cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/45-software-design/licenses.md" title="Editer cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
     </a>
@@ -5218,256 +5113,105 @@ les outils associés.
     
       
     
-    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/45-project-management/software-project.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/45-software-design/licenses.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
     </a>
   
 
 
-<h1 id="organisation-dun-projet">Organisation d'un projet<a class="headerlink" href="#organisation-dun-projet" title="Lien permanent">¤</a></h1>
+<h1 id="les-licences">Les Licences<a class="headerlink" href="#les-licences" title="Lien permanent">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Lien permanent">¤</a></h2>
-<p>Dans ce chapitre, nous allons voir comment organiser un projet logiciel. Nous allons voir comment structurer un projet, comment gérer les dépendances, comment gérer les tests unitaires et comment gérer les tests fonctionnels.</p>
-<h2 id="structure-dun-projet">Structure d'un projet<a class="headerlink" href="#structure-dun-projet" title="Lien permanent">¤</a></h2>
-<p>La structure d'un projet logiciel est un élément important pour sa maintenabilité. Une bonne structure permet de retrouver facilement les fichiers sources, les fichiers d'en-tête, les tests, etc.</p>
-<p>Si votre projet est accessible par d'autres développeurs, il y a certaines conventions à respecter pour que tout le monde puisse s'y retrouver.</p>
-<p>Tout commence avec un dossier racine. Ce dossier racine contient tous les fichiers sources, les fichiers d'en-tête, les tests, les dépendances, etc. Encore faut-il bien nommer ce projet. Un nom de projet doit être court, explicite et unique. Il est recommandé de ne pas utiliser d'espaces, de caractères spéciaux ou de majuscules.</p>
-<div class="admonition note">
-<p class="admonition-title">Les Majuscules</p>
-<p>Les noms de fichiers et de dossiers sont sensibles à la casse sur les systèmes <abbr title="Portable Operating System Interface">POSIX</abbr> mais pas sous Windows. Cela crée certains problèmes de compatibilité entre les systèmes d'exploitation.</p>
-<p>D'autre part, l'usage des majuscules peut créer des ambiguïtés. Par exemple, <code>NomDuFichier</code> et <code>nomdufichier</code> sont deux noms différents. Comment allez-vous expliquer par téléphone à un collègue que le fichier s'écrit de cette manière ? L'ennui c'est les acronymes. Par exemple, XMLParser, XmlParser ou XMLparser ? Vous aurez tendance à choisir la troisième solution pour que <code>XML</code> ressort bien mais vous êtes incohérent puisque vous avez pas utilisé de majuscul pour <code>Parser</code>.</p>
-<p>Le problème est bien résolu avec l'utilisation d'underscores ou de tirets (notation kekbab-case ou snake_case). Par exemple, <code>xml_parser</code> est plus lisible et plus facile à expliquer.</p>
-<p>Une convention en voque est de nommer les fichiers en minuscules et d'utiliser des tirets pour séparer les mots. Par exemple, <code>xml-parser</code>. C'est la convention utilisée sur GitHub pour le nom des dépôts.</p>
-</div>
-<p>Voici une structure de projet classique :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>projet/
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>├── src/
-</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>│   ├── main.c
-</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>│   ├── foo.c
-</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>│   └── bar.c
-</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>├── include/
-</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>│   ├── foo.h
-</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>│   └── bar.h
-</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>├── tests/
-</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>│   ├── test_foo.c
-</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>│   └── test_bar.c
-</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>├── Makefile
-</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>└── README.md
-</span></code></pre></div>
-<p>Le point d'entrée pour le développeur c'est le fichier <code>README.md</code>. Ce fichier contient une description du projet, des instructions pour l'installation, des instructions pour la compilation, des instructions pour les tests, etc.</p>
-<h3 id="readmemd">README.md<a class="headerlink" href="#readmemd" title="Lien permanent">¤</a></h3>
-<p>Jadis, le fichier <code>README</code> était un fichier texte simple. Aujourd'hui, c'est un fichier <code>Markdown</code>. Le <code>Markdown</code> est un langage de balisage léger créé en 2004 par John Gruber et Aaron Swartz. Il est facile à lire et à écrire. Il est utilisé sur de très nombreux supports : GitHub, GitLab, Bitbucket, Reddit, Stack Overflow, etc. C'est d'ailleurs le format utilisé pour rédiger cet ouvrage.</p>
-<p>Voici un exemple de fichier <code>README.md</code> :</p>
-<div class="language-markdown highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="gh"># Nom du Projet</span>
-</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>Description du projet.
-</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="gu">## Installation</span>
-</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>Comment installer le projet :
-</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>```bash
-</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>git clone http://...
-</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>cd projet
-</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>make
-</span></code></pre></div>
-<h2 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Lien permanent">¤</a></h2>
-<p>Comment utiliser le projet :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>./projet
-</span></code></pre></div>
-<p>Le fichier <code>README.md</code> est un fichier important. Il doit être à jour et bien rédigé car c'est la première chose que l'on voit lorsqu'on arrive sur le dépôt du projet. Il doit permettre à l'utilisateur rapidement :</p>
-<ol>
-<li>Que fait le projet et quelle est son utilité ?</li>
-<li>Est-ce que ce projet est fait pour moi ?</li>
-<li>Comment l'installer ?</li>
-<li>Comment l'utiliser ?</li>
-<li>Comment contribuer ?</li>
-</ol>
-<h3 id="dotfiles">Dotfiles<a class="headerlink" href="#dotfiles" title="Lien permanent">¤</a></h3>
-<p>Dans un système <abbr title="Portable Operating System Interface">POSIX</abbr>, les fichiers commençant par un point sont des fichiers cachés. C'est une convention utilisée pour les fichiers de configuration. Ces fichiers sont appelés <code>dotfiles</code>.</p>
-<p>On va trouver toute une panoplie de fichiers de configuration dans un projet logiciel tel que :</p>
-<ul>
-<li><code>.gitignore</code> : liste des fichiers à ignorer par Git.</li>
-<li><code>.editorconfig</code> : conventions de codage pour les éditeurs de texte.</li>
-<li><code>.github/</code> : dossier contenant l'intégration continue, les actions GitHub, etc.</li>
-<li><code>.env</code> : variables d'environnement pour le projet.</li>
-</ul>
-<h3 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Lien permanent">¤</a></h3>
-<p>Le <code>Makefile</code> est un fichier de configuration pour le programme <code>make</code>. C'est généralement le point d'entrée pour construire un projet. Si vous trouvez un <code>Makefile</code>, vous savez que vous pourrez très probablement simplement utiliser la commande <code>make</code> pour construire le projet.</p>
-<p>Néanmoins, parfois le <code>Makefile</code> n'est pas suffisant car votre projet est plus complexe et dépend de plusieurs bibliothèques tierces qui peuvent être fastidieuses à installer. C'est là qu'interviennent les gestionnaires de dépendances que nous verrons plus tard.</p>
-<p>Alternativement, on peut trouver simplement un script <code>build.sh</code> ou <code>build.bat</code> pour construire le projet que vous appelerer avec <code>./build.sh</code> ou <code>.\build.bat</code>.</p>
-<h3 id="organisation-des-fichiers-sources">Organisation des fichiers sources<a class="headerlink" href="#organisation-des-fichiers-sources" title="Lien permanent">¤</a></h3>
-<p>Lorsque le projet dépasse 5 à 10 fichiers, il est habituel de les déplacer dans un dossier pour ne pas encombrer la racine du projet. On crée un dossier <code>src</code> pour les fichiers sources qui va contenir tous les fichiers <code>.c</code>.</p>
-<p>Faut-il séparer les fichiers sources des fichiers d'en-tête ? C'est une question de goût. Certains développeurs préfèrent tout mettre dans un seul dossier <code>src</code> pour simplifier la navigation. D'autres préfèrent séparer les fichiers sources des fichiers d'en-tête. Cela permet de mieux organiser le projet et de mieux gérer les dépendances. Il n'y a pas de consensus établi mais on peut noter plusieurs points.</p>
-<p>Lorsqu'un projet est destiné à devenir une bibliothèque partagée, vous devez fournir les fichiers d'en-tête pour que les autres développeurs puissent utiliser votre bibliothèque. S'ils sont séparés, c'est plus facile de les extraire et les distribuer.</p>
-<p>Néanmoins, séplacer les fichiers d'en-tête dans un dossier <code>include</code> nécessite d'informer le compilateur de l'emplacement des fichiers d'en-tête. C'est généralement fait avec l'option <code>-I</code> de GCC :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>gcc<span class="w"> </span>-Iinclude<span class="w"> </span>-c<span class="w"> </span>src/*.c
-</span></code></pre></div>
-<h3 id="repertoire-de-construction">Répertoire de construction<a class="headerlink" href="#repertoire-de-construction" title="Lien permanent">¤</a></h3>
-<p>Lorsque vous compilez un projet, vous allez générer des fichiers intermédiaires (fichiers objets) et des fichiers finaux (exécutables, bibliothèques). Selon le projet il peut y avoir beaucoup de fichiers. Afin d'éviter de ne voir ces fichiers dans votre explorateur de fichiers, on crée un dossier <code>build</code> pour les stocker.</p>
-<p>Ceci est une convention. Vous pouvez choisir un autre nom pour ce dossier. Par exemple, <code>bin</code>, <code>out</code>, <code>dist</code>, etc.</p>
-<p>Néanmoins, il faut d'une part penser à ajouter ce dossier dans le <code>.gitignore</code> pour ne pas le versionner, mais également modifier la configuration de votre compilateur pour qu'il place les fichiers objets dans ce dossier :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>build
-</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>gcc<span class="w"> </span>-Iinclude<span class="w"> </span>-c<span class="w"> </span>src/*.c<span class="w"> </span>-o<span class="w"> </span>build/*.o
-</span></code></pre></div>
-<h2 id="en-tetes-de-fichiers">En-têtes de fichiers<a class="headerlink" href="#en-tetes-de-fichiers" title="Lien permanent">¤</a></h2>
-<p>Historiquement, les développeurs C utilisait l'outil <a href="https://fr.wikipedia.org/wiki/Doxygen">Doxygen</a> pour générer de la documentation à partir des commentaires dans le code source. Cela a donné naissance à une convention pour les commentaires de documentation qui est souvent utilisée de manière abusive.</p>
-<p>Aujourd'hui, avec les éditeurs modernes, il est plus facile de naviguer dans le code source et de trouver des informations sur les fonctions et les structures. Les commentaires de documentation sont souvent redondants et inutiles, ils polluent plus qu'ils n'aident. Néanmoins, je peux vous donner un exemple de commentaires de documentation pour un fichier d'en-tête :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/**</span>
-</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cm"> * @brief Définition des fonctions pour manipuler des nombres</span>
-</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="cm"> * @file numbers.h</span>
-</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="cm"> * @date 2024-09-01</span>
-</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="cm"> * @author John Doe</span>
-</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="cm"> * @version 1.0</span>
-</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="cm"> * @copyright Copyright (c) 2021</span>
-</span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="cm"> *</span>
-</span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="cm"> * Description détaillée.</span>
-</span><span id="__span-5-10"><a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="cm"> */</span>
-</span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>
-</span><span id="__span-5-12"><a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="cm">/*********************************************************/</span>
-</span><span id="__span-5-13"><a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="cm">/*                       INCLUDES                        */</span>
-</span><span id="__span-5-14"><a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="cm">/*********************************************************/</span>
-</span><span id="__span-5-15"><a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-</span><span id="__span-5-16"><a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a>
-</span><span id="__span-5-17"><a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="cm">/*********************************************************/</span>
-</span><span id="__span-5-18"><a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="cm">/*                       STRUCTURES                      */</span>
-</span><span id="__span-5-19"><a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="cm">/*********************************************************/</span>
-</span><span id="__span-5-20"><a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-21"><a href="#__codelineno-5-21" id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">//!&lt; Abscisse du point.</span>
-</span><span id="__span-5-22"><a href="#__codelineno-5-22" id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">//!&lt; Ordonnée du point.</span>
-</span><span id="__span-5-23"><a href="#__codelineno-5-23" id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="p">}</span><span class="w"> </span><span class="n">Point</span><span class="p">;</span><span class="w"> </span><span class="c1">//!&lt; Structure point.</span>
-</span><span id="__span-5-24"><a href="#__codelineno-5-24" id="__codelineno-5-24" name="__codelineno-5-24"></a>
-</span><span id="__span-5-25"><a href="#__codelineno-5-25" id="__codelineno-5-25" name="__codelineno-5-25"></a><span class="cm">/*********************************************************/</span>
-</span><span id="__span-5-26"><a href="#__codelineno-5-26" id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="cm">/*                       FONCTIONS                       */</span>
-</span><span id="__span-5-27"><a href="#__codelineno-5-27" id="__codelineno-5-27" name="__codelineno-5-27"></a><span class="cm">/*********************************************************/</span>
-</span><span id="__span-5-28"><a href="#__codelineno-5-28" id="__codelineno-5-28" name="__codelineno-5-28"></a>
-</span><span id="__span-5-29"><a href="#__codelineno-5-29" id="__codelineno-5-29" name="__codelineno-5-29"></a><span class="cm">/**</span>
-</span><span id="__span-5-30"><a href="#__codelineno-5-30" id="__codelineno-5-30" name="__codelineno-5-30"></a><span class="cm"> * @brief Fonction d'addition de deux entiers.</span>
-</span><span id="__span-5-31"><a href="#__codelineno-5-31" id="__codelineno-5-31" name="__codelineno-5-31"></a><span class="cm"> * @param a Premier entier.</span>
-</span><span id="__span-5-32"><a href="#__codelineno-5-32" id="__codelineno-5-32" name="__codelineno-5-32"></a><span class="cm"> * @param b Deuxième entier.</span>
-</span><span id="__span-5-33"><a href="#__codelineno-5-33" id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="cm"> * @return La somme des deux entiers.</span>
-</span><span id="__span-5-34"><a href="#__codelineno-5-34" id="__codelineno-5-34" name="__codelineno-5-34"></a><span class="cm"> *</span>
-</span><span id="__span-5-35"><a href="#__codelineno-5-35" id="__codelineno-5-35" name="__codelineno-5-35"></a><span class="cm"> * Cette fonction permet d'additionner deux entiers.</span>
-</span><span id="__span-5-36"><a href="#__codelineno-5-36" id="__codelineno-5-36" name="__codelineno-5-36"></a><span class="cm"> */</span>
-</span><span id="__span-5-37"><a href="#__codelineno-5-37" id="__codelineno-5-37" name="__codelineno-5-37"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-38"><a href="#__codelineno-5-38" id="__codelineno-5-38" name="__codelineno-5-38"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-</span><span id="__span-5-39"><a href="#__codelineno-5-39" id="__codelineno-5-39" name="__codelineno-5-39"></a><span class="p">}</span>
-</span><span id="__span-5-40"><a href="#__codelineno-5-40" id="__codelineno-5-40" name="__codelineno-5-40"></a>
-</span><span id="__span-5-41"><a href="#__codelineno-5-41" id="__codelineno-5-41" name="__codelineno-5-41"></a><span class="cm">/*********************************************************/</span>
-</span><span id="__span-5-42"><a href="#__codelineno-5-42" id="__codelineno-5-42" name="__codelineno-5-42"></a><span class="cm">/*                       FIN                             */</span>
-</span><span id="__span-5-43"><a href="#__codelineno-5-43" id="__codelineno-5-43" name="__codelineno-5-43"></a><span class="cm">/*********************************************************/</span>
-</span></code></pre></div>
-<p>Nous pouvons maintenant discuter de la pertinence de ces commentaires. Intéressons-nous tout d'abord à l'en-tête du fichier :</p>
+<p>Une licence logicielle est un contrat légal qui détermine comment un logiciel peut être utilisé, modifié, et redistribué par les utilisateurs. Elle définit les droits et les obligations des utilisateurs vis-à-vis du créateur du logiciel. Les licences logicielles sont cruciales parce qu'elles établissent les règles de propriété intellectuelle, garantissent la protection des intérêts des auteurs tout en régulant l'accès à la technologie, et favorisent l'innovation et la collaboration dans le cadre de projets open-source ou commerciaux.</p>
+<p>Les licences peuvent couvrir une large gamme d'autorisations, allant de licences strictes où l'utilisateur doit payer pour accéder et utiliser le logiciel, à des licences plus ouvertes qui permettent une libre utilisation et modification du code. La diversité de ces licences reflète les différentes philosophies et besoins du monde du développement logiciel.</p>
+<h2 id="historique">Historique<a class="headerlink" href="#historique" title="Lien permanent">¤</a></h2>
+<h3 id="logiciel-proprietaire">Logiciel Propriétaire<a class="headerlink" href="#logiciel-proprietaire" title="Lien permanent">¤</a></h3>
+<p>Dans les années 1960 et 1970, les logiciels étaient souvent vendus avec le matériel informatique, et les codes sources étaient parfois fournis sans restrictions significatives. Cependant, avec l'évolution du marché du logiciel, des entreprises ont commencé à comprendre la valeur commerciale des logiciels. Ainsi, les premières licences logicielles restrictives ont été développées pour protéger les intérêts commerciaux des entreprises, restreignant l'accès au code source et limitant les droits des utilisateurs à simplement utiliser le logiciel sans en voir les coulisses.</p>
+<h3 id="emergence-de-lopen-source">Émergence de l'Open Source<a class="headerlink" href="#emergence-de-lopen-source" title="Lien permanent">¤</a></h3>
+<p>Avec l'avènement de l'Internet et le besoin croissant de collaboration entre développeurs, une nouvelle approche a émergé : le logiciel libre. Le projet <abbr title="GNU's Not Unix">GNU</abbr>, lancé par Richard Stallman en 1983, est le fer de lance de cette révolution. La licence <abbr title="GNU's Not Unix">GNU</abbr> General Public License (<abbr title="General Public License">GPL</abbr>) est l'une des premières licences à promouvoir l'idée que les logiciels devraient être libres d'utilisation, de modification, et de redistribution, à condition que toutes les versions modifiées soient également distribuées sous la même licence.</p>
+<p>Cependant, dans les années 1990, une série de conflits bien connus sous le nom de « guerres de licences » ont eu lieu entre différents camps du mouvement open-source. La licence <abbr title="Berkeley Software Distribution">BSD</abbr>, originaire du projet Berkeley Software Distribution, offrait une approche plus permissive que la <abbr title="General Public License">GPL</abbr>, permettant l'incorporation du code <abbr title="Berkeley Software Distribution">BSD</abbr> dans des projets propriétaires sans exiger la libération du code source. Cela contrastait fortement avec la philosophie de la <abbr title="General Public License">GPL</abbr>, qui impose un partage en retour (copyleft), obligeant toute dérivation du code à rester libre et open-source. Ce différend a mis en lumière les différentes visions de ce que devrait être l'open-source : la liberté pour les utilisateurs de faire ce qu'ils veulent avec le code, y compris le rendre propriétaire (<abbr title="Berkeley Software Distribution">BSD</abbr>), versus la garantie que le code reste libre à perpétuité (<abbr title="General Public License">GPL</abbr>).</p>
+<p>Ce débat est à la génèse de Linux, le noyau du système d'exploitation <abbr title="GNU's Not Unix">GNU</abbr>/Linux, qui a adopté la <abbr title="General Public License">GPL</abbr> pour garantir que le code source reste libre et ouvert. Aujourd'hui, la <abbr title="General Public License">GPL</abbr> reste l'une des licences open-source les plus populaires, mais d'autres licences plus permissives, comme la licence <abbr title="Massachusetts Institute of Technology">MIT</abbr> et la licence Apache, ont également gagné en popularité.</p>
+<p>La licence <abbr title="Massachusetts Institute of Technology">MIT</abbr>, extrêmement populaire dans la communauté open-source, adopte une approche encore plus simplifiée et permissive que la licence <abbr title="Berkeley Software Distribution">BSD</abbr>. Elle permet à quiconque d'utiliser, copier, modifier, fusionner, publier, distribuer, sous-licencier et/ou vendre des copies du logiciel, avec comme seule obligation de mentionner l’auteur original. Ce type de licence est très apprécié pour sa simplicité et sa flexibilité.</p>
+<p>Les licences Creative Commons (CC), bien qu'initialement conçues pour les œuvres créatives non logicielles (comme Wikipedia), ont également influencé le domaine du logiciel en fournissant des cadres légaux pour la diffusion de contenu, incluant parfois du code source, avec différents niveaux de protection des droits d'auteur.</p>
+<h2 id="licences-populaires">Licences Populaires<a class="headerlink" href="#licences-populaires" title="Lien permanent">¤</a></h2>
+<p>Voici un aperçu des licences logicielles les plus couramment utilisées :</p>
 <dl>
-<dt><code>@file</code></dt>
+<dt><strong><abbr title="GNU's Not Unix">GNU</abbr> General Public License (<abbr title="General Public License">GPL</abbr>)</strong></dt>
 <dd>
-<p>Le nom du fichier est en redondance avec le vrai nom du fichier. Si vous renommez le fichier, vous devrez également changer ce commentaire. C'est d'une part une source d'erreur mais surtout pour Git, cela implique que le fichier n'est pas simplement renommé mais supprimé et recréé. Cela peut poser des problèmes de fusion et d'accès à l'historique. Aussi, si vous utilisez Git, cette information est parfaitement inutile.</p>
+<p>Garantit que le logiciel reste libre à jamais, encourage la collaboration, mais incompatibilité avec les licences plus permissives, contraignante pour les projets commerciaux.</p>
 </dd>
-<dt><code>@date</code></dt>
+<dt><strong><abbr title="GNU's Not Unix">GNU</abbr> Lesser General Public License (LGPL)</strong></dt>
 <dd>
-<p>La date est inutile car si vous avez besoin de la date, vous pouvez utiliser Git pour voir la date de la dernière modification du fichier. D'autre part, il est courant qu'un fichier soit modifié sans que la date soit mise à jour. Cela peut être une source de confusion.</p>
+<p>Permet l'utilisation de bibliothèques open-source dans des logiciels propriétaires mais moins contraignante que la <abbr title="General Public License">GPL</abbr>, mais impose des restrictions sur les modifications du code source.</p>
 </dd>
-<dt><code>@author</code></dt>
+<dt><strong><abbr title="Massachusetts Institute of Technology">MIT</abbr> License</strong></dt>
 <dd>
-<p>Si vous utilisez Git, vous possédez déjà cette information et de manière beaucoup plus fine. Vous pouvez voir qui a modifié chaque ligne du fichier. Gérer cette information dans le fichier c'est également s'astreindre à ajouter son nom, même si vous n'avez ajouté qu'une ligne. Et puis, si vous aimez tant le fichier que vous venez tant à le modifier que vous avez changé toutes les lignes, devez-vous supprimer le nom du vrai auteur pour mettre le vôtre ? C'est une source de conflit, est c'est beaucoup plus simple de laisser Git gérer cette information.</p>
+<p>Simplicité, grande permissivité, utilisée dans une multitude de projets, mais permet la réutilisation du code dans des logiciels propriétaires sans obligation de partage.</p>
 </dd>
-<dt><code>@version</code></dt>
+<dt><strong>Apache License 2.0</strong></dt>
 <dd>
-<p>Même rengaine et même punition. Si vous utilisez Git, vous avez déjà cette information. Git gère les version avec les tags et les branches. Vous pouvez voir l'historique des modifications et les différences entre les versions. D'autre part, pour les même raisons qu'évoquées, à chaque nouvelle version de votre projet, vous devez modifier ce commentaire dans tous les fichiers. Cela implique que tous ces fichiers vont changer et vous allez vous perdre dans l'historique.</p>
+<p>Clauses explicites sur les brevets, permissive mais protège les contributeurs, mais moins simple que la licence <abbr title="Massachusetts Institute of Technology">MIT</abbr>, moins contraignante que la <abbr title="General Public License">GPL</abbr> pour garantir la liberté du logiciel.</p>
 </dd>
-<dt><code>@brief</code></dt>
+<dt><strong>Berkeley Software Distribution (<abbr title="Berkeley Software Distribution">BSD</abbr>) License</strong></dt>
 <dd>
-<p>Enfin une information utile. C'est une excellente pratique que d'avoir une description courte du fichier. Néanmoins avec Doxygen il existe l'option <code>JAVADOC_AUTOBRIEF</code> qui permet de générer automatiquement le <code>@brief</code> à partir de la première phrase du commentaire si elle se termine par un point. C'est une option à activer pour éviter de répéter la même chose.</p>
+<p>Très permissive, flexible pour les intégrations dans des logiciels propriétaires mais ne garantit pas que les versions dérivées resteront libres.</p>
 </dd>
-<dt><code>@copyright</code></dt>
+<dt><strong>Creative Commons (CC0, BY, BY-SA, etc.)</strong></dt>
 <dd>
-<p>C'est une information importante. Elle permet de savoir comment le fichier peut être utilisé. Néanmoins, il est rare que pour un projet donné, le copyright et la licence changent d'un fichier à l'autre, il est donc plus judicieux de mettre cette information dans le <code>README</code> ou mieux dans un fichier <code>LICENSE</code>.</p>
+<p>Idéal pour la diffusion de contenus créatifs, permet une large diffusion avec un choix de niveaux de protection, mais moins couramment utilisée pour les logiciels purs, difficulté d’adaptation pour certains projets techniques.</p>
 </dd>
 </dl>
-<p>Maintenant que nous avons balayé l'en-tête, concentrons-nous sur la fonction <code>add</code>. Cette fonction fait 3 lignes et le commentaire 8 lignes. Est-ce réellement nécessaire de documenter une fonction que tout le monde peut comprendre ?</p>
-<p>La réponse n'est pas si simple. Si vous publier le code source avec votre bibliothèque, la réponse est non car n'importe qui pourra la comprendre. Néanmoins votre bibliothèque est publiée sans le code source, la seule chose que votre utlisateur aura c'est le fichier d'en-tête (<code>.h</code>) :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
-</span></code></pre></div>
-<p>C'est peut-être un peu court et un complément d'information pourrait être utile. Mais faut-il documenter tous les paramètres ? Si le <em>brief</em> dit que la fonction additionne deux entiers, et que vous avez accès aux types des paramètres, est-ce vraiment nécessaire de documenter les paramètres ? La réponse est non. Je le répète souvent, un commentaire est fait pour expliquer le pourquoi, pas le comment. Si vous avez besoin de documenter le comment, c'est que votre code n'est pas assez clair. On pourrait par exemple réécrire la fonction de la manière suivante :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add_two_integers_together</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
-</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>Je vous l'accorde, c'est un peu long, mais ça à le mérire d'être parfaitement clair.</p>
-<p>Questionnons maintenant les séparateurs de contenu. Lorsque vous débutez en programmation, vous avez tendance à vous faire mousser un peu en écrivant plus que le nécessaire, écrire des commentaires c'est sans risque et cela rallonge votre beau programme. Alors pour bien structurer votre code, vous avez mis des séparateurs de contenu. Néanmoins ils n'apportent pas grand chose. En Python par exemple, la norme propose d'ajouter deux retour à la ligne entre chaque fonction. C'est une convention qui est largement suffisante pour séparer les différents éléments du code.</p>
-<p>Enfin, la dernière question est de savoir si le commentaire de la structure <code>Point</code> est utile. Pour cette structure qui est très simple, on pourrait se passer de commentaires, mais dans le cas ou les éléments nécessitent d'être expliqués, c'est la notation Doxygen qui peut être discutée.</p>
-<p>Doxygen utilise la notation <code class="language-c highlight"><span class="c1">//!</span></code> pour les commentaires de documentation. C'est une notation spéciale qui a la facheuse tendance s'afficher en rouge vif dans certains éditeurs de texte. Si vous n'utilisez pas Doxygen, il est préférable de ne pas utiliser cette notation. Il est préférable de rester sur la notation <code class="language-c highlight"><span class="c1">//</span></code> qui est plus universelle.</p>
-<p>Après ces longues explications, je vous propose de vous redonner l'exemple simplifié :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/**</span>
-</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="cm"> * Définition des fonctions pour manipuler des nombres</span>
-</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="cm"> *</span>
-</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="cm"> * Description détaillée.</span>
-</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="cm"> */</span>
-</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-</span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>
-</span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">//!&lt; Abscisse du point.</span>
-</span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">//!&lt; Ordonnée du point.</span>
-</span><span id="__span-8-11"><a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="p">}</span><span class="w"> </span><span class="n">Point</span><span class="p">;</span><span class="w"> </span><span class="c1">//!&lt; Structure point.</span>
-</span><span id="__span-8-12"><a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a>
-</span><span id="__span-8-13"><a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add_two_integers</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-14"><a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-</span><span id="__span-8-15"><a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="p">}</span>
-</span></code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Le commentaire de trop</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/*********************************************************/</span>
-</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="cm">/*                    FIN DU FICHIER                     */</span>
-</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="cm">/*********************************************************/</span>
-</span></code></pre></div>
-<p>Diable ! Pourquoi trouve-t-on toujours un commentaire <code>FIN</code> à la fin des fichiers ? C'est une pratique qui remonte à l'époque des cartes perforées. Les cartes perforées étaient utilisées pour stocker les programmes. Chaque carte avait un numéro de ligne et un numéro de colonne. Pour éviter de mélanger les cartes, on mettait un commentaire <code>FIN</code> à la fin de chaque carte. C'est une pratique ancestrale qui a perduré jusqu'à aujourd'hui. Les développeurs répètent inlassablement ces habitudes sans toutefois les remettre en question.</p>
-<p>Aujourd'hui, un fichier est fini au sens que lorsqu'on en atteint la fin, on le sait. Il n'est alors pas pertinent de le préciser.</p>
-<p>C'est un peu la même chose que ces pages dans les livres laissées blanches, ou presque, avec un commentaire <em>« Cette page a été intentionnellement laissée blanche »</em> qui remontait à l'époque de l'impression en offset. Lorsqu'on imprimait un livre, on imprimait les pages par feuille de 16 pages. Si le livre faisait 200 pages, il fallait ajouter 4 pages blanches à la fin pour que l'impression soit correcte. Aujourd'hui, les livres sont imprimés en numérique et il n'y a plus besoin de ces pages blanches.</p>
-</div>
-<h2 id="gestion-de-configuration">Gestion de configuration<a class="headerlink" href="#gestion-de-configuration" title="Lien permanent">¤</a></h2>
-<p>La gestion de configuration est un élément important pour un projet logiciel. Elle permet de stocker des informations qui peuvent varier d'un environnement à un autre. Par exemple, les informations de connexion à une base de données, les clés d'API, les adresses IP, etc.</p>
-<p>Il existe plusieurs solutions pour gérer la configuration d'un projet :</p>
-<ul>
-<li>Les variables d'environnement.</li>
-<li>Les fichiers de configuration.</li>
-</ul>
-<h3 id="variables-denvironnement">Variables d'environnement<a class="headerlink" href="#variables-denvironnement" title="Lien permanent">¤</a></h3>
-<p>Les variables d'environnement sont des variables stockées dans l'environnement d'exécution d'un programme. Elles sont accessibles par le programme et peuvent être modifiées par l'utilisateur. Ces variables sont propagées à tous les processus enfants pour autant qu'elles ait été exportées. Elles peuvent être utile dans un projet pour stocker des informations sensibles qui ne devraient pas être versionnées.</p>
-<p>Prenons l'exemple d'une clé d'API. Cette clé vous permet d'accéder à un service tiers depuis votre programme. Chaque utilisateur de votre programme doit avoir sa propre clé d'API. Si vous stockez cette clé dans le code source, vous risquez de la versionner et de la rendre publique. Si vous stockez cette clé dans un fichier de configuration, vous risquez de le versionner et de le rendre public également. Une bonne solution est de stocker cette clé dans une variable d'environnement.</p>
-<p>Il se peut d'ailleurs que votre projet nécessite plusieurs variables d'environnement. On utilise couramment un fichier <code>.env.example</code> pour lister les variables d'environnement nécessaires au projet. Ce fichier est versionné et contient des valeurs par défaut. L'utilisateur doit copier ce fichier en <code>.env</code> et renseigner les valeurs.</p>
-<div class="language-bash highlight"><span class="filename">.env.example</span><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nv">API_KEY</span><span class="o">=</span>your_api_key
-</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nv">DATABASE_URL</span><span class="o">=</span>your_database_url
-</span></code></pre></div>
-<div class="language-bash highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="nv">API_KEY</span><span class="o">=</span><span class="m">1234567890</span>
-</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="nv">DATABASE_URL</span><span class="o">=</span>postgres://user:password@localhost:5432/database
-</span></code></pre></div>
-<p>Pour déployer votre environnement de développement, vous devez exporter ces variables d'environnement. Vous pouvez le faire dans votre terminal ou dans un fichier de configuration de votre terminal (<code>.bashrc</code>, <code>.zshrc</code>, etc.).</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nb">export</span><span class="w"> </span><span class="k">$(</span>cat<span class="w"> </span>.env<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="k">)</span>
-</span></code></pre></div>
-<p>Sous Windows vous pouvez utiliser la commande <code>set</code> :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>for /f "delims== tokens=1,2" %i in (.env) do set %i=%j
-</span></code></pre></div>
-<p>Ces commandes sont généralement intégrées dans un script <code>start.sh</code> ou <code>start.bat</code> pour démarrer votre projet, ou alors directement dans le <code>Makefile</code>.</p>
-<h3 id="fichier-den-tete">Fichier d'en-tête<a class="headerlink" href="#fichier-den-tete" title="Lien permanent">¤</a></h3>
-<p>On trouve très souvent dans un projet C un fichier d'en-tête <code>.h</code> qui contient des définitions de configuration. Par exemple, un fichier <code>config.h</code> qui contient des constantes, des macros, des structures, etc.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#ifndef CONFIG_H</span>
-</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="cp">#define CONFIG_H</span>
-</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>
-</span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="cp">#define VERSION "1.0.0"</span>
-</span><span id="__span-14-5"><a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="cp">#define AUTHOR "John Doe"</span>
-</span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a>
-</span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="cp">#define USE_FEATURE_A</span>
-</span><span id="__span-14-8"><a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="cp">#define USE_FEATURE_B</span>
-</span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a>
-</span><span id="__span-14-10"><a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="cp">#define API_KEY "your_api_key"</span>
-</span><span id="__span-14-11"><a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="cp">#define DATABASE_URL "your_database_url"</span>
-</span></code></pre></div>
-<p>Ce fichier est inclus dans les fichiers sources qui ont besoin de ces informations. Il est versionné et donc ne devrait pas contenir d'informations sensibles. Si vous avez des informations sensibles, vous pouvez les stocker dans un fichier <code>.env</code> et les exporter dans les variables d'environnement. Ces variables peuvent être utilisée dans votre Makefile pour déclarer des variables de compilation.</p>
-<div class="language-makefile highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">include .env</span>
-</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
-</span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="nv">CFLAGS</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span>-DAPI_KEY<span class="o">=</span><span class="se">\"</span><span class="k">$(</span>API_KEY<span class="k">)</span><span class="se">\"</span>
-</span><span id="__span-15-4"><a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="nv">CFLAGS</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span>-DDATABASE_URL<span class="o">=</span><span class="se">\"</span><span class="k">$(</span>DATABASE_URL<span class="k">)</span><span class="se">\"</span>
-</span></code></pre></div>
+<p>Le choix d'une licence dépend donc des objectifs du projet. On peut citer par exemple les cas de figures suivant :</p>
+<dl>
+<dt><strong>Développement Commercial</strong></dt>
+<dd>
+<p>Pour les entreprises souhaitant conserver le contrôle total sur leur code, une licence propriétaire ou une licence permissive comme <abbr title="Massachusetts Institute of Technology">MIT</abbr> ou <abbr title="Berkeley Software Distribution">BSD</abbr> est souvent conseillée.</p>
+</dd>
+<dt><strong>Protection de la Propriété Intellectuelle</strong></dt>
+<dd>
+<p>La <abbr title="General Public License">GPL</abbr> est idéale si l'objectif est de garantir que le logiciel reste libre et open-source, protégeant ainsi les droits des utilisateurs à modifier et redistribuer le code.</p>
+</dd>
+<dt><strong>Collaboration Ouverte</strong></dt>
+<dd>
+<p>La licence Apache ou <abbr title="Massachusetts Institute of Technology">MIT</abbr> est souvent choisie pour des projets collaboratifs open-source, où la flexibilité et l’ouverture sont primordiales, tout en assurant une protection contre les litiges de brevets (dans le cas d’Apache).</p>
+</dd>
+<dt><strong>Projets Académiques et Expérimentaux</strong></dt>
+<dd>
+<p>Pour favoriser la diffusion rapide et libre des innovations, une licence très permissive comme la licence <abbr title="Massachusetts Institute of Technology">MIT</abbr> ou CC0 peut être privilégiée.</p>
+</dd>
+<dt><strong>Contenu Créatif ou Documentation</strong></dt>
+<dd>
+<p>Les licences Creative Commons sont idéales pour protéger et partager des documentations, des illustrations, ou des contenus audiovisuels associés aux projets logiciels.</p>
+</dd>
+</dl>
+<h2 id="brevets-logiciels">Brevets Logiciels<a class="headerlink" href="#brevets-logiciels" title="Lien permanent">¤</a></h2>
+<p>Un brevet logiciel est une protection juridique accordée à une invention logicielle, permettant à son détenteur de contrôler l'utilisation, la production, et la vente de cette invention pendant une période donnée, généralement 20 ans. Contrairement aux licences logicielles, qui régissent l'utilisation d'un logiciel, un brevet protège une idée ou une méthode spécifique implémentée dans le logiciel. Les brevets logiciels sont particulièrement controversés en raison de leur complexité, de leur coût, et de leurs implications sur l'innovation technologique.</p>
+<p>Les brevets logiciels confèrent à leurs détenteurs un monopole sur une certaine technologie ou méthode, leur permettant d'empêcher d'autres entreprises ou individus d'utiliser cette technologie sans autorisation. Cela peut être avantageux pour les entreprises qui investissent massivement en R&amp;D, car un brevet peut fournir un retour sur investissement en protégeant leur innovation des concurrents.</p>
+<p>Cependant, ces brevets peuvent également freiner l'innovation en empêchant d'autres développeurs de construire sur des idées existantes. Ils peuvent créer un environnement juridique complexe où les entreprises doivent naviguer prudemment pour éviter les poursuites en contrefaçon de brevet. Cela est particulièrement problématique dans le développement de logiciels, où de nombreuses innovations sont incrémentales et construites à partir d'idées préexistantes.</p>
+<p>Le dépôt d'un brevet logiciel est un processus coûteux, tant en termes de temps que d'argent. Les coûts incluent :</p>
+<dl>
+<dt><strong>Frais de dépôt</strong></dt>
+<dd>
+<p>Les frais de dépôt peuvent varier de quelques milliers à plusieurs dizaines de milliers d'euros/dollars, selon le pays et la complexité du brevet.</p>
+</dd>
+<dt><strong>Frais juridiques</strong></dt>
+<dd>
+<p>L'assistance d'avocats spécialisés est souvent nécessaire pour préparer et déposer un brevet, ce qui peut coûter plusieurs milliers d'euros supplémentaires.</p>
+</dd>
+<dt><strong>Frais de maintenance</strong></dt>
+<dd>
+<p>Une fois accordé, le brevet doit être maintenu en vigueur, ce qui implique des frais périodiques (annuaires) qui peuvent également être élevés.</p>
+</dd>
+</dl>
+<p>En raison de ces coûts, le dépôt de brevets logiciels est souvent hors de portée des petites entreprises et des développeurs individuels. Même pour les grandes entreprises, le coût et la gestion des portefeuilles de brevets peuvent devenir un fardeau.</p>
+<p>D'autre part un brevet n'est pas universellement reconnu, et leur statut juridique varie d'un pays à l'autre. Aux États-Unis par exemple, les brevets logiciels sont largement reconnus et accordés par l'Office des brevets et des marques de commerce des États-Unis (USPTO). Cependant, une série de décisions judiciaires récentes, comme l'affaire <em>Alice Corp. v. CLS Bank International</em> en 2014, a restreint la portée des brevets logiciels en exigeant que les inventions brevetables ne soient pas de simples « idées abstraites ». En Europe, les brevets logiciels sont plus restrictifs. L'Office européen des brevets (OEB) n'accorde des brevets logiciels que si l'invention apporte une « contribution technique » au-delà de l'algorithme ou du code lui-même.</p>
+<p>Ces différences de traitement rendent complexe la protection globale d'une innovation logicielle par un brevet, obligeant les entreprises à adapter leurs stratégies en fonction des juridictions.</p>
+<p>Pour ces raisons, beaucoup d'entreprises choisissent d'éviter les brevets logiciels. Vérifier la violation d'un brevet logiciel est notoirement difficile. Les logiciels peuvent être écrits de plusieurs façons pour atteindre un même objectif fonctionnel, ce qui permet aux développeurs de contourner un brevet en modifiant légèrement leur code. Cela limite l'efficacité des brevets logiciels en tant que mécanisme de protection.</p>
+<p>De nombreuses entreprises préfèrent recourir à d'autres stratégies de protection telles que le secret commercial, qui est souvent moins coûteux et ne nécessite pas de divulgation publique de l'invention, contrairement aux brevets.</p>
+<p>En conclusion, les brevets logiciels représentent une arme à double tranchant dans le domaine du génie logiciel. D'un côté, ils offrent une protection potentielle des innovations, permettant aux entreprises de capitaliser sur leurs investissements en R&amp;D. De l'autre côté, leur coût élevé, la complexité juridique, les restrictions internationales, et la difficulté à vérifier et à faire respecter les brevets réduisent leur attrait pour de nombreuses entreprises, en particulier dans un secteur en rapide évolution comme celui du développement logiciel.</p>
+<p>Ainsi, de nombreuses entreprises choisissent de ne pas breveter leurs logiciels, préférant d'autres formes de protection, ou simplement adopter une approche plus ouverte et collaborative. Les brevets logiciels demeurent un sujet controversé, avec des implications profondes pour l'innovation, la concurrence, et la croissance économique dans le domaine des technologies de l'information.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Lien permanent">¤</a></h2>
+<p>Les licences logicielles jouent un rôle central dans le développement et la distribution des logiciels. Elles influencent non seulement les droits et obligations des utilisateurs, mais aussi la manière dont les logiciels peuvent évoluer, être partagés, ou intégrés dans d'autres projets. Le choix d'une licence doit toujours être guidé par une compréhension claire des objectifs du projet, des valeurs du créateur, et des besoins des utilisateurs finaux. En fin de compte, la licence choisie peut déterminer la portée, l'impact et la durabilité d'un logiciel.</p>
 
 
 
@@ -5490,7 +5234,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 2, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 17, 2024</span>
   </span>
 
     
@@ -5500,7 +5244,7 @@ les outils associés.
     <span class="md-icon" title="Créé">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 23, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 2, 2024</span>
   </span>
 
     
@@ -5592,7 +5336,7 @@ les outils associés.
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../teamwork/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Travail en équipe">
+          <a href="../contribute/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Projet open-source">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -5602,20 +5346,20 @@ les outils associés.
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Travail en équipe
+                Projet open-source
               </div>
             </div>
           </a>
         
         
           
-          <a href="../dependencies/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Gestion des dépendances">
+          <a href="../testing/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Qualité et Testabilité">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Gestion des dépendances
+                Qualité et Testabilité
               </div>
             </div>
             <div class="md-footer__button md-icon">

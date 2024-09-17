@@ -15,13 +15,13 @@ les outils associés.
         <meta name="author" content="Yves Chevallier">
       
       
-        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/45-project-management/contribute/">
+        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/45-software-design/testing/">
       
       
-        <link rel="prev" href="../dependencies/">
+        <link rel="prev" href="../licenses/">
       
       
-        <link rel="next" href="../licenses/">
+        <link rel="next" href="../../47-gui/">
       
       
         
@@ -32,7 +32,7 @@ les outils associés.
     
     
       
-        <title>Projet open-source - L'informatique pour ingénieurs</title>
+        <title>Qualité et Testabilité - L'informatique pour ingénieurs</title>
       
     
     
@@ -170,7 +170,7 @@ les outils associés.
     <div data-md-component="skip">
       
         
-        <a href="#projet-open-source" class="md-skip">
+        <a href="#qualite-et-testabilite" class="md-skip">
           Aller au contenu
         </a>
       
@@ -203,7 +203,7 @@ les outils associés.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Projet open-source
+              Qualité et Testabilité
             
           </span>
         </div>
@@ -1319,6 +1319,8 @@ les outils associés.
       
         
       
+        
+      
     
     
       
@@ -1492,6 +1494,33 @@ les outils associés.
     
   
     Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/generic-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmation générique
   
 
     
@@ -3028,7 +3057,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Gestion de projets
+    Conception Logicielle
   
 
     
@@ -3050,7 +3079,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    Gestion de projets
+    Conception Logicielle
   
 
           </label>
@@ -3143,36 +3172,10 @@ les outils associés.
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    
-  
-    Projet open-source
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../contribute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3187,109 +3190,6 @@ les outils associés.
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cas-de-figure-git" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cas de figure Git
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cas-de-figure-gimp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cas de figure Gimp
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Cas de figure Gimp">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installation-de-babl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation de BABL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-de-gegl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation de GEGL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-de-gimp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation de GIMP
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reproduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reproduction
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dependances" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dépendances
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3326,10 +3226,36 @@ les outils associés.
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../testing/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualité et Testabilité
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -3344,6 +3270,87 @@ les outils associés.
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#square" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQuaRE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hacking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hacking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buffer-overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buffer overflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-unitaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tests unitaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-fonctionnels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tests fonctionnels
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4906,10 +4913,10 @@ les outils associés.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cas-de-figure-git" class="md-nav__link">
+  <a href="#square" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cas de figure Git
+        SQuaRE
       
     </span>
   </a>
@@ -4917,66 +4924,22 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
-  <a href="#cas-de-figure-gimp" class="md-nav__link">
+  <a href="#hacking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cas de figure Gimp
+        Hacking
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Cas de figure Gimp">
+    <nav class="md-nav" aria-label="Hacking">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#installation-de-babl" class="md-nav__link">
+  <a href="#buffer-overflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation de BABL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-de-gegl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation de GEGL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-de-gimp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation de GIMP
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reproduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reproduction
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dependances" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dépendances
+        Buffer overflow
       
     </span>
   </a>
@@ -4985,6 +4948,28 @@ les outils associés.
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-unitaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tests unitaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-fonctionnels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tests fonctionnels
+      
+    </span>
+  </a>
   
 </li>
       
@@ -5056,7 +5041,7 @@ les outils associés.
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Gestion de projets
+    Conception Logicielle
   </span>
 
         </a>
@@ -5075,7 +5060,7 @@ les outils associés.
 
 
   
-    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/45-project-management/contribute.md" title="Editer cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/45-software-design/testing.md" title="Editer cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
     </a>
@@ -5084,444 +5069,204 @@ les outils associés.
     
       
     
-    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/45-project-management/contribute.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/45-software-design/testing.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
     </a>
   
 
 
-<h1 id="projet-open-source">Projet open-source<a class="headerlink" href="#projet-open-source" title="Lien permanent">¤</a></h1>
-<p>Le langage C est encore beaucoup utilisé dans de gros projets qui demande une grande performance. On peut notament citer les projets suivants :</p>
-<table>
-<thead>
-<tr>
-<th>Projet</th>
-<th>Watch</th>
-<th>Fork</th>
-<th>Stars</th>
-<th>Commits</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Linux</td>
-<td>7940</td>
-<td>53k</td>
-<td>177k</td>
-<td>1.3M</td>
-</tr>
-<tr>
-<td>Git</td>
-<td>2402</td>
-<td>25.4k</td>
-<td>51.6k</td>
-<td>74k</td>
-</tr>
-<tr>
-<td>Vim</td>
-<td>676</td>
-<td>5.4k</td>
-<td>35.9k</td>
-<td>20k</td>
-</tr>
-<tr>
-<td>SQLite</td>
-<td>119</td>
-<td>944k</td>
-<td>6.2k</td>
-<td>30k</td>
-</tr>
-<tr>
-<td>Gimp</td>
-<td>-</td>
-<td>434</td>
-<td>310k</td>
-<td>53k</td>
-</tr>
-<tr>
-<td>FFmpeg</td>
-<td>1438</td>
-<td>12k</td>
-<td>44.5k</td>
-<td>117k</td>
-</tr>
-<tr>
-<td>Wireshark</td>
-<td>300</td>
-<td>1.8k</td>
-<td>7k</td>
-<td>93k</td>
-</tr>
-<tr>
-<td>Nginx</td>
-<td>994</td>
-<td>6.7k</td>
-<td>21k</td>
-<td>8.2k</td>
-</tr>
-<tr>
-<td>Apache</td>
-<td>238</td>
-<td>1.1k</td>
-<td>3.5k</td>
-<td>34k</td>
-</tr>
-</tbody>
-</table>
+<h1 id="qualite-et-testabilite">Qualité et Testabilité<a class="headerlink" href="#qualite-et-testabilite" title="Lien permanent">¤</a></h1>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/y2k-bug.jpg"><img alt="Bogue de l'an 2000" src="../../../assets/images/y2k-bug.jpg"/></a><figcaption> Bogue de l'an 2000</figcaption></figure></p>
+<p>Surveiller et assurer la qualité d'un code est primordial dans toute institution et quelques soit le produit. Dans l'industrie automobile par exemple, un bogue qui serait découvert plusieurs années après la commercialisation d'un modèle d'automobile aurait des conséquences catastrophiques.</p>
+<p>Voici quelques exemples célèbres de ratés logiciels :</p>
 <dl>
-<dt><a href="https://github.com/torvalds/linux">Le noyau Linux</a></dt>
+<dt>La sonde martienne Mariner</dt>
 <dd>
-<p>Étant donné qu'il est le noyau de la plupart des distributions Linux et que Linux est présent sur des millions de serveurs, smartphones (via Android), et appareils IoT, on peut parler de milliards d'utilisateurs indirects.</p>
+<p>En 1962, un bogue logiciel a causé l'échec de la mission avec la destruction de la fusée après qu'elle ait divergé de sa trajectoire. Une formule a mal été retranscrite depuis le papier en code exécutable. Des tests suffisants auraient évité cet échec.</p>
 </dd>
-<dt><a href="https://github.com/git/git">Git</a></dt>
+<dt>Un pipeline soviétique de gaz</dt>
 <dd>
-<p>Comme le système de contrôle de version le plus populaire, utilisé par GitHub, GitLab, Bitbucket, et d'autres plateformes, il est utilisé par des dizaines de millions de développeurs dans le monde.</p>
+<p>En 1982, un bogue a été introduit dans un ordinateur canadien acheté pour le contrôle d'un pipeline de gaz transsibérien. L'erreur est reportée comme la plus large explosion jamais enregistrée d'origine non nucléaire.</p>
 </dd>
-<dt><a href="https://github.com/vim/vim">Vim</a></dt>
+<dt>Le générateur de nombre pseudo-aléatoire Kerberos</dt>
 <dd>
-<p>En tant qu'éditeur de texte, il est très populaire parmi les développeurs et les administrateurs système. Il est difficile de quantifier précisément son nombre d'utilisateurs, mais il est inclus par défaut dans de nombreuses distributions Linux et est couramment utilisé par des millions de développeurs.</p>
+<p>Kerberos est un système de sécurité utilisé par Microsoft pour chiffrer les mots de passe des comptes Windows. Une erreur de code lors de la génération d'une <a href="https://fr.wikipedia.org/wiki/Graine_al%C3%A9atoire">graine aléatoire</a> a permis de façon triviale pendant 8 ans de pénétrer n'importe quel ordinateur utilisant une authentification Kerberos.</p>
 </dd>
-<dt><a href="https://github.com/sqlite/sqlite">SQLite</a></dt>
+<dt>La division entière sur Pentium</dt>
 <dd>
-<p>Utilisé dans des milliards de dispositifs, que ce soit dans les navigateurs web, les téléphones mobiles, ou les systèmes embarqués. C’est probablement le SGBD le plus déployé au monde.</p>
-</dd>
-<dt><a href="https://gitlab.gnome.org/GNOME/gimp">Gimp</a></dt>
-<dd>
-<p>C'est une alternative open-source populaire à des logiciels comme Adobe Photoshop. Son nombre d'utilisateurs est dans l'ordre des millions, surtout parmi les amateurs de design graphique open-source.</p>
-</dd>
-<dt><a href="https://github.com/FFmpeg/FFmpeg">FFmpeg</a></dt>
-<dd>
-<p>Très utilisé dans l'industrie pour le traitement de vidéos, souvent intégré dans d'autres logiciels, ce qui rend difficile le comptage. Toutefois, son usage est très répandu dans les systèmes multimédia, donc potentiellement des centaines de millions d'utilisateurs finaux.</p>
-</dd>
-<dt><a href="https://github.com/wireshark/wireshark">Wireshark</a></dt>
-<dd>
-<p>Cet outil de capture et d'analyse de paquets réseau est indispensable pour les ingénieurs réseau et les chercheurs en sécurité, comptant probablement des millions d'utilisateurs dans ces domaines spécialisés.</p>
-</dd>
-<dt><a href="https://github.com/nginx/nginx">Nginx</a></dt>
-<dd>
-<p>Utilisé comme serveur web ou reverse proxy, il alimente une grande partie des sites web dans le monde. Selon certaines estimations, il gère plus de 30 % des sites web actifs, ce qui se traduit par des centaines de millions d'utilisateurs finaux.</p>
-</dd>
-<dt><a href="https://github.com/apache/httpd">Apache HTTP Server</a></dt>
-<dd>
-<p>Autre serveur web très populaire, il est utilisé sur une part significative des sites web. Bien que Nginx l'ait surpassé en popularité dans certains cas, Apache reste extrêmement répandu.</p>
+<p>En 1993, une erreur sur le silicium des processeurs Pentium, fleuron technologique de l'époque, menait à des erreurs de calcul en virgule flottante. Par exemple la division <span class="arithmatex">\(4195835.0/3145727.0\)</span> menait à <span class="arithmatex">\(1.33374\)</span> au lieu de <span class="arithmatex">\(1.33382\)</span></p>
 </dd>
 </dl>
-<h2 id="cas-de-figure-git">Cas de figure Git<a class="headerlink" href="#cas-de-figure-git" title="Lien permanent">¤</a></h2>
-<p>Vous souhaitez contribuer au projet Git. La première étape est de trouver le code source. Ce n'est pas une grosse difficulté. Google donne rapidement l'information que Git est hébergé sur GitHub :</p>
-<p>Il suffit alors de cloner le projet Git sur votre machine locale sans historique. Cela permet de gagner du temps et de l'espace disque.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>https://github.com/git/git.git
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>git
-</span></code></pre></div>
-<p>Un bref perçu du contenu du répertoire cloné montre des fichiers sources C, un Makefile et un fichier INSTALL. C'est tout ce qu'il nous faut.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>$<span class="w"> </span>ls
-</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>CODE_OF_CONDUCT.md<span class="w">  </span>editor.h<span class="w">            </span>merge-ort.c<span class="w">        </span>reset.h
-</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>COPYING<span class="w">             </span>entry.c<span class="w">             </span>merge-ort.h<span class="w">        </span>resolve-undo.c
-</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>Documentation<span class="w">       </span>entry.h<span class="w">             </span>merge-recursive.c<span class="w">  </span>resolve-undo.h
-</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>GIT-VERSION-GEN<span class="w">     </span>environment.c<span class="w">       </span>merge-recursive.h<span class="w">  </span>revision.c
-</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>INSTALL<span class="w">             </span>environment.h<span class="w">       </span>merge.c<span class="w">            </span>revision.h
-</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>LGPL-2.1<span class="w">            </span>ewah<span class="w">                </span>merge.h<span class="w">            </span>run-command.c
-</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>Makefile<span class="w">            </span>exec-cmd.c<span class="w">          </span>mergesort.h<span class="w">        </span>run-command.h
-</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>README.md<span class="w">           </span>exec-cmd.h<span class="w">          </span>mergetools<span class="w">         </span>sane-ctype.h
-</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>RelNotes<span class="w">            </span>fetch-negotiator.c<span class="w">  </span>midx-write.c<span class="w">       </span>scalar.c
-</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>SECURITY.md<span class="w">         </span>fetch-negotiator.h<span class="w">  </span>midx.c<span class="w">             </span>send-pack.c
-</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>abspath.c<span class="w">           </span>fetch-pack.c<span class="w">        </span>midx.h<span class="w">             </span>send-pack.h
-</span><span id="__span-1-13"><a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>...
-</span></code></pre></div>
-<p>On notera que le projet contient les fichiers bien connus :</p>
+<h2 id="square">SQuaRE<a class="headerlink" href="#square" title="Lien permanent">¤</a></h2>
+<p>La norme ISO/IEC 25010 (qui remplace ISO/IEC 9126-1) décrit les caractéristiques définissant la qualité d'un logiciel. L'acronyme <strong>SQuaRE</strong> (<em>Software product Quality Requirements and Evaluation</em>) définit le standard international. Voici quelques critères d'un code de qualité :</p>
 <ul>
-<li><code>.editorconfig</code> pour définir les règles de formatage du code</li>
-<li><code>.gitattributes</code> pour définir les attributs des fichiers</li>
-<li><code>.clang-format</code> pour définir les règles de formatage du code C</li>
-<li><code>.gitignore</code> pour ignorer les fichiers inutiles</li>
-<li><code>.gitmodules</code> pour définir les sous-modules Git</li>
-<li><code>LICENSE</code> pour la licence du projet</li>
-<li><code>COPYING</code> pour la licence du projet</li>
-<li><code>Makefile</code> pour la compilation du projet</li>
-<li><code>README.md</code> pour la documentation du projet</li>
+<li>Maintenabilié</li>
+<li>Modifiabilité</li>
+<li>Testabilité</li>
+<li>Analisabilité</li>
+<li>Stabilité</li>
+<li>Changeabilité</li>
+<li>Réutilisabilité</li>
+<li>Compréhensibilité</li>
 </ul>
-<p>Avec <code>less INSTALL</code>, on peut prendre connaissance des instructions d'installation.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>less<span class="w"> </span>INSTALL
-</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">                </span>Git<span class="w"> </span>installation
-</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>Normally<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>just<span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="s2">"make"</span><span class="w"> </span>followed<span class="w"> </span>by<span class="w"> </span><span class="s2">"make install"</span>,<span class="w"> </span>and<span class="w"> </span>that
-</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>will<span class="w"> </span>install<span class="w"> </span>the<span class="w"> </span>git<span class="w"> </span>programs<span class="w"> </span><span class="k">in</span><span class="w"> </span>your<span class="w"> </span>own<span class="w"> </span>~/bin/<span class="w"> </span>directory.<span class="w"> </span>...
-</span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>Alternatively<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>use<span class="w"> </span>autoconf<span class="w"> </span>generated<span class="w"> </span>./configure<span class="w"> </span>script<span class="w"> </span>to
-</span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>install<span class="w"> </span>paths<span class="w"> </span><span class="o">(</span>via<span class="w"> </span>config.mak.autogen<span class="o">)</span>,<span class="w"> </span>so<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>write<span class="w"> </span>instead
-</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span>$<span class="w"> </span>make<span class="w"> </span>configure<span class="w"> </span><span class="p">;</span><span class="c1"># as yourself</span>
-</span><span id="__span-2-11"><a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span>$<span class="w"> </span>./configure<span class="w"> </span>--prefix<span class="o">=</span>/usr<span class="w"> </span><span class="p">;</span><span class="c1"># as yourself</span>
-</span><span id="__span-2-12"><a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span>$<span class="w"> </span>make<span class="w"> </span>all<span class="w"> </span>doc<span class="w"> </span><span class="p">;</span><span class="c1"># as yourself</span>
-</span><span id="__span-2-13"><a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="c1"># make install install-doc install-html;# as root</span>
-</span><span id="__span-2-14"><a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>...
+<h2 id="hacking">Hacking<a class="headerlink" href="#hacking" title="Lien permanent">¤</a></h2>
+<h3 id="buffer-overflow">Buffer overflow<a class="headerlink" href="#buffer-overflow" title="Lien permanent">¤</a></h3>
+<p>L'attaque par buffer overflow est un type d'attaque typique permettant de modifier le comportement d'un programme en exploitant « le jardinage mémoire ». Lorsqu'un programme a mal été conçu et que les tests de dépassement n'ont pas été correctement implémentés, il est souvent possible d'accéder à des comportements de programmes imprévus.</p>
+<p>Considérons le programme suivant :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">check_password</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s">"starwars"</span><span class="p">))</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">        </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">"Wrong Password </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">"Correct Password </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="p">}</span>
+</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="p">{</span>
+</span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span>
+</span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">is_authorized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Password: "</span><span class="p">);</span>
+</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="n">gets</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+</span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span><span class="n">is_authorized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">check_password</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+</span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>
+</span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">is_authorized</span><span class="p">)</span>
+</span><span id="__span-0-25"><a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-0-26"><a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">        </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">"Now, you have the root access! </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-0-27"><a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-28"><a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Nous allons donc créer un préfixe local pour ne pas polluer notre système.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>mkdir<span class="w"> </span>_install
-</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>make<span class="w"> </span>configure<span class="w"> </span><span class="nv">prefix</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/_install
+<p>À priori, c'est un programme tout à fait correct. Si l'utilisateur entre le bon mot de passe, il se voit octroyer des privilèges administrateurs. Testons ce programme :</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>u.c<span class="w"> </span>-fno-stack-protector
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="gp">$ </span>./a.out
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="go">Password: starwars</span>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="go">Correct Password</span>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="go">Now, you have the root access!</span>
 </span></code></pre></div>
-<p>Le script <code>configure</code> est maintenant généré, il nous permet de configurer le projet, c'est à dire de choisir les options de compilation. Si l'on exécute configure avec l'option <code>--help</code>, on obtient la liste des options disponibles.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>./configure<span class="w"> </span>--help
-</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>...
-</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">  </span>--with-libpcre<span class="w">          </span>synonym<span class="w"> </span><span class="k">for</span><span class="w"> </span>--with-libpcre2
-</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">  </span>--with-libpcre2<span class="w">         </span>support<span class="w"> </span>Perl-compatible<span class="w"> </span>regexes<span class="w"> </span>via<span class="w"> </span>libpcre2
-</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">                          </span><span class="o">(</span>default<span class="w"> </span>is<span class="w"> </span>NO<span class="o">)</span>
-</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>...
+<p>Très bien, maintenant testons avec un mauvais mot de passe :</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="gp">$ </span>./a.out
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="go">Password: startrek</span>
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="go">Wrong Password</span>
 </span></code></pre></div>
-<p>On peut voir par exemple que Git est compilé par défaut sans <code>libpcre</code>. Cette bibliothèque permet le support avancé des expressions régulières Perl. Souvent les connaisseurs de Perl préfère cette senteur aux expressions régulières <abbr title="Portable Operating System Interface">POSIX</abbr>. Pour pouvoir l'utiliser il faut donc activer cette option, et nécessairement disposer de la bibliothèque <code>libpcre2</code> sur le système.</p>
-<p>On commence donc par installer cette bibliothèque :
-</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libpcre2-dev
+<p>Et maintenant, essayons avec un mot de passe magique...</p>
+<h2 id="tests-unitaires">Tests unitaires<a class="headerlink" href="#tests-unitaires" title="Lien permanent">¤</a></h2>
+<p>Un test unitaire est une procédure permettant de vérifier le bon fonctionnement d'une unité de code. Une unité de code est la plus petite partie d'un programme qui peut être testée de manière isolée. En C, une unité de code est souvent une fonction.</p>
+<p>Lorsque l'on travaille selon la philosophie du TDD (<em>Test Driven Development</em>), on commence par écrire les tests unitaires avant d'écrire le code. Voici par exemple un test unitaire pour la résolution d'une équation du second degré :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">quadratic_solver</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">{</span>
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="o">*</span><span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
+</span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">    </span><span class="o">*</span><span class="n">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
+</span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-3-14"><a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="p">}</span>
+</span><span id="__span-3-15"><a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="kt">void</span><span class="w"> </span><span class="nf">test_quadratic_solver</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span id="__span-3-17"><a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="p">{</span>
+</span><span id="__span-3-18"><a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">;</span>
+</span><span id="__span-3-19"><a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">    </span><span class="c1">// Cas 1 : Deux racines réelles et distinctes</span>
+</span><span id="__span-3-21"><a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">quadratic_solver</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span><span id="__span-3-22"><a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">2.0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">);</span>
+</span><span id="__span-3-23"><a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">);</span>
+</span><span id="__span-3-24"><a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a>
+</span><span id="__span-3-25"><a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">    </span><span class="c1">// Cas 2 : Deux racines réelles et égales</span>
+</span><span id="__span-3-26"><a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">quadratic_solver</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span><span id="__span-3-27"><a href="#__codelineno-3-27" id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">);</span>
+</span><span id="__span-3-28"><a href="#__codelineno-3-28" id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">);</span>
+</span><span id="__span-3-29"><a href="#__codelineno-3-29" id="__codelineno-3-29" name="__codelineno-3-29"></a>
+</span><span id="__span-3-30"><a href="#__codelineno-3-30" id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="w">    </span><span class="c1">// Cas 3 : Racines complexes (pas de solution réelle)</span>
+</span><span id="__span-3-31"><a href="#__codelineno-3-31" id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">quadratic_solver</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+</span><span id="__span-3-32"><a href="#__codelineno-3-32" id="__codelineno-3-32" name="__codelineno-3-32"></a>
+</span><span id="__span-3-33"><a href="#__codelineno-3-33" id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="w">    </span><span class="c1">// Cas 4 : a = 0 (ce n'est pas une équation quadratique)</span>
+</span><span id="__span-3-34"><a href="#__codelineno-3-34" id="__codelineno-3-34" name="__codelineno-3-34"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">quadratic_solver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+</span><span id="__span-3-35"><a href="#__codelineno-3-35" id="__codelineno-3-35" name="__codelineno-3-35"></a>
+</span><span id="__span-3-36"><a href="#__codelineno-3-36" id="__codelineno-3-36" name="__codelineno-3-36"></a><span class="w">    </span><span class="c1">// Cas 5 : Equation triviale (b = 0 et c = 0)</span>
+</span><span id="__span-3-37"><a href="#__codelineno-3-37" id="__codelineno-3-37" name="__codelineno-3-37"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">quadratic_solver</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span><span id="__span-3-38"><a href="#__codelineno-3-38" id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">);</span>
+</span><span id="__span-3-39"><a href="#__codelineno-3-39" id="__codelineno-3-39" name="__codelineno-3-39"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">);</span>
+</span><span id="__span-3-40"><a href="#__codelineno-3-40" id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Puis configurer le projet :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>$<span class="w"> </span>./configure<span class="w"> </span>--with-libpcre2<span class="w"> </span>--prefix<span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/_install
-</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>configure:<span class="w"> </span>Setting<span class="w"> </span>lib<span class="w"> </span>to<span class="w"> </span><span class="s1">'lib'</span><span class="w"> </span><span class="o">(</span>the<span class="w"> </span>default<span class="o">)</span>
-</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>configure:<span class="w"> </span>Will<span class="w"> </span>try<span class="w"> </span>-pthread<span class="w"> </span><span class="k">then</span><span class="w"> </span>-lpthread<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>POSIX<span class="w"> </span>Threads.
-</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>configure:<span class="w"> </span>CHECKS<span class="w"> </span><span class="k">for</span><span class="w"> </span>site<span class="w"> </span>configuration
-</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>gcc...<span class="w"> </span>gcc
-</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>checking<span class="w"> </span>whether<span class="w"> </span>the<span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>works...<span class="w"> </span>yes
-</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>default<span class="w"> </span>output<span class="w"> </span>file<span class="w"> </span>name...<span class="w"> </span>a.out
-</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>suffix<span class="w"> </span>of<span class="w"> </span>executables...
-</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>checking<span class="w"> </span>whether<span class="w"> </span>we<span class="w"> </span>are<span class="w"> </span>cross<span class="w"> </span>compiling...<span class="w"> </span>no
-</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>suffix<span class="w"> </span>of<span class="w"> </span>object<span class="w"> </span>files...<span class="w"> </span>o
-</span><span id="__span-6-11"><a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a>checking<span class="w"> </span>whether<span class="w"> </span>the<span class="w"> </span>compiler<span class="w"> </span>supports<span class="w"> </span>GNU<span class="w"> </span>C...<span class="w"> </span>yes
-</span><span id="__span-6-12"><a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a>checking<span class="w"> </span>whether<span class="w"> </span>gcc<span class="w"> </span>accepts<span class="w"> </span>-g...<span class="w"> </span>yes
-</span><span id="__span-6-13"><a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>gcc<span class="w"> </span>option<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>C11<span class="w"> </span>features...<span class="w"> </span>none<span class="w"> </span>needed
-</span><span id="__span-6-14"><a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>stdio.h...<span class="w"> </span>yes
-</span><span id="__span-6-15"><a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>stdlib.h...<span class="w"> </span>yes
-</span><span id="__span-6-16"><a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a>...
-</span><span id="__span-6-17"><a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>pcre2_config_8<span class="w"> </span><span class="k">in</span><span class="w"> </span>-lpcre2-8...<span class="w"> </span>yes
-</span><span id="__span-6-18"><a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a>...
-</span><span id="__span-6-19"><a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a>configure:<span class="w"> </span>creating<span class="w"> </span>./config.status
-</span><span id="__span-6-20"><a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a>config.status:<span class="w"> </span>creating<span class="w"> </span>config.mak.autogen
-</span><span id="__span-6-21"><a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a>config.status:<span class="w"> </span>executing<span class="w"> </span>config.mak.autogen<span class="w"> </span>commands
+<p>En pratique on aimerait lancer les tests unitaires automatiquement à chaque modification du code source. Pour cela, on utilisera des outils d'intégration continue comme Travis CI ou GitHub Actions.</p>
+<p>Souvent on utilise des frameworks de tests unitaires pour automatiser les tests. En C, on peut citer <a href="https://www.throwtheswitch.org/unity">Unity</a>.</p>
+<p>Reprenons l'exemple précédent avec Unity :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"unity.h"</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"quadratic_solver.h"</span>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setUp</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="kt">void</span><span class="w"> </span><span class="nf">tearDown</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="kt">void</span><span class="w"> </span><span class="nf">test_quadratic_solver</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span id="__span-4-11"><a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">{</span>
+</span><span id="__span-4-12"><a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">;</span>
+</span><span id="__span-4-13"><a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">    </span><span class="c1">// Cas 1 : Deux racines réelles et distinctes</span>
+</span><span id="__span-4-15"><a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">    </span><span class="n">TEST_ASSERT_TRUE</span><span class="p">(</span><span class="n">quadratic_solver</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x2</span><span class="p">));</span>
+</span><span id="__span-4-16"><a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">    </span><span class="n">TEST_ASSERT_FLOAT_WITHIN</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
+</span><span id="__span-4-17"><a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">    </span><span class="n">TEST_ASSERT_FLOAT_WITHIN</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span>
+</span><span id="__span-4-18"><a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a>
+</span><span id="__span-4-19"><a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">    </span><span class="c1">// Cas 2 : Deux racines réelles et égales</span>
+</span><span id="__span-4-20"><a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="w">    </span><span class="n">TEST_ASSERT_TRUE</span><span class="p">(</span><span class="n">quadratic_solver</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x2</span><span class="p">));</span>
+</span><span id="__span-4-21"><a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">    </span><span class="n">TEST_ASSERT_FLOAT_WITHIN</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span>
+</span><span id="__span-4-22"><a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="w">    </span><span class="n">TEST_ASSERT_FLOAT_WITHIN</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span>
+</span><span id="__span-4-23"><a href="#__codelineno-4-23" id="__codelineno-4-23" name="__codelineno-4-23"></a>
+</span><span id="__span-4-24"><a href="#__codelineno-4-24" id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="w">    </span><span class="c1">// Cas 3 : Racines complexes (pas de solution réelle)</span>
+</span><span id="__span-4-25"><a href="#__codelineno-4-25" id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="w">    </span><span class="n">TEST_ASSERT_FALSE</span><span class="p">(</span><span class="n">quadratic_solver</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x2</span><span class="p">));</span>
+</span><span id="__span-4-26"><a href="#__codelineno-4-26" id="__codelineno-4-26" name="__codelineno-4-26"></a>
+</span><span id="__span-4-27"><a href="#__codelineno-4-27" id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="w">    </span><span class="c1">// Cas 4 : a = 0 (ce n'est pas une équation quadratique)</span>
+</span><span id="__span-4-28"><a href="#__codelineno-4-28" id="__codelineno-4-28" name="__codelineno-4-28"></a><span class="w">    </span><span class="n">TEST_ASSERT_FALSE</span><span class="p">(</span><span class="n">quadratic_solver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x2</span><span class="p">));</span>
+</span><span id="__span-4-29"><a href="#__codelineno-4-29" id="__codelineno-4-29" name="__codelineno-4-29"></a>
+</span><span id="__span-4-30"><a href="#__codelineno-4-30" id="__codelineno-4-30" name="__codelineno-4-30"></a><span class="w">    </span><span class="c1">// Cas 5 : Equation triviale (b = 0 et c = 0)</span>
+</span><span id="__span-4-31"><a href="#__codelineno-4-31" id="__codelineno-4-31" name="__codelineno-4-31"></a><span class="w">    </span><span class="n">TEST_ASSERT_TRUE</span><span class="p">(</span><span class="n">quadratic_solver</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x2</span><span class="p">));</span>
+</span><span id="__span-4-32"><a href="#__codelineno-4-32" id="__codelineno-4-32" name="__codelineno-4-32"></a><span class="w">    </span><span class="n">TEST_ASSERT_FLOAT_WITHIN</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span>
+</span><span id="__span-4-33"><a href="#__codelineno-4-33" id="__codelineno-4-33" name="__codelineno-4-33"></a><span class="w">    </span><span class="n">TEST_ASSERT_FLOAT_WITHIN</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span>
+</span><span id="__span-4-34"><a href="#__codelineno-4-34" id="__codelineno-4-34" name="__codelineno-4-34"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>A présent, on peut compiler le projet :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>make<span class="w"> </span>-j16<span class="w"> </span><span class="nv">V</span><span class="o">=</span><span class="m">1</span>
+<h2 id="tests-fonctionnels">Tests fonctionnels<a class="headerlink" href="#tests-fonctionnels" title="Lien permanent">¤</a></h2>
+<p>Les tests fonctionnels permettent de vérifier le bon fonctionnement d'une application dans son ensemble. Ils sont souvent utilisés pour tester des applications web ou des applications mobiles. Les tests fonctionnels sont souvent automatisés et peuvent être lancés à chaque modification du code source.</p>
+<p>Dans le cadre de ce cours on utilise le framework <a href="https://heig-tin-info.github.io/baygon/">Baygon</a> pour réaliser des tests fonctionnels.</p>
+<p>Pour l'utiliser il suffit de créer un fichier <code>tests.yml</code> à la racine de votre projet :</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nt">tests</span><span class="p">:</span>
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Arguments check</span>
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="nt">tests</span><span class="p">:</span>
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">No errors if two arguments</span>
+</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">]</span>
+</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="nt">exit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+</span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Error if less than two arguments</span>
+</span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">]</span>
+</span><span id="__span-5-10"><a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">        </span><span class="nt">exit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stdout is the sum of arguments</span>
+</span><span id="__span-5-12"><a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">    </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">]</span>
+</span><span id="__span-5-13"><a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">    </span><span class="nt">stdout</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+</span><span id="__span-5-14"><a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Version on stderr</span>
+</span><span id="__span-5-15"><a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">    </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'--version'</span><span class="p p-Indicator">]</span>
+</span><span id="__span-5-16"><a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">    </span><span class="nt">stderr</span><span class="p">:</span>
+</span><span id="__span-5-17"><a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">regex</span><span class="p">:</span><span class="w"> </span><span class="s">'\b\d\.\d\.\d\b'</span>
+</span><span id="__span-5-18"><a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">contains</span><span class="p">:</span><span class="w"> </span><span class="s">'Version'</span>
 </span></code></pre></div>
-<p>L'option <code>-j16</code> permet de compiler en parallèle sur 16 threads. Cela accélère la compilation en utilisant mieux les ressources de la machine. <code>V=1</code> active le mode verbeux pour afficher les commandes exécutées ce qui peut être plus intéressant pour comprendre ce qui se passe.</p>
-<p>Analysons un peu la sortie de la commande <code>make</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>$<span class="w"> </span>make<span class="w"> </span>-j16<span class="w"> </span><span class="nv">V</span><span class="o">=</span><span class="m">1</span>
-</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nv">GIT_VERSION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>.46.GIT
-</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span>*<span class="w"> </span>new<span class="w"> </span>build<span class="w"> </span>flags
-</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span>*<span class="w"> </span>new<span class="w"> </span>link<span class="w"> </span>flags
-</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span>*<span class="w"> </span>new<span class="w"> </span>prefix<span class="w"> </span>flags
-</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>/bin/sh<span class="w"> </span>./generate-cmdlist.sh<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">         </span><span class="se">\</span>
-</span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">        </span>command-list.txt<span class="w"> </span>&gt;command-list.h
-</span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>gcc<span class="w"> </span>-o<span class="w"> </span>hex.o<span class="w"> </span>-c<span class="w"> </span>-MF<span class="w"> </span>./.depend/hex.o.d<span class="w"> </span>-MQ<span class="w"> </span>hex.o<span class="w"> </span>-MMD<span class="w"> </span>-MP<span class="w">    </span>-g<span class="w"> </span>-O2<span class="w">  </span>-I.<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>-DHAVE_SYSINFO<span class="w"> </span>-DGIT_HOST_CPU<span class="o">=</span><span class="s2">"\"x86_64\""</span><span class="w"> </span>-DUSE_LIBPCRE2<span class="w"> </span>-DHAVE_ALLOCA_H<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-8-11"><a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>-DUSE_CURL_FOR_IMAP_SEND<span class="w"> </span>-DSUPPORTS_SIMPLE_IPC<span class="w"> </span>-DSHA1_DC<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-8-12"><a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a>-DSHA1DC_NO_STANDARD_INCLUDES<span class="w"> </span>-DSHA1DC_INIT_SAFE_HASH_DEFAULT<span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-8-13"><a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a>-DSHA1DC_CUSTOM_INCLUDE_SHA1_C<span class="o">=</span><span class="s2">"\"git-compat-util.h\""</span><span class="w"> </span>-DSHA1DC_CUSTOM_INCLUDE_UBC_CHECK_C<span class="o">=</span><span class="s2">"\"git-compat-util.h\""</span><span class="w"> </span>-DSHA256_BLK<span class="w">  </span><span class="se">\</span>
-</span><span id="__span-8-14"><a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a>-DHAVE_PATHS_H<span class="w"> </span>-DHAVE_STRINGS_H<span class="w"> </span>-DHAVE_DEV_TTY<span class="w"> </span>-DHAVE_CLOCK_GETTIME<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-8-15"><a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a>-DHAVE_CLOCK_MONOTONIC<span class="w"> </span>-DHAVE_SYNC_FILE_RANGE<span class="w"> </span>-DHAVE_GETDELIM<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-8-16"><a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="s1">'-DPROCFS_EXECUTABLE_PATH="/proc/self/exe"'</span><span class="w"> </span>-DFREAD_READS_DIRECTORIES<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-8-17"><a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a>-DSHELL_PATH<span class="o">=</span><span class="s1">'"/bin/sh"'</span><span class="w">  </span>hex.c
-</span><span id="__span-8-18"><a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a>...
+<p>Il faut ensuite installer Baygon :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>baygon
 </span></code></pre></div>
-<p>On observe que Make compile tous les fichiers en appelant <code>gcc</code> avec des options spécifiques. On en connait déjà quelques unes.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>gcc
-</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">   </span>-o<span class="w"> </span>hex.o<span class="w">         </span><span class="c1"># Nom du fichier objet de sortie</span>
-</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">                    </span><span class="c1"># (généralement le nom du fichier source avec .o)</span>
-</span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">   </span>-c<span class="w">               </span><span class="c1"># Compile sans lier, juste pour générer l'objet</span>
-</span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>
-</span><span id="__span-9-6"><a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">   </span><span class="c1"># Gestion des dépendances (pour la recompilation automatique)</span>
-</span><span id="__span-9-7"><a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">   </span>-MF<span class="w"> </span>./.depend/hex.o.d<span class="w"> </span>-MQ<span class="w"> </span>hex.o<span class="w"> </span>-MMD<span class="w"> </span>-MP
-</span><span id="__span-9-8"><a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>
-</span><span id="__span-9-9"><a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">   </span>-g<span class="w">   </span><span class="c1"># Génère des informations de débogage</span>
-</span><span id="__span-9-10"><a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">   </span>-O2<span class="w">  </span><span class="c1"># Optimisation de niveau 2</span>
-</span><span id="__span-9-11"><a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">   </span>-I.<span class="w">  </span><span class="c1"># Ajoute le répertoire courant pour les #include</span>
-</span><span id="__span-9-12"><a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a>
-</span><span id="__span-9-13"><a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">   </span>-DUSE_LIBPCRE2<span class="w">  </span><span class="c1"># Définit le symbole USE_LIBPCRE2, puisque nous</span>
-</span><span id="__span-9-14"><a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">                   </span><span class="c1"># avons activé l'option --with-libpcre2</span>
-</span><span id="__span-9-15"><a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a>
-</span><span id="__span-9-16"><a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="w">    </span>hex.c<span class="w">          </span><span class="c1"># Fichier source à compiler</span>
+<p>Et lancer les tests :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>$<span class="w"> </span>baygon<span class="w"> </span>program
 </span></code></pre></div>
-<p>Les options <code>-D</code> peuvent être assez nombreuses selon le projet, elles permettent de « communiquer » avec le code source via des directives de préprocesseur. Dans le code source pour détecter si le support <code>libpcre2</code> est activé on peut trouver des lignes comme :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#ifdef USE_LIBPCRE2</span>
-</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="cp">#</span><span class="w">  </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;pcre2.h&gt;</span>
-</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="cp">#endif</span>
-</span></code></pre></div>
-<p>À la fin de la compilation, le Makefile appellera le linker pour générer l'exécutable final. On reconnait facilement la ligne car c'est celle qui contient tous les fichiers objets générés.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>gcc<span class="w"> </span>-g<span class="w"> </span>-O2<span class="w"> </span>-I.
-</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span>-o<span class="w"> </span>git<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span>git.o<span class="w"> </span>builtin/add.o<span class="w"> </span>builtin/am.o<span class="w"> </span>builtin/annotate.o<span class="w"> </span>builtin/apply.o<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span>builtin/archive.o<span class="w"> </span>builtin/bisect.o<span class="w"> </span>builtin/blame.o<span class="w"> </span>builtin/branch.o<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span>builtin/bugreport.o<span class="w"> </span>builtin/bundle.o<span class="w"> </span>builtin/cat-file.o<span class="w"> </span>builtin/check-attr.o
-</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span>builtin/check-ignore.o<span class="w"> </span>builtin/check-mailmap.o<span class="w"> </span>builtin/check-ref-format.o<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span>builtin/checkout--worker.o<span class="w"> </span>builtin/checkout-index.o<span class="w"> </span>builtin/checkout.o<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span>builtin/clean.o<span class="w"> </span>builtin/clone.o<span class="w"> </span>builtin/column.o<span class="w"> </span>builtin/commit-graph.o<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-9"><a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span>...
-</span><span id="__span-11-10"><a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span>libgit.a<span class="w"> </span>xdiff/lib.a<span class="w"> </span>reftable/libreftable.a<span class="w"> </span>libgit.a<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-11"><a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">    </span>-lpcre2-8<span class="w"> </span>-lz<span class="w">  </span>-lrt
-</span></code></pre></div>
-<p>On voit que le projet est lié avec <code>libpcre2-8</code>, <code>z</code> et <code>rt</code>. La bibliothèque <code>z</code> est la bibliothèque standard de compression <code>zlib</code>. La bibliothèque <code>rt</code> est la bibliothèque de temps réel. Les bibliothèques statiques <code>libgit.a</code>, <code>xdiff/lib.a</code>, <code>reftable/libreftable.a</code> sont des bibliothèques internes au projet qui ont été compilées en même temps que le projet.</p>
-<p>Enfin, on peut installer le projet dans le répertoire <code>_install</code> et exécuter Git :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>$<span class="w"> </span>make<span class="w"> </span>install
-</span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>$<span class="w"> </span>./_install/bin/git<span class="w"> </span>--version
-</span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>git<span class="w"> </span>version<span class="w"> </span><span class="m">2</span>.46.GIT
-</span></code></pre></div>
-<p>Comme pour la plupart des projets, ce dernier dispose d'une panoplie de tests unitaires et fonctionnels. Pour les exécuter, il suffit de lancer la commande <code>make test</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>make<span class="w"> </span><span class="nb">test</span>
-</span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span>SUBDIR<span class="w"> </span>git-gui
-</span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span>SUBDIR<span class="w"> </span>gitk-git
-</span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span>SUBDIR<span class="w"> </span>templates
-</span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>make<span class="w"> </span>-C<span class="w"> </span>t/<span class="w"> </span>all
-</span><span id="__span-13-6"><a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Entering<span class="w"> </span>directory<span class="w"> </span><span class="s1">'/home/ycr/git/t'</span>
-</span><span id="__span-13-7"><a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a>rm<span class="w"> </span>-f<span class="w"> </span>-r<span class="w"> </span><span class="s1">'test-results'</span>
-</span><span id="__span-13-8"><a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="nv">GIT_TEST_EXT_CHAIN_LINT</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span>GIT_TEST_EXT_CHAIN_LINT<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>aggregate-results-and-cleanup
-</span><span id="__span-13-9"><a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a>make<span class="o">[</span><span class="m">2</span><span class="o">]</span>:<span class="w"> </span>Entering<span class="w"> </span>directory<span class="w"> </span><span class="s1">'/home/ycr/git/t'</span>
-</span><span id="__span-13-10"><a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a>***<span class="w"> </span>t0000-basic.sh<span class="w"> </span>***
-</span><span id="__span-13-11"><a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a>ok<span class="w"> </span><span class="m">1</span><span class="w"> </span>-<span class="w"> </span>verify<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>running<span class="w"> </span>shell<span class="w"> </span>supports<span class="w"> </span><span class="s2">"local"</span>
-</span><span id="__span-13-12"><a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a>ok<span class="w"> </span><span class="m">2</span><span class="w"> </span>-<span class="w"> </span>.git/objects<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>empty<span class="w"> </span>after<span class="w"> </span>git<span class="w"> </span>init<span class="w"> </span><span class="k">in</span><span class="w"> </span>an<span class="w"> </span>empty<span class="w"> </span>repo
-</span><span id="__span-13-13"><a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a>ok<span class="w"> </span><span class="m">3</span><span class="w"> </span>-<span class="w"> </span>.git/objects<span class="w"> </span>should<span class="w"> </span>have<span class="w"> </span><span class="m">3</span><span class="w"> </span>subdirectories
-</span><span id="__span-13-14"><a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a>...
-</span><span id="__span-13-15"><a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a>ok<span class="w"> </span><span class="m">2598</span><span class="w"> </span>-<span class="w"> </span>checkout<span class="w"> </span><span class="nv">attr</span><span class="o">=</span><span class="w"> </span>ident<span class="w"> </span><span class="nv">aeol</span><span class="o">=</span>crlf<span class="w"> </span>core.autocrlf<span class="o">=</span><span class="nb">true</span><span class="w"> </span>core.eol<span class="o">=</span><span class="w"> </span><span class="nv">file</span><span class="o">=</span>LF_mix_CR
-</span><span id="__span-13-16"><a href="#__codelineno-13-16" id="__codelineno-13-16" name="__codelineno-13-16"></a>ok<span class="w"> </span><span class="m">2599</span><span class="w"> </span>-<span class="w"> </span>checkout<span class="w"> </span><span class="nv">attr</span><span class="o">=</span><span class="w"> </span>ident<span class="w"> </span><span class="nv">aeol</span><span class="o">=</span>crlf<span class="w"> </span>core.autocrlf<span class="o">=</span><span class="nb">true</span><span class="w"> </span>core.eol<span class="o">=</span><span class="w"> </span><span class="nv">file</span><span class="o">=</span>LF_nul
-</span><span id="__span-13-17"><a href="#__codelineno-13-17" id="__codelineno-13-17" name="__codelineno-13-17"></a>ok<span class="w"> </span><span class="m">2600</span><span class="w"> </span>-<span class="w"> </span>ls-files<span class="w"> </span>--eol<span class="w"> </span>-d<span class="w"> </span>-z
-</span><span id="__span-13-18"><a href="#__codelineno-13-18" id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="c1"># passed all 2600 test(s)</span>
-</span></code></pre></div>
-<p>Ce projet est assez simple à compiler et à tester. Il est bien documenté et les tests sont clairs. Néanmoins il ne dépend pas de beaucoup de bibliothèques externes. Pour des projets plus complexes, la gestion des dépendances peut être un vrai casse-tête. Prenons un autre exemple, celui de Gimp.</p>
-<h2 id="cas-de-figure-gimp">Cas de figure Gimp<a class="headerlink" href="#cas-de-figure-gimp" title="Lien permanent">¤</a></h2>
-<p>Gimp est un logiciel de retouche d'image très populaire. C'est la version libre de Adobe Photoshop. Il est écrit en C et utilise de nombreuses bibliothèques externes. Pour compiler Gimp, il faut donc installer toutes ces bibliothèques. La liste des dépendances est longue et varie selon les distributions.</p>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/gimp.png"><img alt="Gimp" src="../../../assets/images/gimp.png"/></a><figcaption> Gimp</figcaption></figure></p>
-<p>En cherchant sous Google « gimp source code », on tombe sur le site officiel :</p>
-<p><a href="https://www.gimp.org/source/">https://www.gimp.org/source/</a></p>
-<p>Il est indiqué que le code source est hébergé sur le référentiel de GNOME, un environnement de bureau libre pour les systèmes Unix. Ce site redirige sur <a href="https://developer.gimp.org/">https://developer.gimp.org/</a> où l'on trouve les instructions pour les développeurs. De liens en liens on arrive sur la page <a href="https://developer.gimp.org/core/setup/build/">Building GIMP</a> qui donne les instructions pour compiler Gimp.</p>
-<p>Il est indiqué que Gimp utilise l'environnement Meson pour la compilation. Meson est un système de build open-source qui permet de générer des fichiers de configuration pour les projets C/C++. Il est écrit en Python et est très rapide.</p>
-<p>Les <a href="https://developer.gimp.org/core/setup/build/2.99/INSTALL">instructions</a> indiquent certaines dépendences :</p>
-<dl>
-<dt>pkg-config</dt>
-<dd>
-<p>Pkg-config est un outil qui permet de récupérer les options de compilation et de liens pour les bibliothèques installées sur le système. Il sera utilisé par Meson pour trouver les bibliothèques nécessaires à la compilation.</p>
-</dd>
-<dt>gettext</dt>
-<dd>
-<p>Gettext est une bibliothèque qui permet de gérer les chaînes de caractères multilingues. Elle est utilisée par Gimp pour les traductions. C'est la bibliothèque de facto utilisée pour l'internationalisation des logiciels libres.</p>
-</dd>
-<dt>gegl et babl</dt>
-<dd>
-<p>GEGL (Generic Graphics Library) est une bibliothèque de traitement d'image non-destructif. Elle est utilisée par Gimp pour les opérations de traitement d'image. BABL est une bibliothèque de conversion de couleurs. Elle est utilisée par GEGL pour les conversions de couleurs. Ces bibliothèques sont intrinsèquement liées à Gimp.</p>
-</dd>
-<dt>gtk3</dt>
-<dd>
-<p>GTK3 est la bibliothèque graphique utilisée par Gimp pour l'interface utilisateur. Elle est basée sur le langage de programmation C et est très populaire pour les applications graphiques sous Linux. GTK3 dépend également de <code>glib</code> et <code>Pango</code>.</p>
-</dd>
-</dl>
-<p>Comme il s'agit d'un gros projet, nous allons devoir installer un certain nombre de dépendances qui ne seront pas nécessairement utiles ensuite sur notre ordinateur. La bonne approche est de s'isoler dans un environnement virtuel. Docker est une bonne alternative. Comme Gimp est développé sous Debian, nous allons utiliser une image Docker Debian pour compiler le projet.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>debian:latest
-</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">'debian:latest'</span><span class="w"> </span>locally
-</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>latest:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/debian
-</span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a>903681d87777:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span>
-</span><span id="__span-14-5"><a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>Digest:<span class="w"> </span>sha256:aadf411dc9ed5199bc7dab48b3e6ce18f8bbee4f170127f5ff1b75cd8035eb36
-</span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a>Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>debian:latest
-</span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a>root@8c6a00ea1cf7:/#
-</span></code></pre></div>
-<p>La première étape <em>Preparing for Building</em> propose d'installer le projet dans un répertoire local. Nous allons commencer par créer un dossier <code>gimp</code> et fixer quelques variables d'environnement :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>apt<span class="w"> </span>update
-</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>cmake<span class="w"> </span>make<span class="w"> </span>git<span class="w"> </span>meson<span class="w"> </span>ninja-build<span class="w"> </span>bison<span class="w"> </span>flex<span class="w"> </span>pkg-config<span class="w"> </span>gettext
-</span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>mkdir<span class="w"> </span>gimp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>gimp
-</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GIMP_DIR</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
-</span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GIMP_PREFIX</span><span class="o">=</span><span class="nv">$GIMP_DIR</span>/_install
-</span><span id="__span-16-4"><a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>
-</span><span id="__span-16-5"><a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="c1"># Assuming that you have toolchain installed</span>
-</span><span id="__span-16-6"><a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="c1"># If this don't work, so manually set the dirs</span>
-</span><span id="__span-16-7"><a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="nv">LIB_DIR</span><span class="o">=</span><span class="k">$(</span>cc<span class="w"> </span>-print-multi-os-directory<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/\.\.\///g'</span><span class="k">)</span>
-</span><span id="__span-16-8"><a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a>cc<span class="w"> </span>-print-multiarch<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">LIB_SUBDIR</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>cc<span class="w"> </span>-print-multiarch<span class="k">)</span><span class="s1">'/'</span><span class="k">)</span>
-</span><span id="__span-16-9"><a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a>
-</span><span id="__span-16-10"><a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="c1"># Used to detect the build dependencies</span>
-</span><span id="__span-16-11"><a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_SUBDIR</span><span class="si">}</span><span class="s2">pkgconfig</span><span class="si">${</span><span class="nv">PKG_CONFIG_PATH</span><span class="p">:+:</span><span class="nv">$PKG_CONFIG_PATH</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-16-12"><a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a>
-</span><span id="__span-16-13"><a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="c1"># Used to find the libraries at runtime</span>
-</span><span id="__span-16-14"><a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_SUBDIR</span><span class="si">}${</span><span class="nv">LD_LIBRARY_PATH</span><span class="p">:+:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-16-15"><a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a>
-</span><span id="__span-16-16"><a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="c1"># Used to find the glib-introspection dependencies</span>
-</span><span id="__span-16-17"><a href="#__codelineno-16-17" id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XDG_DATA_DIRS</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/share:/usr/share</span><span class="si">${</span><span class="nv">XDG_DATA_DIRS</span><span class="p">:+:</span><span class="nv">$XDG_DATA_DIRS</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-16-18"><a href="#__codelineno-16-18" id="__codelineno-16-18" name="__codelineno-16-18"></a>
-</span><span id="__span-16-19"><a href="#__codelineno-16-19" id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="c1"># Used to find introspection files</span>
-</span><span id="__span-16-20"><a href="#__codelineno-16-20" id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GI_TYPELIB_PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_SUBDIR</span><span class="si">}</span><span class="s2">girepository-1.0</span><span class="si">${</span><span class="nv">GI_TYPELIB_PATH</span><span class="p">:+:</span><span class="nv">$GI_TYPELIB_PATH</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-16-21"><a href="#__codelineno-16-21" id="__codelineno-16-21" name="__codelineno-16-21"></a>
-</span><span id="__span-16-22"><a href="#__codelineno-16-22" id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="c1"># Used by Autotools to find its tools</span>
-</span><span id="__span-16-23"><a href="#__codelineno-16-23" id="__codelineno-16-23" name="__codelineno-16-23"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ACLOCAL_FLAGS</span><span class="o">=</span><span class="s2">"-I </span><span class="nv">$GIMP_PREFIX</span><span class="s2">/share/aclocal </span><span class="nv">$ACLOCAL_FLAGS</span><span class="s2">"</span>
-</span><span id="__span-16-24"><a href="#__codelineno-16-24" id="__codelineno-16-24" name="__codelineno-16-24"></a>
-</span><span id="__span-16-25"><a href="#__codelineno-16-25" id="__codelineno-16-25" name="__codelineno-16-25"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XDG_DATA_DIRS</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/share:/usr/local/share:/usr/share"</span>
-</span><span id="__span-16-26"><a href="#__codelineno-16-26" id="__codelineno-16-26" name="__codelineno-16-26"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
-</span></code></pre></div>
-<p>En suivant la documentation, on installe quelques dépendences, sachant qu'il y en aura probablement d'autres à installer au fur et à mesure :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>apt<span class="w"> </span>install<span class="w"> </span>graphviz<span class="w"> </span>libswscale-dev<span class="w"> </span>libsuitesparse-dev<span class="w"> </span>libpng-dev<span class="w"> </span>libtiff-dev<span class="w"> </span>librsvg2-dev<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>liblcms2-dev<span class="w"> </span>libmypaint-dev<span class="w"> </span>mypaint-brushes<span class="w">  </span>libmng-dev<span class="w"> </span>libwmf-dev<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>libaa1-dev<span class="w"> </span>libgs-dev<span class="w"> </span>libheif-dev<span class="w"> </span>gobject-introspection<span class="w"> </span>libgirepository1.0-dev
-</span></code></pre></div>
-<p>500 MB plus tard, nous avons installé les dépendances de base. Nous allons maintenant cloner le projet Gimp :</p>
-<h3 id="installation-de-babl">Installation de BABL<a class="headerlink" href="#installation-de-babl" title="Lien permanent">¤</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>https://gitlab.gnome.org/GNOME/babl.git
-</span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="nb">cd</span><span class="w"> </span>babl
-</span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>meson<span class="w"> </span>setup<span class="w"> </span>--prefix<span class="w"> </span><span class="nv">$GIMP_PREFIX</span><span class="w"> </span>-Denable-gir<span class="o">=</span><span class="nb">true</span><span class="w"> </span>_build
-</span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a>ninja<span class="w"> </span>-C<span class="w"> </span>_build<span class="w"> </span>install
-</span></code></pre></div>
-<h3 id="installation-de-gegl">Installation de GEGL<a class="headerlink" href="#installation-de-gegl" title="Lien permanent">¤</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>https://gitlab.gnome.org/GNOME/gegl.git
-</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="nb">cd</span><span class="w"> </span>gegl
-</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>meson<span class="w"> </span>setup<span class="w"> </span>--prefix<span class="w"> </span><span class="nv">$GIMP_PREFIX</span><span class="w"> </span>-Dintrospection<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-Dcairo<span class="o">=</span>enabled<span class="w"> </span>-Dumfpack<span class="o">=</span>enabled<span class="w"> </span>-Dworkshop<span class="o">=</span><span class="nb">true</span><span class="w"> </span>_build
-</span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>ninja<span class="w"> </span>-C<span class="w"> </span>_build<span class="w"> </span>install
-</span></code></pre></div>
-<h3 id="installation-de-gimp">Installation de GIMP<a class="headerlink" href="#installation-de-gimp" title="Lien permanent">¤</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>--shallow-submodules<span class="w">  </span>https://gitlab.gnome.org/GNOME/gimp.git
-</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="nb">cd</span><span class="w"> </span>gimp
-</span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init
-</span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a>meson<span class="w"> </span>setup<span class="w"> </span>--prefix<span class="w"> </span><span class="nv">$GIMP_PREFIX</span><span class="w"> </span>_build
-</span><span id="__span-20-5"><a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>Run-time<span class="w"> </span>dependency<span class="w"> </span>atk<span class="w"> </span>found:<span class="w"> </span>NO<span class="w"> </span><span class="o">(</span>tried<span class="w"> </span>pkgconfig<span class="w"> </span>and<span class="w"> </span>cmake<span class="o">)</span>
-</span><span id="__span-20-6"><a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a>
-</span><span id="__span-20-7"><a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a>meson.build:364:0:<span class="w"> </span>ERROR:<span class="w"> </span>Dependency<span class="w"> </span><span class="s2">"atk"</span><span class="w"> </span>not<span class="w"> </span>found,<span class="w"> </span>tried<span class="w"> </span>pkgconfig<span class="w"> </span>and<span class="w"> </span>cmake
-</span></code></pre></div>
-<p>Nous avons un problème. La dépendance <code>atk</code> n'est pas trouvée. Un rapide coup d'oeil à la documentation nous indique que <code>atk</code> est une bibliothèque graphique et la version 2.4.0 est nécessaire. Or la version que l'on trouve sous Debian est <code>libatk1.0-dev</code> qui est la 2.30.0. Comme seule la version mineure est différente il ne devrait pas y avoir de problème de compatibilité. Nous allons donc installer la version 2.30.0 et voir si cela fonctionne.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>apt<span class="w"> </span>install<span class="w"> </span>libatk1.0-dev
-</span></code></pre></div>
-<p>Notons que la bibliothèque se nomme <code>libatk1.0-dev</code> le <code>1.0</code> est la version de l'API mais cela ne signifie pas que la version de la bibliothèque est 1.0. En fait tant que l'API est compatible, la version installée peut être plus récente. On peut noter toutefois que normalement si une version majeur change, cela signifie une rupture de compatibilité dans l'API. Ici on voit que les développeurs ont décidé de ne pas rompre la compatibilité.</p>
-<p>Rebolote, on relance la configuration de Gimp :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>meson<span class="w"> </span>setup<span class="w"> </span>--prefix<span class="w"> </span><span class="nv">$GIMP_PREFIX</span><span class="w"> </span><span class="s1">'python-fu-eval'</span><span class="w"> </span>is<span class="w"> </span>n_build
-</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>Run-time<span class="w"> </span>dependency<span class="w"> </span>exiv2<span class="w"> </span>found:<span class="w"> </span>NO<span class="w"> </span><span class="o">(</span>tried<span class="w"> </span>pkgconfig<span class="w"> </span>and<span class="w"> </span>cmake<span class="o">)</span>
-</span></code></pre></div>
-<p>On va donc installer <code>libexiv2-dev</code> et <code>libgexiv2-dev</code>. Au prochain problème, on installera la dépendance manquante et ainsi de suite jusqu'à ce que la configuration se passe sans erreur :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a>apt<span class="w"> </span>install<span class="w"> </span>libgirepository1.0-dev<span class="w"> </span>libgtk-3-dev<span class="w"> </span>glib-networking<span class="w"> </span>appstream<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>libappstream-glib-dev<span class="w"> </span>libxmu-dev<span class="w"> </span>libbz2-dev<span class="w"> </span>libpoppler-glib-dev<span class="w"> </span>python3-gi<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a>xsltproc<span class="w"> </span>xvfb<span class="w">  </span>libc6-dev<span class="w"> </span>gi-docgen<span class="w"> </span>gjs<span class="w"> </span>luajit<span class="w"> </span>libxml2-utils<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a>desktop-file-utils<span class="w"> </span>iso-codes<span class="w"> </span>libopenjp2-7-dev<span class="w"> </span>libjxl-dev<span class="w"> </span>libasound2-dev<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-23-5"><a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a>libgudev-1.0-dev<span class="w"> </span>libcfitsio-dev<span class="w"> </span>xdg-utils<span class="w"> </span>libunwind-dev<span class="w"> </span>lua5.1<span class="w"> </span>libxpm-dev<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-23-6"><a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a>libopenexr-dev<span class="w"> </span>libvala-0.56-dev<span class="w"> </span>valac<span class="w"> </span>qoi<span class="w"> </span>python3-gi<span class="w"> </span>python3-gi-cairo<span class="w"> </span>gir1.2-gtk-3.0
-</span></code></pre></div>
-<p>Une fois configuré il suffit de compiler le projet :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a>ninja<span class="w"> </span>-C<span class="w"> </span>_build<span class="w"> </span>install
-</span></code></pre></div>
-<p>Et voilà, Gimp est installé dans le répertoire <code>_install</code>.</p>
-<h3 id="reproduction">Reproduction<a class="headerlink" href="#reproduction" title="Lien permanent">¤</a></h3>
-<p>Si vous essayez de reproduire cet exemple vous aurez probablement d'autres erreurs car vous n'avez pas les mêmes version. Dans cet exemple, nous avons utilisé Debian Bookworm (12)</p>
-<dl>
-<dt>gimp</dt>
-<dd>
-<p>e89bb33408c5ed006b7b92fbb7c793dde169b02a</p>
-</dd>
-<dt>gegl</dt>
-<dd>
-<p>72d86816289c11fdd871b701827f8bf0016a7f4f</p>
-</dd>
-<dt>babl</dt>
-<dd>
-<p>c5f97c86224a473cc3fea231f17adef84580f2cc</p>
-</dd>
-</dl>
-<h3 id="dependances">Dépendances<a class="headerlink" href="#dependances" title="Lien permanent">¤</a></h3>
-<p>On voit après cet exemple que certains projets peuvent être complexes à compiler. Les problèmes récurrents sont :</p>
-<ul>
-<li>Vous ne lisez pas la documentation</li>
-<li>Vous êtes trop pressé et vous ne lisez pas les messages d'erreur</li>
-<li>Vous pensez avoir lu la documentation mais vous n'avez pas vraiment lu la documentation</li>
-</ul>
-<p>En dehors de ces quelques problèmes, il y a certaines dépendances qui dépendent de la distribution Linux/Unix que vous avez, les noms de bibliothèques ne sont pas nécessairement les mêmes, ou les version génèrent des conflits.</p>
-<p>Dans cet exemple, nous avons été contraint de compiler GEGL et BABL depuis les sources avec des options spécifiques pour être compatible avec la dernière version de Gimp sous Git</p>
-<p>Ce que nous avons vu ici c'est que les dépendances dans un projet logiciel peuvent être nombreuses.</p>
-<p>Vous pouvez vous demander pourquoi utiliser autant de bibliothèques externes ? La réponse est simple : pour ne pas réinventer la roue. Les bibliothèques externes sont souvent des projets open-source très bien maintenus et testés. Elles permettent de gagner du temps et de l'argent en réutilisant du code existant. Par exemple dans le cas de Gimp, la bibliothèque <code>aa</code> est utilisée pour convertir des images en ASCII art. La bibliothèque <code>iso-codes</code> permet de connaître les noms des pays dans différentes langues. La bibliothèque <code>heif</code> permet le support des images en format natif des iPhones récents. On peut citer <code>lcms2</code> pour la gestion des couleurs via le standard ICC, ou la bibliothèque <code>mypaint</code> pour la gestion des pinceaux et des calques de peinture.</p>
 
 
 
@@ -5544,7 +5289,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 2, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 17, 2024</span>
   </span>
 
     
@@ -5554,7 +5299,7 @@ les outils associés.
     <span class="md-icon" title="Créé">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 17, 2024</span>
   </span>
 
     
@@ -5646,7 +5391,7 @@ les outils associés.
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../dependencies/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Gestion des dépendances">
+          <a href="../licenses/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Les Licences">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -5656,20 +5401,20 @@ les outils associés.
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Gestion des dépendances
+                Les Licences
               </div>
             </div>
           </a>
         
         
           
-          <a href="../licenses/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Les Licences">
+          <a href="../../47-gui/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Interfaces graphiques">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Les Licences
+                Interfaces graphiques
               </div>
             </div>
             <div class="md-footer__button md-icon">

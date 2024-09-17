@@ -15,13 +15,13 @@ les outils associés.
         <meta name="author" content="Yves Chevallier">
       
       
-        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/45-project-management/dependencies/">
+        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/45-software-design/contribute/">
       
       
-        <link rel="prev" href="../software-project/">
+        <link rel="prev" href="../dependencies/">
       
       
-        <link rel="next" href="../contribute/">
+        <link rel="next" href="../licenses/">
       
       
         
@@ -32,7 +32,7 @@ les outils associés.
     
     
       
-        <title>Gestion des dépendances - L'informatique pour ingénieurs</title>
+        <title>Projet open-source - L'informatique pour ingénieurs</title>
       
     
     
@@ -170,7 +170,7 @@ les outils associés.
     <div data-md-component="skip">
       
         
-        <a href="#gestion-des-dependances" class="md-skip">
+        <a href="#projet-open-source" class="md-skip">
           Aller au contenu
         </a>
       
@@ -203,7 +203,7 @@ les outils associés.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gestion des dépendances
+              Projet open-source
             
           </span>
         </div>
@@ -1319,6 +1319,8 @@ les outils associés.
       
         
       
+        
+      
     
     
       
@@ -1492,6 +1494,33 @@ les outils associés.
     
   
     Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/generic-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmation générique
   
 
     
@@ -3028,7 +3057,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Gestion de projets
+    Conception Logicielle
   
 
     
@@ -3050,7 +3079,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    Gestion de projets
+    Conception Logicielle
   
 
           </label>
@@ -3116,6 +3145,33 @@ les outils associés.
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependencies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des dépendances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -3134,7 +3190,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Gestion des dépendances
+    Projet open-source
   
 
     
@@ -3151,7 +3207,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Gestion des dépendances
+    Projet open-source
   
 
     
@@ -3177,22 +3233,33 @@ les outils associés.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gestionnaire-de-dependances" class="md-nav__link">
+  <a href="#cas-de-figure-git" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gestionnaire de dépendances
+        Cas de figure Git
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Gestionnaire de dépendances">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-de-figure-gimp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas de figure Gimp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cas de figure Gimp">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#meson" class="md-nav__link">
+  <a href="#installation-de-babl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Meson
+        Installation de BABL
       
     </span>
   </a>
@@ -3200,10 +3267,10 @@ les outils associés.
 </li>
         
           <li class="md-nav__item">
-  <a href="#conan" class="md-nav__link">
+  <a href="#installation-de-gegl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conan
+        Installation de GEGL
       
     </span>
   </a>
@@ -3211,10 +3278,32 @@ les outils associés.
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#installation-de-gimp" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Installation de GIMP
+      
+    </span>
+  </a>
+  
+</li>
         
+          <li class="md-nav__item">
+  <a href="#reproduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reproduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dépendances
       
     </span>
   </a>
@@ -3230,33 +3319,6 @@ les outils associés.
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../contribute/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Projet open-source
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -4873,22 +4935,33 @@ les outils associés.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gestionnaire-de-dependances" class="md-nav__link">
+  <a href="#cas-de-figure-git" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gestionnaire de dépendances
+        Cas de figure Git
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Gestionnaire de dépendances">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-de-figure-gimp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas de figure Gimp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cas de figure Gimp">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#meson" class="md-nav__link">
+  <a href="#installation-de-babl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Meson
+        Installation de BABL
       
     </span>
   </a>
@@ -4896,10 +4969,10 @@ les outils associés.
 </li>
         
           <li class="md-nav__item">
-  <a href="#conan" class="md-nav__link">
+  <a href="#installation-de-gegl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conan
+        Installation de GEGL
       
     </span>
   </a>
@@ -4907,10 +4980,32 @@ les outils associés.
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#installation-de-gimp" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Installation de GIMP
+      
+    </span>
+  </a>
+  
+</li>
         
+          <li class="md-nav__item">
+  <a href="#reproduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reproduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dépendances
       
     </span>
   </a>
@@ -4990,7 +5085,7 @@ les outils associés.
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Gestion de projets
+    Conception Logicielle
   </span>
 
         </a>
@@ -5009,7 +5104,7 @@ les outils associés.
 
 
   
-    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/45-project-management/dependencies.md" title="Editer cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/45-software-design/contribute.md" title="Editer cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
     </a>
@@ -5018,150 +5113,444 @@ les outils associés.
     
       
     
-    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/45-project-management/dependencies.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/45-software-design/contribute.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
     </a>
   
 
 
-<h1 id="gestion-des-dependances">Gestion des dépendances<a class="headerlink" href="#gestion-des-dependances" title="Lien permanent">¤</a></h1>
-<p>Les dépendances sont des bibliothèques ou des modules qui sont utilisés dans un projet. Elles peuvent être des bibliothèques tierces, des modules internes ou des fichiers de configuration. La gestion des dépendances est un aspect important du développement logiciel, car elle permet de gérer les dépendances entre les différents composants d'un projet.</p>
-<p>Lorsque vous travaillez sur un projet en C ou d'ailleurs dans un autre langage, vous aurez souvent besoin d'utiliser des bibliothèques tierces pour étendre les fonctionnalités de votre programme et ne nous le cachons pas c'est toujours un enfer de gérer les dépendances. Nous allons voir quelques outils qui peuvent vous aider à gérer les dépendances de votre projet.</p>
-<h2 id="gestionnaire-de-dependances">Gestionnaire de dépendances<a class="headerlink" href="#gestionnaire-de-dependances" title="Lien permanent">¤</a></h2>
-<p>Imagions le projet suivant. C'est un fichier unique qui utilise les bibliothèques Curl, SQLite et PCRE. Voici le code source :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;curl/curl.h&gt;</span>
-</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sqlite3.h&gt;</span>
-</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pcre.h&gt;</span>
-</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="n">CURL</span><span class="w"> </span><span class="o">*</span><span class="n">curl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curl_easy_init</span><span class="p">();</span>
-</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">        </span><span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span><span class="w"> </span><span class="n">CURLOPT_URL</span><span class="p">,</span><span class="w"> </span><span class="s">"http://example.com"</span><span class="p">);</span>
-</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">        </span><span class="n">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">);</span>
-</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">        </span><span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">);</span>
-</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="n">sqlite3</span><span class="w"> </span><span class="o">*</span><span class="n">db</span><span class="p">;</span>
-</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sqlite3_open</span><span class="p">(</span><span class="s">":memory:"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">db</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SQLITE_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"SQLite database opened successfully.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-</span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">        </span><span class="n">sqlite3_close</span><span class="p">(</span><span class="n">db</span><span class="p">);</span>
-</span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>
-</span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">error</span><span class="p">;</span>
-</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">erroffset</span><span class="p">;</span>
-</span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span><span class="n">pcre</span><span class="w"> </span><span class="o">*</span><span class="n">re</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pcre_compile</span><span class="p">(</span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">erroffset</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-</span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">re</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"PCRE compiled successfully.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-</span><span id="__span-0-25"><a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">        </span><span class="n">pcre_free</span><span class="p">(</span><span class="n">re</span><span class="p">);</span>
-</span><span id="__span-0-26"><a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-27"><a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="p">}</span>
+<h1 id="projet-open-source">Projet open-source<a class="headerlink" href="#projet-open-source" title="Lien permanent">¤</a></h1>
+<p>Le langage C est encore beaucoup utilisé dans de gros projets qui demande une grande performance. On peut notament citer les projets suivants :</p>
+<table>
+<thead>
+<tr>
+<th>Projet</th>
+<th>Watch</th>
+<th>Fork</th>
+<th>Stars</th>
+<th>Commits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux</td>
+<td>7940</td>
+<td>53k</td>
+<td>177k</td>
+<td>1.3M</td>
+</tr>
+<tr>
+<td>Git</td>
+<td>2402</td>
+<td>25.4k</td>
+<td>51.6k</td>
+<td>74k</td>
+</tr>
+<tr>
+<td>Vim</td>
+<td>676</td>
+<td>5.4k</td>
+<td>35.9k</td>
+<td>20k</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td>119</td>
+<td>944k</td>
+<td>6.2k</td>
+<td>30k</td>
+</tr>
+<tr>
+<td>Gimp</td>
+<td>-</td>
+<td>434</td>
+<td>310k</td>
+<td>53k</td>
+</tr>
+<tr>
+<td>FFmpeg</td>
+<td>1438</td>
+<td>12k</td>
+<td>44.5k</td>
+<td>117k</td>
+</tr>
+<tr>
+<td>Wireshark</td>
+<td>300</td>
+<td>1.8k</td>
+<td>7k</td>
+<td>93k</td>
+</tr>
+<tr>
+<td>Nginx</td>
+<td>994</td>
+<td>6.7k</td>
+<td>21k</td>
+<td>8.2k</td>
+</tr>
+<tr>
+<td>Apache</td>
+<td>238</td>
+<td>1.1k</td>
+<td>3.5k</td>
+<td>34k</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt><a href="https://github.com/torvalds/linux">Le noyau Linux</a></dt>
+<dd>
+<p>Étant donné qu'il est le noyau de la plupart des distributions Linux et que Linux est présent sur des millions de serveurs, smartphones (via Android), et appareils IoT, on peut parler de milliards d'utilisateurs indirects.</p>
+</dd>
+<dt><a href="https://github.com/git/git">Git</a></dt>
+<dd>
+<p>Comme le système de contrôle de version le plus populaire, utilisé par GitHub, GitLab, Bitbucket, et d'autres plateformes, il est utilisé par des dizaines de millions de développeurs dans le monde.</p>
+</dd>
+<dt><a href="https://github.com/vim/vim">Vim</a></dt>
+<dd>
+<p>En tant qu'éditeur de texte, il est très populaire parmi les développeurs et les administrateurs système. Il est difficile de quantifier précisément son nombre d'utilisateurs, mais il est inclus par défaut dans de nombreuses distributions Linux et est couramment utilisé par des millions de développeurs.</p>
+</dd>
+<dt><a href="https://github.com/sqlite/sqlite">SQLite</a></dt>
+<dd>
+<p>Utilisé dans des milliards de dispositifs, que ce soit dans les navigateurs web, les téléphones mobiles, ou les systèmes embarqués. C’est probablement le SGBD le plus déployé au monde.</p>
+</dd>
+<dt><a href="https://gitlab.gnome.org/GNOME/gimp">Gimp</a></dt>
+<dd>
+<p>C'est une alternative open-source populaire à des logiciels comme Adobe Photoshop. Son nombre d'utilisateurs est dans l'ordre des millions, surtout parmi les amateurs de design graphique open-source.</p>
+</dd>
+<dt><a href="https://github.com/FFmpeg/FFmpeg">FFmpeg</a></dt>
+<dd>
+<p>Très utilisé dans l'industrie pour le traitement de vidéos, souvent intégré dans d'autres logiciels, ce qui rend difficile le comptage. Toutefois, son usage est très répandu dans les systèmes multimédia, donc potentiellement des centaines de millions d'utilisateurs finaux.</p>
+</dd>
+<dt><a href="https://github.com/wireshark/wireshark">Wireshark</a></dt>
+<dd>
+<p>Cet outil de capture et d'analyse de paquets réseau est indispensable pour les ingénieurs réseau et les chercheurs en sécurité, comptant probablement des millions d'utilisateurs dans ces domaines spécialisés.</p>
+</dd>
+<dt><a href="https://github.com/nginx/nginx">Nginx</a></dt>
+<dd>
+<p>Utilisé comme serveur web ou reverse proxy, il alimente une grande partie des sites web dans le monde. Selon certaines estimations, il gère plus de 30 % des sites web actifs, ce qui se traduit par des centaines de millions d'utilisateurs finaux.</p>
+</dd>
+<dt><a href="https://github.com/apache/httpd">Apache HTTP Server</a></dt>
+<dd>
+<p>Autre serveur web très populaire, il est utilisé sur une part significative des sites web. Bien que Nginx l'ait surpassé en popularité dans certains cas, Apache reste extrêmement répandu.</p>
+</dd>
+</dl>
+<h2 id="cas-de-figure-git">Cas de figure Git<a class="headerlink" href="#cas-de-figure-git" title="Lien permanent">¤</a></h2>
+<p>Vous souhaitez contribuer au projet Git. La première étape est de trouver le code source. Ce n'est pas une grosse difficulté. Google donne rapidement l'information que Git est hébergé sur GitHub :</p>
+<p>Il suffit alors de cloner le projet Git sur votre machine locale sans historique. Cela permet de gagner du temps et de l'espace disque.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>https://github.com/git/git.git
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>git
 </span></code></pre></div>
-<p>Pour gérer les dépendances de ce projet il est possible d'utiliser différents outils tels que CMake, Meson, Conan, etc.</p>
-<h3 id="meson">Meson<a class="headerlink" href="#meson" title="Lien permanent">¤</a></h3>
-<p><a href="https://mesonbuild.com/">Meson</a> est un système de build open-source conçu pour être rapide, facile à utiliser et extensible. Il est écrit en Python et est compatible avec de nombreux langages de programmation, y compris C, C++, Rust, Java, etc. Meson est particulièrement utile pour les projets C/C++ car il prend en charge la compilation croisée, la génération de fichiers de configuration et la gestion des dépendances. Il se base sur <a href="https://ninja-build.org/">Ninja</a> pour la compilation. Il s'agit d'une alternative à Make plus moderne et plus rapide.</p>
-<p>Commencez par installer Meson sur votre système :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>meson<span class="w"> </span>ninja-build<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">     </span>libcurl4-openssl-dev<span class="w"> </span>libsqlite3-dev<span class="w"> </span>libpcre3-dev
+<p>Un bref perçu du contenu du répertoire cloné montre des fichiers sources C, un Makefile et un fichier INSTALL. C'est tout ce qu'il nous faut.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>$<span class="w"> </span>ls
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>CODE_OF_CONDUCT.md<span class="w">  </span>editor.h<span class="w">            </span>merge-ort.c<span class="w">        </span>reset.h
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>COPYING<span class="w">             </span>entry.c<span class="w">             </span>merge-ort.h<span class="w">        </span>resolve-undo.c
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>Documentation<span class="w">       </span>entry.h<span class="w">             </span>merge-recursive.c<span class="w">  </span>resolve-undo.h
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>GIT-VERSION-GEN<span class="w">     </span>environment.c<span class="w">       </span>merge-recursive.h<span class="w">  </span>revision.c
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>INSTALL<span class="w">             </span>environment.h<span class="w">       </span>merge.c<span class="w">            </span>revision.h
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>LGPL-2.1<span class="w">            </span>ewah<span class="w">                </span>merge.h<span class="w">            </span>run-command.c
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>Makefile<span class="w">            </span>exec-cmd.c<span class="w">          </span>mergesort.h<span class="w">        </span>run-command.h
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>README.md<span class="w">           </span>exec-cmd.h<span class="w">          </span>mergetools<span class="w">         </span>sane-ctype.h
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>RelNotes<span class="w">            </span>fetch-negotiator.c<span class="w">  </span>midx-write.c<span class="w">       </span>scalar.c
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>SECURITY.md<span class="w">         </span>fetch-negotiator.h<span class="w">  </span>midx.c<span class="w">             </span>send-pack.c
+</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>abspath.c<span class="w">           </span>fetch-pack.c<span class="w">        </span>midx.h<span class="w">             </span>send-pack.h
+</span><span id="__span-1-13"><a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>...
 </span></code></pre></div>
-<p>Puis créer un fichier <code>meson.build</code> pour configurer le projet :</p>
-<div class="language-text highlight"><span class="filename">meson.build</span><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>project('my_project', 'c', version: '0.1.0')
-</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a># Dépendances
-</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>libcurl = dependency('libcurl', version: '&gt;=8.5')
-</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>sqlite = dependency('sqlite3', version: '&gt;=3.1')
-</span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>pcre = dependency('libpcre', version: '&gt;=8.0')
-</span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a># Sources
-</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>executable('my_project',
-</span><span id="__span-2-10"><a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>  sources: files('main.c'),
-</span><span id="__span-2-11"><a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>  dependencies: [libcurl, sqlite, pcre]
-</span><span id="__span-2-12"><a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>)
+<p>On notera que le projet contient les fichiers bien connus :</p>
+<ul>
+<li><code>.editorconfig</code> pour définir les règles de formatage du code</li>
+<li><code>.gitattributes</code> pour définir les attributs des fichiers</li>
+<li><code>.clang-format</code> pour définir les règles de formatage du code C</li>
+<li><code>.gitignore</code> pour ignorer les fichiers inutiles</li>
+<li><code>.gitmodules</code> pour définir les sous-modules Git</li>
+<li><code>LICENSE</code> pour la licence du projet</li>
+<li><code>COPYING</code> pour la licence du projet</li>
+<li><code>Makefile</code> pour la compilation du projet</li>
+<li><code>README.md</code> pour la documentation du projet</li>
+</ul>
+<p>Avec <code>less INSTALL</code>, on peut prendre connaissance des instructions d'installation.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>less<span class="w"> </span>INSTALL
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">                </span>Git<span class="w"> </span>installation
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>Normally<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>just<span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="s2">"make"</span><span class="w"> </span>followed<span class="w"> </span>by<span class="w"> </span><span class="s2">"make install"</span>,<span class="w"> </span>and<span class="w"> </span>that
+</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>will<span class="w"> </span>install<span class="w"> </span>the<span class="w"> </span>git<span class="w"> </span>programs<span class="w"> </span><span class="k">in</span><span class="w"> </span>your<span class="w"> </span>own<span class="w"> </span>~/bin/<span class="w"> </span>directory.<span class="w"> </span>...
+</span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>Alternatively<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>use<span class="w"> </span>autoconf<span class="w"> </span>generated<span class="w"> </span>./configure<span class="w"> </span>script<span class="w"> </span>to
+</span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>install<span class="w"> </span>paths<span class="w"> </span><span class="o">(</span>via<span class="w"> </span>config.mak.autogen<span class="o">)</span>,<span class="w"> </span>so<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>write<span class="w"> </span>instead
+</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span>$<span class="w"> </span>make<span class="w"> </span>configure<span class="w"> </span><span class="p">;</span><span class="c1"># as yourself</span>
+</span><span id="__span-2-11"><a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span>$<span class="w"> </span>./configure<span class="w"> </span>--prefix<span class="o">=</span>/usr<span class="w"> </span><span class="p">;</span><span class="c1"># as yourself</span>
+</span><span id="__span-2-12"><a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span>$<span class="w"> </span>make<span class="w"> </span>all<span class="w"> </span>doc<span class="w"> </span><span class="p">;</span><span class="c1"># as yourself</span>
+</span><span id="__span-2-13"><a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="c1"># make install install-doc install-html;# as root</span>
+</span><span id="__span-2-14"><a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>...
 </span></code></pre></div>
-<p>Enfin, configurez et compilez le projet avec Meson :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>$<span class="w"> </span>meson<span class="w"> </span>setup<span class="w"> </span>build
-</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>$<span class="w"> </span>ninja<span class="w"> </span>-C<span class="w"> </span>build
+<p>Nous allons donc créer un préfixe local pour ne pas polluer notre système.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>mkdir<span class="w"> </span>_install
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>make<span class="w"> </span>configure<span class="w"> </span><span class="nv">prefix</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/_install
 </span></code></pre></div>
-<p>Meson ne gère pas les dépendances tierces, il faut donc les installer manuellement. Dans notre cas, nous avons installé les dépendances avec <code>apt-get</code> avant de configurer le projet.</p>
-<h3 id="conan">Conan<a class="headerlink" href="#conan" title="Lien permanent">¤</a></h3>
-<p><a href="https://conan.io/">Conan</a> est un gestionnaire de dépendances C/C++ open-source, décentralisé et multiplateforme. Il permet de gérer les dépendances de vos projets C/C++ en automatisant le processus de téléchargement, de compilation et d'installation des bibliothèques tierces. Il est particulièrement utile sous Windows où la gestion des dépendances est souvent plus complexe.</p>
-<p>Conan est écrit en Python et est compatible avec de nombreux systèmes de build, tels que CMake, Make, Visual Studio, Xcode, etc. Pour l'installer sur votre système utilisez la commande suivante :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span>conan
+<p>Le script <code>configure</code> est maintenant généré, il nous permet de configurer le projet, c'est à dire de choisir les options de compilation. Si l'on exécute configure avec l'option <code>--help</code>, on obtient la liste des options disponibles.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>./configure<span class="w"> </span>--help
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>...
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">  </span>--with-libpcre<span class="w">          </span>synonym<span class="w"> </span><span class="k">for</span><span class="w"> </span>--with-libpcre2
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">  </span>--with-libpcre2<span class="w">         </span>support<span class="w"> </span>Perl-compatible<span class="w"> </span>regexes<span class="w"> </span>via<span class="w"> </span>libpcre2
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">                          </span><span class="o">(</span>default<span class="w"> </span>is<span class="w"> </span>NO<span class="o">)</span>
+</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>...
 </span></code></pre></div>
-<p>Imaginons que nous voulons créer un projet qui dépend des bibliothèques SQlite, Curl et PCRE. Le projet aura la structure suivante :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>project/
-</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>├── CMakeLists.txt
-</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>├── conanfile.txt
-</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>├── main.c
-</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>└── build/  (créé après la configuration)
+<p>On peut voir par exemple que Git est compilé par défaut sans <code>libpcre</code>. Cette bibliothèque permet le support avancé des expressions régulières Perl. Souvent les connaisseurs de Perl préfère cette senteur aux expressions régulières <abbr title="Portable Operating System Interface">POSIX</abbr>. Pour pouvoir l'utiliser il faut donc activer cette option, et nécessairement disposer de la bibliothèque <code>libpcre2</code> sur le système.</p>
+<p>On commence donc par installer cette bibliothèque :
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libpcre2-dev
 </span></code></pre></div>
-<p>Le fichier <code>conanfile.txt</code> contiendra les dépendances du projet :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>[requires]
-</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>libcurl/8.9.1
-</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>sqlite3/3.43.2
-</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>pcre/8.45
-</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>
-</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>[generators]
-</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>CMakeToolchain
-</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>CMakeDeps
-</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>
-</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>[options]
-</span><span id="__span-6-11"><a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a>libcurl/*:shared=True
-</span><span id="__span-6-12"><a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a>sqlite3/*:shared=True
-</span><span id="__span-6-13"><a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a>pcre/*:shared=True
+<p>Puis configurer le projet :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>$<span class="w"> </span>./configure<span class="w"> </span>--with-libpcre2<span class="w"> </span>--prefix<span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/_install
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>configure:<span class="w"> </span>Setting<span class="w"> </span>lib<span class="w"> </span>to<span class="w"> </span><span class="s1">'lib'</span><span class="w"> </span><span class="o">(</span>the<span class="w"> </span>default<span class="o">)</span>
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>configure:<span class="w"> </span>Will<span class="w"> </span>try<span class="w"> </span>-pthread<span class="w"> </span><span class="k">then</span><span class="w"> </span>-lpthread<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>POSIX<span class="w"> </span>Threads.
+</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>configure:<span class="w"> </span>CHECKS<span class="w"> </span><span class="k">for</span><span class="w"> </span>site<span class="w"> </span>configuration
+</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>gcc...<span class="w"> </span>gcc
+</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>checking<span class="w"> </span>whether<span class="w"> </span>the<span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>works...<span class="w"> </span>yes
+</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>default<span class="w"> </span>output<span class="w"> </span>file<span class="w"> </span>name...<span class="w"> </span>a.out
+</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>suffix<span class="w"> </span>of<span class="w"> </span>executables...
+</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>checking<span class="w"> </span>whether<span class="w"> </span>we<span class="w"> </span>are<span class="w"> </span>cross<span class="w"> </span>compiling...<span class="w"> </span>no
+</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>suffix<span class="w"> </span>of<span class="w"> </span>object<span class="w"> </span>files...<span class="w"> </span>o
+</span><span id="__span-6-11"><a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a>checking<span class="w"> </span>whether<span class="w"> </span>the<span class="w"> </span>compiler<span class="w"> </span>supports<span class="w"> </span>GNU<span class="w"> </span>C...<span class="w"> </span>yes
+</span><span id="__span-6-12"><a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a>checking<span class="w"> </span>whether<span class="w"> </span>gcc<span class="w"> </span>accepts<span class="w"> </span>-g...<span class="w"> </span>yes
+</span><span id="__span-6-13"><a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>gcc<span class="w"> </span>option<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>C11<span class="w"> </span>features...<span class="w"> </span>none<span class="w"> </span>needed
+</span><span id="__span-6-14"><a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>stdio.h...<span class="w"> </span>yes
+</span><span id="__span-6-15"><a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>stdlib.h...<span class="w"> </span>yes
+</span><span id="__span-6-16"><a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a>...
+</span><span id="__span-6-17"><a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>pcre2_config_8<span class="w"> </span><span class="k">in</span><span class="w"> </span>-lpcre2-8...<span class="w"> </span>yes
+</span><span id="__span-6-18"><a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a>...
+</span><span id="__span-6-19"><a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a>configure:<span class="w"> </span>creating<span class="w"> </span>./config.status
+</span><span id="__span-6-20"><a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a>config.status:<span class="w"> </span>creating<span class="w"> </span>config.mak.autogen
+</span><span id="__span-6-21"><a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a>config.status:<span class="w"> </span>executing<span class="w"> </span>config.mak.autogen<span class="w"> </span>commands
 </span></code></pre></div>
-<p>Enfin le fichier <code>CMakeLists.txt</code> contiendra les instructions pour inclure les bibliothèques dans le projet :</p>
-<div class="language-cmake highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.15</span><span class="p">)</span>
-</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="nb">project</span><span class="p">(</span><span class="s">MyProject</span><span class="w"> </span><span class="s">C</span><span class="p">)</span>
-</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>
-</span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="nb">include</span><span class="p">(</span><span class="o">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="o">}</span><span class="s">/conan_toolchain.cmake</span><span class="p">)</span>
-</span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>
-</span><span id="__span-7-6"><a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="nb">add_executable</span><span class="p">(</span><span class="s">my_project</span><span class="w"> </span><span class="s">main.c</span><span class="p">)</span>
-</span><span id="__span-7-7"><a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>
-</span><span id="__span-7-8"><a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="nb">find_package</span><span class="p">(</span><span class="s">CURL</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
-</span><span id="__span-7-9"><a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="nb">find_package</span><span class="p">(</span><span class="s">sqlite3</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
-</span><span id="__span-7-10"><a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="nb">find_package</span><span class="p">(</span><span class="s">PCRE</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
-</span><span id="__span-7-11"><a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a>
-</span><span id="__span-7-12"><a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">my_project</span><span class="w"> </span><span class="s">CURL::libcurl</span><span class="w"> </span><span class="s">sqlite3::sqlite3</span><span class="w"> </span><span class="s">PCRE::PCRE</span><span class="p">)</span>
+<p>A présent, on peut compiler le projet :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>make<span class="w"> </span>-j16<span class="w"> </span><span class="nv">V</span><span class="o">=</span><span class="m">1</span>
 </span></code></pre></div>
-<p>Commencez par compiler les dépendances avec Conan :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>conan profile detect --force
-</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>detect_api: Found cc=gcc- 13.2.0
-</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>detect_api: gcc&gt;=5, using the major as version
-</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>detect_api: gcc C++ standard library: libstdc++11
-</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>
-</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>Detected profile:
-</span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>[settings]
-</span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>arch=x86_64
-</span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>build_type=Release
-</span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>compiler=gcc
-</span><span id="__span-8-11"><a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>compiler.cppstd=gnu17
-</span><span id="__span-8-12"><a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a>compiler.libcxx=libstdc++11
-</span><span id="__span-8-13"><a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a>compiler.version=13
-</span><span id="__span-8-14"><a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a>os=Linux
+<p>L'option <code>-j16</code> permet de compiler en parallèle sur 16 threads. Cela accélère la compilation en utilisant mieux les ressources de la machine. <code>V=1</code> active le mode verbeux pour afficher les commandes exécutées ce qui peut être plus intéressant pour comprendre ce qui se passe.</p>
+<p>Analysons un peu la sortie de la commande <code>make</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>$<span class="w"> </span>make<span class="w"> </span>-j16<span class="w"> </span><span class="nv">V</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nv">GIT_VERSION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>.46.GIT
+</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span>*<span class="w"> </span>new<span class="w"> </span>build<span class="w"> </span>flags
+</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span>*<span class="w"> </span>new<span class="w"> </span>link<span class="w"> </span>flags
+</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span>*<span class="w"> </span>new<span class="w"> </span>prefix<span class="w"> </span>flags
+</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>/bin/sh<span class="w"> </span>./generate-cmdlist.sh<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">         </span><span class="se">\</span>
+</span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">        </span>command-list.txt<span class="w"> </span>&gt;command-list.h
+</span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>gcc<span class="w"> </span>-o<span class="w"> </span>hex.o<span class="w"> </span>-c<span class="w"> </span>-MF<span class="w"> </span>./.depend/hex.o.d<span class="w"> </span>-MQ<span class="w"> </span>hex.o<span class="w"> </span>-MMD<span class="w"> </span>-MP<span class="w">    </span>-g<span class="w"> </span>-O2<span class="w">  </span>-I.<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>-DHAVE_SYSINFO<span class="w"> </span>-DGIT_HOST_CPU<span class="o">=</span><span class="s2">"\"x86_64\""</span><span class="w"> </span>-DUSE_LIBPCRE2<span class="w"> </span>-DHAVE_ALLOCA_H<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-11"><a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>-DUSE_CURL_FOR_IMAP_SEND<span class="w"> </span>-DSUPPORTS_SIMPLE_IPC<span class="w"> </span>-DSHA1_DC<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-12"><a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a>-DSHA1DC_NO_STANDARD_INCLUDES<span class="w"> </span>-DSHA1DC_INIT_SAFE_HASH_DEFAULT<span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-13"><a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a>-DSHA1DC_CUSTOM_INCLUDE_SHA1_C<span class="o">=</span><span class="s2">"\"git-compat-util.h\""</span><span class="w"> </span>-DSHA1DC_CUSTOM_INCLUDE_UBC_CHECK_C<span class="o">=</span><span class="s2">"\"git-compat-util.h\""</span><span class="w"> </span>-DSHA256_BLK<span class="w">  </span><span class="se">\</span>
+</span><span id="__span-8-14"><a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a>-DHAVE_PATHS_H<span class="w"> </span>-DHAVE_STRINGS_H<span class="w"> </span>-DHAVE_DEV_TTY<span class="w"> </span>-DHAVE_CLOCK_GETTIME<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-15"><a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a>-DHAVE_CLOCK_MONOTONIC<span class="w"> </span>-DHAVE_SYNC_FILE_RANGE<span class="w"> </span>-DHAVE_GETDELIM<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-16"><a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="s1">'-DPROCFS_EXECUTABLE_PATH="/proc/self/exe"'</span><span class="w"> </span>-DFREAD_READS_DIRECTORIES<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-17"><a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a>-DSHELL_PATH<span class="o">=</span><span class="s1">'"/bin/sh"'</span><span class="w">  </span>hex.c
+</span><span id="__span-8-18"><a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a>...
 </span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>$<span class="w"> </span>conan<span class="w"> </span>install<span class="w"> </span>.<span class="w"> </span>--output-folder<span class="o">=</span>build<span class="w"> </span>--build<span class="o">=</span>missing
-</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>...
-</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="o">========</span><span class="w"> </span>Computing<span class="w"> </span>dependency<span class="w"> </span><span class="nv">graph</span><span class="w"> </span><span class="o">========</span>
-</span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>sqlite3/3.43.2:<span class="w"> </span>Not<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>cache,<span class="w"> </span>looking<span class="w"> </span><span class="k">in</span><span class="w"> </span>remotes...
-</span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>sqlite3/3.43.2:<span class="w"> </span>Checking<span class="w"> </span>remote:<span class="w"> </span>conancenter
-</span><span id="__span-9-6"><a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>sqlite3/3.43.2:<span class="w"> </span>Downloaded<span class="w"> </span>recipe<span class="w"> </span>revision<span class="w"> </span>c850734dc9724ee9aa9e5d95efd0b100
-</span><span id="__span-9-7"><a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>pcre/8.45:<span class="w"> </span>Not<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>cache,<span class="w"> </span>looking<span class="w"> </span><span class="k">in</span><span class="w"> </span>remotes...
-</span><span id="__span-9-8"><a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>pcre/8.45:<span class="w"> </span>Checking<span class="w"> </span>remote:<span class="w"> </span>conancenter
-</span><span id="__span-9-9"><a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>pcre/8.45:<span class="w"> </span>Downloaded<span class="w"> </span>recipe<span class="w"> </span>revision<span class="w"> </span>64cdfd792761c32817cd31d7967c3709
-</span><span id="__span-9-10"><a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a>bzip2/1.0.8:<span class="w"> </span>Not<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>cache,<span class="w"> </span>looking<span class="w"> </span><span class="k">in</span><span class="w"> </span>remotes...
-</span><span id="__span-9-11"><a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a>bzip2/1.0.8:<span class="w"> </span>Checking<span class="w"> </span>remote:<span class="w"> </span>conancenter
-</span><span id="__span-9-12"><a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a>bzip2/1.0.8:<span class="w"> </span>Downloaded<span class="w"> </span>recipe<span class="w"> </span>revision<span class="w"> </span>457c272f7da34cb9c67456dd217d36c4
-</span><span id="__span-9-13"><a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a>...
-</span><span id="__span-9-14"><a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a>conanfile.txt:<span class="w"> </span>Generating<span class="w"> </span>aggregated<span class="w"> </span>env<span class="w"> </span>files
-</span><span id="__span-9-15"><a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a>conanfile.txt:<span class="w"> </span>Generated<span class="w"> </span>aggregated<span class="w"> </span>env<span class="w"> </span>files:<span class="w"> </span><span class="o">[</span><span class="s1">'conanbuild.sh'</span>,<span class="w"> </span><span class="s1">'conanrun.sh'</span><span class="o">]</span>
-</span><span id="__span-9-16"><a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a>Install<span class="w"> </span>finished<span class="w"> </span>successfully
+<p>On observe que Make compile tous les fichiers en appelant <code>gcc</code> avec des options spécifiques. On en connait déjà quelques unes.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>gcc
+</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">   </span>-o<span class="w"> </span>hex.o<span class="w">         </span><span class="c1"># Nom du fichier objet de sortie</span>
+</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">                    </span><span class="c1"># (généralement le nom du fichier source avec .o)</span>
+</span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">   </span>-c<span class="w">               </span><span class="c1"># Compile sans lier, juste pour générer l'objet</span>
+</span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">   </span><span class="c1"># Gestion des dépendances (pour la recompilation automatique)</span>
+</span><span id="__span-9-7"><a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">   </span>-MF<span class="w"> </span>./.depend/hex.o.d<span class="w"> </span>-MQ<span class="w"> </span>hex.o<span class="w"> </span>-MMD<span class="w"> </span>-MP
+</span><span id="__span-9-8"><a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">   </span>-g<span class="w">   </span><span class="c1"># Génère des informations de débogage</span>
+</span><span id="__span-9-10"><a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">   </span>-O2<span class="w">  </span><span class="c1"># Optimisation de niveau 2</span>
+</span><span id="__span-9-11"><a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">   </span>-I.<span class="w">  </span><span class="c1"># Ajoute le répertoire courant pour les #include</span>
+</span><span id="__span-9-12"><a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a>
+</span><span id="__span-9-13"><a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">   </span>-DUSE_LIBPCRE2<span class="w">  </span><span class="c1"># Définit le symbole USE_LIBPCRE2, puisque nous</span>
+</span><span id="__span-9-14"><a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">                   </span><span class="c1"># avons activé l'option --with-libpcre2</span>
+</span><span id="__span-9-15"><a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a>
+</span><span id="__span-9-16"><a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="w">    </span>hex.c<span class="w">          </span><span class="c1"># Fichier source à compiler</span>
 </span></code></pre></div>
-<p>Ensuite, configurez le projet avec CMake :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>$<span class="w"> </span>cmake<span class="w"> </span>-B<span class="w"> </span>build
+<p>Les options <code>-D</code> peuvent être assez nombreuses selon le projet, elles permettent de « communiquer » avec le code source via des directives de préprocesseur. Dans le code source pour détecter si le support <code>libpcre2</code> est activé on peut trouver des lignes comme :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#ifdef USE_LIBPCRE2</span>
+</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="cp">#</span><span class="w">  </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;pcre2.h&gt;</span>
+</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="cp">#endif</span>
 </span></code></pre></div>
-<h3 id="_1"><a class="headerlink" href="#_1" title="Lien permanent">¤</a></h3>
+<p>À la fin de la compilation, le Makefile appellera le linker pour générer l'exécutable final. On reconnait facilement la ligne car c'est celle qui contient tous les fichiers objets générés.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>gcc<span class="w"> </span>-g<span class="w"> </span>-O2<span class="w"> </span>-I.
+</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span>-o<span class="w"> </span>git<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span>git.o<span class="w"> </span>builtin/add.o<span class="w"> </span>builtin/am.o<span class="w"> </span>builtin/annotate.o<span class="w"> </span>builtin/apply.o<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span>builtin/archive.o<span class="w"> </span>builtin/bisect.o<span class="w"> </span>builtin/blame.o<span class="w"> </span>builtin/branch.o<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span>builtin/bugreport.o<span class="w"> </span>builtin/bundle.o<span class="w"> </span>builtin/cat-file.o<span class="w"> </span>builtin/check-attr.o
+</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span>builtin/check-ignore.o<span class="w"> </span>builtin/check-mailmap.o<span class="w"> </span>builtin/check-ref-format.o<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span>builtin/checkout--worker.o<span class="w"> </span>builtin/checkout-index.o<span class="w"> </span>builtin/checkout.o<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span>builtin/clean.o<span class="w"> </span>builtin/clone.o<span class="w"> </span>builtin/column.o<span class="w"> </span>builtin/commit-graph.o<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-9"><a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span>...
+</span><span id="__span-11-10"><a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span>libgit.a<span class="w"> </span>xdiff/lib.a<span class="w"> </span>reftable/libreftable.a<span class="w"> </span>libgit.a<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-11"><a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">    </span>-lpcre2-8<span class="w"> </span>-lz<span class="w">  </span>-lrt
+</span></code></pre></div>
+<p>On voit que le projet est lié avec <code>libpcre2-8</code>, <code>z</code> et <code>rt</code>. La bibliothèque <code>z</code> est la bibliothèque standard de compression <code>zlib</code>. La bibliothèque <code>rt</code> est la bibliothèque de temps réel. Les bibliothèques statiques <code>libgit.a</code>, <code>xdiff/lib.a</code>, <code>reftable/libreftable.a</code> sont des bibliothèques internes au projet qui ont été compilées en même temps que le projet.</p>
+<p>Enfin, on peut installer le projet dans le répertoire <code>_install</code> et exécuter Git :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>$<span class="w"> </span>make<span class="w"> </span>install
+</span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>$<span class="w"> </span>./_install/bin/git<span class="w"> </span>--version
+</span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>git<span class="w"> </span>version<span class="w"> </span><span class="m">2</span>.46.GIT
+</span></code></pre></div>
+<p>Comme pour la plupart des projets, ce dernier dispose d'une panoplie de tests unitaires et fonctionnels. Pour les exécuter, il suffit de lancer la commande <code>make test</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>make<span class="w"> </span><span class="nb">test</span>
+</span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span>SUBDIR<span class="w"> </span>git-gui
+</span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span>SUBDIR<span class="w"> </span>gitk-git
+</span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span>SUBDIR<span class="w"> </span>templates
+</span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>make<span class="w"> </span>-C<span class="w"> </span>t/<span class="w"> </span>all
+</span><span id="__span-13-6"><a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Entering<span class="w"> </span>directory<span class="w"> </span><span class="s1">'/home/ycr/git/t'</span>
+</span><span id="__span-13-7"><a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a>rm<span class="w"> </span>-f<span class="w"> </span>-r<span class="w"> </span><span class="s1">'test-results'</span>
+</span><span id="__span-13-8"><a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="nv">GIT_TEST_EXT_CHAIN_LINT</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span>GIT_TEST_EXT_CHAIN_LINT<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>aggregate-results-and-cleanup
+</span><span id="__span-13-9"><a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a>make<span class="o">[</span><span class="m">2</span><span class="o">]</span>:<span class="w"> </span>Entering<span class="w"> </span>directory<span class="w"> </span><span class="s1">'/home/ycr/git/t'</span>
+</span><span id="__span-13-10"><a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a>***<span class="w"> </span>t0000-basic.sh<span class="w"> </span>***
+</span><span id="__span-13-11"><a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a>ok<span class="w"> </span><span class="m">1</span><span class="w"> </span>-<span class="w"> </span>verify<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>running<span class="w"> </span>shell<span class="w"> </span>supports<span class="w"> </span><span class="s2">"local"</span>
+</span><span id="__span-13-12"><a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a>ok<span class="w"> </span><span class="m">2</span><span class="w"> </span>-<span class="w"> </span>.git/objects<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>empty<span class="w"> </span>after<span class="w"> </span>git<span class="w"> </span>init<span class="w"> </span><span class="k">in</span><span class="w"> </span>an<span class="w"> </span>empty<span class="w"> </span>repo
+</span><span id="__span-13-13"><a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a>ok<span class="w"> </span><span class="m">3</span><span class="w"> </span>-<span class="w"> </span>.git/objects<span class="w"> </span>should<span class="w"> </span>have<span class="w"> </span><span class="m">3</span><span class="w"> </span>subdirectories
+</span><span id="__span-13-14"><a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a>...
+</span><span id="__span-13-15"><a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a>ok<span class="w"> </span><span class="m">2598</span><span class="w"> </span>-<span class="w"> </span>checkout<span class="w"> </span><span class="nv">attr</span><span class="o">=</span><span class="w"> </span>ident<span class="w"> </span><span class="nv">aeol</span><span class="o">=</span>crlf<span class="w"> </span>core.autocrlf<span class="o">=</span><span class="nb">true</span><span class="w"> </span>core.eol<span class="o">=</span><span class="w"> </span><span class="nv">file</span><span class="o">=</span>LF_mix_CR
+</span><span id="__span-13-16"><a href="#__codelineno-13-16" id="__codelineno-13-16" name="__codelineno-13-16"></a>ok<span class="w"> </span><span class="m">2599</span><span class="w"> </span>-<span class="w"> </span>checkout<span class="w"> </span><span class="nv">attr</span><span class="o">=</span><span class="w"> </span>ident<span class="w"> </span><span class="nv">aeol</span><span class="o">=</span>crlf<span class="w"> </span>core.autocrlf<span class="o">=</span><span class="nb">true</span><span class="w"> </span>core.eol<span class="o">=</span><span class="w"> </span><span class="nv">file</span><span class="o">=</span>LF_nul
+</span><span id="__span-13-17"><a href="#__codelineno-13-17" id="__codelineno-13-17" name="__codelineno-13-17"></a>ok<span class="w"> </span><span class="m">2600</span><span class="w"> </span>-<span class="w"> </span>ls-files<span class="w"> </span>--eol<span class="w"> </span>-d<span class="w"> </span>-z
+</span><span id="__span-13-18"><a href="#__codelineno-13-18" id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="c1"># passed all 2600 test(s)</span>
+</span></code></pre></div>
+<p>Ce projet est assez simple à compiler et à tester. Il est bien documenté et les tests sont clairs. Néanmoins il ne dépend pas de beaucoup de bibliothèques externes. Pour des projets plus complexes, la gestion des dépendances peut être un vrai casse-tête. Prenons un autre exemple, celui de Gimp.</p>
+<h2 id="cas-de-figure-gimp">Cas de figure Gimp<a class="headerlink" href="#cas-de-figure-gimp" title="Lien permanent">¤</a></h2>
+<p>Gimp est un logiciel de retouche d'image très populaire. C'est la version libre de Adobe Photoshop. Il est écrit en C et utilise de nombreuses bibliothèques externes. Pour compiler Gimp, il faut donc installer toutes ces bibliothèques. La liste des dépendances est longue et varie selon les distributions.</p>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/gimp.png"><img alt="Gimp" src="../../../assets/images/gimp.png"/></a><figcaption> Gimp</figcaption></figure></p>
+<p>En cherchant sous Google « gimp source code », on tombe sur le site officiel :</p>
+<p><a href="https://www.gimp.org/source/">https://www.gimp.org/source/</a></p>
+<p>Il est indiqué que le code source est hébergé sur le référentiel de GNOME, un environnement de bureau libre pour les systèmes Unix. Ce site redirige sur <a href="https://developer.gimp.org/">https://developer.gimp.org/</a> où l'on trouve les instructions pour les développeurs. De liens en liens on arrive sur la page <a href="https://developer.gimp.org/core/setup/build/">Building GIMP</a> qui donne les instructions pour compiler Gimp.</p>
+<p>Il est indiqué que Gimp utilise l'environnement Meson pour la compilation. Meson est un système de build open-source qui permet de générer des fichiers de configuration pour les projets C/C++. Il est écrit en Python et est très rapide.</p>
+<p>Les <a href="https://developer.gimp.org/core/setup/build/2.99/INSTALL">instructions</a> indiquent certaines dépendences :</p>
+<dl>
+<dt>pkg-config</dt>
+<dd>
+<p>Pkg-config est un outil qui permet de récupérer les options de compilation et de liens pour les bibliothèques installées sur le système. Il sera utilisé par Meson pour trouver les bibliothèques nécessaires à la compilation.</p>
+</dd>
+<dt>gettext</dt>
+<dd>
+<p>Gettext est une bibliothèque qui permet de gérer les chaînes de caractères multilingues. Elle est utilisée par Gimp pour les traductions. C'est la bibliothèque de facto utilisée pour l'internationalisation des logiciels libres.</p>
+</dd>
+<dt>gegl et babl</dt>
+<dd>
+<p>GEGL (Generic Graphics Library) est une bibliothèque de traitement d'image non-destructif. Elle est utilisée par Gimp pour les opérations de traitement d'image. BABL est une bibliothèque de conversion de couleurs. Elle est utilisée par GEGL pour les conversions de couleurs. Ces bibliothèques sont intrinsèquement liées à Gimp.</p>
+</dd>
+<dt>gtk3</dt>
+<dd>
+<p>GTK3 est la bibliothèque graphique utilisée par Gimp pour l'interface utilisateur. Elle est basée sur le langage de programmation C et est très populaire pour les applications graphiques sous Linux. GTK3 dépend également de <code>glib</code> et <code>Pango</code>.</p>
+</dd>
+</dl>
+<p>Comme il s'agit d'un gros projet, nous allons devoir installer un certain nombre de dépendances qui ne seront pas nécessairement utiles ensuite sur notre ordinateur. La bonne approche est de s'isoler dans un environnement virtuel. Docker est une bonne alternative. Comme Gimp est développé sous Debian, nous allons utiliser une image Docker Debian pour compiler le projet.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>debian:latest
+</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">'debian:latest'</span><span class="w"> </span>locally
+</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>latest:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/debian
+</span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a>903681d87777:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span>
+</span><span id="__span-14-5"><a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>Digest:<span class="w"> </span>sha256:aadf411dc9ed5199bc7dab48b3e6ce18f8bbee4f170127f5ff1b75cd8035eb36
+</span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a>Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>debian:latest
+</span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a>root@8c6a00ea1cf7:/#
+</span></code></pre></div>
+<p>La première étape <em>Preparing for Building</em> propose d'installer le projet dans un répertoire local. Nous allons commencer par créer un dossier <code>gimp</code> et fixer quelques variables d'environnement :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>apt<span class="w"> </span>update
+</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>cmake<span class="w"> </span>make<span class="w"> </span>git<span class="w"> </span>meson<span class="w"> </span>ninja-build<span class="w"> </span>bison<span class="w"> </span>flex<span class="w"> </span>pkg-config<span class="w"> </span>gettext
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>mkdir<span class="w"> </span>gimp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>gimp
+</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GIMP_DIR</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+</span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GIMP_PREFIX</span><span class="o">=</span><span class="nv">$GIMP_DIR</span>/_install
+</span><span id="__span-16-4"><a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="c1"># Assuming that you have toolchain installed</span>
+</span><span id="__span-16-6"><a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="c1"># If this don't work, so manually set the dirs</span>
+</span><span id="__span-16-7"><a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="nv">LIB_DIR</span><span class="o">=</span><span class="k">$(</span>cc<span class="w"> </span>-print-multi-os-directory<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/\.\.\///g'</span><span class="k">)</span>
+</span><span id="__span-16-8"><a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a>cc<span class="w"> </span>-print-multiarch<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">LIB_SUBDIR</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>cc<span class="w"> </span>-print-multiarch<span class="k">)</span><span class="s1">'/'</span><span class="k">)</span>
+</span><span id="__span-16-9"><a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="c1"># Used to detect the build dependencies</span>
+</span><span id="__span-16-11"><a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_SUBDIR</span><span class="si">}</span><span class="s2">pkgconfig</span><span class="si">${</span><span class="nv">PKG_CONFIG_PATH</span><span class="p">:+:</span><span class="nv">$PKG_CONFIG_PATH</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-16-12"><a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a>
+</span><span id="__span-16-13"><a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="c1"># Used to find the libraries at runtime</span>
+</span><span id="__span-16-14"><a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_SUBDIR</span><span class="si">}${</span><span class="nv">LD_LIBRARY_PATH</span><span class="p">:+:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-16-15"><a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a>
+</span><span id="__span-16-16"><a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="c1"># Used to find the glib-introspection dependencies</span>
+</span><span id="__span-16-17"><a href="#__codelineno-16-17" id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XDG_DATA_DIRS</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/share:/usr/share</span><span class="si">${</span><span class="nv">XDG_DATA_DIRS</span><span class="p">:+:</span><span class="nv">$XDG_DATA_DIRS</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-16-18"><a href="#__codelineno-16-18" id="__codelineno-16-18" name="__codelineno-16-18"></a>
+</span><span id="__span-16-19"><a href="#__codelineno-16-19" id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="c1"># Used to find introspection files</span>
+</span><span id="__span-16-20"><a href="#__codelineno-16-20" id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GI_TYPELIB_PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_SUBDIR</span><span class="si">}</span><span class="s2">girepository-1.0</span><span class="si">${</span><span class="nv">GI_TYPELIB_PATH</span><span class="p">:+:</span><span class="nv">$GI_TYPELIB_PATH</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-16-21"><a href="#__codelineno-16-21" id="__codelineno-16-21" name="__codelineno-16-21"></a>
+</span><span id="__span-16-22"><a href="#__codelineno-16-22" id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="c1"># Used by Autotools to find its tools</span>
+</span><span id="__span-16-23"><a href="#__codelineno-16-23" id="__codelineno-16-23" name="__codelineno-16-23"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ACLOCAL_FLAGS</span><span class="o">=</span><span class="s2">"-I </span><span class="nv">$GIMP_PREFIX</span><span class="s2">/share/aclocal </span><span class="nv">$ACLOCAL_FLAGS</span><span class="s2">"</span>
+</span><span id="__span-16-24"><a href="#__codelineno-16-24" id="__codelineno-16-24" name="__codelineno-16-24"></a>
+</span><span id="__span-16-25"><a href="#__codelineno-16-25" id="__codelineno-16-25" name="__codelineno-16-25"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XDG_DATA_DIRS</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/share:/usr/local/share:/usr/share"</span>
+</span><span id="__span-16-26"><a href="#__codelineno-16-26" id="__codelineno-16-26" name="__codelineno-16-26"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+</span></code></pre></div>
+<p>En suivant la documentation, on installe quelques dépendences, sachant qu'il y en aura probablement d'autres à installer au fur et à mesure :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>apt<span class="w"> </span>install<span class="w"> </span>graphviz<span class="w"> </span>libswscale-dev<span class="w"> </span>libsuitesparse-dev<span class="w"> </span>libpng-dev<span class="w"> </span>libtiff-dev<span class="w"> </span>librsvg2-dev<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>liblcms2-dev<span class="w"> </span>libmypaint-dev<span class="w"> </span>mypaint-brushes<span class="w">  </span>libmng-dev<span class="w"> </span>libwmf-dev<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>libaa1-dev<span class="w"> </span>libgs-dev<span class="w"> </span>libheif-dev<span class="w"> </span>gobject-introspection<span class="w"> </span>libgirepository1.0-dev
+</span></code></pre></div>
+<p>500 MB plus tard, nous avons installé les dépendances de base. Nous allons maintenant cloner le projet Gimp :</p>
+<h3 id="installation-de-babl">Installation de BABL<a class="headerlink" href="#installation-de-babl" title="Lien permanent">¤</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>https://gitlab.gnome.org/GNOME/babl.git
+</span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="nb">cd</span><span class="w"> </span>babl
+</span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>meson<span class="w"> </span>setup<span class="w"> </span>--prefix<span class="w"> </span><span class="nv">$GIMP_PREFIX</span><span class="w"> </span>-Denable-gir<span class="o">=</span><span class="nb">true</span><span class="w"> </span>_build
+</span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a>ninja<span class="w"> </span>-C<span class="w"> </span>_build<span class="w"> </span>install
+</span></code></pre></div>
+<h3 id="installation-de-gegl">Installation de GEGL<a class="headerlink" href="#installation-de-gegl" title="Lien permanent">¤</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>https://gitlab.gnome.org/GNOME/gegl.git
+</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="nb">cd</span><span class="w"> </span>gegl
+</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>meson<span class="w"> </span>setup<span class="w"> </span>--prefix<span class="w"> </span><span class="nv">$GIMP_PREFIX</span><span class="w"> </span>-Dintrospection<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-Dcairo<span class="o">=</span>enabled<span class="w"> </span>-Dumfpack<span class="o">=</span>enabled<span class="w"> </span>-Dworkshop<span class="o">=</span><span class="nb">true</span><span class="w"> </span>_build
+</span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>ninja<span class="w"> </span>-C<span class="w"> </span>_build<span class="w"> </span>install
+</span></code></pre></div>
+<h3 id="installation-de-gimp">Installation de GIMP<a class="headerlink" href="#installation-de-gimp" title="Lien permanent">¤</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>--shallow-submodules<span class="w">  </span>https://gitlab.gnome.org/GNOME/gimp.git
+</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="nb">cd</span><span class="w"> </span>gimp
+</span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init
+</span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a>meson<span class="w"> </span>setup<span class="w"> </span>--prefix<span class="w"> </span><span class="nv">$GIMP_PREFIX</span><span class="w"> </span>_build
+</span><span id="__span-20-5"><a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>Run-time<span class="w"> </span>dependency<span class="w"> </span>atk<span class="w"> </span>found:<span class="w"> </span>NO<span class="w"> </span><span class="o">(</span>tried<span class="w"> </span>pkgconfig<span class="w"> </span>and<span class="w"> </span>cmake<span class="o">)</span>
+</span><span id="__span-20-6"><a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a>
+</span><span id="__span-20-7"><a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a>meson.build:364:0:<span class="w"> </span>ERROR:<span class="w"> </span>Dependency<span class="w"> </span><span class="s2">"atk"</span><span class="w"> </span>not<span class="w"> </span>found,<span class="w"> </span>tried<span class="w"> </span>pkgconfig<span class="w"> </span>and<span class="w"> </span>cmake
+</span></code></pre></div>
+<p>Nous avons un problème. La dépendance <code>atk</code> n'est pas trouvée. Un rapide coup d'oeil à la documentation nous indique que <code>atk</code> est une bibliothèque graphique et la version 2.4.0 est nécessaire. Or la version que l'on trouve sous Debian est <code>libatk1.0-dev</code> qui est la 2.30.0. Comme seule la version mineure est différente il ne devrait pas y avoir de problème de compatibilité. Nous allons donc installer la version 2.30.0 et voir si cela fonctionne.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>apt<span class="w"> </span>install<span class="w"> </span>libatk1.0-dev
+</span></code></pre></div>
+<p>Notons que la bibliothèque se nomme <code>libatk1.0-dev</code> le <code>1.0</code> est la version de l'API mais cela ne signifie pas que la version de la bibliothèque est 1.0. En fait tant que l'API est compatible, la version installée peut être plus récente. On peut noter toutefois que normalement si une version majeur change, cela signifie une rupture de compatibilité dans l'API. Ici on voit que les développeurs ont décidé de ne pas rompre la compatibilité.</p>
+<p>Rebolote, on relance la configuration de Gimp :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>meson<span class="w"> </span>setup<span class="w"> </span>--prefix<span class="w"> </span><span class="nv">$GIMP_PREFIX</span><span class="w"> </span><span class="s1">'python-fu-eval'</span><span class="w"> </span>is<span class="w"> </span>n_build
+</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>Run-time<span class="w"> </span>dependency<span class="w"> </span>exiv2<span class="w"> </span>found:<span class="w"> </span>NO<span class="w"> </span><span class="o">(</span>tried<span class="w"> </span>pkgconfig<span class="w"> </span>and<span class="w"> </span>cmake<span class="o">)</span>
+</span></code></pre></div>
+<p>On va donc installer <code>libexiv2-dev</code> et <code>libgexiv2-dev</code>. Au prochain problème, on installera la dépendance manquante et ainsi de suite jusqu'à ce que la configuration se passe sans erreur :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a>apt<span class="w"> </span>install<span class="w"> </span>libgirepository1.0-dev<span class="w"> </span>libgtk-3-dev<span class="w"> </span>glib-networking<span class="w"> </span>appstream<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>libappstream-glib-dev<span class="w"> </span>libxmu-dev<span class="w"> </span>libbz2-dev<span class="w"> </span>libpoppler-glib-dev<span class="w"> </span>python3-gi<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a>xsltproc<span class="w"> </span>xvfb<span class="w">  </span>libc6-dev<span class="w"> </span>gi-docgen<span class="w"> </span>gjs<span class="w"> </span>luajit<span class="w"> </span>libxml2-utils<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a>desktop-file-utils<span class="w"> </span>iso-codes<span class="w"> </span>libopenjp2-7-dev<span class="w"> </span>libjxl-dev<span class="w"> </span>libasound2-dev<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-23-5"><a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a>libgudev-1.0-dev<span class="w"> </span>libcfitsio-dev<span class="w"> </span>xdg-utils<span class="w"> </span>libunwind-dev<span class="w"> </span>lua5.1<span class="w"> </span>libxpm-dev<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-23-6"><a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a>libopenexr-dev<span class="w"> </span>libvala-0.56-dev<span class="w"> </span>valac<span class="w"> </span>qoi<span class="w"> </span>python3-gi<span class="w"> </span>python3-gi-cairo<span class="w"> </span>gir1.2-gtk-3.0
+</span></code></pre></div>
+<p>Une fois configuré il suffit de compiler le projet :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a>ninja<span class="w"> </span>-C<span class="w"> </span>_build<span class="w"> </span>install
+</span></code></pre></div>
+<p>Et voilà, Gimp est installé dans le répertoire <code>_install</code>.</p>
+<h3 id="reproduction">Reproduction<a class="headerlink" href="#reproduction" title="Lien permanent">¤</a></h3>
+<p>Si vous essayez de reproduire cet exemple vous aurez probablement d'autres erreurs car vous n'avez pas les mêmes version. Dans cet exemple, nous avons utilisé Debian Bookworm (12)</p>
+<dl>
+<dt>gimp</dt>
+<dd>
+<p>e89bb33408c5ed006b7b92fbb7c793dde169b02a</p>
+</dd>
+<dt>gegl</dt>
+<dd>
+<p>72d86816289c11fdd871b701827f8bf0016a7f4f</p>
+</dd>
+<dt>babl</dt>
+<dd>
+<p>c5f97c86224a473cc3fea231f17adef84580f2cc</p>
+</dd>
+</dl>
+<h3 id="dependances">Dépendances<a class="headerlink" href="#dependances" title="Lien permanent">¤</a></h3>
+<p>On voit après cet exemple que certains projets peuvent être complexes à compiler. Les problèmes récurrents sont :</p>
+<ul>
+<li>Vous ne lisez pas la documentation</li>
+<li>Vous êtes trop pressé et vous ne lisez pas les messages d'erreur</li>
+<li>Vous pensez avoir lu la documentation mais vous n'avez pas vraiment lu la documentation</li>
+</ul>
+<p>En dehors de ces quelques problèmes, il y a certaines dépendances qui dépendent de la distribution Linux/Unix que vous avez, les noms de bibliothèques ne sont pas nécessairement les mêmes, ou les version génèrent des conflits.</p>
+<p>Dans cet exemple, nous avons été contraint de compiler GEGL et BABL depuis les sources avec des options spécifiques pour être compatible avec la dernière version de Gimp sous Git</p>
+<p>Ce que nous avons vu ici c'est que les dépendances dans un projet logiciel peuvent être nombreuses.</p>
+<p>Vous pouvez vous demander pourquoi utiliser autant de bibliothèques externes ? La réponse est simple : pour ne pas réinventer la roue. Les bibliothèques externes sont souvent des projets open-source très bien maintenus et testés. Elles permettent de gagner du temps et de l'argent en réutilisant du code existant. Par exemple dans le cas de Gimp, la bibliothèque <code>aa</code> est utilisée pour convertir des images en ASCII art. La bibliothèque <code>iso-codes</code> permet de connaître les noms des pays dans différentes langues. La bibliothèque <code>heif</code> permet le support des images en format natif des iPhones récents. On peut citer <code>lcms2</code> pour la gestion des couleurs via le standard ICC, ou la bibliothèque <code>mypaint</code> pour la gestion des pinceaux et des calques de peinture.</p>
 
 
 
@@ -5184,7 +5573,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 17, 2024</span>
   </span>
 
     
@@ -5286,7 +5675,7 @@ les outils associés.
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../software-project/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Organisation d&#39;un projet">
+          <a href="../dependencies/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Gestion des dépendances">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -5296,20 +5685,20 @@ les outils associés.
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Organisation d'un projet
+                Gestion des dépendances
               </div>
             </div>
           </a>
         
         
           
-          <a href="../contribute/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Projet open-source">
+          <a href="../licenses/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Les Licences">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Projet open-source
+                Les Licences
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -1600,6 +1600,8 @@ les outils associés.
       
         
       
+        
+      
     
     
       
@@ -1773,6 +1775,33 @@ les outils associés.
     
   
     Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/generic-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmation générique
   
 
     
@@ -3301,13 +3330,13 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../45-project-management/" class="md-nav__link ">
+            <a href="../../45-software-design/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
     
   
-    Gestion de projets
+    Conception Logicielle
   
 
     
@@ -3329,7 +3358,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    Gestion de projets
+    Conception Logicielle
   
 
           </label>
@@ -3344,7 +3373,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-project-management/teamwork/" class="md-nav__link">
+      <a href="../../45-software-design/teamwork/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3371,7 +3400,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-project-management/software-project/" class="md-nav__link">
+      <a href="../../45-software-design/software-project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3398,7 +3427,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-project-management/dependencies/" class="md-nav__link">
+      <a href="../../45-software-design/dependencies/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3425,7 +3454,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-project-management/contribute/" class="md-nav__link">
+      <a href="../../45-software-design/contribute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3452,7 +3481,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-project-management/licenses/" class="md-nav__link">
+      <a href="../../45-software-design/licenses/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3479,7 +3508,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-project-management/testing/" class="md-nav__link">
+      <a href="../../45-software-design/testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5727,6 +5756,7 @@ les outils associés.
 <p><a href="" id="switch"></a></p>
 <h3 id="switch_1"><code>switch</code><a class="headerlink" href="#switch_1" title="Lien permanent">¤</a></h3>
 <p>L'instruction <code>switch</code> n'est pas fondamentale et certains langages de programmation ne la définissent pas. Elle permet essentiellement de simplifier l'écriture pour minimiser les répétitions. On l'utilise lorsque les conditions multiples portent toujours sur la même variable. Par exemple, le code suivant peut être réécrit plus simplement en utilisant un <code>switch</code> :</p>
+<p><figure id="_figure-2"><img alt="Switch Case BPMN" class="drawio-diagram" src="../../../assets/images/switch-case.drawio"/><figcaption> Switch Case BPMN</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">defcon</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 </span><span id="__span-29-2"><a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Guerre nucléaire imminente"</span><span class="p">);</span>
 </span><span id="__span-29-3"><a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">defcon</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
@@ -5815,28 +5845,95 @@ les outils associés.
 </span><span id="__span-32-29"><a href="#__codelineno-32-29" id="__codelineno-32-29" name="__codelineno-32-29"></a><span class="w">        </span><span class="c1">// Erreur : mois invalide</span>
 </span><span id="__span-32-30"><a href="#__codelineno-32-30" id="__codelineno-32-30" name="__codelineno-32-30"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Appareil de Duff</p>
+<h4 id="declaration-de-variables">Déclaration de variables<a class="headerlink" href="#declaration-de-variables" title="Lien permanent">¤</a></h4>
+<p>Il faut comprendre que la structure <code>switch</code> est un peu particulière. Le <code>switch</code> agit comme un bloc, la déclaration de variable est possible à n'importe quel endroit du bloc, mais toutes les lignes de ce bloc ne seront pas exécutées puisque le <code>switch</code> utilisera les labels pour sauter à la bonne instruction. Considérons l'exemple suivant :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-33-2"><a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="w">   </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-33-3"><a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span>
+</span><span id="__span-33-4"><a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+</span><span id="__span-33-5"><a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</span><span id="__span-33-6"><a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="w">         </span><span class="n">printf</span><span class="p">(</span><span class="s">"0. %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+</span><span id="__span-33-7"><a href="#__codelineno-33-7" id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="w">         </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-33-8"><a href="#__codelineno-33-8" id="__codelineno-33-8" name="__codelineno-33-8"></a><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+</span><span id="__span-33-9"><a href="#__codelineno-33-9" id="__codelineno-33-9" name="__codelineno-33-9"></a><span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span>
+</span><span id="__span-33-10"><a href="#__codelineno-33-10" id="__codelineno-33-10" name="__codelineno-33-10"></a><span class="w">         </span><span class="n">printf</span><span class="p">(</span><span class="s">"1. %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+</span><span id="__span-33-11"><a href="#__codelineno-33-11" id="__codelineno-33-11" name="__codelineno-33-11"></a><span class="w">         </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-33-12"><a href="#__codelineno-33-12" id="__codelineno-33-12" name="__codelineno-33-12"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-33-13"><a href="#__codelineno-33-13" id="__codelineno-33-13" name="__codelineno-33-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>À la compilation on notera l'erreur suivante :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a>test.c: In function ‘main’:
+</span><span id="__span-34-2"><a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a>test.c:5:11: warning: statement will never be executed [-Wswitch-unreachable]
+</span><span id="__span-34-3"><a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a>    5 |       int i = 23;
+</span><span id="__span-34-4"><a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a>      |           ^
+</span></code></pre></div>
+<p>En effet, cette instruction se trouve avant le premier label <code>case</code> et ne sera donc jamais exécuté. La variable est belle et bien déclarée, mais elle ne sera pas initialisée.</p>
+<p>En outre, la déclaration de <code>j = 23</code> pose également problème, l'erreur de compilation suivante apparaît :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a>test.c: In function ‘main’:
+</span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a>test.c:11:14: error: redefinition of ‘j’
+</span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a>   11 |          int j = 23;
+</span><span id="__span-35-4"><a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a>      |              ^
+</span><span id="__span-35-5"><a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a>test.c:7:14: note: previous definition of ‘j’ with type ‘int’
+</span><span id="__span-35-6"><a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a>    7 |          int j = 42;
+</span><span id="__span-35-7"><a href="#__codelineno-35-7" id="__codelineno-35-7" name="__codelineno-35-7"></a>      |            ^
+</span></code></pre></div>
+<p>Vous savez qu'il n'est pas possible de redéclarer une variable déjà existante dans le même bloc. La solution à ce problème est de déclarer les variables propres à un cas dans un bloc séparé. Notez que la variable <code>k</code> n'étant utilisée qu'une fois, elle peut être dans le contexte global du <code>switch</code> mais situé après le premier label <code>case</code>. En pratique, n'essayez pas de jouer avec les limites de la syntaxe, cela ne fera que rendre votre code plus difficile à lire et à maintenir.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a>
+</span><span id="__span-36-3"><a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-36-4"><a href="#__codelineno-36-4" id="__codelineno-36-4" name="__codelineno-36-4"></a><span class="w">   </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-36-5"><a href="#__codelineno-36-5" id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+</span><span id="__span-36-6"><a href="#__codelineno-36-6" id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-36-7"><a href="#__codelineno-36-7" id="__codelineno-36-7" name="__codelineno-36-7"></a><span class="w">         </span><span class="p">{</span>
+</span><span id="__span-36-8"><a href="#__codelineno-36-8" id="__codelineno-36-8" name="__codelineno-36-8"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span>
+</span><span id="__span-36-9"><a href="#__codelineno-36-9" id="__codelineno-36-9" name="__codelineno-36-9"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</span><span id="__span-36-10"><a href="#__codelineno-36-10" id="__codelineno-36-10" name="__codelineno-36-10"></a><span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">"0. %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="p">);</span>
+</span><span id="__span-36-11"><a href="#__codelineno-36-11" id="__codelineno-36-11" name="__codelineno-36-11"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-36-12"><a href="#__codelineno-36-12" id="__codelineno-36-12" name="__codelineno-36-12"></a><span class="w">         </span><span class="p">}</span>
+</span><span id="__span-36-13"><a href="#__codelineno-36-13" id="__codelineno-36-13" name="__codelineno-36-13"></a><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-36-14"><a href="#__codelineno-36-14" id="__codelineno-36-14" name="__codelineno-36-14"></a><span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span>
+</span><span id="__span-36-15"><a href="#__codelineno-36-15" id="__codelineno-36-15" name="__codelineno-36-15"></a><span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span>
+</span><span id="__span-36-16"><a href="#__codelineno-36-16" id="__codelineno-36-16" name="__codelineno-36-16"></a><span class="w">         </span><span class="n">printf</span><span class="p">(</span><span class="s">"1. %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+</span><span id="__span-36-17"><a href="#__codelineno-36-17" id="__codelineno-36-17" name="__codelineno-36-17"></a><span class="w">         </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-36-18"><a href="#__codelineno-36-18" id="__codelineno-36-18" name="__codelineno-36-18"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-36-19"><a href="#__codelineno-36-19" id="__codelineno-36-19" name="__codelineno-36-19"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-36-20"><a href="#__codelineno-36-20" id="__codelineno-36-20" name="__codelineno-36-20"></a><span class="p">}</span>
+</span></code></pre></div>
+<h4 id="imbrication">Imbrication<a class="headerlink" href="#imbrication" title="Lien permanent">¤</a></h4>
+<p>Il est possible d'imbriquer différents niveaux dans un switch :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-37-1"><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="k">switch</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-37-2"><a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">100</span><span class="p">:</span>
+</span><span id="__span-37-3"><a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-37-4"><a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">200</span><span class="p">:</span>
+</span><span id="__span-37-5"><a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a><span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">"a=100, b=200</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-37-6"><a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a><span class="w">                </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-37-7"><a href="#__codelineno-37-7" id="__codelineno-37-7" name="__codelineno-37-7"></a><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">300</span><span class="p">:</span>
+</span><span id="__span-37-8"><a href="#__codelineno-37-8" id="__codelineno-37-8" name="__codelineno-37-8"></a><span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">"a=100, b=300</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-37-9"><a href="#__codelineno-37-9" id="__codelineno-37-9" name="__codelineno-37-9"></a><span class="w">                </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-37-10"><a href="#__codelineno-37-10" id="__codelineno-37-10" name="__codelineno-37-10"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-37-11"><a href="#__codelineno-37-11" id="__codelineno-37-11" name="__codelineno-37-11"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-37-12"><a href="#__codelineno-37-12" id="__codelineno-37-12" name="__codelineno-37-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<h4 id="appareil-de-duff">Appareil de Duff<a class="headerlink" href="#appareil-de-duff" title="Lien permanent">¤</a></h4>
 <p>Le <a href="https://en.wikipedia.org/wiki/Duff%27s_device">Duff's device</a> est une technique d'optimisation assez originale en langage C, qui permet de dérouler une boucle de manière partiellement manuelle, dans le but de gagner en performance, notamment sur des architectures matérielles plus anciennes. Il a été inventé par Tom Duff en 1983 lorsqu'il travaillait chez Lucasfilm.</p>
 <p>L'objectif du Duff's device est de dérouler manuellement une boucle afin de réduire le nombre d'itérations et d'optimiser l'exécution, notamment dans les situations où le coût d'un saut conditionnel dans une boucle pouvait être élevé. Cette optimisation est souvent appelée unrolling, où plusieurs itérations de la boucle sont « fusionnées » en une seule.</p>
 <p>La particularité du Duff's device est qu'il combine à la fois une structure de boucle <code>while</code> et un <code>switch</code> de manière surprenante et astucieuse. Voici à quoi ressemble le code original :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="k">register</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w">  </span><span class="c1">// Nombre d'itérations par paquet de 8</span>
-</span><span id="__span-33-2"><a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="k">register</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dest</span><span class="p">;</span>
-</span><span id="__span-33-3"><a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="k">register</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">;</span>
-</span><span id="__span-33-4"><a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a>
-</span><span id="__span-33-5"><a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// Détermine le point d'entrée initial dans la boucle</span>
-</span><span id="__span-33-6"><a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
-</span><span id="__span-33-7"><a href="#__codelineno-33-7" id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">7</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
-</span><span id="__span-33-8"><a href="#__codelineno-33-8" id="__codelineno-33-8" name="__codelineno-33-8"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">6</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
-</span><span id="__span-33-9"><a href="#__codelineno-33-9" id="__codelineno-33-9" name="__codelineno-33-9"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">5</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
-</span><span id="__span-33-10"><a href="#__codelineno-33-10" id="__codelineno-33-10" name="__codelineno-33-10"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
-</span><span id="__span-33-11"><a href="#__codelineno-33-11" id="__codelineno-33-11" name="__codelineno-33-11"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
-</span><span id="__span-33-12"><a href="#__codelineno-33-12" id="__codelineno-33-12" name="__codelineno-33-12"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
-</span><span id="__span-33-13"><a href="#__codelineno-33-13" id="__codelineno-33-13" name="__codelineno-33-13"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
-</span><span id="__span-33-14"><a href="#__codelineno-33-14" id="__codelineno-33-14" name="__codelineno-33-14"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">--</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-</span><span id="__span-33-15"><a href="#__codelineno-33-15" id="__codelineno-33-15" name="__codelineno-33-15"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="k">register</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w">  </span><span class="c1">// Nombre d'itérations par paquet de 8</span>
+</span><span id="__span-38-2"><a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="k">register</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dest</span><span class="p">;</span>
+</span><span id="__span-38-3"><a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="k">register</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">;</span>
+</span><span id="__span-38-4"><a href="#__codelineno-38-4" id="__codelineno-38-4" name="__codelineno-38-4"></a>
+</span><span id="__span-38-5"><a href="#__codelineno-38-5" id="__codelineno-38-5" name="__codelineno-38-5"></a><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// Détermine le point d'entrée initial dans la boucle</span>
+</span><span id="__span-38-6"><a href="#__codelineno-38-6" id="__codelineno-38-6" name="__codelineno-38-6"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-38-7"><a href="#__codelineno-38-7" id="__codelineno-38-7" name="__codelineno-38-7"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">7</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-38-8"><a href="#__codelineno-38-8" id="__codelineno-38-8" name="__codelineno-38-8"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">6</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-38-9"><a href="#__codelineno-38-9" id="__codelineno-38-9" name="__codelineno-38-9"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">5</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-38-10"><a href="#__codelineno-38-10" id="__codelineno-38-10" name="__codelineno-38-10"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-38-11"><a href="#__codelineno-38-11" id="__codelineno-38-11" name="__codelineno-38-11"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-38-12"><a href="#__codelineno-38-12" id="__codelineno-38-12" name="__codelineno-38-12"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-38-13"><a href="#__codelineno-38-13" id="__codelineno-38-13" name="__codelineno-38-13"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w">      </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-38-14"><a href="#__codelineno-38-14" id="__codelineno-38-14" name="__codelineno-38-14"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">--</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-38-15"><a href="#__codelineno-38-15" id="__codelineno-38-15" name="__codelineno-38-15"></a><span class="p">}</span>
 </span></code></pre></div>
-</div>
 <h4 id="resume-des-points-cles">Résumé des points clés<a class="headerlink" href="#resume-des-points-cles" title="Lien permanent">¤</a></h4>
 <ul>
 <li>La structure <code>switch</code> bien qu'elle puisse toujours être remplacée par une structure <code>if..else if</code> est généralement plus élégante et plus lisible. Elle évite par ailleurs de répéter la condition plusieurs fois (c.f. <a class="autorefs autorefs-internal" href="../../50-philosophy/philosophy/#dry_1">DRY</a>).</li>
@@ -5848,7 +5945,7 @@ les outils associés.
 </ul>
 <p><a href="" id="loops"></a></p>
 <h2 id="les-boucles">Les boucles<a class="headerlink" href="#les-boucles" title="Lien permanent">¤</a></h2>
-<p><figure id="_figure-2"><img alt="Bien choisir sa structure de contrôle" class="drawio-diagram" src="../../../assets/images/road-runner.drawio"/><figcaption> Bien choisir sa structure de contrôle</figcaption></figure></p>
+<p><figure id="_figure-3"><img alt="Bien choisir sa structure de contrôle" class="drawio-diagram" src="../../../assets/images/road-runner.drawio"/><figcaption> Bien choisir sa structure de contrôle</figcaption></figure></p>
 <p>Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :</p>
 <ol>
 <li><code class="language-c highlight"><span class="k">for</span></code></li>
@@ -5856,15 +5953,15 @@ les outils associés.
 <li><code class="language-c highlight"><span class="k">do</span></code> .. <code class="language-c highlight"><span class="k">while</span></code></li>
 </ol>
 <p>Elles peuvent être représentées par les diagrammes de flux suivants :</p>
-<p><figure id="_figure-3"><img alt="Aperçu des trois structures de boucles" class="drawio-diagram" src="../../../assets/images/for.drawio"/><figcaption> Aperçu des trois structures de boucles</figcaption></figure></p>
+<p><figure id="_figure-4"><img alt="Aperçu des trois structures de boucles" class="drawio-diagram" src="../../../assets/images/for.drawio"/><figcaption> Aperçu des trois structures de boucles</figcaption></figure></p>
 <p>On observe que quelque soit la structure de boucle, une <strong>condition de maintien</strong> est nécessaire. Cette condition est évaluée avant ou après l'exécution de la séquence. Si la condition est fausse, la séquence est interrompue et le programme continue son exécution.</p>
 <p><a href="" id="loop-while"></a></p>
 <h3 id="while">while<a class="headerlink" href="#while" title="Lien permanent">¤</a></h3>
 <p>La structure <code>while</code> répète une séquence <strong>tant que</strong> la condition est vraie. Dans l'exemple suivant, tant que le poids d'un objet déposé sur une balance est inférieur à une valeur constante, une masse est ajoutée et le système patiente avant stabilisation.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">get_weight</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">420</span><span class="w"> </span><span class="cm">/* newtons */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-34-2"><a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="w">    </span><span class="n">add_one_kg</span><span class="p">();</span>
-</span><span id="__span-34-3"><a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="cm">/* seconds */</span><span class="p">);</span>
-</span><span id="__span-34-4"><a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-39-1"><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">get_weight</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">420</span><span class="w"> </span><span class="cm">/* newtons */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-39-2"><a href="#__codelineno-39-2" id="__codelineno-39-2" name="__codelineno-39-2"></a><span class="w">    </span><span class="n">add_one_kg</span><span class="p">();</span>
+</span><span id="__span-39-3"><a href="#__codelineno-39-3" id="__codelineno-39-3" name="__codelineno-39-3"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="cm">/* seconds */</span><span class="p">);</span>
+</span><span id="__span-39-4"><a href="#__codelineno-39-4" id="__codelineno-39-4" name="__codelineno-39-4"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Séquentiellement une boucle <code>while</code> teste la condition, puis exécute la séquence associée.</p>
 <div class="admonition exercise">
@@ -5884,21 +5981,21 @@ les outils associés.
 <p>On utilise une boucle <code>while</code> lorsque le nombre d'itérations n'est pas connu à l'avance. Si la séquence doit être exécutée au moins une fois, on utilise une boucle <code>do</code>...<code>while</code>.</p>
 <h3 id="dowhile">do..while<a class="headerlink" href="#dowhile" title="Lien permanent">¤</a></h3>
 <p>De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle <code>do</code>...<code>while</code> permet justement ceci :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-</span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a>
-</span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="k">do</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-35-4"><a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Veuillez attendre encore %d seconde(s)</span><span class="se">\r\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
-</span><span id="__span-35-5"><a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-35-6"><a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-40-1"><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-40-2"><a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a>
+</span><span id="__span-40-3"><a href="#__codelineno-40-3" id="__codelineno-40-3" name="__codelineno-40-3"></a><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-40-4"><a href="#__codelineno-40-4" id="__codelineno-40-4" name="__codelineno-40-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Veuillez attendre encore %d seconde(s)</span><span class="se">\r\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-40-5"><a href="#__codelineno-40-5" id="__codelineno-40-5" name="__codelineno-40-5"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-40-6"><a href="#__codelineno-40-6" id="__codelineno-40-6" name="__codelineno-40-6"></a><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Contrairement à la boucle <code>while</code>, la séquence est ici exécutée <strong>au moins une fois</strong>.</p>
 <p>Notez ci-dessus la présence d'un <code>;</code> après le <code>while</code>. La structure <code>do</code>...<code>while</code> est un peu particulière, car elle est la seule structure de contrôle à se terminer par un point-virgule.</p>
 <p><a href="" id="loop-for"></a></p>
 <h3 id="for">for<a class="headerlink" href="#for" title="Lien permanent">¤</a></h3>
 <p>La boucle <code>for</code> est un <code>while</code> amélioré qui permet en une ligne de résumer les conditions de la boucle :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="cm">/* expression 1 */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* expression 2 */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* expression 3 */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="w">    </span><span class="cm">/* séquence */</span>
-</span><span id="__span-36-3"><a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="cm">/* expression 1 */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* expression 2 */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* expression 3 */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="w">    </span><span class="cm">/* séquence */</span>
+</span><span id="__span-41-3"><a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <dl>
 <dt>Expression 1</dt>
@@ -5915,19 +6012,19 @@ les outils associés.
 </dd>
 </dl>
 <p>Voici comment répéter 10x un bloc de code :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-37-1"><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-37-2"><a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="w">    </span><span class="n">something</span><span class="p">();</span>
-</span><span id="__span-37-3"><a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-42-1"><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-42-2"><a href="#__codelineno-42-2" id="__codelineno-42-2" name="__codelineno-42-2"></a><span class="w">    </span><span class="n">something</span><span class="p">();</span>
+</span><span id="__span-42-3"><a href="#__codelineno-42-3" id="__codelineno-42-3" name="__codelineno-42-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Notons que les portions de <code>for</code> sont optionnels et que la structure suivante est strictement identique à la boucle <code>while</code>:</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">get_weight</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">420</span><span class="w"> </span><span class="p">;)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-38-2"><a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="w">    </span><span class="cm">/* ... */</span>
-</span><span id="__span-38-3"><a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">get_weight</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">420</span><span class="w"> </span><span class="p">;)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-43-2"><a href="#__codelineno-43-2" id="__codelineno-43-2" name="__codelineno-43-2"></a><span class="w">    </span><span class="cm">/* ... */</span>
+</span><span id="__span-43-3"><a href="#__codelineno-43-3" id="__codelineno-43-3" name="__codelineno-43-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 4 : </span>Pour quelques tours<span class="exercise-title"></span></p>
 <p>Comment est-ce que ces expressions se comportent-elles ?</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-39-1"><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 </span></code></pre></div>
 <ol>
 <li><code class="language-c highlight"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'a'</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="sc">'d'</span><span class="p">;</span><span class="w"> </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">));</span></code></li>
@@ -5943,8 +6040,8 @@ les outils associés.
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 5 : </span>Erreur<span class="exercise-title"></span></p>
 <p>Identifier les deux erreurs dans ce code suivant :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-40-1"><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="o">--</span><span class="n">i</span><span class="p">)</span>
-</span><span id="__span-40-2"><a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-45-1"><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="o">--</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-45-2"><a href="#__codelineno-45-2" id="__codelineno-45-2" name="__codelineno-45-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
@@ -5958,19 +6055,19 @@ les outils associés.
 <p>Quelle est la structure de contrôle la plus adaptée à cette situation ?</p>
 </div>
 <p>L'opérateur <code>,</code> est un opérateur de séquence qui permet de séparer des expressions. Il est souvent utilisé dans les boucles <code>for</code> pour exécuter plusieurs instructions dans les différentes parties de la boucle. Par exemple pour définir deux variables <code>i</code> et <code>j</code> dans la partie d'initialisation de la boucle. Voici par exemple comment afficher les lettres de l'alphabet en alternance <code>z-a y-b x-c</code>... :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'z'</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'a'</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%c-%c "</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
-</span><span id="__span-41-3"><a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-46-1"><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'z'</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'a'</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-46-2"><a href="#__codelineno-46-2" id="__codelineno-46-2" name="__codelineno-46-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%c-%c "</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+</span><span id="__span-46-3"><a href="#__codelineno-46-3" id="__codelineno-46-3" name="__codelineno-46-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Le programme affiche :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a>z-a y-b x-c w-d v-e u-f t-g s-h r-i q-j p-k o-l n-m
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a href="#__codelineno-47-1" id="__codelineno-47-1" name="__codelineno-47-1"></a>z-a y-b x-c w-d v-e u-f t-g s-h r-i q-j p-k o-l n-m
 </span></code></pre></div>
 <div class="admonition bug">
 <p class="admonition-title">Variable d'induction non signée</p>
 <p>Il est recommandé d'utiliser des variables d'induction signées pour les boucles <code>for</code> afin d'éviter des erreurs de logique. En effet, si vous utilisez une variable d'induction non signée et que vous la décrémentez, vous risquez de créer une boucle infinie :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-43-2"><a href="#__codelineno-43-2" id="__codelineno-43-2" name="__codelineno-43-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
-</span><span id="__span-43-3"><a href="#__codelineno-43-3" id="__codelineno-43-3" name="__codelineno-43-3"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-48-1"><a href="#__codelineno-48-1" id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-48-2"><a href="#__codelineno-48-2" id="__codelineno-48-2" name="__codelineno-48-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-48-3"><a href="#__codelineno-48-3" id="__codelineno-48-3" name="__codelineno-48-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Dans cet exemple, <code>i</code> est une variable non signée de type <code>size_t</code>. Lorsque <code>i</code> atteint 0, la condition <code>i &gt;= 0</code> est toujours vraie, car <code>size_t</code> est un type non signé et ne peut pas être négatif. Par conséquent, la boucle ne se termine jamais et entraîne un débordement de la variable <code>i</code>.</p>
 <p>En pratique on utilisera simplement un <code>int</code> pour les variables d'induction néanmoins pour une grande portabilité on utilisera <code>int_fast32_t</code> ou <code>int_fast64_t</code> pour garantir une taille de variable optimale.</p>
@@ -5978,62 +6075,62 @@ les outils associés.
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 7 : </span>Opérateur virgule dans une boucle<span class="exercise-title"></span></p>
 <p>Expliquez quelle est la fonctionnalité globale du programme ci-dessous :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-44-2"><a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">))</span>
-</span><span id="__span-44-3"><a href="#__codelineno-44-3" id="__codelineno-44-3" name="__codelineno-44-3"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"%c"</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="n">j</span><span class="p">);</span>
-</span><span id="__span-44-4"><a href="#__codelineno-44-4" id="__codelineno-44-4" name="__codelineno-44-4"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-49-1"><a href="#__codelineno-49-1" id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-49-2"><a href="#__codelineno-49-2" id="__codelineno-49-2" name="__codelineno-49-2"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">))</span>
+</span><span id="__span-49-3"><a href="#__codelineno-49-3" id="__codelineno-49-3" name="__codelineno-49-3"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"%c"</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="n">j</span><span class="p">);</span>
+</span><span id="__span-49-4"><a href="#__codelineno-49-4" id="__codelineno-49-4" name="__codelineno-49-4"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Proposer une meilleure implémentation de ce programme.</p>
 </div>
 <h3 id="boucles-infinies">Boucles infinies<a class="headerlink" href="#boucles-infinies" title="Lien permanent">¤</a></h3>
 <p>Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort <em>La boucle principale</em> aussi nommée <a href="https://en.wikipedia.org/wiki/Event_loop">run loop</a>. Lorsqu'un programme est exécuté <em>bare-metal</em>, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction <code>main</code> telle que :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-45-1"><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">main_loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-45-2"><a href="#__codelineno-45-2" id="__codelineno-45-2" name="__codelineno-45-2"></a><span class="w">    </span><span class="c1">// Boucle principale</span>
-</span><span id="__span-45-3"><a href="#__codelineno-45-3" id="__codelineno-45-3" name="__codelineno-45-3"></a><span class="p">}</span>
-</span><span id="__span-45-4"><a href="#__codelineno-45-4" id="__codelineno-45-4" name="__codelineno-45-4"></a>
-</span><span id="__span-45-5"><a href="#__codelineno-45-5" id="__codelineno-45-5" name="__codelineno-45-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-45-6"><a href="#__codelineno-45-6" id="__codelineno-45-6" name="__codelineno-45-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span>
-</span><span id="__span-45-7"><a href="#__codelineno-45-7" id="__codelineno-45-7" name="__codelineno-45-7"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-45-8"><a href="#__codelineno-45-8" id="__codelineno-45-8" name="__codelineno-45-8"></a><span class="w">        </span><span class="n">main_loop</span><span class="p">();</span>
-</span><span id="__span-45-9"><a href="#__codelineno-45-9" id="__codelineno-45-9" name="__codelineno-45-9"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-45-10"><a href="#__codelineno-45-10" id="__codelineno-45-10" name="__codelineno-45-10"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-50-1"><a href="#__codelineno-50-1" id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">main_loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-50-2"><a href="#__codelineno-50-2" id="__codelineno-50-2" name="__codelineno-50-2"></a><span class="w">    </span><span class="c1">// Boucle principale</span>
+</span><span id="__span-50-3"><a href="#__codelineno-50-3" id="__codelineno-50-3" name="__codelineno-50-3"></a><span class="p">}</span>
+</span><span id="__span-50-4"><a href="#__codelineno-50-4" id="__codelineno-50-4" name="__codelineno-50-4"></a>
+</span><span id="__span-50-5"><a href="#__codelineno-50-5" id="__codelineno-50-5" name="__codelineno-50-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-50-6"><a href="#__codelineno-50-6" id="__codelineno-50-6" name="__codelineno-50-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span>
+</span><span id="__span-50-7"><a href="#__codelineno-50-7" id="__codelineno-50-7" name="__codelineno-50-7"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-50-8"><a href="#__codelineno-50-8" id="__codelineno-50-8" name="__codelineno-50-8"></a><span class="w">        </span><span class="n">main_loop</span><span class="p">();</span>
+</span><span id="__span-50-9"><a href="#__codelineno-50-9" id="__codelineno-50-9" name="__codelineno-50-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-50-10"><a href="#__codelineno-50-10" id="__codelineno-50-10" name="__codelineno-50-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Il y a différentes variantes de boucles infinies :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-46-1"><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-46-2"><a href="#__codelineno-46-2" id="__codelineno-46-2" name="__codelineno-46-2"></a>
-</span><span id="__span-46-3"><a href="#__codelineno-46-3" id="__codelineno-46-3" name="__codelineno-46-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-46-4"><a href="#__codelineno-46-4" id="__codelineno-46-4" name="__codelineno-46-4"></a>
-</span><span id="__span-46-5"><a href="#__codelineno-46-5" id="__codelineno-46-5" name="__codelineno-46-5"></a><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-51-1"><a href="#__codelineno-51-1" id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-51-2"><a href="#__codelineno-51-2" id="__codelineno-51-2" name="__codelineno-51-2"></a>
+</span><span id="__span-51-3"><a href="#__codelineno-51-3" id="__codelineno-51-3" name="__codelineno-51-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-51-4"><a href="#__codelineno-51-4" id="__codelineno-51-4" name="__codelineno-51-4"></a>
+</span><span id="__span-51-5"><a href="#__codelineno-51-5" id="__codelineno-51-5" name="__codelineno-51-5"></a><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Notions que l'expression <code>while (1)</code> que l'on rencontre fréquemment dans des exemples n'est pas syntaxiquement exacte. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire <code>1</code> devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire <code>while (1 == 1)</code> ou simplement <code>while (true)</code>. D'ailleurs pourquoi utiliser <code>1</code> et non pas <code>42</code> ? Moi j'aime bien <code>while (42)</code>, c'est plus fun...</p>
 <p>Certains développeurs préfèrent l'écriture <code>for (;;)</code> qui ne fait pas intervenir de conditions extérieures ou de valeurs bulgares, car, avant <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> définir la valeur <code>true</code> était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-47-1"><a href="#__codelineno-47-1" id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="kt">_Bool</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-47-2"><a href="#__codelineno-47-2" id="__codelineno-47-2" name="__codelineno-47-2"></a>
-</span><span id="__span-47-3"><a href="#__codelineno-47-3" id="__codelineno-47-3" name="__codelineno-47-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-52-1"><a href="#__codelineno-52-1" id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="kt">_Bool</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-52-2"><a href="#__codelineno-52-2" id="__codelineno-52-2" name="__codelineno-52-2"></a>
+</span><span id="__span-52-3"><a href="#__codelineno-52-3" id="__codelineno-52-3" name="__codelineno-52-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <p>Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal <strong>SIGINT</strong> (c. f. <a class="autorefs autorefs-internal" href="../../25-architecture-and-systems/programs-and-processes/#signaux">signals</a>). On rajoute alors une condition de sortie à la boucle principale :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-48-1"><a href="#__codelineno-48-1" id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-</span><span id="__span-48-2"><a href="#__codelineno-48-2" id="__codelineno-48-2" name="__codelineno-48-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span>
-</span><span id="__span-48-3"><a href="#__codelineno-48-3" id="__codelineno-48-3" name="__codelineno-48-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span>
-</span><span id="__span-48-4"><a href="#__codelineno-48-4" id="__codelineno-48-4" name="__codelineno-48-4"></a>
-</span><span id="__span-48-5"><a href="#__codelineno-48-5" id="__codelineno-48-5" name="__codelineno-48-5"></a><span class="k">static</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
-</span><span id="__span-48-6"><a href="#__codelineno-48-6" id="__codelineno-48-6" name="__codelineno-48-6"></a>
-</span><span id="__span-48-7"><a href="#__codelineno-48-7" id="__codelineno-48-7" name="__codelineno-48-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">sigint_handler</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dummy</span><span class="p">)</span>
-</span><span id="__span-48-8"><a href="#__codelineno-48-8" id="__codelineno-48-8" name="__codelineno-48-8"></a><span class="p">{</span>
-</span><span id="__span-48-9"><a href="#__codelineno-48-9" id="__codelineno-48-9" name="__codelineno-48-9"></a><span class="w">    </span><span class="n">is_running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-</span><span id="__span-48-10"><a href="#__codelineno-48-10" id="__codelineno-48-10" name="__codelineno-48-10"></a><span class="p">}</span>
-</span><span id="__span-48-11"><a href="#__codelineno-48-11" id="__codelineno-48-11" name="__codelineno-48-11"></a>
-</span><span id="__span-48-12"><a href="#__codelineno-48-12" id="__codelineno-48-12" name="__codelineno-48-12"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-</span><span id="__span-48-13"><a href="#__codelineno-48-13" id="__codelineno-48-13" name="__codelineno-48-13"></a><span class="p">{</span>
-</span><span id="__span-48-14"><a href="#__codelineno-48-14" id="__codelineno-48-14" name="__codelineno-48-14"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span><span class="w"> </span><span class="n">sigint_handler</span><span class="p">);</span>
-</span><span id="__span-48-15"><a href="#__codelineno-48-15" id="__codelineno-48-15" name="__codelineno-48-15"></a>
-</span><span id="__span-48-16"><a href="#__codelineno-48-16" id="__codelineno-48-16" name="__codelineno-48-16"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">is_running</span><span class="p">)</span>
-</span><span id="__span-48-17"><a href="#__codelineno-48-17" id="__codelineno-48-17" name="__codelineno-48-17"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-48-18"><a href="#__codelineno-48-18" id="__codelineno-48-18" name="__codelineno-48-18"></a><span class="w">       </span><span class="cm">/* ... */</span>
-</span><span id="__span-48-19"><a href="#__codelineno-48-19" id="__codelineno-48-19" name="__codelineno-48-19"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-48-20"><a href="#__codelineno-48-20" id="__codelineno-48-20" name="__codelineno-48-20"></a>
-</span><span id="__span-48-21"><a href="#__codelineno-48-21" id="__codelineno-48-21" name="__codelineno-48-21"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span>
-</span><span id="__span-48-22"><a href="#__codelineno-48-22" id="__codelineno-48-22" name="__codelineno-48-22"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-53-1"><a href="#__codelineno-53-1" id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+</span><span id="__span-53-2"><a href="#__codelineno-53-2" id="__codelineno-53-2" name="__codelineno-53-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span>
+</span><span id="__span-53-3"><a href="#__codelineno-53-3" id="__codelineno-53-3" name="__codelineno-53-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span>
+</span><span id="__span-53-4"><a href="#__codelineno-53-4" id="__codelineno-53-4" name="__codelineno-53-4"></a>
+</span><span id="__span-53-5"><a href="#__codelineno-53-5" id="__codelineno-53-5" name="__codelineno-53-5"></a><span class="k">static</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-53-6"><a href="#__codelineno-53-6" id="__codelineno-53-6" name="__codelineno-53-6"></a>
+</span><span id="__span-53-7"><a href="#__codelineno-53-7" id="__codelineno-53-7" name="__codelineno-53-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">sigint_handler</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dummy</span><span class="p">)</span>
+</span><span id="__span-53-8"><a href="#__codelineno-53-8" id="__codelineno-53-8" name="__codelineno-53-8"></a><span class="p">{</span>
+</span><span id="__span-53-9"><a href="#__codelineno-53-9" id="__codelineno-53-9" name="__codelineno-53-9"></a><span class="w">    </span><span class="n">is_running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-53-10"><a href="#__codelineno-53-10" id="__codelineno-53-10" name="__codelineno-53-10"></a><span class="p">}</span>
+</span><span id="__span-53-11"><a href="#__codelineno-53-11" id="__codelineno-53-11" name="__codelineno-53-11"></a>
+</span><span id="__span-53-12"><a href="#__codelineno-53-12" id="__codelineno-53-12" name="__codelineno-53-12"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span id="__span-53-13"><a href="#__codelineno-53-13" id="__codelineno-53-13" name="__codelineno-53-13"></a><span class="p">{</span>
+</span><span id="__span-53-14"><a href="#__codelineno-53-14" id="__codelineno-53-14" name="__codelineno-53-14"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span><span class="w"> </span><span class="n">sigint_handler</span><span class="p">);</span>
+</span><span id="__span-53-15"><a href="#__codelineno-53-15" id="__codelineno-53-15" name="__codelineno-53-15"></a>
+</span><span id="__span-53-16"><a href="#__codelineno-53-16" id="__codelineno-53-16" name="__codelineno-53-16"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">is_running</span><span class="p">)</span>
+</span><span id="__span-53-17"><a href="#__codelineno-53-17" id="__codelineno-53-17" name="__codelineno-53-17"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-53-18"><a href="#__codelineno-53-18" id="__codelineno-53-18" name="__codelineno-53-18"></a><span class="w">       </span><span class="cm">/* ... */</span>
+</span><span id="__span-53-19"><a href="#__codelineno-53-19" id="__codelineno-53-19" name="__codelineno-53-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-53-20"><a href="#__codelineno-53-20" id="__codelineno-53-20" name="__codelineno-53-20"></a>
+</span><span id="__span-53-21"><a href="#__codelineno-53-21" id="__codelineno-53-21" name="__codelineno-53-21"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+</span><span id="__span-53-22"><a href="#__codelineno-53-22" id="__codelineno-53-22" name="__codelineno-53-22"></a><span class="p">}</span>
 </span></code></pre></div>
 <p><a href="" id="jumps"></a></p>
 <h2 id="les-sauts">Les sauts<a class="headerlink" href="#les-sauts" title="Lien permanent">¤</a></h2>
@@ -6062,109 +6159,109 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <p>Néanmoins, il est important de comprendre que <code>goto</code> était dans certains langages de programmation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine, car la plupart des processeurs ne connaissent que cette instruction souvent appelée <code>JUMP</code>. Il est par conséquent possible d'imiter le comportement de n'importe quelle structure de contrôle si l'on dispose de <code>if</code> et de <code>goto</code>.</p>
 <p><code>goto</code> effectue un saut inconditionnel à un <em>label</em> défini en C par un <a class="autorefs autorefs-internal" href="../syntax/#identificateurs">identificateur</a> suivi d'un <code>:</code>.</p>
 <p>L'un des seuls cas de figure autorisés est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-49-1"><a href="#__codelineno-49-1" id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span>
-</span><span id="__span-49-2"><a href="#__codelineno-49-2" id="__codelineno-49-2" name="__codelineno-49-2"></a>
-</span><span id="__span-49-3"><a href="#__codelineno-49-3" id="__codelineno-49-3" name="__codelineno-49-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">parse_message</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
-</span><span id="__span-49-4"><a href="#__codelineno-49-4" id="__codelineno-49-4" name="__codelineno-49-4"></a><span class="p">{</span>
-</span><span id="__span-49-5"><a href="#__codelineno-49-5" id="__codelineno-49-5" name="__codelineno-49-5"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
-</span><span id="__span-49-6"><a href="#__codelineno-49-6" id="__codelineno-49-6" name="__codelineno-49-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">tm_hour</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-49-7"><a href="#__codelineno-49-7" id="__codelineno-49-7" name="__codelineno-49-7"></a><span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">error</span><span class="p">;</span>
-</span><span id="__span-49-8"><a href="#__codelineno-49-8" id="__codelineno-49-8" name="__codelineno-49-8"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-49-9"><a href="#__codelineno-49-9" id="__codelineno-49-9" name="__codelineno-49-9"></a>
-</span><span id="__span-49-10"><a href="#__codelineno-49-10" id="__codelineno-49-10" name="__codelineno-49-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">message</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-49-11"><a href="#__codelineno-49-11" id="__codelineno-49-11" name="__codelineno-49-11"></a><span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">error</span><span class="p">;</span>
-</span><span id="__span-49-12"><a href="#__codelineno-49-12" id="__codelineno-49-12" name="__codelineno-49-12"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-49-13"><a href="#__codelineno-49-13" id="__codelineno-49-13" name="__codelineno-49-13"></a>
-</span><span id="__span-49-14"><a href="#__codelineno-49-14" id="__codelineno-49-14" name="__codelineno-49-14"></a><span class="w">    </span><span class="cm">/* ... */</span>
-</span><span id="__span-49-15"><a href="#__codelineno-49-15" id="__codelineno-49-15" name="__codelineno-49-15"></a>
-</span><span id="__span-49-16"><a href="#__codelineno-49-16" id="__codelineno-49-16" name="__codelineno-49-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-49-17"><a href="#__codelineno-49-17" id="__codelineno-49-17" name="__codelineno-49-17"></a>
-</span><span id="__span-49-18"><a href="#__codelineno-49-18" id="__codelineno-49-18" name="__codelineno-49-18"></a><span class="w">    </span><span class="nl">error</span><span class="p">:</span>
-</span><span id="__span-49-19"><a href="#__codelineno-49-19" id="__codelineno-49-19" name="__codelineno-49-19"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"ERROR: Une erreur a été commise</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-</span><span id="__span-49-20"><a href="#__codelineno-49-20" id="__codelineno-49-20" name="__codelineno-49-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
-</span><span id="__span-49-21"><a href="#__codelineno-49-21" id="__codelineno-49-21" name="__codelineno-49-21"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-54-1"><a href="#__codelineno-54-1" id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span>
+</span><span id="__span-54-2"><a href="#__codelineno-54-2" id="__codelineno-54-2" name="__codelineno-54-2"></a>
+</span><span id="__span-54-3"><a href="#__codelineno-54-3" id="__codelineno-54-3" name="__codelineno-54-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">parse_message</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
+</span><span id="__span-54-4"><a href="#__codelineno-54-4" id="__codelineno-54-4" name="__codelineno-54-4"></a><span class="p">{</span>
+</span><span id="__span-54-5"><a href="#__codelineno-54-5" id="__codelineno-54-5" name="__codelineno-54-5"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+</span><span id="__span-54-6"><a href="#__codelineno-54-6" id="__codelineno-54-6" name="__codelineno-54-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">tm_hour</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-54-7"><a href="#__codelineno-54-7" id="__codelineno-54-7" name="__codelineno-54-7"></a><span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">error</span><span class="p">;</span>
+</span><span id="__span-54-8"><a href="#__codelineno-54-8" id="__codelineno-54-8" name="__codelineno-54-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-54-9"><a href="#__codelineno-54-9" id="__codelineno-54-9" name="__codelineno-54-9"></a>
+</span><span id="__span-54-10"><a href="#__codelineno-54-10" id="__codelineno-54-10" name="__codelineno-54-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">message</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-54-11"><a href="#__codelineno-54-11" id="__codelineno-54-11" name="__codelineno-54-11"></a><span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">error</span><span class="p">;</span>
+</span><span id="__span-54-12"><a href="#__codelineno-54-12" id="__codelineno-54-12" name="__codelineno-54-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-54-13"><a href="#__codelineno-54-13" id="__codelineno-54-13" name="__codelineno-54-13"></a>
+</span><span id="__span-54-14"><a href="#__codelineno-54-14" id="__codelineno-54-14" name="__codelineno-54-14"></a><span class="w">    </span><span class="cm">/* ... */</span>
+</span><span id="__span-54-15"><a href="#__codelineno-54-15" id="__codelineno-54-15" name="__codelineno-54-15"></a>
+</span><span id="__span-54-16"><a href="#__codelineno-54-16" id="__codelineno-54-16" name="__codelineno-54-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-54-17"><a href="#__codelineno-54-17" id="__codelineno-54-17" name="__codelineno-54-17"></a>
+</span><span id="__span-54-18"><a href="#__codelineno-54-18" id="__codelineno-54-18" name="__codelineno-54-18"></a><span class="w">    </span><span class="nl">error</span><span class="p">:</span>
+</span><span id="__span-54-19"><a href="#__codelineno-54-19" id="__codelineno-54-19" name="__codelineno-54-19"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"ERROR: Une erreur a été commise</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-54-20"><a href="#__codelineno-54-20" id="__codelineno-54-20" name="__codelineno-54-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-54-21"><a href="#__codelineno-54-21" id="__codelineno-54-21" name="__codelineno-54-21"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="continue"><code>continue</code><a class="headerlink" href="#continue" title="Lien permanent">¤</a></h3>
 <p>Le mot clé <code>continue</code> ne peut exister qu'à l'intérieur d'une boucle. Il permet d'interrompre le cycle en cours et directement passer au cycle suivant.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-50-1"><a href="#__codelineno-50-1" id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="kt">uint8_t</span><span class="w"> </span><span class="n">airplane_seat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
-</span><span id="__span-50-2"><a href="#__codelineno-50-2" id="__codelineno-50-2" name="__codelineno-50-2"></a>
-</span><span id="__span-50-3"><a href="#__codelineno-50-3" id="__codelineno-50-3" name="__codelineno-50-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">--</span><span class="n">airplane_seat</span><span class="p">)</span>
-</span><span id="__span-50-4"><a href="#__codelineno-50-4" id="__codelineno-50-4" name="__codelineno-50-4"></a><span class="p">{</span>
-</span><span id="__span-50-5"><a href="#__codelineno-50-5" id="__codelineno-50-5" name="__codelineno-50-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">airplane_seat</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-50-6"><a href="#__codelineno-50-6" id="__codelineno-50-6" name="__codelineno-50-6"></a><span class="w">        </span><span class="k">continue</span><span class="p">;</span>
-</span><span id="__span-50-7"><a href="#__codelineno-50-7" id="__codelineno-50-7" name="__codelineno-50-7"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-50-8"><a href="#__codelineno-50-8" id="__codelineno-50-8" name="__codelineno-50-8"></a>
-</span><span id="__span-50-9"><a href="#__codelineno-50-9" id="__codelineno-50-9" name="__codelineno-50-9"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Dans cet avion il y a un siège numéro %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">airplane_seat</span><span class="p">);</span>
-</span><span id="__span-50-10"><a href="#__codelineno-50-10" id="__codelineno-50-10" name="__codelineno-50-10"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-55-1"><a href="#__codelineno-55-1" id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="kt">uint8_t</span><span class="w"> </span><span class="n">airplane_seat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</span><span id="__span-55-2"><a href="#__codelineno-55-2" id="__codelineno-55-2" name="__codelineno-55-2"></a>
+</span><span id="__span-55-3"><a href="#__codelineno-55-3" id="__codelineno-55-3" name="__codelineno-55-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">--</span><span class="n">airplane_seat</span><span class="p">)</span>
+</span><span id="__span-55-4"><a href="#__codelineno-55-4" id="__codelineno-55-4" name="__codelineno-55-4"></a><span class="p">{</span>
+</span><span id="__span-55-5"><a href="#__codelineno-55-5" id="__codelineno-55-5" name="__codelineno-55-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">airplane_seat</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-55-6"><a href="#__codelineno-55-6" id="__codelineno-55-6" name="__codelineno-55-6"></a><span class="w">        </span><span class="k">continue</span><span class="p">;</span>
+</span><span id="__span-55-7"><a href="#__codelineno-55-7" id="__codelineno-55-7" name="__codelineno-55-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-55-8"><a href="#__codelineno-55-8" id="__codelineno-55-8" name="__codelineno-55-8"></a>
+</span><span id="__span-55-9"><a href="#__codelineno-55-9" id="__codelineno-55-9" name="__codelineno-55-9"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Dans cet avion il y a un siège numéro %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">airplane_seat</span><span class="p">);</span>
+</span><span id="__span-55-10"><a href="#__codelineno-55-10" id="__codelineno-55-10" name="__codelineno-55-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Cette structure est équivalente à l'utilisation d'un goto avec un label placé à la fin de la séquence de boucle, mais promettez-moi que vous n'utiliserez jamais cet exemple :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-51-1"><a href="#__codelineno-51-1" id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
-</span><span id="__span-51-2"><a href="#__codelineno-51-2" id="__codelineno-51-2" name="__codelineno-51-2"></a><span class="p">{</span>
-</span><span id="__span-51-3"><a href="#__codelineno-51-3" id="__codelineno-51-3" name="__codelineno-51-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-51-4"><a href="#__codelineno-51-4" id="__codelineno-51-4" name="__codelineno-51-4"></a><span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
-</span><span id="__span-51-5"><a href="#__codelineno-51-5" id="__codelineno-51-5" name="__codelineno-51-5"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-51-6"><a href="#__codelineno-51-6" id="__codelineno-51-6" name="__codelineno-51-6"></a>
-</span><span id="__span-51-7"><a href="#__codelineno-51-7" id="__codelineno-51-7" name="__codelineno-51-7"></a><span class="w">    </span><span class="cm">/* ... */</span>
-</span><span id="__span-51-8"><a href="#__codelineno-51-8" id="__codelineno-51-8" name="__codelineno-51-8"></a>
-</span><span id="__span-51-9"><a href="#__codelineno-51-9" id="__codelineno-51-9" name="__codelineno-51-9"></a><span class="w">    </span><span class="nl">next</span><span class="p">:</span>
-</span><span id="__span-51-10"><a href="#__codelineno-51-10" id="__codelineno-51-10" name="__codelineno-51-10"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-56-1"><a href="#__codelineno-56-1" id="__codelineno-56-1" name="__codelineno-56-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+</span><span id="__span-56-2"><a href="#__codelineno-56-2" id="__codelineno-56-2" name="__codelineno-56-2"></a><span class="p">{</span>
+</span><span id="__span-56-3"><a href="#__codelineno-56-3" id="__codelineno-56-3" name="__codelineno-56-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-56-4"><a href="#__codelineno-56-4" id="__codelineno-56-4" name="__codelineno-56-4"></a><span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+</span><span id="__span-56-5"><a href="#__codelineno-56-5" id="__codelineno-56-5" name="__codelineno-56-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-56-6"><a href="#__codelineno-56-6" id="__codelineno-56-6" name="__codelineno-56-6"></a>
+</span><span id="__span-56-7"><a href="#__codelineno-56-7" id="__codelineno-56-7" name="__codelineno-56-7"></a><span class="w">    </span><span class="cm">/* ... */</span>
+</span><span id="__span-56-8"><a href="#__codelineno-56-8" id="__codelineno-56-8" name="__codelineno-56-8"></a>
+</span><span id="__span-56-9"><a href="#__codelineno-56-9" id="__codelineno-56-9" name="__codelineno-56-9"></a><span class="w">    </span><span class="nl">next</span><span class="p">:</span>
+</span><span id="__span-56-10"><a href="#__codelineno-56-10" id="__codelineno-56-10" name="__codelineno-56-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="break"><code>break</code><a class="headerlink" href="#break" title="Lien permanent">¤</a></h3>
 <p>Le mot-clé <code>break</code> peut être utilisé dans une boucle ou dans un <code>switch</code>. Il permet d'interrompre l'exécution de la boucle ou de la structure <code>switch</code> la plus proche. Nous avions déjà évoqué l'utilisation dans un <code>switch</code> (c.f. <a class="autorefs autorefs-internal" href="#switch_1">switch</a>).</p>
 <h3 id="return"><code>return</code><a class="headerlink" href="#return" title="Lien permanent">¤</a></h3>
 <p>Le mot clé <code>return</code> suivi d'une valeur de retour ne peut apparaître que dans une fonction dont le type de retour n'est pas <code>void</code>. Ce mot-clé permet de stopper l'exécution d'une fonction et de retourner à son point d'appel.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-52-1"><a href="#__codelineno-52-1" id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">unlock</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">password</span><span class="p">)</span>
-</span><span id="__span-52-2"><a href="#__codelineno-52-2" id="__codelineno-52-2" name="__codelineno-52-2"></a><span class="p">{</span>
-</span><span id="__span-52-3"><a href="#__codelineno-52-3" id="__codelineno-52-3" name="__codelineno-52-3"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-52-4"><a href="#__codelineno-52-4" id="__codelineno-52-4" name="__codelineno-52-4"></a>
-</span><span id="__span-52-5"><a href="#__codelineno-52-5" id="__codelineno-52-5" name="__codelineno-52-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">password</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4710</span><span class="w"> </span><span class="cm">/* MacGuyver: A Retrospective 1986 */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-52-6"><a href="#__codelineno-52-6" id="__codelineno-52-6" name="__codelineno-52-6"></a><span class="w">        </span><span class="n">open_door</span><span class="p">();</span>
-</span><span id="__span-52-7"><a href="#__codelineno-52-7" id="__codelineno-52-7" name="__codelineno-52-7"></a><span class="w">        </span><span class="n">tries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-52-8"><a href="#__codelineno-52-8" id="__codelineno-52-8" name="__codelineno-52-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
-</span><span id="__span-52-9"><a href="#__codelineno-52-9" id="__codelineno-52-9" name="__codelineno-52-9"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-52-10"><a href="#__codelineno-52-10" id="__codelineno-52-10" name="__codelineno-52-10"></a>
-</span><span id="__span-52-11"><a href="#__codelineno-52-11" id="__codelineno-52-11" name="__codelineno-52-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tries</span><span class="o">++</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
-</span><span id="__span-52-12"><a href="#__codelineno-52-12" id="__codelineno-52-12" name="__codelineno-52-12"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-52-13"><a href="#__codelineno-52-13" id="__codelineno-52-13" name="__codelineno-52-13"></a><span class="w">        </span><span class="n">alert_security_guards</span><span class="p">();</span>
-</span><span id="__span-52-14"><a href="#__codelineno-52-14" id="__codelineno-52-14" name="__codelineno-52-14"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-52-15"><a href="#__codelineno-52-15" id="__codelineno-52-15" name="__codelineno-52-15"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-57-1"><a href="#__codelineno-57-1" id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">unlock</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">password</span><span class="p">)</span>
+</span><span id="__span-57-2"><a href="#__codelineno-57-2" id="__codelineno-57-2" name="__codelineno-57-2"></a><span class="p">{</span>
+</span><span id="__span-57-3"><a href="#__codelineno-57-3" id="__codelineno-57-3" name="__codelineno-57-3"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-57-4"><a href="#__codelineno-57-4" id="__codelineno-57-4" name="__codelineno-57-4"></a>
+</span><span id="__span-57-5"><a href="#__codelineno-57-5" id="__codelineno-57-5" name="__codelineno-57-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">password</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4710</span><span class="w"> </span><span class="cm">/* MacGuyver: A Retrospective 1986 */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-57-6"><a href="#__codelineno-57-6" id="__codelineno-57-6" name="__codelineno-57-6"></a><span class="w">        </span><span class="n">open_door</span><span class="p">();</span>
+</span><span id="__span-57-7"><a href="#__codelineno-57-7" id="__codelineno-57-7" name="__codelineno-57-7"></a><span class="w">        </span><span class="n">tries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-57-8"><a href="#__codelineno-57-8" id="__codelineno-57-8" name="__codelineno-57-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-57-9"><a href="#__codelineno-57-9" id="__codelineno-57-9" name="__codelineno-57-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-57-10"><a href="#__codelineno-57-10" id="__codelineno-57-10" name="__codelineno-57-10"></a>
+</span><span id="__span-57-11"><a href="#__codelineno-57-11" id="__codelineno-57-11" name="__codelineno-57-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tries</span><span class="o">++</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-57-12"><a href="#__codelineno-57-12" id="__codelineno-57-12" name="__codelineno-57-12"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-57-13"><a href="#__codelineno-57-13" id="__codelineno-57-13" name="__codelineno-57-13"></a><span class="w">        </span><span class="n">alert_security_guards</span><span class="p">();</span>
+</span><span id="__span-57-14"><a href="#__codelineno-57-14" id="__codelineno-57-14" name="__codelineno-57-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-57-15"><a href="#__codelineno-57-15" id="__codelineno-57-15" name="__codelineno-57-15"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Lien permanent">¤</a></h2>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 8 : </span>Faute d'erreur<span class="exercise-title"></span></p>
 <p>Considérons les déclarations suivantes :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-53-1"><a href="#__codelineno-53-1" id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="kt">long</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-53-2"><a href="#__codelineno-53-2" id="__codelineno-53-2" name="__codelineno-53-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100.0</span><span class="p">;</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-58-1"><a href="#__codelineno-58-1" id="__codelineno-58-1" name="__codelineno-58-1"></a><span class="kt">long</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-58-2"><a href="#__codelineno-58-2" id="__codelineno-58-2" name="__codelineno-58-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100.0</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Indiquer la nature de l'erreur dans les expressions suivantes :</p>
 <p>1.
-    </p><div class="language-c highlight"><pre><span></span><code><span id="__span-54-1"><a href="#__codelineno-54-1" id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="k">do</span>
-</span><span id="__span-54-2"><a href="#__codelineno-54-2" id="__codelineno-54-2" name="__codelineno-54-2"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
-</span><span id="__span-54-3"><a href="#__codelineno-54-3" id="__codelineno-54-3" name="__codelineno-54-3"></a><span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
-</span><span id="__span-54-4"><a href="#__codelineno-54-4" id="__codelineno-54-4" name="__codelineno-54-4"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span>
+    </p><div class="language-c highlight"><pre><span></span><code><span id="__span-59-1"><a href="#__codelineno-59-1" id="__codelineno-59-1" name="__codelineno-59-1"></a><span class="k">do</span>
+</span><span id="__span-59-2"><a href="#__codelineno-59-2" id="__codelineno-59-2" name="__codelineno-59-2"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
+</span><span id="__span-59-3"><a href="#__codelineno-59-3" id="__codelineno-59-3" name="__codelineno-59-3"></a><span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-59-4"><a href="#__codelineno-59-4" id="__codelineno-59-4" name="__codelineno-59-4"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span>
 </span></code></pre></div>
 2.
-    <div class="language-c highlight"><pre><span></span><code><span id="__span-55-1"><a href="#__codelineno-55-1" id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-</span><span id="__span-55-2"><a href="#__codelineno-55-2" id="__codelineno-55-2" name="__codelineno-55-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"0 est interdit !</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <div class="language-c highlight"><pre><span></span><code><span id="__span-60-1"><a href="#__codelineno-60-1" id="__codelineno-60-1" name="__codelineno-60-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-60-2"><a href="#__codelineno-60-2" id="__codelineno-60-2" name="__codelineno-60-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"0 est interdit !</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span></code></pre></div>
 3.
-    <div class="language-c highlight"><pre><span></span><code><span id="__span-56-1"><a href="#__codelineno-56-1" id="__codelineno-56-1" name="__codelineno-56-1"></a><span class="k">switch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-56-2"><a href="#__codelineno-56-2" id="__codelineno-56-2" name="__codelineno-56-2"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">:</span>
-</span><span id="__span-56-3"><a href="#__codelineno-56-3" id="__codelineno-56-3" name="__codelineno-56-3"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Bravo.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-</span><span id="__span-56-4"><a href="#__codelineno-56-4" id="__codelineno-56-4" name="__codelineno-56-4"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
-</span><span id="__span-56-5"><a href="#__codelineno-56-5" id="__codelineno-56-5" name="__codelineno-56-5"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">:</span>
-</span><span id="__span-56-6"><a href="#__codelineno-56-6" id="__codelineno-56-6" name="__codelineno-56-6"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Pas encore.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-</span><span id="__span-56-7"><a href="#__codelineno-56-7" id="__codelineno-56-7" name="__codelineno-56-7"></a>
-</span><span id="__span-56-8"><a href="#__codelineno-56-8" id="__codelineno-56-8" name="__codelineno-56-8"></a><span class="p">}</span>
+    <div class="language-c highlight"><pre><span></span><code><span id="__span-61-1"><a href="#__codelineno-61-1" id="__codelineno-61-1" name="__codelineno-61-1"></a><span class="k">switch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-61-2"><a href="#__codelineno-61-2" id="__codelineno-61-2" name="__codelineno-61-2"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">:</span>
+</span><span id="__span-61-3"><a href="#__codelineno-61-3" id="__codelineno-61-3" name="__codelineno-61-3"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Bravo.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-61-4"><a href="#__codelineno-61-4" id="__codelineno-61-4" name="__codelineno-61-4"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-61-5"><a href="#__codelineno-61-5" id="__codelineno-61-5" name="__codelineno-61-5"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">:</span>
+</span><span id="__span-61-6"><a href="#__codelineno-61-6" id="__codelineno-61-6" name="__codelineno-61-6"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Pas encore.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-61-7"><a href="#__codelineno-61-7" id="__codelineno-61-7" name="__codelineno-61-7"></a>
+</span><span id="__span-61-8"><a href="#__codelineno-61-8" id="__codelineno-61-8" name="__codelineno-61-8"></a><span class="p">}</span>
 </span></code></pre></div>
 4.
-    <div class="language-c highlight"><pre><span></span><code><span id="__span-57-1"><a href="#__codelineno-57-1" id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">);</span>
-</span><span id="__span-57-2"><a href="#__codelineno-57-2" id="__codelineno-57-2" name="__codelineno-57-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+    <div class="language-c highlight"><pre><span></span><code><span id="__span-62-1"><a href="#__codelineno-62-1" id="__codelineno-62-1" name="__codelineno-62-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">);</span>
+</span><span id="__span-62-2"><a href="#__codelineno-62-2" id="__codelineno-62-2" name="__codelineno-62-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 </span></code></pre></div>
 5.
-    <div class="language-c highlight"><pre><span></span><code><span id="__span-58-1"><a href="#__codelineno-58-1" id="__codelineno-58-1" name="__codelineno-58-1"></a><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-58-2"><a href="#__codelineno-58-2" id="__codelineno-58-2" name="__codelineno-58-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">);</span>
-</span><span id="__span-58-3"><a href="#__codelineno-58-3" id="__codelineno-58-3" name="__codelineno-58-3"></a><span class="p">}</span>
+    <div class="language-c highlight"><pre><span></span><code><span id="__span-63-1"><a href="#__codelineno-63-1" id="__codelineno-63-1" name="__codelineno-63-1"></a><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-63-2"><a href="#__codelineno-63-2" id="__codelineno-63-2" name="__codelineno-63-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-63-3"><a href="#__codelineno-63-3" id="__codelineno-63-3" name="__codelineno-63-3"></a><span class="p">}</span>
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
@@ -6182,54 +6279,54 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <ol>
 <li>
 <p>Le cas est circonscrit à un intervalle de valeur donnée, le <code>if</code> est approprié :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-59-1"><a href="#__codelineno-59-1" id="__codelineno-59-1" name="__codelineno-59-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-64-1"><a href="#__codelineno-64-1" id="__codelineno-64-1" name="__codelineno-64-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Dans ce cas un <code>switch</code> semble le plus approprié</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-60-1"><a href="#__codelineno-60-1" id="__codelineno-60-1" name="__codelineno-60-1"></a><span class="k">switch</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-60-2"><a href="#__codelineno-60-2" id="__codelineno-60-2" name="__codelineno-60-2"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span>
-</span><span id="__span-60-3"><a href="#__codelineno-60-3" id="__codelineno-60-3" name="__codelineno-60-3"></a><span class="w">        </span><span class="cm">/* ... */</span>
-</span><span id="__span-60-4"><a href="#__codelineno-60-4" id="__codelineno-60-4" name="__codelineno-60-4"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
-</span><span id="__span-60-5"><a href="#__codelineno-60-5" id="__codelineno-60-5" name="__codelineno-60-5"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">:</span>
-</span><span id="__span-60-6"><a href="#__codelineno-60-6" id="__codelineno-60-6" name="__codelineno-60-6"></a><span class="w">        </span><span class="cm">/* ... */</span>
-</span><span id="__span-60-7"><a href="#__codelineno-60-7" id="__codelineno-60-7" name="__codelineno-60-7"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-65-1"><a href="#__codelineno-65-1" id="__codelineno-65-1" name="__codelineno-65-1"></a><span class="k">switch</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-65-2"><a href="#__codelineno-65-2" id="__codelineno-65-2" name="__codelineno-65-2"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span>
+</span><span id="__span-65-3"><a href="#__codelineno-65-3" id="__codelineno-65-3" name="__codelineno-65-3"></a><span class="w">        </span><span class="cm">/* ... */</span>
+</span><span id="__span-65-4"><a href="#__codelineno-65-4" id="__codelineno-65-4" name="__codelineno-65-4"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-65-5"><a href="#__codelineno-65-5" id="__codelineno-65-5" name="__codelineno-65-5"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">:</span>
+</span><span id="__span-65-6"><a href="#__codelineno-65-6" id="__codelineno-65-6" name="__codelineno-65-6"></a><span class="w">        </span><span class="cm">/* ... */</span>
+</span><span id="__span-65-7"><a href="#__codelineno-65-7" id="__codelineno-65-7" name="__codelineno-65-7"></a><span class="p">}</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>À reformuler <em>tant que le caractère n'est pas trouvé ou que la fin de la chaîne n'est pas atteinte</em>. On se retrouve donc avec une boucle à deux conditions de sorties.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-61-1"><a href="#__codelineno-61-1" id="__codelineno-61-1" name="__codelineno-61-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span>
-</span><span id="__span-61-2"><a href="#__codelineno-61-2" id="__codelineno-61-2" name="__codelineno-61-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-61-3"><a href="#__codelineno-61-3" id="__codelineno-61-3" name="__codelineno-61-3"></a><span class="w">    </span><span class="n">pos</span><span class="o">++</span><span class="p">;</span>
-</span><span id="__span-61-4"><a href="#__codelineno-61-4" id="__codelineno-61-4" name="__codelineno-61-4"></a><span class="p">}</span>
-</span><span id="__span-61-5"><a href="#__codelineno-61-5" id="__codelineno-61-5" name="__codelineno-61-5"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-61-6"><a href="#__codelineno-61-6" id="__codelineno-61-6" name="__codelineno-61-6"></a><span class="w">    </span><span class="c1">// Not found</span>
-</span><span id="__span-61-7"><a href="#__codelineno-61-7" id="__codelineno-61-7" name="__codelineno-61-7"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-61-8"><a href="#__codelineno-61-8" id="__codelineno-61-8" name="__codelineno-61-8"></a><span class="w">    </span><span class="c1">// Found `c` in `str` at position `pos`</span>
-</span><span id="__span-61-9"><a href="#__codelineno-61-9" id="__codelineno-61-9" name="__codelineno-61-9"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-66-1"><a href="#__codelineno-66-1" id="__codelineno-66-1" name="__codelineno-66-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span>
+</span><span id="__span-66-2"><a href="#__codelineno-66-2" id="__codelineno-66-2" name="__codelineno-66-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-66-3"><a href="#__codelineno-66-3" id="__codelineno-66-3" name="__codelineno-66-3"></a><span class="w">    </span><span class="n">pos</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-66-4"><a href="#__codelineno-66-4" id="__codelineno-66-4" name="__codelineno-66-4"></a><span class="p">}</span>
+</span><span id="__span-66-5"><a href="#__codelineno-66-5" id="__codelineno-66-5" name="__codelineno-66-5"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-66-6"><a href="#__codelineno-66-6" id="__codelineno-66-6" name="__codelineno-66-6"></a><span class="w">    </span><span class="c1">// Not found</span>
+</span><span id="__span-66-7"><a href="#__codelineno-66-7" id="__codelineno-66-7" name="__codelineno-66-7"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-66-8"><a href="#__codelineno-66-8" id="__codelineno-66-8" name="__codelineno-66-8"></a><span class="w">    </span><span class="c1">// Found `c` in `str` at position `pos`</span>
+</span><span id="__span-66-9"><a href="#__codelineno-66-9" id="__codelineno-66-9" name="__codelineno-66-9"></a><span class="p">}</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>La boucle <code>for</code> semble ici la plus adaptée</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-62-1"><a href="#__codelineno-62-1" id="__codelineno-62-1" name="__codelineno-62-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-62-2"><a href="#__codelineno-62-2" id="__codelineno-62-2" name="__codelineno-62-2"></a><span class="w">    </span><span class="cm">/* ... */</span>
-</span><span id="__span-62-3"><a href="#__codelineno-62-3" id="__codelineno-62-3" name="__codelineno-62-3"></a><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-67-1"><a href="#__codelineno-67-1" id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-67-2"><a href="#__codelineno-67-2" id="__codelineno-67-2" name="__codelineno-67-2"></a><span class="w">    </span><span class="cm">/* ... */</span>
+</span><span id="__span-67-3"><a href="#__codelineno-67-3" id="__codelineno-67-3" name="__codelineno-67-3"></a><span class="p">}</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Il est nécessaire ici d'assurer au moins un tour de boucle :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-63-1"><a href="#__codelineno-63-1" id="__codelineno-63-1" name="__codelineno-63-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">max_line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span>
-</span><span id="__span-63-2"><a href="#__codelineno-63-2" id="__codelineno-63-2" name="__codelineno-63-2"></a><span class="kt">char</span><span class="w"> </span><span class="n">format</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
-</span><span id="__span-63-3"><a href="#__codelineno-63-3" id="__codelineno-63-3" name="__codelineno-63-3"></a><span class="n">snprintf</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">format</span><span class="p">),</span><span class="w"> </span><span class="s">"%%%zus"</span><span class="p">,</span><span class="w"> </span><span class="n">max_line_length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-</span><span id="__span-63-4"><a href="#__codelineno-63-4" id="__codelineno-63-4" name="__codelineno-63-4"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-63-5"><a href="#__codelineno-63-5" id="__codelineno-63-5" name="__codelineno-63-5"></a><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="n">max_lines</span><span class="p">][</span><span class="n">max_line_length</span><span class="p">];</span>
-</span><span id="__span-63-6"><a href="#__codelineno-63-6" id="__codelineno-63-6" name="__codelineno-63-6"></a><span class="k">do</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-63-7"><a href="#__codelineno-63-7" id="__codelineno-63-7" name="__codelineno-63-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d. "</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">);</span>
-</span><span id="__span-63-8"><a href="#__codelineno-63-8" id="__codelineno-63-8" name="__codelineno-63-8"></a><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-63-9"><a href="#__codelineno-63-9" id="__codelineno-63-9" name="__codelineno-63-9"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="n">line</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-</span><span id="__span-63-10"><a href="#__codelineno-63-10" id="__codelineno-63-10" name="__codelineno-63-10"></a><span class="w">    </span><span class="n">strcmp</span><span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="n">line</span><span class="p">],</span><span class="w"> </span><span class="s">"STOP"</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-</span><span id="__span-63-11"><a href="#__codelineno-63-11" id="__codelineno-63-11" name="__codelineno-63-11"></a><span class="w">    </span><span class="o">++</span><span class="n">line</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">max_lines</span>
-</span><span id="__span-63-12"><a href="#__codelineno-63-12" id="__codelineno-63-12" name="__codelineno-63-12"></a><span class="p">);</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-68-1"><a href="#__codelineno-68-1" id="__codelineno-68-1" name="__codelineno-68-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">max_line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span>
+</span><span id="__span-68-2"><a href="#__codelineno-68-2" id="__codelineno-68-2" name="__codelineno-68-2"></a><span class="kt">char</span><span class="w"> </span><span class="n">format</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+</span><span id="__span-68-3"><a href="#__codelineno-68-3" id="__codelineno-68-3" name="__codelineno-68-3"></a><span class="n">snprintf</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">format</span><span class="p">),</span><span class="w"> </span><span class="s">"%%%zus"</span><span class="p">,</span><span class="w"> </span><span class="n">max_line_length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-68-4"><a href="#__codelineno-68-4" id="__codelineno-68-4" name="__codelineno-68-4"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-68-5"><a href="#__codelineno-68-5" id="__codelineno-68-5" name="__codelineno-68-5"></a><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="n">max_lines</span><span class="p">][</span><span class="n">max_line_length</span><span class="p">];</span>
+</span><span id="__span-68-6"><a href="#__codelineno-68-6" id="__codelineno-68-6" name="__codelineno-68-6"></a><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-68-7"><a href="#__codelineno-68-7" id="__codelineno-68-7" name="__codelineno-68-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d. "</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">);</span>
+</span><span id="__span-68-8"><a href="#__codelineno-68-8" id="__codelineno-68-8" name="__codelineno-68-8"></a><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-68-9"><a href="#__codelineno-68-9" id="__codelineno-68-9" name="__codelineno-68-9"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="n">line</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+</span><span id="__span-68-10"><a href="#__codelineno-68-10" id="__codelineno-68-10" name="__codelineno-68-10"></a><span class="w">    </span><span class="n">strcmp</span><span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="n">line</span><span class="p">],</span><span class="w"> </span><span class="s">"STOP"</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+</span><span id="__span-68-11"><a href="#__codelineno-68-11" id="__codelineno-68-11" name="__codelineno-68-11"></a><span class="w">    </span><span class="o">++</span><span class="n">line</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">max_lines</span>
+</span><span id="__span-68-12"><a href="#__codelineno-68-12" id="__codelineno-68-12" name="__codelineno-68-12"></a><span class="p">);</span>
 </span></code></pre></div>
 </li>
 </ol>
@@ -6238,22 +6335,22 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 10 : </span>Comptons sur les caractères<span class="exercise-title"></span></p>
 <p>Un texte est passé à un programme par <code>stdin</code>. Comptez le nombre de caractères transmis.</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-64-1"><a href="#__codelineno-64-1" id="__codelineno-64-1" name="__codelineno-64-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"hello world"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>count-this
-</span><span id="__span-64-2"><a href="#__codelineno-64-2" id="__codelineno-64-2" name="__codelineno-64-2"></a><span class="go">11</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-69-1"><a href="#__codelineno-69-1" id="__codelineno-69-1" name="__codelineno-69-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"hello world"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>count-this
+</span><span id="__span-69-2"><a href="#__codelineno-69-2" id="__codelineno-69-2" name="__codelineno-69-2"></a><span class="go">11</span>
 </span></code></pre></div>
 </div>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 11 : </span>Esperluette conditionnelle<span class="exercise-title"></span></p>
 <p>Quel est le problème avec cette ligne de code ?</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-65-1"><a href="#__codelineno-65-1" id="__codelineno-65-1" name="__codelineno-65-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">mask</span><span class="o">==</span><span class="n">bits</span><span class="p">)</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-70-1"><a href="#__codelineno-70-1" id="__codelineno-70-1" name="__codelineno-70-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">mask</span><span class="o">==</span><span class="n">bits</span><span class="p">)</span>
 </span></code></pre></div>
 <details class="solution">
 <summary>Solution</summary>
 <p>La priorité de l'opérateur unitaire <code>&amp;</code> est plus élevée que <code>==</code> ce qui se traduit par :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-66-1"><a href="#__codelineno-66-1" id="__codelineno-66-1" name="__codelineno-66-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">mask</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">bits</span><span class="p">))</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-71-1"><a href="#__codelineno-71-1" id="__codelineno-71-1" name="__codelineno-71-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">mask</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">bits</span><span class="p">))</span>
 </span></code></pre></div>
 <p>Le développeur voulait probablement appliquer le masque à <code>x</code> puis le comparer au motif <code>bits</code>. La bonne réponse devrait alors être :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-67-1"><a href="#__codelineno-67-1" id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">bits</span><span class="p">)</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-72-1"><a href="#__codelineno-72-1" id="__codelineno-72-1" name="__codelineno-72-1"></a><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">bits</span><span class="p">)</span>
 </span></code></pre></div>
 </details>
 </div>
@@ -6279,7 +6376,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 10, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 17, 2024</span>
   </span>
 
     
