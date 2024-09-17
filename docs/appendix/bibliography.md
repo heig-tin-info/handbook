@@ -25,6 +25,7 @@ Les références utilisées dans cet ouvrage sont les suivantes.
 - The Mythical Man-Month: Essays on Software Engineering - Frederick P. Brooks Jr., 336 pages ([ISBN-13 978-0201835953](https://isbnsearch.org/isbn/9780201835953))
 - Gödel, Escher, Bach: An Eternal Golden Braid - Douglas R. Hofstadter, 824 pages ([ISBN-13 978-0465026562](https://isbnsearch.org/isbn/9780465026562))
 - The Art of Computer Programming - Donald E. Knuth, 3168 pages ([ISBN-13 978-0201896831](https://isbnsearch.org/isbn/9780201896831))
+- Numerical Recipes in C: The Art of Scientific Computing - William H. Press, 1232 pages ([ISBN-13 978-0521750332](https://isbnsearch.org/isbn/9780521750332))
 
 ## Sites Web
 
