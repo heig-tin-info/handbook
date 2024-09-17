@@ -2,6 +2,7 @@
 
 ## To-Do
 
+- [ ] Reaveal js slides --> see on slides branch
 - [ ] Content
   - [ ] Sécurité et bonnes pratiques (buffer overflow, vunérabilités, strcpy, gets, ... libfuzzer
   - [ ] Insérer un exemple de diagramme à la main https://i.sstatic.net/WdbInYwX.png
