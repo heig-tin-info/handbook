@@ -62,6 +62,8 @@ int main() {
 }
 ```
 
+Dans le standard C, l'en-tête `<tgmath.h>` fournit par exemple des fonctions génériques pour les fonctions mathématiques. Il n'y a donc plus à ce soucier du type de données passé en paramètre ce qui pourrait en théorie créer moins d'erreurs de programmation.
+
 ## Tableaux à taille variable
 
 Nous avons vu qu'il est parfaitement correct d'écrire :

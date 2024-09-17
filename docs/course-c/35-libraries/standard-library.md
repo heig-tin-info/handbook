@@ -106,7 +106,7 @@ Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilis�
 
 Il serait inutile ici de lister toutes les fonctions, les bibliothèques standard étant largement documentées sur internet. Il ne fait aucun doute que le développeur sera trouver comment calculer un sinus avec la fonction `sin`. Néanmoins l'existence de certaines fonctions peut passer inaperçues et c'est de celles-ci don't j'aimerais parler.
 
-#### Math
+#### Fonctons Mathématiques
 
 La bibliothèque mathématique est une des plus utilisées. Elle contient des fonctions pour les opérations mathématiques de base. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement. Le fichier d'en-tête est le suivant et le flag de compilation est `-lm` :
 
@@ -147,6 +147,8 @@ Notons par exemple que la fonction `hypot` peut très bien être émulée facile
 2. Une meilleure optimisation du code.
 
 Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables de calculer certaines fonctions plus rapidement.
+
+Le standard C99 a introduit l'en-tête `<tgmath.h>` qui donne accès à des fonctions génériques. Par exemple, `sin` peut être utilisé pour des `float`, `double` et `long double` sans avoir à choisir le nom de la fonction (`sinf`, `sin`, `sinl`), en outre les types complexes sont également supportés comme `csin` pour les complexes.
 
 #### Chaînes de caractères
 
@@ -484,6 +486,203 @@ if (f == NULL) {
     fprintf(stderr, "Erreur lors de l'ouverture du fichier : %s\n",
       strerror(errno));
 }
+```
+
+#### Date et heure
+
+La bibliothèque `<time.h>` contient des fonctions pour lire et convertir des dates et heures. Les fonctions sont définies pour les dates et heures en secondes depuis le 1er janvier 1970. Le fichier d'en-tête est le suivant :
+
+```c
+#include <time.h>
+```
+
+Table: Fonctions sur les dates et heures
+
+| Fonction    | Description                                |
+| ----------- | ------------------------------------------ |
+| `time`      | Temps écoulé depuis le 1er janvier 1970    |
+| `localtime` | Convertit le temps en heure locale         |
+| `gmtime`    | Convertit le temps en heure UTC            |
+| `asctime`   | Convertit le temps en chaîne de caractères |
+| `ctime`     | Convertit le temps en chaîne de caractères |
+| `strftime`  | Convertit le temps en chaîne de caractères |
+| `mktime`    | Convertit une structure en temps           |
+| `difftime`  | Différence entre deux temps                |
+| `clock`     | Temps CPU utilisé par le programme         |
+
+##### Stucture `tm`
+
+Les fonctions de date et d'heure utilisent la structure `tm` pour représenter les dates et heures. La structure est définie comme suit :
+
+```c
+struct tm {
+    int tm_sec;   // Secondes (0-59)
+    int tm_min;   // Minutes (0-59)
+    int tm_hour;  // Heures (0-23)
+    int tm_mday;  // Jour du mois (1-31)
+    int tm_mon;   // Mois (0-11)
+    int tm_year;  // Année - 1900
+    int tm_wday;  // Jour de la semaine (0-6, dimanche = 0)
+    int tm_yday;  // Jour de l'année (0-365)
+    int tm_isdst; // Heure d'été (0, 1, -1)
+};
+```
+
+##### `time`
+
+La fonction `time` permet de récupérer le temps écoulé depuis le 1er janvier 1970. Elle prend en paramètre un pointeur sur un `time_t` qui contiendra le temps écoulé. Ce dernier peut être `NULL` si on ne souhaite pas récupérer le temps. Le prototype de la fonction est le suivant :
+
+```c
+time_t time(time_t *t);
+```
+
+Un exemple d'utilisation est le suivant :
+
+```c
+time_t t;
+time(&t);
+printf("Time since 1st January 1970 : %ld seconds\n", t);
+
+// Ou sans récupérer le temps
+printf("Time since 1st January 1970 : %ld seconds\n", time(NULL));
+```
+
+Pourquoi le 1er janvier 1970 ? C'est une convention qui remonte aux premiers systèmes Unix. Le temps est stocké en secondes depuis cette date. C'est ce qu'on appelle le temps Unix ou temps POSIX.
+
+!!! bug "Problème de l'an 2038"
+
+    Le temps Unix est stocké sur 32 bits. Cela signifie que le temps Unix ne pourra plus être stocké sur 32 bits à partir du 19 janvier 2038. C'est ce qu'on appelle le bug de l'an 2038. Il est donc nécessaire de passer à un temps stocké sur 64 bits pour éviter ce problème.
+
+    La taille de `time_t` dépend de l'implémentation. Sur la plupart des systèmes, `time_t` est un alias pour `long`. Sur les systèmes 64 bits, `time_t` est un alias pour `long long`.
+
+Pourquoi avoir deux moyen de retourner le temps ? C'est une question de style. Certains préfèrent récupérer le temps dans une variable, d'autres préfèrent le récupérer directement sans variable intermédiaire.
+
+##### `localtime` et `gmtime`
+
+Ces deux fonctions permettent de convertir un temps en heure locale ou en heure UTC. Leur prototype est le suivant :
+
+```c
+struct tm *localtime(const time_t *timep);
+struct tm *gmtime(const time_t *timep);
+```
+
+`localtime` se base sur les paramètres régionaux fixés dans le système pour déterminer le fuseau horaire. Elle tient compte de l'ajustement pour l'heure d'été. `gmtime` en revanche se base sur le fuseau horaire UTC et ne tient pas compte de l'heure d'été.
+
+Un exemple d'utilisation est le suivant :
+
+```c
+time_t t;
+time(&t);
+struct tm *tm = localtime(&t);
+printf("Heure locale : %d:%d:%d\n", tm->tm_hour, tm->tm_min, tm->tm_sec);
+```
+
+##### `asctime` et `ctime`
+
+Les fonctions `asctime` et `ctime` permettent de convertir un temps en chaîne de caractères. Leur prototype est le suivant :
+
+```c
+char *asctime(const struct tm *tm);
+char *ctime(const time_t *timep);
+```
+
+L'une prend en paramètre une structure `tm` et l'autre un temps. Elles retournent une chaîne de caractères représentant le temps. Par exemple :
+
+```c
+time_t current_time = time(NULL);
+struct tm *local_tm = localtime(&current_time);
+printf("Heure locale : %s", asctime(local_tm));
+// Affiche par exemple "Sun Sep 16 01:03:52 1973\n" (locale en anglais)
+//          "Dimanche 16 Septembre 01:03:52 1973\n" (locale en français)
+```
+
+Pour afficher l'heure actuelle, on peut également utiliser `ctime` :
+
+```c
+time_t current_time = time(NULL);
+printf("Heure locale : %s", ctime(&current_time));
+```
+
+##### `strftime`
+
+La fonction `strftime` permet de convertir un temps en chaîne de caractères en utilisant un format spécifique. Son prototype est le suivant :
+
+```c
+size_t strftime(char *s, size_t maxsize, const char *format,
+                const struct tm *tm);
+```
+
+Elle prend en paramètre un pointeur sur une chaîne de caractères, la taille de la chaîne, un format et une structure `tm`. Elle retourne le nombre de caractères écrits dans la chaîne.
+
+Table: Format de `strftime`
+
+| Format | Description                                      | Exemple de sortie |
+| ------ | ------------------------------------------------ | ----------------- |
+| `%A`   | Nom complet du jour de la semaine                | `"Sunday"`        |
+| `%a`   | Nom abrégé du jour de la semaine                 | `"Sun"`           |
+| `%B`   | Nom complet du mois                              | `"January"`       |
+| `%b`   | Nom abrégé du mois                               | `"Jan"`           |
+| `%C`   | Siècle (les deux premiers chiffres de l'année)   | `"20"` pour 2024  |
+| `%d`   | Jour du mois (01-31)                             | `"17"`            |
+| `%D`   | Date au format `MM/DD/YY`                        | `"09/17/24"`      |
+| `%e`   | Jour du mois (1-31, avec espace si un chiffre)   | `"17"` ou `" 7"`  |
+| `%F`   | Date au format `YYYY-MM-DD`                      | `"2024-09-17"`    |
+| `%H`   | Heure (00-23, format 24 heures)                  | `"14"`            |
+| `%I`   | Heure (01-12, format 12 heures)                  | `"02"`            |
+| `%j`   | Jour de l'année (001-366)                        | `"260"`           |
+| `%k`   | Heure (0-23, avec espace si chiffre)             | `" 2"`            |
+| `%l`   | Heure (1-12, avec espace si chiffre, 12 heures)  | `" 2"`            |
+| `%M`   | Minutes (00-59)                                  | `"05"`            |
+| `%m`   | Mois (01-12)                                     | `"09"`            |
+| `%n`   | Saut de ligne                                    | `"\n"`            |
+| `%p`   | Indicateur AM ou PM                              | `"PM"`            |
+| `%P`   | Indicateur am ou pm (minuscule)                  | `"pm"`            |
+| `%r`   | Heure au format 12 heures (hh:mm:ss AM/PM)       | `"02:05:45 PM"`   |
+| `%R`   | Heure au format 24 heures (hh:mm)                | `"14:05"`         |
+| `%S`   | Secondes (00-60)                                 | `"45"`            |
+| `%T`   | Heure au format 24 heures (hh:mm:ss)             | `"14:05:45"`      |
+| `%u`   | Numéro du jour de la semaine (1-7, lundi = 1)    | `"2"` pour mardi  |
+| `%U`   | Numéro de la semaine (00-53, dimanche)           | `"37"`            |
+| `%W`   | Numéro de la semaine (00-53, lundi)              | `"37"`            |
+| `%V`   | Numéro de la semaine ISO 8601 (01-53, lundi)     | `"38"`            |
+| `%w`   | Numéro du jour de la semaine (0-6, dimanche = 0) | `"0"`             |
+| `%x`   | Représentation locale de la date                 | `"09/17/24"`      |
+| `%X`   | Représentation locale de l'heure                 | `"14:05:45"`      |
+| `%y`   | Année (00-99, deux derniers chiffres)            | `"24"`            |
+| `%Y`   | Année (tous les chiffres)                        | `"2024"`          |
+| `%z`   | Décalage UTC (format +hhmm)                      | `"+0200"` (UTC+2) |
+| `%Z`   | Nom du fuseau horaire                            | `"CEST"`          |
+| `%%`   | Symbole `%`                                      | `"%"`             |
+
+Queqlues notes sur les formats :
+
+- Le `%S` peut retourner 60 lorsqu'une seconde intercalaire est insérée. Une second intercalaire est une seconde ajoutée à la fin d'une minute pour compenser la rotation de la Terre.
+- La différence entre `%U` et `%W` est que `%U` commence la semaine le dimanche alors que `%W` commence la semaine le lundi. Les américains utilisent `%U` alors que les européens utilisent `%V`.
+
+Voici un exemple d'utilisation :
+
+```c
+#include <stdio.h>
+#include <time.h>
+
+int main() {
+    // Obtenir l'heure locale
+    time_t current_time = time(NULL);
+    struct tm *local_tm = localtime(&current_time);
+
+    // Formater la date et l'heure
+    char buffer[100];
+    strftime(buffer, sizeof(buffer),
+      "Aujourd'hui, c'est %A, %d %B %Y, et il est %T.", local_tm);
+
+    printf("%s\n", buffer);
+}
+```
+
+Il pourrait afficher:
+
+```text
+Aujourd'hui, c'est vendredi, 17 septembre 2024, et il est 14:05:45.
 ```
 
 #### Types de données
