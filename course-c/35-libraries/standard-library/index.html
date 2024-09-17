@@ -5104,6 +5104,9 @@ les outils associés.
 <h3 id="fonctions-dinteret">Fonctions d'intérêt<a class="headerlink" href="#fonctions-dinteret" title="Lien permanent">¤</a></h3>
 <p>Il serait inutile ici de lister toutes les fonctions, les bibliothèques standard étant largement documentées sur internet. Il ne fait aucun doute que le développeur sera trouver comment calculer un sinus avec la fonction <code>sin</code>. Néanmoins l'existence de certaines fonctions peut passer inaperçues et c'est de celles-ci don't j'aimerais parler.</p>
 <h4 id="math">Math<a class="headerlink" href="#math" title="Lien permanent">¤</a></h4>
+<p>La bibliothèque mathématique est une des plus utilisées. Elle contient des fonctions pour les opérations mathématiques de base. Les fonctions sont définies pour les types <code>float</code>, <code>double</code> et <code>long double</code> avec les préfixes <code>f</code>, <code>l</code> et sans préfixe respectivement. Le fichier d'en-tête est le suivant et le flag de compilation est <code>-lm</code> :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span>
+</span></code></pre></div>
 <table id="_table-1">
 <caption style="caption-side:top"> Constantes mathématiques</caption><thead>
 <tr>
@@ -5126,6 +5129,10 @@ les outils associés.
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">Windows</p>
+<p>Attention, ces constantes ne sont pas définies par le standard C, mais par le standard <abbr title="Portable Operating System Interface">POSIX</abbr>. Il est donc possible que certaines implémentations ne les définissent pas, en particulier sous Windows.</p>
+</div>
 <table id="_table-2">
 <caption style="caption-side:top"> Fonctions mathématiques</caption><thead>
 <tr>
@@ -5183,21 +5190,293 @@ les outils associés.
 </ol>
 <p>Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables de calculer certaines fonctions plus rapidement.</p>
 <h4 id="chaines-de-caracteres">Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent">¤</a></h4>
-<dl>
-<dt><code>strcopy(dst, src)</code></dt>
-<dd>
-<p>Identique à <code>memcpy</code> mais sans nécessité de donner
-  la taille de la chaîne puisqu'elle se termine par <code>\0</code></p>
-</dd>
-<dt><code>memmove(dst, src, n)</code></dt>
-<dd>
-<p>Identique à <code>memcpy</code> mais traite les cas particuliers lorsque
-  les deux régions mémoire se superposent.</p>
-</dd>
-</dl>
-<h4 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Lien permanent">¤</a></h4>
-<p>Test d'une propriété d'un caractère passé en paramètre</p>
+<p>La bibliothèque <code>&lt;string.h&gt;</code> contient des fonctions pour manipuler les chaînes de caractères. Les fonctions sont définies pour les chaînes de caractères ASCII uniquement. On distingue deux famille de fonctions, les <code>mem</code> qui manipulent des régions mémoires et les <code>str</code> qui manipulent des chaînes de caractères. Le fichier d'en-tête est le suivant :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+</span></code></pre></div>
+<p>La table suivante résume les fonctions les plus utilisées. On notera que les lettres entre parenthèses indiquent les variantes des fonctions. La fonction <code>strcpy</code> existe en version <code>strncpy</code> qui permet de copier une chaîne en spécifiant la taille maximale à copier. On notera <code>n</code> pour les fonctions dont la taille maximum de la chaîne peut être spécifiée, <code>r</code> pour <em>reverse</em> et <code>c</code> pour <em>not in</em>.</p>
 <table id="_table-3">
+<caption style="caption-side:top"> Fonctions sur les chaînes de caractères</caption><thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>memset</code></td>
+<td>Remplissage d'une région mémoire</td>
+</tr>
+<tr>
+<td><code>memcpy</code></td>
+<td>Copie d'une région mémoire</td>
+</tr>
+<tr>
+<td><code>memmove</code></td>
+<td>Copie d'une région mémoire avec superposition</td>
+</tr>
+<tr>
+<td><code>memcmp</code></td>
+<td>Comparaison de deux régions mémoire</td>
+</tr>
+<tr>
+<td><code>memchr</code></td>
+<td>Recherche d'un caractère dans une région mémoire</td>
+</tr>
+<tr>
+<td><code>strlen</code></td>
+<td>Longueur de la chaîne</td>
+</tr>
+<tr>
+<td><code>str(n)cpy</code></td>
+<td>Copie d'une chaîne</td>
+</tr>
+<tr>
+<td><code>str(n)cat</code></td>
+<td>Concaténation de deux chaînes</td>
+</tr>
+<tr>
+<td><code>str(n)cmp</code></td>
+<td>Comparaison de deux chaînes</td>
+</tr>
+<tr>
+<td><code>str(r)chr</code></td>
+<td>Recherche d'un caractère dans une chaîne</td>
+</tr>
+<tr>
+<td><code>strstr</code></td>
+<td>Recherche d'une sous-chaîne dans une chaîne</td>
+</tr>
+<tr>
+<td><code>strtok</code></td>
+<td>Découpe une chaîne en morceaux</td>
+</tr>
+<tr>
+<td><code>strspn</code></td>
+<td>Longueur du préfixe d'une chaîne</td>
+</tr>
+<tr>
+<td><code>strcspn</code></td>
+<td>Longueur du préfixe qui ne contient pas certains caractères</td>
+</tr>
+<tr>
+<td><code>strpbrk</code></td>
+<td>Recherche d'un caractère dans une liste</td>
+</tr>
+<tr>
+<td><code>strcoll</code></td>
+<td>Comparaison de chaînes selon la locale</td>
+</tr>
+<tr>
+<td><code>strxfrm</code></td>
+<td>Transformation de chaînes selon la locale</td>
+</tr>
+<tr>
+<td><code>strerror</code></td>
+<td>Message d'erreur associé à un code d'erreur</td>
+</tr>
+</tbody>
+</table>
+<h5 id="memset"><code>memset</code><a class="headerlink" href="#memset" title="Lien permanent">¤</a></h5>
+<p>La fonction memset permet de remplir une région mémoire avec une valeur donnée. Son prototype est :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memset</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Elle est utilisée principalement pour initialiser ou réinitialiser un tableau en une seule instruction qui sera plus performante qu'une boucle. L'exemple suivant initialise un tableau de 100 éléments avec la valeur 42 :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">memset</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">));</span>
+</span></code></pre></div>
+<p>Notez que la valeur est un byte. Memset ne peut pas être utilisé pour initialiser un tableau avec une valeur de type <code>int</code> par exemple.</p>
+<h5 id="memcpy-et-memmove"><code>memcpy</code> et <code>memmove</code><a class="headerlink" href="#memcpy-et-memmove" title="Lien permanent">¤</a></h5>
+<p>Les deux fonctions permettent de copier des régions mémoires d'une adresse à une autre. Leur prototype est le suivant :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">memmove</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">memcpy</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+</span></code></pre></div>
+<p>La différence principale est que <code>memcpy</code> ne traite pas les cas où les deux régions mémoire se superposent. <code>memmove</code> est plus sûr et plus lent que <code>memcpy</code>. En effet, <code>memmove</code> doit vérifier si les deux régions mémoire se superposent et dans ce cas, elle doit copier les données dans un buffer temporaire avant de les copier dans la région de destination. <code>memcpy</code> ne fait pas cette vérification et copie directement les données.</p>
+<p>Pour comprendre ce problème de superposition prenons l'exemple ci-dessous. La fonction <code>memcpy</code> est réimplémentée pour avoir une résultat prévisible. Un pointeur <code>p</code> est déclaré et un pointeur <code>q</code> correspond à l'adresse de <code>p</code> mais décalé de deux éléments. Les deux espaces mémoire se superposent donc. Après copie on devrait obtenir <code>12345</code> dans <code>q</code> mais après la copie mais on obtient <code>12121</code>. Il y a donc un problème.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">mymemcpy</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dest</span><span class="p">;</span>
+</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">;</span>
+</span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-7-6"><a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="p">}</span>
+</span><span id="__span-7-7"><a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-9"><a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"12345.."</span><span class="p">;</span>
+</span><span id="__span-7-10"><a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+</span><span id="__span-7-11"><a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-7-12"><a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">   </span><span class="n">mymemcpy</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+</span><span id="__span-7-13"><a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"%c"</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span><span id="__span-7-14"><a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">   </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-7-15"><a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Pour vous en convaincre, vous pouvez vous aider de la figure suivante.</p>
+<p><figure id="_figure-1"><img alt="memcpy" class="drawio-diagram" src="../../../assets/images/memcpy.drawio"/><figcaption> memcpy</figcaption></figure></p>
+<p>En réalité, le fonctionnement de <code>memcpy</code> n'est pas si simple. En effet, le compilateur peut optimiser le code et utiliser des instructions SIMD pour copier les données. Cela va également dépendre du niveau d'optimisation du compilateur. En exécutant le même code avec <code>memcpy</code>, je n'obtiens pas le même résultat, en observant le code assembleur généré pour <code>memcpy</code>, on observe que les premiers 4 octets sont copiés en une seule instruction, le cinquième octet est copié en une instruction séparée. Ce qui donne comme résultat <code>12343</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>mov rcx, qword ptr [rbp - 128]  ; Charge l'adresse de destination (q) dans rcx
+</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>mov rdx, qword ptr [rbp - 120]  ; Charge l'adresse source (p) dans rdx
+</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>mov esi, dword ptr [rdx]        ; Charge les 4 premiers octets dans esi
+</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>mov dword ptr [rcx], esi        ; Copie ces 4 octets dans la destination
+</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>mov r8b, byte ptr [rdx + 4]     ; Charge le 5e octet de la source dans r8b
+</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>mov byte ptr [rcx + 4], r8b     ; Copie le 5e octet dans la destination
+</span></code></pre></div>
+<p>Pour s'affranchir de ce type de problème, il est préférable d'utiliser  <code>memmove</code> lorsque vous n'êtes pas sûr que les deux régions mémoire ne se superposent pas.</p>
+<h5 id="memcmp"><code>memcmp</code><a class="headerlink" href="#memcmp" title="Lien permanent">¤</a></h5>
+<p>La fonction <code>memcmp</code> permet de comparer deux régions mémoires. Son prototype est :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">memcmp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</span></code></pre></div>
+<p>On utilise typiquement <code>memcmp</code> pour comparer deux structures. Il n'est en effet pas possible de comparer deux structures directement avec l'opérateur <code>==</code>. On utilisera plutôt :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">firstname</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">lastname</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+</span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="n">Genre</span><span class="w"> </span><span class="n">genre</span><span class="p">;</span>
+</span><span id="__span-10-5"><a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-10-6"><a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="p">};</span>
+</span><span id="__span-10-7"><a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+</span><span id="__span-10-9"><a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="c1">// Do something with p and q</span>
+</span><span id="__span-10-10"><a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">memcmp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Person</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-10-12"><a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Les deux personnes sont identiques</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition bug">
+<p class="admonition-title">Comparaison de chaînes de caractères</p>
+<p>Attention néanmoins au cas de figure donné. Les champs <code>firstname</code> et <code>lastname</code> sont des buffers de 64 caractères. Si les deux structures contiennent les mêmes prénoms et noms il n'y a aucune garantie que les deux structures soient égales. En effet, après le caractère <code>'\0'</code>, rien n'oblige l'utilisateur à remplir le reste du buffer avec des <code>'\0'</code>.</p>
+<p>Il serait ici préférable de tester individuellement les champs de la structure.</p>
+</div>
+<h5 id="memchr-et-strrchr"><code>memchr</code> et <code>str(r)chr</code><a class="headerlink" href="#memchr-et-strrchr" title="Lien permanent">¤</a></h5>
+<p>Les fonctions <code>memchr</code>, <code>strchr</code> et <code>strrchr</code> permettent de rechercher un caractère dans une région mémoire. Leurs prototypes sont :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memchr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strchr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strrchr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Une utilisaiton typique de <code>strchr</code> ou <code>strrchr</code> est de rechercher l'occurence d'un caractère dans une chaîne de caractères. La fonction s'arrête dès qu'elle trouve le caractère recherché ou qu'elle atteint la fin de la chaîne.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Anticonsitutionnellement"</span><span class="p">;</span>
+</span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strchr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="sc">'i'</span><span class="p">);</span>
+</span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">assert</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"> </span><span class="c1">// Caractère trouvé</span>
+</span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">assert</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'i'</span><span class="p">);</span><span class="w"> </span><span class="c1">// Caractère trouvé est 'i'</span>
+</span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="n">assert</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// Position de 'i' dans la chaîne</span>
+</span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="c1">// Recherche depuis la fin</span>
+</span><span id="__span-12-8"><a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strrchr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="sc">'i'</span><span class="p">);</span>
+</span><span id="__span-12-9"><a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="n">assert</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span><span class="w"> </span><span class="c1">// Dernière position de 'i' dans la chaîne</span>
+</span></code></pre></div>
+<p>Dans le cas de <code>memchr</code>, il est possible de chercher n'importe quelle valeur de byte, y compris <code>'\0'</code>. En revanche, il est nécessaire de spécifier la taille de la région mémoire à parcourir.</p>
+<h5 id="strlen"><code>strlen</code><a class="headerlink" href="#strlen" title="Lien permanent">¤</a></h5>
+<p>La fonction <code>strlen</code> permet de calculer la longueur d'une chaîne de caractères. Son prototype est :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="nf">strlen</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Son implémentation pourrait être la suivante :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="nf">strlen</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">)</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-14-5"><a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<h5 id="strncpy"><code>str(n)cpy</code><a class="headerlink" href="#strncpy" title="Lien permanent">¤</a></h5>
+<p>Les fonctions <code>strcpy</code> et <code>strncpy</code> permettent de copier une chaîne de caractères. Leur prototype sont :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strcpy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
+</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strncpy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</span></code></pre></div>
+<p>La fonction <code>strcpy</code> copie la chaîne de caractères <code>src</code> dans <code>dest</code>. La fonction <code>strncpy</code> copie au maximum <code>n</code> caractères de <code>src</code> dans <code>dest</code>. Si la chaîne <code>src</code> est plus longue que <code>n</code>, la chaîne <code>dest</code> ne sera pas terminée par <code>'\0'</code>.</p>
+<h5 id="strncat"><code>str(n)cat</code><a class="headerlink" href="#strncat" title="Lien permanent">¤</a></h5>
+<p>Les fonctions <code>strcat</code> et <code>strncat</code> permettent de concaténer deux chaînes de caractères. Leur prototype sont :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strcat</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
+</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strncat</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</span></code></pre></div>
+<p>La fonction <code>strcat</code> concatène la chaîne de caractères <code>src</code> à la fin de <code>dest</code>. La fonction <code>strncat</code> concatène au maximum <code>n</code> caractères de <code>src</code> à la fin de <code>dest</code>. Si la chaîne <code>src</code> est plus longue que <code>n</code>, la chaîne <code>dest</code> ne sera pas terminée par <code>'\0'</code>.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">dest</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, "</span><span class="p">;</span><span class="w"> </span><span class="c1">// dest est plus grand que src !</span>
+</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kt">char</span><span class="w"> </span><span class="n">src</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"World!"</span><span class="p">;</span>
+</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">strcat</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">);</span>
+</span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">dest</span><span class="p">);</span><span class="w">  </span><span class="c1">// Affiche "Hello, World!"</span>
+</span></code></pre></div>
+<p>L'implémentation de <code>strcat</code> pourrait être la suivante :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strcat</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">dest</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">)</span><span class="w"> </span><span class="o">++</span><span class="n">dest</span><span class="p">;</span>
+</span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="o">*</span><span class="n">dest</span><span class="o">++</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">);</span>
+</span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dest</span><span class="p">;</span>
+</span><span id="__span-18-5"><a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<h5 id="strcmp-et-strncmp"><code>strcmp</code> et <code>strncmp</code><a class="headerlink" href="#strcmp-et-strncmp" title="Lien permanent">¤</a></h5>
+<p>La fonction <code>strcmp</code> permet de comparer deux chaînes de caractères. Son prototype est :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">strcmp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Elle sera utilisée principalement pour comparer deux chaînes de caractères. Une utlisation typique est de tester si deux chaînes sont égales. Par exemple :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"John"</span><span class="p">;</span>
+</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kt">char</span><span class="w"> </span><span class="n">user</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+</span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scanf</span><span class="p">(</span><span class="s">"%63s"</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">memcmp</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Welcome John!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-20-5"><a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Le <code>strncmp</code> permet de forcer la comparaison à s'arrêter après un certain nombre de caractères. C'est particulièrement utile pour le traitement des arguments de ligne de commande. Par exemple :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strncmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">"--filename="</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Ouverture du fichier %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">11</span><span class="p">);</span>
+</span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<h5 id="strtok"><code>strtok</code><a class="headerlink" href="#strtok" title="Lien permanent">¤</a></h5>
+<p>La fonction <code>strtok</code> permet de découper une chaîne de caractères en morceaux. Il s'agit de l'abbréviation de <em>string token</em>. Son prototype est :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strtok</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">delim</span><span class="p">);</span>
+</span></code></pre></div>
+<p>La première fois que la fonction est appelée, elle prend en paramètre la chaîne à découper. Les appels suivants doivent passer <code>NULL</code> en premier paramètre. La fonction retourne un pointeur sur le début du morceau suivant. La fonction modifie la chaîne passée en paramètre en insérant des <code>'\0'</code> à la place des délimiteurs.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"mais,ou,est,donc,or,ni,car"</span><span class="p">;</span>
+</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strtok</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">","</span><span class="p">);</span>
+</span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">token</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
+</span><span id="__span-23-5"><a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="w">    </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="s">","</span><span class="p">);</span>
+</span><span id="__span-23-6"><a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<h5 id="strspn-et-strcspn"><code>strspn</code> et <code>strcspn</code><a class="headerlink" href="#strspn-et-strcspn" title="Lien permanent">¤</a></h5>
+<p>Les fonctions <code>strspn</code> et <code>strcspn</code> permettent de calculer la longueur du préfixe d'une chaîne qui contient ou ne contient pas certains caractères. Leur prototype est :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="nf">strspn</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">accept</span><span class="p">);</span>
+</span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kt">size_t</span><span class="w"> </span><span class="nf">strcspn</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">reject</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Une utilisation typique de <code>strspn</code> est de valider une chaîne de caractères. Par exemple, pour valider un nombre entier :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"12345"</span><span class="p">;</span>
+</span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strspn</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">"0123456789"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-3"><a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"La chaîne %s est un nombre entier</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+</span><span id="__span-25-4"><a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Inversement, <code>strcspn</code> permet de valider une chaîne de caractères qui ne contient pas certains caractères. Par exemple pour aider Georges Perec à écrire un lipogramme sans la lettre <code>e</code> :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"La disparition"</span><span class="p">;</span>
+</span><span id="__span-26-2"><a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcspn</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">"e"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-3"><a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"La chaîne %s ne contient pas la lettre 'e'</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+</span><span id="__span-26-4"><a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<h5 id="strpbrk"><code>strpbrk</code><a class="headerlink" href="#strpbrk" title="Lien permanent">¤</a></h5>
+<p>La fonction <code>strpbrk</code> permet de rechercher un caractère dans une liste de caractères. Son prototype est :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strpbrk</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">accept</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Elle retourne un pointeur sur le premier caractère de <code>s</code> qui appartient à <code>accept</code>. Par exemple, pour chercher les opérateurs utilisés dans une chaîne de caractères :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"1 + 2 * 4 + 8"</span><span class="p">;</span>
+</span><span id="__span-28-2"><a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a>
+</span><span id="__span-28-3"><a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strpbrk</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">"+-*/%%"</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-4"><a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Opérateur trouvé : %c</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">);</span>
+</span><span id="__span-28-5"><a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="w">    </span><span class="n">s</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-28-6"><a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<h5 id="strcoll-et-strxfrm"><code>strcoll</code> et <code>strxfrm</code><a class="headerlink" href="#strcoll-et-strxfrm" title="Lien permanent">¤</a></h5>
+<p>Les fonctions <code>strcoll</code> et <code>strxfrm</code> permettent de comparer des chaînes de caractères selon la locale. Elles sont l'abbréviation de <em>string collate</em> où <em>collate</em> fait référence au tri ou à l'ordre de classement des chaînes de caractères en fonction des conventions locales. <code>strxfrm</code> est l'abbréviation de <em>string transform</em> et permet de transformer une chaîne de caractères en une chaîne de caractères qui peut être comparée avec <code>strcmp</code>. Leur prototype est :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">strcoll</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">);</span>
+</span><span id="__span-29-2"><a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="kt">size_t</span><span class="w"> </span><span class="nf">strxfrm</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Ces deux fonctions sont utilisées pour comparer des chaînes de caractères en tenant compte des conventions de tri locales, qui peuvent varier d'une langue ou d'un jeu de caractères à un autre. Elles sont principalement utilisées pour des opérations de tri ou de comparaison dans des contextes où il est important de respecter l'ordre défini par les paramètres régionaux (locales). Ces fonction utlisent donc les paramètres régionaux définis par la fonction <code>setlocale</code> de la bibliothèque <code>&lt;locale.h&gt;</code>.</p>
+<p>Pourquoi ces deux fonctions étranges ? Comparer deux chaînes n'est pas facile surtout s'il y a des diacritiques. Selon la langue, les chaînes de caractères ne sont pas forcément comparées de la même manière. En français on considère alphabétiquement que <code>é</code> est juste après <code>e</code> dans l'alphabet, en anglais les deux lettres sont équivalentes. En suédois, les lettres <code>å</code>, <code>ä</code> sont placées après le <code>z</code>, et les règles sont nombreuses.</p>
+<p><code>strxfrm</code> permet de transformer une chaîne de caractères en une chaîne de caractères dite « collationnée » qui peut être comparée ensuite rapidement avec <code>strcmp</code>. Cela peut être utile lors de comparaison répétées.</p>
+<p>Notons que ces fonctions ne sont plus vraiment utilisées car elles se limitent au jeux de caractères ISO-8859, et le support Unicode est limité. Pour une gestion correcte il vaut mieux faire appel à des bibliothèques plus spécialisées comme <code>ICU</code> qui offre la fonction <code>ucol_strcoll</code> pour comparer des chaînes de caractères Unicode.</p>
+<h5 id="strerror"><code>strerror</code><a class="headerlink" href="#strerror" title="Lien permanent">¤</a></h5>
+<p>La fonction <code>strerror</code> permet de récupérer un message d'erreur associé à un code d'erreur. Son prototype est :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-30-1"><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strerror</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">errnum</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Elle est utilisée principalement pour afficher des messages d'erreur associés à des codes d'erreur. Par exemple :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-31-1"><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">"file.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"r"</span><span class="p">);</span>
+</span><span id="__span-31-2"><a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-31-3"><a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Erreur lors de l'ouverture du fichier : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+</span><span id="__span-31-4"><a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="w">      </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span>
+</span><span id="__span-31-5"><a href="#__codelineno-31-5" id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<h4 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Lien permanent">¤</a></h4>
+<p>La bibliothèque <code>&lt;ctype.h&gt;</code> contient des fonctions pour tester et convertir des caractères. Les fonctions sont définies pour les caractères ASCII uniquement, elle ne s'applique pas aux caractères Unicode, ni aux caractères étendus (au-delà de 127).</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctype.h&gt;</span>
+</span></code></pre></div>
+<table id="_table-4">
 <caption style="caption-side:top"> Fonctions de test de caractères</caption><thead>
 <tr>
 <th>Fonction</th>
@@ -5252,7 +5531,7 @@ les outils associés.
 </tbody>
 </table>
 <h4 id="limites">Limites<a class="headerlink" href="#limites" title="Lien permanent">¤</a></h4>
-<table id="_table-4">
+<table id="_table-5">
 <caption style="caption-side:top"> Valeurs limites pour les entiers signés et non signés</caption><thead>
 <tr>
 <th>Constante</th>
@@ -5332,7 +5611,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 17, 2024</span>
   </span>
 
     
@@ -5497,7 +5776,7 @@ les outils associés.
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier <a href="#__consent">Changer les paramètres des cookies</a>
+      Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier - <a href="#__consent">Paramètres des cookies</a>
 
     </div>
   
