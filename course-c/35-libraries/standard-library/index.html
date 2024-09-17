@@ -5103,7 +5103,7 @@ les outils associés.
 </div>
 <h3 id="fonctions-dinteret">Fonctions d'intérêt<a class="headerlink" href="#fonctions-dinteret" title="Lien permanent">¤</a></h3>
 <p>Il serait inutile ici de lister toutes les fonctions, les bibliothèques standard étant largement documentées sur internet. Il ne fait aucun doute que le développeur sera trouver comment calculer un sinus avec la fonction <code>sin</code>. Néanmoins l'existence de certaines fonctions peut passer inaperçues et c'est de celles-ci don't j'aimerais parler.</p>
-<h4 id="math">Math<a class="headerlink" href="#math" title="Lien permanent">¤</a></h4>
+<h4 id="fonctons-mathematiques">Fonctons Mathématiques<a class="headerlink" href="#fonctons-mathematiques" title="Lien permanent">¤</a></h4>
 <p>La bibliothèque mathématique est une des plus utilisées. Elle contient des fonctions pour les opérations mathématiques de base. Les fonctions sont définies pour les types <code>float</code>, <code>double</code> et <code>long double</code> avec les préfixes <code>f</code>, <code>l</code> et sans préfixe respectivement. Le fichier d'en-tête est le suivant et le flag de compilation est <code>-lm</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span>
 </span></code></pre></div>
@@ -5189,6 +5189,7 @@ les outils associés.
 <li>Une meilleure optimisation du code.</li>
 </ol>
 <p>Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables de calculer certaines fonctions plus rapidement.</p>
+<p>Le standard <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> a introduit l'en-tête <code>&lt;tgmath.h&gt;</code> qui donne accès à des fonctions génériques. Par exemple, <code>sin</code> peut être utilisé pour des <code>float</code>, <code>double</code> et <code>long double</code> sans avoir à choisir le nom de la fonction (<code>sinf</code>, <code>sin</code>, <code>sinl</code>), en outre les types complexes sont également supportés comme <code>csin</code> pour les complexes.</p>
 <h4 id="chaines-de-caracteres">Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent">¤</a></h4>
 <p>La bibliothèque <code>&lt;string.h&gt;</code> contient des fonctions pour manipuler les chaînes de caractères. Les fonctions sont définies pour les chaînes de caractères ASCII uniquement. On distingue deux famille de fonctions, les <code>mem</code> qui manipulent des régions mémoires et les <code>str</code> qui manipulent des chaînes de caractères. Le fichier d'en-tête est le suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
@@ -5472,11 +5473,339 @@ les outils associés.
 </span><span id="__span-31-4"><a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="w">      </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span>
 </span><span id="__span-31-5"><a href="#__codelineno-31-5" id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<h4 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Lien permanent">¤</a></h4>
-<p>La bibliothèque <code>&lt;ctype.h&gt;</code> contient des fonctions pour tester et convertir des caractères. Les fonctions sont définies pour les caractères ASCII uniquement, elle ne s'applique pas aux caractères Unicode, ni aux caractères étendus (au-delà de 127).</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctype.h&gt;</span>
+<h4 id="date-et-heure">Date et heure<a class="headerlink" href="#date-et-heure" title="Lien permanent">¤</a></h4>
+<p>La bibliothèque <code>&lt;time.h&gt;</code> contient des fonctions pour lire et convertir des dates et heures. Les fonctions sont définies pour les dates et heures en secondes depuis le 1er janvier 1970. Le fichier d'en-tête est le suivant :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span>
 </span></code></pre></div>
 <table id="_table-4">
+<caption style="caption-side:top"> Fonctions sur les dates et heures</caption><thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time</code></td>
+<td>Temps écoulé depuis le 1er janvier 1970</td>
+</tr>
+<tr>
+<td><code>localtime</code></td>
+<td>Convertit le temps en heure locale</td>
+</tr>
+<tr>
+<td><code>gmtime</code></td>
+<td>Convertit le temps en heure UTC</td>
+</tr>
+<tr>
+<td><code>asctime</code></td>
+<td>Convertit le temps en chaîne de caractères</td>
+</tr>
+<tr>
+<td><code>ctime</code></td>
+<td>Convertit le temps en chaîne de caractères</td>
+</tr>
+<tr>
+<td><code>strftime</code></td>
+<td>Convertit le temps en chaîne de caractères</td>
+</tr>
+<tr>
+<td><code>mktime</code></td>
+<td>Convertit une structure en temps</td>
+</tr>
+<tr>
+<td><code>difftime</code></td>
+<td>Différence entre deux temps</td>
+</tr>
+<tr>
+<td><code>clock</code></td>
+<td>Temps CPU utilisé par le programme</td>
+</tr>
+</tbody>
+</table>
+<h5 id="stucture-tm">Stucture <code>tm</code><a class="headerlink" href="#stucture-tm" title="Lien permanent">¤</a></h5>
+<p>Les fonctions de date et d'heure utilisent la structure <code>tm</code> pour représenter les dates et heures. La structure est définie comme suit :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-33-2"><a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_sec</span><span class="p">;</span><span class="w">   </span><span class="c1">// Secondes (0-59)</span>
+</span><span id="__span-33-3"><a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_min</span><span class="p">;</span><span class="w">   </span><span class="c1">// Minutes (0-59)</span>
+</span><span id="__span-33-4"><a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_hour</span><span class="p">;</span><span class="w">  </span><span class="c1">// Heures (0-23)</span>
+</span><span id="__span-33-5"><a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_mday</span><span class="p">;</span><span class="w">  </span><span class="c1">// Jour du mois (1-31)</span>
+</span><span id="__span-33-6"><a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_mon</span><span class="p">;</span><span class="w">   </span><span class="c1">// Mois (0-11)</span>
+</span><span id="__span-33-7"><a href="#__codelineno-33-7" id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_year</span><span class="p">;</span><span class="w">  </span><span class="c1">// Année - 1900</span>
+</span><span id="__span-33-8"><a href="#__codelineno-33-8" id="__codelineno-33-8" name="__codelineno-33-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_wday</span><span class="p">;</span><span class="w">  </span><span class="c1">// Jour de la semaine (0-6, dimanche = 0)</span>
+</span><span id="__span-33-9"><a href="#__codelineno-33-9" id="__codelineno-33-9" name="__codelineno-33-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_yday</span><span class="p">;</span><span class="w">  </span><span class="c1">// Jour de l'année (0-365)</span>
+</span><span id="__span-33-10"><a href="#__codelineno-33-10" id="__codelineno-33-10" name="__codelineno-33-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_isdst</span><span class="p">;</span><span class="w"> </span><span class="c1">// Heure d'été (0, 1, -1)</span>
+</span><span id="__span-33-11"><a href="#__codelineno-33-11" id="__codelineno-33-11" name="__codelineno-33-11"></a><span class="p">};</span>
+</span></code></pre></div>
+<h5 id="time"><code>time</code><a class="headerlink" href="#time" title="Lien permanent">¤</a></h5>
+<p>La fonction <code>time</code> permet de récupérer le temps écoulé depuis le 1er janvier 1970. Elle prend en paramètre un pointeur sur un <code>time_t</code> qui contiendra le temps écoulé. Ce dernier peut être <code>NULL</code> si on ne souhaite pas récupérer le temps. Le prototype de la fonction est le suivant :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="kt">time_t</span><span class="w"> </span><span class="nf">time</span><span class="p">(</span><span class="kt">time_t</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Un exemple d'utilisation est le suivant :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="kt">time_t</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+</span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="n">time</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+</span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="n">printf</span><span class="p">(</span><span class="s">"Time since 1st January 1970 : %ld seconds</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+</span><span id="__span-35-4"><a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a>
+</span><span id="__span-35-5"><a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="c1">// Ou sans récupérer le temps</span>
+</span><span id="__span-35-6"><a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="n">printf</span><span class="p">(</span><span class="s">"Time since 1st January 1970 : %ld seconds</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+</span></code></pre></div>
+<p>Pourquoi le 1er janvier 1970 ? C'est une convention qui remonte aux premiers systèmes Unix. Le temps est stocké en secondes depuis cette date. C'est ce qu'on appelle le temps Unix ou temps <abbr title="Portable Operating System Interface">POSIX</abbr>.</p>
+<div class="admonition bug">
+<p class="admonition-title">Problème de l'an 2038</p>
+<p>Le temps Unix est stocké sur 32 bits. Cela signifie que le temps Unix ne pourra plus être stocké sur 32 bits à partir du 19 janvier 2038. C'est ce qu'on appelle le bug de l'an 2038. Il est donc nécessaire de passer à un temps stocké sur 64 bits pour éviter ce problème.</p>
+<p>La taille de <code>time_t</code> dépend de l'implémentation. Sur la plupart des systèmes, <code>time_t</code> est un alias pour <code>long</code>. Sur les systèmes 64 bits, <code>time_t</code> est un alias pour <code>long long</code>.</p>
+</div>
+<p>Pourquoi avoir deux moyen de retourner le temps ? C'est une question de style. Certains préfèrent récupérer le temps dans une variable, d'autres préfèrent le récupérer directement sans variable intermédiaire.</p>
+<h5 id="localtime-et-gmtime"><code>localtime</code> et <code>gmtime</code><a class="headerlink" href="#localtime-et-gmtime" title="Lien permanent">¤</a></h5>
+<p>Ces deux fonctions permettent de convertir un temps en heure locale ou en heure UTC. Leur prototype est le suivant :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="o">*</span><span class="n">localtime</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">time_t</span><span class="w"> </span><span class="o">*</span><span class="n">timep</span><span class="p">);</span>
+</span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="o">*</span><span class="n">gmtime</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">time_t</span><span class="w"> </span><span class="o">*</span><span class="n">timep</span><span class="p">);</span>
+</span></code></pre></div>
+<p><code>localtime</code> se base sur les paramètres régionaux fixés dans le système pour déterminer le fuseau horaire. Elle tient compte de l'ajustement pour l'heure d'été. <code>gmtime</code> en revanche se base sur le fuseau horaire UTC et ne tient pas compte de l'heure d'été.</p>
+<p>Un exemple d'utilisation est le suivant :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-37-1"><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="kt">time_t</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+</span><span id="__span-37-2"><a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="n">time</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+</span><span id="__span-37-3"><a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="o">*</span><span class="n">tm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+</span><span id="__span-37-4"><a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="n">printf</span><span class="p">(</span><span class="s">"Heure locale : %d:%d:%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">tm</span><span class="o">-&gt;</span><span class="n">tm_hour</span><span class="p">,</span><span class="w"> </span><span class="n">tm</span><span class="o">-&gt;</span><span class="n">tm_min</span><span class="p">,</span><span class="w"> </span><span class="n">tm</span><span class="o">-&gt;</span><span class="n">tm_sec</span><span class="p">);</span>
+</span></code></pre></div>
+<h5 id="asctime-et-ctime"><code>asctime</code> et <code>ctime</code><a class="headerlink" href="#asctime-et-ctime" title="Lien permanent">¤</a></h5>
+<p>Les fonctions <code>asctime</code> et <code>ctime</code> permettent de convertir un temps en chaîne de caractères. Leur prototype est le suivant :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">asctime</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="o">*</span><span class="n">tm</span><span class="p">);</span>
+</span><span id="__span-38-2"><a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">ctime</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">time_t</span><span class="w"> </span><span class="o">*</span><span class="n">timep</span><span class="p">);</span>
+</span></code></pre></div>
+<p>L'une prend en paramètre une structure <code>tm</code> et l'autre un temps. Elles retournent une chaîne de caractères représentant le temps. Par exemple :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-39-1"><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="kt">time_t</span><span class="w"> </span><span class="n">current_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+</span><span id="__span-39-2"><a href="#__codelineno-39-2" id="__codelineno-39-2" name="__codelineno-39-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="o">*</span><span class="n">local_tm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">current_time</span><span class="p">);</span>
+</span><span id="__span-39-3"><a href="#__codelineno-39-3" id="__codelineno-39-3" name="__codelineno-39-3"></a><span class="n">printf</span><span class="p">(</span><span class="s">"Heure locale : %s"</span><span class="p">,</span><span class="w"> </span><span class="n">asctime</span><span class="p">(</span><span class="n">local_tm</span><span class="p">));</span>
+</span><span id="__span-39-4"><a href="#__codelineno-39-4" id="__codelineno-39-4" name="__codelineno-39-4"></a><span class="c1">// Affiche par exemple "Sun Sep 16 01:03:52 1973\n" (locale en anglais)</span>
+</span><span id="__span-39-5"><a href="#__codelineno-39-5" id="__codelineno-39-5" name="__codelineno-39-5"></a><span class="c1">//          "Dimanche 16 Septembre 01:03:52 1973\n" (locale en français)</span>
+</span></code></pre></div>
+<p>Pour afficher l'heure actuelle, on peut également utiliser <code>ctime</code> :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-40-1"><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="kt">time_t</span><span class="w"> </span><span class="n">current_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+</span><span id="__span-40-2"><a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a><span class="n">printf</span><span class="p">(</span><span class="s">"Heure locale : %s"</span><span class="p">,</span><span class="w"> </span><span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">current_time</span><span class="p">));</span>
+</span></code></pre></div>
+<h5 id="strftime"><code>strftime</code><a class="headerlink" href="#strftime" title="Lien permanent">¤</a></h5>
+<p>La fonction <code>strftime</code> permet de convertir un temps en chaîne de caractères en utilisant un format spécifique. Son prototype est le suivant :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="nf">strftime</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">maxsize</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span>
+</span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="o">*</span><span class="n">tm</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Elle prend en paramètre un pointeur sur une chaîne de caractères, la taille de la chaîne, un format et une structure <code>tm</code>. Elle retourne le nombre de caractères écrits dans la chaîne.</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Description</th>
+<th>Exemple de sortie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%A</code></td>
+<td>Nom complet du jour de la semaine</td>
+<td><code>"Sunday"</code></td>
+</tr>
+<tr>
+<td><code>%a</code></td>
+<td>Nom abrégé du jour de la semaine</td>
+<td><code>"Sun"</code></td>
+</tr>
+<tr>
+<td><code>%B</code></td>
+<td>Nom complet du mois</td>
+<td><code>"January"</code></td>
+</tr>
+<tr>
+<td><code>%b</code></td>
+<td>Nom abrégé du mois</td>
+<td><code>"Jan"</code></td>
+</tr>
+<tr>
+<td><code>%C</code></td>
+<td>Siècle (les deux premiers chiffres de l'année)</td>
+<td><code>"20"</code> pour 2024</td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>Jour du mois (01-31)</td>
+<td><code>"17"</code></td>
+</tr>
+<tr>
+<td><code>%D</code></td>
+<td>Date au format <code>MM/DD/YY</code></td>
+<td><code>"09/17/24"</code></td>
+</tr>
+<tr>
+<td><code>%e</code></td>
+<td>Jour du mois (1-31, avec espace si un chiffre)</td>
+<td><code>"17"</code> ou <code>" 7"</code></td>
+</tr>
+<tr>
+<td><code>%F</code></td>
+<td>Date au format <code>YYYY-MM-DD</code></td>
+<td><code>"2024-09-17"</code></td>
+</tr>
+<tr>
+<td><code>%H</code></td>
+<td>Heure (00-23, format 24 heures)</td>
+<td><code>"14"</code></td>
+</tr>
+<tr>
+<td><code>%I</code></td>
+<td>Heure (01-12, format 12 heures)</td>
+<td><code>"02"</code></td>
+</tr>
+<tr>
+<td><code>%j</code></td>
+<td>Jour de l'année (001-366)</td>
+<td><code>"260"</code></td>
+</tr>
+<tr>
+<td><code>%k</code></td>
+<td>Heure (0-23, avec espace si chiffre)</td>
+<td><code>" 2"</code></td>
+</tr>
+<tr>
+<td><code>%l</code></td>
+<td>Heure (1-12, avec espace si chiffre, 12 heures)</td>
+<td><code>" 2"</code></td>
+</tr>
+<tr>
+<td><code>%M</code></td>
+<td>Minutes (00-59)</td>
+<td><code>"05"</code></td>
+</tr>
+<tr>
+<td><code>%m</code></td>
+<td>Mois (01-12)</td>
+<td><code>"09"</code></td>
+</tr>
+<tr>
+<td><code>%n</code></td>
+<td>Saut de ligne</td>
+<td><code>"\n"</code></td>
+</tr>
+<tr>
+<td><code>%p</code></td>
+<td>Indicateur AM ou PM</td>
+<td><code>"PM"</code></td>
+</tr>
+<tr>
+<td><code>%P</code></td>
+<td>Indicateur am ou pm (minuscule)</td>
+<td><code>"pm"</code></td>
+</tr>
+<tr>
+<td><code>%r</code></td>
+<td>Heure au format 12 heures (hh<img alt="🇲🇲" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f1f2-1f1f2.svg" title=":mm:"/>ss AM/PM)</td>
+<td><code>"02:05:45 PM"</code></td>
+</tr>
+<tr>
+<td><code>%R</code></td>
+<td>Heure au format 24 heures (hh:mm)</td>
+<td><code>"14:05"</code></td>
+</tr>
+<tr>
+<td><code>%S</code></td>
+<td>Secondes (00-60)</td>
+<td><code>"45"</code></td>
+</tr>
+<tr>
+<td><code>%T</code></td>
+<td>Heure au format 24 heures (hh<img alt="🇲🇲" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f1f2-1f1f2.svg" title=":mm:"/>ss)</td>
+<td><code>"14:05:45"</code></td>
+</tr>
+<tr>
+<td><code>%u</code></td>
+<td>Numéro du jour de la semaine (1-7, lundi = 1)</td>
+<td><code>"2"</code> pour mardi</td>
+</tr>
+<tr>
+<td><code>%U</code></td>
+<td>Numéro de la semaine (00-53, dimanche)</td>
+<td><code>"37"</code></td>
+</tr>
+<tr>
+<td><code>%W</code></td>
+<td>Numéro de la semaine (00-53, lundi)</td>
+<td><code>"37"</code></td>
+</tr>
+<tr>
+<td><code>%V</code></td>
+<td>Numéro de la semaine ISO 8601 (01-53, lundi)</td>
+<td><code>"38"</code></td>
+</tr>
+<tr>
+<td><code>%w</code></td>
+<td>Numéro du jour de la semaine (0-6, dimanche = 0)</td>
+<td><code>"0"</code></td>
+</tr>
+<tr>
+<td><code>%x</code></td>
+<td>Représentation locale de la date</td>
+<td><code>"09/17/24"</code></td>
+</tr>
+<tr>
+<td><code>%X</code></td>
+<td>Représentation locale de l'heure</td>
+<td><code>"14:05:45"</code></td>
+</tr>
+<tr>
+<td><code>%y</code></td>
+<td>Année (00-99, deux derniers chiffres)</td>
+<td><code>"24"</code></td>
+</tr>
+<tr>
+<td><code>%Y</code></td>
+<td>Année (tous les chiffres)</td>
+<td><code>"2024"</code></td>
+</tr>
+<tr>
+<td><code>%z</code></td>
+<td>Décalage UTC (format +hhmm)</td>
+<td><code>"+0200"</code> (UTC+2)</td>
+</tr>
+<tr>
+<td><code>%Z</code></td>
+<td>Nom du fuseau horaire</td>
+<td><code>"CEST"</code></td>
+</tr>
+<tr>
+<td><code>%%</code></td>
+<td>Symbole <code>%</code></td>
+<td><code>"%"</code></td>
+</tr>
+</tbody>
+</table>
+<p>Queqlues notes sur les formats :</p>
+<ul>
+<li>Le <code>%S</code> peut retourner 60 lorsqu'une seconde intercalaire est insérée. Une second intercalaire est une seconde ajoutée à la fin d'une minute pour compenser la rotation de la Terre.</li>
+<li>La différence entre <code>%U</code> et <code>%W</code> est que <code>%U</code> commence la semaine le dimanche alors que <code>%W</code> commence la semaine le lundi. Les américains utilisent <code>%U</code> alors que les européens utilisent <code>%V</code>.</li>
+</ul>
+<p>Voici un exemple d'utilisation :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-42-1"><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-42-2"><a href="#__codelineno-42-2" id="__codelineno-42-2" name="__codelineno-42-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span>
+</span><span id="__span-42-3"><a href="#__codelineno-42-3" id="__codelineno-42-3" name="__codelineno-42-3"></a>
+</span><span id="__span-42-4"><a href="#__codelineno-42-4" id="__codelineno-42-4" name="__codelineno-42-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-42-5"><a href="#__codelineno-42-5" id="__codelineno-42-5" name="__codelineno-42-5"></a><span class="w">    </span><span class="c1">// Obtenir l'heure locale</span>
+</span><span id="__span-42-6"><a href="#__codelineno-42-6" id="__codelineno-42-6" name="__codelineno-42-6"></a><span class="w">    </span><span class="kt">time_t</span><span class="w"> </span><span class="n">current_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+</span><span id="__span-42-7"><a href="#__codelineno-42-7" id="__codelineno-42-7" name="__codelineno-42-7"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="o">*</span><span class="n">local_tm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">current_time</span><span class="p">);</span>
+</span><span id="__span-42-8"><a href="#__codelineno-42-8" id="__codelineno-42-8" name="__codelineno-42-8"></a>
+</span><span id="__span-42-9"><a href="#__codelineno-42-9" id="__codelineno-42-9" name="__codelineno-42-9"></a><span class="w">    </span><span class="c1">// Formater la date et l'heure</span>
+</span><span id="__span-42-10"><a href="#__codelineno-42-10" id="__codelineno-42-10" name="__codelineno-42-10"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span><span id="__span-42-11"><a href="#__codelineno-42-11" id="__codelineno-42-11" name="__codelineno-42-11"></a><span class="w">    </span><span class="n">strftime</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">),</span>
+</span><span id="__span-42-12"><a href="#__codelineno-42-12" id="__codelineno-42-12" name="__codelineno-42-12"></a><span class="w">      </span><span class="s">"Aujourd'hui, c'est %A, %d %B %Y, et il est %T."</span><span class="p">,</span><span class="w"> </span><span class="n">local_tm</span><span class="p">);</span>
+</span><span id="__span-42-13"><a href="#__codelineno-42-13" id="__codelineno-42-13" name="__codelineno-42-13"></a>
+</span><span id="__span-42-14"><a href="#__codelineno-42-14" id="__codelineno-42-14" name="__codelineno-42-14"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
+</span><span id="__span-42-15"><a href="#__codelineno-42-15" id="__codelineno-42-15" name="__codelineno-42-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Il pourrait afficher :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a>Aujourd'hui, c'est vendredi, 17 septembre 2024, et il est 14:05:45.
+</span></code></pre></div>
+<h4 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Lien permanent">¤</a></h4>
+<p>La bibliothèque <code>&lt;ctype.h&gt;</code> contient des fonctions pour tester et convertir des caractères. Les fonctions sont définies pour les caractères ASCII uniquement, elle ne s'applique pas aux caractères Unicode, ni aux caractères étendus (au-delà de 127).</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctype.h&gt;</span>
+</span></code></pre></div>
+<table id="_table-5">
 <caption style="caption-side:top"> Fonctions de test de caractères</caption><thead>
 <tr>
 <th>Fonction</th>
@@ -5531,7 +5860,7 @@ les outils associés.
 </tbody>
 </table>
 <h4 id="limites">Limites<a class="headerlink" href="#limites" title="Lien permanent">¤</a></h4>
-<table id="_table-5">
+<table id="_table-6">
 <caption style="caption-side:top"> Valeurs limites pour les entiers signés et non signés</caption><thead>
 <tr>
 <th>Constante</th>
