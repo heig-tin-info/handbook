@@ -2,6 +2,33 @@
 
 Les [tableaux](https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)) (*arrays*) représentent une séquence finie d'éléments d'un type donné que l'on peut accéder par leur position (indice) dans la séquence. Un tableau est par conséquent une liste indexée de variables du même type.
 
+Un exemple typique d'utilisation d'un tableau est le [Crible d'Ératosthène](https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne) qui permet de trouver tous les nombres premiers inférieurs à un entier donné. Dans cet algorithme, un tableau de booléens est utilisé pour marquer les nombres qui ne sont pas premiers. Le code est en 4 parties. D'abord la capture d'une valeur donnée par l'utilisateur stockée dans `n`, puis l'initialisation des valeurs du tableau à `true` avec une boucle, suivi de l'algorithme du crible qui contient deux boucles imbriquées et enfin l'affichage du résultat. Notons que la plus ancienne référence connue au crible (en grec ancien : κόσκινον Ἐρατοσθένους, kóskinon Eratosthénous) se trouve dans l'Introduction à l'arithmétique de Nicomachus de Gérasa, un ouvrage du début du IIᵉ siècle de notre ère, qui l'attribue à Ératosthène de Cyrène, un mathématicien grec du IIIᵉ siècle avant J.-C., bien qu'il décrive le criblage par les nombres impairs plutôt que par les nombres premiers.
+
+```c
+#define MAX 1000
+
+int main(int argc, char *argv[]) {
+   if (argc != 2) return -1;
+   int n = atoi(argv[1]);
+   if (n > MAX) return -2;
+
+   // At start, all numbers are prime numbers
+   bool primes[MAX];
+   for (int i = 0; i <= n; i++) primes[i] = true;
+
+   // Ératosthène sieve algorithm
+   primes[0] = primes[1] = false;  // 0 et 1 are not prime numbers
+   for (int p = 2; p <= sqrt(n); p++)
+      if (primes[p])
+         for (int i = p * p; i <= n; i += p) primes[i] = false;
+
+   // Display prime numbers
+   for (int i = 2; i <= n; i++)
+      if (primes[i]) printf("%d ", i);
+   printf("\n");
+}
+```
+
 L'opérateur crochet `[]` est utilisé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau :
 
 La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon suivante :

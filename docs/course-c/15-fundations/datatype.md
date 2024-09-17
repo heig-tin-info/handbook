@@ -273,14 +273,20 @@ Table: Modèle de données
 
 [[||LP32]] [[||ILP32]] [[||LLP64]] [[||LP64]] [[||ILP64]] [[||SILP64]]
 
-Pour les ordinateurs modernes, on peut faire l'hypothèse raisonnable que :
+Table: Taille usuelle des types de base
 
-- `char` est de 8-bits,
-- `short` est de 16-bits,
-- `int` est de 32-bits,
-- `long long` est de 64-bits,
+| Type        | Taille                               | Windows | Linux |
+| ----------- | ------------------------------------ | ------- | ----- |
+| char        | habituellement 8 bits                | 1       | 1     |
+| short       | au moins 16 bits                     | 2       | 2     |
+| int         | taille naturelle pour l'architecture | 4       | 4     |
+| long        | au moins 32 bits                     | 4       | 8     |
+| long long   | au moins 64 bits                     | 8       | 8     |
+| float       | normalement 32 bits                  | 4       | 4     |
+| double      | normalement 64 bits                  | 8       | 8     |
+| long double | au moins 63 bits                     | 8       | 16    |
 
-Pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les [nouveaux types standards][reformed-types] de `<stdint.h>`. Ainsi pour s'assurer qu'un type soit **au moins** de 32-bits, on utilisera `uint_least32_t`.
+Les troisième et quatrième colonnes représentent la taille des types de base sur des machines modernes 64-bits. On notera que la taille des types `long` et `long double` varie selon l'architecture matérielle et le système d'exploitation. On voit donc que selon le modèle les types n'ont pas la même taille et donc que la portabilité des programmes est un enjeu majeur. Aussi, pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les [nouveaux types standards][reformed-types] de `<stdint.h>`. Ainsi pour s'assurer qu'un type soit **au moins** de 32-bits, on utilisera `uint_least32_t`.
 
 ## Les caractères
 

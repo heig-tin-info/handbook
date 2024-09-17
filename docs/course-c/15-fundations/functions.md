@@ -310,6 +310,28 @@ int fib(int n)
 }
 ```
 
+## Syntaxe traditionnelle
+
+Historiquement, la syntaxe des fonctions en C était différente de celle que nous avons vue jusqu'à présent. Considérons la fonction suivante :
+
+```c
+double func(double x, double y, int z) {
+    return x + y + z;
+}
+```
+
+En C89, la syntaxe de cette fonction était la suivante :
+
+```c
+double
+func(x, y, z)
+double x, y;
+int z;
+{ return x + y + z; }
+```
+
+Cette syntaxe est toujours valide dans les versions plus récentes du langage, mais elle est déconseillée car elle est moins lisible que la syntaxe moderne.
+
 ## Exercices de révision
 
 !!! exercise "Dans la moyenne"

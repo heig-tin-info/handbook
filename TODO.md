@@ -4,6 +4,9 @@
 
 - [ ] Content
   - [ ] Sécurité et bonnes pratiques (buffer overflow, vunérabilités, strcpy, gets, ... libfuzzer
+  - [ ] Insérer un exemple de diagramme à la main https://i.sstatic.net/WdbInYwX.png
+  - [ ] Montrer un exemple top-down https://i.sstatic.net/wC9Tb8Y8.png
+  - [ ]
   - [ ] Métaprogrammation avec Jinja/Python...
   - [ ] Errno, traitement des erreurs
   - [ ] Compilation croisée

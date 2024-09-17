@@ -425,6 +425,8 @@ else
 
 L'instruction `switch` n'est pas fondamentale et certains langages de programmation ne la définissent pas. Elle permet essentiellement de simplifier l'écriture pour minimiser les répétitions. On l'utilise lorsque les conditions multiples portent toujours sur la même variable. Par exemple, le code suivant peut être réécrit plus simplement en utilisant un `switch` :
 
+![Switch Case BPMN](/assets/images/switch-case.drawio)
+
 ```c
 if (defcon == 1)
     printf("Guerre nucléaire imminente");
@@ -526,31 +528,118 @@ switch (month) {
 }
 ```
 
-!!! info "Appareil de Duff"
+#### Déclaration de variables
 
-    Le [Duff's device](https://en.wikipedia.org/wiki/Duff%27s_device) est une technique d'optimisation assez originale en langage C, qui permet de dérouler une boucle de manière partiellement manuelle, dans le but de gagner en performance, notamment sur des architectures matérielles plus anciennes. Il a été inventé par Tom Duff en 1983 lorsqu'il travaillait chez Lucasfilm.
+Il faut comprendre que la structure `switch` est un peu particulière. Le `switch` agit comme un bloc, la déclaration de variable est possible à n'importe quel endroit du bloc, mais toutes les lignes de ce bloc ne seront pas exécutées puisque le `switch` utilisera les labels pour sauter à la bonne instruction. Considérons l'exemple suivant :
 
-    L'objectif du Duff's device est de dérouler manuellement une boucle afin de réduire le nombre d'itérations et d'optimiser l'exécution, notamment dans les situations où le coût d'un saut conditionnel dans une boucle pouvait être élevé. Cette optimisation est souvent appelée unrolling, où plusieurs itérations de la boucle sont "fusionnées" en une seule.
+```c
+int main(int argc) {
+   switch (argc) {
+      int i = 23;
+      case 1:
+         int j = 42;
+         printf("0. %d\n", i + j);
+         break;
+      case 2:
+         int j = 23;
+         printf("1. %d\n", i + j);
+         break;
+   }
+}
+```
 
-    La particularité du Duff's device est qu'il combine à la fois une structure de boucle `while` et un `switch` de manière surprenante et astucieuse. Voici à quoi ressemble le code original :
+À la compilation on notera l'erreur suivante:
 
-    ```c
-    register int count = (n + 7) / 8;  // Nombre d'itérations par paquet de 8
-    register short *to = dest;
-    register short *from = src;
+```text
+test.c: In function ‘main’:
+test.c:5:11: warning: statement will never be executed [-Wswitch-unreachable]
+    5 |       int i = 23;
+      |           ^
+```
 
-    switch (n % 8) {  // Détermine le point d'entrée initial dans la boucle
-        case 0: do { *to = *from++;
-        case 7:      *to = *from++;
-        case 6:      *to = *from++;
-        case 5:      *to = *from++;
-        case 4:      *to = *from++;
-        case 3:      *to = *from++;
-        case 2:      *to = *from++;
-        case 1:      *to = *from++;
-                } while (--count > 0);
-    }
-    ```
+En effet, cette instruction se trouve avant le premier label `case` et ne sera donc jamais exécuté. La variable est belle et bien déclarée, mais elle ne sera pas initialisée.
+
+En outre, la déclaration de `j = 23` pose également problème, l'erreur de compilation suivante apparaît:
+
+```text
+test.c: In function ‘main’:
+test.c:11:14: error: redefinition of ‘j’
+   11 |          int j = 23;
+      |              ^
+test.c:7:14: note: previous definition of ‘j’ with type ‘int’
+    7 |          int j = 42;
+      |            ^
+```
+
+Vous savez qu'il n'est pas possible de redéclarer une variable déjà existante dans le même bloc. La solution à ce problème est de déclarer les variables propres à un cas dans un bloc séparé. Notez que la variable `k` n'étant utilisée qu'une fois, elle peut être dans le contexte global du `switch` mais situé après le premier label `case`. En pratique, n'essayez pas de jouer avec les limites de la syntaxe, cela ne fera que rendre votre code plus difficile à lire et à maintenir.
+
+```c
+#include <stdio.h>
+
+int main(int argc) {
+   switch (argc) {
+      case 1:
+         int k = 10;
+         {
+            int i = 23;
+            int j = 42;
+            printf("0. %d\n", i + j + k);
+            break;
+         }
+      case 2: {
+         int i = 23;
+         int j = 23;
+         printf("1. %d\n", i + j);
+         break;
+      }
+   }
+}
+```
+
+#### Imbrication
+
+Il est possible d'imbriquer différents niveaux dans un switch :
+
+```c
+switch(a) {
+    case 100:
+        switch(b) {
+            case 200:
+                printf("a=100, b=200\n");
+                break;
+            case 300:
+                printf("a=100, b=300\n");
+                break;
+        }
+        break;
+}
+```
+
+#### Appareil de Duff
+
+Le [Duff's device](https://en.wikipedia.org/wiki/Duff%27s_device) est une technique d'optimisation assez originale en langage C, qui permet de dérouler une boucle de manière partiellement manuelle, dans le but de gagner en performance, notamment sur des architectures matérielles plus anciennes. Il a été inventé par Tom Duff en 1983 lorsqu'il travaillait chez Lucasfilm.
+
+L'objectif du Duff's device est de dérouler manuellement une boucle afin de réduire le nombre d'itérations et d'optimiser l'exécution, notamment dans les situations où le coût d'un saut conditionnel dans une boucle pouvait être élevé. Cette optimisation est souvent appelée unrolling, où plusieurs itérations de la boucle sont "fusionnées" en une seule.
+
+La particularité du Duff's device est qu'il combine à la fois une structure de boucle `while` et un `switch` de manière surprenante et astucieuse. Voici à quoi ressemble le code original :
+
+```c
+register int count = (n + 7) / 8;  // Nombre d'itérations par paquet de 8
+register short *to = dest;
+register short *from = src;
+
+switch (n % 8) {  // Détermine le point d'entrée initial dans la boucle
+    case 0: do { *to = *from++;
+    case 7:      *to = *from++;
+    case 6:      *to = *from++;
+    case 5:      *to = *from++;
+    case 4:      *to = *from++;
+    case 3:      *to = *from++;
+    case 2:      *to = *from++;
+    case 1:      *to = *from++;
+            } while (--count > 0);
+}
+```
 
 #### Résumé des points clés
 
