@@ -102,17 +102,55 @@ Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilis�
 
     Lors du formatage d'une date, on y peut y lire `%w`, par quoi sera remplacé ce *token* ?
 
-### Fonctions d'intérêt
-
 Il serait inutile ici de lister toutes les fonctions, les bibliothèques standard étant largement documentées sur internet. Il ne fait aucun doute que le développeur sera trouver comment calculer un sinus avec la fonction `sin`. Néanmoins l'existence de certaines fonctions peut passer inaperçues et c'est de celles-ci don't j'aimerais parler.
 
-#### Fonctons Mathématiques
+## Assert
 
-La bibliothèque mathématique est une des plus utilisées. Elle contient des fonctions pour les opérations mathématiques de base. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement. Le fichier d'en-tête est le suivant et le flag de compilation est `-lm` :
+On peut bien se demander à quoi sert un en-tête `<assert.h>` qui ne contient qu'une seule fonction. La fonction `assert` est une fonction très utile pour valider des prérequis. Elle s'utilise principalement pour du débogage mais parfois pour s'assurer qu'une expression qui à priori ne devrait jamais valoir `false` est bien vraie. L'en-tête offre deux prototypes qui sont en réalité des macros :
 
 ```c
-#include <math.h>
+int assert(int expression);
+static_assert(int expression, "message");
 ```
+
+L'utilisation de assert permet de détecter les erreurs pendant la phase de développement ou de test. Si une condition critique n'est pas respectée (par exemple, un pointeur nul ou une division par zéro), le programme s'arrête avec une information précieuse pour le débogage.
+
+```c
+#include <assert.h>
+#include <memory.h>
+int main() {
+    void *p = malloc(10);
+    assert(p != NULL);
+    ...
+}
+```
+
+La grande force d'assert est qu'elle peut être désactivée dans un environnement de production en définissant la macro `NDEBUG`. Lorsque `NDEBUG` est défini, toutes les assertions sont remplacées par des expressions nulles (ne font rien), ce qui élimine toute surcharge due aux vérifications. D'une façon simplifiée, `NDEBUG` pourrait être implémenté comme ceci :
+
+```c
+#ifdef NDEBUG
+    #define assert(ignore) ((void)0)
+#else
+    #define assert(expr) \
+        ((expr) ? (void)0 : __assert_fail(#expr, __FILE__, __LINE__, __func__))
+#endif
+```
+
+Si vous souhaitez désactiver les assertions, vous pouvez aussi le faire en ajoutant `-DNDEBUG` à la ligne de commande du compilateur. Par exemple :
+
+```bash
+gcc -DNDEBUG -o foo main.c
+```
+
+!!! warning "Avant l'en-tête"
+
+    Il est important de déclarer `NDEBUG` avant d'inclure l'en-tête `<assert.h>`. En effet, l'en-tête `<assert.h>` va définir la macro `assert` qui sera utilisée dans le code. Si `NDEBUG` est défini après l'inclusion de l'en-tête, la macro `assert` ne sera pas correctement définie.
+
+## Fonctons Mathématiques
+
+### <math.h>
+
+La bibliothèque mathématique est une des plus utilisées. Elle contient des fonctions pour les opérations mathématiques de base. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement. Le fichier d'en-tête est le suivant et le flag de compilation est `-lm`.
 
 Table: Constantes mathématiques
 
@@ -150,7 +188,151 @@ Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables
 
 Le standard C99 a introduit l'en-tête `<tgmath.h>` qui donne accès à des fonctions génériques. Par exemple, `sin` peut être utilisé pour des `float`, `double` et `long double` sans avoir à choisir le nom de la fonction (`sinf`, `sin`, `sinl`), en outre les types complexes sont également supportés comme `csin` pour les complexes.
 
-#### Chaînes de caractères
+### <fenv.h>
+
+La bibliothèque `<fenv.h>` est étroitement liée aux calculs mathématique et permet de manipuler l'environnement de calcul flottant. Elle permet de contrôler les modes de calculs, les exceptions et les arrondis. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement.
+
+La structure `fenv_t` contient l'état de l'environnement de calcul flottant et la structure `fexcept_t` contient les exceptions de calcul flottant. Ces structures sont opaques et ne doivent pas être manipulées directement, elles dépendent de l'implémentation et peuvent varier d'un système à l'autre. Néanmoins pour X86, voici à quoi elles pourraient ressembler pour les curieux.
+
+```c
+typedef struct {
+    // Mot de contrôle de la FPU.
+    union {
+        unsigned int __control_word;
+        struct {
+            // Masque des exceptions de la FPU
+            unsigned int IM : 1;  // Invalid Operation
+            unsigned int DM : 1;  // Denormalized Operand
+            unsigned int ZM : 1;  // Zero-Divide
+            unsigned int OM : 1;  // Overflow
+            unsigned int UM : 1;  // Underflow
+            unsigned int PM : 1;  // Precision
+            unsigned int _Reserved : 2;
+            // Gestion de l'arrondi et de la précision
+            unsigned int PC : 2;  // Precision Control
+            unsigned int RC : 2;  // Rounding Control mode
+            unsigned int _FPUReserved : 3;
+            unsigned int IC : 1;  // Plus utilisé
+        };
+    };
+
+    // Word de statut de la FPU (indicateurs d'état et d'exception)
+    union {
+        unsigned int __status_word;
+        struct {
+            // Indicateurs d'exception
+            unsigned int IE : 1;  // Invalid Operation Exception
+            unsigned int DE : 1;  // Denormalized Operand Exception
+            unsigned int ZE : 1;  // Zero-Divide Exception
+            unsigned int OE : 1;  // Overflow Exception
+            unsigned int UE : 1;  // Underflow Exception
+            unsigned int PE : 1;  // Precision Exception
+            unsigned int SF : 1;  // Stack Fault
+            unsigned int ES : 1;  // Exception Summary Status
+
+            // Indicateurs d'état pour le stockage de valeurs
+            // intermédiaires durant les calculs
+            unsigned int C0 : 1;
+            unsigned int C1 : 1;
+            unsigned int C2 : 1;
+            unsigned int Top : 3;  // Position du sommet de la pile
+            unsigned int C3 : 1;
+            unsigned int Busy : 1;  // FPU occupée
+        };
+    };
+    unsigned int __tag_word;
+    unsigned int __fpu_ip; // Instruction pointer
+    unsigned int __fpu_cs; // Code segment
+    unsigned int __opcode; // Opcode de l'opération en cours
+    unsigned int __fpu_dp; // Data pointer
+    unsigned int __mxcsr; // Registre MXCSR (contrôle des exceptions SSE)
+    unsigned int __mxcsr_mask; // Masque de contrôle MXCSR
+} fenv_t;
+```
+
+#### Contrôle des exceptions
+
+Il est possible de gérer les exceptions de calculs flottants comme :
+
+- la division par zéro,
+- le dépassement de capacité (*overflow*),
+- un résultat non numérique (*NaN*),
+- un sous-dépassement de capacité (*underflow*),
+- une perte de précision.
+
+Dans certains programmes, notamment ceux impliquant des calculs numériques intensifs ou critiques (comme en science ou en ingénierie), il est important de savoir si une opération en virgule flottante a échoué ou produit un résultat incorrect.
+
+```c
+#include <stdio.h>
+#include <fenv.h>
+#pragma STDC FENV_ACCESS ON  // NECESSAIRE
+
+int main() {
+    feclearexcept(FE_ALL_EXCEPT); // Efface anciennes exceptions
+
+    double result = 1.0 / 0.0; // Division par zéro
+
+    if (fetestexcept(FE_DIVBYZERO)) {
+        printf("Erreur : division par zéro détectée\n");
+    }
+}
+```
+
+#### Contrôle de l'arrondi
+
+Il est aussi possible contrôler la manière dont les résultats des opérations en virgule flottante sont arrondis. Par défaut, les opérations en virgule flottante arrondissent au plus proche, mais vous pouvez modifier ce comportement pour arrondir vers zéro, vers l'infini, ou vers moins l'infini.
+
+Nous avions vu [précédemment][rounding] que l'arrondi d'un nombre est compliqué. La norme IEEE 754 définit plusieurs modes d'arrondis. La fonction `fesetround` permet de définir le mode d'arrondi. Les modes possibles sont donnés par la table suivante :
+
+Table: Modes d'arrondis
+
+| Mode            | Description                 | $2.5, 3.5$ | $-2.5,-3.5$ |
+| --------------- | --------------------------- | ---------- | ----------- |
+| `FE_TONEAREST`  | Arrondi bancaire            | $2, 4$     | $-2, -4$    |
+| `FE_DOWNWARD`   | Arrondi vers zéro           | $2, 3$     | $-3, -4$    |
+| `FE_UPWARD`     | Arrondi vers l'infini       | $3, 4$     | $-2, -3$    |
+| `FE_TOWARDZERO` | Arrondi vers moins l'infini | $2, 3$     | $-2, -3$    |
+| `round()`       | Comparaison avec `round`    | $3, 4$     | $-3, -4$    |
+
+```c
+fesetround(FE_TONEAREST);
+int rounded = nearbyint(3.5);
+```
+
+L'arrondi bancaire minimise les biais d'arrondi lorsqu'on fait des calculs sur de grandes quantités de données. En arrondissant vers l'entier pair dans les cas où un nombre tombe exactement à mi-chemin entre deux entiers, cette méthode réduit l'accumulation d'erreurs statistiques qui peuvent survenir avec d'autres méthodes d'arrondi. En effet les valeurs sont arrondies vers l'entier **pair** le plus proche. Voici quelques exemples :
+
+```text
+-1.5 -> -2
+-0.5 ->  0
+ 0.5 ->  0
+ 1.5 ->  2
+ 2.5 ->  2
+ 3.5 ->  4
+```
+
+!!! warning "round"
+
+    La configuration du mode d'arrondi avec `fesetround` affecte les fonctions `nearbyint`, `rint` mais pas `round`.
+
+    La fonction `round` utilise un arrondi spécifique appelé *round half away from zero* qui arrondit les valeurs à l'entier le plus proche en s'éloignant de zéro.
+
+Notez que la différence entre `rint` et `nearbyint` est que `nearbyint` ne génère pas d'exception en cas de dépassement de capacité (*overflow*).
+
+### <float.h>
+
+La bibliothèque `<float.h>` contient des constantes qui définissent la précision des types flottants sur l'architecture cible. Les constantes sont définies pour les types `float`, `double` et `long double`.
+
+On y retrouve `FLT_ROUNDS` qui indique le mode d'arrondi par défaut utilisé à la compilation.
+
+Dans IEEE 754, l'exposant est de base 2, c'est ce qu'on appelle le *radix*. Il peut être contrôlé avec la macro `FLT_RADIX`. Les constantes `DBL_DIG` et `LDBL_DIG` indiquent le nombre de chiffres significatifs que l'on peut stocker dans un `double` et un `long double` respectivement.
+
+!!! info "Autre base ?"
+
+    Aujourd'hui quasiment 100 pour cent des ordinateurs utilisent le radix 2. Néanmoins, à une certaine époque le radix 10 était utilisé sur certaines architectures comme le l'IBM 650 (1953).
+
+    La norme IEEE 754-2008 permet d'utiliser le radix 16, 10 ou 2. Elle défini notament la repséentation **DFP** (*Decimal Floating Point*) qui permet de représenter les nombres décimaux de manière exacte. Cependant l'implémentation physique d'une FPU en radix 10 est plus complexe et moins performante c'est pour cela que la vaste majorité des processeurs utilisent le radix 2 suffisant pour la plupart des applications.
+
+## Chaînes de caractères
 
 La bibliothèque `<string.h>` contient des fonctions pour manipuler les chaînes de caractères. Les fonctions sont définies pour les chaînes de caractères ASCII uniquement. On distingue deux famille de fonctions, les `mem` qui manipulent des régions mémoires et les `str` qui manipulent des chaînes de caractères. Le fichier d'en-tête est le suivant :
 
@@ -183,7 +365,7 @@ Table: Fonctions sur les chaînes de caractères
 | `strxfrm`   | Transformation de chaînes selon la locale                   |
 | `strerror`  | Message d'erreur associé à un code d'erreur                 |
 
-##### `memset`
+### `memset`
 
 La fonction memset permet de remplir une région mémoire avec une valeur donnée. Son prototype est :
 
@@ -200,7 +382,7 @@ memset(array, 42, sizeof(array));
 
 Notez que la valeur est un byte. Memset ne peut pas être utilisé pour initialiser un tableau avec une valeur de type `int` par exemple.
 
-##### `memcpy` et `memmove`
+### `memcpy` et `memmove`
 
 Les deux fonctions permettent de copier des régions mémoires d'une adresse à une autre. Leur prototype est le suivant :
 
@@ -248,7 +430,7 @@ mov byte ptr [rcx + 4], r8b     ; Copie le 5e octet dans la destination
 
 Pour s'affranchir de ce type de problème, il est préférable d'utiliser  `memmove` lorsque vous n'êtes pas sûr que les deux régions mémoire ne se superposent pas.
 
-##### `memcmp`
+### `memcmp`
 
 La fonction `memcmp` permet de comparer deux régions mémoires. Son prototype est :
 
@@ -279,7 +461,7 @@ if (memcmp(&p, &p, sizeof(struct Person)) == 0)
 
     Il serait ici préférable de tester individuellement les champs de la structure.
 
-##### `memchr` et `str(r)chr`
+### `memchr` et `str(r)chr`
 
 Les fonctions `memchr`, `strchr` et `strrchr` permettent de rechercher un caractère dans une région mémoire. Leurs prototypes sont :
 
@@ -305,7 +487,7 @@ assert(p - s == 12); // Dernière position de 'i' dans la chaîne
 
 Dans le cas de `memchr`, il est possible de chercher n'importe quelle valeur de byte, y compris `'\0'`. En revanche, il est nécessaire de spécifier la taille de la région mémoire à parcourir.
 
-##### `strlen`
+### `strlen`
 
 La fonction `strlen` permet de calculer la longueur d'une chaîne de caractères. Son prototype est :
 
@@ -323,7 +505,7 @@ size_t strlen(const char *s) {
 }
 ```
 
-##### `str(n)cpy`
+### `str(n)cpy`
 
 Les fonctions `strcpy` et `strncpy` permettent de copier une chaîne de caractères. Leur prototype sont :
 
@@ -334,7 +516,7 @@ char *strncpy(char *dest, const char *src, size_t n);
 
 La fonction `strcpy` copie la chaîne de caractères `src` dans `dest`. La fonction `strncpy` copie au maximum `n` caractères de `src` dans `dest`. Si la chaîne `src` est plus longue que `n`, la chaîne `dest` ne sera pas terminée par `'\0'`.
 
-##### `str(n)cat`
+### `str(n)cat`
 
 Les fonctions `strcat` et `strncat` permettent de concaténer deux chaînes de caractères. Leur prototype sont :
 
@@ -362,7 +544,7 @@ char *strcat(char *dest, const char *src) {
 }
 ```
 
-##### `strcmp` et `strncmp`
+### `strcmp` et `strncmp`
 
 La fonction `strcmp` permet de comparer deux chaînes de caractères. Son prototype est :
 
@@ -388,7 +570,7 @@ if (strncmp(argv[1], "--filename=", 11) == 0) {
 }
 ```
 
-##### `strtok`
+### `strtok`
 
 La fonction `strtok` permet de découper une chaîne de caractères en morceaux. Il s'agit de l'abbréviation de *string token*. Son prototype est :
 
@@ -407,7 +589,7 @@ while (token != NULL) {
 }
 ```
 
-##### `strspn` et `strcspn`
+### `strspn` et `strcspn`
 
 Les fonctions `strspn` et `strcspn` permettent de calculer la longueur du préfixe d'une chaîne qui contient ou ne contient pas certains caractères. Leur prototype est :
 
@@ -434,7 +616,7 @@ if (strcspn(s, "e") == strlen(s)) {
 }
 ```
 
-##### `strpbrk`
+### `strpbrk`
 
 La fonction `strpbrk` permet de rechercher un caractère dans une liste de caractères. Son prototype est :
 
@@ -453,7 +635,7 @@ while (s = strpbrk(s, "+-*/%%")) {
 }
 ```
 
-##### `strcoll` et `strxfrm`
+### `strcoll` et `strxfrm`
 
 Les fonctions `strcoll` et `strxfrm` permettent de comparer des chaînes de caractères selon la locale. Elles sont l'abbréviation de *string collate* où *collate* fait référence au tri ou à l'ordre de classement des chaînes de caractères en fonction des conventions locales. `strxfrm` est l'abbréviation de *string transform* et permet de transformer une chaîne de caractères en une chaîne de caractères qui peut être comparée avec `strcmp`. Leur prototype est :
 
@@ -470,7 +652,7 @@ Pourquoi ces deux fonctions étranges ? Comparer deux chaînes n'est pas facile 
 
 Notons que ces fonctions ne sont plus vraiment utilisées car elles se limitent au jeux de caractères ISO-8859, et le support Unicode est limité. Pour une gestion correcte il vaut mieux faire appel à des bibliothèques plus spécialisées comme `ICU` qui offre la fonction `ucol_strcoll` pour comparer des chaînes de caractères Unicode.
 
-##### `strerror`
+### `strerror`
 
 La fonction `strerror` permet de récupérer un message d'erreur associé à un code d'erreur. Son prototype est :
 
@@ -488,7 +670,7 @@ if (f == NULL) {
 }
 ```
 
-#### Date et heure
+## Date et heure
 
 La bibliothèque `<time.h>` contient des fonctions pour lire et convertir des dates et heures. Les fonctions sont définies pour les dates et heures en secondes depuis le 1er janvier 1970. Le fichier d'en-tête est le suivant :
 
@@ -510,7 +692,7 @@ Table: Fonctions sur les dates et heures
 | `difftime`  | Différence entre deux temps                |
 | `clock`     | Temps CPU utilisé par le programme         |
 
-##### Stucture `tm`
+### Stucture `tm`
 
 Les fonctions de date et d'heure utilisent la structure `tm` pour représenter les dates et heures. La structure est définie comme suit :
 
@@ -528,7 +710,7 @@ struct tm {
 };
 ```
 
-##### `time`
+### `time`
 
 La fonction `time` permet de récupérer le temps écoulé depuis le 1er janvier 1970. Elle prend en paramètre un pointeur sur un `time_t` qui contiendra le temps écoulé. Ce dernier peut être `NULL` si on ne souhaite pas récupérer le temps. Le prototype de la fonction est le suivant :
 
@@ -557,7 +739,7 @@ Pourquoi le 1er janvier 1970 ? C'est une convention qui remonte aux premiers sys
 
 Pourquoi avoir deux moyen de retourner le temps ? C'est une question de style. Certains préfèrent récupérer le temps dans une variable, d'autres préfèrent le récupérer directement sans variable intermédiaire.
 
-##### `localtime` et `gmtime`
+### `localtime` et `gmtime`
 
 Ces deux fonctions permettent de convertir un temps en heure locale ou en heure UTC. Leur prototype est le suivant :
 
@@ -577,7 +759,7 @@ struct tm *tm = localtime(&t);
 printf("Heure locale : %d:%d:%d\n", tm->tm_hour, tm->tm_min, tm->tm_sec);
 ```
 
-##### `asctime` et `ctime`
+### `asctime` et `ctime`
 
 Les fonctions `asctime` et `ctime` permettent de convertir un temps en chaîne de caractères. Leur prototype est le suivant :
 
@@ -603,7 +785,7 @@ time_t current_time = time(NULL);
 printf("Heure locale : %s", ctime(&current_time));
 ```
 
-##### `strftime`
+### `strftime`
 
 La fonction `strftime` permet de convertir un temps en chaîne de caractères en utilisant un format spécifique. Son prototype est le suivant :
 
@@ -685,7 +867,7 @@ Il pourrait afficher:
 Aujourd'hui, c'est vendredi, 17 septembre 2024, et il est 14:05:45.
 ```
 
-#### Types de données
+## Types de données
 
 La bibliothèque `<ctype.h>` contient des fonctions pour tester et convertir des caractères. Les fonctions sont définies pour les caractères ASCII uniquement, elle ne s'applique pas aux caractères Unicode, ni aux caractères étendus (au-delà de 127).
 
@@ -709,7 +891,7 @@ Table: Fonctions de test de caractères
 | `isupper`  | une lettre majuscule                   |
 | `isxdigit` | un chiffre hexadécimal                 |
 
-#### Limites
+## Limites
 
 Table: Valeurs limites pour les entiers signés et non signés
 

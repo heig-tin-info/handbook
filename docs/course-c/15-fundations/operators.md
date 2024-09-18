@@ -1054,6 +1054,7 @@ En logique booléenne on exprime la négation par une barre p.ex. $\overline{P}$
         D \cdot E + \overline{D} + \overline{E}
         $$
 
+[](){#rounding}
 ## Arrondis
 
 En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus délicate que l'on peut l'imaginer de prime abord.
