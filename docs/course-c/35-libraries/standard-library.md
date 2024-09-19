@@ -49,7 +49,7 @@ Table: En-têtes standard
 | [`<wctype.h>`][libc-wctype]           | Tests larges                                | **C95**  |
 
 [](){#libc-assert}
-## Assert
+## `<assert.h>`
 
 On peut bien se demander à quoi sert un en-tête `<assert.h>` qui ne contient qu'une seule fonction. La fonction `assert` est une fonction très utile pour valider des prérequis. Elle s'utilise principalement pour du débogage mais parfois pour s'assurer qu'une expression qui à priori ne devrait jamais valoir `false` est bien vraie. L'en-tête offre deux prototypes qui sont en réalité des macros :
 
@@ -92,7 +92,7 @@ gcc -DNDEBUG -o foo main.c
     Il est important de déclarer `NDEBUG` avant d'inclure l'en-tête `<assert.h>`. En effet, l'en-tête `<assert.h>` va définir la macro `assert` qui sera utilisée dans le code. Si `NDEBUG` est défini après l'inclusion de l'en-tête, la macro `assert` ne sera pas correctement définie.
 
 [](){#libc-errno}
-## <errno.h>
+## `<errno.h>`
 
 La bibliothèque `<errno.h>` est utilisée pour gérer les erreurs. Elle définit une variable **globale** `errno` qui est un entier qui contient le code de l'erreur modifié par certaines fonctions de la bibliothèque standard.
 
@@ -132,10 +132,8 @@ int main(void)
 }
 ```
 
-## Fonctons Mathématiques
-
 [](){#libc-math}
-### <math.h>
+## `<math.h>`
 
 La bibliothèque mathématique est une des plus utilisées. Elle contient des fonctions pour les opérations mathématiques de base. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement. Le fichier d'en-tête est le suivant et le flag de compilation est `-lm`.
 
@@ -173,10 +171,10 @@ Notons par exemple que la fonction `hypot` peut très bien être émulée facile
 
 Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables de calculer certaines fonctions plus rapidement.
 
-Le standard C99 a introduit l'en-tête `<tgmath.h>` qui donne accès à des fonctions génériques. Par exemple, `sin` peut être utilisé pour des `float`, `double` et `long double` sans avoir à choisir le nom de la fonction (`sinf`, `sin`, `sinl`), en outre les types complexes sont également supportés comme `csin` pour les complexes.
+Le standard C99 a introduit l'en-tête [`<tgmath.h>`][lib-tgmath] qui donne accès à des fonctions génériques. Par exemple, `sin` peut être utilisé pour des `float`, `double` et `long double` sans avoir à choisir le nom de la fonction (`sinf`, `sin`, `sinl`), en outre les types complexes sont également supportés comme `csin` pour les complexes.
 
 [](){#libc-fenv}
-### <fenv.h>
+## `<fenv.h>`
 
 La bibliothèque `<fenv.h>` est étroitement liée aux calculs mathématique et permet de manipuler l'environnement de calcul flottant. Elle permet de contrôler les modes de calculs, les exceptions et les arrondis. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement.
 
@@ -238,7 +236,7 @@ typedef struct {
 } fenv_t;
 ```
 
-#### Contrôle des exceptions
+### Contrôle des exceptions
 
 Il est possible de gérer les exceptions de calculs flottants comme :
 
@@ -266,7 +264,7 @@ int main() {
 }
 ```
 
-#### Contrôle de l'arrondi
+### Contrôle de l'arrondi
 
 Il est aussi possible contrôler la manière dont les résultats des opérations en virgule flottante sont arrondis. Par défaut, les opérations en virgule flottante arrondissent au plus proche, mais vous pouvez modifier ce comportement pour arrondir vers zéro, vers l'infini, ou vers moins l'infini.
 
@@ -307,7 +305,7 @@ L'arrondi bancaire minimise les biais d'arrondi lorsqu'on fait des calculs sur d
 Notez que la différence entre `rint` et `nearbyint` est que `nearbyint` ne génère pas d'exception en cas de dépassement de capacité (*overflow*).
 
 [](){#libc-float}
-### <float.h>
+## `<float.h>`
 
 La bibliothèque `<float.h>` contient des constantes qui définissent la précision des types flottants sur l'architecture cible. Les constantes sont définies pour les types `float`, `double` et `long double`.
 
@@ -322,7 +320,7 @@ Dans IEEE 754, l'exposant est de base 2, c'est ce qu'on appelle le *radix*. Il p
     La norme IEEE 754-2008 permet d'utiliser le radix 16, 10 ou 2. Elle défini notament la repséentation **DFP** (*Decimal Floating Point*) qui permet de représenter les nombres décimaux de manière exacte. Cependant l'implémentation physique d'une FPU en radix 10 est plus complexe et moins performante c'est pour cela que la vaste majorité des processeurs utilisent le radix 2 suffisant pour la plupart des applications.
 
 [](){#libc-complex}
-### <complex.h>
+## `<complex.h>`
 
 La bibliothèque `<complex.h>` permet de manipuler les nombres complexes. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement.
 
@@ -380,61 +378,9 @@ Table: Fonctions complexes
 
 Certaines extensions prévue possiblement avec C23 amènerait des fonctionnalités supplémentaires telles que `cexp2`, `clog2`, `cexp10`, `clog10`, `crootn` ...
 
-[](){#libc-inttypes}
-[](){#libc-stdint}
-## <inttypes.h> et <stdint.h>
-
-Ces deux bibliothèques répondent au besoin d'avoir des types entiers d'une taille contrôlée et surtout portable. En effet, nous avons vu que les types standards (`int`, `short`, `long`...) dépendent du modèle de données de l'architecture cible. Un `long` n'aura pas la même taille sur Linux ou Windows par exemple.
-
-L'en-tête `<stint.h>` fourni trois types de base :
-
-Table: Catégories de types entiers portables
-
-| Exemple         | Description                                   |
-| --------------- | --------------------------------------------- |
-| `int8_t`        | Entier signé sur 8 bits                       |
-| `int8_fast8_t`  | Entier signé d'au moins 8 bits le plus rapide |
-| `int8_least8_t` | Entier signé d'au moins 8 bits, le plus petit |
-
-Ces catégories sont disponibles our les longueurs 8, 16, 32, 64 bits. Les types sont définis pour les entiers signés et non signés. Par exemple, `int8_t` est un entier signé sur 8 bits, `uint8_t` est un entier non signé sur 8 bits.
-
-Dans le cas ou on aurait besoin d'une variable pouvant contenir les valeurs de 0 à 255 mais que la taille de l'entier importe peu pour autant que le processeur n'ait pas de coût supplémentaire à manipuler la variable, on peut utiliser `uint_fast8_t`.
-
-À l'inverse, si le besoin est d'avoir une variable qui peut contenir les valeurs de 0 à 255 avec la taille la plus petite possible (idéalement 8 bits), on utilisera `uint_least8_t`.
-
-Enfin, dans le cas (le plus rare) ou on aurait besoin exactement d'un entier non signé de 8 bits, on utilisera `uint8_t`. Néanmoins ce type présente une contrainte importante car toutes les architectures ne sont pas nécessairement prévues pour manipuler des entiers de 8 bits. Par exemple le SHARC d'Analog Devices est un processeur 32 bits qui n'a pas de support natif pour les entiers de 8 bits. L'utilisation de `uint8_t` résulterait en une erreur de compilation.
-
-L'en-tête <stdint.h> fournit également des macros utiles pour connaître le choix de l'implémentation. Par exemple, `INT_FAST8_WIDTH` donne la largeur de l'entier le plus rapide selon la machine cible.
-
-On aura également les valeurs minimum et maximum que peut contenir chacun des types entiers. Par exemple, `INT8_MIN` et `INT8_MAX` pour les entiers signés sur 8 bits.
-
-Dans une boucle `for` opérant sur un tableau de 100 éléments, il serait correct d'utiliser le type `uint_fast8_t` pour l'index de la boucle. Néanmoins pour des raisons de lisibilités, il est souvent préférable d'utiliser simplement `int` qui, selon le standard, garanti d'être capable de contenir la taille du tableau.
-
-```c
-#include <stdint.h>
-
-int main() {
-    for (int_fast8_t i = 0; i < 100; i++) {
-        ...
-    }
-}
-```
-
-En outre, pour des raisons de cohérence, certaines normes pour l'avionique ou le médical imposent que les constantes littérales soient explicitement typées. On connaît déjà les suffixes `u`, `ull` pour les entiers de base, mais on peut également utiliser les macros de `<stdint.h>` pour les constantes littérales.
-
-```c
-uint8_t a = UINT8_C(42);
-```
-
-L'utilisation de ces types spécifiques dans des fonctions d'entrées sortie (p. ex. `printf`) doit aussi être faite cohérence. Un `int32_t` n'est pas compatible avec `%d` sur toutes les architectures. Il est préférable d'utiliser les macros de `<inttypes.h>` pour les spécifier.
-
-```c
-int32_t a = 42;
-printf("%" PRId32 "\n", a);
-```
 
 [](){#libc-iso646}
-## <iso646.h>
+## `<iso646.h>`
 
 L'en-tête `<iso646.h>` est une extension du standard C95 qui définit des alternatives aux opérateurs logiques. Les opérateurs logiques sont définis avec des symbols (`&&`, `||`, `!`) mais pour des raisons de lisibilité, il est possible de les définir en anglais (`and`, `or`, `not`).
 
@@ -466,7 +412,7 @@ Je vous recommande personnellement de ne pas utiliser ces macros. Elles ne sont 
 
 [](){#libc-limits}
 
-## <limits.h>
+## `<limits.h>`
 
 La bibliothèque `<limits.h>` contient des constantes qui définissent les limites des types entiers de base. Les constantes sont définies pour les types `char`, `short`, `int`, `long`, `long long` et `float`, `double`, `long double`.
 
@@ -494,7 +440,7 @@ Table: Limites des entiers de base
 | `ULLONG_MAX` | Valeur maximale d'un `unsigned long long` | 18446744073709551615 |
 
 [](){#libc-locale}
-## <locale.h>
+## `<locale.h>`
 
 En jargon informatique, la *locale* est un ensemble de paramètres qui définissent les conventions culturelles d'une région. Cela inclut la langue, le format de date, le format de nombre, etc. La bibliothèque `<locale.h>` permet de manipuler ces paramètres.
 
@@ -504,7 +450,7 @@ Ces conventions sont définie par la norme ISO 15897 et font de surcroît partie
 
 L'en-tête `<locale.h>` contient donc des fonctions pour manipuler les locales.
 
-Table: Contenu de <locale.h>
+Table: Contenu de locale.h
 
 | Fonction     | Description                          |
 | ------------ | ------------------------------------ |
@@ -598,7 +544,7 @@ Table: Catégories de locales
 | `LC_TIME`     | Format de date et heure   |
 
 [](){#libc-setjmp}
-## <setjmp.h>
+## `<setjmp.h>`
 
 La bibliothèque `<setjmp.h>` permet de gérer les exceptions en C. Elle fournit deux fonctions `setjmp` et `longjmp` qui permettent de sauvegarder l'état du programme et de le restaurer à un point donné.
 
@@ -647,7 +593,7 @@ int main() {
 Lors de l'appel de `setjmp`, la fonction retourne 0. Cette valeur peut être utilisée pour tester si c'est la première fois que la fonction est appelée ou si c'est un retour de `longjmp`. Dans ce cas, la fonction retourne la valeur passée à `longjmp`.
 
 [](){#libc-signal}
-## <signal.h>
+## `<signal.h>`
 
 Les signaux sont des mécanismes spécifiques aux systèmes d'exploitations qui permettent de communiquer entre les processus (programmes) et le noyau. Un signal ne véhicule pas de données, il permet simplement de réveiller un processus pour lui indiquer qu'un événement s'est produit. Alternativement un signal peut être émis par un processus pour demander au noyau de réaliser une action.
 
@@ -700,7 +646,7 @@ int main() {
 ```
 
 [](){#libc-stdalign}
-## <stdalign.h>
+## `<stdalign.h>`
 
 La bibliothèque `<stdalign.h>` fournit des fonctions pour manipuler l'alignement des données en mémoire. L'alignement est une notion importante en informatique car les processeurs sont plus efficaces lorsqu'ils accèdent à des données alignées. Imaginez un camion qui transporte des palettes de marchandises. La logistique est faite de manière à ce que les palettes soient facile à charger et décharger du camion avec un minimum de manutention. Imaginez maintenant que vous voulez prendre un élément d'une palette. Cela demande plus de travail parce que vous devez extraire l'élément et trouver un autre outil pour le transporter. Un ordinateur 64-bits sur une architecture x86 a beaucoup de faciliter à véhiculer des mots de 8 octets et il s'arrangera en mémoire à disposer les données de la taille d'une palette (64-bits) de façon à ce que son accès soit le plus rapide possible.
 
@@ -730,7 +676,7 @@ struct alignas(16) Data {
 ```
 
 [](){#libc-stdarg}
-## <stdarg.h>
+## `<stdarg.h>`
 
 Ne vous êtes-vous jamais demandé quel est le prototype de `printf` ? Comment se fait-il que cette fonction puisse prendre un nombre variable d'arguments ? La réponse est la bibliothèque `<stdarg.h>` qui permet de manipuler les arguments d'une fonction variable. Observons le prototype de `printf` :
 
@@ -809,7 +755,7 @@ void __va_start(va_list_hack* ap, void* last, size_t last_size) {
 ```
 
 [](){#libc-stdatomic}
-## <stdatomic.h>
+## `<stdatomic.h>`
 
 Cet en-tête concerne la notion d'atomicité en programmation concurrente, et il pourrait s'agir d'un cours à part entière. L'atomicité est la propriété d'une opération qui est exécutée en une seule étape sans être interrompue. En d'autres termes, une opération atomique est une opération qui est soit complètement exécutée, soit pas du tout. Lorsqu'un programme utilise des *threads* (sous-programmes exécutés en parallèle), il est possible que deux exécutions parallèles tentent de modifier la même variable en même temps. Cela peut poser de gros problèmes de corruption de données. Vous savez par exemple qu'un entier est stocké sur 4 octets. On peut néanmoins imaginer une fonction d'échange de deux variables un peu naive qui traite chaque octet séparément.
 
@@ -852,7 +798,7 @@ int main() {
 Pour de plus emples informations sur la programmation concurrente, je vous redirige sur un cours dédié à ce sujet.
 
 [](){#libc-stdbit}
-## <stdbit.h>
+## `<stdbit.h>`
 
 Cette bibliothèque a été introduite avec le standard C23 et elle permet de manipuler les bits de manière portable en fournissant des macros pour les opérations bit à bit. Les macro suivantes sont disponibles :
 
@@ -878,7 +824,7 @@ Bien entendu pour ces opérations, il est nécessaire de connaître la taille du
 Néanmoins ces fonctions sont faites pour profiter des instructions spécifiques des processeurs modernes qui permettent de réaliser ces opérations de manière plus efficace. En effet dans l'architecture X86 par exemple il existe la directive assembleur `ror` pour la rotation à droite et `rol` pour la rotation à gauche. Ces instructions sont plus rapides que la méthode naïve ci-dessus mais elles n'existent pas nécessairement dans toutes les architectures. Du reste, si on essaye de compiler cette macro avec gcc et observons l'assembler généré, on constate que le compilateur utilise bien l'instruction `ror` pour la rotation à droite. Il est donc capable de comprendre le code et de l'optimiser en conséquence.
 
 [](){#libc-stdbool}
-## <stdbool.h>
+## `<stdbool.h>`
 
 Cette bibliothèque est apparue en C99 et après 20 ans d'attente, elle introduit enfin le type booléen `bool` et les valeurs `true` et `false`. Cet en-tête est par conséquent l'un des plus simple de la bibliothèque standard, car il ne contient que trois lignes :
 
@@ -915,7 +861,7 @@ assert(sizeof(bool_array) == 8);
 ```
 
 [](){#libc-stdckdint}
-## <stdckdint.h>
+## `<stdckdint.h>`
 
 Cette bibliothèque est apparue en C23 et propose des fonctions arithmétiques pour les opérations de base comme l'addition, la soustraction, et la multiplication, mais avec une **détection explicite de l'overflow**. L'abbréviation `ckd` signifie *checked*. Les fonctions introduites par cet en-tête sont :
 
@@ -955,7 +901,7 @@ int add(int a, int b) {
 ```
 
 [](){#libc-stddef}
-## <stddef.h>
+## `<stddef.h>`
 
 La bibliothèque `<stddef.h>` fournit quelques définitions utiles tel que donné par la table suivante :
 
@@ -995,7 +941,229 @@ Concernant les pointeurs, s'il est parfaitement correct de tester si un pointeur
 
 : Il s'agit d'un type signé qui est utilisé pour représenter la différence entre deux pointeurs. Lorsque l'on veut calculer `ptr_p - ptr_q` on obtient un entier dont la valeur maximale dépend de la taille de la mémoire adressable.
 
-## <stdnoreturn.h>
+[](){#libc-inttypes}
+[](){#libc-stdint}
+## `<inttypes.h>` et `<stdint.h>`
+
+Ces deux bibliothèques répondent au besoin d'avoir des types entiers d'une taille contrôlée et surtout portable. En effet, nous avons vu que les types standards (`int`, `short`, `long`...) dépendent du modèle de données de l'architecture cible. Un `long` n'aura pas la même taille sur Linux ou Windows par exemple.
+
+L'en-tête `<stint.h>` fourni trois types de base :
+
+Table: Catégories de types entiers portables
+
+| Exemple         | Description                                   |
+| --------------- | --------------------------------------------- |
+| `int8_t`        | Entier signé sur 8 bits                       |
+| `int8_fast8_t`  | Entier signé d'au moins 8 bits le plus rapide |
+| `int8_least8_t` | Entier signé d'au moins 8 bits, le plus petit |
+
+Ces catégories sont disponibles our les longueurs 8, 16, 32, 64 bits. Les types sont définis pour les entiers signés et non signés. Par exemple, `int8_t` est un entier signé sur 8 bits, `uint8_t` est un entier non signé sur 8 bits.
+
+Dans le cas ou on aurait besoin d'une variable pouvant contenir les valeurs de 0 à 255 mais que la taille de l'entier importe peu pour autant que le processeur n'ait pas de coût supplémentaire à manipuler la variable, on peut utiliser `uint_fast8_t`.
+
+À l'inverse, si le besoin est d'avoir une variable qui peut contenir les valeurs de 0 à 255 avec la taille la plus petite possible (idéalement 8 bits), on utilisera `uint_least8_t`.
+
+Enfin, dans le cas (le plus rare) ou on aurait besoin exactement d'un entier non signé de 8 bits, on utilisera `uint8_t`. Néanmoins ce type présente une contrainte importante car toutes les architectures ne sont pas nécessairement prévues pour manipuler des entiers de 8 bits. Par exemple le SHARC d'Analog Devices est un processeur 32 bits qui n'a pas de support natif pour les entiers de 8 bits. L'utilisation de `uint8_t` résulterait en une erreur de compilation.
+
+L'en-tête `<stdint.h>` fournit également des macros utiles pour connaître le choix de l'implémentation. Par exemple, `INT_FAST8_WIDTH` donne la largeur de l'entier le plus rapide selon la machine cible.
+
+On aura également les valeurs minimum et maximum que peut contenir chacun des types entiers. Par exemple, `INT8_MIN` et `INT8_MAX` pour les entiers signés sur 8 bits.
+
+Dans une boucle `for` opérant sur un tableau de 100 éléments, il serait correct d'utiliser le type `uint_fast8_t` pour l'index de la boucle. Néanmoins pour des raisons de lisibilités, il est souvent préférable d'utiliser simplement `int` qui, selon le standard, garanti d'être capable de contenir la taille du tableau.
+
+```c
+#include <stdint.h>
+
+int main() {
+    for (int_fast8_t i = 0; i < 100; i++) {
+        ...
+    }
+}
+```
+
+En outre, pour des raisons de cohérence, certaines normes pour l'avionique ou le médical imposent que les constantes littérales soient explicitement typées. On connaît déjà les suffixes `u`, `ull` pour les entiers de base, mais on peut également utiliser les macros de `<stdint.h>` pour les constantes littérales.
+
+```c
+uint8_t a = UINT8_C(42);
+```
+
+L'utilisation de ces types spécifiques dans des fonctions d'entrées sortie (p. ex. `printf`) doit aussi être faite cohérence. Un `int32_t` n'est pas compatible avec `%d` sur toutes les architectures. Il est préférable d'utiliser les macros de `<inttypes.h>` pour les spécifier.
+
+```c
+int32_t a = 42;
+printf("%" PRId32 "\n", a);
+```
+
+[](){#libc-stdio}
+## `<stdio.h>`
+
+La bibliothèque `<stdio.h>` est l'une des bibliothèques les plus importantes en C. Elle fournit des fonctions pour l'entrée et les sorties, c'est-à-dire pour lire et écrire des données depuis et vers la console. Elle fournit également des fonctions pour lire et écrire des fichiers.
+
+La plupart des fonctions de cette bibliothèque ont déjà été abordées dans les chapitres précédents. Voici néanmoins un résumé des fonctions qu'elle contient:
+
+Table: Fonctions de stdio.h
+
+| Fonction       | Description                                                                      |
+| -------------- | -------------------------------------------------------------------------------- |
+| `fopen`        | Ouvre un fichier pour la lecture, l'écriture ou l'ajout                          |
+| `freopen`      | Ouvre à nouveau un fichier sur un flux de fichier existant                       |
+| `fclose`       | Ferme un fichier ouvert                                                          |
+| `fflush`       | Vide le tampon de sortie d'un flux                                               |
+| `fread`        | Lit des blocs d'octets depuis un flux                                            |
+| `fwrite`       | Écrit des blocs d'octets vers un flux                                            |
+| `fgetc`        | Lit un caractère depuis un fichier                                               |
+| `fgets`        | Lit une ligne depuis un fichier                                                  |
+| `fputc`        | Écrit un caractère vers un fichier                                               |
+| `fputs`        | Écrit une chaîne de caractères vers un fichier                                   |
+| `getc`         | Equivalent de `fgetc`, lit un caractère depuis un fichier                        |
+| `getchar`      | Lit un caractère depuis l'entrée standard (`stdin`)                              |
+| `putc`         | Equivalent de `fputc`, écrit un caractère vers un fichier                        |
+| `putchar`      | Écrit un caractère vers la sortie standard (`stdout`)                            |
+| `ungetc`       | Remet un caractère dans le flux pour qu'il soit lu à nouveau                     |
+| `fseek`        | Positionne le curseur de lecture/écriture dans un fichier                        |
+| `ftell`        | Renvoie la position actuelle dans un fichier                                     |
+| `rewind`       | Remet le curseur au début d'un fichier                                           |
+| `fgetpos`      | Obtient la position actuelle dans un fichier sous forme de `fpos_t`              |
+| `fsetpos`      | Définit la position actuelle dans un fichier selon un objet `fpos_t`             |
+| `clearerr`     | Réinitialise l'état d'erreur d'un flux                                           |
+| `feof`         | Vérifie si la fin du fichier est atteinte                                        |
+| `ferror`       | Vérifie si une erreur est survenue dans le flux                                  |
+| `perror`       | Affiche un message d'erreur basé sur la dernière erreur rencontrée               |
+| `fileno`       | Obtient le descripteur de fichier associé à un flux                              |
+| `tmpfile`      | Crée et ouvre un fichier temporaire qui est supprimé à la fermeture              |
+| `tmpnam`       | Génère un nom de fichier temporaire unique                                       |
+| `remove`       | Supprime un fichier                                                              |
+| `rename`       | Renomme un fichier                                                               |
+| `setvbuf`      | Définit le mode de tampon pour un flux                                           |
+| `setbuf`       | Définit un tampon pour un flux                                                   |
+| `vfprintf`     | Écrit une sortie formatée sur un flux avec une liste d'arguments variadiques     |
+| `vprintf`      | Écrit une sortie formatée sur `stdout` avec une liste d'arguments variadiques    |
+| `vsprintf`     | Écrit une sortie formatée dans une chaîne avec une liste d'arguments variadiques |
+| `vfwprintf`    | Version large de `vfprintf` pour les caractères larges (`wchar_t`)               |
+| `vwprintf`     | Version large de `vprintf` pour les caractères larges (`wchar_t`)                |
+| `vswprintf`    | Version large de `vsprintf` pour les caractères larges (`wchar_t`)               |
+| `fprintf`      | Écrit une sortie formatée dans un fichier                                        |
+| `printf`       | Écrit une sortie formatée sur `stdout`                                           |
+| `sprintf`      | Écrit une sortie formatée dans une chaîne                                        |
+| `snprintf`     | Écrit une sortie formatée dans une chaîne avec une taille limitée                |
+| `sscanf`       | Lit des données formatées depuis une chaîne                                      |
+| `fscanf`       | Lit des données formatées depuis un fichier                                      |
+| `scanf`        | Lit des données formatées depuis l'entrée standard                               |
+| `fwprintf`     | Version large de `fprintf` pour les caractères larges (`wchar_t`)                |
+| `wprintf`      | Version large de `printf` pour les caractères larges (`wchar_t`)                 |
+| `swprintf`     | Version large de `sprintf` pour les caractères larges (`wchar_t`)                |
+| `fgetwc`       | Lit un caractère large (`wchar_t`) depuis un fichier                             |
+| `fgetws`       | Lit une ligne de caractères larges depuis un fichier                             |
+| `fputwc`       | Écrit un caractère large (`wchar_t`) dans un fichier                             |
+| `fputws`       | Écrit une chaîne de caractères larges dans un fichier                            |
+| `putwc`        | Version large de `putc` pour les caractères larges (`wchar_t`)                   |
+| `putwchar`     | Écrit un caractère large sur la sortie standard                                  |
+| `getwchar`     | Lit un caractère large depuis l'entrée standard                                  |
+| `ungetwc`      | Remet un caractère large dans le flux                                            |
+| `flockfile`    | Verrouille un flux pour les opérations multithreadées                            |
+| `ftrylockfile` | Tente de verrouiller un flux pour les opérations multithreadées                  |
+| `funlockfile`  | Déverrouille un flux verrouillé                                                  |
+| `fseeko`       | Version large de `fseek` pour les fichiers volumineux (POSIX, non standard)      |
+| `ftello`       | Version large de `ftell` pour les fichiers volumineux (POSIX, non standard)      |
+| `asprintf`     | Alloue et écrit une chaîne formatée (POSIX, non standard)                        |
+| `vdprintf`     | Écrit une sortie formatée vers un descripteur de fichier (POSIX, non standard)   |
+| `dprintf`      | Écrit une sortie formatée vers un descripteur de fichier (POSIX, non standard)   |
+
+Table: Constantes et types de stdio.h
+
+| Constante/Type | Description                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| `EOF`          | Constante retournée par les fonctions de lecture lorsqu'une fin de fichier ou une erreur est rencontrée |
+| `NULL`         | Pointeur nul utilisé pour représenter l'absence d'objet                                                 |
+| `FILENAME_MAX` | Longueur maximale d'un nom de fichier                                                                   |
+| `FOPEN_MAX`    | Nombre maximal de fichiers pouvant être ouverts simultanément                                           |
+| `L_tmpnam`     | Longueur minimale d'un tampon pour `tmpnam`                                                             |
+| `BUFSIZ`       | Taille du tampon par défaut pour les opérations de lecture/écriture                                     |
+| `TMP_MAX`      | Nombre maximal de noms uniques générés par `tmpnam`                                                     |
+| `SEEK_SET`     | Indique le début du fichier pour `fseek` et `fseeko`                                                    |
+| `SEEK_CUR`     | Indique la position actuelle dans le fichier pour `fseek` et `fseeko`                                   |
+| `SEEK_END`     | Indique la fin du fichier pour `fseek` et `fseeko`                                                      |
+| `stderr`       | Flux de sortie d'erreur standard                                                                        |
+| `stdin`        | Flux d'entrée standard                                                                                  |
+| `stdout`       | Flux de sortie standard                                                                                 |
+| `FILE`         | Type opaque représentant un flux de fichier                                                             |
+| `fpos_t`       | Type utilisé pour stocker la position dans un fichier                                                   |
+
+[](){#libc-stdlib}
+## `<stdlib.h>`
+
+Cette bibliothèque contient des fonctions éparses qui ne sont pas assez importantes pour être regroupées dans une bibliothèque dédiée. Contrairement aux langages plus récents (comme C++ ou Java), C n'a pas été conçu avec une philosophie de modularité stricte pour les bibliothèques. Les fonctions étaient rassemblées par utilité pratique plutôt que par sujet spécifique, et les bibliothèques étaient assez limitées en nombre pour garder le langage simple et portable. On y retrouve les catégories suivantes :
+
+- Gestion de la mémoire
+- Conversion de chaînes en types numériques
+- Gestion du programme
+- Nombres aléatoires
+- Algorithmes de recherche et de tri
+
+Table: Fonctions de stdlib.h
+
+| Fonction        | Description                                                                            |
+| --------------- | -------------------------------------------------------------------------------------- |
+| `abort`         | Arrête le programme de manière anormale sans nettoyage des ressources                  |
+| `exit`          | Arrête le programme de manière normale avec nettoyage des ressources                   |
+| `quick_exit`    | Arrête le programme de manière normale sans nettoyage complet des ressources (C11)     |
+| `_Exit`         | Arrête le programme de manière normale sans nettoyage des ressources (C99)             |
+| `atexit`        | Enregistre une fonction à appeler lors de l'appel à `exit`                             |
+| `at_quick_exit` | Enregistre une fonction à appeler lors de l'appel à `quick_exit` (C11)                 |
+| `getenv`        | Récupère la valeur d'une variable d'environnement                                      |
+| `setenv`        | Ajoute ou modifie une variable d'environnement (POSIX, non standard)                   |
+| `putenv`        | Ajoute ou modifie une variable d'environnement                                         |
+| `unsetenv`      | Supprime une variable d'environnement (POSIX, non standard)                            |
+| `system`        | Exécute une commande système dans un shell                                             |
+| `malloc`        | Alloue un bloc de mémoire                                                              |
+| `calloc`        | Alloue et initialise un bloc de mémoire                                                |
+| `realloc`       | Redimensionne un bloc de mémoire précédemment alloué                                   |
+| `free`          | Libère un bloc de mémoire précédemment alloué                                          |
+| `atoi`          | Convertit une chaîne de caractères en entier (`int`)                                   |
+| `atol`          | Convertit une chaîne de caractères en long (`long`)                                    |
+| `atoll`         | Convertit une chaîne de caractères en long long (`long long`) (C99)                    |
+| `atof`          | Convertit une chaîne de caractères en double (`double`)                                |
+| `strtod`        | Convertit une chaîne en double (`double`)                                              |
+| `strtof`        | Convertit une chaîne en float (`float`) (C99)                                          |
+| `strtold`       | Convertit une chaîne en long double (`long double`) (C99)                              |
+| `strtol`        | Convertit une chaîne en long (`long`), avec une base personnalisable                   |
+| `strtoll`       | Convertit une chaîne en long long (`long long`) (C99)                                  |
+| `strtoul`       | Convertit une chaîne en unsigned long (`unsigned long`)                                |
+| `strtoull`      | Convertit une chaîne en unsigned long long (`unsigned long long`) (C99)                |
+| `rand`          | Génère un nombre pseudo-aléatoire                                                      |
+| `srand`         | Initialise le générateur de nombres pseudo-aléatoires                                  |
+| `bsearch`       | Recherche un élément dans un tableau trié en utilisant une fonction de comparaison     |
+| `qsort`         | Trie un tableau en utilisant un algorithme de tri rapide (quick sort)                  |
+| `abs`           | Calcule la valeur absolue d'un entier (`int`)                                          |
+| `labs`          | Calcule la valeur absolue d'un entier long (`long`)                                    |
+| `llabs`         | Calcule la valeur absolue d'un long long (`long long`) (C99)                           |
+| `div`           | Effectue une division entière et retourne le quotient et le reste pour les `int`       |
+| `ldiv`          | Effectue une division entière pour les `long` et retourne quotient et reste            |
+| `lldiv`         | Effectue une division entière pour les `long long` et retourne quotient et reste (C99) |
+| `mblen`         | Retourne le nombre d'octets d'un caractère multioctet dans une chaîne                  |
+| `mbtowc`        | Convertit un caractère multioctet en caractère large (`wchar_t`)                       |
+| `wctomb`        | Convertit un caractère large (`wchar_t`) en multioctet                                 |
+| `mbstowcs`      | Convertit une chaîne multioctet en chaîne de caractères larges (`wchar_t`)             |
+| `wcstombs`      | Convertit une chaîne de caractères larges en chaîne multioctet                         |
+
+Table: Constantes et types de stdlib.h
+
+| Constante/Type | Description                                                                                         |
+| -------------- | --------------------------------------------------------------------------------------------------- |
+| `EXIT_SUCCESS` | Indique une terminaison réussie du programme (valeur utilisée avec `exit`)                          |
+| `EXIT_FAILURE` | Indique une terminaison échouée du programme (valeur utilisée avec `exit`)                          |
+| `NULL`         | Pointeur nul, utilisé pour initialiser ou tester des pointeurs                                      |
+| `RAND_MAX`     | Valeur maximale que peut retourner `rand`                                                           |
+| `MB_CUR_MAX`   | Taille maximale d'un caractère multioctet pour la locale courante                                   |
+| `size_t`       | Type pour représenter des tailles et des dimensions                                                 |
+| `div_t`        | Structure retournée par `div` contenant le quotient et le reste                                     |
+| `ldiv_t`       | Structure retournée par `ldiv` contenant le quotient et le reste                                    |
+| `lldiv_t`      | Structure retournée par `lldiv` (C99) contenant le quotient et le reste                             |
+| `wchar_t`      | Type pour représenter un caractère large                                                            |
+| `mbstate_t`    | Type utilisé pour conserver l'état entre conversions de caractères multioctets et caractères larges |
+
+[](){#libc-stdnoreturn}
+## `<stdnoreturn.h>`
 
 Cette bibliothèque est apparue en C11 et elle introduit le type `noreturn` qui est utilisé pour indiquer qu'une fonction ne retourne jamais. Cela permet au compilateur d'optimiser le code en supprimant les instructions de retour de la fonction. En pratique, cela permet de gagner quelques cycles d'horloge. Voici un exemple d'utilisation :
 
@@ -1023,13 +1191,9 @@ int main(void)
 Avant C23, il fallait utiliser `_Noreturn`.
 
 [](){#libc-string}
-## Chaînes de caractères
+## `<string.h>`
 
-La bibliothèque `<string.h>` contient des fonctions pour manipuler les chaînes de caractères. Les fonctions sont définies pour les chaînes de caractères ASCII uniquement. On distingue deux famille de fonctions, les `mem` qui manipulent des régions mémoires et les `str` qui manipulent des chaînes de caractères. Le fichier d'en-tête est le suivant :
-
-```c
-#include <string.h>
-```
+La bibliothèque `<string.h>` contient des fonctions pour manipuler les chaînes de caractères. Les fonctions sont définies pour les chaînes de caractères ASCII uniquement. On distingue deux famille de fonctions, les `mem` qui manipulent des régions mémoires et les `str` qui manipulent des chaînes de caractères.
 
 La table suivante résume les fonctions les plus utilisées. On notera que les lettres entre parenthèses indiquent les variantes des fonctions. La fonction `strcpy` existe en version `strncpy` qui permet de copier une chaîne en spécifiant la taille maximale à copier. On notera `n` pour les fonctions dont la taille maximum de la chaîne peut être spécifiée, `r` pour *reverse* et `c` pour *not in*.
 
@@ -1361,13 +1525,49 @@ if (f == NULL) {
 }
 ```
 
-## Date et heure
+[](){#libc-tgmath}
+## `<tgmath.h>`
 
-La bibliothèque `<time.h>` contient des fonctions pour lire et convertir des dates et heures. Les fonctions sont définies pour les dates et heures en secondes depuis le 1er janvier 1970. Le fichier d'en-tête est le suivant :
+La bibliothèque `<tgmath.h>` est une bibliothèque de type générique qui permet de définir des fonctions mathématiques qui acceptent des arguments de différents types. Par exemple, la fonction `sqrt` peut accepter un argument de type `float`, `double` ou `long double`.
 
-```c
-#include <time.h>
-```
+Il est courant de ne pas utiliser la bonne fonction mathématique pour un type donné. Par exemple, on peut appeler `sqrt` avec un argument de type `float` alors que la fonction `sqrtf` est plus adaptée peut entraîner une perte de performance, l'inverse peut entraîner une perte de précision. La bibliothèque `<tgmath.h>` permet de résoudre ce problème en définissant des fonctions mathématiques génériques qui acceptent des arguments de différents types.
+
+Cette [généricité][generickw] est permise à l'aide du mot clé `_Generic` introduit en C11.
+
+La bibliothèque redéfini les fonctions mathématiques de la bibliothèque `<math.h>`, pour l'utiliser il suffit d'inclure l'en-tête `<tgmath.h>` à la place de `<math.h>`. Par exemple, pour calculer la racine carrée d'un nombre, on peut utiliser la fonction `sqrt` de la bibliothèque `<tgmath.h>` :
+
+
+[](){#libc-threads}
+## `<threads.h>`
+
+La bibliothèque `<threads.h>` contient des fonctions pour créer et gérer des threads. Les threads sont aussi nommés des processus légers qui partagent le même espace mémoire. Un thread peut être vu comme un sous-programme parallèle tournant dans le même programme. Les fonctions offertes par le standard sont les suivantes :
+
+Table: Fonctions sur les threads
+
+| Fonction        | Description                               |
+| --------------- | ----------------------------------------- |
+| `thrd_create`   | Crée un nouveau thread                    |
+| `thrd_exit`     | Termine le thread                         |
+| `thrd_join`     | Attend la fin d'un thread                 |
+| `thrd_sleep`    | Met le thread en sommeil                  |
+| `thrd_yield`    | Passe la main à un autre thread           |
+| `mtx_init`      | Initialise un mutex                       |
+| `mtx_lock`      | Verrouille un mutex                       |
+| `mtx_trylock`   | Tente de verrouiller un mutex             |
+| `mtx_unlock`    | Déverrouille un mutex                     |
+| `mtx_destroy`   | Détruit un mutex                          |
+| `cnd_init`      | Initialise une variable de condition      |
+| `cnd_signal`    | Signale une variable de condition         |
+| `cnd_broadcast` | Signale toutes les variables de condition |
+| `cnd_wait`      | Attend une variable de condition          |
+| `cnd_destroy`   | Détruit une variable de condition         |
+
+Pour plus de détails sur le fonctionnement des threads, vous pouvez consulter un cours spécialisé sur la programmation concurrente.
+
+[](){#libc-time}
+## `<time.h>`
+
+La bibliothèque `<time.h>` contient des fonctions pour lire et convertir des dates et heures. Les fonctions sont définies pour les dates et heures en secondes depuis le 1er janvier 1970.
 
 Table: Fonctions sur les dates et heures
 
@@ -1510,10 +1710,10 @@ Table: Format de strftime
 | `%n`   | Saut de ligne                                    | `"\n"`            |
 | `%p`   | Indicateur AM ou PM                              | `"PM"`            |
 | `%P`   | Indicateur am ou pm (minuscule)                  | `"pm"`            |
-| `%r`   | Heure au format 12 heures (hh:mm:ss AM/PM)       | `"02:05:45 PM"`   |
-| `%R`   | Heure au format 24 heures (hh:mm)                | `"14:05"`         |
+| `%r`   | Heure au format 12 heures (`hh:mm:ss` AM/PM)     | `"02:05:45 PM"`   |
+| `%R`   | Heure au format 24 heures (`hh:mm`)              | `"14:05"`         |
 | `%S`   | Secondes (00-60)                                 | `"45"`            |
-| `%T`   | Heure au format 24 heures (hh:mm:ss)             | `"14:05:45"`      |
+| `%T`   | Heure au format 24 heures (`hh:mm:ss`)           | `"14:05:45"`      |
 | `%u`   | Numéro du jour de la semaine (1-7, lundi = 1)    | `"2"` pour mardi  |
 | `%U`   | Numéro de la semaine (00-53, dimanche)           | `"37"`            |
 | `%W`   | Numéro de la semaine (00-53, lundi)              | `"37"`            |
@@ -1558,24 +1758,111 @@ Il pourrait afficher:
 Aujourd'hui, c'est vendredi, 17 septembre 2024, et il est 14:05:45.
 ```
 
-## Limites
+[](){#libc-uchar}
 
-Table: Valeurs limites pour les entiers signés et non signés
+## `<uchar.h>`
 
-| Constante     | Valeur        |
-| ------------- | ------------- |
-| `SCHAR_MIN`   | -128          |
-| `SCHAR_MAX`   | +127          |
-| `CHAR_MIN`    | 0             |
-| `CHAR_MAX`    | 255           |
-| `SHRT_MIN`    | -32768        |
-| `SHRT_MAX`    | +32767        |
-| `USHRT_MAX`   | 65535         |
-| `LONG_MIN`    | -2147483648   |
-| `LONG_MAX`    | +2147483647   |
-| `ULONG_MAX`   | +4294967295   |
-| `DBL_MAX`     | 1E+37 ou plus |
-| `DBL_EPSILON` | 1E-9 ou moins |
+Apparue avec la norme C11, cette bibliothèque contient des fonctions pour gérer les caractères Unicode. Elle contient des fonctions pour convertir des caractères en minuscules ou majuscules, pour tester si un caractère est un chiffre, une lettre, etc.
+
+Un caractère multi-octets (*multibyte*) est un caractère qui nécessite plus d'un octet pour être stocké. Nous avons que la norme [Unicode][unicode] définit un jeu de caractères universel qui peut être représenté en binaire avec des caractères de 8-bit (UTF-8). Cela permet de stocker théoriquement jusqu'à 4 294 967 295 caractères différents.
+
+Le C étant un langage ancien, il a été conçu à une époque où seul la table ASCII existait. Néanmoins, certaines langues comme le chinois nécessitaient plus de 256 caractères. Pour cela, le C a introduit le concept de caractères larges (*wide characters*) qui étaient initialement stockés sur 16-bits (`short`). Néanmoins, avec l'arrivée de l'Unicode, il n'est pas rare de trouver des caractères qui nécessitent 32-bits. Or, les *wide-chars* historiques du C ne sont que sur 16-bits (sous Windows) et 32-bits (sous Unix). Pour palier à ce problème de portabilité, la norme C11 a introduit la bibliothèque `<uchar.h>` qui permet de gérer les caractères Unicode convenablement.
+
+La bibliothèque définit deux types supplémentaires:
+
+```c
+char16_t; // 16-bit pour l'UTF-16
+char32_t; // 32-bit pour l'UTF-32
+```
+
+Contrairement à UTF-8 qui est un encodage variable : de 1 à 4 bytes, l'UTF-16 et l'UTF-32 sont des encodages fixes (à moins d'utiliser des *surrogatges*). Comme la plupart des systèmes utilisent massivement l'UTF-8, la bibliothèque offre des fonctions de conversion entre les différents encodages.
+
+Table: Fonctions de conversion de caractères
+
+| Fonction   | Description                                |
+| ---------- | ------------------------------------------ |
+| `c16rtomb` | Convertit un caractère 16-bit en UTF-8     |
+| `c32rtomb` | Convertit un caractère 32-bit en UTF-8     |
+| `mbrtoc16` | Convertit un caractère UTF-8 en 16-bit     |
+| `mbrtoc32` | Convertit un caractère UTF-8 en 32-bit     |
+| `c16rtowc` | Convertit un caractère 16-bit en wide char |
+| `c32rtowc` | Convertit un caractère 32-bit en wide char |
+| `wctoc16`  | Convertit un wide char en 16-bit           |
+| `wctoc32`  | Convertit un wide char en 32-bit           |
+
+Le standard C nomme `mb` (`multibyte`) pour se référer à UTF-8.
+
+L'inconvénient majeur d'UTF-8 c'est qu'il est impossible d'éditer un caractère à un endroit précis sans devoir possiblement décaler tous les caractères suivants. Remplacer un `e` (stocké sur 1 byte) par un émoji (stocké sur 4 bytes), nécessite de décaler tout le texte de 3 bytes. Suivant la taille de la chaîne cela peut être fastidieux. C'est pourquoi l'UTF-32 est souvent utilisé pour les traitements internes. On perd de la place mémoire car un texte en UTF-32 est jusqu'à 4 fois plus gros qu'en UTF-8, mais on gagne en temps de traitement car aucun déclage n'est nécessaire. En outre, le processeur étant plus à l'aise avec les données alignées sur 32-bits, les traitements sont plus rapides.
+
+Prenons l'exemple suivant qui inverse une chaîne de caractères UTF-8 et affiche le résultat. Sans cette bibliothèque, il n'est pas trivial de le faire car les caractères unicode peuvent être stockés sur plusieurs bytes. Ici on commence par convertir la chaîne UTF-8 en UTF-32 pour avoir une chaîne simple à traiter, on inverse ensuite la chaîne UTF-32, puis on la reconvertit en UTF-8 pour l'affichage :
+
+```c
+#include <locale.h>
+#include <stdio.h>
+#include <stdlib.h>  // Pour MB_CUR_MAX
+#include <string.h>
+#include <uchar.h>
+
+int main() {
+   setlocale(LC_ALL, "");  // Initialiser la locale pour UTF-8
+
+   char utf8_str[] = "Salut Γιώργος, comment ça va ? As-tu reçu mon 📧 ?";
+   size_t utf8_len = strlen(utf8_str);
+
+   // Convertir UTF-8 en UTF-32
+   char32_t utf32_str[utf8_len];
+   size_t utf32_len = 0;
+   {
+      mbstate_t state = {0};
+      size_t ret;
+      const char *p = utf8_str;
+      while (*p != '\0') {
+         size_t ret = mbrtoc32(&utf32_str[utf32_len], p, MB_CUR_MAX, &state);
+         if (ret == (size_t)-1) {
+            perror("Erreur de conversion UTF-8 vers UTF-32");
+            return 1;
+         } else if (ret == (size_t)-2) {
+            // Séquence multioctet incomplète, passer à l'octet suivant
+            break;
+         } else if (ret == 0) {
+            // Fin de la chaîne UTF-8 atteinte
+            break;
+         }
+         p += ret;
+         utf32_len++;
+      }
+   }
+
+   // Inverser la chaîne UTF-32
+   for (size_t i = 0, j = utf32_len - 1; i < j; i++, j--) {
+      char32_t tmp = utf32_str[i];
+      utf32_str[i] = utf32_str[j];
+      utf32_str[j] = tmp;
+   }
+
+   // Conversion inverse UTF-32 vers UTF-8
+   {
+      mbstate_t state = {0};
+      char *utf8_ptr = utf8_str;
+      const char32_t *utf32_ptr = utf32_str;
+      size_t utf8_total_len = 0;
+      size_t ret;
+      while (utf32_len--) {
+         ret = c32rtomb(utf8_ptr, *utf32_ptr++, &state);
+         if (ret == (size_t)-1) {
+            perror("Erreur de conversion UTF-32 vers UTF-8");
+            return 1;
+         }
+         utf8_ptr += ret;  // Avancer dans le buffer UTF-8
+         utf8_total_len += ret;
+      }
+      utf8_str[utf8_total_len] = '\0';
+   }
+
+   printf("%s\n", utf8_str);
+}
+```
+
 
 [](){#libc-wchar}
 
@@ -1612,12 +1899,10 @@ Table: Fonctions liées aux caractères larges
 | `wmemset`  | Remplit une région mémoire                     | `memset`   |
 
 
-
-
 [](){#libc-wctype}
 [](){#libc-ctype}
 
-## `<ctype.h>`
+## `<(w)ctype.h>`
 
 La bibliothèque `<ctype.h>` contient des fonctions pour tester et convertir des caractères. Les fonctions sont définies pour les caractères ASCII uniquement, elle ne s'applique pas aux caractères Unicode, ni aux caractères étendus (au-delà de 127). La bibliothèque `<wctype.h>` est similaire mais pour les caractères larges (wide characters).
 
