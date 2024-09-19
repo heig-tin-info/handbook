@@ -169,6 +169,8 @@ int main() {
 
 Pour éviter ce genre de problème, il est recommandé de ne pas utiliser la pile pour stocker des données de grande taille, préférez l'allocation dynamique sur le tas.
 
+[](){#stack-plumbing}
+
 ### Fonctionnement de la pile
 
 

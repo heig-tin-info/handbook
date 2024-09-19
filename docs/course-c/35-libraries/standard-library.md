@@ -1,109 +1,54 @@
-## Bibliothèques standard
+# Bibliothèques standard
 
-Les bibliothèques standard ([C standard library](https://fr.wikipedia.org/wiki/Biblioth%C3%A8que_standard_du_C)) sont une collection normalisée d'en-têtes portables. C'est à dire que quelque soit le compilateur et l'architecture cible, cette collection sera accessible.
+Aux premières heures de l'informatique (années 1950 et 1960), les programmeurs écrivaient du code très spécifique à la machine, généralement en langage assembleur. Il n'y avait pas de bibliothèques standard ou de frameworks, et les programmeurs devaient souvent écrire eux-mêmes des fonctionnalités de base comme la gestion des entrées/sorties ou les opérations mathématiques. L'idée de réutilisabilité de code était encore peu développée. Les langages étaient souvent conçus pour une seule machine, ce qui limitait les possibilités de portabilité.
 
-Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilisés (et ceux utilisés dans ce cours) sont :
+Le langage C est l'un des premiers langages à introduire une bibliothèque standard appelée [C standard library](https://fr.wikipedia.org/wiki/Biblioth%C3%A8que_standard_du_C) (*libc*). Cette bibliothèque visait à fournir un ensemble de fonctions de base pour faciliter le développement d'applications. Elle contenait des fonctions pour la gestion des chaînes de caractères, des fichiers, de la mémoire, des maths, etc. Avant cela, ces fonctionnalités devaient être écrites par chaque programmeur pour chaque projet. L'ajout de cette bibliothèque standard a permis de simplifier considérablement le développement en évitant de réinventer la roue pour chaque projet.
 
-`<assert.h>`
+Java, lancé par Sun Microsystems, a introduit une bibliothèque standard extrêmement riche dès sa première version, connue sous le nom de Java Standard Library. Elle couvrait un large éventail de domaines (gestion des entrées/sorties, interfaces graphiques, réseau, etc.). Le fait que Java soit livré avec une bibliothèque complète et uniforme a joué un rôle crucial dans sa popularité. Java a également introduit des frameworks comme **Swing** pour les interfaces graphiques et a encouragé l'utilisation d'APIs standardisées. Python, créé par Guido van Rossum en 1991, a aussi adopté très tôt l'idée d'une bibliothèque standard complète, appelée **Python Standard Library**. Python est souvent loué pour son approche "batteries included" ("batteries incluses"), signifiant que le langage fournit une vaste gamme d'outils prêts à l'emploi. Cela a fait de Python un langage très populaire pour le développement rapide d'applications.
 
-: Contient la macro `assert` pour valider certains prérequis.
+Aujourd'hui, pratiquement tous les langages modernes (comme Rust, Go, Swift, Kotlin) sont livrés avec des bibliothèques standard étendues, ainsi que des frameworks et des outils de gestion de paquets (comme npm pour JavaScript, pip pour Python, cargo pour Rust, etc.). Ces outils permettent aux développeurs d’accéder à des milliers de bibliothèques tierces et à des frameworks qui simplifient la construction d’applications complexes.
 
-`<complex.h>`
+En C, la situation n'a pas beaucoup évoluée depuis les années 70. Le langage C est un langage de bas niveau qui ne fournit toujours pas de bibliothèque standard étendue. Si une des raison est la portabilité des programmes, une autre raison est que le langage C est un langage minimaliste. Il a été conçu pour être simple et efficace, et les concepteurs ont délibérément choisi de ne pas inclure de fonctionnalités avancées dans le langage lui-même. Il existe donc en C une seule bibliothèque la *libc* qui souffre de quelques lacunes et incohérences par le fait de son ancienneté et de la nécessité de conserver la compatibilité avec les anciennes versions.
 
-: Pour manipuler les nombres complexes
+La *libc* reste néanmoins un outil indispensable pour le développeur C. Nous allons voir dans ce chapitre les différents fichiers d'en-tête et fonctions qu'elle propose en montrant quelques exemples d'utilisation.
 
-`<float.h>`
+Table: En-têtes standard
 
-: Contient les constantes qui définissent la précision des types flottants sur l'architecture cible. `float` et `double` n'ont pas besoin de cet en-tête pour être utilisés.
+| En-tête                         | Description                                 | Standard |
+| ------------------------------- | ------------------------------------------- | -------- |
+| [`<assert.h>`][libc-assert]     | Validation des prérequis                    | C89      |
+| [`<complex.h>`][libc-complex]   | Nombres complexes                           | **C99**  |
+| [`<ctype.h>`][libc-ctype]       | Tests                                       | C89      |
+| [`<errno.h>`][libc-errno]       | Gestion des erreurs                         | C89      |
+| [`<fenv.h>`][libc-fenv]         | Environnement de calcul flottant            | **C99**  |
+| [`<float.h>`][libc-float]       | Constantes de précision des types flottants | C89      |
+| [`<inttypes.h>`][libc-inttypes] | Types entiers formatés                      | **C99**  |
+| [`<iso646.h>`][libc-iso646]     | Alternative aux opérateurs (and, or)        | **C95**  |
+| [`<limits.h>`][libc-limits]     | Limites des types entiers                   | C89      |
+| [`<locale.h>`][libc-locale]     | Gestion des locales                         | C89      |
+| [`<math.h>`][libc-math]         | Fonctions mathématiques                     | C89      |
+| [`<setjmp.h>`][libc-setjmp]     | Gestion des sauts                           | C89      |
+| [`<signal.h>`][libc-signal]     | Gestion des signaux                         | C89      |
+| `<stdalign.h>`                  | Alignement des types                        | **C11**  |
+| `<stdarg.h>`                    | Arguments variables                         | C89      |
+| `<stdatomic.h>`                 | Opérations atomiques                        | **C11**  |
+| `<stdbit.h>`                    | Macros pour les bits                        | **C23**  |
+| `<stdbool.h>`                   | Type booléen                                | **C99**  |
+| `<stdckdint.h>`                 | Macros de tests pour les entiers            | **C23**  |
+| `<stddef.h>`                    | Macros standard                             | C89      |
+| [`<stdint.h>`][libc-stdint]     | Types entiers standard                      | **C99**  |
+| `<stdio.h>`                     | Entrées/sorties standard                    | C89      |
+| `<stdlib.h>`                    | Allocation dynamique                        | C89      |
+| `<stdnoreturn.h>`               | Fonctions sans retour                       | **C11**  |
+| [`<string.h>`][libc-string]     | Manipulation des chaînes de caractères      | C89      |
+| `<tgmath.h>`                    | Fonctions mathématiques génériques          | **C99**  |
+| `<threads.h>`                   | Gestion des threads                         | **C11**  |
+| `<time.h>`                      | Date et heure                               | C89      |
+| `<uchar.h>`                     | Caractères Unicode                          | **C11**  |
+| `<wchar.h>`                     | Caractères larges                           | **C95**  |
+| `<wctype.h>`                    | Tests larges                                | **C95**  |
 
-`<limits.h>`
-
-: Contient les constantes qui définissent les limites des types entiers.
-
-`<math.h>`
-
-: Fonctions mathématiques `sin`, `cos`, ...
-
-`<stdbool.h>`
-
-: Défini le type booléen et les constantes `true` et `false`.
-
-`<stddef.h>`
-
-: Défini certaines macros comme `NULL`
-
-`<stdint.h>`
-
-: Défini les types standard d'entiers (`int32_t`, `int_fast64_t`, ...).
-
-`<stdio.h>`
-
-: Permet l'accès aux entrées sorties standard (`stdin`, `stdout`, `stderr`). Définis entre autres la fonction `printf`.
-
-`<stdlib.h>`
-
-: Permet l'allocation dynamique et défini `malloc`
-
-`<string.h>`
-
-: Manipulation des chaînes de caractères
-
-`<time.h>`
-
-: Accès au fonctions lecture et de conversion de date et d'heure.
-
-!!! exercise "Arc-cosinus"
-
-    La fonction Arc-Cosinus `acos` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension `.h`.
-
-    ??? solution
-
-        En cherchant `man acos header` dans Google, on trouve que la fonction `acos` est définie dans le header `<math.h>`.
-
-        Une autre solution est d'utiliser sous Linux la commande `apropos`:
-
-        ```bash
-        $ apropos acos
-        acos (3)     - arc cosine function
-        acosf (3)    - arc cosine function
-        acosh (3)    - inverse hyperbolic cosine function
-        acoshf (3)   - inverse hyperbolic cosine function
-        acoshl (3)   - inverse hyperbolic cosine function
-        acosl (3)    - arc cosine function
-        cacos (3)    - complex arc cosine
-        cacosf (3)   - complex arc cosine
-        cacosh (3)   - complex arc hyperbolic cosine
-        cacoshf (3)  - complex arc hyperbolic cosine
-        cacoshl (3)  - complex arc hyperbolic cosine
-        cacosl (3)   - complex arc cosine
-        ```
-
-        Le premier résultat permet ensuite de voir :
-
-        ```bash
-        $ man acos | head -10
-        ACOS(3)    Linux Programmer's Manual         ACOS(3)
-
-        NAME
-            acos, acosf, acosl - arc cosine function
-
-        SYNOPSIS
-            #include <math.h>
-
-            double acos(double x);
-            float acosf(float x);
-        ```
-
-        La réponse est donc `<math.h>`.
-
-        Sous Windows avec Visual Studio, il suffit d'écrire `acos` dans un fichier source et d'appuyer sur `F1`. L'IDE redirige l'utilisateur sur l'aide Microsoft [acos-acosf-acosl](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl) qui indique que le header source est `<math.h>`.
-
-!!! exercise "Date"
-
-    Lors du formatage d'une date, on y peut y lire `%w`, par quoi sera remplacé ce *token* ?
-
-Il serait inutile ici de lister toutes les fonctions, les bibliothèques standard étant largement documentées sur internet. Il ne fait aucun doute que le développeur sera trouver comment calculer un sinus avec la fonction `sin`. Néanmoins l'existence de certaines fonctions peut passer inaperçues et c'est de celles-ci don't j'aimerais parler.
-
+[](){#libc-assert}
 ## Assert
 
 On peut bien se demander à quoi sert un en-tête `<assert.h>` qui ne contient qu'une seule fonction. La fonction `assert` est une fonction très utile pour valider des prérequis. Elle s'utilise principalement pour du débogage mais parfois pour s'assurer qu'une expression qui à priori ne devrait jamais valoir `false` est bien vraie. L'en-tête offre deux prototypes qui sont en réalité des macros :
@@ -146,8 +91,50 @@ gcc -DNDEBUG -o foo main.c
 
     Il est important de déclarer `NDEBUG` avant d'inclure l'en-tête `<assert.h>`. En effet, l'en-tête `<assert.h>` va définir la macro `assert` qui sera utilisée dans le code. Si `NDEBUG` est défini après l'inclusion de l'en-tête, la macro `assert` ne sera pas correctement définie.
 
+[](){#libc-errno}
+## <errno.h>
+
+La bibliothèque `<errno.h>` est utilisée pour gérer les erreurs. Elle définit une variable **globale** `errno` qui est un entier qui contient le code de l'erreur modifié par certaines fonctions de la bibliothèque standard.
+
+Des macros sont également définies selon le standard POSIX pour les codes d'erreurs. Par exemple, `EACCES` pour une erreur d'accès, `ENOENT` pour un fichier ou répertoire inexistant, `ENOMEM` pour une erreur d'allocation mémoire, etc. La liste étant relativement longue elle peut être consultée directmenet sur le [standard POSIX](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/errno.h.html). Néanmoins voici les erreurs les plus courantes :
+
+Table: Codes d'erreurs POSIX les plus courants
+
+| Code           | Description                                  |
+| -------------- | -------------------------------------------- |
+| `EACCES`       | Permission refusée (p.ex. sur un fichier)    |
+| `EADDRINUSE`   | Adresse déjà utilisée (socket)               |
+| `ECONNREFUSED` | Connexion refusée (socket)                   |
+| `EDOM`         | Erreur de domaine mathématique               |
+| `EEXIST`       | Fichier existe déjà                          |
+| `EINVAL`       | Argument invalide                            |
+| `ENOENT`       | Fichier ou répertoire inexistant             |
+| `ENOMEM`       | Pas assez de mémoire disponible              |
+| `ENOSPC`       | Plus d'espace disponible sur le périphérique |
+
+Par exemple, lors du calcul du logarithme d'un nombre négatif, la fonction `log` va définir `errno` à `EDOM` pour indiquer une erreur de domaine. Il est possible de réinitialiser `errno` à zéro en utilisant la fonction `clearerr` ou `errno = 0`.
+
+```c
+#include <stdio.h>
+#include <math.h>
+#include <errno.h>
+#include <string.h>
+
+int main(void)
+{
+    errno = 0;
+    printf("log(-1.0) = %f\n", log(-1.0)); // Domain error
+    printf("%s\n\n",strerror(errno));
+
+    errno = 0;
+    printf("log(0.0)  = %f\n", log(0.0));
+    printf("%s\n",strerror(errno)); // Numerical result out of range
+}
+```
+
 ## Fonctons Mathématiques
 
+[](){#libc-math}
 ### <math.h>
 
 La bibliothèque mathématique est une des plus utilisées. Elle contient des fonctions pour les opérations mathématiques de base. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement. Le fichier d'en-tête est le suivant et le flag de compilation est `-lm`.
@@ -188,6 +175,7 @@ Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables
 
 Le standard C99 a introduit l'en-tête `<tgmath.h>` qui donne accès à des fonctions génériques. Par exemple, `sin` peut être utilisé pour des `float`, `double` et `long double` sans avoir à choisir le nom de la fonction (`sinf`, `sin`, `sinl`), en outre les types complexes sont également supportés comme `csin` pour les complexes.
 
+[](){#libc-fenv}
 ### <fenv.h>
 
 La bibliothèque `<fenv.h>` est étroitement liée aux calculs mathématique et permet de manipuler l'environnement de calcul flottant. Elle permet de contrôler les modes de calculs, les exceptions et les arrondis. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement.
@@ -318,6 +306,7 @@ L'arrondi bancaire minimise les biais d'arrondi lorsqu'on fait des calculs sur d
 
 Notez que la différence entre `rint` et `nearbyint` est que `nearbyint` ne génère pas d'exception en cas de dépassement de capacité (*overflow*).
 
+[](){#libc-float}
 ### <float.h>
 
 La bibliothèque `<float.h>` contient des constantes qui définissent la précision des types flottants sur l'architecture cible. Les constantes sont définies pour les types `float`, `double` et `long double`.
@@ -332,6 +321,384 @@ Dans IEEE 754, l'exposant est de base 2, c'est ce qu'on appelle le *radix*. Il p
 
     La norme IEEE 754-2008 permet d'utiliser le radix 16, 10 ou 2. Elle défini notament la repséentation **DFP** (*Decimal Floating Point*) qui permet de représenter les nombres décimaux de manière exacte. Cependant l'implémentation physique d'une FPU en radix 10 est plus complexe et moins performante c'est pour cela que la vaste majorité des processeurs utilisent le radix 2 suffisant pour la plupart des applications.
 
+[](){#libc-complex}
+### <complex.h>
+
+La bibliothèque `<complex.h>` permet de manipuler les nombres complexes. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement.
+
+Un nombre complexe est défini par une partie réelle et une partie imaginaire. Le type `_Complex` est un type de base, mais il peut être utilisé de manière plus simple avec la macro `complex`. Pour définir un nombre complexe, on utilise la notation `a + bi` où `a` est la partie réelle et `b` la partie imaginaire.
+
+```c
+#include <complex.h>
+
+int main() {
+    double complex z = 1.0 + 2.0 * I;
+    double complex w = 3.0 + 4.0 * I;
+    double complex sum = z + w;
+    printf("Somme : %f + %fi\n", creal(sum), cimag(sum));
+
+    // Nombre imaginaire pur
+    double imaginary = -2.0 * I;
+}
+```
+
+La constante `I` est bien entendue définie comme `1.0i`. Toutes les fonctions complexes se déclines en trois versions:
+
+Table: Variantes de type complexe
+
+| Type          | Exemple de fonction |
+| ------------- | ------------------- |
+| `float`       | `cabsf`, `csinf`    |
+| `double`      | `cabs`, `csin`      |
+| `long double` | `cabsl`, `csinl`    |
+
+Table: Fonctions complexes
+
+| Fonction    | Description               |
+| ----------- | ------------------------- |
+| `cabs(z)`   | Module                    |
+| `cacos(z)`  | Arc cosinus               |
+| `cacosh(z)` | Arc cosinus hyperbolique  |
+| `carg(z)`   | Argument     $\arg(z)$    |
+| `casin(z)`  | Arc sinus                 |
+| `casinh(z)` | Arc sinus hyperbolique    |
+| `catan(z)`  | Arc tangente              |
+| `catanh(z)` | Arc tangente hyperbolique |
+| `ccos(z)`   | Cosinus                   |
+| `ccosh(z)`  | Cosinus hyperbolique      |
+| `cexp(z)`   | Exponentielle  $e^z$      |
+| `cimag(z)`  | Partie imaginaire $\Im z$ |
+| `clog(z)`   | Logarithme  $\log(z)$     |
+| `conj(z)`   | Conjugaison $\bar(z)$     |
+| `cpow(z,w)` | Puissance  $z^w$          |
+| `creal(z)`  | Partie réelle $\Re z$     |
+| `csin(z)`   | Sinus                     |
+| `csinh(z)`  | Sinus hyperbolique        |
+| `csqrt(z)`  | Racine carrée  $\sqrt{z}$ |
+| `ctan(z)`   | Tangente                  |
+| `ctanh(z)`  | Tangente hyperbolique     |
+
+Certaines extensions prévue possiblement avec C23 amènerait des fonctionnalités supplémentaires telles que `cexp2`, `clog2`, `cexp10`, `clog10`, `crootn` ...
+
+[](){#libc-inttypes}
+[](){#libc-stdint}
+## <inttypes.h> et <stdint.h>
+
+Ces deux bibliothèques répondent au besoin d'avoir des types entiers d'une taille contrôlée et surtout portable. En effet, nous avons vu que les types standards (`int`, `short`, `long`...) dépendent du modèle de données de l'architecture cible. Un `long` n'aura pas la même taille sur Linux ou Windows par exemple.
+
+L'en-tête `<stint.h>` fourni trois types de base :
+
+Table: Catégories de types entiers portables
+
+| Exemple         | Description                                   |
+| --------------- | --------------------------------------------- |
+| `int8_t`        | Entier signé sur 8 bits                       |
+| `int8_fast8_t`  | Entier signé d'au moins 8 bits le plus rapide |
+| `int8_least8_t` | Entier signé d'au moins 8 bits, le plus petit |
+
+Ces catégories sont disponibles our les longueurs 8, 16, 32, 64 bits. Les types sont définis pour les entiers signés et non signés. Par exemple, `int8_t` est un entier signé sur 8 bits, `uint8_t` est un entier non signé sur 8 bits.
+
+Dans le cas ou on aurait besoin d'une variable pouvant contenir les valeurs de 0 à 255 mais que la taille de l'entier importe peu pour autant que le processeur n'ait pas de coût supplémentaire à manipuler la variable, on peut utiliser `uint_fast8_t`.
+
+À l'inverse, si le besoin est d'avoir une variable qui peut contenir les valeurs de 0 à 255 avec la taille la plus petite possible (idéalement 8 bits), on utilisera `uint_least8_t`.
+
+Enfin, dans le cas (le plus rare) ou on aurait besoin exactement d'un entier non signé de 8 bits, on utilisera `uint8_t`. Néanmoins ce type présente une contrainte importante car toutes les architectures ne sont pas nécessairement prévues pour manipuler des entiers de 8 bits. Par exemple le SHARC d'Analog Devices est un processeur 32 bits qui n'a pas de support natif pour les entiers de 8 bits. L'utilisation de `uint8_t` résulterait en une erreur de compilation.
+
+L'en-tête <stdint.h> fournit également des macros utiles pour connaître le choix de l'implémentation. Par exemple, `INT_FAST8_WIDTH` donne la largeur de l'entier le plus rapide selon la machine cible.
+
+On aura également les valeurs minimum et maximum que peut contenir chacun des types entiers. Par exemple, `INT8_MIN` et `INT8_MAX` pour les entiers signés sur 8 bits.
+
+Dans une boucle `for` opérant sur un tableau de 100 éléments, il serait correct d'utiliser le type `uint_fast8_t` pour l'index de la boucle. Néanmoins pour des raisons de lisibilités, il est souvent préférable d'utiliser simplement `int` qui, selon le standard, garanti d'être capable de contenir la taille du tableau.
+
+```c
+#include <stdint.h>
+
+int main() {
+    for (int_fast8_t i = 0; i < 100; i++) {
+        ...
+    }
+}
+```
+
+En outre, pour des raisons de cohérence, certaines normes pour l'avionique ou le médical imposent que les constantes littérales soient explicitement typées. On connaît déjà les suffixes `u`, `ull` pour les entiers de base, mais on peut également utiliser les macros de `<stdint.h>` pour les constantes littérales.
+
+```c
+uint8_t a = UINT8_C(42);
+```
+
+L'utilisation de ces types spécifiques dans des fonctions d'entrées sortie (p. ex. `printf`) doit aussi être faite cohérence. Un `int32_t` n'est pas compatible avec `%d` sur toutes les architectures. Il est préférable d'utiliser les macros de `<inttypes.h>` pour les spécifier.
+
+```c
+int32_t a = 42;
+printf("%" PRId32 "\n", a);
+```
+
+[](){#libc-iso646}
+## <iso646.h>
+
+L'en-tête `<iso646.h>` est une extension du standard C95 qui définit des alternatives aux opérateurs logiques. Les opérateurs logiques sont définis avec des symbols (`&&`, `||`, `!`) mais pour des raisons de lisibilité, il est possible de les définir en anglais (`and`, `or`, `not`).
+
+Table: Macros de l'ISO/IEC 646
+
+| Opérateur |  Macro   | Description         |
+| :-------: | :------: | :------------------ |
+|   `&&`    |  `and`   | ET logique          |
+|  `\|\|`   |   `or`   | OU logique          |
+|    `!`    |  `not`   | NON logique         |
+|   `!=`    | `not_eq` | Différent de        |
+|   `&=`    | `and_eq` | ET binaire          |
+|   `\|=`   | `or_eq`  | OU binaire          |
+|   `^=`    | `xor_eq` | OU exclusif binaire |
+|    `^`    |  `xor`   | OU exclusif binaire |
+|    `~`    | `compl`  | Complément binaire  |
+
+Ces macros sont utiles pour les personnes qui ne peuvent pas taper certains caractères spéciaux sur leur clavier. Elles sont également utiles pour les personnes qui veulent rendre leur code plus lisible. Néanmoins, elles ne sont pas très utilisées en pratique.
+
+```c
+#include <iso646.h>
+
+int foo(int a, int b, int c) {
+    return a and b or not c;
+}
+```
+
+Je vous recommande personnellement de ne pas utiliser ces macros. Elles ne sont pas très utilisées et peuvent rendre le code moins lisible pour les autres développeurs.
+
+[](){#libc-limits}
+
+## <limits.h>
+
+La bibliothèque `<limits.h>` contient des constantes qui définissent les limites des types entiers de base. Les constantes sont définies pour les types `char`, `short`, `int`, `long`, `long long` et `float`, `double`, `long double`.
+
+Table: Limites des entiers de base
+
+| Constante    | Description                               | LP64                 |
+| ------------ | ----------------------------------------- | -------------------- |
+| `CHAR_BIT`   | Nombre de bits dans un `char`             | 8                    |
+| `CHAR_MAX`   | Valeur maximale d'un `char`               | 127                  |
+| `CHAR_MIN`   | Valeur minimale d'un `char`               | -128                 |
+| `SCHAR_MAX`  | Valeur maximale d'un `signed char`        | 127                  |
+| `SCHAR_MIN`  | Valeur minimale d'un `signed char`        | -128                 |
+| `UCHAR_MAX`  | Valeur maximale d'un `unsigned char`      | 255                  |
+| `SHRT_MAX`   | Valeur maximale d'un `short`              | 32767                |
+| `SHRT_MIN`   | Valeur minimale d'un `short`              | -32768               |
+| `USHRT_MAX`  | Valeur maximale d'un `unsigned short`     | 65535                |
+| `INT_MAX`    | Valeur maximale d'un `int`                | 2147483647           |
+| `INT_MIN`    | Valeur minimale d'un `int`                | -2147483648          |
+| `UINT_MAX`   | Valeur maximale d'un `unsigned int`       | 4294967295           |
+| `LONG_MAX`   | Valeur maximale d'un `long`               | 9223372036854775807  |
+| `LONG_MIN`   | Valeur minimale d'un `long`               | -9223372036854775808 |
+| `ULONG_MAX`  | Valeur maximale d'un `unsigned long`      | 18446744073709551615 |
+| `LLONG_MAX`  | Valeur maximale d'un `long long`          | 9223372036854775807  |
+| `LLONG_MIN`  | Valeur minimale d'un `long long`          | -9223372036854775808 |
+| `ULLONG_MAX` | Valeur maximale d'un `unsigned long long` | 18446744073709551615 |
+
+## <locale.h>
+
+En jargon informatique, la *locale* est un ensemble de paramètres qui définissent les conventions culturelles d'une région. Cela inclut la langue, le format de date, le format de nombre, etc. La bibliothèque `<locale.h>` permet de manipuler ces paramètres.
+
+Un système d'exploitation défini généralement une locale par défaut. Par exemple, un système en français utilisera la locale `fr_FR`. Le premier paramètre est la langue de la locale et le second et le pays. Il existe en effet des différences entre le français suisse `fr_CH` et le français canadien `fr_CA`.
+
+Ces conventions sont définie par la norme ISO 15897 et font de surcroît partie du standard POSIX.
+
+L'en-tête `<locale.h>` contient donc des fonctions pour manipuler les locales.
+
+Table: Contenu de `<locale.h>`
+
+| Fonction     | Description                          |
+| ------------ | ------------------------------------ |
+| `setlocale`  | Définit la locale                    |
+| `localeconv` | Récupère les paramètres de la locale |
+| `lconv`      | Structure retournée par `localeconv` |
+
+Voici un exemple:
+
+```c
+#include <locale.h>
+#include <stdio.h>
+
+int main() {
+    setlocale(LC_ALL, "fr_FR");
+    struct lconv *locale = localeconv();
+    printf("Séparateur de milliers : %s\n", locale->thousands_sep);
+    printf("Séparateur décimal : %s\n", locale->decimal_point);
+}
+```
+
+La structure `lconv` est définie comme suit :
+
+```c
+struct lconv {
+    char *decimal_point;  // Séparateur décimal
+    char *thousands_sep;  // Séparateur de milliers
+    char *grouping;       // Taille des groupes de milliers
+    char *int_curr_symbol; // Symbole de la monnaie
+    char *currency_symbol; // Symbole de la monnaie
+    char *mon_decimal_point; // Séparateur décimal de la monnaie
+    char *mon_thousands_sep; // Séparateur de milliers de la monnaie
+    char *mon_grouping;      // Taille des groupes de milliers de la monnaie
+    char *positive_sign;     // Signe positif
+    char *negative_sign;     // Signe négatif
+    char int_frac_digits;    // Décimales pour la monnaie
+    char frac_digits;        // Décimales
+    char p_cs_precedes;      // Symbole avant la monnaie
+    char p_sep_by_space;     // Espace entre la monnaie et le montant
+    char n_cs_precedes;      // Symbole avant la monnaie négative
+    char n_sep_by_space;     // Espace entre la monnaie négative et le montant
+    char p_sign_posn;        // Position du signe positif
+    char n_sign_posn;        // Position du signe négatif
+};
+```
+
+Voici un exemple plus complet :
+
+```c
+#include <locale.h>
+
+int main() {
+    char country[] = "EN";
+    printf("Vous parlez français, tant mieux. Quel est votre pays ? ");
+    if (scanf("%2s", &country) != 1) {
+        printf("Erreur de saisie\n");
+        return 1;
+    }
+    for (int i = 0; country[i]; i++) country[i] = toupper(country[i]);
+
+    char locale[6];
+    snprintf(locale, 6, "fr_%s", country);
+
+    setlocale(LC_ALL, locale);
+
+    float apple_unit_price;
+    printf("Quel est le prix d'une pomme ? ");
+    if (scanf("%f", &apple_unit_price) != 1) {
+        printf("Erreur de saisie\n");
+        return 1;
+    }
+    const int quantity = 10;
+    const float ten_apples_price = apple_unit_price * quantity;
+
+    printf("Le prix de %d pommes est de %.2f %s\n",
+        quantity, ten_apples_price, localeconv()->currency_symbol);
+}
+```
+
+Avec la fonction `setlocale`, il est possible de ne définir qu'une partie des conventions à utiliser. Par exemple, si on ne veut changer que le format de date, on peut utiliser `setlocale(LC_TIME, "fr_FR")`.
+
+Table: Catégories de locales
+
+| Catégorie     | Description               |
+| ------------- | ------------------------- |
+| `LC_ALL`      | Toutes les catégories     |
+| `LC_COLLATE`  | Comparaison de chaînes    |
+| `LC_CTYPE`    | Caractères et conversions |
+| `LC_MONETARY` | Format monétaire          |
+| `LC_NUMERIC`  | Format numérique          |
+| `LC_TIME`     | Format de date et heure   |
+
+[](){#libc-setjmp}
+## <setjmp.h>
+
+La bibliothèque `<setjmp.h>` permet de gérer les exceptions en C. Elle fournit deux fonctions `setjmp` et `longjmp` qui permettent de sauvegarder l'état du programme et de le restaurer à un point donné.
+
+En pratique il est très rare d'utiliser ces fonctions, elles sont aussi dangereuses que les `goto` et peuvent rendre le code difficile à lire et à maintenir. Néanmoins dans des cas très spécifiques, elles peuvent s'avérer très utiles, notament pour simuler des exceptions avec des directives [préprocesseur][preprocessor-exceptions].
+
+Nous avons vu que le compilateur utilise [la pile][stack-plumbing] pour stocker les variables locales et le contexte d'appel des fonctions. Dans chaque *frame* de la pile, on trouve l'adresse de retour permettant de continuer l'exécution d'une fonction dans la fonction appelante une fois la fonction courrante terminée. Ceci permet de communiquer hiérarchiquement entre les fonctions. Il n'est pas possible par exemple de remonter à la fonction `main` depuis une fonction `baz` appelée par `bar` appelée par `foo`, appelée par `main`.
+
+Ce n'est pas possible... sauf si on triche un peu. La fonction `setjmp` permet de sauvegarder l'état du programme à un point donné. C'est-à-dire que si on sauve le contexte de `main` dans un espace mémoire séparé avant la chaîne d'appel de fonctions enfants, on pourrait manipuler le stack pour revenir à `main` depuis `baz`. C'est très exactement ce que fait `setjmp`.
+
+La fonction `setjmp` prend un seul argument qui est une structure de type `jmp_buf`. Cette structure est opaque car elle dépend du compilateur et de la manière dont le stack est implémenté. Néanmoins sur une architecture x86, elle pourrait ressembler à ceci :
+
+```c
+typedef struct {
+    unsigned int __eip; // Instruction pointer
+    unsigned int __esp; // Stack pointer
+    unsigned int __ebp; // Base pointer
+    unsigned int __ebx; // Base register
+    unsigned int __esi; // Source index
+    unsigned int __edi; // Destination index
+} jmp_buf[1];
+```
+
+Il s'agit des registres du processeur concernés par la gestion du stack et le déroulement du programme. Le registre `eip` par exemple est le pointeur d'instruction. Il contient l'adresse de la prochaine instruction à exécuter. Si ce registre est modifié, le programme saute à une autre adresse. C'est ce que fait entre autre le `goto`, il modifie `eip` pour sauter à une autre adresse.
+
+Pour marquer un point de retour, on utilise `setjmp` qui sauvegarde l'état du programme dans la structure `jmp_buf`. On peut ensuite revenir à ce point avec `longjmp`. La fonction `longjmp` prend deux arguments, la structure `jmp_buf` et une valeur de retour qui peut être utilisée pour savoir pourquoi on est revenu à ce point. Voici un exemple :
+
+```c
+#include <setjmp.h>
+
+jmp_buf env; // Doit être transverse à toutes les fonctions, donc globale
+
+void foo() { longjmp(env, 42); }
+void bar() { foo(); }
+void baz() { bar(); }
+int main() {
+    int ret = setjmp(env); // Sauvegarde l'état du programme
+    if (ret == 0) {
+        printf("Première exécution\n");
+        baz();
+    } else {
+        printf("Retour à setjmp avec %d\n", ret);
+    }
+}
+```
+
+Lors de l'appel de `setjmp`, la fonction retourne 0. Cette valeur peut être utilisée pour tester si c'est la première fois que la fonction est appelée ou si c'est un retour de `longjmp`. Dans ce cas, la fonction retourne la valeur passée à `longjmp`.
+
+[](){#libc-signal}
+## <signal.h>
+
+Les signaux sont des mécanismes spécifiques aux systèmes d'exploitations qui permettent de communiquer entre les processus (programmes) et le noyau. Un signal ne véhicule pas de données, il permet simplement de réveiller un processus pour lui indiquer qu'un événement s'est produit. Alternativement un signal peut être émis par un processus pour demander au noyau de réaliser une action.
+
+Les signaux sont fondamentaux au sein d'un OS et de ce fait ils sont standardisés par POSIX. Windows utilise également des signaux mais ils diffèrent un peu. En C, la bibliothèque `<signal.h>` permet de manipuler les signaux de manière portable avec quelques nuances. Voici les types de signaux les plus courants :
+
+Table: Signaux POSIX (liste non exhaustive)
+
+| Signal    | Description                        |
+| --------- | ---------------------------------- |
+| `SIGABRT` | Abandon du processus               |
+| `SIGALRM` | Alarme horloge                     |
+| `SIGFPE`  | Erreur de calcul flottant          |
+| `SIGILL`  | Instruction illégale               |
+| `SIGINT`  | Interruption depuis le clavier     |
+| `SIGKILL` | Arrêt forcé du processus           |
+| `SIGPIPE` | Écriture dans un tube sans lecteur |
+| `SIGSEGV` | Violation de segmentation          |
+| `SIGTERM` | Demande d'arrêt du processus       |
+| `SIGUSR1` | Signal utilisateur 1               |
+| `SIGUSR2` | Signal utilisateur 2               |
+
+La fonction `abort()` disponible dans `<stdlib.h>` envoie un signal `SIGABRT` pour arrêter le programme. Une violation d'accès à un espace mémoire non alloué envoie un signal `SIGSEGV` (la fameuse erreur de segmentation). Un dépassement de capacité en virgule flottante envoie un signal `SIGFPE`.
+
+Pour envoyer un signal à un processus depuis le terminal, on utilise la commande `kill`. Par exemple, pour envoyer un signal `SIGUSR1` au processus 1234, on utilise la commande `kill -SIGUSR1 1234`. Le 1234 est le PID (*Process ID*) du processus car chaque programme qui s'exécute a un identifiant unique attribué par le système d'exploitation. Le nom de la commande `kill` peut être trompeur car elle n'arrête pas le processus, elle lui envoie un signal. Le nom vient historiquement du fait que le signal par défaut est `SIGTERM` qui demande au processus de s'arrêter.
+
+Dans un programme C il est possible de capturer les signaux reçus en installant des *handlers*. Il s'agit d'une fonction qui sera appelée de manière évènementielle lorsqu'un signal est reçu. Ces *handlers* court-circuitent donc le comportement normal du programme en interrompant l'action en cours. Voici un exemple pour capturer le signal `SIGINT` qui est envoyé lorsqu'on appuie sur `Ctrl+C` pour interrompre un programme depuis le terminal :
+
+```c
+#include <signal.h>
+#include <stdio.h>
+
+void sigint_handler(int signum) {
+    printf("Vous partez déjà ? :(\n");
+    exit(0);
+}
+
+void jeudredi() {
+    char fruits[] = {"banane", "kiwi", "ananas", "mangue", "cerise"};
+    int i = 0;
+    while(1) {
+        printf("Il est très bon ce coktail à la %s !\n", fruits[i++ % 5]);
+        sleep(1); // Pause d'une seconde
+    }
+}
+
+int main() {
+    signal(SIGINT, sigint_handler);
+    jeudredi();
+}
+```
+
+[](){#libc-string}
 ## Chaînes de caractères
 
 La bibliothèque `<string.h>` contient des fonctions pour manipuler les chaînes de caractères. Les fonctions sont définies pour les chaînes de caractères ASCII uniquement. On distingue deux famille de fonctions, les `mem` qui manipulent des régions mémoires et les `str` qui manipulent des chaînes de caractères. Le fichier d'en-tête est le suivant :
@@ -796,7 +1163,7 @@ size_t strftime(char *s, size_t maxsize, const char *format,
 
 Elle prend en paramètre un pointeur sur une chaîne de caractères, la taille de la chaîne, un format et une structure `tm`. Elle retourne le nombre de caractères écrits dans la chaîne.
 
-Table: Format de `strftime`
+Table: Format de strftime
 
 | Format | Description                                      | Exemple de sortie |
 | ------ | ------------------------------------------------ | ----------------- |
@@ -867,6 +1234,7 @@ Il pourrait afficher:
 Aujourd'hui, c'est vendredi, 17 septembre 2024, et il est 14:05:45.
 ```
 
+[](){#libc-ctype}
 ## Types de données
 
 La bibliothèque `<ctype.h>` contient des fonctions pour tester et convertir des caractères. Les fonctions sont définies pour les caractères ASCII uniquement, elle ne s'applique pas aux caractères Unicode, ni aux caractères étendus (au-delà de 127).
@@ -909,3 +1277,55 @@ Table: Valeurs limites pour les entiers signés et non signés
 | `ULONG_MAX`   | +4294967295   |
 | `DBL_MAX`     | 1E+37 ou plus |
 | `DBL_EPSILON` | 1E-9 ou moins |
+
+## Exercices de révision
+
+!!! exercise "Arc-cosinus"
+
+    La fonction Arc-Cosinus `acos` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension `.h`.
+
+    ??? solution
+
+        En cherchant `man acos header` dans Google, on trouve que la fonction `acos` est définie dans le header `<math.h>`.
+
+        Une autre solution est d'utiliser sous Linux la commande `apropos`:
+
+        ```bash
+        $ apropos acos
+        acos (3)     - arc cosine function
+        acosf (3)    - arc cosine function
+        acosh (3)    - inverse hyperbolic cosine function
+        acoshf (3)   - inverse hyperbolic cosine function
+        acoshl (3)   - inverse hyperbolic cosine function
+        acosl (3)    - arc cosine function
+        cacos (3)    - complex arc cosine
+        cacosf (3)   - complex arc cosine
+        cacosh (3)   - complex arc hyperbolic cosine
+        cacoshf (3)  - complex arc hyperbolic cosine
+        cacoshl (3)  - complex arc hyperbolic cosine
+        cacosl (3)   - complex arc cosine
+        ```
+
+        Le premier résultat permet ensuite de voir :
+
+        ```bash
+        $ man acos | head -10
+        ACOS(3)    Linux Programmer's Manual         ACOS(3)
+
+        NAME
+            acos, acosf, acosl - arc cosine function
+
+        SYNOPSIS
+            #include <math.h>
+
+            double acos(double x);
+            float acosf(float x);
+        ```
+
+        La réponse est donc `<math.h>`.
+
+        Sous Windows avec Visual Studio, il suffit d'écrire `acos` dans un fichier source et d'appuyer sur `F1`. L'IDE redirige l'utilisateur sur l'aide Microsoft [acos-acosf-acosl](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl) qui indique que le header source est `<math.h>`.
+
+!!! exercise "Date"
+
+    Lors du formatage d'une date, on y peut y lire `%w`, par quoi sera remplacé ce *token* ?

@@ -857,6 +857,7 @@ Notons que si l'on souhaite définir un pragma au sein d'une directive préproce
 #define PRAGMA(x) _Pragma(#x)
 ```
 
+[](){ #preprocessor-exceptions }
 ## Simulation d'exceptions
 
 Dans des langages de plus haut niveau comme le C++, le Python ou le Java, il existe un mécanisme nommé exception qui permet de gérer des erreurs plus efficacement. Au lieu de retourner une valeur d'erreur, on lève une exception qui sera attrapée plus haut dans la chaîne d'appel.

@@ -1161,34 +1161,6 @@ if (a % 2) {
 }
 ```
 
-## ISO/IEC 646
-
-La bibliothèque standard `<iso646.h>` appartient à la norme C90 et définit des macros pour les opérateurs logiques. Ces macros sont les suivantes :
-
-Table: Macros de l'ISO/IEC 646
-
-| Opérateur |  Macro   | Description         |
-| :-------: | :------: | :------------------ |
-|   `&&`    |  `and`   | ET logique          |
-|  `\|\|`   |   `or`   | OU logique          |
-|    `!`    |  `not`   | NON logique         |
-|   `!=`    | `not_eq` | Différent de        |
-|   `&=`    | `and_eq` | ET binaire          |
-|   `\|=`   | `or_eq`  | OU binaire          |
-|   `^=`    | `xor_eq` | OU exclusif binaire |
-|    `^`    |  `xor`   | OU exclusif binaire |
-|    `~`    | `compl`  | Complément binaire  |
-
-Ces macros sont utiles pour les personnes qui ne peuvent pas taper certains caractères spéciaux sur leur clavier. Elles sont également utiles pour les personnes qui veulent rendre leur code plus lisible. Néanmoins, elles ne sont pas très utilisées en pratique.
-
-```c
-#include <iso646.h>
-
-int foo(int a, int b, int c) {
-    return a and b or not c;
-}
-```
-
 ## Exercices de révision
 
 !!! exercise "Parenthèses superflues"
