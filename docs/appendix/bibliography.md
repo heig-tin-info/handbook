@@ -30,6 +30,7 @@ Les références utilisées dans cet ouvrage sont les suivantes.
 ## Sites Web
 
 - Un résumé du langage C - [Learn X in Y minutes](https://learnxinyminutes.com/docs/fr-fr/c-fr/)
+- Référence C complète - [C Reference](https://en.cppreference.com/w/c)
 - Encyclopédie libre - [Wikipedia](https://www.wikipedia.org)
 - Questions Réponses - [StackOverflow](https://stackoverflow.com)
 - Bac à sable pour expressions régulières - [Regex101](https://regex101.com)

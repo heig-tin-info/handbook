@@ -14,39 +14,39 @@ La *libc* reste néanmoins un outil indispensable pour le développeur C. Nous a
 
 Table: En-têtes standard
 
-| En-tête                         | Description                                 | Standard |
-| ------------------------------- | ------------------------------------------- | -------- |
-| [`<assert.h>`][libc-assert]     | Validation des prérequis                    | C89      |
-| [`<complex.h>`][libc-complex]   | Nombres complexes                           | **C99**  |
-| [`<ctype.h>`][libc-ctype]       | Tests                                       | C89      |
-| [`<errno.h>`][libc-errno]       | Gestion des erreurs                         | C89      |
-| [`<fenv.h>`][libc-fenv]         | Environnement de calcul flottant            | **C99**  |
-| [`<float.h>`][libc-float]       | Constantes de précision des types flottants | C89      |
-| [`<inttypes.h>`][libc-inttypes] | Types entiers formatés                      | **C99**  |
-| [`<iso646.h>`][libc-iso646]     | Alternative aux opérateurs (and, or)        | **C95**  |
-| [`<limits.h>`][libc-limits]     | Limites des types entiers                   | C89      |
-| [`<locale.h>`][libc-locale]     | Gestion des locales                         | C89      |
-| [`<math.h>`][libc-math]         | Fonctions mathématiques                     | C89      |
-| [`<setjmp.h>`][libc-setjmp]     | Gestion des sauts                           | C89      |
-| [`<signal.h>`][libc-signal]     | Gestion des signaux                         | C89      |
-| `<stdalign.h>`                  | Alignement des types                        | **C11**  |
-| `<stdarg.h>`                    | Arguments variables                         | C89      |
-| `<stdatomic.h>`                 | Opérations atomiques                        | **C11**  |
-| `<stdbit.h>`                    | Macros pour les bits                        | **C23**  |
-| `<stdbool.h>`                   | Type booléen                                | **C99**  |
-| `<stdckdint.h>`                 | Macros de tests pour les entiers            | **C23**  |
-| `<stddef.h>`                    | Macros standard                             | C89      |
-| [`<stdint.h>`][libc-stdint]     | Types entiers standard                      | **C99**  |
-| `<stdio.h>`                     | Entrées/sorties standard                    | C89      |
-| `<stdlib.h>`                    | Allocation dynamique                        | C89      |
-| `<stdnoreturn.h>`               | Fonctions sans retour                       | **C11**  |
-| [`<string.h>`][libc-string]     | Manipulation des chaînes de caractères      | C89      |
-| `<tgmath.h>`                    | Fonctions mathématiques génériques          | **C99**  |
-| `<threads.h>`                   | Gestion des threads                         | **C11**  |
-| `<time.h>`                      | Date et heure                               | C89      |
-| `<uchar.h>`                     | Caractères Unicode                          | **C11**  |
-| `<wchar.h>`                     | Caractères larges                           | **C95**  |
-| `<wctype.h>`                    | Tests larges                                | **C95**  |
+| En-tête                               | Description                                 | Standard |
+| ------------------------------------- | ------------------------------------------- | -------- |
+| [`<assert.h>`][libc-assert]           | Validation des prérequis                    | C89      |
+| [`<complex.h>`][libc-complex]         | Nombres complexes                           | **C99**  |
+| [`<ctype.h>`][libc-ctype]             | Tests                                       | C89      |
+| [`<errno.h>`][libc-errno]             | Gestion des erreurs                         | C89      |
+| [`<fenv.h>`][libc-fenv]               | Environnement de calcul flottant            | **C99**  |
+| [`<float.h>`][libc-float]             | Constantes de précision des types flottants | C89      |
+| [`<inttypes.h>`][libc-inttypes]       | Types entiers formatés                      | **C99**  |
+| [`<iso646.h>`][libc-iso646]           | Alternative aux opérateurs (and, or)        | **C95**  |
+| [`<limits.h>`][libc-limits]           | Limites des types entiers                   | C89      |
+| [`<locale.h>`][libc-locale]           | Gestion des locales                         | C89      |
+| [`<math.h>`][libc-math]               | Fonctions mathématiques                     | C89      |
+| [`<setjmp.h>`][libc-setjmp]           | Gestion des sauts                           | C89      |
+| [`<signal.h>`][libc-signal]           | Gestion des signaux                         | C89      |
+| [`<stdalign.h>`][libc-stdalign]       | Alignement des types                        | **C11**  |
+| [`<stdarg.h>`][libc-stdarg]           | Arguments variables                         | C89      |
+| [`<stdatomic.h>`][libc-stdatomic]     | Opérations atomiques                        | **C11**  |
+| [`<stdbit.h>`][libc-stdbit]           | Macros pour les bits                        | **C23**  |
+| [`<stdbool.h>`][libc-stdbool]         | Type booléen                                | **C99**  |
+| [`<stdckdint.h>`][libc-stdckdint]     | Macros de tests pour les entiers            | **C23**  |
+| [`<stddef.h>`][libc-stddef]           | Macros standard                             | C89      |
+| [`<stdint.h>`][libc-stdint]           | Types entiers standard                      | **C99**  |
+| [`<stdio.h>`][libc-stdio]             | Entrées/sorties standard                    | C89      |
+| [`<stdlib.h>`][libc-stdlib]           | Allocation dynamique                        | C89      |
+| [`<stdnoreturn.h>`][libc-stdnoreturn] | Fonctions sans retour                       | **C11**  |
+| [`<string.h>`][libc-string]           | Manipulation des chaînes de caractères      | C89      |
+| [`<tgmath.h>`][libc-tgmath]           | Fonctions mathématiques génériques          | **C99**  |
+| [`<threads.h>`][libc-threads]         | Gestion des threads                         | **C11**  |
+| [`<time.h>`][libc-time]               | Date et heure                               | C89      |
+| [`<uchar.h>`][libc-uchar]             | Caractères Unicode                          | **C11**  |
+| [`<wchar.h>`][libc-wchar]             | Caractères larges                           | **C95**  |
+| [`<wctype.h>`][libc-wctype]           | Tests larges                                | **C95**  |
 
 [](){#libc-assert}
 ## Assert
@@ -493,6 +493,7 @@ Table: Limites des entiers de base
 | `LLONG_MIN`  | Valeur minimale d'un `long long`          | -9223372036854775808 |
 | `ULLONG_MAX` | Valeur maximale d'un `unsigned long long` | 18446744073709551615 |
 
+[](){#libc-locale}
 ## <locale.h>
 
 En jargon informatique, la *locale* est un ensemble de paramètres qui définissent les conventions culturelles d'une région. Cela inclut la langue, le format de date, le format de nombre, etc. La bibliothèque `<locale.h>` permet de manipuler ces paramètres.
@@ -503,7 +504,7 @@ Ces conventions sont définie par la norme ISO 15897 et font de surcroît partie
 
 L'en-tête `<locale.h>` contient donc des fonctions pour manipuler les locales.
 
-Table: Contenu de `<locale.h>`
+Table: Contenu de <locale.h>
 
 | Fonction     | Description                          |
 | ------------ | ------------------------------------ |
@@ -697,6 +698,329 @@ int main() {
     jeudredi();
 }
 ```
+
+[](){#libc-stdalign}
+## <stdalign.h>
+
+La bibliothèque `<stdalign.h>` fournit des fonctions pour manipuler l'alignement des données en mémoire. L'alignement est une notion importante en informatique car les processeurs sont plus efficaces lorsqu'ils accèdent à des données alignées. Imaginez un camion qui transporte des palettes de marchandises. La logistique est faite de manière à ce que les palettes soient facile à charger et décharger du camion avec un minimum de manutention. Imaginez maintenant que vous voulez prendre un élément d'une palette. Cela demande plus de travail parce que vous devez extraire l'élément et trouver un autre outil pour le transporter. Un ordinateur 64-bits sur une architecture x86 a beaucoup de faciliter à véhiculer des mots de 8 octets et il s'arrangera en mémoire à disposer les données de la taille d'une palette (64-bits) de façon à ce que son accès soit le plus rapide possible.
+
+La fonction `alignof` retourne l'alignement d'un type donné. Par exemple, `alignof(int)` retourne 4 sur une architecture x86 32-bits et 8 sur une architecture x86 64-bits. La fonction `alignas` permet de spécifier l'alignement d'une variable ou d'une structure. Dans cet exemple, on demande à ce que la variable `a` soit alignée sur 16 octets. L'adresse de `a` sera donc un multiple de 16. On peut le vérifier avec la fonction `alignof`.
+
+```c
+#include <stdio.h>
+#include <stdalign.h>
+
+int main() {
+    alignas(16) int a;
+    printf("Alignement de int : %zu\n", alignof(int));
+    printf("Adresse de 'a' : %p\n", (void*)&a);
+}
+```
+
+L'utilité de cette fonction est limitée en pratique. Elle est principalement utilisée pour manipuler des données SIMD (*Single Instruction Multiple Data*) ou pour optimiser les performances de certaines structures de données. On peut l'utiliser égalemenr pour accroître l'interopérabilité entre le C et d'autres langages de programmation.
+
+Une utilisation courante est avec des structures. L'exemple suivant montre une structure de 13 bytes mais le processeur, selon l'architecture pourrait décider de stocker le `char` sur 4 bytes et la structure serait donc de 16 bytes. On peut forcer l'alignement de la structure manuellement avec `alignas(16)`.
+
+```c
+struct alignas(16) Data {
+    char c;    // 1 octet
+    int i;     // 4 octets
+    double d;  // 8 octets
+};
+```
+
+[](){#libc-stdarg}
+## <stdarg.h>
+
+Ne vous êtes-vous jamais demandé quel est le prototype de `printf` ? Comment se fait-il que cette fonction puisse prendre un nombre variable d'arguments ? La réponse est la bibliothèque `<stdarg.h>` qui permet de manipuler les arguments d'une fonction variable. Observons le prototype de `printf` :
+
+```c
+int printf(const char *format, ...);
+```
+
+Notez les points de suspension `...` après le format. Il s'agit d'une fonction variadic, c'est-à-dire qu'elle peut prendre un nombre variable d'arguments. Rappelez-vous en relisant le chapitre sur la pile, que lorsqu'une fonction est appelée, les différents arguments sont empilés sur la pile. Il est techniquement possible d'empiler autant d'arguments que l'on veut sans changer le comportement de la fonction. Cette dernière lira simplements les arguments à partir de la base du *frame pointer*.
+
+Le fichier d'en-tête déclare 4 macros et un type :
+
+Table: Macros pour les fonctions à arguments variables
+
+| Macro      | Description                      |
+| ---------- | -------------------------------- |
+| `va_list`  | Type de la liste d'arguments     |
+| `va_start` | Initialise la liste d'arguments  |
+| `va_arg`   | Récupère un argument de la liste |
+| `va_copy`  | Copie une liste d'arguments      |
+| `va_end`   | Termine la liste d'arguments     |
+
+Imaginons le cas de figure suivant. Nous souhaitons écrire une fonction qui affiche la somme des valeurs passées en arguments et nous ne savons pas le nombre de valeurs qui seront passées. Voici comment procéder:
+
+```c
+#include <stdarg.h>
+#include <stdio.h>
+
+int sum(int count, ...) {
+    va_list args;
+    va_start(args, count);
+    int sum = 0;
+    for (int i = 0; i < count; i++) sum += va_arg(args, int);
+    va_end(args);
+    return sum;
+}
+
+int main() {
+    printf("Somme : %d\n", sum(3, 1, 2, 3));
+    printf("Somme : %d\n", sum(5, 1, 2, 3, 4, 5));
+}
+```
+
+Dans une fonction dont le prototype autorise un nombre variable d'arguments, l'ellipse `...` est utilisée après au moins un argument fixe qui pourrait représenter le nombre d'arguments à suivre. Dans la fonction `printf` ce nombres est caché dans le format, en comptant le nombre de `%`. Dans cette fonction, une liste d'arguments `args` est déclarée. Lors de l'appel de `va_start`, la liste est initialisée à partir de l'argument suivant `count`. En pratique `va_list` est un pointeur sur la pile qui pointe sur l'argument suivant `count`. La fonction `va_arg` permet de récupérer les arguments un par un de façon portable. En pratique elle déréférence le pointeur et retourne le type spécifié comme deuxième argument. Enfin, `va_end` termine la liste d'arguments.
+
+Voici ci-dessous comment elle pourrait être implémentée, néanmoins ces macros utilisent des fonctions précompilées (p. ex: `__builtin_va_start`) qui sont spécifiques à chaque compilateur.
+
+```c
+typedef struct {
+    unsigned int gp_offset;  // Offset dans les registres généraux
+    unsigned int fp_offset;  // Offset dans les registres flottants
+    void* overflow_arg_area; // Pointeur vers les arguments passés sur la pile
+    void* reg_save_area;     // Pointeur vers les registres sauvegardés
+} va_list;
+
+// Macro générique pour récupérer la taille d'un type
+#define type_size(type) _Generic((type), \
+    int: sizeof(int), \
+    double: sizeof(double), \
+    float: sizeof(float), \
+    char: sizeof(char), \
+    default: sizeof(void*))
+
+#define va_start(ap, last) __va_start(ap, &last, type_size(last))
+#define va_arg(ap, type) \
+    *((type*)(ap.overflow_arg_area)); \
+    ap.overflow_arg_area += type_size(type)
+#define va_end(ap) (void)0
+
+void __va_start(va_list_hack* ap, void* last, size_t last_size) {
+    void *stack_pointer;
+    ap->overflow_arg_area = (void*)((char*)(&last) + last_size);
+    ap->gp_offset = 0;
+    ap->fp_offset = 0;
+    ap->reg_save_area = NULL;
+}
+```
+
+[](){#libc-stdatomic}
+## <stdatomic.h>
+
+Cet en-tête concerne la notion d'atomicité en programmation concurrente, et il pourrait s'agir d'un cours à part entière. L'atomicité est la propriété d'une opération qui est exécutée en une seule étape sans être interrompue. En d'autres termes, une opération atomique est une opération qui est soit complètement exécutée, soit pas du tout. Lorsqu'un programme utilise des *threads* (sous-programmes exécutés en parallèle), il est possible que deux exécutions parallèles tentent de modifier la même variable en même temps. Cela peut poser de gros problèmes de corruption de données. Vous savez par exemple qu'un entier est stocké sur 4 octets. On peut néanmoins imaginer une fonction d'échange de deux variables un peu naive qui traite chaque octet séparément.
+
+```c
+union Int { int i; char c[4]; };
+
+void swap(int *a, int *b) {
+    union Int tmp;
+    tmp.i = *a;
+    for (int i = 0; i < 4; i++) {
+        char t = ((union Int)*a).c[i];
+        ((union Int)*a).c[i] = ((union Int)*b).c[i];
+        ((union Int)*b).c[i] = t;
+    }
+}
+```
+
+Dans le cas ou deux processus séparés essaient de traiter la valeur de `a` envoyée, l'un à `swap` et l'autre à `printf`. Le résultat dépendra et l'ordre d'exécution des instructions, et il se peut que printf affiche déjà quelque chose alors que `swap` n'a pas encore terminé. C'est ce qu'on appelle une condition de course. Bien entendu en pratique personne n'écrirait une fonction d'échange de variables de cette manière. Toutefois, pour résoudre ce type de problème on utilise des fonctions atomiques qui ajoutent une couche de protection à des variables partagées entre plusieurs *threads*.
+
+Par conséquent, il est nécessaire d'utiliser un accesseur atomique pour lire et écrire la variable :
+
+```c
+#include <stdatomic.h>
+
+int main() {
+    atomic_int a = 42;
+    atomic_store(&a, 42);     // Écriture atomique
+    int b = atomic_load(&a);  // Lecture atomique
+    atomic_fetch_add(&a, 1);  // Incrémentation atomique de 1
+    atomic_fetch_sub(&a, 1);  // Soustraction atomique de 1
+    atomic_fetch_or(&a, 1);   // ...
+    atomic_fetch_and(&a, 1);
+    atomic_fetch_xor(&a, 1);
+    atomic_exchange(&a, 42);  // Notre fonction swap atomic
+    atomic_compare_exchange_strong(&a, &b, 42);
+    atomic_compare_exchange_weak(&a, &b, 42);
+}
+```
+
+Pour de plus emples informations sur la programmation concurrente, je vous redirige sur un cours dédié à ce sujet.
+
+[](){#libc-stdbit}
+## <stdbit.h>
+
+Cette bibliothèque a été introduite avec le standard C23 et elle permet de manipuler les bits de manière portable en fournissant des macros pour les opérations bit à bit. Les macro suivantes sont disponibles :
+
+Table: Macros bit à bit dans C23
+
+| Macro           | Description                                           |
+| --------------- | ----------------------------------------------------- |
+| `stdc_popcount` | Compte le nombre de bits à 1                          |
+| `stdc_clz`      | Compte le nombre de bits à 0 avant le premier bit à 1 |
+| `stdc_ctz`      | Compte le nombre de bits à 0 après le dernier bit à 1 |
+| `stdc_rotl`     | Rotation à gauche                                     |
+| `stdc_rotr`     | Rotation à droite                                     |
+| `stdc_bswap`    | Inversion des octets                                  |
+
+Bien entendu pour ces opérations, il est nécessaire de connaître la taille du type utilisé. C'est pourquoi ces macros sont génériques et utilisent `_Generic` pour déterminer la taille du type. Une rotation à droite pourrait être implémentée naïvement avec une macro :
+
+```c
+#define stdc_rotl(x, n) \
+    ((x << (n % (sizeof(x) * CHAR_BIT))) | (x >> ((sizeof(x) * CHAR_BIT) -
+    (n % (sizeof(x) * CHAR_BIT)))))
+```
+
+Néanmoins ces fonctions sont faites pour profiter des instructions spécifiques des processeurs modernes qui permettent de réaliser ces opérations de manière plus efficace. En effet dans l'architecture X86 par exemple il existe la directive assembleur `ror` pour la rotation à droite et `rol` pour la rotation à gauche. Ces instructions sont plus rapides que la méthode naïve ci-dessus mais elles n'existent pas nécessairement dans toutes les architectures. Du reste, si on essaye de compiler cette macro avec gcc et observons l'assembler généré, on constate que le compilateur utilise bien l'instruction `ror` pour la rotation à droite. Il est donc capable de comprendre le code et de l'optimiser en conséquence.
+
+[](){#libc-stdbool}
+## <stdbool.h>
+
+Cette bibliothèque est apparue en C99 et après 20 ans d'attente, elle introduit enfin le type booléen `bool` et les valeurs `true` et `false`. Cet en-tête est par conséquent l'un des plus simple de la bibliothèque standard, car il ne contient que trois lignes :
+
+```c
+#define bool _Bool
+#define true 1
+#define false 0
+```
+
+Quelle belle mascarade ! On définit `bool` comme `_Bool`... En réalité ce dernier est un type natif du langage alors que `bool` n'est qu'une macro. C'est à dire que sans include `<stdbool.h>` vous pouvez tout de même définir un booléen en utilisant `_Bool`. Néanmoins, l'intérêt de cette bibliothèque est de standardiser le type booléen et les valeurs `true` et `false` pour une meilleure portabilité du code.
+
+On peut s'interroger pourquoi le standard à décidé, plutôt que d'ajouter un nouveau type `bool` natif, que de le définir dans un en-tête supplémentaire et de définir le type avec un `_` en préfixe. Le langage C a une longue histoire et de nombreux programmes n'ont pas attendu la sortie de cette bibliothèque pour définir leur propre type booléen. Il était donc nécessaire de ne pas casser la compatibilité avec les anciens programmes. C'est pourquoi le type `_Bool` a été introduit sous cette nomenclature. L'histoire est similaire avec `_Complex` et `_Imaginary` de la bibliothèque `<complex.h>`.
+
+Notez que le `_Bool` est un type très particulier car il est en réalité souvent implémenté comme un entier 8-bit. Rappelez-vous que le processeur aime manipuler des mots de la taille de son bus de données. C'est pourquoi un booléen est souvent stocké sur 32-bits même si un seul bit suffirait. C'est pourquoi on peut stocker des valeurs autres que `true` et `false` dans un booléen. Par exemple, `bool b = 42` est tout à fait valide en C. En réalité, `true` et `false` sont des macros qui valent respectivement 1 et 0. C'est pourquoi on peut les utiliser pour initialiser des booléens.
+
+```c
+_Bool b = 1;
+printf("%ld\n", sizeof(b)); // Affiche 1
+*((int*)&b) += 10; // Bypass le système de typage
+printf("%hhd\n", (int)b); // Affiche 11
+```
+
+Il est nécessaire de gruger pour ajouter 10 car naïvement le compilateur implémente `b += 10` avec :
+
+```
+movs    r3, #1          // Sauve 1 et non 10 dans r3
+```
+
+Dans le cas des tableaux, ne perdez pas à l'esprit qu'un tableau de booléens est un tableau d'octets:
+
+```c
+bool bool_array[8] = {true, false, true, true, false, false, true, true};
+assert(sizeof(bool_array) == 8);
+```
+
+[](){#libc-stdckdint}
+## <stdckdint.h>
+
+Cette bibliothèque est apparue en C23 et propose des fonctions arithmétiques pour les opérations de base comme l'addition, la soustraction, et la multiplication, mais avec une **détection explicite de l'overflow**. L'abbréviation `ckd` signifie *checked*. Les fonctions introduites par cet en-tête sont :
+
+Table: Fonctions de détection de l'overflow
+
+| Fonction  | Description                                 |
+| --------- | ------------------------------------------- |
+| `ckd_add` | Addition avec détection de l'overflow       |
+| `ckd_sub` | Soustraction avec détection de l'overflow   |
+| `ckd_mul` | Multiplication avec détection de l'overflow |
+
+Lorsque deux entiers sont additionnés, il est possible que le résultat dépasse la capacité de stockage de l'entier. Par exemple, si on additionne $2^31 - 1$ à 1, on obtient $-2^31$. C'est ce qu'on appelle un *overflow*. En C, l'overflow est un comportement **indéfini**, c'est-à-dire que le compilateur est libre de décider du comportement du programme. En pratique, la plupart des compilateurs vont simplement ignorer l'overflow et le résultat sera tronqué. C'est pourquoi il est important de vérifier les overflows lorsqu'on travaille avec des entiers.
+
+Avant l'introduction de cette bibliothèque, un dépassement de capacité devrait être manuellement implémenté :
+
+```c
+int add(int a, int b) {
+    if (a > 0 && b > INT_MAX - a) {
+        // Overflow détecté
+    } else
+        return a + b;
+}
+```
+
+Avec la bibliothèque `<stdckdint.h>`, il est possible de détecter l'overflow de manière plus élégante :
+
+```c
+#include <stdckdint.h>
+
+int add(int a, int b) {
+    int result;
+    if (ckd_add(a, b, &result)) {
+        // Overflow détecté
+    } else
+        return result;
+}
+```
+
+[](){#libc-stddef}
+## <stddef.h>
+
+La bibliothèque `<stddef.h>` fournit quelques définitions utiles tel que donné par la table suivante :
+
+Table: Définitions de stddef.h
+
+| Macro         | Description                            |
+| ------------- | -------------------------------------- |
+| `NULL`        | Pointeur nul                           |
+| `offsetof`    | Offset d'un membre d'une structure     |
+| `ptrdiff_t`   | Type pour les différences de pointeurs |
+| `size_t`      | Type pour les tailles d'objets         |
+| `wchar_t`     | Type pour les caractères larges        |
+| `nullptr_t`   | Pointeur null (C23)                    |
+| `max_align_t` | Type pour l'alignement maximal         |
+
+L'implémentation probable de ces macros est la suivante :
+
+```c
+#define NULL ((void*)0)
+#define offsetof(type, member) ((size_t)&((type*)0)->member)
+typedef unsigned long size_t
+typedef ptrdiff_t long
+typedef int wchar_t`
+```
+
+Concernant les pointeurs, s'il est parfaitement correct de tester si un pointeur vaut 0 (`if (ptr == 0)`), il est recommandé d'utiliser `NULL` pour plus de clarté. Le standard C23 à introduit le type `nullptr_t` pour les pointeurs nuls. Il est recommandé de l'utiliser à la place de `NULL`.
+
+`max_align_t`
+
+: Il s'agit d'un type un type introduit en C11 pour représenter l'alignement maximal possible pour n'importe quel type. Il est utilisé pour définir des types alignés de manière optimale. Par exemple, si on veut définir une structure alignée sur 16 octets, on peut utiliser `max_align_t` pour définir le type de la structure.
+
+`size_t`
+
+: Il s'agit d'un type non signé qui est utilisé pour représenter la taille d'un objet en mémoire. Il est utilisé pour les fonctions qui retournent la taille d'un objet, comme `strlen` ou `sizeof`. Il est défini tel que sa taille soit suffisante, en pratique 64-bits sur une architecture 64-bits.
+
+`ptrdiff_t`
+
+: Il s'agit d'un type signé qui est utilisé pour représenter la différence entre deux pointeurs. Lorsque l'on veut calculer `ptr_p - ptr_q` on obtient un entier dont la valeur maximale dépend de la taille de la mémoire adressable.
+
+## <stdnoreturn.h>
+
+Cette bibliothèque est apparue en C11 et elle introduit le type `noreturn` qui est utilisé pour indiquer qu'une fonction ne retourne jamais. Cela permet au compilateur d'optimiser le code en supprimant les instructions de retour de la fonction. En pratique, cela permet de gagner quelques cycles d'horloge. Voici un exemple d'utilisation :
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdnoreturn.h>
+
+noreturn void exit_now(int i)
+{
+    if (i > 0)
+        exit(i);
+
+    // Si i <= 0, le comportement est indéfini
+}
+
+int main(void)
+{
+    puts("Se prépare à terminer le programme...");
+    exit_now(2);
+    puts("On sait que ce code n'est jamais exécuté.");
+}
+```
+
+Avant C23, il fallait utiliser `_Noreturn`.
 
 [](){#libc-string}
 ## Chaînes de caractères
@@ -1234,31 +1558,6 @@ Il pourrait afficher:
 Aujourd'hui, c'est vendredi, 17 septembre 2024, et il est 14:05:45.
 ```
 
-[](){#libc-ctype}
-## Types de données
-
-La bibliothèque `<ctype.h>` contient des fonctions pour tester et convertir des caractères. Les fonctions sont définies pour les caractères ASCII uniquement, elle ne s'applique pas aux caractères Unicode, ni aux caractères étendus (au-delà de 127).
-
-```c
-#include <ctype.h>
-```
-
-Table: Fonctions de test de caractères
-
-| Fonction   | Description                            |
-| ---------- | -------------------------------------- |
-| `isalnum`  | une lettre ou un chiffre               |
-| `isalpha`  | une lettre                             |
-| `iscntrl`  | un caractère de commande               |
-| `isdigit`  | un chiffre décimal                     |
-| `isgraph`  | un caractère imprimable ou le blanc    |
-| `islower`  | une lettre minuscule                   |
-| `isprint`  | un caractère imprimable (pas le blanc) |
-| `ispunct`  | un caractère imprimable pas isalnum    |
-| `isspace`  | un caractère d'espace blanc            |
-| `isupper`  | une lettre majuscule                   |
-| `isxdigit` | un chiffre hexadécimal                 |
-
 ## Limites
 
 Table: Valeurs limites pour les entiers signés et non signés
@@ -1277,6 +1576,78 @@ Table: Valeurs limites pour les entiers signés et non signés
 | `ULONG_MAX`   | +4294967295   |
 | `DBL_MAX`     | 1E+37 ou plus |
 | `DBL_EPSILON` | 1E-9 ou moins |
+
+[](){#libc-wchar}
+
+## `<wchar.h>`
+
+Cette bibliothèque supplémente d'autres bibliothèques pour gérer les caractères larges (wide characters). Ci-dessous la table d'équilvalence:
+
+Table: Fonctions liées aux caractères larges
+
+| Fonction   | Description                                    | Équivalent |
+| ---------- | ---------------------------------------------- | ---------- |
+| `wcstol`   | Convertit une chaîne en long                   | `strtol`   |
+| `wcstoul`  | Convertit une chaîne en unsigned long          | `strtoul`  |
+| `wcstoll`  | Convertit une chaîne en long long              | `strtoll`  |
+| `wcstoull` | Convertit une chaîne en unsigned long long     | `strtoull` |
+| `wcstof`   | Convertit une chaîne en float                  | `strtof`   |
+| `wcstod`   | Convertit une chaîne en double                 | `strtod`   |
+| `wcstold`  | Convertit une chaîne en long double            | `strtold`  |
+| `wcscpy`   | Copie une chaîne                               | `strcpy`   |
+| `wcsncpy`  | Copie une chaîne                               | `strncpy`  |
+| `wcscat`   | Concatène deux chaînes                         | `strcat`   |
+| `wcsncat`  | Concatène deux chaînes                         | `strncat`  |
+| `wcscmp`   | Compare deux chaînes                           | `strcmp`   |
+| `wcsncmp`  | Compare deux chaînes                           | `strncmp`  |
+| `wcschr`   | Recherche un caractère dans une chaîne         | `strchr`   |
+| `wcsrchr`  | Recherche un caractère dans une chaîne         | `strrchr`  |
+| `wcscoll`  | Compare deux chaînes                           | `strcoll`  |
+| `wcslen`   | Calcule la longueur d'une chaîne               | `strlen`   |
+| `wcsxfrm`  | Transforme une chaîne                          | `strxfrm`  |
+| `wmemcmp`  | Compare deux régions mémoire                   | `memcmp`   |
+| `wmemchr`  | Recherche un caractère dans une région mémoire | `memchr`   |
+| `wmemcpy`  | Copie une région mémoire                       | `memcpy`   |
+| `wmemmove` | Copie une région mémoire                       | `memmove`  |
+| `wmemset`  | Remplit une région mémoire                     | `memset`   |
+
+
+
+
+[](){#libc-wctype}
+[](){#libc-ctype}
+
+## `<ctype.h>`
+
+La bibliothèque `<ctype.h>` contient des fonctions pour tester et convertir des caractères. Les fonctions sont définies pour les caractères ASCII uniquement, elle ne s'applique pas aux caractères Unicode, ni aux caractères étendus (au-delà de 127). La bibliothèque `<wctype.h>` est similaire mais pour les caractères larges (wide characters).
+
+Table: Fonctions de test de caractères
+
+| ctype      | wctype      | Description                            |
+| ---------- | ----------- | -------------------------------------- |
+| `isalnum`  | `iswalnum`  | une lettre ou un chiffre               |
+| `isalpha`  | `iswalpha`  | une lettre                             |
+| `iscntrl`  | `iswcntrl`  | un caractère de commande               |
+| `isdigit`  | `iswdigit`  | un chiffre décimal                     |
+| `isgraph`  | `iswgraph`  | un caractère imprimable ou le blanc    |
+| `islower`  | `iswlower`  | une lettre minuscule                   |
+| `isprint`  | `iswprint`  | un caractère imprimable (pas le blanc) |
+| `ispunct`  | `iswpunct`  | un caractère imprimable pas isalnum    |
+| `isspace`  | `iswspace`  | un caractère d'espace blanc            |
+| `isupper`  | `iswupper`  | une lettre majuscule                   |
+| `isxdigit` | `iswxdigit` | un chiffre hexadécimal                 |
+
+En plus de ces fonctions de test, il existe des fonctions de conversion de casse définies dans `<wctype.h>` :
+
+Table: Fonctions de conversion de casse
+
+| Fonction    | Description                                       |
+| ----------- | ------------------------------------------------- |
+| `towlower`  | Convertit une lettre en minuscule                 |
+| `towupper`  | Convertit une lettre en majuscule                 |
+| `towctrans` | Convertit un caractère selon la locale `LC_CTYPE` |
+
+
 
 ## Exercices de révision
 
