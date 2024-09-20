@@ -502,6 +502,7 @@
 % this is not very readable. This command changes the style to display
 % the description text on the next line.
 % https://tex.stackexchange.com/a/430454/85416
+% https://tex.stackexchange.com/a/726879/85416
 \AddToHook{cmd/descriptionlabel/after}{\rule[-8pt]{0pt}{0pt}}
 \setlist[description]{
   style=nextline,
