@@ -175,5 +175,3 @@ Ensuite, configurez le projet avec CMake :
 ```bash
 $ cmake -B build
 ```
-
-###

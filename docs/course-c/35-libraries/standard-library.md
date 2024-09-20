@@ -139,11 +139,11 @@ La bibliothèque mathématique est une des plus utilisées. Elle contient des fo
 
 Table: Constantes mathématiques
 
-| Constantes  | Description                  |
-| ----------- | ---------------------------- |
-| `M_PI`      | Valeur de :math:`\pi`        |
-| `M_E`       | Valeur de :math:`e`          |
-| `M_SQRT1_2` | Valeur de :math:`1/\sqrt(2)` |
+| Constantes  | Description            |
+| ----------- | ---------------------- |
+| `M_PI`      | Valeur de $\pi$        |
+| `M_E`       | Valeur de $e$          |
+| `M_SQRT1_2` | Valeur de $1/\sqrt(2)$ |
 
 !!! warning "Windows"
 
@@ -151,18 +151,18 @@ Table: Constantes mathématiques
 
 Table: Fonctions mathématiques
 
-| Fonction     | Description                                     |
-| ------------ | ----------------------------------------------- |
-| `exp(x)`     | Exponentielle :math:`e^x`                       |
-| `ldexp(x,n)` | Exposant d'un nombre flottant :math:`x\cdot2^n` |
-| `log(x)`     | Logarithme binaire :math:`\log_{2}(x)`          |
-| `log10(x)`   | Logarithme décimal :math:`\log_{10}(x)`         |
-| `pow(x,y)`   | Puissance :math:`x^y`                           |
-| `sqrt(x)`    | Racine carrée :math:`\sqrt(x)`                  |
-| `cbrt(x)`    | Racine cubique :math:`\sqrt[3](x)`              |
-| `hypot(x,y)` | Hypoténuse optimisé :math:`\sqrt(x^2 + y^2)`    |
-| `ceil`       | Arrondi à l'entier supérieur                    |
-| `floor`      | Arrondi à l'entier inférieur                    |
+| Fonction     | Description                               |
+| ------------ | ----------------------------------------- |
+| `exp(x)`     | Exponentielle $e^x$                       |
+| `ldexp(x,n)` | Exposant d'un nombre flottant $x\cdot2^n$ |
+| `log(x)`     | Logarithme binaire $\log_{2}(x)$          |
+| `log10(x)`   | Logarithme décimal $\log_{10}(x)$         |
+| `pow(x,y)`   | Puissance $x^y$                           |
+| `sqrt(x)`    | Racine carrée $\sqrt(x)$                  |
+| `cbrt(x)`    | Racine cubique $\sqrt[3](x)$              |
+| `hypot(x,y)` | Hypoténuse optimisé $\sqrt(x^2 + y^2)$    |
+| `ceil`       | Arrondi à l'entier supérieur              |
+| `floor`      | Arrondi à l'entier inférieur              |
 
 Notons par exemple que la fonction `hypot` peut très bien être émulée facilement en utilisant la fonction `sqrt`. Néanmoins elle existe pour deux raisons élémentaires :
 
@@ -171,7 +171,7 @@ Notons par exemple que la fonction `hypot` peut très bien être émulée facile
 
 Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables de calculer certaines fonctions plus rapidement.
 
-Le standard C99 a introduit l'en-tête [`<tgmath.h>`][lib-tgmath] qui donne accès à des fonctions génériques. Par exemple, `sin` peut être utilisé pour des `float`, `double` et `long double` sans avoir à choisir le nom de la fonction (`sinf`, `sin`, `sinl`), en outre les types complexes sont également supportés comme `csin` pour les complexes.
+Le standard C99 a introduit l'en-tête [`<tgmath.h>`][libc-tgmath] qui donne accès à des fonctions génériques. Par exemple, `sin` peut être utilisé pour des `float`, `double` et `long double` sans avoir à choisir le nom de la fonction (`sinf`, `sin`, `sinl`), en outre les types complexes sont également supportés comme `csin` pour les complexes.
 
 [](){#libc-fenv}
 ## `<fenv.h>`
@@ -272,13 +272,13 @@ Nous avions vu [précédemment][rounding] que l'arrondi d'un nombre est compliqu
 
 Table: Modes d'arrondis
 
-| Mode            | Description                 | $2.5, 3.5$ | $-2.5,-3.5$ |
-| --------------- | --------------------------- | ---------- | ----------- |
-| `FE_TONEAREST`  | Arrondi bancaire            | $2, 4$     | $-2, -4$    |
-| `FE_DOWNWARD`   | Arrondi vers zéro           | $2, 3$     | $-3, -4$    |
-| `FE_UPWARD`     | Arrondi vers l'infini       | $3, 4$     | $-2, -3$    |
-| `FE_TOWARDZERO` | Arrondi vers moins l'infini | $2, 3$     | $-2, -3$    |
-| `round()`       | Comparaison avec `round`    | $3, 4$     | $-3, -4$    |
+| Mode            | Description                 | $-3.5$ | $-2.5 | $2.5 | 3.5$ |
+| --------------- | --------------------------- | ------ | ----- | ---- | ---- |
+| `FE_TONEAREST`  | Arrondi bancaire            | $-4$   | $-2$  | $2$  | $4$  |
+| `FE_DOWNWARD`   | Arrondi vers zéro           | $-4$   | $-3$  | $2$  | $3$  |
+| `FE_UPWARD`     | Arrondi vers l'infini       | $-3$   | $-2$  | $3$  | $4$  |
+| `FE_TOWARDZERO` | Arrondi vers moins l'infini | $-3$   | $-2$  | $2$  | $3$  |
+| `round()`       | Comparaison avec `round`    | $-4$   | $-3$  | $3$  | $4$  |
 
 ```c
 fesetround(FE_TONEAREST);
@@ -999,75 +999,64 @@ printf("%" PRId32 "\n", a);
 
 La bibliothèque `<stdio.h>` est l'une des bibliothèques les plus importantes en C. Elle fournit des fonctions pour l'entrée et les sorties, c'est-à-dire pour lire et écrire des données depuis et vers la console. Elle fournit également des fonctions pour lire et écrire des fichiers.
 
-La plupart des fonctions de cette bibliothèque ont déjà été abordées dans les chapitres précédents. Voici néanmoins un résumé des fonctions qu'elle contient:
+La plupart des fonctions de cette bibliothèque ont déjà été abordées dans les chapitres précédents. Voici ci-dessous un résumé des fonctions qu'elle contient. Le `(f)` indique que la fonction peut être utilisée pour lire ou écrire depuis un fichier, elle prend un pointeur de type `FILE` en premier argument. Le `(w)` indique que la fonction est prévue pour les caractères larges (`wchar_t`).
 
 Table: Fonctions de stdio.h
 
-| Fonction       | Description                                                                      |
-| -------------- | -------------------------------------------------------------------------------- |
-| `fopen`        | Ouvre un fichier pour la lecture, l'écriture ou l'ajout                          |
-| `freopen`      | Ouvre à nouveau un fichier sur un flux de fichier existant                       |
-| `fclose`       | Ferme un fichier ouvert                                                          |
-| `fflush`       | Vide le tampon de sortie d'un flux                                               |
-| `fread`        | Lit des blocs d'octets depuis un flux                                            |
-| `fwrite`       | Écrit des blocs d'octets vers un flux                                            |
-| `fgetc`        | Lit un caractère depuis un fichier                                               |
-| `fgets`        | Lit une ligne depuis un fichier                                                  |
-| `fputc`        | Écrit un caractère vers un fichier                                               |
-| `fputs`        | Écrit une chaîne de caractères vers un fichier                                   |
-| `getc`         | Equivalent de `fgetc`, lit un caractère depuis un fichier                        |
-| `getchar`      | Lit un caractère depuis l'entrée standard (`stdin`)                              |
-| `putc`         | Equivalent de `fputc`, écrit un caractère vers un fichier                        |
-| `putchar`      | Écrit un caractère vers la sortie standard (`stdout`)                            |
-| `ungetc`       | Remet un caractère dans le flux pour qu'il soit lu à nouveau                     |
-| `fseek`        | Positionne le curseur de lecture/écriture dans un fichier                        |
-| `ftell`        | Renvoie la position actuelle dans un fichier                                     |
-| `rewind`       | Remet le curseur au début d'un fichier                                           |
-| `fgetpos`      | Obtient la position actuelle dans un fichier sous forme de `fpos_t`              |
-| `fsetpos`      | Définit la position actuelle dans un fichier selon un objet `fpos_t`             |
-| `clearerr`     | Réinitialise l'état d'erreur d'un flux                                           |
-| `feof`         | Vérifie si la fin du fichier est atteinte                                        |
-| `ferror`       | Vérifie si une erreur est survenue dans le flux                                  |
-| `perror`       | Affiche un message d'erreur basé sur la dernière erreur rencontrée               |
-| `fileno`       | Obtient le descripteur de fichier associé à un flux                              |
-| `tmpfile`      | Crée et ouvre un fichier temporaire qui est supprimé à la fermeture              |
-| `tmpnam`       | Génère un nom de fichier temporaire unique                                       |
-| `remove`       | Supprime un fichier                                                              |
-| `rename`       | Renomme un fichier                                                               |
-| `setvbuf`      | Définit le mode de tampon pour un flux                                           |
-| `setbuf`       | Définit un tampon pour un flux                                                   |
-| `vfprintf`     | Écrit une sortie formatée sur un flux avec une liste d'arguments variadiques     |
-| `vprintf`      | Écrit une sortie formatée sur `stdout` avec une liste d'arguments variadiques    |
-| `vsprintf`     | Écrit une sortie formatée dans une chaîne avec une liste d'arguments variadiques |
-| `vfwprintf`    | Version large de `vfprintf` pour les caractères larges (`wchar_t`)               |
-| `vwprintf`     | Version large de `vprintf` pour les caractères larges (`wchar_t`)                |
-| `vswprintf`    | Version large de `vsprintf` pour les caractères larges (`wchar_t`)               |
-| `fprintf`      | Écrit une sortie formatée dans un fichier                                        |
-| `printf`       | Écrit une sortie formatée sur `stdout`                                           |
-| `sprintf`      | Écrit une sortie formatée dans une chaîne                                        |
-| `snprintf`     | Écrit une sortie formatée dans une chaîne avec une taille limitée                |
-| `sscanf`       | Lit des données formatées depuis une chaîne                                      |
-| `fscanf`       | Lit des données formatées depuis un fichier                                      |
-| `scanf`        | Lit des données formatées depuis l'entrée standard                               |
-| `fwprintf`     | Version large de `fprintf` pour les caractères larges (`wchar_t`)                |
-| `wprintf`      | Version large de `printf` pour les caractères larges (`wchar_t`)                 |
-| `swprintf`     | Version large de `sprintf` pour les caractères larges (`wchar_t`)                |
-| `fgetwc`       | Lit un caractère large (`wchar_t`) depuis un fichier                             |
-| `fgetws`       | Lit une ligne de caractères larges depuis un fichier                             |
-| `fputwc`       | Écrit un caractère large (`wchar_t`) dans un fichier                             |
-| `fputws`       | Écrit une chaîne de caractères larges dans un fichier                            |
-| `putwc`        | Version large de `putc` pour les caractères larges (`wchar_t`)                   |
-| `putwchar`     | Écrit un caractère large sur la sortie standard                                  |
-| `getwchar`     | Lit un caractère large depuis l'entrée standard                                  |
-| `ungetwc`      | Remet un caractère large dans le flux                                            |
-| `flockfile`    | Verrouille un flux pour les opérations multithreadées                            |
-| `ftrylockfile` | Tente de verrouiller un flux pour les opérations multithreadées                  |
-| `funlockfile`  | Déverrouille un flux verrouillé                                                  |
-| `fseeko`       | Version large de `fseek` pour les fichiers volumineux (POSIX, non standard)      |
-| `ftello`       | Version large de `ftell` pour les fichiers volumineux (POSIX, non standard)      |
-| `asprintf`     | Alloue et écrit une chaîne formatée (POSIX, non standard)                        |
-| `vdprintf`     | Écrit une sortie formatée vers un descripteur de fichier (POSIX, non standard)   |
-| `dprintf`      | Écrit une sortie formatée vers un descripteur de fichier (POSIX, non standard)   |
+| Fonction       | Description                                                          |
+| -------------- | -------------------------------------------------------------------- |
+| `(f)get(w)c`   | Lit un caractère depuis l'entrée standard ou un fichier              |
+| `(f)get(w)s`   | Lit une ligne depuis l'entrée standard ou un fichier                 |
+| `(f)put(w)c`   | Écrit un caractère vers l'entrée standard ou un fichier              |
+| `(f)put(w)s`   | Écrit une chaîne de caractères vers la sortie standard ou un fichier |
+| `clearerr`     | Réinitialise l'état d'erreur d'un flux                               |
+| `fclose`       | Ferme un fichier ouvert                                              |
+| `feof`         | Vérifie si la fin du fichier est atteinte                            |
+| `ferror`       | Vérifie si une erreur est survenue dans le flux                      |
+| `fflush`       | Vide le tampon de sortie d'un flux                                   |
+| `fgetpos`      | Obtient la position actuelle dans un fichier sous forme de `fpos_t`  |
+| `fileno`       | Obtient le descripteur de fichier associé à un flux                  |
+| `flockfile`    | Verrouille un flux pour les opérations multithreadées                |
+| `fopen`        | Ouvre un fichier pour la lecture, l'écriture ou l'ajout              |
+| `fread`        | Lit des blocs d'octets depuis un flux                                |
+| `freopen`      | Ouvre à nouveau un fichier sur un flux de fichier existant           |
+| `fscanf`       | Lit des données formatées depuis un fichier                          |
+| `fseek`        | Positionne le curseur de lecture/écriture dans un fichier            |
+| `fsetpos`      | Définit la position actuelle dans un fichier selon un objet `fpos_t` |
+| `ftell`        | Renvoie la position actuelle dans un fichier                         |
+| `ftrylockfile` | Tente de verrouiller un flux pour les opérations multithreadées      |
+| `funlockfile`  | Déverrouille un flux verrouillé                                      |
+| `fwrite`       | Écrit des blocs d'octets vers un flux                                |
+| `perror`       | Affiche un message d'erreur basé sur la dernière erreur rencontrée   |
+| `remove`       | Supprime un fichier                                                  |
+| `rename`       | Renomme un fichier                                                   |
+| `rewind`       | Remet le curseur au début d'un fichier                               |
+| `scanf`        | Lit des données formatées depuis l'entrée standard                   |
+| `setbuf`       | Définit un tampon pour un flux                                       |
+| `setvbuf`      | Définit le mode de tampon pour un flux                               |
+| `sscanf`       | Lit des données formatées depuis une chaîne                          |
+| `tmpfile`      | Crée et ouvre un fichier temporaire qui est supprimé à la fermeture  |
+| `tmpnam`       | Génère un nom de fichier temporaire unique                           |
+| `ungetc`       | Remet un caractère dans le flux pour qu'il soit lu à nouveau         |
+| `ungetwc`      | Remet un caractère large dans le flux                                |
+
+Table: Fonctions d'affichage formaté
+
+| Fonction    | Description                                                          |
+| ----------- | -------------------------------------------------------------------- |
+| `vfprintf`  | Écrit une sortie formatée sur un flux avec une liste variadiques     |
+| `vprintf`   | Écrit une sortie formatée sur `stdout` avec une liste variadiques    |
+| `vsprintf`  | Écrit une sortie formatée dans une chaîne avec une liste variadiques |
+| `vfwprintf` | Version large de `vfprintf` pour les caractères larges (`wchar_t`)   |
+| `vwprintf`  | Version large de `vprintf` pour les caractères larges (`wchar_t`)    |
+| `vswprintf` | Version large de `vsprintf` pour les caractères larges (`wchar_t`)   |
+| `fprintf`   | Écrit une sortie formatée dans un fichier                            |
+| `printf`    | Écrit une sortie formatée sur `stdout`                               |
+| `sprintf`   | Écrit une sortie formatée dans une chaîne                            |
+| `snprintf`  | Écrit une sortie formatée dans une chaîne avec une taille limitée    |
+| `fwprintf`  | Version large de `fprintf` pour les caractères larges (`wchar_t`)    |
+| `wprintf`   | Version large de `printf` pour les caractères larges (`wchar_t`)     |
+| `swprintf`  | Version large de `sprintf` pour les caractères larges (`wchar_t`)    |
 
 Table: Constantes et types de stdio.h
 
@@ -1100,51 +1089,74 @@ Cette bibliothèque contient des fonctions éparses qui ne sont pas assez import
 - Nombres aléatoires
 - Algorithmes de recherche et de tri
 
-Table: Fonctions de stdlib.h
+Table: Fonctions diverses de stdlib.h
 
-| Fonction        | Description                                                                            |
-| --------------- | -------------------------------------------------------------------------------------- |
-| `abort`         | Arrête le programme de manière anormale sans nettoyage des ressources                  |
-| `exit`          | Arrête le programme de manière normale avec nettoyage des ressources                   |
-| `quick_exit`    | Arrête le programme de manière normale sans nettoyage complet des ressources (C11)     |
-| `_Exit`         | Arrête le programme de manière normale sans nettoyage des ressources (C99)             |
-| `atexit`        | Enregistre une fonction à appeler lors de l'appel à `exit`                             |
-| `at_quick_exit` | Enregistre une fonction à appeler lors de l'appel à `quick_exit` (C11)                 |
-| `getenv`        | Récupère la valeur d'une variable d'environnement                                      |
-| `setenv`        | Ajoute ou modifie une variable d'environnement (POSIX, non standard)                   |
-| `putenv`        | Ajoute ou modifie une variable d'environnement                                         |
-| `unsetenv`      | Supprime une variable d'environnement (POSIX, non standard)                            |
-| `system`        | Exécute une commande système dans un shell                                             |
-| `malloc`        | Alloue un bloc de mémoire                                                              |
-| `calloc`        | Alloue et initialise un bloc de mémoire                                                |
-| `realloc`       | Redimensionne un bloc de mémoire précédemment alloué                                   |
-| `free`          | Libère un bloc de mémoire précédemment alloué                                          |
-| `atoi`          | Convertit une chaîne de caractères en entier (`int`)                                   |
-| `atol`          | Convertit une chaîne de caractères en long (`long`)                                    |
-| `atoll`         | Convertit une chaîne de caractères en long long (`long long`) (C99)                    |
-| `atof`          | Convertit une chaîne de caractères en double (`double`)                                |
-| `strtod`        | Convertit une chaîne en double (`double`)                                              |
-| `strtof`        | Convertit une chaîne en float (`float`) (C99)                                          |
-| `strtold`       | Convertit une chaîne en long double (`long double`) (C99)                              |
-| `strtol`        | Convertit une chaîne en long (`long`), avec une base personnalisable                   |
-| `strtoll`       | Convertit une chaîne en long long (`long long`) (C99)                                  |
-| `strtoul`       | Convertit une chaîne en unsigned long (`unsigned long`)                                |
-| `strtoull`      | Convertit une chaîne en unsigned long long (`unsigned long long`) (C99)                |
-| `rand`          | Génère un nombre pseudo-aléatoire                                                      |
-| `srand`         | Initialise le générateur de nombres pseudo-aléatoires                                  |
-| `bsearch`       | Recherche un élément dans un tableau trié en utilisant une fonction de comparaison     |
-| `qsort`         | Trie un tableau en utilisant un algorithme de tri rapide (quick sort)                  |
-| `abs`           | Calcule la valeur absolue d'un entier (`int`)                                          |
-| `labs`          | Calcule la valeur absolue d'un entier long (`long`)                                    |
-| `llabs`         | Calcule la valeur absolue d'un long long (`long long`) (C99)                           |
-| `div`           | Effectue une division entière et retourne le quotient et le reste pour les `int`       |
-| `ldiv`          | Effectue une division entière pour les `long` et retourne quotient et reste            |
-| `lldiv`         | Effectue une division entière pour les `long long` et retourne quotient et reste (C99) |
-| `mblen`         | Retourne le nombre d'octets d'un caractère multioctet dans une chaîne                  |
-| `mbtowc`        | Convertit un caractère multioctet en caractère large (`wchar_t`)                       |
-| `wctomb`        | Convertit un caractère large (`wchar_t`) en multioctet                                 |
-| `mbstowcs`      | Convertit une chaîne multioctet en chaîne de caractères larges (`wchar_t`)             |
-| `wcstombs`      | Convertit une chaîne de caractères larges en chaîne multioctet                         |
+| Fonction        | Description                                                                        |
+| --------------- | ---------------------------------------------------------------------------------- |
+| `abort`         | Arrête le programme de manière anormale sans nettoyage des ressources              |
+| `exit`          | Arrête le programme de manière normale avec nettoyage des ressources               |
+| `quick_exit`    | Arrête le programme de manière normale sans nettoyage complet des ressources (C11) |
+| `_Exit`         | Arrête le programme de manière normale sans nettoyage des ressources (C99)         |
+| `atexit`        | Enregistre une fonction à appeler lors de l'appel à `exit`                         |
+| `at_quick_exit` | Enregistre une fonction à appeler lors de l'appel à `quick_exit` (C11)             |
+| `getenv`        | Récupère la valeur d'une variable d'environnement                                  |
+| `setenv`        | Ajoute ou modifie une variable d'environnement (POSIX, non standard)               |
+| `putenv`        | Ajoute ou modifie une variable d'environnement                                     |
+| `unsetenv`      | Supprime une variable d'environnement (POSIX, non standard)                        |
+| `system`        | Exécute une commande système dans un shell                                         |
+| `rand`          | Génère un nombre pseudo-aléatoire                                                  |
+| `srand`         | Initialise le générateur de nombres pseudo-aléatoires                              |
+| `mblen`         | Retourne le nombre d'octets d'un caractère multioctet dans une chaîne              |
+
+Table: Gestion de la mémoire de stdlib.h
+
+| Fonction             | Description                                                |
+| -------------------- | ---------------------------------------------------------- |
+| `malloc`             | Alloue un bloc de mémoire                                  |
+| `calloc`             | Alloue et initialise un bloc de mémoire                    |
+| `realloc`            | Redimensionne un bloc de mémoire précédemment alloué       |
+| `free`               | Libère un bloc de mémoire précédemment alloué              |
+| `aligned_alloc`      | Alloue un bloc de mémoire aligné (C11)                     |
+| `free_sized`         | Libère un bloc de mémoire de taille spécifiée (C23)        |
+| `free_aligned_sized` | Libère un bloc de mémoire aligné de taille spécifiée (C23) |
+
+Table: Algorithmes de recherche et de tri de stdlib.h
+
+| Fonction  | Description                                                                        |
+| --------- | ---------------------------------------------------------------------------------- |
+| `bsearch` | Recherche un élément dans un tableau trié en utilisant une fonction de comparaison |
+| `qsort`   | Trie un tableau en utilisant un algorithme de tri rapide (quick sort)              |
+
+Table: Opérations sur les nombres de stdlib.h
+
+| Fonction | Description                                                                            |
+| -------- | -------------------------------------------------------------------------------------- |
+| `abs`    | Calcule la valeur absolue d'un entier (`int`)                                          |
+| `labs`   | Calcule la valeur absolue d'un entier long (`long`)                                    |
+| `llabs`  | Calcule la valeur absolue d'un long long (`long long`) (C99)                           |
+| `div`    | Effectue une division entière et retourne le quotient et le reste pour les `int`       |
+| `ldiv`   | Effectue une division entière pour les `long` et retourne quotient et reste            |
+| `lldiv`  | Effectue une division entière pour les `long long` et retourne quotient et reste (C99) |
+
+Table: Fonctions de conversion de chaînes de stdlib.h
+
+| Fonction   | Description                                                                |
+| ---------- | -------------------------------------------------------------------------- |
+| `atof`     | Convertit une chaîne de caractères en double (`double`)                    |
+| `atoi`     | Convertit une chaîne de caractères en entier (`int`)                       |
+| `atol`     | Convertit une chaîne de caractères en long (`long`)                        |
+| `atoll`    | Convertit une chaîne de caractères en long long (`long long`) (C99)        |
+| `mbstowcs` | Convertit une chaîne multioctet en chaîne de caractères larges (`wchar_t`) |
+| `mbtowc`   | Convertit un caractère multioctet en caractère large (`wchar_t`)           |
+| `strtod`   | Convertit une chaîne en double (`double`)                                  |
+| `strtof`   | Convertit une chaîne en float (`float`) (C99)                              |
+| `strtol`   | Convertit une chaîne en long (`long`), avec une base personnalisable       |
+| `strtold`  | Convertit une chaîne en long double (`long double`) (C99)                  |
+| `strtoll`  | Convertit une chaîne en long long (`long long`) (C99)                      |
+| `strtoul`  | Convertit une chaîne en unsigned long (`unsigned long`)                    |
+| `strtoull` | Convertit une chaîne en unsigned long long (`unsigned long long`) (C99)    |
+| `wcstombs` | Convertit une chaîne de caractères larges en chaîne multioctet             |
+| `wctomb`   | Convertit un caractère large (`wchar_t`) en multioctet                     |
 
 Table: Constantes et types de stdlib.h
 

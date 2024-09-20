@@ -12,7 +12,9 @@ Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute 
 
 Les fonctions phares sont `printf` pour le formatage de chaîne de caractères et `scanf` pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes que nous verrons plus tard. La liste citée est non exhaustive, mais largement documentée ici: [`<stdio.h>`](http://man7.org/linux/man-pages/man3/stdio.3.html).
 
-Les fonctions que nous allons aborder dans ce chapitre sont les suivantes :
+Les fonctions que nous allons aborder dans ce chapitre sont données par la table suivante. Pour davantage de fonctions, vous pouvez vous rendre au chapitre traitant de la bibliothèque standard [stdio][libc-stdio].
+
+Table: Fonctions d'entrées/sorties principales
 
 | Fonction           | Type   | Description                                                    |
 | ------------------ | ------ | -------------------------------------------------------------- |
@@ -468,26 +470,28 @@ Ensuite, `[^\n]`. Le marqueur `[`, terminé par `]` cherche à capturer une séq
     float x = 0;
     ```
 
-    1. `#!c n = scanf("%1d%1d", &i, &j);`, `12\n`
-    2. `#!c n = scanf("%d%d", &i, &j);`, `1 , 2\n`
-    3. `#!c n = scanf("%d%d", &i, &j);`, `-1   -2\n`
-    4. `#!c n = scanf("%d%d", &i, &j);`, `-  1  -  2\n`
-    5. `#!c n = scanf("%d,%d", &i, &j);`, `1  ,  2\n`
-    6. `#!c n = scanf("%d ,%d", &i, &j);`, `1  ,  2\n`
-    7. `#!c n = scanf("%4d %2d", &i, &j);`, `1 234\n`
-    8. `#!c n = scanf("%4d %2d", &i, &j);`, `1234567\n`
-    9. `#!c n = scanf("%d%*d%d", &i, &j);`, `123 456 789\n`
-    10. `#!c n = scanf("i=%d , j=%d", &i, &j);`, `1 , 2\n`
-    11. `#!c n = scanf("i=%d , j=%d", &i, &j);`, `i=1, j=2\n`
-    12. `#!c n = scanf("%d%d", &i, &j);`, `1.23 4.56\n`
-    13. `#!c n = scanf("%d.%d", &i, &j);`, `1.23 4.56\n`
-    14. `#!c n = scanf("%x%x", &i, &j);`, `12 2a\n`
-    15. `#!c n = scanf("%x%x", &i, &j);`, `0x12 0X2a\n`
-    16. `#!c n = scanf("%o%o", &i, &j);`, `12 018\n`
-    17. `#!c n = scanf("%f", &x);`, `123\n`
-    18. `#!c n = scanf("%f", &x);`, `1.23\n`
-    19. `#!c n = scanf("%f", &x);`, `123E4\n`
-    20. `#!c n = scanf("%e", &x);`, `12\n`
+    | no  | Expression                              | Entrée          |
+    | --- | --------------------------------------- | --------------- |
+    | 1   | `#!c n = scanf("%1d%1d", &i, &j);`      | `12\n`          |
+    | 2   | `#!c n = scanf("%d%d", &i, &j);`        | `1 , 2\n`       |
+    | 3   | `#!c n = scanf("%d%d", &i, &j);`        | `-1   -2\n`     |
+    | 4   | `#!c n = scanf("%d%d", &i, &j);`        | `-  1  -  2\n`  |
+    | 5   | `#!c n = scanf("%d,%d", &i, &j);`       | `1  ,  2\n`     |
+    | 6   | `#!c n = scanf("%d ,%d", &i, &j);`      | `1  ,  2\n`     |
+    | 7   | `#!c n = scanf("%4d %2d", &i, &j);`     | `1 234\n`       |
+    | 8   | `#!c n = scanf("%4d %2d", &i, &j);`     | `1234567\n`     |
+    | 9   | `#!c n = scanf("%d%*d%d", &i, &j);`     | `123 456 789\n` |
+    | 10  | `#!c n = scanf("i=%d , j=%d", &i, &j);` | `1 , 2\n`       |
+    | 11  | `#!c n = scanf("i=%d , j=%d", &i, &j);` | `i=1, j=2\n`    |
+    | 12  | `#!c n = scanf("%d%d", &i, &j);`        | `1.23 4.56\n`   |
+    | 13  | `#!c n = scanf("%d.%d", &i, &j);`       | `1.23 4.56\n`   |
+    | 14  | `#!c n = scanf("%x%x", &i, &j);`        | `12 2a\n`       |
+    | 15  | `#!c n = scanf("%x%x", &i, &j);`        | `0x12 0X2a\n`   |
+    | 16  | `#!c n = scanf("%o%o", &i, &j);`        | `12 018\n`      |
+    | 17  | `#!c n = scanf("%f", &x);`              | `123\n`         |
+    | 18  | `#!c n = scanf("%f", &x);`              | `1.23\n`        |
+    | 19  | `#!c n = scanf("%f", &x);`              | `123E4\n`       |
+    | 20  | `#!c n = scanf("%e", &x);`              | `12\n`          |
 
     ??? solution
 

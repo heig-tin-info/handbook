@@ -20,7 +20,7 @@ int main() {
 }
 ```
 
-On peut hiérarchiser les éléments de ce programme de la manière suivante :
+La figure suivante montre comment il serait possible de hiérarchiser les éléments de ce programme. On constate une imbriquation des éléments.
 
 ![Exemple d'arbre syntaxique (AST)](/assets/images/parsing.drawio)
 

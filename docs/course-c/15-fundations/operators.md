@@ -1057,25 +1057,28 @@ En logique booléenne on exprime la négation par une barre p.ex. $\overline{P}$
 [](){#rounding}
 ## Arrondis
 
-En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus délicate que l'on peut l'imaginer de prime abord.
+En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus délicate que l'on peut l'imaginer de prime abord.Un nombre réel dans $\mathbb{R}$ peut être converti en un nombre entier de plusieurs manières. Les méthodes les plus courantes sont données dans la table suivante.
 
-Un nombre réel dans $\mathbb{R}$ peut être converti en un nombre entier de plusieurs manières dont voici une liste non exhaustive :
+Table: Méthodes d'arrondi
 
-- tronqué (*truncate*) lorsque la partie fractionnaire est simplement enlevée ;
-- arrondi à l'entier supérieur (*rounding up*) ;
-- arrondi à l'entier inférieur (*rounding down*) ;
-- arrondi en direction du zéro (*rounding towards zero*) ;
-- arrondi loin du zéro (*rounding away from zero*) ;
-- arrondi au plus proche entier (*rounding to the nearest integer*) ;
-- arrondi la moitié en direction de l'infini (*rounding half up*).
+| Méthode                  | Description                                         |
+| ------------------------ | --------------------------------------------------- |
+| *truncate*               | Suppression de la partie fractionnaire              |
+| *ceiling*                | Arrondi à l'entier supérieur                        |
+| *floor*                  | Arrondi à l'entier inférieur                        |
+| *towards zero*           | Arrondi en direction du zéro                        |
+| *away from zero*         | Arrondi loin du zéro                                |
+| *to the nearest integer* | Arrondi au plus proche entier                       |
+| *rounding half up*       | Arrondi la moitié en direction de l'infini          |
+| *rounding half to even*  | Arrondi la moitié vers l'entier pair le plus proche |
+
+
 
 Selon le langage de programmation et la méthode utilisée, le mécanisme d'arrondi sera différent. En C, la bibliothèque mathématique offre les fonctions `ceil` pour l'arrondi au plafond (entier supérieur), `floor` pour arrondi au plancher (entier inférieur) et `round` pour l'arrondi au plus proche (*nearest*). Il existe également une fonction `trunc` qui tronque la valeur en supprimant la partie fractionnaire.
 
 Le fonctionnement de la fonction `round` n'est pas unanime entre les mathématiciens et les programmeurs. C utilise l'arrondi au plus proche, c'est-à-dire que -23.5 donne -24 et 23.5 donnent 24.
 
-En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre-intuitive, car `round(3.5)` donne 4, mais `round(4.5)` donne 4 aussi.
-
-Pourquoi faire cela ? Il y a deux raisons principales :
+La méthode *rounding half to even* est aussi nommée *bankers' rounding*. Elle est utilisée dans de nombreux langages de programmation, car elle minimise les erreurs d'arrondi. Cette méthode arrondit les nombres à l'entier pair le plus proche. Par exemple, 0.5 est arrondi à 0 et 1.5 est arrondi à 2. C'est la méthode d'arrondi conseillée par l'IEEE 754 pour les calculs en virgule flottante. Cette méthode est préférée pour deux raisons principales :
 
 1. **Réduction du biais cumulatif** : Lorsque vous arrondissez toujours vers le haut ou vers le bas en cas de valeur à mi-chemin (comme 0.5), cela introduit un biais systématique dans vos données. Par exemple, si vous arrondissez toujours 0.5 vers le haut, la somme des valeurs arrondies sera systématiquement plus grande que la somme des valeurs originales.
 

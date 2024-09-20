@@ -35,15 +35,16 @@ The tags are rendered as:
 
 The class purpose is to style the tags.
 """
-import os
 import json
+import os
 import re
-from mkdocs import plugins
+import xml.etree.ElementTree as etree
 from collections import defaultdict
+
+import inflection
 from markdown.extensions import Extension
 from markdown.inlinepatterns import InlineProcessor
-import xml.etree.ElementTree as etree
-import inflection
+from mkdocs import plugins
 
 
 class TagInlineProcessor(InlineProcessor):
@@ -57,13 +58,9 @@ class TagInlineProcessor(InlineProcessor):
             'class': 'ycr-hashtag',
             'data-tag': tag
         }
-
         entry = [x for x in [m.group(3), text, tag] if x is not None][0]
-
         attrib['data-index-entry'] = entry
-
         el = etree.Element('span', attrib=attrib)
-
         el.text = text
         return el, m.start(0), m.end(0)
 

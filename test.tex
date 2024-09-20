@@ -1,35 +1,18 @@
-\documentclass[10pt]{article}
-\usepackage{fontspec}
-%\usepackage{parskip}
-\usepackage[french]{babel}
-\usepackage{microtype}
+\documentclass{article}
+\usepackage{enumitem}
 
-\tolerance=2000
-\emergencystretch=10pt
-
-
-% \setmainfont{Latin Modern Roman}
-
-\usepackage[
-  paperwidth=160mm,
-  left=20mm,
-  right=15mm,
-  heightrounded]{geometry}
+\AddToHook{cmd/descriptionlabel/after}{\rule[-8pt]{0pt}{0pt}}
+\setlist[description]{
+  style=nextline,
+  leftmargin=0.7cm,
+  itemindent=\dimexpr-5pt-\labelsep\relax
+}
 
 \begin{document}
 
-\section{Latin Modern Roman}
-
-Les algorithmes constituent l'essence même de l'informatique. Ces ensembles d'instructions, définis avec rigueur et précision, offrent des solutions claires à une multitude de problèmes, allant du tri d'une simple liste de nombres à la détermination du chemin le plus court entre deux points. Chaque algorithme, par sa structure et sa logique, permet d'accomplir des tâches variées avec une efficacité souvent surprenante.
-
-Ce chapitre se propose d'explorer les fondements des algorithmes, en s'attardant sur des aspects cruciaux qui sous-tendent leur conception et leur utilisation. Nous débuterons par une analyse de la complexité algorithmique, un outil indispensable pour évaluer et comparer la performance des différents algorithmes. Cette notion de complexité, qu'elle soit en termes de temps ou d'espace, est primordiale pour juger de l'efficacité d'une solution face à un problème donné.
-
-La récursion, technique puissante et exigeante, fera l'objet de notre deuxième section. En effet, si elle permet de résoudre des problèmes en les décomposant en sous-problèmes plus simples, elle n'est pas sans risques~: mal maîtrisée, elle peut entraîner des consommations excessives de ressources, compromettant ainsi l'efficacité de l'algorithme. Nous examinerons donc en détail les méthodes pour analyser et optimiser la complexité des algorithmes récursifs.
-
-Nous aborderons ensuite les algorithmes de recherche et de tri, catégories parmi les plus fréquemment rencontrées en informatique. La recherche, qu'elle soit linéaire ou binaire, et le tri, sous ses différentes formes, représentent des opérations fondamentales dont la maîtrise est indispensable pour tout informaticien. Nous en détaillerons les mécanismes, en soulignant les avantages et les inconvénients de chaque approche.
-
-Enfin, nous conclurons par l'examen de quelques algorithmes classiques, emblématiques de leur domaine, et dont l'application dépasse souvent le cadre purement théorique. Leur étude permettra d'illustrer la portée pratique des concepts abordés et d'ancrer ces derniers dans la réalité des problèmes rencontrés quotidiennement.
-
-Ce chapitre vous guidera vers une compréhension approfondie des algorithmes, en vous donnant les clés pour concevoir des solutions élégantes et efficaces à des problèmes complexes. Que vous soyez novice en la matière ou que vous cherchiez à affiner vos compétences, vous trouverez ici de quoi enrichir votre savoir et affronter les défis de l'informatique moderne avec une approche méthodique et optimisée.
-
+\begin{description}
+  \item[Duck] A waterbird with a broad blunt bill, short legs, webbed feet, and a waddling gait.
+  \item[Seagull] A large, common, and very widespread long-winged seabird with a raucous call.
+  \item[Goose] A waterbird with a long neck, short legs, webbed feet, and a short broad bill.
+\end{description}
 \end{document}

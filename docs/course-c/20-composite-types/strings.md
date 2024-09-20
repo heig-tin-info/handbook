@@ -35,9 +35,7 @@ char str[] = "Pulp Fiction";
 La taille de ce tableau sera donc de 12 caractères plus une sentinelle `'\0'` insérée automatiquement. Cette écriture est donc identique à :
 
 ```c
-char str[] = {
-    'P', 'u', 'l', 'p', ' ', 'F', 'i', 'c', 't', 'i', 'o', 'n', '\0'
-};
+char str[] = {'P', 'u', 'l', 'p', ' ', 'F', 'i', 'c', 't', 'i', 'o', 'n', '\0'};
 ```
 
 ## Tableaux de chaînes de caractères
@@ -45,9 +43,7 @@ char str[] = {
 Un tableau de chaîne de caractères est identique à un tableau multidimensionnel :
 
 ```c
-char conjunctions[][10] = {
-    "mais", "ou", "est", "donc", "or", "ni", "car"
-};
+char conjunctions[][10] = {"mais", "ou", "est", "donc", "or", "ni", "car"};
 ```
 
 Il est ici nécessaire de définir la taille de la seconde dimension, comme pour les tableaux. C'est à dire que la variable `conjunctions` aura une taille de 7x10 caractères et le contenu mémoire de `conjunctions[1]` sera équivalent à :

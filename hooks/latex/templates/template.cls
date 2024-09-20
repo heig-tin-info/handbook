@@ -103,6 +103,24 @@
 % Make quotations italic and smaller
 \AtBeginEnvironment{displayquote}{\small\itshape}
 
+% Make tables slightly smaller
+%\AtBeginEnvironment{tabular}{\small}
+
+% Fit table to page width
+\let\oldtabular\tabular
+\let\endoldtabular\endtabular
+
+\newsavebox{\mytablebox}
+\renewenvironment{tabular}[1]
+  {\begin{lrbox}{\mytablebox}\small\oldtabular{#1}} % Temporary box to store table
+  {\endoldtabular\end{lrbox}%
+   \ifdim\wd\mytablebox>\linewidth
+     \resizebox{\linewidth}{!}{\usebox{\mytablebox}} % Adjust to fit line width
+   \else
+     \usebox{\mytablebox} % Otherwise, use the table as is
+   \fi
+  }
+
 \definecolor{linkcolor}{RGB}{34, 18, 104}
 \definecolor{urlcolor}{RGB}{104, 18, 55}
 
@@ -484,6 +502,7 @@
 % this is not very readable. This command changes the style to display
 % the description text on the next line.
 % https://tex.stackexchange.com/a/430454/85416
+\AddToHook{cmd/descriptionlabel/after}{\rule[-8pt]{0pt}{0pt}}
 \setlist[description]{
   style=nextline,
   labelindent=0pt,

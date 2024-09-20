@@ -255,6 +255,7 @@ watch:
   - includes
   - overrides
 hooks:
+  - hooks/index.py # Index keywords in codes (language)
   - hooks/drawio.py # Embedded draw.io diagrams
   - hooks/unicode.py # Box around unicode codes U+XXXX
   - hooks/spantable.py # Adds span table support

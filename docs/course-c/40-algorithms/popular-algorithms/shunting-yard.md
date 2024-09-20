@@ -98,6 +98,6 @@ On observe que si on dispose de fonctions pour ajouter/supprimer des éléments 
 
     La calculatrice mythique HP-42s apparue en 1988 était utilisée par beaucoup d'ingénieurs et de scientifiques. On y remarque l'absence de touche égale `=`. Pour calculer une expression, il suffisait de taper les opérandes et les opérateurs dans l'ordre. La calculatrice se chargeait de calculer le résultat.
 
-    ![HP-42s](/assets/images/hp42s.jpg)
+    ![HP-42s](/assets/images/hp42s.png)
 
     La notation polonaise inverse est également très pratique pour les ordinateurs. En effet, il est plus facile de traiter une expression postfixée qu'une expression infixée. L'algorithme de Shunting Yard permet de transformer une expression infixée en une expression postfixée.

@@ -334,16 +334,20 @@ LIB_DIR=$(cc -print-multi-os-directory | sed 's/\.\.\///g')
 cc -print-multiarch | grep . && LIB_SUBDIR=$(echo $(cc -print-multiarch)'/')
 
 # Used to detect the build dependencies
-export PKG_CONFIG_PATH="${GIMP_PREFIX}/${LIB_DIR}/${LIB_SUBDIR}pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
+export PKG_CONFIG_PATH="${GIMP_PREFIX}/${LIB_DIR}/${LIB_SUBDIR}
+pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
 
 # Used to find the libraries at runtime
-export LD_LIBRARY_PATH="${GIMP_PREFIX}/${LIB_DIR}/${LIB_SUBDIR}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+export LD_LIBRARY_PATH="${GIMP_PREFIX}/${LIB_DIR}/${LIB_SUBDIR}$
+{LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 
 # Used to find the glib-introspection dependencies
-export XDG_DATA_DIRS="${GIMP_PREFIX}/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}"
+export XDG_DATA_DIRS="${GIMP_PREFIX}/share:/usr/share
+${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}"
 
 # Used to find introspection files
-export GI_TYPELIB_PATH="${GIMP_PREFIX}/${LIB_DIR}/${LIB_SUBDIR}girepository-1.0${GI_TYPELIB_PATH:+:$GI_TYPELIB_PATH}"
+export GI_TYPELIB_PATH="${GIMP_PREFIX}/${LIB_DIR}/${LIB_SUBDIR}
+girepository-1.0${GI_TYPELIB_PATH:+:$GI_TYPELIB_PATH}"
 
 # Used by Autotools to find its tools
 export ACLOCAL_FLAGS="-I $GIMP_PREFIX/share/aclocal $ACLOCAL_FLAGS"
@@ -355,7 +359,8 @@ export PATH="${GIMP_PREFIX}/bin:$PATH"
 En suivant la documentation, on installe quelques dépendences, sachant qu'il y en aura probablement d'autres à installer au fur et à mesure:
 
 ```bash
-apt install graphviz libswscale-dev libsuitesparse-dev libpng-dev libtiff-dev librsvg2-dev \
+apt install graphviz libswscale-dev libsuitesparse-dev libpng-dev
+libtiff-dev librsvg2-dev \
 liblcms2-dev libmypaint-dev mypaint-brushes  libmng-dev libwmf-dev \
 libaa1-dev libgs-dev libheif-dev gobject-introspection libgirepository1.0-dev
 ```

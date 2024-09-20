@@ -6,7 +6,7 @@ La programmation générique est une technique de programmation qui permet de d�
 
 Néanmoins, la programmation générique en C est limitée par le fait que le langage n'est pas orienté objet et ne possède pas de couche de méta-programmation comme les *templates* en C++. Certains développeurs ont été jusqu'à inventer un nouveau langage comme le Vala pour palier à ces limitations. Vala est un meta-langage qui génère du code C à partir de code Vala. Il apporte le paradigme de la programmation orientée objet et de la programmation générique à C. Cependant, Vala n'est pas un langage très répandu en dehors de la communauté GNOME.
 
-[](){#generic-keyword}
+[](){#generickw}
 ## Fonctions génériques
 
 Prenons l'exemple de la fonction d'addition suivante. Elle est écrite pour des entiers et ne fonctionnera donc pas pour des flottants. Il faudrait la réécrire pour les flottants mais cela implique une collision de nom de fonction. Il faudrait alors définir autant de fonctions que de types avec des suffixes différents (`add_int`, `add_float`, etc.).

@@ -15,7 +15,6 @@
 \begin{center}
 \BLOCK{- endif}
 \BLOCK{- if is_large -}
-\begin{adjustbox}{width=\linewidth}
 \BLOCK{- endif}
 \begin{tabular}{\BLOCK{- for column in columns}\VAR{style[column]}\BLOCK{- endfor}}
 \toprule
@@ -36,7 +35,6 @@
 \bottomrule
 \end{tabular}
 \BLOCK{- if is_large -}
-\end{adjustbox}
 \BLOCK{- endif}
 \BLOCK{- if caption -}
 \end{table}
