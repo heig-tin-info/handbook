@@ -3987,7 +3987,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -4003,7 +4003,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5671,7 +5671,7 @@ les outils associés.
 </span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="cp">#    error "Lettre sans signature"</span>
 </span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="cp">#endif</span>
 </span></code></pre></div>
-<p>Il est possible d'appeler le préprocesseur directement avec l'option <code>-E</code> de <code>gcc</code>. Des directives <code>define</code> additionnelles peuvent être renseignées depuis la ligne de commande avec le drapeau <code>-D</code>. Voici un exemple d'utilisation :</p>
+<p>Il est possible d'appeler le préprocesseur directement avec l'option <code>-E</code> de <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span>. Des directives <span class="ycr-hashtag" data-index-entry="define" data-tag="define"><code>define</code></span> additionnelles peuvent être renseignées depuis la ligne de commande avec le drapeau <code>-D</code>. Voici un exemple d'utilisation :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>-xc<span class="w"> </span>-E<span class="w"> </span>test.txt<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span>-DDATE<span class="o">=</span><span class="m">22</span><span class="w"> </span>-DHOUR<span class="o">=</span><span class="m">9</span>:00<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span>-DFEMALE<span class="w"> </span><span class="se">\</span>
@@ -5696,7 +5696,7 @@ les outils associés.
 <p>Les drapeaux peuvent être : <code>1</code> pour indiquer le début d'un nouveau fichier inclus, <code>2</code> pour indiquer la fin d'un fichier inclus, <code>3</code> pour indiquer que le texte suivant provient d'un fichier système et <code>4</code> pour indiquer que le texte doit être traité comme un bloc implicite.</p>
 <div class="admonition note">
 <p class="admonition-title">Suppression des marqueurs de lignes</p>
-<p>Il est possible de supprimer les directives de lignes générées par le préprocesseur avec l'option <code>-P</code> de <code>gcc</code>. Le <code>-xc</code> indique que le fichier est un fichier C ce qui évite un message d'erreur su l'extension du fichier d'entrée n'est pas <code>.c</code>.</p>
+<p>Il est possible de supprimer les directives de lignes générées par le préprocesseur avec l'option <code>-P</code> de <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span>. Le <code>-xc</code> indique que le fichier est un fichier C ce qui évite un message d'erreur su l'extension du fichier d'entrée n'est pas <code>.c</code>.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>-xc<span class="w"> </span>-E<span class="w"> </span>test.txt<span class="w"> </span>-P
 </span></code></pre></div>
 </div>
@@ -5713,7 +5713,7 @@ les outils associés.
 <p>Suppression des commentaires. Chaque commentaire est remplacé par une espace. Les commentaires de type <code>//</code> et <code>/* */</code> sont par conséquent supprimés.</p>
 </li>
 <li>
-<p>Les directives de prétraitement sont exécutées, les invocations de macros sont étendues et les expressions avec l'opérateur unaire <code>_Pragma</code> sont exécutées ainsi que les directives <code>#include</code> appliquées récursivement.</p>
+<p>Les directives de prétraitement sont exécutées, les invocations de macros sont étendues et les expressions avec l'opérateur unaire <span class="ycr-hashtag" data-index-entry="_Pragma" data-tag="_Pragma"><code>_Pragma</code></span> sont exécutées ainsi que les directives <code>#include</code> appliquées récursivement.</p>
 </li>
 </ol>
 <p>Voici un exemple de code C avec des directives de prétraitement :</p>
@@ -5768,14 +5768,14 @@ les outils associés.
 <dl>
 <dt>Inclusion globale : <code>#include &lt;filename&gt;</code></dt>
 <dd>
-<p>Dans ce cas, le préprocesseur recherche le fichier à inclure dans les chemins système prédéfinis (<code>/usr/include</code>, etc.), ainsi que dans ceux spécifiés par les options <code>-I</code> du compilateur ou la variable d'environnement <code>C_INCLUDE_PATH</code>.</p>
+<p>Dans ce cas, le préprocesseur recherche le fichier à inclure dans les chemins système prédéfinis (<code>/usr/include</code>, etc.), ainsi que dans ceux spécifiés par les options <code>-I</code> du compilateur ou la variable d'environnement <span class="ycr-hashtag" data-index-entry="C_INCLUDE_PATH" data-tag="C_INCLUDE_PATH"><code>C_INCLUDE_PATH</code></span>.</p>
 </dd>
 <dt>Inclusion locale : <code>#include "filename"</code></dt>
 <dd>
-<p>Ici, la recherche débute dans le répertoire courant, puis se poursuit dans les chemins définis par les options <code>-I</code> et la variable <code>C_INCLUDE_PATH</code>.</p>
+<p>Ici, la recherche débute dans le répertoire courant, puis se poursuit dans les chemins définis par les options <code>-I</code> et la variable <span class="ycr-hashtag" data-index-entry="C_INCLUDE_PATH" data-tag="C_INCLUDE_PATH"><code>C_INCLUDE_PATH</code></span>.</p>
 </dd>
 </dl>
-<p>L’inclusion de fichiers est un processus simple de concaténation : le contenu du fichier inclus est copié à l’emplacement de la directive <code>#include</code>. Toutefois, cela peut mener à des dépendances cycliques, provoquant des inclusions infinies. Par exemple, si un fichier <code>foo.h</code> s'inclut lui-même, le préprocesseur entrera dans une boucle sans fin, aboutissant à une erreur après un certain seuil :</p>
+<p>L’inclusion de fichiers est un processus simple de concaténation : le contenu du fichier inclus est copié à l’emplacement de la directive <code>#include</code>. Toutefois, cela peut mener à des dépendances cycliques, provoquant des inclusions infinies. Par exemple, si un fichier <span class="ycr-hashtag" data-index-entry="foo.h" data-tag="foo.h"><code>foo.h</code></span> s'inclut lui-même, le préprocesseur entrera dans une boucle sans fin, aboutissant à une erreur après un certain seuil :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'#include "foo.h"'</span><span class="w"> </span>&gt;<span class="w"> </span>foo.h
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>$<span class="w"> </span>gcc<span class="w"> </span>-E<span class="w"> </span>foo.h
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>head.h:1:18:<span class="w"> </span>error:<span class="w"> </span><span class="c1">#include nested depth 200 exceeds maximum of 200 (use</span>
@@ -5801,20 +5801,20 @@ les outils associés.
 </span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-7-6"><a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span></code></pre></div>
-<p>Cet ordre garantit que les dépendances des bibliothèques externes ou standard ne soient pas résolues par inadvertance grâce à une inclusion locale. Pour mieux illustrer, considérons un fichier <code>stack.h</code> qui définit une structure de pile :</p>
+<p>Cet ordre garantit que les dépendances des bibliothèques externes ou standard ne soient pas résolues par inadvertance grâce à une inclusion locale. Pour mieux illustrer, considérons un fichier <span class="ycr-hashtag" data-index-entry="stack.h" data-tag="stack.h"><code>stack.h</code></span> qui définit une structure de pile :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">#pragma once</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">stack_push</span><span class="p">(</span><span class="kt">int_least32_t</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
 </span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">stack_pop</span><span class="p">(</span><span class="kt">int_least32_t</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Ici, les types <code>bool</code> et <code>int_least32_t</code> ne sont pas définis dans ce fichier, car les inclusions de <code>&lt;stdbool.h&gt;</code> et <code>&lt;stdint.h&gt;</code> sont absentes. Si le fichier <code>main.c</code> les inclut avant <code>stack.h</code> :</p>
+<p>Ici, les types <span class="ycr-hashtag" data-index-entry="bool" data-tag="bool"><code>bool</code></span> et <span class="ycr-hashtag" data-index-entry="int_least32_t" data-tag="int_least32_t"><code>int_least32_t</code></span> ne sont pas définis dans ce fichier, car les inclusions de <code>&lt;stdbool.h&gt;</code> et <code>&lt;stdint.h&gt;</code> sont absentes. Si le fichier <span class="ycr-hashtag" data-index-entry="main.c" data-tag="main.c"><code>main.c</code></span> les inclut avant <span class="ycr-hashtag" data-index-entry="stack.h" data-tag="stack.h"><code>stack.h</code></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>
 </span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"stack.h"</span>
 </span></code></pre></div>
-<p>Aucune erreur ne sera générée. Cependant, <code>stack.h</code> dépend d'inclusions externes, ce qui est généralement à éviter. En incluant les fichiers locaux en premier, on s'assure de leur autonomie.</p>
+<p>Aucune erreur ne sera générée. Cependant, <span class="ycr-hashtag" data-index-entry="stack.h" data-tag="stack.h"><code>stack.h</code></span> dépend d'inclusions externes, ce qui est généralement à éviter. En incluant les fichiers locaux en premier, on s'assure de leur autonomie.</p>
 <p><a href="" id="preprocessor-define"></a></p>
 <h2 id="macros-define">Macros (<code>#define</code>)<a class="headerlink" href="#macros-define" title="Lien permanent">¤</a></h2>
 <p>Les macros sont des symboles généralement écrits en majuscule et qui sont remplacés par le préprocesseur. Ces définitions peuvent être utiles pour définir des constantes globales qui sont définies à la compilation et qui peuvent être utilisées comme des options de compilation. Par exemple, pour définir la taille d'une fenêtre de filtrage :</p>
@@ -5861,7 +5861,7 @@ les outils associés.
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Espace nécessaire</p>
-<p>Il est important de noter que l'espace entre le nom de la macro et les parenthèses est <strong>strictement nécessaire</strong>. En effet, si on écrit <code class="language-c highlight"><span class="cp">#define ADD(a + b)</span></code>, le préprocesseur générera une erreur car il considère que <code>ADD</code> est une macro.</p>
+<p>Il est important de noter que l'espace entre le nom de la macro et les parenthèses est <strong>strictement nécessaire</strong>. En effet, si on écrit <code class="language-c highlight"><span class="cp">#define ADD(a + b)</span></code>, le préprocesseur générera une erreur car il considère que <span class="ycr-hashtag" data-index-entry="ADD" data-tag="ADD"><code>ADD</code></span> est une macro.</p>
 </div>
 <h3 id="linearisation">Linéarisation<a class="headerlink" href="#linearisation" title="Lien permanent">¤</a></h3>
 <p>Le processus d'expansion des macros est une étape clé dans la façon dont le préprocesseur C interprète et remplace les macros définies avec <code>#define</code>. Ce processus est appelé <strong>linéarisation</strong>, car les macros sont substituées avant la compilation en suivant une logique linéaire et récursive. Prenons l'exemple de macros imbriquées :</p>
@@ -5873,7 +5873,7 @@ les outils associés.
 </span><span id="__span-16-6"><a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="macros-avec-arguments">Macros avec arguments<a class="headerlink" href="#macros-avec-arguments" title="Lien permanent">¤</a></h3>
-<p>Une <strong>macro</strong> peut prendre des paramètres et permettre de générer du code à la compilation par simple substitution de texte. Les macros sont souvent employées pour définir des fonctions simples qui ne nécessitent pas de typage explicite. Par exemple, pour implémenter une macro <code>MIN</code> qui retourne la valeur minimale entre deux arguments :</p>
+<p>Une <strong>macro</strong> peut prendre des paramètres et permettre de générer du code à la compilation par simple substitution de texte. Les macros sont souvent employées pour définir des fonctions simples qui ne nécessitent pas de typage explicite. Par exemple, pour implémenter une macro <span class="ycr-hashtag" data-index-entry="MIN" data-tag="MIN"><code>MIN</code></span> qui retourne la valeur minimale entre deux arguments :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">#define MIN(x, y) ((x) &lt; (y) ? (x) : (y))</span>
 </span></code></pre></div>
 <p>Le mécanisme de la macro repose uniquement sur un remplacement textuel :</p>
@@ -5900,11 +5900,11 @@ les outils associés.
 </span><span id="__span-20-5"><a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="k">else</span>
 </span><span id="__span-20-6"><a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Dans cet exemple, l'absence d'accolades dans l'instruction <code>if</code> fait que seule la première instruction est exécutée lorsque la condition <code>y &lt; 0</code> est vraie. Or, la macro <code>ERROR</code> contient deux instructions distinctes, ce qui conduit à un comportement incorrect.</p>
+<p>Dans cet exemple, l'absence d'accolades dans l'instruction <code>if</code> fait que seule la première instruction est exécutée lorsque la condition <code>y &lt; 0</code> est vraie. Or, la macro <span class="ycr-hashtag" data-index-entry="ERROR" data-tag="ERROR"><code>ERROR</code></span> contient deux instructions distinctes, ce qui conduit à un comportement incorrect.</p>
 <p>Une solution triviale consisterait à encapsuler les instructions de la macro dans des accolades :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cp">#define ERROR(str) { printf("Erreur: %s\r\n", str); log(str); }</span>
 </span></code></pre></div>
-<p>Cependant, cette approche présente des problèmes lorsqu’elle est utilisée dans des structures conditionnelles, comme un <code>if-else</code>. En effet, l'appel à la macro est suivi d'un point-virgule, et un bloc délimité par des accolades constitue une <strong>instruction composée</strong> (<em>compound statement</em>). L'ajout du point-virgule après la macro provoque alors une terminaison anticipée de l'instruction <code>if</code>, laissant le <code>else</code> sans correspondance :</p>
+<p>Cependant, cette approche présente des problèmes lorsqu’elle est utilisée dans des structures conditionnelles, comme un <code>if-else</code>. En effet, l'appel à la macro est suivi d'un point-virgule, et un bloc délimité par des accolades constitue une <strong>instruction composée</strong> (<em>compound statement</em>). L'ajout du point-virgule après la macro provoque alors une terminaison anticipée de l'instruction <code>if</code>, laissant le <span class="ycr-hashtag" data-index-entry="else" data-tag="else"><code>else</code></span> sans correspondance :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="w">    </span><span class="n">ERROR</span><span class="p">(</span><span class="s">"Zero division"</span><span class="p">);</span>
 </span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="k">else</span>
@@ -5917,7 +5917,7 @@ les outils associés.
 </span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="cp">} while (0)</span>
 </span></code></pre></div>
 <p>Cette construction crée une boucle vide qui s'exécute une seule fois, garantissant que la macro se comporte comme une instruction unique, même si elle contient plusieurs lignes. De plus, l'utilisation de <code>\</code> permet d'échapper le retour à la ligne pour conserver une lisibilité optimale tout en faisant comprendre au préprocesseur que tout le bloc est une seule ligne logique.</p>
-<p>Même avec une bonne encapsulation des macros, certains pièges subsistent, notamment l'utilisation des post/pré-incréments dans les arguments. Par exemple, considérons la macro <code>ABS</code> qui calcule la valeur absolue d’un nombre :</p>
+<p>Même avec une bonne encapsulation des macros, certains pièges subsistent, notamment l'utilisation des post/pré-incréments dans les arguments. Par exemple, considérons la macro <span class="ycr-hashtag" data-index-entry="ABS" data-tag="ABS"><code>ABS</code></span> qui calcule la valeur absolue d’un nombre :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cp">#define ABS(x) ((x) &gt;= 0 ? (x) : -(x))</span>
 </span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a>
 </span><span id="__span-24-3"><a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="k">return</span><span class="w"> </span><span class="n">ABS</span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="p">);</span>
@@ -5934,7 +5934,7 @@ les outils associés.
 </ol>
 <div class="admonition exercise checkbox">
 <p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Macro compromise ?<span class="exercise-title"></span></p>
-<p>Que retourne la fonction <code>foo</code> lors de son exécution avec le code suivant ?</p>
+<p>Que retourne la fonction <span class="ycr-hashtag" data-index-entry="foo" data-tag="foo"><code>foo</code></span> lors de son exécution avec le code suivant ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="cp">#define ABS(x) x &gt;= 0 ? x: -x</span>
 </span><span id="__span-26-2"><a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ABS</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
@@ -6054,12 +6054,12 @@ les outils associés.
 <p><a href="" id="preprocessor-if"></a>
 <a href="" id="preprocessor-ifdef"></a></p>
 <h3 id="_static_assert">_Static_assert<a class="headerlink" href="#_static_assert" title="Lien permanent">¤</a></h3>
-<p>Le mot-clé <code>_Static_assert</code> est une directive de préprocesseur introduite dans le standard C11. Elle permet de vérifier des conditions à la compilation. Contrairement à <code>#if</code>, <code>_Static_assert</code> génère une erreur de compilation si la condition n'est pas vérifiée. Par exemple, pour vérifier que la taille d'un tableau est supérieure à 10 :</p>
+<p>Le mot-clé <span class="ycr-hashtag" data-index-entry="_Static_assert" data-tag="_Static_assert"><code>_Static_assert</code></span> est une directive de préprocesseur introduite dans le standard C11. Elle permet de vérifier des conditions à la compilation. Contrairement à <code>#if</code>, <span class="ycr-hashtag" data-index-entry="_Static_assert" data-tag="_Static_assert"><code>_Static_assert</code></span> génère une erreur de compilation si la condition n'est pas vérifiée. Par exemple, pour vérifier que la taille d'un tableau est supérieure à 10 :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="k">_Static_assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s">"La taille du tableau est inférieure à 10"</span><span class="p">);</span>
 </span></code></pre></div>
 <p><a href="" id="preprocessor-va-args"></a></p>
 <h3 id="varadiques">Varadiques<a class="headerlink" href="#varadiques" title="Lien permanent">¤</a></h3>
-<p>Les macros varadiques permettent de définir des macros qui prennent un nombre variable d'arguments. Par exemple, pour définir une macro qui affiche un message avec un nombre variable d'arguments. Il s'agit d'une extension du standard <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>. Pour cela on utilise l'opérateur <code>...</code> suivi de <code>__VA_ARGS__</code> qui représente les arguments passés à la macro.</p>
+<p>Les macros varadiques permettent de définir des macros qui prennent un nombre variable d'arguments. Par exemple, pour définir une macro qui affiche un message avec un nombre variable d'arguments. Il s'agit d'une extension du standard <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>. Pour cela on utilise l'opérateur <code>...</code> suivi de <span class="ycr-hashtag" data-index-entry="__VA_ARGS__" data-tag="__VA_ARGS__"><code>__VA_ARGS__</code></span> qui représente les arguments passés à la macro.</p>
 <p>C'est utilisé par exemple pour créer des fonctions de débogage :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cp">#define DEBUG_LOG(level, fmt, ...) \</span>
 </span><span id="__span-28-2"><a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="cp">    printf("[%s] " fmt "\n", level, __VA_ARGS__)</span>
@@ -6076,7 +6076,7 @@ les outils associés.
 <li><code>#define FOO(x) (x * x)</code></li>
 </ol>
 <p>Formellement les deux sont des <strong>définitions de préprocesseur</strong> mais également des <strong>macros</strong>. En informatique une macro est un modif de substitution de texte pouvant prendre des arguments.</p>
-<p>Dans un sens plus large la première définition est souvent qualifiée de <strong>constante symbolique</strong> bien que ce ne soit pas une vraie constante (<code>const</code>) elle rempli un rôle similaire.</p>
+<p>Dans un sens plus large la première définition est souvent qualifiée de <strong>constante symbolique</strong> bien que ce ne soit pas une vraie constante (<span class="ycr-hashtag" data-index-entry="const" data-tag="const"><code>const</code></span>) elle rempli un rôle similaire.</p>
 <h2 id="directive-conditionnelle-if">Directive conditionnelle (<code>#if</code>)<a class="headerlink" href="#directive-conditionnelle-if" title="Lien permanent">¤</a></h2>
 <p>La directive conditionnelle <code>#if</code> permet de tester des expressions à la compilation. Elle est souvent utilisée pour définir des options de compilation en fonction des besoins.</p>
 <p>Prenons l'exemple d'un programme qui gère une grosse masse de messages. Ces derniers sont triés selon un critère spécifique et pour ce faire une fonction de tri est utilisée. Nous verrons plus tard que le tri est un sujet complexe et qu'un critère du choix d'un algorithme de tri est la stabilité. Un tri stable préserve l'ordre relatif des éléments qui ne sont pas distingués par le critère de tri. Par exemple, si on trie des personnes par leur âge, un tri stable préservera l'ordre des personnes de même âge. Si la stabilité n'est pas un critère, un tri instable peut être plus rapide. Pour cette raison, selon la nécessité d'utilisation du programme, il peut être pertinent de définir lors de la compilation s'il faut être très performant mais instable ou plus lent mais stable. Cela pourrait se faire avec :</p>
@@ -6122,7 +6122,7 @@ les outils associés.
 </span><span id="__span-34-12"><a href="#__codelineno-34-12" id="__codelineno-34-12" name="__codelineno-34-12"></a><span class="cp">#    endif</span>
 </span><span id="__span-34-13"><a href="#__codelineno-34-13" id="__codelineno-34-13" name="__codelineno-34-13"></a><span class="cp">#endif</span>
 </span></code></pre></div>
-<p>Par analogie à l'instruction <code>if</code>, il est possible d'utiliser <code>#else</code> (<code>else</code>)et <code>#elif</code> (<code>else if</code>) pour définir des alternatives :</p>
+<p>Par analogie à l'instruction <code>if</code>, il est possible d'utiliser <code>#else</code> (<span class="ycr-hashtag" data-index-entry="else" data-tag="else"><code>else</code></span>)et <code>#elif</code> (<code>else if</code>) pour définir des alternatives :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="cp">#define MODE_UPPERCASE 0</span>
 </span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="cp">#define MODE_LOWERCASE 1</span>
 </span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="cp">#define MODE_ARABIC 2</span>
@@ -6164,7 +6164,7 @@ les outils associés.
 </span><span id="__span-37-4"><a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="cp">#define FOO 1</span>
 </span></code></pre></div>
 <p>L'utilisation de <code>#undef</code> dans un programme est tout à fait légitime dans certains cas, mais elle doit être manipulée avec précaution.</p>
-<p>On peut citer par exemple la fameuse constante <code>M_PI</code> qui n'est pas définie par le standard C mais que la plupart des compilateurs définissent. Si vous avez besoin d'utiliser la valeur <span class="arithmatex">\(\pi\)</span> dans votre programme, vous pouvez soit utiliser par défaut la valeur définie par la bibliothèque si elle existe sinon la vôtre :</p>
+<p>On peut citer par exemple la fameuse constante <span class="ycr-hashtag" data-index-entry="M_PI" data-tag="M_PI"><code>M_PI</code></span> qui n'est pas définie par le standard C mais que la plupart des compilateurs définissent. Si vous avez besoin d'utiliser la valeur <span class="arithmatex">\(\pi\)</span> dans votre programme, vous pouvez soit utiliser par défaut la valeur définie par la bibliothèque si elle existe sinon la vôtre :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="cp">#ifndef M_PI</span>
 </span><span id="__span-38-2"><a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="cp">#    define M_PI 3.14159265358979323846</span>
 </span><span id="__span-38-3"><a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="cp">#endif</span>
@@ -6194,35 +6194,35 @@ les outils associés.
 <h2 id="macros-predefinies">Macros prédéfinies<a class="headerlink" href="#macros-predefinies" title="Lien permanent">¤</a></h2>
 <p>Le standard définit certains symboles utiles pour le débogage :</p>
 <dl>
-<dt><code>__LINE__</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="__LINE__" data-tag="__LINE__"><code>__LINE__</code></span></dt>
 <dd>
 <p>Est remplacé par le numéro de la ligne sur laquelle est placé ce symbole</p>
 </dd>
-<dt><code>__FILE__</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="__FILE__" data-tag="__FILE__"><code>__FILE__</code></span></dt>
 <dd>
 <p>Est remplacé par le nom du fichier sur lequel est placé ce symbole</p>
 </dd>
-<dt><code>__func__</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="__func__" data-tag="__func__"><code>__func__</code></span></dt>
 <dd>
 <p>Est remplacé par le nom de la fonction du bloc dans lequel la directive se trouve</p>
 </dd>
-<dt><code>__STDC__</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="__STDC__" data-tag="__STDC__"><code>__STDC__</code></span></dt>
 <dd>
 <p>Est remplacé par 1 pour indiquer que l'implémentation est compatible avec C90</p>
 </dd>
 <dt><code>__STDC_VERSION__</code></dt>
 <dd>
-<p>Est remplacé par la version du standard C utilisée par le compilateur, il s'agit d'un entier de la forme <code>AAAAMM</code> où <code>AAAA</code> est l'année et <code>MM</code> le mois. Par exemple pour C11, la valeur est <code>201112L</code></p>
+<p>Est remplacé par la version du standard C utilisée par le compilateur, il s'agit d'un entier de la forme <span class="ycr-hashtag" data-index-entry="AAAAMM" data-tag="AAAAMM"><code>AAAAMM</code></span> où <span class="ycr-hashtag" data-index-entry="AAAA" data-tag="AAAA"><code>AAAA</code></span> est l'année et <code>MM</code> le mois. Par exemple pour C11, la valeur est <code>201112L</code></p>
 </dd>
-<dt><code>__DATE__</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="__DATE__" data-tag="__DATE__"><code>__DATE__</code></span></dt>
 <dd>
 <p>Est remplacé par la date sous la forme <code>"Mmm dd yyyy"</code></p>
 </dd>
-<dt><code>__TIME__</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="__TIME__" data-tag="__TIME__"><code>__TIME__</code></span></dt>
 <dd>
 <p>Est remplacé par l'heure au moment du pre-processing <code>"hh:mm:ss"</code></p>
 </dd>
-<dt><code>__COUNTER__</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="__COUNTER__" data-tag="__COUNTER__"><code>__COUNTER__</code></span></dt>
 <dd>
 <p>Est remplacé par un entier qui s'incrémente à chaque fois qu'il est utilisé. C'est une directive non standard mais disponible dans GCC et Clang.</p>
 </dd>
@@ -6233,7 +6233,7 @@ les outils associés.
 </span></code></pre></div>
 <h2 id="caractere-dechappement">Caractère d'échappement<a class="headerlink" href="#caractere-dechappement" title="Lien permanent">¤</a></h2>
 <p>La plupart des instructions préprocesseur sont des instructions de ligne, c'est-à-dire qu'elles se terminent par un saut de ligne or parfois (notamment pour les macros), on souhaiterait écrire une instruction sur plusieurs lignes.</p>
-<p>L'anti-slash (<code>backslash</code>) suivi directement d'un retour à la ligne est interprété par le préprocesseur comme un saut de ligne virtuel. Il permet par exemple de casser les longues lignes :</p>
+<p>L'anti-slash (<span class="ycr-hashtag" data-index-entry="backslash" data-tag="backslash"><code>backslash</code></span>) suivi directement d'un retour à la ligne est interprété par le préprocesseur comme un saut de ligne virtuel. Il permet par exemple de casser les longues lignes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="cp">#define TRACE printf("Le programme est passé " \</span>
 </span><span id="__span-44-2"><a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a><span class="cp">    " dans le fichier %s" \</span>
 </span><span id="__span-44-3"><a href="#__codelineno-44-3" id="__codelineno-44-3" name="__codelineno-44-3"></a><span class="cp">    " ligne %d\n", \</span>
@@ -6273,7 +6273,7 @@ les outils associés.
 </span><span id="__span-47-11"><a href="#__codelineno-47-11" id="__codelineno-47-11" name="__codelineno-47-11"></a><span class="w">    </span><span class="n">GREET</span><span class="p">();</span>
 </span><span id="__span-47-12"><a href="#__codelineno-47-12" id="__codelineno-47-12" name="__codelineno-47-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Un autre usage courant est de définir le <em>mangling</em> des noms de fonctions pour une bibliothèque. Par exemple, si vous avez une bibliothèque qui définit une fonction <code>foo</code> et que vous voulez éviter les conflits de noms, vous pourriez définir une macro pour ajouter un préfixe et un suffixe :</p>
+<p>Un autre usage courant est de définir le <em>mangling</em> des noms de fonctions pour une bibliothèque. Par exemple, si vous avez une bibliothèque qui définit une fonction <span class="ycr-hashtag" data-index-entry="foo" data-tag="foo"><code>foo</code></span> et que vous voulez éviter les conflits de noms, vous pourriez définir une macro pour ajouter un préfixe et un suffixe :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-48-1"><a href="#__codelineno-48-1" id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="cp">#define MANGLE(name) prefix_ ## name ## _suffix</span>
 </span><span id="__span-48-2"><a href="#__codelineno-48-2" id="__codelineno-48-2" name="__codelineno-48-2"></a>
 </span><span id="__span-48-3"><a href="#__codelineno-48-3" id="__codelineno-48-3" name="__codelineno-48-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">MANGLE</span><span class="p">(</span><span class="n">foo</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -6284,7 +6284,7 @@ les outils associés.
 </span><span id="__span-48-8"><a href="#__codelineno-48-8" id="__codelineno-48-8" name="__codelineno-48-8"></a><span class="w">    </span><span class="n">MANGLE</span><span class="p">(</span><span class="n">foo</span><span class="p">)();</span>
 </span><span id="__span-48-9"><a href="#__codelineno-48-9" id="__codelineno-48-9" name="__codelineno-48-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Rappelez-vous que le langage C ne permet pas de définir des fonctions avec le même nom même si elles ont des signatures différentes et même si elles sont dans deux fichiers séparés. Un paramètre de configuration <code>MANGLE</code> permettrait de spécifier à la compilation d'une bibliothèque le préfixe à ajouter à toutes les fonctions de la bibliothèque.</p>
+<p>Rappelez-vous que le langage C ne permet pas de définir des fonctions avec le même nom même si elles ont des signatures différentes et même si elles sont dans deux fichiers séparés. Un paramètre de configuration <span class="ycr-hashtag" data-index-entry="MANGLE" data-tag="MANGLE"><code>MANGLE</code></span> permettrait de spécifier à la compilation d'une bibliothèque le préfixe à ajouter à toutes les fonctions de la bibliothèque.</p>
 <p><a href="" id="preprocessor-hash"></a></p>
 <h2 id="conversion-en-chaine">Conversion en chaîne<a class="headerlink" href="#conversion-en-chaine" title="Lien permanent">¤</a></h2>
 <p>Il est possible de convertir un symbole en chaîne de caractères avec l'opérateur <code>#</code> :</p>
@@ -6321,7 +6321,7 @@ les outils associés.
 <p><a href="" id="preprocessor-include-guard"></a></p>
 <h2 id="include-guard">Include guard<a class="headerlink" href="#include-guard" title="Lien permanent">¤</a></h2>
 <p>Comme évoqué plus haut, les fichiers d'en-tête peuvent être inclus plusieurs fois dans un programme ce qui peut poser des problèmes de redéfinition de symboles ou d'erreurs de dépendences cycliques. En informatique on parle volontiers d'<strong>idempotence</strong> pour désigner une opération qui peut être appliquée plusieurs fois sans changer le résultat au-delà de la première application. Inclure une ou plusieurs fois un même fichier d'en-tête ne doit pas changer le résultat de la compilation.</p>
-<p>Pour ce faire, on utilise des garde-fous (<em>guards</em>) pour protéger les fichiers d'en-tête. Imaginons que la constante <code>M_PI</code> soit définie dans le header <code>&lt;math.h&gt;</code>:</p>
+<p>Pour ce faire, on utilise des garde-fous (<em>guards</em>) pour protéger les fichiers d'en-tête. Imaginons que la constante <span class="ycr-hashtag" data-index-entry="M_PI" data-tag="M_PI"><code>M_PI</code></span> soit définie dans le header <code>&lt;math.h&gt;</code>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-53-1"><a href="#__codelineno-53-1" id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="cp">#define M_PI  3.14159265358979323846</span>
 </span></code></pre></div>
 <p>Si ce fichier d'en-tête est inclus à nouveau, le préprocesseur générera une erreur, car le symbole est déjà défini. Pour éviter ce genre d'erreur, les fichiers d'en-tête sont protégés par un garde :</p>
@@ -6332,9 +6332,9 @@ les outils associés.
 </span><span id="__span-54-5"><a href="#__codelineno-54-5" id="__codelineno-54-5" name="__codelineno-54-5"></a>
 </span><span id="__span-54-6"><a href="#__codelineno-54-6" id="__codelineno-54-6" name="__codelineno-54-6"></a><span class="cp">#endif </span><span class="c1">// MATH_H</span>
 </span></code></pre></div>
-<p>Si le fichier a déjà été inclus, la définition <code>MATH_H</code> sera déjà déclarée et le fichier d'en-tête ne sera pas ré-inclus.</p>
-<p>Le consensus veut que le nom du garde soit le nom du fichier en majuscule avec des underscores à la place des points et des tirets. Par exemple, pour le fichier <code>foo/bar.h</code> on utilisera <code>FOO_BAR_H</code>. On ajoutera également un commentaire pour indiquer la fin du garde. J'ai personnellement un avis assez défavorable sur cette pratique, car elle engeandre un problème de source de vérité. En effet, si le nom du fichier change, il faudra également changer le nom du garde et je peux vous garantir que bien souvent l'un est réalisé sans l'autre. Cela pose également un problème de suivi de modifications sous Git.</p>
-<p>Alternativement une solution est d'avoir une chaîne de caractère unique pour chaque fichier d'en-tête. Cela peut être réalisé en s'énervant sur le clavier. Il y a peu de chance de retrouver une telle chaîne dans un autre fichier. Néanmoins, il est aussi possible de générer une telle chaîne de manière automatique avec un outil comme <code>uuidgen</code> ou <code>openssl rand -hex 16</code>.</p>
+<p>Si le fichier a déjà été inclus, la définition <span class="ycr-hashtag" data-index-entry="MATH_H" data-tag="MATH_H"><code>MATH_H</code></span> sera déjà déclarée et le fichier d'en-tête ne sera pas ré-inclus.</p>
+<p>Le consensus veut que le nom du garde soit le nom du fichier en majuscule avec des underscores à la place des points et des tirets. Par exemple, pour le fichier <code>foo/bar.h</code> on utilisera <span class="ycr-hashtag" data-index-entry="FOO_BAR_H" data-tag="FOO_BAR_H"><code>FOO_BAR_H</code></span>. On ajoutera également un commentaire pour indiquer la fin du garde. J'ai personnellement un avis assez défavorable sur cette pratique, car elle engeandre un problème de source de vérité. En effet, si le nom du fichier change, il faudra également changer le nom du garde et je peux vous garantir que bien souvent l'un est réalisé sans l'autre. Cela pose également un problème de suivi de modifications sous Git.</p>
+<p>Alternativement une solution est d'avoir une chaîne de caractère unique pour chaque fichier d'en-tête. Cela peut être réalisé en s'énervant sur le clavier. Il y a peu de chance de retrouver une telle chaîne dans un autre fichier. Néanmoins, il est aussi possible de générer une telle chaîne de manière automatique avec un outil comme <span class="ycr-hashtag" data-index-entry="uuidgen" data-tag="uuidgen"><code>uuidgen</code></span> ou <code>openssl rand -hex 16</code>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-55-1"><a href="#__codelineno-55-1" id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="cp">#ifndef FJHJFDKLHSKIOUZEZEUWEHDLKSH</span>
 </span><span id="__span-55-2"><a href="#__codelineno-55-2" id="__codelineno-55-2" name="__codelineno-55-2"></a><span class="cp">#define FJHJFDKLHSKIOUZEZEUWEHDLKSH</span>
 </span><span id="__span-55-3"><a href="#__codelineno-55-3" id="__codelineno-55-3" name="__codelineno-55-3"></a>
@@ -6360,15 +6360,15 @@ les outils associés.
 </span><span id="__span-58-6"><a href="#__codelineno-58-6" id="__codelineno-58-6" name="__codelineno-58-6"></a><span class="cp">#pragma pack(pop)</span>
 </span></code></pre></div>
 <p>Comme les pragmas ne sont pas standardisées, il est recommandé de les utiliser avec parcimonie et de les documenter correctement.</p>
-<p>Notons que si l'on souhaite définir un pragma au sein d'une directive préprocesseur tel qu'une macro, il faudra utiliser l'opérateur unaire <code>_Pragma</code> :</p>
+<p>Notons que si l'on souhaite définir un pragma au sein d'une directive préprocesseur tel qu'une macro, il faudra utiliser l'opérateur unaire <span class="ycr-hashtag" data-index-entry="_Pragma" data-tag="_Pragma"><code>_Pragma</code></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-59-1"><a href="#__codelineno-59-1" id="__codelineno-59-1" name="__codelineno-59-1"></a><span class="cp">#define PRAGMA(x) _Pragma(#x)</span>
 </span></code></pre></div>
 <p><a href="" id="preprocessor-exceptions"></a></p>
 <h2 id="simulation-dexceptions">Simulation d'exceptions<a class="headerlink" href="#simulation-dexceptions" title="Lien permanent">¤</a></h2>
 <p>Dans des langages de plus haut niveau comme le C++, le Python ou le Java, il existe un mécanisme nommé exception qui permet de gérer des erreurs plus efficacement. Au lieu de retourner une valeur d'erreur, on lève une exception qui sera attrapée plus haut dans la chaîne d'appel.</p>
-<p>En C il n'existe pas de mécanisme d'exception, mais il est possible de simuler ce comportement avec des macros et l'instruction <code>setjmp</code> et <code>longjmp</code> de la librairie standard. <code>setjmp</code> permet de sauvegarder l'état du programme à un endroit donné et <code>longjmp</code> permet de revenir à cet endroit en sautant les appels de fonctions intermédiaires. Il faut voir <code>longjmp</code> comme un <code>goto</code> encore plus dangereux.</p>
+<p>En C il n'existe pas de mécanisme d'exception, mais il est possible de simuler ce comportement avec des macros et l'instruction <span class="ycr-hashtag" data-index-entry="setjmp" data-tag="setjmp"><code>setjmp</code></span> et <span class="ycr-hashtag" data-index-entry="longjmp" data-tag="longjmp"><code>longjmp</code></span> de la librairie standard. <span class="ycr-hashtag" data-index-entry="setjmp" data-tag="setjmp"><code>setjmp</code></span> permet de sauvegarder l'état du programme à un endroit donné et <span class="ycr-hashtag" data-index-entry="longjmp" data-tag="longjmp"><code>longjmp</code></span> permet de revenir à cet endroit en sautant les appels de fonctions intermédiaires. Il faut voir <span class="ycr-hashtag" data-index-entry="longjmp" data-tag="longjmp"><code>longjmp</code></span> comme un <span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span> encore plus dangereux.</p>
 <p>Cette utilisation n'est pas recommendée car elle peut rendre le code plus obscure et plus difficile à maintenir. Néanmoins dans certains cas de figure, notament pour des programmes embarqués, cette technique peut se révéler très utile.</p>
-<p>On définit tout d'abord les macros suivantes dans un fichier <code>exception.h</code> :</p>
+<p>On définit tout d'abord les macros suivantes dans un fichier <span class="ycr-hashtag" data-index-entry="exception.h" data-tag="exception.h"><code>exception.h</code></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-60-1"><a href="#__codelineno-60-1" id="__codelineno-60-1" name="__codelineno-60-1"></a><span class="cp">#pragma once</span>
 </span><span id="__span-60-2"><a href="#__codelineno-60-2" id="__codelineno-60-2" name="__codelineno-60-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;setjmp.h&gt;</span>
 </span><span id="__span-60-3"><a href="#__codelineno-60-3" id="__codelineno-60-3" name="__codelineno-60-3"></a>
@@ -6396,7 +6396,7 @@ les outils associés.
 </span><span id="__span-61-16"><a href="#__codelineno-61-16" id="__codelineno-61-16" name="__codelineno-61-16"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="n">ETRY</span><span class="p">;</span>
 </span><span id="__span-61-17"><a href="#__codelineno-61-17" id="__codelineno-61-17" name="__codelineno-61-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Dans cet exemple, si la fonction <code>qux</code> lève une exception, le programme sautera à la ligne <code>CATCH</code> et affichera <code>An error occured</code> en court-circuitant les appels de fonctions intermédiaires.</p>
+<p>Dans cet exemple, si la fonction <span class="ycr-hashtag" data-index-entry="qux" data-tag="qux"><code>qux</code></span> lève une exception, le programme sautera à la ligne <span class="ycr-hashtag" data-index-entry="CATCH" data-tag="CATCH"><code>CATCH</code></span> et affichera <code>An error occured</code> en court-circuitant les appels de fonctions intermédiaires.</p>
 <p>Notez que cette technique est très dangereuse dans le cas de programmes utilisant l'allocation dynamique de mémoire. En effet, si une exception est levée alors que de la mémoire a été allouée, il y aura des fuites mémoires.</p>
 
 

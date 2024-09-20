@@ -9,7 +9,7 @@
     --md-code-font: "Noto Sans Mono", monospace;
 }
 
-/* Fixing spacing in hom buttons */
+/* Fixing spacing in home buttons */
 .mdx-hero .md-button {
     margin-bottom: 0.5em;
 }
@@ -22,6 +22,7 @@
 /* Fix spacing in tags, to make them not touch each other */
 .md-typeset .md-tag {
     margin-right: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 blockquote.epigraph {

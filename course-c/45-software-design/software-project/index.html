@@ -3861,7 +3861,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3877,7 +3877,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5353,8 +5353,8 @@ les outils associés.
 <div class="admonition note">
 <p class="admonition-title">Les Majuscules</p>
 <p>Les noms de fichiers et de dossiers sont sensibles à la casse sur les systèmes <abbr title="Portable Operating System Interface">POSIX</abbr> mais pas sous Windows. Cela crée certains problèmes de compatibilité entre les systèmes d'exploitation.</p>
-<p>D'autre part, l'usage des majuscules peut créer des ambiguïtés. Par exemple, <code>NomDuFichier</code> et <code>nomdufichier</code> sont deux noms différents. Comment allez-vous expliquer par téléphone à un collègue que le fichier s'écrit de cette manière ? L'ennui c'est les acronymes. Par exemple, XMLParser, XmlParser ou XMLparser ? Vous aurez tendance à choisir la troisième solution pour que <code>XML</code> ressort bien mais vous êtes incohérent puisque vous avez pas utilisé de majuscul pour <code>Parser</code>.</p>
-<p>Le problème est bien résolu avec l'utilisation d'underscores ou de tirets (notation kekbab-case ou snake_case). Par exemple, <code>xml_parser</code> est plus lisible et plus facile à expliquer.</p>
+<p>D'autre part, l'usage des majuscules peut créer des ambiguïtés. Par exemple, <span class="ycr-hashtag" data-index-entry="NomDuFichier" data-tag="NomDuFichier"><code>NomDuFichier</code></span> et <span class="ycr-hashtag" data-index-entry="nomdufichier" data-tag="nomdufichier"><code>nomdufichier</code></span> sont deux noms différents. Comment allez-vous expliquer par téléphone à un collègue que le fichier s'écrit de cette manière ? L'ennui c'est les acronymes. Par exemple, XMLParser, XmlParser ou XMLparser ? Vous aurez tendance à choisir la troisième solution pour que <span class="ycr-hashtag" data-index-entry="XML" data-tag="XML"><code>XML</code></span> ressort bien mais vous êtes incohérent puisque vous avez pas utilisé de majuscul pour <span class="ycr-hashtag" data-index-entry="Parser" data-tag="Parser"><code>Parser</code></span>.</p>
+<p>Le problème est bien résolu avec l'utilisation d'underscores ou de tirets (notation kekbab-case ou snake_case). Par exemple, <span class="ycr-hashtag" data-index-entry="xml_parser" data-tag="xml_parser"><code>xml_parser</code></span> est plus lisible et plus facile à expliquer.</p>
 <p>Une convention en voque est de nommer les fichiers en minuscules et d'utiliser des tirets pour séparer les mots. Par exemple, <code>xml-parser</code>. C'est la convention utilisée sur GitHub pour le nom des dépôts.</p>
 </div>
 <p>Voici une structure de projet classique :</p>
@@ -5372,10 +5372,10 @@ les outils associés.
 </span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>├── Makefile
 </span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>└── README.md
 </span></code></pre></div>
-<p>Le point d'entrée pour le développeur c'est le fichier <code>README.md</code>. Ce fichier contient une description du projet, des instructions pour l'installation, des instructions pour la compilation, des instructions pour les tests, etc.</p>
+<p>Le point d'entrée pour le développeur c'est le fichier <span class="ycr-hashtag" data-index-entry="README.md" data-tag="README.md"><code>README.md</code></span>. Ce fichier contient une description du projet, des instructions pour l'installation, des instructions pour la compilation, des instructions pour les tests, etc.</p>
 <h3 id="readmemd">README.md<a class="headerlink" href="#readmemd" title="Lien permanent">¤</a></h3>
-<p>Jadis, le fichier <code>README</code> était un fichier texte simple. Aujourd'hui, c'est un fichier <code>Markdown</code>. Le <code>Markdown</code> est un langage de balisage léger créé en 2004 par John Gruber et Aaron Swartz. Il est facile à lire et à écrire. Il est utilisé sur de très nombreux supports : GitHub, GitLab, Bitbucket, Reddit, Stack Overflow, etc. C'est d'ailleurs le format utilisé pour rédiger cet ouvrage.</p>
-<p>Voici un exemple de fichier <code>README.md</code> :</p>
+<p>Jadis, le fichier <span class="ycr-hashtag" data-index-entry="README" data-tag="README"><code>README</code></span> était un fichier texte simple. Aujourd'hui, c'est un fichier <span class="ycr-hashtag" data-index-entry="Markdown" data-tag="Markdown"><code>Markdown</code></span>. Le <span class="ycr-hashtag" data-index-entry="Markdown" data-tag="Markdown"><code>Markdown</code></span> est un langage de balisage léger créé en 2004 par John Gruber et Aaron Swartz. Il est facile à lire et à écrire. Il est utilisé sur de très nombreux supports : GitHub, GitLab, Bitbucket, Reddit, Stack Overflow, etc. C'est d'ailleurs le format utilisé pour rédiger cet ouvrage.</p>
+<p>Voici un exemple de fichier <span class="ycr-hashtag" data-index-entry="README.md" data-tag="README.md"><code>README.md</code></span> :</p>
 <div class="language-markdown highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="gh"># Nom du Projet</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>Description du projet.
@@ -5393,7 +5393,7 @@ les outils associés.
 <p>Comment utiliser le projet :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>./projet
 </span></code></pre></div>
-<p>Le fichier <code>README.md</code> est un fichier important. Il doit être à jour et bien rédigé car c'est la première chose que l'on voit lorsqu'on arrive sur le dépôt du projet. Il doit permettre à l'utilisateur rapidement :</p>
+<p>Le fichier <span class="ycr-hashtag" data-index-entry="README.md" data-tag="README.md"><code>README.md</code></span> est un fichier important. Il doit être à jour et bien rédigé car c'est la première chose que l'on voit lorsqu'on arrive sur le dépôt du projet. Il doit permettre à l'utilisateur rapidement :</p>
 <ol>
 <li>Que fait le projet et quelle est son utilité ?</li>
 <li>Est-ce que ce projet est fait pour moi ?</li>
@@ -5402,7 +5402,7 @@ les outils associés.
 <li>Comment contribuer ?</li>
 </ol>
 <h3 id="dotfiles">Dotfiles<a class="headerlink" href="#dotfiles" title="Lien permanent">¤</a></h3>
-<p>Dans un système <abbr title="Portable Operating System Interface">POSIX</abbr>, les fichiers commençant par un point sont des fichiers cachés. C'est une convention utilisée pour les fichiers de configuration. Ces fichiers sont appelés <code>dotfiles</code>.</p>
+<p>Dans un système <abbr title="Portable Operating System Interface">POSIX</abbr>, les fichiers commençant par un point sont des fichiers cachés. C'est une convention utilisée pour les fichiers de configuration. Ces fichiers sont appelés <span class="ycr-hashtag" data-index-entry="dotfiles" data-tag="dotfiles"><code>dotfiles</code></span>.</p>
 <p>On va trouver toute une panoplie de fichiers de configuration dans un projet logiciel tel que :</p>
 <ul>
 <li><code>.gitignore</code> : liste des fichiers à ignorer par Git.</li>
@@ -5411,19 +5411,19 @@ les outils associés.
 <li><code>.env</code> : variables d'environnement pour le projet.</li>
 </ul>
 <h3 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Lien permanent">¤</a></h3>
-<p>Le <code>Makefile</code> est un fichier de configuration pour le programme <code>make</code>. C'est généralement le point d'entrée pour construire un projet. Si vous trouvez un <code>Makefile</code>, vous savez que vous pourrez très probablement simplement utiliser la commande <code>make</code> pour construire le projet.</p>
-<p>Néanmoins, parfois le <code>Makefile</code> n'est pas suffisant car votre projet est plus complexe et dépend de plusieurs bibliothèques tierces qui peuvent être fastidieuses à installer. C'est là qu'interviennent les gestionnaires de dépendances que nous verrons plus tard.</p>
-<p>Alternativement, on peut trouver simplement un script <code>build.sh</code> ou <code>build.bat</code> pour construire le projet que vous appelerer avec <code>./build.sh</code> ou <code>.\build.bat</code>.</p>
+<p>Le <span class="ycr-hashtag" data-index-entry="Makefile" data-tag="Makefile"><code>Makefile</code></span> est un fichier de configuration pour le programme <span class="ycr-hashtag" data-index-entry="make" data-tag="make"><code>make</code></span>. C'est généralement le point d'entrée pour construire un projet. Si vous trouvez un <span class="ycr-hashtag" data-index-entry="Makefile" data-tag="Makefile"><code>Makefile</code></span>, vous savez que vous pourrez très probablement simplement utiliser la commande <span class="ycr-hashtag" data-index-entry="make" data-tag="make"><code>make</code></span> pour construire le projet.</p>
+<p>Néanmoins, parfois le <span class="ycr-hashtag" data-index-entry="Makefile" data-tag="Makefile"><code>Makefile</code></span> n'est pas suffisant car votre projet est plus complexe et dépend de plusieurs bibliothèques tierces qui peuvent être fastidieuses à installer. C'est là qu'interviennent les gestionnaires de dépendances que nous verrons plus tard.</p>
+<p>Alternativement, on peut trouver simplement un script <span class="ycr-hashtag" data-index-entry="build.sh" data-tag="build.sh"><code>build.sh</code></span> ou <span class="ycr-hashtag" data-index-entry="build.bat" data-tag="build.bat"><code>build.bat</code></span> pour construire le projet que vous appelerer avec <code>./build.sh</code> ou <code>.\build.bat</code>.</p>
 <h3 id="organisation-des-fichiers-sources">Organisation des fichiers sources<a class="headerlink" href="#organisation-des-fichiers-sources" title="Lien permanent">¤</a></h3>
-<p>Lorsque le projet dépasse 5 à 10 fichiers, il est habituel de les déplacer dans un dossier pour ne pas encombrer la racine du projet. On crée un dossier <code>src</code> pour les fichiers sources qui va contenir tous les fichiers <code>.c</code>.</p>
-<p>Faut-il séparer les fichiers sources des fichiers d'en-tête ? C'est une question de goût. Certains développeurs préfèrent tout mettre dans un seul dossier <code>src</code> pour simplifier la navigation. D'autres préfèrent séparer les fichiers sources des fichiers d'en-tête. Cela permet de mieux organiser le projet et de mieux gérer les dépendances. Il n'y a pas de consensus établi mais on peut noter plusieurs points.</p>
+<p>Lorsque le projet dépasse 5 à 10 fichiers, il est habituel de les déplacer dans un dossier pour ne pas encombrer la racine du projet. On crée un dossier <span class="ycr-hashtag" data-index-entry="src" data-tag="src"><code>src</code></span> pour les fichiers sources qui va contenir tous les fichiers <code>.c</code>.</p>
+<p>Faut-il séparer les fichiers sources des fichiers d'en-tête ? C'est une question de goût. Certains développeurs préfèrent tout mettre dans un seul dossier <span class="ycr-hashtag" data-index-entry="src" data-tag="src"><code>src</code></span> pour simplifier la navigation. D'autres préfèrent séparer les fichiers sources des fichiers d'en-tête. Cela permet de mieux organiser le projet et de mieux gérer les dépendances. Il n'y a pas de consensus établi mais on peut noter plusieurs points.</p>
 <p>Lorsqu'un projet est destiné à devenir une bibliothèque partagée, vous devez fournir les fichiers d'en-tête pour que les autres développeurs puissent utiliser votre bibliothèque. S'ils sont séparés, c'est plus facile de les extraire et les distribuer.</p>
-<p>Néanmoins, séplacer les fichiers d'en-tête dans un dossier <code>include</code> nécessite d'informer le compilateur de l'emplacement des fichiers d'en-tête. C'est généralement fait avec l'option <code>-I</code> de GCC :</p>
+<p>Néanmoins, séplacer les fichiers d'en-tête dans un dossier <span class="ycr-hashtag" data-index-entry="include" data-tag="include"><code>include</code></span> nécessite d'informer le compilateur de l'emplacement des fichiers d'en-tête. C'est généralement fait avec l'option <code>-I</code> de GCC :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>gcc<span class="w"> </span>-Iinclude<span class="w"> </span>-c<span class="w"> </span>src/*.c
 </span></code></pre></div>
 <h3 id="repertoire-de-construction">Répertoire de construction<a class="headerlink" href="#repertoire-de-construction" title="Lien permanent">¤</a></h3>
-<p>Lorsque vous compilez un projet, vous allez générer des fichiers intermédiaires (fichiers objets) et des fichiers finaux (exécutables, bibliothèques). Selon le projet il peut y avoir beaucoup de fichiers. Afin d'éviter de ne voir ces fichiers dans votre explorateur de fichiers, on crée un dossier <code>build</code> pour les stocker.</p>
-<p>Ceci est une convention. Vous pouvez choisir un autre nom pour ce dossier. Par exemple, <code>bin</code>, <code>out</code>, <code>dist</code>, etc.</p>
+<p>Lorsque vous compilez un projet, vous allez générer des fichiers intermédiaires (fichiers objets) et des fichiers finaux (exécutables, bibliothèques). Selon le projet il peut y avoir beaucoup de fichiers. Afin d'éviter de ne voir ces fichiers dans votre explorateur de fichiers, on crée un dossier <span class="ycr-hashtag" data-index-entry="build" data-tag="build"><code>build</code></span> pour les stocker.</p>
+<p>Ceci est une convention. Vous pouvez choisir un autre nom pour ce dossier. Par exemple, <span class="ycr-hashtag" data-index-entry="bin" data-tag="bin"><code>bin</code></span>, <span class="ycr-hashtag" data-index-entry="out" data-tag="out"><code>out</code></span>, <span class="ycr-hashtag" data-index-entry="dist" data-tag="dist"><code>dist</code></span>, etc.</p>
 <p>Néanmoins, il faut d'une part penser à ajouter ce dossier dans le <code>.gitignore</code> pour ne pas le versionner, mais également modifier la configuration de votre compilateur pour qu'il place les fichiers objets dans ce dossier :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>build
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>gcc<span class="w"> </span>-Iinclude<span class="w"> </span>-c<span class="w"> </span>src/*.c<span class="w"> </span>-o<span class="w"> </span>build/*.o
@@ -5499,10 +5499,10 @@ les outils associés.
 </dd>
 <dt><code>@copyright</code></dt>
 <dd>
-<p>C'est une information importante. Elle permet de savoir comment le fichier peut être utilisé. Néanmoins, il est rare que pour un projet donné, le copyright et la licence changent d'un fichier à l'autre, il est donc plus judicieux de mettre cette information dans le <code>README</code> ou mieux dans un fichier <code>LICENSE</code>.</p>
+<p>C'est une information importante. Elle permet de savoir comment le fichier peut être utilisé. Néanmoins, il est rare que pour un projet donné, le copyright et la licence changent d'un fichier à l'autre, il est donc plus judicieux de mettre cette information dans le <span class="ycr-hashtag" data-index-entry="README" data-tag="README"><code>README</code></span> ou mieux dans un fichier <span class="ycr-hashtag" data-index-entry="LICENSE" data-tag="LICENSE"><code>LICENSE</code></span>.</p>
 </dd>
 </dl>
-<p>Maintenant que nous avons balayé l'en-tête, concentrons-nous sur la fonction <code>add</code>. Cette fonction fait 3 lignes et le commentaire 8 lignes. Est-ce réellement nécessaire de documenter une fonction que tout le monde peut comprendre ?</p>
+<p>Maintenant que nous avons balayé l'en-tête, concentrons-nous sur la fonction <span class="ycr-hashtag" data-index-entry="add" data-tag="add"><code>add</code></span>. Cette fonction fait 3 lignes et le commentaire 8 lignes. Est-ce réellement nécessaire de documenter une fonction que tout le monde peut comprendre ?</p>
 <p>La réponse n'est pas si simple. Si vous publier le code source avec votre bibliothèque, la réponse est non car n'importe qui pourra la comprendre. Néanmoins votre bibliothèque est publiée sans le code source, la seule chose que votre utlisateur aura c'est le fichier d'en-tête (<code>.h</code>) :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 </span></code></pre></div>
@@ -5513,7 +5513,7 @@ les outils associés.
 </span></code></pre></div>
 <p>Je vous l'accorde, c'est un peu long, mais ça à le mérire d'être parfaitement clair.</p>
 <p>Questionnons maintenant les séparateurs de contenu. Lorsque vous débutez en programmation, vous avez tendance à vous faire mousser un peu en écrivant plus que le nécessaire, écrire des commentaires c'est sans risque et cela rallonge votre beau programme. Alors pour bien structurer votre code, vous avez mis des séparateurs de contenu. Néanmoins ils n'apportent pas grand chose. En Python par exemple, la norme propose d'ajouter deux retour à la ligne entre chaque fonction. C'est une convention qui est largement suffisante pour séparer les différents éléments du code.</p>
-<p>Enfin, la dernière question est de savoir si le commentaire de la structure <code>Point</code> est utile. Pour cette structure qui est très simple, on pourrait se passer de commentaires, mais dans le cas ou les éléments nécessitent d'être expliqués, c'est la notation Doxygen qui peut être discutée.</p>
+<p>Enfin, la dernière question est de savoir si le commentaire de la structure <span class="ycr-hashtag" data-index-entry="Point" data-tag="Point"><code>Point</code></span> est utile. Pour cette structure qui est très simple, on pourrait se passer de commentaires, mais dans le cas ou les éléments nécessitent d'être expliqués, c'est la notation Doxygen qui peut être discutée.</p>
 <p>Doxygen utilise la notation <code class="language-c highlight"><span class="c1">//!</span></code> pour les commentaires de documentation. C'est une notation spéciale qui a la facheuse tendance s'afficher en rouge vif dans certains éditeurs de texte. Si vous n'utilisez pas Doxygen, il est préférable de ne pas utiliser cette notation. Il est préférable de rester sur la notation <code class="language-c highlight"><span class="c1">//</span></code> qui est plus universelle.</p>
 <p>Après ces longues explications, je vous propose de vous redonner l'exemple simplifié :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/**</span>
@@ -5538,7 +5538,7 @@ les outils associés.
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="cm">/*                    FIN DU FICHIER                     */</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="cm">/*********************************************************/</span>
 </span></code></pre></div>
-<p>Diable ! Pourquoi trouve-t-on toujours un commentaire <code>FIN</code> à la fin des fichiers ? C'est une pratique qui remonte à l'époque des cartes perforées. Les cartes perforées étaient utilisées pour stocker les programmes. Chaque carte avait un numéro de ligne et un numéro de colonne. Pour éviter de mélanger les cartes, on mettait un commentaire <code>FIN</code> à la fin de chaque carte. C'est une pratique ancestrale qui a perduré jusqu'à aujourd'hui. Les développeurs répètent inlassablement ces habitudes sans toutefois les remettre en question.</p>
+<p>Diable ! Pourquoi trouve-t-on toujours un commentaire <span class="ycr-hashtag" data-index-entry="FIN" data-tag="FIN"><code>FIN</code></span> à la fin des fichiers ? C'est une pratique qui remonte à l'époque des cartes perforées. Les cartes perforées étaient utilisées pour stocker les programmes. Chaque carte avait un numéro de ligne et un numéro de colonne. Pour éviter de mélanger les cartes, on mettait un commentaire <span class="ycr-hashtag" data-index-entry="FIN" data-tag="FIN"><code>FIN</code></span> à la fin de chaque carte. C'est une pratique ancestrale qui a perduré jusqu'à aujourd'hui. Les développeurs répètent inlassablement ces habitudes sans toutefois les remettre en question.</p>
 <p>Aujourd'hui, un fichier est fini au sens que lorsqu'on en atteint la fin, on le sait. Il n'est alors pas pertinent de le préciser.</p>
 <p>C'est un peu la même chose que ces pages dans les livres laissées blanches, ou presque, avec un commentaire <em>« Cette page a été intentionnellement laissée blanche »</em> qui remontait à l'époque de l'impression en offset. Lorsqu'on imprimait un livre, on imprimait les pages par feuille de 16 pages. Si le livre faisait 200 pages, il fallait ajouter 4 pages blanches à la fin pour que l'impression soit correcte. Aujourd'hui, les livres sont imprimés en numérique et il n'y a plus besoin de ces pages blanches.</p>
 </div>
@@ -5562,12 +5562,12 @@ les outils associés.
 <p>Pour déployer votre environnement de développement, vous devez exporter ces variables d'environnement. Vous pouvez le faire dans votre terminal ou dans un fichier de configuration de votre terminal (<code>.bashrc</code>, <code>.zshrc</code>, etc.).</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nb">export</span><span class="w"> </span><span class="k">$(</span>cat<span class="w"> </span>.env<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="k">)</span>
 </span></code></pre></div>
-<p>Sous Windows vous pouvez utiliser la commande <code>set</code> :</p>
+<p>Sous Windows vous pouvez utiliser la commande <span class="ycr-hashtag" data-index-entry="set" data-tag="set"><code>set</code></span> :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>for /f "delims== tokens=1,2" %i in (.env) do set %i=%j
 </span></code></pre></div>
-<p>Ces commandes sont généralement intégrées dans un script <code>start.sh</code> ou <code>start.bat</code> pour démarrer votre projet, ou alors directement dans le <code>Makefile</code>.</p>
+<p>Ces commandes sont généralement intégrées dans un script <span class="ycr-hashtag" data-index-entry="start.sh" data-tag="start.sh"><code>start.sh</code></span> ou <span class="ycr-hashtag" data-index-entry="start.bat" data-tag="start.bat"><code>start.bat</code></span> pour démarrer votre projet, ou alors directement dans le <span class="ycr-hashtag" data-index-entry="Makefile" data-tag="Makefile"><code>Makefile</code></span>.</p>
 <h3 id="fichier-den-tete">Fichier d'en-tête<a class="headerlink" href="#fichier-den-tete" title="Lien permanent">¤</a></h3>
-<p>On trouve très souvent dans un projet C un fichier d'en-tête <code>.h</code> qui contient des définitions de configuration. Par exemple, un fichier <code>config.h</code> qui contient des constantes, des macros, des structures, etc.</p>
+<p>On trouve très souvent dans un projet C un fichier d'en-tête <code>.h</code> qui contient des définitions de configuration. Par exemple, un fichier <span class="ycr-hashtag" data-index-entry="config.h" data-tag="config.h"><code>config.h</code></span> qui contient des constantes, des macros, des structures, etc.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#ifndef CONFIG_H</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="cp">#define CONFIG_H</span>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>
@@ -5638,6 +5638,29 @@ les outils associés.
   </span>
 
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributeurs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
+          
+          <img src="https://avatars.githubusercontent.com/u/52489316?v=4&size=72" alt="yves-chevallier">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 

@@ -3860,7 +3860,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3876,7 +3876,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5683,9 +5683,9 @@ flowchart LR
 <p><figure id="_figure-2"><img alt="Cycle de compilation illustré" class="drawio-diagram" src="../../../assets/images/build-cycle.drawio"/><figcaption> Cycle de compilation illustré</figcaption></figure></p>
 <p><a href="" id="preproc-intro"></a></p>
 <h3 id="preprocesseur-pre-processing">Préprocesseur (<em>pre-processing</em>)<a class="headerlink" href="#preprocesseur-pre-processing" title="Lien permanent">¤</a></h3>
-<p>La phase de <em>preprocessing</em> permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le <em>preprocessing</em> réalise le remplacement des directives du préprocesseur <a class="autorefs autorefs-internal" href="../../15-fundations/preprocessor/#macros-define">de définitions</a> par leurs valeurs résultantes. Ce préprocesseur permet d'inclure des fichiers externes, de définir des valeurs constantes ou de conditionner l'exécution de certaines parties du code par exemple avec des options de configuration. Avec le compilateur <code>gcc</code> il est possible de demander uniquement cette étape avec l'option <code>-E</code>. Cette étape est illustrée dans la figure suivante.</p>
+<p>La phase de <em>preprocessing</em> permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le <em>preprocessing</em> réalise le remplacement des directives du préprocesseur <a class="autorefs autorefs-internal" href="../../15-fundations/preprocessor/#macros-define">de définitions</a> par leurs valeurs résultantes. Ce préprocesseur permet d'inclure des fichiers externes, de définir des valeurs constantes ou de conditionner l'exécution de certaines parties du code par exemple avec des options de configuration. Avec le compilateur <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span> il est possible de demander uniquement cette étape avec l'option <code>-E</code>. Cette étape est illustrée dans la figure suivante.</p>
 <p><figure id="_figure-3"><img alt="Processus de préprocessing" class="drawio-diagram" src="../../../assets/images/preprocessing.drawio"/><figcaption> Processus de préprocessing</figcaption></figure></p>
-<p>Lorsque vous écrivez votre programme, vous le faites en utilisant des fichiers sources avec l'extension <code>.c</code>. Néanmoins, dans votre programme, vous vous basez sur de nombreuses bibliothèques logicielles qui donnent accès à des fonctions prédéfinies. Ces bibliothèques sont incluses dans votre programme à l'aide de la directive <code>#include</code>. Lors de la compilation, le préprocesseur va remplacer ces directives par le contenu des fichiers d'en-tête correspondants. Par exemple, la directive <code>#include &lt;stdio.h&gt;</code> sera remplacée par le contenu du fichier <code>stdio.h</code> qui contient les déclarations des fonctions de la bibliothèque standard d'entrées sorties. Cette procédure prend donc en entrée un fichier source et un ou plusieurs fichiers d'en-tête et le transforme en un fichier source unique.</p>
+<p>Lorsque vous écrivez votre programme, vous le faites en utilisant des fichiers sources avec l'extension <code>.c</code>. Néanmoins, dans votre programme, vous vous basez sur de nombreuses bibliothèques logicielles qui donnent accès à des fonctions prédéfinies. Ces bibliothèques sont incluses dans votre programme à l'aide de la directive <code>#include</code>. Lors de la compilation, le préprocesseur va remplacer ces directives par le contenu des fichiers d'en-tête correspondants. Par exemple, la directive <code>#include &lt;stdio.h&gt;</code> sera remplacée par le contenu du fichier <span class="ycr-hashtag" data-index-entry="stdio.h" data-tag="stdio.h"><code>stdio.h</code></span> qui contient les déclarations des fonctions de la bibliothèque standard d'entrées sorties. Cette procédure prend donc en entrée un fichier source et un ou plusieurs fichiers d'en-tête et le transforme en un fichier source unique.</p>
 <h3 id="compilation-build">Compilation (<em>build</em>)<a class="headerlink" href="#compilation-build" title="Lien permanent">¤</a></h3>
 <p>La phase de compilation consiste en une analyse syntaxique du fichier à compiler selon la grammaire du langage puis en sa traduction en langage assembleur pour le processeur cible. Le fichier généré est un fichier binaire (extension <code>.o</code> ou <code>.obj</code>) qui sera utilisé pour la phase suivante. Lors de la <em>compilation</em>, des erreurs peuvent survenir et empêcher le déroulement complet de la génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur.</p>
 <p>À l'instar de l'option <code>-E</code> vue plus haut, il est aussi possible de ne demander que l'assemblage d'un code avec l'option <code>-S</code>. À partir d'un fichier pré-processé, le compilateur génère un fichier assembleur qui est un fichier texte lisible par un humain (qui connaît l'assembleur) et qui contient les instructions du processeur cible. Cette étape est illustrée dans la figure suivante.</p>
@@ -5711,13 +5711,13 @@ flowchart LR
 </span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Ce programme est composé de deux parties. L'inclusion de la bibliothèque standard d'entrées sorties (<em>STandarD Inputs Outputs</em>) à l'aide d'une directive préprocesseur qui définit l'existence de la fonction <code>printf</code> qui vous permet d'écrire sur le terminal. Le programme principal est nommé <code>main</code> et tout ce qui se situe à l'intérieur des accolades <code>{ }</code> appartient à ce dernier. L'ensemble que définit <code>main</code> et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction <code>printf</code>. On prend soin de terminer chaque instruction par un point-virgule <code>;</code>. <span class="ycr-hashtag" data-index-entry="hello, world" data-tag=""></span></p>
-<p>L'appel d'une fonction comme  <code>printf</code> peut prendre des <strong>paramètres</strong> comme ici le texte <code>Hello world!\n</code> dont le <code>\n</code> représente un retour à la ligne.</p>
+<p>Ce programme est composé de deux parties. L'inclusion de la bibliothèque standard d'entrées sorties (<em>STandarD Inputs Outputs</em>) à l'aide d'une directive préprocesseur qui définit l'existence de la fonction <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> qui vous permet d'écrire sur le terminal. Le programme principal est nommé <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span> et tout ce qui se situe à l'intérieur des accolades <code>{ }</code> appartient à ce dernier. L'ensemble que définit <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span> et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span>. On prend soin de terminer chaque instruction par un point-virgule <code>;</code>. <span class="ycr-hashtag" data-index-entry="hello, world" data-tag=""></span></p>
+<p>L'appel d'une fonction comme  <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> peut prendre des <strong>paramètres</strong> comme ici le texte <code>Hello world!\n</code> dont le <code>\n</code> représente un retour à la ligne.</p>
 <p>Une fois ce code écrit, il faut le compiler. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard vous utiliserez votre éditeur de texte favori pour écrire vos programmes.</p>
 <p>Pour obtenir un invité de commande, vous devez ouvrir un terminal. Comme nous avons choisi de travailler sur un système compatible <abbr title="Portable Operating System Interface">POSIX</abbr>, sur n'importe quel système d'exploitation vous lancez un terminal et sous Windows vous devez installer WSL2. Une fois lancée la console ressemble à ceci :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>$
 </span></code></pre></div>
-<p>C'est intimidant si l'on n’en a pas l'habitude, mais vraiment puissant, croyez-moi ! La première étape est de s'assurer que le fichier <code>test.c</code> contient bien notre programme. Pour ce faire on utilise un autre programme <a href="https://fr.wikipedia.org/wiki/Cat_(Unix)">cat</a> qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :</p>
+<p>C'est intimidant si l'on n’en a pas l'habitude, mais vraiment puissant, croyez-moi ! La première étape est de s'assurer que le fichier <span class="ycr-hashtag" data-index-entry="test.c" data-tag="test.c"><code>test.c</code></span> contient bien notre programme. Pour ce faire on utilise un autre programme <a href="https://fr.wikipedia.org/wiki/Cat_(Unix)">cat</a> qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>$<span class="w"> </span>cat<span class="w"> </span>hello.c
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1">#include &lt;stdio.h&gt;</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
@@ -5726,18 +5726,18 @@ flowchart LR
 </span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span>printf<span class="o">(</span><span class="s2">"hello, world"</span><span class="o">)</span><span class="p">;</span>
 </span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="o">}</span>
 </span></code></pre></div>
-<p>Évidemment, vous devez avoir écrit le programme <code>hello.c</code> au préalable. Alternativement vous pouvez utiliser la commande suivante pour créer le fichier <code>hello.c</code> : <span class="ycr-hashtag" data-index-entry="echo" data-tag=""></span></p>
+<p>Évidemment, vous devez avoir écrit le programme <span class="ycr-hashtag" data-index-entry="hello.c" data-tag="hello.c"><code>hello.c</code></span> au préalable. Alternativement vous pouvez utiliser la commande suivante pour créer le fichier <span class="ycr-hashtag" data-index-entry="hello.c" data-tag="hello.c"><code>hello.c</code></span> : <span class="ycr-hashtag" data-index-entry="echo" data-tag=""></span></p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'#include &lt;stdio.h&gt;\n\nint main()\n{\n  printf("hello, world");\n}'</span><span class="w"> </span>&gt;<span class="w"> </span>hello.c
 </span></code></pre></div>
 <p>À présent on peut utiliser notre compilateur par défaut : <code>cc</code> pour <em>C Compiler</em>. Ce compilateur prend en argument un fichier C et sans autre option, il génèrera un fichier <a href="https://fr.wikipedia.org/wiki/A.out">a.out</a> pour <em>assembler output</em>. C'est un fichier exécutable que l'on peut donc exécuter. <span class="ycr-hashtag" data-index-entry="cc" data-tag=""></span></p>
 <p>Utilisez donc la commande suivante pour compiler votre programme :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>$<span class="w"> </span>gcc<span class="w"> </span>hello.c
 </span></code></pre></div>
-<p>Rien ne s'est affiché ? C'est une bonne nouvelle ! La philosophie <abbr title="Portable Operating System Interface">POSIX</abbr> est qu'un programme doit se faire le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur. Cela ne veut pas dire que la commande n'a eu aucun effet. Au contraire, on s'attend à trouver dans le répertoire courant notre fichier source ainsi que le résultat de la compilation, le fichier <code>a.out</code>. Pour le vérifier, nous utiliserons le programme <a href="https://fr.wikipedia.org/wiki/Ls">ls</a> qui liste les fichiers d'un dossier : <span class="ycr-hashtag" data-index-entry="ls" data-tag=""></span></p>
+<p>Rien ne s'est affiché ? C'est une bonne nouvelle ! La philosophie <abbr title="Portable Operating System Interface">POSIX</abbr> est qu'un programme doit se faire le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur. Cela ne veut pas dire que la commande n'a eu aucun effet. Au contraire, on s'attend à trouver dans le répertoire courant notre fichier source ainsi que le résultat de la compilation, le fichier <span class="ycr-hashtag" data-index-entry="a.out" data-tag="a.out"><code>a.out</code></span>. Pour le vérifier, nous utiliserons le programme <a href="https://fr.wikipedia.org/wiki/Ls">ls</a> qui liste les fichiers d'un dossier : <span class="ycr-hashtag" data-index-entry="ls" data-tag=""></span></p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>$<span class="w"> </span>ls
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>hello.c<span class="w">       </span>a.out
 </span></code></pre></div>
-<p>Très bien, nous avons bel et bien les deux fichiers. À présent, exécutons le programme en prenant soin de préfixer le nom par, <code>./</code> car les programmes générés localement comme <code>a.out</code> ne peuvent pas être accédés directement par leur nom pour des raisons de sécurité. En effet, imaginons qu'un fourbe hackeur ait décidé de créer dans ce répertoire un programme nommé <code>ls</code> qui efface toutes vos données. Lorsque vous écrivez <code>ls</code> pour voir le contenu du répertoire que vous ignorez, vous exécutez en réalité le programme <code>ls</code> contenu dans ce répertoire et l'effet serait pour vous désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement préfixé par <code>./</code> pour être exécuté. À vous de jouer :</p>
+<p>Très bien, nous avons bel et bien les deux fichiers. À présent, exécutons le programme en prenant soin de préfixer le nom par, <code>./</code> car les programmes générés localement comme <span class="ycr-hashtag" data-index-entry="a.out" data-tag="a.out"><code>a.out</code></span> ne peuvent pas être accédés directement par leur nom pour des raisons de sécurité. En effet, imaginons qu'un fourbe hackeur ait décidé de créer dans ce répertoire un programme nommé <code>ls</code> qui efface toutes vos données. Lorsque vous écrivez <code>ls</code> pour voir le contenu du répertoire que vous ignorez, vous exécutez en réalité le programme <code>ls</code> contenu dans ce répertoire et l'effet serait pour vous désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement préfixé par <code>./</code> pour être exécuté. À vous de jouer :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="gp">$ </span>./a.out
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="go">hello, world</span>
 </span></code></pre></div>
@@ -5760,7 +5760,7 @@ flowchart LR
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Les puristes peuvent se demander s'il faut écrire <code>hello, world</code>, <code>hello, world!</code> ou <code>Hello, world!\n</code>. Dans son livre, Brian Kernighan a choisi <code>hello, world\n</code> et c'est ce que nous avons repris ici.</p>
-<p>Outre le caractère pinailleur de cette remarque qui prête attention aux détails, il peut être noté que la casse des caractères est importante en informatique. <code>Hello</code> n'est pas la même chose que <code>hello</code>, le stockage en mémoire n'est pas le même, et donc le résultat de l'exécution d'un programme peut être différent.</p>
+<p>Outre le caractère pinailleur de cette remarque qui prête attention aux détails, il peut être noté que la casse des caractères est importante en informatique. <span class="ycr-hashtag" data-index-entry="Hello" data-tag="Hello"><code>Hello</code></span> n'est pas la même chose que <span class="ycr-hashtag" data-index-entry="hello" data-tag="hello"><code>hello</code></span>, le stockage en mémoire n'est pas le même, et donc le résultat de l'exécution d'un programme peut être différent.</p>
 <p>Il est donc essentiel d'avoir l'œil sur ces détails, vous le verrez par la suite, vous développerez une certaine facilité à repérer les <code>;</code> manquants, les <code>{}</code> mal placées, les <code>==</code> qui devraient être <code>=</code>, etc.</p>
 <p>Mais avant tout, c'est la cohérence de l'ensemble qui doit primer. Si vous avez choisi d'écrire <code>Hello, World!</code>, alors écrivez-le partout de la même manière, dans tous vos exemples, dans tous vos commentaires, dans toute votre documentation.</p>
 </div>
@@ -5771,15 +5771,15 @@ flowchart LR
 <h2 id="exercices-de-revision">Exercices de Révision<a class="headerlink" href="#exercices-de-revision" title="Lien permanent">¤</a></h2>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Exercice<span class="exercise-title"></span></p>
-<p>Ouvrez le standard <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a> et cherchez la valeur maximale possible de la constante <code>ULLONG_MAX</code>. Que vaut-elle ?</p>
+<p>Ouvrez le standard <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a> et cherchez la valeur maximale possible de la constante <span class="ycr-hashtag" data-index-entry="ULLONG_MAX" data-tag="ULLONG_MAX"><code>ULLONG_MAX</code></span>. Que vaut-elle ?</p>
 <details class="solution">
 <summary>Solution</summary>
-<p>Au paragraphe §5.2.4.2.1-1 on peut lire que <code>ULLONG_MAX</code> est encodé sur 64-bits et donc que sa valeur est <span class="arithmatex">\(2^{64}-1\)</span> donc <code>18'446'744'073'709'551'615</code>.</p>
+<p>Au paragraphe §5.2.4.2.1-1 on peut lire que <span class="ycr-hashtag" data-index-entry="ULLONG_MAX" data-tag="ULLONG_MAX"><code>ULLONG_MAX</code></span> est encodé sur 64-bits et donc que sa valeur est <span class="arithmatex">\(2^{64}-1\)</span> donc <code>18'446'744'073'709'551'615</code>.</p>
 </details>
 </div>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Hello World<span class="exercise-title"></span></p>
-<p>Pouvez-vous écrire, puis compiler votre premier programme en C ? Rédiger le programme <code>hello.c</code> qui affiche <code>Hello, World!</code> à l'écran.</p>
+<p>Pouvez-vous écrire, puis compiler votre premier programme en C ? Rédiger le programme <span class="ycr-hashtag" data-index-entry="hello.c" data-tag="hello.c"><code>hello.c</code></span> qui affiche <code>Hello, World!</code> à l'écran.</p>
 <p>Exécutez le programme et vérifiez que le message s'affiche bien.</p>
 </div>
 <div class="admonition exercise checkbox">
@@ -6186,7 +6186,7 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
 </div>
 <div class="admonition exercise checkbox">
 <p class="admonition-title"><span class="exercise-label">Exercice 8 : </span>Cat<span class="exercise-title"></span></p>
-<p>Qu'est-ce que <code>cat</code>?</p>
+<p>Qu'est-ce que <span class="ycr-hashtag" data-index-entry="cat" data-tag="cat"><code>cat</code></span>?</p>
 <ul class="exercise-list">
 <li class="flex-container">
 <div class="exercise-checkbox">
@@ -6301,7 +6301,7 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
 </ul>
 <details class="solution">
 <summary>Solution</summary>
-<p><code>cat</code> est un programme normalisé <abbr title="Portable Operating System Interface">POSIX</abbr> prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier <code>hello.c</code> est bel et bien celui attendu.</p>
+<p><span class="ycr-hashtag" data-index-entry="cat" data-tag="cat"><code>cat</code></span> est un programme normalisé <abbr title="Portable Operating System Interface">POSIX</abbr> prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier <span class="ycr-hashtag" data-index-entry="hello.c" data-tag="hello.c"><code>hello.c</code></span> est bel et bien celui attendu.</p>
 </details>
 </div>
 

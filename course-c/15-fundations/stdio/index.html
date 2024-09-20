@@ -3878,7 +3878,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3894,7 +3894,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5379,12 +5379,12 @@ les outils associés.
 
 <h1 id="entrees-sorties">Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Lien permanent">¤</a></h1>
 <blockquote class="epigraph">Le problème fondamental de la communication est celui de reproduire en un point, soit exactement, soit approximativement, un message sélectionné à un autre point.<footer>Claude Shannon</footer></blockquote>
-<p>Un programme informatique se compose d'entrées (<code>stdin</code>) et de sorties (<code>stdout</code> et <code>stderr</code>).</p>
+<p>Un programme informatique se compose d'entrées (<span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span>) et de sorties (<span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> et <span class="ycr-hashtag" data-index-entry="stderr" data-tag="stderr"><code>stderr</code></span>).</p>
 <p>Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formater les sorties et interpréter les entrées.</p>
-<p>Les fonctions phares sont <code>printf</code> pour le formatage de chaîne de caractères et <code>scanf</code> pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes que nous verrons plus tard. La liste citée est non exhaustive, mais largement documentée ici : <a href="http://man7.org/linux/man-pages/man3/stdio.3.html"><code>&lt;stdio.h&gt;</code></a>.</p>
-<p>Les fonctions que nous allons aborder dans ce chapitre sont les suivantes :</p>
-<table>
-<thead>
+<p>Les fonctions phares sont <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> pour le formatage de chaîne de caractères et <span class="ycr-hashtag" data-index-entry="scanf" data-tag="scanf"><code>scanf</code></span> pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes que nous verrons plus tard. La liste citée est non exhaustive, mais largement documentée ici : <a href="http://man7.org/linux/man-pages/man3/stdio.3.html"><code>&lt;stdio.h&gt;</code></a>.</p>
+<p>Les fonctions que nous allons aborder dans ce chapitre sont données par la table suivante. Pour davantage de fonctions, vous pouvez vous rendre au chapitre traitant de la bibliothèque standard <a class="autorefs autorefs-internal" href="../../35-libraries/standard-library/#stdioh">stdio</a>.</p>
+<table id="_table-1">
+<caption style="caption-side:top"> Fonctions d'entrées/sorties principales</caption><thead>
 <tr>
 <th>Fonction</th>
 <th>Type</th>
@@ -5428,7 +5428,7 @@ les outils associés.
 <p>Ces fonctions sont très basiques et permettent d'écrire des caractères ou des chaînes de caractères sur la sortie standard.</p>
 <p><a href="" id="putchar"></a></p>
 <h3 id="putchar_1">Putchar<a class="headerlink" href="#putchar_1" title="Lien permanent">¤</a></h3>
-<p>Cette fonction prend en paramètre un <strong>seul</strong> caractère et l'écrit sur la sortie standard. Elle est définie dans la bibliothèque <code>stdio.h</code>.</p>
+<p>Cette fonction prend en paramètre un <strong>seul</strong> caractère et l'écrit sur la sortie standard. Elle est définie dans la bibliothèque <span class="ycr-hashtag" data-index-entry="stdio.h" data-tag="stdio.h"><code>stdio.h</code></span>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -5458,7 +5458,7 @@ les outils associés.
 </span></code></pre></div>
 <p><a href="" id="puts"></a></p>
 <h3 id="puts_1">Puts<a class="headerlink" href="#puts_1" title="Lien permanent">¤</a></h3>
-<p>La fonction <code>puts</code> est une fonction de la bibliothèque standard C qui permet d'écrire une chaîne de caractères sur la sortie standard. Notons qu'elle ajoute automatiquement un retour à la ligne à la fin de la chaîne.</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="puts" data-tag="puts"><code>puts</code></span> est une fonction de la bibliothèque standard C qui permet d'écrire une chaîne de caractères sur la sortie standard. Notons qu'elle ajoute automatiquement un retour à la ligne à la fin de la chaîne.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -5538,7 +5538,7 @@ les outils associés.
 </span></code></pre></div>
 <p><a href="" id="functionprintf"></a></p>
 <h3 id="printf">Printf<a class="headerlink" href="#printf" title="Lien permanent">¤</a></h3>
-<p>Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi <code>printf</code> rend l'opération bien plus aisée en utilisant des marques substitutives (<em>placeholder</em>). Ces spécifié débutent par le caractère <code>%</code> suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise <code>%d</code> pour formater un entier non signé.</p>
+<p>Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> rend l'opération bien plus aisée en utilisant des marques substitutives (<em>placeholder</em>). Ces spécifié débutent par le caractère <code>%</code> suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise <code>%d</code> pour formater un entier non signé.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
@@ -5547,24 +5547,24 @@ les outils associés.
 </span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"La circonférence de la terre vaut vaut %d km"</span><span class="p">,</span><span class="w"> </span><span class="n">earth_perimeter</span><span class="p">);</span>
 </span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Le standard C défini le prototype de <code>printf</code> comme étant :</p>
+<p>Le standard C défini le prototype de <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> comme étant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">printf</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="kr">restrict</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
 </span></code></pre></div>
-<p>Il définit que la fonction <code>printf</code> prend en paramètre un format suivi de <code>...</code>. La fonction <code>printf</code> comme toutes celles de la même catégorie sont dites <a href="https://fr.wikipedia.org/wiki/Fonction_variadique#C">variadiques</a>, c'est-à-dire qu'elles peuvent prendre un nombre variable d'arguments. Il y aura autant d'arguments additionnels que de marqueurs utilisés dans le format. Ainsi le format <code>"Mes nombres préférés sont %d et %d, mais surtout %s"</code> demandera trois paramètres additionnels :</p>
+<p>Il définit que la fonction <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> prend en paramètre un format suivi de <code>...</code>. La fonction <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> comme toutes celles de la même catégorie sont dites <a href="https://fr.wikipedia.org/wiki/Fonction_variadique#C">variadiques</a>, c'est-à-dire qu'elles peuvent prendre un nombre variable d'arguments. Il y aura autant d'arguments additionnels que de marqueurs utilisés dans le format. Ainsi le format <code>"Mes nombres préférés sont %d et %d, mais surtout %s"</code> demandera trois paramètres additionnels :</p>
 <p>La fonction retourne le nombre de caractères formatés ou <code>-1</code> en cas d'erreur.</p>
 <p>La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaître et la page Wikipédia <a href="https://en.wikipedia.org/wiki/Printf_format_string">printf format string</a> est d'une grande aide. Le format de construction est le suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="o">%</span><span class="p">[</span><span class="n">parameter</span><span class="p">][</span><span class="n">flags</span><span class="p">][</span><span class="n">width</span><span class="p">][.</span><span class="n">precision</span><span class="p">][</span><span class="n">length</span><span class="p">]</span><span class="n">type</span>
 </span></code></pre></div>
 <dl>
-<dt><code>parameter</code> (optionnel)</dt>
+<dt><span class="ycr-hashtag" data-index-entry="parameter" data-tag="parameter"><code>parameter</code></span> (optionnel)</dt>
 <dd>
 <p>Numéro de paramètre à utiliser</p>
 </dd>
-<dt><code>flags</code> (optionnel)</dt>
+<dt><span class="ycr-hashtag" data-index-entry="flags" data-tag="flags"><code>flags</code></span> (optionnel)</dt>
 <dd>
 <p>Modificateurs : préfixe, signe plus, alignement à gauche ...</p>
 </dd>
-<dt><code>width</code> (optionnel)</dt>
+<dt><span class="ycr-hashtag" data-index-entry="width" data-tag="width"><code>width</code></span> (optionnel)</dt>
 <dd>
 <p>Nombre <strong>minimum</strong> de caractères à utiliser pour l'affichage de la sortie.</p>
 </dd>
@@ -5572,18 +5572,18 @@ les outils associés.
 <dd>
 <p>Nombre <strong>minimum</strong> de caractères affichés à droite de la virgule. Essentiellement, valide pour les nombres à virgule flottante.</p>
 </dd>
-<dt><code>length</code> (optionnel)</dt>
+<dt><span class="ycr-hashtag" data-index-entry="length" data-tag="length"><code>length</code></span> (optionnel)</dt>
 <dd>
 <p>Longueur en mémoire. Indique la longueur de la représentation binaire.</p>
 </dd>
-<dt><code>type</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="type" data-tag="type"><code>type</code></span></dt>
 <dd>
 <p>Type de formatage souhaité</p>
 </dd>
 </dl>
 <p><figure id="_figure-1"><img alt="Formatage d'un marqueur" class="drawio-diagram" src="../../../assets/images/formats.drawio"/><figcaption> Formatage d'un marqueur</figcaption></figure></p>
 <p>Voici quelques exemples :</p>
-<table id="_table-1">
+<table id="_table-2">
 <caption style="caption-side:top"> Exemple de formatage avec printf</caption><thead>
 <tr>
 <th>Exemple</th>
@@ -5629,18 +5629,18 @@ les outils associés.
 </tr>
 <tr>
 <td><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"%8x"</span><span class="p">,</span><span class="w"> </span><span class="mi">57005</span><span class="p">)</span></code></td>
-<td><code>dead</code></td>
+<td><span class="ycr-hashtag" data-index-entry="dead" data-tag="dead"><code>dead</code></span></td>
 <td>6</td>
 </tr>
 <tr>
 <td><code class="language-c highlight"><span class="n">printf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">)</span></code></td>
-<td><code>Hello</code></td>
+<td><span class="ycr-hashtag" data-index-entry="Hello" data-tag="Hello"><code>Hello</code></span></td>
 <td>5</td>
 </tr>
 </tbody>
 </table>
-<p>On peut s'intéresser à comment <code>printf</code> fonctionne en interne. Le premier argument est une chaîne de caractère qui est le motif de formatage. Il peut contenir des caractères spéciaux <em>placeholder</em> qui seront interceptés par <code>printf</code> pour être remplacés par les arguments suivants après avoir été convertis.</p>
-<p>Pour bien comprendre, on peut imaginer une implémentation naïve de <code>printf</code> que nous appellerons <code>my_printf</code> et qui se basera sur une fonction de sortie non formatée <code>putchar</code>.</p>
+<p>On peut s'intéresser à comment <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> fonctionne en interne. Le premier argument est une chaîne de caractère qui est le motif de formatage. Il peut contenir des caractères spéciaux <em>placeholder</em> qui seront interceptés par <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> pour être remplacés par les arguments suivants après avoir été convertis.</p>
+<p>Pour bien comprendre, on peut imaginer une implémentation naïve de <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> que nous appellerons <span class="ycr-hashtag" data-index-entry="my_printf" data-tag="my_printf"><code>my_printf</code></span> et qui se basera sur une fonction de sortie non formatée <span class="ycr-hashtag" data-index-entry="putchar" data-tag="putchar"><code>putchar</code></span>.</p>
 <p>Cette fonction ne sera capable que de traiter les marqueurs <code>%d</code> et <code>%c</code>, c'est suffisant pour comprendre le principe. Également, elle prendra toujours deux arguments, donc une valeur à afficher, ceci pour ne pas s'encombrer de la gestion de la liste variable d'arguments qui est un sujet avancé.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">my_printf</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">format</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="c1">// On parcourt la chaîne de caractères tant que l'on ne rencontre</span>
@@ -5687,7 +5687,7 @@ les outils associés.
 <h2 id="entrees-non-formatees">Entrées non formatées<a class="headerlink" href="#entrees-non-formatees" title="Lien permanent">¤</a></h2>
 <p><a href="" id="getchar"></a></p>
 <h3 id="getchar_1">Getchar<a class="headerlink" href="#getchar_1" title="Lien permanent">¤</a></h3>
-<p>La fonction <code>getchar</code> est une fonction de la bibliothèque standard C qui permet de lire un caractère sur l'entrée standard. Elle est définie dans la bibliothèque <code>stdio.h</code>. Elle retourne un entier qui correspond à la valeur ASCII du caractère lu.</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="getchar" data-tag="getchar"><code>getchar</code></span> est une fonction de la bibliothèque standard C qui permet de lire un caractère sur l'entrée standard. Elle est définie dans la bibliothèque <span class="ycr-hashtag" data-index-entry="stdio.h" data-tag="stdio.h"><code>stdio.h</code></span>. Elle retourne un entier qui correspond à la valeur ASCII du caractère lu.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -5697,11 +5697,11 @@ les outils associés.
 </span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Notez ici l'utilisation de <code>EOF</code> qui est une constante définie dans la bibliothèque <code>stdio.h</code> et qui signifie <em>End Of File</em>. Elle est utilisée pour détecter la fin d'un fichier.</p>
+<p>Notez ici l'utilisation de <span class="ycr-hashtag" data-index-entry="EOF" data-tag="EOF"><code>EOF</code></span> qui est une constante définie dans la bibliothèque <span class="ycr-hashtag" data-index-entry="stdio.h" data-tag="stdio.h"><code>stdio.h</code></span> et qui signifie <em>End Of File</em>. Elle est utilisée pour détecter la fin d'un fichier.</p>
 <p>Lorsque vous exécutez ce programme, vous pouvez saisir des caractères au clavier. Pour terminer la saisie, vous pouvez utiliser la combinaison de touches ++Ctrl+D++ sur Linux ou ++Ctrl+Z++ sur Windows.</p>
 <p><a href="" id="gets"></a></p>
 <h3 id="gets_1">Gets<a class="headerlink" href="#gets_1" title="Lien permanent">¤</a></h3>
-<p>La fonction <code>gets</code> est une fonction de la bibliothèque standard C qui permet de lire une chaîne de caractères sur l'entrée standard. Elle est définie dans la bibliothèque <code>stdio.h</code>.</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="gets" data-tag="gets"><code>gets</code></span> est une fonction de la bibliothèque standard C qui permet de lire une chaîne de caractères sur l'entrée standard. Elle est définie dans la bibliothèque <span class="ycr-hashtag" data-index-entry="stdio.h" data-tag="stdio.h"><code>stdio.h</code></span>.</p>
 <p>Elle est déconseillée, car elle ne permet pas de spécifier la taille maximale de la chaîne à lire. Cela peut entraîner des débordements de mémoire si un utilisateur saisit une chaîne de caractères trop longue que le programme ne peut pas stocker.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
@@ -5713,14 +5713,14 @@ les outils associés.
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Avertissement</p>
-<p>La fonction <code>gets</code> est déconseillée. Il est préférable d'utiliser la fonction <code>fgets</code> qui permet de spécifier la taille maximale de la chaîne à lire.</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="gets" data-tag="gets"><code>gets</code></span> est déconseillée. Il est préférable d'utiliser la fonction <span class="ycr-hashtag" data-index-entry="fgets" data-tag="fgets"><code>fgets</code></span> qui permet de spécifier la taille maximale de la chaîne à lire.</p>
 </div>
 <h2 id="entrees-formatees">Entrées formatées<a class="headerlink" href="#entrees-formatees" title="Lien permanent">¤</a></h2>
 <p>Les fonctions de lecture de chaînes de caractères sont plus complexes que les fonctions d'écriture. En effet, il est nécessaire de spécifier le format de la chaîne à lire.</p>
 <p><a href="" id="scanf"></a></p>
 <h3 id="scanf_1">Scanf<a class="headerlink" href="#scanf_1" title="Lien permanent">¤</a></h3>
 <p>À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou <em>parser</em> une chaîne de caractères, c'est-à-dire faire une <a href="https://fr.wikipedia.org/wiki/Analyse_syntaxique">analyse syntaxique</a> de son contenu pour en extraire de l'information.</p>
-<p>La fonction <code>scanf</code> est par exemple utilisée à cette fin :</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="scanf" data-tag="scanf"><code>scanf</code></span> est par exemple utilisée à cette fin :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
@@ -5735,7 +5735,7 @@ les outils associés.
 </span><span id="__span-13-12"><a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">        </span><span class="n">favorite</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"impair"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">"pair"</span><span class="p">);</span>
 </span><span id="__span-13-13"><a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Cette fonction utilise l'entrée standard <code>stdin</code>. Il est donc possible soit d'exécuter ce programme en mode interactif :</p>
+<p>Cette fonction utilise l'entrée standard <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span>. Il est donc possible soit d'exécuter ce programme en mode interactif :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="gp">$ </span>./a.out
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="go">Quelle est votre nombre favori ? 2</span>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="go">Saviez-vous que votre nombre favori, 2, est pair ?</span>
@@ -5745,10 +5745,10 @@ les outils associés.
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="go">Quel est votre nombre favori ? Saviez-vous que votre nombre favori, 23, est impair ?</span>
 </span></code></pre></div>
 <p>On observe ici un comportement différent, car le retour clavier lorsque la touche <em>enter</em> est pressée n'est pas transmis au programme, mais c'est le shell qui l'intercepte.</p>
-<p>Le format de <code>scanf</code> se rapproche de <code>printf</code> mais en plus simple. Le <a href="https://linux.die.net/man/3/scanf">man scanf</a> ou même la page Wikipédia de <a href="https://en.wikipedia.org/wiki/Scanf_format_string">scanf</a> renseigne sur son format.</p>
-<p>Cette fonction tient son origine une nouvelle fois de <a href="https://en.wikipedia.org/wiki/ALGOL_68">ALGOL 68</a> (<code>readf</code>), elle est donc très ancienne.</p>
-<p>La compréhension de <code>scanf</code> n'est pas évidente et il est utile de se familiariser sur son fonctionnement à l'aide de quelques exemples.</p>
-<p>Le programme suivant lit un entier et le place dans la variable <code>n</code>. <code>scanf</code> retourne le nombre d'assignements réussis. Ici, il n'y a qu'un <em>placeholder</em>, on s'attend naturellement à lire <code>1</code> si la fonction réussit. Le programme écrit ensuite les nombres dans l'ordre d'apparition.</p>
+<p>Le format de <span class="ycr-hashtag" data-index-entry="scanf" data-tag="scanf"><code>scanf</code></span> se rapproche de <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> mais en plus simple. Le <a href="https://linux.die.net/man/3/scanf">man scanf</a> ou même la page Wikipédia de <a href="https://en.wikipedia.org/wiki/Scanf_format_string">scanf</a> renseigne sur son format.</p>
+<p>Cette fonction tient son origine une nouvelle fois de <a href="https://en.wikipedia.org/wiki/ALGOL_68">ALGOL 68</a> (<span class="ycr-hashtag" data-index-entry="readf" data-tag="readf"><code>readf</code></span>), elle est donc très ancienne.</p>
+<p>La compréhension de <span class="ycr-hashtag" data-index-entry="scanf" data-tag="scanf"><code>scanf</code></span> n'est pas évidente et il est utile de se familiariser sur son fonctionnement à l'aide de quelques exemples.</p>
+<p>Le programme suivant lit un entier et le place dans la variable <code>n</code>. <span class="ycr-hashtag" data-index-entry="scanf" data-tag="scanf"><code>scanf</code></span> retourne le nombre d'assignements réussis. Ici, il n'y a qu'un <em>placeholder</em>, on s'attend naturellement à lire <code>1</code> si la fonction réussit. Le programme écrit ensuite les nombres dans l'ordre d'apparition.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
@@ -5813,8 +5813,8 @@ les outils associés.
 </span><span id="__span-21-12"><a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// "100e" échoue contre "%f", car "100e3" serait un nombre valable</span>
 </span><span id="__span-21-13"><a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EOF</span><span class="p">;</span><span class="w"> </span><span class="c1">// Fin de fichier</span>
 </span></code></pre></div>
-<p>Dans cet exemple, la boucle <code>do</code>... <code>while</code> est utilisée, car il n'est pas simplement possible de traiter le cas <code>while(scanf(...) &gt; 0</code> puisque l'exemple cherche à montrer les cas particuliers où justement, la capture échoue. Il est nécessaire alors de faire appel à des fonctions de plus bas niveau <code>feof</code> pour détecter si la fin du fichier est atteinte, et <code>ferror</code> pour détecter une éventuelle erreur sur le flux d'entrée.</p>
-<p>La directive <code>scanf("%*[^\n]");</code> étant un peu particulière, il peut valoir la peine de s'y attarder un peu. Le <em>flag</em> <code>*</code>, différent de <code>printf</code> indique d'ignorer la capture en cours. L'exemple suivant montre comment ignorer un mot.</p>
+<p>Dans cet exemple, la boucle <code>do</code>... <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span> est utilisée, car il n'est pas simplement possible de traiter le cas <code>while(scanf(...) &gt; 0</code> puisque l'exemple cherche à montrer les cas particuliers où justement, la capture échoue. Il est nécessaire alors de faire appel à des fonctions de plus bas niveau <span class="ycr-hashtag" data-index-entry="feof" data-tag="feof"><code>feof</code></span> pour détecter si la fin du fichier est atteinte, et <span class="ycr-hashtag" data-index-entry="ferror" data-tag="ferror"><code>ferror</code></span> pour détecter une éventuelle erreur sur le flux d'entrée.</p>
+<p>La directive <code>scanf("%*[^\n]");</code> étant un peu particulière, il peut valoir la peine de s'y attarder un peu. Le <em>flag</em> <code>*</code>, différent de <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> indique d'ignorer la capture en cours. L'exemple suivant montre comment ignorer un mot.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;assert.h&gt;</span>
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>
@@ -5827,7 +5827,7 @@ les outils associés.
 </span><span id="__span-22-10"><a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span>
 </span><span id="__span-22-11"><a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Ensuite, <code>[^\n]</code>. Le marqueur <code>[</code>, terminé par <code>]</code> cherche à capturer une séquence de caractères parmi une liste de caractères acceptés. Cette syntaxe est inspirée des <a href="https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re">expressions régulières</a> très utilisées en informatique. Le caractère <code>^</code> à une signification particulière, il indique que l'on cherche à capturer une séquence de caractères parmi une liste de caractères <strong>qui ne sont pas acceptés</strong>. C'est une sorte de négation. Dans le cas présent, cette directive <code>scanf</code> cherche à consommer tous les caractères jusqu'à une fin de ligne, car, dans le cas ou la capture échoue à <code>C</code> de <code>Celsius</code>, le pointeur de fichier est bloqué au caractère <code>C</code> et au prochain tour de boucle, <code>scanf</code> échouera au même endroit. Cette instruction est donc utilisée pour repartir sur des bases saines en sautant à la prochaine ligne.</p>
+<p>Ensuite, <code>[^\n]</code>. Le marqueur <code>[</code>, terminé par <code>]</code> cherche à capturer une séquence de caractères parmi une liste de caractères acceptés. Cette syntaxe est inspirée des <a href="https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re">expressions régulières</a> très utilisées en informatique. Le caractère <code>^</code> à une signification particulière, il indique que l'on cherche à capturer une séquence de caractères parmi une liste de caractères <strong>qui ne sont pas acceptés</strong>. C'est une sorte de négation. Dans le cas présent, cette directive <span class="ycr-hashtag" data-index-entry="scanf" data-tag="scanf"><code>scanf</code></span> cherche à consommer tous les caractères jusqu'à une fin de ligne, car, dans le cas ou la capture échoue à <code>C</code> de <span class="ycr-hashtag" data-index-entry="Celsius" data-tag="Celsius"><code>Celsius</code></span>, le pointeur de fichier est bloqué au caractère <code>C</code> et au prochain tour de boucle, <span class="ycr-hashtag" data-index-entry="scanf" data-tag="scanf"><code>scanf</code></span> échouera au même endroit. Cette instruction est donc utilisée pour repartir sur des bases saines en sautant à la prochaine ligne.</p>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>scanf sur des entiers et des réels<span class="exercise-title"></span></p>
 <p>Considérant les déclarations :</p>
@@ -5848,28 +5848,117 @@ les outils associés.
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span></code></pre></div>
-<ol>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%1d%1d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>12\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1 , 2\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>-1   -2\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>-  1  -  2\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d,%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1  ,  2\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d ,%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1  ,  2\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%4d %2d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1 234\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%4d %2d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1234567\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%*d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>123 456 789\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"i=%d , j=%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1 , 2\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"i=%d , j=%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>i=1, j=2\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1.23 4.56\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d.%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>1.23 4.56\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%x%x"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>12 2a\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%x%x"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>0x12 0X2a\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%o%o"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code>, <code>12 018\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span></code>, <code>123\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span></code>, <code>1.23\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span></code>, <code>123E4\n</code></li>
-<li><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%e"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span></code>, <code>12\n</code></li>
-</ol>
+<table>
+<thead>
+<tr>
+<th>no</th>
+<th>Expression</th>
+<th>Entrée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%1d%1d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>12\n</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>1 , 2\n</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>-1   -2\n</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>-  1  -  2\n</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d,%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>1  ,  2\n</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d ,%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>1  ,  2\n</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%4d %2d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>1 234\n</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%4d %2d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>1234567\n</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%*d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>123 456 789\n</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"i=%d , j=%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>1 , 2\n</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"i=%d , j=%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>i=1, j=2\n</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>1.23 4.56\n</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d.%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>1.23 4.56\n</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%x%x"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>12 2a\n</code></td>
+</tr>
+<tr>
+<td>15</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%x%x"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>0x12 0X2a\n</code></td>
+</tr>
+<tr>
+<td>16</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%o%o"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span></code></td>
+<td><code>12 018\n</code></td>
+</tr>
+<tr>
+<td>17</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span></code></td>
+<td><code>123\n</code></td>
+</tr>
+<tr>
+<td>18</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span></code></td>
+<td><code>1.23\n</code></td>
+</tr>
+<tr>
+<td>19</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span></code></td>
+<td><code>123E4\n</code></td>
+</tr>
+<tr>
+<td>20</td>
+<td><code class="language-c highlight"><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%e"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span></code></td>
+<td><code>12\n</code></td>
+</tr>
+</tbody>
+</table>
 <details class="solution">
 <summary>Solution</summary>
 <table>
@@ -6094,7 +6183,7 @@ les outils associés.
 </span><span id="__span-30-2"><a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="go">a. jardinage</span>
 </span><span id="__span-30-3"><a href="#__codelineno-30-3" id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="go">b. age</span>
 </span></code></pre></div>
-<p>Ici la variable b contient <code>age</code> alors qu'elle devrait contenir <code>râteau</code>. La raison est que le mot capturé <code>jardinage</code> est trop long pour la variable <code>a</code> qui n'est disposée à stocker que 5 caractères imprimables. Il y a donc dépassement de mémoire et comme vous le constatez, le compilateur ne génère aucune erreur. La bonne méthode est donc de protéger la saisie ici avec <code>%5s</code>.</p>
+<p>Ici la variable b contient <span class="ycr-hashtag" data-index-entry="age" data-tag="age"><code>age</code></span> alors qu'elle devrait contenir <span class="ycr-hashtag" data-index-entry="râteau" data-tag="râteau"><code>râteau</code></span>. La raison est que le mot capturé <span class="ycr-hashtag" data-index-entry="jardinage" data-tag="jardinage"><code>jardinage</code></span> est trop long pour la variable <code>a</code> qui n'est disposée à stocker que 5 caractères imprimables. Il y a donc dépassement de mémoire et comme vous le constatez, le compilateur ne génère aucune erreur. La bonne méthode est donc de protéger la saisie ici avec <code>%5s</code>.</p>
 <p>En mémoire, ces deux variables sont adjacentes et naturellement <code>a[7]</code> est équivalente à dire <em>la septième case mémoire à partir du début de ``a``</em>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a>     a[6]              b[10]
 </span><span id="__span-31-2"><a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a>┞─┬─┬─┬─┬─┬─┦┞─┬─┬─┬─┬─┬─┬─┬─┬─┬─┦
@@ -6262,7 +6351,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </span></code></pre></div>
 <details class="solution">
 <summary>Solution</summary>
-<p>Une fois la correction effectuée, vous utilisez l'outil de <code>diff</code> pour montrer les différences :</p>
+<p>Une fois la correction effectuée, vous utilisez l'outil de <span class="ycr-hashtag" data-index-entry="diff" data-tag="diff"><code>diff</code></span> pour montrer les différences :</p>
 <div class="language-diff highlight"><pre><span></span><code><span id="__span-40-1"><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="gu">1,3c1,3</span>
 </span><span id="__span-40-2"><a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a><span class="gd">&lt;         #include &lt;stdio.h&gt;</span>
 </span><span id="__span-40-3"><a href="#__codelineno-40-3" id="__codelineno-40-3" name="__codelineno-40-3"></a><span class="gd">&lt;         #include &lt;stdlib.h&gt;</span>
@@ -6416,7 +6505,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </div>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 11 : </span>Loi d'Ohm<span class="exercise-title"></span></p>
-<p>Écrivez un programme demandant deux réels <code>tension</code> et <code>résistance</code>, et affichez ensuite le <code>courant</code>. Prévoir un test pour le cas où la résistance serait nulle.</p>
+<p>Écrivez un programme demandant deux réels <span class="ycr-hashtag" data-index-entry="tension" data-tag="tension"><code>tension</code></span> et <span class="ycr-hashtag" data-index-entry="résistance" data-tag="résistance"><code>résistance</code></span>, et affichez ensuite le <span class="ycr-hashtag" data-index-entry="courant" data-tag="courant"><code>courant</code></span>. Prévoir un test pour le cas où la résistance serait nulle.</p>
 </div>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 12 : </span>Tour Eiffel<span class="exercise-title"></span></p>
@@ -6463,9 +6552,9 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 <p>Considérez une accélération de 0.5 g pour le calcul de mouvement, et une vitesse maximale de 1220 km/h.</p>
 </div>
 <h2 id="portabilite-des-formats">Portabilité des formats<a class="headerlink" href="#portabilite-des-formats" title="Lien permanent">¤</a></h2>
-<p>Les formats de <code>scanf</code> et <code>printf</code> sont dépendants de la plateforme. Par exemple, <code>%d</code> est un entier signé, <code>%u</code> un entier non signé, <code>%ld</code> est un entier long signé. Néanmoins ces formats ne sont pas portables, car selon le <a class="autorefs autorefs-internal" href="../datatype/#modele-de-donnee">modèle de données</a> de la machine, un entier long peut être de 32 bits ou de 64 bits.</p>
-<p>Cela n'a pas une grande importance si vous utilisez les types standards (comme <code>int</code>, <code>long</code>, <code>short</code>, <code>char</code>), mais si vous utilisez des types spécifiques comme <code>int32_t</code>, <code>int64_t</code>, <code>uint32_t</code>, <code>uint64_t</code>, vous devez utiliser les formats spécifiques de la bibliothèque <code>inttypes.h</code>. Voici la table de correspondance des formats :</p>
-<table id="_table-2">
+<p>Les formats de <span class="ycr-hashtag" data-index-entry="scanf" data-tag="scanf"><code>scanf</code></span> et <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> sont dépendants de la plateforme. Par exemple, <code>%d</code> est un entier signé, <code>%u</code> un entier non signé, <code>%ld</code> est un entier long signé. Néanmoins ces formats ne sont pas portables, car selon le <a class="autorefs autorefs-internal" href="../datatype/#modele-de-donnee">modèle de données</a> de la machine, un entier long peut être de 32 bits ou de 64 bits.</p>
+<p>Cela n'a pas une grande importance si vous utilisez les types standards (comme <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span>, <span class="ycr-hashtag" data-index-entry="long" data-tag="long"><code>long</code></span>, <span class="ycr-hashtag" data-index-entry="short" data-tag="short"><code>short</code></span>, <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span>), mais si vous utilisez des types spécifiques comme <span class="ycr-hashtag" data-index-entry="int32_t" data-tag="int32_t"><code>int32_t</code></span>, <span class="ycr-hashtag" data-index-entry="int64_t" data-tag="int64_t"><code>int64_t</code></span>, <span class="ycr-hashtag" data-index-entry="uint32_t" data-tag="uint32_t"><code>uint32_t</code></span>, <span class="ycr-hashtag" data-index-entry="uint64_t" data-tag="uint64_t"><code>uint64_t</code></span>, vous devez utiliser les formats spécifiques de la bibliothèque <span class="ycr-hashtag" data-index-entry="inttypes.h" data-tag="inttypes.h"><code>inttypes.h</code></span>. Voici la table de correspondance des formats :</p>
+<table id="_table-3">
 <caption style="caption-side:top"> Formats portables</caption><thead>
 <tr>
 <th>Type</th>
@@ -6508,7 +6597,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </tbody>
 </table>
 <p>On peut ajouter des options à ces formats, par exemple pour afficher un entier en hexadécimal, on utilise <code>%PRIx32</code> pour un entier 32 bits. Pour la valeur en octal, on utilise <code>%PRIo32</code>.</p>
-<table id="_table-3">
+<table id="_table-4">
 <caption style="caption-side:top"> Options des formats portables</caption><thead>
 <tr>
 <th>Option</th>
@@ -6534,7 +6623,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </tr>
 </tbody>
 </table>
-<p>L'utilisation est particulière car il faut utiliser la macro <code>PRI</code> pour définir le format. Par exemple, pour afficher un entier 32 bits en hexadécimal, on utilise :</p>
+<p>L'utilisation est particulière car il faut utiliser la macro <span class="ycr-hashtag" data-index-entry="PRI" data-tag="PRI"><code>PRI</code></span> pour définir le format. Par exemple, pour afficher un entier 32 bits en hexadécimal, on utilise :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;inttypes.h&gt;</span>
 </span><span id="__span-44-2"><a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-44-3"><a href="#__codelineno-44-3" id="__codelineno-44-3" name="__codelineno-44-3"></a>
@@ -6619,7 +6708,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 9, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2024</span>
   </span>
 
     

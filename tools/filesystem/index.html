@@ -3656,7 +3656,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3672,7 +3672,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5251,13 +5251,13 @@ N_{bits} = 8'796'093'022'208
 <p>Le système de fichier FAT (File Allocation Table) est un système de fichier simple et robuste. Il a été inventé par Microsoft en 1977 pour le système d'exploitation MS-DOS. Il est toujours utilisé aujourd'hui pour les clés USB, les cartes mémoire, etc. C'est très certainement celui-ci qu'un ingénieur embarqué utiliserait sur une carte SD interfacée avec un microcontrôleur.</p>
 <p>L'API de FAT, c'est à dire les fonctions primitives pour contrôler le système de fichier contient par exemple les fonctions suivantes :</p>
 <ul>
-<li><code>fopen</code> : Ouvrir un fichier à partir d'un chemin</li>
-<li><code>fread</code> : Lire de données depuis un fichier ouvert</li>
-<li><code>fseek</code> : Se déplacer dans un fichier ouvert</li>
-<li><code>fsize</code> : Obtenir la taille d'un fichier</li>
-<li><code>fopendir</code> : Ouvrir un répertoire</li>
-<li><code>frename</code> : Renommer un fichier</li>
-<li><code>fmkdir</code> : Créer un répertoire</li>
+<li><span class="ycr-hashtag" data-index-entry="fopen" data-tag="fopen"><code>fopen</code></span> : Ouvrir un fichier à partir d'un chemin</li>
+<li><span class="ycr-hashtag" data-index-entry="fread" data-tag="fread"><code>fread</code></span> : Lire de données depuis un fichier ouvert</li>
+<li><span class="ycr-hashtag" data-index-entry="fseek" data-tag="fseek"><code>fseek</code></span> : Se déplacer dans un fichier ouvert</li>
+<li><span class="ycr-hashtag" data-index-entry="fsize" data-tag="fsize"><code>fsize</code></span> : Obtenir la taille d'un fichier</li>
+<li><span class="ycr-hashtag" data-index-entry="fopendir" data-tag="fopendir"><code>fopendir</code></span> : Ouvrir un répertoire</li>
+<li><span class="ycr-hashtag" data-index-entry="frename" data-tag="frename"><code>frename</code></span> : Renommer un fichier</li>
+<li><span class="ycr-hashtag" data-index-entry="fmkdir" data-tag="fmkdir"><code>fmkdir</code></span> : Créer un répertoire</li>
 <li>...</li>
 </ul>
 <p>Les systèmes de fichiers les plus utilisés aujourd'hui sont :</p>
@@ -5321,7 +5321,7 @@ N_{bits} = 8'796'093'022'208
 <p>Reprenons. Notre pomme serait un fruit, une image de fruit. On indiquerait alors son chemin complet :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>/maison/cuisine/frigo/rayonnage2/droite/pomme.jpg
 </span></code></pre></div>
-<p>Tient ? Pourquoi un <code>slash</code> au début ? C'est pour indiquer le répertoire racine : le répertoire d'origine, le point de départ de l'arborescence. Evidemment si vous vous trouvez déjà dans la cuisine, vous n'avez pas besoin de préciser <code>/maison/cuisine</code>. Vous pouvez simplement écrire <code>frigo/rayonnage2/droite/pomme.jpg</code>. Donc un chemin peut, ou non avoir un <code>slash</code> au début. On dit qu'il est <strong>absolu</strong> ou <strong>relatif</strong>.</p>
+<p>Tient ? Pourquoi un <span class="ycr-hashtag" data-index-entry="slash" data-tag="slash"><code>slash</code></span> au début ? C'est pour indiquer le répertoire racine : le répertoire d'origine, le point de départ de l'arborescence. Evidemment si vous vous trouvez déjà dans la cuisine, vous n'avez pas besoin de préciser <code>/maison/cuisine</code>. Vous pouvez simplement écrire <code>frigo/rayonnage2/droite/pomme.jpg</code>. Donc un chemin peut, ou non avoir un <span class="ycr-hashtag" data-index-entry="slash" data-tag="slash"><code>slash</code></span> au début. On dit qu'il est <strong>absolu</strong> ou <strong>relatif</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Windows</p>
 <p>Sur Windows, le répertoire racine est <code>C:\</code> pour le disque dur principal. Donc un chemin absolu sur Windows ressemblerait à <code>C:\maison\cuisine\frigo\rayonnage2\droite\pomme.jpg</code>.</p>
@@ -5355,9 +5355,9 @@ N_{bits} = 8'796'093'022'208
 </span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">                                </span>maison/
 </span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">                                    </span>jardin
 </span></code></pre></div>
-<p>Je ne peux pas non plus utiliser le chemin relatif <code>jardin</code> car le jardin n'est pas dans la maison. Ni d'ailleurs <code>/jardin</code> car celui-ci n'est pas à la racine de l'univers. On voit qu'il est essentiel d'introduire une notion de parenté ; ce que je souhaite faire c'est remonter d'un niveau pour aller dans le jardin.</p>
+<p>Je ne peux pas non plus utiliser le chemin relatif <span class="ycr-hashtag" data-index-entry="jardin" data-tag="jardin"><code>jardin</code></span> car le jardin n'est pas dans la maison. Ni d'ailleurs <code>/jardin</code> car celui-ci n'est pas à la racine de l'univers. On voit qu'il est essentiel d'introduire une notion de parenté ; ce que je souhaite faire c'est remonter d'un niveau pour aller dans le jardin.</p>
 <p>Il existe un fichier spécial qui permet de remonter d'un niveau c'est le fichier <code>..</code>.</p>
-<p>Et si je suis dans le jardin et que j'aimerais tondre la pelouse. J'aimerais appeler le programme <code>tondre</code> en lui donnant le chemin jusque là où je me trouve. Je pourrais écrire : <code>../jardin</code> mais c'est redondant, et cela implique de connaître le nom de là ou je me trouve. Il existe pour cela un deuxième fichier spécial qui permet de désigner le répertoire courant, c'est le fichier <code>.</code>.</p>
+<p>Et si je suis dans le jardin et que j'aimerais tondre la pelouse. J'aimerais appeler le programme <span class="ycr-hashtag" data-index-entry="tondre" data-tag="tondre"><code>tondre</code></span> en lui donnant le chemin jusque là où je me trouve. Je pourrais écrire : <code>../jardin</code> mais c'est redondant, et cela implique de connaître le nom de là ou je me trouve. Il existe pour cela un deuxième fichier spécial qui permet de désigner le répertoire courant, c'est le fichier <code>.</code>.</p>
 <p>Enfin, si je souhaite me déplacer dans l'arborescence, je peux utiliser la commande <code>cd</code> pour <em>change directory</em>. Ce programme prend en argument un chemin absolu ou relatif.</p>
 <h2 id="commandes-utiles">Commandes utiles<a class="headerlink" href="#commandes-utiles" title="Lien permanent">¤</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1"><abbr title="Portable Operating System Interface">POSIX</abbr></label><label for="__tabbed_2_2">Windows CMD</label><label for="__tabbed_2_3">Windows PowerShell</label></div>
@@ -5373,7 +5373,7 @@ N_{bits} = 8'796'093'022'208
 </thead>
 <tbody>
 <tr>
-<td><code>pwd</code></td>
+<td><span class="ycr-hashtag" data-index-entry="pwd" data-tag="pwd"><code>pwd</code></span></td>
 <td>Affiche le répertoire courant</td>
 <td><code>/home/username</code></td>
 </tr>
@@ -5388,17 +5388,17 @@ N_{bits} = 8'796'093'022'208
 <td><code>ls</code></td>
 </tr>
 <tr>
-<td><code>mkdir</code></td>
+<td><span class="ycr-hashtag" data-index-entry="mkdir" data-tag="mkdir"><code>mkdir</code></span></td>
 <td>Crée un répertoire</td>
 <td><code>mkdir -p /home/username</code></td>
 </tr>
 <tr>
-<td><code>rmdir</code></td>
+<td><span class="ycr-hashtag" data-index-entry="rmdir" data-tag="rmdir"><code>rmdir</code></span></td>
 <td>Supprime un répertoire</td>
 <td><code>rmdir /home/username</code></td>
 </tr>
 <tr>
-<td><code>touch</code></td>
+<td><span class="ycr-hashtag" data-index-entry="touch" data-tag="touch"><code>touch</code></span></td>
 <td>Crée un fichier vide</td>
 <td><code>touch /home/username/file.txt</code></td>
 </tr>
@@ -5441,37 +5441,37 @@ N_{bits} = 8'796'093'022'208
 <td><code>cd C:\Users\username</code></td>
 </tr>
 <tr>
-<td><code>dir</code></td>
+<td><span class="ycr-hashtag" data-index-entry="dir" data-tag="dir"><code>dir</code></span></td>
 <td>Liste les fichiers et répertoires</td>
-<td><code>dir</code></td>
+<td><span class="ycr-hashtag" data-index-entry="dir" data-tag="dir"><code>dir</code></span></td>
 </tr>
 <tr>
-<td><code>mkdir</code></td>
+<td><span class="ycr-hashtag" data-index-entry="mkdir" data-tag="mkdir"><code>mkdir</code></span></td>
 <td>Crée un répertoire</td>
 <td><code>mkdir C:\Users\username\backup</code></td>
 </tr>
 <tr>
-<td><code>rmdir</code></td>
+<td><span class="ycr-hashtag" data-index-entry="rmdir" data-tag="rmdir"><code>rmdir</code></span></td>
 <td>Supprime un répertoire</td>
 <td><code>rmdir C:\Users\username\backup</code></td>
 </tr>
 <tr>
-<td><code>echo</code></td>
+<td><span class="ycr-hashtag" data-index-entry="echo" data-tag="echo"><code>echo</code></span></td>
 <td>Crée un fichier vide</td>
 <td><code>echo. &gt; C:\Users\username\file.txt</code></td>
 </tr>
 <tr>
-<td><code>del</code></td>
+<td><span class="ycr-hashtag" data-index-entry="del" data-tag="del"><code>del</code></span></td>
 <td>Supprime un fichier</td>
 <td><code>del C:\Users\username\file.txt</code></td>
 </tr>
 <tr>
-<td><code>move</code></td>
+<td><span class="ycr-hashtag" data-index-entry="move" data-tag="move"><code>move</code></span></td>
 <td>Déplace un fichier</td>
 <td><code>move C:\Users\username\file.txt C:\Users\username\backup\</code></td>
 </tr>
 <tr>
-<td><code>copy</code></td>
+<td><span class="ycr-hashtag" data-index-entry="copy" data-tag="copy"><code>copy</code></span></td>
 <td>Copie un fichier</td>
 <td><code>copy C:\Users\username\file.txt C:\Users\username\backup\</code></td>
 </tr>
@@ -5489,9 +5489,9 @@ N_{bits} = 8'796'093'022'208
 </thead>
 <tbody>
 <tr>
-<td><code>pwd</code></td>
+<td><span class="ycr-hashtag" data-index-entry="pwd" data-tag="pwd"><code>pwd</code></span></td>
 <td>Affiche le répertoire courant</td>
-<td><code>pwd</code></td>
+<td><span class="ycr-hashtag" data-index-entry="pwd" data-tag="pwd"><code>pwd</code></span></td>
 </tr>
 <tr>
 <td><code>cd</code></td>
@@ -5504,17 +5504,17 @@ N_{bits} = 8'796'093'022'208
 <td><code>ls</code></td>
 </tr>
 <tr>
-<td><code>mkdir</code></td>
+<td><span class="ycr-hashtag" data-index-entry="mkdir" data-tag="mkdir"><code>mkdir</code></span></td>
 <td>Crée un répertoire</td>
 <td><code>mkdir C:\Users\username\backup</code></td>
 </tr>
 <tr>
-<td><code>rmdir</code></td>
+<td><span class="ycr-hashtag" data-index-entry="rmdir" data-tag="rmdir"><code>rmdir</code></span></td>
 <td>Supprime un répertoire</td>
 <td><code>rmdir C:\Users\username\backup</code></td>
 </tr>
 <tr>
-<td><code>echo</code></td>
+<td><span class="ycr-hashtag" data-index-entry="echo" data-tag="echo"><code>echo</code></span></td>
 <td>Crée un fichier vide</td>
 <td><code>echo. &gt; C:\Users\username\file.txt</code></td>
 </tr>
@@ -5540,7 +5540,7 @@ N_{bits} = 8'796'093'022'208
 </div>
 <div class="admonition note">
 <p class="admonition-title">Windows</p>
-<p>On voit que Microsoft a appris de ses erreurs et a introduit <code>pwd</code> et <code>ls</code> dans PowerShell. C'est une bonne chose car ces commandes sont très utiles. PowerShell est un shell plus moderne que CMD et plus puissant. Il est basé sur le framework .NET et permet d'interagir avec des objets .NET.</p>
+<p>On voit que Microsoft a appris de ses erreurs et a introduit <span class="ycr-hashtag" data-index-entry="pwd" data-tag="pwd"><code>pwd</code></span> et <code>ls</code> dans PowerShell. C'est une bonne chose car ces commandes sont très utiles. PowerShell est un shell plus moderne que CMD et plus puissant. Il est basé sur le framework .NET et permet d'interagir avec des objets .NET.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Avertissement</p>
@@ -5565,14 +5565,14 @@ N_{bits} = 8'796'093'022'208
 <li><code>w</code> pour écrire</li>
 <li><code>x</code> pour exécuter</li>
 </ul>
-<p>Les permissions sont affichées par la commande <code>ls -l</code> dans <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Windows ce n'est pas aussi simple. Les permissions sont affichées par la commande <code>icacls</code> mais le format est différent.</p>
+<p>Les permissions sont affichées par la commande <code>ls -l</code> dans <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Windows ce n'est pas aussi simple. Les permissions sont affichées par la commande <span class="ycr-hashtag" data-index-entry="icacls" data-tag="icacls"><code>icacls</code></span> mais le format est différent.</p>
 <div class="admonition note">
 <p class="admonition-title">NTFS</p>
 <p>Le système de fichier NTFS (New Technology File System) de Microsoft permet de définir des permissions très fines sur les fichiers et les répertoires. Il permet de définir des permissions pour des utilisateurs individuels ou des groupes d'utilisateurs. Il permet aussi de chiffrer les données pour les protéger contre les accès non autorisés.</p>
 <p>Les commandes sont donc beaucoup plus complexes et ne se réduisent pas aux permissions que l'on explique ici.</p>
 <p>Cette granularité est très utile dans un environnement professionnel où les données sont sensibles mais cela peut être un cauchemar pour les administrateurs système et surtout cela rend le système plus lent car il doit vérifier toutes les permissions à chaque accès disque.</p>
 </div>
-<p>Pour changer une permission, on utilise la commande <code>chmod</code> dans <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Windows il est préférable de passer par l'interface graphique.</p>
+<p>Pour changer une permission, on utilise la commande <span class="ycr-hashtag" data-index-entry="chmod" data-tag="chmod"><code>chmod</code></span> dans <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Windows il est préférable de passer par l'interface graphique.</p>
 <table>
 <thead>
 <tr>
@@ -5621,15 +5621,15 @@ N_{bits} = 8'796'093'022'208
 </ul>
 <p>On additionne les bits pour obtenir la permission :</p>
 <ul>
-<li><code>rwx</code> : 7</li>
+<li><span class="ycr-hashtag" data-index-entry="rwx" data-tag="rwx"><code>rwx</code></span> : 7</li>
 <li><code>rw-</code> : 6</li>
 <li><code>r-x</code> : 5</li>
 </ul>
 <p>Chaque chiffre représente dans l'ordre le propriétaire, le groupe et les autres. Ainsi la permission du fichier <code>~/.ssh/id_rsa</code> est <code>400</code> ce qui signifie que le propriétaire a le droit de lire le fichier mais ni d'écrire ni d'exécuter. Le groupe et les autres n'ont aucun droit. C'est normal c'est la clé privée SSH, elle ne doit être lue que par le propriétaire.</p>
 </div>
 <h2 id="proprietaire-et-groupe">Propriétaire et groupe<a class="headerlink" href="#proprietaire-et-groupe" title="Lien permanent">¤</a></h2>
-<p>Chaque fichier a un propriétaire et un groupe. Le propriétaire est l'utilisateur qui a créé le fichier. Le groupe est le groupe auquel appartient le fichier. Les utilisateurs peuvent appartenir à plusieurs groupes. Les groupes permettent de définir des permissions pour plusieurs utilisateurs. Par exemple, un groupe <code>admin</code> pourrait avoir des droits d'écriture sur un répertoire.</p>
-<p>Pour changer le propriétaire d'un fichier, on utilise la commande <code>chown</code> dans <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Windows, il est préférable de passer par l'interface graphique.</p>
+<p>Chaque fichier a un propriétaire et un groupe. Le propriétaire est l'utilisateur qui a créé le fichier. Le groupe est le groupe auquel appartient le fichier. Les utilisateurs peuvent appartenir à plusieurs groupes. Les groupes permettent de définir des permissions pour plusieurs utilisateurs. Par exemple, un groupe <span class="ycr-hashtag" data-index-entry="admin" data-tag="admin"><code>admin</code></span> pourrait avoir des droits d'écriture sur un répertoire.</p>
+<p>Pour changer le propriétaire d'un fichier, on utilise la commande <span class="ycr-hashtag" data-index-entry="chown" data-tag="chown"><code>chown</code></span> dans <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Windows, il est préférable de passer par l'interface graphique.</p>
 <table>
 <thead>
 <tr>

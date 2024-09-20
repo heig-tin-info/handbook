@@ -3855,7 +3855,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3871,7 +3871,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5342,10 +5342,10 @@ les outils associés.
 <p>Dans les quatre cas, elles décrivent l'accessibilité, c'est à dire jusqu'à ou jusqu'à quand une variable est accessible, et de quelle manière</p>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/visibility.jpg"><img alt="Brouillard matinal sur le Golden Gate Bridge, San Francisco" src="../../../assets/images/visibility.jpg"/></a><figcaption> Brouillard matinal sur le Golden Gate Bridge, San Francisco</figcaption></figure></p>
 <h2 id="espace-de-nommage">Espace de nommage<a class="headerlink" href="#espace-de-nommage" title="Lien permanent">¤</a></h2>
-<p>L'espace de nommage ou <code>namespace</code> est un concept différent de celui existant dans d'autres langages tel que C++. Le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> décrit 4 types possibles pour un identifiant :</p>
+<p>L'espace de nommage ou <span class="ycr-hashtag" data-index-entry="namespace" data-tag="namespace"><code>namespace</code></span> est un concept différent de celui existant dans d'autres langages tel que C++. Le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> décrit 4 types possibles pour un identifiant :</p>
 <ul>
 <li>fonction et <em>labels</em></li>
-<li>noms de structures (<code>struct</code>), d'unions (<code>union</code>), d'énumération (<code>enum</code>),</li>
+<li>noms de structures (<span class="ycr-hashtag" data-index-entry="struct" data-tag="struct"><code>struct</code></span>), d'unions (<span class="ycr-hashtag" data-index-entry="union" data-tag="union"><code>union</code></span>), d'énumération (<span class="ycr-hashtag" data-index-entry="enum" data-tag="enum"><code>enum</code></span>),</li>
 <li>identifiants</li>
 </ul>
 <h2 id="portee">Portée<a class="headerlink" href="#portee" title="Lien permanent">¤</a></h2>
@@ -5390,7 +5390,7 @@ les outils associés.
 </span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>}                 //   ┴ ┴
 </span></code></pre></div>
 <p>Une variable déclarée globalement, c'est à dire en dehors d'une fonction à une durée de vie sur l'entier du module (<em>translation unit</em>) quel que soit l'endroit où elle est déclarée, en revanche elle n'est visible que depuis l'endroit ou elle est déclarée. Les deux variables <code>i</code> et <code>j</code> sont globales au module, c'est-à-dire qu'elles peuvent être accédées depuis n'importe quelle fonction contenue dans ce module.</p>
-<p>En revanche la variable <code>j</code>, bien qu'elle ait ait une durée de vie sur toute l'exécution du programme et que sa portée est globale, elle ne pourra être accédée depuis, <code>main</code> car elle n'est pas visible.</p>
+<p>En revanche la variable <code>j</code>, bien qu'elle ait ait une durée de vie sur toute l'exécution du programme et que sa portée est globale, elle ne pourra être accédée depuis, <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span> car elle n'est pas visible.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>#include &lt;stdio.h&gt;
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>                             //  i
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>int i;                       //  ┬
@@ -5401,7 +5401,7 @@ les outils associés.
 </span><span id="__span-4-8"><a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>                             //  │ j
 </span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>int j;                       //  ┴ ┬
 </span></code></pre></div>
-<p>Le mot clé <code>extern</code> permet non pas de déclarer la variable, <code>j</code> mais de renseigner le compilateur qu'il existe <em>ailleurs</em> une variable <code>j</code>. C'est ce que l'on appelle une déclaration avancée ou <em>forward-declaration</em>. Dans ce cas, bien que <code>j</code> soit déclarée après la fonction principale, elle est maintenant visible.</p>
+<p>Le mot clé <span class="ycr-hashtag" data-index-entry="extern" data-tag="extern"><code>extern</code></span> permet non pas de déclarer la variable, <code>j</code> mais de renseigner le compilateur qu'il existe <em>ailleurs</em> une variable <code>j</code>. C'est ce que l'on appelle une déclaration avancée ou <em>forward-declaration</em>. Dans ce cas, bien que <code>j</code> soit déclarée après la fonction principale, elle est maintenant visible.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">                        </span><span class="c1">// j</span>
@@ -5415,7 +5415,7 @@ les outils associés.
 </span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">                        </span><span class="c1">// │</span>
 </span></code></pre></div>
 <p>Une particularité en C est que tout symbole global (variable ou fonction) a une accessibilité transversale. C'est-à-dire que dans le cas de la compilation séparée, une variable déclarée dans un fichier, peut être accédée depuis un autre fichier, il en va de même pour les fonctions.</p>
-<p>L'exemple suivant implique deux fichiers <code>foo.c</code> et <code>main.c</code>. Dans l'un deux symboles sont déclarés, une variable et une fonction.</p>
+<p>L'exemple suivant implique deux fichiers <span class="ycr-hashtag" data-index-entry="foo.c" data-tag="foo.c"><code>foo.c</code></span> et <span class="ycr-hashtag" data-index-entry="main.c" data-tag="main.c"><code>main.c</code></span>. Dans l'un deux symboles sont déclarés, une variable et une fonction.</p>
 <div class="language-c highlight"><span class="filename">foo.c</span><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">do_foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -5430,12 +5430,12 @@ les outils associés.
 </span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="n">foo</span><span class="p">();</span>
 </span><span id="__span-7-6"><a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Dans le cas où l'on voudrait restreindre l'accessibilité d'une variable au module dans lequel elle est déclarée, l'usage du mot clé <code>static</code> s'impose.</p>
-<p>En écrivant <code>static int foo;</code> dans <code>foo.c</code>, la variable n'est plus accessible en dehors du module même avec une déclaration en avance. On dit que sa portée est réduite au module.</p>
+<p>Dans le cas où l'on voudrait restreindre l'accessibilité d'une variable au module dans lequel elle est déclarée, l'usage du mot clé <span class="ycr-hashtag" data-index-entry="static" data-tag="static"><code>static</code></span> s'impose.</p>
+<p>En écrivant <code>static int foo;</code> dans <span class="ycr-hashtag" data-index-entry="foo.c" data-tag="foo.c"><code>foo.c</code></span>, la variable n'est plus accessible en dehors du module même avec une déclaration en avance. On dit que sa portée est réduite au module.</p>
 <h2 id="qualificatif-de-type">Qualificatif de type<a class="headerlink" href="#qualificatif-de-type" title="Lien permanent">¤</a></h2>
 <p>Les variables en C peuvent être créées de différentes manières. Selon la manière dont elles pourront être utilisées, il est courant de les classer en catégories.</p>
 <p>Une classe de stockage peut être implicite à une déclaration de variable ou explicite, en ajoutant un attribut devant la déclaration de celle-ci.</p>
-<h3 id="auto"><code>auto</code><a class="headerlink" href="#auto" title="Lien permanent">¤</a></h3>
+<h3 id="auto"><span class="ycr-hashtag" data-index-entry="auto" data-tag="auto"><code>auto</code></span><a class="headerlink" href="#auto" title="Lien permanent">¤</a></h3>
 <p>Cette classe est utilisée par défaut lorsqu'aucune autre classe
 n'est précisée. Les variables automatiques sont visibles uniquement dans
 le bloc où elles sont déclarées. Ces variables sont habituellement créées sur la pile (<em>stack</em>), mais peuvent être aussi stockées dans les registres du processeur. C'est un choix qui incombe au compilateur.</p>
@@ -5443,12 +5443,12 @@ le bloc où elles sont déclarées. Ces variables sont habituellement créées s
 </span></code></pre></div>
 <p>Pour les variables automatiques, le mot-clé <em>auto</em> n'est pas
 obligatoire, et n'est pas recommandé en <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, car son utilisation est implicite.</p>
-<h3 id="register"><code>register</code><a class="headerlink" href="#register" title="Lien permanent">¤</a></h3>
+<h3 id="register"><span class="ycr-hashtag" data-index-entry="register" data-tag="register"><code>register</code></span><a class="headerlink" href="#register" title="Lien permanent">¤</a></h3>
 <p>Ce mot clé incite le compilateur à utiliser un registre processeur pour stocker la variable. Ceci permet de gagner en temps d'exécution, car la variable n'a pas besoin d'être chargée depuis et écrite vers la mémoire.</p>
-<p>Jadis, ce mot clé était utilisé devant toutes les variables d'itérations de boucles. La traditionnelle variable <code>i</code> utilisée dans les boucles <code>for</code> était déclarée <code>register int i = 0;</code>. Les compilateurs modernes savent aujourd'hui identifier les variables les plus souvent utilisées. L'usage de ce mot clé n'est donc plus recommandé depuis <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>.</p>
-<h3 id="const"><code>const</code><a class="headerlink" href="#const" title="Lien permanent">¤</a></h3>
-<p>Ce mot clé rend une déclaration non modifiable par le programme lui-même. Néanmoins il ne s'agit pas de constantes au sens strict du terme, car une variable de type <code>const</code> pourrait très bien être modifiée par erreur en jardinant la mémoire. Quand ce mot clé est appliqué à une structure, aucun des champs de la structure n'est accessible en écriture. Bien qu'il puisse paraître étrange de vouloir rendre « constante » une « variable », ce mot clé a une utilité. En particulier, il permet de faire du code plus sûr.</p>
-<h3 id="static"><code>static</code><a class="headerlink" href="#static" title="Lien permanent">¤</a></h3>
+<p>Jadis, ce mot clé était utilisé devant toutes les variables d'itérations de boucles. La traditionnelle variable <code>i</code> utilisée dans les boucles <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span> était déclarée <code>register int i = 0;</code>. Les compilateurs modernes savent aujourd'hui identifier les variables les plus souvent utilisées. L'usage de ce mot clé n'est donc plus recommandé depuis <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>.</p>
+<h3 id="const"><span class="ycr-hashtag" data-index-entry="const" data-tag="const"><code>const</code></span><a class="headerlink" href="#const" title="Lien permanent">¤</a></h3>
+<p>Ce mot clé rend une déclaration non modifiable par le programme lui-même. Néanmoins il ne s'agit pas de constantes au sens strict du terme, car une variable de type <span class="ycr-hashtag" data-index-entry="const" data-tag="const"><code>const</code></span> pourrait très bien être modifiée par erreur en jardinant la mémoire. Quand ce mot clé est appliqué à une structure, aucun des champs de la structure n'est accessible en écriture. Bien qu'il puisse paraître étrange de vouloir rendre « constante » une « variable », ce mot clé a une utilité. En particulier, il permet de faire du code plus sûr.</p>
+<h3 id="static"><span class="ycr-hashtag" data-index-entry="static" data-tag="static"><code>static</code></span><a class="headerlink" href="#static" title="Lien permanent">¤</a></h3>
 <p>Elle permet de déclarer des variables dont le contenu est
 préservé même lorsque l'on sort du bloc où elles ont été déclarées.</p>
 <p>Elles ne sont donc initialisées qu'une seule fois. L'exemple suivant est une fonction qui retourne à chaque fois une valeur différente, incrémentée de 1. La variable <code>i</code> agit ici comme une variable globale, elle n'est initialisée qu'une seule fois à 0 et donc s'incrémente d'appel en appel. En revanche, elle n'est pas accessible en dehors de la fonction ; c'est donc une variable locale.</p>
@@ -5457,12 +5457,12 @@ préservé même lorsque l'on sort du bloc où elles ont été déclarées.</p>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
 </span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Il n'est pas rare de voir des variables globales, ou des fonctions précédées du mot clé <code>static</code>. Ces variables sont dites <em>statiques au module</em>. Elles ne sont donc pas accessibles depuis un autre module (<em>translation unit</em>)</p>
+<p>Il n'est pas rare de voir des variables globales, ou des fonctions précédées du mot clé <span class="ycr-hashtag" data-index-entry="static" data-tag="static"><code>static</code></span>. Ces variables sont dites <em>statiques au module</em>. Elles ne sont donc pas accessibles depuis un autre module (<em>translation unit</em>)</p>
 <p>La fonction suivante est <em>statique</em> au module dans lequel elle est déclarée. Il ne sera donc pas possible d'y accéder depuis un autre fichier C.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
-<p>On utilisera volontiers le mot clé <code>static</code> pour marquer les fonctions qui ne sont pas exportables, c'est-à-dire qui ne sont pas destinées à être utilisées par d'autres modules. Il s'agit des fonctions utlitaires, des fonctions internes à un module. Il en va de même pour les variables. On évitera dans tous les cas d'utiliser des variables globales mais si cela est nécessaire, on les marquera <code>static</code> pour éviter qu'elle ne soient accessibles depuis un autre fichier.</p>
-<h3 id="volatile"><code>volatile</code><a class="headerlink" href="#volatile" title="Lien permanent">¤</a></h3>
+<p>On utilisera volontiers le mot clé <span class="ycr-hashtag" data-index-entry="static" data-tag="static"><code>static</code></span> pour marquer les fonctions qui ne sont pas exportables, c'est-à-dire qui ne sont pas destinées à être utilisées par d'autres modules. Il s'agit des fonctions utlitaires, des fonctions internes à un module. Il en va de même pour les variables. On évitera dans tous les cas d'utiliser des variables globales mais si cela est nécessaire, on les marquera <span class="ycr-hashtag" data-index-entry="static" data-tag="static"><code>static</code></span> pour éviter qu'elle ne soient accessibles depuis un autre fichier.</p>
+<h3 id="volatile"><span class="ycr-hashtag" data-index-entry="volatile" data-tag="volatile"><code>volatile</code></span><a class="headerlink" href="#volatile" title="Lien permanent">¤</a></h3>
 <p>Cette classe de stockage indique au compilateur qu'il ne peut faire aucune hypothèse d'optimisation concernant cette variable. Elle indique que son contenu peut être modifié en tout temps en arrière-plan par le système d'exploitation ou le matériel. Ce mot clé est davantage utilisé en programmation système, ou sur microcontrôleurs.</p>
 <p>L'usage de cette classe de stockage réduit les performances d'un programme puisqu'elle empêche l'optimisation du code et le contenu de cette variable devra être rechargé à chaque utilisation</p>
 <p>Considérons le cas du programme suivant :</p>
@@ -5533,7 +5533,7 @@ préservé même lorsque l'on sort du bloc où elles ont été déclarées.</p>
 </span><span id="__span-13-21"><a href="#__codelineno-13-21" id="__codelineno-13-21" name="__codelineno-13-21"></a><span class="w">    </span>108e:<span class="w">       </span><span class="m">66</span><span class="w"> </span><span class="m">90</span><span class="w">                   </span>xchg<span class="w">   </span>%ax,%ax
 </span></code></pre></div>
 <p>Les lignes ont disparu !</p>
-<p>Afin d'éviter cette optimisation, il faut marquer la variable <code>i</code> comme <code>volatile</code>:</p>
+<p>Afin d'éviter cette optimisation, il faut marquer la variable <code>i</code> comme <span class="ycr-hashtag" data-index-entry="volatile" data-tag="volatile"><code>volatile</code></span>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -5547,12 +5547,12 @@ préservé même lorsque l'on sort du bloc où elles ont été déclarées.</p>
 </span><span id="__span-14-11"><a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 </span><span id="__span-14-12"><a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="extern"><code>extern</code><a class="headerlink" href="#extern" title="Lien permanent">¤</a></h3>
-<p>Cette classe est utilisée pour signaler que la variable ou la fonction associée est déclarée dans un autre module (autre fichier). Ainsi le code suivant ne déclare pas une nouvelle variable, <code>foo</code> mais s'attend à ce que cette variable ait été déclarée dans un autre fichier.</p>
+<h3 id="extern"><span class="ycr-hashtag" data-index-entry="extern" data-tag="extern"><code>extern</code></span><a class="headerlink" href="#extern" title="Lien permanent">¤</a></h3>
+<p>Cette classe est utilisée pour signaler que la variable ou la fonction associée est déclarée dans un autre module (autre fichier). Ainsi le code suivant ne déclare pas une nouvelle variable, <span class="ycr-hashtag" data-index-entry="foo" data-tag="foo"><code>foo</code></span> mais s'attend à ce que cette variable ait été déclarée dans un autre fichier.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 </span></code></pre></div>
-<h3 id="restrict"><code>restrict</code><a class="headerlink" href="#restrict" title="Lien permanent">¤</a></h3>
-<p>En C, le mot clé <code>restrict</code>, apparu avec <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, est utilisé uniquement pour des pointeurs. Ce qualificatif de type informe le compilateur que pour toute la durée de vie du pointeur, aucun autre pointeur ne pointera que sur la valeur qu'il pointe ou une valeur dérivée de lui-même (p. ex : <code>p + 1</code>).</p>
+<h3 id="restrict"><span class="ycr-hashtag" data-index-entry="restrict" data-tag="restrict"><code>restrict</code></span><a class="headerlink" href="#restrict" title="Lien permanent">¤</a></h3>
+<p>En C, le mot clé <span class="ycr-hashtag" data-index-entry="restrict" data-tag="restrict"><code>restrict</code></span>, apparu avec <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, est utilisé uniquement pour des pointeurs. Ce qualificatif de type informe le compilateur que pour toute la durée de vie du pointeur, aucun autre pointeur ne pointera que sur la valeur qu'il pointe ou une valeur dérivée de lui-même (p. ex : <code>p + 1</code>).</p>
 <p>En d'autres termes, le qualificatif indique au compilateur que deux pointeurs différents ne peuvent pas pointer sur les mêmes régions mémoires.</p>
 <p>Prenons l'exemple simple d'une fonction qui met à jour deux pointeurs avec une valeur passée en paramètre :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">update_ptr</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5560,7 +5560,7 @@ préservé même lorsque l'on sort du bloc où elles ont été déclarées.</p>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">;</span>
 </span><span id="__span-16-4"><a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Le compilateur, n'ayant aucune information sur les pointeurs fournis, ne peut faire aucune hypothèse d'optimisation. En effet, ces deux pointeurs <code>a</code> et <code>b</code> ainsi que <code>value</code> pourraient très bien pointer sur la même région mémoire, et dans ce cas <code>*a += *value</code> aurait pour effet d'incrémenter <code>value</code>. En revanche, dans le cas où la fonction est déclarée de la façon suivante :</p>
+<p>Le compilateur, n'ayant aucune information sur les pointeurs fournis, ne peut faire aucune hypothèse d'optimisation. En effet, ces deux pointeurs <code>a</code> et <code>b</code> ainsi que <span class="ycr-hashtag" data-index-entry="value" data-tag="value"><code>value</code></span> pourraient très bien pointer sur la même région mémoire, et dans ce cas <code>*a += *value</code> aurait pour effet d'incrémenter <span class="ycr-hashtag" data-index-entry="value" data-tag="value"><code>value</code></span>. En revanche, dans le cas où la fonction est déclarée de la façon suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">update_ptr</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="o">*</span><span class="kr">restrict</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">b</span><span class="p">,</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="o">*</span><span class="kr">restrict</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">;</span>

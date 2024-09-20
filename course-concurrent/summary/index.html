@@ -3656,7 +3656,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3672,7 +3672,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5252,33 +5252,33 @@ les outils associés.
 <h2 id="os">OS<a class="headerlink" href="#os" title="Lien permanent">¤</a></h2>
 <h3 id="appels-systemes">Appels Systèmes<a class="headerlink" href="#appels-systemes" title="Lien permanent">¤</a></h3>
 <ul>
-<li><code>fork</code> : Crée un nouveau processus en copiant le processus appelant.</li>
-<li><code>clone</code> : Crée un nouveau processus léger en copiant le processus appelant.</li>
-<li><code>exec</code> : Remplace l'image mémoire du processus appelant par un nouveau programme.</li>
-<li><code>wait</code> : Attend la fin d'un processus.</li>
-<li><code>exit</code> : Termine le processus appelant.</li>
-<li><code>open</code> : Ouvre un fichier.</li>
-<li><code>close</code> : Ferme un fichier.</li>
-<li><code>read</code> : Lit des données depuis un fichier.</li>
-<li><code>write</code> : Ecrit des données dans un fichier.</li>
-<li><code>mmap</code> : Mappe un fichier en mémoire (new, malloc).</li>
+<li><span class="ycr-hashtag" data-index-entry="fork" data-tag="fork"><code>fork</code></span> : Crée un nouveau processus en copiant le processus appelant.</li>
+<li><span class="ycr-hashtag" data-index-entry="clone" data-tag="clone"><code>clone</code></span> : Crée un nouveau processus léger en copiant le processus appelant.</li>
+<li><span class="ycr-hashtag" data-index-entry="exec" data-tag="exec"><code>exec</code></span> : Remplace l'image mémoire du processus appelant par un nouveau programme.</li>
+<li><span class="ycr-hashtag" data-index-entry="wait" data-tag="wait"><code>wait</code></span> : Attend la fin d'un processus.</li>
+<li><span class="ycr-hashtag" data-index-entry="exit" data-tag="exit"><code>exit</code></span> : Termine le processus appelant.</li>
+<li><span class="ycr-hashtag" data-index-entry="open" data-tag="open"><code>open</code></span> : Ouvre un fichier.</li>
+<li><span class="ycr-hashtag" data-index-entry="close" data-tag="close"><code>close</code></span> : Ferme un fichier.</li>
+<li><span class="ycr-hashtag" data-index-entry="read" data-tag="read"><code>read</code></span> : Lit des données depuis un fichier.</li>
+<li><span class="ycr-hashtag" data-index-entry="write" data-tag="write"><code>write</code></span> : Ecrit des données dans un fichier.</li>
+<li><span class="ycr-hashtag" data-index-entry="mmap" data-tag="mmap"><code>mmap</code></span> : Mappe un fichier en mémoire (new, malloc).</li>
 <li>...</li>
 </ul>
 <h3 id="processus">Processus<a class="headerlink" href="#processus" title="Lien permanent">¤</a></h3>
 <p>Un processus c'est un programme en cours d'exécution. Il possède un espace d'adressage, un identifiant unique (PID), un état (running, waiting, sleeping, zombie), un parent (PPID), des ressources (fichiers ouverts, mémoire allouée, ...).</p>
-<p>Pour créer un processus on a vu que l'appel système <code>fork</code> permet de dupliquer le processus appelant. Le processus fils hérite de l'espace d'adressage du processus parent. A ce moment là la mémoire est copiée en mode « copy-on-write ». Cela signifie que la mémoire n'est pas copiée immédiatement mais seulement lorsqu'elle est modifiée. Et les deux processus sont indépendants. Donc c'est lourd en mémoire.</p>
+<p>Pour créer un processus on a vu que l'appel système <span class="ycr-hashtag" data-index-entry="fork" data-tag="fork"><code>fork</code></span> permet de dupliquer le processus appelant. Le processus fils hérite de l'espace d'adressage du processus parent. A ce moment là la mémoire est copiée en mode « copy-on-write ». Cela signifie que la mémoire n'est pas copiée immédiatement mais seulement lorsqu'elle est modifiée. Et les deux processus sont indépendants. Donc c'est lourd en mémoire.</p>
 <h3 id="processus-legers-ou-threads">Processus légers ou threads<a class="headerlink" href="#processus-legers-ou-threads" title="Lien permanent">¤</a></h3>
-<p>Un processus léger se crée avec l'appel système <code>clone</code>. Il est plus léger qu'un processus car il partage le même espace d'adressage que le processus parent. Cela signifie que les threads partagent les mêmes variables globales, les mêmes fichiers ouverts, les mêmes signaux, ... Mais cela peut poser des problèmes de synchronisation : des accès concurrents à des ressources partagées.</p>
+<p>Un processus léger se crée avec l'appel système <span class="ycr-hashtag" data-index-entry="clone" data-tag="clone"><code>clone</code></span>. Il est plus léger qu'un processus car il partage le même espace d'adressage que le processus parent. Cela signifie que les threads partagent les mêmes variables globales, les mêmes fichiers ouverts, les mêmes signaux, ... Mais cela peut poser des problèmes de synchronisation : des accès concurrents à des ressources partagées.</p>
 <h3 id="mecanismes-de-synchronisation">Mécanismes de synchronisation<a class="headerlink" href="#mecanismes-de-synchronisation" title="Lien permanent">¤</a></h3>
 <p>Pour synchroniser les threads on utilise des primitives de synchronisation. Les plus courantes sont les mutex, les sémaphores et les moniteurs.</p>
 <p>La notion de concurrence a été imaginée par Edsger Dijkstra en 1965 pour résoudre les problèmes de synchronisation dans les systèmes d'exploitation. Il était d'origine néerlandaise et a travaillé pour la compagnie Philips.</p>
-<p>Il a inventé le concept de sémaphore. Un sémaphore est un objet de synchronisation qui possède un compteur. Il possède deux opérations atomiques : <code>wait</code> et <code>post</code>. <code>wait</code> décrémente le compteur et bloque si le compteur est négatif. <code>post</code> incrémente le compteur et réveille un thread en attente si le compteur est négatif.
-Historiquement les noms donnés par Dijkstra étaient <code>P</code> et <code>V</code> pour <code>Proberen</code> et <code>Verhogen</code> en néerlandais.</p>
+<p>Il a inventé le concept de sémaphore. Un sémaphore est un objet de synchronisation qui possède un compteur. Il possède deux opérations atomiques : <span class="ycr-hashtag" data-index-entry="wait" data-tag="wait"><code>wait</code></span> et <span class="ycr-hashtag" data-index-entry="post" data-tag="post"><code>post</code></span>. <span class="ycr-hashtag" data-index-entry="wait" data-tag="wait"><code>wait</code></span> décrémente le compteur et bloque si le compteur est négatif. <span class="ycr-hashtag" data-index-entry="post" data-tag="post"><code>post</code></span> incrémente le compteur et réveille un thread en attente si le compteur est négatif.
+Historiquement les noms donnés par Dijkstra étaient <code>P</code> et <code>V</code> pour <span class="ycr-hashtag" data-index-entry="Proberen" data-tag="Proberen"><code>Proberen</code></span> et <span class="ycr-hashtag" data-index-entry="Verhogen" data-tag="Verhogen"><code>Verhogen</code></span> en néerlandais.</p>
 <p>Le sémaphore compte des ressources disponibles. Si le sémaphore est à zéro, il n'y a plus de ressources disponibles. Si le sémaphore est à un, il y a une ressource disponible. Si le sémaphore est à deux...</p>
 <p>Plus tard sont venu des opérations atomiques dans les processeurs comme le <code>test-and-set</code> ou le <code>compare-and-swap</code>. Ces opérations permettent de réaliser des primitives de synchronisation plus complexes comme les mutex. Le gros avantage c'est l'absence d'attente active. L'attente active c'est une boucle qui teste une condition en permanence. C'est très gourmand en CPU.</p>
 <p>Une opération atomique dans le cadre de l'informatique c'est une opération qui s'exécute en une seule instruction machine. Cela signifie que l'opération est indivisible. C'est soit tout ou rien. C'est soit l'opération s'exécute complètement, soit elle ne s'exécute pas du tout.</p>
 <h4 id="mutex">Mutex<a class="headerlink" href="#mutex" title="Lien permanent">¤</a></h4>
-<p>En C++ le mutex est une classe qui permet de protéger des ressources partagées entre plusieurs threads. Il possède deux méthodes : <code>lock</code> et <code>unlock</code>. <code>lock</code> bloque le mutex si il est déjà verrouillé. <code>unlock</code> déverrouille le mutex.</p>
+<p>En C++ le mutex est une classe qui permet de protéger des ressources partagées entre plusieurs threads. Il possède deux méthodes : <span class="ycr-hashtag" data-index-entry="lock" data-tag="lock"><code>lock</code></span> et <span class="ycr-hashtag" data-index-entry="unlock" data-tag="unlock"><code>unlock</code></span>. <span class="ycr-hashtag" data-index-entry="lock" data-tag="lock"><code>lock</code></span> bloque le mutex si il est déjà verrouillé. <span class="ycr-hashtag" data-index-entry="unlock" data-tag="unlock"><code>unlock</code></span> déverrouille le mutex.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mutex&gt;</span>
@@ -5298,7 +5298,7 @@ Historiquement les noms donnés par Dijkstra étaient <code>P</code> et <code>V<
 </span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>On appelle section critique une portion de code qui accède à des ressources partagées. Il est important de protéger cette section critique avec un mutex pour éviter les accès concurrents.</p>
-<p>En général on utilise pas le <code>lock</code>/<code>unlock</code> directement mais plutôt un <code>std::lock_guard</code> qui est un RAII (Resource Acquisition Is Initialization). C'est une classe qui s'occupe de libérer les ressources automatiquement à la fin du bloc.</p>
+<p>En général on utilise pas le <span class="ycr-hashtag" data-index-entry="lock" data-tag="lock"><code>lock</code></span>/<span class="ycr-hashtag" data-index-entry="unlock" data-tag="unlock"><code>unlock</code></span> directement mais plutôt un <code>std::lock_guard</code> qui est un RAII (Resource Acquisition Is Initialization). C'est une classe qui s'occupe de libérer les ressources automatiquement à la fin du bloc.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="p">{</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
@@ -5315,7 +5315,7 @@ Historiquement les noms donnés par Dijkstra étaient <code>P</code> et <code>V<
 </span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">;</span>
 </span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>Aternativement au <code>lock_guard</code> on peut utiliser un <code>std::unique_lock</code>. La différence c'est qu'un <code>unique_lock</code> est un verrou de portée manuelle. Il peut être déverrouillé et verrouillé à nouveau.</p>
+<p>Aternativement au <span class="ycr-hashtag" data-index-entry="lock_guard" data-tag="lock_guard"><code>lock_guard</code></span> on peut utiliser un <code>std::unique_lock</code>. La différence c'est qu'un <span class="ycr-hashtag" data-index-entry="unique_lock" data-tag="unique_lock"><code>unique_lock</code></span> est un verrou de portée manuelle. Il peut être déverrouillé et verrouillé à nouveau.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Section critique</span>
@@ -5325,7 +5325,7 @@ Historiquement les noms donnés par Dijkstra étaient <code>P</code> et <code>V<
 <p>Le unique_lock sera utilisé par exemple dans les variables conditions.</p>
 <h4 id="variable-condition">Variable condition<a class="headerlink" href="#variable-condition" title="Lien permanent">¤</a></h4>
 <p>Une variable condition est un objet de synchronisation qui permet de mettre un thread en attente tant qu'une condition n'est pas remplie. Elle utilise un mutex pour protéger la condition et permet de notifier des threads.</p>
-<p>Les méthodes les plus courantes sont <code>wait</code>, <code>wait_for</code>, <code>wait_until</code>, <code>notify_one</code> et <code>notify_all</code>.</p>
+<p>Les méthodes les plus courantes sont <span class="ycr-hashtag" data-index-entry="wait" data-tag="wait"><code>wait</code></span>, <span class="ycr-hashtag" data-index-entry="wait_for" data-tag="wait_for"><code>wait_for</code></span>, <span class="ycr-hashtag" data-index-entry="wait_until" data-tag="wait_until"><code>wait_until</code></span>, <span class="ycr-hashtag" data-index-entry="notify_one" data-tag="notify_one"><code>notify_one</code></span> et <span class="ycr-hashtag" data-index-entry="notify_all" data-tag="notify_all"><code>notify_all</code></span>.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">beers_in_fridge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="n">mtx</span><span class="p">;</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">std</span><span class="o">::</span><span class="n">variable_condition</span><span class="w"> </span><span class="n">cv</span><span class="p">;</span>

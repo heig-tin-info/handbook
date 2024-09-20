@@ -3656,7 +3656,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3672,7 +3672,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5242,29 +5242,29 @@ les outils associés.
 <h2 id="preambule">Préambule<a class="headerlink" href="#preambule" title="Lien permanent">¤</a></h2>
 <p>Les applications utilisées typiquement par un ingénieur aujourd'hui sont Python, Git, GCC, LaTeX ou même Docker. Ces applications ont un point commun, c'est qu'elles ont d'abord été écrites pour un environnement <strong><abbr title="Portable Operating System Interface">POSIX</abbr></strong> (Unix).</p>
 <p><strong><abbr title="Portable Operating System Interface">POSIX</abbr></strong> est une norme internationale (IEEE 1003) qui définit l'interface de programmation d'un système d'exploitation. Elle est basée sur <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>. Elle est utilisée pour les systèmes d'exploitation de type <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>. Windows n'est pas un système qui respecte cette norme ce qui complique l'utilisation de ces applications.</p>
-<p>Afin de pouvoir porter Python ou Git sous Windows, il a fallu ajouter une couche d'abstraction pour rendre compatible le monde Linux avec le monde Windows. Historiquement le projet <a href="https://en.wikipedia.org/wiki/Cygwin">Cygwin</a> né en 1995 a été le premier à proposer une telle couche. Il s'agissait d'un environnement <abbr title="Portable Operating System Interface">POSIX</abbr> pour Windows muni d'un terminal, d'un gestionnaire de paquets et d'une bibliothèque d'émulation <abbr title="Portable Operating System Interface">POSIX</abbr>. Les outils en ligne de commande type <code>ls</code>, <code>cat</code> ou même <code>grep</code> étaient proposés. Néanmoins, Cygwin n'était pas parfait, il nécessitait son propre environnement de travail et n'était pas bien intégré à Windows. Le projet <a href="https://en.wikipedia.org/wiki/MSYS">MSYS</a> a été créé en 2003 pour pallier à ces problèmes. Il s'agissait d'une couche d'abstraction <abbr title="Portable Operating System Interface">POSIX</abbr> pour Windows qui se voulait plus légère. Au lieu de compiler des applications Linux qui devaient impérativement être lancées sous Cygwin, MSYS intégrait la couche d'abstraction dans les applications elles-mêmes, ces dernières étaient compilées en <code>.exe</code> et pouvaient être lancées directement depuis l'explorateur Windows. MSYS a été un franc succès et a été intégré dans le projet <a href="https://en.wikipedia.org/wiki/MinGW">MinGW</a> (Minimalist <abbr title="GNU's Not Unix">GNU</abbr> for Windows) qui est un portage de GCC pour Windows.</p>
-<p>Lorsque vous installez <code>Git</code> sous Windows et que vous visitez l'emplacement d'installation (<code>C:\Program Files\Git</code>), vous verrez des dossiers aux noms compatibles <code>POSIX</code> comme <code>bin</code>, <code>etc</code>, <code>lib</code>, <code>usr</code>, etc. Le dossier <code>bin</code> qui contient les exécutables contient <code>bash</code> qui n'est rien d'autre que le terminal utilisé sous Linux. La raison est que <code>Git</code> ou même <code>Python</code> sont des outils avant tout développés pour les environnements Unix/Linux.</p>
-<p>Le choix de l'environnement de travail est donc compliqué. Faut-il travailler sous Windows avec les limitations que le portage des applications Linux implique ou faut-il travailler sous Linux directement ? Un ingénieur reste  aujourd'hui attaché au monde Windows car il dépend de logiciels comme <code>SolidWorks</code> ou <code>Altium Designer</code> qui ne sont pas disponibles sous Linux. Il est donc nécessaire de trouver un compromis.</p>
+<p>Afin de pouvoir porter Python ou Git sous Windows, il a fallu ajouter une couche d'abstraction pour rendre compatible le monde Linux avec le monde Windows. Historiquement le projet <a href="https://en.wikipedia.org/wiki/Cygwin">Cygwin</a> né en 1995 a été le premier à proposer une telle couche. Il s'agissait d'un environnement <abbr title="Portable Operating System Interface">POSIX</abbr> pour Windows muni d'un terminal, d'un gestionnaire de paquets et d'une bibliothèque d'émulation <abbr title="Portable Operating System Interface">POSIX</abbr>. Les outils en ligne de commande type <code>ls</code>, <span class="ycr-hashtag" data-index-entry="cat" data-tag="cat"><code>cat</code></span> ou même <span class="ycr-hashtag" data-index-entry="grep" data-tag="grep"><code>grep</code></span> étaient proposés. Néanmoins, Cygwin n'était pas parfait, il nécessitait son propre environnement de travail et n'était pas bien intégré à Windows. Le projet <a href="https://en.wikipedia.org/wiki/MSYS">MSYS</a> a été créé en 2003 pour pallier à ces problèmes. Il s'agissait d'une couche d'abstraction <abbr title="Portable Operating System Interface">POSIX</abbr> pour Windows qui se voulait plus légère. Au lieu de compiler des applications Linux qui devaient impérativement être lancées sous Cygwin, MSYS intégrait la couche d'abstraction dans les applications elles-mêmes, ces dernières étaient compilées en <code>.exe</code> et pouvaient être lancées directement depuis l'explorateur Windows. MSYS a été un franc succès et a été intégré dans le projet <a href="https://en.wikipedia.org/wiki/MinGW">MinGW</a> (Minimalist <abbr title="GNU's Not Unix">GNU</abbr> for Windows) qui est un portage de GCC pour Windows.</p>
+<p>Lorsque vous installez <span class="ycr-hashtag" data-index-entry="Git" data-tag="Git"><code>Git</code></span> sous Windows et que vous visitez l'emplacement d'installation (<code>C:\Program Files\Git</code>), vous verrez des dossiers aux noms compatibles <span class="ycr-hashtag" data-index-entry="POSIX" data-tag="POSIX"><code>POSIX</code></span> comme <span class="ycr-hashtag" data-index-entry="bin" data-tag="bin"><code>bin</code></span>, <span class="ycr-hashtag" data-index-entry="etc" data-tag="etc"><code>etc</code></span>, <span class="ycr-hashtag" data-index-entry="lib" data-tag="lib"><code>lib</code></span>, <span class="ycr-hashtag" data-index-entry="usr" data-tag="usr"><code>usr</code></span>, etc. Le dossier <span class="ycr-hashtag" data-index-entry="bin" data-tag="bin"><code>bin</code></span> qui contient les exécutables contient <span class="ycr-hashtag" data-index-entry="bash" data-tag="bash"><code>bash</code></span> qui n'est rien d'autre que le terminal utilisé sous Linux. La raison est que <span class="ycr-hashtag" data-index-entry="Git" data-tag="Git"><code>Git</code></span> ou même <span class="ycr-hashtag" data-index-entry="Python" data-tag="Python"><code>Python</code></span> sont des outils avant tout développés pour les environnements Unix/Linux.</p>
+<p>Le choix de l'environnement de travail est donc compliqué. Faut-il travailler sous Windows avec les limitations que le portage des applications Linux implique ou faut-il travailler sous Linux directement ? Un ingénieur reste  aujourd'hui attaché au monde Windows car il dépend de logiciels comme <span class="ycr-hashtag" data-index-entry="SolidWorks" data-tag="SolidWorks"><code>SolidWorks</code></span> ou <code>Altium Designer</code> qui ne sont pas disponibles sous Linux. Il est donc nécessaire de trouver un compromis.</p>
 <p>En 2016, Microsoft a annoncé le support de Linux dans Windows 10. Il s'agissait d'une couche d'abstraction qui permettait de faire tourner des applications Linux directement sous Windows. Cette couche d'abstraction s'appelle <a href="https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux">Windows Subsystem for Linux</a> (WSL). Elle est basée sur une technologie de virtualisation de conteneurs. WSL a été un franc succès et il a très vite été adopté par les développeurs Web. Il fut de surcroît proposé comme une alternative à Cygwin et MSYS.</p>
 <p>WSL a été amélioré au fil des années et en 2019, Microsoft a annoncé WSL 2. WSL 2 est basé sur une technologie de virtualisation de type 2 (hyperviseur) et non plus de type 1 (noyau Linux). WSL 2 est donc plus performant que WSL 1. Il est possible de faire tourner un serveur web ou même un serveur de base de données directement sous WSL 2. WSL 2 est maintenant une alternative crédible à Linux.</p>
 <p>Il rend possible de travailler sous Windows et de faire tourner des applications Linux directement sous Windows.</p>
 <p>Le choix donné aux ingénieurs est donc :</p>
 <ol>
-<li><strong>Choix facile mais source d'incohérences</strong>: Travailler exclusivement sous Windows et installer <code>Python</code>, <code>Git</code>, <code>LaTeX</code> sous Windows. L'inconvénient est que chacune de ses applications ne profitent pas d'une unité de travail commune. A force d'installer des applications, vous aurez dans votre système plusieurs installation de Python, plusieurs exécutables Git ce qui peut vite devenir compliqué à gérer.</li>
-<li><strong>Choix plus difficile mais offrant davantage de flexibilité</strong>: Travailler sous WSL 2 et de faire tourner <code>Python</code>, <code>Git</code>, <code>LaTeX</code> sous Linux. L'avantage est que vous aurez une unité de travail commune. Vous pourrez installer des applications Linux directement depuis le gestionnaire de paquets de votre distribution Linux. Néanmoins vous devrez vous familiariser avec la ligne de commande Linux.</li>
+<li><strong>Choix facile mais source d'incohérences</strong>: Travailler exclusivement sous Windows et installer <span class="ycr-hashtag" data-index-entry="Python" data-tag="Python"><code>Python</code></span>, <span class="ycr-hashtag" data-index-entry="Git" data-tag="Git"><code>Git</code></span>, <span class="ycr-hashtag" data-index-entry="LaTeX" data-tag="LaTeX"><code>LaTeX</code></span> sous Windows. L'inconvénient est que chacune de ses applications ne profitent pas d'une unité de travail commune. A force d'installer des applications, vous aurez dans votre système plusieurs installation de Python, plusieurs exécutables Git ce qui peut vite devenir compliqué à gérer.</li>
+<li><strong>Choix plus difficile mais offrant davantage de flexibilité</strong>: Travailler sous WSL 2 et de faire tourner <span class="ycr-hashtag" data-index-entry="Python" data-tag="Python"><code>Python</code></span>, <span class="ycr-hashtag" data-index-entry="Git" data-tag="Git"><code>Git</code></span>, <span class="ycr-hashtag" data-index-entry="LaTeX" data-tag="LaTeX"><code>LaTeX</code></span> sous Linux. L'avantage est que vous aurez une unité de travail commune. Vous pourrez installer des applications Linux directement depuis le gestionnaire de paquets de votre distribution Linux. Néanmoins vous devrez vous familiariser avec la ligne de commande Linux.</li>
 </ol>
 <h2 id="le-terminal">Le terminal<a class="headerlink" href="#le-terminal" title="Lien permanent">¤</a></h2>
-<p>Historiquement sous Windows, le terminal était une application graphique appelée <code>cmd</code>. Elle n'a pas évoluée depuis Windows NT. Son interface est limitée à un nombre fini de caractères par ligne et ne supportait que quelques couleurs. Elle ne supportait pas les caractères Unicode et ne supportait pas les raccourcis clavier comme <code>Ctrl+C</code> ou <code>Ctrl+V</code>.</p>
-<p>Heursement Windows a évolué et propose PowerShell. PowerShell est un terminal plus moderne qui supporte les couleurs, les raccourcis clavier, les caractères Unicode, etc. PowerShell est un terminal plus puissant que <code>cmd</code>.</p>
+<p>Historiquement sous Windows, le terminal était une application graphique appelée <span class="ycr-hashtag" data-index-entry="cmd" data-tag="cmd"><code>cmd</code></span>. Elle n'a pas évoluée depuis Windows NT. Son interface est limitée à un nombre fini de caractères par ligne et ne supportait que quelques couleurs. Elle ne supportait pas les caractères Unicode et ne supportait pas les raccourcis clavier comme <code>Ctrl+C</code> ou <code>Ctrl+V</code>.</p>
+<p>Heursement Windows a évolué et propose PowerShell. PowerShell est un terminal plus moderne qui supporte les couleurs, les raccourcis clavier, les caractères Unicode, etc. PowerShell est un terminal plus puissant que <span class="ycr-hashtag" data-index-entry="cmd" data-tag="cmd"><code>cmd</code></span>.</p>
 <p>L'interface du terminal était également rudimentaire (pas d'onglets, pas de séparateurs, etc.). Heureusement Windows propose depuis 2019 <a href="https://en.wikipedia.org/wiki/Windows_Terminal">Windows Terminal</a>. Windows Terminal est un terminal moderne multi-onglets qui supporte plusieurs terminaux (cmd, PowerShell, WSL, etc.). S'il n'est pas installé vous pouvez le faire via le <a href="https://www.microsoft.com/fr-ch/p/windows-terminal/9n0dx20hk701">Microsoft Store</a>.</p>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/cmd.png"><img alt="Interface de cmd.exe dans Windows Terminal" src="../../assets/images/cmd.png"/></a><figcaption> Interface de cmd.exe dans Windows Terminal</figcaption></figure></p>
 <p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/powershell.png"><img alt="Interface de PowerShell dans Windows Terminal" src="../../assets/images/powershell.png"/></a><figcaption> Interface de PowerShell dans Windows Terminal</figcaption></figure></p>
 <p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../assets/images/bash.png"><img alt="Interface de Ubuntu dans Windows Terminal" src="../../assets/images/bash.png"/></a><figcaption> Interface de Ubuntu dans Windows Terminal</figcaption></figure></p>
 <h2 id="variables-denvironnement">Variables d'environnement<a class="headerlink" href="#variables-denvironnement" title="Lien permanent">¤</a></h2>
 <p>Que vous soyez sous <abbr title="Portable Operating System Interface">POSIX</abbr> ou Windows, votre système d'exploitation dispose de variables d'environnement. Il s'agit de variables qui sont accessibles par toutes les applications. Elles sont utilisées pour stocker des informations comme le chemin d'accès à un exécutable, le nom de l'utilisateur, le répertoire de travail, etc.</p>
-<p>La variable la plus importante est <code>PATH</code>. Elle contient une liste de chemins d'accès aux exécutables. Lorsque vous tapez une commande dans un terminal, le système d'exploitation parcourt les chemins d'accès de la variable <code>PATH</code> pour trouver l'exécutable correspondant à la commande. Si vous avez installé Python, Git, LaTeX, etc. dans des répertoires différents, il est nécessaire de les ajouter à la variable <code>PATH</code>. Parfois les installateurs le font automatiquement, parfois non. Il est donc nécessaire de vérifier manuellement.</p>
-<p>Une variable d'environnement n'est propagée à un processus que si ce dernier est lancé après la modification de la variable. Si vous modifiez la variable <code>PATH</code> les processus déjà lancés ne verront pas la modification. Il est nécessaire de fermer le terminal et de le rouvrir (relancer Visual Studio Code, votre terminal, etc.).</p>
-<p>Parfois si vous installez plusieurs version d'un même logiciel comme <code>Python</code> vous pourriez avoir plusieurs variables d'environnement qui pointent vers des versions différentes de Python. C'est une source de confusion et c'est un problème fréquent sous Windows. Vous pouvez vérifier quel est le chemin d'accès à un exécutable avec la commande <code>where</code> sous Windows et <code>which</code> sous Linux.</p>
+<p>La variable la plus importante est <span class="ycr-hashtag" data-index-entry="PATH" data-tag="PATH"><code>PATH</code></span>. Elle contient une liste de chemins d'accès aux exécutables. Lorsque vous tapez une commande dans un terminal, le système d'exploitation parcourt les chemins d'accès de la variable <span class="ycr-hashtag" data-index-entry="PATH" data-tag="PATH"><code>PATH</code></span> pour trouver l'exécutable correspondant à la commande. Si vous avez installé Python, Git, LaTeX, etc. dans des répertoires différents, il est nécessaire de les ajouter à la variable <span class="ycr-hashtag" data-index-entry="PATH" data-tag="PATH"><code>PATH</code></span>. Parfois les installateurs le font automatiquement, parfois non. Il est donc nécessaire de vérifier manuellement.</p>
+<p>Une variable d'environnement n'est propagée à un processus que si ce dernier est lancé après la modification de la variable. Si vous modifiez la variable <span class="ycr-hashtag" data-index-entry="PATH" data-tag="PATH"><code>PATH</code></span> les processus déjà lancés ne verront pas la modification. Il est nécessaire de fermer le terminal et de le rouvrir (relancer Visual Studio Code, votre terminal, etc.).</p>
+<p>Parfois si vous installez plusieurs version d'un même logiciel comme <span class="ycr-hashtag" data-index-entry="Python" data-tag="Python"><code>Python</code></span> vous pourriez avoir plusieurs variables d'environnement qui pointent vers des versions différentes de Python. C'est une source de confusion et c'est un problème fréquent sous Windows. Vous pouvez vérifier quel est le chemin d'accès à un exécutable avec la commande <span class="ycr-hashtag" data-index-entry="where" data-tag="where"><code>where</code></span> sous Windows et <span class="ycr-hashtag" data-index-entry="which" data-tag="which"><code>which</code></span> sous Linux.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Linux/WSL/MacOS</label><label for="__tabbed_1_2">Windows CMD</label><label for="__tabbed_1_3">PowerShell</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5299,7 +5299,7 @@ les outils associés.
 </thead>
 <tbody>
 <tr>
-<td><code>gcc</code></td>
+<td><span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span></td>
 <td>Compilateur C</td>
 </tr>
 <tr>
@@ -5307,7 +5307,7 @@ les outils associés.
 <td>Compilateur C++</td>
 </tr>
 <tr>
-<td><code>make</code></td>
+<td><span class="ycr-hashtag" data-index-entry="make" data-tag="make"><code>make</code></span></td>
 <td>Gestionnaire de compilation</td>
 </tr>
 </tbody>
@@ -5353,31 +5353,31 @@ les outils associés.
 <td>Change de répertoire</td>
 </tr>
 <tr>
-<td><code>pwd</code></td>
+<td><span class="ycr-hashtag" data-index-entry="pwd" data-tag="pwd"><code>pwd</code></span></td>
 <td>Affiche le répertoire courant</td>
 </tr>
 <tr>
-<td><code>cat</code></td>
+<td><span class="ycr-hashtag" data-index-entry="cat" data-tag="cat"><code>cat</code></span></td>
 <td>Affiche le contenu d'un fichier</td>
 </tr>
 <tr>
-<td><code>less</code></td>
+<td><span class="ycr-hashtag" data-index-entry="less" data-tag="less"><code>less</code></span></td>
 <td>Affiche le contenu d'un fichier page par page</td>
 </tr>
 <tr>
-<td><code>grep</code></td>
+<td><span class="ycr-hashtag" data-index-entry="grep" data-tag="grep"><code>grep</code></span></td>
 <td>Recherche une chaîne de caractères dans un fichier</td>
 </tr>
 <tr>
-<td><code>find</code></td>
+<td><span class="ycr-hashtag" data-index-entry="find" data-tag="find"><code>find</code></span></td>
 <td>Recherche un fichier dans un répertoire</td>
 </tr>
 <tr>
-<td><code>man</code></td>
+<td><span class="ycr-hashtag" data-index-entry="man" data-tag="man"><code>man</code></span></td>
 <td>Affiche le manuel d'une commande</td>
 </tr>
 <tr>
-<td><code>which</code></td>
+<td><span class="ycr-hashtag" data-index-entry="which" data-tag="which"><code>which</code></span></td>
 <td>Affiche le chemin d'accès à un exécutable</td>
 </tr>
 </tbody>
@@ -5397,15 +5397,15 @@ les outils associés.
 </thead>
 <tbody>
 <tr>
-<td><code>python</code></td>
+<td><span class="ycr-hashtag" data-index-entry="python" data-tag="python"><code>python</code></span></td>
 <td>Lance l'interpréteur Python</td>
 </tr>
 <tr>
-<td><code>pip</code></td>
+<td><span class="ycr-hashtag" data-index-entry="pip" data-tag="pip"><code>pip</code></span></td>
 <td>Gestionnaire de paquets Python</td>
 </tr>
 <tr>
-<td><code>ipython</code></td>
+<td><span class="ycr-hashtag" data-index-entry="ipython" data-tag="ipython"><code>ipython</code></span></td>
 <td>Lance l'interpréteur IPython</td>
 </tr>
 <tr>

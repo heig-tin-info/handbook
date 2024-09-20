@@ -3656,7 +3656,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3672,7 +3672,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5145,17 +5145,17 @@ les outils associés.
 <div class="tabbed-block">
 <div class="language-powershell highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">winget</span> <span class="n">install</span> <span class="n">-e</span> <span class="p">-</span><span class="n">-id</span> <span class="n">Python</span><span class="p">.</span><span class="n">Python</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">12</span>
 </span></code></pre></div>
-<p>Sous Windows, vous devez choisir la version de Python que vous souhaitez installer. Il est recommandé d'installer la version <code>3.12</code> de Python. Utilisez le gestionnaire de paquets <code>winget</code> pour installer Python.</p>
+<p>Sous Windows, vous devez choisir la version de Python que vous souhaitez installer. Il est recommandé d'installer la version <code>3.12</code> de Python. Utilisez le gestionnaire de paquets <span class="ycr-hashtag" data-index-entry="winget" data-tag="winget"><code>winget</code></span> pour installer Python.</p>
 </div>
 </div>
 </div>
 <h2 id="configuration-des-variables-denviroonement">Configuration des variables d'enviroonement<a class="headerlink" href="#configuration-des-variables-denviroonement" title="Lien permanent">¤</a></h2>
-<p>Selon la méthode utilisée pour installer Python, il est possible que les variables d'environnement ne soient pas configurées automatiquement. Il y a deux entrées à configurer dans la variable <code>PATH</code> :</p>
+<p>Selon la méthode utilisée pour installer Python, il est possible que les variables d'environnement ne soient pas configurées automatiquement. Il y a deux entrées à configurer dans la variable <span class="ycr-hashtag" data-index-entry="PATH" data-tag="PATH"><code>PATH</code></span> :</p>
 <ol>
 <li>Le chemin vers l'exécutable Python. Sous Linux/WSL, le chemin sera déjà configuré (<code>/usr/bin</code>). Sous Windows, le chemin diffère selon les époques, les installateurs et les versions.</li>
-<li>Le chemin vers les paquets locaux installés avec <code>pip</code>.</li>
+<li>Le chemin vers les paquets locaux installés avec <span class="ycr-hashtag" data-index-entry="pip" data-tag="pip"><code>pip</code></span>.</li>
 </ol>
-<p>Pour configurer sous Linux/WSL le chemin vers les paquets locaux installés avec <code>pip</code>, ouvrez un terminal et tapez la commande suivante :</p>
+<p>Pour configurer sous Linux/WSL le chemin vers les paquets locaux installés avec <span class="ycr-hashtag" data-index-entry="pip" data-tag="pip"><code>pip</code></span>, ouvrez un terminal et tapez la commande suivante :</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Linux/WSL</label><label for="__tabbed_2_2">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5164,7 +5164,7 @@ les outils associés.
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>Sous Windows, c'est plus compliqué. Selon l'installation de Python vous devez identifier le chemin vers le dossier <code>Scripts</code> qui contient les exécutables Python installés avec <code>pip</code>.</p>
+<p>Sous Windows, c'est plus compliqué. Selon l'installation de Python vous devez identifier le chemin vers le dossier <span class="ycr-hashtag" data-index-entry="Scripts" data-tag="Scripts"><code>Scripts</code></span> qui contient les exécutables Python installés avec <span class="ycr-hashtag" data-index-entry="pip" data-tag="pip"><code>pip</code></span>.</p>
 <p>Les conventions évoluent avec le temps. Voici un chemin possible :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>C:\Users\username\AppData\Local\Programs\Python\Python3x\Scripts
 </span></code></pre></div>
@@ -5176,17 +5176,17 @@ les outils associés.
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ipython<span class="w"> </span>numpy<span class="w"> </span>matplotlib<span class="w"> </span>pandas<span class="w"> </span>jupyterlab<span class="w"> </span>black<span class="w"> </span>flake8
 </span></code></pre></div>
 <h2 id="environnement-virtuel">Environnement virtuel<a class="headerlink" href="#environnement-virtuel" title="Lien permanent">¤</a></h2>
-<p>Lorsque vous installez des paquets avec PIP, un système complexe de gestion de dépendences est mis en place. Par exemple si vous installez <code>numpy</code>, <code>matplotlib</code> sera installé automatiquement. Chaque paquet dépend d'autres paquets.</p>
-<p>Il n'est pas rare d'avoir des conflits entre les versions des paquets. Par exemple, si vous avez un projet qui utilise <code>numpy</code> en version <code>1.20</code> et un autre projet qui utilise <code>numpy</code> en version <code>1.21</code>, vous aurez des problèmes.</p>
+<p>Lorsque vous installez des paquets avec PIP, un système complexe de gestion de dépendences est mis en place. Par exemple si vous installez <span class="ycr-hashtag" data-index-entry="numpy" data-tag="numpy"><code>numpy</code></span>, <span class="ycr-hashtag" data-index-entry="matplotlib" data-tag="matplotlib"><code>matplotlib</code></span> sera installé automatiquement. Chaque paquet dépend d'autres paquets.</p>
+<p>Il n'est pas rare d'avoir des conflits entre les versions des paquets. Par exemple, si vous avez un projet qui utilise <span class="ycr-hashtag" data-index-entry="numpy" data-tag="numpy"><code>numpy</code></span> en version <code>1.20</code> et un autre projet qui utilise <span class="ycr-hashtag" data-index-entry="numpy" data-tag="numpy"><code>numpy</code></span> en version <code>1.21</code>, vous aurez des problèmes.</p>
 <p>Pour éviter ces problèmes, il est recommandé d'utiliser un environnement virtuel.</p>
 <p>Un environnement virtuel est un dossier local au projet sur lequel vous travaillez qui contient une installation de Python, un gestionnaire de paquets PIP et un ensemble de paquets. Chaque environnement virtuel est indépendant des autres. Vous pouvez avoir autant d'environnements virtuels que vous le souhaitez.</p>
 <p>La gestion d'environnement virtuels à beaucoup évolué avec les versions de Python. Il existe plusieurs outils que l'on peut confondre :</p>
 <ul>
-<li><code>venv</code> est un module de la bibliothèque standard de Python depuis la version 3.3 qui permet de créer des environnements virtuels. Il est recommandé d'utiliser <code>venv</code> pour les projets personnels.</li>
-<li><code>virtualenv</code> est un outil plus ancien disponible pour Python 2 et 3. Il n'est pas recommandé de l'utiliser.</li>
-<li><code>poetry</code> est un outil externe. Utile pour tester des projets sur différentes versions de Python ; facilite la migration entre les versions.</li>
+<li><span class="ycr-hashtag" data-index-entry="venv" data-tag="venv"><code>venv</code></span> est un module de la bibliothèque standard de Python depuis la version 3.3 qui permet de créer des environnements virtuels. Il est recommandé d'utiliser <span class="ycr-hashtag" data-index-entry="venv" data-tag="venv"><code>venv</code></span> pour les projets personnels.</li>
+<li><span class="ycr-hashtag" data-index-entry="virtualenv" data-tag="virtualenv"><code>virtualenv</code></span> est un outil plus ancien disponible pour Python 2 et 3. Il n'est pas recommandé de l'utiliser.</li>
+<li><span class="ycr-hashtag" data-index-entry="poetry" data-tag="poetry"><code>poetry</code></span> est un outil externe. Utile pour tester des projets sur différentes versions de Python ; facilite la migration entre les versions.</li>
 </ul>
-<p>Pour créer un environnement virtuel avec <code>venv</code>, ouvrez un terminal et tapez les commandes suivantes :</p>
+<p>Pour créer un environnement virtuel avec <span class="ycr-hashtag" data-index-entry="venv" data-tag="venv"><code>venv</code></span>, ouvrez un terminal et tapez les commandes suivantes :</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Linux/WSL</label><label for="__tabbed_3_2">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

@@ -3722,7 +3722,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3738,7 +3738,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5119,7 +5119,7 @@ les outils associés.
 </span><span id="__span-1-18"><a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">all</span><span class="p">;</span>
 </span><span id="__span-1-19"><a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>Dans cet exemple on peut soit accéder à l'ensemble des bits via le champ <code>all</code> soit à chacun des bits via les champs <code>bc</code>, <code>fdf</code>, <code>stb</code>, etc.</p>
+<p>Dans cet exemple on peut soit accéder à l'ensemble des bits via le champ <span class="ycr-hashtag" data-index-entry="all" data-tag="all"><code>all</code></span> soit à chacun des bits via les champs <code>bc</code>, <span class="ycr-hashtag" data-index-entry="fdf" data-tag="fdf"><code>fdf</code></span>, <span class="ycr-hashtag" data-index-entry="stb" data-tag="stb"><code>stb</code></span>, etc.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">union</span><span class="w"> </span><span class="nc">i2cmdr</span><span class="w"> </span><span class="n">cmdr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">all</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1234</span><span class="w"> </span><span class="p">};</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">cmdr</span><span class="p">.</span><span class="n">bits</span><span class="p">.</span><span class="n">bc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b101</span><span class="p">;</span>

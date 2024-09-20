@@ -3766,7 +3766,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3782,7 +3782,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5154,7 +5154,7 @@ les outils associés.
 
 
 <h1 id="chaines-de-caracteres">Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent">¤</a></h1>
-<p>Une chaîne de caractères est représentée en mémoire comme une succession de bytes, chacun représentant un caractère ASCII spécifique. La chaîne de caractère <code>hello</code> contient donc 5 caractères et sera stockée en mémoire sur 5 bytes. Une chaîne de caractère est donc équivalente à un tableau de <code>char</code>.</p>
+<p>Une chaîne de caractères est représentée en mémoire comme une succession de bytes, chacun représentant un caractère ASCII spécifique. La chaîne de caractère <span class="ycr-hashtag" data-index-entry="hello" data-tag="hello"><code>hello</code></span> contient donc 5 caractères et sera stockée en mémoire sur 5 bytes. Une chaîne de caractère est donc équivalente à un tableau de <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span>.</p>
 <p>En C, un artifice est utilisé pour faciliter les opérations sur les chaînes de caractères. Tous les caractères de 1 à 255 sont utilisables sauf le 0 qui est utilisé comme sentinelle. Lors de la déclaration d'une chaîne comme ceci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello, world!"</span><span class="p">;</span>
 </span></code></pre></div>
@@ -5168,22 +5168,18 @@ les outils associés.
 </span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">len</span><span class="p">;</span>
 </span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Une chaîne de caractère est donc strictement identique à un tableau de <code>char</code>.</p>
+<p>Une chaîne de caractère est donc strictement identique à un tableau de <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span>.</p>
 <p>Ainsi une chaîne de caractère est initialisée comme suit :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Pulp Fiction"</span><span class="p">;</span>
 </span></code></pre></div>
 <p>La taille de ce tableau sera donc de 12 caractères plus une sentinelle <code>'\0'</code> insérée automatiquement. Cette écriture est donc identique à :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="sc">'P'</span><span class="p">,</span><span class="w"> </span><span class="sc">'u'</span><span class="p">,</span><span class="w"> </span><span class="sc">'l'</span><span class="p">,</span><span class="w"> </span><span class="sc">'p'</span><span class="p">,</span><span class="w"> </span><span class="sc">' '</span><span class="p">,</span><span class="w"> </span><span class="sc">'F'</span><span class="p">,</span><span class="w"> </span><span class="sc">'i'</span><span class="p">,</span><span class="w"> </span><span class="sc">'c'</span><span class="p">,</span><span class="w"> </span><span class="sc">'t'</span><span class="p">,</span><span class="w"> </span><span class="sc">'i'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'n'</span><span class="p">,</span><span class="w"> </span><span class="sc">'\0'</span>
-</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">};</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'P'</span><span class="p">,</span><span class="w"> </span><span class="sc">'u'</span><span class="p">,</span><span class="w"> </span><span class="sc">'l'</span><span class="p">,</span><span class="w"> </span><span class="sc">'p'</span><span class="p">,</span><span class="w"> </span><span class="sc">' '</span><span class="p">,</span><span class="w"> </span><span class="sc">'F'</span><span class="p">,</span><span class="w"> </span><span class="sc">'i'</span><span class="p">,</span><span class="w"> </span><span class="sc">'c'</span><span class="p">,</span><span class="w"> </span><span class="sc">'t'</span><span class="p">,</span><span class="w"> </span><span class="sc">'i'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'n'</span><span class="p">,</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">};</span>
 </span></code></pre></div>
 <h2 id="tableaux-de-chaines-de-caracteres">Tableaux de chaînes de caractères<a class="headerlink" href="#tableaux-de-chaines-de-caracteres" title="Lien permanent">¤</a></h2>
 <p>Un tableau de chaîne de caractères est identique à un tableau multidimensionnel :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">conjunctions</span><span class="p">[][</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="s">"mais"</span><span class="p">,</span><span class="w"> </span><span class="s">"ou"</span><span class="p">,</span><span class="w"> </span><span class="s">"est"</span><span class="p">,</span><span class="w"> </span><span class="s">"donc"</span><span class="p">,</span><span class="w"> </span><span class="s">"or"</span><span class="p">,</span><span class="w"> </span><span class="s">"ni"</span><span class="p">,</span><span class="w"> </span><span class="s">"car"</span>
-</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">};</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">conjunctions</span><span class="p">[][</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">"mais"</span><span class="p">,</span><span class="w"> </span><span class="s">"ou"</span><span class="p">,</span><span class="w"> </span><span class="s">"est"</span><span class="p">,</span><span class="w"> </span><span class="s">"donc"</span><span class="p">,</span><span class="w"> </span><span class="s">"or"</span><span class="p">,</span><span class="w"> </span><span class="s">"ni"</span><span class="p">,</span><span class="w"> </span><span class="s">"car"</span><span class="p">};</span>
 </span></code></pre></div>
-<p>Il est ici nécessaire de définir la taille de la seconde dimension, comme pour les tableaux. C'est à dire que la variable <code>conjunctions</code> aura une taille de 7x10 caractères et le contenu mémoire de <code>conjunctions[1]</code> sera équivalent à :</p>
+<p>Il est ici nécessaire de définir la taille de la seconde dimension, comme pour les tableaux. C'est à dire que la variable <span class="ycr-hashtag" data-index-entry="conjunctions" data-tag="conjunctions"><code>conjunctions</code></span> aura une taille de 7x10 caractères et le contenu mémoire de <code>conjunctions[1]</code> sera équivalent à :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="p">{</span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'u'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span>
 </span></code></pre></div>
 <p>D'ailleurs, ce tableau aurait pu être initialisé d'une tout autre façon :</p>
@@ -5197,11 +5193,11 @@ les outils associés.
 </span></code></pre></div>
 <p>Notons que la valeur <code>0</code> est strictement identique au caractère 0 de la table ASCII <code>'\0'</code>. La chaîne de caractère <code>"mais"</code> aura une taille de 5 caractères, ponctuée de la sentinelle <code>\0</code>.</p>
 <h2 id="wide-chars">Wide-chars<a class="headerlink" href="#wide-chars" title="Lien permanent">¤</a></h2>
-<p>Les chaînes de caractères larges sont des chaînes de caractères qui utilisent plus d'un byte pour représenter un caractère. En C, les chaînes de caractères larges sont représentées par le type <code>wchar_t</code>. Pour déclarer une chaîne de caractères larges, il est nécessaire d'utiliser le préfixe <code>L</code> :</p>
+<p>Les chaînes de caractères larges sont des chaînes de caractères qui utilisent plus d'un byte pour représenter un caractère. En C, les chaînes de caractères larges sont représentées par le type <span class="ycr-hashtag" data-index-entry="wchar_t" data-tag="wchar_t"><code>wchar_t</code></span>. Pour déclarer une chaîne de caractères larges, il est nécessaire d'utiliser le préfixe <code>L</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">wchar_t</span><span class="w"> </span><span class="n">wstr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">L</span><span class="s">"Hello, 世界"</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Ce type de chaîne de caractères est typiquement utilisé pour représenter des caractères Unicode. Comme nous l'avons vu au chapitre sur les <a class="autorefs autorefs-internal" href="../../15-fundations/datatype/#unicode">types de données</a>, les caractères qui ne sont pas dans la table ASCII sont représentés par plusieurs bytes. La fameuse émoji <code>👋</code> est représentée par 5 bytes <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//1F44B" target="_blank">1F44B</a>.</p>
-<p>L'en-tête <code>wchar.h</code> contient les fonctions pour manipuler les chaînes de caractères larges. Par exemple, pour obtenir la longueur d'une chaîne de caractères larges, on utilise la fonction <code>wcslen</code> :</p>
+<p>L'en-tête <span class="ycr-hashtag" data-index-entry="wchar.h" data-tag="wchar.h"><code>wchar.h</code></span> contient les fonctions pour manipuler les chaînes de caractères larges. Par exemple, pour obtenir la longueur d'une chaîne de caractères larges, on utilise la fonction <span class="ycr-hashtag" data-index-entry="wcslen" data-tag="wcslen"><code>wcslen</code></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;wchar.h&gt;</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5215,7 +5211,7 @@ les outils associés.
 </span><span id="__span-9-11"><a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>En pratique les chaînes de caractères larges sont peu utilisées en C, car elles sont moins efficaces que les chaînes de caractères ASCII. En effet, les chaînes de caractères larges nécessitent plus de mémoire pour stocker les caractères et les opérations sur ces chaînes sont plus lentes.</p>
-<p>De plus, elles ne sont pas portables, car la taille d'un <code>wchar_t</code> dépend de l'implémentation. Par exemple, sur Windows, un <code>wchar_t</code> est de 16 bits, alors que sur Linux, il est de 32 bits. Et comme nous l'avons les emojis peuvent être codés sur plus de 16 bits.</p>
+<p>De plus, elles ne sont pas portables, car la taille d'un <span class="ycr-hashtag" data-index-entry="wchar_t" data-tag="wchar_t"><code>wchar_t</code></span> dépend de l'implémentation. Par exemple, sur Windows, un <span class="ycr-hashtag" data-index-entry="wchar_t" data-tag="wchar_t"><code>wchar_t</code></span> est de 16 bits, alors que sur Linux, il est de 32 bits. Et comme nous l'avons les emojis peuvent être codés sur plus de 16 bits.</p>
 <p>Pour ces raisons, on préfère utiliser l'UTF-8 pour représenter les caractères Unicode en C. L'UTF-8 est un encodage de caractères Unicode qui utilise un à quatre bytes pour représenter un caractère. Il est compatible avec l'ASCII et est plus efficace que les chaînes de caractères larges. Il fonctionne de la manière suivante :</p>
 <ul>
 <li>Les caractères <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//0000" target="_blank">0000</a> à <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//007F" target="_blank">007F</a> sont codés sur un byte.</li>
@@ -5235,7 +5231,7 @@ les outils associés.
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>
 </span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>0xF0       0x9F       0x91       0x8B
 </span></code></pre></div>
-<p>Donc la longueur de la chaîne de caractère avec <code>strlen</code> sera de 4 et non de 1.</p>
+<p>Donc la longueur de la chaîne de caractère avec <span class="ycr-hashtag" data-index-entry="strlen" data-tag="strlen"><code>strlen</code></span> sera de 4 et non de 1.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"👋"</span><span class="p">;</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">assert</span><span class="p">(</span><span class="n">len</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
@@ -5273,15 +5269,15 @@ les outils associés.
 </span><span id="__span-15-6"><a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%31s"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
 </span><span id="__span-15-7"><a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Dans cet exemple, <code>name</code> est un buffer de 32 caractères. La fonction <code>scanf</code> lit au maximum 31 caractères depuis l'entrée standard et les stocke dans <code>name</code>. La taille du buffer est de 32 caractères pour laisser de la place pour la sentinelle <code>\0</code>. Sans cette sécurité, il serait possible de déborder le buffer et d'écrire dans des zones mémoires qui ne nous appartiennent pas.</p>
+<p>Dans cet exemple, <span class="ycr-hashtag" data-index-entry="name" data-tag="name"><code>name</code></span> est un buffer de 32 caractères. La fonction <span class="ycr-hashtag" data-index-entry="scanf" data-tag="scanf"><code>scanf</code></span> lit au maximum 31 caractères depuis l'entrée standard et les stocke dans <span class="ycr-hashtag" data-index-entry="name" data-tag="name"><code>name</code></span>. La taille du buffer est de 32 caractères pour laisser de la place pour la sentinelle <code>\0</code>. Sans cette sécurité, il serait possible de déborder le buffer et d'écrire dans des zones mémoires qui ne nous appartiennent pas.</p>
 <h2 id="chaine-de-caracteres-multi-lignes">Chaîne de caractères multi-lignes<a class="headerlink" href="#chaine-de-caracteres-multi-lignes" title="Lien permanent">¤</a></h2>
 <p>En C, il n'est pas possible de déclarer une chaîne de caractères sur plusieurs lignes. Pour ce faire, il est nécessaire de concaténer plusieurs chaînes de caractères :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, "</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">            </span><span class="s">"World!"</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Dans cet exemple, <code>str</code> contiendra la chaîne de caractères <code>Hello, World!</code>.</p>
+<p>Dans cet exemple, <span class="ycr-hashtag" data-index-entry="str" data-tag="str"><code>str</code></span> contiendra la chaîne de caractères <code>Hello, World!</code>.</p>
 <h2 id="chaine-de-caracteres-constantes">Chaîne de caractères constantes<a class="headerlink" href="#chaine-de-caracteres-constantes" title="Lien permanent">¤</a></h2>
-<p>Les chaînes de caractères constantes sont des chaînes de caractères qui ne peuvent pas être modifiées. Elles sont stockées dans la section <code>.rodata</code> de la mémoire. Pour déclarer une chaîne de caractères constante, il est nécessaire d'utiliser le mot-clé <code>const</code> :</p>
+<p>Les chaînes de caractères constantes sont des chaînes de caractères qui ne peuvent pas être modifiées. Elles sont stockées dans la section <code>.rodata</code> de la mémoire. Pour déclarer une chaîne de caractères constante, il est nécessaire d'utiliser le mot-clé <span class="ycr-hashtag" data-index-entry="const" data-tag="const"><code>const</code></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, World!"</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Notez que la déclaration est un peu différente de la déclaration d'une chaîne de caractères classique. Ici nous n'utilisons plus la notation <code>[]</code> mais un pointeur <code>*</code>.</p>
@@ -5307,7 +5303,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 1, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2024</span>
   </span>
 
     

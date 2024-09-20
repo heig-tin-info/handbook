@@ -3656,7 +3656,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3672,7 +3672,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5124,8 +5124,8 @@ les outils associés.
 <li><em>Data hazard</em> : lorsque deux instructions dépendent du même registre.</li>
 <li><em>Control hazard</em> : lorsque le résultat d'une instruction conditionnelle n'est pas encore connu.</li>
 </ul>
-<p>Le <em>control hazard</em> apparaît typiquement lorsque l'on fait un saut conditionnel (<code>if</code>, <code>for</code>, <code>while</code>...). En effet, le processeur ne sait pas si le saut doit être effectué ou non avant d'avoir exécuté l'instruction conditionnelle. Sur des microcontrolleurs simples, une des deux branches de la condition est privilégiée. On précharge cette branche dans le pipeline et si la condition est fausse, on annule les résultats de l'exécution ce qui équivaut à vider intégralement le pipeline. Le coût est important car le processeur doit alors attendre que le pipeline se remplisse à nouveau avant de pouvoir exécuter la prochaine instruction.</p>
-<p>Avec la complexification des processeurs modernes, le <code>pipeline</code> est devenu de plus en plus long. Aujourd'hui, un processeur moderne dispose de 15 à 20 étages de pipeline. Le problème des hazards est devenu de plus en plus important.</p>
+<p>Le <em>control hazard</em> apparaît typiquement lorsque l'on fait un saut conditionnel (<code>if</code>, <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span>, <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span>...). En effet, le processeur ne sait pas si le saut doit être effectué ou non avant d'avoir exécuté l'instruction conditionnelle. Sur des microcontrolleurs simples, une des deux branches de la condition est privilégiée. On précharge cette branche dans le pipeline et si la condition est fausse, on annule les résultats de l'exécution ce qui équivaut à vider intégralement le pipeline. Le coût est important car le processeur doit alors attendre que le pipeline se remplisse à nouveau avant de pouvoir exécuter la prochaine instruction.</p>
+<p>Avec la complexification des processeurs modernes, le <span class="ycr-hashtag" data-index-entry="pipeline" data-tag="pipeline"><code>pipeline</code></span> est devenu de plus en plus long. Aujourd'hui, un processeur moderne dispose de 15 à 20 étages de pipeline. Le problème des hazards est devenu de plus en plus important.</p>
 <p>Un processeur moderne s'est donc équipé d'un autre mécanisme pour pallier ce problème que l'on nomme le predicteur d'embranchement. En effet, si le processeur peut prédire si un saut doit être effectué ou non, il peut précharger la bonne instruction dans le pipeline. Si la prédiction est bonne, on gagne du temps, sinon on perd du temps. Il existe plusieurs stratégies de prédiction de branchement :</p>
 <ul>
 <li><em>Prédiction statique</em> : on prédit que le saut est toujours effectué ou non.</li>

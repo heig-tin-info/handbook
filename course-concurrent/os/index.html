@@ -3656,7 +3656,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3672,7 +3672,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5613,7 +5613,7 @@ L'état du processus est une information clé pour comprendre ce que fait un pro
 </span><span id="__span-1-64"><a href="#__codelineno-1-64" id="__codelineno-1-64" name="__codelineno-1-64"></a><span class="w">    </span><span class="n">shmctl</span><span class="p">(</span><span class="n">shm_id</span><span class="p">,</span><span class="w"> </span><span class="n">IPC_RMID</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
 </span><span id="__span-1-65"><a href="#__codelineno-1-65" id="__codelineno-1-65" name="__codelineno-1-65"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Avec <code>htop</code>, vous pouvez observer les processus enfants en attente de signal. Utilisez la fonction <code>t</code> pour afficher le mode arbre. Vous pouvez également observer la mémoire partagée avec <code>ipcs -m</code>.</p>
+<p>Avec <span class="ycr-hashtag" data-index-entry="htop" data-tag="htop"><code>htop</code></span>, vous pouvez observer les processus enfants en attente de signal. Utilisez la fonction <code>t</code> pour afficher le mode arbre. Vous pouvez également observer la mémoire partagée avec <code>ipcs -m</code>.</p>
 <p>Dans cet exemple, un segment de mémoire partagée est créé pour stocker une valeur entière. Le processus parent écrit une valeur dans la mémoire partagée et envoie un signal à chaque processus enfant. Chaque processus enfant est configuré pour exécuter un gestionnaire de signal qui lit la valeur de la mémoire partagée. Cela permet de communiquer des données entre le processus parent et les processus enfants de manière asynchrone.</p>
 <p>Néanmoins il faut d'avantage pour gérer la synchronisation et la communication entre les processus. Les exemples ci-dessus sont des simplifications pour illustrer les concepts de base.</p>
 <h4 id="synchronisation-de-la-memoire-partagee">Synchronisation de la mémoire partagée<a class="headerlink" href="#synchronisation-de-la-memoire-partagee" title="Lien permanent">¤</a></h4>
@@ -5895,15 +5895,15 @@ Utilisation : Les processus sont utiles pour exécuter des tâches isolées et
 </tr>
 </tbody>
 </table>
-<p>Les signaux les plus couramment utilisés sont <code>SIGINT</code> (interruption depuis le clavier), <code>SIGTERM</code> (terminaison) et <code>SIGKILL</code> (terminaison forcée). Ces signaux sont souvent utilisés pour demander à un processus de se terminer ou de réagir à des événements utilisateur.</p>
+<p>Les signaux les plus couramment utilisés sont <span class="ycr-hashtag" data-index-entry="SIGINT" data-tag="SIGINT"><code>SIGINT</code></span> (interruption depuis le clavier), <span class="ycr-hashtag" data-index-entry="SIGTERM" data-tag="SIGTERM"><code>SIGTERM</code></span> (terminaison) et <span class="ycr-hashtag" data-index-entry="SIGKILL" data-tag="SIGKILL"><code>SIGKILL</code></span> (terminaison forcée). Ces signaux sont souvent utilisés pour demander à un processus de se terminer ou de réagir à des événements utilisateur.</p>
 <h2 id="information-sur-un-processus">Information sur un processus<a class="headerlink" href="#information-sur-un-processus" title="Lien permanent">¤</a></h2>
-<h3 id="pstree"><code>pstree</code><a class="headerlink" href="#pstree" title="Lien permanent">¤</a></h3>
+<h3 id="pstree"><span class="ycr-hashtag" data-index-entry="pstree" data-tag="pstree"><code>pstree</code></span><a class="headerlink" href="#pstree" title="Lien permanent">¤</a></h3>
 <p>Pour afficher l'arborescence des processus, vous pouvez utiliser la commande pstree. Par exemple, pour afficher l'arborescence des processus pour l'utilisateur actuel, vous pouvez exécuter :</p>
 <p>Exercice :</p>
 <p>Essayez de lancer un programme en arrière-plan (par exemple, ./myprogram &amp;) et utilisez pstree pour voir comment il est lié à d'autres processus.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>$<span class="w"> </span>pstree
 </span></code></pre></div>
-<h3 id="proc"><code>proc</code><a class="headerlink" href="#proc" title="Lien permanent">¤</a></h3>
+<h3 id="proc"><span class="ycr-hashtag" data-index-entry="proc" data-tag="proc"><code>proc</code></span><a class="headerlink" href="#proc" title="Lien permanent">¤</a></h3>
 <p>Exécutez le programme suivant :</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1">// Read string and print it</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>

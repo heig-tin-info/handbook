@@ -3943,7 +3943,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3959,7 +3959,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5594,7 +5594,7 @@ les outils associés.
 </tr>
 </tbody>
 </table>
-<p>Lors d'opérations, il faut faire attention aux types des variables impliquées. La division <code>5 / 2</code> donnera <code>2</code> et non, <code>2.5</code> car les deux valeurs fournies sont entières et le résultat est donc un entier. Pour obtenir un résultat flottant, il faut que l'une des valeurs soit un flottant, ici le <code>5</code> est exprimé en <code>double</code>, la propagation de type fera que le résultat sera aussi un <code>double</code> : <span class="ycr-hashtag" data-index-entry="division" data-tag=""></span></p>
+<p>Lors d'opérations, il faut faire attention aux types des variables impliquées. La division <code>5 / 2</code> donnera <code>2</code> et non, <code>2.5</code> car les deux valeurs fournies sont entières et le résultat est donc un entier. Pour obtenir un résultat flottant, il faut que l'une des valeurs soit un flottant, ici le <code>5</code> est exprimé en <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span>, la propagation de type fera que le résultat sera aussi un <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span> : <span class="ycr-hashtag" data-index-entry="division" data-tag=""></span></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">      </span><span class="c1">// 2</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 2.5</span>
 </span></code></pre></div>
@@ -5815,12 +5815,12 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <p>Par exemple, cette assertion est fausse :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">assert</span><span class="p">(</span><span class="mf">0.1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)</span><span class="w"> </span><span class="c1">// false</span>
 </span></code></pre></div>
-<p>Pour comparer des valeurs flottantes, il est recommandé d'utiliser une fonction de comparaison qui prend en compte une marge d'erreur. Par exemple, on pourrait écrire une fonction <code>float_eq</code> qui compare deux valeurs flottantes avec une marge d'erreur de <code>0.0001</code> :</p>
+<p>Pour comparer des valeurs flottantes, il est recommandé d'utiliser une fonction de comparaison qui prend en compte une marge d'erreur. Par exemple, on pourrait écrire une fonction <span class="ycr-hashtag" data-index-entry="float_eq" data-tag="float_eq"><code>float_eq</code></span> qui compare deux valeurs flottantes avec une marge d'erreur de <code>0.0001</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">float_eq</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fabs</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="p">;</span>
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Alternativement on peut utiliser la définition <code>FLT_EPSILON</code> qui est la plus petite valeur positive telle que <code>1.0 + FLT_EPSILON != 1.0</code> :</p>
+<p>Alternativement on peut utiliser la définition <span class="ycr-hashtag" data-index-entry="FLT_EPSILON" data-tag="FLT_EPSILON"><code>FLT_EPSILON</code></span> qui est la plus petite valeur positive telle que <code>1.0 + FLT_EPSILON != 1.0</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="mf">0.1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">FLT_EPSILON</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Voici une démonstration :</p>
@@ -6148,7 +6148,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </tr>
 </tbody>
 </table>
-<p>Le résultat d'une opération logique est toujours un <code>booléen</code> (valeur 0 ou 1). Ainsi l'expression suivante affecte <code>1</code> à <code>x</code> : <code>x = 12 &amp;&amp; 3 + 2</code>.</p>
+<p>Le résultat d'une opération logique est toujours un <span class="ycr-hashtag" data-index-entry="booléen" data-tag="booléen"><code>booléen</code></span> (valeur 0 ou 1). Ainsi l'expression suivante affecte <code>1</code> à <code>x</code> : <code>x = 12 &amp;&amp; 3 + 2</code>.</p>
 <p>La priorité des opérateurs logiques est plus faible que celle des opérateurs de comparaison et plus forte que celle des opérateurs d'affectation. Ainsi l'expression <code>a == b &amp;&amp; c == d</code> est équivalente à <code>(a == b) &amp;&amp; (c == d)</code>. Les parenthèses sont facultatives, mais permettent de clarifier l'expression.</p>
 <div class="admonition warning">
 <p class="admonition-title">Avertissement</p>
@@ -6420,7 +6420,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </span><span id="__span-40-14"><a href="#__codelineno-40-14" id="__codelineno-40-14" name="__codelineno-40-14"></a><span class="p">};</span>
 </span></code></pre></div>
 <p>On voit que la post-incrémentation crée une copie de l'objet avant de l'incrémenter, elle est donc moins efficace.</p>
-<p>Donc dans une boucle <code>for</code> on préférera :</p>
+<p>Donc dans une boucle <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span> on préférera :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <p>Plutôt que</p>
@@ -6429,7 +6429,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </div>
 <p><a href="" id="operator-ternary"></a></p>
 <h3 id="operateur-ternaire">Opérateur ternaire<a class="headerlink" href="#operateur-ternaire" title="Lien permanent">¤</a></h3>
-<p>L'opérateur ternaire aussi appelé <strong>opérateur conditionnel</strong> permet de faire un test et de retourner soit le second opérande, soit le troisième opérande. C'est le seul opérateur du C avec une <code>arité</code> de 3. Chacun des opérandes est symbolisé avec une paire de parenthèses :</p>
+<p>L'opérateur ternaire aussi appelé <strong>opérateur conditionnel</strong> permet de faire un test et de retourner soit le second opérande, soit le troisième opérande. C'est le seul opérateur du C avec une <span class="ycr-hashtag" data-index-entry="arité" data-tag="arité"><code>arité</code></span> de 3. Chacun des opérandes est symbolisé avec une paire de parenthèses :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="p">()</span><span class="o">?</span><span class="p">()</span><span class="o">:</span><span class="p">()</span>
 </span></code></pre></div>
 <p>Cet opérateur permet sur une seule ligne d'évaluer une expression et de renvoyer une valeur ou une autre selon que l'expression est vraie ou fausse.</p>
@@ -6480,10 +6480,10 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <p>Enfin, on notera que le résultat de l'opérateur ternaire est une <em>rvalue</em> et ne peut donc pas être modifiée.</p>
 <p><a href="" id="operator-cast"></a></p>
 <h3 id="operateur-de-transtypage">Opérateur de transtypage<a class="headerlink" href="#operateur-de-transtypage" title="Lien permanent">¤</a></h3>
-<p>Le <code>transtypage</code> ou <em>cast</em> permet de modifier explicitement le type apparent d'une variable. C'est un opérateur particulier, car son premier opérande doit être un <strong>type</strong> et le second une <strong>valeur</strong>.</p>
+<p>Le <span class="ycr-hashtag" data-index-entry="transtypage" data-tag="transtypage"><code>transtypage</code></span> ou <em>cast</em> permet de modifier explicitement le type apparent d'une variable. C'est un opérateur particulier, car son premier opérande doit être un <strong>type</strong> et le second une <strong>valeur</strong>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-51-1"><a href="#__codelineno-51-1" id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="p">(</span><span class="n">type</span><span class="p">)(</span><span class="n">valeur</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Dans l'exemple suivant, le résultat de la division est un entier, car la promotion implicite de type reste un entier <code>int</code>. La valeur <code>c</code> vaudra donc le résultat de la division entière alors que dans le second cas, <code>b</code> est <em>casté</em> en un <code>double</code> ce qui force une division en virgule flottante.</p>
+<p>Dans l'exemple suivant, le résultat de la division est un entier, car la promotion implicite de type reste un entier <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span>. La valeur <code>c</code> vaudra donc le résultat de la division entière alors que dans le second cas, <code>b</code> est <em>casté</em> en un <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span> ce qui force une division en virgule flottante.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-52-1"><a href="#__codelineno-52-1" id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </span><span id="__span-52-2"><a href="#__codelineno-52-2" id="__codelineno-52-2" name="__codelineno-52-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 </span><span id="__span-52-3"><a href="#__codelineno-52-3" id="__codelineno-52-3" name="__codelineno-52-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">b</span><span class="p">);</span>
@@ -6491,7 +6491,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </span></code></pre></div>
 <p><a href="" id="operator-comma"></a></p>
 <h3 id="operateur-sequentiel">Opérateur séquentiel<a class="headerlink" href="#operateur-sequentiel" title="Lien permanent">¤</a></h3>
-<p>L'opérateur séquentiel (<em>comma operator</em>) permet l'exécution ordonnée d'opérations, et retourne la dernière valeur. Son utilisation est couramment limitée, soit aux déclarations de variables, soit au boucles <code>for</code>:</p>
+<p>L'opérateur séquentiel (<em>comma operator</em>) permet l'exécution ordonnée d'opérations, et retourne la dernière valeur. Son utilisation est couramment limitée, soit aux déclarations de variables, soit au boucles <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-53-1"><a href="#__codelineno-53-1" id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <p>Dans le cas ci-dessus, il n'est pas possible de séparer les instructions <code>i++</code> et <code>j--</code> par un point-virgule, l'opérateur virgule permet alors de combiner plusieurs instructions en une seule.</p>
@@ -6512,13 +6512,13 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 </span><span id="__span-56-2"><a href="#__codelineno-56-2" id="__codelineno-56-2" name="__codelineno-56-2"></a><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
 </span><span id="__span-56-3"><a href="#__codelineno-56-3" id="__codelineno-56-3" name="__codelineno-56-3"></a><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int64_t</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">64</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
 </span></code></pre></div>
-<p>L'opérateur <code>sizeof</code> est très utile durant le débogage pour connaître la taille en mémoire d'une variable ou celle d'un type. On l'utilise en pratique pour connaître la taille d'un tableau lors d'une boucle itérative :</p>
+<p>L'opérateur <span class="ycr-hashtag" data-index-entry="sizeof" data-tag="sizeof"><code>sizeof</code></span> est très utile durant le débogage pour connaître la taille en mémoire d'une variable ou celle d'un type. On l'utilise en pratique pour connaître la taille d'un tableau lors d'une boucle itérative :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-57-1"><a href="#__codelineno-57-1" id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
 </span><span id="__span-57-2"><a href="#__codelineno-57-2" id="__codelineno-57-2" name="__codelineno-57-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-57-3"><a href="#__codelineno-57-3" id="__codelineno-57-3" name="__codelineno-57-3"></a><span class="w">   </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-57-4"><a href="#__codelineno-57-4" id="__codelineno-57-4" name="__codelineno-57-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Dans l'exemple ci-dessus, <code>sizeof(array)</code> retourne la taille de l'espace mémoire occupé par le tableau <code>array</code>, soit <span class="arithmatex">\(128 \cdot 4\)</span> bytes. Pour obtenir le nombre d'éléments dans le tableau, il faut alors diviser ce résultat par la taille effective de chaque élément du tableau. L'élément <code>array[0]</code> est donc un <code>int32_t</code> et sa taille vaut donc 4 bytes.</p>
+<p>Dans l'exemple ci-dessus, <code>sizeof(array)</code> retourne la taille de l'espace mémoire occupé par le tableau <span class="ycr-hashtag" data-index-entry="array" data-tag="array"><code>array</code></span>, soit <span class="arithmatex">\(128 \cdot 4\)</span> bytes. Pour obtenir le nombre d'éléments dans le tableau, il faut alors diviser ce résultat par la taille effective de chaque élément du tableau. L'élément <code>array[0]</code> est donc un <span class="ycr-hashtag" data-index-entry="int32_t" data-tag="int32_t"><code>int32_t</code></span> et sa taille vaut donc 4 bytes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Dans l'exemple ci-dessus, il est possible de s'affranchir de la taille effective du tableau en utilisant une sentinelle. Si le dernier élément du tableau à une valeur particulière et que le reste est initialisé à zéro, il suffit de parcourir le tableau jusqu'à cette valeur :</p>
@@ -6593,7 +6593,7 @@ Lorsque le résultat de l'opération dépasse la capacité d'un chiffre, on reti
 <td class="ycr-flex-column">Adresse de...</td>
 </tr>
 <tr>
-<td><code>sizeof</code></td>
+<td><span class="ycr-hashtag" data-index-entry="sizeof" data-tag="sizeof"><code>sizeof</code></span></td>
 <td class="ycr-flex-column">Taille de...</td>
 </tr>
 <tr>
@@ -6719,8 +6719,8 @@ en précision ou en grandeur représentable. La promotion numérique régit
 les conversions effectuées implicitement par le langage C lorsqu'on
 convertit une donnée d'un type vers un autre. Cette promotion tend à
 conserver le maximum de précision lorsqu'on effectue des calculs entre
-types différents (p.ex : l'addition d'un <code>int</code> avec un <code>double</code> donne un
-type <code>double</code>). Voici les règles de base :</p>
+types différents (p.ex : l'addition d'un <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> avec un <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span> donne un
+type <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span>). Voici les règles de base :</p>
 <ul>
 <li>les opérateurs ne peuvent agir que sur des types identiques ;</li>
 <li>quand les types sont différents, il y a conversion automatique vers le type ayant le plus grand pouvoir de représentation ;</li>
@@ -6761,21 +6761,52 @@ D \cdot E + \overline{D} + \overline{E}
 </div>
 <p><a href="" id="rounding"></a></p>
 <h2 id="arrondis">Arrondis<a class="headerlink" href="#arrondis" title="Lien permanent">¤</a></h2>
-<p>En programmation, la notion d'arrondi (<a href="https://en.wikipedia.org/wiki/Rounding">rounding</a>) est beaucoup plus délicate que l'on peut l'imaginer de prime abord.</p>
-<p>Un nombre réel dans <span class="arithmatex">\(\mathbb{R}\)</span> peut être converti en un nombre entier de plusieurs manières dont voici une liste non exhaustive :</p>
-<ul>
-<li>tronqué (<em>truncate</em>) lorsque la partie fractionnaire est simplement enlevée ;</li>
-<li>arrondi à l'entier supérieur (<em>rounding up</em>) ;</li>
-<li>arrondi à l'entier inférieur (<em>rounding down</em>) ;</li>
-<li>arrondi en direction du zéro (<em>rounding towards zero</em>) ;</li>
-<li>arrondi loin du zéro (<em>rounding away from zero</em>) ;</li>
-<li>arrondi au plus proche entier (<em>rounding to the nearest integer</em>) ;</li>
-<li>arrondi la moitié en direction de l'infini (<em>rounding half up</em>).</li>
-</ul>
-<p>Selon le langage de programmation et la méthode utilisée, le mécanisme d'arrondi sera différent. En C, la bibliothèque mathématique offre les fonctions <code>ceil</code> pour l'arrondi au plafond (entier supérieur), <code>floor</code> pour arrondi au plancher (entier inférieur) et <code>round</code> pour l'arrondi au plus proche (<em>nearest</em>). Il existe également une fonction <code>trunc</code> qui tronque la valeur en supprimant la partie fractionnaire.</p>
-<p>Le fonctionnement de la fonction <code>round</code> n'est pas unanime entre les mathématiciens et les programmeurs. C utilise l'arrondi au plus proche, c'est-à-dire que -23.5 donne -24 et 23.5 donnent 24.</p>
-<p>En Python ou en Java, c'est la méthode du <em>commercial rounding</em> qui a été choisie. Elle peut paraître contre-intuitive, car <code>round(3.5)</code> donne 4, mais <code>round(4.5)</code> donne 4 aussi.</p>
-<p>Pourquoi faire cela ? Il y a deux raisons principales :</p>
+<p>En programmation, la notion d'arrondi (<a href="https://en.wikipedia.org/wiki/Rounding">rounding</a>) est beaucoup plus délicate que l'on peut l'imaginer de prime abord.Un nombre réel dans <span class="arithmatex">\(\mathbb{R}\)</span> peut être converti en un nombre entier de plusieurs manières. Les méthodes les plus courantes sont données dans la table suivante.</p>
+<table id="_table-13">
+<caption style="caption-side:top"> Méthodes d'arrondi</caption><thead>
+<tr>
+<th>Méthode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>truncate</em></td>
+<td>Suppression de la partie fractionnaire</td>
+</tr>
+<tr>
+<td><em>ceiling</em></td>
+<td>Arrondi à l'entier supérieur</td>
+</tr>
+<tr>
+<td><em>floor</em></td>
+<td>Arrondi à l'entier inférieur</td>
+</tr>
+<tr>
+<td><em>towards zero</em></td>
+<td>Arrondi en direction du zéro</td>
+</tr>
+<tr>
+<td><em>away from zero</em></td>
+<td>Arrondi loin du zéro</td>
+</tr>
+<tr>
+<td><em>to the nearest integer</em></td>
+<td>Arrondi au plus proche entier</td>
+</tr>
+<tr>
+<td><em>rounding half up</em></td>
+<td>Arrondi la moitié en direction de l'infini</td>
+</tr>
+<tr>
+<td><em>rounding half to even</em></td>
+<td>Arrondi la moitié vers l'entier pair le plus proche</td>
+</tr>
+</tbody>
+</table>
+<p>Selon le langage de programmation et la méthode utilisée, le mécanisme d'arrondi sera différent. En C, la bibliothèque mathématique offre les fonctions <span class="ycr-hashtag" data-index-entry="ceil" data-tag="ceil"><code>ceil</code></span> pour l'arrondi au plafond (entier supérieur), <span class="ycr-hashtag" data-index-entry="floor" data-tag="floor"><code>floor</code></span> pour arrondi au plancher (entier inférieur) et <span class="ycr-hashtag" data-index-entry="round" data-tag="round"><code>round</code></span> pour l'arrondi au plus proche (<em>nearest</em>). Il existe également une fonction <span class="ycr-hashtag" data-index-entry="trunc" data-tag="trunc"><code>trunc</code></span> qui tronque la valeur en supprimant la partie fractionnaire.</p>
+<p>Le fonctionnement de la fonction <span class="ycr-hashtag" data-index-entry="round" data-tag="round"><code>round</code></span> n'est pas unanime entre les mathématiciens et les programmeurs. C utilise l'arrondi au plus proche, c'est-à-dire que -23.5 donne -24 et 23.5 donnent 24.</p>
+<p>La méthode <em>rounding half to even</em> est aussi nommée <em>bankers' rounding</em>. Elle est utilisée dans de nombreux langages de programmation, car elle minimise les erreurs d'arrondi. Cette méthode arrondit les nombres à l'entier pair le plus proche. Par exemple, 0.5 est arrondi à 0 et 1.5 est arrondi à 2. C'est la méthode d'arrondi conseillée par l'IEEE 754 pour les calculs en virgule flottante. Cette méthode est préférée pour deux raisons principales :</p>
 <ol>
 <li>
 <p><strong>Réduction du biais cumulatif</strong> : Lorsque vous arrondissez toujours vers le haut ou vers le bas en cas de valeur à mi-chemin (comme 0.5), cela introduit un biais systématique dans vos données. Par exemple, si vous arrondissez toujours 0.5 vers le haut, la somme des valeurs arrondies sera systématiquement plus grande que la somme des valeurs originales.</p>
@@ -6801,7 +6832,7 @@ D \cdot E + \overline{D} + \overline{E}
 <p><a href="" id="lvalue"></a>
 <a href="" id="rvalue"></a></p>
 <h2 id="valeurs-gauches">Valeurs gauches<a class="headerlink" href="#valeurs-gauches" title="Lien permanent">¤</a></h2>
-<p>Une <code>valeur gauche</code> (<code>lvalue</code>) est une particularité de certains langages de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans <code>x = y</code>, <code>x</code> est une valeur gauche. Néanmoins, l'expression <code>x = y</code> est aussi une valeur gauche :</p>
+<p>Une <code>valeur gauche</code> (<span class="ycr-hashtag" data-index-entry="lvalue" data-tag="lvalue"><code>lvalue</code></span>) est une particularité de certains langages de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans <code>x = y</code>, <code>x</code> est une valeur gauche. Néanmoins, l'expression <code>x = y</code> est aussi une valeur gauche :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-67-1"><a href="#__codelineno-67-1" id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
 </span><span id="__span-67-2"><a href="#__codelineno-67-2" id="__codelineno-67-2" name="__codelineno-67-2"></a>
 </span><span id="__span-67-3"><a href="#__codelineno-67-3" id="__codelineno-67-3" name="__codelineno-67-3"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w">    </span><span class="c1">// 1</span>
@@ -6827,7 +6858,7 @@ D \cdot E + \overline{D} + \overline{E}
 </ul>
 <p>Par analogie une <em>rvalue</em> est une valeur qui ne peut se trouver à gauche d'une affectation. Ainsi <code>x + y</code> est une <em>rvalue</em> car elle ne peut être affectée. De même que <code>x++</code> est une <em>rvalue</em> car elle ne peut être affectée.</p>
 <h2 id="optimisation">Optimisation<a class="headerlink" href="#optimisation" title="Lien permanent">¤</a></h2>
-<p>Le compilateur est en règle général plus malin que le développeur. L'optimiseur de code (lorsque compilé avec <code>-O2</code> sous <code>gcc</code>), va regrouper certaines instructions, modifier l'ordre de certaines déclarations pour réduire soit l'empreinte mémoire du code, soit accélérer son exécution.</p>
+<p>Le compilateur est en règle général plus malin que le développeur. L'optimiseur de code (lorsque compilé avec <code>-O2</code> sous <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span>), va regrouper certaines instructions, modifier l'ordre de certaines déclarations pour réduire soit l'empreinte mémoire du code, soit accélérer son exécution.</p>
 <p>Ainsi l'expression suivante, ne sera pas calculée à l'exécution, mais à la compilation :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-69-1"><a href="#__codelineno-69-1" id="__codelineno-69-1" name="__codelineno-69-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </span></code></pre></div>
@@ -7197,7 +7228,7 @@ n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 19, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2024</span>
   </span>
 
     

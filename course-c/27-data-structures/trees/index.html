@@ -3844,7 +3844,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3860,7 +3860,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5419,7 +5419,7 @@ graph LR
     10 --&gt; 23((23))
     23 --&gt; 35((35))</code></pre><figcaption>Arbre binaire déséquilibré</figcaption></figure>
 <h3 id="heap">Heap<a class="headerlink" href="#heap" title="Lien permanent">¤</a></h3>
-<p>La structure de donnée <code>heap</code> aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit « presque complet », dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est-à-dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.</p>
+<p>La structure de donnée <span class="ycr-hashtag" data-index-entry="heap" data-tag="heap"><code>heap</code></span> aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit « presque complet », dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est-à-dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.</p>
 <p>Un tas peut aisément être représenté sous forme de tableau en utilisant la règle suivante :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Opération d'accès à un élément d'un hea</caption><thead>
@@ -5671,7 +5671,7 @@ graph LR
 <p>Ces complexités font des min-heaps une structure de données efficace pour les files de priorité et les algorithmes nécessitant des opérations fréquentes d'insertion et d'extraction du minimum.</p>
 <h3 id="arbre-binaire-de-recherche">Arbre binaire de recherche<a class="headerlink" href="#arbre-binaire-de-recherche" title="Lien permanent">¤</a></h3>
 <p>Un <a href="https://fr.wikipedia.org/wiki/Arbre_binaire_de_recherche">arbres binaires de recherche</a> (<em>Binary Search Tree</em>, <strong>BST</strong>) est un arbre binaire dans lequel chaque nœud a une valeur et les valeurs des nœuds de l'arbre sont ordonnées. Pour chaque nœud, toutes les valeurs des nœuds du sous-arbre gauche sont inférieures à la valeur du nœud et toutes les valeurs des nœuds du sous-arbre droit sont supérieures à la valeur du nœud.</p>
-<p>L'implémentation d'un arbre binaire est souvent implémentée avec une liste chaînée comportant deux enfants un <code>left</code> et un <code>right</code> :</p>
+<p>L'implémentation d'un arbre binaire est souvent implémentée avec une liste chaînée comportant deux enfants un <span class="ycr-hashtag" data-index-entry="left" data-tag="left"><code>left</code></span> et un <span class="ycr-hashtag" data-index-entry="right" data-tag="right"><code>right</code></span> :</p>
 <p><figure id="_figure-3"><img alt="Arbre binaire équilibré" class="drawio-diagram" src="../../../assets/images/binary-tree.drawio"/><figcaption> Arbre binaire équilibré</figcaption></figure></p>
 <p>Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours :</p>
 <ul>
@@ -5736,7 +5736,7 @@ graph LR
 </span><span id="__span-5-27"><a href="#__codelineno-5-27" id="__codelineno-5-27" name="__codelineno-5-27"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-5-28"><a href="#__codelineno-5-28" id="__codelineno-5-28" name="__codelineno-5-28"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>La queue prioritaire dispose donc aussi des méthodes <code>enqueue</code> et <code>dequeue</code> mais le <code>dequeue</code> retournera l'élément le plus prioritaire de la liste. Ceci se traduit par trier la file d'attente à chaque opération <code>enqueue</code> ou <code>dequeue</code>. L'une de ces deux opérations pourrait donc avoir une complexité de <span class="arithmatex">\(O(n log n)\)</span>. Heureusement, il existe des méthodes de tris performantes si un tableau est déjà trié et qu'un seul nouvel élément y est ajouté.</p>
+<p>La queue prioritaire dispose donc aussi des méthodes <span class="ycr-hashtag" data-index-entry="enqueue" data-tag="enqueue"><code>enqueue</code></span> et <span class="ycr-hashtag" data-index-entry="dequeue" data-tag="dequeue"><code>dequeue</code></span> mais le <span class="ycr-hashtag" data-index-entry="dequeue" data-tag="dequeue"><code>dequeue</code></span> retournera l'élément le plus prioritaire de la liste. Ceci se traduit par trier la file d'attente à chaque opération <span class="ycr-hashtag" data-index-entry="enqueue" data-tag="enqueue"><code>enqueue</code></span> ou <span class="ycr-hashtag" data-index-entry="dequeue" data-tag="dequeue"><code>dequeue</code></span>. L'une de ces deux opérations pourrait donc avoir une complexité de <span class="arithmatex">\(O(n log n)\)</span>. Heureusement, il existe des méthodes de tris performantes si un tableau est déjà trié et qu'un seul nouvel élément y est ajouté.</p>
 <p>L'implémentation de ce type de structure de donnée s'appuie le plus souvent sur un <em>heap</em>, soit construite à partir d'un tableau statique, soit un tableau dynamique.</p>
 <h3 id="arbre-avl">Arbre AVL<a class="headerlink" href="#arbre-avl" title="Lien permanent">¤</a></h3>
 <p>Un arbre AVL est un arbre binaire de recherche équilibré. Il est équilibré car la hauteur de ses sous-arbres gauche et droit diffère d'au plus un. Cela signifie que la hauteur de l'arbre est en <span class="arithmatex">\(O(log n)\)</span>, ce qui rend les opérations de recherche, d'insertion et de suppression en <span class="arithmatex">\(O(log n)\)</span>.</p>
@@ -5909,7 +5909,7 @@ Comment allez-vous implémenter le trie ?</p>
 </span></code></pre></div>
 </li>
 <li>
-<p><strong>Chunks</strong> : Chaque chunk contient un certain nombre de noeuds. Un chaunk d'une taille donnée est réservée. Lorsque le chunk est plein, un nouveau chunk est alloué. Cela permet de réduire le nombre d'appels à <code>malloc</code> et de réduire la fragmentation de la mémoire. Cette méthode permet de réduire le nombre d'appels à <code>malloc</code> et de réduire la fragmentation de la mémoire. Elle résoud aussi le problème de la taille fixe du tableau des enfants en autorisant à nouveau un tableau flexible.</p>
+<p><strong>Chunks</strong> : Chaque chunk contient un certain nombre de noeuds. Un chaunk d'une taille donnée est réservée. Lorsque le chunk est plein, un nouveau chunk est alloué. Cela permet de réduire le nombre d'appels à <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span> et de réduire la fragmentation de la mémoire. Cette méthode permet de réduire le nombre d'appels à <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span> et de réduire la fragmentation de la mémoire. Elle résoud aussi le problème de la taille fixe du tableau des enfants en autorisant à nouveau un tableau flexible.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">occurences</span><span class="p">;</span><span class="w">  </span><span class="c1">// Number of occurences of the word</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">children</span><span class="p">[];</span><span class="w">  </span><span class="c1">// Children nodes</span>

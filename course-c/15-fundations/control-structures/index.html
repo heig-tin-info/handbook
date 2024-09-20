@@ -3944,7 +3944,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3960,7 +3960,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5526,27 +5526,27 @@ les outils associés.
 <dd>
 <p>Il existe des instructions qui permettent de modifier le flux d'exécution du programme, c'est-à-dire de sauter à une autre partie du code. Les sauts conditionnels dépendent d'une condition, tandis que les sauts inconditionnels sont toujours exécutés. On peut distinguer les sauts d’instructions suivantes :</p>
 <ul>
-<li><a class="autorefs autorefs-internal" href="#les-sauts-conditionnels">sauts conditionnels</a> (<code>if</code>, <code>switch</code>);</li>
-<li><a class="autorefs autorefs-internal" href="#les-sauts-conditionnels">sauts inconditionnels</a> (<code>break</code>, <code>continue</code>, <code>goto</code>, <code>return</code>).</li>
+<li><a class="autorefs autorefs-internal" href="#les-sauts-conditionnels">sauts conditionnels</a> (<code>if</code>, <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span>);</li>
+<li><a class="autorefs autorefs-internal" href="#les-sauts-conditionnels">sauts inconditionnels</a> (<span class="ycr-hashtag" data-index-entry="break" data-tag="break"><code>break</code></span>, <span class="ycr-hashtag" data-index-entry="continue" data-tag="continue"><code>continue</code></span>, <span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span>, <span class="ycr-hashtag" data-index-entry="return" data-tag="return"><code>return</code></span>).</li>
 </ul>
 </dd>
 <dt>Les itérations ou boucles</dt>
 <dd>
 <p>Une boucle est une structure de contrôle qui permet de répéter une instruction ou un bloc d'instructions tant qu'une condition est vraie. On peut distinguer les boucles suivantes :</p>
 <ul>
-<li><a class="autorefs autorefs-internal" href="#for">boucles itératives</a> sur une valeur connue <code>for</code>;</li>
-<li><a class="autorefs autorefs-internal" href="#while">boucles sur condition</a> <code>while</code>;</li>
-<li><a class="autorefs autorefs-internal" href="#loop-do-while">boucles sur condition avec test à la fin</a> <code>do</code>...<code>while</code>.</li>
+<li><a class="autorefs autorefs-internal" href="#for">boucles itératives</a> sur une valeur connue <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span>;</li>
+<li><a class="autorefs autorefs-internal" href="#while">boucles sur condition</a> <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span>;</li>
+<li><a class="autorefs autorefs-internal" href="#loop-do-while">boucles sur condition avec test à la fin</a> <code>do</code>...<span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span>.</li>
 </ul>
 </dd>
 </dl>
 <p>Sans structure de contrôle, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènements extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement. L'intelligence d'un programme réside donc dans sa capacité à prendre des décisions en fonction de l'état du système et des données qu'il manipule. Les structures de contrôle permettent de définir ces décisions, un peu comme un livre dont vous êtes le héros où chaque choix vous mène à une page différente par un saut.</p>
-<p>Historiquement, les premiers langages de programmation ne disposaient pas de structures de contrôle évoluées. Au niveau assembleur on il est possible d'être Turing complet avec deux types de sauts : inconditionnel (<code>jmp</code>) et conditionnel <code>jz</code> (<em>jump if zero</em>: saut si la valeur de la condition est nulle). Avec plus de 100 ans de recul, et des milliers de langages de programmation, la programmation impérative n'a pas beaucoup évoluée. Les structures de contrôle sont restées les mêmes, seules les syntaxes ont évolué. Certains langages comme le Python on même décidé de simplifier certaines structures de contrôle comme le <code>do...while</code> qui n'existe pas.</p>
-<p>On peut néanmoins citer certaines fonctions d'ordre supérieur en programmation fonctionnelle (p. ex. <code>map</code>, <code>filter</code>, <code>reduce</code>) qui permettent de manipuler des séquences de données sans utiliser de boucles explicites. Ces fonctions sont souvent plus expressives et plus sûres que les boucles traditionnelles, mais elles ne remplacent pas les structures de contrôle classiques et elles n'existent pas en C. Les monades en Haskell sont un autre exemple de structures de contrôle avancées qui permettent de gérer des effets de bord de manière sûre et contrôlée. Des langages comme Kotlin ou JavaScript ont introduit des concepts similaires comme les coroutines ou les promesses pour gérer de manière asynchrone des tâches longues, mais une fois de plus ce sont des concepts qui n'existent pas en C.</p>
+<p>Historiquement, les premiers langages de programmation ne disposaient pas de structures de contrôle évoluées. Au niveau assembleur on il est possible d'être Turing complet avec deux types de sauts : inconditionnel (<span class="ycr-hashtag" data-index-entry="jmp" data-tag="jmp"><code>jmp</code></span>) et conditionnel <code>jz</code> (<em>jump if zero</em>: saut si la valeur de la condition est nulle). Avec plus de 100 ans de recul, et des milliers de langages de programmation, la programmation impérative n'a pas beaucoup évoluée. Les structures de contrôle sont restées les mêmes, seules les syntaxes ont évolué. Certains langages comme le Python on même décidé de simplifier certaines structures de contrôle comme le <span class="ycr-hashtag" data-index-entry="do...while" data-tag="do...while"><code>do...while</code></span> qui n'existe pas.</p>
+<p>On peut néanmoins citer certaines fonctions d'ordre supérieur en programmation fonctionnelle (p. ex. <span class="ycr-hashtag" data-index-entry="map" data-tag="map"><code>map</code></span>, <span class="ycr-hashtag" data-index-entry="filter" data-tag="filter"><code>filter</code></span>, <span class="ycr-hashtag" data-index-entry="reduce" data-tag="reduce"><code>reduce</code></span>) qui permettent de manipuler des séquences de données sans utiliser de boucles explicites. Ces fonctions sont souvent plus expressives et plus sûres que les boucles traditionnelles, mais elles ne remplacent pas les structures de contrôle classiques et elles n'existent pas en C. Les monades en Haskell sont un autre exemple de structures de contrôle avancées qui permettent de gérer des effets de bord de manière sûre et contrôlée. Des langages comme Kotlin ou JavaScript ont introduit des concepts similaires comme les coroutines ou les promesses pour gérer de manière asynchrone des tâches longues, mais une fois de plus ce sont des concepts qui n'existent pas en C.</p>
 <h2 id="sequences">Séquences<a class="headerlink" href="#sequences" title="Lien permanent">¤</a></h2>
 <p>En informatique, une <strong>séquence</strong> représente la forme la plus fondamentale de structure de contrôle dans les langages de programmation impératifs. Elle définit un ordre d'exécution linéaire où les instructions sont exécutées les unes après les autres, suivant l'ordre dans lequel elles apparaissent dans le code source. Cette exécution séquentielle est essentielle pour garantir la prévisibilité et la cohérence du comportement d'un programme.</p>
 <p>Formellement, une séquence peut être vue comme une composition de plusieurs instructions élémentaires <span class="arithmatex">\(S_1 ; S_2 ; \dots ; S_n\)</span>, où chaque instruction <span class="arithmatex">\(S_i\)</span> est exécutée après la précédente. Dans ce modèle, le flux de contrôle passe implicitement d'une instruction à la suivante sans interruption, sauf si une structure de contrôle (comme une boucle ou une condition) modifie ce flux.</p>
-<p>La notion de séquence est au cœur de la <strong>programmation structurée</strong>, qui préconise l'utilisation de structures de contrôle bien définies (séquences, sélections, itérations) pour améliorer la lisibilité, la maintenabilité et la fiabilité du code. En évitant les sauts non structurés comme le <code>goto</code>, les programmes deviennent plus faciles à comprendre et à vérifier formellement.</p>
+<p>La notion de séquence est au cœur de la <strong>programmation structurée</strong>, qui préconise l'utilisation de structures de contrôle bien définies (séquences, sélections, itérations) pour améliorer la lisibilité, la maintenabilité et la fiabilité du code. En évitant les sauts non structurés comme le <span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span>, les programmes deviennent plus faciles à comprendre et à vérifier formellement.</p>
 <p>En pratique, les séquences en code source sont souvent délimitées par des symboles spécifiques ou des conventions syntaxiques du langage utilisé. Par exemple : en C, les instructions sont terminées par un point-virgule <code>;</code>, et les blocs de code sont délimités par des accolades <code>{}</code>, en Python,  l'indentation définit les blocs de code, et chaque instruction est généralement écrite sur une nouvelle ligne.</p>
 <p>Il est important de noter que même si les séquences représentent l'exécution linéaire de code, elles peuvent contenir des appels à des fonctions ou des procédures qui encapsulent elles-mêmes des structures de contrôle plus complexes. Ainsi, la séquence constitue le fondement sur lequel sont bâties les constructions plus élaborées d'un programme.</p>
 <p>Au sein d'une même fonction (ou d'un même bloc de code) on retrouve l'ordre séquentiel des instructions :</p>
@@ -5593,7 +5593,7 @@ les outils associés.
 </span></code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Limites de profondeur</p>
-<p>Le standard <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> §5.2.4.1 impose qu'un compilateur C doit supporter au moins 127 niveaux d'imbrication de blocs, ce qui est emplement suffisant. Cette valeur n'a pas été introduite par hasard, 127 est la valeur maximale d'un entier signé sur 8 bits (<code>char</code>) et les ordinateurs ne savent pas manipuler efficacement des types de données plus petits.</p>
+<p>Le standard <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> §5.2.4.1 impose qu'un compilateur C doit supporter au moins 127 niveaux d'imbrication de blocs, ce qui est emplement suffisant. Cette valeur n'a pas été introduite par hasard, 127 est la valeur maximale d'un entier signé sur 8 bits (<span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span>) et les ordinateurs ne savent pas manipuler efficacement des types de données plus petits.</p>
 <p>Ceci étant, le nombre d'imbrication de structures conditionnelles est limité à 63, ce qui est déjà beaucoup trop. Si vous avez besoin de plus de 63 niveaux d'imbrication, il est temps de revoir votre conception !</p>
 <p>Notons néanmoins que les compilateurs modernes ne limitent pas le nombre d'imbrication de blocs et de structures conditionnelles.</p>
 </div>
@@ -5609,7 +5609,7 @@ les outils associés.
 </dd>
 <dt>Opérateurs conditionnels et logiques</dt>
 <dd>
-<p>Les opérateurs <code>&amp;&amp;</code>, <code>||</code>, <code>? :</code>, et <code>,</code> introduisent des points de séquence entre leurs opérandes. Par exemple, dans l'expression <code>a() &amp;&amp; b()</code>, si <code>a()</code> retourne <code>false</code>, <code>b()</code> ne sera jamais évaluée, car le résultat global de l'expression est déterminé sans avoir besoin de calculer <code>b()</code>. Ce mécanisme, appelé « court-circuit », optimise le traitement logique.</p>
+<p>Les opérateurs <code>&amp;&amp;</code>, <code>||</code>, <code>? :</code>, et <code>,</code> introduisent des points de séquence entre leurs opérandes. Par exemple, dans l'expression <code>a() &amp;&amp; b()</code>, si <code>a()</code> retourne <span class="ycr-hashtag" data-index-entry="false" data-tag="false"><code>false</code></span>, <code>b()</code> ne sera jamais évaluée, car le résultat global de l'expression est déterminé sans avoir besoin de calculer <code>b()</code>. Ce mécanisme, appelé « court-circuit », optimise le traitement logique.</p>
 </dd>
 <dt>Entrées-sorties</dt>
 <dd>
@@ -5626,7 +5626,7 @@ les outils associés.
 <p>Les embranchements sont des instructions de contrôle permettant au programme de prendre des décisions en fonction de conditions spécifiques. Une prise de décision est dite <strong>binaire</strong> lorsqu'elle repose sur un choix entre deux alternatives : <em>vrai</em> ou <em>faux</em>. Elle est dite <strong>multiple</strong> lorsque la condition évalue une variable scalaire, conduisant à plusieurs chemins possibles. En langage C, il existe deux types principaux d'instructions d'embranchement :</p>
 <ol>
 <li><code>if</code> et <code>if else</code> pour les décisions binaires,</li>
-<li><code>switch</code> pour la sélection parmi plusieurs cas possibles.</li>
+<li><span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> pour la sélection parmi plusieurs cas possibles.</li>
 </ol>
 <p>Ces types d'embranchements peuvent être représentés visuellement à l'aide de diagrammes de flux, comme les diagrammes BPMN (<a href="https://fr.wikipedia.org/wiki/Business_process_model_and_notation">Business Process Model and Notation</a>) ou les <a href="https://fr.wikipedia.org/wiki/Structogramme">structogrammes NSD</a> (Nassi-Shneiderman Diagrams). Ces représentations graphiques permettent de modéliser les choix conditionnels de manière intuitive.</p>
 <p>Voici un exemple de diagrammes BPMN et NSD illustrant un embranchement binaire :</p>
@@ -5634,7 +5634,7 @@ les outils associés.
 <p>Les embranchements reposent sur des séquences d'instructions, car chaque branche, qu'elle soit choisie ou non, est elle-même une séquence de commandes à exécuter selon l'évaluation de la condition.</p>
 <p><a href="" id="if"></a></p>
 <h3 id="if_1"><code>if</code><a class="headerlink" href="#if_1" title="Lien permanent">¤</a></h3>
-<p>L'instruction <code>if</code> traduite par <em>si</em> est de loin la plus utilisée. L'exemple suivant illustre un embranchement binaire. Il affiche <code>odd</code> si le nombre est impair et <code>even</code> s'il est pair :</p>
+<p>L'instruction <code>if</code> traduite par <em>si</em> est de loin la plus utilisée. L'exemple suivant illustre un embranchement binaire. Il affiche <span class="ycr-hashtag" data-index-entry="odd" data-tag="odd"><code>odd</code></span> si le nombre est impair et <span class="ycr-hashtag" data-index-entry="even" data-tag="even"><code>even</code></span> s'il est pair :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="p">{</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"odd</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
@@ -5660,7 +5660,7 @@ les outils associés.
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"odd"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">"even"</span><span class="p">);</span>
 </span></code></pre></div>
 </div>
-<p>Le mot clé <code>else</code> est facultatif. Si l'on ne souhaite pas exécuter d'instruction lorsque la condition est fausse, il est possible de ne pas la spécifier.</p>
+<p>Le mot clé <span class="ycr-hashtag" data-index-entry="else" data-tag="else"><code>else</code></span> est facultatif. Si l'on ne souhaite pas exécuter d'instruction lorsque la condition est fausse, il est possible de ne pas la spécifier.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>
@@ -5671,7 +5671,7 @@ les outils associés.
 </span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>
 </span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="n">printf</span><span class="p">(</span><span class="s">"a / b = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </span></code></pre></div>
-<p>En C il n'y a pas d'instruction <code>if..else if</code> comme on peut le trouver dans d'autres langages de programmation (p. ex. Python avec <code>elif</code>). Faire suivre une sous condition à <code>else</code> est néanmoins possible puisque <code>if</code> est une instruction comme une autre la preuve est donnée par la <a class="autorefs autorefs-internal" href="../grammar/#la-grammaire">grammaire</a> du langage qui détermine qu'une instruction de sélection (<code>selection_statement</code>), qui est une instruction (<code>statement</code>), peut être suivie d'une autre instruction, et donc d'une autre instruction de sélection.</p>
+<p>En C il n'y a pas d'instruction <code>if..else if</code> comme on peut le trouver dans d'autres langages de programmation (p. ex. Python avec <span class="ycr-hashtag" data-index-entry="elif" data-tag="elif"><code>elif</code></span>). Faire suivre une sous condition à <span class="ycr-hashtag" data-index-entry="else" data-tag="else"><code>else</code></span> est néanmoins possible puisque <code>if</code> est une instruction comme une autre la preuve est donnée par la <a class="autorefs autorefs-internal" href="../grammar/#la-grammaire">grammaire</a> du langage qui détermine qu'une instruction de sélection (<code>selection_statement</code>), qui est une instruction (<span class="ycr-hashtag" data-index-entry="statement" data-tag="statement"><code>statement</code></span>), peut être suivie d'une autre instruction, et donc d'une autre instruction de sélection.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>selection_statement
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>    : IF '(' expression ')' statement
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>    | IF '(' expression ')' statement ELSE statement
@@ -5691,7 +5691,7 @@ les outils associés.
 </span><span id="__span-10-10"><a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-10-11"><a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Néanmoins, comme il n'y a qu'une instruction <code>if</code> après le premier <code>else</code>, le bloc peut être omis. En outre, il est correct de faire figurer le <code>if</code> sur la même ligne que le <code>else</code> :</p>
+<p>Néanmoins, comme il n'y a qu'une instruction <code>if</code> après le premier <span class="ycr-hashtag" data-index-entry="else" data-tag="else"><code>else</code></span>, le bloc peut être omis. En outre, il est correct de faire figurer le <code>if</code> sur la même ligne que le <span class="ycr-hashtag" data-index-entry="else" data-tag="else"><code>else</code></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"La valeur est négative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="p">}</span>
@@ -5755,7 +5755,7 @@ les outils associés.
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="n">is_valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// Ne fait par partie du bloc et s'exécute toujours</span>
 </span></code></pre></div>
 </div>
-<p>On peut utiliser des conditions multiples pour déterminer le comportement d'un programme. Par exemple, le programme suivant affiche un message différent en fonction de la valeur de <code>value</code> :</p>
+<p>On peut utiliser des conditions multiples pour déterminer le comportement d'un programme. Par exemple, le programme suivant affiche un message différent en fonction de la valeur de <span class="ycr-hashtag" data-index-entry="value" data-tag="value"><code>value</code></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="p">{</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"La valeur est impaire."</span><span class="p">);</span>
@@ -5843,8 +5843,8 @@ les outils associés.
 </ol>
 </div>
 <p><a href="" id="switch"></a></p>
-<h3 id="switch_1"><code>switch</code><a class="headerlink" href="#switch_1" title="Lien permanent">¤</a></h3>
-<p>L'instruction <code>switch</code> n'est pas fondamentale et certains langages de programmation ne la définissent pas. Elle permet essentiellement de simplifier l'écriture pour minimiser les répétitions. On l'utilise lorsque les conditions multiples portent toujours sur la même variable. Par exemple, le code suivant peut être réécrit plus simplement en utilisant un <code>switch</code> :</p>
+<h3 id="switch_1"><span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span><a class="headerlink" href="#switch_1" title="Lien permanent">¤</a></h3>
+<p>L'instruction <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> n'est pas fondamentale et certains langages de programmation ne la définissent pas. Elle permet essentiellement de simplifier l'écriture pour minimiser les répétitions. On l'utilise lorsque les conditions multiples portent toujours sur la même variable. Par exemple, le code suivant peut être réécrit plus simplement en utilisant un <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> :</p>
 <p><figure id="_figure-2"><img alt="Switch Case BPMN" class="drawio-diagram" src="../../../assets/images/switch-case.drawio"/><figcaption> Switch Case BPMN</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">defcon</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 </span><span id="__span-29-2"><a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Guerre nucléaire imminente"</span><span class="p">);</span>
@@ -5859,7 +5859,7 @@ les outils associés.
 </span><span id="__span-29-11"><a href="#__codelineno-29-11" id="__codelineno-29-11" name="__codelineno-29-11"></a><span class="k">else</span>
 </span><span id="__span-29-12"><a href="#__codelineno-29-12" id="__codelineno-29-12" name="__codelineno-29-12"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"ERREUR: Niveau d'alerte DEFCON invalide"</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Voici la même séquence utilisant <code>switch</code>. Notez que chaque condition est plus claire :</p>
+<p>Voici la même séquence utilisant <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span>. Notez que chaque condition est plus claire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-30-1"><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">defcon</span><span class="p">)</span>
 </span><span id="__span-30-2"><a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="p">{</span>
 </span><span id="__span-30-3"><a href="#__codelineno-30-3" id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">:</span>
@@ -5881,8 +5881,8 @@ les outils associés.
 </span><span id="__span-30-19"><a href="#__codelineno-30-19" id="__codelineno-30-19" name="__codelineno-30-19"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"ERREUR: Niveau d'alerte DEFCON invalide"</span><span class="p">);</span>
 </span><span id="__span-30-20"><a href="#__codelineno-30-20" id="__codelineno-30-20" name="__codelineno-30-20"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>La valeur par défaut <code>default</code> est optionnelle, mais recommandée pour traiter les cas d'erreurs possibles.</p>
-<p>La structure d'un <code>switch</code> est composée d'une condition <code>switch (condition)</code> suivie d'une séquence <code>{}</code>. Les instructions de cas <code>case 42:</code> sont appelées étiquettes (<em>labels</em>). Notez la présence de l'instruction <code>break</code> qui est nécessaire pour terminer l'exécution de chaque condition. Par ailleurs, les labels peuvent être chaînés sans instructions intermédiaires ni <code>break</code>:</p>
+<p>La valeur par défaut <span class="ycr-hashtag" data-index-entry="default" data-tag="default"><code>default</code></span> est optionnelle, mais recommandée pour traiter les cas d'erreurs possibles.</p>
+<p>La structure d'un <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> est composée d'une condition <code>switch (condition)</code> suivie d'une séquence <code>{}</code>. Les instructions de cas <code>case 42:</code> sont appelées étiquettes (<em>labels</em>). Notez la présence de l'instruction <span class="ycr-hashtag" data-index-entry="break" data-tag="break"><code>break</code></span> qui est nécessaire pour terminer l'exécution de chaque condition. Par ailleurs, les labels peuvent être chaînés sans instructions intermédiaires ni <span class="ycr-hashtag" data-index-entry="break" data-tag="break"><code>break</code></span>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-31-1"><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">coffee</span><span class="p">)</span>
 </span><span id="__span-31-2"><a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="p">{</span>
 </span><span id="__span-31-3"><a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">IRISH_COFFEE</span><span class="w"> </span><span class="p">:</span>
@@ -5901,8 +5901,8 @@ les outils associés.
 </span><span id="__span-31-16"><a href="#__codelineno-31-16" id="__codelineno-31-16" name="__codelineno-31-16"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"ERREUR 418: Type de café inconnu"</span><span class="p">);</span>
 </span><span id="__span-31-17"><a href="#__codelineno-31-17" id="__codelineno-31-17" name="__codelineno-31-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Notons que le compilateur est capable d'optimiser les <code>switch</code> en fonction des valeurs des étiquettes. Il n'est pas nécessaire que les étiquettes soient triées, car le compilateur peut réordonner les cas pour optimiser l'exécution. Néanmoins des étiquettes à progression logique p. ex. <code>{12, 13, 14, 15}</code> sont plus efficaces que des étiquettes aléatoires p. ex. <code>{1, 109, 9, 42}</code>.</p>
-<p>La construction d'une étiquette <code>case</code> implique une constante littérale. Il n'est pas possible d'utiliser une expression ou une variable. En outre, il ne peut y avoir qu'une seule étiquette par ligne, car cette dernière doit être située après un retour à la ligne. Voici un exemple permettant de déterminer le nombre de jours dans un mois :</p>
+<p>Notons que le compilateur est capable d'optimiser les <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> en fonction des valeurs des étiquettes. Il n'est pas nécessaire que les étiquettes soient triées, car le compilateur peut réordonner les cas pour optimiser l'exécution. Néanmoins des étiquettes à progression logique p. ex. <code>{12, 13, 14, 15}</code> sont plus efficaces que des étiquettes aléatoires p. ex. <code>{1, 109, 9, 42}</code>.</p>
+<p>La construction d'une étiquette <span class="ycr-hashtag" data-index-entry="case" data-tag="case"><code>case</code></span> implique une constante littérale. Il n'est pas possible d'utiliser une expression ou une variable. En outre, il ne peut y avoir qu'une seule étiquette par ligne, car cette dernière doit être située après un retour à la ligne. Voici un exemple permettant de déterminer le nombre de jours dans un mois :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">ndays</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 </span><span id="__span-32-2"><a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">month</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-32-3"><a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w">  </span><span class="c1">// JAN</span>
@@ -5935,7 +5935,7 @@ les outils associés.
 </span><span id="__span-32-30"><a href="#__codelineno-32-30" id="__codelineno-32-30" name="__codelineno-32-30"></a><span class="p">}</span>
 </span></code></pre></div>
 <h4 id="declaration-de-variables">Déclaration de variables<a class="headerlink" href="#declaration-de-variables" title="Lien permanent">¤</a></h4>
-<p>Il faut comprendre que la structure <code>switch</code> est un peu particulière. Le <code>switch</code> agit comme un bloc, la déclaration de variable est possible à n'importe quel endroit du bloc, mais toutes les lignes de ce bloc ne seront pas exécutées puisque le <code>switch</code> utilisera les labels pour sauter à la bonne instruction. Considérons l'exemple suivant :</p>
+<p>Il faut comprendre que la structure <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> est un peu particulière. Le <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> agit comme un bloc, la déclaration de variable est possible à n'importe quel endroit du bloc, mais toutes les lignes de ce bloc ne seront pas exécutées puisque le <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> utilisera les labels pour sauter à la bonne instruction. Considérons l'exemple suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-33-2"><a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="w">   </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-33-3"><a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span>
@@ -5956,7 +5956,7 @@ les outils associés.
 </span><span id="__span-34-3"><a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a>    5 |       int i = 23;
 </span><span id="__span-34-4"><a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a>      |           ^
 </span></code></pre></div>
-<p>En effet, cette instruction se trouve avant le premier label <code>case</code> et ne sera donc jamais exécuté. La variable est belle et bien déclarée, mais elle ne sera pas initialisée.</p>
+<p>En effet, cette instruction se trouve avant le premier label <span class="ycr-hashtag" data-index-entry="case" data-tag="case"><code>case</code></span> et ne sera donc jamais exécuté. La variable est belle et bien déclarée, mais elle ne sera pas initialisée.</p>
 <p>En outre, la déclaration de <code>j = 23</code> pose également problème, l'erreur de compilation suivante apparaît :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a>test.c: In function ‘main’:
 </span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a>test.c:11:14: error: redefinition of ‘j’
@@ -5966,7 +5966,7 @@ les outils associés.
 </span><span id="__span-35-6"><a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a>    7 |          int j = 42;
 </span><span id="__span-35-7"><a href="#__codelineno-35-7" id="__codelineno-35-7" name="__codelineno-35-7"></a>      |            ^
 </span></code></pre></div>
-<p>Vous savez qu'il n'est pas possible de redéclarer une variable déjà existante dans le même bloc. La solution à ce problème est de déclarer les variables propres à un cas dans un bloc séparé. Notez que la variable <code>k</code> n'étant utilisée qu'une fois, elle peut être dans le contexte global du <code>switch</code> mais situé après le premier label <code>case</code>. En pratique, n'essayez pas de jouer avec les limites de la syntaxe, cela ne fera que rendre votre code plus difficile à lire et à maintenir.</p>
+<p>Vous savez qu'il n'est pas possible de redéclarer une variable déjà existante dans le même bloc. La solution à ce problème est de déclarer les variables propres à un cas dans un bloc séparé. Notez que la variable <code>k</code> n'étant utilisée qu'une fois, elle peut être dans le contexte global du <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> mais situé après le premier label <span class="ycr-hashtag" data-index-entry="case" data-tag="case"><code>case</code></span>. En pratique, n'essayez pas de jouer avec les limites de la syntaxe, cela ne fera que rendre votre code plus difficile à lire et à maintenir.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a>
 </span><span id="__span-36-3"><a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -6006,7 +6006,7 @@ les outils associés.
 <h4 id="appareil-de-duff">Appareil de Duff<a class="headerlink" href="#appareil-de-duff" title="Lien permanent">¤</a></h4>
 <p>Le <a href="https://en.wikipedia.org/wiki/Duff%27s_device">Duff's device</a> est une technique d'optimisation assez originale en langage C, qui permet de dérouler une boucle de manière partiellement manuelle, dans le but de gagner en performance, notamment sur des architectures matérielles plus anciennes. Il a été inventé par Tom Duff en 1983 lorsqu'il travaillait chez Lucasfilm.</p>
 <p>L'objectif du Duff's device est de dérouler manuellement une boucle afin de réduire le nombre d'itérations et d'optimiser l'exécution, notamment dans les situations où le coût d'un saut conditionnel dans une boucle pouvait être élevé. Cette optimisation est souvent appelée unrolling, où plusieurs itérations de la boucle sont « fusionnées » en une seule.</p>
-<p>La particularité du Duff's device est qu'il combine à la fois une structure de boucle <code>while</code> et un <code>switch</code> de manière surprenante et astucieuse. Voici à quoi ressemble le code original :</p>
+<p>La particularité du Duff's device est qu'il combine à la fois une structure de boucle <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span> et un <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> de manière surprenante et astucieuse. Voici à quoi ressemble le code original :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="k">register</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w">  </span><span class="c1">// Nombre d'itérations par paquet de 8</span>
 </span><span id="__span-38-2"><a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="k">register</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">*</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dest</span><span class="p">;</span>
 </span><span id="__span-38-3"><a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="k">register</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">*</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">;</span>
@@ -6025,12 +6025,12 @@ les outils associés.
 </span></code></pre></div>
 <h4 id="resume-des-points-cles">Résumé des points clés<a class="headerlink" href="#resume-des-points-cles" title="Lien permanent">¤</a></h4>
 <ul>
-<li>La structure <code>switch</code> bien qu'elle puisse toujours être remplacée par une structure <code>if..else if</code> est généralement plus élégante et plus lisible. Elle évite par ailleurs de répéter la condition plusieurs fois (c.f. <a class="autorefs autorefs-internal" href="../../50-philosophy/philosophy/#dry_1">DRY</a>).</li>
+<li>La structure <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> bien qu'elle puisse toujours être remplacée par une structure <code>if..else if</code> est généralement plus élégante et plus lisible. Elle évite par ailleurs de répéter la condition plusieurs fois (c.f. <a class="autorefs autorefs-internal" href="../../50-philosophy/philosophy/#dry_1">DRY</a>).</li>
 <li>Le compilateur est mieux à même d'optimiser un choix multiple lorsque les valeurs scalaires de la condition triées se suivent directement p. ex. <code>{12, 13, 14, 15}</code>.</li>
-<li>L'ordre des cas d'un <code>switch</code> n'a pas d'importance, le compilateur peut même choisir de réordonner les cas pour optimiser l'exécution.</li>
-<li>Les étiquettes <code>case</code> ne peuvent être que des constantes littérales, il n'est pas possible d'utiliser des expressions ou des variables.</li>
-<li>Les étiquettes <code>case</code> doivent être séparées par un retour à la ligne, il n'est pas possible d'avoir plusieurs étiquettes sur une même ligne.</li>
-<li>Il est possible de chaîner les étiquettes sans <code>break</code> pour exécuter plusieurs instructions.</li>
+<li>L'ordre des cas d'un <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> n'a pas d'importance, le compilateur peut même choisir de réordonner les cas pour optimiser l'exécution.</li>
+<li>Les étiquettes <span class="ycr-hashtag" data-index-entry="case" data-tag="case"><code>case</code></span> ne peuvent être que des constantes littérales, il n'est pas possible d'utiliser des expressions ou des variables.</li>
+<li>Les étiquettes <span class="ycr-hashtag" data-index-entry="case" data-tag="case"><code>case</code></span> doivent être séparées par un retour à la ligne, il n'est pas possible d'avoir plusieurs étiquettes sur une même ligne.</li>
+<li>Il est possible de chaîner les étiquettes sans <span class="ycr-hashtag" data-index-entry="break" data-tag="break"><code>break</code></span> pour exécuter plusieurs instructions.</li>
 </ul>
 <p><a href="" id="loops"></a></p>
 <h2 id="les-boucles">Les boucles<a class="headerlink" href="#les-boucles" title="Lien permanent">¤</a></h2>
@@ -6046,13 +6046,13 @@ les outils associés.
 <p>On observe que quelque soit la structure de boucle, une <strong>condition de maintien</strong> est nécessaire. Cette condition est évaluée avant ou après l'exécution de la séquence. Si la condition est fausse, la séquence est interrompue et le programme continue son exécution.</p>
 <p><a href="" id="loop-while"></a></p>
 <h3 id="while">while<a class="headerlink" href="#while" title="Lien permanent">¤</a></h3>
-<p>La structure <code>while</code> répète une séquence <strong>tant que</strong> la condition est vraie. Dans l'exemple suivant, tant que le poids d'un objet déposé sur une balance est inférieur à une valeur constante, une masse est ajoutée et le système patiente avant stabilisation.</p>
+<p>La structure <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span> répète une séquence <strong>tant que</strong> la condition est vraie. Dans l'exemple suivant, tant que le poids d'un objet déposé sur une balance est inférieur à une valeur constante, une masse est ajoutée et le système patiente avant stabilisation.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-39-1"><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">get_weight</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">420</span><span class="w"> </span><span class="cm">/* newtons */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-39-2"><a href="#__codelineno-39-2" id="__codelineno-39-2" name="__codelineno-39-2"></a><span class="w">    </span><span class="n">add_one_kg</span><span class="p">();</span>
 </span><span id="__span-39-3"><a href="#__codelineno-39-3" id="__codelineno-39-3" name="__codelineno-39-3"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="cm">/* seconds */</span><span class="p">);</span>
 </span><span id="__span-39-4"><a href="#__codelineno-39-4" id="__codelineno-39-4" name="__codelineno-39-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Séquentiellement une boucle <code>while</code> teste la condition, puis exécute la séquence associée.</p>
+<p>Séquentiellement une boucle <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span> teste la condition, puis exécute la séquence associée.</p>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 3 : </span>Tant que...<span class="exercise-title"></span></p>
 <p>Comment se comportent ces programmes ?</p>
@@ -6067,9 +6067,9 @@ les outils associés.
 </ol>
 </div>
 <p><a href="" id="loop-do-while"></a></p>
-<p>On utilise une boucle <code>while</code> lorsque le nombre d'itérations n'est pas connu à l'avance. Si la séquence doit être exécutée au moins une fois, on utilise une boucle <code>do</code>...<code>while</code>.</p>
+<p>On utilise une boucle <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span> lorsque le nombre d'itérations n'est pas connu à l'avance. Si la séquence doit être exécutée au moins une fois, on utilise une boucle <code>do</code>...<span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span>.</p>
 <h3 id="dowhile">do..while<a class="headerlink" href="#dowhile" title="Lien permanent">¤</a></h3>
-<p>De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle <code>do</code>...<code>while</code> permet justement ceci :</p>
+<p>De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle <code>do</code>...<span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span> permet justement ceci :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-40-1"><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-40-2"><a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a>
 </span><span id="__span-40-3"><a href="#__codelineno-40-3" id="__codelineno-40-3" name="__codelineno-40-3"></a><span class="k">do</span><span class="w"> </span><span class="p">{</span>
@@ -6077,11 +6077,11 @@ les outils associés.
 </span><span id="__span-40-5"><a href="#__codelineno-40-5" id="__codelineno-40-5" name="__codelineno-40-5"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </span><span id="__span-40-6"><a href="#__codelineno-40-6" id="__codelineno-40-6" name="__codelineno-40-6"></a><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Contrairement à la boucle <code>while</code>, la séquence est ici exécutée <strong>au moins une fois</strong>.</p>
-<p>Notez ci-dessus la présence d'un <code>;</code> après le <code>while</code>. La structure <code>do</code>...<code>while</code> est un peu particulière, car elle est la seule structure de contrôle à se terminer par un point-virgule.</p>
+<p>Contrairement à la boucle <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span>, la séquence est ici exécutée <strong>au moins une fois</strong>.</p>
+<p>Notez ci-dessus la présence d'un <code>;</code> après le <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span>. La structure <code>do</code>...<span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span> est un peu particulière, car elle est la seule structure de contrôle à se terminer par un point-virgule.</p>
 <p><a href="" id="loop-for"></a></p>
 <h3 id="for">for<a class="headerlink" href="#for" title="Lien permanent">¤</a></h3>
-<p>La boucle <code>for</code> est un <code>while</code> amélioré qui permet en une ligne de résumer les conditions de la boucle :</p>
+<p>La boucle <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span> est un <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span> amélioré qui permet en une ligne de résumer les conditions de la boucle :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="cm">/* expression 1 */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* expression 2 */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* expression 3 */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="w">    </span><span class="cm">/* séquence */</span>
 </span><span id="__span-41-3"><a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a><span class="p">}</span>
@@ -6105,7 +6105,7 @@ les outils associés.
 </span><span id="__span-42-2"><a href="#__codelineno-42-2" id="__codelineno-42-2" name="__codelineno-42-2"></a><span class="w">    </span><span class="n">something</span><span class="p">();</span>
 </span><span id="__span-42-3"><a href="#__codelineno-42-3" id="__codelineno-42-3" name="__codelineno-42-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Notons que les portions de <code>for</code> sont optionnels et que la structure suivante est strictement identique à la boucle <code>while</code>:</p>
+<p>Notons que les portions de <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span> sont optionnels et que la structure suivante est strictement identique à la boucle <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">get_weight</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">420</span><span class="w"> </span><span class="p">;)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-43-2"><a href="#__codelineno-43-2" id="__codelineno-43-2" name="__codelineno-43-2"></a><span class="w">    </span><span class="cm">/* ... */</span>
 </span><span id="__span-43-3"><a href="#__codelineno-43-3" id="__codelineno-43-3" name="__codelineno-43-3"></a><span class="p">}</span>
@@ -6137,13 +6137,13 @@ les outils associés.
 <p class="admonition-title"><span class="exercise-label">Exercice 6 : </span>De un à cent<span class="exercise-title"></span></p>
 <p>Écrivez un programme affichant les entiers de 1 à 100 en employant :</p>
 <ol>
-<li>Une boucle <code>for</code></li>
-<li>Une boucle <code>while</code></li>
-<li>Une boucle <code>do..while</code></li>
+<li>Une boucle <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span></li>
+<li>Une boucle <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span></li>
+<li>Une boucle <span class="ycr-hashtag" data-index-entry="do..while" data-tag="do..while"><code>do..while</code></span></li>
 </ol>
 <p>Quelle est la structure de contrôle la plus adaptée à cette situation ?</p>
 </div>
-<p>L'opérateur <code>,</code> est un opérateur de séquence qui permet de séparer des expressions. Il est souvent utilisé dans les boucles <code>for</code> pour exécuter plusieurs instructions dans les différentes parties de la boucle. Par exemple pour définir deux variables <code>i</code> et <code>j</code> dans la partie d'initialisation de la boucle. Voici par exemple comment afficher les lettres de l'alphabet en alternance <code>z-a y-b x-c</code>... :</p>
+<p>L'opérateur <code>,</code> est un opérateur de séquence qui permet de séparer des expressions. Il est souvent utilisé dans les boucles <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span> pour exécuter plusieurs instructions dans les différentes parties de la boucle. Par exemple pour définir deux variables <code>i</code> et <code>j</code> dans la partie d'initialisation de la boucle. Voici par exemple comment afficher les lettres de l'alphabet en alternance <code>z-a y-b x-c</code>... :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-46-1"><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'z'</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'a'</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-46-2"><a href="#__codelineno-46-2" id="__codelineno-46-2" name="__codelineno-46-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%c-%c "</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
 </span><span id="__span-46-3"><a href="#__codelineno-46-3" id="__codelineno-46-3" name="__codelineno-46-3"></a><span class="p">}</span>
@@ -6153,13 +6153,13 @@ les outils associés.
 </span></code></pre></div>
 <div class="admonition bug">
 <p class="admonition-title">Variable d'induction non signée</p>
-<p>Il est recommandé d'utiliser des variables d'induction signées pour les boucles <code>for</code> afin d'éviter des erreurs de logique. En effet, si vous utilisez une variable d'induction non signée et que vous la décrémentez, vous risquez de créer une boucle infinie :</p>
+<p>Il est recommandé d'utiliser des variables d'induction signées pour les boucles <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span> afin d'éviter des erreurs de logique. En effet, si vous utilisez une variable d'induction non signée et que vous la décrémentez, vous risquez de créer une boucle infinie :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-48-1"><a href="#__codelineno-48-1" id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-48-2"><a href="#__codelineno-48-2" id="__codelineno-48-2" name="__codelineno-48-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 </span><span id="__span-48-3"><a href="#__codelineno-48-3" id="__codelineno-48-3" name="__codelineno-48-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Dans cet exemple, <code>i</code> est une variable non signée de type <code>size_t</code>. Lorsque <code>i</code> atteint 0, la condition <code>i &gt;= 0</code> est toujours vraie, car <code>size_t</code> est un type non signé et ne peut pas être négatif. Par conséquent, la boucle ne se termine jamais et entraîne un débordement de la variable <code>i</code>.</p>
-<p>En pratique on utilisera simplement un <code>int</code> pour les variables d'induction néanmoins pour une grande portabilité on utilisera <code>int_fast32_t</code> ou <code>int_fast64_t</code> pour garantir une taille de variable optimale.</p>
+<p>Dans cet exemple, <code>i</code> est une variable non signée de type <span class="ycr-hashtag" data-index-entry="size_t" data-tag="size_t"><code>size_t</code></span>. Lorsque <code>i</code> atteint 0, la condition <code>i &gt;= 0</code> est toujours vraie, car <span class="ycr-hashtag" data-index-entry="size_t" data-tag="size_t"><code>size_t</code></span> est un type non signé et ne peut pas être négatif. Par conséquent, la boucle ne se termine jamais et entraîne un débordement de la variable <code>i</code>.</p>
+<p>En pratique on utilisera simplement un <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> pour les variables d'induction néanmoins pour une grande portabilité on utilisera <span class="ycr-hashtag" data-index-entry="int_fast32_t" data-tag="int_fast32_t"><code>int_fast32_t</code></span> ou <span class="ycr-hashtag" data-index-entry="int_fast64_t" data-tag="int_fast64_t"><code>int_fast64_t</code></span> pour garantir une taille de variable optimale.</p>
 </div>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 7 : </span>Opérateur virgule dans une boucle<span class="exercise-title"></span></p>
@@ -6172,7 +6172,7 @@ les outils associés.
 <p>Proposer une meilleure implémentation de ce programme.</p>
 </div>
 <h3 id="boucles-infinies">Boucles infinies<a class="headerlink" href="#boucles-infinies" title="Lien permanent">¤</a></h3>
-<p>Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort <em>La boucle principale</em> aussi nommée <a href="https://en.wikipedia.org/wiki/Event_loop">run loop</a>. Lorsqu'un programme est exécuté <em>bare-metal</em>, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction <code>main</code> telle que :</p>
+<p>Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort <em>La boucle principale</em> aussi nommée <a href="https://en.wikipedia.org/wiki/Event_loop">run loop</a>. Lorsqu'un programme est exécuté <em>bare-metal</em>, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span> telle que :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-50-1"><a href="#__codelineno-50-1" id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">main_loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-50-2"><a href="#__codelineno-50-2" id="__codelineno-50-2" name="__codelineno-50-2"></a><span class="w">    </span><span class="c1">// Boucle principale</span>
 </span><span id="__span-50-3"><a href="#__codelineno-50-3" id="__codelineno-50-3" name="__codelineno-50-3"></a><span class="p">}</span>
@@ -6192,7 +6192,7 @@ les outils associés.
 </span><span id="__span-51-5"><a href="#__codelineno-51-5" id="__codelineno-51-5" name="__codelineno-51-5"></a><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Notions que l'expression <code>while (1)</code> que l'on rencontre fréquemment dans des exemples n'est pas syntaxiquement exacte. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire <code>1</code> devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire <code>while (1 == 1)</code> ou simplement <code>while (true)</code>. D'ailleurs pourquoi utiliser <code>1</code> et non pas <code>42</code> ? Moi j'aime bien <code>while (42)</code>, c'est plus fun...</p>
-<p>Certains développeurs préfèrent l'écriture <code>for (;;)</code> qui ne fait pas intervenir de conditions extérieures ou de valeurs bulgares, car, avant <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> définir la valeur <code>true</code> était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :</p>
+<p>Certains développeurs préfèrent l'écriture <code>for (;;)</code> qui ne fait pas intervenir de conditions extérieures ou de valeurs bulgares, car, avant <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> définir la valeur <span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span> était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-52-1"><a href="#__codelineno-52-1" id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="kt">_Bool</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-52-2"><a href="#__codelineno-52-2" id="__codelineno-52-2" name="__codelineno-52-2"></a>
 </span><span id="__span-52-3"><a href="#__codelineno-52-3" id="__codelineno-52-3" name="__codelineno-52-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
@@ -6226,27 +6226,27 @@ les outils associés.
 <p>Il existe 4 instructions en C permettant de contrôler le déroulement de
 l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un autre endroit du programme.</p>
 <dl>
-<dt><code>break</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="break" data-tag="break"><code>break</code></span></dt>
 <dd>
-<p>Cette instruction nterrompt la structure de contrôle en cours. Elle est valide pour <code>while</code>, <code>do</code>...<code>while</code>, <code>for</code> et <code>switch</code>.</p>
+<p>Cette instruction nterrompt la structure de contrôle en cours. Elle est valide pour <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span>, <code>do</code>...<span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span>, <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span> et <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span>.</p>
 </dd>
-<dt><code>continue</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="continue" data-tag="continue"><code>continue</code></span></dt>
 <dd>
-<p>Cette instruction interrompt le cycle en cours et passe directement au cycle suivant. Elle est valide pour <code>while</code>, <code>do</code>...<code>while</code> et <code>for</code>.</p>
+<p>Cette instruction interrompt le cycle en cours et passe directement au cycle suivant. Elle est valide pour <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span>, <code>do</code>...<span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span> et <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span>.</p>
 </dd>
-<dt><code>goto</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span></dt>
 <dd>
-<p>La redoutée instruction <code>goto</code> interrompt l'exécution et saute à un label situé ailleurs dans la même fonction.</p>
+<p>La redoutée instruction <span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span> interrompt l'exécution et saute à un label situé ailleurs dans la même fonction.</p>
 </dd>
-<dt><code>return</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="return" data-tag="return"><code>return</code></span></dt>
 <dd>
 <p>Cette instruction interrompt l'exécution de la fonction en cours et retourne à son point d'appel.</p>
 </dd>
 </dl>
-<h3 id="goto"><code>goto</code><a class="headerlink" href="#goto" title="Lien permanent">¤</a></h3>
-<p>Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison, car dans la très vaste majorité des cas où vous pensez avoir besoin de <code>goto</code>, une autre solution plus élégante existe.</p>
-<p>Néanmoins, il est important de comprendre que <code>goto</code> était dans certains langages de programmation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine, car la plupart des processeurs ne connaissent que cette instruction souvent appelée <code>JUMP</code>. Il est par conséquent possible d'imiter le comportement de n'importe quelle structure de contrôle si l'on dispose de <code>if</code> et de <code>goto</code>.</p>
-<p><code>goto</code> effectue un saut inconditionnel à un <em>label</em> défini en C par un <a class="autorefs autorefs-internal" href="../syntax/#identificateurs">identificateur</a> suivi d'un <code>:</code>.</p>
+<h3 id="goto"><span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span><a class="headerlink" href="#goto" title="Lien permanent">¤</a></h3>
+<p>Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison, car dans la très vaste majorité des cas où vous pensez avoir besoin de <span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span>, une autre solution plus élégante existe.</p>
+<p>Néanmoins, il est important de comprendre que <span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span> était dans certains langages de programmation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine, car la plupart des processeurs ne connaissent que cette instruction souvent appelée <span class="ycr-hashtag" data-index-entry="JUMP" data-tag="JUMP"><code>JUMP</code></span>. Il est par conséquent possible d'imiter le comportement de n'importe quelle structure de contrôle si l'on dispose de <code>if</code> et de <span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span>.</p>
+<p><span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span> effectue un saut inconditionnel à un <em>label</em> défini en C par un <a class="autorefs autorefs-internal" href="../syntax/#identificateurs">identificateur</a> suivi d'un <code>:</code>.</p>
 <p>L'un des seuls cas de figure autorisés est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-54-1"><a href="#__codelineno-54-1" id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span>
 </span><span id="__span-54-2"><a href="#__codelineno-54-2" id="__codelineno-54-2" name="__codelineno-54-2"></a>
@@ -6270,8 +6270,8 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </span><span id="__span-54-20"><a href="#__codelineno-54-20" id="__codelineno-54-20" name="__codelineno-54-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 </span><span id="__span-54-21"><a href="#__codelineno-54-21" id="__codelineno-54-21" name="__codelineno-54-21"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="continue"><code>continue</code><a class="headerlink" href="#continue" title="Lien permanent">¤</a></h3>
-<p>Le mot clé <code>continue</code> ne peut exister qu'à l'intérieur d'une boucle. Il permet d'interrompre le cycle en cours et directement passer au cycle suivant.</p>
+<h3 id="continue"><span class="ycr-hashtag" data-index-entry="continue" data-tag="continue"><code>continue</code></span><a class="headerlink" href="#continue" title="Lien permanent">¤</a></h3>
+<p>Le mot clé <span class="ycr-hashtag" data-index-entry="continue" data-tag="continue"><code>continue</code></span> ne peut exister qu'à l'intérieur d'une boucle. Il permet d'interrompre le cycle en cours et directement passer au cycle suivant.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-55-1"><a href="#__codelineno-55-1" id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="kt">uint8_t</span><span class="w"> </span><span class="n">airplane_seat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </span><span id="__span-55-2"><a href="#__codelineno-55-2" id="__codelineno-55-2" name="__codelineno-55-2"></a>
 </span><span id="__span-55-3"><a href="#__codelineno-55-3" id="__codelineno-55-3" name="__codelineno-55-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">--</span><span class="n">airplane_seat</span><span class="p">)</span>
@@ -6295,10 +6295,10 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </span><span id="__span-56-9"><a href="#__codelineno-56-9" id="__codelineno-56-9" name="__codelineno-56-9"></a><span class="w">    </span><span class="nl">next</span><span class="p">:</span>
 </span><span id="__span-56-10"><a href="#__codelineno-56-10" id="__codelineno-56-10" name="__codelineno-56-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="break"><code>break</code><a class="headerlink" href="#break" title="Lien permanent">¤</a></h3>
-<p>Le mot-clé <code>break</code> peut être utilisé dans une boucle ou dans un <code>switch</code>. Il permet d'interrompre l'exécution de la boucle ou de la structure <code>switch</code> la plus proche. Nous avions déjà évoqué l'utilisation dans un <code>switch</code> (c.f. <a class="autorefs autorefs-internal" href="#switch_1">switch</a>).</p>
-<h3 id="return"><code>return</code><a class="headerlink" href="#return" title="Lien permanent">¤</a></h3>
-<p>Le mot clé <code>return</code> suivi d'une valeur de retour ne peut apparaître que dans une fonction dont le type de retour n'est pas <code>void</code>. Ce mot-clé permet de stopper l'exécution d'une fonction et de retourner à son point d'appel.</p>
+<h3 id="break"><span class="ycr-hashtag" data-index-entry="break" data-tag="break"><code>break</code></span><a class="headerlink" href="#break" title="Lien permanent">¤</a></h3>
+<p>Le mot-clé <span class="ycr-hashtag" data-index-entry="break" data-tag="break"><code>break</code></span> peut être utilisé dans une boucle ou dans un <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span>. Il permet d'interrompre l'exécution de la boucle ou de la structure <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> la plus proche. Nous avions déjà évoqué l'utilisation dans un <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> (c.f. <a class="autorefs autorefs-internal" href="#switch_1">switch</a>).</p>
+<h3 id="return"><span class="ycr-hashtag" data-index-entry="return" data-tag="return"><code>return</code></span><a class="headerlink" href="#return" title="Lien permanent">¤</a></h3>
+<p>Le mot clé <span class="ycr-hashtag" data-index-entry="return" data-tag="return"><code>return</code></span> suivi d'une valeur de retour ne peut apparaître que dans une fonction dont le type de retour n'est pas <span class="ycr-hashtag" data-index-entry="void" data-tag="void"><code>void</code></span>. Ce mot-clé permet de stopper l'exécution d'une fonction et de retourner à son point d'appel.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-57-1"><a href="#__codelineno-57-1" id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">unlock</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">password</span><span class="p">)</span>
 </span><span id="__span-57-2"><a href="#__codelineno-57-2" id="__codelineno-57-2" name="__codelineno-57-2"></a><span class="p">{</span>
 </span><span id="__span-57-3"><a href="#__codelineno-57-3" id="__codelineno-57-3" name="__codelineno-57-3"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -6361,7 +6361,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <li>Actions suivant un choix multiple de l'utilisateur</li>
 <li>Rechercher un caractère particulier dans une chaîne de caractère</li>
 <li>Itérer toutes les valeurs paires sur un intervalle donné</li>
-<li>Demander la ligne suivante du télégramme à l'utilisateur jusqu'à <code>STOP</code></li>
+<li>Demander la ligne suivante du télégramme à l'utilisateur jusqu'à <span class="ycr-hashtag" data-index-entry="STOP" data-tag="STOP"><code>STOP</code></span></li>
 </ol>
 <details class="solution">
 <summary>Solution</summary>
@@ -6372,7 +6372,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </span></code></pre></div>
 </li>
 <li>
-<p>Dans ce cas un <code>switch</code> semble le plus approprié</p>
+<p>Dans ce cas un <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span> semble le plus approprié</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-65-1"><a href="#__codelineno-65-1" id="__codelineno-65-1" name="__codelineno-65-1"></a><span class="k">switch</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-65-2"><a href="#__codelineno-65-2" id="__codelineno-65-2" name="__codelineno-65-2"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span>
 </span><span id="__span-65-3"><a href="#__codelineno-65-3" id="__codelineno-65-3" name="__codelineno-65-3"></a><span class="w">        </span><span class="cm">/* ... */</span>
@@ -6396,7 +6396,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </span></code></pre></div>
 </li>
 <li>
-<p>La boucle <code>for</code> semble ici la plus adaptée</p>
+<p>La boucle <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span> semble ici la plus adaptée</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-67-1"><a href="#__codelineno-67-1" id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-67-2"><a href="#__codelineno-67-2" id="__codelineno-67-2" name="__codelineno-67-2"></a><span class="w">    </span><span class="cm">/* ... */</span>
 </span><span id="__span-67-3"><a href="#__codelineno-67-3" id="__codelineno-67-3" name="__codelineno-67-3"></a><span class="p">}</span>
@@ -6423,7 +6423,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </div>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 10 : </span>Comptons sur les caractères<span class="exercise-title"></span></p>
-<p>Un texte est passé à un programme par <code>stdin</code>. Comptez le nombre de caractères transmis.</p>
+<p>Un texte est passé à un programme par <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span>. Comptez le nombre de caractères transmis.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-69-1"><a href="#__codelineno-69-1" id="__codelineno-69-1" name="__codelineno-69-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"hello world"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>count-this
 </span><span id="__span-69-2"><a href="#__codelineno-69-2" id="__codelineno-69-2" name="__codelineno-69-2"></a><span class="go">11</span>
 </span></code></pre></div>
@@ -6438,7 +6438,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <p>La priorité de l'opérateur unitaire <code>&amp;</code> est plus élevée que <code>==</code> ce qui se traduit par :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-71-1"><a href="#__codelineno-71-1" id="__codelineno-71-1" name="__codelineno-71-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">mask</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">bits</span><span class="p">))</span>
 </span></code></pre></div>
-<p>Le développeur voulait probablement appliquer le masque à <code>x</code> puis le comparer au motif <code>bits</code>. La bonne réponse devrait alors être :</p>
+<p>Le développeur voulait probablement appliquer le masque à <code>x</code> puis le comparer au motif <span class="ycr-hashtag" data-index-entry="bits" data-tag="bits"><code>bits</code></span>. La bonne réponse devrait alors être :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-72-1"><a href="#__codelineno-72-1" id="__codelineno-72-1" name="__codelineno-72-1"></a><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">bits</span><span class="p">)</span>
 </span></code></pre></div>
 </details>

@@ -3871,7 +3871,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3887,7 +3887,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5379,7 +5379,7 @@ les outils associés.
 </span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
 </span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
 </span></code></pre></div>
-<p>Considérons les dix premiers éléments de la séquence de nombre <a href="https://oeis.org/A130826">A130826</a> dans un tableau statique. Ensuite, répartissons ces valeurs aléatoirement dans notre tableau <code>elements</code> déclaré plus haut entre les indices 0 et 19.</p>
+<p>Considérons les dix premiers éléments de la séquence de nombre <a href="https://oeis.org/A130826">A130826</a> dans un tableau statique. Ensuite, répartissons ces valeurs aléatoirement dans notre tableau <span class="ycr-hashtag" data-index-entry="elements" data-tag="elements"><code>elements</code></span> déclaré plus haut entre les indices 0 et 19.</p>
 <p><figure id="_figure-1"><img alt="Construction d'une liste chainée à l'aide d'un tableau" class="drawio-diagram" src="../../../assets/images/static-linked-list.drawio"/><figcaption> Construction d'une liste chainée à l'aide d'un tableau</figcaption></figure></p>
 <p>On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire, car il est possible facilement de chercher l'élément suivant de la liste avec cette relation :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
@@ -5468,7 +5468,7 @@ les outils associés.
 <p>La figure suivante illustre un set d'éléments liés entre eux à l'aide d'un pointeur rattaché à chaque élément. On peut s'imaginer que chaque élément peut se situer n'importe où en mémoire et
 qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.</p>
 <p>Il est indispensable de bien identifier le dernier élément de la liste grâce à son pointeur associé
-à la valeur <code>NULL</code>.</p>
+à la valeur <span class="ycr-hashtag" data-index-entry="NULL" data-tag="NULL"><code>NULL</code></span>.</p>
 <p><figure id="_figure-2"><img alt="Liste chaînée simple" class="drawio-diagram" src="../../../assets/images/list.drawio"/><figcaption> Liste chaînée simple</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
@@ -5527,8 +5527,8 @@ suppression…</p>
 <h3 id="calcul-du-nombre-delements-dans-la-liste">Calcul du nombre d'éléments dans la liste<a class="headerlink" href="#calcul-du-nombre-delements-dans-la-liste" title="Lien permanent">¤</a></h3>
 <p>Pour évaluer le nombre d'éléments dans une liste, on effectue le
 parcours de la liste à partir de la tête, et on passe d'élément en
-élément grâce au champ <em>next</em> de la structure <code>Element</code>. On incrément
-le nombre d'éléments jusqu'à ce que le pointeur <em>next</em> soit égal à <code>NULL</code>.</p>
+élément grâce au champ <em>next</em> de la structure <span class="ycr-hashtag" data-index-entry="Element" data-tag="Element"><code>Element</code></span>. On incrément
+le nombre d'éléments jusqu'à ce que le pointeur <em>next</em> soit égal à <span class="ycr-hashtag" data-index-entry="NULL" data-tag="NULL"><code>NULL</code></span>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Element</span><span class="w"> </span><span class="o">*</span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
@@ -5631,7 +5631,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </ul>
 <p>L'avantage principal étant le gain de place en mémoire.</p>
 <h2 id="liste-chainee-deroulee-unrolled-linked-list">Liste chaînée déroulée (Unrolled linked list)<a class="headerlink" href="#liste-chainee-deroulee-unrolled-linked-list" title="Lien permanent">¤</a></h2>
-<p>Une liste chaînée déroulée rassemble les avantages d'un tableau et d'une liste chaînée. Elle permet d'accroître les performances en réduisant l'overhead de réservation mémoire avec <code>malloc</code>.</p>
+<p>Une liste chaînée déroulée rassemble les avantages d'un tableau et d'une liste chaînée. Elle permet d'accroître les performances en réduisant l'overhead de réservation mémoire avec <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span>.</p>
 <p><figure id="_figure-6"><img alt="Liste chaînée déroulée" class="drawio-diagram" src="../../../assets/images/unrolled-linked-list.drawio"/><figcaption> Liste chaînée déroulée</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span>

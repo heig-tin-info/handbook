@@ -3663,7 +3663,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3679,7 +3679,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5368,7 +5368,7 @@ les outils associés.
 <p>Dans un système, toute connaissance doit avoir une représentation unique, non ambiguë et faisant autorité.</p>
 </blockquote>
 <p>En d'autres termes, le programmeur doit rester constamment vigilant, prêt à entendre une alarme mentale, rouge, vive et bruyante dès qu'il s'apprête à utiliser la combinaison <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> (ou <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-c">C</kbd></span>), suivie de <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-v">V</kbd></span> (ou <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-v">V</kbd></span>). Dupliquer du code, quelle que soit la quantité, est <strong>toujours</strong> une mauvaise pratique, car cela trahit souvent un <a href="https://fr.wikipedia.org/wiki/Code_smell">code smell</a>, signal évident que le code pourrait être simplifié et optimisé.</p>
-<p>L'exemple de code suivant présente une violation du principe <strong>DRY</strong> : la fonction <code>display</code> est appelée deux fois. Dans les deux cas, elle reçoit un pointeur sur un fichier, ce qui indique qu'une simplification est possible.</p>
+<p>L'exemple de code suivant présente une violation du principe <strong>DRY</strong> : la fonction <span class="ycr-hashtag" data-index-entry="display" data-tag="display"><code>display</code></span> est appelée deux fois. Dans les deux cas, elle reçoit un pointeur sur un fichier, ce qui indique qu'une simplification est possible.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">"r"</span><span class="p">);</span>
@@ -5384,7 +5384,7 @@ les outils associés.
 </span></code></pre></div>
 <p><a href="" id="kiss"></a></p>
 <h3 id="kiss_1">KISS<a class="headerlink" href="#kiss_1" title="Lien permanent">¤</a></h3>
-<p><a href="https://fr.wikipedia.org/wiki/Principe_KISS">Keep it simple, stupid</a> est une ligne directrice de conception qui encourage la simplicité d'un développement. Elle est similaire au rasoir d'Ockham, mais plus commune en informatique. Énoncé par <a href="https://fr.wikipedia.org/wiki/Eric_Raymond">Eric Steven Raymond</a> puis par le <a href="https://fr.wikipedia.org/wiki/Zen_de_Python">Zen de Python</a> un programme ne doit faire qu'une chose, et une chose simple. C'est une philosophie grandement respectée dans l'univers Unix/Linux. Chaque programme de base du <em>shell</em> (<code>ls</code>, <code>cat</code>, <code>echo</code>, <code>grep</code>...) ne fait qu'une tâche simple, le nom est court et simple à retenir.</p>
+<p><a href="https://fr.wikipedia.org/wiki/Principe_KISS">Keep it simple, stupid</a> est une ligne directrice de conception qui encourage la simplicité d'un développement. Elle est similaire au rasoir d'Ockham, mais plus commune en informatique. Énoncé par <a href="https://fr.wikipedia.org/wiki/Eric_Raymond">Eric Steven Raymond</a> puis par le <a href="https://fr.wikipedia.org/wiki/Zen_de_Python">Zen de Python</a> un programme ne doit faire qu'une chose, et une chose simple. C'est une philosophie grandement respectée dans l'univers Unix/Linux. Chaque programme de base du <em>shell</em> (<code>ls</code>, <span class="ycr-hashtag" data-index-entry="cat" data-tag="cat"><code>cat</code></span>, <span class="ycr-hashtag" data-index-entry="echo" data-tag="echo"><code>echo</code></span>, <span class="ycr-hashtag" data-index-entry="grep" data-tag="grep"><code>grep</code></span>...) ne fait qu'une tâche simple, le nom est court et simple à retenir.</p>
 <p>La fonction suivante n'est pas <strong>KISS</strong> car elle est responsable de plusieurs tâches : vérifier les valeurs d'un set de donnée et les afficher :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">Data</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="c1">// Check consistency and display</span>
@@ -5501,10 +5501,10 @@ Namespaces are one honking great idea—let's do more of those !<br/></p>
 </span><span id="__span-9-14"><a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">        </span><span class="n">prev</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
 </span><span id="__span-9-15"><a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Torvalds répondit sans détour que ce code était de mauvais goût, le qualifiant de <em>vilain</em> et <em>moche</em>. En effet, ce test placé après la boucle <code>while</code> dénote par rapport au reste du code. Cette dissonance esthétique suggère qu'il existe une implémentation plus élégante, car lorsque le code paraît laid, il y a fort à parier qu'une solution de meilleur goût peut être trouvée. On dit dans ces cas-là que le code <em>sent</em> : ce test est superflu, et il doit exister une manière d'éviter de traiter un cas particulier en choisissant un algorithme mieux conçu.</p>
+<p>Torvalds répondit sans détour que ce code était de mauvais goût, le qualifiant de <em>vilain</em> et <em>moche</em>. En effet, ce test placé après la boucle <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span> dénote par rapport au reste du code. Cette dissonance esthétique suggère qu'il existe une implémentation plus élégante, car lorsque le code paraît laid, il y a fort à parier qu'une solution de meilleur goût peut être trouvée. On dit dans ces cas-là que le code <em>sent</em> : ce test est superflu, et il doit exister une manière d'éviter de traiter un cas particulier en choisissant un algorithme mieux conçu.</p>
 <p>En réalité, retirer un élément d'une liste chaînée requiert de gérer deux cas distincts :</p>
 <ul>
-<li>Si l'élément se trouve au début de la liste, il faut ajuster le pointeur <code>head</code>.</li>
+<li>Si l'élément se trouve au début de la liste, il faut ajuster le pointeur <span class="ycr-hashtag" data-index-entry="head" data-tag="head"><code>head</code></span>.</li>
 <li>Dans le cas contraire, il convient de modifier <code>prev-&gt;next</code>.</li>
 </ul>
 <p>Après avoir questionné l'auditoire, Torvalds dévoila une nouvelle implémentation :</p>
@@ -5541,7 +5541,7 @@ Namespaces are one honking great idea—let's do more of those !<br/></p>
 </span></code></pre></div>
 <p>On constate plusieurs fautes de goût :</p>
 <ol>
-<li><code>GRID_SIZE</code> pourrait être différent de la réelle taille de <code>grid</code></li>
+<li><span class="ycr-hashtag" data-index-entry="GRID_SIZE" data-tag="GRID_SIZE"><code>GRID_SIZE</code></span> pourrait être différent de la réelle taille de <span class="ycr-hashtag" data-index-entry="grid" data-tag="grid"><code>grid</code></span></li>
 <li>Les valeurs d'initialisation sont dupliquées</li>
 <li>La complexité de l'algorithme est de <span class="arithmatex">\(O(n^2)\)</span> alors que l'on ne s'intéresse qu'à la bordure du tableau.</li>
 </ol>
@@ -5605,7 +5605,7 @@ Namespaces are one honking great idea—let's do more of those !<br/></p>
 </dd>
 <dt><strong>Téléportation sauvage</strong></dt>
 <dd>
-<p>Usage de <code>goto</code>, où quand le code saute d'un endroit à l'autre sans logique apparente.</p>
+<p>Usage de <span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span>, où quand le code saute d'un endroit à l'autre sans logique apparente.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nl">loop</span><span class="p">:</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
@@ -5679,7 +5679,7 @@ Namespaces are one honking great idea—let's do more of those !<br/></p>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Lien permanent">¤</a></h2>
 <p>La quête d'un code de qualité repose sur des principes philosophiques et méthodologiques essentiels. Le <strong>rasoir d'Ockham</strong> encourage la simplicité en éliminant les éléments superflus, tandis que l'<strong>effet Dunning-Kruger</strong> met en garde contre la surestimation de ses compétences, rappelant l'importance de la remise en question et du retour critique. Des doctrines telles que <strong>DRY</strong> (ne vous répétez pas), <strong>KISS</strong> (restez simple), <strong>SSOT</strong> (une seule source de vérité) et <strong>YAGNI</strong> (vous n'en aurez pas besoin) guident le développeur vers une conception épurée et efficace.</p>
 <p>Le <strong>Zen de Python</strong> illustre cette philosophie par dix-neuf aphorismes valorisant la beauté, la lisibilité et la simplicité du code. Linus Torvalds, créateur de Linux et de Git, a souligné l'importance du <em>code taste</em> ou « goût du code », démontrant qu'une implémentation élégante résulte souvent d'une réflexion profonde sur les structures de données et les algorithmes, plutôt que d'une complexité inutile.</p>
-<p>Enfin, reconnaître et éviter les <strong>odeurs de code</strong> (<em>code smells</em>), ces indicateurs de mauvaise conception comme les fonctions tentaculaires, les duplications ou les commentaires mal pensés, est crucial. En identifiant ces <em>antipatterns</em> — qu'ils se manifestent sous la forme d'un « Arbre de Noël » de structures conditionnelles imbriquées ou d'une « Téléportation sauvage » via des <code>goto</code> intempestifs—le développeur s'assure de produire un code maintenable, clair et performant.</p>
+<p>Enfin, reconnaître et éviter les <strong>odeurs de code</strong> (<em>code smells</em>), ces indicateurs de mauvaise conception comme les fonctions tentaculaires, les duplications ou les commentaires mal pensés, est crucial. En identifiant ces <em>antipatterns</em> — qu'ils se manifestent sous la forme d'un « Arbre de Noël » de structures conditionnelles imbriquées ou d'une « Téléportation sauvage » via des <span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span> intempestifs—le développeur s'assure de produire un code maintenable, clair et performant.</p>
 
 
 

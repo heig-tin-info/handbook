@@ -3827,7 +3827,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3843,7 +3843,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5279,7 +5279,7 @@ les outils associés.
 <p>Les tableaux de hachage (<em>Hash Table</em>) sont une structure particulière dans laquelle une fonction dite de <em>hachage</em> est utilisée pour transformer les entrées en des indices d'un tableau.</p>
 <p>L'objectif est de stocker des chaînes de caractères correspondant a des noms simples ici utilisés pour l'exemple. Une possible répartition serait la suivante :</p>
 <p><figure id="_figure-1"><img alt="Tableau de hachage simple" class="drawio-diagram" src="../../../assets/images/hash-linear.drawio"/><figcaption> Tableau de hachage simple</figcaption></figure></p>
-<p>Si l'on cherche l'indice correspondant à <code>Ada</code>, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé <em>hash</em>, il existe une infinité de méthodes. Dans cet exemple, considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :</p>
+<p>Si l'on cherche l'indice correspondant à <span class="ycr-hashtag" data-index-entry="Ada" data-tag="Ada"><code>Ada</code></span>, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé <em>hash</em>, il existe une infinité de méthodes. Dans cet exemple, considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="go">Nom    Valeurs ASCII     Somme  Modulo 10</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="go">---    --------------    -----  ---------</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="go">Mia -&gt; {77, 105, 97}  -&gt; 279 -&gt; 4</span>
@@ -5383,7 +5383,7 @@ les outils associés.
 <h2 id="fonction-de-hachage">Fonction de hachage<a class="headerlink" href="#fonction-de-hachage" title="Lien permanent">¤</a></h2>
 <p>Nous avons vu plus haut une fonction de hachage calculant le modulo sur la somme des caractères ASCII d'une chaîne de caractères. Nous avons également vu que cette fonction de hachage est source de nombreuses collisions. Les chaînes <code>"Rea"</code> ou <code>"Rae"</code> auront les même <em>hash</em> puisqu'ils contiennent les mêmes lettres. De même une fonction de hachage qui ne répartit pas bien les éléments dans la table de hachage sera mauvaise. On sait par exemple que les voyelles sont nombreuses dans les mots et qu'il n'y en a que six et que la probabilité que nos noms de trois lettres contiennent une voyelle en leur milieu est très élevée.</p>
 <p>L'idée générale des fonctions de hachage est de répartir <strong>uniformément</strong> les clés sur les indices de la table de hachage. L'approche la plus courante est de mélanger les bits de notre clé dans un processus reproductible.</p>
-<p>Une idée <strong>mauvaise</strong> et <strong>à ne pas retenir</strong> pourrait être d'utiliser le caractère pseudo-aléatoire de <code>rand</code> pour hacher nos noms :</p>
+<p>Une idée <strong>mauvaise</strong> et <strong>à ne pas retenir</strong> pourrait être d'utiliser le caractère pseudo-aléatoire de <span class="ycr-hashtag" data-index-entry="rand" data-tag="rand"><code>rand</code></span> pour hacher nos noms :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>
@@ -5420,7 +5420,7 @@ les outils associés.
 </span><span id="__span-11-12"><a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="go">Max : 3</span>
 </span><span id="__span-11-13"><a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="go">Tod : 1</span>
 </span></code></pre></div>
-<p>Dans la pratique, on utilisera volontiers des fonctions de hachage utilisées en cryptographies tels que <a href="https://en.wikipedia.org/wiki/MD5">MD5</a> ou <code>SHA</code>. Considérons par exemple la première partie du poème Chanson de Pierre Corneille :</p>
+<p>Dans la pratique, on utilisera volontiers des fonctions de hachage utilisées en cryptographies tels que <a href="https://en.wikipedia.org/wiki/MD5">MD5</a> ou <span class="ycr-hashtag" data-index-entry="SHA" data-tag="SHA"><code>SHA</code></span>. Considérons par exemple la première partie du poème Chanson de Pierre Corneille :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="gp">$ </span>cat<span class="w"> </span>chanson.txt
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="go">Si je perds bien des maîtresses,</span>
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="go">J'en fais encor plus souvent,</span>
@@ -5547,7 +5547,7 @@ les outils associés.
 </span><span id="__span-19-36"><a href="#__codelineno-19-36" id="__codelineno-19-36" name="__codelineno-19-36"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
 </span><span id="__span-19-37"><a href="#__codelineno-19-37" id="__codelineno-19-37" name="__codelineno-19-37"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Les valeurs de <code>seed</code> et <code>len</code> sont des valeurs arbitraires. La valeur de <code>seed</code> est souvent choisie aléatoirement. La valeur de <code>len</code> est la longueur de la chaîne de caractères à hacher.</p>
+<p>Les valeurs de <span class="ycr-hashtag" data-index-entry="seed" data-tag="seed"><code>seed</code></span> et <span class="ycr-hashtag" data-index-entry="len" data-tag="len"><code>len</code></span> sont des valeurs arbitraires. La valeur de <span class="ycr-hashtag" data-index-entry="seed" data-tag="seed"><code>seed</code></span> est souvent choisie aléatoirement. La valeur de <span class="ycr-hashtag" data-index-entry="len" data-tag="len"><code>len</code></span> est la longueur de la chaîne de caractères à hacher.</p>
 <p>On observe égalements des valeurs arbitraires pour les constantes <code>0xcc9e2d51</code>, <code>0x1b873593</code>, <code>0xe6546b64</code>, <code>0x85ebca6b</code>... Ces valeurs ont été choisies pour leur qualité de mélange des bits. Elles sont souvent déterminées empiriquement.</p>
 <h3 id="comparaison">Comparaison<a class="headerlink" href="#comparaison" title="Lien permanent">¤</a></h3>
 <p>Voici une compaison de différentes fonctions de hachage :</p>
@@ -5616,7 +5616,7 @@ les outils associés.
 <p>Pire, selon l'algorithme utlisé, il est possible que si la fonction de hachage ou la taille de la table est modifiée en cours de route, les éléments soient déplacés dans le tableau, et donc que l'ordre de parcours change.</p>
 <div class="admonition note">
 <p class="admonition-title">Python</p>
-<p>En Python les tables de hachages sont des structures de base du langage appelées <code>dict</code>. Avant la version 3.7, l'ordre des éléments n'était pas conservé. Depuis la version 3.7, l'ordre d'insertion est conservé. Cela est dû à l'implémentation de la table de hachage qui utilise une seconde structure de donnée de type liste chaînée pour conserver l'ordre d'insertion. Cela a un impact sur la quantité de mémoire utilisée et la performance de la table de hachage car à chaque insertion il faut également mettre à jour la liste chaînée.</p>
+<p>En Python les tables de hachages sont des structures de base du langage appelées <span class="ycr-hashtag" data-index-entry="dict" data-tag="dict"><code>dict</code></span>. Avant la version 3.7, l'ordre des éléments n'était pas conservé. Depuis la version 3.7, l'ordre d'insertion est conservé. Cela est dû à l'implémentation de la table de hachage qui utilise une seconde structure de donnée de type liste chaînée pour conserver l'ordre d'insertion. Cela a un impact sur la quantité de mémoire utilisée et la performance de la table de hachage car à chaque insertion il faut également mettre à jour la liste chaînée.</p>
 </div>
 <h2 id="complexite-et-implementation">Complexité et implémentation<a class="headerlink" href="#complexite-et-implementation" title="Lien permanent">¤</a></h2>
 <p>La caractéristique principale recherchée dans une table de hachage est de permettre un accès en temps constant <span class="arithmatex">\(O(1)\)</span> pour les opérations de recherche.</p>

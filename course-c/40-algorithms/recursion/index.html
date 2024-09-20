@@ -3783,7 +3783,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3799,7 +3799,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5217,7 +5217,7 @@ les outils associés.
 </span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Le code est beaucoup plus simple à écrire, et même à lire. Néanmoins cet algorithme est notoirement connu pour être très mauvais en termes de performance. Calculer <code>fib(5)</code> revient à la chaîne d'appel suivant.</p>
-<p>Cette chaîne d'appel représente le nombre de fois que <code>fib</code> est appelé et à quel niveau elle est appelée. Par exemple <code>fib(4)</code> est appelé dans <code>fib(5)</code> :</p>
+<p>Cette chaîne d'appel représente le nombre de fois que <span class="ycr-hashtag" data-index-entry="fib" data-tag="fib"><code>fib</code></span> est appelé et à quel niveau elle est appelée. Par exemple <code>fib(4)</code> est appelé dans <code>fib(5)</code> :</p>
 <figure class="mermaid-figure"><pre class="mermaid"><code>%% Arbre d'appel de Fibonacci
 graph TD
 
@@ -5237,7 +5237,7 @@ graph TD
 32 --&gt; 14(("fib(1)"))
 
 23 --&gt; 15(("fib(1)"))</code></pre><figcaption>Arbre d'appel de Fibonacci</figcaption></figure>
-<p>Au final, <code>fib(1)</code> est appelé 5 fois, <code>fib(2)</code> 3 fois, <code>fib(3)</code> 2 fois, <code>fib(4)</code> et <code>fib(5)</code> 1 fois. Ce sont donc 12 appels à la fonction <code>fib</code> pour calculer <code>fib(5)</code>.</p>
+<p>Au final, <code>fib(1)</code> est appelé 5 fois, <code>fib(2)</code> 3 fois, <code>fib(3)</code> 2 fois, <code>fib(4)</code> et <code>fib(5)</code> 1 fois. Ce sont donc 12 appels à la fonction <span class="ycr-hashtag" data-index-entry="fib" data-tag="fib"><code>fib</code></span> pour calculer <code>fib(5)</code>.</p>
 <table>
 <thead>
 <tr>
@@ -5308,9 +5308,9 @@ graph TD
 </tr>
 </tbody>
 </table>
-<p>Il s'agit de la suite <a href="https://oeis.org/A000071">A000071</a> de l'OEIS. On constate que le nombre d'appels est exponentiel. Pour <code>fib(100)</code> il faudra neuf cent vingt-sept quintillions trois cent soixante-douze quadrillions six cent quatre-vingt-douze trillions cent quatre-vingt-treize milliards soixante-dix-huit millions neuf cent quatre-vingt-dix-neuf mille cent soixante-quinze appels à la fonction <code>fib</code>. Pour un processeur capable de calculer 100 GFLOPS (milliards d'opérations par seconde), il faudra tout de même 294 ans. C'est un peu long...</p>
+<p>Il s'agit de la suite <a href="https://oeis.org/A000071">A000071</a> de l'OEIS. On constate que le nombre d'appels est exponentiel. Pour <code>fib(100)</code> il faudra neuf cent vingt-sept quintillions trois cent soixante-douze quadrillions six cent quatre-vingt-douze trillions cent quatre-vingt-treize milliards soixante-dix-huit millions neuf cent quatre-vingt-dix-neuf mille cent soixante-quinze appels à la fonction <span class="ycr-hashtag" data-index-entry="fib" data-tag="fib"><code>fib</code></span>. Pour un processeur capable de calculer 100 GFLOPS (milliards d'opérations par seconde), il faudra tout de même 294 ans. C'est un peu long...</p>
 <p>La complexité algorithmique de cette fonction est dite <span class="arithmatex">\(O(2^n)\)</span>. C'est-à-dire que le nombre d'appels suit une relation exponentielle. La réelle complexité est donnée par la relation :</p>
-<p>En revanche, dans l'approche itérative, on constate qu'une seule boucle <code>for</code>. C'est-à-dire qu'il faudra seulement 100 itérations pour calculer la somme.</p>
+<p>En revanche, dans l'approche itérative, on constate qu'une seule boucle <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span>. C'est-à-dire qu'il faudra seulement 100 itérations pour calculer la somme.</p>
 <p>Généralement les algorithmes récursifs (s'appelant eux-mêmes) sont moins performants que les algorithmes itératifs (utilisant des boucles). Néanmoins il est parfois plus facile d'écrire un algorithme récursif.</p>
 <p>Notons que tout algorithme récursif peut être écrit en un algorithme itératif, mais ce n'est pas toujours facile.</p>
 <h2 id="les-tours-de-hanoi">Les tours de Hanoï<a class="headerlink" href="#les-tours-de-hanoi" title="Lien permanent">¤</a></h2>
@@ -5477,16 +5477,16 @@ graph TD
 </div>
 <h2 id="memoisation">Mémoïsation<a class="headerlink" href="#memoisation" title="Lien permanent">¤</a></h2>
 <p>En informatique la <a href="https://fr.wikipedia.org/wiki/M%C3%A9mo%C3%AFsation">mémoïsation</a> est une technique d'optimisation du code souvent utilisée conjointement avec des algorithmes récursifs. Cette technique est largement utilisée en <a href="https://fr.wikipedia.org/wiki/Programmation_dynamique">programmation dynamique</a>.</p>
-<p>Nous l'avons vu précédemment, l'algorithme récursif du calcul de la somme de la suite de Fibonacci n'est pas efficace du fait que les mêmes appels sont répétés un nombre inutile de fois. La parade est de mémoriser pour chaque appel de <code>fib</code>, la sortie correspondante à l'entrée.</p>
+<p>Nous l'avons vu précédemment, l'algorithme récursif du calcul de la somme de la suite de Fibonacci n'est pas efficace du fait que les mêmes appels sont répétés un nombre inutile de fois. La parade est de mémoriser pour chaque appel de <span class="ycr-hashtag" data-index-entry="fib" data-tag="fib"><code>fib</code></span>, la sortie correspondante à l'entrée.</p>
 <p>Dans cet exemple nous utiliserons un mécanisme composé de trois fonctions :</p>
 <ul>
 <li><code>int memoize(Cache *cache, int input, int output)</code></li>
 <li><code>bool memoize_has(Cache *cache, int input)</code></li>
 <li><code>int memoize_get(Cache *cache, int input)</code></li>
 </ul>
-<p>La première fonction mémorise la valeur de sortie <code>output</code> liée à la valeur d'entrée <code>input</code>. Pour des raisons de simplicité d'utilisation, la fonction retourne la valeur de sortie <code>output</code>.</p>
-<p>La seconde fonction <code>memoize_has</code> vérifie si une valeur de correspondance existe pour l'entrée <code>input</code>. Elle retourne <code>true</code> en cas de correspondance et <code>false</code> sinon.</p>
-<p>La troisième fonction <code>memoize_get</code> retourne la valeur de sortie correspondante à la valeur d'entrée <code>input</code>.</p>
+<p>La première fonction mémorise la valeur de sortie <span class="ycr-hashtag" data-index-entry="output" data-tag="output"><code>output</code></span> liée à la valeur d'entrée <span class="ycr-hashtag" data-index-entry="input" data-tag="input"><code>input</code></span>. Pour des raisons de simplicité d'utilisation, la fonction retourne la valeur de sortie <span class="ycr-hashtag" data-index-entry="output" data-tag="output"><code>output</code></span>.</p>
+<p>La seconde fonction <span class="ycr-hashtag" data-index-entry="memoize_has" data-tag="memoize_has"><code>memoize_has</code></span> vérifie si une valeur de correspondance existe pour l'entrée <span class="ycr-hashtag" data-index-entry="input" data-tag="input"><code>input</code></span>. Elle retourne <span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span> en cas de correspondance et <span class="ycr-hashtag" data-index-entry="false" data-tag="false"><code>false</code></span> sinon.</p>
+<p>La troisième fonction <span class="ycr-hashtag" data-index-entry="memoize_get" data-tag="memoize_get"><code>memoize_get</code></span> retourne la valeur de sortie correspondante à la valeur d'entrée <span class="ycr-hashtag" data-index-entry="input" data-tag="input"><code>input</code></span>.</p>
 <p>Notre fonction récursive sera ainsi modifiée comme suit :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="p">{</span>
@@ -5619,11 +5619,11 @@ graph TD
 </span><span id="__span-12-60"><a href="#__codelineno-12-60" id="__codelineno-12-60" name="__codelineno-12-60"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">solve</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"Solution does not exist"</span><span class="p">);</span>
 </span><span id="__span-12-61"><a href="#__codelineno-12-61" id="__codelineno-12-61" name="__codelineno-12-61"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>On commence par définir un échiquier de <code>N</code>x<code>N</code> cases sous la forme d'une tableau bidimensionnel <code>bool board[N][N]</code>. Chaque case de l'échiquier peut contenir une dame (<code>true</code>) ou être vide (<code>false</code>).</p>
-<p>La fonction <code>is_safe</code> prend en paramètre l'échiquier actuel et les coordonnées <code>(row, col)</code> d'une nouvelle dame à placer. Elle vérifie si la nouvelle dame peut être placée sans être attaquée par une autre dame déjà placée sur l'échiquier. Pour cela, elle vérifie les colonnes et les diagonales de la nouvelle dame pour s'assurer qu'aucune autre dame ne peut l'attaquer. Il n'est pas nécessaire de vérifier les lignes car chaque dame est placée sur une ligne différente.</p>
-<p>Le coeur de l'algorithme est la fonction <code>solve</code> qui utilise une approche de backtracking pour placer les huit dames sur l'échiquier. C'est une fonction récursive. La fonction prend en paramètre l'échiquier actuel et la ligne courante <code>row</code> à explorer. Comme la fonction s'appelle elle-même il faut impérativement une condition de sortie. Dans notre cas si <code>row</code> est égal à <code>N</code> alors toutes les dames ont été placées et on peut afficher la solution.</p>
-<p>Pour chaque ligne, on explore chaque colonne en commencant par la première. Si la case est sûre, on place une dame et on appelle récursivement la fonction <code>solve</code> pour explorer la ligne suivante. A chaque appel successif de <code>solve</code> on place une dame supplémentaire. Si d'avenure on se rend compte que la configuration n'est pas valide, on retire la dame et on explore une autre colonne.</p>
-<p>Pour mieux comprendre, réduisons le problème à un échiquier 4x4 et ajoutons un affichage dans solve. Pour connaître la profondeur de la récursion, on passe un paramètre <code>depth</code> à la fonction <code>solve</code> qui sera incrémente à chaque appel.</p>
+<p>On commence par définir un échiquier de <code>N</code>x<code>N</code> cases sous la forme d'une tableau bidimensionnel <code>bool board[N][N]</code>. Chaque case de l'échiquier peut contenir une dame (<span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span>) ou être vide (<span class="ycr-hashtag" data-index-entry="false" data-tag="false"><code>false</code></span>).</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="is_safe" data-tag="is_safe"><code>is_safe</code></span> prend en paramètre l'échiquier actuel et les coordonnées <code>(row, col)</code> d'une nouvelle dame à placer. Elle vérifie si la nouvelle dame peut être placée sans être attaquée par une autre dame déjà placée sur l'échiquier. Pour cela, elle vérifie les colonnes et les diagonales de la nouvelle dame pour s'assurer qu'aucune autre dame ne peut l'attaquer. Il n'est pas nécessaire de vérifier les lignes car chaque dame est placée sur une ligne différente.</p>
+<p>Le coeur de l'algorithme est la fonction <span class="ycr-hashtag" data-index-entry="solve" data-tag="solve"><code>solve</code></span> qui utilise une approche de backtracking pour placer les huit dames sur l'échiquier. C'est une fonction récursive. La fonction prend en paramètre l'échiquier actuel et la ligne courante <span class="ycr-hashtag" data-index-entry="row" data-tag="row"><code>row</code></span> à explorer. Comme la fonction s'appelle elle-même il faut impérativement une condition de sortie. Dans notre cas si <span class="ycr-hashtag" data-index-entry="row" data-tag="row"><code>row</code></span> est égal à <code>N</code> alors toutes les dames ont été placées et on peut afficher la solution.</p>
+<p>Pour chaque ligne, on explore chaque colonne en commencant par la première. Si la case est sûre, on place une dame et on appelle récursivement la fonction <span class="ycr-hashtag" data-index-entry="solve" data-tag="solve"><code>solve</code></span> pour explorer la ligne suivante. A chaque appel successif de <span class="ycr-hashtag" data-index-entry="solve" data-tag="solve"><code>solve</code></span> on place une dame supplémentaire. Si d'avenure on se rend compte que la configuration n'est pas valide, on retire la dame et on explore une autre colonne.</p>
+<p>Pour mieux comprendre, réduisons le problème à un échiquier 4x4 et ajoutons un affichage dans solve. Pour connaître la profondeur de la récursion, on passe un paramètre <span class="ycr-hashtag" data-index-entry="depth" data-tag="depth"><code>depth</code></span> à la fonction <span class="ycr-hashtag" data-index-entry="solve" data-tag="solve"><code>solve</code></span> qui sera incrémente à chaque appel.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#define PAD(depth)                                   \</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="cp">   {                                                 \</span>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="cp">      for (int i = 0; i &lt; depth; i++) printf("   "); \</span>

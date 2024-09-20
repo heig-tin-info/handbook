@@ -3675,7 +3675,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3691,7 +3691,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5000,7 +5000,7 @@ les outils associés.
 
 
 <h1 id="performances">Performances<a class="headerlink" href="#performances" title="Lien permanent">¤</a></h1>
-<p>Les différentes structures de données ne sont pas toutes équivalentes en termes de performances. Il convient, selon l'application, d'opter pour la structure la plus adaptée, et par conséquent il est important de pouvoir comparer les différentes structures de données pour choisir la plus appropriée. Est-ce que les données doivent être maintenues triées ? Est-ce que la structure de donnée est utilisée comme une pile ou un tas ? Quelle est la structure de donnée avec le moins d'<em>overhead</em> pour les opérations de <code>push</code> ou <code>unshift</code> ?</p>
+<p>Les différentes structures de données ne sont pas toutes équivalentes en termes de performances. Il convient, selon l'application, d'opter pour la structure la plus adaptée, et par conséquent il est important de pouvoir comparer les différentes structures de données pour choisir la plus appropriée. Est-ce que les données doivent être maintenues triées ? Est-ce que la structure de donnée est utilisée comme une pile ou un tas ? Quelle est la structure de donnée avec le moins d'<em>overhead</em> pour les opérations de <span class="ycr-hashtag" data-index-entry="push" data-tag="push"><code>push</code></span> ou <span class="ycr-hashtag" data-index-entry="unshift" data-tag="unshift"><code>unshift</code></span> ?</p>
 <p>L'indexation (<em>indexing</em>) est l'accès à une certaine valeur du tableau par exemple avec <code>a[k]</code>. Dans un tableau statique et dynamique l'accès se fait par pointeur depuis le début du tableau soit : <code>*((char*)a + sizeof(a[0]) * k)</code> qui est équivalant à <code>*(a + k)</code>. L'indexation par arithmétique de pointeur n'est pas possible avec les listes chaînées dont il faut parcourir chaque élément pour découvrir l'adresse du prochain élément :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">List</span><span class="w"> </span><span class="o">*</span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="n">List</span><span class="w"> </span><span class="o">*</span><span class="n">el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span><span class="p">;</span>

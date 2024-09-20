@@ -4140,7 +4140,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -4156,7 +4156,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5904,7 +5904,7 @@ les outils associés.
 <h1 id="autres-bibliotheques">Autres bibliothèques<a class="headerlink" href="#autres-bibliotheques" title="Lien permanent">¤</a></h1>
 <p>Les bibliothèques tierces constituent des ensembles cohérents de fonctions et de types de données, conçus pour être intégrés dans des programmes informatiques. Leur objectif est d'étendre les fonctionnalités d'un projet sans nécessiter la réécriture de code existant. Provenant généralement de développeurs ou d'organisations externes, ces bibliothèques permettent de gagner en efficacité tout en garantissant la robustesse et la maintenance du code.</p>
 <h2 id="installation-de-bibliotheques-tierces">Installation de bibliothèques tierces<a class="headerlink" href="#installation-de-bibliotheques-tierces" title="Lien permanent">¤</a></h2>
-<p>Sous Linux, les bibliothèques tierces sont généralement disponibles via les gestionnaires de paquets de la distribution. Il suffit de rechercher le nom de la bibliothèque et de l'installer à l'aide de la commande appropriée. Par exemple, pour installer la bibliothèque <code>curl</code> il faut ajouter le préfixe <code>lib</code> et le suffixe <code>-dev</code> . Le prefixe indique qu'il s'agit d'une bibliothèque et le suffixe indique qu'il s'agit de la version de développement incluant les fichiers d'en-tête nécessaires pour la compilation.</p>
+<p>Sous Linux, les bibliothèques tierces sont généralement disponibles via les gestionnaires de paquets de la distribution. Il suffit de rechercher le nom de la bibliothèque et de l'installer à l'aide de la commande appropriée. Par exemple, pour installer la bibliothèque <span class="ycr-hashtag" data-index-entry="curl" data-tag="curl"><code>curl</code></span> il faut ajouter le préfixe <span class="ycr-hashtag" data-index-entry="lib" data-tag="lib"><code>lib</code></span> et le suffixe <code>-dev</code> . Le prefixe indique qu'il s'agit d'une bibliothèque et le suffixe indique qu'il s'agit de la version de développement incluant les fichiers d'en-tête nécessaires pour la compilation.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libcurl-dev
 </span></code></pre></div>
 <p>Sous Windows, l'installation de bibliothèques tierces peut être plus complexe, car il n'existe pas de gestionnaire de paquets standardisé. Il est souvent nécessaire de télécharger les fichiers d'installation depuis le site officiel de la bibliothèque et de suivre les instructions spécifiques à chaque bibliothèque.</p>
@@ -6008,7 +6008,7 @@ les outils associés.
 <p>Le support <abbr title="Portable Operating System Interface">POSIX</abbr> sous Windows (Win32) n'est malheureusement que partiel et il n'est pas standardisé.</p>
 <p>Un point d'entrée de l'API <abbr title="Portable Operating System Interface">POSIX</abbr> est la bibliothèque <code>&lt;unistd.h&gt;</code>.</p>
 <h2 id="gnu-glibc"><abbr title="GNU's Not Unix">GNU</abbr> GLIBC<a class="headerlink" href="#gnu-glibc" title="Lien permanent">¤</a></h2>
-<p>La bibliothèque portable <a href="https://www.gnu.org/software/gnulib/">GNULIB</a> est la bibliothèque standard référencée sous Linux par <code>libc6</code>.</p>
+<p>La bibliothèque portable <a href="https://www.gnu.org/software/gnulib/">GNULIB</a> est la bibliothèque standard référencée sous Linux par <span class="ycr-hashtag" data-index-entry="libc6" data-tag="libc6"><code>libc6</code></span>.</p>
 <h2 id="windows-c-library">Windows C library<a class="headerlink" href="#windows-c-library" title="Lien permanent">¤</a></h2>
 <p>La bibliothèque Windows <a href="https://docs.microsoft.com/en-us/windows/win32/apiindex/windows-api-list">Windoes API</a> offre une interface au système de fichier, au registre Windows, aux imprimantes, à l'interface de fenêtrage, à la console et au réseau.</p>
 <p>L'accès à cet API est offert par un unique point d'entrée <a href="https://en.wikipedia.org/wiki/Windows.h">windows.h</a> qui regroupe certains en-têtes standards (<code>&lt;stdarg.h&gt;</code>, <code>&lt;string.h&gt;</code>, ...), mais pas tous (😔) ainsi que les en-têtes spécifiques à Windows tels que :</p>
@@ -6022,14 +6022,14 @@ les outils associés.
 <p>L'accès à la console</p>
 </dd>
 </dl>
-<p>La documentation est disponible en ligne depuis le site de Microsoft, mais n'est malheureusement pas complète et souvent il est difficile de savoir sur quel site trouver la bonne version de la bonne documentation. Par exemple, il n'y a aucune documentation claire de <code>LSTATUS</code> pour la fonction <a href="https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcreatekeyexw">RegCreateKeyExW</a> permettant de créer une entrée dans la base de registre.</p>
+<p>La documentation est disponible en ligne depuis le site de Microsoft, mais n'est malheureusement pas complète et souvent il est difficile de savoir sur quel site trouver la bonne version de la bonne documentation. Par exemple, il n'y a aucune documentation claire de <span class="ycr-hashtag" data-index-entry="LSTATUS" data-tag="LSTATUS"><code>LSTATUS</code></span> pour la fonction <a href="https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcreatekeyexw">RegCreateKeyExW</a> permettant de créer une entrée dans la base de registre.</p>
 <p>Un bon point d'entrée est le <a href="https://msdn.microsoft.com/library">Microsoft API and reference catalog</a>.</p>
 <p>Quelques observations :</p>
 <ul>
 <li>Officiellement Windows est compatible avec C89 (<abbr title="American National Standards Institute">ANSI</abbr> C) (c.f. <a href="https://docs.microsoft.com/en-us/cpp/c-language/c-language-reference?view=vs-2019">C Language Reference</a>)</li>
 <li>L'API Windows n'est pas officiellement compatible avec <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, mais elle s'en approche, il n'y pas ou peu de documents expliquant les différences.</li>
 <li>Microsoft n'a aucune priorité pour développer son support C, il se focalise davantage sur C++ et C#, c'est pourquoi certains éléments du langage ne sont pas ou peu documentés.</li>
-<li>Les <a href="https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types">types standards Windows</a> différent de ceux proposés par <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>. Par exemple, <code>LONG32</code> remplace <code>int32_t</code>.</li>
+<li>Les <a href="https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types">types standards Windows</a> différent de ceux proposés par <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>. Par exemple, <span class="ycr-hashtag" data-index-entry="LONG32" data-tag="LONG32"><code>LONG32</code></span> remplace <span class="ycr-hashtag" data-index-entry="int32_t" data-tag="int32_t"><code>int32_t</code></span>.</li>
 </ul>
 
 

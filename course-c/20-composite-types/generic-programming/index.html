@@ -3755,7 +3755,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3771,7 +3771,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5135,9 +5135,9 @@ les outils associés.
 <p>La programmation générique est une technique de programmation qui permet de définir des algorithmes et des structures de données qui peuvent être utilisés avec différents types de données. En C, la programmation générique est réalisée à l'aide de macros, de types et de fonctions inline.</p>
 <p>Écrire un code générique est le Graal de tout programmeur. Cela permet de réutiliser du code et de le rendre plus robuste. En effet, un code générique est un code qui peut être utilisé avec différents types de données et différentes configuration sans modification. Cela permet de réduire la duplication de code et d'améliorer la maintenabilité du code.</p>
 <p>Néanmoins, la programmation générique en C est limitée par le fait que le langage n'est pas orienté objet et ne possède pas de couche de méta-programmation comme les <em>templates</em> en C++. Certains développeurs ont été jusqu'à inventer un nouveau langage comme le Vala pour palier à ces limitations. Vala est un meta-langage qui génère du code C à partir de code Vala. Il apporte le paradigme de la programmation orientée objet et de la programmation générique à C. Cependant, Vala n'est pas un langage très répandu en dehors de la communauté GNOME.</p>
-<p><a href="" id="generic-keyword"></a></p>
+<p><a href="" id="generickw"></a></p>
 <h2 id="fonctions-generiques">Fonctions génériques<a class="headerlink" href="#fonctions-generiques" title="Lien permanent">¤</a></h2>
-<p>Prenons l'exemple de la fonction d'addition suivante. Elle est écrite pour des entiers et ne fonctionnera donc pas pour des flottants. Il faudrait la réécrire pour les flottants mais cela implique une collision de nom de fonction. Il faudrait alors définir autant de fonctions que de types avec des suffixes différents (<code>add_int</code>, <code>add_float</code>, etc.).</p>
+<p>Prenons l'exemple de la fonction d'addition suivante. Elle est écrite pour des entiers et ne fonctionnera donc pas pour des flottants. Il faudrait la réécrire pour les flottants mais cela implique une collision de nom de fonction. Il faudrait alors définir autant de fonctions que de types avec des suffixes différents (<span class="ycr-hashtag" data-index-entry="add_int" data-tag="add_int"><code>add_int</code></span>, <span class="ycr-hashtag" data-index-entry="add_float" data-tag="add_float"><code>add_float</code></span>, etc.).</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <p>Alternativement, on peut utiliser des macros pour définir des fonctions génériques. Par exemple, la macro suivante permet de définir une fonction d'addition pour n'importe quel type de données :</p>
@@ -5147,13 +5147,13 @@ les outils associés.
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>int add_int(int a, int b) { return a + b; }
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>float add_float(float a, float b) { return a + b; }
 </span></code></pre></div>
-<p>Pour obtenir un comportement générique, on peut utiliser le mot-clé <code>_Generic</code> introduit dans C11. <code>_Generic</code> permet de définir une fonction en fonction du type de données passé en paramètre. Par exemple, la fonction suivante permet d'additionner des entiers ou des flottants :</p>
+<p>Pour obtenir un comportement générique, on peut utiliser le mot-clé <span class="ycr-hashtag" data-index-entry="_Generic" data-tag="_Generic"><code>_Generic</code></span> introduit dans C11. <span class="ycr-hashtag" data-index-entry="_Generic" data-tag="_Generic"><code>_Generic</code></span> permet de définir une fonction en fonction du type de données passé en paramètre. Par exemple, la fonction suivante permet d'additionner des entiers ou des flottants :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#define add(a, b) _Generic((a), \</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="cp">    int: add_int, \</span>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="cp">    float: add_float \</span>
 </span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="cp">)(a, b)</span>
 </span></code></pre></div>
-<p>Le fonctionnement de <code>_Generic</code> est le suivant : le premier argument est une expression qui est évaluée pour déterminer le type de données. Ensuite, <code>_Generic</code> compare le type de données avec les types définis dans la liste. Si le type de données correspond à un type défini, alors la fonction correspondante est appelée avec les arguments <code>a</code> et <code>b</code>. L'exemple donné n'est pas très pertinent car la solution simple avec une macro est plus simple et plus lisible. Néanmoins, <code>_Generic</code> est très utile pour des fonctions plus complexes. Prenons l'exemple de la fonction <code>print</code> qui affiche un entier ou un flottant :</p>
+<p>Le fonctionnement de <span class="ycr-hashtag" data-index-entry="_Generic" data-tag="_Generic"><code>_Generic</code></span> est le suivant : le premier argument est une expression qui est évaluée pour déterminer le type de données. Ensuite, <span class="ycr-hashtag" data-index-entry="_Generic" data-tag="_Generic"><code>_Generic</code></span> compare le type de données avec les types définis dans la liste. Si le type de données correspond à un type défini, alors la fonction correspondante est appelée avec les arguments <code>a</code> et <code>b</code>. L'exemple donné n'est pas très pertinent car la solution simple avec une macro est plus simple et plus lisible. Néanmoins, <span class="ycr-hashtag" data-index-entry="_Generic" data-tag="_Generic"><code>_Generic</code></span> est très utile pour des fonctions plus complexes. Prenons l'exemple de la fonction <span class="ycr-hashtag" data-index-entry="print" data-tag="print"><code>print</code></span> qui affiche un entier ou un flottant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">print_int</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"Entier : %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
@@ -5184,7 +5184,7 @@ les outils associés.
 <p>Cependant, cette fonction n'est valable que pour des tableaux de taille fixe à 42 éléments. Pour des tableaux de taille variable, il est nécessaire de passer la taille du tableau en paramètre.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Notez que la notation est passée de <code>int array[]</code> à <code>int *array</code>. Cela met l'accent sur le fait que <code>array</code> est un pointeur et non un type tableau. L'avantage du pointeur est que l'on peut le parcourir avec une boucle <code>for</code> en utilisant l'arithmétique des pointeurs.</p>
+<p>Notez que la notation est passée de <code>int array[]</code> à <code>int *array</code>. Cela met l'accent sur le fait que <span class="ycr-hashtag" data-index-entry="array" data-tag="array"><code>array</code></span> est un pointeur et non un type tableau. L'avantage du pointeur est que l'on peut le parcourir avec une boucle <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span> en utilisant l'arithmétique des pointeurs.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">array</span><span class="o">++</span><span class="p">);</span>
@@ -5192,7 +5192,7 @@ les outils associés.
 </span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="fonction-de-callback">Fonction de callback<a class="headerlink" href="#fonction-de-callback" title="Lien permanent">¤</a></h2>
-<p>Dans des algorithmes comme le tri d'un tableau. Il est possible de parcourir le tableau facilement si l'on connait sa taille et la taille du type de donnée. Cependant, pour comparer deux valeurs, il est nécessaire de connaître la méthode de comparaison car elle dépend du type. On peut utiliser <code>_Generic</code> mais cela fonctionnera que pour des types simples et connus.</p>
+<p>Dans des algorithmes comme le tri d'un tableau. Il est possible de parcourir le tableau facilement si l'on connait sa taille et la taille du type de donnée. Cependant, pour comparer deux valeurs, il est nécessaire de connaître la méthode de comparaison car elle dépend du type. On peut utiliser <span class="ycr-hashtag" data-index-entry="_Generic" data-tag="_Generic"><code>_Generic</code></span> mais cela fonctionnera que pour des types simples et connus.</p>
 <p>Une fonction de tri générique ne peut pas connaître tous les types de données. Par exemple imaginons un type comme étant une structure contenant une personne :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">;</span>
@@ -5247,13 +5247,13 @@ les outils associés.
 </span><span id="__span-12-8"><a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>De façon générale, les types abstraits sont utilisés dans l'écriture de bibliothèques logicielles lorsqu'il est important que l'utilisateur final ne puisse pas compromettre le contenu du type et en forçant cet utilisateur à ne passer que par des fonctions d'accès.</p>
-<p>Prenons le cas du fichier <code>foobar.c</code> lequel décrit une structure <code>struct Foo</code> et un type <code>Foo</code>. Notez que le type peut être déclaré avant la structure. <code>Foo</code> restera abstrait jusqu'à la déclaration complète de la structure <code>struct Foo</code> permettant de connaître sa taille. Ce fichier contient également trois fonctions :</p>
+<p>Prenons le cas du fichier <span class="ycr-hashtag" data-index-entry="foobar.c" data-tag="foobar.c"><code>foobar.c</code></span> lequel décrit une structure <code>struct Foo</code> et un type <span class="ycr-hashtag" data-index-entry="Foo" data-tag="Foo"><code>Foo</code></span>. Notez que le type peut être déclaré avant la structure. <span class="ycr-hashtag" data-index-entry="Foo" data-tag="Foo"><code>Foo</code></span> restera abstrait jusqu'à la déclaration complète de la structure <code>struct Foo</code> permettant de connaître sa taille. Ce fichier contient également trois fonctions :</p>
 <ul>
-<li><code>init</code> permet d'initialiser la structure ;</li>
-<li><code>get</code> permet de récupérer la valeur contenue dans <code>Foo</code> ;</li>
-<li><code>set</code> permet d'assigner une valeur à <code>Foo</code>.</li>
+<li><span class="ycr-hashtag" data-index-entry="init" data-tag="init"><code>init</code></span> permet d'initialiser la structure ;</li>
+<li><span class="ycr-hashtag" data-index-entry="get" data-tag="get"><code>get</code></span> permet de récupérer la valeur contenue dans <span class="ycr-hashtag" data-index-entry="Foo" data-tag="Foo"><code>Foo</code></span> ;</li>
+<li><span class="ycr-hashtag" data-index-entry="set" data-tag="set"><code>set</code></span> permet d'assigner une valeur à <span class="ycr-hashtag" data-index-entry="Foo" data-tag="Foo"><code>Foo</code></span>.</li>
 </ul>
-<p>En plus, il existe un compteur d'accès <code>count</code> qui s'incrémente lorsque l'on assigne une valeur et se décrémente lorsque l'on récupère une valeur.</p>
+<p>En plus, il existe un compteur d'accès <span class="ycr-hashtag" data-index-entry="count" data-tag="count"><code>count</code></span> qui s'incrémente lorsque l'on assigne une valeur et se décrémente lorsque l'on récupère une valeur.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="n">Foo</span><span class="p">;</span>
@@ -5281,7 +5281,7 @@ les outils associés.
 <p>Évidemment, on ne souhaite pas qu'un petit malin compromette ce compteur en écrivant maladroitement :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">foo</span><span class="o">-&gt;</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">// Hacked this !</span>
 </span></code></pre></div>
-<p>Pour s'en protéger, on a recours à la compilation séparée (voir chapitre sur la compilation séparée [TranslationUnits]) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <code>foobar.h</code> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :</p>
+<p>Pour s'en protéger, on a recours à la compilation séparée (voir chapitre sur la compilation séparée [TranslationUnits]) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <span class="ycr-hashtag" data-index-entry="foobar.h" data-tag="foobar.h"><code>foobar.h</code></span> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">#pragma once</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="n">Foo</span><span class="p">;</span>
@@ -5290,7 +5290,7 @@ les outils associés.
 </span><span id="__span-15-6"><a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">Foo</span><span class="o">*</span><span class="w"> </span><span class="n">foo</span><span class="p">);</span>
 </span><span id="__span-15-7"><a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="n">Foo</span><span class="o">*</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Ce fichier sera inclus dans le programme principal <code>main.c</code> :</p>
+<p>Ce fichier sera inclus dans le programme principal <span class="ycr-hashtag" data-index-entry="main.c" data-tag="main.c"><code>main.c</code></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"foobar.h"</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>
@@ -5325,7 +5325,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 19, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2024</span>
   </span>
 
     

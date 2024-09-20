@@ -3794,7 +3794,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3810,7 +3810,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5353,10 +5353,10 @@ les outils associés.
 <li><code>.clang-format</code> pour définir les règles de formatage du code C</li>
 <li><code>.gitignore</code> pour ignorer les fichiers inutiles</li>
 <li><code>.gitmodules</code> pour définir les sous-modules Git</li>
-<li><code>LICENSE</code> pour la licence du projet</li>
-<li><code>COPYING</code> pour la licence du projet</li>
-<li><code>Makefile</code> pour la compilation du projet</li>
-<li><code>README.md</code> pour la documentation du projet</li>
+<li><span class="ycr-hashtag" data-index-entry="LICENSE" data-tag="LICENSE"><code>LICENSE</code></span> pour la licence du projet</li>
+<li><span class="ycr-hashtag" data-index-entry="COPYING" data-tag="COPYING"><code>COPYING</code></span> pour la licence du projet</li>
+<li><span class="ycr-hashtag" data-index-entry="Makefile" data-tag="Makefile"><code>Makefile</code></span> pour la compilation du projet</li>
+<li><span class="ycr-hashtag" data-index-entry="README.md" data-tag="README.md"><code>README.md</code></span> pour la documentation du projet</li>
 </ul>
 <p>Avec <code>less INSTALL</code>, on peut prendre connaissance des instructions d'installation.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>less<span class="w"> </span>INSTALL
@@ -5378,7 +5378,7 @@ les outils associés.
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>mkdir<span class="w"> </span>_install
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>make<span class="w"> </span>configure<span class="w"> </span><span class="nv">prefix</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/_install
 </span></code></pre></div>
-<p>Le script <code>configure</code> est maintenant généré, il nous permet de configurer le projet, c'est à dire de choisir les options de compilation. Si l'on exécute configure avec l'option <code>--help</code>, on obtient la liste des options disponibles.</p>
+<p>Le script <span class="ycr-hashtag" data-index-entry="configure" data-tag="configure"><code>configure</code></span> est maintenant généré, il nous permet de configurer le projet, c'est à dire de choisir les options de compilation. Si l'on exécute configure avec l'option <code>--help</code>, on obtient la liste des options disponibles.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>./configure<span class="w"> </span>--help
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>...
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">  </span>--with-libpcre<span class="w">          </span>synonym<span class="w"> </span><span class="k">for</span><span class="w"> </span>--with-libpcre2
@@ -5386,7 +5386,7 @@ les outils associés.
 </span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">                          </span><span class="o">(</span>default<span class="w"> </span>is<span class="w"> </span>NO<span class="o">)</span>
 </span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>...
 </span></code></pre></div>
-<p>On peut voir par exemple que Git est compilé par défaut sans <code>libpcre</code>. Cette bibliothèque permet le support avancé des expressions régulières Perl. Souvent les connaisseurs de Perl préfère cette senteur aux expressions régulières <abbr title="Portable Operating System Interface">POSIX</abbr>. Pour pouvoir l'utiliser il faut donc activer cette option, et nécessairement disposer de la bibliothèque <code>libpcre2</code> sur le système.</p>
+<p>On peut voir par exemple que Git est compilé par défaut sans <span class="ycr-hashtag" data-index-entry="libpcre" data-tag="libpcre"><code>libpcre</code></span>. Cette bibliothèque permet le support avancé des expressions régulières Perl. Souvent les connaisseurs de Perl préfère cette senteur aux expressions régulières <abbr title="Portable Operating System Interface">POSIX</abbr>. Pour pouvoir l'utiliser il faut donc activer cette option, et nécessairement disposer de la bibliothèque <span class="ycr-hashtag" data-index-entry="libpcre2" data-tag="libpcre2"><code>libpcre2</code></span> sur le système.</p>
 <p>On commence donc par installer cette bibliothèque :
 </p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libpcre2-dev
 </span></code></pre></div>
@@ -5417,7 +5417,7 @@ les outils associés.
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>make<span class="w"> </span>-j16<span class="w"> </span><span class="nv">V</span><span class="o">=</span><span class="m">1</span>
 </span></code></pre></div>
 <p>L'option <code>-j16</code> permet de compiler en parallèle sur 16 threads. Cela accélère la compilation en utilisant mieux les ressources de la machine. <code>V=1</code> active le mode verbeux pour afficher les commandes exécutées ce qui peut être plus intéressant pour comprendre ce qui se passe.</p>
-<p>Analysons un peu la sortie de la commande <code>make</code>:</p>
+<p>Analysons un peu la sortie de la commande <span class="ycr-hashtag" data-index-entry="make" data-tag="make"><code>make</code></span>:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>$<span class="w"> </span>make<span class="w"> </span>-j16<span class="w"> </span><span class="nv">V</span><span class="o">=</span><span class="m">1</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nv">GIT_VERSION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>.46.GIT
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span>*<span class="w"> </span>new<span class="w"> </span>build<span class="w"> </span>flags
@@ -5437,7 +5437,7 @@ les outils associés.
 </span><span id="__span-8-17"><a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a>-DSHELL_PATH<span class="o">=</span><span class="s1">'"/bin/sh"'</span><span class="w">  </span>hex.c
 </span><span id="__span-8-18"><a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a>...
 </span></code></pre></div>
-<p>On observe que Make compile tous les fichiers en appelant <code>gcc</code> avec des options spécifiques. On en connait déjà quelques unes.</p>
+<p>On observe que Make compile tous les fichiers en appelant <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span> avec des options spécifiques. On en connait déjà quelques unes.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>gcc
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">   </span>-o<span class="w"> </span>hex.o<span class="w">         </span><span class="c1"># Nom du fichier objet de sortie</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">                    </span><span class="c1"># (généralement le nom du fichier source avec .o)</span>
@@ -5455,7 +5455,7 @@ les outils associés.
 </span><span id="__span-9-15"><a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a>
 </span><span id="__span-9-16"><a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="w">    </span>hex.c<span class="w">          </span><span class="c1"># Fichier source à compiler</span>
 </span></code></pre></div>
-<p>Les options <code>-D</code> peuvent être assez nombreuses selon le projet, elles permettent de « communiquer » avec le code source via des directives de préprocesseur. Dans le code source pour détecter si le support <code>libpcre2</code> est activé on peut trouver des lignes comme :</p>
+<p>Les options <code>-D</code> peuvent être assez nombreuses selon le projet, elles permettent de « communiquer » avec le code source via des directives de préprocesseur. Dans le code source pour détecter si le support <span class="ycr-hashtag" data-index-entry="libpcre2" data-tag="libpcre2"><code>libpcre2</code></span> est activé on peut trouver des lignes comme :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#ifdef USE_LIBPCRE2</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="cp">#</span><span class="w">  </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;pcre2.h&gt;</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="cp">#endif</span>
@@ -5473,8 +5473,8 @@ les outils associés.
 </span><span id="__span-11-10"><a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span>libgit.a<span class="w"> </span>xdiff/lib.a<span class="w"> </span>reftable/libreftable.a<span class="w"> </span>libgit.a<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-11-11"><a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">    </span>-lpcre2-8<span class="w"> </span>-lz<span class="w">  </span>-lrt
 </span></code></pre></div>
-<p>On voit que le projet est lié avec <code>libpcre2-8</code>, <code>z</code> et <code>rt</code>. La bibliothèque <code>z</code> est la bibliothèque standard de compression <code>zlib</code>. La bibliothèque <code>rt</code> est la bibliothèque de temps réel. Les bibliothèques statiques <code>libgit.a</code>, <code>xdiff/lib.a</code>, <code>reftable/libreftable.a</code> sont des bibliothèques internes au projet qui ont été compilées en même temps que le projet.</p>
-<p>Enfin, on peut installer le projet dans le répertoire <code>_install</code> et exécuter Git :</p>
+<p>On voit que le projet est lié avec <code>libpcre2-8</code>, <code>z</code> et <code>rt</code>. La bibliothèque <code>z</code> est la bibliothèque standard de compression <span class="ycr-hashtag" data-index-entry="zlib" data-tag="zlib"><code>zlib</code></span>. La bibliothèque <code>rt</code> est la bibliothèque de temps réel. Les bibliothèques statiques <span class="ycr-hashtag" data-index-entry="libgit.a" data-tag="libgit.a"><code>libgit.a</code></span>, <code>xdiff/lib.a</code>, <code>reftable/libreftable.a</code> sont des bibliothèques internes au projet qui ont été compilées en même temps que le projet.</p>
+<p>Enfin, on peut installer le projet dans le répertoire <span class="ycr-hashtag" data-index-entry="_install" data-tag="_install"><code>_install</code></span> et exécuter Git :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>$<span class="w"> </span>make<span class="w"> </span>install
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>$<span class="w"> </span>./_install/bin/git<span class="w"> </span>--version
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>git<span class="w"> </span>version<span class="w"> </span><span class="m">2</span>.46.GIT
@@ -5523,7 +5523,7 @@ les outils associés.
 </dd>
 <dt>gtk3</dt>
 <dd>
-<p>GTK3 est la bibliothèque graphique utilisée par Gimp pour l'interface utilisateur. Elle est basée sur le langage de programmation C et est très populaire pour les applications graphiques sous Linux. GTK3 dépend également de <code>glib</code> et <code>Pango</code>.</p>
+<p>GTK3 est la bibliothèque graphique utilisée par Gimp pour l'interface utilisateur. Elle est basée sur le langage de programmation C et est très populaire pour les applications graphiques sous Linux. GTK3 dépend également de <span class="ycr-hashtag" data-index-entry="glib" data-tag="glib"><code>glib</code></span> et <span class="ycr-hashtag" data-index-entry="Pango" data-tag="Pango"><code>Pango</code></span>.</p>
 </dd>
 </dl>
 <p>Comme il s'agit d'un gros projet, nous allons devoir installer un certain nombre de dépendances qui ne seront pas nécessairement utiles ensuite sur notre ordinateur. La bonne approche est de s'isoler dans un environnement virtuel. Docker est une bonne alternative. Comme Gimp est développé sous Debian, nous allons utiliser une image Docker Debian pour compiler le projet.</p>
@@ -5535,7 +5535,7 @@ les outils associés.
 </span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a>Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>debian:latest
 </span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a>root@8c6a00ea1cf7:/#
 </span></code></pre></div>
-<p>La première étape <em>Preparing for Building</em> propose d'installer le projet dans un répertoire local. Nous allons commencer par créer un dossier <code>gimp</code> et fixer quelques variables d'environnement :</p>
+<p>La première étape <em>Preparing for Building</em> propose d'installer le projet dans un répertoire local. Nous allons commencer par créer un dossier <span class="ycr-hashtag" data-index-entry="gimp" data-tag="gimp"><code>gimp</code></span> et fixer quelques variables d'environnement :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>apt<span class="w"> </span>update
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>cmake<span class="w"> </span>make<span class="w"> </span>git<span class="w"> </span>meson<span class="w"> </span>ninja-build<span class="w"> </span>bison<span class="w"> </span>flex<span class="w"> </span>pkg-config<span class="w"> </span>gettext
 </span></code></pre></div>
@@ -5549,27 +5549,32 @@ les outils associés.
 </span><span id="__span-16-8"><a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a>cc<span class="w"> </span>-print-multiarch<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">LIB_SUBDIR</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>cc<span class="w"> </span>-print-multiarch<span class="k">)</span><span class="s1">'/'</span><span class="k">)</span>
 </span><span id="__span-16-9"><a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a>
 </span><span id="__span-16-10"><a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="c1"># Used to detect the build dependencies</span>
-</span><span id="__span-16-11"><a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_SUBDIR</span><span class="si">}</span><span class="s2">pkgconfig</span><span class="si">${</span><span class="nv">PKG_CONFIG_PATH</span><span class="p">:+:</span><span class="nv">$PKG_CONFIG_PATH</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-16-12"><a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a>
-</span><span id="__span-16-13"><a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="c1"># Used to find the libraries at runtime</span>
-</span><span id="__span-16-14"><a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_SUBDIR</span><span class="si">}${</span><span class="nv">LD_LIBRARY_PATH</span><span class="p">:+:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-16-15"><a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a>
-</span><span id="__span-16-16"><a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="c1"># Used to find the glib-introspection dependencies</span>
-</span><span id="__span-16-17"><a href="#__codelineno-16-17" id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XDG_DATA_DIRS</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/share:/usr/share</span><span class="si">${</span><span class="nv">XDG_DATA_DIRS</span><span class="p">:+:</span><span class="nv">$XDG_DATA_DIRS</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-16-18"><a href="#__codelineno-16-18" id="__codelineno-16-18" name="__codelineno-16-18"></a>
-</span><span id="__span-16-19"><a href="#__codelineno-16-19" id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="c1"># Used to find introspection files</span>
-</span><span id="__span-16-20"><a href="#__codelineno-16-20" id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GI_TYPELIB_PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_SUBDIR</span><span class="si">}</span><span class="s2">girepository-1.0</span><span class="si">${</span><span class="nv">GI_TYPELIB_PATH</span><span class="p">:+:</span><span class="nv">$GI_TYPELIB_PATH</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-16-11"><a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_SUBDIR</span><span class="si">}</span>
+</span><span id="__span-16-12"><a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="s2">pkgconfig</span><span class="si">${</span><span class="nv">PKG_CONFIG_PATH</span><span class="p">:+:</span><span class="nv">$PKG_CONFIG_PATH</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-16-13"><a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a>
+</span><span id="__span-16-14"><a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="c1"># Used to find the libraries at runtime</span>
+</span><span id="__span-16-15"><a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_SUBDIR</span><span class="si">}</span>$
+</span><span id="__span-16-16"><a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="s2">{LD_LIBRARY_PATH:+:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">}"</span>
+</span><span id="__span-16-17"><a href="#__codelineno-16-17" id="__codelineno-16-17" name="__codelineno-16-17"></a>
+</span><span id="__span-16-18"><a href="#__codelineno-16-18" id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="c1"># Used to find the glib-introspection dependencies</span>
+</span><span id="__span-16-19"><a href="#__codelineno-16-19" id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XDG_DATA_DIRS</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/share:/usr/share</span>
+</span><span id="__span-16-20"><a href="#__codelineno-16-20" id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="si">${</span><span class="nv">XDG_DATA_DIRS</span><span class="p">:+:</span><span class="nv">$XDG_DATA_DIRS</span><span class="si">}</span><span class="s2">"</span>
 </span><span id="__span-16-21"><a href="#__codelineno-16-21" id="__codelineno-16-21" name="__codelineno-16-21"></a>
-</span><span id="__span-16-22"><a href="#__codelineno-16-22" id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="c1"># Used by Autotools to find its tools</span>
-</span><span id="__span-16-23"><a href="#__codelineno-16-23" id="__codelineno-16-23" name="__codelineno-16-23"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ACLOCAL_FLAGS</span><span class="o">=</span><span class="s2">"-I </span><span class="nv">$GIMP_PREFIX</span><span class="s2">/share/aclocal </span><span class="nv">$ACLOCAL_FLAGS</span><span class="s2">"</span>
-</span><span id="__span-16-24"><a href="#__codelineno-16-24" id="__codelineno-16-24" name="__codelineno-16-24"></a>
-</span><span id="__span-16-25"><a href="#__codelineno-16-25" id="__codelineno-16-25" name="__codelineno-16-25"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XDG_DATA_DIRS</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/share:/usr/local/share:/usr/share"</span>
-</span><span id="__span-16-26"><a href="#__codelineno-16-26" id="__codelineno-16-26" name="__codelineno-16-26"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+</span><span id="__span-16-22"><a href="#__codelineno-16-22" id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="c1"># Used to find introspection files</span>
+</span><span id="__span-16-23"><a href="#__codelineno-16-23" id="__codelineno-16-23" name="__codelineno-16-23"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GI_TYPELIB_PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">LIB_SUBDIR</span><span class="si">}</span>
+</span><span id="__span-16-24"><a href="#__codelineno-16-24" id="__codelineno-16-24" name="__codelineno-16-24"></a><span class="s2">girepository-1.0</span><span class="si">${</span><span class="nv">GI_TYPELIB_PATH</span><span class="p">:+:</span><span class="nv">$GI_TYPELIB_PATH</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-16-25"><a href="#__codelineno-16-25" id="__codelineno-16-25" name="__codelineno-16-25"></a>
+</span><span id="__span-16-26"><a href="#__codelineno-16-26" id="__codelineno-16-26" name="__codelineno-16-26"></a><span class="c1"># Used by Autotools to find its tools</span>
+</span><span id="__span-16-27"><a href="#__codelineno-16-27" id="__codelineno-16-27" name="__codelineno-16-27"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ACLOCAL_FLAGS</span><span class="o">=</span><span class="s2">"-I </span><span class="nv">$GIMP_PREFIX</span><span class="s2">/share/aclocal </span><span class="nv">$ACLOCAL_FLAGS</span><span class="s2">"</span>
+</span><span id="__span-16-28"><a href="#__codelineno-16-28" id="__codelineno-16-28" name="__codelineno-16-28"></a>
+</span><span id="__span-16-29"><a href="#__codelineno-16-29" id="__codelineno-16-29" name="__codelineno-16-29"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XDG_DATA_DIRS</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/share:/usr/local/share:/usr/share"</span>
+</span><span id="__span-16-30"><a href="#__codelineno-16-30" id="__codelineno-16-30" name="__codelineno-16-30"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GIMP_PREFIX</span><span class="si">}</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
 </span></code></pre></div>
 <p>En suivant la documentation, on installe quelques dépendences, sachant qu'il y en aura probablement d'autres à installer au fur et à mesure :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>apt<span class="w"> </span>install<span class="w"> </span>graphviz<span class="w"> </span>libswscale-dev<span class="w"> </span>libsuitesparse-dev<span class="w"> </span>libpng-dev<span class="w"> </span>libtiff-dev<span class="w"> </span>librsvg2-dev<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>liblcms2-dev<span class="w"> </span>libmypaint-dev<span class="w"> </span>mypaint-brushes<span class="w">  </span>libmng-dev<span class="w"> </span>libwmf-dev<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>libaa1-dev<span class="w"> </span>libgs-dev<span class="w"> </span>libheif-dev<span class="w"> </span>gobject-introspection<span class="w"> </span>libgirepository1.0-dev
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>apt<span class="w"> </span>install<span class="w"> </span>graphviz<span class="w"> </span>libswscale-dev<span class="w"> </span>libsuitesparse-dev<span class="w"> </span>libpng-dev
+</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>libtiff-dev<span class="w"> </span>librsvg2-dev<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>liblcms2-dev<span class="w"> </span>libmypaint-dev<span class="w"> </span>mypaint-brushes<span class="w">  </span>libmng-dev<span class="w"> </span>libwmf-dev<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a>libaa1-dev<span class="w"> </span>libgs-dev<span class="w"> </span>libheif-dev<span class="w"> </span>gobject-introspection<span class="w"> </span>libgirepository1.0-dev
 </span></code></pre></div>
 <p>500 MB plus tard, nous avons installé les dépendances de base. Nous allons maintenant cloner le projet Gimp :</p>
 <h3 id="installation-de-babl">Installation de BABL<a class="headerlink" href="#installation-de-babl" title="Lien permanent">¤</a></h3>
@@ -5593,7 +5598,7 @@ les outils associés.
 </span><span id="__span-20-6"><a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a>
 </span><span id="__span-20-7"><a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a>meson.build:364:0:<span class="w"> </span>ERROR:<span class="w"> </span>Dependency<span class="w"> </span><span class="s2">"atk"</span><span class="w"> </span>not<span class="w"> </span>found,<span class="w"> </span>tried<span class="w"> </span>pkgconfig<span class="w"> </span>and<span class="w"> </span>cmake
 </span></code></pre></div>
-<p>Nous avons un problème. La dépendance <code>atk</code> n'est pas trouvée. Un rapide coup d'oeil à la documentation nous indique que <code>atk</code> est une bibliothèque graphique et la version 2.4.0 est nécessaire. Or la version que l'on trouve sous Debian est <code>libatk1.0-dev</code> qui est la 2.30.0. Comme seule la version mineure est différente il ne devrait pas y avoir de problème de compatibilité. Nous allons donc installer la version 2.30.0 et voir si cela fonctionne.</p>
+<p>Nous avons un problème. La dépendance <span class="ycr-hashtag" data-index-entry="atk" data-tag="atk"><code>atk</code></span> n'est pas trouvée. Un rapide coup d'oeil à la documentation nous indique que <span class="ycr-hashtag" data-index-entry="atk" data-tag="atk"><code>atk</code></span> est une bibliothèque graphique et la version 2.4.0 est nécessaire. Or la version que l'on trouve sous Debian est <code>libatk1.0-dev</code> qui est la 2.30.0. Comme seule la version mineure est différente il ne devrait pas y avoir de problème de compatibilité. Nous allons donc installer la version 2.30.0 et voir si cela fonctionne.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>apt<span class="w"> </span>install<span class="w"> </span>libatk1.0-dev
 </span></code></pre></div>
 <p>Notons que la bibliothèque se nomme <code>libatk1.0-dev</code> le <code>1.0</code> est la version de l'API mais cela ne signifie pas que la version de la bibliothèque est 1.0. En fait tant que l'API est compatible, la version installée peut être plus récente. On peut noter toutefois que normalement si une version majeur change, cela signifie une rupture de compatibilité dans l'API. Ici on voit que les développeurs ont décidé de ne pas rompre la compatibilité.</p>
@@ -5612,7 +5617,7 @@ les outils associés.
 <p>Une fois configuré il suffit de compiler le projet :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a>ninja<span class="w"> </span>-C<span class="w"> </span>_build<span class="w"> </span>install
 </span></code></pre></div>
-<p>Et voilà, Gimp est installé dans le répertoire <code>_install</code>.</p>
+<p>Et voilà, Gimp est installé dans le répertoire <span class="ycr-hashtag" data-index-entry="_install" data-tag="_install"><code>_install</code></span>.</p>
 <h3 id="reproduction">Reproduction<a class="headerlink" href="#reproduction" title="Lien permanent">¤</a></h3>
 <p>Si vous essayez de reproduire cet exemple vous aurez probablement d'autres erreurs car vous n'avez pas les mêmes version. Dans cet exemple, nous avons utilisé Debian Bookworm (12)</p>
 <dl>
@@ -5639,7 +5644,7 @@ les outils associés.
 <p>En dehors de ces quelques problèmes, il y a certaines dépendances qui dépendent de la distribution Linux/Unix que vous avez, les noms de bibliothèques ne sont pas nécessairement les mêmes, ou les version génèrent des conflits.</p>
 <p>Dans cet exemple, nous avons été contraint de compiler GEGL et BABL depuis les sources avec des options spécifiques pour être compatible avec la dernière version de Gimp sous Git</p>
 <p>Ce que nous avons vu ici c'est que les dépendances dans un projet logiciel peuvent être nombreuses.</p>
-<p>Vous pouvez vous demander pourquoi utiliser autant de bibliothèques externes ? La réponse est simple : pour ne pas réinventer la roue. Les bibliothèques externes sont souvent des projets open-source très bien maintenus et testés. Elles permettent de gagner du temps et de l'argent en réutilisant du code existant. Par exemple dans le cas de Gimp, la bibliothèque <code>aa</code> est utilisée pour convertir des images en ASCII art. La bibliothèque <code>iso-codes</code> permet de connaître les noms des pays dans différentes langues. La bibliothèque <code>heif</code> permet le support des images en format natif des iPhones récents. On peut citer <code>lcms2</code> pour la gestion des couleurs via le standard ICC, ou la bibliothèque <code>mypaint</code> pour la gestion des pinceaux et des calques de peinture.</p>
+<p>Vous pouvez vous demander pourquoi utiliser autant de bibliothèques externes ? La réponse est simple : pour ne pas réinventer la roue. Les bibliothèques externes sont souvent des projets open-source très bien maintenus et testés. Elles permettent de gagner du temps et de l'argent en réutilisant du code existant. Par exemple dans le cas de Gimp, la bibliothèque <code>aa</code> est utilisée pour convertir des images en ASCII art. La bibliothèque <code>iso-codes</code> permet de connaître les noms des pays dans différentes langues. La bibliothèque <span class="ycr-hashtag" data-index-entry="heif" data-tag="heif"><code>heif</code></span> permet le support des images en format natif des iPhones récents. On peut citer <span class="ycr-hashtag" data-index-entry="lcms2" data-tag="lcms2"><code>lcms2</code></span> pour la gestion des couleurs via le standard ICC, ou la bibliothèque <span class="ycr-hashtag" data-index-entry="mypaint" data-tag="mypaint"><code>mypaint</code></span> pour la gestion des pinceaux et des calques de peinture.</p>
 
 
 
@@ -5662,7 +5667,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2024</span>
   </span>
 
     
@@ -5692,6 +5697,29 @@ les outils associés.
   </span>
 
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributeurs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
+          
+          <img src="https://avatars.githubusercontent.com/u/52489316?v=4&size=72" alt="yves-chevallier">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 

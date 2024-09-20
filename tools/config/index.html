@@ -3656,7 +3656,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3672,7 +3672,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5209,7 +5209,7 @@ les outils associés.
 <h2 id="fichiers-populaires">Fichiers populaires<a class="headerlink" href="#fichiers-populaires" title="Lien permanent">¤</a></h2>
 <h3 id="clang-format">.clang-format<a class="headerlink" href="#clang-format" title="Lien permanent">¤</a></h3>
 <p>Ce fichier est au format <a href="https://fr.wikipedia.org/wiki/YAML">YAML</a> et contient des directives pour formater votre code automatiquement soit à partir de VsCode si vous avez installé l'extension <a href="https://marketplace.visualstudio.com/items?itemName=xaver.clang-format">Clang-Format</a> et l'exécutable <code>clang-format</code> (<code>sudo apt install -y clang-format</code>). <a href="https://clang.llvm.org/docs/ClangFormat.html">Clang-format</a> est un utilitaire de la suite LLVM, proposant Clang un compilateur alternatif à GCC.</p>
-<p>On voit que le texte passé sur <code>stdin</code> (jusqu'à EOF) est ensuite formaté proprement :</p>
+<p>On voit que le texte passé sur <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span> (jusqu'à EOF) est ensuite formaté proprement :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">$ </span>clang-format<span class="w"> </span>--style<span class="o">=</span>mozilla<span class="w"> </span>&lt;&lt;EOF
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">#</span>include<span class="w"> </span>&lt;stdio.h&gt;
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="go">int</span>
@@ -5264,7 +5264,7 @@ les outils associés.
 </span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>*.lib
 </span></code></pre></div>
 <h3 id="vscodelaunchjson">.vscode/launch.json<a class="headerlink" href="#vscodelaunchjson" title="Lien permanent">¤</a></h3>
-<p>Ce fichier permet à Visual Studio Code de savoir comment exécuter le programme en mode débogue. Il est au format JSON. Les lignes importantes sont <code>program</code> qui contient le nom de l'exécutable à lancer <code>args</code> qui spécifie les arguments passés à ce programme et <code>MiMode</code> qui est le nom du débogueur que vous utiliserez. Par défaut nous utilisons GDB.</p>
+<p>Ce fichier permet à Visual Studio Code de savoir comment exécuter le programme en mode débogue. Il est au format JSON. Les lignes importantes sont <span class="ycr-hashtag" data-index-entry="program" data-tag="program"><code>program</code></span> qui contient le nom de l'exécutable à lancer <span class="ycr-hashtag" data-index-entry="args" data-tag="args"><code>args</code></span> qui spécifie les arguments passés à ce programme et <span class="ycr-hashtag" data-index-entry="MiMode" data-tag="MiMode"><code>MiMode</code></span> qui est le nom du débogueur que vous utiliserez. Par défaut nous utilisons GDB.</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="p">{</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="nt">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -5292,7 +5292,7 @@ les outils associés.
 </span><span id="__span-4-25"><a href="#__codelineno-4-25" id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="vscodetasksjson">.vscode/tasks.json<a class="headerlink" href="#vscodetasksjson" title="Lien permanent">¤</a></h3>
-<p>Ce fichier contient les directives de compilation utilisées par Visual Studio Code lors de l'exécution de la tâche <em>build</em> accessible par la touche <code>&lt;F5&gt;</code>. On y voit que la commande exécutée est <code>make</code>. Donc la manière dont l'exécutable est généré dépend d'un <code>Makefile</code>.</p>
+<p>Ce fichier contient les directives de compilation utilisées par Visual Studio Code lors de l'exécution de la tâche <em>build</em> accessible par la touche <code>&lt;F5&gt;</code>. On y voit que la commande exécutée est <span class="ycr-hashtag" data-index-entry="make" data-tag="make"><code>make</code></span>. Donc la manière dont l'exécutable est généré dépend d'un <span class="ycr-hashtag" data-index-entry="Makefile" data-tag="Makefile"><code>Makefile</code></span>.</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">{</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="p">,</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>

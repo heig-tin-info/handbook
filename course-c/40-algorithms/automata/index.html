@@ -3767,7 +3767,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3783,7 +3783,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5216,7 +5216,7 @@ les outils associés.
 <p>Ce problème peut être modélisé par un automate fini. Chaque état est nommé selon les éléments présents sur la rive d'arrivée. Par exemple l'état CFS signifie que la chèvre, le loup et le fermier sont sur la rive d'arrivée. Les transitions indiquent les éléments qui transitent d'une rive à l'autre. Notons que l'on appelle <code>S</code> le chou (comme Salade), pour éviter la confusion avec la chèvre. Voici le diagramme d'états :</p>
 <p><figure id="_figure-3"><img alt="La chèvre, le loup et le chou" class="drawio-diagram" src="../../../assets/images/river-crossing.drawio"/><figcaption> La chèvre, le loup et le chou</figcaption></figure></p>
 <h3 id="implementation">Implémentation<a class="headerlink" href="#implementation" title="Lien permanent">¤</a></h3>
-<p>Généralement on commence par définir les états et les transitions de l'automate. On ajoute volontairement une entrée <a href="https://fr.wikipedia.org/wiki/D%C3%A9coration_de_nom">manglée</a> <code>COUNT</code> pour facilement connaître le nombre d'éléments dans l'énumération.</p>
+<p>Généralement on commence par définir les états et les transitions de l'automate. On ajoute volontairement une entrée <a href="https://fr.wikipedia.org/wiki/D%C3%A9coration_de_nom">manglée</a> <span class="ycr-hashtag" data-index-entry="COUNT" data-tag="COUNT"><code>COUNT</code></span> pour facilement connaître le nombre d'éléments dans l'énumération.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="n">STATE_IDLE</span><span class="p">,</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="n">STATE_MOVING</span><span class="p">,</span>

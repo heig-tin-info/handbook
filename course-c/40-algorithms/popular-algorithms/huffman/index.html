@@ -3774,7 +3774,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3790,7 +3790,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5187,9 +5187,9 @@ les outils associés.
 <h1 id="codage-de-huffman">Codage de Huffman<a class="headerlink" href="#codage-de-huffman" title="Lien permanent">¤</a></h1>
 <p>Le codage de Huffman est un algorithme de compression sans perte qui permet de réduire la taille des fichiers en utilisant des codes de longueur variable pour représenter les caractères. L'algorithme repose sur l'idée que les caractères les plus fréquents dans un texte peuvent être représentés par des codes plus courts, tandis que les caractères les moins fréquents sont représentés par des codes plus longs.</p>
 <p>Il est utilisé dans de nombreux formats de fichiers comme le format <a href="https://fr.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a>, <a href="https://fr.wikipedia.org/wiki/JPEG">JPEG</a> et <a href="https://fr.wikipedia.org/wiki/MPEG-1/2_Audio_Layer_3">MP3</a>.</p>
-<p>Prenons le texte <code>ABRACADABRA</code>. Il y a des lettres qui reviennent plus souvent que d'autres et des lettres de l'alphabet qui sont absentes. Pourquoi donc représenter chaque caractère sur 1 octet ? On pourrait utiliser un code de longueur variable. Par exemple, la lettre <code>A</code> pourrait être représentée par <code>0</code>, la lettre <code>B</code> par <code>10</code> et la lettre <code>R</code> par <code>11</code>. Il faudrait également définir une table de correspondance pour décoder le texte. C'est le principe de l'abre de Huffman.</p>
+<p>Prenons le texte <span class="ycr-hashtag" data-index-entry="ABRACADABRA" data-tag="ABRACADABRA"><code>ABRACADABRA</code></span>. Il y a des lettres qui reviennent plus souvent que d'autres et des lettres de l'alphabet qui sont absentes. Pourquoi donc représenter chaque caractère sur 1 octet ? On pourrait utiliser un code de longueur variable. Par exemple, la lettre <code>A</code> pourrait être représentée par <code>0</code>, la lettre <code>B</code> par <code>10</code> et la lettre <code>R</code> par <code>11</code>. Il faudrait également définir une table de correspondance pour décoder le texte. C'est le principe de l'abre de Huffman.</p>
 <h2 id="comment-ca-marche">Comment ça marche ?<a class="headerlink" href="#comment-ca-marche" title="Lien permanent">¤</a></h2>
-<p>Pour notre entrée <code>ABRACADABRA</code>, nous allons suivre les étapes suivantes :</p>
+<p>Pour notre entrée <span class="ycr-hashtag" data-index-entry="ABRACADABRA" data-tag="ABRACADABRA"><code>ABRACADABRA</code></span>, nous allons suivre les étapes suivantes :</p>
 <h3 id="nombre-doccurences">Nombre d'occurences<a class="headerlink" href="#nombre-doccurences" title="Lien permanent">¤</a></h3>
 <p>On commence par compter la fréquence de chaque caractère. On obtient :</p>
 <table id="_table-1">
@@ -5234,7 +5234,7 @@ les outils associés.
 <pre class="mermaid"><code>graph TD
 CD("CD (2)") --&gt; C("C (1)")
 CD --&gt; D("D (1)")</code></pre>
-<p>Il nous reste des noeuuds à fusionner. On fusionne les noeuds <code>CD</code> et <code>B</code> pour obtenir <code>CDB</code> qui a une priorité de <code>4</code>.</p>
+<p>Il nous reste des noeuuds à fusionner. On fusionne les noeuds <code>CD</code> et <code>B</code> pour obtenir <span class="ycr-hashtag" data-index-entry="CDB" data-tag="CDB"><code>CDB</code></span> qui a une priorité de <code>4</code>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>Min-Heap : [(2, 'R'), (4, 'CDB'), (5, 'A')]
 </span></code></pre></div>
 <pre class="mermaid"><code>graph TD
@@ -5242,7 +5242,7 @@ CD --&gt; D("D (1)")</code></pre>
     CDB --&gt; B("B (2)")
     CD --&gt; C("C (1)")
     CD --&gt; D("D (1)")</code></pre>
-<p>On continue car il nous reste des noeuds à fusionner. On fusionne les noeuds <code>CDB</code> et <code>R</code> pour obtenir <code>CDBR</code> qui a une priorité de <code>6</code>.</p>
+<p>On continue car il nous reste des noeuds à fusionner. On fusionne les noeuds <span class="ycr-hashtag" data-index-entry="CDB" data-tag="CDB"><code>CDB</code></span> et <code>R</code> pour obtenir <span class="ycr-hashtag" data-index-entry="CDBR" data-tag="CDBR"><code>CDBR</code></span> qui a une priorité de <code>6</code>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>Min-Heap : [(5, 'A'), (6, 'RCDB')]
 </span></code></pre></div>
 <pre class="mermaid"><code>graph TD
@@ -5252,7 +5252,7 @@ CD --&gt; D("D (1)")</code></pre>
     CDB --&gt; B("B (2)")
     CD --&gt; C("C (1)")
     CD --&gt; D("D (1)")</code></pre>
-<p>Enfin, on fusionne les noeuds <code>RCDB</code> et <code>A</code> pour obtenir <code>ACDBR</code> qui a une priorité de <code>11</code>.</p>
+<p>Enfin, on fusionne les noeuds <span class="ycr-hashtag" data-index-entry="RCDB" data-tag="RCDB"><code>RCDB</code></span> et <code>A</code> pour obtenir <span class="ycr-hashtag" data-index-entry="ACDBR" data-tag="ACDBR"><code>ACDBR</code></span> qui a une priorité de <code>11</code>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>Min-Heap : [(11, 'ARCDB')]
 </span></code></pre></div>
 <pre class="mermaid"><code>graph TD
@@ -5358,6 +5358,29 @@ CD --&gt; D("D (1)")</code></pre>
   </span>
 
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributeurs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
+          
+          <img src="https://avatars.githubusercontent.com/u/52489316?v=4&size=72" alt="yves-chevallier">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 

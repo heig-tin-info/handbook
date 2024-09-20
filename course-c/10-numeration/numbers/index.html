@@ -3894,7 +3894,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3910,7 +3910,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5661,7 +5661,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <p>Entier non négatif plus petit que la base <span class="arithmatex">\(b\)</span>.</p>
 </dd>
 </dl>
-<p>Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres <code>binary16</code>, <code>binary32</code> ou <code>binary64</code>, selon le nombre de bits utilisé pour coder l'information. Les termes de <em>Single precision</em> ou <em>Double precision</em> sont aussi couramment utilisés. <span class="ycr-hashtag" data-index-entry="virgule flottante" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="IEEE 754" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="FPU" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="single precision" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="double precision" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="binary XX" data-tag=""></span></p>
+<p>Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres <span class="ycr-hashtag" data-index-entry="binary16" data-tag="binary16"><code>binary16</code></span>, <span class="ycr-hashtag" data-index-entry="binary32" data-tag="binary32"><code>binary32</code></span> ou <span class="ycr-hashtag" data-index-entry="binary64" data-tag="binary64"><code>binary64</code></span>, selon le nombre de bits utilisé pour coder l'information. Les termes de <em>Single precision</em> ou <em>Double precision</em> sont aussi couramment utilisés. <span class="ycr-hashtag" data-index-entry="virgule flottante" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="IEEE 754" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="FPU" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="single precision" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="double precision" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="binary XX" data-tag=""></span></p>
 <p>Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante (<a href="https://en.wikipedia.org/wiki/Floating-point_unit">FPU</a> pour <em>Floating point unit</em>) sont les suivants :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Formats de nombres en virgule flottante</caption><thead>
@@ -5674,13 +5674,13 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </thead>
 <tbody>
 <tr>
-<td><code>binary32</code></td>
+<td><span class="ycr-hashtag" data-index-entry="binary32" data-tag="binary32"><code>binary32</code></span></td>
 <td>8 bits</td>
 <td>23 bits</td>
 <td>1 bit</td>
 </tr>
 <tr>
-<td><code>binary64</code></td>
+<td><span class="ycr-hashtag" data-index-entry="binary64" data-tag="binary64"><code>binary64</code></span></td>
 <td>11 bits</td>
 <td>52 bits</td>
 <td>1 bit</td>
@@ -5693,10 +5693,10 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <li>la précision est d'autant plus grande que le nombre de bits de la mantisse est grand ;</li>
 <li>la base ayant été fixée à 2, il est possible d'exprimer <span class="arithmatex">\(1/1024\)</span> sans erreur de précision, mais pas <span class="arithmatex">\(1/1000\)</span> ;</li>
 <li>un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent <a href="https://stackoverflow.com/a/15585448/2612235">(10 à 100x)</a> pour faire des calculs en virgule flottante ;</li>
-<li>bien que le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> définisse les types virgule flottante <code>float</code>, <code>double</code> et <code>long double</code>, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé. <span class="ycr-hashtag" data-index-entry="double" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="long double" data-tag=""></span></li>
+<li>bien que le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> définisse les types virgule flottante <span class="ycr-hashtag" data-index-entry="float" data-tag="float"><code>float</code></span>, <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span> et <code>long double</code>, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé. <span class="ycr-hashtag" data-index-entry="double" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="long double" data-tag=""></span></li>
 </ul>
 <h3 id="simple-precision">Simple précision<a class="headerlink" href="#simple-precision" title="Lien permanent">¤</a></h3>
-<p>Le type <code>float</code> aussi dit à précision simple utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :</p>
+<p>Le type <span class="ycr-hashtag" data-index-entry="float" data-tag="float"><code>float</code></span> aussi dit à précision simple utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :</p>
 <ul>
 <li><span class="arithmatex">\(\pm\inf\)</span> lorsque l'exposant vaut <code>0xff</code></li>
 <li><span class="arithmatex">\((-1)^{\text{sign}}\cdot2^{\text{exp} - 127}\cdot1.\text{mantisse}\)</span></li>
@@ -5768,13 +5768,13 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </div>
 <h3 id="quadruple-precision">Quadruple précision<a class="headerlink" href="#quadruple-precision" title="Lien permanent">¤</a></h3>
 <p>Bien que ce soit marginal dans le monde de l'informatique, la <span class="ycr-hashtag" data-index-entry="quadruple précision" data-tag="quadruple-precision">quadruple précision</span> est une norme définie dans <span class="ycr-hashtag" data-index-entry="IEEE 754" data-tag="ieee-754">IEEE 754</span> qui utilise 128 bits pour stocker les nombres réels. Elle est utilisée pour des calculs scientifiques nécessitant une très grande précision comme au <span class="ycr-hashtag" data-index-entry="CERN" data-tag="cern">CERN</span> ou pour l'étude de modèles cosmologiques. La quadruple précision offre une précision de 34 chiffres significatifs, soit environ 112 bits de précision.</p>
-<p>Seul un nombre réduit de langages de programmation peut gérer nativement cette notation, et la grande majorité des processeurs n'est pas prévue pour les traiter efficacement. Il est néanmoins possible de l'utiliser avec certains compilateurs C comme GCC en utilisant le type <code>__float128</code> de la bibliothèque <code>&lt;quadmath.h&gt;</code>.</p>
+<p>Seul un nombre réduit de langages de programmation peut gérer nativement cette notation, et la grande majorité des processeurs n'est pas prévue pour les traiter efficacement. Il est néanmoins possible de l'utiliser avec certains compilateurs C comme GCC en utilisant le type <span class="ycr-hashtag" data-index-entry="__float128" data-tag="__float128"><code>__float128</code></span> de la bibliothèque <code>&lt;quadmath.h&gt;</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Lenteurs</p>
 <p>Utiliser la quadruple précision ralenti considérablement les calculs, car les processeurs actuels ne sont pas optimisés pour travailler sur 128 bits. Un processeur peut faire des calculs sur 64 bits en une seule opération, mais pour des calculs en quadruple précision, l'effort est considérablement plus grand.</p>
 </div>
 <h2 id="nombres-complexes">Nombres complexes<a class="headerlink" href="#nombres-complexes" title="Lien permanent">¤</a></h2>
-<p>En C, il est possible de définir des nombres complexes en utilisant le type <code>complex</code> de la bibliothèque <code>&lt;complex.h&gt;</code>. Les nombres complexes sont composés de deux parties, la partie réelle et la partie imaginaire. Ils sont souvent utilisés en mathématiques pour représenter des nombres qui ne peuvent pas être exprimés avec des nombres réels. Ils ont été introduits avec la version <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> du standard C.  <span class="ycr-hashtag" data-index-entry="nombre complexe" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="&lt;complex.h&gt;" data-tag=""></span></p>
+<p>En C, il est possible de définir des nombres complexes en utilisant le type <span class="ycr-hashtag" data-index-entry="complex" data-tag="complex"><code>complex</code></span> de la bibliothèque <code>&lt;complex.h&gt;</code>. Les nombres complexes sont composés de deux parties, la partie réelle et la partie imaginaire. Ils sont souvent utilisés en mathématiques pour représenter des nombres qui ne peuvent pas être exprimés avec des nombres réels. Ils ont été introduits avec la version <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> du standard C.  <span class="ycr-hashtag" data-index-entry="nombre complexe" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="&lt;complex.h&gt;" data-tag=""></span></p>
 <p>Néanmoins les nombres complexes ne sont pas supportés par les opérateurs du langage, il est donc nécessaire d'utiliser des fonctions spécifiques pour effectuer des opérations complexes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

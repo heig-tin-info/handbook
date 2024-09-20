@@ -3665,7 +3665,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3681,7 +3681,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5161,7 +5161,7 @@ les outils associés.
 <h2 id="quel-programmeur-etes-vous">Quel programmeur êtes-vous ?<a class="headerlink" href="#quel-programmeur-etes-vous" title="Lien permanent">¤</a></h2>
 <p>Les études en écoles d'ingénieurs sont souvent cloisonnées. On observe, entre les différentes facultés (électronique, informatique, etc.), que l'enseignement de l'informatique s'inscrit dans une culture distincte avec un langage spécifique. Les informaticiens, dotés d'un esprit d'abstraction remarquable, acquièrent des connaissances approfondies du fonctionnement interne des systèmes d'exploitation et possèdent une expertise étendue en programmation. Néanmoins, ils manquent parfois d'une expérience pratique avec le matériel électronique et les contraintes imposées par des architectures matérielles légères (systèmes embarqués, microcontrôleurs, etc.). Les électroniciens, quant à eux, disposent d'une compréhension approfondie des systèmes à bas niveau. Ils ont une vision pragmatique des systèmes et des contraintes matérielles. Cependant, ils manquent souvent de connaissances poussées en programmation et en algorithmique.</p>
 <p>Ces deux profils, bien que complémentaires, ont souvent du mal à se comprendre. Les informaticiens perçoivent les électroniciens comme trop terre-à-terre, tandis que les électroniciens jugent les informaticiens trop abstraits. Des divergences d'opinions peuvent émerger de ces différences culturelles, notamment dans des notions communes dont les définitions varient. Par exemple, la notion de temps réel diffère pour un informaticien et un électronicien. Pour un informaticien, le temps réel désigne un système qui répond dans un délai déterminé pour un utilisateur (environ 100 ms). Pour un électronicien, le temps réel désigne un système qui répond dans un délai déterminé et qui est déterministe (environ 100 µs).</p>
-<p>Un autre exemple est la complexité algorithmique. Pour un informaticien, la complexité algorithmique mesure la performance d'un algorithme en termes généraux. Un accès à un dictionnaire est en <span class="arithmatex">\(O(1)\)</span>, même s'il implique le calcul d'un <code>sha256</code>, une opération triviale sur un ordinateur. Pour un électronicien, il est impossible de réaliser un <code>sha256</code> sur un microcontrôleur 8 bits, ce qui l'incite à rechercher des optimisations profondes de l'algorithme, quitte à le rendre moins générique et modulaire.</p>
+<p>Un autre exemple est la complexité algorithmique. Pour un informaticien, la complexité algorithmique mesure la performance d'un algorithme en termes généraux. Un accès à un dictionnaire est en <span class="arithmatex">\(O(1)\)</span>, même s'il implique le calcul d'un <span class="ycr-hashtag" data-index-entry="sha256" data-tag="sha256"><code>sha256</code></span>, une opération triviale sur un ordinateur. Pour un électronicien, il est impossible de réaliser un <span class="ycr-hashtag" data-index-entry="sha256" data-tag="sha256"><code>sha256</code></span> sur un microcontrôleur 8 bits, ce qui l'incite à rechercher des optimisations profondes de l'algorithme, quitte à le rendre moins générique et modulaire.</p>
 <p>Cet ouvrage a pour objectif de rapprocher ces deux cultures en fournissant aux électroniciens les bases de la véritable informatique, de la programmation et de sa culture, en rendant accessibles des concepts complexes tels que les arbres et les graphes.</p>
 <h2 id="organisation-de-louvrage">Organisation de l'ouvrage<a class="headerlink" href="#organisation-de-louvrage" title="Lien permanent">¤</a></h2>
 <div class="latex-ignore">
@@ -5215,7 +5215,7 @@ les outils associés.
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>'a' ≡ 0b1100001 ≡ 97 ≡ 0x61 ≡ 00141
 </span></code></pre></div>
 <h4 id="symbole-de-remplissage">Symbole de remplissage<a class="headerlink" href="#symbole-de-remplissage" title="Lien permanent">¤</a></h4>
-<p>Dans les exemples qui seront donnés, on pourra voir <code class="language-c highlight"><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">〜</span><span class="w"> </span><span class="p">}</span></code> ou le caractère <code>〜</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//3030" target="_blank">3030</a> indique une continuité logique d'opération. Le symbole exprime ainsi <code>...</code> (<a href="https://fr.wikipedia.org/wiki/Points_de_suspension">points de suspension</a> ou <em>ellipsis</em>). Or, pour ne pas confondre avec le symbole C <code>...</code> utilisé dans les fonctions à arguments variables tels que <code>printf</code>.</p>
+<p>Dans les exemples qui seront donnés, on pourra voir <code class="language-c highlight"><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">〜</span><span class="w"> </span><span class="p">}</span></code> ou le caractère <code>〜</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//3030" target="_blank">3030</a> indique une continuité logique d'opération. Le symbole exprime ainsi <code>...</code> (<a href="https://fr.wikipedia.org/wiki/Points_de_suspension">points de suspension</a> ou <em>ellipsis</em>). Or, pour ne pas confondre avec le symbole C <code>...</code> utilisé dans les fonctions à arguments variables tels que <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span>.</p>
 <h4 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Lien permanent">¤</a></h4>
 <p>Les conventions C s'appliquent à la manière d'exprimer les grandeurs suivantes :</p>
 <ul>
@@ -5335,7 +5335,7 @@ les outils associés.
 <p>La version imprimée sera néanmoins figée à un moment donné, mais la version en ligne sera toujours mise à jour.</p>
 <h2 id="colophon">Colophon<a class="headerlink" href="#colophon" title="Lien permanent">¤</a></h2>
 <p>Ce livre est écrit en <a href="https://fr.wikipedia.org/wiki/Markdown">Markdown</a> et généré en <abbr title="Hyper Text Markup Language">HTML</abbr> par <a href="https://www.mkdocs.org/">MkDocs</a>. Le thème utilisé est <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>. Les sources sont disponibles sur <a href="https://fr.wikipedia.org/wiki/GitHub">GitHub</a> et l'hébergement est assuré par <a href="https://pages.github.com/">GitHub Pages</a>.</p>
-<p>La plupart des illustrations sont réalisées avec <a href="https://www.draw.io/">Draw.io</a>, un outil de dessin vectoriel en ligne. Les schémas sont rendus dans le navigateur avec <code>GraphViewer</code>. Les diagrammes utilisent la technologie <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid</a>. Les autres sources d'images sont issues en grande partie de <a href="https://commons.wikimedia.org/">Wikimedia Commons</a> et <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
+<p>La plupart des illustrations sont réalisées avec <a href="https://www.draw.io/">Draw.io</a>, un outil de dessin vectoriel en ligne. Les schémas sont rendus dans le navigateur avec <span class="ycr-hashtag" data-index-entry="GraphViewer" data-tag="GraphViewer"><code>GraphViewer</code></span>. Les diagrammes utilisent la technologie <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid</a>. Les autres sources d'images sont issues en grande partie de <a href="https://commons.wikimedia.org/">Wikimedia Commons</a> et <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 <p>La génération de l'ouvrage en PDF est utilise son propre convertisseur vers LaTeX. Les extraits de code sources sont colorés avec <a href="https://pygments.org/">Pygments</a> en utilisant le paquet <a href="https://ctan.org/pkg/minted">minted</a>.</p>
 <p>L'orthographe et la grammaire ont été revues avec <a href="https://www.antidote.info/">Antidote</a>.</p>
 

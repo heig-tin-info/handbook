@@ -3838,7 +3838,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3854,7 +3854,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5342,51 +5342,51 @@ les outils associés.
 <tbody>
 <tr>
 <td>Ajout d'un élément à la tête du tableau</td>
-<td><code>push-front</code>, <code>unshift</code></td>
+<td><code>push-front</code>, <span class="ycr-hashtag" data-index-entry="unshift" data-tag="unshift"><code>unshift</code></span></td>
 </tr>
 <tr>
 <td>Ajout d'un élément à la queue du tableau</td>
-<td><code>push-back</code>, <code>push</code></td>
+<td><code>push-back</code>, <span class="ycr-hashtag" data-index-entry="push" data-tag="push"><code>push</code></span></td>
 </tr>
 <tr>
 <td>Suppression d'un élément à la tête du tableau</td>
-<td><code>pop-front</code>, <code>shift</code></td>
+<td><code>pop-front</code>, <span class="ycr-hashtag" data-index-entry="shift" data-tag="shift"><code>shift</code></span></td>
 </tr>
 <tr>
 <td>Suppression d'un élément à la queue du tableau</td>
-<td><code>pop-back</code>, <code>pop</code></td>
+<td><code>pop-back</code>, <span class="ycr-hashtag" data-index-entry="pop" data-tag="pop"><code>pop</code></span></td>
 </tr>
 <tr>
 <td>Insertion d'un élément à la position n</td>
-<td><code>insert</code></td>
+<td><span class="ycr-hashtag" data-index-entry="insert" data-tag="insert"><code>insert</code></span></td>
 </tr>
 <tr>
 <td>Suppression d'un élément à la position n</td>
-<td><code>delete</code></td>
+<td><span class="ycr-hashtag" data-index-entry="delete" data-tag="delete"><code>delete</code></span></td>
 </tr>
 </tbody>
 </table>
 <p>Nous comprenons rapidement qu'il est plus compliqué d'ajouter ou de supprimer un élément depuis la tête du tableau, car il est nécessaire ensuite de déplacer chaque élément (l'élément 0 devient l'élément 1, l'élément 1 devient l'élément 2...).</p>
 <p>Un tableau dynamique peut être représenté par la figure suivante :</p>
 <p><figure id="_figure-2"><img alt="Tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array.drawio"/><figcaption> Tableau dynamique</figcaption></figure></p>
-<p>Un espace mémoire est réservé dynamiquement sur le tas. Comme <code>malloc</code> ne retourne pas la taille de l'espace mémoire alloué, mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 <code>int32_t</code> représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par <code>malloc</code> n'est généralement pas vide, mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau, il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.</p>
+<p>Un espace mémoire est réservé dynamiquement sur le tas. Comme <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span> ne retourne pas la taille de l'espace mémoire alloué, mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 <span class="ycr-hashtag" data-index-entry="int32_t" data-tag="int32_t"><code>int32_t</code></span> représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span> n'est généralement pas vide, mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau, il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.</p>
 <p>Les composants de cette structure de donnée sont donc :</p>
 <dl>
 <dt>La capacité</dt>
 <dd>
-<p>Un entier non signé <code>size_t</code> représentant la capacité de stockage totale du tableau dynamique à un instant T lorsqu'il est plein.</p>
+<p>Un entier non signé <span class="ycr-hashtag" data-index-entry="size_t" data-tag="size_t"><code>size_t</code></span> représentant la capacité de stockage totale du tableau dynamique à un instant T lorsqu'il est plein.</p>
 </dd>
 <dt>Le nombre d'éléments</dt>
 <dd>
-<p>Un entier non signé <code>size_t</code> représentant le nombre d'éléments effectifs dans le tableau.</p>
+<p>Un entier non signé <span class="ycr-hashtag" data-index-entry="size_t" data-tag="size_t"><code>size_t</code></span> représentant le nombre d'éléments effectifs dans le tableau.</p>
 </dd>
 <dt>Un pointeur de données</dt>
 <dd>
-<p>Un pointeur sur un entier <code>int *</code> contenant l'adresse mémoire de l'espace alloué par <code>malloc</code>.</p>
+<p>Un pointeur sur un entier <code>int *</code> contenant l'adresse mémoire de l'espace alloué par <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span>.</p>
 </dd>
 <dt>Les données</dt>
 <dd>
-<p>Un espace mémoire alloué par <code>malloc</code> et contenant les données.</p>
+<p>Un espace mémoire alloué par <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span> et contenant les données.</p>
 </dd>
 </dl>
 <p>Il peut être déclaré sous forme de structure :</p>
@@ -5397,19 +5397,19 @@ les outils associés.
 </span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">}</span><span class="w"> </span><span class="n">Vector</span><span class="err">```</span>
 </span></code></pre></div>
 <h3 id="pop-pop_back">Pop (<em>pop_back</em>)<a class="headerlink" href="#pop-pop_back" title="Lien permanent">¤</a></h3>
-<p>L'opération <code>pop</code> retire l'élément de la fin du tableau. Le nombre d'éléments est donc ajusté en conséquence.</p>
+<p>L'opération <span class="ycr-hashtag" data-index-entry="pop" data-tag="pop"><code>pop</code></span> retire l'élément de la fin du tableau. Le nombre d'éléments est donc ajusté en conséquence.</p>
 <p><figure id="_figure-3"><img alt="Suppression d'un élément dans un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-pop.drawio"/><figcaption> Suppression d'un élément dans un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elements</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="o">--</span><span class="n">elements</span><span class="p">];</span>
 </span></code></pre></div>
 <h3 id="push-push_back">Push (<em>push_back</em>)<a class="headerlink" href="#push-push_back" title="Lien permanent">¤</a></h3>
-<p>L'opération <code>push</code> ajoute un élément à la fin du tableau.</p>
+<p>L'opération <span class="ycr-hashtag" data-index-entry="push" data-tag="push"><code>push</code></span> ajoute un élément à la fin du tableau.</p>
 <p><figure id="_figure-4"><img alt="Ajout d'un élément dans un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-push.drawio"/><figcaption> Ajout d'un élément dans un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elements</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">capacity</span><span class="p">)</span><span class="w"> </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">data</span><span class="p">[</span><span class="n">elements</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 </span></code></pre></div>
 <h3 id="shift-pop_front">Shift (<em>pop_front</em>)<a class="headerlink" href="#shift-pop_front" title="Lien permanent">¤</a></h3>
-<p>L'opération <code>shift</code> retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque élément qu'il contient.</p>
+<p>L'opération <span class="ycr-hashtag" data-index-entry="shift" data-tag="shift"><code>shift</code></span> retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque élément qu'il contient.</p>
 <p><figure id="_figure-5"><img alt="Tableau dynamique: pop front" class="drawio-diagram" src="../../../assets/images/dyn-array-shift.drawio"/><figcaption> Suppression du premier élément dans un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elements</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
@@ -5424,13 +5424,13 @@ les outils associés.
 </span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">capacity</span><span class="o">--</span><span class="p">;</span>
 </span></code></pre></div>
 <h3 id="unshift-push_front">Unshift (<em>push_front</em>)<a class="headerlink" href="#unshift-push_front" title="Lien permanent">¤</a></h3>
-<p>Enfin, l'opération <code>unshift</code> ajoute un élément depuis le début du tableau :</p>
+<p>Enfin, l'opération <span class="ycr-hashtag" data-index-entry="unshift" data-tag="unshift"><code>unshift</code></span> ajoute un élément depuis le début du tableau :</p>
 <p><figure id="_figure-6"><img alt="Ajout d'un élément en début d'un tableau dynamique" class="drawio-diagram" src="../../../assets/images/dyn-array-unshift.drawio"/><figcaption> Ajout d'un élément en début d'un tableau dynamique</figcaption></figure></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elements</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">--</span><span class="p">)</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Dans le cas ou le nombre d'éléments atteint la capacité maximum du tableau, il est nécessaire de réallouer l'espace mémoire avec <code>realloc</code>. Généralement on se contente de doubler l'espace alloué.</p>
+<p>Dans le cas ou le nombre d'éléments atteint la capacité maximum du tableau, il est nécessaire de réallouer l'espace mémoire avec <span class="ycr-hashtag" data-index-entry="realloc" data-tag="realloc"><code>realloc</code></span>. Généralement on se contente de doubler l'espace alloué.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elements</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">capacity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">realloc</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">capacity</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">}</span>
@@ -5458,7 +5458,7 @@ les outils associés.
 <p>Comme pour l'insertion, la suppression d'un élément en début ou au milieu du tableau nécessite de décaler les éléments restants, ce qui entraîne une complexité de <span class="arithmatex">\(O(n)\)</span>.</p>
 </dd>
 </dl>
-<p>Lors d'un redimensionnement il faut parfois copier les éléments dans un nouveau tableau si <code>realloc</code> ne parviens pas à agrandir l'espace existant, ce qui a un coût de <span class="arithmatex">\(O(n)\)</span>. Toutefois, cette opération ne se produit que de temps en temps. On dit que le coût d'un redimensionnement est est amorti sur les nombreuses opérations d'insertion. Prenons un exemple.</p>
+<p>Lors d'un redimensionnement il faut parfois copier les éléments dans un nouveau tableau si <span class="ycr-hashtag" data-index-entry="realloc" data-tag="realloc"><code>realloc</code></span> ne parviens pas à agrandir l'espace existant, ce qui a un coût de <span class="arithmatex">\(O(n)\)</span>. Toutefois, cette opération ne se produit que de temps en temps. On dit que le coût d'un redimensionnement est est amorti sur les nombreuses opérations d'insertion. Prenons un exemple.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>Élements, Capacité, Redimensionnements
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>1         1

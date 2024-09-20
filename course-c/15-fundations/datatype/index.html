@@ -3977,7 +3977,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3993,7 +3993,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5648,13 +5648,13 @@ les outils associés.
 </div>
 <div class="admonition note">
 <p class="admonition-title">Réseau informatique</p>
-<p>Le réseau informatique comme les protocoles TCP/IP, UDP, Wi-Fi utilisent le <em>network byte order</em> qui impose le <em>big endian</em> pour l'envoi des données. Cela remonte aux premières normes dont l'idée était d'adopter une convention unique et standardisée à une époque ou les ordinateurs <em>big endian</em> étaient majoritaires. Or aujourd'hui la très vaste majorité des ordinateurs sont en <em>little endian</em> et donc les données transmises et réceptionnées doivent être converties. C'est le rôle de la fonction <code>htonl</code> (<em>host to network long</em>) qui convertit un entier 32 bits en <em>big endian</em> ou <code>ntohl</code> (<em>network to host long</em>) qui fait l'opération inverse.</p>
+<p>Le réseau informatique comme les protocoles TCP/IP, UDP, Wi-Fi utilisent le <em>network byte order</em> qui impose le <em>big endian</em> pour l'envoi des données. Cela remonte aux premières normes dont l'idée était d'adopter une convention unique et standardisée à une époque ou les ordinateurs <em>big endian</em> étaient majoritaires. Or aujourd'hui la très vaste majorité des ordinateurs sont en <em>little endian</em> et donc les données transmises et réceptionnées doivent être converties. C'est le rôle de la fonction <span class="ycr-hashtag" data-index-entry="htonl" data-tag="htonl"><code>htonl</code></span> (<em>host to network long</em>) qui convertit un entier 32 bits en <em>big endian</em> ou <span class="ycr-hashtag" data-index-entry="ntohl" data-tag="ntohl"><code>ntohl</code></span> (<em>network to host long</em>) qui fait l'opération inverse.</p>
 <p>Pour vous lecteurs, cela n'a pas de grande importance, car nous n'allons pas approfondir le fonctionnement du réseau informatique dans cet ouvrage.</p>
 </div>
 <h2 id="les-nombres-entiers">Les nombres entiers<a class="headerlink" href="#les-nombres-entiers" title="Lien permanent">¤</a></h2>
 <p>Les <strong>nombres entiers</strong> que nous avons définis plus tôt peuvent être négatifs, nuls ou positifs. En C, il existe plusieurs types de données pour les représenter, chacun ayant ses propres caractéristiques.</p>
 <h3 id="les-entiers-naturels">Les entiers naturels<a class="headerlink" href="#les-entiers-naturels" title="Lien permanent">¤</a></h3>
-<p>En informatique, les entiers naturels de l'ensemble <span class="arithmatex">\(\mathbb{N}\)</span> sont <strong>non signés</strong>, et peuvent prendre des valeurs comprises entre <span class="arithmatex">\(0\)</span> et <span class="arithmatex">\(2^N-1\)</span> où <span class="arithmatex">\(N\)</span> correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Il faut naturellement que l'ordinateur sur lequel s'exécute le programme soit capable de supporter le nombre de bits demandé par le programmeur. En C, on nomme ce type de donnée <code>unsigned int</code>, <code>int</code> étant le dénominatif du latin <em>integer</em> signifiant « entier ».</p>
+<p>En informatique, les entiers naturels de l'ensemble <span class="arithmatex">\(\mathbb{N}\)</span> sont <strong>non signés</strong>, et peuvent prendre des valeurs comprises entre <span class="arithmatex">\(0\)</span> et <span class="arithmatex">\(2^N-1\)</span> où <span class="arithmatex">\(N\)</span> correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Il faut naturellement que l'ordinateur sur lequel s'exécute le programme soit capable de supporter le nombre de bits demandé par le programmeur. En C, on nomme ce type de donnée <code>unsigned int</code>, <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> étant le dénominatif du latin <em>integer</em> signifiant « entier ».</p>
 <p>Voici quelques exemples des valeurs minimales et maximales possibles selon le nombre de bits utilisés pour coder l'information numérique :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Stockage d'un entier non signé sur différentes profondeurs</caption><thead>
@@ -5690,7 +5690,7 @@ les outils associés.
 <p>Notez l'importance du <span class="arithmatex">\(-1\)</span> dans la définition du maximum, car la valeur minimum <span class="arithmatex">\(0\)</span> fait partie de l'information même si elle représente une quantité nulle. Il y a donc 256 valeurs possibles pour un nombre entier non signé 8-bits, bien que la valeur maximale ne soit que de 255.</p>
 <h3 id="les-entiers-bornes-signes">Les entiers bornés signés<a class="headerlink" href="#les-entiers-bornes-signes" title="Lien permanent">¤</a></h3>
 <p>Les entiers signés peuvent être <strong>négatifs</strong>, <strong>nuls</strong> ou <strong>positifs</strong> et peuvent prendre des valeurs comprises entre <span class="arithmatex">\(-2^{N-1}\)</span> et <span class="arithmatex">\(+2^{N-1}-1\)</span> où <span class="arithmatex">\(N\)</span> correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Notez l'asymétrie entre la borne positive et négative.</p>
-<p>Comme il sont signés (<em>signed</em> en anglais), il est par conséquent correct d'écrire <code>signed int</code> bien que le préfixe <code>signed</code> soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.</p>
+<p>Comme il sont signés (<em>signed</em> en anglais), il est par conséquent correct d'écrire <code>signed int</code> bien que le préfixe <span class="ycr-hashtag" data-index-entry="signed" data-tag="signed"><code>signed</code></span> soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.</p>
 <p>Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information :</p>
 <table id="_table-2">
 <caption style="caption-side:top"> Stockage d'un entier signé sur différentes profondeurs</caption><thead>
@@ -5730,11 +5730,11 @@ les outils associés.
 <li>Signé ou non signé</li>
 <li>Nombre de bits avec lesquels l'information est stockée en mémoire</li>
 </ul>
-<p>À l'origine le standard C restait flou quant au nombre de bits utilisés pour chacun des types et aucune réelle cohérence n'existait pour la construction d'un type. Le modificateur <code>signed</code> était optionnel, le préfixe <code>long</code> ne pouvait s'appliquer qu'au type <code>int</code> et <code>long</code> et la confusion entre <code>long</code> (préfixe) et <code>long</code> (type) restait possible. En fait, la plupart des développeurs s'y perdaient et s'y perd toujours ce qui menait à des problèmes de compatibilités des programmes entre eux.</p>
+<p>À l'origine le standard C restait flou quant au nombre de bits utilisés pour chacun des types et aucune réelle cohérence n'existait pour la construction d'un type. Le modificateur <span class="ycr-hashtag" data-index-entry="signed" data-tag="signed"><code>signed</code></span> était optionnel, le préfixe <span class="ycr-hashtag" data-index-entry="long" data-tag="long"><code>long</code></span> ne pouvait s'appliquer qu'au type <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> et <span class="ycr-hashtag" data-index-entry="long" data-tag="long"><code>long</code></span> et la confusion entre <span class="ycr-hashtag" data-index-entry="long" data-tag="long"><code>long</code></span> (préfixe) et <span class="ycr-hashtag" data-index-entry="long" data-tag="long"><code>long</code></span> (type) restait possible. En fait, la plupart des développeurs s'y perdaient et s'y perd toujours ce qui menait à des problèmes de compatibilités des programmes entre eux.</p>
 <h4 id="types-standards">Types standards<a class="headerlink" href="#types-standards" title="Lien permanent">¤</a></h4>
 <p>La construction d'un type entier C peut être résumée par la figure suivante :</p>
 <p><figure id="_figure-2"><img alt="Entiers standardisés" class="drawio-diagram" src="../../../assets/images/ansi-integers.drawio"/><figcaption> Entiers standardisés</figcaption></figure></p>
-<p>Le préfixe <code>signed</code> est implicite, mais il est possible de l'utiliser pour plus de clarté. En pratique il sera rarement utilisé. De même, lorsque <code>short</code>, <code>long</code> ou <code>long long</code> est utilsé, le suffixe <code>int</code> est implicite.</p>
+<p>Le préfixe <span class="ycr-hashtag" data-index-entry="signed" data-tag="signed"><code>signed</code></span> est implicite, mais il est possible de l'utiliser pour plus de clarté. En pratique il sera rarement utilisé. De même, lorsque <span class="ycr-hashtag" data-index-entry="short" data-tag="short"><code>short</code></span>, <span class="ycr-hashtag" data-index-entry="long" data-tag="long"><code>long</code></span> ou <code>long long</code> est utilsé, le suffixe <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> est implicite.</p>
 <p>Les types suivants sont donc des synonymes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1">// Entier signé</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kt">signed</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">signed</span>
@@ -5754,8 +5754,8 @@ les outils associés.
 </span><span id="__span-4-16"><a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="c1">// Entier très long signé</span>
 </span><span id="__span-4-17"><a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="kt">signed</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="kt">signed</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span>
 </span></code></pre></div>
-<p>En revanche <code>char</code> est un type à part entière signé par défaut qui n'aura pas de suffixe <code>int</code>, mais il est possible de le déclarer <code>unsigned char</code>.</p>
-<p>Ci-dessous la table des entiers standards en C. Le format est celui utilisé par la fonction <code>printf</code> de la bibliothèque standard C.</p>
+<p>En revanche <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span> est un type à part entière signé par défaut qui n'aura pas de suffixe <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span>, mais il est possible de le déclarer <code>unsigned char</code>.</p>
+<p>Ci-dessous la table des entiers standards en C. Le format est celui utilisé par la fonction <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> de la bibliothèque standard C.</p>
 <table id="_table-3">
 <caption style="caption-side:top"> Table des types entiers en C</caption><thead>
 <tr>
@@ -5767,7 +5767,7 @@ les outils associés.
 </thead>
 <tbody>
 <tr>
-<td><code>char</code>, <code>signed char</code></td>
+<td><span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span>, <code>signed char</code></td>
 <td><em>signed</em></td>
 <td>au moins 8 bits</td>
 <td><code>%c</code></td>
@@ -5779,7 +5779,7 @@ les outils associés.
 <td><code>%uc</code></td>
 </tr>
 <tr>
-<td><code>short</code>, <code>short int</code>, ...</td>
+<td><span class="ycr-hashtag" data-index-entry="short" data-tag="short"><code>short</code></span>, <code>short int</code>, ...</td>
 <td><em>signed</em></td>
 <td>au moins 16 bits</td>
 <td><code>%hi</code></td>
@@ -5791,25 +5791,25 @@ les outils associés.
 <td><code>%hu</code></td>
 </tr>
 <tr>
-<td><code>unsigned</code>, <code>unsigned int</code></td>
+<td><span class="ycr-hashtag" data-index-entry="unsigned" data-tag="unsigned"><code>unsigned</code></span>, <code>unsigned int</code></td>
 <td><em>unsigned</em></td>
 <td>au moins 32 bits</td>
 <td><code>%u</code></td>
 </tr>
 <tr>
-<td><code>int</code>, <code>signed</code>, <code>signed int</code></td>
+<td><span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span>, <span class="ycr-hashtag" data-index-entry="signed" data-tag="signed"><code>signed</code></span>, <code>signed int</code></td>
 <td><em>signed</em></td>
 <td>au moins 32 bits</td>
 <td><code>%d</code></td>
 </tr>
 <tr>
-<td><code>unsigned</code>, <code>unsigned int</code>, ...</td>
+<td><span class="ycr-hashtag" data-index-entry="unsigned" data-tag="unsigned"><code>unsigned</code></span>, <code>unsigned int</code>, ...</td>
 <td><em>unsigned</em></td>
 <td>au moins 32 bits</td>
 <td><code>%u</code></td>
 </tr>
 <tr>
-<td><code>long</code>, <code>long int</code>, ...</td>
+<td><span class="ycr-hashtag" data-index-entry="long" data-tag="long"><code>long</code></span>, <code>long int</code>, ...</td>
 <td><em>signed</em></td>
 <td>au moins 32 bits</td>
 <td><code>%li</code></td>
@@ -5834,12 +5834,12 @@ les outils associés.
 </tr>
 </tbody>
 </table>
-<p>Avec l'avènement de <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, une meilleure cohésion des types a été proposée dans le fichier d'en-tête <code>stdint.h</code>. Cette bibliothèque standard offre les types suivants :</p>
+<p>Avec l'avènement de <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, une meilleure cohésion des types a été proposée dans le fichier d'en-tête <span class="ycr-hashtag" data-index-entry="stdint.h" data-tag="stdint.h"><code>stdint.h</code></span>. Cette bibliothèque standard offre les types suivants :</p>
 <p><figure id="_figure-3"><img alt="Flux de construction d'un entier standardisé" class="drawio-diagram" src="../../../assets/images/c99-integers.drawio"/><figcaption> Flux de construction d'un entier standardisé</figcaption></figure></p>
 <p><a href="" id="reformed-types"></a></p>
 <h3 id="nouveaux-types-standard">Nouveaux types standard<a class="headerlink" href="#nouveaux-types-standard" title="Lien permanent">¤</a></h3>
-<p>Avec l'avènement de <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, une meilleure cohésion des types a été proposée dans le fichier d'en-tête <code>stdint.h</code>. Cette bibliothèque standard offre les types suivants. Comme nous l'avons vu, la taille des types historiques n'est pas précisément définie par le standard. On sait qu'un <code>int</code> contient <strong>au moins</strong> 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment consciencieux et qu'il ne s'appuie pas sur une batterie de tests automatisés. En conséquence, il est recommandé d'utiliser les types de <code>&lt;stdint.h&gt;</code> lorsque la taille du type doit être garantie.</p>
-<p>Attention cependant à noter que garantir un type à taille fixe n'est pas toujours la meilleure solution. En effet, si vous avez besoin d'un entier de 32-bits, il est préférable d'utiliser <code>int</code> qui sera adapté à l'architecture matérielle. Si vous utilisez <code>int32_t</code> vous risquez de perdre en performance si l'architecture matérielle est capable de traiter des entiers 64-bits de manière plus efficace. Voici les types à taille fixe de <code>&lt;stdint.h&gt;</code> :</p>
+<p>Avec l'avènement de <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, une meilleure cohésion des types a été proposée dans le fichier d'en-tête <span class="ycr-hashtag" data-index-entry="stdint.h" data-tag="stdint.h"><code>stdint.h</code></span>. Cette bibliothèque standard offre les types suivants. Comme nous l'avons vu, la taille des types historiques n'est pas précisément définie par le standard. On sait qu'un <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> contient <strong>au moins</strong> 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment consciencieux et qu'il ne s'appuie pas sur une batterie de tests automatisés. En conséquence, il est recommandé d'utiliser les types de <code>&lt;stdint.h&gt;</code> lorsque la taille du type doit être garantie.</p>
+<p>Attention cependant à noter que garantir un type à taille fixe n'est pas toujours la meilleure solution. En effet, si vous avez besoin d'un entier de 32-bits, il est préférable d'utiliser <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> qui sera adapté à l'architecture matérielle. Si vous utilisez <span class="ycr-hashtag" data-index-entry="int32_t" data-tag="int32_t"><code>int32_t</code></span> vous risquez de perdre en performance si l'architecture matérielle est capable de traiter des entiers 64-bits de manière plus efficace. Voici les types à taille fixe de <code>&lt;stdint.h&gt;</code> :</p>
 <table id="_table-4">
 <caption style="caption-side:top"> Entiers standard défini par stdint</caption><thead>
 <tr>
@@ -5851,56 +5851,56 @@ les outils associés.
 </thead>
 <tbody>
 <tr>
-<td><code>uint8_t</code></td>
+<td><span class="ycr-hashtag" data-index-entry="uint8_t" data-tag="uint8_t"><code>uint8_t</code></span></td>
 <td>unsigned</td>
 <td>8 bits</td>
 <td><code>%c</code></td>
 </tr>
 <tr>
-<td><code>int8_t</code></td>
+<td><span class="ycr-hashtag" data-index-entry="int8_t" data-tag="int8_t"><code>int8_t</code></span></td>
 <td>signed</td>
 <td>8 bits</td>
 <td><code>%c</code></td>
 </tr>
 <tr>
-<td><code>uint16_t</code></td>
+<td><span class="ycr-hashtag" data-index-entry="uint16_t" data-tag="uint16_t"><code>uint16_t</code></span></td>
 <td>unsigned</td>
 <td>16 bits</td>
 <td><code>%hu</code></td>
 </tr>
 <tr>
-<td><code>int16_t</code></td>
+<td><span class="ycr-hashtag" data-index-entry="int16_t" data-tag="int16_t"><code>int16_t</code></span></td>
 <td>signed</td>
 <td>16 bits</td>
 <td><code>%hi</code></td>
 </tr>
 <tr>
-<td><code>uint32_t</code></td>
+<td><span class="ycr-hashtag" data-index-entry="uint32_t" data-tag="uint32_t"><code>uint32_t</code></span></td>
 <td>unsigned</td>
 <td>32 bits</td>
 <td><code>%u</code></td>
 </tr>
 <tr>
-<td><code>int32_t</code></td>
+<td><span class="ycr-hashtag" data-index-entry="int32_t" data-tag="int32_t"><code>int32_t</code></span></td>
 <td>signed</td>
 <td>32 bits</td>
 <td><code>%d</code></td>
 </tr>
 <tr>
-<td><code>uint64_t</code></td>
+<td><span class="ycr-hashtag" data-index-entry="uint64_t" data-tag="uint64_t"><code>uint64_t</code></span></td>
 <td>unsigned</td>
 <td>64 bits</td>
 <td><code>%llu</code></td>
 </tr>
 <tr>
-<td><code>int64_t</code></td>
+<td><span class="ycr-hashtag" data-index-entry="int64_t" data-tag="int64_t"><code>int64_t</code></span></td>
 <td>signed</td>
 <td>64 bits</td>
 <td><code>%lli</code></td>
 </tr>
 </tbody>
 </table>
-<p>À ces types s'ajoutent les types <strong>rapides</strong> (<em>fast</em>) et <strong>minimums</strong> (<em>least</em>). Un type nommé <code>uint_least32_t</code> garanti l'utilisation du type de donnée utilisant le moins de mémoire et garantissant une profondeur d'au minimum 32 bits. Les types rapides, moins utilisés, vont automatiquement choisir le type adapté le plus rapide à l'exécution. Par exemple, si l'architecture matérielle permet un calcul natif sur 48-bits, elle sera privilégiée par rapport au type 32-bits.</p>
+<p>À ces types s'ajoutent les types <strong>rapides</strong> (<em>fast</em>) et <strong>minimums</strong> (<em>least</em>). Un type nommé <span class="ycr-hashtag" data-index-entry="uint_least32_t" data-tag="uint_least32_t"><code>uint_least32_t</code></span> garanti l'utilisation du type de donnée utilisant le moins de mémoire et garantissant une profondeur d'au minimum 32 bits. Les types rapides, moins utilisés, vont automatiquement choisir le type adapté le plus rapide à l'exécution. Par exemple, si l'architecture matérielle permet un calcul natif sur 48-bits, elle sera privilégiée par rapport au type 32-bits.</p>
 <div class="admonition exercise checkbox">
 <p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Débordement<span class="exercise-title"></span></p>
 <p>Quel sera le contenu de <code>j</code> après l'exécution de l'instruction suivante :</p>
@@ -6021,8 +6021,8 @@ les outils associés.
 </div>
 <p><a href="" id="datamodel"></a></p>
 <h2 id="modele-de-donnee">Modèle de donnée<a class="headerlink" href="#modele-de-donnee" title="Lien permanent">¤</a></h2>
-<p>Comme nous l'avons évoqué plus haut, la taille des entiers <code>short</code>, <code>int</code>, ... n'est pas précisément définie par le standard. On sait qu'un <code>int</code> contient <strong>au moins</strong> 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure.</p>
-<p>Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine 64-bits en utilisant un <code>int</code> comme valeur de comptage allant au-delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du <code>int</code> sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème ?</p>
+<p>Comme nous l'avons évoqué plus haut, la taille des entiers <span class="ycr-hashtag" data-index-entry="short" data-tag="short"><code>short</code></span>, <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span>, ... n'est pas précisément définie par le standard. On sait qu'un <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> contient <strong>au moins</strong> 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure.</p>
+<p>Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine 64-bits en utilisant un <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> comme valeur de comptage allant au-delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème ?</p>
 <p>La première solution est de toujours utiliser les types proposés par <code>&lt;stdint.h&gt;</code> lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données. Le modèle de données est une convention qui définit la taille des types de données de base. Il est déterminé par l'architecture matérielle et le système d'exploitation. Voici un tableau résumant les modèles de données les plus courants :</p>
 <table id="_table-5">
 <caption style="caption-side:top"> Modèle de données</caption><thead>
@@ -6154,12 +6154,12 @@ les outils associés.
 </tr>
 </tbody>
 </table>
-<p>Les troisième et quatrième colonnes représentent la taille des types de base sur des machines modernes 64-bits. On notera que la taille des types <code>long</code> et <code>long double</code> varie selon l'architecture matérielle et le système d'exploitation. On voit donc que selon le modèle les types n'ont pas la même taille et donc que la portabilité des programmes est un enjeu majeur. Aussi, pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les <a class="autorefs autorefs-internal" href="#nouveaux-types-standard">nouveaux types standards</a> de <code>&lt;stdint.h&gt;</code>. Ainsi pour s'assurer qu'un type soit <strong>au moins</strong> de 32-bits, on utilisera <code>uint_least32_t</code>.</p>
+<p>Les troisième et quatrième colonnes représentent la taille des types de base sur des machines modernes 64-bits. On notera que la taille des types <span class="ycr-hashtag" data-index-entry="long" data-tag="long"><code>long</code></span> et <code>long double</code> varie selon l'architecture matérielle et le système d'exploitation. On voit donc que selon le modèle les types n'ont pas la même taille et donc que la portabilité des programmes est un enjeu majeur. Aussi, pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les <a class="autorefs autorefs-internal" href="#nouveaux-types-standard">nouveaux types standards</a> de <code>&lt;stdint.h&gt;</code>. Ainsi pour s'assurer qu'un type soit <strong>au moins</strong> de 32-bits, on utilisera <span class="ycr-hashtag" data-index-entry="uint_least32_t" data-tag="uint_least32_t"><code>uint_least32_t</code></span>.</p>
 <h2 id="les-caracteres">Les caractères<a class="headerlink" href="#les-caracteres" title="Lien permanent">¤</a></h2>
 <p>Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement représentés par des grandeurs exprimées sur 1 octet (8-bits):</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>97 ≡ 0b1100001 ≡ 'a'
 </span></code></pre></div>
-<p>Un caractère du clavier enregistré en mémoire c'est donc un nombre entier de 8-bits. En C, le type de donnée <code>char</code> est utilisé pour stocker un caractère.</p>
+<p>Un caractère du clavier enregistré en mémoire c'est donc un nombre entier de 8-bits. En C, le type de donnée <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span> est utilisé pour stocker un caractère.</p>
 <p>Mais comment un ordinateur sait-il que <code>97</code> correspond à <code>a</code> ? C'est là que la notion d'encodage entre en jeu.</p>
 <h3 id="la-table-ascii">La table ASCII<a class="headerlink" href="#la-table-ascii" title="Lien permanent">¤</a></h3>
 <p>Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'<a href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ASA</a>, l'<em>American Standards Association</em> aujourd'hui <strong><abbr title="American National Standards Institute">ANSI</abbr></strong> qui ne définissait alors que 63 caractères imprimables. Comme la mémoire à cette époque était très cher, un caractère n'était codé que sur 7 bits. La première table <span class="ycr-hashtag" data-index-entry="ASCII" data-tag="ascii">ASCII</span> définissait donc 128 caractères et est donnée par la figure suivante : <span class="ycr-hashtag" data-index-entry="ANSI" data-tag=""></span></p>
@@ -6175,9 +6175,9 @@ les outils associés.
 <h3 id="unicode">Unicode<a class="headerlink" href="#unicode" title="Lien permanent">¤</a></h3>
 <p>Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب), les Coréens (한국어), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage ; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.</p>
 <p>Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard <strong>Unicode</strong> (<em>Universal Coded Character Set</em>) et son encodage <strong>UTF-8</strong> (<em>Unicode Transformation Format</em>). Ce standard est capable d'encoder tous les caractères de toutes les langues du monde. Il est utilisé par la plupart des systèmes d'exploitation, des navigateurs web et des applications informatiques. Il est capable d'encoder 1'112'064 caractères en utilisant de 1 à 4 octets. La figure suivante montre la tendance de l'adoption de 2001 à 2012. Cette tendance est accessible <a href="https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html">ici</a>.</p>
-<p><figure id="_figure-7"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/encoding-trends.png"><img alt="Utiliation de l'UTF-8 dès 2008" src="../../../assets/images/encoding-trends.png"/></a><figcaption> Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008</figcaption></figure></p>
+<p><figure id="_figure-7"><img alt="Utiliation de l'UTF-8 dès 2001" class="drawio-diagram" src="../../../assets/images/unicode-trends.drawio"/><figcaption> Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2001, données collectées par Google et Erik van der Poel</figcaption></figure></p>
 <p><a href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>, dont nous avons déjà parlé en introduction, <a href="" id="thompson"></a> est à l'origine de ce standard. Par exemple le <em>devanagari</em> caractère <code>ह</code> utilisé en Sanskrit possède la dénomination Unicode <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//0939" target="_blank">0939</a> et s'encode sur 3 octets : <code>0xE0 0xA4 0xB9</code></p>
-<p>En programmation C, un caractère <code>char</code> ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension. C'est-à-dire que vous ne pouvez pas exprimer un caractère Unicode en utilisant un <code>char</code>. Pour cela, il faudra utiliser un tableau de caractères <code>char</code> ou un tableau de caractères <code>wchar_t</code> qui est capable de stocker un caractère Unicode, mais nous verrons cela plus tard. <span class="ycr-hashtag" data-index-entry="wchar" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="unicode" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="utf8" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="Ken Thompson" data-tag=""></span></p>
+<p>En programmation C, un caractère <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span> ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension. C'est-à-dire que vous ne pouvez pas exprimer un caractère Unicode en utilisant un <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span>. Pour cela, il faudra utiliser un tableau de caractères <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span> ou un tableau de caractères <span class="ycr-hashtag" data-index-entry="wchar_t" data-tag="wchar_t"><code>wchar_t</code></span> qui est capable de stocker un caractère Unicode, mais nous verrons cela plus tard. <span class="ycr-hashtag" data-index-entry="wchar" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="unicode" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="utf8" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="Ken Thompson" data-tag=""></span></p>
 <p>Voici par exemple comment déclarer une variable contenant le caractère dollar :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'$'</span><span class="p">;</span>
 </span></code></pre></div>
@@ -6199,7 +6199,7 @@ les outils associés.
 <p>Les émoticônes que vous pouvez envoyer à votre grand-mère via WhatsApp sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//2764" target="_blank">2764</a> qui est le caractère <code>❤</code>. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.</p>
 <p>Ceci est vrai, mais encore faut-il que la police d'écriture utilisée par votre chère grand-maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère � qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.</p>
 <h2 id="chaine-de-caracteres">Chaîne de caractères<a class="headerlink" href="#chaine-de-caracteres" title="Lien permanent">¤</a></h2>
-<p>Une <strong>chaîne de caractères</strong> est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit <code>NUL</code> ou <code>\0</code>. On appelle ce caractère le caractère de fin de chaîne. Il s'agit d'une <span class="ycr-hashtag" data-index-entry="sentinelle" data-tag="sentinelle">sentinelle</span>.</p>
+<p>Une <strong>chaîne de caractères</strong> est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit <span class="ycr-hashtag" data-index-entry="NUL" data-tag="NUL"><code>NUL</code></span> ou <code>\0</code>. On appelle ce caractère le caractère de fin de chaîne. Il s'agit d'une <span class="ycr-hashtag" data-index-entry="sentinelle" data-tag="sentinelle">sentinelle</span>.</p>
 <div class="admonition example">
 <p class="admonition-title">Les légumes et les choux</p>
 <p>Imaginez que l'on vous demande de vous placer dans un champ et de déterrer n'importe quel légume sauf un chou. Votre algorithme est :</p>
@@ -6213,7 +6213,7 @@ flowchart LR
 <p>Si vous trouvez un chou, vous savez que vous êtes arrivés au bout du champ. Le chou fait office de sentinelle.</p>
 <p>Sans sentinelle, vous êtes obligé de connaître à l'avance le nombre de pas à faire pour arriver au bout du champ. Vous devez donc stocker en mémoire cette information additionnelle ce qui n'est pas pratique.</p>
 </div>
-<p>La chaîne de caractère <code>Hello</code> sera en mémoire stockée en utilisant les codes ASCII suivants.</p>
+<p>La chaîne de caractère <span class="ycr-hashtag" data-index-entry="Hello" data-tag="Hello"><code>Hello</code></span> sera en mémoire stockée en utilisant les codes ASCII suivants.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">;</span>
 </span></code></pre></div>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>  H   E   L   L   O  \0
@@ -6231,7 +6231,7 @@ flowchart LR
 <p>On utilise le caractère nul <code>\0</code> pour plusieurs raisons :</p>
 <ol>
 <li>Il est facilement reconnaissable.</li>
-<li>Dans un test il vaut <code>false</code>.</li>
+<li>Dans un test il vaut <span class="ycr-hashtag" data-index-entry="false" data-tag="false"><code>false</code></span>.</li>
 <li>Il n'est pas imprimable.</li>
 </ol>
 <div class="admonition warning">
@@ -6239,20 +6239,20 @@ flowchart LR
 <p>Ne pas confondre le caractère nul <code>\0</code> avec le caractère <code>0</code>. Le premier est un caractère de fin de chaîne, le second est un caractère numérique qui vaut <code>0x30</code>. Le caractère nul est la valeur <code>0</code> selon la table ASCII.</p>
 </div>
 <h2 id="booleens">Booléens<a class="headerlink" href="#booleens" title="Lien permanent">¤</a></h2>
-<p>Un <a href="https://fr.wikipedia.org/wiki/Bool%C3%A9en">booléen</a> est un type de donnée à deux états consensuellement nommés <em>vrai</em> (<code>true</code>) et <em>faux</em> (<code>false</code>) et destinés à représenter les états en logique booléenne (Nom venant de <a href="https://fr.wikipedia.org/wiki/George_Boole">George Boole,</a> fondateur de l'algèbre éponyme). <span class="ycr-hashtag" data-index-entry="booléen" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="George Boole" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="Boole, George" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="true" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="false" data-tag=""></span></p>
+<p>Un <a href="https://fr.wikipedia.org/wiki/Bool%C3%A9en">booléen</a> est un type de donnée à deux états consensuellement nommés <em>vrai</em> (<span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span>) et <em>faux</em> (<span class="ycr-hashtag" data-index-entry="false" data-tag="false"><code>false</code></span>) et destinés à représenter les états en logique booléenne (Nom venant de <a href="https://fr.wikipedia.org/wiki/George_Boole">George Boole,</a> fondateur de l'algèbre éponyme). <span class="ycr-hashtag" data-index-entry="booléen" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="George Boole" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="Boole, George" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="true" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="false" data-tag=""></span></p>
 <p>La convention est d'utiliser <code>1</code> pour mémoriser un état vrai, et <code>0</code> pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.</p>
-<p>Les <strong>booléens</strong> ont été introduits formellement en C avec <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> et nécessitent l'inclusion du fichier d'en-tête <code>&lt;stdbool.h&gt;</code>. Avant cela le type booléen était <code>_Bool</code> et définir les états vrais et faux était à la charge du développeur. <span class="ycr-hashtag" data-index-entry="&lt;stdbool.h&gt;" data-tag=""></span></p>
+<p>Les <strong>booléens</strong> ont été introduits formellement en C avec <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> et nécessitent l'inclusion du fichier d'en-tête <code>&lt;stdbool.h&gt;</code>. Avant cela le type booléen était <span class="ycr-hashtag" data-index-entry="_Bool" data-tag="_Bool"><code>_Bool</code></span> et définir les états vrais et faux était à la charge du développeur. <span class="ycr-hashtag" data-index-entry="&lt;stdbool.h&gt;" data-tag=""></span></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kt">bool</span><span class="w"> </span><span class="n">is_enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 </span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="kt">bool</span><span class="w"> </span><span class="n">has_tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Afin de faciliter la lecture du code, il est courant de préfixer les variables booléennes avec les préfixes <code>is_</code> ou <code>has_</code>. À titre d'exemple, si l'on souhaite stocker le genre d'un individu (mâle, ou femelle), on pourrait utiliser la variable <code>is_male</code>.</p>
-<p>Bien qu'un booléen puisse être stocké sur un seul bit, en pratique, il est stocké sur un octet, voire même sur un mot de 32 ou 64 bits. Cela est dû à la manière dont les processeurs manipulent les données en mémoire. Sur une architecture LP64, un booléen sera stocké sur 8 octets. Les valeurs <code>true</code> et <code>false</code> vaudront donc :</p>
+<p>Afin de faciliter la lecture du code, il est courant de préfixer les variables booléennes avec les préfixes <span class="ycr-hashtag" data-index-entry="is_" data-tag="is_"><code>is_</code></span> ou <span class="ycr-hashtag" data-index-entry="has_" data-tag="has_"><code>has_</code></span>. À titre d'exemple, si l'on souhaite stocker le genre d'un individu (mâle, ou femelle), on pourrait utiliser la variable <span class="ycr-hashtag" data-index-entry="is_male" data-tag="is_male"><code>is_male</code></span>.</p>
+<p>Bien qu'un booléen puisse être stocké sur un seul bit, en pratique, il est stocké sur un octet, voire même sur un mot de 32 ou 64 bits. Cela est dû à la manière dont les processeurs manipulent les données en mémoire. Sur une architecture LP64, un booléen sera stocké sur 8 octets. Les valeurs <span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span> et <span class="ycr-hashtag" data-index-entry="false" data-tag="false"><code>false</code></span> vaudront donc :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>00 00 00 00 00 00 00 00   false
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>00 00 00 00 00 00 00 01   true
 </span></code></pre></div>
-<p>Néanmoins, il est possible d'utiliser le type <code>char</code> pour stocker un booléen. On peut également utiliser de l'arithmétique binaire pour stocker 8 booléen sur un <code>uint8_t</code>. Voici un exemple de stockage de 8 booléens sur un <code>uint8_t</code> :</p>
+<p>Néanmoins, il est possible d'utiliser le type <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span> pour stocker un booléen. On peut également utiliser de l'arithmétique binaire pour stocker 8 booléen sur un <span class="ycr-hashtag" data-index-entry="uint8_t" data-tag="uint8_t"><code>uint8_t</code></span>. Voici un exemple de stockage de 8 booléens sur un <span class="ycr-hashtag" data-index-entry="uint8_t" data-tag="uint8_t"><code>uint8_t</code></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="kt">uint8_t</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span>
@@ -6279,7 +6279,7 @@ définies numériquement dans le type énuméré.</p>
 </span><span id="__span-14-11"><a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">    </span><span class="n">COLOR_WHITE</span>
 </span><span id="__span-14-12"><a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>Le type d'une énumération est apparenté à un entier <code>int</code>. Sans précision, la première valeur vaut 0, la suivante 1, etc. Il est néanmoins possible de forcer les valeurs de la manière suivante : <span class="ycr-hashtag" data-index-entry="enum" data-tag=""></span></p>
+<p>Le type d'une énumération est apparenté à un entier <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span>. Sans précision, la première valeur vaut 0, la suivante 1, etc. Il est néanmoins possible de forcer les valeurs de la manière suivante : <span class="ycr-hashtag" data-index-entry="enum" data-tag=""></span></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">country_codes</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="n">CODE_SWITZERLAND</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="n">CODE_BELGIUM</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -6307,20 +6307,20 @@ définies numériquement dans le type énuméré.</p>
 </span><span id="__span-16-15"><a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="type-incomplet">Type incomplet<a class="headerlink" href="#type-incomplet" title="Lien permanent">¤</a></h2>
-<p>En C, un <span class="ycr-hashtag" data-index-entry="type incomplet" data-tag="type-incomplet">type incomplet</span> est un type de données dont la taille n'est pas encore complètement définie au moment de sa déclaration. En d'autres termes, le compilateur sait qu'un type existe, mais ne connaît pas encore la totalité des détails nécessaires pour allouer de la mémoire ou effectuer certaines opérations sur ce type. Un type incomplet peut apparaître dans le cas des structures ou des tableaux, notamment pour l'abstraction de données. Certains types comme <code>void</code> sont également incomplets.</p>
+<p>En C, un <span class="ycr-hashtag" data-index-entry="type incomplet" data-tag="type-incomplet">type incomplet</span> est un type de données dont la taille n'est pas encore complètement définie au moment de sa déclaration. En d'autres termes, le compilateur sait qu'un type existe, mais ne connaît pas encore la totalité des détails nécessaires pour allouer de la mémoire ou effectuer certaines opérations sur ce type. Un type incomplet peut apparaître dans le cas des structures ou des tableaux, notamment pour l'abstraction de données. Certains types comme <span class="ycr-hashtag" data-index-entry="void" data-tag="void"><code>void</code></span> sont également incomplets.</p>
 <h3 id="vlq">VLQ<a class="headerlink" href="#vlq" title="Lien permanent">¤</a></h3>
 <p>Dans certains systèmes, on peut stocker des nombres entiers à taille variable. C'est-à-dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">VLQ</a> utilisés dans le protocole <span class="ycr-hashtag" data-index-entry="MIDI" data-tag="midi">MIDI</span></p>
 <p>On peut stocker un nombre <span class="ycr-hashtag" data-index-entry="VLQ" data-tag="vlq">VLQ</span> en mémoire, mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée, mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.</p>
 <h3 id="type-vide-void">Type vide (<em>void</em>)<a class="headerlink" href="#type-vide-void" title="Lien permanent">¤</a></h3>
-<p>Le type <code>void</code> est particulier. Il s'agit d'un type dit <strong>incomplet</strong>, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien : <span class="ycr-hashtag" data-index-entry="void" data-tag=""></span></p>
+<p>Le type <span class="ycr-hashtag" data-index-entry="void" data-tag="void"><code>void</code></span> est particulier. Il s'agit d'un type dit <strong>incomplet</strong>, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien : <span class="ycr-hashtag" data-index-entry="void" data-tag=""></span></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">shout</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hey!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Il peut être également utilisé comme type générique comme la fonction de copie mémoire <code>memcpy</code> <span class="ycr-hashtag" data-index-entry="memcpy" data-tag=""></span> :</p>
+<p>Il peut être également utilisé comme type générique comme la fonction de copie mémoire <span class="ycr-hashtag" data-index-entry="memcpy" data-tag="memcpy"><code>memcpy</code></span> <span class="ycr-hashtag" data-index-entry="memcpy" data-tag=""></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Le mot clé <code>void</code> ne peut être utilisé que dans les contextes suivants :</p>
+<p>Le mot clé <span class="ycr-hashtag" data-index-entry="void" data-tag="void"><code>void</code></span> ne peut être utilisé que dans les contextes suivants :</p>
 <ul>
 <li>Comme paramètre unique d'une fonction, indiquant que cette fonction n'a pas de paramètres <code>int main(void)</code></li>
 <li>Comme type de retour pour une fonction indiquant que cette fonction ne retourne rien <code>void display(char c)</code></li>
@@ -6328,8 +6328,8 @@ définies numériquement dans le type énuméré.</p>
 </ul>
 <h2 id="transtypage">Transtypage<a class="headerlink" href="#transtypage" title="Lien permanent">¤</a></h2>
 <h3 id="promotion-implicite">Promotion implicite<a class="headerlink" href="#promotion-implicite" title="Lien permanent">¤</a></h3>
-<p>Généralement le type <code>int</code> est de la même largeur que le bus mémoire de donnée d'un ordinateur. <span class="ycr-hashtag" data-index-entry="promotion" data-tag=""></span> C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein du processeur. Les <em>registres</em> du processeur, autrement dit ses casiers mémoires, sont au moins assez grand pour  contenir un <code>int</code>.</p>
-<p>Aussi, la plupart des types de taille inférieure à <code>int</code> sont automatiquement et implicitement promus en <code>int</code>. Le résultat de <code>a + b</code> lorsque <code>a</code> et <code>b</code> sont des <code>char</code> sera automatiquement un <code>int</code>.</p>
+<p>Généralement le type <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> est de la même largeur que le bus mémoire de donnée d'un ordinateur. <span class="ycr-hashtag" data-index-entry="promotion" data-tag=""></span> C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein du processeur. Les <em>registres</em> du processeur, autrement dit ses casiers mémoires, sont au moins assez grand pour  contenir un <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span>.</p>
+<p>Aussi, la plupart des types de taille inférieure à <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> sont automatiquement et implicitement promus en <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span>. Le résultat de <code>a + b</code> lorsque <code>a</code> et <code>b</code> sont des <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span> sera automatiquement un <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span>.</p>
 <table id="_table-7">
 <caption style="caption-side:top"> Promotion numérique</caption><thead>
 <tr>
@@ -6402,7 +6402,7 @@ passe directement à un type <em>int</em>.</p>
 </div>
 </div>
 <h3 id="promotion-explicite">Promotion explicite<a class="headerlink" href="#promotion-explicite" title="Lien permanent">¤</a></h3>
-<p>Il est possible de forcer la promotion d'un type vers un autre en utilisant un transtypage explicite. Par exemple, pour forcer la promotion d'un <code>int</code> vers un <code>double</code> :</p>
+<p>Il est possible de forcer la promotion d'un type vers un autre en utilisant un transtypage explicite. Par exemple, pour forcer la promotion d'un <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> vers un <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">n</span><span class="p">;</span>
 </span></code></pre></div>
@@ -6496,7 +6496,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 <p>Réécrire l'expression ci-dessous en mettant des parenthèses montrant l'ordre des opérations :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Donner la valeur de <code>condition</code> évaluée avec les valeurs suivantes de <code>x</code> et <code>y</code>:</p>
+<p>Donner la valeur de <span class="ycr-hashtag" data-index-entry="condition" data-tag="condition"><code>condition</code></span> évaluée avec les valeurs suivantes de <code>x</code> et <code>y</code>:</p>
 <div class="two-column-list">
 <ol>
 <li><code>x = -1.0; y = 60.;</code></li>
@@ -6519,12 +6519,12 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </span></code></pre></div>
 <div class="two-column-list">
 <ol>
-<li><code>true</code></li>
-<li><code>true</code></li>
-<li><code>false</code></li>
-<li><code>true</code></li>
-<li><code>true</code></li>
-<li><code>true</code></li>
+<li><span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span></li>
+<li><span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span></li>
+<li><span class="ycr-hashtag" data-index-entry="false" data-tag="false"><code>false</code></span></li>
+<li><span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span></li>
+<li><span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span></li>
+<li><span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span></li>
 </ol>
 </div>
 </details>
@@ -6643,7 +6643,7 @@ correspondant.</p>
 \sum_{k=1}^{\inf} k = -\frac{1}{12}
 \]</div>
 <p>Vous ne le croyez pas et décider d'utiliser le superordinateur <a href="https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste">Pensées Profondes</a> pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur <code>n</code> à laquelle s'arrêter.</p>
-<p>Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme <code>time</code>:</p>
+<p>Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme <span class="ycr-hashtag" data-index-entry="time" data-tag="time"><code>time</code></span>:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="gp">$ </span><span class="nb">time</span><span class="w"> </span>./a.out<span class="w"> </span><span class="m">1000000000</span>
 </span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="go">500000000500000000</span>
 </span><span id="__span-41-3"><a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a>
@@ -6759,7 +6759,7 @@ correspondant.</p>
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2024</span>
   </span>
 
     

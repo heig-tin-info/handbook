@@ -3656,7 +3656,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3672,7 +3672,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5086,15 +5086,15 @@ les outils associés.
 </span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <p>Vous pouvez exécuter cet exemple en enregistrant le code dans un fichier <abbr title="Hyper Text Markup Language">HTML</abbr> et en l'ouvrant dans un navigateur. Vous devriez voir les données affichées dans la page.</p>
-<p>Dans cet exemple, la requête est envoyée au serveur avec la fonction <code>fetch</code>, qui renvoie une <strong>promesse</strong>. Lorsque la promesse est résolue (c'est-à-dire lorsque les données sont reçues), la fonction <code>then</code> est appelée pour afficher les données dans la page.</p>
-<p>JavaScript utilise une notation très particulière qui permet de chaîner les actions. C'est implémenté en retournant l'objet courant (<code>this</code> en C++).</p>
-<p>La méthode <code>fetch</code> retourne donc une instance de <code>Promise</code> qui est un objet représentant la résolution ou le rejet d'une valeur asynchrone. Une promesse peut être dans l'un des trois états suivants :</p>
+<p>Dans cet exemple, la requête est envoyée au serveur avec la fonction <span class="ycr-hashtag" data-index-entry="fetch" data-tag="fetch"><code>fetch</code></span>, qui renvoie une <strong>promesse</strong>. Lorsque la promesse est résolue (c'est-à-dire lorsque les données sont reçues), la fonction <span class="ycr-hashtag" data-index-entry="then" data-tag="then"><code>then</code></span> est appelée pour afficher les données dans la page.</p>
+<p>JavaScript utilise une notation très particulière qui permet de chaîner les actions. C'est implémenté en retournant l'objet courant (<span class="ycr-hashtag" data-index-entry="this" data-tag="this"><code>this</code></span> en C++).</p>
+<p>La méthode <span class="ycr-hashtag" data-index-entry="fetch" data-tag="fetch"><code>fetch</code></span> retourne donc une instance de <span class="ycr-hashtag" data-index-entry="Promise" data-tag="Promise"><code>Promise</code></span> qui est un objet représentant la résolution ou le rejet d'une valeur asynchrone. Une promesse peut être dans l'un des trois états suivants :</p>
 <ol>
 <li>en attente,</li>
 <li>résolue ou</li>
 <li>rejetée.</li>
 </ol>
-<p>Lorsqu'une promesse est résolue, la méthode <code>then</code> est appelée avec la valeur de la promesse. Si la promesse est rejetée, la méthode <code>catch</code> est appelée avec l'erreur.</p>
+<p>Lorsqu'une promesse est résolue, la méthode <span class="ycr-hashtag" data-index-entry="then" data-tag="then"><code>then</code></span> est appelée avec la valeur de la promesse. Si la promesse est rejetée, la méthode <span class="ycr-hashtag" data-index-entry="catch" data-tag="catch"><code>catch</code></span> est appelée avec l'erreur.</p>
 <p>En JavaScript les fonctions lambda aussi appelées fonctions fléchées (<code>=&gt;</code>) sont très utilisées. Elles permettent de définir des fonctions de manière plus concise. Par exemple le code traduit en C++ pourrait ressembler à ceci :</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">fetch</span><span class="p">(</span><span class="s">"https://jsonplaceholder.typicode.com/posts"</span><span class="p">)</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="p">.</span><span class="n">then</span><span class="p">([](</span><span class="n">Response</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5104,7 +5104,7 @@ les outils associés.
 </span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="n">document</span><span class="p">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s">"data"</span><span class="p">).</span><span class="n">innerText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">.</span><span class="n">stringify</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 </span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="p">});</span>
 </span></code></pre></div>
-<p>On note donc que la fonction <code>fetch</code> n'est pas bloquante, une action est associée lorsque la promesse sera résolue. On voit ici une chaîne d'actions qui se déclenchent les unes après les autres.</p>
+<p>On note donc que la fonction <span class="ycr-hashtag" data-index-entry="fetch" data-tag="fetch"><code>fetch</code></span> n'est pas bloquante, une action est associée lorsque la promesse sera résolue. On voit ici une chaîne d'actions qui se déclenchent les unes après les autres.</p>
 <ol>
 <li>On fait la promesse qu'une réponse sera reçue</li>
 <li>Une fois les données reçu, on promet de les transformer en JSON</li>
@@ -5114,7 +5114,7 @@ les outils associés.
 <h2 id="c-et-la-programmation-asynchrone">C++ et la programmation asynchrone<a class="headerlink" href="#c-et-la-programmation-asynchrone" title="Lien permanent">¤</a></h2>
 <p>En C++ la notion de promesse et de future ont été introduites en C++11. Leur fonctionnement est similaire à celui des promesses en JavaScript.</p>
 <p>Une future est un objet qui contient une valeur qui sera disponible dans le futur. Elle est associée à une promesse qui est l'objet qui promet de fournir la valeur.</p>
-<p>L'exemple donné en JavaScript n'est pas directement transposable en C++ car le langage ne possède pas de fonction <code>fetch</code> qui permet de faire des requêtes HTTP de manière asynchrone. Néanmoins l'utilisation de la bibliothèque <strong>CURL</strong> et <code>nlohmann/json</code> peut nous aider.</p>
+<p>L'exemple donné en JavaScript n'est pas directement transposable en C++ car le langage ne possède pas de fonction <span class="ycr-hashtag" data-index-entry="fetch" data-tag="fetch"><code>fetch</code></span> qui permet de faire des requêtes HTTP de manière asynchrone. Néanmoins l'utilisation de la bibliothèque <strong>CURL</strong> et <code>nlohmann/json</code> peut nous aider.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libcurl4<span class="w"> </span>libcurl4-openssl-dev<span class="w"> </span>nlohmann-json3-dev
 </span></code></pre></div>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>

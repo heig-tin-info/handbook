@@ -3905,7 +3905,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3921,7 +3921,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5433,7 +5433,7 @@ les outils associés.
 
 <h1 id="fichiers">Fichiers<a class="headerlink" href="#fichiers" title="Lien permanent">¤</a></h1>
 <h2 id="systeme-de-fichiers">Système de fichiers<a class="headerlink" href="#systeme-de-fichiers" title="Lien permanent">¤</a></h2>
-<p>Dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr> tout est fichier. <code>stdin</code> est un fichier, une souris USB est un fichier, un clavier est un fichier, un terminal est un fichier, un programme est un fichier.</p>
+<p>Dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr> tout est fichier. <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span> est un fichier, une souris USB est un fichier, un clavier est un fichier, un terminal est un fichier, un programme est un fichier.</p>
 <p>Les fichiers sont organisés dans une arborescence gérée par un <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_fichiers">système de fichiers</a>. Sous Windows l'arborescence classique est :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>C :
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>├── Program Files         Programmes installés
@@ -5469,7 +5469,7 @@ les outils associés.
 </dd>
 <dt><code>..</code></dt>
 <dd>
-<p>Un fichier qui symbolise le répertoire parent, c'est à dire <code>home</code> lorsque je suis dans <code>john</code>.</p>
+<p>Un fichier qui symbolise le répertoire parent, c'est à dire <span class="ycr-hashtag" data-index-entry="home" data-tag="home"><code>home</code></span> lorsque je suis dans <span class="ycr-hashtag" data-index-entry="john" data-tag="john"><code>john</code></span>.</p>
 </dd>
 </dl>
 <p>La localisation d'un fichier au sein d'un système de fichier peut être soit <strong>absolue</strong> soit <strong>relative</strong>. Cette localisation s'appelle un <strong>chemin</strong> ou <em>path</em>. La convention est d'utiliser le symbole :</p>
@@ -5529,8 +5529,8 @@ les outils associés.
 </span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="n">getchar</span><span class="p">();</span>
 </span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Lorsque le programme ci-dessus est exécuté, il va demander l'ouverture du fichier <code>toto</code> en lecture et recevoir un descripteur de fichier <code>fd</code> (<em>file descriptor</em>) positif en cas de succès ou négatif en cas d'erreur.</p>
-<p>Dans l'exemple suivant, on compile, puis exécute en arrière-plan le programme qui ne se terminera pas puisqu'il attend un caractère d'entrée. L'appel au programme <code>ps</code> permet de lister la liste des processus en cours et la recherche de <code>test</code> permet de noter le numéro du processus, ici <code>6690</code>. Dans l'arborescence de fichiers, il est possible d'aller consulter les descripteurs de fichiers ouverts pour le processus concerné.</p>
+<p>Lorsque le programme ci-dessus est exécuté, il va demander l'ouverture du fichier <span class="ycr-hashtag" data-index-entry="toto" data-tag="toto"><code>toto</code></span> en lecture et recevoir un descripteur de fichier <code>fd</code> (<em>file descriptor</em>) positif en cas de succès ou négatif en cas d'erreur.</p>
+<p>Dans l'exemple suivant, on compile, puis exécute en arrière-plan le programme qui ne se terminera pas puisqu'il attend un caractère d'entrée. L'appel au programme <code>ps</code> permet de lister la liste des processus en cours et la recherche de <span class="ycr-hashtag" data-index-entry="test" data-tag="test"><code>test</code></span> permet de noter le numéro du processus, ici <code>6690</code>. Dans l'arborescence de fichiers, il est possible d'aller consulter les descripteurs de fichiers ouverts pour le processus concerné.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>test.c<span class="w"> </span>-o<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./test<span class="w"> </span><span class="p">&amp;</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="gp">$ </span>ps<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="nb">test</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="go">ycr       6690  0.0  0.0  10540   556 pts/4    T    11:19   0:00 test</span>
@@ -5539,13 +5539,13 @@ les outils associés.
 </span></code></pre></div>
 <p>On observe que trois descripteurs de fichiers sont ouverts.</p>
 <ul>
-<li><code>0</code> pour <code>STDIN</code></li>
-<li><code>1</code> pour <code>STDOUT</code></li>
-<li><code>2</code> pour <code>STDERR</code></li>
-<li><code>3</code> pour le fichier <code>toto</code> ouvert en lecture seule</li>
+<li><code>0</code> pour <span class="ycr-hashtag" data-index-entry="STDIN" data-tag="STDIN"><code>STDIN</code></span></li>
+<li><code>1</code> pour <span class="ycr-hashtag" data-index-entry="STDOUT" data-tag="STDOUT"><code>STDOUT</code></span></li>
+<li><code>2</code> pour <span class="ycr-hashtag" data-index-entry="STDERR" data-tag="STDERR"><code>STDERR</code></span></li>
+<li><code>3</code> pour le fichier <span class="ycr-hashtag" data-index-entry="toto" data-tag="toto"><code>toto</code></span> ouvert en lecture seule</li>
 </ul>
-<p>La fonction <code>open</code> est en réalité un appel système qui n'est standardisé que sous <abbr title="Portable Operating System Interface">POSIX</abbr>, c'est-à-dire que son utilisation n'est pas portable. L'exemple cité est principalement évoqué pour mieux comprendre le mécanisme de fond pour l'accès aux fichiers.</p>
-<p>En réalité la bibliothèque standard, respectueuse de <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, dispose d'une fonction <code>fopen</code> pour <em>file open</em> qui offre plus de fonctionnalités. Ouvrir un fichier se résume donc à</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="open" data-tag="open"><code>open</code></span> est en réalité un appel système qui n'est standardisé que sous <abbr title="Portable Operating System Interface">POSIX</abbr>, c'est-à-dire que son utilisation n'est pas portable. L'exemple cité est principalement évoqué pour mieux comprendre le mécanisme de fond pour l'accès aux fichiers.</p>
+<p>En réalité la bibliothèque standard, respectueuse de <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, dispose d'une fonction <span class="ycr-hashtag" data-index-entry="fopen" data-tag="fopen"><code>fopen</code></span> pour <em>file open</em> qui offre plus de fonctionnalités. Ouvrir un fichier se résume donc à</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
@@ -5590,7 +5590,7 @@ les outils associés.
 <p>L'ouverture d'un fichier cause, selon le mode, un accès exclusif au fichier. C'est-à-dire que d'autres programmes ne pourront pas accéder à ce fichier. Il est donc essentiel de toujours refermer l'accès à un fichier dès lors que l'opération de lecture ou d'écriture est terminée :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">flose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
 </span></code></pre></div>
-<p>On peut noter que sous <abbr title="Portable Operating System Interface">POSIX</abbr>, écrire sur <code>stdout</code> ou <code>stderr</code> est exactement la même chose qu'écrire sur un fichier, il n'y a aucune distinction.</p>
+<p>On peut noter que sous <abbr title="Portable Operating System Interface">POSIX</abbr>, écrire sur <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> ou <span class="ycr-hashtag" data-index-entry="stderr" data-tag="stderr"><code>stderr</code></span> est exactement la même chose qu'écrire sur un fichier, il n'y a aucune distinction.</p>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Numéro de ligne<span class="exercise-title"></span></p>
 <p>Écrire un programme qui saisit le nom d'un fichier texte, ainsi qu'un texte à rechercher. Le programme affiche ensuite le numéro de toutes les lignes du fichier contenant le texte recherché.</p>
@@ -5610,22 +5610,22 @@ les outils associés.
 </div>
 <h2 id="navigation-dans-un-fichier">Navigation dans un fichier<a class="headerlink" href="#navigation-dans-un-fichier" title="Lien permanent">¤</a></h2>
 <p>Lorsqu'un fichier est ouvert, un curseur virtuel est positionné soit au début soit à la fin du fichier. Lorsque des données sont lues ou écrites, c'est à la position de ce curseur, lequel peut être déplacé en utilisant plusieurs fonctions utilitaires.</p>
-<p>La navigation dans un fichier n'est possible que si le fichier est <em>seekable</em>. Généralement les pointeurs de fichiers <code>stdin</code>, <code>stdout</code> et <code>stderr</code> ne sont pas <em>seekable</em>, et il n'est pas possible de se déplacer dans le fichier, mais seulement écrire dedans.</p>
+<p>La navigation dans un fichier n'est possible que si le fichier est <em>seekable</em>. Généralement les pointeurs de fichiers <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span>, <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> et <span class="ycr-hashtag" data-index-entry="stderr" data-tag="stderr"><code>stderr</code></span> ne sont pas <em>seekable</em>, et il n'est pas possible de se déplacer dans le fichier, mais seulement écrire dedans.</p>
 <h3 id="fseek">fseek<a class="headerlink" href="#fseek" title="Lien permanent">¤</a></h3>
-<p>La fonction <code>fseek</code> permet de déplacer le curseur dans un fichier ouvert. La signature de la fonction est la suivante :</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="fseek" data-tag="fseek"><code>fseek</code></span> permet de déplacer le curseur dans un fichier ouvert. La signature de la fonction est la suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">fseek</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">whence</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Le manuel <a href="http://man7.org/linux/man-pages/man3/fseek.3.html">man fseek</a> indique les trois constantes possibles pour <code>whence</code>:</p>
+<p>Le manuel <a href="http://man7.org/linux/man-pages/man3/fseek.3.html">man fseek</a> indique les trois constantes possibles pour <span class="ycr-hashtag" data-index-entry="whence" data-tag="whence"><code>whence</code></span>:</p>
 <dl>
-<dt><code>SEEK_SET</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="SEEK_SET" data-tag="SEEK_SET"><code>SEEK_SET</code></span></dt>
 <dd>
 <p>Positionne le curseur au début du fichier.</p>
 </dd>
-<dt><code>SEEK_CUR</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="SEEK_CUR" data-tag="SEEK_CUR"><code>SEEK_CUR</code></span></dt>
 <dd>
 <p>Position courante du curseur. Permets d'ajouter un offset relatif à la position courante.</p>
 </dd>
-<dt><code>SEEK_END</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="SEEK_END" data-tag="SEEK_END"><code>SEEK_END</code></span></dt>
 <dd>
 <p>Positionne le curseur à la fin du fichier.</p>
 </dd>
@@ -5657,7 +5657,7 @@ les outils associés.
 <h3 id="rewind">rewind<a class="headerlink" href="#rewind" title="Lien permanent">¤</a></h3>
 <p>L'appel <code>rewind()</code> est équivalent à <code>(void) fseek(stream, 0L, SEEK_SET)</code> et permet de se positionner au début du fichier.</p>
 <h2 id="lecture-ecriture">Lecture / Écriture<a class="headerlink" href="#lecture-ecriture" title="Lien permanent">¤</a></h2>
-<p>La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues <code>printf</code> et <code>scanf</code> pour les flux standards (<em>stdout</em>, <em>stderr</em>), mais en utilisant les variantes préfixées de <code>f</code> :</p>
+<p>La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> et <span class="ycr-hashtag" data-index-entry="scanf" data-tag="scanf"><code>scanf</code></span> pour les flux standards (<em>stdout</em>, <em>stderr</em>), mais en utilisant les variantes préfixées de <code>f</code> :</p>
 <table>
 <thead>
 <tr>
@@ -5692,11 +5692,11 @@ les outils associés.
 </tr>
 </tbody>
 </table>
-<p>L'utilisation avec <code>stdin</code> et <code>stdout</code> comme descripteur de fichier est possible, mais il est préférable dans ce cas d'utiliser les fonctions <code>scanf</code> et <code>printf</code> qui ont les mêmes fonctionnalités.</p>
+<p>L'utilisation avec <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span> et <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> comme descripteur de fichier est possible, mais il est préférable dans ce cas d'utiliser les fonctions <span class="ycr-hashtag" data-index-entry="scanf" data-tag="scanf"><code>scanf</code></span> et <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> qui ont les mêmes fonctionnalités.</p>
 <p>Les nouvelles fonctions à connaître sont les suivantes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">nmemb</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Elle permet une lecture arbitraire de <code>nmemb * size</code> bytes depuis le flux <code>stream</code> dans le buffer <code>ptr</code>:</p>
+<p>Elle permet une lecture arbitraire de <code>nmemb * size</code> bytes depuis le flux <span class="ycr-hashtag" data-index-entry="stream" data-tag="stream"><code>stream</code></span> dans le buffer <span class="ycr-hashtag" data-index-entry="ptr" data-tag="ptr"><code>ptr</code></span>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kt">int32_t</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">fread</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int32_t</span><span class="p">),</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%x</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
@@ -5710,16 +5710,16 @@ les outils associés.
 <p>La seconde fonction est :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">fwrite</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">nmemb</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">)</span>
 </span></code></pre></div>
-<p>La fonction est similaire à <code>fread</code> mais pour écrire sur un flux des données brutes.</p>
+<p>La fonction est similaire à <span class="ycr-hashtag" data-index-entry="fread" data-tag="fread"><code>fread</code></span> mais pour écrire sur un flux des données brutes.</p>
 <h2 id="buffer-de-fichier">Buffer de fichier<a class="headerlink" href="#buffer-de-fichier" title="Lien permanent">¤</a></h2>
 <p>Pour améliorer les performances, <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> prévoit (§7.19.3-3), un espace tampon pour les descripteurs de fichiers qui peuvent être :</p>
 <ol>
-<li><code>unbuffered</code> (<code>_IONBF</code>) : Pas de buffer, les caractères lus ou écrits sont acheminés le plus vite possible de la source à la destination.</li>
-<li><code>fully buffered</code> (<code>_IOFBF</code>) : Le buffer est rempli à chaque lecture ou écriture, puis vidé.</li>
-<li><code>line buffered</code> (<code>_IO_LBF</code>) : Le buffer est rempli à chaque retour à la ligne.</li>
+<li><span class="ycr-hashtag" data-index-entry="unbuffered" data-tag="unbuffered"><code>unbuffered</code></span> (<span class="ycr-hashtag" data-index-entry="_IONBF" data-tag="_IONBF"><code>_IONBF</code></span>) : Pas de buffer, les caractères lus ou écrits sont acheminés le plus vite possible de la source à la destination.</li>
+<li><code>fully buffered</code> (<span class="ycr-hashtag" data-index-entry="_IOFBF" data-tag="_IOFBF"><code>_IOFBF</code></span>) : Le buffer est rempli à chaque lecture ou écriture, puis vidé.</li>
+<li><code>line buffered</code> (<span class="ycr-hashtag" data-index-entry="_IO_LBF" data-tag="_IO_LBF"><code>_IO_LBF</code></span>) : Le buffer est rempli à chaque retour à la ligne.</li>
 </ol>
 <p>Il faut comprendre qu'à chaque instant un programme souhaite écrire dans un fichier, il doit générer un appel système et donc interrompre le noyau. Un programme qui écrirait caractère par caractère sur la sortie standard agirait de la même manière qu'un employé des postes qui irait distribuer son courrier en ne prenant qu'une enveloppe à la fois, de la centrale de distribution au destinataire.</p>
-<p>Par défaut, un pointeur de fichier est <em>fully buffered</em>. C'est-à-dire que dans le cas du programme suivant devrait exécuter 10x l'appel système <code>write</code>, une fois par caractère.</p>
+<p>Par défaut, un pointeur de fichier est <em>fully buffered</em>. C'est-à-dire que dans le cas du programme suivant devrait exécuter 10x l'appel système <span class="ycr-hashtag" data-index-entry="write" data-tag="write"><code>write</code></span>, une fois par caractère.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>
@@ -5750,7 +5750,7 @@ les outils associés.
 </span><span id="__span-18-15"><a href="#__codelineno-18-15" id="__codelineno-18-15" name="__codelineno-18-15"></a><span class="go">write(1, "c", 1c)                        = 1</span>
 </span><span id="__span-18-16"><a href="#__codelineno-18-16" id="__codelineno-18-16" name="__codelineno-18-16"></a><span class="go">write(1, "c", 1c)                        = 1</span>
 </span></code></pre></div>
-<p>Le changement de mode peut être effectué avec la fonction <code>setbuf</code> ou <code>setvbuf</code>:</p>
+<p>Le changement de mode peut être effectué avec la fonction <span class="ycr-hashtag" data-index-entry="setbuf" data-tag="setbuf"><code>setbuf</code></span> ou <span class="ycr-hashtag" data-index-entry="setvbuf" data-tag="setvbuf"><code>setvbuf</code></span>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5763,9 +5763,9 @@ les outils associés.
 </span><span id="__span-19-10"><a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="w">    </span><span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
 </span><span id="__span-19-11"><a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>La fonction <code>fflush</code> force l'écriture malgré l'utilisation d'un buffer.</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="fflush" data-tag="fflush"><code>fflush</code></span> force l'écriture malgré l'utilisation d'un buffer.</p>
 <h2 id="fichiers-et-flux">Fichiers et Flux<a class="headerlink" href="#fichiers-et-flux" title="Lien permanent">¤</a></h2>
-<p>Historiquement les descripteurs de fichiers sont appelés <code>FILE</code> alors qu'ils sont préférablement appelés <code>streams</code> en C++. Un fichier au même titre que <code>stdin</code>, <code>stdout</code> et <code>stderr</code> sont des flux de données. La norme <abbr title="Portable Operating System Interface">POSIX</abbr>, décrit que par défaut les flux :</p>
+<p>Historiquement les descripteurs de fichiers sont appelés <span class="ycr-hashtag" data-index-entry="FILE" data-tag="FILE"><code>FILE</code></span> alors qu'ils sont préférablement appelés <span class="ycr-hashtag" data-index-entry="streams" data-tag="streams"><code>streams</code></span> en C++. Un fichier au même titre que <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span>, <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> et <span class="ycr-hashtag" data-index-entry="stderr" data-tag="stderr"><code>stderr</code></span> sont des flux de données. La norme <abbr title="Portable Operating System Interface">POSIX</abbr>, décrit que par défaut les flux :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Flux de données standards</caption><thead>
 <tr>
@@ -5776,24 +5776,24 @@ les outils associés.
 </thead>
 <tbody>
 <tr>
-<td><code>stdin</code></td>
+<td><span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span></td>
 <td>0</td>
 <td>Flux d'entrée standard</td>
 </tr>
 <tr>
-<td><code>stdout</code></td>
+<td><span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span></td>
 <td>1</td>
 <td>Flux de sortie standard</td>
 </tr>
 <tr>
-<td><code>stderr</code></td>
+<td><span class="ycr-hashtag" data-index-entry="stderr" data-tag="stderr"><code>stderr</code></span></td>
 <td>2</td>
 <td>Flux d'erreur standard</td>
 </tr>
 </tbody>
 </table>
-<p>Ces trois descripteurs de fichiers sont ouverts au début du programme. Le premier fichier ouvert par exemple avec <code>fopen</code> sera très probablement assigné à l'identifiant <code>3</code>, le suivant à <code>4</code>, etc.</p>
-<p>Pour se convaincre de cela, on peut exécuter l'exemple suivant avec le programme <code>strace</code>:</p>
+<p>Ces trois descripteurs de fichiers sont ouverts au début du programme. Le premier fichier ouvert par exemple avec <span class="ycr-hashtag" data-index-entry="fopen" data-tag="fopen"><code>fopen</code></span> sera très probablement assigné à l'identifiant <code>3</code>, le suivant à <code>4</code>, etc.</p>
+<p>Pour se convaincre de cela, on peut exécuter l'exemple suivant avec le programme <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span>:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5805,7 +5805,7 @@ les outils associés.
 </span><span id="__span-20-9"><a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="w">    </span><span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">stderr</span><span class="p">);</span>
 </span><span id="__span-20-10"><a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Pour mémoire, <code>strace</code> permet de capturer les appels système du programme passé en argument et de les afficher. Deux particularités de la commande exécutée sont <code>2&gt;&amp;1</code> qui redirige <code>stderr</code> vers <code>stdout</code> afin de pouvoir rediriger le flux vers <code>grep</code>. Ensuite <code>grep</code> permet de filtrer la sortie pour n'afficher que les lignes contenant <code>open</code>, <code>read</code>, <code>write</code> ou <code>close</code>:</p>
+<p>Pour mémoire, <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span> permet de capturer les appels système du programme passé en argument et de les afficher. Deux particularités de la commande exécutée sont <code>2&gt;&amp;1</code> qui redirige <span class="ycr-hashtag" data-index-entry="stderr" data-tag="stderr"><code>stderr</code></span> vers <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> afin de pouvoir rediriger le flux vers <span class="ycr-hashtag" data-index-entry="grep" data-tag="grep"><code>grep</code></span>. Ensuite <span class="ycr-hashtag" data-index-entry="grep" data-tag="grep"><code>grep</code></span> permet de filtrer la sortie pour n'afficher que les lignes contenant <span class="ycr-hashtag" data-index-entry="open" data-tag="open"><code>open</code></span>, <span class="ycr-hashtag" data-index-entry="read" data-tag="read"><code>read</code></span>, <span class="ycr-hashtag" data-index-entry="write" data-tag="write"><code>write</code></span> ou <span class="ycr-hashtag" data-index-entry="close" data-tag="close"><code>close</code></span>:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span>k<span class="w"> </span><span class="p">|</span><span class="w"> </span>strace<span class="w"> </span>./a.out<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-P<span class="w"> </span><span class="s1">'open|read|write|close'</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="go">read(0, "k\n", 4096)                    = 2</span>
 </span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="go">openat(AT_FDCWD, "file", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3</span>
@@ -5813,7 +5813,7 @@ les outils associés.
 </span><span id="__span-21-5"><a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="go">write(3, "k", 1)                        = 1</span>
 </span><span id="__span-21-6"><a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="go">write(1, "l", 1l)                        = 1</span>
 </span></code></pre></div>
-<p>On peut voir qu’on lit <code>k\n</code> sur le flux <code>0</code>, soit <code>stdin</code>, puis que le fichier <code>file</code> est ouvert, il porte l'identifiant <code>3</code>, enfin on écrit sur <code>1</code>, <code>2</code> et <code>3</code>.</p>
+<p>On peut voir qu’on lit <code>k\n</code> sur le flux <code>0</code>, soit <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span>, puis que le fichier <span class="ycr-hashtag" data-index-entry="file" data-tag="file"><code>file</code></span> est ouvert, il porte l'identifiant <code>3</code>, enfin on écrit sur <code>1</code>, <code>2</code> et <code>3</code>.</p>
 <h2 id="formats-de-serialisation">Formats de sérialisation<a class="headerlink" href="#formats-de-serialisation" title="Lien permanent">¤</a></h2>
 <p>Souvent les fichiers sont utilisés pour stocker de l'information organisée en grille, par exemple, la liste des températures maximales par ville et par mois :</p>
 <table>
@@ -5980,7 +5980,7 @@ les outils associés.
 </span></code></pre></div>
 <p>Idéalement on utilise comme caractère de remplissage le caractère nul <code>\0</code>, mais le caractère espace peut aussi convenir à condition que les données ne contiennent pas d'espace.</p>
 <p>La lecture aléatoire de ce type de fichier est facilitée, car la position de chaque entrée est connue à l'avance, on sait par exemple que le pays est stocké sur 11 caractères, la ville sur 9 caractères et chaque température sur 7 caractères.</p>
-<p>L'utilisation de <code>fseek</code> est par conséquent utile :</p>
+<p>L'utilisation de <span class="ycr-hashtag" data-index-entry="fseek" data-tag="fseek"><code>fseek</code></span> est par conséquent utile :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 </span><span id="__span-25-3"><a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">temperature</span><span class="p">;</span>

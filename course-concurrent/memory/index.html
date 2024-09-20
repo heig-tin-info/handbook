@@ -3656,7 +3656,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3672,7 +3672,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5231,7 +5231,7 @@ les outils associés.
 <p>On appelle cela le false sharing car les deux processeurs ne partagent pas la même donnée mais ils partagent la même ligne de cache.</p>
 <p>En C++17 le concept de <code>std::hardware_destructive_interference_size</code> permet de connaître la taille d'une ligne de cache. Il n'est néanmoins pas disponible dans tous les compilateurs. On peut utiliser la valeur 64 octets pour la plupart des processeurs.</p>
 <h2 id="compteur-de-performance">Compteur de performance<a class="headerlink" href="#compteur-de-performance" title="Lien permanent">¤</a></h2>
-<p>Un processeur moderne possède des compteurs de performance qui permettent de mesurer le comportement du processeeur. A chaque mauvaise prédiction d'embranchement, à chaque ralentissement d'un calcul FPU, à chaque évènement du cache (miss, hit, etc) un compteur est incrémenté. Ces compteurs sont accessibles via l'outil <code>perf</code> sur Linux et <code>VTune</code> sur Windows. Ce sont des outils indispensables pour mesurer les performances d'un programme.</p>
+<p>Un processeur moderne possède des compteurs de performance qui permettent de mesurer le comportement du processeeur. A chaque mauvaise prédiction d'embranchement, à chaque ralentissement d'un calcul FPU, à chaque évènement du cache (miss, hit, etc) un compteur est incrémenté. Ces compteurs sont accessibles via l'outil <span class="ycr-hashtag" data-index-entry="perf" data-tag="perf"><code>perf</code></span> sur Linux et <span class="ycr-hashtag" data-index-entry="VTune" data-tag="VTune"><code>VTune</code></span> sur Windows. Ce sont des outils indispensables pour mesurer les performances d'un programme.</p>
 <h2 id="exemples">Exemples<a class="headerlink" href="#exemples" title="Lien permanent">¤</a></h2>
 <p>Dans ce chapitre, l'objectif est de sensibilier le lecteur aux ralentissements causés par le matériel. Il ne suffit pas de faire de la programmation concurrente en cherchant à paralleliser un maximum de tâches pour obtenir un programme plus rapide. Il est nécessaire de prendre en compte les problèmes de cohérence de cache et de localité spatiale.</p>
 <p>Plusieurs exemples vont être donnés :</p>

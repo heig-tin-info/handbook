@@ -3654,7 +3654,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3670,7 +3670,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -4967,9 +4967,9 @@ les outils associés.
 </span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>La fonction <code>get_number</code> alloue dynamiquement un espace de la taille d'un entier et lui assigne une valeur aléatoire. Dans le programme principal, l'adresse retournée est déréférencée pour être affichée sur la sortie standard.</p>
-<p>A la fin de l'exécution de la boucle for, une centaine d'espaces mémoire sont maintenant dans les <a href="https://fr.wikipedia.org/wiki/Limbes">limbes</a>. Comme le pointeur retourné n'a jamais été mémorisé, il n'est plus possible de libérer cet espace mémoire avec <code>free</code>.</p>
-<p>On dit que le programme à une <a href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a>. En admettant que ce programme reste résidant en mémoire, il peut arriver un moment où le programme peut aller jusqu'à utiliser toute la RAM disponible. Dans ce cas, il est probable que <code>malloc</code> retourne <code>NULL</code> et qu'une erreur de segmentation apparaisse lors du <code>printf</code>.</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="get_number" data-tag="get_number"><code>get_number</code></span> alloue dynamiquement un espace de la taille d'un entier et lui assigne une valeur aléatoire. Dans le programme principal, l'adresse retournée est déréférencée pour être affichée sur la sortie standard.</p>
+<p>A la fin de l'exécution de la boucle for, une centaine d'espaces mémoire sont maintenant dans les <a href="https://fr.wikipedia.org/wiki/Limbes">limbes</a>. Comme le pointeur retourné n'a jamais été mémorisé, il n'est plus possible de libérer cet espace mémoire avec <span class="ycr-hashtag" data-index-entry="free" data-tag="free"><code>free</code></span>.</p>
+<p>On dit que le programme à une <a href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a>. En admettant que ce programme reste résidant en mémoire, il peut arriver un moment où le programme peut aller jusqu'à utiliser toute la RAM disponible. Dans ce cas, il est probable que <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span> retourne <span class="ycr-hashtag" data-index-entry="NULL" data-tag="NULL"><code>NULL</code></span> et qu'une erreur de segmentation apparaisse lors du <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span>.</p>
 <p>Allons plus loin dans notre exemple et considérons le code suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
@@ -5016,9 +5016,9 @@ les outils associés.
 </span><span id="__span-1-43"><a href="#__codelineno-1-43" id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="w">    </span><span class="p">};</span>
 </span><span id="__span-1-44"><a href="#__codelineno-1-44" id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>La fonction <code>get_number</code> alloue dynamiquement un espace mémoire et assigne un nombre aléatoire. Les fonctions <code>foo</code> et <code>bar</code> reçoivent en paramètre un pointeur sur un entier. Chacune à le choix de mémoriser ce pointeur et de clamer sur <code>stdout</code> qu'elle aime un des nombres mémorisés.</p>
-<p>Au niveau du <code>#if 0</code> dans la fonction <code>main</code>, il est impossible de savoir si l'adresse pointée par <code>num</code> est encore utilisée ou non. Il se peut que <code>foo</code> et <code>bar</code> utilisent cet espace mémoire, comme il se peut qu'aucun des deux ne l'utilise.</p>
-<p>Comment peut-on savoir si il est possible de libérer ou non <code>num</code> ?</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="get_number" data-tag="get_number"><code>get_number</code></span> alloue dynamiquement un espace mémoire et assigne un nombre aléatoire. Les fonctions <span class="ycr-hashtag" data-index-entry="foo" data-tag="foo"><code>foo</code></span> et <span class="ycr-hashtag" data-index-entry="bar" data-tag="bar"><code>bar</code></span> reçoivent en paramètre un pointeur sur un entier. Chacune à le choix de mémoriser ce pointeur et de clamer sur <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> qu'elle aime un des nombres mémorisés.</p>
+<p>Au niveau du <code>#if 0</code> dans la fonction <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span>, il est impossible de savoir si l'adresse pointée par <span class="ycr-hashtag" data-index-entry="num" data-tag="num"><code>num</code></span> est encore utilisée ou non. Il se peut que <span class="ycr-hashtag" data-index-entry="foo" data-tag="foo"><code>foo</code></span> et <span class="ycr-hashtag" data-index-entry="bar" data-tag="bar"><code>bar</code></span> utilisent cet espace mémoire, comme il se peut qu'aucun des deux ne l'utilise.</p>
+<p>Comment peut-on savoir si il est possible de libérer ou non <span class="ycr-hashtag" data-index-entry="num" data-tag="num"><code>num</code></span> ?</p>
 <p>Une solution couramment utilisée en C++ s'appelle un <em>smart pointer</em>. Il s'agit d'un pointeur qui contient en plus de l'adresse de la valeur, le nombre de références utilisées. De cette manière il est possible en tout temps de savoir si le pointeur est référencé quelque part. Dans le cas où le nombre de référence tombe à zéro, il est possible de libérer la ressource.</p>
 <p>Dans un certain nombre de langage de programmation comme Python ou Java, il existe un mécanisme automatique nommé <em>Garbage Collector</em> et qui, périodiquement, fait un tour de toutes les allocations dynamique pour savoir si elle sont encore référencées ou non. Le cas échéant, le <em>gc</em> décide libérer la ressource mémoire. De cette manière il n'est plus nécessaire de faire la chasse aux ressources allouées.</p>
 <p>En revanche, en C, il n'existe aucun mécanisme aussi sophistiqué alors prenez garde à bien libérer les ressources utilisées et à éviter d'écrire des fonctions qui allouent du contenu mémoire dynamiquement.</p>

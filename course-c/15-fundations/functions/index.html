@@ -3850,7 +3850,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3866,7 +3866,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5371,9 +5371,9 @@ les outils associés.
 <p>On pourrait résumer ce travail par une fonction C, ici prenant un rhizome et deux herbes en entrée et générant un mélange en sortie.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">blend</span><span class="w"> </span><span class="nf">slice_and_blend</span><span class="p">(</span><span class="n">rootstock</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">herb</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">herb</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Pour des recettes complexes, il se pourrait que la fonction <code>slice_and_blend</code> soit appelée plusieurs fois à la suite, mais avec des ingrédients différents. De même que cette fonction fait appel à une autre fonction plus simple tel que <code>slice</code> (découper) ou <code>blend_together</code> (incorporer).</p>
+<p>Pour des recettes complexes, il se pourrait que la fonction <span class="ycr-hashtag" data-index-entry="slice_and_blend" data-tag="slice_and_blend"><code>slice_and_blend</code></span> soit appelée plusieurs fois à la suite, mais avec des ingrédients différents. De même que cette fonction fait appel à une autre fonction plus simple tel que <span class="ycr-hashtag" data-index-entry="slice" data-tag="slice"><code>slice</code></span> (découper) ou <span class="ycr-hashtag" data-index-entry="blend_together" data-tag="blend_together"><code>blend_together</code></span> (incorporer).</p>
 <p>Et le contexte dans tout cela ? Il existe selon le langage de programmation et l'architecture processeur ce que l'on appelle les <a href="https://en.wikipedia.org/wiki/Calling_convention">conventions d'appel</a>. C'est-à-dire les règles qui régissent les interactions entre les appels de fonctions. Dans notre exemple, on adoptera peut-être la convention que n'importe quelle fonction trouvera ses ingrédients d'entrées dans les casiers R1, R2 et R3 et que le résultat de la fonction, ici le <em>blend</em>, sera placé dans le casier R8. Ainsi peu importe les herbes en entrée, le vieux Kamaji peut travailler les yeux fermés, piochant simplement dans R1, R2 et R3.</p>
-<p>On observe néanmoins dans la recette évoquée plus haut qu'il utilise d'autres casiers, R4, et R5. Il faut donc faire très attention à ce qu'une autre fonction peut-être la fonction <code>slice</code>, n'utilise pas dans sa propre recette le casier R5, car sinon, c'est la catastrophe.</p>
+<p>On observe néanmoins dans la recette évoquée plus haut qu'il utilise d'autres casiers, R4, et R5. Il faut donc faire très attention à ce qu'une autre fonction peut-être la fonction <span class="ycr-hashtag" data-index-entry="slice" data-tag="slice"><code>slice</code></span>, n'utilise pas dans sa propre recette le casier R5, car sinon, c'est la catastrophe.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">herb</span><span class="w"> </span><span class="nf">slice</span><span class="p">(</span><span class="n">herb</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Kamaji entrepose temporairement les feuilles de menthe verte dans R5 et lorsqu'il en a besoin, plus tard, après avoir découpé les fleurs de <a href="https://fr.wikipedia.org/wiki/Mol%C3%A8ne_(plante)">molène</a> que R5 contient des tiges d'une autre plante.</p>
@@ -5400,11 +5400,11 @@ les outils associés.
 <p>La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont empilés et dépilés les éléments au besoin. À chaque appel d'une fonction, la valeur des registres à sauvegarder est empilée et au retour d'une fonction les registres sont dépilés si bien que la fonction d'appel retrouve le <em>stack</em> dans le même état qu'il était avant l'appel d'une fonction enfant.</p>
 <h2 id="prototype">Prototype<a class="headerlink" href="#prototype" title="Lien permanent">¤</a></h2>
 <p><a href="" id="function-prototype"></a></p>
-<p>Le <a href="https://en.wikipedia.org/wiki/Function_prototype">prototype</a> d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour construire des bibliothèques logicielles. La fonction <code>printf</code> que nous ne cessons pas d'utiliser voit son prototype résider dans le fichier <code>&lt;stdio.h&gt;</code> et il est déclaré sous la forme :</p>
+<p>Le <a href="https://en.wikipedia.org/wiki/Function_prototype">prototype</a> d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour construire des bibliothèques logicielles. La fonction <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> que nous ne cessons pas d'utiliser voit son prototype résider dans le fichier <code>&lt;stdio.h&gt;</code> et il est déclaré sous la forme :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>​int printf(const char* format, ...);
 </span></code></pre></div>
 <p>Notons qu'il n'y a pas d'accolades ici.</p>
-<p>Rappelons-le, C est un langage impératif et déclaratif, c'est-à-dire que les instructions sont séquentielles et que les déclarations du code sont interprétées dans l'ordre ou elles apparaissent. Si bien si je veux appeler la fonction <code>make_coffee</code>, il faut qu'elle ait été déclarée avant, c'est à dire plus haut.</p>
+<p>Rappelons-le, C est un langage impératif et déclaratif, c'est-à-dire que les instructions sont séquentielles et que les déclarations du code sont interprétées dans l'ordre ou elles apparaissent. Si bien si je veux appeler la fonction <span class="ycr-hashtag" data-index-entry="make_coffee" data-tag="make_coffee"><code>make_coffee</code></span>, il faut qu'elle ait été déclarée avant, c'est à dire plus haut.</p>
 <p>Le code suivant fonctionne :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">make_coffee</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Please wait...</span><span class="se">\n</span><span class="s">)"</span><span class="p">;</span>
@@ -5414,7 +5414,7 @@ les outils associés.
 </span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="n">make_coffee</span><span class="p">();</span>
 </span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Mais celui-ci ne fonctionnera pas, car <code>make_coffee</code> n'est pas connu au moment de l'appel :</p>
+<p>Mais celui-ci ne fonctionnera pas, car <span class="ycr-hashtag" data-index-entry="make_coffee" data-tag="make_coffee"><code>make_coffee</code></span> n'est pas connu au moment de l'appel :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">make_coffee</span><span class="p">();</span>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">}</span>
@@ -5423,7 +5423,7 @@ les outils associés.
 </span><span id="__span-7-6"><a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Please wait...</span><span class="se">\n</span><span class="s">)"</span><span class="p">;</span>
 </span><span id="__span-7-7"><a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Si pour une raison connue seule du développeur on souhaite déclarer la fonction après <code>main</code>, on peut ajouter le prototype de la fonction avant cette dernière. C'est ce que l'on appelle la déclaration avancée ou <a href="https://fr.wikipedia.org/wiki/D%C3%A9claration_avanc%C3%A9e">forward declaration</a>.</p>
+<p>Si pour une raison connue seule du développeur on souhaite déclarer la fonction après <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span>, on peut ajouter le prototype de la fonction avant cette dernière. C'est ce que l'on appelle la déclaration avancée ou <a href="https://fr.wikipedia.org/wiki/D%C3%A9claration_avanc%C3%A9e">forward declaration</a>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">make_coffee</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5443,15 +5443,15 @@ les outils associés.
 <dl>
 <dt><code>&lt;storage-class&gt;</code></dt>
 <dd>
-<p>Classe de stockage, elle n'est pas utile à ce stade du cours, nous aborderons plus tard les mots clés <code>extern</code>, <code>static</code> et <code>inline</code>.</p>
+<p>Classe de stockage, elle n'est pas utile à ce stade du cours, nous aborderons plus tard les mots clés <span class="ycr-hashtag" data-index-entry="extern" data-tag="extern"><code>extern</code></span>, <span class="ycr-hashtag" data-index-entry="static" data-tag="static"><code>static</code></span> et <span class="ycr-hashtag" data-index-entry="inline" data-tag="inline"><code>inline</code></span>.</p>
 </dd>
 <dt><code>&lt;return-type&gt;</code></dt>
 <dd>
-<p>Le type de retour de la fonction, s'agit-il d'un <code>int</code>, d'un <code>float</code> ? Le type de retour est anonyme, il n'a pas de nom et ce n'est pas nécessaire.</p>
+<p>Le type de retour de la fonction, s'agit-il d'un <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span>, d'un <span class="ycr-hashtag" data-index-entry="float" data-tag="float"><code>float</code></span> ? Le type de retour est anonyme, il n'a pas de nom et ce n'est pas nécessaire.</p>
 </dd>
 <dt><code>&lt;function-name&gt;</code></dt>
 <dd>
-<p>Il s'agit d'un <a class="autorefs autorefs-internal" href="../syntax/#identificateurs">identificateur</a> qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom : <code>compute_norm</code>, <code>make_coffee</code>, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que <code>main</code>, <code>display</code> ou <code>dot_product</code>.</p>
+<p>Il s'agit d'un <a class="autorefs autorefs-internal" href="../syntax/#identificateurs">identificateur</a> qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom : <span class="ycr-hashtag" data-index-entry="compute_norm" data-tag="compute_norm"><code>compute_norm</code></span>, <span class="ycr-hashtag" data-index-entry="make_coffee" data-tag="make_coffee"><code>make_coffee</code></span>, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span>, <span class="ycr-hashtag" data-index-entry="display" data-tag="display"><code>display</code></span> ou <span class="ycr-hashtag" data-index-entry="dot_product" data-tag="dot_product"><code>dot_product</code></span>.</p>
 </dd>
 <dt><code>&lt;parameter-type&gt; &lt;parameter-name&gt;</code></dt>
 <dd>
@@ -5470,7 +5470,7 @@ les outils associés.
 </dd>
 </dl>
 <h3 id="void">void<a class="headerlink" href="#void" title="Lien permanent">¤</a></h3>
-<p>Le type <code>void</code> est à une signification particulière dans la syntaxe d'une fonction. Il peut être utilisé de trois manières différentes :</p>
+<p>Le type <span class="ycr-hashtag" data-index-entry="void" data-tag="void"><code>void</code></span> est à une signification particulière dans la syntaxe d'une fonction. Il peut être utilisé de trois manières différentes :</p>
 <ul>
 <li>
 <p>Pour indiquer l'absence de valeur de retour :</p>
@@ -5496,7 +5496,7 @@ les outils associés.
 </span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="n">dummy</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span><span class="w"> </span><span class="mi">144</span><span class="p">);</span>
 </span><span id="__span-13-6"><a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Aussi, il est impératif de toujours écrire des prototypes complets et d'explicitement utiliser <code>void</code> lorsque la fonction ne prend aucun paramètre en entrée. Si vous utilisez un compilateur C++, une déclaration incomplète génèrera une erreur.</p>
+<p>Aussi, il est impératif de toujours écrire des prototypes complets et d'explicitement utiliser <span class="ycr-hashtag" data-index-entry="void" data-tag="void"><code>void</code></span> lorsque la fonction ne prend aucun paramètre en entrée. Si vous utilisez un compilateur C++, une déclaration incomplète génèrera une erreur.</p>
 <h2 id="parametres">Paramètres<a class="headerlink" href="#parametres" title="Lien permanent">¤</a></h2>
 <p>Comme nous l'avons vu plus haut, pour de meilleures performances à l'exécution, il est préférable de s'en tenir à un maximum de trois paramètres, c'est également plus lisible pour le développeur, mais rien n'empêche d'en avoir plus.</p>
 <p>En plus de cela, les <a href="https://fr.wikipedia.org/wiki/Param%C3%A8tre_(programmation_informatique)">paramètres</a> peuvent être passés de deux manières :</p>
@@ -5526,8 +5526,8 @@ les outils associés.
 </span><span id="__span-15-8"><a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 </span><span id="__span-15-9"><a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Par abus de langage et en comparaison avec d'autres langages de programmation, on appellera ceci un passage par référence, car ce n'est pas une copie du tableau qui est passée à la fonction <code>alter</code>, mais seulement une référence sur ce tableau.</p>
-<p>En des termes plus corrects, mais nous verrons cela au chapitre sur les pointeurs, c'est bien un passage par valeur dans lequel la valeur d'un pointeur sur un tableau est passée à la fonction <code>alter</code>.</p>
+<p>Par abus de langage et en comparaison avec d'autres langages de programmation, on appellera ceci un passage par référence, car ce n'est pas une copie du tableau qui est passée à la fonction <span class="ycr-hashtag" data-index-entry="alter" data-tag="alter"><code>alter</code></span>, mais seulement une référence sur ce tableau.</p>
+<p>En des termes plus corrects, mais nous verrons cela au chapitre sur les pointeurs, c'est bien un passage par valeur dans lequel la valeur d'un pointeur sur un tableau est passée à la fonction <span class="ycr-hashtag" data-index-entry="alter" data-tag="alter"><code>alter</code></span>.</p>
 <p>Retenez simplement que lors d'un passage par référence, on cherche à rendre la valeur passée en paramètre modifiable par le <em>caller</em>.</p>
 <h2 id="exemples-de-fonctions">Exemples de fonctions<a class="headerlink" href="#exemples-de-fonctions" title="Lien permanent">¤</a></h2>
 <p><a href="" id="fib-iterative"></a></p>
@@ -5566,7 +5566,7 @@ les outils associés.
 <h2 id="exercices-de-revision">Exercices de révision<a class="headerlink" href="#exercices-de-revision" title="Lien permanent">¤</a></h2>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Dans la moyenne<span class="exercise-title"></span></p>
-<p>Écrire une fonction <code>mean</code> qui reçoit 3 paramètres réels et qui retourne la moyenne.</p>
+<p>Écrire une fonction <span class="ycr-hashtag" data-index-entry="mean" data-tag="mean"><code>mean</code></span> qui reçoit 3 paramètres réels et qui retourne la moyenne.</p>
 <details class="solution">
 <summary>Solution</summary>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kt">double</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5577,7 +5577,7 @@ les outils associés.
 </div>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Le plus petit<span class="exercise-title"></span></p>
-<p>Écrire une fonction <code>min</code> qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.</p>
+<p>Écrire une fonction <span class="ycr-hashtag" data-index-entry="min" data-tag="min"><code>min</code></span> qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.</p>
 <details class="solution">
 <summary>Solution</summary>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kt">double</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5612,7 +5612,7 @@ les outils associés.
 </span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="m">20</span>
 </span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="m">10</span>
 </span></code></pre></div>
-<p>Le programme reçoit sur <code>stdin</code> les pièces introduites dans la machine. Les deux arguments passés au programme <code>ptm</code> sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. <code>stdout</code> contient les valeurs rendues à l'utilisateur. La valeur <code>ticket</code> correspond au ticket distribué.</p>
+<p>Le programme reçoit sur <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span> les pièces introduites dans la machine. Les deux arguments passés au programme <span class="ycr-hashtag" data-index-entry="ptm" data-tag="ptm"><code>ptm</code></span> sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> contient les valeurs rendues à l'utilisateur. La valeur <span class="ycr-hashtag" data-index-entry="ticket" data-tag="ticket"><code>ticket</code></span> correspond au ticket distribué.</p>
 <p>Le cas échéant, s'il n'est possible de rendre la monnaie, aucun ticket n'est distribué et l'argent donné est rendu.</p>
 <details class="solution">
 <summary>Solution</summary>

@@ -3755,7 +3755,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3771,7 +3771,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5133,12 +5133,12 @@ les outils associés.
 
 <h1 id="bibliotheques">Bibliothèques<a class="headerlink" href="#bibliotheques" title="Lien permanent">¤</a></h1>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/library.jpg"><img alt="Bibliothèque du Trinity College de Dublin" src="../../../assets/images/library.jpg"/></a><figcaption> Bibliothèque du Trinity College de Dublin</figcaption></figure></p>
-<p>Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La <code>printf</code> est une de ces fonctionnalités et offerte par le header <code>&lt;stdio.h&gt;</code> faisant partie de la bibliothèque <code>libc6</code>.</p>
+<p>Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> est une de ces fonctionnalités et offerte par le header <code>&lt;stdio.h&gt;</code> faisant partie de la bibliothèque <span class="ycr-hashtag" data-index-entry="libc6" data-tag="libc6"><code>libc6</code></span>.</p>
 <p>L'anglicisme <em>library</em>, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme <code>&lt;stdlib.h&gt;</code> étant la concaténation de <em>standard library</em> par exemple. Notez que librairie n'est pas la traduction correcte de <em>library</em> qui est un <a href="https://fr.wikipedia.org/wiki/Faux-ami">faux ami</a>.</p>
 <p>Une <em>library</em>, à l'instar d'une bibliothèque, contient du contenu (livre écrit dans une langue donnée) et un index (registre). En informatique il s'agit d'un fichier binaire compilé pour une architecture donnée ainsi qu'un ou plusieurs fichiers d'en-tête (<em>header</em>) contenant les définitions de cette bibliothèque.</p>
 <p>Dans ce chapitre on donnera plusieurs exemples sur un environnement <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Windows, les procédures choses sont plus compliquées, mais les concepts restent les mêmes.</p>
 <h2 id="exemple-libgmp">Exemple : libgmp<a class="headerlink" href="#exemple-libgmp" title="Lien permanent">¤</a></h2>
-<p>Voyons ensemble le cas de <a href="https://packages.ubuntu.com/jammy/libgmp-dev">libgmp</a>. Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que <code>libgmp</code> est disponible pour différentes architectures <code>amd64</code>, <code>arm64</code>, <code>s390x</code>, <code>i386</code>, ... Un développement sur un Raspberry-PI nécessitera <code>arm64</code> alors qu'un développement sur un PC utilisera <code>amd64</code>. En <a href="https://packages.ubuntu.com/jammy/amd64/libgmp-dev/filelist">cliquant</a> sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C):</p>
+<p>Voyons ensemble le cas de <a href="https://packages.ubuntu.com/jammy/libgmp-dev">libgmp</a>. Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que <span class="ycr-hashtag" data-index-entry="libgmp" data-tag="libgmp"><code>libgmp</code></span> est disponible pour différentes architectures <span class="ycr-hashtag" data-index-entry="amd64" data-tag="amd64"><code>amd64</code></span>, <span class="ycr-hashtag" data-index-entry="arm64" data-tag="arm64"><code>arm64</code></span>, <span class="ycr-hashtag" data-index-entry="s390x" data-tag="s390x"><code>s390x</code></span>, <span class="ycr-hashtag" data-index-entry="i386" data-tag="i386"><code>i386</code></span>, ... Un développement sur un Raspberry-PI nécessitera <span class="ycr-hashtag" data-index-entry="arm64" data-tag="arm64"><code>arm64</code></span> alors qu'un développement sur un PC utilisera <span class="ycr-hashtag" data-index-entry="amd64" data-tag="amd64"><code>amd64</code></span>. En <a href="https://packages.ubuntu.com/jammy/amd64/libgmp-dev/filelist">cliquant</a> sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C):</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a># Fichier d'en-tête C
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>/usr/include/x86_64-linux-gnu/gmp.h
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
@@ -5154,15 +5154,15 @@ les outils associés.
 </span></code></pre></div>
 <p>On a donc :</p>
 <dl>
-<dt><code>gmp.h</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="gmp.h" data-tag="gmp.h"><code>gmp.h</code></span></dt>
 <dd>
 <p>Fichier d'en-tête à include dans un fichier source pour utiliser les fonctionnalités</p>
 </dd>
-<dt><code>libgmp.a</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="libgmp.a" data-tag="libgmp.a"><code>libgmp.a</code></span></dt>
 <dd>
 <p>Bibliothèque <strong>statique</strong> qui contient l'implémentation en langage machine des fonctionnalités à référer au <em>linker</em> lors de la compilation</p>
 </dd>
-<dt><code>libgmp.so</code></dt>
+<dt><span class="ycr-hashtag" data-index-entry="libgmp.so" data-tag="libgmp.so"><code>libgmp.so</code></span></dt>
 <dd>
 <p>Bibliothèque <strong>dynamique</strong> qui contient aussi l'implémentation en langage machine des fonctionnalités</p>
 </dd>
@@ -5234,7 +5234,7 @@ les outils associés.
 </span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="go">gmp.c:(.text+0x146): undefined reference to `__gmpz_clear'</span>
 </span><span id="__span-5-12"><a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="go">collect2: error: ld returned 1 exit status</span>
 </span></code></pre></div>
-<p>Cette fois-ci on peut lire que le compilateur à fait sont travail, mais ne parvient pas à trouver les symboles des fonctions que l'on utilise p.ex. <code>__gmpz_add_ui</code>. C'est normal parce que l'on n'a pas renseigné la bibliothèque à utiliser.</p>
+<p>Cette fois-ci on peut lire que le compilateur à fait sont travail, mais ne parvient pas à trouver les symboles des fonctions que l'on utilise p.ex. <span class="ycr-hashtag" data-index-entry="__gmpz_add_ui" data-tag="__gmpz_add_ui"><code>__gmpz_add_ui</code></span>. C'est normal parce que l'on n'a pas renseigné la bibliothèque à utiliser.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>gmp.c<span class="w"> </span>-lgmp
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="gp">$ </span>./a.out
@@ -5242,7 +5242,7 @@ les outils associés.
 </span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="go">19810983098510928501928600000000000002</span>
 </span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="go">392475051329485669436248957939688603493163430354043714007714400000000000004</span>
 </span></code></pre></div>
-<p>Cette manière de faire utilise le fichier <code>libgmp.so</code> qui est la bibliothèque <strong>dynamique</strong>, c'est-à-dire que ce fichier est nécessaire pour que le programme puisse fonctionner. Si je donne mon exécutable à un ami qui n'as pas install libgmp sur son ordinateur, il ne sera pas capable de l'exécuter.</p>
+<p>Cette manière de faire utilise le fichier <span class="ycr-hashtag" data-index-entry="libgmp.so" data-tag="libgmp.so"><code>libgmp.so</code></span> qui est la bibliothèque <strong>dynamique</strong>, c'est-à-dire que ce fichier est nécessaire pour que le programme puisse fonctionner. Si je donne mon exécutable à un ami qui n'as pas install libgmp sur son ordinateur, il ne sera pas capable de l'exécuter.</p>
 <p>Alternativement on peut compiler le même programme en utilisant la librairie <strong>statique</strong></p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>gmp.c<span class="w"> </span>/usr/lib/x86_64-linux-gnu/libgmp.a
 </span></code></pre></div>
@@ -5262,7 +5262,7 @@ les outils associés.
 <h2 id="exemple-ncurses">Exemple : ncurses<a class="headerlink" href="#exemple-ncurses" title="Lien permanent">¤</a></h2>
 <p>La bibliothèque <a href="https://fr.wikipedia.org/wiki/Ncurses">ncurses</a> traduction de <em>nouvelles malédictions</em> est une évolution de <a href="https://fr.wikipedia.org/wiki/Curses">curses</a> développé originellement par <a href="https://en.wikipedia.org/wiki/Ken_Arnold">Ken Arnold</a> . Il s'agit d'une bibliothèque pour la création d'interfaces graphique en ligne de commande, toujours très utilisée.</p>
 <p>La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...</p>
-<p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/linux-menuconfig.png"><img alt="Exemple avec ncurses" src="../../../assets/images/linux-menuconfig.png"/></a><figcaption> Exemple d'interface graphique écrite avec <code>ncurses</code>. Ici la configuration du noyau Linux.</figcaption></figure></p>
+<p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/linux-menuconfig.png"><img alt="Exemple avec ncurses" src="../../../assets/images/linux-menuconfig.png"/></a><figcaption> Exemple d'interface graphique écrite avec <span class="ycr-hashtag" data-index-entry="ncurses" data-tag="ncurses"><code>ncurses</code></span>. Ici la configuration du noyau Linux.</figcaption></figure></p>
 <p>L'écriture d'un programme Hello World avec cette bibliothèque pourrait être :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ncurses.h&gt;</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
@@ -5291,7 +5291,7 @@ les outils associés.
 <li><code>.lib</code> sous Windows</li>
 </ul>
 <p>Une bibliothèque statique n'est rien d'autre qu'une archive d’un ou plusieurs objets. Rappelons-le un objet est le résultat d'une compilation.</p>
-<p>Par exemple si l'on souhaite écrire une bibliothèque statique pour le <a href="https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage">code de César</a> on écrira un fichier source <code>caesar.c</code>:</p>
+<p>Par exemple si l'on souhaite écrire une bibliothèque statique pour le <a href="https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage">code de César</a> on écrira un fichier source <span class="ycr-hashtag" data-index-entry="caesar.c" data-tag="caesar.c"><code>caesar.c</code></span>:</p>
 <div class="language-c highlight"><span class="filename">caesar.c</span><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">caesar</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[],</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="p">{</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="n">key</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mi">26</span><span class="p">;</span>
@@ -5311,7 +5311,7 @@ les outils associés.
 </span><span id="__span-11-17"><a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-11-18"><a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Ainsi qu'un fichier d'en-tête <code>caesar.h</code>:</p>
+<p>Ainsi qu'un fichier d'en-tête <span class="ycr-hashtag" data-index-entry="caesar.h" data-tag="caesar.h"><code>caesar.h</code></span>:</p>
 <div class="language-c highlight"><span class="filename">caesar.h</span><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cm">/**</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="cm"> * Function that compute the Caesar cipher</span>
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="cm"> * @param str input string</span>
@@ -5352,10 +5352,10 @@ les outils associés.
 <p>Reprenant l'exemple de César vu plus haut, on peut créer une bibliothèque dynamique :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>-shared<span class="w"> </span>-o<span class="w"> </span>libcaesar.so<span class="w"> </span>caesar.o
 </span></code></pre></div>
-<p>Puis compiler notre programme pour utiliser cette bibliothèque. Avec une bibliothèque dynamique, il faut spécifier au compilateur quels sont les chemins vers lesquels il pourra trouver les bibliothèques installées. Comme ici on ne souhaite pas <strong>installer</strong> la bibliothèque et la rendre disponible pour tous les programmes, il faut ajouter aux chemins par défaut, le chemin local <code>$(pwd .)</code>, en créant une <strong>variable d'environnement</strong> nommée <code>LIBRARY_PATH</code>.</p>
+<p>Puis compiler notre programme pour utiliser cette bibliothèque. Avec une bibliothèque dynamique, il faut spécifier au compilateur quels sont les chemins vers lesquels il pourra trouver les bibliothèques installées. Comme ici on ne souhaite pas <strong>installer</strong> la bibliothèque et la rendre disponible pour tous les programmes, il faut ajouter aux chemins par défaut, le chemin local <code>$(pwd .)</code>, en créant une <strong>variable d'environnement</strong> nommée <span class="ycr-hashtag" data-index-entry="LIBRARY_PATH" data-tag="LIBRARY_PATH"><code>LIBRARY_PATH</code></span>.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="gp">$ </span><span class="nv">LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="w"> </span>.<span class="k">)</span><span class="w"> </span>gcc<span class="w"> </span>encrypt.c<span class="w"> </span>-I.<span class="w"> </span>-lcaesar
 </span></code></pre></div>
-<p>Le problème est identique à l'exécution, car il faut spécifier (ici avec <code>LD_LIBRARY_PATH</code>) le chemin ou le système d'exploitation s'attendra à trouver la bibliothèque.</p>
+<p>Le problème est identique à l'exécution, car il faut spécifier (ici avec <span class="ycr-hashtag" data-index-entry="LD_LIBRARY_PATH" data-tag="LD_LIBRARY_PATH"><code>LD_LIBRARY_PATH</code></span>) le chemin ou le système d'exploitation s'attendra à trouver la bibliothèque.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="gp">$ </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="w"> </span>.<span class="k">)</span><span class="w"> </span>./a.out<span class="w"> </span>ferrugineux
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="go">sreehtvarhk</span>
 </span></code></pre></div>

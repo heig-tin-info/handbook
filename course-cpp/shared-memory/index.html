@@ -3654,7 +3654,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3670,7 +3670,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5000,7 +5000,7 @@ les outils associés.
 </ul>
 <p>Vous avez déjà vu les flux au chapitre précédent, et les sockets ne font pas partie de ce cours d'introduction.</p>
 <p>Notons que la mémoire partagée est un mécanisme propre à chaque système d'exploitation. Sous <abbr title="Portable Operating System Interface">POSIX</abbr> elle est normalisée et donc un programme compatible <abbr title="Portable Operating System Interface">POSIX</abbr> et utilisant la mémoire partagée pourra fonctionner sous Linux, WSL ou macOS, mais pas sous Windows.</p>
-<p>C'est principalement l'appel système <code>mmap</code> qui est utilisé. Il permet de mapper ou démapper des fichiers ou des périphériques dans la mémoire.</p>
+<p>C'est principalement l'appel système <span class="ycr-hashtag" data-index-entry="mmap" data-tag="mmap"><code>mmap</code></span> qui est utilisé. Il permet de mapper ou démapper des fichiers ou des périphériques dans la mémoire.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">mmap</span><span class="p">(</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">addr</span><span class="p">,</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="c1">// Size in bytes</span>
@@ -5030,7 +5030,7 @@ les outils associés.
 </span><span id="__span-1-17"><a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="file-memory-mapping">File memory mapping<a class="headerlink" href="#file-memory-mapping" title="Lien permanent">¤</a></h3>
-<p>Traditionnellement lorsque l'on souhaite travailler sur un fichier, il convient de l'ouvrir avec <code>fopen</code> et de lire son contenu. Lorsque cela est nécessaire, ce fichier est copié en mémoire :</p>
+<p>Traditionnellement lorsque l'on souhaite travailler sur un fichier, il convient de l'ouvrir avec <span class="ycr-hashtag" data-index-entry="fopen" data-tag="fopen"><code>fopen</code></span> et de lire son contenu. Lorsque cela est nécessaire, ce fichier est copié en mémoire :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">"foo"</span><span class="p">,</span><span class="w"> </span><span class="s">"r"</span><span class="p">);</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">SEEK_END</span><span class="p">);</span>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">filesize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ftell</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>

@@ -3656,7 +3656,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    49 safety
+    Sécurité et Qualité
   
 
     
@@ -3672,7 +3672,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
             
   
-    49 safety
+    Sécurité et Qualité
   
 
           </label>
@@ -5072,8 +5072,8 @@ les outils associés.
 </span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-25"><a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>Dans cet exemple, la méthode <code>notify</code> incrémente le compteur du sémaphore et notifie un thread en attente. La méthode <code>wait</code> attend que le compteur soit supérieur à zéro, puis le décrémente.</p>
-<p>Il est parfois utile pour compter des ressources de fournir aux méthodes <code>notify</code> et <code>wait</code> un argument <code>n</code> pour incrémenter ou décrémenter le compteur de <code>n</code> unités. Cela permet de libérer ou d'acquérir plusieurs ressources en une seule opération. Par exemple, si <code>n</code> est égal à 3, cela signifie que trois ressources sont libérées ou acquises en une seule opération.</p>
+<p>Dans cet exemple, la méthode <span class="ycr-hashtag" data-index-entry="notify" data-tag="notify"><code>notify</code></span> incrémente le compteur du sémaphore et notifie un thread en attente. La méthode <span class="ycr-hashtag" data-index-entry="wait" data-tag="wait"><code>wait</code></span> attend que le compteur soit supérieur à zéro, puis le décrémente.</p>
+<p>Il est parfois utile pour compter des ressources de fournir aux méthodes <span class="ycr-hashtag" data-index-entry="notify" data-tag="notify"><code>notify</code></span> et <span class="ycr-hashtag" data-index-entry="wait" data-tag="wait"><code>wait</code></span> un argument <code>n</code> pour incrémenter ou décrémenter le compteur de <code>n</code> unités. Cela permet de libérer ou d'acquérir plusieurs ressources en une seule opération. Par exemple, si <code>n</code> est égal à 3, cela signifie que trois ressources sont libérées ou acquises en une seule opération.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mutex&gt;</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;condition_variable&gt;</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
@@ -5102,8 +5102,8 @@ les outils associés.
 <p>Le problème du producteur et du consommateur est un problème classique de synchronisation de threads. Il s'agit de synchroniser un ou plusieurs threads producteurs qui produisent des données et un ou plusieurs threads consommateurs qui consomment ces données.</p>
 <p>Le problème du producteur et du consommateur peut être résolu à l'aide de deux sémaphores :</p>
 <ul>
-<li>Un sémaphore <code>empty</code> pour compter le nombre d'emplacements vides dans le tampon</li>
-<li>Un sémaphore <code>full</code> pour compter le nombre d'emplacements pleins dans le tampon</li>
+<li>Un sémaphore <span class="ycr-hashtag" data-index-entry="empty" data-tag="empty"><code>empty</code></span> pour compter le nombre d'emplacements vides dans le tampon</li>
+<li>Un sémaphore <span class="ycr-hashtag" data-index-entry="full" data-tag="full"><code>full</code></span> pour compter le nombre d'emplacements pleins dans le tampon</li>
 </ul>
 
 
