@@ -47,4 +47,24 @@ Table: Fonctions sécurisées du langage C
 
 ### Hacking
 
-(à compléter)
+#### Buffer overflow
+
+Les attaquants peuvent exploiter les dépassements de tampon pour écraser les adresses de retour sur la pile, permettant ainsi l'exécution de code arbitraire. Il s'agit de l'une des failles de sécurité les plus critiques dans les programmes C. Par exemple, dans une fonction vulnérable, l'attaquant peut injecter un shellcode dans le tampon et modifier l'adresse de retour pour pointer vers ce shellcode.
+
+#### Remote code execution
+
+Les dépassements de tampon, mal gérés, peuvent permettre à un attaquant de contrôler à distance le flux d'exécution d'un programme C, menant à une exécution de code arbitraire à distance.
+
+#### Attaque par format de chaîne
+
+En utilisant des chaînes de format mal sécurisées dans des fonctions comme `printf`, un attaquant peut accéder à des zones de mémoire sensibles, voire exécuter du code arbitraire.
+
+```c
+char userInput[100];
+scanf("%s", userInput);
+printf(userInput);  // Vulnérabilité de format
+```
+
+#### Attaque de type
+
+L'attaque *use-after-free* consiste à exploiter un pointeur qui pointe vers une zone mémoire qui a été libérée. L'attaquant peut alors réallouer cette zone mémoire et écrire du code malveillant dedans.
