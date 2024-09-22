@@ -2,8 +2,7 @@
 
 ## Content update
 
-- [ ] Complete Algorithmes utilitaires (split, slurp, join, trim)
-- [ ] Complete part quality and security (buffer overflow... libfuzzer)
+- [ ] Complete part quality and security
 - [ ] Hand drawn flow diagram https://i.sstatic.net/WdbInYwX.png
 - [ ] Add some algorithms from Numeriacl Recipes
   - [ ] Gauss Jordan 36
@@ -17,7 +16,6 @@
 - [ ] Part metaprogramming (Jinja/Python...)
 - [ ] Compilation croisée
 - [ ] Threading? SIMD
-- [ ] libuv, libevent, libev
 - [ ] valdrind, gdb, strace, ltrace
 - [ ] Add section for courses with links to the only required stuff.
 
@@ -31,13 +29,13 @@
   - [ ] Can I ask chat-gpt/openAI to generate it?
 - [ ] Improve syntax for tags/index
 - [ ] Make all figures compatible with both light/dark theme
+  - [ ] Adapt SVG color when added in object
 - [ ] Index table entry with many refs cuz ugly line break indent
 - [ ] On LaTeX description list, add more space between item and desc.
 
 ## Bugs
 
 - [ ] Allow for code inline and markdown inline in table captions
-- [ ] Include regular SVG in objects to be automatically adapted to the theme
 - [ ] Code with title doesn't display well in LaTeX
 - [ ] Image with width should be included with the correct size
 - [ ] Implement local links to code, copy them in appencies
@@ -63,8 +61,6 @@
 
 ## New Features (MkDocs, plugins)
 
-These features are sorted by priority.
-
 - [ ] Split document in multiple volumes
 - [ ] Autoindex of C keywords and functions
 - [ ] Reaveal js slides --> see on slides branch
@@ -83,17 +79,21 @@ These features are sorted by priority.
 - [ ] Translation for permalink title
 - [ ] Tags spacing in theme (search) (.md-tag margin-right: 0.5em;)
 - [ ] Exercises are all checked
-- [ ] Resized tables make them sometime too large (resize but don't enlarge ?)
 - [ ] Bug with examples
 
 ## Changelog
+
+- [x] libuv
+- [x] Complete Algorithmes utilitaires (split, slurp, join, trim)
+
+### 0.1.12
 
 - [x] Slighly reduce the size of the tables
 - [x] Do not enlarge tables in LaTeX, only reduce when too large
 - [x] Reduce tables by default
 - [x] Add index entries for single inline keywords (printf, ...)
 
-## 0.1.10
+### 0.1.10
 
 #### Content
 

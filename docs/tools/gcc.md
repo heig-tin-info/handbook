@@ -88,30 +88,66 @@ $ gcc main.c add.c -o main
 
 `gcc` et `g++` acceptent de nombreuses options de compilation. Les plus courantes sont :
 
-| Option | Description |
-|--------|-------------|
-| `-c` | Compile le code source en un fichier objet sans l'éditer de liens. |
-| `-o` | Spécifie le nom du fichier de sortie. |
-| `-I` | Spécifie un répertoire où chercher les fichiers d'en-tête. |
-| `-L` | Spécifie un répertoire où chercher les bibliothèques. |
-| `-l` | Spécifie une bibliothèque à lier. |
-| `-Wall` | Active tous les avertissements. |
-| `-Werror` | Traite les avertissements comme des erreurs. |
-| `-g` | Inclut des informations de débogage dans le fichier objet. |
-| `-O` | Optimise le code. |
-| `-std` | Spécifie la norme du langage. |
-| `-pedantic` | Respecte strictement la norme. |
-| `-D` | Définit une macro. |
-| `-U` | Undefine une macro. |
-| `-E` | Arrête après l'étape de préprocesseur. |
-| `-S` | Arrête après l'étape de compilation. |
-| `-v` | Affiche les commandes exécutées par le compilateur. |
+| Option      | Description                                                        |
+| ----------- | ------------------------------------------------------------------ |
+| `-c`        | Compile le code source en un fichier objet sans l'éditer de liens. |
+| `-o`        | Spécifie le nom du fichier de sortie.                              |
+| `-I`        | Spécifie un répertoire où chercher les fichiers d'en-tête.         |
+| `-L`        | Spécifie un répertoire où chercher les bibliothèques.              |
+| `-l`        | Spécifie une bibliothèque à lier.                                  |
+| `-Wall`     | Active tous les avertissements.                                    |
+| `-Werror`   | Traite les avertissements comme des erreurs.                       |
+| `-g`        | Inclut des informations de débogage dans le fichier objet.         |
+| `-O`        | Optimise le code.                                                  |
+| `-std`      | Spécifie la norme du langage.                                      |
+| `-pedantic` | Respecte strictement la norme.                                     |
+| `-D`        | Définit une macro.                                                 |
+| `-U`        | Undefine une macro.                                                |
+| `-E`        | Arrête après l'étape de préprocesseur.                             |
+| `-S`        | Arrête après l'étape de compilation.                               |
+| `-v`        | Affiche les commandes exécutées par le compilateur.                |
 
 Pour compiler un programme avec les optimisations maximales, dans la norme C17, avec tous les avertissements activés et traités comme des erreurs, vous pouvez utiliser la commande suivante :
 
 ```bash
 $ gcc -std=c17 -O3 -Wall -Werror -pedantic main.c -o main
 ```
+## Optimisation
+
+L'optimisation est une technique qui vise à améliorer les performances d'un programme en réduisant le temps d'exécution et/ou la consommation de mémoire. Les compilateurs `gcc` et `g++` offrent plusieurs niveaux d'optimisation, chacun ayant des caractéristiques propres.
+
+`-O0`
+
+: Aucune optimisation. C'est le niveau par défaut. Le code C est traduit en langage assembleur sans tentative d'amélioration des performances. Cela facilite le débogage, car le code généré reste très proche du code source. Toutefois, les performances peuvent être deux à trois fois inférieures à celles du code optimisé.
+
+`-O1`
+
+: Optimisation légère. Le compilateur applique des optimisations locales comme la suppression des instructions inutiles, la propagation des constantes, et la simplification des expressions constantes. Ce niveau d'optimisation équilibre le gain de performances avec la vitesse de compilation.
+
+`-O2`
+
+: Optimisation standard. À ce niveau, le compilateur applique des optimisations plus agressives, telles que la réduction des boucles, la suppression des appels de fonctions inutiles et l'amélioration de la gestion des expressions. Cela peut allonger le temps de compilation et augmenter la taille du code, mais les performances générées sont significativement améliorées.
+
+`-O3`
+
+: Optimisation maximale. Le compilateur applique toutes les optimisations du niveau `-O2` ainsi que des optimisations supplémentaires comme l'optimisation des boucles (loop unrolling), l'inlining de fonctions plus importantes, et l'amélioration de la gestion des appels de fonctions. Ce niveau maximise les performances, mais peut également accroître la taille du code et le temps de compilation.
+
+`-Os`
+
+: Optimisation pour la taille. Le compilateur se concentre sur la réduction de la taille du fichier exécutable. Cela peut réduire les performances, mais est souvent utile pour les environnements à ressources limitées, comme les systèmes embarqués, ou pour les applications devant être distribuées via des réseaux à faible bande passante.
+
+`-Ofast`
+
+: Optimisation rapide. Le compilateur applique les optimisations du niveau `-O3`, mais avec des assouplissements sur le respect des normes du langage C. Certaines vérifications sont désactivées pour améliorer encore les performances, ce qui peut entraîner des comportements non conformes à la norme dans certains cas. Ce niveau peut être très performant, mais il doit être utilisé avec précaution.
+
+`-ffast-math`
+
+: Optimisation agressive des calculs mathématiques. Le compilateur effectue des optimisations poussées sur les opérations mathématiques en ignorant certaines précautions sur la précision et les exceptions. Cela peut considérablement accélérer les calculs, mais augmente également le risque de résultats incorrects ou inattendus. Cette option est à utiliser uniquement si la précision des calculs n'est pas critique.
+
+`-flto`
+
+: Optimisation intermodulaire (Link-Time Optimization). Le compilateur fusionne les fichiers objets avant l'édition de liens, permettant ainsi des optimisations globales à l'échelle du programme. Cela inclut l'inlining entre fichiers, la suppression des fonctions inutilisées, la propagation des constantes et la fusion des boucles. Cette optimisation est particulièrement efficace sur les gros projets avec plusieurs fichiers source, permettant d'améliorer les performances globales du programme.
+
 
 ## Bibliothèques
 
@@ -129,14 +165,14 @@ Notez que l'option `-lm` doit être placée après le nom du fichier source. En 
 
 Voici quelques bibliothèques couramment utilisées :
 
-| Bibliothèque | Description |
-|--------------|-------------|
-| `libc` | Bibliothèque standard du langage C. |
-| `libm` | Fonctions mathématiques. |
-| `libpthread` | Fonctions de threads POSIX. |
-| `libcurl` | Client HTTP. |
-| `libssl` | Bibliothèque de chiffrement SSL. |
-| `libcrypto` | Bibliothèque de chiffrement. |
-| `libz` | Compression de données. |
-| `libpng` | Traitement d'images PNG. |
-| `libsqlite3` | Base de données SQLite. |
+| Bibliothèque | Description                         |
+| ------------ | ----------------------------------- |
+| `libc`       | Bibliothèque standard du langage C. |
+| `libm`       | Fonctions mathématiques.            |
+| `libpthread` | Fonctions de threads POSIX.         |
+| `libcurl`    | Client HTTP.                        |
+| `libssl`     | Bibliothèque de chiffrement SSL.    |
+| `libcrypto`  | Bibliothèque de chiffrement.        |
+| `libz`       | Compression de données.             |
+| `libpng`     | Traitement d'images PNG.            |
+| `libsqlite3` | Base de données SQLite.             |

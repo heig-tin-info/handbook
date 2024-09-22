@@ -1806,75 +1806,7 @@ Le standard C nomme `mb` (`multibyte`) pour se référer à UTF-8.
 
 L'inconvénient majeur d'UTF-8 c'est qu'il est impossible d'éditer un caractère à un endroit précis sans devoir possiblement décaler tous les caractères suivants. Remplacer un `e` (stocké sur 1 byte) par un émoji (stocké sur 4 bytes), nécessite de décaler tout le texte de 3 bytes. Suivant la taille de la chaîne cela peut être fastidieux. C'est pourquoi l'UTF-32 est souvent utilisé pour les traitements internes. On perd de la place mémoire car un texte en UTF-32 est jusqu'à 4 fois plus gros qu'en UTF-8, mais on gagne en temps de traitement car aucun déclage n'est nécessaire. En outre, le processeur étant plus à l'aise avec les données alignées sur 32-bits, les traitements sont plus rapides.
 
-Prenons l'exemple suivant qui inverse une chaîne de caractères UTF-8 et affiche le résultat. Sans cette bibliothèque, il n'est pas trivial de le faire car les caractères unicode peuvent être stockés sur plusieurs bytes. Ici on commence par convertir la chaîne UTF-8 en UTF-32 pour avoir une chaîne simple à traiter, on inverse ensuite la chaîne UTF-32, puis on la reconvertit en UTF-8 pour l'affichage :
-
-```c
-#include <locale.h>
-#include <stdio.h>
-#include <stdlib.h>  // Pour MB_CUR_MAX
-#include <string.h>
-#include <uchar.h>
-
-int main() {
-   setlocale(LC_ALL, "");  // Initialiser la locale pour UTF-8
-
-   char utf8_str[] = "Salut Γιώργος, comment ça va ? As-tu reçu mon 📧 ?";
-   size_t utf8_len = strlen(utf8_str);
-
-   // Convertir UTF-8 en UTF-32
-   char32_t utf32_str[utf8_len];
-   size_t utf32_len = 0;
-   {
-      mbstate_t state = {0};
-      size_t ret;
-      const char *p = utf8_str;
-      while (*p != '\0') {
-         size_t ret = mbrtoc32(&utf32_str[utf32_len], p, MB_CUR_MAX, &state);
-         if (ret == (size_t)-1) {
-            perror("Erreur de conversion UTF-8 vers UTF-32");
-            return 1;
-         } else if (ret == (size_t)-2) {
-            // Séquence multioctet incomplète, passer à l'octet suivant
-            break;
-         } else if (ret == 0) {
-            // Fin de la chaîne UTF-8 atteinte
-            break;
-         }
-         p += ret;
-         utf32_len++;
-      }
-   }
-
-   // Inverser la chaîne UTF-32
-   for (size_t i = 0, j = utf32_len - 1; i < j; i++, j--) {
-      char32_t tmp = utf32_str[i];
-      utf32_str[i] = utf32_str[j];
-      utf32_str[j] = tmp;
-   }
-
-   // Conversion inverse UTF-32 vers UTF-8
-   {
-      mbstate_t state = {0};
-      char *utf8_ptr = utf8_str;
-      const char32_t *utf32_ptr = utf32_str;
-      size_t utf8_total_len = 0;
-      size_t ret;
-      while (utf32_len--) {
-         ret = c32rtomb(utf8_ptr, *utf32_ptr++, &state);
-         if (ret == (size_t)-1) {
-            perror("Erreur de conversion UTF-32 vers UTF-8");
-            return 1;
-         }
-         utf8_ptr += ret;  // Avancer dans le buffer UTF-8
-         utf8_total_len += ret;
-      }
-      utf8_str[utf8_total_len] = '\0';
-   }
-
-   printf("%s\n", utf8_str);
-}
-```
-
+Prenons l'exemple d'un algorithme qui inverse une chaîne de caractères UTF-8 et affiche le résultat. Sans cette bibliothèque, il n'est pas trivial de le faire car les caractères unicode peuvent être stockés sur plusieurs bytes. Ici on commence par convertir la chaîne UTF-8 en UTF-32 pour avoir une chaîne simple à traiter, on inverse ensuite la chaîne UTF-32, puis on la reconvertit en UTF-8 pour l'affichage. Une implémentation est donnée dans la section [algorithmes][utf8-reverse].
 
 [](){#libc-wchar}
 
