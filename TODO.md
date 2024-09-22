@@ -21,6 +21,8 @@
 
 ## Improvements
 
+- [ ] Specify coverpage theme and color from mkdocs.yml
+- [ ] Generate Tools book
 - [ ] Better separation terms and definitions, acronyms, glossary
 - [ ] Include Wikipedia links in addition to `wiki:`
 - [ ] Update index
@@ -62,12 +64,11 @@
 ## New Features (MkDocs, plugins)
 
 - [ ] Split document in multiple volumes
-- [ ] Autoindex of C keywords and functions
 - [ ] Reaveal js slides --> see on slides branch
 - [ ] Allow to create nav with subsections (build only info1 chapters)
 - [ ] Flexible tables parameter for adjusting width, fullwidth
 - [ ] Embedded Interactive examples (linked-list)...
-- [ ] Anotate code with circled number that can be used in text:
+- [ ] Annotate code with circled number that can be used in text (see plug)
 - [ ] Interactive exercices
   - [ ] Code execution
   - [ ] Fill the gap
@@ -77,12 +78,13 @@
 
 - [ ] Allow for optional feedback title
 - [ ] Translation for permalink title
-- [ ] Tags spacing in theme (search) (.md-tag margin-right: 0.5em;)
+- [.] Tags spacing in theme (search) (.md-tag margin-right: 0.5em;)
 - [ ] Exercises are all checked
 - [ ] Bug with examples
 
 ## Changelog
 
+- [x] Autoindex of C keywords and functions
 - [x] libuv
 - [x] Complete Algorithmes utilitaires (split, slurp, join, trim)
 
@@ -150,3 +152,15 @@
   - Fixed by adding git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "git@github.com:"
 - [x] Tables
   - [x] Rowspan
+
+## Plugins Ideas
+
+### Circled annotations
+
+The goal is to annotate code with circled numbers anywhere, then use refer these numbers directly in the text.
+
+The proposed syntax is simply `((1))` where the number can go from `1..50` (Matching unicode circled numbers). These numbers can be refered in the text with the same syntax `((1))`.
+
+Numbers are linked to the closest code block located in the same section. If the code block is located in another section, the number is not linked and a warning is displayed.
+
+An animation can be triggered when hovering the number, showing the corresponding tag in code block.
