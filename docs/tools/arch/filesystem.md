@@ -1,7 +1,5 @@
 # Système de fichier
 
-## Introduction
-
 ![Fourmi portant des données](/assets/images/ant.png)
 
 Un *système de fichier* est une structure de données qui permet de stocker des fichiers et des répertoires sur un support de stockage. Les systèmes de fichiers sont utilisés pour organiser les données sur les disques durs, les clés USB, les cartes mémoire, etc.
@@ -72,11 +70,15 @@ Reprenons. Notre pomme serait un fruit, une image de fruit. On indiquerait alors
 /maison/cuisine/frigo/rayonnage2/droite/pomme.jpg
 ```
 
-Tient ? Pourquoi un `slash` au début ? C'est pour indiquer le répertoire racine : le répertoire d'origine, le point de départ de l'arborescence. Evidemment si vous vous trouvez déjà dans la cuisine, vous n'avez pas besoin de préciser `/maison/cuisine`. Vous pouvez simplement écrire `frigo/rayonnage2/droite/pomme.jpg`. Donc un chemin peut, ou non avoir un `slash` au début. On dit qu'il est **absolu** ou **relatif**.
+Tient ? Pourquoi un `slash` au début ? C'est pour indiquer le répertoire racine : le répertoire d'origine, le point de départ de l'arborescence. Evidemment si vous vous trouvez déjà dans la cuisine, vous n'avez pas besoin de préciser `/maison/cuisine`. Vous pouvez simplement écrire : `frigo/rayonnage2/droite/pomme.jpg`. Donc un chemin peut, ou non avoir un `slash` au début. On dit qu'il est **absolu** ou **relatif**.
 
 !!! note "Windows"
 
-    Sur Windows, le répertoire racine est `C:\` pour le disque dur principal. Donc un chemin absolu sur Windows ressemblerait à `C:\maison\cuisine\frigo\rayonnage2\droite\pomme.jpg`.
+    Sur Windows, le répertoire racine est `C:\` pour le disque dur principal. Donc un chemin absolu sur Windows ressemblerait à :
+
+    ```txt
+    C:\maison\cuisine\frigo\rayonnage2\droite\pomme.jpg
+    ```
 
     L'usage de `C` est historique. À l'origine il n'y avait pas de disques durs mais des disquettes. Ceux qui avaient la chance d'avoir un lecteur de disquette avaient un unique lecteur `A`. Ceux qui voulaient faire des copies de disquettes devaient en avoir un deuxième, c'était le lecteur `B`. En général, le disque dur était le troisième lecteur, le lecteur `C`. Et depuis Windows 95, c'est resté comme ça.
 

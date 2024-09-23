@@ -2,21 +2,11 @@
 
 ## Content update
 
-- [ ] Complete part quality and security
 - [ ] Hand drawn flow diagram https://i.sstatic.net/WdbInYwX.png
-- [ ] Add some algorithms from Numeriacl Recipes
-  - [ ] Gauss Jordan 36
-  - [ ] QR Decomposition 108
-  - [ ] Chebyshev Approximation 190
-  - [ ] Padé Appromants 200
-  - [ ] Jacobi Transformation 463
-  - [ ] FFT 12.2 504
-  - [ ] Huffman Coding 903
 - [ ] Show top-down approach https://i.sstatic.net/wC9Tb8Y8.png
 - [ ] Part metaprogramming (Jinja/Python...)
 - [ ] Compilation croisée
 - [ ] Threading? SIMD
-- [ ] valdrind, gdb, strace, ltrace
 - [ ] Add section for courses with links to the only required stuff.
 
 ## Improvements
@@ -31,7 +21,6 @@
 - [ ] Make all figures compatible with both light/dark theme
   - [ ] Adapt SVG color when added in object
 - [ ] Index table entry with many refs cuz ugly line break indent
-- [ ] On LaTeX description list, add more space between item and desc.
 
 ## Bugs
 
@@ -82,6 +71,9 @@
 
 ## Changelog
 
+- [x] On LaTeX description list, add more space between item and desc.
+- [x] valdrind, gdb, strace, ltrace
+- [x] More content on quality and security
 - [x] Multibook build
 - [x] Specify hero logo
 - [x] Specify coverpage theme
@@ -167,3 +159,18 @@ The proposed syntax is simply `((1))` where the number can go from `1..50` (Matc
 Numbers are linked to the closest code block located in the same section. If the code block is located in another section, the number is not linked and a warning is displayed.
 
 An animation can be triggered when hovering the number, showing the corresponding tag in code block.
+
+### Tags/Index
+
+My hook `tags` allows for creating tags related to a section. On LaTeX side it adds an index entry. The syntax is the following:
+
+```markdown
+The [[tag]] will be added in the index. But when we have several [[tags|tag]], we want to only add the singular form.
+Alternatively, we could add a tag or an index entry without text [[|tag]]. Sometime we want different values for :
+
+- The text in the document
+- The tag in MkDocs
+- The entry in the index table
+
+We can therefore use: [[text|tag|entry]], for exemple for this wonderful movie, [[The Matrix|Matrix|Matrix, The]].
+```
