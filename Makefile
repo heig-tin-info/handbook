@@ -1,29 +1,45 @@
-BUILD_DIR=build/book
+BUILD_BASE_DIR = build
+BUILD_DIRS=$(shell find $(BUILD_BASE_DIR) -mindepth 1 -maxdepth 1 -type d)
+
+
+BUILD_INDEXES=$(foreach dir,$(BUILD_DIRS),$(dir)/index.tex)
+BUILD_PDFS=$(foreach dir,$(BUILD_DIRS),$(dir)/index.pdf)
+BUILD_OUTPUTS=$(foreach dir,$(BUILD_DIRS),$(dir)/output-print.pdf)
+
+DEBUG ?= 0
+ifeq ($(DEBUG), 1)
+	RUNCMD = PYTHONBREAKPOINT=ipdb.set_trace poetry run
+else
+	RUNCMD = poetry run
+endif
 
 all:
-	poetry run mkdocs build
+	$(RUNCMD) mkdocs build
 
 serve:
-	poetry run mkdocs serve
+	$(RUNCMD) mkdocs serve
 
 servefast:
-	poetry run mkdocs serve --dirty
+	$(RUNCMD) mkdocs serve --dirty
 
 poetry.lock: pyproject.toml
 	poetry lock
 
 build:
-	poetry run mkdocs build
+	$(RUNCMD) mkdocs build
 
 latex-clean:
 	$(RM) -rf $(BUILD_DIR)/_minted-index
 	latexmk -cd $(BUILD_DIR)/index.tex -C
 
-latex: $(BUILD_DIR)/index.tex | latex-clean
-	latexmk -cd $(BUILD_DIR)/index.tex -gg \
-	-time -logfilewarninglist --interaction=nonstopmode --halt-on-error
+%.pdf: %.tex | FORCE
+	latexmk -cd -gg \
+	-time -logfilewarninglist --interaction=nonstopmode --halt-on-error \
+	$<
 
-$(BUILD_DIR)/output-print.pdf: $(BUILD_DIR)/index.pdf
+latex: $(BUILD_PDFS) | FORCE
+
+%/output-print.pdf: %/index.pdf
 	gs -sDEVICE=pdfwrite -dPDFSETTINGS=/printer \
 	   -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ \
 	   -dDownsampleColorImages=true -dDownsampleGrayImages=true \
@@ -48,7 +64,7 @@ docs/js/viewer.min.js: FORCE
 	wget https://raw.githubusercontent.com/jgraph/drawio/dev/src/main/webapp/js/viewer.min.js -O docs/js/viewer.min.js
 
 
-optimize: $(BUILD_DIR)/output-print.pdf
+optimize: $(BUILD_OUTPUTS)
 
 clean:
 	$(RM) -rf build site __pycache__ _minted-*

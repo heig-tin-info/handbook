@@ -17,14 +17,7 @@ def path_representer(dumper, data):
     data = data.resolve().relative_to(Path(".").resolve())
     return dumper.represent_scalar("tag:yaml.org,2002:str", str(data))
 
-
 yaml.add_representer(PosixPath, path_representer)
-
-
-# def excepthook(type, value, traceback):
-#     ipdb.post_mortem(traceback)
-
-# sys.excepthook = excepthook
 
 saved_nav = []
 latex_dir = Path("build")
@@ -156,6 +149,9 @@ class Book:
         for section in item.children or []:
             self._sort_by_part(section)
 
+    def render_cover(self, renderer: LaTeXRenderer):
+        return renderer.formatter[f"covers_{self.config.cover.name}"](self.config.cover)
+
     def _get_latex(self, elements: List[StructureItem], renderer: LaTeXRenderer):
         latex = []
         for element in elements:
@@ -227,6 +223,7 @@ class Book:
         (build_dir / "acronyms.tex").write_text(renderer.get_list_acronyms())
         (build_dir / "glossary.tex").write_text(renderer.get_list_glossary())
         (build_dir / "solutions.tex").write_text(renderer.get_list_solutions())
+        (build_dir / "cover.tex").write_text(self.render_cover(renderer))
 
         # Copy assets
         for src_pattern, dest_dir in self.config.copy_files.items():

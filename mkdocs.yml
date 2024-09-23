@@ -198,6 +198,10 @@ extra:
 
     books:
       - root: Cours C
+        cover:
+          name: circles
+          color: indigo(dye)
+          logo: c-logo.pdf
         title: L'informatique pour l'ingénieur
         subtitle: Cours de programmation en C
         folder: book
@@ -212,7 +216,20 @@ extra:
         copy_files:
           docs/assets/c-logo.pdf: assets/
           tex/*.sty: .
-
+      - root: Outils
+        cover:
+          name: circles
+          color: PineGreen
+          logo: tool-hero.pdf
+        base_level: -1
+        title: Outils de développement
+        subtitle: Pour les étudiants
+        folder: tools
+        save_html: true
+        email: yves.chevallier@heig-vd.ch
+        copy_files:
+          tex/tool-logo.pdf: assets/
+          tex/*.sty: .
   admonition_translations:
     tip: Astuce
     warning: Avertissement

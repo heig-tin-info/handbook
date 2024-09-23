@@ -1,11 +1,10 @@
+import glob
 import os
-from jinja2 import Environment, FileSystemLoader
-from pathlib import Path
-from hashlib import sha256
-import shutil
 import urllib.parse
-from typing import Union
-import re
+from pathlib import Path
+
+from IPython import embed
+from jinja2 import Environment, FileSystemLoader
 
 TEMPLATE_DIR = Path(__file__).parent / 'templates'
 
@@ -46,9 +45,14 @@ class LaTeXFormatter:
             loader=FileSystemLoader(template_dir))
 
         # Load all templates
+        templates = []
+        for ext in ('.tex', '.cls'):
+            templates += glob.glob(f'{template_dir}/**/*{ext}', recursive=True)
+        templates = [Path(template).relative_to(template_dir) for template in templates]
+
         self.templates = {
-            Path(filename).stem: self.env.get_template(filename)
-            for filename in os.listdir(template_dir)
+            str(filename.with_suffix('')).replace('/', '_'): self.env.get_template(str(filename))
+            for filename in templates
         }
 
     def __getattr__(self, method):
@@ -74,6 +78,9 @@ class LaTeXFormatter:
                 kwargs['text'] = args[0]
             return template.render(**kwargs)
         return render_template
+
+    def __getitem__(self, key):
+        return self.templates[key].render
 
     def handle_codeblock(self, code, language='text',
                          filename=None, lineno=False, highlight=None):
@@ -103,3 +110,14 @@ class LaTeXFormatter:
     def svg(self, svg):
         pdfpath = svg2pdf(svg, self.output_path)
         return f"\\includegraphics[width=1em]{{{pdfpath }}}"
+
+    def get_cover(self, name, **kwargs):
+        return self.templates[f'cover/{name}'].render(
+            title=self.config.title,
+            author=self.config.author,
+            subtitle=self.config.subtitle,
+            email=self.config.email,
+            year=self.config.year,
+            **self.config.cover,
+            **kwargs
+        )

@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from pydantic import BaseModel, ConfigDict, model_validator
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from .transformers import to_kebab_case
 
@@ -14,6 +14,10 @@ class CommonConfig(BaseModel):
     mermaid_config: Optional[Path] = None
     project_dir: Optional[Path] = None  # Set internally
 
+class CoverConfig(BaseModel):
+    name: str = Field('default', description="Cover template name")
+    color: Optional[str] = Field('black', description="Primary color")
+    logo: Optional[str] = Field(None, description="Logo path")
 
 class BookConfig(CommonConfig):
     """Configuration for a book."""
@@ -34,15 +38,15 @@ class BookConfig(CommonConfig):
     author: Optional[str] = None
     index_is_foreword: Optional[bool] = False
     drop_title_index: Optional[bool] = False
+    cover: Optional[CoverConfig] = CoverConfig(name='default')
 
     @model_validator(mode="after")
-    @classmethod
-    def set_folder_and_build_dir(cls, data: Any) -> Any:
+    def set_folder_and_build_dir(self):
         """Set folder to title in kebab case if not provided"""
-        if data.folder is None and data.title is not None:
-            data.folder = to_kebab_case(data.title)
+        if self.folder is None and self.title is not None:
+            self.folder = to_kebab_case(self.title)
 
-        return data
+        return self
 
 
 class LaTeXConfig(CommonConfig):

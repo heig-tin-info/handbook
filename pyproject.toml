@@ -75,6 +75,7 @@ wikipedia-api = ">=0.6.0"
 [tool.poetry.group.dev.dependencies]
 black = "24.8.0"
 ruff = "0.5.7"
+ipdb = "^0.13.13"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -21,8 +21,6 @@
 
 ## Improvements
 
-- [ ] Specify coverpage theme and color from mkdocs.yml
-- [ ] Generate Tools book
 - [ ] Better separation terms and definitions, acronyms, glossary
 - [ ] Include Wikipedia links in addition to `wiki:`
 - [ ] Update index
@@ -84,6 +82,11 @@
 
 ## Changelog
 
+- [x] Multibook build
+- [x] Specify hero logo
+- [x] Specify coverpage theme
+- [x] Specify coverpage color from mkdocs.yml
+- [x] Generate Tools book
 - [x] Autoindex of C keywords and functions
 - [x] libuv
 - [x] Complete Algorithmes utilitaires (split, slurp, join, trim)

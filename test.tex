@@ -1,18 +1,10 @@
 \documentclass{article}
-\usepackage{enumitem}
+\usepackage[dvipsnames,svgnames]{xcolor} % Inclure les noms de couleurs du web
 
-\AddToHook{cmd/descriptionlabel/after}{\rule[-8pt]{0pt}{0pt}}
-\setlist[description]{
-  style=nextline,
-  leftmargin=0.7cm,
-  itemindent=\dimexpr-5pt-\labelsep\relax
-}
+\def\covercolor{PineGreen}
 
 \begin{document}
 
-\begin{description}
-  \item[Duck] A waterbird with a broad blunt bill, short legs, webbed feet, and a waddling gait.
-  \item[Seagull] A large, common, and very widespread long-winged seabird with a raucous call.
-  \item[Goose] A waterbird with a long neck, short legs, webbed feet, and a short broad bill.
-\end{description}
+\textcolor{\covercolor}{This text is in indigo (web).}
+
 \end{document}

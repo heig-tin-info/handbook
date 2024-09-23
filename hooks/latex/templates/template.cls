@@ -1,6 +1,6 @@
 \documentclass[9pt,twoside]{memoir}
 \usepackage{fontspec}
-\usepackage{xcolor}
+\usepackage[svgnames,dvipsnames,x11names]{xcolor}
 \usepackage{tikz}
 \usepackage{textcomp} % For ©, ™
 \usepackage{amsmath} % For ±
@@ -527,61 +527,14 @@
 
 \definecolor{indigo(dye)}{rgb}{0.0, 0.25, 0.42}
 
-\def\covercolor{indigo(dye)}
 \def\author{\VAR{author}}
 
-\input{glossary.tex}
-\input{acronyms.tex}
+\input{glossary}
+\input{acronyms}
 
 \begin{document}
 
-\begin{tikzpicture}[remember picture,overlay]
-  \fill[\covercolor] (current page.south west) rectangle (current page.north east);
-  \foreach \i in {0.5,1.3,...,15}{
-      \node[rounded corners,\covercolor!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,line width=1.4pt] at ($(current page.north west)+(2.5,0)$) {} ;
-    }
-  \foreach \i in {0.5,1.3,...,15}{
-      \node[rounded corners,\covercolor!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,line width=1.4pt] at ($(current page.north east)+(0,-9.5)$) {} ;
-    }
-  \foreach \i in {15,14.2,...,6}{
-      \node[\covercolor!85,rounded corners,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,line width=1.4pt] at ($(current page.south east)+(0,-0.6)$) {} ;
-    }
-  \node[
-    left,
-    \covercolor!5,
-    minimum width=150mm,
-    text width=150mm,
-    minimum height=1cm,
-    align=right] at ($(current page.north east)+(-1,-8)$)
-  {
-    {\fontsize{20}{25} \selectfont \bfseries \title}
-  };
-  \node[
-    left,
-    \covercolor!10,
-    minimum width=150mm,
-    text width=150mm,
-    minimum height=1cm,
-    align=right] at ($(current page.north east)+(-1,-9.3)$)
-  {
-    {\large \textit{\subtitle}}
-  };
-  \node[left,\covercolor!5,minimum width=80mm,minimum height=1cm,text width=80mm, align=right, rounded corners] at ($(current page.south east)+(-1,1)$)
-  {
-    {\textsc{\author}}
-  };
-  \foreach \i in {2.5,3.3,...,15}{
-      \node[rounded corners,\covercolor!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,line width=1.4pt,rotate=30] at ($(current page.west)+(4,-5)$) {} ;
-    };
-  \node[fill=\covercolor, rounded corners,text =\covercolor!5,regular polygon,regular polygon sides=6, minimum size=5 cm,inner sep=0,line width=1.4pt,rotate=30] at ($(current page.west)+(4,-5)$) {
-  };
-  \node[] at ($(current page.west)+(4,-5)$) {
-    \includegraphics[width=4cm]{c-logo.pdf}
-  };
-
-\end{tikzpicture}
-
-\heiglogo[color=\covercolor!5]
+\input{cover}
 
 \cleardoublepage
 \begin{titlingpage}
