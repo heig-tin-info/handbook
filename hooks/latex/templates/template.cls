@@ -14,18 +14,18 @@
 \usepackage{unicode-math} % For using Unicode math symbols
 \usepackage{fontawesome5}
 \usepackage{multicol}
-\usepackage{parskip}
+%\usepackage{parskip}  % For no paragraph indentation
 \usepackage{stackengine}
 \usepackage{booktabs}
 \usepackage[many,minted]{tcolorbox}% version 3.03 or better
 \usepackage{minted}
-\usepackage[french]{minitoc}
+%\usepackage[french]{minitoc}
 \usepackage{csquotes}
 \usepackage{epigraph}
 \usepackage{capt-of}
 \usepackage[acronym]{glossaries}
 \usepackage{imakeidx}
-\usepackage{fvextra} % Pour une meilleure gestion des verbatim inline
+\usepackage{fvextra} % For better verbatim environments
 \usepackage{titlesec} % Pour la personnalisation des titres
 \usepackage{enumitem} % Pour personnaliser les listes
 \usepackage{etoolbox}
@@ -42,7 +42,7 @@
 
 \makeglossaries
 \makeindex
-\dominitoc
+%\dominitoc
 
 % Prevent too many overful \hbox (with some fonts)
 \tolerance=2000
@@ -548,7 +548,7 @@
     \VAR{email}\\[14pt]
     \vspace{2cm}
     {Cours d'informatique pour} \\[5pt]
-    \emph{{La Haute École d'Ingénieurie et de Gestion du canton de Vaud}}\\[2cm]
+    \emph{{La Haute École d'Ingénierie et de Gestion du canton de Vaud}}\\[2cm]
 
     \vfill
 
@@ -569,13 +569,13 @@
 \setlength{\parskip}{\baselineskip}
 
 \begin{tabular}{@{} l l}
-  \textcopyright{} 2019\:---\:2024 & Prof. Yves Chevallier \\
+  \textcopyright{} 2019\:---\:2024 & \author \\
 \end{tabular}
 
 Creative Commons \par
 \creativecommon{\huge L}
 
-L'œuvre peut être librement utilisée, à la condition de l'attribuer à l'auteur en citant son nom. Le titulaire de droits peut autoriser tous les types d'utilisation ou au contraire restreindre aux utilisations non commerciales (les utilisations commerciales restant soumises à son autorisation). En sommes vous êtges libre de :
+L'œuvre peut être librement utilisée, à la condition de l'attribuer à l'auteur en citant son nom. Le titulaire de droits peut autoriser tous les types d'utilisation ou au contraire restreindre aux utilisations non commerciales (les utilisations commerciales restant soumises à son autorisation). En sommes vous êtes libre de :
 
 \begin{description}
   \item[Partager] copier, distribuer et communiquer le matériel par tous moyens et sous tous formats
@@ -585,7 +585,7 @@ L'œuvre peut être librement utilisée, à la condition de l'attribuer à l'aut
 Sous les conditions suivantes :
 
 \begin{description}
-  \item[Attribution] Vous devez créditer l'Œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées à l'Œuvre. Vous devez indiquer ces informations par tous les moyens raisonnables, sans toutefois suggérer que l'Offrant vous soutient ou soutient la façon dont vous avez utilisé son œuvre.
+  \item[Attribution] Vous devez créditer l'Œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées à l'œuvre. Vous devez indiquer ces informations par tous les moyens raisonnables, sans toutefois suggérer que l'offrant vous soutient ou soutient la façon dont vous avez utilisé son œuvre.
   \item[Partage dans les mêmes conditions] Si vous modifiez, transformez ou adaptez cette œuvre, vous n'avez le droit de distribuer votre création que sous une licence identique ou similaire à celle-ci.
 \end{description}
 

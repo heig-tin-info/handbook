@@ -10,6 +10,7 @@
 \usepackage{atbegshi}
 \usepackage{hyperref}
 \usepackage{fmtcount}
+\usepackage{titletoc}
 \usepackage[backend=biber,style=authoryear]{biblatex}
 \usepackage[top=10mm,bottom=10mm]{geometry}
 
@@ -26,12 +27,18 @@
 \newcounter{volume}
 \newcommand{\newvolume}{%
     \stepcounter{volume}%
-    \setcounter{figure}{0}
-    \setcounter{table}{0}
+    % \setcounter{figure}{0}
+    % \setcounter{table}{0}
+
+    %\startlist[volume\thevolume]{lof}
+    % \renewcommand{\listoffigures}{\printlist[volume\thevolume]{lof}{}{\chapter*{\cftfigurename}}}%
+    %\startlist[volume\thevolume]{lot}
+    % \renewcommand{\listoftables}{\printlist[volume\thevolume]{lot}{}{\chapter*{\cfttablename}}}%
+
     \AtBeginShipoutNext{%
         \immediate\write\pagefile{\abspagenumber}%
     }%
-    \addtocontents{toc}{\par\centering \bfseries \large Volume \MakeUppercase{\Numberstring{volume}}\par}
+    \addtocontents{toc}{\par\centering\bfseries\large Volume \MakeUppercase{\Numberstring{volume}}\par}
 }
 \makeatother
 

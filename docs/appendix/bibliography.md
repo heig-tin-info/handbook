@@ -26,6 +26,8 @@ Les références utilisées dans cet ouvrage sont les suivantes.
 - Gödel, Escher, Bach: An Eternal Golden Braid - Douglas R. Hofstadter, 824 pages ([ISBN-13 978-0465026562](https://isbnsearch.org/isbn/9780465026562))
 - The Art of Computer Programming - Donald E. Knuth, 3168 pages ([ISBN-13 978-0201896831](https://isbnsearch.org/isbn/9780201896831))
 - Numerical Recipes in C: The Art of Scientific Computing - William H. Press, 1232 pages ([ISBN-13 978-0521750332](https://isbnsearch.org/isbn/9780521750332))
+- [Introduction à la programmation](https://members.loria.fr/KTombre/DepInfo/PolyTC/tcinfo.pdf) - Karl Tombre, 178 pages - v1.3 - École des mines de Nancy
+- Concepts fondamentaux de l'informatique - Alfred Vaino Aho et Jeffrey David Ullman, 872 pages ([ISBN-13 978-2100031276](https://isbnsearch.org/isbn/9782100031276))
 
 ## Sites Web
 
