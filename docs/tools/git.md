@@ -119,21 +119,26 @@ Si vous utilisez GitHub, il est nécessaire de configurer votre clé SSH dans vo
 
 ```bash
 $ cat ~/.ssh/id_rsa.pub
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+yNp7af6zI8NINIFX1aRj+nzKksZ6XzBSkgA/iuPpYIGz5SSZOkwkvN0DnX8J42DcuEK/mnu3+f9Wh746823gxhXqtj+7Wv9z9DJ9O9qrsYlnxIMipoqepE/Xt+jE5Yv8ullIdsvZdzY611R5DFwrVswslz9OdmpH6nWCmnY/cGZva79ngdcvJLKFk++fl+Be1xshWt24svawRH7Fdxn8VyUKmP2Twy6iMo3MT9xGe5leV1CiTXfkzLYntNV50/dtzQN+pwcwRBdXBP9FdO9+IzieY6bUGttT6t2VcWoK6jFF+i94Chl/FeGvRU1X/QzSP3SYT2biNRNmznSIa2VD ycr@heig-vd
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+yNp7af6zI8NINIFX1aRj+nzKksZ6XzBSkgA/
+iuPpYIGz5SSZOkwkvN0DnX8J42DcuEK/mnu3+f9Wh746823gxhXqt+7Wv9z9DJ9O9qrsYlnxIMip
+oqepE/Xt+jE5Yv8ullIdsvZdzY611R5DFwrVswslz9OdmpH6nWCmnY/cGZva79ngdcvJLKFk++fl
++Be1xshWt24svawRH7Fdxn8VyUKmP2Twy6iMo3MT9xGe5leV1CiTXfkzLYntNV50/dtzQN+pwcwR
+BdXBP9FdO9+IzieY6bUGttT6t2VcWoK6jFF+i94Chl/FeGvRU1X/QzSP3SYT2biNRNmznSIa2VD
+ycr@heig-vd
 ```
 
 Copiez la clé publique et collez-la dans votre compte GitHub. Pour cela, ouvrez votre navigateur et allez sur [GitHub](https://github.com). Connectez-vous à votre compte et cliquez sur votre photo de profil en haut à droite. Cliquez sur `Settings` puis sur `SSH and GPG keys`. Cliquez sur `New SSH key` et collez votre clé publique dans le champ `Key`. Donnez un nom à votre clé et cliquez sur `Add SSH key`.
 
 ## Commandes utiles
 
-| Commande | Description |
-| --- | --- |
-| `git init` | Initialise un dépôt Git dans le répertoire courant |
-| `git clone <address>` | Clone un dépôt distant dans le répertoire courant |
-| `git status` | Affiche l'état du dépôt |
-| `git add <file>` | Ajoute des fichiers à l'index |
-| `git commit -am "message"` | Enregistre les modifications dans l'historique du dépôt |
-| `git pull` | Récupère les modifications du serveur distant |
-| `git push` | Envoie les modifications sur le serveur distant |
-| `git log` | Affiche l'historique des *commits* |
-| `git lg` | Affiche l'historique des *commits* de manière plus lisible |
+| Commande                   | Description                                                |
+| -------------------------- | ---------------------------------------------------------- |
+| `git init`                 | Initialise un dépôt Git dans le répertoire courant         |
+| `git clone <address>`      | Clone un dépôt distant dans le répertoire courant          |
+| `git status`               | Affiche l'état du dépôt                                    |
+| `git add <file>`           | Ajoute des fichiers à l'index                              |
+| `git commit -am "message"` | Enregistre les modifications dans l'historique du dépôt    |
+| `git pull`                 | Récupère les modifications du serveur distant              |
+| `git push`                 | Envoie les modifications sur le serveur distant            |
+| `git log`                  | Affiche l'historique des *commits*                         |
+| `git lg`                   | Affiche l'historique des *commits* de manière plus lisible |

@@ -112,8 +112,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: PDF
-          path: build/book/output-print.pdf
-
+          path: build/*/output-print.pdf
+          if-no-files-found: ignore
   release:
     name: Create GitHub Release
     if: startsWith(github.ref, 'refs/tags/')
@@ -130,7 +130,8 @@ jobs:
           path: ./build
       - name: Rename PDF file
         run: |
-          mv ./build/output-print.pdf ./build/handbook.pdf
+          mv ./build/book/output-print.pdf ./build/handbook.pdf
+          mv ./build/tools/output-print.pdf ./build/devtools.pdf
 
       - name: Create GitHub Release
         id: create_release
@@ -144,12 +145,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Release Asset
+      - name: Upload Handbook PDF
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/handbook.pdf
           asset_name: handbook.pdf
+          asset_content_type: application/pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Devtools PDF
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/devtools.pdf
+          asset_name: devtools.pdf
           asset_content_type: application/pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -229,7 +229,9 @@ class Book:
         for src_pattern, dest_dir in self.config.copy_files.items():
             src_pattern = current_config.project_dir / src_pattern
             dest_dir = build_dir / dest_dir
-
+            if '*' not in src_pattern.name and not src_pattern.exists():
+                log.warning("Pattern %s does not exist", src_pattern)
+                continue
             for src in src_pattern.parent.glob(src_pattern.name):
                 dest = dest_dir
                 log.info("Copying %s to %s", src, dest)
