@@ -34,15 +34,15 @@ Ci-dessous un tableau comparatif entre **Make** et **Ninja**.
 
 Table: Comparaison entre Make et Ninja
 
-| **Caractéristiques**        | **Make**                                            | **Ninja**                                             |
-| --------------------------- | --------------------------------------------------- | ----------------------------------------------------- |
-| **Performance**             | Plus lent pour les gros projets                     | Conçu pour être extrêmement rapide                    |
-| **Configuration**           | Fichiers `Makefile` manuellement écrits             | Fichiers `build.ninja` souvent générés par des outils |
-| **Parallélisme**            | Support, mais moins optimisé                        | Très performant avec des builds parallèles            |
-| **Complexité des fichiers** | Peut être très complexe et verbeux                  | Fichiers simples et explicites                        |
-| **Objectif**                | Outil généraliste                                   | Conçu uniquement pour la compilation rapide           |
-| **Gestion des dépendances** | Manuelle, souvent avec des outils externes          | Détection automatique des dépendances                 |
-| **Fonctionnalités**         | Supporte des tâches additionnelles (install, clean) | Focus uniquement sur la compilation                   |
+| **Caractéristiques** | **Make**                                   | **Ninja**                                   |
+| -------------------- | ------------------------------------------ | ------------------------------------------- |
+| **Performance**      | Plus lent pour les gros projets            | Conçu pour être extrêmement rapide          |
+| **Configuration**    | Fichiers `Makefile` manuellement écrits    | Fichiers `build.ninja` souvent meta-générés |
+| **Parallélisme**     | Support, mais moins optimisé               | Très performant avec des builds parallèles  |
+| **Complexité**       | Peut être très complexe et verbeux         | Fichiers simples et explicites              |
+| **Objectif**         | Outil généraliste                          | Conçu uniquement pour la compilation rapide |
+| **Dépendances**      | Manuelle, souvent avec des outils externes | Détection automatique des dépendances       |
+| **Fonctionnalités**  | Supporte des tâches additionnelles         | Focus uniquement sur la compilation         |
 
 ### Installation
 
@@ -94,3 +94,25 @@ ninja
 ```
 
 Cela lancera la compilation en fonction des règles définies dans le fichier `build.ninja`, avec des optimisations pour la compilation incrémentale et le parallélisme.
+
+## Discussion
+
+Contrairement à make, ninja ne permet pas de définir des règles de manière dynamique. Cela signifie que vous ne pouvez pas générer des règles de compilation en fonction de l'état du système ou d'autres paramètres. Cela peut être un inconvénient pour certains projets, mais cela permet également de garantir une certaine **déterminisme** dans le processus de build.
+
+Par exemple avec Make, on peut définir la règle suivante qui est une règle générique pour compiler tous les fichiers `.c` en fichiers `.o`.
+
+```make
+%.o: %.c
+    $(CC) -o $@ -c $< $(CFLAGS) -MMD -MP
+```
+
+Cette règle est souvent associée à une autre règle pour récupérer les fichiers sources automatiquement :
+
+```make
+SRCS := $(wildcard *.c)
+OBJS := $(SRCS:.c=.o)
+```
+
+Avec Ninja, vous devez définir explicitement chaque règle de compilation, ce qui peut être fastidieux pour les projets de grande taille. C'est pour cette raison que l'outil est souvent utilisé en conjonction avec des outils de configuration comme **CMake** ou **Meson** qui génèrent les fichiers `build.ninja` pour vous.
+
+Ninja n'est donc pas un outil destiné à être utilisé manuellement pour chaque projet, mais plutôt comme un outil de build système pour des projets plus importants où la vitesse et l'efficacité sont des priorités.
