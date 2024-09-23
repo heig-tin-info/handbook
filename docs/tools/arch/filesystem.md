@@ -37,15 +37,17 @@ L'API de FAT, c'est à dire les fonctions primitives pour contrôler le système
 
 Les systèmes de fichiers les plus utilisés aujourd'hui sont :
 
-| Système de fichier | Année | Utilisation |
-| :------------------ | :---- | :---------- |
-| FAT                 | 1977  | Clés USB, cartes mémoire |
-| FAT32               | 1996  | Disques durs |
-| NTFS                | 1993  | Windows |
-| ext4                | 2006  | Linux |
-| APFS                | 2017  | macOS |
-| Btrfs               | 2009  | Linux |
-| ZFS                 | 2005  | Solaris, FreeBSD |
+Table: Quelques systèmes de fichiers
+
+| Système de fichier | Année | Utilisation              |
+| :----------------- | :---- | :----------------------- |
+| FAT                | 1977  | Clés USB, cartes mémoire |
+| FAT32              | 1996  | Disques durs             |
+| NTFS               | 1993  | Windows                  |
+| ext4               | 2006  | Linux                    |
+| APFS               | 2017  | macOS                    |
+| Btrfs              | 2009  | Linux                    |
+| ZFS                | 2005  | Solaris, FreeBSD         |
 
 ## Organisation
 
@@ -123,45 +125,45 @@ Enfin, si je souhaite me déplacer dans l'arborescence, je peux utiliser la comm
 
 === "POSIX"
 
-    | Commande | Description | Exemple |
-    |----------|-------------|---------|
-    | `pwd` | Affiche le répertoire courant | `/home/username` |
-    | `cd` | Change de répertoire | `cd /home/username` |
-    | `ls` | Liste les fichiers et répertoires | `ls` |
-    | `mkdir` | Crée un répertoire | `mkdir -p /home/username` |
-    | `rmdir` | Supprime un répertoire | `rmdir /home/username` |
-    | `touch` | Crée un fichier vide | `touch /home/username/file.txt` |
-    | `rm` | Supprime un fichier | `rm /home/username/file.txt` |
-    | `mv` | Déplace un fichier | `mv /home/username/file.txt /home/username/backup/` |
-    | `cp` | Copie un fichier | `cp /home/username/file.txt /home/username/backup/` |
+    | Commande | Description                       | Exemple                                             |
+    | -------- | --------------------------------- | --------------------------------------------------- |
+    | `pwd`    | Affiche le répertoire courant     | `/home/username`                                    |
+    | `cd`     | Change de répertoire              | `cd /home/username`                                 |
+    | `ls`     | Liste les fichiers et répertoires | `ls`                                                |
+    | `mkdir`  | Crée un répertoire                | `mkdir -p /home/username`                           |
+    | `rmdir`  | Supprime un répertoire            | `rmdir /home/username`                              |
+    | `touch`  | Crée un fichier vide              | `touch /home/username/file.txt`                     |
+    | `rm`     | Supprime un fichier               | `rm /home/username/file.txt`                        |
+    | `mv`     | Déplace un fichier                | `mv /home/username/file.txt /home/username/backup/` |
+    | `cp`     | Copie un fichier                  | `cp /home/username/file.txt /home/username/backup/` |
 
 === "Windows CMD"
 
-    | Commande | Description | Exemple |
-    |----------|-------------|---------|
-    | `cd` | Affiche le répertoire courant | `cd` |
-    | `cd` | Change de répertoire | `cd C:\Users\username` |
-    | `dir` | Liste les fichiers et répertoires | `dir` |
-    | `mkdir` | Crée un répertoire | `mkdir C:\Users\username\backup` |
-    | `rmdir` | Supprime un répertoire | `rmdir C:\Users\username\backup` |
-    | `echo` | Crée un fichier vide | `echo. > C:\Users\username\file.txt` |
-    | `del` | Supprime un fichier | `del C:\Users\username\file.txt` |
-    | `move` | Déplace un fichier | `move C:\Users\username\file.txt C:\Users\username\backup\` |
-    | `copy` | Copie un fichier | `copy C:\Users\username\file.txt C:\Users\username\backup\` |
+    | Commande | Description                       | Exemple                                                     |
+    | -------- | --------------------------------- | ----------------------------------------------------------- |
+    | `cd`     | Affiche le répertoire courant     | `cd`                                                        |
+    | `cd`     | Change de répertoire              | `cd C:\Users\username`                                      |
+    | `dir`    | Liste les fichiers et répertoires | `dir`                                                       |
+    | `mkdir`  | Crée un répertoire                | `mkdir C:\Users\username\backup`                            |
+    | `rmdir`  | Supprime un répertoire            | `rmdir C:\Users\username\backup`                            |
+    | `echo`   | Crée un fichier vide              | `echo. > C:\Users\username\file.txt`                        |
+    | `del`    | Supprime un fichier               | `del C:\Users\username\file.txt`                            |
+    | `move`   | Déplace un fichier                | `move C:\Users\username\file.txt C:\Users\username\backup\` |
+    | `copy`   | Copie un fichier                  | `copy C:\Users\username\file.txt C:\Users\username\backup\` |
 
 === "Windows PowerShell"
 
-    | Commande | Description | Exemple |
-    |----------|-------------|---------|
-    | `pwd` | Affiche le répertoire courant | `pwd` |
-    | `cd` | Change de répertoire | `cd C:\Users\username` |
-    | `ls` | Liste les fichiers et répertoires | `ls` |
-    | `mkdir` | Crée un répertoire | `mkdir C:\Users\username\backup` |
-    | `rmdir` | Supprime un répertoire | `rmdir C:\Users\username\backup` |
-    | `echo` | Crée un fichier vide | `echo. > C:\Users\username\file.txt` |
-    | `rm` | Supprime un fichier | `rm C:\Users\username\file.txt` |
-    | `mv` | Déplace un fichier | `mv C:\Users\username\file.txt C:\Users\username\backup\` |
-    | `cp` | Copie un fichier | `cp C:\Users\username\file.txt C:\Users\username\backup\` |
+    | Commande | Description                       | Exemple                                                   |
+    | -------- | --------------------------------- | --------------------------------------------------------- |
+    | `pwd`    | Affiche le répertoire courant     | `pwd`                                                     |
+    | `cd`     | Change de répertoire              | `cd C:\Users\username`                                    |
+    | `ls`     | Liste les fichiers et répertoires | `ls`                                                      |
+    | `mkdir`  | Crée un répertoire                | `mkdir C:\Users\username\backup`                          |
+    | `rmdir`  | Supprime un répertoire            | `rmdir C:\Users\username\backup`                          |
+    | `echo`   | Crée un fichier vide              | `echo. > C:\Users\username\file.txt`                      |
+    | `rm`     | Supprime un fichier               | `rm C:\Users\username\file.txt`                           |
+    | `mv`     | Déplace un fichier                | `mv C:\Users\username\file.txt C:\Users\username\backup\` |
+    | `cp`     | Copie un fichier                  | `cp C:\Users\username\file.txt C:\Users\username\backup\` |
 
 !!! note "Windows"
 
@@ -203,15 +205,17 @@ Les permissions sont affichées par la commande `ls -l` dans POSIX. Sous Windows
 
 Pour changer une permission, on utilise la commande `chmod` dans POSIX. Sous Windows il est préférable de passer par l'interface graphique.
 
-| Description | Exemple |
-| :------- | :------ |
-| Ajouter l'exécution sur un fichier | `$ chmod +x program` |
-| Retirer l'exécution sur un fichier | `$ chmod -x program` |
-| Ajouter l'écriture pour le groupe | `$ chmod g+w file` |
-| Retirer l'écriture pour les autres | `$ chmod o-w file` |
-| Ajouter la lecture pour tous | `$ chmod a+r file` |
+Table: Commandes utiles pour les permissions
+
+| Description                             | Exemple              |
+| :-------------------------------------- | :------------------- |
+| Ajouter l'exécution sur un fichier      | `$ chmod +x program` |
+| Retirer l'exécution sur un fichier      | `$ chmod -x program` |
+| Ajouter l'écriture pour le groupe       | `$ chmod g+w file`   |
+| Retirer l'écriture pour les autres      | `$ chmod o-w file`   |
+| Ajouter la lecture pour tous            | `$ chmod a+r file`   |
 | Retirer tous les droits pour les autres | `$ chmod o-rwx file` |
-| Changer les permissions pour tous | `$ chmod 777 file` |
+| Changer les permissions pour tous       | `$ chmod 777 file`   |
 
 !!! note "Représentation octale"
 
@@ -235,15 +239,17 @@ Chaque fichier a un propriétaire et un groupe. Le propriétaire est l'utilisate
 
 Pour changer le propriétaire d'un fichier, on utilise la commande `chown` dans POSIX. Sous Windows, il est préférable de passer par l'interface graphique.
 
-| Description | Exemple |
-| :------- | :------ |
-| Changer le propriétaire d'un fichier | `$ chown username file` |
-| Changer le groupe d'un fichier | `$ chgrp group file` |
-| Ajouter un utilisateur à un groupe | `$ usermod -aG group username` |
-| Retirer un utilisateur d'un groupe | `$ gpasswd -d username group` |
-| Créer un groupe | `$ groupadd group` |
-| Supprimer un groupe | `$ groupdel group` |
-| Lister les groupes d'un utilisateur | `$ groups username` |
+Table: Commandes utiles pour les propriétaires et les groupes
+
+| Description                          | Exemple                        |
+| :----------------------------------- | :----------------------------- |
+| Changer le propriétaire d'un fichier | `$ chown username file`        |
+| Changer le groupe d'un fichier       | `$ chgrp group file`           |
+| Ajouter un utilisateur à un groupe   | `$ usermod -aG group username` |
+| Retirer un utilisateur d'un groupe   | `$ gpasswd -d username group`  |
+| Créer un groupe                      | `$ groupadd group`             |
+| Supprimer un groupe                  | `$ groupdel group`             |
+| Lister les groupes d'un utilisateur  | `$ groups username`            |
 
 ## ACL (Access Control List)
 
@@ -253,14 +259,14 @@ En général, les ACL sont gérées par des outils graphiques ou des commandes s
 
 Sur votre ordinateur ou dans votre carrière professionnelle vous n'aurez très certainement jamais besoin de gérer des ACL. C'est un sujet complexe et réservé aux administrateurs système. Mais pour les plus curieux voici quelques exemples:
 
-| Description | Exemple |
-| :------- | :------ |
-| Afficher les ACL d'un fichier | `$ getfacl file` |
-| Modifier les ACL d'un fichier | `$ setfacl -m u:username:rwx file` |
-| Supprimer les ACL d'un fichier | `$ setfacl -b file` |
-| Copier les ACL d'un fichier | `$ getfacl file1 | setfacl --set-file=- file2` |
-| Sauvegarder les ACL d'un fichier | `$ getfacl file > file.acl` |
-| Restaurer les ACL d'un fichier | `$ setfacl --restore=file.acl` |
+| Description                      | Exemple                            |
+| :------------------------------- | :--------------------------------- |
+| Afficher les ACL d'un fichier    | `$ getfacl file`                   |
+| Modifier les ACL d'un fichier    | `$ setfacl -m u:username:rwx file` |
+| Supprimer les ACL d'un fichier   | `$ setfacl -b file`                |
+| Copier les ACL d'un fichier      | `$ getfacl file1                   | setfacl --set-file=- file2` |
+| Sauvegarder les ACL d'un fichier | `$ getfacl file > file.acl`        |
+| Restaurer les ACL d'un fichier   | `$ setfacl --restore=file.acl`     |
 
 ## Manipulation bas niveau
 

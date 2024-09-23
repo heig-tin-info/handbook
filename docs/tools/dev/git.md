@@ -131,6 +131,8 @@ Copiez la clé publique et collez-la dans votre compte GitHub. Pour cela, ouvrez
 
 ## Commandes utiles
 
+Table: Commandes Git les plus courantes
+
 | Commande                   | Description                                                |
 | -------------------------- | ---------------------------------------------------------- |
 | `git init`                 | Initialise un dépôt Git dans le répertoire courant         |

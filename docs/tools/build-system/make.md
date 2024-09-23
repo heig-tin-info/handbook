@@ -32,6 +32,8 @@ clean:
 
 Make utilise des variables spéciales et l'appel de macros. Les variables sont définies avec `VAR=valeur` et appelées avec `$(VAR)`.
 
+Table: Variables Make
+
 | Variable            | Description                                                |
 | ------------------- | ---------------------------------------------------------- |
 | `CC`                | Compilateur (convention)                                   |

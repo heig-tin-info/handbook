@@ -88,6 +88,8 @@ $ gcc main.c add.c -o main
 
 `gcc` et `g++` acceptent de nombreuses options de compilation. Les plus courantes sont :
 
+Table: Options de compilation de GCC
+
 | Option      | Description                                                        |
 | ----------- | ------------------------------------------------------------------ |
 | `-c`        | Compile le code source en un fichier objet sans l'éditer de liens. |
@@ -161,9 +163,9 @@ Aussi si vous souhaitez calculer le sinus de 3.14, vous pouvez utiliser la fonct
 $ gcc main.c -o main -lm
 ```
 
-Notez que l'option `-lm` doit être placée après le nom du fichier source. En effet, `gcc` traite les options dans l'ordre où elles apparaissent sur la ligne de commande. Si l'option `-lm` est placée avant le nom du fichier source, `gcc` ne trouvera pas la fonction `sin` et échouera.
+Notez que l'option `-lm` doit être placée après le nom du fichier source. En effet, `gcc` traite les options dans l'ordre où elles apparaissent sur la ligne de commande. Si l'option `-lm` est placée avant le nom du fichier source, `gcc` ne trouvera pas la fonction `sin` et échouera. Dans la table ci-dessous vous trouverez quelques bibliothèques couramment utilisées.
 
-Voici quelques bibliothèques couramment utilisées :
+Table: Bibliothèques couramment utilisées
 
 | Bibliothèque | Description                         |
 | ------------ | ----------------------------------- |
