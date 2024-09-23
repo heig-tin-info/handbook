@@ -7,52 +7,50 @@ epigraph:
 
 **Objectifs**
 
-- Comprendre les valeurs et les bonnes pratiques du développement logiciel
-- Comprendre l'importance d'apprendre par soi-même
-- Comprendre l'importance de l'anglais en informatique
-- Importance de la communauté des développeurs
+- Comprendre les valeurs et les bonnes pratiques du développement logiciel.
+- Saisir l'importance d'apprendre par soi-même.
+- Reconnaître l'importance de l'anglais en informatique.
+- Comprendre le rôle fondamental de la communauté des développeurs.
 
-Être développeur logiciel que ce soit professionnellement ou comme loisir, ce n'est pas simplement écrire du code. Il y a l'art et la manière de le faire, il y a des règles à respecter, des consensus à suivre et de bonnes pratiques à adopter.
+Devenir développeur logiciel, que ce soit professionnellement ou par passion, ne se résume pas simplement à écrire du code. C’est une discipline qui exige une certaine finesse dans l’exécution, le respect de règles, de consensus partagés, et l’adoption de bonnes pratiques.
 
-J'ai vu trop souvent dans le milieu académique et professionnel, des soi-disant experts ou professeurs qui inculquent à leurs élèves ou collègues des pratiques dogmatiques basées sur des croyances personnelles ou des habitudes anciennes. L'informatique est une discipline vivante basée avant tout sur la collaboration, l'écoute et l'introspection. Il est donc essentiel d'avoir l'esprit ouvert, et de faire preuve d'humilité.
+J’ai souvent observé, tant dans les milieux académiques que professionnels, des individus se revendiquant experts ou professeurs, inculquant à leurs élèves ou collègues des pratiques dogmatiques issues de croyances personnelles ou d'habitudes désuètes. L’informatique est une [[discipline]] vivante, fondée sur la collaboration, l’écoute et l’introspection. Ainsi, il est primordial d’avoir l’esprit ouvert et de faire preuve d’humilité.
 
-On ne développe pas sur des acquis et des croyances figées, mais sur des principes et des valeurs qui évoluent avec le temps et qui dépendent du milieu. Un développeur web ne développera pas de la même manière qu'un scientifique en Python ou un développeur embarqué.
+On ne développe pas sur la base de certitudes figées, mais en s’appuyant sur des principes et des valeurs qui évoluent avec le temps et varient en fonction du contexte. Un [[développeur]] web n’adoptera pas les mêmes approches qu’un scientifique utilisant Python, ou qu’un programmeur embarqué.
 
-Pour des projets personnels, vous développez dans votre coin, mais dans une entreprise, vous faites partie d'une équipe. Le code que vous écrivez doit survivre à votre départ, il doit être lisible, maintenable, testable, évolutif. Il doit être conforme aux standards de l'entreprise, aux conventions de codage, aux bonnes pratiques, aux règles de sécurité, aux normes de qualité. Il doit être documenté, commenté, versionné, archivé. Il doit pouvoir être partagé, diffusé, échangé. Pour cela il existe des méthodes de travail bien rodées que nous allons voir dans ce cours.
+Dans le cadre de projets personnels, vous pouvez coder de manière isolée. Cependant, dans une entreprise, vous faites partie d’une équipe. Le code que vous écrivez doit pouvoir perdurer après votre départ. Il doit être lisible, maintenable, testable, évolutif. Il doit être conforme aux standards de l’entreprise, respecter les conventions de codage, les bonnes pratiques, les règles de sécurité et les normes de qualité. Il doit être documenté, commenté, versionné et archivé. En somme, il doit pouvoir être partagé, diffusé, échangé. Pour cela, il existe des méthodes de travail bien établies que nous aborderons dans ce cours.
 
-Néanmoins, les valeurs humaines fondamentales d'un développement logiciel sont bien loin des considérations techniques et méthodologiques. Elles sont les mêmes que celles qui régissent la société humaine depuis des millénaires. Elles sont les mêmes que celles qui ont permis à l'humanité de survivre et de prospérer. On peut citer parmi ces valeurs : l'ouverture d'esprit, l'humilité, la curiosité, la rigueur, la patience, la persévérance, l'écoute, l'entraide et le partage.
+Cependant, les valeurs humaines fondamentales du développement logiciel transcendent les considérations purement techniques et méthodologiques. Elles sont immuables, les mêmes qui régissent la société humaine depuis des millénaires. Parmi ces valeurs, on trouve l’ouverture d’esprit, l’humilité, la [[curiosité]], la rigueur, la [[patience]], la persévérance, l’écoute, l’entraide et le partage.
 
 ## Les règles évoluent
 
-En 1750 av. J.-C., le roi Hammurabi de Babylone a promulgué le premier code de lois connu de l'histoire de l'humanité. Ce code, gravé sur une stèle de basalte, contient 282 lois qui régissent la vie quotidienne des habitants de la Mésopotamie. Il est considéré comme l'un des premiers exemples de justice équitable et de respect des droits de l'homme.
+En [[1750]] av. J.-C., le roi [[Hammurabi de Babylone]] a gravé sur une stèle de basalte le premier code de lois connu de l’histoire. Ce code, qui comprend 282 lois, régissait la vie quotidienne en [[Mésopotamie]]. Bien que ces lois soient considérées comme un jalon important vers une justice équitable, elles imposaient des sanctions souvent sévères : châtiments corporels, mutilations, esclavage, voire exécutions. La célèbre [[loi du talion]], "œil pour œil, dent pour dent", en est un exemple emblématique.
 
 ![Code d'Hammurabi (1750 av. J.-C.)](/assets/images/hammurabi.png)
 
-Néanmoins, le terme équitable est à prendre avec des pincettes, car les lois de l'époque étaient souvent très sévères et punissaient les contrevenants par des châtiments corporels, des mutilations, des esclavages ou des exécutions. La loi du talion, "œil pour œil, dent pour dent", était souvent appliquée pour punir les criminels.
+Ce que l'on doit retenir de cette analogie avec le développement logiciel, c’est que, tout comme les conventions sociales, les règles et les consensus en informatique évoluent avec le temps. Les bonnes pratiques d'aujourd'hui seront probablement différentes demain.
 
-Ce que l'on doit retenir c'est que comme conventions sociales, les règles et les consensus de l'informatique évoluent avec le temps et les bonnes pratiques d'aujourd'hui seront tout autre demain.
+Hélas, l’inertie des institutions, des entreprises et des individus conduit à la perpétuation des habitudes et à l’établissement de dogmes sans que l'on s'en aperçoive. Il est donc indispensable de faire preuve d'ouverture d’esprit, de remise en question et de curiosité pour s’adapter à un monde en perpétuelle évolution.
 
-Hélas, l'inertie des institutions, des entreprises et des individus fait que les habitudes ont la vie dure et que les dogmes s'installent sans que l'on s'en rende compte. Il est donc essentiel de faire preuve d'ouverture d'esprit, de remise en question et de curiosité pour s'adapter à un monde en perpétuelle évolution.
-
-En d'autres termes, ce que je vous transmet aujourd'hui dans ce cours, n'est pas une vérité absolue, elle dépend de mon contexte de vie, de mes expériences et de mes valeurs. Vous devez donc les prendre avec du recul, les remettre en question et faire preuve d'esprit critique.
+En d’autres termes, ce que je vous transmets aujourd'hui n'est pas une vérité absolue. Elle est teintée par mon vécu, mes expériences et mes valeurs. Il vous appartient donc de la remettre en question, d’y réfléchir avec un esprit critique.
 
 ## L'Anglais
 
-![La langue une barrière](/assets/images/english.png)
+![La langue, une barrière](/assets/images/english.png)
 
-En programmation, quel que soit le langage utilisé, la langue **anglaise** est omniprésente. D'une part, les mots clés des langages de programmation sont majoritairement empruntés à l'anglais, mais souvent les outils de développement ne sont disponibles qu'en anglais. Il existe une raison à cela. Un article de journal publié dans une revue locale sera certainement lu par madame Machin et monsieur Bidule, mais n'aura aucun intérêt pour les habitants de l'antipode néo-zélandais. En programmation, le code se veut **réutilisable** pour économiser des coûts de développement.
+En programmation, quel que soit le langage utilisé, l’anglais est omniprésent. Les mots-clés des langages de programmation sont majoritairement issus de l'anglais, et bon nombre d'outils de développement sont exclusivement disponibles dans cette langue. Pourquoi cela ? Tout comme un article de journal local n’intéressera que peu des lecteurs à l’autre bout du globe, un code informatique doit pouvoir être réutilisé pour économiser les coûts de développement, et donc s’affranchir des barrières linguistiques.
 
-On réutilise ainsi volontiers des algorithmes écrits par un vénérable japonais, ou une bibliothèque de calcul matriciel développée en Amérique du Sud. Pour faciliter la mise en commun de ces différents blocs logiciels et surtout pour que chacun puisse dépanner le code des autres, il est essentiel qu'une langue commune soit choisie et l'anglais est le choix le plus naturel.
+On réutilise ainsi volontiers un algorithme écrit par un illustre programmeur japonais, ou une bibliothèque de calcul matriciel développée en Amérique du Sud. Pour que chacun puisse corriger, maintenir ou améliorer le code des autres, une langue commune est nécessaire, et l'anglais est naturellement devenu cette langue.
 
-Aussi dans cet ouvrage, l'anglais sera privilégié dans les exemples de code et les noms des symboles (variables, constantes ...), les termes techniques seront traduits lorsqu'il existe un consensus établi sinon l'anglicisme sera préféré. Il m'est d'ailleurs difficile, bien que ce cours soit écrit en français de parler de *feu d'alerte* en lieu et place de *warning*, car si l'un est la traduction *ad hoc* de l'autre, la terminologie n'a rien à voir et préfère, au risque d'un affront avec l'Académie, préserver les us et coutumes des développeurs logiciels.
+Dans ce cours, bien que rédigé en français, l’anglais sera privilégié pour les exemples de code et les noms des symboles (variables, constantes, etc.). Les termes techniques seront traduits lorsqu'un consensus existe, mais sinon l'anglicisme sera préféré. En effet, bien que l’on pourrait parler de "feu d’alerte" à la place de *warning*, le terme perdrait sa pertinence technique. J'opte donc, même au risque de froisser l’Académie, pour préserver les usages établis parmi les développeurs.
 
-Un autre point méritant d'être mentionné est la constante interaction d'un développeur avec internet pour y puiser des exemples, chercher des conseils, ou de l'aide pour utiliser des outils développés par d'autres. De nombreux sites internet, la vaste majorité en anglais, sont d'une aide précieuse pour le développeur.
+Un autre point mérite d'être mentionné : l’interaction constante d’un développeur avec Internet pour y puiser exemples, conseils ou assistance dans l’utilisation d'outils développés par d'autres. La majorité de ces ressources sont en [[anglais]].
 
 !!! tip "Apprenez les langues"
 
-    Ne négligez pas les cours de langue. Partez à l'étranger, lisez des livres en anglais, regardez des films en version originale, écoutez des podcasts, des conférences, des tutoriels en anglais : ceci vous ouvrira les portes de la connaissance.
+    Ne négligez pas les cours de langues. Partez à l’étranger, lisez des livres en anglais, regardez des films en version originale, écoutez des podcasts, des conférences et des tutoriels en anglais : cela vous ouvrira les portes de la connaissance.
 
-    En outre, sans cet atout, il vous sera plus difficile de trouver un emploi, les entreprises étant souvent internationales et les équipes de développement multiculturelles.
+    De surcroît, sans cette compétence, trouver un emploi pourra s’avérer plus difficile, car les entreprises sont souvent internationales et les équipes de développement multiculturelles.
 
 ## Apprendre à pêcher
 
@@ -71,16 +69,17 @@ Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le dévelo
 
 ## Une affaire de consensus
 
-En informatique comme dans la société humaine, il y a les religieux, les prosélytes, les dogmatiques, les fanatiques, les contestataires et les maximalistes.
-Le plus souvent les motifs de fâcheries concernent les outils que ces derniers utilisent et ceux dont on doit taire le nom. Ils se portent parfois sur les conventions de codage à respecter, l'encodage des fichiers, le choix de l'[EOL](https://fr.wikipedia.org/wiki/Fin_de_ligne), l'interdiction du `goto`, le respect inconditionnel des règles [MISRA](https://en.wikipedia.org/wiki/MISRA_C).
-Il existe ainsi de longues guerres de croyances, parfois vieilles de plusieurs générations et qui perdurent souvent par manque d'ouverture d'esprit et surtout parce que la bonne attitude à adopter n'est pas enseignée dans les écoles supérieures là où les dogmes s'établissent et pénètrent les esprits dociles, faute au biais d'[ancrage mental](https://fr.wikipedia.org/wiki/Ancrage_(psychologie)).
-L'enseignant devrait être sensible à ces aspects fondamentaux et devrait viser l'impartialité en visant l'ouverture l'esprit et le culte du bon sens de l'ingénieur.
+En informatique, tout comme dans la société, il existe des religieux, des prosélytes, des dogmatiques, des fanatiques, des contestataires et des maximalistes. Leurs querelles portent souvent sur les outils qu'ils utilisent ou sur des pratiques dont on ne doit pas dévier. Ils débattent parfois âprement des conventions de codage, de l'encodage des fichiers, du choix de la [fin de ligne](https://fr.wikipedia.org/wiki/Fin_de_ligne), de l'interdiction du `goto`, ou encore du strict respect des règles [MISRA](https://en.wikipedia.org/wiki/MISRA_C).
 
-Citons par exemple les [guerres d'éditeurs](https://fr.wikipedia.org/wiki/Guerre_d%27%C3%A9diteurs) qui date des années 1970 et qui opposent les défenseurs de l'éditeur `vi` aux inconditionnels d'`emacs`. Il s'agit de deux éditeurs de texte très puissants et à la courbe d'apprentissage raide qui séparent les opinions tant leur paradigme de fonctionnement est aporétique. Ces guerres sont d'abord entretenues par le plaisir de l'amusement, mais les foules de convertis ne s'aperçoivent pas toujours de l'envergure émotionnelle que prend l'affaire dans son ensemble et force est de constater qu'avec le temps ils ne parviennent plus à percevoir le monde tel qu'il est, à force d'habitudes.
+Ces "guerres de croyances", qui perdurent parfois depuis des générations, se nourrissent d’un manque d’ouverture d’esprit et d’un attachement dogmatique à des habitudes. Cela s’explique souvent par le biais d’[ancrage mental](https://fr.wikipedia.org/wiki/Ancrage_(psychologie)) qui s’installe dès l’école, là où l'on inculque parfois des certitudes figées.
 
-S'enterrer dans une zone de confort renforce le biais du [Marteau de Maslow](https://everlaab.com/marteau-de-maslow/), car lorsque l'on est un marteau, on ne voit plus les problèmes qu'en forme de clou. Cette zone de confort devient un ennemi et barre l'accès au regard critique et au pragmatisme qui devrait prévaloir. Car accepter l'existence de différentes approches possibles d'un problème donné est essentiel, car plus que dans tout autre domaine technique, le développement logiciel est avant tout une aventure collaborative qui ne devrait jamais être sous le joug d'une quelconque emprise émotionnelle.
+L'enseignant se doit d'être sensible à ces questions et doit encourager l'impartialité, ainsi qu'un état d'esprit ouvert, guidé par le bon sens de l'ingénieur.
 
-Un programme se doit d'être le plus neutre possible, impartial et minimaliste. Il n'est pas important de se préoccuper des affaires cosmétiques telles que la position des accolades dans un programme, le choix d'utiliser des espaces versus des tabulations horizontales, ou le besoin d'utiliser tel ou tel outil de développement parce qu'il est jugé meilleur qu'un autre.
+Un exemple célèbre est celui des [guerres d'éditeurs](https://fr.wikipedia.org/wiki/Guerre_d%27%C3%A9diteurs) qui opposent, depuis les années 1970, les adeptes de `vi` aux fervents défenseurs d'`emacs`. Ces deux éditeurs de texte, extrêmement puissants et complexes à maîtriser, polarisent les opinions de manière radicale. Ces guerres, entretenues à l'origine par un esprit de plaisanterie, ont progressivement pris une tournure émotionnelle qui dépasse parfois le simple cadre de l'outil.
+
+S’enfermer dans une zone de confort renforce le biais du [Marteau de Maslow](https://everlaab.com/marteau-de-maslow/), car lorsqu'on est un marteau, on finit par voir tous les problèmes comme des clous. Ce confort devient alors un ennemi qui freine le regard critique et le pragmatisme, pourtant essentiels. Il faut accepter l’existence de diverses approches pour résoudre un problème donné, car le développement logiciel, plus que tout autre domaine technique, est une aventure collaborative qui ne devrait jamais être soumise à des emprises émotionnelles.
+
+Un programme se doit d'être **neutre**, **impartial**, et **minimaliste**. L’essentiel n’est pas de s'attarder sur des questions esthétiques comme la position des accolades, l’utilisation d'espaces ou de tabulations, ou le choix d’un éditeur sur un autre.
 
 La clé de la bonne attitude c'est d'être à l'écoute du consensus et de ne pas sombrer au [biais d'attention](https://en.wikipedia.org/wiki/Attentional_bias). Il faut non seulement être sensible au consensus local direct: son entreprise, son école, son équipe de travail, mais surtout au consensus planétaire dont l'accès ne peut se faire que par l'interaction directe avec la communauté de développeurs, soit par les forums de discussions (Reddit, stackoverflow), soit par le code lui-même. Vous avez un doute sur la bonne méthode pour écrire tel algorithme ou sur la façon dont votre programme devrait être structuré ? Plongez-vous dans le code des autres, multipliez vos expériences, observez les disparités et les oppositions, et apprenez à ne pas y être sensible.
 

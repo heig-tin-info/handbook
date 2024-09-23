@@ -60,6 +60,7 @@
   - [ ] Code execution
   - [ ] Fill the gap
 - [ ] Flexible table
+- [ ] Code execution (adapt dates, things...)
 
 ## Fix in mkdocs-material
 
@@ -174,3 +175,7 @@ Alternatively, we could add a tag or an index entry without text [[|tag]]. Somet
 
 We can therefore use: [[text|tag|entry]], for exemple for this wonderful movie, [[The Matrix|Matrix|Matrix, The]].
 ```
+
+### Code execution
+
+Sometime I say `C language has been in the wild for more than 25 years`. It wuld be better to say `{{years_since(1972)}}`. Year since would be a script located in a script folder and executed by MkDocs. It could be a function or a filename.

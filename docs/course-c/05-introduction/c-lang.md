@@ -5,33 +5,33 @@ epigraph:
 ---
 # Le langage C
 
-Le langage C est l'un des premiers langages de programmation. Il est très proche de l'assembleur: le langage de bas niveau des processeurs. Le C permet de programmer des applications très performantes. Il est utilisé dans de nombreux domaines de l'informatique, d'une montre connectée à un stimulateur cardiaque (*pacemaker) en passant par une [machine à café][mcu].
+Le langage C est l'un des premiers langages de programmation. Il se situe très près de l'assembleur, ce langage de bas niveau utilisé par les processeurs. Le C permet ainsi de concevoir des applications extrêmement performantes, et il est exploité dans une multitude de domaines informatiques, que ce soit pour une montre connectée, un stimulateur cardiaque (*pacemaker*) ou encore une [machine à café][mcu].
 
-Même s'il est ancien (1972), il continue d'être utilisé et enseigné, car il est très efficace et permet de comprendre les bases de la programmation.
+Bien qu'il soit ancien (il date de [[1972]]), le langage C reste largement employé et enseigné, grâce à son efficacité et sa capacité à inculquer les bases fondamentales de la programmation.
 
-À vrai dire, en 2024, il n'y a pas d'alternative mature et éprouvée que le C pour programmer des applications embarquées à hautes performances ou le noyau des systèmes d'exploitation. Des langages plus récents comme le Rust ou le Zig commencent à émerger, mais ils sont loin d'être adoptés par l'industrie.
+En vérité, en 2024, il n'existe guère d'alternative aussi mûre et éprouvée que le C pour développer des applications embarquées à haute performance ou pour le noyau des systèmes d'exploitation. Des langages plus récents tels que [[Rust]] ou [[Zig]] commencent certes à émerger, mais ils peinent encore à s'imposer dans l'industrie.
 
 [](){ #c-history }
 
 ## Historique { data-search-keyword="thompson"}
 
-En 1964 naît, d'une collaboration avec les laboratoires Bell (*Bell Telephone Laboratories*), General Electric et le MIT, le projet [Multics](wiki:multics) (*Multiplexed Information and Computing Service*), qui vise le développement d'un nouveau système d'exploitation.
+En [[1964]] naît, d'une collaboration entre les laboratoires [[Bell]] (*Bell Telephone Laboratories*), [[General Electric]] et le [[MIT]], le projet [Multics](wiki:multics) (*Multiplexed Information and Computing Service*), qui vise à développer un nouveau système d'exploitation.
 
-Malheureusement, la fin de la décennie est assez tumultueuse, car les laboratoires Bell, ne croyant plus aux promesses de Multics, décidèrent de se retirer du projet pour créer leur propre système d'exploitation. Un groupe informel, dirigé notamment par [Ken Thompson](wiki:ken-thompson) et [Dennis Ritchie](wiki:dennis-ritchie), souhaitait revoir et améliorer certains concepts de Multics qu'ils n'appréciaient pas. Notamment le langage de programmation PL/I (*Programming Language number 1*), pourtant alors dominant pour l'écriture de systèmes d'exploitation. Ken Thompson avait développé le langage B, largement inspiré de BCPL, mais dans lequel il supprima tout ce qu'il ne pensait pas être essentiel pour pouvoir être utilisé sur de petits ordinateurs. L'un comme l'autre n'avait qu'un seul type de donnée, à savoir le "mot" (*word*).
+Cependant, la fin de la décennie est marquée par des remous. Les laboratoires Bell, désillusionnés par les promesses de [[Multics]], décident de se retirer du projet pour élaborer leur propre système d'exploitation. Un groupe informel, dirigé notamment par [Ken Thompson](wiki:ken-thompson) et [Dennis Ritchie](wiki:dennis-ritchie), entreprend de revoir certains concepts de Multics qui leur déplaisaient, notamment le langage de programmation PL/I (*Programming Language number 1*), alors prédominant pour l’écriture de systèmes d’exploitation. Thompson développe un langage baptisé B, inspiré du BCPL, dans lequel il ne conserve que les éléments qu'il juge essentiels pour fonctionner sur de petites machines. À ce stade, B ne comporte qu’un seul type de donnée, le "mot" (*word*). [[||Ken Thompson]] [[||Dennis Ritchie]]
 
-BCPL, qui fut conçu par Martin Richards au milieu des années 1960 pendant qu'il était en visite au MIT, n'est autre que le grand-père de B et l'arrière-grand-père de C. Dennis Ritchie, alors collègue de Ken Thompson, retravailla B pour y ajouter la gestion des types de données.
+[[BCPL]], conçu par [[Martin Richards]] au MIT dans les années [[1960]], est l'ancêtre de B, et par extension, l'arrière-grand-père du C. Dennis Ritchie, alors collègue de Thompson, retravaille le langage B pour y ajouter la gestion des types de données.
 
-Ce système d'exploitation que Ken Thompson et Dennis Ritchie développaient au sein des laboratoires Bell se nommait initialement UNICS, en contradiction de Multics, là où *Multiplexed* fut remplacé par *Uniplexed*. Le nom fut ensuite modifié en UNIX, qui fut central dans l'histoire de l'informatique.
+Le système d'exploitation que Thompson et Ritchie développent aux laboratoires Bell s’appelle d'abord UNICS, par opposition à Multics, où *Multiplexed* est remplacé par *Uniplexed*. Le nom évolue ensuite pour devenir [[UNIX]], un pilier dans l'histoire de l'informatique.
 
-Par la suite, [Brian Kernighan](wiki:brian-kernighan) aida à populariser ce nouveau langage. Il est le principal auteur du livre "The C Programming Language", tandis que Dennis Ritchie s'est davantage occupé des annexes.
+Plus tard, [Brian Kernighan](wiki:brian-kernighan) contribue à la popularisation de ce nouveau langage. Il est l'auteur principal du livre *The C Programming Language*, tandis que Dennis Ritchie s’est concentré sur les annexes.
 
-Les évolutions continueront plus tard avec [Bjarne Stroustrup](wiki:bjarne-stroustrup) qui décidera d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fait l'objet d'un autre cours. Sur la figure suivante, on peut voir le trio fondateur du langage C.
+Les évolutions du C continuent, notamment avec [Bjarne Stroustrup](wiki:bjarne-stroustrup) qui, dans les années 1980, étend le langage en y apportant la programmation orientée objet (OOP). Ce concept sera étudié dans un autre cours. La figure suivante présente le trio fondateur du langage C. [[||Bjarne Stroustrup]]
 
 ![Les pères fondateurs du C](/assets/images/thompson-kernighan-ritchie.drawio)
 
-Il faut attendre 1989 pour que le langage C fasse l'objet d'une normalisation par l'ANSI (*American National Standards Institute*). L'année suivante le comité ISO (*International Organization for Standardization*) ratifie le standard *ISO/IEC 9899:1990* communément appelé **C90**. Dès lors, le langage C est devenu un standard international et devient le langage dominant dans le monde de l'informatique.
+Il faut attendre [[1989]] pour que le langage C soit normalisé par l’ANSI (*American National Standards Institute*). L’année suivante, l’ISO (*International Organization for Standardization*) ratifie le standard *ISO/IEC 9899:1990*, communément appelé **C90**. Dès lors, le C devient un standard international et s’impose comme le langage dominant dans le domaine de l’informatique.
 
-Les langages sont souvent influencés les uns par les autres, et le C n'échappe pas à la règle. La figure suivante illustre quelques influences des langages de programmation :
+Les langages de programmation se nourrissent souvent les uns des autres, et le C ne fait pas exception. La figure suivante illustre quelques-unes des influences entre langages :
 
 ```mermaid
 %% Influences des langages de programmation
@@ -50,15 +50,15 @@ flowchart LR
     B --> C
 ```
 
-Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés par les ingénieurs, car il allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances telles que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.
+Cinquante ans plus tard, le C reste l'un des langages les plus utilisés par les ingénieurs. Alliant une vision de haut niveau avec la possibilité de manipulations de bas niveau, il s’avère être un choix privilégié pour les applications embarquées sur microcontrôleurs, ou pour l’optimisation de code afin d’obtenir des performances maximales, comme dans les noyaux de systèmes d'exploitation tels que le [[noyau]] [[Linux]] ([[Kernel]]) ou Windows.
 
-Retenons simplement que **C** est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C, du moins en partie.
+Retenons simplement que **C** est un langage à la fois simple et puissant. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont probablement été, au moins partiellement, programmés en C.
 
 ## Standardisation
 
-Nous l'avons vu, le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.
+Comme nous l'avons vu, le langage C a un long historique. Il a fallu attendre près de vingt ans après sa création pour qu’il fasse l’objet d’une [[normalisation]] internationale.
 
-Le standard le plus couramment utilisé en 2024 est certainement encore [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf). C11 le remplace peu à peu dans l'industrie, mais l'histoire continue avec C17, C18 et C23 qui sont des évolutions. La figure suivante résume les différents standards internationaux du langage C.
+Le standard le plus couramment utilisé en 2024 reste sans doute [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf). [[C11]] commence à le remplacer dans l'industrie, mais l'évolution se poursuit avec [[C17]], [[C18]] et [[C23]]. La figure suivante résume les différents standards internationaux du C :
 
 Table: Normes internationales du langage C
 
@@ -73,21 +73,20 @@ Table: Normes internationales du langage C
 | C17/C18         | [ISO/IEC 9899:2018](https://www.iso.org/standard/74528.html) | 2018 |
 | C23             | [ISO/IEC 9899:2023](https://www.iso.org/standard/82075.html) | 2023 |
 
-En substance, **C18** n'apporte pas de nouvelles fonctionnalités au langage, mais vise à clarifier de nombreuses zones d'ombres laissées par **C11** qui n'apportent que peu de grands changements fondamentaux pour le développement sur microcontrôleur.
+En substance, **C18** n'apporte pas de nouvelles fonctionnalités majeures au langage, mais se concentre sur la clarification des ambiguïtés laissées par **C11**, qui, lui-même, n’introduisait que peu de changements fondamentaux pour le développement sur microcontrôleurs.
+
 
 !!! info
 
-    Vous entendrez ou lirez souvent des références à **ANSI C** ou **K&R**, préférez plutôt une compatibilité avec **C99** au minimum.
+    Vous entendrez ou lirez souvent des références à **ANSI C** ou **K&R**. Privilégiez toutefois une compatibilité avec **C99** au minimum.
 
-Il faut l'admettre, le standard C est lourd, difficile à lire, et avec ses quelque 552 pages pour C99, vous n'aurez probablement jamais le moindre plaisir à y plonger vos yeux qui se rempliront de larmes à chaque lecture.
+Le standard C est, il faut bien l’admettre, dense et ardu à lire. Avec ses quelque 552 pages pour C99, il est peu probable que vous y trouviez un grand plaisir. Et pourtant, il est parfois nécessaire de s’y plonger pour démêler certaines subtilités du langage, rarement explicitées dans les manuels. Vous vous retrouverez un jour ou l’autre confronté à des problèmes non documentés, et c’est souvent dans le standard que se trouve la solution.
 
-Armez-vous de mouchoirs, car l'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Dans l'industrie, vous vous heurterez un jour ou l'autre à des problèmes qui ne sont pas documentés dans les livres et bien souvent la réponse est à chercher dans le standard.
-
-Je vous le disais plus haut, C99 est le standard le plus couramment utilisé en 2024, pourtant il a plus de 25 ans. Vous vous demandez probablement pourquoi l'industrie a autant de retard sur le dernier standard. Lorsque Apple annonce sa dernière mouture d'iOS, chacun s'empresse de l'installer. En revanche, dans le milieu industriel, les machines et les processus sont réglés par des validations strictes qui imposent une version du standard bien précise. Migrer vers un standard plus récent est une vaste aventure. Il faut mettre à jour le code, faire des tests, encore et tests, et toujours plus de tests pour s'assurer que la fusée envoyée sur Mars n'aura pas d'issue fatale ou que le robot chirurgical qui vous sauvera un jour d'une misère n'ait pas de velléités assassines à la suite d'un bogue logiciel. Ces validations sont donc longues et fastidieuses autant administrativement que techniquement. Ce qui est long est cher et bien souvent, les entreprises préfèrent rester fidèles à un ancien standard qui fonctionne.
+Comme mentionné plus haut, bien que C99 soit le standard le plus utilisé en 2024, il a déjà plus de 25 ans. Vous vous demandez peut-être pourquoi l'industrie semble si en retard face aux dernières versions. Contrairement au domaine des logiciels grand public, où chaque mise à jour est adoptée avec enthousiasme, le secteur industriel est régi par des processus de validation stricts. Migrer vers un nouveau standard est une opération coûteuse, tant en termes de tests que de conformité, et les entreprises préfèrent souvent s’en tenir à des versions éprouvées plutôt que de risquer de coûteuses erreurs, notamment dans des domaines critiques comme l’aéronautique ou la médecine.
 
 ## Le C et les autres...
 
-Si ce cours se concentre sur le C, il n'est de loin pas le seul langage de programmation et surtout, ce n'est certainement l'unique langage que vous apprendrez dans votre carrière. Sur la table suivante, une liste non exhaustive de langages de programmation et de leur année de création vous est donnée. Cette liste est intéressante pour comprendre l'évolution des langages de programmation et leurs utilisations typiques :
+Si ce cours se concentre principalement sur le langage C, il est loin d'être le seul langage de programmation, et ce n'est certainement pas le seul que vous apprendrez au cours de votre carrière. La table suivante présente une liste non exhaustive de langages de programmation ainsi que leur année de création. Cette liste permet de mieux comprendre l'évolution des langages de programmation et leurs usages typiques :
 
 Table: Langages de programmation et leur année de création
 
@@ -111,7 +110,7 @@ Table: Langages de programmation et leur année de création
 | [Swift](wiki:swift-lang)     | 2014  | Applications mobiles      |
 | [Zig](wiki:zig-lang)         | 2016  | Systèmes embarqués        |
 
-L'index [TIOBE](https://www.tiobe.com/tiobe-index/) est un bon indicateur de la popularité des langages de programmation. Il est mis à jour chaque mois et permet de suivre l'évolution de la popularité des langages de programmation. En 2024, le top 10 des langages de programmation les plus populaires est donné par la table suivante :
+L'index [TIOBE](https://www.tiobe.com/tiobe-index/) constitue un excellent indicateur de la popularité des langages de programmation. Il est mis à jour mensuellement et permet de suivre l'évolution de la popularité des différents langages. En 2024, le classement des 10 langages de programmation les plus populaires est présenté dans la table suivante : [[||TIOBE]]
 
 Table: Top 10 des langages de programmation
 
@@ -128,7 +127,7 @@ Table: Top 10 des langages de programmation
 | 9      | Visual Basic             |
 | 10     | Fortran                  |
 
-Sur le podium, Python est un langage de très haut niveau simple à apprendre, mais éloigné du matériel. C++ est un langage de programmation orientée objet, très puissant, mais complexe à dompter. Avec la médaille d'argent, C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C. Ai-je réussi à vous convaincre ?
+Sur le podium, [[Python]] est un langage de très haut niveau simple à apprendre, mais éloigné du matériel. [[C++]] est un langage de programmation orientée objet, très puissant, mais complexe à dompter. Avec la médaille d'argent, C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C. Ai-je réussi à vous convaincre ?
 
 [](){#structured-text-programming}
 
@@ -289,19 +288,19 @@ Naturellement vous ne connaîtrez le numéro de page exact qu'une fois que tous 
 
 ## Hello World!
 
-Il est traditionnellement coutume depuis la publication en 1978 du livre [The C Programming Language](https://en.wikipedia.org/wiki/The_C_Programming_Language) de reprendre l'exemple de Brian Kernighan comme premier programme.
+Il est traditionnellement coutume depuis la publication en [[1978]] du livre [The C Programming Language](https://en.wikipedia.org/wiki/The_C_Programming_Language) de reprendre l'exemple de [[Brian Kernighan]] comme premier programme.
 
 ```c title="hello.c"
 --8<-- "docs/assets/src/hello.c"
 ```
 
-Ce programme est composé de deux parties. L'inclusion de la bibliothèque standard d'entrées sorties (*STandarD Inputs Outputs*) à l'aide d'une directive préprocesseur qui définit l'existence de la fonction `printf` qui vous permet d'écrire sur le terminal. Le programme principal est nommé `main` et tout ce qui se situe à l'intérieur des accolades `{ }` appartient à ce dernier. L'ensemble que définit `main` et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction `printf`. On prend soin de terminer chaque instruction par un point-virgule `;`. [[||hello, world]]
+Ce programme est composé de deux parties. L'inclusion de la [[bibliothèque standard]] d'entrées sorties (*STandarD Inputs Outputs*) à l'aide d'une directive préprocesseur qui définit l'existence de la fonction `printf` qui vous permet d'écrire sur le terminal. Le programme principal est nommé `main` et tout ce qui se situe à l'intérieur des accolades `{ }` appartient à ce dernier. L'ensemble que définit `main` et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction `printf`. On prend soin de terminer chaque instruction par un point-virgule `;`. [[||hello, world]]
 
 L'appel d'une fonction comme  `printf` peut prendre des **paramètres** comme ici le texte `Hello world!\n` dont le `\n` représente un retour à la ligne.
 
-Une fois ce code écrit, il faut le compiler. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard vous utiliserez votre éditeur de texte favori pour écrire vos programmes.
+Une fois ce code écrit, il faut le [[compiler]]. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard vous utiliserez votre éditeur de texte favori pour écrire vos programmes.
 
-Pour obtenir un invité de commande, vous devez ouvrir un terminal. Comme nous avons choisi de travailler sur un système compatible POSIX, sur n'importe quel système d'exploitation vous lancez un terminal et sous Windows vous devez installer WSL2. Une fois lancée la console ressemble à ceci :
+Pour obtenir un invité de commande, vous devez ouvrir un terminal. Comme nous avons choisi de travailler sur un système compatible [[POSIX]], sur n'importe quel système d'exploitation vous lancez un terminal et sous Windows vous devez installer WSL2. Une fois lancée la console ressemble à ceci :
 
 ```bash
 $
@@ -333,21 +332,21 @@ Utilisez donc la commande suivante pour compiler votre programme :
 $ gcc hello.c
 ```
 
-Rien ne s'est affiché ? C'est une bonne nouvelle ! La philosophie POSIX est qu'un programme doit se faire le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur. Cela ne veut pas dire que la commande n'a eu aucun effet. Au contraire, on s'attend à trouver dans le répertoire courant notre fichier source ainsi que le résultat de la compilation, le fichier `a.out`. Pour le vérifier, nous utiliserons le programme [ls](https://fr.wikipedia.org/wiki/Ls) qui liste les fichiers d'un dossier : [[||ls]]
+Rien ne s'est affiché ? C'est une excellente nouvelle ! La philosophie POSIX veut qu'un programme soit aussi discret que possible : si tout s'est bien déroulé, il n'est pas nécessaire d'en informer l'utilisateur. Toutefois, cela ne signifie pas que la commande n'a eu aucun effet. En réalité, vous devriez maintenant trouver dans le répertoire courant votre fichier source ainsi que le résultat de la compilation, à savoir le fichier `a.out`. Pour vérifier cela, nous allons utiliser le programme [ls](https://fr.wikipedia.org/wiki/Ls), qui liste les fichiers présents dans un répertoire : [[||ls]]
 
 ```bash
 $ ls
 hello.c       a.out
 ```
 
-Très bien, nous avons bel et bien les deux fichiers. À présent, exécutons le programme en prenant soin de préfixer le nom par, `./` car les programmes générés localement comme `a.out` ne peuvent pas être accédés directement par leur nom pour des raisons de sécurité. En effet, imaginons qu'un fourbe hackeur ait décidé de créer dans ce répertoire un programme nommé `ls` qui efface toutes vos données. Lorsque vous écrivez `ls` pour voir le contenu du répertoire que vous ignorez, vous exécutez en réalité le programme `ls` contenu dans ce répertoire et l'effet serait pour vous désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement préfixé par `./` pour être exécuté. À vous de jouer :
+Parfait, nous avons bien les deux fichiers. Maintenant, exécutons le programme en prenant soin de préfixer le nom par `./`, car les programmes générés localement, comme `a.out`, ne peuvent pas être lancés directement par leur nom pour des raisons de sécurité. En effet, imaginez qu'un pirate malintentionné crée un programme nommé `ls` dans ce répertoire, qui effacerait toutes vos données. Si vous exécutez la commande `ls` pour voir le contenu du répertoire, vous lanceriez involontairement ce programme malveillant avec des conséquences désastreuses. Pour éviter ce type de problème, tout programme local doit être explicitement préfixé par `./` pour pouvoir être exécuté. À vous de jouer :
 
 ```console
 $ ./a.out
 hello, world
 ```
 
-Félicitations, le programme s'est exécuté correctement. Mais maintenant, peut-on en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à la taille qu'il occupe dans votre espace de stockage (disque dur). Une fois de plus `ls` nous est utile, mais cette fois-ci avec l'option `l` :
+Félicitations, le programme s'est exécuté correctement ! Mais à présent, nous pouvons en apprendre davantage sur ce fichier. Par exemple, nous pourrions examiner la date de création du programme ainsi que l'espace qu'il occupe sur votre disque. Encore une fois, `ls` nous sera utile, cette fois-ci avec l'option `l` :
 
 ```console
 $ ls -l a.out
@@ -369,23 +368,23 @@ Jul 24 09:50  Date de création du fichier
 a.out         Nom du fichier
 ```
 
-!!! note
+!!! note "hello, world"
 
-    Les puristes peuvent se demander s'il faut écrire `hello, world`, `hello, world!` ou `Hello, world!\n`. Dans son livre, Brian Kernighan a choisi `hello, world\n` et c'est ce que nous avons repris ici.
+    Les puristes peuvent se demander s'il est préférable d'écrire `hello, world`, `hello, world!` ou `Hello, world!\n`. Dans son livre, Brian Kernighan a opté pour `hello, world\n`, et c'est cette version que nous avons reprise ici.
 
-    Outre le caractère pinailleur de cette remarque qui prête attention aux détails, il peut être noté que la casse des caractères est importante en informatique. `Hello` n'est pas la même chose que `hello`, le stockage en mémoire n'est pas le même, et donc le résultat de l'exécution d'un programme peut être différent.
+    Au-delà de ce souci du détail, il est important de souligner que la casse des caractères a une grande importance en informatique. `Hello` n'est pas équivalent à `hello`, car le stockage en mémoire diffère, et par conséquent, le résultat de l'exécution d'un programme peut varier.
 
-    Il est donc essentiel d'avoir l'œil sur ces détails, vous le verrez par la suite, vous développerez une certaine facilité à repérer les `;` manquants, les `{}` mal placées, les `==` qui devraient être `=`, etc.
+    Il est donc primordial de prêter attention à ces subtilités. Vous le constaterez au fil du temps : vous développerez une aisance naturelle pour repérer les `;` manquants, les `{}` mal placées ou encore les `==` qui auraient dû être `=`.
 
-    Mais avant tout, c'est la cohérence de l'ensemble qui doit primer. Si vous avez choisi d'écrire `Hello, World!`, alors écrivez-le partout de la même manière, dans tous vos exemples, dans tous vos commentaires, dans toute votre documentation.
+    Cependant, ce qui prime avant tout, c'est la cohérence de l'ensemble. Si vous choisissez d'écrire `Hello, World!`, veillez à le faire de manière uniforme, que ce soit dans vos exemples, vos commentaires ou l'ensemble de votre documentation.
 
 ## Conclusion
 
-Le langage C inventé dans les années 70 par des pionniers de l'informatique demeure aujourd'hui un pilier fondamental dans le monde de la programmation, en particulier pour le développement d'applications embarquées et de systèmes d'exploitation. Son efficacité, sa proximité avec le matériel, et sa capacité à offrir un contrôle précis sur les ressources en font un langage toujours pertinent, malgré l'émergence de concurrents modernes comme Rust ou Zig.
+Le langage C, inventé dans les années 70 par des pionniers de l'informatique, reste aujourd'hui un pilier fondamental dans le monde de la programmation, notamment pour le développement d'applications embarquées et de systèmes d'exploitation. Son efficacité, sa proximité avec le matériel, et sa capacité à offrir un contrôle précis des ressources en font un langage toujours pertinent, malgré l'émergence de concurrents modernes comme [[Rust]] ou [[Zig]].
 
-Son histoire riche, marquée par des figures emblématiques comme Dennis Ritchie et Ken Thompson, ainsi que son influence sur une multitude d'autres langages, témoigne de sa longévité et de son importance. Apprendre le C, c'est non seulement comprendre les fondations de la programmation, mais aussi acquérir des compétences essentielles pour tout développeur souhaitant maîtriser les rouages du matériel et des systèmes informatiques.
+Son histoire, riche et marquée par des figures emblématiques telles que Dennis Ritchie et Ken Thompson, ainsi que son influence sur de nombreux autres langages, témoigne de sa longévité et de son importance. Apprendre le C, c'est non seulement saisir les bases de la programmation, mais aussi acquérir des compétences indispensables pour tout développeur désireux de maîtriser les rouages du matériel et des systèmes informatiques.
 
-Le développement en C suit un cycle de développement rigoureux passant par différentes étapes que le développeur doit comprendre. Maintenant que vous avez réussi à compiler votre premier programme, vous êtes prêt pour la suite...
+Le développement en C suit un cycle rigoureux, comportant plusieurs étapes que chaque développeur doit comprendre. Maintenant que vous avez réussi à compiler votre premier programme, vous êtes prêt pour la suite...
 
 ## Exercices de Révision
 
