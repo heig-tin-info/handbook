@@ -196,7 +196,7 @@ La version imprimée sera néanmoins figée à un moment donné, mais la version
 
 ## Colophon
 
-Ce livre est écrit en [Markdown]([wiki:markdown](https://fr.wikipedia.org/wiki/Markdown)) et généré en HTML par [MkDocs](https://www.mkdocs.org/). Le thème utilisé est [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). Les sources sont disponibles sur [GitHub]([wiki:github](https://fr.wikipedia.org/wiki/GitHub)) et l'hébergement est assuré par [GitHub Pages](https://pages.github.com/).
+Ce livre est écrit en [Markdown](https://fr.wikipedia.org/wiki/Markdown) et généré en HTML par [MkDocs](https://www.mkdocs.org/). Le thème utilisé est [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). Les sources sont disponibles sur [GitHub](https://fr.wikipedia.org/wiki/GitHub) et l'hébergement est assuré par [GitHub Pages](https://pages.github.com/).
 
 La plupart des illustrations sont réalisées avec [Draw.io](https://www.draw.io/), un outil de dessin vectoriel en ligne. Les schémas sont rendus dans le navigateur avec `GraphViewer`. Les diagrammes utilisent la technologie [Mermaid](https://mermaid-js.github.io/mermaid/#/). Les autres sources d'images sont issues en grande partie de [Wikimedia Commons](https://commons.wikimedia.org/) et [Wikipedia](https://www.wikipedia.org/).
 

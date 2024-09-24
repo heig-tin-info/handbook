@@ -141,12 +141,16 @@ class LaTeXRenderer:
         ]
 
         # Wiki links
-        with open("links.yml") as f:
-            self.links = yaml.load(f, Loader=yaml.FullLoader)
-        self.wikimap = {
-            value["url"]: {"key": key, **value}
-            for key, value in self.links.get("wikipedia", {}).items()
-        }
+        link_file = Path("links.yml")
+        if link_file.exists():
+            with open(link_file, "r") as f:
+                self.links = yaml.load(f, Loader=yaml.FullLoader)
+            self.wikimap = {}
+            for key, value in self.links.get("wikipedia", {}).items():
+                self.wikimap[key] = value
+        else:
+            log.warning("No links file found yet, skipping wikipedia links")
+            self.wikimap = {}
 
         # Metadata
         self.abbreviations = {}

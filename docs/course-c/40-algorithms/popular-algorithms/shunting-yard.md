@@ -1,6 +1,6 @@
 # Algorithme de Shunting Yard
 
-L'algorithme de [Shunting Yard](https://fr.wikipedia.org/wiki/Algorithme_de_Shunting-yard) est un algorithme de parsing d'expression mathématique. Il permet de transformer une expression mathématique en notation infixée en une expression postfixée. L'algorithme a été inventé par Edsger Dijkstra en 1961.
+L'algorithme de [Shunting Yard](https://fr.wikipedia.org/wiki/Algorithme_Shunting-yard) est un algorithme de parsing d'expression mathématique. Il permet de transformer une expression mathématique en notation infixée en une expression postfixée. L'algorithme a été inventé par Edsger Dijkstra en 1961.
 
 Imaginez que vous ayez une expression mathématique sous forme d'une chaîne de caractères :
 

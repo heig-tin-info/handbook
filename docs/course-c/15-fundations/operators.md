@@ -982,7 +982,7 @@ Selon la précédence de chaque opérateur ainsi que son associativité on a :
 
     C'est une notation très utilisée en informatique pour les calculatrices et les compilateurs car elle permet de simplifier l'écriture des expressions mathématiques, et surtout s'affranchir du problème des priorités d'opérateurs.
 
-    L'algorithme de [Shunting Yard](https://en.wikipedia.org/wiki/Shunting-yard_algorithm) permet de convertir une expression en notation infixée en une expression en notation polonaise inversée.
+    L'algorithme de [Shunting Yard](https://fr.wikipedia.org/wiki/Algorithme_Shunting-yard) permet de convertir une expression en notation infixée en une expression en notation polonaise inversée.
 
 ### Associativité
 

@@ -131,7 +131,7 @@ Si on résume, la solution proposée qui utilise un bit de signe pose deux probl
 
 ### Complément à un
 
-Le **[[complément à un]]** est une méthode plus maline utilisée dans les premiers ordinateurs comme le [CDC 6600](https://fr.wikipedia.org/wiki/Control_Data_6600) (1964) ou le [UNIVAC 1107](https://en.wikipedia.org/wiki/UNIVAC_1100/2200_series) (1962). Il existe également un bit de signe, mais il est implicite.
+Le **[[complément à un]]** est une méthode plus maline utilisée dans les premiers ordinateurs comme le [CDC 6600](https://fr.wikipedia.org/wiki/Control_Data_6600) ([[1964]]) ou le UNIVAC 1107 ([[1962]]). Il existe également un bit de signe, mais il est implicite.
 
 Le complément à un tire son nom de sa définition générique nommée *radix-complement* ou complément de base et s'exprime par :
 

@@ -1,33 +1,30 @@
-"""Provide local wikipedia links in mkdocs pages.
+"""Provide local wikipedia links in MkDocs pages.
 
-Use the following syntax in your markdown files:
-
-    [link text](wiki:keyword)
-
-Where `keyword` is the keyword used to search on wikipedia.
-
-It creates a local database in links.yml. It can be used to
-generate glossary in printed version of the documentation.
+Wiki pages are captured and the summary and thumbnail are fetched from
+the internet. The links are stored in a YAML file.
 """
 
 import re
+import urllib.parse
+from html import unescape
 from pathlib import Path
-import requests
-from ruamel.yaml import YAML
-from mkdocs.utils import log
-from voluptuous import Schema, Required, Optional
+
 import click
+import requests
+from mkdocs.utils import log
+from ruamel.yaml import YAML
+from unidecode import unidecode
+from voluptuous import Optional, Required, Schema
 
 schema = Schema(
     {
         "wikipedia": {
             str: {
-                Required("url"): str,
                 Required("title"): str,
-                Required("validated", default=False): bool,
                 Optional("tid"): str,
                 Optional("description"): str,
                 Optional("extract"): str,
+                Optional("key"): str,
                 Optional("thumbnail"): {
                     Required("source"): str,
                     Required("width"): int,
@@ -39,7 +36,6 @@ schema = Schema(
     }
 )
 
-
 class Wikipedia:
     def __init__(self, filename=Path("links.yml"), lang="en", timeout=5):
         self.filename = Path(filename)
@@ -49,6 +45,11 @@ class Wikipedia:
         self.api_url = self.base_url + "/api/rest_v1"
         self.timeout = timeout
         self.data = {}  # Populated by load()
+
+    def get_api_url(self, language=None):
+        if not language:
+            language = self.language
+        return f"https://{language}.wikipedia.org/api/rest_v1"
 
     def search_from_keyword(self, keyword, limit=5, interactive=False):
         """Retrieve a wikipedia link for a given keyword in a given language.
@@ -69,7 +70,7 @@ class Wikipedia:
         )
 
         if response.status_code != 200:
-            log.error("Error while fetching wikipedia search for keyword: %s", keyword)
+            log.error("Error while fetching wikipedia search for keyword: %s (%s)", keyword, self.search_url)
             return None
 
         data = response.json()
@@ -99,39 +100,26 @@ class Wikipedia:
             "timestamp": result["timestamp"],
         }
 
-    def fetch_summary(self, page_title):
-        summary_url = f"{self.api_url}/page/summary/{page_title}"
+    def fetch_summary(self, page_title, language=None):
+        api_url = self.get_api_url(language)
+        summary_url = f"{api_url}/page/summary/{page_title}"
         response = requests.get(summary_url, timeout=self.timeout)
         if response.status_code != 200:
-            log.error("Error while fetching wikipedia summary for page: %s", page_title)
+            log.error("Error while fetching wikipedia summary for page: %s (%s)", page_title, summary_url)
             return None
         data = response.json()
         keep_keys = ["title", "thumbnail", "timestamp", "description", "extract", "tid"]
 
+        data['extract'] = data['extract'].strip()
+
         return {k: v for k, v in data.items() if k in keep_keys}
-
-    def update(self):
-        """Update links with missing data from wikipedia API."""
-        for keyword, entry in self:
-            url = entry["url"]
-            if "title" not in entry:
-                title = url.split("/")[-1]
-                entry["title"] = title
-
-            if "tid" not in entry:
-                log.info("Updating wikipedia summary for keyword %s", keyword)
-                summary = self.fetch_summary(entry["title"])
-                if summary:
-                    entry.update(summary)
-                else:
-                    log.error(
-                        "Unable to find wikipedia summary for keyword: %s",
-                        keyword
-                    )
 
     def load(self):
         yaml = YAML()
         yaml.preserve_quotes = True
+        if not self.filename.exists():
+            self.data = schema({"wikipedia": {}})
+            return
         links = yaml.load(self.filename.open(encoding="utf-8"))
         self.data = schema(links)
 
@@ -154,36 +142,34 @@ class Wikipedia:
 
     def __setitem__(self, keyword, value):
         self.data["wikipedia"][keyword] = value
-        self.data["wikipedia"][keyword].setdefault("validated", False)
 
 
-RE_WIKI_LINK = re.compile(r"(\[[^\]]+\]\()wiki:([^\)]+)(\))")
+RE_WIKI_LINK = re.compile(r'<a[^>]+?href="(https?://([a-z]{2,3})\.wikipedia.org\/wiki\/([^"]+))"')
 
 wiki = Wikipedia(lang="fr")
 
 
 def on_config(config):
     wiki.load()
-    wiki.update()
 
+def to_ascii(key):
+    key = urllib.parse.unquote(unescape(key)).replace('_', '-').lower()
+    key = unidecode(key)
+    key = re.sub(r"[^\w-]", "", key)
+    return key
 
-def on_page_markdown(markdown, page, config, files):
-    def replace_link(link):
-        keyword = link.group(2)
-
-        if keyword not in wiki:
-            result = wiki.search_from_keyword(keyword, interactive=True)
-
-            if result is None:
-                log.error("Unable to find wikipedia link for keyword: %s", keyword)
-                return link.group(0)
-
-            wiki[keyword] = result
-
-        return f"{link.group(1)}{wiki[keyword]['url']}{link.group(3)}"
-
-    return re.sub(RE_WIKI_LINK, replace_link, markdown)
-
+def on_page_content(html, page, config, files):
+    for link in re.finditer(RE_WIKI_LINK, html):
+        language = link.group(2)
+        page_title = link.group(3)
+        key = to_ascii(f"{language}-{page_title}")
+        url = f"https://{language}.wikipedia.org/wiki/{page_title}"
+        if url not in wiki:
+            log.info("Fetching wikipedia summary for '%s'", page_title)
+            summary = wiki.fetch_summary(page_title.replace('/', r'%2F'), language)
+            if summary:
+                wiki[url] = summary
+                wiki[url]['key'] = key
 
 def on_post_build(config):
     wiki.save()

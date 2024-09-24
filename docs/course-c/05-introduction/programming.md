@@ -463,7 +463,7 @@ Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates cl�
 
 1801
 
-: [Métier à tisser Jacquard](https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser_Jacquard) programmable avec des cartes perforées.
+: [Métier à tisser Jacquard](https://fr.wikipedia.org/wiki/M%C3%A9tier_Jacquard) programmable avec des cartes perforées.
 
 1837
 

@@ -2,7 +2,7 @@
 
 Le codage de Huffman est un algorithme de compression sans perte qui permet de réduire la taille des fichiers en utilisant des codes de longueur variable pour représenter les caractères. L'algorithme repose sur l'idée que les caractères les plus fréquents dans un texte peuvent être représentés par des codes plus courts, tandis que les caractères les moins fréquents sont représentés par des codes plus longs.
 
-Il est utilisé dans de nombreux formats de fichiers comme le format [PNG](https://fr.wikipedia.org/wiki/Portable_Network_Graphics), [JPEG](https://fr.wikipedia.org/wiki/JPEG) et [MP3](https://fr.wikipedia.org/wiki/MPEG-1/2_Audio_Layer_3).
+Il est utilisé dans de nombreux formats de fichiers comme le format [PNG](https://fr.wikipedia.org/wiki/Portable_Network_Graphics), [JPEG](https://fr.wikipedia.org/wiki/JPEG) et [MP3](https://fr.wikipedia.org/wiki/MP3).
 
 Prenons le texte `ABRACADABRA`. Il y a des lettres qui reviennent plus souvent que d'autres et des lettres de l'alphabet qui sont absentes. Pourquoi donc représenter chaque caractère sur 1 octet ? On pourrait utiliser un code de longueur variable. Par exemple, la lettre `A` pourrait être représentée par `0`, la lettre `B` par `10` et la lettre `R` par `11`. Il faudrait également définir une table de correspondance pour décoder le texte. C'est le principe de l'abre de Huffman.
 
@@ -17,7 +17,7 @@ On commence par compter la fréquence de chaque caractère. On obtient :
 Table: Fréquence de Huffman
 
 | Caractère | Fréquence |
-|-----------|-----------|
+| --------- | --------- |
 | A         | 5         |
 | B         | 2         |
 | R         | 2         |
@@ -101,12 +101,12 @@ graph TD
 Pour générer les codes, on parcourt l'arbre de Huffman en partant de la racine. On ajoute un `0` à chaque fois qu'on descend à gauche et un `1` à chaque fois qu'on descend à droite. Les noeuds fusionnés sont des noeuds internes, on ne les prend pas en compte.
 
 | Caractère | Code |
-|-----------|-----------|
-| A         | 0         |
-| R         | 10        |
-| B         | 111       |
-| C         | 1100      |
-| D         | 1101      |
+| --------- | ---- |
+| A         | 0    |
+| R         | 10   |
+| B         | 111  |
+| C         | 1100 |
+| D         | 1101 |
 
 
 ### Encodage du texte
