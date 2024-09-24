@@ -126,7 +126,7 @@ gcc -Iinclude -c src/*.c -o build/*.o
 
 ## En-têtes de fichiers
 
-Historiquement, les développeurs C utilisait l'outil [Doxygen](wiki:doxygen) pour générer de la documentation à partir des commentaires dans le code source. Cela a donné naissance à une convention pour les commentaires de documentation qui est souvent utilisée de manière abusive.
+Historiquement, les développeurs C utilisait l'outil [Doxygen](https://fr.wikipedia.org/wiki/Doxygen) pour générer de la documentation à partir des commentaires dans le code source. Cela a donné naissance à une convention pour les commentaires de documentation qui est souvent utilisée de manière abusive.
 
 Aujourd'hui, avec les éditeurs modernes, il est plus facile de naviguer dans le code source et de trouver des informations sur les fonctions et les structures. Les commentaires de documentation sont souvent redondants et inutiles, ils polluent plus qu'ils n'aident. Néanmoins, je peux vous donner un exemple de commentaires de documentation pour un fichier d'en-tête :
 

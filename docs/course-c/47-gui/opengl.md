@@ -46,7 +46,7 @@ Les sommets seuls ne forment pas encore une géométrie complète. Ils doivent �
 
 ### Traitement des sommets
 
-Une fois les primitives assemblées, les sommets sont traités par le *vertex shader*. Le *vertex shader* est un petit programme écrit en langage de shader (comme [GLSL](wiki:glsl) pour OpenGL ou HLSL pour DirectX sous Windows) qui s'exécute sur chaque sommet de la primitive. Le GLSL est un langage très proche du C mais beaucoup plus limité. En revanche il est capable de tirer parti des capacités de calcul parallèle des cartes graphiques et donc d'être très performant pour certaines opérations.
+Une fois les primitives assemblées, les sommets sont traités par le *vertex shader*. Le *vertex shader* est un petit programme écrit en langage de shader (comme [GLSL](https://fr.wikipedia.org/wiki/OpenGL_Shading_Language) pour OpenGL ou HLSL pour DirectX sous Windows) qui s'exécute sur chaque sommet de la primitive. Le GLSL est un langage très proche du C mais beaucoup plus limité. En revanche il est capable de tirer parti des capacités de calcul parallèle des cartes graphiques et donc d'être très performant pour certaines opérations.
 
 Le *vertex shader* est responsable de la transformation des coordonnées des sommets, de l'application des textures, de l'éclairage, et d'autres opérations géométriques.
 
@@ -130,19 +130,19 @@ Une fois que tous les tests et calculs ont été effectués, les fragments resta
 
 ## OpenGL et Vulkan
 
-[OpenGL](wiki:opengl), ou *Open Graphics Library*, est une API graphique multiplateforme utilisée principalement pour le rendu 2D et 3D dans des applications interactives. Elle est très répandue dans l'industrie des jeux vidéo, la visualisation scientifique, la modélisation 3D, et les simulations interactives. Conçue à l'origine pour permettre l'accélération graphique en temps réel via des cartes graphiques, OpenGL a marqué une révolution en facilitant le développement d'applications graphiques de haute performance tout en masquant les détails spécifiques au matériel.
+[OpenGL](https://fr.wikipedia.org/wiki/OpenGL), ou *Open Graphics Library*, est une API graphique multiplateforme utilisée principalement pour le rendu 2D et 3D dans des applications interactives. Elle est très répandue dans l'industrie des jeux vidéo, la visualisation scientifique, la modélisation 3D, et les simulations interactives. Conçue à l'origine pour permettre l'accélération graphique en temps réel via des cartes graphiques, OpenGL a marqué une révolution en facilitant le développement d'applications graphiques de haute performance tout en masquant les détails spécifiques au matériel.
 
-OpenGL a été initialement développé par [Silicon Graphics, Inc.](wiki:silicon graphics) (SGI) en 1992. À l'époque, SGI dominait le marché des stations de travail graphiques de haute performance, utilisées dans des domaines comme la modélisation 3D et la simulation scientifique. SGI voulait une API standardisée qui permettrait aux développeurs de concevoir des applications indépendantes des spécificités matérielles des différentes cartes graphiques, tout en tirant parti de l'accélération matérielle.
+OpenGL a été initialement développé par [Silicon Graphics, Inc.](https://fr.wikipedia.org/wiki/Silicon_Graphics) (SGI) en 1992. À l'époque, SGI dominait le marché des stations de travail graphiques de haute performance, utilisées dans des domaines comme la modélisation 3D et la simulation scientifique. SGI voulait une API standardisée qui permettrait aux développeurs de concevoir des applications indépendantes des spécificités matérielles des différentes cartes graphiques, tout en tirant parti de l'accélération matérielle.
 
 Le but d'OpenGL était de fournir une interface simple et uniforme qui fonctionne sur divers systèmes d'exploitation (Windows, Linux, macOS) et plateformes matérielles, permettant ainsi une portabilité accrue des applications graphiques. Depuis, OpenGL a évolué au fil des années, en intégrant de nombreuses fonctionnalités graphiques modernes, comme les shaders et les buffers de trames.
 
 Bien que d'autres API graphiques comme DirectX (pour Windows) ou Direct3D (pour les jeux vidéo) soient également très populaires, OpenGL reste une API de choix pour de nombreux développeurs en raison de sa portabilité, de sa flexibilité et de sa compatibilité avec un large éventail de matériels.
 
-Néanmoins, certaines limitations ont conduit le Khronos Group qui gère OpenGL a développé [Vulkan](wiki:vulkan), une nouvelle API graphique et de calcul, publiée en 2016. Vulkan est considéré comme le successeur d'OpenGL et offre de nombreuses améliorations qui répondent aux besoins modernes des développeurs de jeux et d’applications graphiques.
+Néanmoins, certaines limitations ont conduit le Khronos Group qui gère OpenGL a développé [Vulkan](https://fr.wikipedia.org/wiki/Vulkan_(API)), une nouvelle API graphique et de calcul, publiée en 2016. Vulkan est considéré comme le successeur d'OpenGL et offre de nombreuses améliorations qui répondent aux besoins modernes des développeurs de jeux et d’applications graphiques.
 
 Les jeux vidéos modernes comme FarCry, The Witcher 3, Red Dead Redemption 2, ou encore Cyberpunk 2077 utilisent des moteurs graphiques basés sur les API Vulkan ou DirectX 12 pour tirer parti des performances des cartes graphiques récentes.
 
-En 2024, sur Windows, DirectX est l'API dominante. Néanmoins avec la technologie [DXVK](wiki:dxvk) qui est une couche de traduction permettant à des applications Vulkan de fonctionner avec DirectX 12.
+En 2024, sur Windows, DirectX est l'API dominante. Néanmoins avec la technologie [DXVK](https://github.com/doitsujin/dxvk) qui est une couche de traduction permettant à des applications Vulkan de fonctionner avec DirectX 12.
 
 ### Principe de fonctionnement
 

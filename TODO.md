@@ -13,6 +13,8 @@
 
 - [ ] Better separation terms and definitions, acronyms, glossary
 - [ ] Include Wikipedia links in addition to `wiki:`
+- [ ] Remove `wiki:` replace with urls
+- [ ] Add wiki url in latex glossary
 - [ ] Update index
 - [ ] Integrate bibliography (extra pages in backmatter)
 - [ ] Chapter "Crédits des illustrations" in backmatter

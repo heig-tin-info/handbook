@@ -16,7 +16,7 @@ Ce principe trouve une résonance particulière en programmation, domaine où le
 
 L' est un biais cognitif qui se manifeste par une surestimation des compétences d'une personne. Les personnes les moins compétentes dans un domaine ont tendance à surestimer leurs compétences, tandis que les personnes les plus compétentes ont tendance à les sous-estimer.
 
-L'effet [Dunning-Kruger](wiki:dunning-kruger) est un biais cognitif où les individus tendent à surestimer leurs compétences. Paradoxalement, ce sont les moins expérimentés dans un domaine qui s'illusionnent le plus sur leurs capacités, tandis que les experts, eux, ont tendance à sous-évaluer leur maîtrise.
+L'effet [Dunning-Kruger](https://fr.wikipedia.org/wiki/Effet_Dunning-Kruger) est un biais cognitif où les individus tendent à surestimer leurs compétences. Paradoxalement, ce sont les moins expérimentés dans un domaine qui s'illusionnent le plus sur leurs capacités, tandis que les experts, eux, ont tendance à sous-évaluer leur maîtrise.
 
 ![Illustration satirique de l'effet Dunning-Kruger](/assets/images/dunning-kruger.drawio)
 
@@ -28,7 +28,7 @@ J'ai souvent observé ce biais de surconfiance chez mes étudiants et collègues
 
 ## Ultracrépidarianisme
 
-L'[ultracrépidarianisme](wiki:ultracrépidarianisme), terme rare mais puissant, désigne l'art de s'exprimer avec assurance sur des sujets que l'on ne maîtrise guère. Ce phénomène, aussi ancien que la parole elle-même, se manifeste lorsque des individus, ignorants des nuances et des subtilités d'un domaine, s'érigent en experts. Étienne Klein, physicien et philosophe des sciences, a popularisé ce mot en France, mettant en garde contre les dangers de cette posture, notamment à l'époque du Covid-19, où les voix des véritables spécialistes furent souvent noyées par le vacarme de ceux qui, en sachant moins, parlaient davantage.
+L'[ultracrépidarianisme](https://fr.wikipedia.org/wiki/Ultracr%C3%A9pidarianisme), terme rare mais puissant, désigne l'art de s'exprimer avec assurance sur des sujets que l'on ne maîtrise guère. Ce phénomène, aussi ancien que la parole elle-même, se manifeste lorsque des individus, ignorants des nuances et des subtilités d'un domaine, s'érigent en experts. Étienne Klein, physicien et philosophe des sciences, a popularisé ce mot en France, mettant en garde contre les dangers de cette posture, notamment à l'époque du Covid-19, où les voix des véritables spécialistes furent souvent noyées par le vacarme de ceux qui, en sachant moins, parlaient davantage.
 
 Dans le domaine de l'informatique, ce travers est particulièrement prégnant. Les développeurs, en première ligne de la complexité technique, se voient fréquemment dictés leur conduite par ceux qui ne partagent ni leur expertise ni leur compréhension des enjeux. Directeurs, managers, clients – tous s'autorisent à émettre des avis, à imposer des choix, souvent au mépris des réalités techniques. Cette immixtion, loin d'être anodine, est une source constante de frustration. Pire encore, elle peut mener à des désastres techniques, notamment lorsque des décisions mal avisées entraînent une accumulation de dette technique, cette gangrène silencieuse du code que l'on reporte de corriger, jusqu'au jour où l'effort nécessaire pour la résorber devient titanesque, voire impossible.
 

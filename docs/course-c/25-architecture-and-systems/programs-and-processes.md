@@ -2,13 +2,13 @@
 
 ## Qu'est-ce qu'un programme?
 
-Un [programme informatique](wiki:computer-program) est un ensemble d'opérations destinées à être exécutées par un ordinateur. Un programme peut se décliner sous plusieurs formes :
+Un [programme informatique](https://fr.wikipedia.org/wiki/Programme_informatique) est un ensemble d'opérations destinées à être exécutées par un ordinateur. Un programme peut se décliner sous plusieurs formes :
 
 - Le code source (C, C++, Python, Java, etc.)
 - Le *listing* assembleur (`.s`, `.asm`)
 - L'exécutable binaire (ELF, `.exe`, `.out`, `.dll`, `.so`, etc.)
 
-Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les [systèmes d'exploitation](wiki:operating-system) tels que Windows sont dits [multitâches](wiki:multitasking), il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.
+Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les [systèmes d'exploitation](https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation) tels que Windows sont dits [multitâches](https://fr.wikipedia.org/wiki/Multit%C3%A2che), il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.
 
 Figure: Programmeuse en tenue décontractée à côté de 62'500 cartes perforées
 
@@ -16,9 +16,9 @@ Figure: Programmeuse en tenue décontractée à côté de 62'500 cartes perforé
 
 ### Code source
 
-Le **code source** est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes [Ladder](wiki:ladder-language) utilisés dans les automates programmables et respectant la norme [IEC 61131-3](wiki:iec-61131-3), ou [LabView](wiki:labview) un outil de développement graphique.
+Le **code source** est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes [Ladder](https://fr.wikipedia.org/wiki/Langage_Ladder) utilisés dans les automates programmables et respectant la norme [IEC 61131-3](https://fr.wikipedia.org/wiki/CEI_61131-3), ou [LabView](https://fr.wikipedia.org/wiki/LabVIEW) un outil de développement graphique.
 
-Le plus souvent le code source est organisé en une [arborescence](wiki:arborescence) de fichiers. Des programmes complexes comme le noyau Linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.
+Le plus souvent le code source est organisé en une [arborescence](https://fr.wikipedia.org/wiki/Arborescence) de fichiers. Des programmes complexes comme le noyau Linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.
 
 ### Exécutable binaire
 
@@ -232,15 +232,15 @@ Ci-dessous une possible utilisation de cette fonction :
 
 ### Windows
 
-Windows utilise à l'instar de `RDOS` ou [OpenVMS](wiki:openvms), le caractère *slash* pour identifier ses options. Alors que sous POSIX l'affichage de la liste des fichiers s'écrira peut-être `ls -l -s D*`, sous Windows on utilisera `dir /q d* /o:s`.
+Windows utilise à l'instar de `RDOS` ou [OpenVMS](https://fr.wikipedia.org/wiki/OpenVMS), le caractère *slash* pour identifier ses options. Alors que sous POSIX l'affichage de la liste des fichiers s'écrira peut-être `ls -l -s D*`, sous Windows on utilisera `dir /q d* /o:s`.
 
 ## Fonction main
 
-Le standard définit une fonction nommée `main` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction `main` a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le [BIOS](wiki:bios) a chargé le système d'exploitation en mémoire. Dès lors la fonction `main` de notre programme [Hello World][hello-world] n'est pas la première, mais est appelé.
+Le standard définit une fonction nommée `main` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction `main` a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le [BIOS](https://fr.wikipedia.org/wiki/BIOS_(informatique)) a chargé le système d'exploitation en mémoire. Dès lors la fonction `main` de notre programme [Hello World][hello-world] n'est pas la première, mais est appelé.
 
 ### Qui appelle main ?
 
-Un exécutable binaire à un format particulier appelé **ELF** ([Executable and Linkable Format](wiki:Executable_and_Linkable_Format)) qui contient un **point d'entrée** qui sera l'adresse mémoire de début du programme. Sous un système POSIX ce point d'entrée est nommé `_init`. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la **pile** du programme :
+Un exécutable binaire à un format particulier appelé **ELF** ([Executable and Linkable Format](https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format)) qui contient un **point d'entrée** qui sera l'adresse mémoire de début du programme. Sous un système POSIX ce point d'entrée est nommé `_init`. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la **pile** du programme :
 
 - Le nombre d'arguments `argc`
 - La liste des arguments `argv`
@@ -334,8 +334,10 @@ $ cat data.txt
 Obawbhe
 ```
 
-Dans cet exemple ci-dessus, le programme `echo` prend en argument la chaîne de caractère `Bonjour` qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme `tr` qui effectue une opération de [ROT13](wiki:ROT13) et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier `data.txt`.
+Dans cet exemple ci-dessus, le programme `echo` prend en argument la chaîne de caractère `Bonjour` qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme `tr` qui effectue une opération de [ROT13](https://fr.wikipedia.org/wiki/ROT13) et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier `data.txt`.
 La commande suivante `cat` lis le contenu du fichier dont le nom est passé en argument et écrit le contenu sur la sortie standard.
+
+![Rot13](/assets/images/rot13.drawio)
 
 Dans le cas où un de ces programmes génère une alerte (*warning*), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie: `stdout` pour la sortie standard et `stderr` pour les messages de diagnostic et les erreurs.
 

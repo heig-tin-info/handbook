@@ -15,17 +15,17 @@ En vérité, en 2024, il n'existe guère d'alternative aussi mûre et éprouvée
 
 ## Historique { data-search-keyword="thompson"}
 
-En [[1964]] naît, d'une collaboration entre les laboratoires [[Bell]] (*Bell Telephone Laboratories*), [[General Electric]] et le [[MIT]], le projet [Multics](wiki:multics) (*Multiplexed Information and Computing Service*), qui vise à développer un nouveau système d'exploitation.
+En [[1964]] naît, d'une collaboration entre les laboratoires [[Bell]] (*Bell Telephone Laboratories*), [[General Electric]] et le [[MIT]], le projet [Multics](https://fr.wikipedia.org/wiki/Multics) (*Multiplexed Information and Computing Service*), qui vise à développer un nouveau système d'exploitation.
 
-Cependant, la fin de la décennie est marquée par des remous. Les laboratoires Bell, désillusionnés par les promesses de [[Multics]], décident de se retirer du projet pour élaborer leur propre système d'exploitation. Un groupe informel, dirigé notamment par [Ken Thompson](wiki:ken-thompson) et [Dennis Ritchie](wiki:dennis-ritchie), entreprend de revoir certains concepts de Multics qui leur déplaisaient, notamment le langage de programmation PL/I (*Programming Language number 1*), alors prédominant pour l’écriture de systèmes d’exploitation. Thompson développe un langage baptisé B, inspiré du BCPL, dans lequel il ne conserve que les éléments qu'il juge essentiels pour fonctionner sur de petites machines. À ce stade, B ne comporte qu’un seul type de donnée, le "mot" (*word*). [[||Ken Thompson]] [[||Dennis Ritchie]]
+Cependant, la fin de la décennie est marquée par des remous. Les laboratoires Bell, désillusionnés par les promesses de [[Multics]], décident de se retirer du projet pour élaborer leur propre système d'exploitation. Un groupe informel, dirigé notamment par [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson) et [Dennis Ritchie](https://fr.wikipedia.org/wiki/Dennis_Ritchie), entreprend de revoir certains concepts de Multics qui leur déplaisaient, notamment le langage de programmation PL/I (*Programming Language number 1*), alors prédominant pour l’écriture de systèmes d’exploitation. Thompson développe un langage baptisé B, inspiré du BCPL, dans lequel il ne conserve que les éléments qu'il juge essentiels pour fonctionner sur de petites machines. À ce stade, B ne comporte qu’un seul type de donnée, le "mot" (*word*). [[||Ken Thompson]] [[||Dennis Ritchie]]
 
 [[BCPL]], conçu par [[Martin Richards]] au MIT dans les années [[1960]], est l'ancêtre de B, et par extension, l'arrière-grand-père du C. Dennis Ritchie, alors collègue de Thompson, retravaille le langage B pour y ajouter la gestion des types de données.
 
 Le système d'exploitation que Thompson et Ritchie développent aux laboratoires Bell s’appelle d'abord UNICS, par opposition à Multics, où *Multiplexed* est remplacé par *Uniplexed*. Le nom évolue ensuite pour devenir [[UNIX]], un pilier dans l'histoire de l'informatique.
 
-Plus tard, [Brian Kernighan](wiki:brian-kernighan) contribue à la popularisation de ce nouveau langage. Il est l'auteur principal du livre *The C Programming Language*, tandis que Dennis Ritchie s’est concentré sur les annexes.
+Plus tard, [Brian Kernighan](https://fr.wikipedia.org/wiki/Brian_Kernighan) contribue à la popularisation de ce nouveau langage. Il est l'auteur principal du livre *The C Programming Language*, tandis que Dennis Ritchie s’est concentré sur les annexes.
 
-Les évolutions du C continuent, notamment avec [Bjarne Stroustrup](wiki:bjarne-stroustrup) qui, dans les années 1980, étend le langage en y apportant la programmation orientée objet (OOP). Ce concept sera étudié dans un autre cours. La figure suivante présente le trio fondateur du langage C. [[||Bjarne Stroustrup]]
+Les évolutions du C continuent, notamment avec [Bjarne Stroustrup](https://fr.wikipedia.org/wiki/Bjarne_Stroustrup) qui, dans les années 1980, étend le langage en y apportant la programmation orientée objet (OOP). Ce concept sera étudié dans un autre cours. La figure suivante présente le trio fondateur du langage C. [[||Bjarne Stroustrup]]
 
 ![Les pères fondateurs du C](/assets/images/thompson-kernighan-ritchie.drawio)
 
@@ -90,25 +90,25 @@ Si ce cours se concentre principalement sur le langage C, il est loin d'être le
 
 Table: Langages de programmation et leur année de création
 
-| Langage de programmation     | Année | Utilisation               |
-| ---------------------------- | ----- | ------------------------- |
-| [Fortran](wiki:fortran-lang) | 1957  | Calcul scientifique       |
-| [Lisp](wiki:lisp-lang)       | 1958  | Intelligence artificielle |
-| [Cobol](wiki:cobol-lang)     | 1959  | Finance, banque           |
-| [Basic](wiki:basic-lang)     | 1964  | Enseignement              |
-| [Pascal](wiki:pascal-lang)   | 1970  | Enseignement              |
-| [C](wiki:c-lang)             | 1972  | Systèmes embarqués        |
-| [C++](wiki:cpp-lang)         | 1985  | Applications lourdes      |
-| [Perl](wiki:perl-lang)       | 1987  | Scripts                   |
-| [Python](wiki:python-lang)   | 1991  | Ingénierie, sciences      |
-| [Ruby](wiki:ruby-lang)       | 1995  | Scripts, Web              |
-| [Java](wiki:java-lang)       | 1995  | Applications lourdes      |
-| [PHP](wiki:php-lang)         | 1995  | Web                       |
-| [C#](wiki:c-sharp)           | 2000  | Applications graphiques   |
-| [Go](wiki:go-lang)           | 2009  | Systèmes distribués       |
-| [Rust](wiki:rust-lang)       | 2010  | Systèmes embarqués        |
-| [Swift](wiki:swift-lang)     | 2014  | Applications mobiles      |
-| [Zig](wiki:zig-lang)         | 2016  | Systèmes embarqués        |
+| Langage de programmation                                         | Année | Utilisation               |
+| ---------------------------------------------------------------- | ----- | ------------------------- |
+| [Fortran](https://fr.wikipedia.org/wiki/Fortran)                 | 1957  | Calcul scientifique       |
+| [Lisp](https://fr.wikipedia.org/wiki/Lisp)                       | 1958  | Intelligence artificielle |
+| [Cobol](https://fr.wikipedia.org/wiki/Cobol)                     | 1959  | Finance, banque           |
+| [Basic](https://fr.wikipedia.org/wiki/Cobol)                     | 1964  | Enseignement              |
+| [Pascal](https://fr.wikipedia.org/wiki/Pascal_(langage))         | 1970  | Enseignement              |
+| [C](https://fr.wikipedia.org/wiki/C_(langage))                   | 1972  | Systèmes embarqués        |
+| [C++](https://fr.wikipedia.org/wiki/C%2B%2B)                     | 1985  | Applications lourdes      |
+| [Perl](https://fr.wikipedia.org/wiki/Perl_(langage))             | 1987  | Scripts                   |
+| [Python](https://fr.wikipedia.org/wiki/Python_(langage))         | 1991  | Ingénierie, sciences      |
+| [Ruby](https://fr.wikipedia.org/wiki/Ruby)                       | 1995  | Scripts, Web              |
+| [Java](https://fr.wikipedia.org/wiki/Java_(langage))             | 1995  | Applications lourdes      |
+| [PHP](https://fr.wikipedia.org/wiki/PHP)                         | 1995  | Web                       |
+| [C#](https://fr.wikipedia.org/wiki/C_Sharp)                      | 2000  | Applications graphiques   |
+| [Go](https://fr.wikipedia.org/wiki/Go_(langage))                 | 2009  | Systèmes distribués       |
+| [Rust](https://fr.wikipedia.org/wiki/Rust_(langage))             | 2010  | Systèmes embarqués        |
+| [Swift](https://fr.wikipedia.org/wiki/Swift_(langage_d%27Apple)) | 2014  | Applications mobiles      |
+| [Zig](https://fr.wikipedia.org/wiki/Zig_(langage))               | 2016  | Systèmes embarqués        |
 
 L'index [TIOBE](https://www.tiobe.com/tiobe-index/) constitue un excellent indicateur de la popularité des langages de programmation. Il est mis à jour mensuellement et permet de suivre l'évolution de la popularité des différents langages. En 2024, le classement des 10 langages de programmation les plus populaires est présenté dans la table suivante : [[||TIOBE]]
 

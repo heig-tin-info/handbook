@@ -24,7 +24,7 @@ Dans le cadre d'un enseignement académique, on parle souvent de **cours d'Algor
 
 ## Algorithmique
 
-L'**algorithmique**, et non l'*algorithmie* (qui n'a pas sa place dans la langue française), est la science qui se consacre à l'élaboration des règles et techniques régissant la création et la conception des [algorithmes](wiki:algorithme). Ce domaine, que nous explorerons plus en détail dans le chapitre dédié aux [algorithmes et à leur conception][algorithmsanddesign], dépasse largement le cadre de l'informatique. L'algorithmique ne se cantonne pas aux ordinateurs; elle est omniprésente dans notre quotidien, se manifestant dans des contextes aussi variés que :
+L'**algorithmique**, et non l'*algorithmie* (qui n'a pas sa place dans la langue française), est la science qui se consacre à l'élaboration des règles et techniques régissant la création et la conception des [algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Ce domaine, que nous explorerons plus en détail dans le chapitre dédié aux [algorithmes et à leur conception][algorithmsanddesign], dépasse largement le cadre de l'informatique. L'algorithmique ne se cantonne pas aux ordinateurs; elle est omniprésente dans notre quotidien, se manifestant dans des contextes aussi variés que :
 
 - l'art de concocter une recette de cuisine,
 - la maîtrise du tissage des tapis persans,

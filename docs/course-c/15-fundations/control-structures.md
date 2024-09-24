@@ -158,7 +158,7 @@ Les embranchements sont des instructions de contrôle permettant au programme de
 1. `if` et `if else` pour les décisions binaires,
 2. `switch` pour la sélection parmi plusieurs cas possibles.
 
-Ces types d'embranchements peuvent être représentés visuellement à l'aide de diagrammes de flux, comme les diagrammes BPMN ([Business Process Model and Notation](wiki:bpmn)) ou les [structogrammes NSD](wiki:structogramme) (Nassi-Shneiderman Diagrams). Ces représentations graphiques permettent de modéliser les choix conditionnels de manière intuitive.
+Ces types d'embranchements peuvent être représentés visuellement à l'aide de diagrammes de flux, comme les diagrammes BPMN ([Business Process Model and Notation](https://fr.wikipedia.org/wiki/Business_process_model_and_notation)) ou les [structogrammes NSD](https://fr.wikipedia.org/wiki/Structogramme) (Nassi-Shneiderman Diagrams). Ces représentations graphiques permettent de modéliser les choix conditionnels de manière intuitive.
 
 Voici un exemple de diagrammes BPMN et NSD illustrant un embranchement binaire :
 
@@ -198,7 +198,7 @@ De même que comme des `;` séparent les instructions, on peut aussi écrire:
 if (value % 2) printf("odd\n"); else printf("even\n");
 ```
 
-Dans certaines normes pour le médical ou l'aéronautique, comme [MISRA](wiki:misra), l'absence d'accollades est interdite pour éviter les erreurs de logique. C'est généralement une bonne pratique à suivre sauf lorsque la lisibilité du code est améliorée par l'absence d'accollades.
+Dans certaines normes pour le médical ou l'aéronautique, comme [MISRA](https://fr.wikipedia.org/wiki/MISRA_C), l'absence d'accollades est interdite pour éviter les erreurs de logique. C'est généralement une bonne pratique à suivre sauf lorsque la lisibilité du code est améliorée par l'absence d'accollades.
 
 !!! info
 
