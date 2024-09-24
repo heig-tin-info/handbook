@@ -289,7 +289,7 @@ $h_i$
 
 : La valeur du chiffre à la position $i$
 
-Ainsi, la valeur `AP7` exprimée en [[base tritrigesimale]] (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimales après avoir pris connaissance de la correspondance d'un symbole [tritrigesimal](https://en.wikipedia.org/wiki/List_of_numeral_systems) vers le système décimal :
+Ainsi, la valeur `AP7` exprimée en [[base tritrigesimale]] (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimales après avoir pris connaissance de la correspondance d'un symbole tritrigesimal vers le système décimal :
 
 ```text
 Tritrigesimal -> Décimal :

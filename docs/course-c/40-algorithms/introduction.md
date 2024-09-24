@@ -290,8 +290,8 @@ for (size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++)
 - Diagrammes en flux
 - Structogrammes
 - Diagramme d'activités
-- Machines d'états ([UML state machine](https://en.wikipedia.org/wiki/UML_state_machine))
-- [BPMN](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation) (*Business Process Model and Notation*)
+- Machines d'états (*UML state machine*)
+- [BPMN](https://fr.wikipedia.org/wiki/Business_process_model_and_notation) (*Business Process Model and Notation*)
 
 
 ## Type d'algorithmes

@@ -345,7 +345,7 @@ $f_k$
 
 Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres `binary16`, `binary32` ou `binary64`, selon le nombre de bits utilisé pour coder l'information. Les termes de *Single precision* ou *Double precision* sont aussi couramment utilisés. [[||virgule flottante]] [[||IEEE 754]] [[||FPU]] [[||single precision]] [[||double precision]] [[||binary XX]]
 
-Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante ([FPU](https://en.wikipedia.org/wiki/Floating-point_unit) pour *Floating point unit*) sont les suivants :
+Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante ([FPU](https://fr.wikipedia.org/wiki/Unit%C3%A9_de_calcul_en_virgule_flottante) pour *Floating point unit*) sont les suivants :
 
 Table: Formats de nombres en virgule flottante
 
@@ -509,7 +509,7 @@ int main() {
 
 ## Format Q (virgule fixe)
 
-Le format [Q](https://en.wikipedia.org/wiki/Q_(number_format)) est une notation en [[virgule fixe]] dans laquelle le format d'un nombre est représenté par la lettre **Q** suivie de deux nombres :
+Le format Q est une notation en [[virgule fixe]] dans laquelle le format d'un nombre est représenté par la lettre **Q** suivie de deux nombres :
 
 1. Le nombre de bits entiers.
 2. Le nombre de bits fractionnaires.

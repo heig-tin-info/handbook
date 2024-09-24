@@ -149,7 +149,7 @@ void bsearch(const void *key, const void *base, size_t nmemb, size_t size,
 
 ## Types de données abstraits
 
-Un [type de donnée abstrait](https://en.wikipedia.org/wiki/Abstract_type) (**ADT** pour Abstract Data Type) cache généralement une structure dont le contenu n'est pas connu de l'utilisateur final. Ceci est rendu possible par le standard (C99 §6.2.5) par l'usage de types incomplets.
+Un [type de donnée abstrait](https://fr.wikipedia.org/wiki/Type_abstrait) (**ADT** pour [[Abstract Data Type]]) cache généralement une structure dont le contenu n'est pas connu de l'utilisateur final. Ceci est rendu possible par le standard (C99 §6.2.5) par l'usage de types incomplets.
 
 Pour mémoire, un type incomplet décrit un objet dont on ne connaît pas sa taille en mémoire. L'exemple suivant déclare un nouveau type structure qui n'est alors pas (encore) connu dans le fichier courant :
 

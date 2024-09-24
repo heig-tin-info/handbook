@@ -23,8 +23,8 @@
 \usepackage{csquotes}
 \usepackage{epigraph}
 \usepackage{capt-of}
-\usepackage[acronym]{glossaries}
-\usepackage{imakeidx}
+\usepackage[acronym,xindy]{glossaries}
+\usepackage[xindy]{imakeidx}
 \usepackage{fvextra} % For better verbatim environments
 \usepackage{titlesec} % Pour la personnalisation des titres
 \usepackage{enumitem} % Pour personnaliser les listes

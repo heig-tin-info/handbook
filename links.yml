@@ -8,16 +8,19 @@ wikipedia:
       Yacc est l'acronyme de Yet Another Compiler Compiler .Yacc est notamment utilisé
       dans la construction des jeux d'instructions en langage machine pour les microprocesseurs.
     key: fr-yacc-logiciel
-  https://en.wikipedia.org/wiki/GNU_Bison:
+  https://fr.wikipedia.org/wiki/GNU_Bison:
     title: GNU Bison
-    tid: b4d0283c-60c9-11ef-b177-1a23b59e7bf4
-    timestamp: '2024-08-22T21:01:31Z'
-    description: Yacc-compatible parser generator program
-    extract: GNU Bison, commonly known as Bison, is a parser generator that is part
-      of the GNU Project. Bison reads a specification in Bison syntax, warns about
-      any parsing ambiguities, and generates a parser that reads sequences of tokens
-      and decides whether the sequence conforms to the syntax specified by the grammar.
-    key: en-gnu-bison
+    thumbnail:
+      source: 
+        https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Official_gnu.svg/langfr-320px-Official_gnu.svg.png
+      width: 320
+      height: 320
+    tid: 848c43ff-145b-11ec-98a9-ca1e27f1bac3
+    timestamp: '2021-09-13T06:26:24Z'
+    description: générateur polyvalent d'analyseurs syntaxiques (parser)
+    extract: GNU Bison est l'implémentation GNU du compilateur de compilateur yacc,
+      spécialisé dans la génération d'analyseurs syntaxiques.
+    key: fr-gnu-bison
   https://fr.wikipedia.org/wiki/Dilemme_du_prisonnier:
     title: Dilemme du prisonnier
     thumbnail:
@@ -365,7 +368,7 @@ wikipedia:
     key: fr-swift-langage-dapple
   https://fr.wikipedia.org/wiki/Zig_(langage):
     title: Zig (langage)
-    tid: d4d99f9b-6840-11ef-90e0-3a0dbc8aebfb
+    tid: d4d99d7e-6840-11ef-bfa6-f3d67de3a01d
     timestamp: '2024-09-01T09:01:53Z'
     description: langage de programmation
     extract: Zig est un langage de programmation compilé impératif polyvalent, typé
@@ -375,23 +378,16 @@ wikipedia:
       de mémoire manuelle. Un objectif majeur du langage est de concurrencer C, tout
       en s'inspirant également de Rust, entre autres.
     key: fr-zig-langage
-  https://en.wikipedia.org/wiki/Natural_language:
-    title: Natural language
-    thumbnail:
-      source: 
-        https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Lobes_of_the_brain_NL.svg/320px-Lobes_of_the_brain_NL.svg.png
-      width: 320
-      height: 228
-    tid: f915c407-498b-11ef-9c26-cd5c07211ad3
-    timestamp: '2024-07-24T07:11:40Z'
-    description: Language as naturally spoken by humans
-    extract: In neuropsychology, linguistics, and philosophy of language, a natural
-      language or ordinary language is any language that occurs naturally in a human
-      community by a process of use, repetition, and change without conscious planning
-      or premeditation. It can take different forms, typically either a spoken language
-      or a sign language. Natural languages are distinguished from constructed and
-      formal languages such as those used to program computers or to study logic.
-    key: en-natural-language
+  https://fr.wikipedia.org/wiki/Langage_naturel:
+    title: Langage naturel
+    tid: 196350bb-81b7-11ee-85f3-e3534b3c8b43
+    timestamp: '2023-11-12T23:56:30Z'
+    description: langue naturellement parlée par des humains, à l'inverse des langues
+      construites formelles ou des langages formels
+    extract: Un langage naturel, ou langage ordinaire, est une langue « normale »
+      parlée par un être humain. Il s'oppose au langage formel, tel que le langage
+      informatique, ainsi qu'aux langues construites.
+    key: fr-langage-naturel
   https://fr.wikipedia.org/wiki/Langage_formel:
     title: Langage formel
     thumbnail:
@@ -539,7 +535,7 @@ wikipedia:
     key: fr-cycle-en-v
   https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade:
     title: Modèle en cascade
-    tid: 50862114-ff22-11ee-b47a-6da67c892af4
+    tid: 50861d67-ff22-11ee-acd5-b707794eb9b5
     timestamp: '2024-04-20T14:28:54Z'
     description: organisation des activités d'un projet sous forme de phases linéaires
       et séquentielles, où chaque phase correspond à une spécialisation des tâches
@@ -550,26 +546,6 @@ wikipedia:
       de la phase précédente. Il comprend les phases d'exigences, de conception, de
       mise en œuvre et de mise en service.
     key: fr-modele-en-cascade
-  https://en.wikipedia.org/wiki/The_C_Programming_Language:
-    title: The C Programming Language
-    thumbnail:
-      source: 
-        https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/The_C_Programming_Language%2C_First_Edition_Cover.svg/320px-The_C_Programming_Language%2C_First_Edition_Cover.svg.png
-      width: 320
-      height: 450
-    tid: 9646b3f7-6549-11ef-b0a0-524f7e43b23d
-    timestamp: '2024-08-28T14:27:00Z'
-    description: Book by Brian Kernighan and Dennis Ritchie
-    extract: The C Programming Language is a computer programming book written by
-      Brian Kernighan and Dennis Ritchie, the latter of whom originally designed and
-      implemented the C programming language, as well as co-designed the Unix operating
-      system with which development of the language was closely intertwined. The book
-      was central to the development and popularization of C and is still widely read
-      and used today. Because the book was co-authored by the original language designer,
-      and because the first edition of the book served for many years as the de facto
-      standard for the language, the book was regarded by many to be the authoritative
-      reference on C.
-    key: en-the-c-programming-language
   https://fr.wikipedia.org/wiki/Cat_(Unix):
     title: Cat (Unix)
     thumbnail:
@@ -589,9 +565,9 @@ wikipedia:
     title: A.out
     tid: 1455d9bc-56be-11ee-92bf-ddc3bab0d8b3
     timestamp: '2023-09-19T07:28:08Z'
-    extract: "\na.out est un format de fichier utilisé dans les premières versions
-      d'Unix. Il était utilisé pour les fichiers exécutables, les codes objet et,
-      plus tard, les bibliothèques partagées."
+    extract: a.out est un format de fichier utilisé dans les premières versions d'Unix.
+      Il était utilisé pour les fichiers exécutables, les codes objet et, plus tard,
+      les bibliothèques partagées.
     key: fr-aout
   https://fr.wikipedia.org/wiki/Ls:
     title: Ls
@@ -623,16 +599,18 @@ wikipedia:
       tous les premiers systèmes non-Unix et non-IBM, CP/M, MP/M, MS-DOS, OS/2 et
       Microsoft Windows."
     key: fr-fin-de-ligne
-  https://en.wikipedia.org/wiki/MISRA_C:
+  https://fr.wikipedia.org/wiki/MISRA_C:
     title: MISRA C
-    tid: 10a37a08-5583-11ef-8707-02e8c778a1e1
-    timestamp: '2024-08-08T12:38:08Z'
-    description: Software development standard for the C programming language
-    extract: MISRA C is a set of software development guidelines for the C programming
-      language developed by The MISRA Consortium. Its aims are to facilitate code
-      safety, security, portability and reliability in the context of embedded systems,
-      specifically those systems programmed in ISO C / C90 / C99.
-    key: en-misra-c
+    tid: 8055fd5e-fd99-11ee-9fb3-97c8b9a36816
+    timestamp: '2024-04-18T15:37:02Z'
+    extract: MISRA C est une norme de programmation en langage C créée en 1998 par
+      la Motor Industry Software Reliability Association (en) (MISRA). Elle spécifie
+      les règles de programmation pour plus de sûreté. L’objectif est d’éviter des
+      erreurs d’exécution provoquées par une construction de C incertaine, des faiblesses
+      de structure du fait de malentendus entre les programmeurs, et de garantir la
+      validité des expressions. La plupart de ces règles peuvent être automatiquement
+      vérifiées ou prises en considération lors de la génération du code.
+    key: fr-misra-c
   https://fr.wikipedia.org/wiki/Ancrage_(psychologie):
     title: Ancrage (psychologie)
     tid: b3337d03-e584-11ee-b973-66787da5c3db
@@ -653,20 +631,20 @@ wikipedia:
       autres en soutenant que l'éditeur de texte de leur choix était l'outil parfait
       pour l'édition.
     key: fr-guerre-dediteurs
-  https://en.wikipedia.org/wiki/Attentional_bias:
-    title: Attentional bias
-    tid: d1288598-98c9-11ee-ab37-58eedfa775a3
-    timestamp: '2023-12-12T08:38:26Z'
-    description: The tendency for people's perception to be affected by their recurring
-      thoughts at the time
-    extract: Attentional bias refers to how a person's perception is affected by selective
-      factors in their attention. Attentional biases may explain an individual's failure
-      to consider alternative possibilities when occupied with an existing train of
-      thought. For example, cigarette smokers have been shown to possess an attentional
-      bias for smoking-related cues around them, due to their brain's altered reward
-      sensitivity. Attentional bias has also been associated with clinically relevant
-      symptoms such as anxiety and depression.
-    key: en-attentional-bias
+  https://fr.wikipedia.org/wiki/Biais_d%27attention:
+    title: Biais d'attention
+    tid: 50388f9d-0183-11ef-834a-9dda07f826ca
+    timestamp: '2024-04-23T15:08:17Z'
+    description: biais cognitif
+    extract: Le biais d'attention ou biais attentionnel est un biais cognitif. Il
+      désigne la manière dont certaines informations sont traitées différemment par
+      le cerveau en fonction des préoccupations ou centres d'intérêt d'un individu.
+      Le cerveau de chaque personne filtre les informations qu'il perçoit comme étant
+      pertinentes ou non. Cette perception sélective est influencée par les facteurs
+      qui le touchent particulièrement. Les biais attentionnels sont notamment étudiés
+      dans le cadre de la psychopathologie cognitive car ils sont suspectés d'être
+      impliqués dans l'apparition et/ou le maintien de certains troubles psychologiques.
+    key: fr-biais-dattention
   https://fr.wikipedia.org/wiki/Neo_(Matrix):
     title: Neo (Matrix)
     thumbnail:
@@ -1070,7 +1048,7 @@ wikipedia:
       source: https://upload.wikimedia.org/wikipedia/commons/c/ce/Egypt_Hieroglyphe2.jpg
       width: 320
       height: 240
-    tid: 4deec14c-5c7b-11ef-92cb-5f439a3cb455
+    tid: 4deed581-5c7b-11ef-9b20-e2a2563db122
     timestamp: '2024-08-17T09:30:13Z'
     description: système d'écriture de l'antiquité égyptienne
     extract: "L’écriture hiéroglyphique égyptienne est un système d'écriture figurative :
@@ -1095,13 +1073,6 @@ wikipedia:
       le 17 juin 1682 et mort le 30 novembre 1718, membre de la branche suédoise de
       la dynastie de Palatinat-Deux-Ponts, a été roi de Suède de 1697 à 1718.
     key: fr-charles-xii
-  https://en.wikipedia.org/wiki/List_of_numeral_systems:
-    title: List of numeral systems
-    tid: 4abb1f9e-6762-11ef-91d3-8bb66ad26ffc
-    timestamp: '2024-08-31T06:28:53Z'
-    extract: There are many different numeral systems, that is, writing systems for
-      expressing numbers.
-    key: en-list-of-numeral-systems
   https://fr.wikipedia.org/wiki/Base64:
     title: Base64
     thumbnail:
@@ -1117,20 +1088,6 @@ wikipedia:
       MIME dans la RFC 2045, il est principalement utilisé pour la transmission de
       messages sur Internet. Il est par ailleurs défini en propre dans la RFC 4648.
     key: fr-base64
-  https://en.wikipedia.org/wiki/Arctic_World_Archive:
-    title: Arctic World Archive
-    tid: bb7d2716-72f1-11ef-a2b1-f476d37a3917
-    timestamp: '2024-09-14T23:33:23Z'
-    description: Data preservation facility in Svalbard
-    extract: The Arctic World Archive (AWA) is a facility for data preservation, located
-      in the Svalbard archipelago on the island of Spitsbergen, Norway, not far from
-      the Svalbard Global Seed Vault. It contains data of historical and cultural
-      interest from several countries, as well as all of American multinational company
-      GitHub's open source code, in a deeply buried steel vault, with the data storage
-      medium expected to last for 500 to 1,000 years. It is run as a profit-making
-      business by private company Piql and the state-owned coal-mining company Store
-      Norske Spitsbergen Kulkompani (SNSK).
-    key: en-arctic-world-archive
   https://fr.wikipedia.org/wiki/Entier_naturel:
     title: Entier naturel
     thumbnail:
@@ -1313,55 +1270,29 @@ wikipedia:
       d’opérations sur les nombres flottants. Il décrit aussi cinq modes d'arrondi
       et cinq exceptions.
     key: fr-ieee-754
-  https://en.wikipedia.org/wiki/Floating-point_unit:
-    title: Floating-point unit
+  https://fr.wikipedia.org/wiki/Unit%C3%A9_de_calcul_en_virgule_flottante:
+    title: Unité de calcul en virgule flottante
     thumbnail:
       source: 
-        https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/X87_FPUs.jpg/320px-X87_FPUs.jpg
+        https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/68882.jpg/320px-68882.jpg
       width: 320
-      height: 238
-    tid: e76fb8b7-3d78-11ef-ac31-369493acf9ca
-    timestamp: '2024-07-08T22:24:56Z'
-    description: Part of a computer system
-    extract: A floating-point unit is a part of a computer system specially designed
-      to carry out operations on floating-point numbers. Typical operations are addition,
-      subtraction, multiplication, division, and square root. Some FPUs can also perform
-      various transcendental functions such as exponential or trigonometric calculations,
-      but the accuracy can be low, so some systems prefer to compute these functions
-      in software.
-    key: en-floating-point-unit
-  https://en.wikipedia.org/wiki/Q_(number_format):
-    title: Q (number format)
-    tid: 593dbdd6-fb1a-11ee-ad15-67ac73d5b166
-    timestamp: '2024-04-15T11:21:48Z'
-    description: Number format for specifying provision
-    extract: The Q notation is a way to specify the parameters of a binary fixed point
-      number format. For example, in Q notation, the number format denoted by Q8.8
-      means that the fixed point numbers in this format have 8 bits for the integer
-      part and 8 bits for the fraction part.
-    key: en-q-number-format
-  https://en.wikipedia.org/wiki/Sequence_point:
-    title: Sequence point
-    tid: 17ddef95-5312-11ee-97c0-3544ca51751f
-    timestamp: '2023-09-14T15:19:27Z'
-    description: Concept in computer programming
-    extract: In C and C++, a sequence point defines any point in a computer program's
-      execution at which it is guaranteed that all side effects of previous evaluations
-      will have been performed, and no side effects from subsequent evaluations have
-      yet been performed. They are a core concept for determining the validity of
-      and, if valid, the possible results of expressions. Adding more sequence points
-      is sometimes necessary to make an expression defined and to ensure a single
-      valid order of evaluation.
-    key: en-sequence-point
+      height: 317
+    tid: 97976669-57cc-11ef-b045-261187857199
+    timestamp: '2024-08-11T10:29:30Z'
+    description: partie d'un processeur
+    extract: Une unité de calcul en virgule flottante est une partie d'un processeur,
+      spécialement conçue pour effectuer des opérations sur des nombres à virgule
+      flottante.
+    key: fr-unite-de-calcul-en-virgule-flottante
   https://fr.wikipedia.org/wiki/Business_process_model_and_notation:
     title: Business process model and notation
     tid: 6f013c7c-007e-11ef-a0a7-e496e80d52f2
     timestamp: '2024-04-22T08:00:50Z'
-    extract: "\nBusiness Process Model and Notation, c'est-à-dire « modèle de procédé
+    extract: Business Process Model and Notation, c'est-à-dire « modèle de procédé
       d'affaire et notation », est une méthode de modélisation de processus d'affaires
       pour décrire les chaînes de valeur et les activités métier d'une organisation
       sous forme d'une représentation graphique. Elle constitue la norme internationale
-      ISO/CEI 19510."
+      ISO/CEI 19510.
     key: fr-business-process-model-and-notation
   https://fr.wikipedia.org/wiki/Structogramme:
     title: Structogramme
@@ -1372,18 +1303,6 @@ wikipedia:
       problème. Il s'agit de graphes emboîtés qui permettent de représenter des traitements
       séquentiels, des tests et des répétitions.
     key: fr-structogramme
-  https://fr.wikipedia.org/wiki/MISRA_C:
-    title: MISRA C
-    tid: 8055fd5e-fd99-11ee-9fb3-97c8b9a36816
-    timestamp: '2024-04-18T15:37:02Z'
-    extract: MISRA C est une norme de programmation en langage C créée en 1998 par
-      la Motor Industry Software Reliability Association (en) (MISRA). Elle spécifie
-      les règles de programmation pour plus de sûreté. L’objectif est d’éviter des
-      erreurs d’exécution provoquées par une construction de C incertaine, des faiblesses
-      de structure du fait de malentendus entre les programmeurs, et de garantir la
-      validité des expressions. La plupart de ces règles peuvent être automatiquement
-      vérifiées ou prises en considération lors de la génération du code.
-    key: fr-misra-c
   https://fr.wikipedia.org/wiki/Nombre_cyclomatique:
     title: Nombre cyclomatique
     tid: 1d8d7f10-4a5d-11ef-977f-32d6f053dac9
@@ -1888,7 +1807,7 @@ wikipedia:
     key: fr-hashtag
   https://en.wikipedia.org/wiki/Code_refactoring:
     title: Code refactoring
-    tid: c04f7d42-6ede-11ef-9190-5e55dafc3532
+    tid: c04f7ee3-6ede-11ef-a462-98d0fbeced9d
     timestamp: '2024-09-09T19:07:26Z'
     description: Restructuring existing computer code without changing its external
       behavior
@@ -2120,8 +2039,8 @@ wikipedia:
     key: fr-retour-chariot
   https://fr.wikipedia.org/wiki/Compatible_PC:
     title: Compatible PC
-    tid: 0421695c-5884-11ef-ae5a-313e206d8ebc
-    timestamp: '2024-08-12T08:22:30Z'
+    tid: 2837d1fe-7a9c-11ef-8215-708f7194078c
+    timestamp: '2024-09-24T17:40:58Z'
     description: ordinateur ou micro-ordinateur calqué sur la conception de l'IBM
       PC en 1981 et ses successeurs tels que l'IBM PC / AT
     extract: Un compatible PC est un ordinateur compatible avec la gamme d'ordinateurs
@@ -2154,7 +2073,7 @@ wikipedia:
         https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/BSD_wordmark.svg/320px-BSD_wordmark.svg.png
       width: 320
       height: 149
-    tid: 1049d30e-6b81-11ef-a17d-72a3544675ae
+    tid: 1049cdc9-6b81-11ef-b95c-a7d4e4aafea5
     timestamp: '2024-09-05T12:19:14Z'
     description: Unix operating system
     extract: The Berkeley Software Distribution or Berkeley Standard Distribution
@@ -2295,16 +2214,16 @@ wikipedia:
       la nuit du 11 au 12 décembre 1602 selon le calendrier julien. Cette victoire
       est commémorée à Genève chaque année le 12 décembre.
     key: fr-escalade-geneve
-  https://en.wikipedia.org/wiki/Abstract_type:
-    title: Abstract type
-    tid: 388a4f6f-d0dd-11ee-aad6-475c0ffed234
-    timestamp: '2024-02-21T17:18:25Z'
-    description: Feature of a programming language
-    extract: In programming languages, an abstract type is a type in a nominative
-      type system that cannot be instantiated directly; by contrast, a concrete type
-      can be instantiated directly. Instantiation of an abstract type can occur only
-      indirectly, via a concrete subtype.
-    key: en-abstract-type
+  https://fr.wikipedia.org/wiki/Type_abstrait:
+    title: Type abstrait
+    tid: eab2f5ab-1b31-11ee-9cea-9908af6d7d42
+    timestamp: '2023-07-05T12:46:10Z'
+    description: Concept informatique
+    extract: En informatique, un type de donnée abstrait est une spécification mathématique
+      d'un ensemble de données et de l'ensemble des opérations qu'on peut effectuer
+      sur elles. On qualifie d'abstrait ce type de donnée car il ne spécifie pas comment
+      les données sont représentées ni comment les opérations sont implémentées.
+    key: fr-type-abstrait
   https://fr.wikipedia.org/wiki/Pointeur_(programmation):
     title: Pointeur (programmation)
     tid: e08188c6-8a27-11ee-b330-0634d86840ad
@@ -2347,7 +2266,7 @@ wikipedia:
     key: fr-pierre-choderlos-de-laclos
   https://fr.wikipedia.org/wiki/Open_Location_Code:
     title: Open Location Code
-    tid: 13edb749-a68d-11ee-a658-d4ca6903b6fc
+    tid: 13eda3f2-a68d-11ee-a637-b3829a0b6586
     timestamp: '2023-12-29T20:58:55Z'
     description: système de géocodage
     extract: "L'Open Location Code est un système de géocodage permettant d'identifier
@@ -2700,33 +2619,6 @@ wikipedia:
       le langage natif d'un processeur, c'est-à-dire le seul qu'il puisse traiter.
       Il est composé d'instructions et de données à traiter codées en binaire.
     key: fr-langage-machine
-  https://en.wikipedia.org/wiki/Bare_machine:
-    title: Bare machine
-    tid: 344d5723-30e2-11ef-99d0-5a7222957c03
-    timestamp: '2024-06-22T21:55:57Z'
-    description: Computer without an operating system
-    extract: In computer science, bare machine refers to a computer executing instructions
-      directly on logic hardware without an intervening operating system. Modern operating
-      systems evolved through various stages, from elementary to the present day complex,
-      highly sensitive systems incorporating many services. After the development
-      of programmable computers but prior to the development of operating systems,
-      sequential instructions were executed on the computer hardware directly using
-      machine language without any system software layer. This approach is termed
-      the "bare machine" precursor to modern operating systems. Today it is mostly
-      applicable to embedded systems and firmware with time-critical latency requirements,
-      while conventional programs are run by a runtime system overlaid on an operating
-      system.
-    key: en-bare-machine
-  https://en.wikipedia.org/wiki/Cross_compiler:
-    title: Cross compiler
-    tid: 3224e162-65e4-11ef-9fc6-c1fa41200f0c
-    timestamp: '2024-08-29T08:53:44Z'
-    description: Cross-platform machine-code compiler
-    extract: A cross compiler is a compiler capable of creating executable code for
-      a platform other than the one on which the compiler is running. For example,
-      a compiler that runs on a PC but generates code that runs on Android devices
-      is a cross compiler.
-    key: en-cross-compiler
   https://fr.wikipedia.org/wiki/Assembly_(informatique):
     title: Assembly (homonymie)
     tid: 4894a7b0-37df-11ee-9e6c-68657bae134d
@@ -2947,18 +2839,6 @@ wikipedia:
       a 128-bit hash value. MD5 was designed by Ronald Rivest in 1991 to replace an
       earlier hash function MD4, and was specified in 1992 as RFC 1321.
     key: en-md5
-  https://en.wikipedia.org/wiki/MurmurHash:
-    title: MurmurHash
-    tid: d9a3f870-799d-11ef-8587-384d4a986542
-    timestamp: '2024-09-23T11:20:34Z'
-    description: Computer function
-    extract: MurmurHash is a non-cryptographic hash function suitable for general
-      hash-based lookup. It was created by Austin Appleby in 2008 and, as of 8 January
-      2016, is hosted on GitHub along with its test suite named SMHasher. It also
-      exists in a number of variants, all of which have been released into the public
-      domain. The name comes from two basic operations, multiply (MU) and rotate (R),
-      used in its inner loop.
-    key: en-murmurhash
   https://fr.wikipedia.org/wiki/Tri_par_tas:
     title: Tri par tas
     thumbnail:
@@ -3129,24 +3009,9 @@ wikipedia:
       systems. POSIX is also a trademark of the IEEE. POSIX is intended to be used
       by both application and system developers.
     key: en-posix
-  https://en.wikipedia.org/wiki/Windows.h:
-    title: Windows.h
-    tid: f8bdf46e-5f8d-11ef-9814-0e9c2fc081ce
-    timestamp: '2024-08-21T07:21:24Z'
-    description: Windows-specific header file for C and C++
-    extract: windows.h is a Windows-specific header file for the C and C++ programming
-      languages which contains declarations for all of the functions in the Windows
-      API, all the common macros used by Windows programmers, and all the data types
-      used by the various functions and subsystems. It defines a very large number
-      of Windows specific functions that can be used in C. The Win32 API can be added
-      to a C programming project by including the <windows.h> header file and linking
-      to the appropriate libraries. To use functions in xxxx.dll, the program must
-      be linked to xxxx.lib. Some headers are not associated with a .dll but with
-      a static library.
-    key: en-windowsh
   https://fr.wikipedia.org/wiki/D%C3%A9coration_de_nom:
     title: Décoration de nom
-    tid: 68ac908b-cb32-11ee-9cdc-33c77343d7cf
+    tid: 68ac90e8-cb32-11ee-9544-42c1b755ec3f
     timestamp: '2024-02-14T12:13:06Z'
     description: concept en programmation
     extract: En construction de compilateur, la signature est une technique utilisée
@@ -3197,28 +3062,6 @@ wikipedia:
       L’analyse décrit le « quoi faire » alors que l’architecture décrit le « comment
       le faire ».
     key: fr-architecture-logicielle
-  https://en.wikipedia.org/wiki/UML_state_machine:
-    title: UML state machine
-    tid: b1f3fce4-5fd5-11ef-8ae3-9b4ba6510503
-    timestamp: '2024-08-21T15:54:49Z'
-    description: State machines and generalizations in UML
-    extract: "UML state machine,\nformerly known as UML statechart, is an extension
-      of the mathematical concept of a finite automaton in computer science applications
-      as expressed in the Unified Modeling Language (UML) notation."
-    key: en-uml-state-machine
-  https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation:
-    title: Business Process Model and Notation
-    thumbnail:
-      source: 
-        https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/BPMN-AProcessWithNormalFlow.svg/320px-BPMN-AProcessWithNormalFlow.svg.png
-      width: 320
-      height: 174
-    tid: 6e793ed1-128a-11ef-9a6c-806a44f0478c
-    timestamp: '2024-05-15T07:12:04Z'
-    description: Graphical representation for specifying business processes
-    extract: Business Process Model and Notation (BPMN) is a graphical representation
-      for specifying business processes in a business process model.
-    key: en-business-process-model-and-notation
   https://fr.wikipedia.org/wiki/Algorithme_online:
     title: Algorithme online
     tid: 238f4805-49dc-11ef-8678-e2576492c315
@@ -3246,7 +3089,7 @@ wikipedia:
     tid: 31c231b2-afc1-11ec-8c8b-678db374d372
     timestamp: '2022-03-30T00:34:44Z'
     description: page d'homonymie de Wikimédia
-    extract: "\n\nDiviser pour régner provient du latin « Divide ut regnes ». La phrase
+    extract: "Diviser pour régner provient du latin « Divide ut regnes ». La phrase
       correspondante en grec ancien est « Διαίρει καὶ βασίλευε ».En politique et en
       sociologie, diviser pour régner est une stratégie visant à semer la discorde
       et à opposer les éléments d'un tout pour les affaiblir et à user de son pouvoir
@@ -3429,8 +3272,8 @@ wikipedia:
         https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Mp3.svg/langfr-320px-Mp3.svg.png
       width: 320
       height: 162
-    tid: e47e3cb7-7779-11ef-9a79-4e09bfb83ea5
-    timestamp: '2024-09-20T17:58:08Z'
+    tid: 5fe33f88-7a7d-11ef-8370-beffbda29aa7
+    timestamp: '2024-09-24T14:00:37Z'
     description: spécification sonore du standard MPEG-1/MPEG-2
     extract: Le MPEG-1 Audio Layer III ou MPEG-2 Audio Layer III, plus connu sous
       son abréviation de MP3, est la spécification audio des standards MPEG-1 et MPEG-2.
@@ -3620,10 +3463,10 @@ wikipedia:
     tid: 412b54de-db96-11ee-a7ff-544931d1034b
     timestamp: '2024-03-06T08:48:08Z'
     description: périphérique servant à communiquer
-    extract: "\n\nLe modem est un périphérique informatique, qui relie un ordinateur
-      à un réseau analogique, comme le réseau téléphonique classique. Il convertit
-      les données numériques de l’ordinateur en signal modulé, dit « analogique »,
-      transmissible par un réseau analogique et réciproquement."
+    extract: Le modem est un périphérique informatique, qui relie un ordinateur à
+      un réseau analogique, comme le réseau téléphonique classique. Il convertit les
+      données numériques de l’ordinateur en signal modulé, dit « analogique », transmissible
+      par un réseau analogique et réciproquement.
     key: fr-modem
   https://fr.wikipedia.org/wiki/Jean_Villard:
     title: Jean Villard
@@ -3733,15 +3576,15 @@ wikipedia:
       height: 213
     tid: 788b3288-6606-11ef-bda7-beb9a807b240
     timestamp: '2024-08-29T12:59:05Z'
-    extract: "\nEn génie logiciel, les code smells ou mauvaises odeurs peuvent être
-      de mauvaises pratiques de conception logicielle qui conduisent à l’apparition
-      de défauts. Ces défauts sont souvent issus de mauvais choix d’implantation ou
-      de conception et conduisent à une complexification du code source et de la maintenance
+    extract: En génie logiciel, les code smells ou mauvaises odeurs peuvent être de
+      mauvaises pratiques de conception logicielle qui conduisent à l’apparition de
+      défauts. Ces défauts sont souvent issus de mauvais choix d’implantation ou de
+      conception et conduisent à une complexification du code source et de la maintenance
       et évolutivité de celui‐ci. À la différence d'un AntiPattern, les code smells
       ne sont pas forcément des erreurs, c'est-à-dire qu'ils peuvent persister sans
       perspective d'évolution dans un logiciel. Afin de corriger un code smell, il
       est nécessaire de procéder à un réusinage du code source, c’est‐à‐dire modifier
-      le code sans en altérer son comportement."
+      le code sans en altérer son comportement.
     key: fr-code-smell
   https://fr.wikipedia.org/wiki/Principe_KISS:
     title: Principe KISS
@@ -3794,10 +3637,10 @@ wikipedia:
     tid: 48b9a89e-34c8-11ef-b448-e1744369eb11
     timestamp: '2024-06-27T21:00:29Z'
     description: méthode agile de génie logiciel
-    extract: "\nL’extreme programming, en français « la programmation extrême », est
+    extract: L’extreme programming, en français « la programmation extrême », est
       une méthode agile de génie logiciel privilégiant l'aspect réalisation d'une
       application, sans pour autant négliger l'aspect gestion de projet. Elle pousse
-      à l'extrême des principes simples, d'où son nom."
+      à l'extrême des principes simples, d'où son nom.
     key: fr-extreme-programming
   https://en.wikipedia.org/wiki/Single_source_of_truth:
     title: Single source of truth
@@ -3842,25 +3685,23 @@ wikipedia:
       the code is written in a single place then simply copied to all other places
       where that implementation is required.
     key: en-shotgun-surgery
-  https://en.wikipedia.org/wiki/Cache_(computing):
-    title: Cache (computing)
+  https://fr.wikipedia.org/wiki/M%C3%A9moire_cache:
+    title: Mémoire cache
     thumbnail:
       source: 
-        https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Cache%2Cbasic.svg/320px-Cache%2Cbasic.svg.png
+        https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/External_Cache_486x.jpg/320px-External_Cache_486x.jpg
       width: 320
-      height: 140
-    tid: 16d23980-746a-11ef-82c7-963db070136f
-    timestamp: '2024-09-16T20:27:27Z'
-    description: Additional storage that enables faster access to main storage
-    extract: In computing, a cache is a hardware or software component that stores
-      data so that future requests for that data can be served faster; the data stored
-      in a cache might be the result of an earlier computation or a copy of data stored
-      elsewhere. A cache hit occurs when the requested data can be found in a cache,
-      while a cache miss occurs when it cannot. Cache hits are served by reading data
-      from the cache, which is faster than recomputing a result or reading from a
-      slower data store; thus, the more requests that can be served from the cache,
-      the faster the system performs.
-    key: en-cache-computing
+      height: 310
+    tid: f60fd3f9-5f8e-11ef-ba8d-78f0e37cac58
+    timestamp: '2024-08-21T07:28:29Z'
+    description: composant électronique chargée d’accélérer la lecture de données
+      en les conservant de manière transparante
+    extract: "Une mémoire cache ou antémémoire est, en informatique, une mémoire qui
+      enregistre temporairement des copies de données provenant d'une source, afin
+      de diminuer le temps d'un accès ultérieur d'un matériel informatique à ces données.
+      Le principe du cache est également utilisable en écriture, et existe alors en
+      trois modes possibles : write-through, write-back et write-around."
+    key: fr-memoire-cache
   https://fr.wikipedia.org/wiki/Limbes:
     title: Limbes
     thumbnail:
@@ -3918,7 +3759,7 @@ wikipedia:
         https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Compiling_dav1d_screenshot.png/320px-Compiling_dav1d_screenshot.png
       width: 320
       height: 402
-    tid: ffddc102-9f31-11ee-bffc-25713be9b100
+    tid: ffddd43b-9f31-11ee-9432-282cf2c53b06
     timestamp: '2023-12-20T12:19:19Z'
     description: moteur de production logicielle et logiciel libre
     extract: Ninja est un outil de construction axé sur la rapidité. Il gère un ensemble
@@ -3972,50 +3813,48 @@ wikipedia:
       user-friendly alternative to the non-interactive interface available with punched
       cards.
     key: en-command-line-interfacecommand-line-interpreter
-  https://en.wikipedia.org/wiki/Bourne_shell:
+  https://fr.wikipedia.org/wiki/Bourne_shell:
     title: Bourne shell
     thumbnail:
       source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Version_7_UNIX_SIMH_PDP11_Kernels_Shell.png/320px-Version_7_UNIX_SIMH_PDP11_Kernels_Shell.png
       width: 320
       height: 204
-    tid: c8dd2f1a-16e6-11ef-8570-607e0f92dc88
-    timestamp: '2024-05-20T20:23:14Z'
-    description: Command-line interpreter for operating systems
-    extract: The Bourne shell (sh) is a shell command-line interpreter for computer
-      operating systems.
-    key: en-bourne-shell
-  https://en.wikipedia.org/wiki/Stephen_R._Bourne:
-    title: Stephen R. Bourne
+    tid: baef5d6a-afed-11ec-8e3c-26358b64aeb4
+    timestamp: '2022-03-30T05:53:32Z'
+    description: langage de programmation
+    extract: Le Bourne shell ou bsh est un shell Unix. C'est le shell par défaut de
+      la version 7 d'Unix ; dans les versions antérieures d'UNIX, le nom sh désigne
+      le Thompson shell, et dans certaines versions actuelles, il désigne le Korn
+      shell.
+    key: fr-bourne-shell
+  https://fr.wikipedia.org/wiki/Stephen_Bourne:
+    title: Stephen Bourne
     thumbnail:
       source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Steve_Bourne_at_SDWest2005.hires.jpg/320px-Steve_Bourne_at_SDWest2005.hires.jpg
       width: 320
       height: 459
-    tid: 0c313de7-71a1-11ef-853e-1aa498bc51d1
-    timestamp: '2024-09-13T07:23:18Z'
-    description: British computer scientist
-    extract: Stephen Richard "Steve" Bourne is an English computer scientist based
-      in the United States for most of his career. He is well known as the author
-      of the Bourne shell (sh), which is the foundation for the standard command-line
-      interfaces to Unix.
-    key: en-stephen-r-bourne
-  https://en.wikipedia.org/wiki/Bash_(Unix_shell):
-    title: Bash (Unix shell)
+    tid: 01594d9d-c4ce-11ee-b4ed-8e4535834207
+    timestamp: '2024-02-06T08:59:16Z'
+    description: informaticien britannique
+    extract: Steve Bourne est un informaticien britannique, connu surtout pour être
+      l'auteur du shell sh, qui est au fondement des interfaces en ligne de commandes
+      pour UNIX.
+    key: fr-stephen-bourne
+  https://fr.wikipedia.org/wiki/Bourne-Again_shell:
+    title: Bourne-Again shell
     thumbnail:
       source: 
-        https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Bash_screenshot.png/320px-Bash_screenshot.png
+        https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Command_line.png/320px-Command_line.png
       width: 320
-      height: 436
-    tid: 7b78d71d-76a4-11ef-9cd7-c6f38b4eddf0
-    timestamp: '2024-09-19T16:30:29Z'
-    description: GNU replacement for the Bourne shell
-    extract: Bash, short for Bourne-Again SHell, is a shell program and command language
-      supported by the Free Software Foundation and first developed for the GNU Project
-      by Brian Fox. Designed as a 100% free software alternative for the Bourne shell,
-      it was initially released in 1989. Its moniker is a play on words, referencing
-      both its predecessor, the Bourne shell, and the concept of rebirth.
-    key: en-bash-unix-shell
+      height: 273
+    tid: 66c1b3ff-66cf-11ef-8c93-0848a06eee27
+    timestamp: '2024-08-30T12:57:24Z'
+    description: shell du projet GNU
+    extract: Bash est un interpréteur en ligne de commande de type script. C'est le
+      shell Unix du projet GNU.
+    key: fr-bourne-again-shell
   https://fr.wikipedia.org/wiki/YAML:
     title: YAML
     thumbnail:
@@ -4033,50 +3872,42 @@ wikipedia:
       tel que documenté par RFC 2822. YAML a été proposé par Clark Evans en 2001,
       et implémenté par ses soins ainsi que par Brian Ingerson et Oren Ben-Kiki.
     key: fr-yaml
-  https://en.wikipedia.org/wiki/Cygwin:
+  https://fr.wikipedia.org/wiki/Cygwin:
     title: Cygwin
     thumbnail:
       source: 
-        https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Cygwin_logo.svg/320px-Cygwin_logo.svg.png
+        https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Cygwin_logo.svg/langfr-320px-Cygwin_logo.svg.png
       width: 320
       height: 320
-    tid: c8084097-6f69-11ef-86fc-5a0050ae3652
-    timestamp: '2024-09-10T11:42:39Z'
-    description: Unix-like environment for Windows
-    extract: Cygwin is a free and open-source Unix-like environment and command-line
-      interface (CLI) for Microsoft Windows. The project also provides a software
-      repository containing many open-source packages. Cygwin allows source code for
-      Unix-like operating systems to be compiled and run on Windows. Cygwin provides
-      native integration of Windows-based applications.
-    key: en-cygwin
-  https://en.wikipedia.org/wiki/MSYS:
+    tid: eabb66fa-c246-11ed-9cc8-0839b3520541
+    timestamp: '2023-03-14T09:02:16Z'
+    description: logiciel informatique
+    extract: Cygwin est une collection de logiciels libres à l'origine développés
+      par Cygnus Solutions permettant à différentes versions de Windows de Microsoft
+      d'émuler un système Unix. Il vise principalement l'adaptation à Windows de logiciels
+      qui fonctionnent sur des systèmes POSIX. Cygwin simule un environnement Unix
+      sous Windows, rendant possible l'exécution de ces logiciels après une simple
+      compilation. Les programmes ainsi portés sur Cygwin, fonctionnent mieux sur
+      Windows NT, Windows 2000 et Windows XP que sur les versions antérieures de Windows,
+      mais certains peuvent s'exécuter de façon tout à fait acceptable sur Windows
+      95 et Windows 98. La version 1.5.24-2 du 31 janvier 2007 est la dernière à être
+      officiellement compatible avec Windows 95/98/Me.
+    key: fr-cygwin
+  https://fr.wikipedia.org/wiki/MinGW:
     title: MinGW
     thumbnail:
       source: 
         https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/MinGW_installation_manager.webp/320px-MinGW_installation_manager.webp.png
       width: 320
       height: 164
-    tid: 631ac925-1905-11ef-9083-93632c047835
-    timestamp: '2024-05-23T13:07:20Z'
-    description: Free and open-source software for developing applications in Microsoft
-      Windows
-    extract: MinGW, formerly mingw32, is a free and open source software development
-      environment to create Microsoft Windows applications.
-    key: en-msys
-  https://en.wikipedia.org/wiki/MinGW:
-    title: MinGW
-    thumbnail:
-      source: 
-        https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/MinGW_installation_manager.webp/320px-MinGW_installation_manager.webp.png
-      width: 320
-      height: 164
-    tid: 631ac925-1905-11ef-9083-93632c047835
-    timestamp: '2024-05-23T13:07:20Z'
-    description: Free and open-source software for developing applications in Microsoft
-      Windows
-    extract: MinGW, formerly mingw32, is a free and open source software development
-      environment to create Microsoft Windows applications.
-    key: en-mingw
+    tid: 5c8b6ca2-3316-11ee-b289-944ad19ed2a6
+    timestamp: '2023-08-04T22:29:23Z'
+    description: logiciel informatique
+    extract: MinGW ou Mingw32 est une adaptation des logiciels de développement et
+      de compilation du GNU, à la plate-forme Win32. Le développement du projet MinGW
+      s'est ralenti depuis la création en 2005-2008 d'un projet alternatif appelé
+      Mingw-w64.
+    key: fr-mingw
   https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux:
     title: Windows Subsystem for Linux
     thumbnail:
@@ -4102,7 +3933,7 @@ wikipedia:
         https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Windows_Terminal_v1.0_1138x624.png/320px-Windows_Terminal_v1.0_1138x624.png
       width: 320
       height: 175
-    tid: 511797b7-7125-11ef-9f28-87c4b3ba505e
+    tid: 51178b22-7125-11ef-8605-a96c8b55b8ae
     timestamp: '2024-09-12T16:37:36Z'
     description: Terminal emulator for Windows 10 and later
     extract: Windows Terminal is a multi-tabbed terminal emulator developed by Microsoft
@@ -4113,20 +3944,20 @@ wikipedia:
       back-end; starting with version 1.11 on Windows 11, command-line apps can run
       using this newer back-end instead of the old Windows Console.
     key: en-windows-terminal
-  https://en.wikipedia.org/wiki/Linus_Torvalds:
+  https://fr.wikipedia.org/wiki/Linus_Torvalds:
     title: Linus Torvalds
     thumbnail:
       source: 
-        https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Lc3_2018_%28263682303%29_%28cropped%29.jpeg/320px-Lc3_2018_%28263682303%29_%28cropped%29.jpeg
+        https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg/320px-LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg
       width: 320
-      height: 437
-    tid: 75396d90-7a3f-11ef-8ce9-d7d10de63e92
-    timestamp: '2024-09-24T06:37:24Z'
-    description: Creator and lead developer of the Linux kernel (born 1969)
-    extract: Linus Benedict Torvalds is a Finnish and American software engineer who
-      is the creator and lead developer of the Linux kernel. He also created the distributed
-      version control system Git.
-    key: en-linus-torvalds
+      height: 445
+    tid: 14daa3e6-75d9-11ef-8af3-fafbaa8b163e
+    timestamp: '2024-09-18T16:14:29Z'
+    description: ingénieur informatique américano-finlandais
+    extract: Linus Benedict Torvalds, né le 28 décembre 1969 à Helsinki en Finlande,
+      est un informaticien américano-finlandais connu notamment pour avoir créé le
+      noyau Linux en 1991.
+    key: fr-linus-torvalds
   https://fr.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B:
     title: Visual C++
     thumbnail:
@@ -4170,21 +4001,6 @@ wikipedia:
       par Judd Vinet qui met l'accent sur la simplicité de conception - selon le principe
       KISS. L'inspiration principale vient de l'ancienne distribution Crux Linux.
     key: fr-arch-linux
-  https://fr.wikipedia.org/wiki/MinGW:
-    title: MinGW
-    thumbnail:
-      source: 
-        https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/MinGW_installation_manager.webp/320px-MinGW_installation_manager.webp.png
-      width: 320
-      height: 164
-    tid: 5c8b6ca2-3316-11ee-b289-944ad19ed2a6
-    timestamp: '2023-08-04T22:29:23Z'
-    description: logiciel informatique
-    extract: MinGW ou Mingw32 est une adaptation des logiciels de développement et
-      de compilation du GNU, à la plate-forme Win32. Le développement du projet MinGW
-      s'est ralenti depuis la création en 2005-2008 d'un projet alternatif appelé
-      Mingw-w64.
-    key: fr-mingw
   https://fr.wikipedia.org/wiki/Benevolent_dictator_for_life:
     title: Guido van Rossum
     thumbnail:

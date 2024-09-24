@@ -6,7 +6,8 @@ RUN tlmgr install latexmk fontspec minted babel-french adjustbox capt-of \
     glossaries imakeidx listofitems minitoc stackengine tcolorbox titlesec \
     tocloft wasysym booktabs caption euenc filehook lm makecmds microtype \
     parskip ulem unicode-math lualatex-math tikzfill units pdfcol nextpage \
-    hyphen-french noto notomath luatexbase memoir xpatch
+    hyphen-french noto notomath luatexbase memoir xpatch xindy latex2pydata \
+    pgfopts
 
 RUN apk --no-cache add font-noto font-noto-music font-noto-emoji font-noto-cjk \
     font-noto-naskh-arabic font-noto-devanagari font-noto-hebrew font-noto-tamil \
@@ -17,7 +18,9 @@ RUN mkdir -p /usr/share/fonts/truetype/creativecommons && \
     -P /usr/share/fonts/truetype/creativecommons
 
 RUN apk add --no-cache \
-    make ghostscript fontconfig ttf-freefont py3-pygments ncurses
+    make ghostscript fontconfig ttf-freefont py3-pygments py3-pip ncurses
+
+RUN pip install latexminted latexrestricted latex2pydata Pygments --break-system-packages
 
 RUN mkdir -p /tmp/texmf-cache
 ENV TEXMFCACHE=/tmp/texmf-cache

@@ -479,7 +479,7 @@ class LaTeXRenderer:
             level = int(el.name[1:]) + base_level - 1
             ref = el.get("id", None)
             if kwargs.get("drop_title", False):
-                kwargs['drop_title'] = False
+                kwargs["drop_title"] = False
                 self.apply(el, "pagestyle", "plain")
                 continue
             self.apply(
@@ -1025,11 +1025,12 @@ class LaTeXRenderer:
             if href.startswith("http"):
                 if href in self.wikimap:
                     data = self.wikimap[href]
-                    self.glossary[data["key"]] = {
+                    key = f"wiki:{data['key']}"
+                    self.glossary[key] = {
                         "name": escape_latex_chars(data["title"]),
                         "description": escape_latex_chars(data["extract"]),
                     }
-                    self.apply(el, "glossary", key=data["key"])
+                    self.apply(el, "glossary", key=key)
                     continue
 
                 href = escape_latex_chars(safe_quote(el.get("href")))
@@ -1175,7 +1176,15 @@ class LaTeXRenderer:
             render(soup, **kwargs)
         return soup
 
-    def render(self, html, output_path, file_path, base_level=0, numbered=True, drop_title=False):
+    def render(
+        self,
+        html,
+        output_path,
+        file_path,
+        base_level=0,
+        numbered=True,
+        drop_title=False,
+    ):
         soup = BeautifulSoup(html, "html.parser")
 
         kwargs = {

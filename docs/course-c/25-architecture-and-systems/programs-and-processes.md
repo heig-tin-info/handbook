@@ -22,9 +22,9 @@ Le plus souvent le code source est organisé en une [arborescence](https://fr.wi
 
 ### Exécutable binaire
 
-Une fois compilé en [langage machine](https://fr.wikipedia.org/wiki/Langage_machine), il en résulte un fichier qui peut être exécuté soit par un système d'exploitation, soit sur une plateforme embarquée à microcontrôleur sans l'intermédiaire d'un système d'exploitation. On dit que ce type de programme est [bare metal](https://en.wikipedia.org/wiki/Bare_machine), qu'il s'exécute à même le métal.
+Une fois compilé en [langage machine](https://fr.wikipedia.org/wiki/Langage_machine), il en résulte un fichier qui peut être exécuté soit par un système d'exploitation, soit sur une plateforme embarquée à microcontrôleur sans l'intermédiaire d'un système d'exploitation. On dit que ce type de programme est *bare metal*, qu'il s'exécute à même le métal.
 
-Un exécutable binaire doit être compilé pour la bonne architecture matérielle. Un programme compilé pour un processeur INTEL ne pourra pas s'exécuter sur un processeur ARM, c'est pourquoi on utilise différents compilateurs en fonctions des architectures cibles. L'opération de compiler un programme pour une autre architecture, ou un autre système d'exploitation que celui sur lequel est installé le compilateur s'appelle la compilation croisée ([cross-compilation](https://en.wikipedia.org/wiki/Cross_compiler)).
+Un exécutable binaire doit être compilé pour la bonne architecture matérielle. Un programme compilé pour un processeur INTEL ne pourra pas s'exécuter sur un processeur ARM, c'est pourquoi on utilise différents compilateurs en fonctions des architectures cibles. L'opération de compiler un programme pour une autre architecture, ou un autre système d'exploitation que celui sur lequel est installé le compilateur s'appelle la compilation croisée (*cross compilation*).
 
 Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci :
 

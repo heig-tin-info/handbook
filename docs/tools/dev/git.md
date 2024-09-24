@@ -4,7 +4,7 @@
 
 ## Introduction
 
-[Git](https://git-scm.com/) est un outil de gestion de versions. Il a été inventé par [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds) en 2005 pour gérer le développement du noyau Linux qui contient des millions de lignes de code devant être modifiées par des centaines de milliers de développeurs. Git a été conçu pour être rapide, efficace et pour gérer des projets de toutes tailles. Il est aujourd'hui le système de gestion de version le plus utilisé au monde.
+[Git](https://git-scm.com/) est un outil de gestion de versions. Il a été inventé par [Linus Torvalds](https://fr.wikipedia.org/wiki/Linus_Torvalds) en 2005 pour gérer le développement du noyau Linux qui contient des millions de lignes de code devant être modifiées par des centaines de milliers de développeurs. Git a été conçu pour être rapide, efficace et pour gérer des projets de toutes tailles. Il est aujourd'hui le système de gestion de version le plus utilisé au monde.
 
 Git est la suite logique des outils comme `CVS` ou [Subversion](https://subversion.apache.org/) qui étaient utilisés pour gérer des projets de développement de logiciels.
 

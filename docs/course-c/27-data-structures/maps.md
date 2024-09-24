@@ -316,7 +316,7 @@ int hash_int(int n, int mod) {
 
 ### MurmurHash
 
-Une autre fonction de hachage très populaire est [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash). Elle est très rapide et produit des résultats de qualité. Voici un exemple en C :
+Une autre fonction de hachage très populaire est MurmurHash. Elle est très rapide et produit des résultats de qualité. Voici un exemple en C :
 
 ```c
 uint32_t murmur3_32(const char *key, uint32_t len, uint32_t seed) {

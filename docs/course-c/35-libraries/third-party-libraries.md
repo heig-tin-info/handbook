@@ -149,13 +149,13 @@ Un point d'entrée de l'API POSIX est la bibliothèque `<unistd.h>`.
 
 ## GNU GLIBC
 
-La bibliothèque portable [GNULIB](https://www.gnu.org/software/gnulib/) est la bibliothèque standard référencée sous Linux par `libc6`.
+La [[bibliothèque]] portable [GNULIB](https://www.gnu.org/software/gnulib/) est la bibliothèque standard référencée sous Linux par `libc6`.
 
 ## Windows C library
 
-La bibliothèque Windows [Windoes API](https://docs.microsoft.com/en-us/windows/win32/apiindex/windows-api-list) offre une interface au système de fichier, au registre Windows, aux imprimantes, à l'interface de fenêtrage, à la console et au réseau.
+La bibliothèque [[Windows]] [Windoes API](https://docs.microsoft.com/en-us/windows/win32/apiindex/windows-api-list) offre une interface au système de fichier, au registre Windows, aux imprimantes, à l'interface de fenêtrage, à la console et au réseau.
 
-L'accès à cet API est offert par un unique point d'entrée [windows.h](https://en.wikipedia.org/wiki/Windows.h) qui regroupe certains en-têtes standards (`<stdarg.h>`, `<string.h>`, ...), mais pas tous (😔) ainsi que les en-têtes spécifiques à Windows tels que :
+L'accès à cet [[API]] est offert par un unique point d'entrée `windows.h` qui regroupe certains en-têtes standards (`<stdarg.h>`, `<string.h>`, ...), mais pas tous (😔) ainsi que les en-têtes spécifiques à Windows tels que :
 
 `<winreg.h>`
 

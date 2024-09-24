@@ -123,7 +123,7 @@ Il est possible de déclarer des variables locales dans un bloc, ces variables n
 
 ### Points de séquence
 
-Un point de séquence, ou [sequence point](https://en.wikipedia.org/wiki/Sequence_point), est une notion définie dans l'annexe du standard C, qui garantit que certains ordres d'évaluation sont respectés lors de l'exécution d'instructions. En d'autres termes, un point de séquence marque un moment où tous les effets secondaires d'expressions précédentes doivent être achevés avant d'entamer l'évaluation d'expressions suivantes.
+Un [[point de séquence]], ou *sequence point*, est une notion définie dans l'annexe du standard C, qui garantit que certains ordres d'évaluation sont respectés lors de l'exécution d'instructions. En d'autres termes, un point de séquence marque un moment où tous les effets secondaires d'expressions précédentes doivent être achevés avant d'entamer l'évaluation d'expressions suivantes.
 
 Les règles relatives aux points de séquence sont les suivantes :
 

@@ -133,7 +133,7 @@ Sur le podium, [[Python]] est un langage de très haut niveau simple à apprendr
 
 ## Programmation texte structurée
 
-Le C comme la plupart des langages de programmation utilise du texte structuré, c'est-à-dire que le langage peut être défini par un **vocabulaire**, une **grammaire** et se compose d'un **alphabet**. À l'inverse des [langages naturels](https://en.wikipedia.org/wiki/Natural_language) comme le Français, un langage de programmation est un [langage formel](https://fr.wikipedia.org/wiki/Langage_formel) et se veut exact dans sa grammaire et son vocabulaire, il n'y a pas de cas particuliers ni d'ambiguïtés possibles dans l'écriture. Les **compilateurs** sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.
+Le C comme la plupart des langages de programmation utilise du texte structuré, c'est-à-dire que le langage peut être défini par un **vocabulaire**, une **grammaire** et se compose d'un **alphabet**. À l'inverse des [langages naturels](https://fr.wikipedia.org/wiki/Langage_naturel) comme le Français, un langage de programmation est un [langage formel](https://fr.wikipedia.org/wiki/Langage_formel) et se veut exact dans sa grammaire et son vocabulaire, il n'y a pas de cas particuliers ni d'ambiguïtés possibles dans l'écriture. Les **compilateurs** sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.
 
 [](){ #omelette }
 
@@ -288,7 +288,7 @@ Naturellement vous ne connaîtrez le numéro de page exact qu'une fois que tous 
 
 ## Hello World!
 
-Il est traditionnellement coutume depuis la publication en [[1978]] du livre [The C Programming Language](https://en.wikipedia.org/wiki/The_C_Programming_Language) de reprendre l'exemple de [[Brian Kernighan]] comme premier programme.
+Il est traditionnellement coutume depuis la publication en [[1978]] du livre [The C Programming Language](https://fr.wikipedia.org/wiki/C_(langage)) de reprendre l'exemple de [[Brian Kernighan]] comme premier programme.
 
 ```c title="hello.c"
 --8<-- "docs/assets/src/hello.c"
