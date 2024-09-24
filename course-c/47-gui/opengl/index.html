@@ -6483,7 +6483,7 @@ X11 : Protocole de communication entre le serveur et les clients.</p>
 <p>Bien que d'autres API graphiques comme DirectX (pour Windows) ou Direct3D (pour les jeux vidéo) soient également très populaires, OpenGL reste une API de choix pour de nombreux développeurs en raison de sa portabilité, de sa flexibilité et de sa compatibilité avec un large éventail de matériels.</p>
 <p>Néanmoins, certaines limitations ont conduit le Khronos Group qui gère OpenGL a développé <a href="https://fr.wikipedia.org/wiki/Vulkan_(API)">Vulkan</a>, une nouvelle API graphique et de calcul, publiée en 2016. Vulkan est considéré comme le successeur d'OpenGL et offre de nombreuses améliorations qui répondent aux besoins modernes des développeurs de jeux et d’applications graphiques.</p>
 <p>Les jeux vidéos modernes comme FarCry, The Witcher 3, Red Dead Redemption 2, ou encore Cyberpunk 2077 utilisent des moteurs graphiques basés sur les API Vulkan ou DirectX 12 pour tirer parti des performances des cartes graphiques récentes.</p>
-<p>En 2024, sur Windows, DirectX est l'API dominante. Néanmoins avec la technologie <a href="https://fr.wikipedia.org/wiki/Vulkan_(API)">DXVK</a> qui est une couche de traduction permettant à des applications Vulkan de fonctionner avec DirectX 12.</p>
+<p>En 2024, sur Windows, DirectX est l'API dominante. Néanmoins avec la technologie <a href="https://github.com/doitsujin/dxvk">DXVK</a> qui est une couche de traduction permettant à des applications Vulkan de fonctionner avec DirectX 12.</p>
 <h3 id="principe-de-fonctionnement">Principe de fonctionnement<a class="headerlink" href="#principe-de-fonctionnement" title="Lien permanent">¤</a></h3>
 <p>OpenGL et Vulkan fonctionnent sur le principe de la programmation par états. Cela signifie que l'application configure l'état de l'API graphique en définissant des paramètres comme la couleur, la texture, la lumière, la perspective, etc. Une fois l'état configuré, l'application envoie des commandes graphiques à l'API pour dessiner des objets géométriques, des textures, des effets visuels, etc.</p>
 <p>Ces API offrent une abstraction du matériel graphique sous-jacent, permettant aux développeurs de concevoir des applications graphiques sans se soucier des détails spécifiques à la carte graphique. En effet, une carte graphique contient des milliers de cœurs de calcul qui peuvent être programmés pour effectuer des calculs parallèles. Heureusement pour les développeurs, OpenGL et Vulkan fournissent des interfaces de haut niveau pour exploiter ces capacités de calcul sans avoir à gérer les détails complexes du matériel.</p>
@@ -6978,7 +6978,7 @@ R_x(\theta) = \begin{bmatrix}
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">13 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">24 septembre 2024</span>
   </span>
 
     

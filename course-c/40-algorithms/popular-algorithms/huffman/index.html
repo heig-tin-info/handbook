@@ -5845,7 +5845,7 @@ les outils associés.
 
 <h1 id="codage-de-huffman">Codage de Huffman<a class="headerlink" href="#codage-de-huffman" title="Lien permanent">¤</a></h1>
 <p>Le codage de Huffman est un algorithme de compression sans perte qui permet de réduire la taille des fichiers en utilisant des codes de longueur variable pour représenter les caractères. L'algorithme repose sur l'idée que les caractères les plus fréquents dans un texte peuvent être représentés par des codes plus courts, tandis que les caractères les moins fréquents sont représentés par des codes plus longs.</p>
-<p>Il est utilisé dans de nombreux formats de fichiers comme le format <a href="https://fr.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a>, <a href="https://fr.wikipedia.org/wiki/JPEG">JPEG</a> et <a href="https://fr.wikipedia.org/wiki/MPEG-1/2_Audio_Layer_3">MP3</a>.</p>
+<p>Il est utilisé dans de nombreux formats de fichiers comme le format <a href="https://fr.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a>, <a href="https://fr.wikipedia.org/wiki/JPEG">JPEG</a> et <a href="https://fr.wikipedia.org/wiki/MP3">MP3</a>.</p>
 <p>Prenons le texte <span class="ycr-hashtag" data-index-entry="ABRACADABRA" data-tag="ABRACADABRA"><code>ABRACADABRA</code></span>. Il y a des lettres qui reviennent plus souvent que d'autres et des lettres de l'alphabet qui sont absentes. Pourquoi donc représenter chaque caractère sur 1 octet ? On pourrait utiliser un code de longueur variable. Par exemple, la lettre <code>A</code> pourrait être représentée par <code>0</code>, la lettre <code>B</code> par <code>10</code> et la lettre <code>R</code> par <code>11</code>. Il faudrait également définir une table de correspondance pour décoder le texte. C'est le principe de l'abre de Huffman.</p>
 <h2 id="comment-ca-marche">Comment ça marche ?<a class="headerlink" href="#comment-ca-marche" title="Lien permanent">¤</a></h2>
 <p>Pour notre entrée <span class="ycr-hashtag" data-index-entry="ABRACADABRA" data-tag="ABRACADABRA"><code>ABRACADABRA</code></span>, nous allons suivre les étapes suivantes :</p>
@@ -5987,7 +5987,7 @@ CD --&gt; D("D (1)")</code></pre>
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">14 août 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">24 septembre 2024</span>
   </span>
 
     

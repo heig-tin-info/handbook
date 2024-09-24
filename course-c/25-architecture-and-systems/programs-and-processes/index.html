@@ -6054,7 +6054,7 @@ les outils associés.
 <li>Le <em>listing</em> assembleur (<code>.s</code>, <code>.asm</code>)</li>
 <li>L'exécutable binaire (ELF, <code>.exe</code>, <code>.out</code>, <code>.dll</code>, <code>.so</code>, etc.)</li>
 </ul>
-<p>Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d'exploitation">systèmes d'exploitation</a> tels que Windows sont dits <a href="https://fr.wikipedia.org/wiki/Multitasking">multitâches</a>, il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.</p>
+<p>Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation">systèmes d'exploitation</a> tels que Windows sont dits <a href="https://fr.wikipedia.org/wiki/Multit%C3%A2che">multitâches</a>, il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.</p>
 <p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/vintage-programmer.jpg"><img alt="Programmeuse à côté de cartes perforées" src="../../../assets/images/vintage-programmer.jpg" width="60%"/></a><figcaption> Programmeuse en tenue décontractée à côté de 62'500 cartes perforées</figcaption></figure></p>
 <h3 id="code-source">Code source<a class="headerlink" href="#code-source" title="Lien permanent">¤</a></h3>
 <p>Le <strong>code source</strong> est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes <a href="https://fr.wikipedia.org/wiki/Langage_Ladder">Ladder</a> utilisés dans les automates programmables et respectant la norme <a href="https://fr.wikipedia.org/wiki/CEI_61131-3">IEC 61131-3</a>, ou <a href="https://fr.wikipedia.org/wiki/LabVIEW">LabView</a> un outil de développement graphique.</p>
@@ -6408,6 +6408,7 @@ les outils associés.
 </span></code></pre></div>
 <p>Dans cet exemple ci-dessus, le programme <span class="ycr-hashtag" data-index-entry="echo" data-tag="echo"><code>echo</code></span> prend en argument la chaîne de caractère <span class="ycr-hashtag" data-index-entry="Bonjour" data-tag="Bonjour"><code>Bonjour</code></span> qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme <code>tr</code> qui effectue une opération de <a href="https://fr.wikipedia.org/wiki/ROT13">ROT13</a> et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier <span class="ycr-hashtag" data-index-entry="data.txt" data-tag="data.txt"><code>data.txt</code></span>.
 La commande suivante <span class="ycr-hashtag" data-index-entry="cat" data-tag="cat"><code>cat</code></span> lis le contenu du fichier dont le nom est passé en argument et écrit le contenu sur la sortie standard.</p>
+<p><figure id="_figure-3"><img alt="Rot13" class="drawio-diagram" src="../../../assets/images/rot13.drawio"/><figcaption> Rot13</figcaption></figure></p>
 <p>Dans le cas où un de ces programmes génère une alerte (<em>warning</em>), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie : <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> pour la sortie standard et <span class="ycr-hashtag" data-index-entry="stderr" data-tag="stderr"><code>stderr</code></span> pour les messages de diagnostic et les erreurs.</p>
 <h2 id="boucle-dattente">Boucle d'attente<a class="headerlink" href="#boucle-dattente" title="Lien permanent">¤</a></h2>
 <p>Comme évoqué, un programme est souvent destiné à tourner sur un système d'exploitation. Un programme simple comme celui-ci :</p>
@@ -6466,7 +6467,7 @@ La commande suivante <span class="ycr-hashtag" data-index-entry="cat" data-tag="
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">1 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">24 septembre 2024</span>
   </span>
 
     
