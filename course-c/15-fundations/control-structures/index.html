@@ -6186,7 +6186,7 @@ les outils associés.
 <p>Il existe des instructions qui permettent de modifier le flux d'exécution du programme, c'est-à-dire de sauter à une autre partie du code. Les sauts conditionnels dépendent d'une condition, tandis que les sauts inconditionnels sont toujours exécutés. On peut distinguer les sauts d’instructions suivantes :</p>
 <ul>
 <li><a class="autorefs autorefs-internal" href="#les-sauts-conditionnels">sauts conditionnels</a> (<code>if</code>, <span class="ycr-hashtag" data-index-entry="switch" data-tag="switch"><code>switch</code></span>);</li>
-<li><a class="autorefs autorefs-internal" href="#les-sauts-conditionnels">sauts inconditionnels</a> (<span class="ycr-hashtag" data-index-entry="break" data-tag="break"><code>break</code></span>, <span class="ycr-hashtag" data-index-entry="continue" data-tag="continue"><code>continue</code></span>, <span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span>, <span class="ycr-hashtag" data-index-entry="return" data-tag="return"><code>return</code></span>).</li>
+<li><a class="autorefs autorefs-internal" href="#les-sauts">sauts inconditionnels</a> (<span class="ycr-hashtag" data-index-entry="break" data-tag="break"><code>break</code></span>, <span class="ycr-hashtag" data-index-entry="continue" data-tag="continue"><code>continue</code></span>, <span class="ycr-hashtag" data-index-entry="goto" data-tag="goto"><code>goto</code></span>, <span class="ycr-hashtag" data-index-entry="return" data-tag="return"><code>return</code></span>).</li>
 </ul>
 </dd>
 <dt>Les itérations ou boucles</dt>
@@ -6278,8 +6278,6 @@ les outils associés.
 <p>Il est essentiel de noter que l'opérateur d'affectation <code>=</code> <strong>n'est pas</strong> un point de séquence. Par conséquent, l'évaluation d'une expression telle que <code>(a = 2) + a + (a = 2)</code> est indéterminée. Selon l'ordre d'évaluation des sous-expressions, le résultat peut varier, car les modifications de la variable <code>a</code> peuvent intervenir de manière imprévisible.</p>
 <p>Pour mieux saisir la notion de point de séquence, il est essentiel de comprendre que, lorsqu'un programme en C est compilé, il est traduit en instructions assembleur qui seront ensuite exécutées par le processeur. Le compilateur, afin d'optimiser les performances, peut réordonner certaines instructions ou les paralléliser dans l'unité arithmétique et logique (ALU). Toutefois, ces optimisations peuvent entraîner des comportements indéterminés si elles interfèrent avec l'ordre d'exécution attendu par le programmeur.</p>
 <p>Les points de séquence jouent un rôle crucial en imposant des barrières explicites dans le flux d'instructions, garantissant qu'à ces points précis, tous les effets des calculs précédents sont achevés avant de passer à l'évaluation des instructions suivantes. En d'autres termes, ils empêchent le réordonnancement des instructions au-delà d'un point donné, assurant ainsi un comportement prévisible et conforme aux attentes du programmeur.</p>
-<p><a href="" id="loops"></a></p>
-<p><a href="" id="jumps"></a></p>
 <p><a href="" id="conditional-jumps"></a></p>
 <h2 id="les-sauts-conditionnels">Les sauts conditionnels<a class="headerlink" href="#les-sauts-conditionnels" title="Lien permanent">¤</a></h2>
 <p>Les embranchements sont des instructions de contrôle permettant au programme de prendre des décisions en fonction de conditions spécifiques. Une prise de décision est dite <strong>binaire</strong> lorsqu'elle repose sur un choix entre deux alternatives : <em>vrai</em> ou <em>faux</em>. Elle est dite <strong>multiple</strong> lorsque la condition évalue une variable scalaire, conduisant à plusieurs chemins possibles. En langage C, il existe deux types principaux d'instructions d'embranchement :</p>
@@ -7124,7 +7122,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">24 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">25 septembre 2024</span>
   </span>
 
     
