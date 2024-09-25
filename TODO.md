@@ -74,6 +74,8 @@
 
 ## Changelog
 
+- [x] Update Dockerfile to freeze version based on TexLive 2023
+- [x] Add support for Xindy in Dockerfile (works for glossary)
 - [x] On LaTeX description list, add more space between item and desc.
 - [x] valdrind, gdb, strace, ltrace
 - [x] More content on quality and security

@@ -145,9 +145,6 @@ Pour mieux saisir la notion de point de séquence, il est essentiel de comprendr
 
 Les points de séquence jouent un rôle crucial en imposant des barrières explicites dans le flux d'instructions, garantissant qu'à ces points précis, tous les effets des calculs précédents sont achevés avant de passer à l'évaluation des instructions suivantes. En d'autres termes, ils empêchent le réordonnancement des instructions au-delà d'un point donné, assurant ainsi un comportement prévisible et conforme aux attentes du programmeur.
 
-[](){#loops}
-
-[](){#jumps}
 
 [](){#conditional-jumps}
 

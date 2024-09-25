@@ -17,8 +17,8 @@
 %\usepackage{parskip}  % For no paragraph indentation
 \usepackage{stackengine}
 \usepackage{booktabs}
-\usepackage[many,minted]{tcolorbox}% version 3.03 or better
 \usepackage{minted}
+\usepackage[many,minted]{tcolorbox}% version 3.03 or better
 %\usepackage[french]{minitoc}
 \usepackage{csquotes}
 \usepackage{epigraph}
