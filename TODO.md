@@ -12,13 +12,8 @@
 ## Improvements
 
 - [ ] Better separation terms and definitions, acronyms, glossary
-- [ ] Include Wikipedia links in addition to `wiki:`
-- [ ] Remove `wiki:` replace with urls
-- [ ] Add wiki url in latex glossary
-- [ ] Update index
 - [ ] Integrate bibliography (extra pages in backmatter)
-- [ ] Chapter "Crédits des illustrations" in backmatter
-  - [ ] Can I ask chat-gpt/openAI to generate it?
+- [ ] Chapter "Crédits des illustrations" in backmatter (ai generated?)
 - [ ] Improve syntax for tags/index
 - [ ] Make all figures compatible with both light/dark theme
   - [ ] Adapt SVG color when added in object
@@ -74,6 +69,11 @@
 
 ## Changelog
 
+- [x] Include Wikipedia links in addition to `wiki:`
+- [x] Remove `wiki:` replace with urls
+- [x] Add wiki url in latex glossary
+- [x] Update index
+- [x] Save wiki links on_env
 - [x] Update Dockerfile to freeze version based on TexLive 2023
 - [x] Add support for Xindy in Dockerfile (works for glossary)
 - [x] On LaTeX description list, add more space between item and desc.
