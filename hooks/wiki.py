@@ -171,5 +171,5 @@ def on_page_content(html, page, config, files):
                 wiki[url] = summary
                 wiki[url]['key'] = key
 
-def on_post_build(config):
+def on_env(env, config, files):
     wiki.save()
