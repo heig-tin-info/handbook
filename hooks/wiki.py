@@ -18,6 +18,7 @@ from voluptuous import Optional, Required, Schema
 
 schema = Schema(
     {
+        "version": 0.2,
         "wikipedia": {
             str: {
                 Required("title"): str,
@@ -118,10 +119,13 @@ class Wikipedia:
         yaml = YAML()
         yaml.preserve_quotes = True
         if not self.filename.exists():
-            self.data = schema({"wikipedia": {}})
+            self.data = schema({"wikipedia": {}, "version": 0.2})
             return
         links = yaml.load(self.filename.open(encoding="utf-8"))
         self.data = schema(links)
+        if 'version' not in self.data or self.data.version != 0.2:
+            log.error("Invalid version in links file, regenerate it...")
+            self.data = schema({"wikipedia": {}, "version": 0.2})
 
     def save(self):
         yaml = YAML()
@@ -158,6 +162,9 @@ def to_ascii(key):
     key = re.sub(r"[^\w-]", "", key)
     return key
 
+def to_human_url(key):
+    return urllib.parse.unquote(unescape(key))
+
 def on_page_content(html, page, config, files):
     for link in re.finditer(RE_WIKI_LINK, html):
         language = link.group(2)
@@ -170,6 +177,7 @@ def on_page_content(html, page, config, files):
             if summary:
                 wiki[url] = summary
                 wiki[url]['key'] = key
+                wiki[url]['plainlink'] = to_human_url(url)
 
 def on_env(env, config, files):
     wiki.save()

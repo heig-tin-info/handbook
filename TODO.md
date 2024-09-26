@@ -69,6 +69,9 @@
 
 ## Changelog
 
+- [x] Add wikipedia links in glossary
+- [x] Update project readme
+- [x] Create devcontainer for development with VSCode
 - [x] Include Wikipedia links in addition to `wiki:`
 - [x] Remove `wiki:` replace with urls
 - [x] Add wiki url in latex glossary

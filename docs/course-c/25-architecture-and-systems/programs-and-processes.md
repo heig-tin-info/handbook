@@ -1,14 +1,21 @@
+---
+epigraph:
+    text: "L'informatique est avant tout une science de l'abstraction. Il s'agit de créer le bon modèle pour un problème et d'imaginer les bonnes techniques automatisables et appropriées pour le résoudre. Toutes les autres sciences considèrent l'univers tel qu'il est. Par exemple, le travail d'un physicien est de comprendre le monde et non pas d'inventer un monde dans lequel les lois de la physique seraient plus simples et auxquelles il serait plus agréable de se conformer. À l'opposé, les informaticiens doivent créer des abstractions des problèmes du monde réel qui pourraient être représentées et manipulées dans un ordinateur."
+    source: Alfred Vaino Aho et Jeffrey David Ullman
+---
 # Programmes et Processus
 
 ## Qu'est-ce qu'un programme?
 
-Un [programme informatique](https://fr.wikipedia.org/wiki/Programme_informatique) est un ensemble d'opérations destinées à être exécutées par un ordinateur. Un programme peut se décliner sous plusieurs formes :
+Un [[programme]] informatique est une suite d'instruction définissant des opérations à réaliser sur des données ; des instructions destinées à être exécutées par un ordinateur. Un programme peut se décliner sous plusieurs formes :
 
-- Le code source (C, C++, Python, Java, etc.)
-- Le *listing* assembleur (`.s`, `.asm`)
-- L'exécutable binaire (ELF, `.exe`, `.out`, `.dll`, `.so`, etc.)
+- le code source (C, C++, Python, Java, etc.) ;
+- le *listing* assembleur (`.s`, `.asm`) ;
+- l'exécutable binaire (ELF, `.exe`, `.out`, `.dll`, `.so`, etc.).
 
-Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les [systèmes d'exploitation](https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation) tels que Windows sont dits [multitâches](https://fr.wikipedia.org/wiki/Multit%C3%A2che), il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.
+Un **processus** est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les [systèmes d'exploitation](https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation) tels que Windows sont dits [multitâches](https://fr.wikipedia.org/wiki/Multit%C3%A2che) car ils peuvent faire s'exécuter plusieurs processus en parallèle. Le **temps processeur** est ainsi partagé entre chaque processus.
+
+Quelque soit le langage de programmation utilisé, sur un ordinateur le processeur adopte un flot d'exécution séquentiel. Les instructions sont exécutées les unes après les autres.
 
 Figure: Programmeuse en tenue décontractée à côté de 62'500 cartes perforées
 

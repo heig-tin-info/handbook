@@ -1,0 +1,23 @@
+{
+  "name": "Dev Container with Python and C++",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "python.pythonPath": "/usr/bin/python",
+    "C_Cpp.default.compilerPath": "/usr/bin/clang"
+  },
+  "extensions": [
+    "ms-python.python",
+    "yzhang.markdown-all-in-one",
+    "marp-team.marp-vscode",
+    "shuworks.vscode-table-formatter",
+    "ms-python.vscode-pyright",
+    "trond-snekvik.simple-rst",
+    "editorconfig.editorconfig",
+    "ms-vscode.cpptools",
+    "ms-vscode.clang-format"
+  ],
+  "postCreateCommand": "poetry install",
+  "remoteUser": "root"
+}

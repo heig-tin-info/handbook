@@ -1,22 +1,14 @@
-# Informatique
+# Queqlues notes
 
-Alfred Vaino Aho et Jeffrey David Ullman ont écrit un livre sur les algorithmes et les structures de données. Ils ont également écrit un livre sur les compilateurs.
+Ce document contient quelques notes éparses sur la programmation et l'informatique destinées à être intégrées dans le cours.
 
-> L'informatique est avant tout une science de l'abstraction. Il s'agit de créer le bon modèle pour un problème et d'imaginer les bonnes techniques automatisables et appropriées pour le résoudre. Toutes les autres sciences considèrent l'univers tel qu'il est. Par exemple, le travail d'un physicien est de comprendre le monde et non pas d'inventer un monde dans lequel les lois de la physique seraient plus simples et auxquelles il serait plus agréable de se conformer. À l'opposé, les informaticiens doivent créer des abstractions des problèmes du monde réel qui pourraient être représentées et manipulées dans un ordinateur.
-
-## Programme
-
-Un programme est une suite d'instructions définissant des opérations à réaliser sur des données.
-
-Le flot d'exécution est séquentiel.
+## En vrac
 
 Les langages de bas niveau sont ceux qui collent au jeu d'instructions de la machine.
 
 Les programmes sont des briques de construction qui peuvent être combinées pour former des programmes plus complexes.
 
 Définition du problème -> Modélisation -> Algorithmes -> Implémentation -> Test
-
-> On doit être préoccupé uniquement par l'impression ou l'idée à traduire. Les yeux de l'esprit sont tournés vers l'intérieur ; il faut s'efforcer de rendre avec la plus grande fidélité possible le modèle intérieur. Un seul trait ajouté (pour briller, ou pour ne pas trop briller, pour obéir à un vain désir d'étonner, ou à l'enfantine volonté de rester classique) suffit à compromettre le succès de l'expérience et la découverte d'une loi. On n'a pas trop de toutes ses forces de soumission au réel pour arriver à faire passer l'impression la plus simple en apparence, du monde de l'invisible dans celui, si différent, du concret, où l'ineffable se résout en claires formules. — Marcel Proust, *Du côté de chez Swann*.
 
 Un modèle de données est une abstraction utilisée pour décrire des problèmes. Cette abstraction spécifie les valeurs qui peuvent être attribuées aux objets et les opérations valides sur ces objets. La structure de données, quant à elle, est une construction du langage de programmation, permettant de représenter un modèle de données.
 
