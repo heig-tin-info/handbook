@@ -1028,9 +1028,10 @@ class LaTeXRenderer:
                     key = f"wiki:{data['key']}"
                     self.glossary[key] = {
                         "name": escape_latex_chars(data["title"]),
-                        "description": escape_latex_chars(
-                            f'{data["extract"]} ({data["plainlink"]})')
-                    }
+                        "description": (
+                            f'{escape_latex_chars(data["extract"])} '
+                            f'\\newline(\\url{{{escape_latex_chars(data["plainlink"])}}})'
+                    )}
                     self.apply(el, "glossary", key=key)
                     continue
 

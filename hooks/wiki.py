@@ -18,8 +18,8 @@ from voluptuous import Optional, Required, Schema
 
 schema = Schema(
     {
-        "version": 0.2,
-        "wikipedia": {
+        Required("version"): str,
+        Required("wikipedia"): {
             str: {
                 Required("title"): str,
                 Optional("tid"): str,
@@ -117,16 +117,22 @@ class Wikipedia:
         return {k: v for k, v in data.items() if k in keep_keys}
 
     def load(self):
+        default = schema({"wikipedia": {}, "version": '0.2'})
         yaml = YAML()
         yaml.preserve_quotes = True
         if not self.filename.exists():
-            self.data = schema({"wikipedia": {}, "version": 0.2})
+            self.data = default
             return
         links = yaml.load(self.filename.open(encoding="utf-8"))
-        self.data = schema(links)
-        if 'version' not in self.data or self.data.version != 0.2:
+        try:
+            self.data = schema(links)
+        except Exception as e:
+            log.error("Invalid links file, regenerate it...")
+            self.data = default
+            return
+        if 'version' not in self.data or self.data['version'] != '0.2':
             log.error("Invalid version in links file, regenerate it...")
-            self.data = schema({"wikipedia": {}, "version": 0.2})
+            self.data = default
 
     def save(self):
         yaml = YAML()
@@ -173,7 +179,7 @@ def on_page_content(html, page, config, files):
         key = to_ascii(f"{language}-{page_title}")
         url = f"https://{language}.wikipedia.org/wiki/{page_title}"
         if url not in wiki:
-            log.info("Fetching wikipedia summary for '%s'", page_title)
+            log.info("Fetching wikipedia summary for '%s'", to_human_url(page_title))
             summary = wiki.fetch_summary(page_title.replace('/', r'%2F'), language)
             if summary:
                 wiki[url] = summary
