@@ -32,6 +32,7 @@ schema = Schema(
                     Required("height"): int,
                 },
                 Optional("timestamp"): str,
+                Optional("plainlink"): str,
             }
         }
     }
