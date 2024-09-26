@@ -15,31 +15,31 @@ les outils associés.
         <meta name="author" content="Yves Chevallier">
       
       
-        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/27-data-structures/graphs/">
+        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-cpp/garbage-collection/">
       
       
-        <link rel="prev" href="../maps/">
+        <link rel="prev" href="../cpp/">
       
       
-        <link rel="next" href="../performances/">
+        <link rel="next" href="../shared-memory/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/icons/favicon.ico">
+      <link rel="icon" href="../../assets/icons/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36+insiders-4.53.13">
     
     
       
-        <title>Graphes - L'informatique pour ingénieurs</title>
+        <title>Collecteur de déchets (garbage collector) - L'informatique pour ingénieurs</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.fe49db16.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe49db16.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
   
@@ -114,19 +114,19 @@ les outils associés.
       
     
     
-      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+      <link rel="stylesheet" href="../../assets/_markdown_exec_pyodide.css">
     
-      <link rel="stylesheet" href="../../../css/french.css">
+      <link rel="stylesheet" href="../../css/french.css">
     
-      <link rel="stylesheet" href="../../../css/callout.css">
+      <link rel="stylesheet" href="../../css/callout.css">
     
-      <link rel="stylesheet" href="../../../css/extra.css">
+      <link rel="stylesheet" href="../../css/extra.css">
     
-      <link rel="stylesheet" href="../../../css/tables.css">
+      <link rel="stylesheet" href="../../css/tables.css">
     
-      <link rel="stylesheet" href="../../../exercise.css">
+      <link rel="stylesheet" href="../../exercise.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -142,7 +142,7 @@ les outils associés.
 
     
     
-   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -151,7 +151,7 @@ les outils associés.
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -170,7 +170,7 @@ les outils associés.
     <div data-md-component="skip">
       
         
-        <a href="#graphes" class="md-skip">
+        <a href="#collecteur-de-dechets-garbage-collector" class="md-skip">
           Aller au contenu
         </a>
       
@@ -203,7 +203,7 @@ les outils associés.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Graphes
+              Collecteur de déchets (garbage collector)
             
           </span>
         </div>
@@ -317,7 +317,7 @@ les outils associés.
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -332,21 +332,17 @@ les outils associés.
         
   
   
-    
-  
   
     
     
       
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../00-preface/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../course-c/00-preface/" class="md-tabs__link">
           
   
     
@@ -365,11 +361,13 @@ les outils associés.
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../course-cpp/cpp/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../cpp/" class="md-tabs__link">
           
   
     
@@ -389,7 +387,7 @@ les outils associés.
     
     
       <li class="md-tabs__item">
-        <a href="../../../course-concurrent/os/" class="md-tabs__link">
+        <a href="../../course-concurrent/os/" class="md-tabs__link">
           
   
     
@@ -415,7 +413,7 @@ les outils associés.
     
     
       <li class="md-tabs__item">
-        <a href="../../../tools/dev/bash/" class="md-tabs__link">
+        <a href="../../tools/dev/bash/" class="md-tabs__link">
           
   
     
@@ -438,7 +436,7 @@ les outils associés.
     
     
       <li class="md-tabs__item">
-        <a href="../../../appendix/bibliography/" class="md-tabs__link">
+        <a href="../../appendix/bibliography/" class="md-tabs__link">
           
   
     
@@ -502,7 +500,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -525,10 +523,8 @@ les outils associés.
       
   
   
-    
   
   
-  
     
     
       
@@ -567,20 +563,17 @@ les outils associés.
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -597,7 +590,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -636,7 +629,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../00-preface/" class="md-nav__link ">
+            <a href="../../course-c/00-preface/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -740,7 +733,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../05-introduction/programming/" class="md-nav__link">
+      <a href="../../course-c/05-introduction/programming/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -767,7 +760,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../05-introduction/code-of-conduct/" class="md-nav__link">
+      <a href="../../course-c/05-introduction/code-of-conduct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -794,7 +787,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../05-introduction/me-and-my-computer/" class="md-nav__link">
+      <a href="../../course-c/05-introduction/me-and-my-computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -821,7 +814,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../05-introduction/c-lang/" class="md-nav__link">
+      <a href="../../course-c/05-introduction/c-lang/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -883,7 +876,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../10-numeration/" class="md-nav__link ">
+            <a href="../../course-c/10-numeration/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -926,7 +919,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../10-numeration/data/" class="md-nav__link">
+      <a href="../../course-c/10-numeration/data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -953,7 +946,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../10-numeration/bases/" class="md-nav__link">
+      <a href="../../course-c/10-numeration/bases/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -980,7 +973,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../10-numeration/numbers/" class="md-nav__link">
+      <a href="../../course-c/10-numeration/numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1083,7 +1076,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../15-fundations/syntax/" class="md-nav__link">
+      <a href="../../course-c/15-fundations/syntax/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1110,7 +1103,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../15-fundations/datatype/" class="md-nav__link">
+      <a href="../../course-c/15-fundations/datatype/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1137,7 +1130,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../15-fundations/operators/" class="md-nav__link">
+      <a href="../../course-c/15-fundations/operators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1164,7 +1157,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../15-fundations/stdio/" class="md-nav__link">
+      <a href="../../course-c/15-fundations/stdio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1191,7 +1184,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../15-fundations/control-structures/" class="md-nav__link">
+      <a href="../../course-c/15-fundations/control-structures/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1218,7 +1211,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../15-fundations/preprocessor/" class="md-nav__link">
+      <a href="../../course-c/15-fundations/preprocessor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1245,7 +1238,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../15-fundations/functions/" class="md-nav__link">
+      <a href="../../course-c/15-fundations/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1272,7 +1265,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../15-fundations/scope/" class="md-nav__link">
+      <a href="../../course-c/15-fundations/scope/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1299,7 +1292,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../15-fundations/grammar/" class="md-nav__link">
+      <a href="../../course-c/15-fundations/grammar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1367,7 +1360,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../20-composite-types/" class="md-nav__link ">
+            <a href="../../course-c/20-composite-types/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1410,7 +1403,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../20-composite-types/arrays/" class="md-nav__link">
+      <a href="../../course-c/20-composite-types/arrays/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1437,7 +1430,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../20-composite-types/strings/" class="md-nav__link">
+      <a href="../../course-c/20-composite-types/strings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1464,7 +1457,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../20-composite-types/structures/" class="md-nav__link">
+      <a href="../../course-c/20-composite-types/structures/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1491,7 +1484,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../20-composite-types/unions/" class="md-nav__link">
+      <a href="../../course-c/20-composite-types/unions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1518,7 +1511,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../20-composite-types/pointers/" class="md-nav__link">
+      <a href="../../course-c/20-composite-types/pointers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1545,7 +1538,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../20-composite-types/generic-programming/" class="md-nav__link">
+      <a href="../../course-c/20-composite-types/generic-programming/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1640,7 +1633,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../25-architecture-and-systems/computer/" class="md-nav__link">
+      <a href="../../course-c/25-architecture-and-systems/computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1667,7 +1660,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../25-architecture-and-systems/mcu/" class="md-nav__link">
+      <a href="../../course-c/25-architecture-and-systems/mcu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1694,7 +1687,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../25-architecture-and-systems/memory-management/" class="md-nav__link">
+      <a href="../../course-c/25-architecture-and-systems/memory-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1721,7 +1714,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../25-architecture-and-systems/programs-and-processes/" class="md-nav__link">
+      <a href="../../course-c/25-architecture-and-systems/programs-and-processes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1748,7 +1741,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../25-architecture-and-systems/files/" class="md-nav__link">
+      <a href="../../course-c/25-architecture-and-systems/files/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1780,8 +1773,6 @@ les outils associés.
                 
   
   
-    
-  
   
   
     
@@ -1809,16 +1800,16 @@ les outils associés.
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../course-c/27-data-structures/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1841,7 +1832,7 @@ les outils associés.
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1861,7 +1852,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../dynamic-array/" class="md-nav__link">
+      <a href="../../course-c/27-data-structures/dynamic-array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1888,7 +1879,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../lists/" class="md-nav__link">
+      <a href="../../course-c/27-data-structures/lists/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1915,7 +1906,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../trees/" class="md-nav__link">
+      <a href="../../course-c/27-data-structures/trees/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1942,7 +1933,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../maps/" class="md-nav__link">
+      <a href="../../course-c/27-data-structures/maps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1966,36 +1957,10 @@ les outils associés.
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    
-  
-    Graphes
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../course-c/27-data-structures/graphs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2010,176 +1975,6 @@ les outils associés.
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#types-de-graphes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Types de graphes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Types de graphes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#forets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Forêts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graphes-orientes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Graphes orientés
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graphes-ponderes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Graphes pondérés
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graphes-bipartis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Graphes bipartis
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#representation-des-graphes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Représentation des graphes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Représentation des graphes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#liste-dadjacence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Liste d'adjacence
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#matrice-dadjacence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Matrice d'adjacence
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parcours-de-graphes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parcours de graphes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Parcours de graphes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DFS
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BFS
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dijkstra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dijkstra
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2192,7 +1987,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../performances/" class="md-nav__link">
+      <a href="../../course-c/27-data-structures/performances/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2252,7 +2047,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../30-modular-programming/" class="md-nav__link ">
+            <a href="../../course-c/30-modular-programming/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2295,7 +2090,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../30-modular-programming/translation-units/" class="md-nav__link">
+      <a href="../../course-c/30-modular-programming/translation-units/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2322,7 +2117,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../30-modular-programming/libraries/" class="md-nav__link">
+      <a href="../../course-c/30-modular-programming/libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2413,7 +2208,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../35-libraries/introduction/" class="md-nav__link">
+      <a href="../../course-c/35-libraries/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2440,7 +2235,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../35-libraries/standard-library/" class="md-nav__link">
+      <a href="../../course-c/35-libraries/standard-library/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2467,7 +2262,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../35-libraries/third-party-libraries/" class="md-nav__link">
+      <a href="../../course-c/35-libraries/third-party-libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2537,7 +2332,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../40-algorithms/" class="md-nav__link ">
+            <a href="../../course-c/40-algorithms/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2580,7 +2375,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/introduction/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2607,7 +2402,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/utilities/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/utilities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2634,7 +2429,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/recursion/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/recursion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2661,7 +2456,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/automata/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/automata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2688,7 +2483,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/searching/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/searching/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2771,7 +2566,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/sorting/count-sort/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/sorting/count-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2798,7 +2593,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/sorting/heap-sort/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/sorting/heap-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2825,7 +2620,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/sorting/quick-sort/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/sorting/quick-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2932,7 +2727,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/popular-algorithms/a-star/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/popular-algorithms/a-star/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2959,7 +2754,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/popular-algorithms/conway/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/popular-algorithms/conway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2986,7 +2781,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/popular-algorithms/fast-exp/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/popular-algorithms/fast-exp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3013,7 +2808,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/popular-algorithms/fast-inverse-square-root/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/popular-algorithms/fast-inverse-square-root/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3040,7 +2835,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3067,7 +2862,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/popular-algorithms/huffman/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/popular-algorithms/huffman/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3094,7 +2889,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/popular-algorithms/infography/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/popular-algorithms/infography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3121,7 +2916,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/popular-algorithms/lindenmayer/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/popular-algorithms/lindenmayer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3148,7 +2943,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/popular-algorithms/rabin-karp/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/popular-algorithms/rabin-karp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3175,7 +2970,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/popular-algorithms/random/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/popular-algorithms/random/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3202,7 +2997,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../40-algorithms/popular-algorithms/shunting-yard/" class="md-nav__link">
+      <a href="../../course-c/40-algorithms/popular-algorithms/shunting-yard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3278,7 +3073,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../45-software-design/" class="md-nav__link ">
+            <a href="../../course-c/45-software-design/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3321,7 +3116,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-software-design/teamwork/" class="md-nav__link">
+      <a href="../../course-c/45-software-design/teamwork/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3348,7 +3143,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-software-design/software-project/" class="md-nav__link">
+      <a href="../../course-c/45-software-design/software-project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3375,7 +3170,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-software-design/dependencies/" class="md-nav__link">
+      <a href="../../course-c/45-software-design/dependencies/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3402,7 +3197,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-software-design/contribute/" class="md-nav__link">
+      <a href="../../course-c/45-software-design/contribute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3429,7 +3224,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-software-design/licenses/" class="md-nav__link">
+      <a href="../../course-c/45-software-design/licenses/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3456,7 +3251,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-software-design/testing/" class="md-nav__link">
+      <a href="../../course-c/45-software-design/testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3522,7 +3317,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../47-gui/" class="md-nav__link ">
+            <a href="../../course-c/47-gui/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3565,7 +3360,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../47-gui/introduction/" class="md-nav__link">
+      <a href="../../course-c/47-gui/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3592,7 +3387,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../47-gui/window/" class="md-nav__link">
+      <a href="../../course-c/47-gui/window/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3619,7 +3414,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../47-gui/opengl/" class="md-nav__link">
+      <a href="../../course-c/47-gui/opengl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3646,7 +3441,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../47-gui/sdl/" class="md-nav__link">
+      <a href="../../course-c/47-gui/sdl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3673,7 +3468,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../47-gui/gtk/" class="md-nav__link">
+      <a href="../../course-c/47-gui/gtk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3735,7 +3530,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../48-network/" class="md-nav__link ">
+            <a href="../../course-c/48-network/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3778,7 +3573,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../48-network/osi/" class="md-nav__link">
+      <a href="../../course-c/48-network/osi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3805,7 +3600,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../48-network/protocoles/" class="md-nav__link">
+      <a href="../../course-c/48-network/protocoles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3832,7 +3627,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../48-network/sockets/" class="md-nav__link">
+      <a href="../../course-c/48-network/sockets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3919,7 +3714,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../60-safety/introduction/" class="md-nav__link">
+      <a href="../../course-c/60-safety/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4008,7 +3803,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../70-philosophy/philosophy/" class="md-nav__link">
+      <a href="../../course-c/70-philosophy/philosophy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4035,7 +3830,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../70-philosophy/funny/" class="md-nav__link">
+      <a href="../../course-c/70-philosophy/funny/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4091,7 +3886,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../90-exercises/" class="md-nav__link ">
+            <a href="../../course-c/90-exercises/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -4141,8 +3936,10 @@ les outils associés.
       
   
   
+    
   
   
+  
     
     
       
@@ -4155,17 +3952,20 @@ les outils associés.
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -4182,7 +3982,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4200,7 +4000,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../course-cpp/cpp/" class="md-nav__link">
+      <a href="../cpp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4224,10 +4024,19 @@ les outils associés.
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../course-cpp/garbage-collection/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -4242,6 +4051,7 @@ les outils associés.
   
 
       </a>
+      
     </li>
   
 
@@ -4254,7 +4064,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../course-cpp/shared-memory/" class="md-nav__link">
+      <a href="../shared-memory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4356,7 +4166,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../course-concurrent/os/" class="md-nav__link">
+      <a href="../../course-concurrent/os/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4383,7 +4193,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../course-concurrent/arch/" class="md-nav__link">
+      <a href="../../course-concurrent/arch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4410,7 +4220,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../course-concurrent/threads/" class="md-nav__link">
+      <a href="../../course-concurrent/threads/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4437,7 +4247,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../course-concurrent/mutex/" class="md-nav__link">
+      <a href="../../course-concurrent/mutex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4464,7 +4274,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../course-concurrent/semaphores/" class="md-nav__link">
+      <a href="../../course-concurrent/semaphores/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4491,7 +4301,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../course-concurrent/memory/" class="md-nav__link">
+      <a href="../../course-concurrent/memory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4518,7 +4328,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../course-concurrent/async/" class="md-nav__link">
+      <a href="../../course-concurrent/async/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4545,7 +4355,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../course-concurrent/thread-pool/" class="md-nav__link">
+      <a href="../../course-concurrent/thread-pool/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4572,7 +4382,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../course-concurrent/summary/" class="md-nav__link">
+      <a href="../../course-concurrent/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4734,7 +4544,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/dev/bash/" class="md-nav__link">
+      <a href="../../tools/dev/bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4761,7 +4571,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/dev/config/" class="md-nav__link">
+      <a href="../../tools/dev/config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4788,7 +4598,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/dev/docker/" class="md-nav__link">
+      <a href="../../tools/dev/docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4815,7 +4625,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/dev/environment/" class="md-nav__link">
+      <a href="../../tools/dev/environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4842,7 +4652,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/dev/git/" class="md-nav__link">
+      <a href="../../tools/dev/git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4869,7 +4679,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/dev/windows/" class="md-nav__link">
+      <a href="../../tools/dev/windows/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4896,7 +4706,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/dev/wsl/" class="md-nav__link">
+      <a href="../../tools/dev/wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4983,7 +4793,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/arch/filesystem/" class="md-nav__link">
+      <a href="../../tools/arch/filesystem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5076,7 +4886,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/c-cpp/gcc/" class="md-nav__link">
+      <a href="../../tools/c-cpp/gcc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5103,7 +4913,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/c-cpp/gdb/" class="md-nav__link">
+      <a href="../../tools/c-cpp/gdb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5130,7 +4940,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/c-cpp/conan/" class="md-nav__link">
+      <a href="../../tools/c-cpp/conan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5157,7 +4967,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/c-cpp/vcpkg/" class="md-nav__link">
+      <a href="../../tools/c-cpp/vcpkg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5250,7 +5060,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/build-system/make/" class="md-nav__link">
+      <a href="../../tools/build-system/make/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5277,7 +5087,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/build-system/cmake/" class="md-nav__link">
+      <a href="../../tools/build-system/cmake/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5304,7 +5114,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/build-system/ninja/" class="md-nav__link">
+      <a href="../../tools/build-system/ninja/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5331,7 +5141,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/build-system/meson/" class="md-nav__link">
+      <a href="../../tools/build-system/meson/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5420,7 +5230,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/editor/vim/" class="md-nav__link">
+      <a href="../../tools/editor/vim/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5447,7 +5257,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/editor/vscode/" class="md-nav__link">
+      <a href="../../tools/editor/vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5534,7 +5344,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/python/python/" class="md-nav__link">
+      <a href="../../tools/python/python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5623,7 +5433,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/analysis/analysis/" class="md-nav__link">
+      <a href="../../tools/analysis/analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5650,7 +5460,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/analysis/binutils/" class="md-nav__link">
+      <a href="../../tools/analysis/binutils/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5752,7 +5562,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/bibliography/" class="md-nav__link">
+      <a href="../../appendix/bibliography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5779,7 +5589,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/grammar/" class="md-nav__link">
+      <a href="../../appendix/grammar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5806,7 +5616,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/laboratories/" class="md-nav__link">
+      <a href="../../appendix/laboratories/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5833,7 +5643,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/unit/" class="md-nav__link">
+      <a href="../../appendix/unit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5860,7 +5670,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/refcards/" class="md-nav__link">
+      <a href="../../appendix/refcards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5907,164 +5717,6 @@ les outils associés.
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#types-de-graphes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Types de graphes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Types de graphes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#forets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Forêts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graphes-orientes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Graphes orientés
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graphes-ponderes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Graphes pondérés
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graphes-bipartis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Graphes bipartis
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#representation-des-graphes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Représentation des graphes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Représentation des graphes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#liste-dadjacence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Liste d'adjacence
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#matrice-dadjacence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Matrice d'adjacence
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parcours-de-graphes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parcours de graphes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Parcours de graphes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DFS
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BFS
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dijkstra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dijkstra
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -6087,7 +5739,7 @@ les outils associés.
         
   
     <li class="md-path__item">
-      <a href="../../.." class="md-path__link">
+      <a href="../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -6103,35 +5755,11 @@ les outils associés.
   
     
     
-      
-  
-    
-    
       <li class="md-path__item">
-        <a href="../../00-preface/" class="md-path__link">
+        <a href="../cpp/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Cours C
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Conteneurs de données
+    Cours C++
   </span>
 
         </a>
@@ -6150,7 +5778,7 @@ les outils associés.
 
 
   
-    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/27-data-structures/graphs.md" title="Editer cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-cpp/garbage-collection.md" title="Editer cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
     </a>
@@ -6159,39 +5787,81 @@ les outils associés.
     
       
     
-    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/27-data-structures/graphs.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-cpp/garbage-collection.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
     </a>
   
 
 
-<h1 id="graphes">Graphes<a class="headerlink" href="#graphes" title="Lien permanent">¤</a></h1>
-<p>Un graphe est un ensemble de sommets reliés par des arêtes. Les graphes sont utilisés pour modéliser des relations entre des objets. Par exemple, un graphe peut être utilisé pour représenter un réseau social, un réseau de transport, un réseau de distribution, etc.</p>
-<p>C'est une variante générale des arbres. Un arbre est un graphe particulier où chaque sommet est relié à un autre sommet par un chemin unique. Un graphe peut avoir des cycles, c'est-à-dire des chemins qui reviennent à leur point de départ.</p>
-<h2 id="types-de-graphes">Types de graphes<a class="headerlink" href="#types-de-graphes" title="Lien permanent">¤</a></h2>
-<h3 id="forets">Forêts<a class="headerlink" href="#forets" title="Lien permanent">¤</a></h3>
-<p>Un graphe sans cycle est appelé une forêt. Une forêt est un ensemble d'arbres. Un arbre est un graphe connexe sans cycle.</p>
-<h3 id="graphes-orientes">Graphes orientés<a class="headerlink" href="#graphes-orientes" title="Lien permanent">¤</a></h3>
-<p>Un graphe orienté est un graphe dont les arêtes ont une direction. Les graphes orientés sont utilisés pour modéliser des relations asymétriques. Par exemple, un graphe orienté peut être utilisé pour représenter un réseau de transport où les arêtes représentent des routes à sens unique.</p>
-<h3 id="graphes-ponderes">Graphes pondérés<a class="headerlink" href="#graphes-ponderes" title="Lien permanent">¤</a></h3>
-<p>Un graphe pondéré est un graphe dont les arêtes ont un poids. Les graphes pondérés sont utilisés pour modéliser des relations quantitatives. Par exemple, un graphe pondéré peut être utilisé pour représenter un réseau de transport où les arêtes représentent des routes avec une longueur ou un coût associé.</p>
-<h3 id="graphes-bipartis">Graphes bipartis<a class="headerlink" href="#graphes-bipartis" title="Lien permanent">¤</a></h3>
-<p>Un graphe biparti est un graphe dont les sommets peuvent être divisés en deux ensembles disjoints. Les arêtes d'un graphe biparti relient les sommets des deux ensembles. Les graphes bipartis sont utilisés pour modéliser des relations binaires. Par exemple, un graphe biparti peut être utilisé pour représenter des relations d'adjacence entre deux ensembles d'objets.</p>
-<h2 id="representation-des-graphes">Représentation des graphes<a class="headerlink" href="#representation-des-graphes" title="Lien permanent">¤</a></h2>
-<p>Il existe plusieurs façons de représenter un graphe en mémoire. Les deux représentations les plus courantes sont les listes d'adjacence et les matrices d'adjacence.</p>
-<h3 id="liste-dadjacence">Liste d'adjacence<a class="headerlink" href="#liste-dadjacence" title="Lien permanent">¤</a></h3>
-<p>Dans une liste d'adjacence, chaque sommet est associé à une liste de ses voisins. Une liste d'adjacence est une structure de données dynamique qui permet d'ajouter et de supprimer des arêtes facilement. Cependant, elle nécessite plus de mémoire que les matrices d'adjacence.</p>
-<h3 id="matrice-dadjacence">Matrice d'adjacence<a class="headerlink" href="#matrice-dadjacence" title="Lien permanent">¤</a></h3>
-<p>Dans une matrice d'adjacence, chaque sommet est associé à une ligne et une colonne de la matrice. La valeur de la case (i, j) de la matrice indique s'il existe une arête entre les sommets i et j. Une matrice d'adjacence est une structure de données statique qui permet de vérifier rapidement l'existence d'une arête. Cependant, elle nécessite plus de mémoire que les listes d'adjacence.</p>
-<h2 id="parcours-de-graphes">Parcours de graphes<a class="headerlink" href="#parcours-de-graphes" title="Lien permanent">¤</a></h2>
-<p>Il existe plusieurs algorithmes pour parcourir un graphe. Les deux algorithmes les plus courants sont le parcours en profondeur (DFS) et le parcours en largeur (BFS).</p>
-<h3 id="dfs">DFS<a class="headerlink" href="#dfs" title="Lien permanent">¤</a></h3>
-<p>Le parcours en profondeur (Depth-First Search) est un algorithme récursif qui explore le graphe en profondeur. Il commence par un sommet de départ et explore tous les sommets accessibles depuis ce sommet avant de passer au suivant. L'algorithme DFS est utilisé pour trouver des cycles dans un graphe, pour vérifier la connexité d'un graphe, pour trouver des composantes fortement connexes, etc.</p>
-<h3 id="bfs">BFS<a class="headerlink" href="#bfs" title="Lien permanent">¤</a></h3>
-<p>Le parcours en largeur (Breadth-First Search) est un algorithme itératif qui explore le graphe en largeur. Il commence par un sommet de départ et explore tous les sommets à une distance k avant de passer à la distance k+1. L'algorithme BFS est utilisé pour trouver le plus court chemin entre deux sommets, pour trouver le nombre de composantes connexes, pour trouver le nombre de sommets à une distance donnée, etc.</p>
-<h3 id="dijkstra">Dijkstra<a class="headerlink" href="#dijkstra" title="Lien permanent">¤</a></h3>
-<p>L'algorithme de Dijkstra est un algorithme qui permet de trouver le plus court chemin entre un sommet de départ et tous les autres sommets d'un graphe pondéré. L'algorithme de Dijkstra est basé sur le parcours en largeur et utilise une file de priorité pour explorer les sommets dans l'ordre croissant de leur distance par rapport au sommet de départ.</p>
+<h1 id="collecteur-de-dechets-garbage-collector">Collecteur de déchets (<em>garbage collector</em>)<a class="headerlink" href="#collecteur-de-dechets-garbage-collector" title="Lien permanent">¤</a></h1>
+<p>Le C est un langage primitif qui ne gère pas automatiquement la libération des ressources allouées dynamiquement. L'exemple suivant est évocateur :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">get_number</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="o">*</span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">();</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">}</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">get_number</span><span class="p">());</span>
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="get_number" data-tag="get_number"><code>get_number</code></span> alloue dynamiquement un espace de la taille d'un entier et lui assigne une valeur aléatoire. Dans le programme principal, l'adresse retournée est déréférencée pour être affichée sur la sortie standard.</p>
+<p>A la fin de l'exécution de la boucle for, une centaine d'espaces mémoire sont maintenant dans les <a href="https://fr.wikipedia.org/wiki/Limbes">limbes</a>. Comme le pointeur retourné n'a jamais été mémorisé, il n'est plus possible de libérer cet espace mémoire avec <span class="ycr-hashtag" data-index-entry="free" data-tag="free"><code>free</code></span>.</p>
+<p>On dit que le programme à une <a href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a>. En admettant que ce programme reste résidant en mémoire, il peut arriver un moment où le programme peut aller jusqu'à utiliser toute la RAM disponible. Dans ce cas, il est probable que <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span> retourne <span class="ycr-hashtag" data-index-entry="NULL" data-tag="NULL"><code>NULL</code></span> et qu'une erreur de segmentation apparaisse lors du <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span>.</p>
+<p>Allons plus loin dans notre exemple et considérons le code suivant :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">new_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="n">values</span><span class="p">[</span><span class="n">count</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_value</span><span class="p">;</span>
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-1-13"><a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Foo aime %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">count</span><span class="p">]);</span>
+</span><span id="__span-1-14"><a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="p">}</span>
+</span><span id="__span-1-15"><a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="kt">int</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">new_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-17"><a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-1-18"><a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-1-19"><a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-21"><a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">        </span><span class="n">values</span><span class="p">[</span><span class="n">count</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_value</span><span class="p">;</span>
+</span><span id="__span-1-22"><a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-23"><a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>
+</span><span id="__span-1-24"><a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-1-25"><a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Bar aime %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">count</span><span class="p">]);</span>
+</span><span id="__span-1-26"><a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="p">}</span>
+</span><span id="__span-1-27"><a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">get_number</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-29"><a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span><span id="__span-1-30"><a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">    </span><span class="o">*</span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+</span><span id="__span-1-31"><a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">number</span><span class="p">;</span>
+</span><span id="__span-1-32"><a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="p">}</span>
+</span><span id="__span-1-33"><a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>
+</span><span id="__span-1-34"><a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-35"><a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">experiment_iterations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-1-36"><a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">experiment_iterations</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-37"><a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_number</span><span class="p">();</span>
+</span><span id="__span-1-38"><a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="w">        </span><span class="n">foo</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span><span id="__span-1-39"><a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="w">        </span><span class="n">bar</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span><span id="__span-1-40"><a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="w">        </span><span class="cp">#if 0</span><span class="c"> // ...</span>
+</span><span id="__span-1-41"><a href="#__codelineno-1-41" id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="c">            free(num) ??</span>
+</span><span id="__span-1-42"><a href="#__codelineno-1-42" id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="cp">        #endif</span>
+</span><span id="__span-1-43"><a href="#__codelineno-1-43" id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="w">    </span><span class="p">};</span>
+</span><span id="__span-1-44"><a href="#__codelineno-1-44" id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="get_number" data-tag="get_number"><code>get_number</code></span> alloue dynamiquement un espace mémoire et assigne un nombre aléatoire. Les fonctions <span class="ycr-hashtag" data-index-entry="foo" data-tag="foo"><code>foo</code></span> et <span class="ycr-hashtag" data-index-entry="bar" data-tag="bar"><code>bar</code></span> reçoivent en paramètre un pointeur sur un entier. Chacune à le choix de mémoriser ce pointeur et de clamer sur <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> qu'elle aime un des nombres mémorisés.</p>
+<p>Au niveau du <code>#if 0</code> dans la fonction <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span>, il est impossible de savoir si l'adresse pointée par <span class="ycr-hashtag" data-index-entry="num" data-tag="num"><code>num</code></span> est encore utilisée ou non. Il se peut que <span class="ycr-hashtag" data-index-entry="foo" data-tag="foo"><code>foo</code></span> et <span class="ycr-hashtag" data-index-entry="bar" data-tag="bar"><code>bar</code></span> utilisent cet espace mémoire, comme il se peut qu'aucun des deux ne l'utilise.</p>
+<p>Comment peut-on savoir si il est possible de libérer ou non <span class="ycr-hashtag" data-index-entry="num" data-tag="num"><code>num</code></span> ?</p>
+<p>Une solution couramment utilisée en C++ s'appelle un <em>smart pointer</em>. Il s'agit d'un pointeur qui contient en plus de l'adresse de la valeur, le nombre de références utilisées. De cette manière il est possible en tout temps de savoir si le pointeur est référencé quelque part. Dans le cas où le nombre de référence tombe à zéro, il est possible de libérer la ressource.</p>
+<p>Dans un certain nombre de langage de programmation comme Python ou Java, il existe un mécanisme automatique nommé <em>Garbage Collector</em> et qui, périodiquement, fait un tour de toutes les allocations dynamique pour savoir si elle sont encore référencées ou non. Le cas échéant, le <em>gc</em> décide libérer la ressource mémoire. De cette manière il n'est plus nécessaire de faire la chasse aux ressources allouées.</p>
+<p>En revanche, en C, il n'existe aucun mécanisme aussi sophistiqué alors prenez garde à bien libérer les ressources utilisées et à éviter d'écrire des fonctions qui allouent du contenu mémoire dynamiquement.</p>
 
 
 
@@ -6214,7 +5884,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">19 août 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">26 septembre 2024</span>
   </span>
 
     
@@ -6224,7 +5894,7 @@ les outils associés.
     <span class="md-icon" title="Créé">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">23 juillet 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">17 juillet 2024</span>
   </span>
 
     
@@ -6244,29 +5914,6 @@ les outils associés.
   </span>
 
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributeurs">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
-          
-          <img src="https://avatars.githubusercontent.com/u/52489316?v=4&size=72" alt="yves-chevallier">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -6339,7 +5986,7 @@ les outils associés.
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../maps/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Tableaux de hachage">
+          <a href="../cpp/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: C++">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6349,20 +5996,20 @@ les outils associés.
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Tableaux de hachage
+                C++
               </div>
             </div>
           </a>
         
         
           
-          <a href="../performances/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Performances">
+          <a href="../shared-memory/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Shared memory">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Performances
+                Shared memory
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6492,24 +6139,24 @@ les outils associés.
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.c7c1ca2c.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.c7c1ca2c.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.a59f24f2.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a59f24f2.min.js"></script>
       
-        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+        <script src="../../assets/_markdown_exec_pyodide.js"></script>
       
-        <script src="../../../js/viewer.min.js"></script>
+        <script src="../../js/viewer.min.js"></script>
       
-        <script src="../../../js/drawio.js"></script>
+        <script src="../../js/drawio.js"></script>
       
-        <script src="../../../js/wiki-tips.js"></script>
+        <script src="../../js/wiki-tips.js"></script>
       
-        <script src="../../../js/feedback.js"></script>
+        <script src="../../js/feedback.js"></script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../js/mathjax.js"></script>
       
-        <script src="../../../js/navcolor.js"></script>
+        <script src="../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
@@ -6519,7 +6166,7 @@ les outils associés.
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="../../../exercise.js"></script>
+        <script src="../../exercise.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
