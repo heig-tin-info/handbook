@@ -69,6 +69,7 @@
 
 ## Changelog
 
+- [x] Move LaTeX class definition in a separate file mkbook.cls
 - [x] Add wikipedia links in glossary
 - [x] Update project readme
 - [x] Create devcontainer for development with VSCode

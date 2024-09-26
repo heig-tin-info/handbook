@@ -225,6 +225,12 @@ class Book:
         (build_dir / "solutions.tex").write_text(renderer.get_list_solutions())
         (build_dir / "cover.tex").write_text(self.render_cover(renderer))
 
+        # Copy class file
+        shutil.copy2(
+            Path(__file__).parent / "latex/templates/mkbook.cls",
+            build_dir / 'mkbook.cls'
+        )
+
         # Copy assets
         for src_pattern, dest_dir in self.config.copy_files.items():
             src_pattern = current_config.project_dir / src_pattern
