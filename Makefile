@@ -1,7 +1,6 @@
 BUILD_BASE_DIR = build
 BUILD_DIRS=$(shell find $(BUILD_BASE_DIR) -mindepth 1 -maxdepth 1 -type d)
 
-
 BUILD_INDEXES=$(foreach dir,$(BUILD_DIRS),$(dir)/index.tex)
 BUILD_PDFS=$(foreach dir,$(BUILD_DIRS),$(dir)/index.pdf)
 BUILD_OUTPUTS=$(foreach dir,$(BUILD_DIRS),$(dir)/output-print.pdf)
@@ -51,11 +50,11 @@ image: Dockerfile
 
 ci:
 	docker run -v $(shell pwd):/workspace \
-				-w /workspace \
-				-u $(shell id -u):$(shell id -g) \
-				-v /etc/passwd:/etc/passwd:ro \
-				latex-ycr \
-				make latex optimize
+	-w /workspace \
+	-u $(shell id -u):$(shell id -g) \
+	-v /etc/passwd:/etc/passwd:ro \
+	latex-ycr \
+	make latex optimize
 
 update: docs/js/viewer.min.js
 	poetry update
@@ -63,11 +62,13 @@ update: docs/js/viewer.min.js
 docs/js/viewer.min.js: FORCE
 	wget https://raw.githubusercontent.com/jgraph/drawio/dev/src/main/webapp/js/viewer.min.js -O docs/js/viewer.min.js
 
-
 optimize: $(BUILD_OUTPUTS)
 
 clean:
 	$(RM) -rf build site __pycache__ _minted-*
+
+mrproper: clean
+	$(RM) -rf build site home
 
 FORCE:
 

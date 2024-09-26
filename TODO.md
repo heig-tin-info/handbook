@@ -41,7 +41,7 @@
 - [ ] Exercise in title Exercice 35 : Exercise : Promotion numérique
 - [ ] [Albatros](/assets/src/albatros.txt) ref null
 - [ ] Remove preambule… text introductif dans introductions ?
-- [ ] Mal géré en LaTeX enumate followed by itemize
+- [ ] Mal géré en LaTeX enuermate followed by itemize
 - [ ] Size caption of tables and figures is different
 - [ ] Carret position in "Opérateurs d'affectation" for XOR
 
