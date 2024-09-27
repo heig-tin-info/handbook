@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -7026,7 +7028,7 @@ les outils associés.
 <tr>
 <td><a class="autorefs autorefs-internal" href="#complexh"><code>&lt;complex.h&gt;</code></a></td>
 <td>Nombres complexes</td>
-<td><strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong></td>
+<td><strong>C99</strong></td>
 </tr>
 <tr>
 <td><a class="autorefs autorefs-internal" href="#wctypeh"><code>&lt;ctype.h&gt;</code></a></td>
@@ -7041,7 +7043,7 @@ les outils associés.
 <tr>
 <td><a class="autorefs autorefs-internal" href="#fenvh"><code>&lt;fenv.h&gt;</code></a></td>
 <td>Environnement de calcul flottant</td>
-<td><strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong></td>
+<td><strong>C99</strong></td>
 </tr>
 <tr>
 <td><a class="autorefs autorefs-internal" href="#floath"><code>&lt;float.h&gt;</code></a></td>
@@ -7051,7 +7053,7 @@ les outils associés.
 <tr>
 <td><a class="autorefs autorefs-internal" href="#inttypesh-et-stdinth"><code>&lt;inttypes.h&gt;</code></a></td>
 <td>Types entiers formatés</td>
-<td><strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong></td>
+<td><strong>C99</strong></td>
 </tr>
 <tr>
 <td><a class="autorefs autorefs-internal" href="#iso646h"><code>&lt;iso646.h&gt;</code></a></td>
@@ -7106,7 +7108,7 @@ les outils associés.
 <tr>
 <td><a class="autorefs autorefs-internal" href="#stdboolh"><code>&lt;stdbool.h&gt;</code></a></td>
 <td>Type booléen</td>
-<td><strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong></td>
+<td><strong>C99</strong></td>
 </tr>
 <tr>
 <td><a class="autorefs autorefs-internal" href="#stdckdinth"><code>&lt;stdckdint.h&gt;</code></a></td>
@@ -7121,7 +7123,7 @@ les outils associés.
 <tr>
 <td><a class="autorefs autorefs-internal" href="#inttypesh-et-stdinth"><code>&lt;stdint.h&gt;</code></a></td>
 <td>Types entiers standard</td>
-<td><strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong></td>
+<td><strong>C99</strong></td>
 </tr>
 <tr>
 <td><a class="autorefs autorefs-internal" href="#stdioh"><code>&lt;stdio.h&gt;</code></a></td>
@@ -7146,7 +7148,7 @@ les outils associés.
 <tr>
 <td><a class="autorefs autorefs-internal" href="#tgmathh"><code>&lt;tgmath.h&gt;</code></a></td>
 <td>Fonctions mathématiques génériques</td>
-<td><strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong></td>
+<td><strong>C99</strong></td>
 </tr>
 <tr>
 <td><a class="autorefs autorefs-internal" href="#threadsh"><code>&lt;threads.h&gt;</code></a></td>
@@ -7208,9 +7210,9 @@ les outils associés.
 <p><a href="" id="libc-errno"></a></p>
 <h2 id="errnoh"><code>&lt;errno.h&gt;</code><a class="headerlink" href="#errnoh" title="Lien permanent">¤</a></h2>
 <p>La bibliothèque <code>&lt;errno.h&gt;</code> est utilisée pour gérer les erreurs. Elle définit une variable <strong>globale</strong> <span class="ycr-hashtag" data-index-entry="errno" data-tag="errno"><code>errno</code></span> qui est un entier qui contient le code de l'erreur modifié par certaines fonctions de la bibliothèque standard.</p>
-<p>Des macros sont également définies selon le standard <abbr title="Portable Operating System Interface">POSIX</abbr> pour les codes d'erreurs. Par exemple, <span class="ycr-hashtag" data-index-entry="EACCES" data-tag="EACCES"><code>EACCES</code></span> pour une erreur d'accès, <span class="ycr-hashtag" data-index-entry="ENOENT" data-tag="ENOENT"><code>ENOENT</code></span> pour un fichier ou répertoire inexistant, <span class="ycr-hashtag" data-index-entry="ENOMEM" data-tag="ENOMEM"><code>ENOMEM</code></span> pour une erreur d'allocation mémoire, etc. La liste étant relativement longue elle peut être consultée directmenet sur le <a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/errno.h.html">standard <abbr title="Portable Operating System Interface">POSIX</abbr></a>. Néanmoins voici les erreurs les plus courantes :</p>
+<p>Des macros sont également définies selon le standard <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> pour les codes d'erreurs. Par exemple, <span class="ycr-hashtag" data-index-entry="EACCES" data-tag="EACCES"><code>EACCES</code></span> pour une erreur d'accès, <span class="ycr-hashtag" data-index-entry="ENOENT" data-tag="ENOENT"><code>ENOENT</code></span> pour un fichier ou répertoire inexistant, <span class="ycr-hashtag" data-index-entry="ENOMEM" data-tag="ENOMEM"><code>ENOMEM</code></span> pour une erreur d'allocation mémoire, etc. La liste étant relativement longue elle peut être consultée directmenet sur le <a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/errno.h.html">standard POSIX</a>. Néanmoins voici les erreurs les plus courantes :</p>
 <table id="_table-2">
-<caption style="caption-side:top"> Codes d'erreurs <abbr title="Portable Operating System Interface">POSIX</abbr> les plus courants</caption><thead>
+<caption style="caption-side:top"> Codes d'erreurs <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> les plus courants</caption><thead>
 <tr>
 <th>Code</th>
 <th>Description</th>
@@ -7299,7 +7301,7 @@ les outils associés.
 </table>
 <div class="admonition warning">
 <p class="admonition-title">Windows</p>
-<p>Attention, ces constantes ne sont pas définies par le standard C, mais par le standard <abbr title="Portable Operating System Interface">POSIX</abbr>. Il est donc possible que certaines implémentations ne les définissent pas, en particulier sous Windows.</p>
+<p>Attention, ces constantes ne sont pas définies par le standard C, mais par le standard <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>. Il est donc possible que certaines implémentations ne les définissent pas, en particulier sous Windows.</p>
 </div>
 <table id="_table-4">
 <caption style="caption-side:top"> Fonctions mathématiques</caption><thead>
@@ -7357,7 +7359,7 @@ les outils associés.
 <li>Une meilleure optimisation du code.</li>
 </ol>
 <p>Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables de calculer certaines fonctions plus rapidement.</p>
-<p>Le standard <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> a introduit l'en-tête <a class="autorefs autorefs-internal" href="#tgmathh"><code>&lt;tgmath.h&gt;</code></a> qui donne accès à des fonctions génériques. Par exemple, <span class="ycr-hashtag" data-index-entry="sin" data-tag="sin"><code>sin</code></span> peut être utilisé pour des <span class="ycr-hashtag" data-index-entry="float" data-tag="float"><code>float</code></span>, <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span> et <code>long double</code> sans avoir à choisir le nom de la fonction (<span class="ycr-hashtag" data-index-entry="sinf" data-tag="sinf"><code>sinf</code></span>, <span class="ycr-hashtag" data-index-entry="sin" data-tag="sin"><code>sin</code></span>, <span class="ycr-hashtag" data-index-entry="sinl" data-tag="sinl"><code>sinl</code></span>), en outre les types complexes sont également supportés comme <span class="ycr-hashtag" data-index-entry="csin" data-tag="csin"><code>csin</code></span> pour les complexes.</p>
+<p>Le standard C99 a introduit l'en-tête <a class="autorefs autorefs-internal" href="#tgmathh"><code>&lt;tgmath.h&gt;</code></a> qui donne accès à des fonctions génériques. Par exemple, <span class="ycr-hashtag" data-index-entry="sin" data-tag="sin"><code>sin</code></span> peut être utilisé pour des <span class="ycr-hashtag" data-index-entry="float" data-tag="float"><code>float</code></span>, <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span> et <code>long double</code> sans avoir à choisir le nom de la fonction (<span class="ycr-hashtag" data-index-entry="sinf" data-tag="sinf"><code>sinf</code></span>, <span class="ycr-hashtag" data-index-entry="sin" data-tag="sin"><code>sin</code></span>, <span class="ycr-hashtag" data-index-entry="sinl" data-tag="sinl"><code>sinl</code></span>), en outre les types complexes sont également supportés comme <span class="ycr-hashtag" data-index-entry="csin" data-tag="csin"><code>csin</code></span> pour les complexes.</p>
 <p><a href="" id="libc-fenv"></a></p>
 <h2 id="fenvh"><code>&lt;fenv.h&gt;</code><a class="headerlink" href="#fenvh" title="Lien permanent">¤</a></h2>
 <p>La bibliothèque <code>&lt;fenv.h&gt;</code> est étroitement liée aux calculs mathématique et permet de manipuler l'environnement de calcul flottant. Elle permet de contrôler les modes de calculs, les exceptions et les arrondis. Les fonctions sont définies pour les types <span class="ycr-hashtag" data-index-entry="float" data-tag="float"><code>float</code></span>, <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span> et <code>long double</code> avec les préfixes <code>f</code>, <code>l</code> et sans préfixe respectivement.</p>
@@ -7833,7 +7835,7 @@ les outils associés.
 <h2 id="localeh"><code>&lt;locale.h&gt;</code><a class="headerlink" href="#localeh" title="Lien permanent">¤</a></h2>
 <p>En jargon informatique, la <em>locale</em> est un ensemble de paramètres qui définissent les conventions culturelles d'une région. Cela inclut la langue, le format de date, le format de nombre, etc. La bibliothèque <code>&lt;locale.h&gt;</code> permet de manipuler ces paramètres.</p>
 <p>Un système d'exploitation défini généralement une locale par défaut. Par exemple, un système en français utilisera la locale <span class="ycr-hashtag" data-index-entry="fr_FR" data-tag="fr_FR"><code>fr_FR</code></span>. Le premier paramètre est la langue de la locale et le second et le pays. Il existe en effet des différences entre le français suisse <span class="ycr-hashtag" data-index-entry="fr_CH" data-tag="fr_CH"><code>fr_CH</code></span> et le français canadien <span class="ycr-hashtag" data-index-entry="fr_CA" data-tag="fr_CA"><code>fr_CA</code></span>.</p>
-<p>Ces conventions sont définie par la norme ISO 15897 et font de surcroît partie du standard <abbr title="Portable Operating System Interface">POSIX</abbr>.</p>
+<p>Ces conventions sont définie par la norme ISO 15897 et font de surcroît partie du standard <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>.</p>
 <p>L'en-tête <code>&lt;locale.h&gt;</code> contient donc des fonctions pour manipuler les locales.</p>
 <table id="_table-10">
 <caption style="caption-side:top"> Contenu de locale.h</caption><thead>
@@ -7994,9 +7996,9 @@ les outils associés.
 <p><a href="" id="libc-signal"></a></p>
 <h2 id="signalh"><code>&lt;signal.h&gt;</code><a class="headerlink" href="#signalh" title="Lien permanent">¤</a></h2>
 <p>Les signaux sont des mécanismes spécifiques aux systèmes d'exploitations qui permettent de communiquer entre les processus (programmes) et le noyau. Un signal ne véhicule pas de données, il permet simplement de réveiller un processus pour lui indiquer qu'un événement s'est produit. Alternativement un signal peut être émis par un processus pour demander au noyau de réaliser une action.</p>
-<p>Les signaux sont fondamentaux au sein d'un OS et de ce fait ils sont standardisés par <abbr title="Portable Operating System Interface">POSIX</abbr>. Windows utilise également des signaux mais ils diffèrent un peu. En C, la bibliothèque <code>&lt;signal.h&gt;</code> permet de manipuler les signaux de manière portable avec quelques nuances. Voici les types de signaux les plus courants :</p>
+<p>Les signaux sont fondamentaux au sein d'un <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation">OS</a> et de ce fait ils sont standardisés par <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>. Windows utilise également des signaux mais ils diffèrent un peu. En C, la bibliothèque <code>&lt;signal.h&gt;</code> permet de manipuler les signaux de manière portable avec quelques nuances. Voici les types de signaux les plus courants :</p>
 <table id="_table-12">
-<caption style="caption-side:top"> Signaux <abbr title="Portable Operating System Interface">POSIX</abbr> (liste non exhaustive)</caption><thead>
+<caption style="caption-side:top"> Signaux <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> (liste non exhaustive)</caption><thead>
 <tr>
 <th>Signal</th>
 <th>Description</th>
@@ -8087,7 +8089,7 @@ les outils associés.
 </span><span id="__span-17-7"><a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Adresse de 'a' : %p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
 </span><span id="__span-17-8"><a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>L'utilité de cette fonction est limitée en pratique. Elle est principalement utilisée pour manipuler des données SIMD (<em>Single Instruction Multiple Data</em>) ou pour optimiser les performances de certaines structures de données. On peut l'utiliser égalemenr pour accroître l'interopérabilité entre le C et d'autres langages de programmation.</p>
+<p>L'utilité de cette fonction est limitée en pratique. Elle est principalement utilisée pour manipuler des données <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> (<em>Single Instruction Multiple Data</em>) ou pour optimiser les performances de certaines structures de données. On peut l'utiliser égalemenr pour accroître l'interopérabilité entre le C et d'autres langages de programmation.</p>
 <p>Une utilisation courante est avec des structures. L'exemple suivant montre une structure de 13 bytes mais le processeur, selon l'architecture pourrait décider de stocker le <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span> sur 4 bytes et la structure serait donc de 16 bytes. On peut forcer l'alignement de la structure manuellement avec <code>alignas(16)</code>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">alignas</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w">    </span><span class="c1">// 1 octet</span>
@@ -8260,7 +8262,7 @@ les outils associés.
 <p>Néanmoins ces fonctions sont faites pour profiter des instructions spécifiques des processeurs modernes qui permettent de réaliser ces opérations de manière plus efficace. En effet dans l'architecture X86 par exemple il existe la directive assembleur <span class="ycr-hashtag" data-index-entry="ror" data-tag="ror"><code>ror</code></span> pour la rotation à droite et <span class="ycr-hashtag" data-index-entry="rol" data-tag="rol"><code>rol</code></span> pour la rotation à gauche. Ces instructions sont plus rapides que la méthode naïve ci-dessus mais elles n'existent pas nécessairement dans toutes les architectures. Du reste, si on essaye de compiler cette macro avec gcc et observons l'assembler généré, on constate que le compilateur utilise bien l'instruction <span class="ycr-hashtag" data-index-entry="ror" data-tag="ror"><code>ror</code></span> pour la rotation à droite. Il est donc capable de comprendre le code et de l'optimiser en conséquence.</p>
 <p><a href="" id="libc-stdbool"></a></p>
 <h2 id="stdboolh"><code>&lt;stdbool.h&gt;</code><a class="headerlink" href="#stdboolh" title="Lien permanent">¤</a></h2>
-<p>Cette bibliothèque est apparue en <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> et après 20 ans d'attente, elle introduit enfin le type booléen <span class="ycr-hashtag" data-index-entry="bool" data-tag="bool"><code>bool</code></span> et les valeurs <span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span> et <span class="ycr-hashtag" data-index-entry="false" data-tag="false"><code>false</code></span>. Cet en-tête est par conséquent l'un des plus simple de la bibliothèque standard, car il ne contient que trois lignes :</p>
+<p>Cette bibliothèque est apparue en C99 et après 20 ans d'attente, elle introduit enfin le type booléen <span class="ycr-hashtag" data-index-entry="bool" data-tag="bool"><code>bool</code></span> et les valeurs <span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span> et <span class="ycr-hashtag" data-index-entry="false" data-tag="false"><code>false</code></span>. Cet en-tête est par conséquent l'un des plus simple de la bibliothèque standard, car il ne contient que trois lignes :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="cp">#define bool _Bool</span>
 </span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="cp">#define true 1</span>
 </span><span id="__span-25-3"><a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="cp">#define false 0</span>
@@ -8751,7 +8753,7 @@ les outils associés.
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="_Exit" data-tag="_Exit"><code>_Exit</code></span></td>
-<td>Arrête le programme de manière normale sans nettoyage des ressources (<abbr title="Standard ISO/IEC 9899:1999">C99</abbr>)</td>
+<td>Arrête le programme de manière normale sans nettoyage des ressources (C99)</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="atexit" data-tag="atexit"><code>atexit</code></span></td>
@@ -8767,7 +8769,7 @@ les outils associés.
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="setenv" data-tag="setenv"><code>setenv</code></span></td>
-<td>Ajoute ou modifie une variable d'environnement (<abbr title="Portable Operating System Interface">POSIX</abbr>, non standard)</td>
+<td>Ajoute ou modifie une variable d'environnement (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, non standard)</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="putenv" data-tag="putenv"><code>putenv</code></span></td>
@@ -8775,7 +8777,7 @@ les outils associés.
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="unsetenv" data-tag="unsetenv"><code>unsetenv</code></span></td>
-<td>Supprime une variable d'environnement (<abbr title="Portable Operating System Interface">POSIX</abbr>, non standard)</td>
+<td>Supprime une variable d'environnement (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, non standard)</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="system" data-tag="system"><code>system</code></span></td>
@@ -8869,7 +8871,7 @@ les outils associés.
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="llabs" data-tag="llabs"><code>llabs</code></span></td>
-<td>Calcule la valeur absolue d'un long long (<code>long long</code>) (<abbr title="Standard ISO/IEC 9899:1999">C99</abbr>)</td>
+<td>Calcule la valeur absolue d'un long long (<code>long long</code>) (C99)</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="div" data-tag="div"><code>div</code></span></td>
@@ -8881,7 +8883,7 @@ les outils associés.
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="lldiv" data-tag="lldiv"><code>lldiv</code></span></td>
-<td>Effectue une division entière pour les <code>long long</code> et retourne quotient et reste (<abbr title="Standard ISO/IEC 9899:1999">C99</abbr>)</td>
+<td>Effectue une division entière pour les <code>long long</code> et retourne quotient et reste (C99)</td>
 </tr>
 </tbody>
 </table>
@@ -8907,7 +8909,7 @@ les outils associés.
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="atoll" data-tag="atoll"><code>atoll</code></span></td>
-<td>Convertit une chaîne de caractères en long long (<code>long long</code>) (<abbr title="Standard ISO/IEC 9899:1999">C99</abbr>)</td>
+<td>Convertit une chaîne de caractères en long long (<code>long long</code>) (C99)</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="mbstowcs" data-tag="mbstowcs"><code>mbstowcs</code></span></td>
@@ -8923,7 +8925,7 @@ les outils associés.
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="strtof" data-tag="strtof"><code>strtof</code></span></td>
-<td>Convertit une chaîne en float (<span class="ycr-hashtag" data-index-entry="float" data-tag="float"><code>float</code></span>) (<abbr title="Standard ISO/IEC 9899:1999">C99</abbr>)</td>
+<td>Convertit une chaîne en float (<span class="ycr-hashtag" data-index-entry="float" data-tag="float"><code>float</code></span>) (C99)</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="strtol" data-tag="strtol"><code>strtol</code></span></td>
@@ -8931,11 +8933,11 @@ les outils associés.
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="strtold" data-tag="strtold"><code>strtold</code></span></td>
-<td>Convertit une chaîne en long double (<code>long double</code>) (<abbr title="Standard ISO/IEC 9899:1999">C99</abbr>)</td>
+<td>Convertit une chaîne en long double (<code>long double</code>) (C99)</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="strtoll" data-tag="strtoll"><code>strtoll</code></span></td>
-<td>Convertit une chaîne en long long (<code>long long</code>) (<abbr title="Standard ISO/IEC 9899:1999">C99</abbr>)</td>
+<td>Convertit une chaîne en long long (<code>long long</code>) (C99)</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="strtoul" data-tag="strtoul"><code>strtoul</code></span></td>
@@ -8943,7 +8945,7 @@ les outils associés.
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="strtoull" data-tag="strtoull"><code>strtoull</code></span></td>
-<td>Convertit une chaîne en unsigned long long (<code>unsigned long long</code>) (<abbr title="Standard ISO/IEC 9899:1999">C99</abbr>)</td>
+<td>Convertit une chaîne en unsigned long long (<code>unsigned long long</code>) (C99)</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="wcstombs" data-tag="wcstombs"><code>wcstombs</code></span></td>
@@ -8997,7 +8999,7 @@ les outils associés.
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="lldiv_t" data-tag="lldiv_t"><code>lldiv_t</code></span></td>
-<td>Structure retournée par <span class="ycr-hashtag" data-index-entry="lldiv" data-tag="lldiv"><code>lldiv</code></span> (<abbr title="Standard ISO/IEC 9899:1999">C99</abbr>) contenant le quotient et le reste</td>
+<td>Structure retournée par <span class="ycr-hashtag" data-index-entry="lldiv" data-tag="lldiv"><code>lldiv</code></span> (C99) contenant le quotient et le reste</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="wchar_t" data-tag="wchar_t"><code>wchar_t</code></span></td>
@@ -9034,7 +9036,7 @@ les outils associés.
 <p>Avant C23, il fallait utiliser <span class="ycr-hashtag" data-index-entry="_Noreturn" data-tag="_Noreturn"><code>_Noreturn</code></span>.</p>
 <p><a href="" id="libc-string"></a></p>
 <h2 id="stringh"><code>&lt;string.h&gt;</code><a class="headerlink" href="#stringh" title="Lien permanent">¤</a></h2>
-<p>La bibliothèque <code>&lt;string.h&gt;</code> contient des fonctions pour manipuler les chaînes de caractères. Les fonctions sont définies pour les chaînes de caractères ASCII uniquement. On distingue deux famille de fonctions, les <span class="ycr-hashtag" data-index-entry="mem" data-tag="mem"><code>mem</code></span> qui manipulent des régions mémoires et les <span class="ycr-hashtag" data-index-entry="str" data-tag="str"><code>str</code></span> qui manipulent des chaînes de caractères.</p>
+<p>La bibliothèque <code>&lt;string.h&gt;</code> contient des fonctions pour manipuler les chaînes de caractères. Les fonctions sont définies pour les chaînes de caractères <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> uniquement. On distingue deux famille de fonctions, les <span class="ycr-hashtag" data-index-entry="mem" data-tag="mem"><code>mem</code></span> qui manipulent des régions mémoires et les <span class="ycr-hashtag" data-index-entry="str" data-tag="str"><code>str</code></span> qui manipulent des chaînes de caractères.</p>
 <p>La table suivante résume les fonctions les plus utilisées. On notera que les lettres entre parenthèses indiquent les variantes des fonctions. La fonction <span class="ycr-hashtag" data-index-entry="strcpy" data-tag="strcpy"><code>strcpy</code></span> existe en version <span class="ycr-hashtag" data-index-entry="strncpy" data-tag="strncpy"><code>strncpy</code></span> qui permet de copier une chaîne en spécifiant la taille maximale à copier. On notera <code>n</code> pour les fonctions dont la taille maximum de la chaîne peut être spécifiée, <code>r</code> pour <em>reverse</em> et <code>c</code> pour <em>not in</em>.</p>
 <table id="_table-27">
 <caption style="caption-side:top"> Fonctions sur les chaînes de caractères</caption><thead>
@@ -9152,7 +9154,7 @@ les outils associés.
 </span></code></pre></div>
 <p>Pour vous en convaincre, vous pouvez vous aider de la figure suivante.</p>
 <p><figure id="_figure-1"><img alt="memcpy" class="drawio-diagram" src="../../../assets/images/memcpy.drawio"/><figcaption> memcpy</figcaption></figure></p>
-<p>En réalité, le fonctionnement de <span class="ycr-hashtag" data-index-entry="memcpy" data-tag="memcpy"><code>memcpy</code></span> n'est pas si simple. En effet, le compilateur peut optimiser le code et utiliser des instructions SIMD pour copier les données. Cela va également dépendre du niveau d'optimisation du compilateur. En exécutant le même code avec <span class="ycr-hashtag" data-index-entry="memcpy" data-tag="memcpy"><code>memcpy</code></span>, je n'obtiens pas le même résultat, en observant le code assembleur généré pour <span class="ycr-hashtag" data-index-entry="memcpy" data-tag="memcpy"><code>memcpy</code></span>, on observe que les premiers 4 octets sont copiés en une seule instruction, le cinquième octet est copié en une instruction séparée. Ce qui donne comme résultat <code>12343</code>.</p>
+<p>En réalité, le fonctionnement de <span class="ycr-hashtag" data-index-entry="memcpy" data-tag="memcpy"><code>memcpy</code></span> n'est pas si simple. En effet, le compilateur peut optimiser le code et utiliser des instructions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> pour copier les données. Cela va également dépendre du niveau d'optimisation du compilateur. En exécutant le même code avec <span class="ycr-hashtag" data-index-entry="memcpy" data-tag="memcpy"><code>memcpy</code></span>, je n'obtiens pas le même résultat, en observant le code assembleur généré pour <span class="ycr-hashtag" data-index-entry="memcpy" data-tag="memcpy"><code>memcpy</code></span>, on observe que les premiers 4 octets sont copiés en une seule instruction, le cinquième octet est copié en une instruction séparée. Ce qui donne comme résultat <code>12343</code>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a>mov rcx, qword ptr [rbp - 128]  ; Charge l'adresse de destination (q) dans rcx
 </span><span id="__span-40-2"><a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a>mov rdx, qword ptr [rbp - 120]  ; Charge l'adresse source (p) dans rdx
 </span><span id="__span-40-3"><a href="#__codelineno-40-3" id="__codelineno-40-3" name="__codelineno-40-3"></a>mov esi, dword ptr [rdx]        ; Charge les 4 premiers octets dans esi
@@ -9439,7 +9441,7 @@ les outils associés.
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="clock" data-tag="clock"><code>clock</code></span></td>
-<td>Temps CPU utilisé par le programme</td>
+<td>Temps <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> utilisé par le programme</td>
 </tr>
 </tbody>
 </table>
@@ -9469,7 +9471,7 @@ les outils associés.
 </span><span id="__span-66-5"><a href="#__codelineno-66-5" id="__codelineno-66-5" name="__codelineno-66-5"></a><span class="c1">// Ou sans récupérer le temps</span>
 </span><span id="__span-66-6"><a href="#__codelineno-66-6" id="__codelineno-66-6" name="__codelineno-66-6"></a><span class="n">printf</span><span class="p">(</span><span class="s">"Time since 1st January 1970 : %ld seconds</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
 </span></code></pre></div>
-<p>Pourquoi le 1er janvier 1970 ? C'est une convention qui remonte aux premiers systèmes Unix. Le temps est stocké en secondes depuis cette date. C'est ce qu'on appelle le temps Unix ou temps <abbr title="Portable Operating System Interface">POSIX</abbr>.</p>
+<p>Pourquoi le 1er janvier 1970 ? C'est une convention qui remonte aux premiers systèmes Unix. Le temps est stocké en secondes depuis cette date. C'est ce qu'on appelle le temps Unix ou temps <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>.</p>
 <div class="admonition bug">
 <p class="admonition-title">Problème de l'an 2038</p>
 <p>Le temps Unix est stocké sur 32 bits. Cela signifie que le temps Unix ne pourra plus être stocké sur 32 bits à partir du 19 janvier 2038. C'est ce qu'on appelle le bug de l'an 2038. Il est donc nécessaire de passer à un temps stocké sur 64 bits pour éviter ce problème.</p>
@@ -9724,13 +9726,13 @@ les outils associés.
 <p><a href="" id="libc-uchar"></a></p>
 <h2 id="ucharh"><code>&lt;uchar.h&gt;</code><a class="headerlink" href="#ucharh" title="Lien permanent">¤</a></h2>
 <p>Apparue avec la norme C11, cette bibliothèque contient des fonctions pour gérer les caractères Unicode. Elle contient des fonctions pour convertir des caractères en minuscules ou majuscules, pour tester si un caractère est un chiffre, une lettre, etc.</p>
-<p>Un caractère multi-octets (<em>multibyte</em>) est un caractère qui nécessite plus d'un octet pour être stocké. Nous avons que la norme <a class="autorefs autorefs-internal" href="../../15-fundations/datatype/#unicode">Unicode</a> définit un jeu de caractères universel qui peut être représenté en binaire avec des caractères de 8-bit (UTF-8). Cela permet de stocker théoriquement jusqu'à 4 294 967 295 caractères différents.</p>
-<p>Le C étant un langage ancien, il a été conçu à une époque où seul la table ASCII existait. Néanmoins, certaines langues comme le chinois nécessitaient plus de 256 caractères. Pour cela, le C a introduit le concept de caractères larges (<em>wide characters</em>) qui étaient initialement stockés sur 16-bits (<span class="ycr-hashtag" data-index-entry="short" data-tag="short"><code>short</code></span>). Néanmoins, avec l'arrivée de l'Unicode, il n'est pas rare de trouver des caractères qui nécessitent 32-bits. Or, les <em>wide-chars</em> historiques du C ne sont que sur 16-bits (sous Windows) et 32-bits (sous Unix). Pour palier à ce problème de portabilité, la norme C11 a introduit la bibliothèque <code>&lt;uchar.h&gt;</code> qui permet de gérer les caractères Unicode convenablement.</p>
+<p>Un caractère multi-octets (<em>multibyte</em>) est un caractère qui nécessite plus d'un octet pour être stocké. Nous avons que la norme <a class="autorefs autorefs-internal" href="../../15-fundations/datatype/#unicode">Unicode</a> définit un jeu de caractères universel qui peut être représenté en binaire avec des caractères de 8-bit (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a>). Cela permet de stocker théoriquement jusqu'à 4 294 967 295 caractères différents.</p>
+<p>Le C étant un langage ancien, il a été conçu à une époque où seul la table <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> existait. Néanmoins, certaines langues comme le chinois nécessitaient plus de 256 caractères. Pour cela, le C a introduit le concept de caractères larges (<em>wide characters</em>) qui étaient initialement stockés sur 16-bits (<span class="ycr-hashtag" data-index-entry="short" data-tag="short"><code>short</code></span>). Néanmoins, avec l'arrivée de l'Unicode, il n'est pas rare de trouver des caractères qui nécessitent 32-bits. Or, les <em>wide-chars</em> historiques du C ne sont que sur 16-bits (sous Windows) et 32-bits (sous Unix). Pour palier à ce problème de portabilité, la norme C11 a introduit la bibliothèque <code>&lt;uchar.h&gt;</code> qui permet de gérer les caractères Unicode convenablement.</p>
 <p>La bibliothèque définit deux types supplémentaires :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-75-1"><a href="#__codelineno-75-1" id="__codelineno-75-1" name="__codelineno-75-1"></a><span class="n">char16_t</span><span class="p">;</span><span class="w"> </span><span class="c1">// 16-bit pour l'UTF-16</span>
 </span><span id="__span-75-2"><a href="#__codelineno-75-2" id="__codelineno-75-2" name="__codelineno-75-2"></a><span class="n">char32_t</span><span class="p">;</span><span class="w"> </span><span class="c1">// 32-bit pour l'UTF-32</span>
 </span></code></pre></div>
-<p>Contrairement à UTF-8 qui est un encodage variable : de 1 à 4 bytes, l'UTF-16 et l'UTF-32 sont des encodages fixes (à moins d'utiliser des <em>surrogatges</em>). Comme la plupart des systèmes utilisent massivement l'UTF-8, la bibliothèque offre des fonctions de conversion entre les différents encodages.</p>
+<p>Contrairement à <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a> qui est un encodage variable : de 1 à 4 bytes, l'UTF-16 et l'UTF-32 sont des encodages fixes (à moins d'utiliser des <em>surrogatges</em>). Comme la plupart des systèmes utilisent massivement l'<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a>, la bibliothèque offre des fonctions de conversion entre les différents encodages.</p>
 <table id="_table-31">
 <caption style="caption-side:top"> Fonctions de conversion de caractères</caption><thead>
 <tr>
@@ -9741,19 +9743,19 @@ les outils associés.
 <tbody>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="c16rtomb" data-tag="c16rtomb"><code>c16rtomb</code></span></td>
-<td>Convertit un caractère 16-bit en UTF-8</td>
+<td>Convertit un caractère 16-bit en <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a></td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="c32rtomb" data-tag="c32rtomb"><code>c32rtomb</code></span></td>
-<td>Convertit un caractère 32-bit en UTF-8</td>
+<td>Convertit un caractère 32-bit en <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a></td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="mbrtoc16" data-tag="mbrtoc16"><code>mbrtoc16</code></span></td>
-<td>Convertit un caractère UTF-8 en 16-bit</td>
+<td>Convertit un caractère <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a> en 16-bit</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="mbrtoc32" data-tag="mbrtoc32"><code>mbrtoc32</code></span></td>
-<td>Convertit un caractère UTF-8 en 32-bit</td>
+<td>Convertit un caractère <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a> en 32-bit</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="c16rtowc" data-tag="c16rtowc"><code>c16rtowc</code></span></td>
@@ -9773,9 +9775,9 @@ les outils associés.
 </tr>
 </tbody>
 </table>
-<p>Le standard C nomme <code>mb</code> (<span class="ycr-hashtag" data-index-entry="multibyte" data-tag="multibyte"><code>multibyte</code></span>) pour se référer à UTF-8.</p>
-<p>L'inconvénient majeur d'UTF-8 c'est qu'il est impossible d'éditer un caractère à un endroit précis sans devoir possiblement décaler tous les caractères suivants. Remplacer un <code>e</code> (stocké sur 1 byte) par un émoji (stocké sur 4 bytes), nécessite de décaler tout le texte de 3 bytes. Suivant la taille de la chaîne cela peut être fastidieux. C'est pourquoi l'UTF-32 est souvent utilisé pour les traitements internes. On perd de la place mémoire car un texte en UTF-32 est jusqu'à 4 fois plus gros qu'en UTF-8, mais on gagne en temps de traitement car aucun déclage n'est nécessaire. En outre, le processeur étant plus à l'aise avec les données alignées sur 32-bits, les traitements sont plus rapides.</p>
-<p>Prenons l'exemple d'un algorithme qui inverse une chaîne de caractères UTF-8 et affiche le résultat. Sans cette bibliothèque, il n'est pas trivial de le faire car les caractères unicode peuvent être stockés sur plusieurs bytes. Ici on commence par convertir la chaîne UTF-8 en UTF-32 pour avoir une chaîne simple à traiter, on inverse ensuite la chaîne UTF-32, puis on la reconvertit en UTF-8 pour l'affichage. Une implémentation est donnée dans la section <a class="autorefs autorefs-internal" href="../../40-algorithms/utilities/#implementation-utf-8">algorithmes</a>.</p>
+<p>Le standard C nomme <code>mb</code> (<span class="ycr-hashtag" data-index-entry="multibyte" data-tag="multibyte"><code>multibyte</code></span>) pour se référer à <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a>.</p>
+<p>L'inconvénient majeur d'<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a> c'est qu'il est impossible d'éditer un caractère à un endroit précis sans devoir possiblement décaler tous les caractères suivants. Remplacer un <code>e</code> (stocké sur 1 byte) par un émoji (stocké sur 4 bytes), nécessite de décaler tout le texte de 3 bytes. Suivant la taille de la chaîne cela peut être fastidieux. C'est pourquoi l'UTF-32 est souvent utilisé pour les traitements internes. On perd de la place mémoire car un texte en UTF-32 est jusqu'à 4 fois plus gros qu'en <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a>, mais on gagne en temps de traitement car aucun déclage n'est nécessaire. En outre, le processeur étant plus à l'aise avec les données alignées sur 32-bits, les traitements sont plus rapides.</p>
+<p>Prenons l'exemple d'un algorithme qui inverse une chaîne de caractères <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a> et affiche le résultat. Sans cette bibliothèque, il n'est pas trivial de le faire car les caractères unicode peuvent être stockés sur plusieurs bytes. Ici on commence par convertir la chaîne <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a> en UTF-32 pour avoir une chaîne simple à traiter, on inverse ensuite la chaîne UTF-32, puis on la reconvertit en <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a> pour l'affichage. Une implémentation est donnée dans la section <a class="autorefs autorefs-internal" href="../../40-algorithms/utilities/#implementation-utf-8">algorithmes</a>.</p>
 <p><a href="" id="libc-wchar"></a></p>
 <h2 id="wcharh"><code>&lt;wchar.h&gt;</code><a class="headerlink" href="#wcharh" title="Lien permanent">¤</a></h2>
 <p>Cette bibliothèque supplémente d'autres bibliothèques pour gérer les caractères larges (wide characters). Ci-dessous la table d'équilvalence :</p>
@@ -9908,7 +9910,7 @@ les outils associés.
 <p><a href="" id="libc-wctype"></a>
 <a href="" id="libc-ctype"></a></p>
 <h2 id="wctypeh"><code>&lt;(w)ctype.h&gt;</code><a class="headerlink" href="#wctypeh" title="Lien permanent">¤</a></h2>
-<p>La bibliothèque <code>&lt;ctype.h&gt;</code> contient des fonctions pour tester et convertir des caractères. Les fonctions sont définies pour les caractères ASCII uniquement, elle ne s'applique pas aux caractères Unicode, ni aux caractères étendus (au-delà de 127). La bibliothèque <code>&lt;wctype.h&gt;</code> est similaire mais pour les caractères larges (wide characters).</p>
+<p>La bibliothèque <code>&lt;ctype.h&gt;</code> contient des fonctions pour tester et convertir des caractères. Les fonctions sont définies pour les caractères <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> uniquement, elle ne s'applique pas aux caractères Unicode, ni aux caractères étendus (au-delà de 127). La bibliothèque <code>&lt;wctype.h&gt;</code> est similaire mais pour les caractères larges (wide characters).</p>
 <table id="_table-33">
 <caption style="caption-side:top"> Fonctions de test de caractères</caption><thead>
 <tr>
@@ -10034,7 +10036,7 @@ les outils associés.
 </span><span id="__span-77-11"><a href="#__codelineno-77-11" id="__codelineno-77-11" name="__codelineno-77-11"></a><span class="w">    </span>float<span class="w"> </span>acosf<span class="o">(</span>float<span class="w"> </span>x<span class="o">)</span><span class="p">;</span>
 </span></code></pre></div>
 <p>La réponse est donc <code>&lt;math.h&gt;</code>.</p>
-<p>Sous Windows avec Visual Studio, il suffit d'écrire <span class="ycr-hashtag" data-index-entry="acos" data-tag="acos"><code>acos</code></span> dans un fichier source et d'appuyer sur <code>F1</code>. L'IDE redirige l'utilisateur sur l'aide Microsoft <a href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl">acos-acosf-acosl</a> qui indique que le header source est <code>&lt;math.h&gt;</code>.</p>
+<p>Sous Windows avec Visual Studio, il suffit d'écrire <span class="ycr-hashtag" data-index-entry="acos" data-tag="acos"><code>acos</code></span> dans un fichier source et d'appuyer sur <code>F1</code>. L'<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement">IDE</a> redirige l'utilisateur sur l'aide Microsoft <a href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl">acos-acosf-acosl</a> qui indique que le header source est <code>&lt;math.h&gt;</code>.</p>
 </details>
 </div>
 <div class="admonition exercise">

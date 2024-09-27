@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6136,18 +6138,18 @@ Selon la distribution Linux que vous utilisez, les gestionnaires de paquets n'on
 <p>Pour afficher la date en format ISO 8601, vous pouvez utiliser la commande suivante :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.lga<span class="w"> </span><span class="s2">"log -n30 --boundary --graph --pretty=format:'%C(bold blue)%h%C(bold green)%&lt;|(20)% ai%C(reset)%C(white)% s %C(dim white)-% an%C(reset)%C(auto)% d%C(bold red)' --abbrev-commit --date=iso"</span>
 </span></code></pre></div>
-<h3 id="configuration-ssh">Configuration SSH<a class="headerlink" href="#configuration-ssh" title="Lien permanent">¤</a></h3>
+<h3 id="configuration-ssh">Configuration <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Secure_Shell">SSH</a><a class="headerlink" href="#configuration-ssh" title="Lien permanent">¤</a></h3>
 <p>Comme nous l'avons vu, Git peut communiquer avec un serveur distant en utilisant le protocole <span class="ycr-hashtag" data-index-entry="SSH" data-tag="SSH"><code>SSH</code></span>. Pour cela, il est nécessaire de configurer une clé cryptographique.</p>
-<p>La première chose à faire est de vérifier si vous avez déjà une clé SSH. Ouvrez un terminal et tapez la commande suivante :</p>
+<p>La première chose à faire est de vérifier si vous avez déjà une clé <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Secure_Shell">SSH</a>. Ouvrez un terminal et tapez la commande suivante :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>$<span class="w"> </span>ls<span class="w"> </span>-al<span class="w"> </span>~/.ssh/*.pub
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ycr<span class="w"> </span>ycr<span class="w"> </span><span class="m">393</span><span class="w"> </span><span class="m">2023</span>-09-06<span class="w"> </span><span class="m">08</span>:38<span class="w"> </span>/home/ycr/.ssh/id_rsa.pub
 </span></code></pre></div>
-<p>Le fichier <span class="ycr-hashtag" data-index-entry="id_rsa.pub" data-tag="id_rsa.pub"><code>id_rsa.pub</code></span> est votre clé publique. Si vous ne voyez pas ce fichier, c'est que vous n'avez pas de clé SSH. Vous pouvez en générer une avec la commande suivante :</p>
+<p>Le fichier <span class="ycr-hashtag" data-index-entry="id_rsa.pub" data-tag="id_rsa.pub"><code>id_rsa.pub</code></span> est votre clé publique. Si vous ne voyez pas ce fichier, c'est que vous n'avez pas de clé <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Secure_Shell">SSH</a>. Vous pouvez en générer une avec la commande suivante :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>ssh-keygen
 </span></code></pre></div>
 <p>Sous Windows, la commande est la même mais vous devez lancer <code>Git Bash</code> pour l'exécuter. Vous pouvez lancer <code>Git Bash</code> en tapant <code>Git Bash</code> dans le menu de recherche de Windows.</p>
 <h3 id="configuration-de-github">Configuration de GitHub<a class="headerlink" href="#configuration-de-github" title="Lien permanent">¤</a></h3>
-<p>Si vous utilisez GitHub, il est nécessaire de configurer votre clé SSH dans votre compte GitHub. Pour cela, ouvrez un terminal et tapez la commande suivante :</p>
+<p>Si vous utilisez GitHub, il est nécessaire de configurer votre clé <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Secure_Shell">SSH</a> dans votre compte GitHub. Pour cela, ouvrez un terminal et tapez la commande suivante :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>$<span class="w"> </span>cat<span class="w"> </span>~/.ssh/id_rsa.pub
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>ssh-rsa<span class="w"> </span>AAAAB3NzaC1yc2EAAAADAQABAAABAQC+yNp7af6zI8NINIFX1aRj+nzKksZ6XzBSkgA/
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>iuPpYIGz5SSZOkwkvN0DnX8J42DcuEK/mnu3+f9Wh746823gxhXqt+7Wv9z9DJ9O9qrsYlnxIMip

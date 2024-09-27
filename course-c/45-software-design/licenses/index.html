@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6040,31 +6042,31 @@ les outils associés.
 <h3 id="logiciel-proprietaire">Logiciel Propriétaire<a class="headerlink" href="#logiciel-proprietaire" title="Lien permanent">¤</a></h3>
 <p>Dans les années 1960 et 1970, les logiciels étaient souvent vendus avec le matériel informatique, et les codes sources étaient parfois fournis sans restrictions significatives. Cependant, avec l'évolution du marché du logiciel, des entreprises ont commencé à comprendre la valeur commerciale des logiciels. Ainsi, les premières licences logicielles restrictives ont été développées pour protéger les intérêts commerciaux des entreprises, restreignant l'accès au code source et limitant les droits des utilisateurs à simplement utiliser le logiciel sans en voir les coulisses.</p>
 <h3 id="emergence-de-lopen-source">Émergence de l'Open Source<a class="headerlink" href="#emergence-de-lopen-source" title="Lien permanent">¤</a></h3>
-<p>Avec l'avènement de l'Internet et le besoin croissant de collaboration entre développeurs, une nouvelle approche a émergé : le logiciel libre. Le projet <abbr title="GNU's Not Unix">GNU</abbr>, lancé par Richard Stallman en 1983, est le fer de lance de cette révolution. La licence <abbr title="GNU's Not Unix">GNU</abbr> General Public License (<abbr title="General Public License">GPL</abbr>) est l'une des premières licences à promouvoir l'idée que les logiciels devraient être libres d'utilisation, de modification, et de redistribution, à condition que toutes les versions modifiées soient également distribuées sous la même licence.</p>
-<p>Cependant, dans les années 1990, une série de conflits bien connus sous le nom de « guerres de licences » ont eu lieu entre différents camps du mouvement open-source. La licence <abbr title="Berkeley Software Distribution">BSD</abbr>, originaire du projet Berkeley Software Distribution, offrait une approche plus permissive que la <abbr title="General Public License">GPL</abbr>, permettant l'incorporation du code <abbr title="Berkeley Software Distribution">BSD</abbr> dans des projets propriétaires sans exiger la libération du code source. Cela contrastait fortement avec la philosophie de la <abbr title="General Public License">GPL</abbr>, qui impose un partage en retour (copyleft), obligeant toute dérivation du code à rester libre et open-source. Ce différend a mis en lumière les différentes visions de ce que devrait être l'open-source : la liberté pour les utilisateurs de faire ce qu'ils veulent avec le code, y compris le rendre propriétaire (<abbr title="Berkeley Software Distribution">BSD</abbr>), versus la garantie que le code reste libre à perpétuité (<abbr title="General Public License">GPL</abbr>).</p>
-<p>Ce débat est à la génèse de Linux, le noyau du système d'exploitation <abbr title="GNU's Not Unix">GNU</abbr>/Linux, qui a adopté la <abbr title="General Public License">GPL</abbr> pour garantir que le code source reste libre et ouvert. Aujourd'hui, la <abbr title="General Public License">GPL</abbr> reste l'une des licences open-source les plus populaires, mais d'autres licences plus permissives, comme la licence <abbr title="Massachusetts Institute of Technology">MIT</abbr> et la licence Apache, ont également gagné en popularité.</p>
-<p>La licence <abbr title="Massachusetts Institute of Technology">MIT</abbr>, extrêmement populaire dans la communauté open-source, adopte une approche encore plus simplifiée et permissive que la licence <abbr title="Berkeley Software Distribution">BSD</abbr>. Elle permet à quiconque d'utiliser, copier, modifier, fusionner, publier, distribuer, sous-licencier et/ou vendre des copies du logiciel, avec comme seule obligation de mentionner l’auteur original. Ce type de licence est très apprécié pour sa simplicité et sa flexibilité.</p>
+<p>Avec l'avènement de l'Internet et le besoin croissant de collaboration entre développeurs, une nouvelle approche a émergé : le logiciel libre. Le projet <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GNU">GNU</a>, lancé par Richard Stallman en 1983, est le fer de lance de cette révolution. La licence <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GNU">GNU</a> General Public License (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU">GPL</a>) est l'une des premières licences à promouvoir l'idée que les logiciels devraient être libres d'utilisation, de modification, et de redistribution, à condition que toutes les versions modifiées soient également distribuées sous la même licence.</p>
+<p>Cependant, dans les années 1990, une série de conflits bien connus sous le nom de « guerres de licences » ont eu lieu entre différents camps du mouvement open-source. La licence <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD</a>, originaire du projet Berkeley Software Distribution, offrait une approche plus permissive que la <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU">GPL</a>, permettant l'incorporation du code <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD</a> dans des projets propriétaires sans exiger la libération du code source. Cela contrastait fortement avec la philosophie de la <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU">GPL</a>, qui impose un partage en retour (copyleft), obligeant toute dérivation du code à rester libre et open-source. Ce différend a mis en lumière les différentes visions de ce que devrait être l'open-source : la liberté pour les utilisateurs de faire ce qu'ils veulent avec le code, y compris le rendre propriétaire (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD</a>), versus la garantie que le code reste libre à perpétuité (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU">GPL</a>).</p>
+<p>Ce débat est à la génèse de Linux, le noyau du système d'exploitation <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GNU">GNU</a>/Linux, qui a adopté la <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU">GPL</a> pour garantir que le code source reste libre et ouvert. Aujourd'hui, la <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU">GPL</a> reste l'une des licences open-source les plus populaires, mais d'autres licences plus permissives, comme la licence <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Massachusetts_Institute_of_Technology">MIT</a> et la licence Apache, ont également gagné en popularité.</p>
+<p>La licence <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Massachusetts_Institute_of_Technology">MIT</a>, extrêmement populaire dans la communauté open-source, adopte une approche encore plus simplifiée et permissive que la licence <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD</a>. Elle permet à quiconque d'utiliser, copier, modifier, fusionner, publier, distribuer, sous-licencier et/ou vendre des copies du logiciel, avec comme seule obligation de mentionner l’auteur original. Ce type de licence est très apprécié pour sa simplicité et sa flexibilité.</p>
 <p>Les licences Creative Commons (CC), bien qu'initialement conçues pour les œuvres créatives non logicielles (comme Wikipedia), ont également influencé le domaine du logiciel en fournissant des cadres légaux pour la diffusion de contenu, incluant parfois du code source, avec différents niveaux de protection des droits d'auteur.</p>
 <h2 id="licences-populaires">Licences Populaires<a class="headerlink" href="#licences-populaires" title="Lien permanent">¤</a></h2>
 <p>Voici un aperçu des licences logicielles les plus couramment utilisées :</p>
 <dl>
-<dt><strong><abbr title="GNU's Not Unix">GNU</abbr> General Public License (<abbr title="General Public License">GPL</abbr>)</strong></dt>
+<dt><strong><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GNU">GNU</a> General Public License (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU">GPL</a>)</strong></dt>
 <dd>
 <p>Garantit que le logiciel reste libre à jamais, encourage la collaboration, mais incompatibilité avec les licences plus permissives, contraignante pour les projets commerciaux.</p>
 </dd>
-<dt><strong><abbr title="GNU's Not Unix">GNU</abbr> Lesser General Public License (LGPL)</strong></dt>
+<dt><strong><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GNU">GNU</a> Lesser General Public License (LGPL)</strong></dt>
 <dd>
-<p>Permet l'utilisation de bibliothèques open-source dans des logiciels propriétaires mais moins contraignante que la <abbr title="General Public License">GPL</abbr>, mais impose des restrictions sur les modifications du code source.</p>
+<p>Permet l'utilisation de bibliothèques open-source dans des logiciels propriétaires mais moins contraignante que la <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU">GPL</a>, mais impose des restrictions sur les modifications du code source.</p>
 </dd>
-<dt><strong><abbr title="Massachusetts Institute of Technology">MIT</abbr> License</strong></dt>
+<dt><strong><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Massachusetts_Institute_of_Technology">MIT</a> License</strong></dt>
 <dd>
 <p>Simplicité, grande permissivité, utilisée dans une multitude de projets, mais permet la réutilisation du code dans des logiciels propriétaires sans obligation de partage.</p>
 </dd>
 <dt><strong>Apache License 2.0</strong></dt>
 <dd>
-<p>Clauses explicites sur les brevets, permissive mais protège les contributeurs, mais moins simple que la licence <abbr title="Massachusetts Institute of Technology">MIT</abbr>, moins contraignante que la <abbr title="General Public License">GPL</abbr> pour garantir la liberté du logiciel.</p>
+<p>Clauses explicites sur les brevets, permissive mais protège les contributeurs, mais moins simple que la licence <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Massachusetts_Institute_of_Technology">MIT</a>, moins contraignante que la <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU">GPL</a> pour garantir la liberté du logiciel.</p>
 </dd>
-<dt><strong>Berkeley Software Distribution (<abbr title="Berkeley Software Distribution">BSD</abbr>) License</strong></dt>
+<dt><strong>Berkeley Software Distribution (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD</a>) License</strong></dt>
 <dd>
 <p>Très permissive, flexible pour les intégrations dans des logiciels propriétaires mais ne garantit pas que les versions dérivées resteront libres.</p>
 </dd>
@@ -6077,19 +6079,19 @@ les outils associés.
 <dl>
 <dt><strong>Développement Commercial</strong></dt>
 <dd>
-<p>Pour les entreprises souhaitant conserver le contrôle total sur leur code, une licence propriétaire ou une licence permissive comme <abbr title="Massachusetts Institute of Technology">MIT</abbr> ou <abbr title="Berkeley Software Distribution">BSD</abbr> est souvent conseillée.</p>
+<p>Pour les entreprises souhaitant conserver le contrôle total sur leur code, une licence propriétaire ou une licence permissive comme <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Massachusetts_Institute_of_Technology">MIT</a> ou <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD</a> est souvent conseillée.</p>
 </dd>
 <dt><strong>Protection de la Propriété Intellectuelle</strong></dt>
 <dd>
-<p>La <abbr title="General Public License">GPL</abbr> est idéale si l'objectif est de garantir que le logiciel reste libre et open-source, protégeant ainsi les droits des utilisateurs à modifier et redistribuer le code.</p>
+<p>La <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU">GPL</a> est idéale si l'objectif est de garantir que le logiciel reste libre et open-source, protégeant ainsi les droits des utilisateurs à modifier et redistribuer le code.</p>
 </dd>
 <dt><strong>Collaboration Ouverte</strong></dt>
 <dd>
-<p>La licence Apache ou <abbr title="Massachusetts Institute of Technology">MIT</abbr> est souvent choisie pour des projets collaboratifs open-source, où la flexibilité et l’ouverture sont primordiales, tout en assurant une protection contre les litiges de brevets (dans le cas d’Apache).</p>
+<p>La licence Apache ou <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Massachusetts_Institute_of_Technology">MIT</a> est souvent choisie pour des projets collaboratifs open-source, où la flexibilité et l’ouverture sont primordiales, tout en assurant une protection contre les litiges de brevets (dans le cas d’Apache).</p>
 </dd>
 <dt><strong>Projets Académiques et Expérimentaux</strong></dt>
 <dd>
-<p>Pour favoriser la diffusion rapide et libre des innovations, une licence très permissive comme la licence <abbr title="Massachusetts Institute of Technology">MIT</abbr> ou CC0 peut être privilégiée.</p>
+<p>Pour favoriser la diffusion rapide et libre des innovations, une licence très permissive comme la licence <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Massachusetts_Institute_of_Technology">MIT</a> ou CC0 peut être privilégiée.</p>
 </dd>
 <dt><strong>Contenu Créatif ou Documentation</strong></dt>
 <dd>
@@ -6176,29 +6178,6 @@ les outils associés.
   </span>
 
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributeurs">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
-          
-          <img src="https://avatars.githubusercontent.com/u/52489316?v=4&size=72" alt="yves-chevallier">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 

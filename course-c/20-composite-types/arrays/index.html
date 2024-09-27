@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6266,10 +6268,10 @@ les outils associés.
 <p>Seul le premier élément est initialisé à 42, les autres éléments sont initialisés à zéro.</p>
 </div>
 <h2 id="initialisation-a-une-valeur-particuliere">Initialisation à une valeur particulière<a class="headerlink" href="#initialisation-a-une-valeur-particuliere" title="Lien permanent">¤</a></h2>
-<p>Cette écriture n'est pas normalisée <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, mais est généralement compatible avec la majorité des compilateurs.</p>
+<p>Cette écriture n'est pas normalisée <strong>C99</strong>, mais est généralement compatible avec la majorité des compilateurs.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="mi">1023</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="p">};</span>
 </span></code></pre></div>
-<p>En <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionnelle reste la boucle itérative :</p>
+<p>En <strong>C99</strong>, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionnelle reste la boucle itérative :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
 </span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="w">    </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 </span></code></pre></div>
@@ -6386,7 +6388,7 @@ les outils associés.
 </dl>
 <p><a href="" id="vla"></a></p>
 <h2 id="tableau-de-longueur-variable-vla">Tableau de longueur variable (VLA)<a class="headerlink" href="#tableau-de-longueur-variable-vla" title="Lien permanent">¤</a></h2>
-<p>Un <a href="https://en.wikipedia.org/wiki/Variable-length_array">VLA</a> (<em>Variable Length Array</em>) est un tableau dont la taille est déterminée à l'exécution du programme. Cette fonctionnalité est disponible depuis le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>.</p>
+<p>Un <a href="https://en.wikipedia.org/wiki/Variable-length_array">VLA</a> (<em>Variable Length Array</em>) est un tableau dont la taille est déterminée à l'exécution du programme. Cette fonctionnalité est disponible depuis le standard <strong>C99</strong>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-44-2"><a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
 </span><span id="__span-44-3"><a href="#__codelineno-44-3" id="__codelineno-44-3" name="__codelineno-44-3"></a><span class="w">    </span><span class="p">...</span>

@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6256,7 +6258,7 @@ les outils associés.
 
 <h1 id="fichiers">Fichiers<a class="headerlink" href="#fichiers" title="Lien permanent">¤</a></h1>
 <h2 id="systeme-de-fichiers">Système de fichiers<a class="headerlink" href="#systeme-de-fichiers" title="Lien permanent">¤</a></h2>
-<p>Dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr> tout est fichier. <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span> est un fichier, une souris USB est un fichier, un clavier est un fichier, un terminal est un fichier, un programme est un fichier.</p>
+<p>Dans un environnement <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> tout est fichier. <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span> est un fichier, une souris USB est un fichier, un clavier est un fichier, un terminal est un fichier, un programme est un fichier.</p>
 <p>Les fichiers sont organisés dans une arborescence gérée par un <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_fichiers">système de fichiers</a>. Sous Windows l'arborescence classique est :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>C :
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>├── Program Files         Programmes installés
@@ -6270,7 +6272,7 @@ les outils associés.
 </span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>    ├── System32          Système d'exploitation 64-bits (oui, oui)
 </span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    └── Temp              Fichiers temporaires
 </span></code></pre></div>
-<p>Il y a une arborescence par disque physique <code>C:</code>, <code>D:</code>, une arborescence par chemin réseau <code>\\eistore2</code>, etc. Sous <abbr title="Portable Operating System Interface">POSIX</abbr>, la stratégie est différente, car il n'existe qu'un seul système de fichier dont la racine est <code>/</code>.</p>
+<p>Il y a une arborescence par disque physique <code>C:</code>, <code>D:</code>, une arborescence par chemin réseau <code>\\eistore2</code>, etc. Sous <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, la stratégie est différente, car il n'existe qu'un seul système de fichier dont la racine est <code>/</code>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>/
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>├── bin                   Programmes exécutables cruciaux
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>├── dev                   Périphériques (clavier, souris ...)
@@ -6297,14 +6299,14 @@ les outils associés.
 </dl>
 <p>La localisation d'un fichier au sein d'un système de fichier peut être soit <strong>absolue</strong> soit <strong>relative</strong>. Cette localisation s'appelle un <strong>chemin</strong> ou <em>path</em>. La convention est d'utiliser le symbole :</p>
 <ul>
-<li>Slash <code>/</code> sous <abbr title="Portable Operating System Interface">POSIX</abbr></li>
+<li>Slash <code>/</code> sous <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a></li>
 <li>Antislash <code>\</code> sous Windows</li>
 </ul>
 <p>Le chemin <code>/usr/bin/.././bin/../../home/john/documents</code> est correct, mais il n'est pas <a href="https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)">canonique</a>, on dit qu'il n'est pas résolu. La forme canonique est <code>/home/john/documents</code>.</p>
 <p>Un chemin peut être relatif s'il ne commence <strong>pas</strong> par un <code>/</code>: <code>../bin</code>. Sous Windows du même acabit, mais la racine différemment selon le type de média <code>C:\</code>, <code>\\network</code>...</p>
 <p>Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier, donc le chemin peut être soit relatif, soit absolu.</p>
 <h3 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Lien permanent">¤</a></h3>
-<p>Sous Windows (PowerShell) ou un système <strong><abbr title="Portable Operating System Interface">POSIX</abbr></strong> (Bash/Sh/Zsh), la navigation dans une arborescence peut être effectuée en ligne de commande à l'aide des commandes (programmes) suivants :</p>
+<p>Sous Windows (PowerShell) ou un système <strong><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a></strong> (Bash/Sh/Zsh), la navigation dans une arborescence peut être effectuée en ligne de commande à l'aide des commandes (programmes) suivants :</p>
 <dl>
 <dt><code>ls</code></dt>
 <dd>
@@ -6316,7 +6318,7 @@ les outils associés.
 </dd>
 </dl>
 <h2 id="format-dun-fichier">Format d'un fichier<a class="headerlink" href="#format-dun-fichier" title="Lien permanent">¤</a></h2>
-<p>Un fichier peut avoir un contenu arbitraire ; une suite de zéro et d’un binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un <a href="https://fr.wikipedia.org/wiki/Fichier_texte">fichier texte</a>. C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un <a href="https://fr.wikipedia.org/wiki/Fichier_binaire">fichier binaire</a>.</p>
+<p>Un fichier peut avoir un contenu arbitraire ; une suite de zéro et d’un binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un <a href="https://fr.wikipedia.org/wiki/Fichier_texte">fichier texte</a>. C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un <a href="https://fr.wikipedia.org/wiki/Fichier_binaire">fichier binaire</a>.</p>
 <p>La frontière est parfois assez mince, car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
@@ -6338,9 +6340,9 @@ les outils associés.
 </span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>0740  b0 00 00 00 18 fe ff ff  58 00 00 00 22 ff ff ff | ........X..."... |
 </span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>0750  c8 00 00 00 58 ff ff ff  e8 00 00 00 c8 ff ff ff | ....X........... |
 </span></code></pre></div>
-<p>Sous un système <abbr title="Portable Operating System Interface">POSIX</abbr>, il n'existe aucune distinction formelle entre un fichier binaire et un fichier texte. En revanche sous Windows, il existe une subtile différence concernant surtout le caractère de fin de ligne. La commande <code>copy a.txt + b.txt c.txt</code> considère des fichiers textes et ajoutera automatiquement une fin de ligne entre chaque partie concaténée, mais celle-ci <code>copy /b a.bin + b.bin c.bin</code> ne le fera pas.</p>
+<p>Sous un système <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, il n'existe aucune distinction formelle entre un fichier binaire et un fichier texte. En revanche sous Windows, il existe une subtile différence concernant surtout le caractère de fin de ligne. La commande <code>copy a.txt + b.txt c.txt</code> considère des fichiers textes et ajoutera automatiquement une fin de ligne entre chaque partie concaténée, mais celle-ci <code>copy /b a.bin + b.bin c.bin</code> ne le fera pas.</p>
 <h2 id="ouverture-dun-fichier">Ouverture d'un fichier<a class="headerlink" href="#ouverture-dun-fichier" title="Lien permanent">¤</a></h2>
-<p>Sous <abbr title="Portable Operating System Interface">POSIX</abbr>, un programme doit demander au système d'exploitation l'accès à un fichier soit en lecture, soit en écriture soit les deux. Le système d'exploitation retourne un descripteur de fichier qui est simplement un entier unique pour le programme.</p>
+<p>Sous <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, un programme doit demander au système d'exploitation l'accès à un fichier soit en lecture, soit en écriture soit les deux. Le système d'exploitation retourne un descripteur de fichier qui est simplement un entier unique pour le programme.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/stat.h&gt;</span>
@@ -6367,8 +6369,8 @@ les outils associés.
 <li><code>2</code> pour <span class="ycr-hashtag" data-index-entry="STDERR" data-tag="STDERR"><code>STDERR</code></span></li>
 <li><code>3</code> pour le fichier <span class="ycr-hashtag" data-index-entry="toto" data-tag="toto"><code>toto</code></span> ouvert en lecture seule</li>
 </ul>
-<p>La fonction <span class="ycr-hashtag" data-index-entry="open" data-tag="open"><code>open</code></span> est en réalité un appel système qui n'est standardisé que sous <abbr title="Portable Operating System Interface">POSIX</abbr>, c'est-à-dire que son utilisation n'est pas portable. L'exemple cité est principalement évoqué pour mieux comprendre le mécanisme de fond pour l'accès aux fichiers.</p>
-<p>En réalité la bibliothèque standard, respectueuse de <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, dispose d'une fonction <span class="ycr-hashtag" data-index-entry="fopen" data-tag="fopen"><code>fopen</code></span> pour <em>file open</em> qui offre plus de fonctionnalités. Ouvrir un fichier se résume donc à</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="open" data-tag="open"><code>open</code></span> est en réalité un appel système qui n'est standardisé que sous <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, c'est-à-dire que son utilisation n'est pas portable. L'exemple cité est principalement évoqué pour mieux comprendre le mécanisme de fond pour l'accès aux fichiers.</p>
+<p>En réalité la bibliothèque standard, respectueuse de C99, dispose d'une fonction <span class="ycr-hashtag" data-index-entry="fopen" data-tag="fopen"><code>fopen</code></span> pour <em>file open</em> qui offre plus de fonctionnalités. Ouvrir un fichier se résume donc à</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
@@ -6409,11 +6411,11 @@ les outils associés.
 <p>Ouverture du fichier pour lecture et écriture. Le fichier est créé s'il n'existe pas déjà et le pointeur du fichier est positionné à la fin.</p>
 </dd>
 </dl>
-<p>Sous Windows et pour soucis de compatibilité, selon la norme <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, le flag <code>b</code> pour <em>binary</em> existe. Pour ouvrir un fichier en mode binaire, on peut alors écrire <code>rb+</code>.</p>
+<p>Sous Windows et pour soucis de compatibilité, selon la norme C99, le flag <code>b</code> pour <em>binary</em> existe. Pour ouvrir un fichier en mode binaire, on peut alors écrire <code>rb+</code>.</p>
 <p>L'ouverture d'un fichier cause, selon le mode, un accès exclusif au fichier. C'est-à-dire que d'autres programmes ne pourront pas accéder à ce fichier. Il est donc essentiel de toujours refermer l'accès à un fichier dès lors que l'opération de lecture ou d'écriture est terminée :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">flose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
 </span></code></pre></div>
-<p>On peut noter que sous <abbr title="Portable Operating System Interface">POSIX</abbr>, écrire sur <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> ou <span class="ycr-hashtag" data-index-entry="stderr" data-tag="stderr"><code>stderr</code></span> est exactement la même chose qu'écrire sur un fichier, il n'y a aucune distinction.</p>
+<p>On peut noter que sous <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, écrire sur <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> ou <span class="ycr-hashtag" data-index-entry="stderr" data-tag="stderr"><code>stderr</code></span> est exactement la même chose qu'écrire sur un fichier, il n'y a aucune distinction.</p>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Numéro de ligne<span class="exercise-title"></span></p>
 <p>Écrire un programme qui saisit le nom d'un fichier texte, ainsi qu'un texte à rechercher. Le programme affiche ensuite le numéro de toutes les lignes du fichier contenant le texte recherché.</p>
@@ -6535,7 +6537,7 @@ les outils associés.
 </span></code></pre></div>
 <p>La fonction est similaire à <span class="ycr-hashtag" data-index-entry="fread" data-tag="fread"><code>fread</code></span> mais pour écrire sur un flux des données brutes.</p>
 <h2 id="buffer-de-fichier">Buffer de fichier<a class="headerlink" href="#buffer-de-fichier" title="Lien permanent">¤</a></h2>
-<p>Pour améliorer les performances, <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> prévoit (§7.19.3-3), un espace tampon pour les descripteurs de fichiers qui peuvent être :</p>
+<p>Pour améliorer les performances, C99 prévoit (§7.19.3-3), un espace tampon pour les descripteurs de fichiers qui peuvent être :</p>
 <ol>
 <li><span class="ycr-hashtag" data-index-entry="unbuffered" data-tag="unbuffered"><code>unbuffered</code></span> (<span class="ycr-hashtag" data-index-entry="_IONBF" data-tag="_IONBF"><code>_IONBF</code></span>) : Pas de buffer, les caractères lus ou écrits sont acheminés le plus vite possible de la source à la destination.</li>
 <li><code>fully buffered</code> (<span class="ycr-hashtag" data-index-entry="_IOFBF" data-tag="_IOFBF"><code>_IOFBF</code></span>) : Le buffer est rempli à chaque lecture ou écriture, puis vidé.</li>
@@ -6588,7 +6590,7 @@ les outils associés.
 </span></code></pre></div>
 <p>La fonction <span class="ycr-hashtag" data-index-entry="fflush" data-tag="fflush"><code>fflush</code></span> force l'écriture malgré l'utilisation d'un buffer.</p>
 <h2 id="fichiers-et-flux">Fichiers et Flux<a class="headerlink" href="#fichiers-et-flux" title="Lien permanent">¤</a></h2>
-<p>Historiquement les descripteurs de fichiers sont appelés <span class="ycr-hashtag" data-index-entry="FILE" data-tag="FILE"><code>FILE</code></span> alors qu'ils sont préférablement appelés <span class="ycr-hashtag" data-index-entry="streams" data-tag="streams"><code>streams</code></span> en C++. Un fichier au même titre que <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span>, <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> et <span class="ycr-hashtag" data-index-entry="stderr" data-tag="stderr"><code>stderr</code></span> sont des flux de données. La norme <abbr title="Portable Operating System Interface">POSIX</abbr>, décrit que par défaut les flux :</p>
+<p>Historiquement les descripteurs de fichiers sont appelés <span class="ycr-hashtag" data-index-entry="FILE" data-tag="FILE"><code>FILE</code></span> alors qu'ils sont préférablement appelés <span class="ycr-hashtag" data-index-entry="streams" data-tag="streams"><code>streams</code></span> en C++. Un fichier au même titre que <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span>, <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> et <span class="ycr-hashtag" data-index-entry="stderr" data-tag="stderr"><code>stderr</code></span> sont des flux de données. La norme <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, décrit que par défaut les flux :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Flux de données standards</caption><thead>
 <tr>
@@ -6745,7 +6747,7 @@ les outils associés.
 <ul>
 <li>Écriture tabulée</li>
 <li>Écriture avec remplissage</li>
-<li>Utiliser un langage de sérialisation de haut niveau comme JSON, YAML ou XML</li>
+<li>Utiliser un langage de sérialisation de haut niveau comme JSON, <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/YAML">YAML</a> ou <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Extensible_Markup_Language">XML</a></li>
 </ul>
 <h3 id="format-tabule">Format tabulé<a class="headerlink" href="#format-tabule" title="Lien permanent">¤</a></h3>
 <p>Un fichier dit tabulé, utilise une <a href="https://fr.wikipedia.org/wiki/Valeur_sentinelle">sentinelle</a>, souvent le caractère de tabulation <code>\t</code> pour séparer les données. Chaque ligne du tableau est physiquement séparée de la suivante avec un <code>\n</code>:</p>

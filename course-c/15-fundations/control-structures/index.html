@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6416,7 +6418,7 @@ les outils associés.
 </span></code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Limites de profondeur</p>
-<p>Le standard <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> §5.2.4.1 impose qu'un compilateur C doit supporter au moins 127 niveaux d'imbrication de blocs, ce qui est emplement suffisant. Cette valeur n'a pas été introduite par hasard, 127 est la valeur maximale d'un entier signé sur 8 bits (<span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span>) et les ordinateurs ne savent pas manipuler efficacement des types de données plus petits.</p>
+<p>Le standard C99 §5.2.4.1 impose qu'un compilateur C doit supporter au moins 127 niveaux d'imbrication de blocs, ce qui est emplement suffisant. Cette valeur n'a pas été introduite par hasard, 127 est la valeur maximale d'un entier signé sur 8 bits (<span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span>) et les ordinateurs ne savent pas manipuler efficacement des types de données plus petits.</p>
 <p>Ceci étant, le nombre d'imbrication de structures conditionnelles est limité à 63, ce qui est déjà beaucoup trop. Si vous avez besoin de plus de 63 niveaux d'imbrication, il est temps de revoir votre conception !</p>
 <p>Notons néanmoins que les compilateurs modernes ne limitent pas le nombre d'imbrication de blocs et de structures conditionnelles.</p>
 </div>
@@ -6548,8 +6550,8 @@ les outils associés.
 </span><span id="__span-13-10"><a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition info">
-<p class="admonition-title">Allman, Stroustrup ou <abbr title="Kernighan and Ritchie">K&amp;R</abbr> ?</p>
-<p>Il existe plusieurs conventions de style pour écrire les blocs de code. Les plus connues sont les styles Allman, Stroustrup et <abbr title="Kernighan and Ritchie">K&amp;R</abbr>. Le style Allman place les accolades sur des lignes séparées, le style Stroustrup les place sur la même ligne que l'instruction de contrôle, et le style <abbr title="Kernighan and Ritchie">K&amp;R</abbr> les place sur la même ligne que l'instruction de contrôle mais avec un décalage.</p>
+<p class="admonition-title">Allman, Stroustrup ou <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/The_C_Programming_Language">K&amp;R</a> ?</p>
+<p>Il existe plusieurs conventions de style pour écrire les blocs de code. Les plus connues sont les styles Allman, Stroustrup et <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/The_C_Programming_Language">K&amp;R</a>. Le style Allman place les accolades sur des lignes séparées, le style Stroustrup les place sur la même ligne que l'instruction de contrôle, et le style <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/The_C_Programming_Language">K&amp;R</a> les place sur la même ligne que l'instruction de contrôle mais avec un décalage.</p>
 <p>Chacun de ces styles a ses partisans et ses détracteurs, et il est important de choisir un style cohérent pour un projet donné.</p>
 <p>Le style de codage est prisé par les managers qui ne savent pas programmer, ils ont appris à repérer les incohérences de style et pense qu'il s'agit d'un indicateur de qualité du code. C'est un peu comme si un chef cuisinier jugeait la qualité d'un plat à la couleur de l'assiette. Peu importe la couleur de l'assiette, ce qui compte c'est le goût du plat. Néanmoins un restaurant qui n'aurait pas de cohérence dans la couleur de ses assiettes pourrait être perçu comme négligé.</p>
 </div>
@@ -7013,7 +7015,7 @@ les outils associés.
 </span><span id="__span-51-5"><a href="#__codelineno-51-5" id="__codelineno-51-5" name="__codelineno-51-5"></a><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Notions que l'expression <code>while (1)</code> que l'on rencontre fréquemment dans des exemples n'est pas syntaxiquement exacte. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire <code>1</code> devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire <code>while (1 == 1)</code> ou simplement <code>while (true)</code>. D'ailleurs pourquoi utiliser <code>1</code> et non pas <code>42</code> ? Moi j'aime bien <code>while (42)</code>, c'est plus fun...</p>
-<p>Certains développeurs préfèrent l'écriture <code>for (;;)</code> qui ne fait pas intervenir de conditions extérieures ou de valeurs bulgares, car, avant <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> définir la valeur <span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span> était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :</p>
+<p>Certains développeurs préfèrent l'écriture <code>for (;;)</code> qui ne fait pas intervenir de conditions extérieures ou de valeurs bulgares, car, avant <strong>C99</strong> définir la valeur <span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span> était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-52-1"><a href="#__codelineno-52-1" id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="kt">_Bool</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-52-2"><a href="#__codelineno-52-2" id="__codelineno-52-2" name="__codelineno-52-2"></a>
 </span><span id="__span-52-3"><a href="#__codelineno-52-3" id="__codelineno-52-3" name="__codelineno-52-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>

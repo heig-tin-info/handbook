@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6332,8 +6334,8 @@ les outils associés.
 <p>Historiquement il y a donc bien une distinction entre ces deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens. Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de soulignement (<span class="ycr-hashtag" data-index-entry="tiret bas" data-tag="tiret-bas">tiret bas</span>, ou <em>underscore</em>) <code>_</code> pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère <code>-</code> pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin, pour ajouter un accent circonflexe, il fallait utiliser la touche <code>^</code> pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.</p>
 <p>Ces subtilités de la machine à écrire ont été partiellement reprises dans le format <a class="autorefs autorefs-internal" href="../datatype/#unicode">Unicode</a>. Aussi pour écrire un accent aigu, il y a aujourd'hui plusieurs façons de le faire.</p>
 <ol>
-<li>Utiliser le caractère <code>e</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//0065" target="_blank">0065</a> suivi du caractère <code>´</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//0301" target="_blank">0301</a> aussi appelé <em>combining acute accent</em> pour obtenir <code>é</code>. <span class="ycr-hashtag" data-index-entry="klzzwxh:0404" data-tag=""></span></li>
-<li>Utiliser le caractère <code>é</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//00E9" target="_blank">00E9</a> directement. <span class="ycr-hashtag" data-index-entry="klzzwxh:0409" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="klzzwxh:0410" data-tag=""></span></li>
+<li>Utiliser le caractère <code>e</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//0065" target="_blank">0065</a> suivi du caractère <code>´</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//0301" target="_blank">0301</a> aussi appelé <em>combining acute accent</em> pour obtenir <code>é</code>. <span class="ycr-hashtag" data-index-entry="klzzwxh:0402" data-tag=""></span></li>
+<li>Utiliser le caractère <code>é</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//00E9" target="_blank">00E9</a> directement. <span class="ycr-hashtag" data-index-entry="klzzwxh:0407" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="klzzwxh:0408" data-tag=""></span></li>
 </ol>
 <p>Ces héritages historiques font qu'il est difficile aujourd'hui de traiter sans bogue les textes multilingues. Les cas particuliers sont nombreux et bien souvent, les informaticiens utilisent des bibliothèques logicielles pour gérer ces cas particuliers.</p>
 <p>Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la commission responsable de standardiser C a intégré au standard les <strong>trigraphes</strong> et plus tard les <strong>digraphes</strong> qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi <code>&lt;:</code> est le digraphe de <code>[</code> et <code>??&lt;</code> est le trigraphe de <code>{</code>. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables. Par ailleurs, le standard C et C++ songent à les retirer.</p>
@@ -6362,10 +6364,10 @@ les outils associés.
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">main</span><span class="p">(</span><span class="n">i</span><span class="p">){</span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">160</span><span class="p">;</span><span class="n">i</span><span class="o">--</span><span class="p">;</span><span class="n">putchar</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">32</span><span class="o">?</span><span class="s">"œ™cæRJ""</span><span class="se">\\</span><span class="s">J•äRJ""œ]dä"</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">8</span><span class="p">]</span><span class="o">&amp;</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">%</span><span class="mi">8</span><span class="o">?</span><span class="mi">42</span><span class="o">:</span><span class="mi">32</span><span class="o">:</span><span class="mi">10</span><span class="p">));}</span>
 </span></code></pre></div>
 </details>
-<h2 id="fin-de-lignes-eol">Fin de lignes (EOL)<a class="headerlink" href="#fin-de-lignes-eol" title="Lien permanent">¤</a></h2>
+<h2 id="fin-de-lignes-eol">Fin de lignes (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Fin_de_ligne">EOL</a>)<a class="headerlink" href="#fin-de-lignes-eol" title="Lien permanent">¤</a></h2>
 <p><span class="ycr-hashtag" data-index-entry="EOL, fin de ligne" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="CR, retour chariot" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="LF, nouvelle ligne" data-tag=""></span></p>
-<p>À l'instar des premières machines à écrire, les <a href="https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur">téléscripteurs</a> possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme <a href="https://fr.wikipedia.org/wiki/Retour_chariot">retour chariot</a> est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC <a href="https://fr.wikipedia.org/wiki/Compatible_PC">IBM compatibles</a> ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères : un retour chariot (<code>CR</code>) et une nouvelle ligne (<code>LF</code>) ou en C <code>\r\n</code>. Les premiers <a href="https://fr.wikipedia.org/wiki/Macintosh">Macintosh</a> d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère <code>\r</code>. Enfin, les ordinateurs <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr> ont eu le même raisonnement, mais ils ont choisi de ne garder que <code>\n</code>.</p>
-<p>Heureusement, depuis qu'Apple a migré son système sur une base <a href="https://en.wikipedia.org/wiki/Berkeley_Software_Distribution"><abbr title="Berkeley Software Distribution">BSD</abbr></a> (<abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>) en 2001, les systèmes d'exploitation modernes ont adopté le standard <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr> et il n'y a plus de problème de compatibilité entre les systèmes. En sommes, il existe aujourd'hui deux types de fin de ligne :</p>
+<p>À l'instar des premières machines à écrire, les <a href="https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur">téléscripteurs</a> possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme <a href="https://fr.wikipedia.org/wiki/Retour_chariot">retour chariot</a> est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC <a href="https://fr.wikipedia.org/wiki/Compatible_PC">IBM compatibles</a> ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères : un retour chariot (<code>CR</code>) et une nouvelle ligne (<code>LF</code>) ou en C <code>\r\n</code>. Les premiers <a href="https://fr.wikipedia.org/wiki/Macintosh">Macintosh</a> d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère <code>\r</code>. Enfin, les ordinateurs <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Unix">UNIX</a> ont eu le même raisonnement, mais ils ont choisi de ne garder que <code>\n</code>.</p>
+<p>Heureusement, depuis qu'Apple a migré son système sur une base <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD</a> (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Unix">UNIX</a>) en 2001, les systèmes d'exploitation modernes ont adopté le standard <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Unix">UNIX</a> et il n'y a plus de problème de compatibilité entre les systèmes. En sommes, il existe aujourd'hui deux types de fin de ligne :</p>
 <ul>
 <li><code>LF</code> ou <code>\n</code> sur tous les ordinateurs de la planète à l'exception de Windows,</li>
 <li><span class="ycr-hashtag" data-index-entry="CRLF" data-tag="CRLF"><code>CRLF</code></span> ou <code>\r\n</code> sur les ordinateurs Windows.</li>
@@ -6407,8 +6409,8 @@ les outils associés.
 <ol>
 <li>Un identificateur ne peut pas être l'un des mots clés du langage.</li>
 <li>Les identificateurs sont sensibles à la <a href="https://fr.wikipedia.org/wiki/Casse_(typographie)">casse</a> (majuscule/minuscule).</li>
-<li>Le standard <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, se réserve l'usage de tous les identificateurs débutant par <code>_</code> suivi d'une lettre majuscule ou un autre <em>underscore</em> <code>_</code>.</li>
-<li>Le standard <a href="https://fr.wikipedia.org/wiki/POSIX"><abbr title="Portable Operating System Interface">POSIX</abbr></a>, se réserve l'usage de tous les identificateurs finissant par <code>_t</code>.</li>
+<li>Le standard C99, se réserve l'usage de tous les identificateurs débutant par <code>_</code> suivi d'une lettre majuscule ou un autre <em>underscore</em> <code>_</code>.</li>
+<li>Le standard <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, se réserve l'usage de tous les identificateurs finissant par <code>_t</code>.</li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Expression régulière</p>
@@ -6452,7 +6454,7 @@ les outils associés.
 <li><span class="ycr-hashtag" data-index-entry="_alarme_" data-tag="_alarme_"><code>_alarme_</code></span> <strong>valide</strong></li>
 <li><code>panne#2</code> <strong>invalide</strong>, le caractère <code>#</code> n'est pas autorisé</li>
 <li><span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> <strong>invalide</strong>, <span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span> est un mot réservé du langage</li>
-<li><span class="ycr-hashtag" data-index-entry="défaillance" data-tag="défaillance"><code>défaillance</code></span> <strong>invalide</strong>, uniquement les caractères imprimable ASCII sont autorisés</li>
+<li><span class="ycr-hashtag" data-index-entry="défaillance" data-tag="défaillance"><code>défaillance</code></span> <strong>invalide</strong>, uniquement les caractères imprimable <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> sont autorisés</li>
 <li><code>f'</code> <strong>invalide</strong> l'apostrophe n'est pas autorisée</li>
 <li><span class="ycr-hashtag" data-index-entry="INT" data-tag="INT"><code>INT</code></span> <strong>valide</strong></li>
 </ol>
@@ -6749,10 +6751,10 @@ de l'exécution du <span class="ycr-hashtag" data-index-entry="main" data-tag="m
 </span><span id="__span-14-10"><a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="mf">2e3</span><span class="w">    </span><span class="c1">// Grandeur réelle exprimée en notation scientifique</span>
 </span></code></pre></div>
 <p>Nous l'avons vu plus haut, le <strong>type</strong> d'une variable est important pour déterminer comment une valeur est stockée en mémoire.</p>
-<p>Comme vu dans le chapitre sur la <a class="autorefs autorefs-internal" href="../../10-numeration/#numeration">numération</a>, les valeurs numériques peuvent être stockées en mémoire de différentes manières. Ainsi, une valeur <code>48</code> peut être stockée sur un octet, un mot de 16 bits, un mot de 32 bits ou un mot de 64 bits. De plus, la valeur peut faire référence au caractère <code>0</code> en ASCII, mais aussi au nombre <code>72</code> s'il est exprimé en hexadécimal.</p>
+<p>Comme vu dans le chapitre sur la <a class="autorefs autorefs-internal" href="../../10-numeration/#numeration">numération</a>, les valeurs numériques peuvent être stockées en mémoire de différentes manières. Ainsi, une valeur <code>48</code> peut être stockée sur un octet, un mot de 16 bits, un mot de 32 bits ou un mot de 64 bits. De plus, la valeur peut faire référence au caractère <code>0</code> en <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a>, mais aussi au nombre <code>72</code> s'il est exprimé en hexadécimal.</p>
 <p>On utilisera un préfixe devant un nombre <code>0x</code> pour indiquer qu'il est en hexadécimal, <code>0b</code> pour indiquer qu'il est en binaire et <code>0</code> pour indiquer qu'il est en octal. Sans préfixe il s'agit d'un nombre décimal (base 10). <span class="ycr-hashtag" data-index-entry="0x" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="0b" data-tag=""></span></p>
 <p>On utilisera un suffixe <code>u</code> pour indiquer que le nombre est non signé (n'admettant pas de valeurs négatives) et <code>l</code> pour indiquer qu'il est long ou <code>ll</code> pour indiquer qu'il est très long.</p>
-<p>Quant aux guillemets simples <code>'</code>, ils sont utilisés pour délimiter un caractère de la table ASCII.</p>
+<p>Quant aux guillemets simples <code>'</code>, ils sont utilisés pour délimiter un caractère de la table <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a>.</p>
 <details class="info">
 <summary>Expressions régulières</summary>
 <p>Il est plus facile pour un informaticien de comprendre la syntaxe des constantes littérales en utilisant des expressions régulières. Voici les expressions régulières qui définissent les différentes constantes littérales :</p>
@@ -6875,7 +6877,7 @@ de l'exécution du <span class="ycr-hashtag" data-index-entry="main" data-tag="m
 <li><code>+</code> priorité 4 associativité à droite</li>
 <li><code>=</code> priorité 14 associativité à gauche</li>
 </ul>
-<p>En revanche rien n'est dit sur les <code>point de séquences &lt;https://en.wikipedia.org/wiki/Sequence_point&gt;</code>__. L'opérateur d'affectation n'est pas un point de séquence, autrement dit le standard <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> (Annexe C) ne définit pas l'ordre dans lequel les assignations sont effectuées.</p>
+<p>En revanche rien n'est dit sur les <code>point de séquences &lt;https://en.wikipedia.org/wiki/Sequence_point&gt;</code>__. L'opérateur d'affectation n'est pas un point de séquence, autrement dit le standard C99 (Annexe C) ne définit pas l'ordre dans lequel les assignations sont effectuées.</p>
 <p>Ainsi, seul le premier point possède une solution, les deux autres sont indéterminés</p>
 <ol>
 <li>
@@ -6921,7 +6923,7 @@ de l'exécution du <span class="ycr-hashtag" data-index-entry="main" data-tag="m
 <h2 id="commentaires">Commentaires<a class="headerlink" href="#commentaires" title="Lien permanent">¤</a></h2>
 <p>Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des <strong>commentaires</strong>. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source. Par ailleurs, comme nous l'avons vu en <a class="autorefs autorefs-internal" href="../../05-introduction/c-lang/#preprocesseur-pre-processing">introduction</a>, le préprocesseur C supprime les commentaires du code source avant la compilation. <span class="ycr-hashtag" data-index-entry="commentaire" data-tag=""></span></p>
 <p><figure id="_figure-6"><img alt="Les carafes dans la Vivonne" class="drawio-diagram" src="../../../assets/images/vivonne.drawio"/><figcaption> Les carafes dans la Vivonne</figcaption></figure></p>
-<p>Il existe deux manières d'écrire un commentaire en C, les commentaires de lignes apparus avec le C++ et <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, ainsi que les commentaires de blocs. Les commentaires de blocs sont plus anciens et sont compatibles avec les versions antérieures du langage.</p>
+<p>Il existe deux manières d'écrire un commentaire en C, les commentaires de lignes apparus avec le C++ et C99, ainsi que les commentaires de blocs. Les commentaires de blocs sont plus anciens et sont compatibles avec les versions antérieures du langage.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Commentaire de ligne</label><label for="__tabbed_1_2">Commentaire de bloc</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6957,7 +6959,7 @@ de l'exécution du <span class="ycr-hashtag" data-index-entry="main" data-tag="m
 <p>Lorsque vous développez, vous avez souvent besoin de désactiver des portions de code pour des raisons de débogage ou de test. Il est tentant de commenter ces portions de code plutôt que de les supprimer. Néanmoins une règle à retenir est que l'on ne commente <strong>jamais</strong> des portions de code, et ce pour plusieurs raisons :</p>
 <ol>
 <li>Les outils de <em>refactoring</em> ne pourront pas accéder du code commenté.</li>
-<li>La syntaxe ne pourra plus être vérifiée par l'IDE.</li>
+<li>La syntaxe ne pourra plus être vérifiée par l'<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement">IDE</a>.</li>
 <li>Les outils de gestion de configuration (e.g. Git) devraient être utilisés à cette fin.</li>
 </ol>
 <p>Si d'aventure vous souhaitez quand même exclure temporairement du code de la compilation, il est recommandé d'utiliser la directive de préprocesseur suivante, et n'oubliez pas d'expliquer pourquoi vous avez souhaité
@@ -7079,7 +7081,7 @@ désactiver cette portion de code.</p>
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">9 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">27 septembre 2024</span>
   </span>
 
     

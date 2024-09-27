@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6524,10 +6526,10 @@ les outils associés.
 </span></code></pre></div>
 </div>
 <h2 id="phases-de-traduction">Phases de traduction<a class="headerlink" href="#phases-de-traduction" title="Lien permanent">¤</a></h2>
-<p>Le standard <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> §5.1.1.2 alinéa 1 définit 8 phases de traductions dont les 4 premières concernent le préprocesseur :</p>
+<p>Le standard C99 §5.1.1.2 alinéa 1 définit 8 phases de traductions dont les 4 premières concernent le préprocesseur :</p>
 <ol>
 <li>
-<p>Remplacement des multicaractères : les caractères Unicode et autres caractères spéciaux sont remplacés par des caractères ASCII. Les trigraphes sont également interprétés.</p>
+<p>Remplacement des multicaractères : les caractères Unicode et autres caractères spéciaux sont remplacés par des caractères <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a>. Les trigraphes sont également interprétés.</p>
 </li>
 <li>
 <p>Remplacement des <em>backslash</em> de fin de ligne. Lorsqu'un <em>backslash</em> est suivi d'un saut de ligne, le saut de ligne est supprimé. Cela permet d'écrire des lignes longues sur plusieurs lignes.</p>
@@ -6549,7 +6551,7 @@ les outils associés.
 </span></code></pre></div>
 <p>Notons que dans le standard C23, les trigraphes ont été supprimés c'est pourquoi l'exemple ci-dessus ne fonctionne que si le flag <code>-std=c99</code> est utilisé.</p>
 <h2 id="extensions-des-fichiers">Extensions des fichiers<a class="headerlink" href="#extensions-des-fichiers" title="Lien permanent">¤</a></h2>
-<p>Pour s'y retrouver, une convention existe sur les extensions des fichiers. Rappelons que selon <abbr title="Portable Operating System Interface">POSIX</abbr> un fichier n'a pas nécessairement d'extension, c'est une convention libre à l'utilisateur néanmoins GCC utilise les extensions pour déterminer le type de fichier. Selon le standard <abbr title="GNU's Not Unix">GNU</abbr>, les extensions suivantes sont en vigueur :</p>
+<p>Pour s'y retrouver, une convention existe sur les extensions des fichiers. Rappelons que selon <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> un fichier n'a pas nécessairement d'extension, c'est une convention libre à l'utilisateur néanmoins GCC utilise les extensions pour déterminer le type de fichier. Selon le standard <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GNU">GNU</a>, les extensions suivantes sont en vigueur :</p>
 <dl>
 <dt><code>.h</code></dt>
 <dd>
@@ -6882,7 +6884,7 @@ les outils associés.
 </span></code></pre></div>
 <p><a href="" id="preprocessor-va-args"></a></p>
 <h3 id="varadiques">Varadiques<a class="headerlink" href="#varadiques" title="Lien permanent">¤</a></h3>
-<p>Les macros varadiques permettent de définir des macros qui prennent un nombre variable d'arguments. Par exemple, pour définir une macro qui affiche un message avec un nombre variable d'arguments. Il s'agit d'une extension du standard <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>. Pour cela on utilise l'opérateur <code>...</code> suivi de <span class="ycr-hashtag" data-index-entry="__VA_ARGS__" data-tag="__VA_ARGS__"><code>__VA_ARGS__</code></span> qui représente les arguments passés à la macro.</p>
+<p>Les macros varadiques permettent de définir des macros qui prennent un nombre variable d'arguments. Par exemple, pour définir une macro qui affiche un message avec un nombre variable d'arguments. Il s'agit d'une extension du standard C99. Pour cela on utilise l'opérateur <code>...</code> suivi de <span class="ycr-hashtag" data-index-entry="__VA_ARGS__" data-tag="__VA_ARGS__"><code>__VA_ARGS__</code></span> qui représente les arguments passés à la macro.</p>
 <p>C'est utilisé par exemple pour créer des fonctions de débogage :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cp">#define DEBUG_LOG(level, fmt, ...) \</span>
 </span><span id="__span-28-2"><a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="cp">    printf("[%s] " fmt "\n", level, __VA_ARGS__)</span>

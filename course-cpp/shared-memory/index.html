@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../css/tables.css">
     
+      <link rel="stylesheet" href="../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../exercise.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -5899,7 +5901,7 @@ les outils associés.
 <li>les sockets</li>
 </ul>
 <p>Vous avez déjà vu les flux au chapitre précédent, et les sockets ne font pas partie de ce cours d'introduction.</p>
-<p>Notons que la mémoire partagée est un mécanisme propre à chaque système d'exploitation. Sous <abbr title="Portable Operating System Interface">POSIX</abbr> elle est normalisée et donc un programme compatible <abbr title="Portable Operating System Interface">POSIX</abbr> et utilisant la mémoire partagée pourra fonctionner sous Linux, WSL ou macOS, mais pas sous Windows.</p>
+<p>Notons que la mémoire partagée est un mécanisme propre à chaque système d'exploitation. Sous <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> elle est normalisée et donc un programme compatible <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> et utilisant la mémoire partagée pourra fonctionner sous Linux, WSL ou macOS, mais pas sous Windows.</p>
 <p>C'est principalement l'appel système <span class="ycr-hashtag" data-index-entry="mmap" data-tag="mmap"><code>mmap</code></span> qui est utilisé. Il permet de mapper ou démapper des fichiers ou des périphériques dans la mémoire.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">mmap</span><span class="p">(</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">addr</span><span class="p">,</span>
@@ -5939,7 +5941,7 @@ les outils associés.
 </span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">fread</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">filesize</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span>
 </span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Cette copie n'est pas nécessairement nécessaire. Une approche <strong><abbr title="Portable Operating System Interface">POSIX</abbr></strong>, qui n'est donc pas couverte par le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> consiste à lier le fichier dans un espace mémoire partagé.</p>
+<p>Cette copie n'est pas nécessairement nécessaire. Une approche <strong><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a></strong>, qui n'est donc pas couverte par le standard <strong>C99</strong> consiste à lier le fichier dans un espace mémoire partagé.</p>
 <p>Ceci nécessite l'utilisation de fonctions bas niveau.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>

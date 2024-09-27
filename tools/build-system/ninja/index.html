@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6001,7 +6003,7 @@ les outils associés.
 <p><strong>Graphes de dépendance</strong> : Ninja crée un graphe des dépendances pour déterminer quelles parties du projet doivent être reconstruites en fonction des changements dans les fichiers source.</p>
 </li>
 <li>
-<p><strong>Compilation incrémentale rapide</strong> : Ninja détecte les fichiers modifiés et ne recompile que ce qui est nécessaire. Il optimise également le <strong>parallélisme</strong> en construisant plusieurs fichiers simultanément, en fonction des cœurs CPU disponibles.</p>
+<p><strong>Compilation incrémentale rapide</strong> : Ninja détecte les fichiers modifiés et ne recompile que ce qui est nécessaire. Il optimise également le <strong>parallélisme</strong> en construisant plusieurs fichiers simultanément, en fonction des cœurs <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> disponibles.</p>
 </li>
 <li>
 <p><strong>Pas de fonctionnalités inutiles</strong> : Ninja se concentre uniquement sur le build. Il n’inclut pas de fonctionnalités additionnelles comme l'installation, le nettoyage (clean), etc., qui sont souvent présentes dans d'autres systèmes comme Make. Il délègue ces tâches à des outils externes.</p>

@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6094,7 +6096,7 @@ les outils associés.
 <div class="admonition note">
 <p class="admonition-title">Frustrations</p>
 <p>Les développeurs de meson ont fait quelques choix que vous pourriez trouver frustrants. Par exemple, les fichiers de configuration sont écrits en Python, mais ils ne sont pas des scripts Python valides. Cela signifie que vous ne pouvez pas utiliser de variables, de boucles ou de conditions Python dans les fichiers de configuration.</p>
-<p>Les paramètres de configuration sont des chaînes de caractères dont aucune aide possible n'est fournie par l'IDE. Cela peut rendre la configuration plus difficile pour les nouveaux utilisateurs.</p>
+<p>Les paramètres de configuration sont des chaînes de caractères dont aucune aide possible n'est fournie par l'<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement">IDE</a>. Cela peut rendre la configuration plus difficile pour les nouveaux utilisateurs.</p>
 <p>La liste des fichiers source doit être écrite manuellement, ce qui peut être fastidieux pour les projets de grande taille. Il n'y a pas de moyen d'utiliser des expressions régulières ou un <em>glob</em> (comme <code>*.c</code>) pour inclure automatiquement tous les fichiers source. C'est un choix délibéré pour éviter les problèmes de répétabilité, mais cela peut être un inconvénient pour certains projets.</p>
 </div>
 <p>Ce fichier fait plusieurs choses : il définit le nom du projet (<span class="ycr-hashtag" data-index-entry="my_program" data-tag="my_program"><code>my_program</code></span>) et le langage utilisé (<code>C</code>), ainsi que quelques options par défaut, il spécifie que l'exécutable <span class="ycr-hashtag" data-index-entry="my_program" data-tag="my_program"><code>my_program</code></span> sera construit à partir des fichiers <span class="ycr-hashtag" data-index-entry="main.c" data-tag="main.c"><code>main.c</code></span> et <span class="ycr-hashtag" data-index-entry="server.c" data-tag="server.c"><code>server.c</code></span> enfin, il spécifie que le programme dépend de la bibliothèque <strong>libuv</strong>, en utilisant <code>dependency('libuv')</code> pour lier automatiquement cette bibliothèque au projet.</p>
@@ -6115,7 +6117,7 @@ les outils associés.
 </span></code></pre></div>
 </li>
 <li>
-<p>Le fichier <span class="ycr-hashtag" data-index-entry="server.c" data-tag="server.c"><code>server.c</code></span> implémente la logique du serveur, en utilisant <strong>libuv</strong> pour créer un serveur TCP.</p>
+<p>Le fichier <span class="ycr-hashtag" data-index-entry="server.c" data-tag="server.c"><code>server.c</code></span> implémente la logique du serveur, en utilisant <strong>libuv</strong> pour créer un serveur <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;uv.h&gt;</span><span class="c1"> // Requires -std=gnu11</span>
@@ -6187,7 +6189,7 @@ les outils associés.
 <p>Une fois compilé, le programme peut être exécuté :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>./builddir/super-rocket
 </span></code></pre></div>
-<p>Cela démarre le serveur, et il écoutera les connexions TCP sur le port 7000.</p>
+<p>Cela démarre le serveur, et il écoutera les connexions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> sur le port 7000.</p>
 <div class="admonition tip">
 <p class="admonition-title">Extension vscode</p>
 <p>Une extension <strong>Meson</strong> existe pour Visual Studio Code, qui fournit une coloration syntaxique pour les fichiers <span class="ycr-hashtag" data-index-entry="meson.build" data-tag="meson.build"><code>meson.build</code></span> et des fonctionnalités de complétion automatique pour les options Meson.</p>

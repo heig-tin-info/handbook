@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6209,7 +6211,7 @@ les outils associés.
 </span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">                          </span><span class="o">(</span>default<span class="w"> </span>is<span class="w"> </span>NO<span class="o">)</span>
 </span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>...
 </span></code></pre></div>
-<p>On peut voir par exemple que Git est compilé par défaut sans <span class="ycr-hashtag" data-index-entry="libpcre" data-tag="libpcre"><code>libpcre</code></span>. Cette bibliothèque permet le support avancé des expressions régulières Perl. Souvent les connaisseurs de Perl préfère cette senteur aux expressions régulières <abbr title="Portable Operating System Interface">POSIX</abbr>. Pour pouvoir l'utiliser il faut donc activer cette option, et nécessairement disposer de la bibliothèque <span class="ycr-hashtag" data-index-entry="libpcre2" data-tag="libpcre2"><code>libpcre2</code></span> sur le système.</p>
+<p>On peut voir par exemple que Git est compilé par défaut sans <span class="ycr-hashtag" data-index-entry="libpcre" data-tag="libpcre"><code>libpcre</code></span>. Cette bibliothèque permet le support avancé des expressions régulières Perl. Souvent les connaisseurs de Perl préfère cette senteur aux expressions régulières <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>. Pour pouvoir l'utiliser il faut donc activer cette option, et nécessairement disposer de la bibliothèque <span class="ycr-hashtag" data-index-entry="libpcre2" data-tag="libpcre2"><code>libpcre2</code></span> sur le système.</p>
 <p>On commence donc par installer cette bibliothèque :
 </p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libpcre2-dev
 </span></code></pre></div>
@@ -6424,7 +6426,7 @@ les outils associés.
 <p>Nous avons un problème. La dépendance <span class="ycr-hashtag" data-index-entry="atk" data-tag="atk"><code>atk</code></span> n'est pas trouvée. Un rapide coup d'oeil à la documentation nous indique que <span class="ycr-hashtag" data-index-entry="atk" data-tag="atk"><code>atk</code></span> est une bibliothèque graphique et la version 2.4.0 est nécessaire. Or la version que l'on trouve sous Debian est <code>libatk1.0-dev</code> qui est la 2.30.0. Comme seule la version mineure est différente il ne devrait pas y avoir de problème de compatibilité. Nous allons donc installer la version 2.30.0 et voir si cela fonctionne.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>apt<span class="w"> </span>install<span class="w"> </span>libatk1.0-dev
 </span></code></pre></div>
-<p>Notons que la bibliothèque se nomme <code>libatk1.0-dev</code> le <code>1.0</code> est la version de l'API mais cela ne signifie pas que la version de la bibliothèque est 1.0. En fait tant que l'API est compatible, la version installée peut être plus récente. On peut noter toutefois que normalement si une version majeur change, cela signifie une rupture de compatibilité dans l'API. Ici on voit que les développeurs ont décidé de ne pas rompre la compatibilité.</p>
+<p>Notons que la bibliothèque se nomme <code>libatk1.0-dev</code> le <code>1.0</code> est la version de l'<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Interface_de_programmation">API</a> mais cela ne signifie pas que la version de la bibliothèque est 1.0. En fait tant que l'<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Interface_de_programmation">API</a> est compatible, la version installée peut être plus récente. On peut noter toutefois que normalement si une version majeur change, cela signifie une rupture de compatibilité dans l'<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Interface_de_programmation">API</a>. Ici on voit que les développeurs ont décidé de ne pas rompre la compatibilité.</p>
 <p>Rebolote, on relance la configuration de Gimp :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>meson<span class="w"> </span>setup<span class="w"> </span>--prefix<span class="w"> </span><span class="nv">$GIMP_PREFIX</span><span class="w"> </span><span class="s1">'python-fu-eval'</span><span class="w"> </span>is<span class="w"> </span>n_build
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>Run-time<span class="w"> </span>dependency<span class="w"> </span>exiv2<span class="w"> </span>found:<span class="w"> </span>NO<span class="w"> </span><span class="o">(</span>tried<span class="w"> </span>pkgconfig<span class="w"> </span>and<span class="w"> </span>cmake<span class="o">)</span>
@@ -6467,7 +6469,7 @@ les outils associés.
 <p>En dehors de ces quelques problèmes, il y a certaines dépendances qui dépendent de la distribution Linux/Unix que vous avez, les noms de bibliothèques ne sont pas nécessairement les mêmes, ou les version génèrent des conflits.</p>
 <p>Dans cet exemple, nous avons été contraint de compiler GEGL et BABL depuis les sources avec des options spécifiques pour être compatible avec la dernière version de Gimp sous Git</p>
 <p>Ce que nous avons vu ici c'est que les dépendances dans un projet logiciel peuvent être nombreuses.</p>
-<p>Vous pouvez vous demander pourquoi utiliser autant de bibliothèques externes ? La réponse est simple : pour ne pas réinventer la roue. Les bibliothèques externes sont souvent des projets open-source très bien maintenus et testés. Elles permettent de gagner du temps et de l'argent en réutilisant du code existant. Par exemple dans le cas de Gimp, la bibliothèque <code>aa</code> est utilisée pour convertir des images en ASCII art. La bibliothèque <code>iso-codes</code> permet de connaître les noms des pays dans différentes langues. La bibliothèque <span class="ycr-hashtag" data-index-entry="heif" data-tag="heif"><code>heif</code></span> permet le support des images en format natif des iPhones récents. On peut citer <span class="ycr-hashtag" data-index-entry="lcms2" data-tag="lcms2"><code>lcms2</code></span> pour la gestion des couleurs via le standard ICC, ou la bibliothèque <span class="ycr-hashtag" data-index-entry="mypaint" data-tag="mypaint"><code>mypaint</code></span> pour la gestion des pinceaux et des calques de peinture.</p>
+<p>Vous pouvez vous demander pourquoi utiliser autant de bibliothèques externes ? La réponse est simple : pour ne pas réinventer la roue. Les bibliothèques externes sont souvent des projets open-source très bien maintenus et testés. Elles permettent de gagner du temps et de l'argent en réutilisant du code existant. Par exemple dans le cas de Gimp, la bibliothèque <code>aa</code> est utilisée pour convertir des images en <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> art. La bibliothèque <code>iso-codes</code> permet de connaître les noms des pays dans différentes langues. La bibliothèque <span class="ycr-hashtag" data-index-entry="heif" data-tag="heif"><code>heif</code></span> permet le support des images en format natif des iPhones récents. On peut citer <span class="ycr-hashtag" data-index-entry="lcms2" data-tag="lcms2"><code>lcms2</code></span> pour la gestion des couleurs via le standard ICC, ou la bibliothèque <span class="ycr-hashtag" data-index-entry="mypaint" data-tag="mypaint"><code>mypaint</code></span> pour la gestion des pinceaux et des calques de peinture.</p>
 
 
 
@@ -6520,29 +6522,6 @@ les outils associés.
   </span>
 
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributeurs">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
-          
-          <img src="https://avatars.githubusercontent.com/u/52489316?v=4&size=72" alt="yves-chevallier">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 

@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -5959,7 +5961,7 @@ les outils associés.
 <p>Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> est une de ces fonctionnalités et offerte par le header <code>&lt;stdio.h&gt;</code> faisant partie de la bibliothèque <span class="ycr-hashtag" data-index-entry="libc6" data-tag="libc6"><code>libc6</code></span>.</p>
 <p>L'anglicisme <em>library</em>, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme <code>&lt;stdlib.h&gt;</code> étant la concaténation de <em>standard library</em> par exemple. Notez que librairie n'est pas la traduction correcte de <em>library</em> qui est un <a href="https://fr.wikipedia.org/wiki/Faux-ami">faux ami</a>.</p>
 <p>Une <em>library</em>, à l'instar d'une bibliothèque, contient du contenu (livre écrit dans une langue donnée) et un index (registre). En informatique il s'agit d'un fichier binaire compilé pour une architecture donnée ainsi qu'un ou plusieurs fichiers d'en-tête (<em>header</em>) contenant les définitions de cette bibliothèque.</p>
-<p>Dans ce chapitre on donnera plusieurs exemples sur un environnement <abbr title="Portable Operating System Interface">POSIX</abbr>. Sous Windows, les procédures choses sont plus compliquées, mais les concepts restent les mêmes.</p>
+<p>Dans ce chapitre on donnera plusieurs exemples sur un environnement <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>. Sous Windows, les procédures choses sont plus compliquées, mais les concepts restent les mêmes.</p>
 <h2 id="exemple-libgmp">Exemple : libgmp<a class="headerlink" href="#exemple-libgmp" title="Lien permanent">¤</a></h2>
 <p>Voyons ensemble le cas de <a href="https://packages.ubuntu.com/jammy/libgmp-dev">libgmp</a>. Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que <span class="ycr-hashtag" data-index-entry="libgmp" data-tag="libgmp"><code>libgmp</code></span> est disponible pour différentes architectures <span class="ycr-hashtag" data-index-entry="amd64" data-tag="amd64"><code>amd64</code></span>, <span class="ycr-hashtag" data-index-entry="arm64" data-tag="arm64"><code>arm64</code></span>, <span class="ycr-hashtag" data-index-entry="s390x" data-tag="s390x"><code>s390x</code></span>, <span class="ycr-hashtag" data-index-entry="i386" data-tag="i386"><code>i386</code></span>, ... Un développement sur un Raspberry-PI nécessitera <span class="ycr-hashtag" data-index-entry="arm64" data-tag="arm64"><code>arm64</code></span> alors qu'un développement sur un PC utilisera <span class="ycr-hashtag" data-index-entry="amd64" data-tag="amd64"><code>amd64</code></span>. En <a href="https://packages.ubuntu.com/jammy/amd64/libgmp-dev/filelist">cliquant</a> sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C):</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a># Fichier d'en-tête C
@@ -6110,7 +6112,7 @@ les outils associés.
 <h2 id="bibliotheques-statiques">Bibliothèques statiques<a class="headerlink" href="#bibliotheques-statiques" title="Lien permanent">¤</a></h2>
 <p>Une <em>static library</em> est un fichier binaire compilé pour une architecture donnée et portant les extensions :</p>
 <ul>
-<li><code>.a</code> sur un système <abbr title="Portable Operating System Interface">POSIX</abbr> (Android, Mac OS, Linux, Unix)</li>
+<li><code>.a</code> sur un système <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> (Android, Mac <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation">OS</a>, Linux, Unix)</li>
 <li><code>.lib</code> sous Windows</li>
 </ul>
 <p>Une bibliothèque statique n'est rien d'autre qu'une archive d’un ou plusieurs objets. Rappelons-le un objet est le résultat d'une compilation.</p>
@@ -6168,10 +6170,10 @@ les outils associés.
 <h2 id="bibliotheques-dynamiques">Bibliothèques dynamiques<a class="headerlink" href="#bibliotheques-dynamiques" title="Lien permanent">¤</a></h2>
 <p>Une <em>dynamic library</em> est un fichier binaire compilé pour une architecture donnée et portant les extensions :</p>
 <ul>
-<li><code>.so</code> sur un système <abbr title="Portable Operating System Interface">POSIX</abbr> (Android, Mac OS, Linux, Unix)</li>
+<li><code>.so</code> sur un système <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> (Android, Mac <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation">OS</a>, Linux, Unix)</li>
 <li><code>.dll</code> sous Windows</li>
 </ul>
-<p>L'avantage principal est de ne pas charger pour rien chaque exécutable compilé de fonctionnalités qui pourraient très bien être partagées. L'inconvénient est que l'utilisateur du programme doit impérativement avoir installé la bibliothèque. Dans un environnement <abbr title="Portable Operating System Interface">POSIX</abbr> les bibliothèques dynamiques disposent d'un emplacement spécifique ou elles sont toute stockées. Malheureusement sous Windows le consensus est plus partagé et il n'est pas rare de voir plusieurs applications différentes héberger une copie des <em>dll</em> localement si bien que l'avantage de la bibliothèque dynamique est anéanti par un défaut de cohérence.</p>
+<p>L'avantage principal est de ne pas charger pour rien chaque exécutable compilé de fonctionnalités qui pourraient très bien être partagées. L'inconvénient est que l'utilisateur du programme doit impérativement avoir installé la bibliothèque. Dans un environnement <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> les bibliothèques dynamiques disposent d'un emplacement spécifique ou elles sont toute stockées. Malheureusement sous Windows le consensus est plus partagé et il n'est pas rare de voir plusieurs applications différentes héberger une copie des <em>dll</em> localement si bien que l'avantage de la bibliothèque dynamique est anéanti par un défaut de cohérence.</p>
 <p>Reprenant l'exemple de César vu plus haut, on peut créer une bibliothèque dynamique :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="gp">$ </span>gcc<span class="w"> </span>-shared<span class="w"> </span>-o<span class="w"> </span>libcaesar.so<span class="w"> </span>caesar.o
 </span></code></pre></div>

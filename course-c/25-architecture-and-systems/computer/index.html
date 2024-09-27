@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -1757,6 +1759,45 @@ les outils associés.
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-processeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le processeur
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le processeur">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protection-ring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protection ring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bref-historique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bref historique
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5885,6 +5926,45 @@ les outils associés.
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#le-processeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le processeur
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le processeur">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protection-ring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protection ring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bref-historique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bref historique
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5992,7 +6072,7 @@ les outils associés.
 <p>Un ordinateur personnel (PC pour <em>Personal Computer</em>) est un appareil électronique de petite taille destiné à un usage individuel. Il se distingue des ordinateurs centraux (ou <em>mainframes</em>) et des serveurs, qui sont destinés à un usage professionnel ou collectif.</p>
 <p>Néanmoins, quelle que soit la taille de l'ordinateur, les composants de base sont les mêmes. Un ordinateur est composé de plusieurs éléments principaux :</p>
 <ul>
-<li>Un <strong>processeur</strong> (ou <em>CPU</em> pour <em>Central Processing Unit</em>) qui exécute les instructions des programmes.</li>
+<li>Un <strong>processeur</strong> (ou <em><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a></em> pour <em>Central Processing Unit</em>) qui exécute les instructions des programmes.</li>
 <li>De la <strong>mémoire</strong> (ou <em>RAM</em> pour <em>Random Access Memory</em>) qui stocke les données et les instructions des programmes en cours d'exécution.</li>
 <li>Un <strong>disque dur</strong> (ou <em>HDD</em> pour <em>Hard Disk Drive</em>) qui stocke les données de manière permanente.</li>
 <li>Une <strong>carte graphique</strong> qui affiche les images à l'écran.</li>
@@ -6094,6 +6174,53 @@ les outils associés.
 <p>Le <strong>chipset</strong> est relié au processeur par un bus de données appelé <strong>FSB</strong> (<em>Front Side Bus</em>). Ce bus transporte les données entre le processeur et le chipset. La configuration du chipset est stockée dans une mémoire flash appelée <strong>BIOS</strong> (<em>Basic Input/Output System</em>). Le BIOS est un logiciel qui permet de configurer les paramètres de la carte mère.</p>
 <p>À l'époque le BIOS offrait un accès très minimaliste à l'utilisateur. On pouvait le configurer avec un clavier et un écran qui n'affichait que des caractères.</p>
 <p>De nos jours, le BIOS a été remplacé par l'<strong>UEFI</strong> (<em>Unified Extensible Firmware Interface</em>). L'UEFI est un logiciel plus évolué qui permet de configurer la carte mère avec une interface graphique. Il est possible de configurer la carte mère avec une souris et un écran tactile.</p>
+<h2 id="le-processeur">Le processeur<a class="headerlink" href="#le-processeur" title="Lien permanent">¤</a></h2>
+<p>Le processeur est le cerveau de l'ordinateur. C'est lui qui exécute les instructions des programmes. La figure suivante montre un processeur Intel i7-12700K dans son format LGA 1700. C'est à dire qu'il comporte 1700 broches pour se connecter à la carte mère.</p>
+<p><figure id="_figure-9"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/cpu-i7.png"><img alt="Processeur Intel i7" src="../../../assets/images/cpu-i7.png"/></a><figcaption> Processeur Intel i7</figcaption></figure></p>
+<p>Sur les 1700 broches on distingue plusieurs types de broches :</p>
+<ul>
+<li>Les broches d'alimentation qui représentent 40..60% des broches. Elles sont nécessaires pour alimenter le processeur avec une tension de 1.2V.</li>
+<li>Le contrôleur mémoire (DDR4/DDR5) qui permet de connecter la mémoire vive au processeur. Cela représente environ 5..15% des broches.</li>
+<li>Les interfaces PCIe qui permettent de connecter des cartes d'extension comme des cartes graphiques, des cartes réseau, des cartes son, etc. Ce processeur supporte jusqu'à 20 lignes différentielles soit 40 broches.</li>
+<li>L'accès DMI, c'est l'interface entre lwe processeur et le chipset. Un DMI 4.0 x8 signifie qu'il y a 8 lignes (Rx/Tx), soit envron 16 broches.</li>
+<li>L'USB, quelques dizaines de broches.</li>
+<li>Le contrôleur graphique intégré (iGPU) qui comporte des ports HDMI/DisplayPort pour connecter un écran directement au processeur.</li>
+<li>Les interconnexions spécifiques (I2C, SPI, etc.)</li>
+</ul>
+<p>Si on consulte le SDM (<em>Software Developer Manual</em>) d'Intel, un document de 5000 pages, on peut trouver des informations très intéressntes. Par exemple le chapitre sur les types numériques montre les différents type d'entiers ( <span class="ycr-hashtag" data-index-entry="byte" data-tag="byte"><code>byte</code></span>, <span class="ycr-hashtag" data-index-entry="word" data-tag="word"><code>word</code></span>, <span class="ycr-hashtag" data-index-entry="dword" data-tag="dword"><code>dword</code></span>, <span class="ycr-hashtag" data-index-entry="qword" data-tag="qword"><code>qword</code></span>), de flottants (<span class="ycr-hashtag" data-index-entry="half" data-tag="half"><code>half</code></span>, <span class="ycr-hashtag" data-index-entry="single" data-tag="single"><code>single</code></span>, <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span>, <span class="ycr-hashtag" data-index-entry="extended" data-tag="extended"><code>extended</code></span>) et de vecteurs (<span class="ycr-hashtag" data-index-entry="xmm" data-tag="xmm"><code>xmm</code></span>, <span class="ycr-hashtag" data-index-entry="ymm" data-tag="ymm"><code>ymm</code></span>, <span class="ycr-hashtag" data-index-entry="zmm" data-tag="zmm"><code>zmm</code></span>, <span class="ycr-hashtag" data-index-entry="kmm" data-tag="kmm"><code>kmm</code></span>). Il est expliqué que le processeur fonctionne avec le complément à 2 pour les entiers et le IEEE 754 pour les flottants, qu'il est en <em>little-endian</em> et que les registres sont de 64 bits. Le langage C au final est très proche de l'assembleur du processeur.</p>
+<h3 id="protection-ring">Protection ring<a class="headerlink" href="#protection-ring" title="Lien permanent">¤</a></h3>
+<p>Les <em>protection rings</em> (ou anneaux de protection) sont un mécanisme de sécurité utilisé dans l'architecture des processeurs, principalement dans les systèmes d'exploitation modernes, pour contrôler l'accès aux ressources du système par différents types de code (comme les applications ou les composants du système d'exploitation).</p>
+<p>L'idée des anneaux de protection repose sur la séparation des niveaux de privilège ou de contrôle en plusieurs couches. Chaque couche, ou ring (anneau), est un niveau de privilège qui détermine ce qu’un programme ou une instruction peut faire. Dans l'architecture x86 d'Intel, il y a généralement quatre anneaux (de 0 à 3), bien que les systèmes d'exploitation modernes n’utilisent souvent que deux de ces niveaux (Ring 0 et Ring 3).</p>
+<p><figure id="_figure-10"><img alt="Anneaux de protection" class="drawio-diagram" src="../../../assets/images/protection-rings.drawio"/><figcaption> Anneaux de protection</figcaption></figure></p>
+<p>Le ring 0 correspond au noyau (kernel) du système d'exploitation, qui a accès à toutes les ressources matérielles de l'ordinateur. Il peut exécuter n'importe quelle instruction, accéder à la mémoire directement, et gérer le matériel sans restriction. On parle souvent de mode superviseur ou mode noyau pour désigner les opérations effectuées dans cet anneau. C’est le niveau le plus privilégié.</p>
+<p>Les niveaux intermédiaires 1 et 2 peuvent être utilisés par certains systèmes pour les pilotes ou des services du système qui ont besoin d'un accès contrôlé aux ressources, mais ne nécessitent pas le même niveau de privilège que le noyau. Toutefois, la plupart des systèmes d'exploitation modernes ne les utilisent pas directement.</p>
+<p>Enfin, le niveau 3 est réservé aux applications utilisateur. Il s’agit du mode utilisateur (user mode), dans lequel les programmes n’ont pas un accès direct au matériel ou à la mémoire, et doivent passer par des appels système pour demander des services au noyau. En cas de violation des règles (comme essayer d’accéder directement au matériel), une exception ou une erreur est générée, et le programme est bloqué.</p>
+<h3 id="bref-historique">Bref historique<a class="headerlink" href="#bref-historique" title="Lien permanent">¤</a></h3>
+<h4 id="1978-processeurs-16-bits">1978 : Processeurs 16 bits<a class="headerlink" href="#1978-processeurs-16-bits" title="Lien permanent">¤</a></h4>
+<p>L'introduction des processeurs 8086 et 8088 a marqué le début de l'architecture IA-32 avec des registres 16 bits et une adresse mémoire maximale de 1 Mo. La segmentation permettait d'adresser jusqu'à 256 Ko sans changement de segment, ouvrant la voie à une gestion plus efficace de la mémoire.</p>
+<h4 id="1982-intel-286">1982 : Intel 286<a class="headerlink" href="#1982-intel-286" title="Lien permanent">¤</a></h4>
+<p>Le processeur Intel 286 a introduit le mode protégé, permettant une meilleure gestion de la mémoire avec un adressage sur 24 bits et la possibilité de gérer jusqu'à 16 Mo de mémoire physique. Le mode protégé apportait également des mécanismes de protection tels que la vérification des limites des segments et plusieurs niveaux de privilèges.</p>
+<h4 id="1985-intel-386">1985 : Intel 386<a class="headerlink" href="#1985-intel-386" title="Lien permanent">¤</a></h4>
+<p>Première architecture véritablement 32 bits, l'Intel 386 a introduit des registres 32 bits et un bus d'adressage permettant de gérer jusqu'à 4 Go de mémoire physique. Il proposait aussi un mode de mémoire virtuelle et un modèle mémoire à pages de 4 Ko, facilitant la gestion efficace de la mémoire.</p>
+<h4 id="1989-intel-486">1989 : Intel 486<a class="headerlink" href="#1989-intel-486" title="Lien permanent">¤</a></h4>
+<p>Le processeur Intel 486 a ajouté des capacités de traitement parallèle avec cinq étapes de pipeline d’exécution, permettant l’exécution simultanée d'instructions. Il a également introduit un cache de 8 Ko sur la puce et un coprocesseur mathématique intégré (FPU).</p>
+<h4 id="1993-intel-pentium">1993 : Intel Pentium<a class="headerlink" href="#1993-intel-pentium" title="Lien permanent">¤</a></h4>
+<p>L'Intel Pentium a marqué une nouvelle avancée avec l'ajout de deux pipelines d'exécution, permettant l'exécution de deux instructions par cycle d'horloge. Il a également intégré un système de prédiction de branchement et augmenté le bus de données externe à 64 bits. Plus tard, la technologie MMX a été introduite, optimisant le traitement parallèle de données pour les applications multimédia.</p>
+<h4 id="1995-famille-p6">1995 : Famille P6<a class="headerlink" href="#1995-famille-p6" title="Lien permanent">¤</a></h4>
+<p>La famille P6 a apporté une nouvelle microarchitecture superscalaire avec un processus de fabrication de 0,6 micron, améliorant considérablement les performances tout en maintenant la compatibilité avec les technologies existantes.</p>
+<h4 id="2000-intel-pentium-4">2000 : Intel Pentium 4<a class="headerlink" href="#2000-intel-pentium-4" title="Lien permanent">¤</a></h4>
+<p>Basé sur l'architecture NetBurst, le Pentium 4 a introduit les extensions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Streaming (SSE2), puis SSE3, pour accélérer les calculs multimédias. Le support du 64 bits avec l'Intel 64 architecture a également fait son apparition, ainsi que la technologie Hyper-Threading pour exécuter plusieurs threads simultanément.</p>
+<h4 id="2001-intel-xeon">2001 : Intel Xeon<a class="headerlink" href="#2001-intel-xeon" title="Lien permanent">¤</a></h4>
+<p>La gamme Xeon, basée également sur l'architecture NetBurst, a été conçue pour les serveurs multiprocesseurs et les stations de travail. Elle a introduit le multithreading (Hyper-Threading) et, plus tard, des processeurs multi-cœurs pour augmenter les performances dans les environnements professionnels.</p>
+<h4 id="2008-intel-core-i7">2008 : Intel Core i7<a class="headerlink" href="#2008-intel-core-i7" title="Lien permanent">¤</a></h4>
+<p>La microarchitecture Nehalem, utilisée dans la première génération d'Intel Core i7, a marqué l'avènement du 45 nm, avec des fonctionnalités comme le Turbo Boost, l’Hyper-Threading, un contrôleur mémoire intégré, et un cache Smart Cache de 8 Mo. Le lien QuickPath Interconnect (QPI) a remplacé l’ancien bus pour des échanges plus rapides avec le chipset.</p>
+<h4 id="2011-intel-core-sandy-bridge">2011 : Intel Core Sandy Bridge<a class="headerlink" href="#2011-intel-core-sandy-bridge" title="Lien permanent">¤</a></h4>
+<p>Cette génération, construite en 32 nm, a apporté des améliorations en termes de performance et d'efficacité énergétique, avec des innovations comme l'intégration des graphismes dans le processeur et l'Intel Quick Sync Video. La gamme incluait les processeurs Core i3, i5, et i7.</p>
+<h4 id="2012-intel-core-ivy-bridge">2012 : Intel Core Ivy Bridge<a class="headerlink" href="#2012-intel-core-ivy-bridge" title="Lien permanent">¤</a></h4>
+<p>L'Ivy Bridge a introduit une finesse de gravure de 22 nm, permettant une meilleure gestion de la consommation énergétique tout en améliorant les performances graphiques et générales du processeur. Cette génération a également marqué l'arrivée de processeurs Xeon plus puissants pour les serveurs.</p>
+<h4 id="2013-intel-core-haswell">2013 : Intel Core Haswell<a class="headerlink" href="#2013-intel-core-haswell" title="Lien permanent">¤</a></h4>
+<p>La quatrième génération, basée sur l’architecture Haswell, a continué d'améliorer les performances et l'efficacité énergétique, tout en proposant des améliorations comme l’intégration de la gestion de l’alimentation et des performances graphiques améliorées pour répondre aux besoins des utilisateurs modernes.</p>
+<p>Ce résumé souligne les progrès constants en termes de puissance de traitement, de gestion mémoire, de parallélisme, et d’efficacité énergétique des processeurs Intel au fil des générations.</p>
 
 
 
@@ -6116,7 +6243,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">3 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">27 septembre 2024</span>
   </span>
 
     

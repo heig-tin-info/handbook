@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6146,7 +6148,7 @@ les outils associés.
 
 <p><a href="" id="functions"></a></p>
 <h1 id="fonctions">Fonctions<a class="headerlink" href="#fonctions" title="Lien permanent">¤</a></h1>
-<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/hamilton.png"><img alt="Margaret Hamilton (1969)" src="../../../assets/images/hamilton.png" width="70%"/></a><figcaption> Margaret Hamilton, directrice projet AGC (1969), photo du <abbr title="Massachusetts Institute of Technology">MIT</abbr> Museum</figcaption></figure></p>
+<p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/hamilton.png"><img alt="Margaret Hamilton (1969)" src="../../../assets/images/hamilton.png" width="70%"/></a><figcaption> Margaret Hamilton, directrice projet AGC (1969), photo du <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Massachusetts_Institute_of_Technology">MIT</a> Museum</figcaption></figure></p>
 <p>Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.</p>
 <p>À l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du <a href="https://github.com/chrislgarry/Apollo-11">Apollo Guidance Computer</a> ont été publiées sur GitHub. Le langage est l'assembler <a href="https://www.ibiblio.org/apollo/yaYUL.html">yaYUL</a> dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.</p>
 <p>Néanmoins, dans ce langage assembleur étrange, le code reste <strong>monolithique</strong> et toutes les variables sont globales.</p>
@@ -6259,7 +6261,7 @@ les outils associés.
 </span></code></pre></div>
 <p>Un <strong>prototype</strong> de fonction diffère de son <strong>implémentation</strong> par le fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les conventions d'appel <a href="" id="calling_conventions"></a> de la fonction.</p>
 <h2 id="syntaxe">Syntaxe<a class="headerlink" href="#syntaxe" title="Lien permanent">¤</a></h2>
-<p>La syntaxe d'écriture d'une fonction peut être assez compliquée et la source de vérité est issue de la grammaire du langage, qui n'est pas nécessairement accessible au profane. Or, depuis <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>, une fonction prend la forme :</p>
+<p>La syntaxe d'écriture d'une fonction peut être assez compliquée et la source de vérité est issue de la grammaire du langage, qui n'est pas nécessairement accessible au profane. Or, depuis <strong>C99</strong>, une fonction prend la forme :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>&lt;storage-class&gt; &lt;return-type&gt; &lt;function-name&gt; (
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>    &lt;parameter-type&gt; &lt;parameter-name&gt;, ... )
 </span></code></pre></div>
@@ -6311,7 +6313,7 @@ les outils associés.
 </span></code></pre></div>
 </li>
 </ul>
-<p>La déclaration suivante est formellement fausse, car la fonction ne possède pas un prototype complet. En effet, le nombre de paramètres n'est pas contraint et le code suivant est valide au sens de <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>.</p>
+<p>La déclaration suivante est formellement fausse, car la fonction ne possède pas un prototype complet. En effet, le nombre de paramètres n'est pas contraint et le code suivant est valide au sens de <strong>C99</strong>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">dummy</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>

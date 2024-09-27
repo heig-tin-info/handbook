@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6516,7 +6518,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <li>la précision est d'autant plus grande que le nombre de bits de la mantisse est grand ;</li>
 <li>la base ayant été fixée à 2, il est possible d'exprimer <span class="arithmatex">\(1/1024\)</span> sans erreur de précision, mais pas <span class="arithmatex">\(1/1000\)</span> ;</li>
 <li>un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent <a href="https://stackoverflow.com/a/15585448/2612235">(10 à 100x)</a> pour faire des calculs en virgule flottante ;</li>
-<li>bien que le standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> définisse les types virgule flottante <span class="ycr-hashtag" data-index-entry="float" data-tag="float"><code>float</code></span>, <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span> et <code>long double</code>, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé. <span class="ycr-hashtag" data-index-entry="double" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="long double" data-tag=""></span></li>
+<li>bien que le standard <strong>C99</strong> définisse les types virgule flottante <span class="ycr-hashtag" data-index-entry="float" data-tag="float"><code>float</code></span>, <span class="ycr-hashtag" data-index-entry="double" data-tag="double"><code>double</code></span> et <code>long double</code>, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé. <span class="ycr-hashtag" data-index-entry="double" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="long double" data-tag=""></span></li>
 </ul>
 <h3 id="simple-precision">Simple précision<a class="headerlink" href="#simple-precision" title="Lien permanent">¤</a></h3>
 <p>Le type <span class="ycr-hashtag" data-index-entry="float" data-tag="float"><code>float</code></span> aussi dit à précision simple utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :</p>
@@ -6597,7 +6599,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <p>Utiliser la quadruple précision ralenti considérablement les calculs, car les processeurs actuels ne sont pas optimisés pour travailler sur 128 bits. Un processeur peut faire des calculs sur 64 bits en une seule opération, mais pour des calculs en quadruple précision, l'effort est considérablement plus grand.</p>
 </div>
 <h2 id="nombres-complexes">Nombres complexes<a class="headerlink" href="#nombres-complexes" title="Lien permanent">¤</a></h2>
-<p>En C, il est possible de définir des nombres complexes en utilisant le type <span class="ycr-hashtag" data-index-entry="complex" data-tag="complex"><code>complex</code></span> de la bibliothèque <code>&lt;complex.h&gt;</code>. Les nombres complexes sont composés de deux parties, la partie réelle et la partie imaginaire. Ils sont souvent utilisés en mathématiques pour représenter des nombres qui ne peuvent pas être exprimés avec des nombres réels. Ils ont été introduits avec la version <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> du standard C.  <span class="ycr-hashtag" data-index-entry="nombre complexe" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="&lt;complex.h&gt;" data-tag=""></span></p>
+<p>En C, il est possible de définir des nombres complexes en utilisant le type <span class="ycr-hashtag" data-index-entry="complex" data-tag="complex"><code>complex</code></span> de la bibliothèque <code>&lt;complex.h&gt;</code>. Les nombres complexes sont composés de deux parties, la partie réelle et la partie imaginaire. Ils sont souvent utilisés en mathématiques pour représenter des nombres qui ne peuvent pas être exprimés avec des nombres réels. Ils ont été introduits avec la version C99 du standard C.  <span class="ycr-hashtag" data-index-entry="nombre complexe" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="&lt;complex.h&gt;" data-tag=""></span></p>
 <p>Néanmoins les nombres complexes ne sont pas supportés par les opérateurs du langage, il est donc nécessaire d'utiliser des fonctions spécifiques pour effectuer des opérations complexes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

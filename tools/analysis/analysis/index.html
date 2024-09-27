@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6100,9 +6102,9 @@ les outils associés.
 <li><span class="ycr-hashtag" data-index-entry="user" data-tag="user"><code>user</code></span> est le temps passé dans l'espace utilisateur, c'est le temps réel passé par le programme à exécuter des instructions.</li>
 <li><span class="ycr-hashtag" data-index-entry="system" data-tag="system"><code>system</code></span> est le temps passé dans l'espace noyau, c'est le temps passé par le programme à exécuter des appels systèmes.</li>
 <li><span class="ycr-hashtag" data-index-entry="wall" data-tag="wall"><code>wall</code></span> ou <span class="ycr-hashtag" data-index-entry="real" data-tag="real"><code>real</code></span> est le temps réel passé par le programme à s'exécuter. C'est le temps qui s'écoule entre le lancement du programme et sa fin.</li>
-<li><span class="ycr-hashtag" data-index-entry="cpu" data-tag="cpu"><code>cpu</code></span> est le pourcentage de temps CPU utilisé par le programme.</li>
+<li><span class="ycr-hashtag" data-index-entry="cpu" data-tag="cpu"><code>cpu</code></span> est le pourcentage de temps <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> utilisé par le programme.</li>
 </ul>
-<p>Un programme multi-threadé peut utiliser plus de 100% de CPU si plusieurs threads sont exécutés en parallèle. Par exemple un programme qui s'exécuterait de manière parallèle sur 5 processeurs et dont le temps mur serait de 1 secondes, aurait un temps CPU de 500% et un temps <span class="ycr-hashtag" data-index-entry="user" data-tag="user"><code>user</code></span> de 5 seconde.</p>
+<p>Un programme multi-threadé peut utiliser plus de 100% de <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> si plusieurs threads sont exécutés en parallèle. Par exemple un programme qui s'exécuterait de manière parallèle sur 5 processeurs et dont le temps mur serait de 1 secondes, aurait un temps <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> de 500% et un temps <span class="ycr-hashtag" data-index-entry="user" data-tag="user"><code>user</code></span> de 5 seconde.</p>
 <h2 id="strace">strace<a class="headerlink" href="#strace" title="Lien permanent">¤</a></h2>
 <p>Strace a été initialement écrit pour SunOS par Paul Kranenburg en 1991. Il a été porté sur Linux par Branko Lankester en 1992. Strace est un outil de diagnostique qui permet de suivre les appels systèmes et les signaux reçus par un processus. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution.</p>
 <p>Son code source est bien entendu disponible sur <a href="https://github.com/strace/strace">GitHub</a> et il est écrit en C.</p>
@@ -6115,7 +6117,7 @@ les outils associés.
 <h3 id="cas-dutilisation">Cas d'utilisation<a class="headerlink" href="#cas-dutilisation" title="Lien permanent">¤</a></h3>
 <h4 id="analyse-de-performance">Analyse de performance<a class="headerlink" href="#analyse-de-performance" title="Lien permanent">¤</a></h4>
 <p>Les performances d'un programmes peuvent être impactées par des appels systèmes trop nombreux. Lorsqu'un programme communique avec le système d'exploitation (lecture disque, réseau, etc.), il doit passer par des appels systèmes. Ces appels peuvent être coûteux en temps et en ressources car ils nécessitent un changement de contexte entre le mode utilisateur et le mode noyau. C'est à dire que le programme doit se mettre en pause pour laisser le noyau effectuer l'opération demandée. Lors de la mesure du temps d'exécution d'un programme, par exemple avec <span class="ycr-hashtag" data-index-entry="time" data-tag="time"><code>time</code></span>, on peut noter le temps <em>system</em> qui correspond au temps passé dans le noyau. Si ce temps est trop élevé, cela peut indiquer que le programme n'est pas efficace car il passe son temps à attendre des opérations d'entrée/sortie. <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span> permet dans ce cas de mesurer le nombre d'appels systèmes et de les analyser pour comprendre pourquoi le programme est lent.</p>
-<p>À titre d'exemple, prenons la sortie standard. Dans le standard <abbr title="Portable Operating System Interface">POSIX</abbr>, un programme n'est pas directement connecté à la sortie standard. La bibliothèque standard C utiliser un tampon pour stocker les données avant de les envoyer à la sortie standard. Ce tampon est automatiquement vidé selon certaines conditions notamment :</p>
+<p>À titre d'exemple, prenons la sortie standard. Dans le standard <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, un programme n'est pas directement connecté à la sortie standard. La bibliothèque standard C utiliser un tampon pour stocker les données avant de les envoyer à la sortie standard. Ce tampon est automatiquement vidé selon certaines conditions notamment :</p>
 <ul>
 <li>lorsqu'un caractère de fin de ligne est écrit,</li>
 <li>lorsque le programme se termine,</li>
@@ -6401,10 +6403,10 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
 <p><strong>Vérification des appels système incorrects</strong> : Valgrind détecte les mauvais usages des appels systèmes, comme la fermeture de descripteurs de fichiers qui ne sont pas ouverts.</p>
 </li>
 <li>
-<p><strong>Analyse des performances</strong> : Avec l'outil <strong>Callgrind</strong> (inclus dans Valgrind), il permet de <strong>profiler les programmes</strong> en comptant les instructions exécutées et en générant des informations sur l'utilisation du CPU et des fonctions, utile pour l'optimisation des performances.</p>
+<p><strong>Analyse des performances</strong> : Avec l'outil <strong>Callgrind</strong> (inclus dans Valgrind), il permet de <strong>profiler les programmes</strong> en comptant les instructions exécutées et en générant des informations sur l'utilisation du <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> et des fonctions, utile pour l'optimisation des performances.</p>
 </li>
 <li>
-<p><strong>Simulation de cache CPU</strong> : Avec <strong>Cachegrind</strong>, Valgrind peut simuler le comportement des caches CPU et montrer le nombre de cache misses (défauts de cache) pour aider à améliorer l'efficacité des programmes en matière de gestion de cache.</p>
+<p><strong>Simulation de cache <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a></strong> : Avec <strong>Cachegrind</strong>, Valgrind peut simuler le comportement des caches <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> et montrer le nombre de cache misses (défauts de cache) pour aider à améliorer l'efficacité des programmes en matière de gestion de cache.</p>
 </li>
 <li>
 <p><strong>Détection des erreurs de pile</strong> : Il vérifie l'utilisation correcte de la pile (stack), détectant les débordements et erreurs de gestion dans la pile d'appels.</p>

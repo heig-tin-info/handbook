@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6298,12 +6300,12 @@ les outils associés.
 </span></code></pre></div>
 <p>Si on insert 64 éléments on a du redimensionner le tableau 6 fois et on à du copier <span class="arithmatex">\(64 + 32 + 16 + 8 + 4 + 2 = 126\)</span> éléments en totalité. En moyenne c'est comme si chaque insertion avait coûté <span class="arithmatex">\(126 / 64 \approx 2\)</span>, soit une constante que l'on écrit <span class="arithmatex">\(O(1)\)</span>. Comme ce coût est amorti sur l'ensemble des éléments, on dit que la complexité d'insertion est de <span class="arithmatex">\(O(1)\)</span> <em>amorti</em>.</p>
 <h2 id="pile">Pile<a class="headerlink" href="#pile" title="Lien permanent">¤</a></h2>
-<p>Une pile est une structure de données utilisée pour empiler des données de manière temporaire. C'est ce que l'on appelle un LIFO (<em>Last In, First Out</em>).</p>
+<p>Une pile est une structure de données utilisée pour empiler des données de manière temporaire. C'est ce que l'on appelle un <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Last_in,_first_out">LIFO</a> (<em>Last In, First Out</em>).</p>
 <p><figure id="_figure-7"><img alt="Pile ou *stack*" class="drawio-diagram" src="../../../assets/images/dyn-array-stack.drawio"/><figcaption> Pile ou *stack*</figcaption></figure></p>
 <p>Nous avons vu que certaines opérations sont plus onéreuses que d'autres. Les opérations <code>push-back</code> et <code>pop-back</code> sont les moins gourmandes. Puisque la pile n'a que deux opérations, on peut en tirer parti.</p>
 <p>Une pile peut donc être implémentée sous forme d'un tableau dynamique dans lequel on ne conserverai que deux opérations.</p>
 <h2 id="queue">Queue<a class="headerlink" href="#queue" title="Lien permanent">¤</a></h2>
-<p>Une queue est une structure de données utilisée comme file d'attente. C'est ce que l'on nomme un FIFO (<em>First In, First Out</em>). Les éléments sont ajoutés à la fin et retirés au début. Néanmoins, afin d'éviter le déplacement constant des éléments en <span class="arithmatex">\(O(n)\)</span>, une file circulaire est souvent utilisée.</p>
+<p>Une queue est une structure de données utilisée comme file d'attente. C'est ce que l'on nomme un <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/File_(structure_de_donn%C3%A9es)">FIFO</a> (<em>First In, First Out</em>). Les éléments sont ajoutés à la fin et retirés au début. Néanmoins, afin d'éviter le déplacement constant des éléments en <span class="arithmatex">\(O(n)\)</span>, une file circulaire est souvent utilisée.</p>
 <h2 id="buffer-circulaire">Buffer circulaire<a class="headerlink" href="#buffer-circulaire" title="Lien permanent">¤</a></h2>
 <p>Un <strong>tampon circulaire</strong> aussi appelé <em>buffer circulaire</em> ou <em>ring buffer</em> en anglais est généralement d'une taille fixe et possède deux pointeurs. L'un pointant sur le dernier élément (<em>tail</em>) et l'un sur le premier élément (<em>head</em>).</p>
 <p>Lorsqu'un élément est supprimé du buffer, le pointeur de fin est incrémenté. Lorsqu'un élément est ajouté, le pointeur de début est incrémenté.</p>

@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -5904,8 +5906,8 @@ les outils associés.
 </span></code></pre></div>
 <p>La figure suivante montre comment il serait possible de hiérarchiser les éléments de ce programme. On constate une imbriquation des éléments.</p>
 <p><figure id="_figure-1"><img alt="Exemple d'arbre syntaxique (AST)" class="drawio-diagram" src="../../../assets/images/parsing.drawio"/><figcaption> Exemple d'arbre syntaxique (AST)</figcaption></figure></p>
-<p>La grammaire formelle du langage C est très complexe et comporte de nombreuses règles. Elle est définie par le standard du langage C, qui est un document officiel publié par l'<abbr title="American National Standards Institute">ANSI</abbr> (American National Standards Institute) et l'ISO (International Organization for Standardization).</p>
-<p>Une grammaire formelle est souvent écrite en utilisant une notation appelée « Backus-Naur Form » (<abbr title="Backus-Naur Form">BNF</abbr>). Cette notation est très précise et permet de décrire de manière formelle la syntaxe d'un langage de programmation. Pour le C voici un extrait de la grammaire utilisée par le compilateur :</p>
+<p>La grammaire formelle du langage C est très complexe et comporte de nombreuses règles. Elle est définie par le standard du langage C, qui est un document officiel publié par l'<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ANSI</a> (American National Standards Institute) et l'ISO (International Organization for Standardization).</p>
+<p>Une grammaire formelle est souvent écrite en utilisant une notation appelée « Backus-Naur Form » (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Forme_de_Backus-Naur">BNF</a>). Cette notation est très précise et permet de décrire de manière formelle la syntaxe d'un langage de programmation. Pour le C voici un extrait de la grammaire utilisée par le compilateur :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>&lt;translation_unit&gt; ::= {&lt;external_declaration&gt;}*
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>&lt;external_declaration&gt; ::= &lt;function_definition&gt;
@@ -5977,7 +5979,7 @@ les outils associés.
 <p>Imaginons que l'on souaite réaliser notre propre langage formel, par exemple pour analyser une expression mathématique de la forme suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="p">)</span>
 </span></code></pre></div>
-<p>On pourrait définir une grammaire formelle pour ce langage en utilisant la notation <abbr title="Backus-Naur Form">BNF</abbr> :</p>
+<p>On pourrait définir une grammaire formelle pour ce langage en utilisant la notation <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Forme_de_Backus-Naur">BNF</a> :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>&lt;expression&gt; ::= &lt;term&gt; { "+" &lt;term&gt; | "-" &lt;term&gt; }*
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>&lt;term&gt; ::= &lt;factor&gt; { "*" &lt;factor&gt; | "/" &lt;factor&gt; }*

@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../css/tables.css">
     
+      <link rel="stylesheet" href="../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../exercise.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6226,7 +6228,7 @@ les outils associés.
 <h1 id="resume">Résumé<a class="headerlink" href="#resume" title="Lien permanent">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Lien permanent">¤</a></h2>
 <p>Le langage C a créé en <strong>1972</strong> par <a href="https://fr.wikipedia.org/wiki/Brian_Kernighan">Brian Kernighan</a> et <a href="https://fr.wikipedia.org/wiki/Dennis_Ritchie">Dennis Ritchie</a> est s'est dès lors imposé comme le standard industriel pour la programmation embarquée et pour tout développement nécessitant de hautes performances.</p>
-<p>Le langage est standardisé par l'ISO (standardisation internationale) et le standard le plus couramment utilisé en 2019 est encore <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a>.</p>
+<p>Le langage est standardisé par l'ISO (standardisation internationale) et le standard le plus couramment utilisé en 2019 est encore <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99</a>.</p>
 <p>Il faut retenir que le C est un langage dit :</p>
 <ul>
 <li><a href="https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative">Impératif</a>: programmation en séquences de commandes</li>
@@ -6266,7 +6268,7 @@ $ gcc -o foobar foo.o bar.o -lm</code></dd>
 <li><code>make test</code> Pour exécuter les tests de validation</li>
 </ul>
 <p>D'autres recettes peuvent être écrites dans le fichier <span class="ycr-hashtag" data-index-entry="Makefile" data-tag="Makefile"><code>Makefile</code></span>, mais la courbe d'apprentissage du langage de <span class="ycr-hashtag" data-index-entry="make" data-tag="make"><code>make</code></span> est raide.</p>
-<h2 id="linuxposix">Linux/<abbr title="Portable Operating System Interface">POSIX</abbr><a class="headerlink" href="#linuxposix" title="Lien permanent">¤</a></h2>
+<h2 id="linuxposix">Linux/<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a><a class="headerlink" href="#linuxposix" title="Lien permanent">¤</a></h2>
 <p>Un certain nombre de commandes sont utilisées durant ce cours et voici un résumé de ces dernières</p>
 <table>
 <thead>
@@ -6364,7 +6366,7 @@ Algorithme de calcul du PGCD d'Euclide.
 </tbody>
 </table>
 <h2 id="fin-de-lignes">Fin de lignes<a class="headerlink" href="#fin-de-lignes" title="Lien permanent">¤</a></h2>
-<p>Les caractères de fin de ligne dépendent du système d'exploitation et sont appelés <strong>EOL</strong>: <em>End Of Line</em>.</p>
+<p>Les caractères de fin de ligne dépendent du système d'exploitation et sont appelés <strong><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Fin_de_ligne">EOL</a></strong>: <em>End Of Line</em>.</p>
 <table>
 <thead>
 <tr>
@@ -6387,7 +6389,7 @@ Algorithme de calcul du PGCD d'Euclide.
 <tr>
 <td><code>\n</code></td>
 <td><code>LF</code></td>
-<td>Linux/Unix/<abbr title="Portable Operating System Interface">POSIX</abbr></td>
+<td>Linux/Unix/<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a></td>
 </tr>
 </tbody>
 </table>
@@ -6458,7 +6460,7 @@ Grammaire d'un identificateur C
 <tr>
 <td><code>0b111</code></td>
 <td><span class="ycr-hashtag" data-index-entry="int" data-tag="int"><code>int</code></span></td>
-<td>Valeur binaire (uniquement <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span>, pas standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>)</td>
+<td>Valeur binaire (uniquement <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span>, pas standard <strong>C99</strong>)</td>
 </tr>
 <tr>
 <td><code>12.</code></td>
@@ -6480,7 +6482,7 @@ Grammaire d'un identificateur C
 <h2 id="commentaires">Commentaires<a class="headerlink" href="#commentaires" title="Lien permanent">¤</a></h2>
 <p>Il existe deux types de commentaires :</p>
 <ul>
-<li>Les commentaires de lignes (depuis <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>)</li>
+<li>Les commentaires de lignes (depuis C99)</li>
 </ul>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1">// This is a single line comment.</span>
 </span></code></pre></div>
@@ -6610,7 +6612,7 @@ de donnée <strong>LP64</strong></p>
 </tr>
 </tbody>
 </table>
-<p>Pour s'assurer d'une taille donnée on peut utiliser les types standard <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> en incluant la bibliothèque <code>&lt;stdint.h&gt;</code></p>
+<p>Pour s'assurer d'une taille donnée on peut utiliser les types standard <strong>C99</strong> en incluant la bibliothèque <code>&lt;stdint.h&gt;</code></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -6628,13 +6630,13 @@ de donnée <strong>LP64</strong></p>
 :::</p>
 <p>La construction des types portables :</p>
 <p>:::{figure} {assets}/figures/dist/datatype/c99-integers.*
-:alt : "Entiers standardis\xE9s <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong>"
+:alt : "Entiers standardis\xE9s <strong>C99</strong>"
 :width : 100 %
 :::</p>
 <h2 id="caracteres">Caractères<a class="headerlink" href="#caracteres" title="Lien permanent">¤</a></h2>
-<p>Un caractère est une valeur binaire codée sur 8-bit et dont l'interprétation est confiée à une table de correspondance nommée ASCII :</p>
+<p>Un caractère est une valeur binaire codée sur 8-bit et dont l'interprétation est confiée à une table de correspondance nommée <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> :</p>
 <p>:::{figure} {assets}/figures/dist/encoding/ascii.*
-Table <abbr title="American National Standards Institute">ANSI</abbr> INCITS 4-1986 (standard actuel)
+Table <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ANSI</a> INCITS 4-1986 (standard actuel)
 :::</p>
 <p>Seul ces valeurs sont garanties d'être stockées sur 8-bit. Pour les caractères accentués ou les émoticônes, la manière dont ils sont codés en mémoire dépend de l'encodage des caractères. Souvent on utilise le type d'encodage <strong>utf-8</strong>.</p>
 <p>Les écritures suivantes sont donc strictement identiques :</p>

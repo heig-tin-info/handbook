@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6510,7 +6512,7 @@ les outils associés.
 <h2 id="entrees-non-formatees">Entrées non formatées<a class="headerlink" href="#entrees-non-formatees" title="Lien permanent">¤</a></h2>
 <p><a href="" id="getchar"></a></p>
 <h3 id="getchar_1">Getchar<a class="headerlink" href="#getchar_1" title="Lien permanent">¤</a></h3>
-<p>La fonction <span class="ycr-hashtag" data-index-entry="getchar" data-tag="getchar"><code>getchar</code></span> est une fonction de la bibliothèque standard C qui permet de lire un caractère sur l'entrée standard. Elle est définie dans la bibliothèque <span class="ycr-hashtag" data-index-entry="stdio.h" data-tag="stdio.h"><code>stdio.h</code></span>. Elle retourne un entier qui correspond à la valeur ASCII du caractère lu.</p>
+<p>La fonction <span class="ycr-hashtag" data-index-entry="getchar" data-tag="getchar"><code>getchar</code></span> est une fonction de la bibliothèque standard C qui permet de lire un caractère sur l'entrée standard. Elle est définie dans la bibliothèque <span class="ycr-hashtag" data-index-entry="stdio.h" data-tag="stdio.h"><code>stdio.h</code></span>. Elle retourne un entier qui correspond à la valeur <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> du caractère lu.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -6603,7 +6605,7 @@ les outils associés.
 </span><span id="__span-18-12"><a href="#__codelineno-18-12" id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="go">7       1</span>
 </span><span id="__span-18-13"><a href="#__codelineno-18-13" id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="go">8       2378</span>
 </span></code></pre></div>
-<p>Voyons un exemple plus complexe (c.f. <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> §7.19.6.2-19).</p>
+<p>Voyons un exemple plus complexe (c.f. C99 §7.19.6.2-19).</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">quantity</span><span class="p">;</span>
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="kt">char</span><span class="w"> </span><span class="n">units</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span><span class="w"> </span><span class="n">item</span><span class="p">[</span><span class="mi">21</span><span class="p">];</span>

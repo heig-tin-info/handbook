@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6059,8 +6061,8 @@ les outils associés.
 <p>Dans un projet, vous aurez très souvent un tas de fichiers de configuration. Ils commencent généralement par un point (<code>.</code>) pour les cacher dans le répertoire. C'est la manière dont les fichiers sont cachés dans les systèmes de fichiers Unix.</p>
 <h2 id="fichiers-populaires">Fichiers populaires<a class="headerlink" href="#fichiers-populaires" title="Lien permanent">¤</a></h2>
 <h3 id="clang-format">.clang-format<a class="headerlink" href="#clang-format" title="Lien permanent">¤</a></h3>
-<p>Ce fichier est au format <a href="https://fr.wikipedia.org/wiki/YAML">YAML</a> et contient des directives pour formater votre code automatiquement soit à partir de VsCode si vous avez installé l'extension <a href="https://marketplace.visualstudio.com/items?itemName=xaver.clang-format">Clang-Format</a> et l'exécutable <code>clang-format</code> (<code>sudo apt install -y clang-format</code>). <a href="https://clang.llvm.org/docs/ClangFormat.html">Clang-format</a> est un utilitaire de la suite LLVM, proposant Clang un compilateur alternatif à GCC.</p>
-<p>On voit que le texte passé sur <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span> (jusqu'à EOF) est ensuite formaté proprement :</p>
+<p>Ce fichier est au format <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/YAML">YAML</a> et contient des directives pour formater votre code automatiquement soit à partir de VsCode si vous avez installé l'extension <a href="https://marketplace.visualstudio.com/items?itemName=xaver.clang-format">Clang-Format</a> et l'exécutable <code>clang-format</code> (<code>sudo apt install -y clang-format</code>). <a href="https://clang.llvm.org/docs/ClangFormat.html">Clang-format</a> est un utilitaire de la suite LLVM, proposant Clang un compilateur alternatif à GCC.</p>
+<p>On voit que le texte passé sur <span class="ycr-hashtag" data-index-entry="stdin" data-tag="stdin"><code>stdin</code></span> (jusqu'à <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/End-of-file">EOF</a>) est ensuite formaté proprement :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">$ </span>clang-format<span class="w"> </span>--style<span class="o">=</span>mozilla<span class="w"> </span>&lt;&lt;EOF
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">#</span>include<span class="w"> </span>&lt;stdio.h&gt;
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="go">int</span>
@@ -6078,7 +6080,7 @@ les outils associés.
 <p>Par défaut <code>clang-format</code> utilise le fichier de configuration nommé <code>.clang-format</code> qu'il trouve.</p>
 <p>Vous pouvez générer votre propre configuration facilement depuis un configurateur tel que <a href="https://zed0.co.uk/clang-format-configurator/">clang-format configurator</a>.</p>
 <h3 id="editor_config">.editor_config<a class="headerlink" href="#editor_config" title="Lien permanent">¤</a></h3>
-<p>Ce fichier au format YAML permet de spécifier des recommandations pour l'édition de fichiers sources. Vous pouvez y spécifier le type de fin de lignes <strong>CR</strong> ou <strong>CRLF</strong>, le type d'indentation (espaces ou tabulations) et le type d'encodage (ASCII ou UTF-8) pour chaque type de fichiers. <a href="https://editorconfig.org/">EditorConfig</a> est aujourd'hui supporté par la plupart des éditeurs de textes qui cherchent automatiquement un fichier de configuration nommé <code>.editor_config</code>.</p>
+<p>Ce fichier au format <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/YAML">YAML</a> permet de spécifier des recommandations pour l'édition de fichiers sources. Vous pouvez y spécifier le type de fin de lignes <strong>CR</strong> ou <strong>CRLF</strong>, le type d'indentation (espaces ou tabulations) et le type d'encodage (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> ou <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a>) pour chaque type de fichiers. <a href="https://editorconfig.org/">EditorConfig</a> est aujourd'hui supporté par la plupart des éditeurs de textes qui cherchent automatiquement un fichier de configuration nommé <code>.editor_config</code>.</p>
 <p>Dans Visual Studio Code, il faut installer l'extension <a href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig">EditorConfig for VS Code</a> pour bénéficier de ce fichier.</p>
 <p>Pour les travaux pratiques, on se contente de spécifier les directives suivantes :</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="l l-Scalar l-Scalar-Plain">root = true</span>
@@ -6101,7 +6103,7 @@ les outils associés.
 </span><span id="__span-1-18"><a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="l l-Scalar l-Scalar-Plain">end_of_line = crlf</span>
 </span></code></pre></div>
 <h3 id="gitattributes">.gitattributes<a class="headerlink" href="#gitattributes" title="Lien permanent">¤</a></h3>
-<p>Ce fichier permet à Git de résoudre certains problèmes dans l'édition de fichiers sous Windows ou <abbr title="Portable Operating System Interface">POSIX</abbr> lorsque le type de fichiers n'a pas le bon format. On se contente de définir quelle sera la fin de ligne standard pour certains types de fichiers :</p>
+<p>Ce fichier permet à Git de résoudre certains problèmes dans l'édition de fichiers sous Windows ou <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> lorsque le type de fichiers n'a pas le bon format. On se contente de définir quelle sera la fin de ligne standard pour certains types de fichiers :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>* text=auto eol=lf
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>*.{cmd,[cC][mM][dD]} text eol=crlf
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>*.{bat,[bB][aA][tT]} text eol=crlf
@@ -6186,7 +6188,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">23 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">27 septembre 2024</span>
   </span>
 
     

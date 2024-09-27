@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -5912,10 +5914,10 @@ les outils associés.
 
 <h1 id="windows">Windows<a class="headerlink" href="#windows" title="Lien permanent">¤</a></h1>
 <h2 id="msvc-microsoft-visual-c">MSVC (Microsoft Visual C++)<a class="headerlink" href="#msvc-microsoft-visual-c" title="Lien permanent">¤</a></h2>
-<p><a href="https://fr.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B">MSVC</a> est le compilateur C++ de Microsoft. Il est inclus dans <a href="https://fr.wikipedia.org/wiki/Microsoft_Visual_Studio">Visual Studio</a> et est souvent utilisé pour compiler des programmes Windows. Historiquement, MSVC a toujours été un peu en retrait par rapport au support des standards modernes du langage C, notamment <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, C11, C18 et maintenant C23. Alors que le compilateur suit de très près les standards C++, il ne supporte pas aussi bien les évolutions du langage C.</p>
+<p><a href="https://fr.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B">MSVC</a> est le compilateur C++ de Microsoft. Il est inclus dans <a href="https://fr.wikipedia.org/wiki/Microsoft_Visual_Studio">Visual Studio</a> et est souvent utilisé pour compiler des programmes Windows. Historiquement, MSVC a toujours été un peu en retrait par rapport au support des standards modernes du langage C, notamment C99, C11, C18 et maintenant C23. Alors que le compilateur suit de très près les standards C++, il ne supporte pas aussi bien les évolutions du langage C.</p>
 <p>Pour installer MSVC, vous devez télécharger <a href="https://visualstudio.microsoft.com/fr/">Visual Studio</a> depuis le site web de Microsoft. L'installation de Visual Studio est assez lourde, car elle installe de nombreux composants qui ne sont pas nécessaires pour la compilation de programmes C/C++.</p>
 <h2 id="msys2">MSYS2<a class="headerlink" href="#msys2" title="Lien permanent">¤</a></h2>
-<p><a href="https://www.msys2.org/">MSYS2</a> est un environnement de développement qui fournit un shell Unix-like et des outils <abbr title="GNU's Not Unix">GNU</abbr> pour Windows. Il est basé sur Cygwin et utilise le gestionnaire de paquets <a href="https://wiki.archlinux.org/title/Pacman">Pacman</a> de <a href="https://fr.wikipedia.org/wiki/Arch_Linux">Arch Linux</a>.</p>
+<p><a href="https://www.msys2.org/">MSYS2</a> est un environnement de développement qui fournit un shell Unix-like et des outils <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GNU">GNU</a> pour Windows. Il est basé sur Cygwin et utilise le gestionnaire de paquets <a href="https://wiki.archlinux.org/title/Pacman">Pacman</a> de <a href="https://fr.wikipedia.org/wiki/Arch_Linux">Arch Linux</a>.</p>
 <p>MSYS2 est un excellent choix pour compiler des programmes en C/C++ qui peuvent être exécutés nativement sous Windows. Le compilateur <a href="https://fr.wikipedia.org/wiki/MinGW">MinGW-w64</a> est une variante de GCC qui permet de compiler des binaires au format PE (Portable Executable) pour Windows.</p>
 <p>L'installation de MSYS2 est assez simple. Une approche consiste à télécharger l'exécutables d'installation depuis le site web de MSYS2 et à l'exécuter. Ma préférence va pour <span class="ycr-hashtag" data-index-entry="winget" data-tag="winget"><code>winget</code></span> disponible nativement sur Windows 10/11.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>winget install -e --id MSYS2.MSYS2
@@ -5947,12 +5949,12 @@ les outils associés.
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>pacman<span class="w"> </span>-S<span class="w"> </span>git
 </span></code></pre></div>
 <p>Pour rechercher un paquet, vous pouvez utiliser la commande <code>pacman -Ss nom-du-paquet</code>.</p>
-<p>Afin de pouvoir récupérer des projets GitHub avec votre clé SSH, vous devez soit :</p>
+<p>Afin de pouvoir récupérer des projets GitHub avec votre clé <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Secure_Shell">SSH</a>, vous devez soit :</p>
 <ol>
-<li>Générer une nouvelle clé SSH pour MSYS2 et l'ajouter à votre compte GitHub.</li>
-<li>Utiliser la clé SSH existante en la copiant dans le dossier <code>~/.ssh</code> de MSYS2.</li>
+<li>Générer une nouvelle clé <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Secure_Shell">SSH</a> pour MSYS2 et l'ajouter à votre compte GitHub.</li>
+<li>Utiliser la clé <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Secure_Shell">SSH</a> existante en la copiant dans le dossier <code>~/.ssh</code> de MSYS2.</li>
 </ol>
-<p>La première option est préférable. Pour générer une nouvelle clé SSH, vous pouvez utiliser les commande suivantes.</p>
+<p>La première option est préférable. Pour générer une nouvelle clé <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Secure_Shell">SSH</a>, vous pouvez utiliser les commande suivantes.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>ssh-keygen
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>cat<span class="w"> </span>~/.ssh/id_rsa.pub
 </span></code></pre></div>

@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../css/tables.css">
     
+      <link rel="stylesheet" href="../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../exercise.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6026,7 +6028,7 @@ les outils associés.
 <h2 id="format-de-rendu">Format de rendu<a class="headerlink" href="#format-de-rendu" title="Lien permanent">¤</a></h2>
 <ul>
 <li>Fin de lignes : <code>LF</code> (<code>'\n'</code>).</li>
-<li>Encodage : UTF-8 sans BOM.</li>
+<li>Encodage : <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a> sans BOM.</li>
 <li>Code source respectueux de ISO/IEC 9899:1999.</li>
 <li>Le code doit comporter un exemple d'utilisation et une documentation mise à jour dans <span class="ycr-hashtag" data-index-entry="README.md" data-tag="README.md"><code>README.md</code></span>.</li>
 <li>Lorsqu'un rapport est demandé, vous le placerez dans <span class="ycr-hashtag" data-index-entry="REPORT.md" data-tag="REPORT.md"><code>REPORT.md</code></span>.</li>
@@ -6066,7 +6068,7 @@ les outils associés.
 </span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>...
 </span></code></pre></div>
 <h3 id="criteriayml">criteria.yml<a class="headerlink" href="#criteriayml" title="Lien permanent">¤</a></h3>
-<p>Ce fichier contient les directives d'évaluation du travail pratique. Il est au format YAML. Pour chaque point évalué une description est donnée avec la clé <span class="ycr-hashtag" data-index-entry="description" data-tag="description"><code>description</code></span> et un nombre de points est spécifié. Une exigence peut avoir soit un nombre de points positifs soit négatifs. Les points négatifs agissent comme une pénalité. Ce choix d'avoir des points et des pénalités permet de ne pas diluer les exigences au travers d'autres critères importants, mais normalement respectés des étudiants.</p>
+<p>Ce fichier contient les directives d'évaluation du travail pratique. Il est au format <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/YAML">YAML</a>. Pour chaque point évalué une description est donnée avec la clé <span class="ycr-hashtag" data-index-entry="description" data-tag="description"><code>description</code></span> et un nombre de points est spécifié. Une exigence peut avoir soit un nombre de points positifs soit négatifs. Les points négatifs agissent comme une pénalité. Ce choix d'avoir des points et des pénalités permet de ne pas diluer les exigences au travers d'autres critères importants, mais normalement respectés des étudiants.</p>
 <p>Des points bonus sont donnés si le programme dispose d'une aide et d'une version et si la fonctionnalité du programme est étendue.</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Critères d'évaluation du travail pratique</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nt">%YAML</span><span class="w"> </span><span class="m">1.2</span>

@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6258,7 +6260,7 @@ pour lister le contenu hexadécimal de son fichier. Il obtient la sortie suivant
 <li><code>é</code> de <em>ailé</em> est encodé avec <code>e\xcc\x81</code>, soit le caractère e suivi du diacritique <code>´</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//0301" target="_blank">0301</a></li>
 <li>Une espace fine insécable <code>\xe2\x80\xaf</code> est utilisée avant les <code>!</code>, ce qui est le caractère Unicode <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//202F" target="_blank">202F</a>, conformément à la recommandation de l'Académie française.</li>
 </ul>
-<p>Ce fichier est donc encodé en UTF-8 quant au bogue de notre ami ingénieur, il concerne très probablement les deux manières distinctes utilisées pour encoder le <code>é</code>. La saisie du poème manque donc de cohérence et le diable est dans les détails.</p>
+<p>Ce fichier est donc encodé en <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a> quant au bogue de notre ami ingénieur, il concerne très probablement les deux manières distinctes utilisées pour encoder le <code>é</code>. La saisie du poème manque donc de cohérence et le diable est dans les détails.</p>
 <p>Par cet exercice, on observe néanmoins l'élégance de l'encodage hexadécimal qui permet de visualiser facilement, par groupe de 8 bits, le contenu du fichier, ce qui aurait été beaucoup moins évident en binaire.</p>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 4 : </span>Les chiffres hexadécimaux<span class="exercise-title"></span></p>
@@ -6362,9 +6364,9 @@ pour lister le contenu hexadécimal de son fichier. Il obtient la sortie suivant
 </details>
 </div>
 <h2 id="autres-bases">Autres bases<a class="headerlink" href="#autres-bases" title="Lien permanent">¤</a></h2>
-<p>Une autre base couramment utilisée est la <a href="https://fr.wikipedia.org/wiki/Base64">base64</a>, qui utilise les 26 lettres de l'alphabet latin (majuscules et minuscules), les 10 chiffres et deux symboles additionnels. Cette base est souvent utilisée pour encoder des données binaires en ASCII, par exemple pour les pièces jointes des courriels.</p>
+<p>Une autre base couramment utilisée est la <a href="https://fr.wikipedia.org/wiki/Base64">base64</a>, qui utilise les 26 lettres de l'alphabet latin (majuscules et minuscules), les 10 chiffres et deux symboles additionnels. Cette base est souvent utilisée pour encoder des données binaires en <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a>, par exemple pour les pièces jointes des courriels.</p>
 <p>Elle n'est pas à proprement parler une base fondamentale, mais plutôt une méthode de codage qui utilise 64 caractères imprimables. <span class="ycr-hashtag" data-index-entry="base64" data-tag=""></span></p>
-<p>On peut transmettre de l'information en binaire, mais cela implique de pouvoir gérer un contenu arbitraire qui n'est pas toujours évident dans des environnements prévus pour des caractères imprimables. On pourrait se dire qu'on utilise la représentation ASCII des caractères, mais de nombreux caractères ne sont pas imprimables. La base64 est une solution élégante pour encoder des données binaires en ASCII.</p>
+<p>On peut transmettre de l'information en binaire, mais cela implique de pouvoir gérer un contenu arbitraire qui n'est pas toujours évident dans des environnements prévus pour des caractères imprimables. On pourrait se dire qu'on utilise la représentation <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> des caractères, mais de nombreux caractères ne sont pas imprimables. La base64 est une solution élégante pour encoder des données binaires en <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a>.</p>
 <p>Prenons l'exemple de la phrase suivante :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>La fleur en bouquet fâne... et jamais ne renait !
 </span></code></pre></div>
@@ -6376,7 +6378,7 @@ pour lister le contenu hexadécimal de son fichier. Il obtient la sortie suivant
 </span><span id="__span-17-5"><a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="m">0030</span><span class="w">  </span><span class="m">20</span><span class="w"> </span><span class="m">21</span><span class="w">                                             </span><span class="p">|</span><span class="w"> </span>!<span class="p">|</span>
 </span><span id="__span-17-6"><a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="m">0032</span>
 </span></code></pre></div>
-<p>En <span class="ycr-hashtag" data-index-entry="base64" data-tag="base64">base64</span>, le message est découpé en mot de 6 bits, soit 64 valeurs possibles. Chaque mot de 6 bits est ensuite converti en un caractère <span class="ycr-hashtag" data-index-entry="ASCII" data-tag="ascii">ASCII</span> avec la table de codage suivante :</p>
+<p>En <span class="ycr-hashtag" data-index-entry="base64" data-tag="base64">base64</span>, le message est découpé en mot de 6 bits, soit 64 valeurs possibles. Chaque mot de 6 bits est ensuite converti en un caractère <span class="ycr-hashtag" data-index-entry="ASCII" data-tag="ascii"><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a></span> avec la table de codage suivante :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>0  000000 A    17 010001 R    34 100010 i    51 110011 z
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>1  000001 B    18 010010 S    35 100011 j    52 110100 0
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>2  000010 C    19 010011 T    36 100100 k    53 110101 1

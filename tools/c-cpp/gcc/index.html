@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -5977,12 +5979,12 @@ les outils associés.
 
 
 <h1 id="compilateur-cc">Compilateur C/C++<a class="headerlink" href="#compilateur-cc" title="Lien permanent">¤</a></h1>
-<p>Compiler un programme en C ou en C++ requiert un compilateur. Il s'agit d'un <strong>programme</strong> qui permet de traduire le code source en langage C ou C++ en un <strong>fichier objet</strong> (extension <code>.o</code> ou <code>.obj</code>), ou un <strong>fichier exécutable</strong> (extension <code>.exe</code> sous Windows ou sans extension dans un système <abbr title="Portable Operating System Interface">POSIX</abbr>).</p>
-<p>Le compilateur le plus utilisé pour le C est <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span> (<abbr title="GNU's Not Unix">GNU</abbr> Compiler Collection) et pour le C++ est <code>g++</code>. Ces deux compilateurs sont inclus dans la suite logicielle <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span>. Pour installer <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span> sous Ubuntu, il suffit de taper la commande suivante dans un terminal :</p>
+<p>Compiler un programme en C ou en C++ requiert un compilateur. Il s'agit d'un <strong>programme</strong> qui permet de traduire le code source en langage C ou C++ en un <strong>fichier objet</strong> (extension <code>.o</code> ou <code>.obj</code>), ou un <strong>fichier exécutable</strong> (extension <code>.exe</code> sous Windows ou sans extension dans un système <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>).</p>
+<p>Le compilateur le plus utilisé pour le C est <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span> (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GNU">GNU</a> Compiler Collection) et pour le C++ est <code>g++</code>. Ces deux compilateurs sont inclus dans la suite logicielle <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span>. Pour installer <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span> sous Ubuntu, il suffit de taper la commande suivante dans un terminal :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>build-essential
 </span></code></pre></div>
-<p>Sous Windows, c'est plus compliqué. GCC étant un logiciel prévu pour un système <abbr title="Portable Operating System Interface">POSIX</abbr>, il n'est pas directement compatible avec Windows. Il existe cependant des ports de GCC pour Windows, comme <a href="http://www.mingw.org/">MinGW</a>, <a href="https://www.cygwin.com/">Cygwin</a> ou <a href="https://www.msys2.org/">MSYS2</a>. Ces ports permettent d'installer GCC sur Windows, mais il est plus élégant et plus pratique d'utiliser WSL si les applications que vous développez sont destinées à vos études et ne seront pas distribuées à des utilisateurs Windows.</p>
-<p>Si vous souhaitez compiler sous Windows avec un compilateur Windows, vous pouvez utiliser <a href="https://visualstudio.microsoft.com/">Visual Studio</a> qu'il ne faut pas confondre avec Visual Studio Code. Visual Studio est un IDE complet qui inclut un compilateur C/C++. Ce compilateur nommé <code>cl</code> est un compilateur propriétaire de Microsoft. Il est inclus dans Visual Studio et n'est pas disponible séparément. Ce compilateur ne respecte pas toujours le standard C (ISO/IEC 9899) mais couvre presque en totalité la norme C++ (ISO/IEC 14882).</p>
+<p>Sous Windows, c'est plus compliqué. GCC étant un logiciel prévu pour un système <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, il n'est pas directement compatible avec Windows. Il existe cependant des ports de GCC pour Windows, comme <a href="http://www.mingw.org/">MinGW</a>, <a href="https://www.cygwin.com/">Cygwin</a> ou <a href="https://www.msys2.org/">MSYS2</a>. Ces ports permettent d'installer GCC sur Windows, mais il est plus élégant et plus pratique d'utiliser WSL si les applications que vous développez sont destinées à vos études et ne seront pas distribuées à des utilisateurs Windows.</p>
+<p>Si vous souhaitez compiler sous Windows avec un compilateur Windows, vous pouvez utiliser <a href="https://visualstudio.microsoft.com/">Visual Studio</a> qu'il ne faut pas confondre avec Visual Studio Code. Visual Studio est un <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement">IDE</a> complet qui inclut un compilateur C/C++. Ce compilateur nommé <code>cl</code> est un compilateur propriétaire de Microsoft. Il est inclus dans Visual Studio et n'est pas disponible séparément. Ce compilateur ne respecte pas toujours le standard C (ISO/IEC 9899) mais couvre presque en totalité la norme C++ (ISO/IEC 14882).</p>
 <h2 id="cycle-de-compilation">Cycle de compilation<a class="headerlink" href="#cycle-de-compilation" title="Lien permanent">¤</a></h2>
 <p>La compilation requiert plusieurs étapes :</p>
 <ol>
@@ -6160,7 +6162,7 @@ les outils associés.
 </dd>
 </dl>
 <h2 id="bibliotheques">Bibliothèques<a class="headerlink" href="#bibliotheques" title="Lien permanent">¤</a></h2>
-<p>Les bibliothèques sont des fichiers contenant des fonctions et des variables prédéfinies. Il existe deux types de bibliothèques : les bibliothèques <strong>statiques</strong> et les bibliothèques <strong>partagées</strong>. Les bibliothèques statiques ont l'extension <code>.a</code> sous <abbr title="Portable Operating System Interface">POSIX</abbr> et <code>.lib</code> sous Windows. Les bibliothèques partagées ont l'extension <code>.so</code> sous <abbr title="Portable Operating System Interface">POSIX</abbr> et <code>.dll</code> sous Windows.</p>
+<p>Les bibliothèques sont des fichiers contenant des fonctions et des variables prédéfinies. Il existe deux types de bibliothèques : les bibliothèques <strong>statiques</strong> et les bibliothèques <strong>partagées</strong>. Les bibliothèques statiques ont l'extension <code>.a</code> sous <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> et <code>.lib</code> sous Windows. Les bibliothèques partagées ont l'extension <code>.so</code> sous <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> et <code>.dll</code> sous Windows.</p>
 <p>La bibliothèque standard du langage C est <span class="ycr-hashtag" data-index-entry="libc" data-tag="libc"><code>libc</code></span>. Elle est incluse par défaut dans tous les programmes C. Pour inclure une bibliothèque, il suffit de spécifier son nom avec l'option <code>-l</code>. Par exmple la bibliothèque <code>m</code> contient des fonctions mathématiques. Elle s'appelle <span class="ycr-hashtag" data-index-entry="libm" data-tag="libm"><code>libm</code></span> sous Unix/Linux.</p>
 <p>Aussi si vous souhaitez calculer le sinus de 3.14, vous pouvez utiliser la fonction <span class="ycr-hashtag" data-index-entry="sin" data-tag="sin"><code>sin</code></span> de la bibliothèque <code>m</code>, et par conséquent vous devez lier cette bibliothèque à votre programme :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>$<span class="w"> </span>gcc<span class="w"> </span>main.c<span class="w"> </span>-o<span class="w"> </span>main<span class="w"> </span>-lm
@@ -6184,11 +6186,11 @@ les outils associés.
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="libpthread" data-tag="libpthread"><code>libpthread</code></span></td>
-<td>Fonctions de threads <abbr title="Portable Operating System Interface">POSIX</abbr>.</td>
+<td>Fonctions de threads <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>.</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="libcurl" data-tag="libcurl"><code>libcurl</code></span></td>
-<td>Client HTTP.</td>
+<td>Client <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a>.</td>
 </tr>
 <tr>
 <td><span class="ycr-hashtag" data-index-entry="libssl" data-tag="libssl"><code>libssl</code></span></td>

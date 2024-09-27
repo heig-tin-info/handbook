@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6171,14 +6173,14 @@ les outils associés.
 <p>En vérité, en 2024, il n'existe guère d'alternative aussi mûre et éprouvée que le C pour développer des applications embarquées à haute performance ou pour le noyau des systèmes d'exploitation. Des langages plus récents tels que <span class="ycr-hashtag" data-index-entry="Rust" data-tag="rust">Rust</span> ou <span class="ycr-hashtag" data-index-entry="Zig" data-tag="zig">Zig</span> commencent certes à émerger, mais ils peinent encore à s'imposer dans l'industrie.</p>
 <p><a href="" id="c-history"></a></p>
 <h2 id="historique">Historique<a class="headerlink" href="#historique" title="Lien permanent">¤</a></h2>
-<p>En <span class="ycr-hashtag" data-index-entry="1964" data-tag="1964">1964</span> naît, d'une collaboration entre les laboratoires <span class="ycr-hashtag" data-index-entry="Bell" data-tag="bell">Bell</span> (<em>Bell Telephone Laboratories</em>), <span class="ycr-hashtag" data-index-entry="General Electric" data-tag="general-electric">General Electric</span> et le <span class="ycr-hashtag" data-index-entry="MIT" data-tag="mit"><abbr title="Massachusetts Institute of Technology">MIT</abbr></span>, le projet <a href="https://fr.wikipedia.org/wiki/Multics">Multics</a> (<em>Multiplexed Information and Computing Service</em>), qui vise à développer un nouveau système d'exploitation.</p>
+<p>En <span class="ycr-hashtag" data-index-entry="1964" data-tag="1964">1964</span> naît, d'une collaboration entre les laboratoires <span class="ycr-hashtag" data-index-entry="Bell" data-tag="bell">Bell</span> (<em>Bell Telephone Laboratories</em>), <span class="ycr-hashtag" data-index-entry="General Electric" data-tag="general-electric">General Electric</span> et le <span class="ycr-hashtag" data-index-entry="MIT" data-tag="mit"><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Massachusetts_Institute_of_Technology">MIT</a></span>, le projet <a href="https://fr.wikipedia.org/wiki/Multics">Multics</a> (<em>Multiplexed Information and Computing Service</em>), qui vise à développer un nouveau système d'exploitation.</p>
 <p>Cependant, la fin de la décennie est marquée par des remous. Les laboratoires Bell, désillusionnés par les promesses de <span class="ycr-hashtag" data-index-entry="Multics" data-tag="multics">Multics</span>, décident de se retirer du projet pour élaborer leur propre système d'exploitation. Un groupe informel, dirigé notamment par <a href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a> et <a href="https://fr.wikipedia.org/wiki/Dennis_Ritchie">Dennis Ritchie</a>, entreprend de revoir certains concepts de Multics qui leur déplaisaient, notamment le langage de programmation PL/I (<em>Programming Language number 1</em>), alors prédominant pour l’écriture de systèmes d’exploitation. Thompson développe un langage baptisé B, inspiré du BCPL, dans lequel il ne conserve que les éléments qu'il juge essentiels pour fonctionner sur de petites machines. À ce stade, B ne comporte qu’un seul type de donnée, le « mot » (<em>word</em>). <span class="ycr-hashtag" data-index-entry="Ken Thompson" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="Dennis Ritchie" data-tag=""></span></p>
-<p><span class="ycr-hashtag" data-index-entry="BCPL" data-tag="bcpl">BCPL</span>, conçu par <span class="ycr-hashtag" data-index-entry="Martin Richards" data-tag="martin-richards">Martin Richards</span> au <abbr title="Massachusetts Institute of Technology">MIT</abbr> dans les années <span class="ycr-hashtag" data-index-entry="1960" data-tag="1960">1960</span>, est l'ancêtre de B, et par extension, l'arrière-grand-père du C. Dennis Ritchie, alors collègue de Thompson, retravaille le langage B pour y ajouter la gestion des types de données.</p>
-<p>Le système d'exploitation que Thompson et Ritchie développent aux laboratoires Bell s’appelle d'abord UNICS, par opposition à Multics, où <em>Multiplexed</em> est remplacé par <em>Uniplexed</em>. Le nom évolue ensuite pour devenir <span class="ycr-hashtag" data-index-entry="UNIX" data-tag="unix"><abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr></span>, un pilier dans l'histoire de l'informatique.</p>
+<p><span class="ycr-hashtag" data-index-entry="BCPL" data-tag="bcpl">BCPL</span>, conçu par <span class="ycr-hashtag" data-index-entry="Martin Richards" data-tag="martin-richards">Martin Richards</span> au <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Massachusetts_Institute_of_Technology">MIT</a> dans les années <span class="ycr-hashtag" data-index-entry="1960" data-tag="1960">1960</span>, est l'ancêtre de B, et par extension, l'arrière-grand-père du C. Dennis Ritchie, alors collègue de Thompson, retravaille le langage B pour y ajouter la gestion des types de données.</p>
+<p>Le système d'exploitation que Thompson et Ritchie développent aux laboratoires Bell s’appelle d'abord UNICS, par opposition à Multics, où <em>Multiplexed</em> est remplacé par <em>Uniplexed</em>. Le nom évolue ensuite pour devenir <span class="ycr-hashtag" data-index-entry="UNIX" data-tag="unix"><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Unix">UNIX</a></span>, un pilier dans l'histoire de l'informatique.</p>
 <p>Plus tard, <a href="https://fr.wikipedia.org/wiki/Brian_Kernighan">Brian Kernighan</a> contribue à la popularisation de ce nouveau langage. Il est l'auteur principal du livre <em>The C Programming Language</em>, tandis que Dennis Ritchie s’est concentré sur les annexes.</p>
-<p>Les évolutions du C continuent, notamment avec <a href="https://fr.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne Stroustrup</a> qui, dans les années 1980, étend le langage en y apportant la programmation orientée objet (OOP). Ce concept sera étudié dans un autre cours. La figure suivante présente le trio fondateur du langage C. <span class="ycr-hashtag" data-index-entry="Bjarne Stroustrup" data-tag=""></span></p>
+<p>Les évolutions du C continuent, notamment avec <a href="https://fr.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne Stroustrup</a> qui, dans les années 1980, étend le langage en y apportant la programmation orientée objet (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet">OOP</a>). Ce concept sera étudié dans un autre cours. La figure suivante présente le trio fondateur du langage C. <span class="ycr-hashtag" data-index-entry="Bjarne Stroustrup" data-tag=""></span></p>
 <p><figure id="_figure-1"><img alt="Les pères fondateurs du C" class="drawio-diagram" src="../../../assets/images/thompson-kernighan-ritchie.drawio"/><figcaption> Les pères fondateurs du C</figcaption></figure></p>
-<p>Il faut attendre <span class="ycr-hashtag" data-index-entry="1989" data-tag="1989">1989</span> pour que le langage C soit normalisé par l’<abbr title="American National Standards Institute">ANSI</abbr> (<em>American National Standards Institute</em>). L’année suivante, l’ISO (<em>International Organization for Standardization</em>) ratifie le standard <em>ISO/IEC 9899:1990</em>, communément appelé <strong>C90</strong>. Dès lors, le C devient un standard international et s’impose comme le langage dominant dans le domaine de l’informatique.</p>
+<p>Il faut attendre <span class="ycr-hashtag" data-index-entry="1989" data-tag="1989">1989</span> pour que le langage C soit normalisé par l’<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ANSI</a> (<em>American National Standards Institute</em>). L’année suivante, l’ISO (<em>International Organization for Standardization</em>) ratifie le standard <em>ISO/IEC 9899:1990</em>, communément appelé <strong>C90</strong>. Dès lors, le C devient un standard international et s’impose comme le langage dominant dans le domaine de l’informatique.</p>
 <p>Les langages de programmation se nourrissent souvent les uns des autres, et le C ne fait pas exception. La figure suivante illustre quelques-unes des influences entre langages :</p>
 <figure class="mermaid-figure"><pre class="mermaid"><code>%% Influences des langages de programmation
 flowchart LR
@@ -6198,7 +6200,7 @@ flowchart LR
 <p>Retenons simplement que <strong>C</strong> est un langage à la fois simple et puissant. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont probablement été, au moins partiellement, programmés en C.</p>
 <h2 id="standardisation">Standardisation<a class="headerlink" href="#standardisation" title="Lien permanent">¤</a></h2>
 <p>Comme nous l'avons vu, le langage C a un long historique. Il a fallu attendre près de vingt ans après sa création pour qu’il fasse l’objet d’une <span class="ycr-hashtag" data-index-entry="normalisation" data-tag="normalisation">normalisation</span> internationale.</p>
-<p>Le standard le plus couramment utilisé en 2024 reste sans doute <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a>. <span class="ycr-hashtag" data-index-entry="C11" data-tag="c11">C11</span> commence à le remplacer dans l'industrie, mais l'évolution se poursuit avec <span class="ycr-hashtag" data-index-entry="C17" data-tag="c17">C17</span>, <span class="ycr-hashtag" data-index-entry="C18" data-tag="c18">C18</span> et <span class="ycr-hashtag" data-index-entry="C23" data-tag="c23">C23</span>. La figure suivante résume les différents standards internationaux du C :</p>
+<p>Le standard le plus couramment utilisé en 2024 reste sans doute <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99</a>. <span class="ycr-hashtag" data-index-entry="C11" data-tag="c11">C11</span> commence à le remplacer dans l'industrie, mais l'évolution se poursuit avec <span class="ycr-hashtag" data-index-entry="C17" data-tag="c17">C17</span>, <span class="ycr-hashtag" data-index-entry="C18" data-tag="c18">C18</span> et <span class="ycr-hashtag" data-index-entry="C23" data-tag="c23">C23</span>. La figure suivante résume les différents standards internationaux du C :</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Normes internationales du langage C</caption><thead>
 <tr>
@@ -6214,13 +6216,13 @@ flowchart LR
 <td>1972</td>
 </tr>
 <tr>
-<td><abbr title="Kernighan and Ritchie">K&amp;R</abbr> C</td>
+<td><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/The_C_Programming_Language">K&amp;R</a> C</td>
 <td>n/a</td>
 <td>1978</td>
 </tr>
 <tr>
-<td>C89 (<abbr title="American National Standards Institute">ANSI</abbr> C)</td>
-<td><abbr title="American National Standards Institute">ANSI</abbr> X3.159-1989</td>
+<td>C89 (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ANSI</a> C)</td>
+<td><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ANSI</a> X3.159-1989</td>
 <td>1989</td>
 </tr>
 <tr>
@@ -6229,7 +6231,7 @@ flowchart LR
 <td>1990</td>
 </tr>
 <tr>
-<td><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></td>
+<td>C99</td>
 <td><a href="https://www.iso.org/standard/29237.html">ISO/IEC 9899:1999</a></td>
 <td>1999</td>
 </tr>
@@ -6253,10 +6255,10 @@ flowchart LR
 <p>En substance, <strong>C18</strong> n'apporte pas de nouvelles fonctionnalités majeures au langage, mais se concentre sur la clarification des ambiguïtés laissées par <strong>C11</strong>, qui, lui-même, n’introduisait que peu de changements fondamentaux pour le développement sur microcontrôleurs.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Vous entendrez ou lirez souvent des références à <strong><abbr title="American National Standards Institute">ANSI</abbr> C</strong> ou <strong><abbr title="Kernighan and Ritchie">K&amp;R</abbr></strong>. Privilégiez toutefois une compatibilité avec <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> au minimum.</p>
+<p>Vous entendrez ou lirez souvent des références à <strong><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ANSI</a> C</strong> ou <strong><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/The_C_Programming_Language">K&amp;R</a></strong>. Privilégiez toutefois une compatibilité avec <strong>C99</strong> au minimum.</p>
 </div>
-<p>Le standard C est, il faut bien l’admettre, dense et ardu à lire. Avec ses quelque 552 pages pour <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, il est peu probable que vous y trouviez un grand plaisir. Et pourtant, il est parfois nécessaire de s’y plonger pour démêler certaines subtilités du langage, rarement explicitées dans les manuels. Vous vous retrouverez un jour ou l’autre confronté à des problèmes non documentés, et c’est souvent dans le standard que se trouve la solution.</p>
-<p>Comme mentionné plus haut, bien que <abbr title="Standard ISO/IEC 9899:1999">C99</abbr> soit le standard le plus utilisé en 2024, il a déjà plus de 25 ans. Vous vous demandez peut-être pourquoi l'industrie semble si en retard face aux dernières versions. Contrairement au domaine des logiciels grand public, où chaque mise à jour est adoptée avec enthousiasme, le secteur industriel est régi par des processus de validation stricts. Migrer vers un nouveau standard est une opération coûteuse, tant en termes de tests que de conformité, et les entreprises préfèrent souvent s’en tenir à des versions éprouvées plutôt que de risquer de coûteuses erreurs, notamment dans des domaines critiques comme l’aéronautique ou la médecine.</p>
+<p>Le standard C est, il faut bien l’admettre, dense et ardu à lire. Avec ses quelque 552 pages pour C99, il est peu probable que vous y trouviez un grand plaisir. Et pourtant, il est parfois nécessaire de s’y plonger pour démêler certaines subtilités du langage, rarement explicitées dans les manuels. Vous vous retrouverez un jour ou l’autre confronté à des problèmes non documentés, et c’est souvent dans le standard que se trouve la solution.</p>
+<p>Comme mentionné plus haut, bien que C99 soit le standard le plus utilisé en 2024, il a déjà plus de 25 ans. Vous vous demandez peut-être pourquoi l'industrie semble si en retard face aux dernières versions. Contrairement au domaine des logiciels grand public, où chaque mise à jour est adoptée avec enthousiasme, le secteur industriel est régi par des processus de validation stricts. Migrer vers un nouveau standard est une opération coûteuse, tant en termes de tests que de conformité, et les entreprises préfèrent souvent s’en tenir à des versions éprouvées plutôt que de risquer de coûteuses erreurs, notamment dans des domaines critiques comme l’aéronautique ou la médecine.</p>
 <h2 id="le-c-et-les-autres">Le C et les autres...<a class="headerlink" href="#le-c-et-les-autres" title="Lien permanent">¤</a></h2>
 <p>Si ce cours se concentre principalement sur le langage C, il est loin d'être le seul langage de programmation, et ce n'est certainement pas le seul que vous apprendrez au cours de votre carrière. La table suivante présente une liste non exhaustive de langages de programmation ainsi que leur année de création. Cette liste permet de mieux comprendre l'évolution des langages de programmation et leurs usages typiques :</p>
 <table id="_table-2">
@@ -6536,7 +6538,7 @@ flowchart LR
 <p>Ce programme est composé de deux parties. L'inclusion de la <span class="ycr-hashtag" data-index-entry="bibliothèque standard" data-tag="bibliotheque-standard">bibliothèque standard</span> d'entrées sorties (<em>STandarD Inputs Outputs</em>) à l'aide d'une directive préprocesseur qui définit l'existence de la fonction <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> qui vous permet d'écrire sur le terminal. Le programme principal est nommé <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span> et tout ce qui se situe à l'intérieur des accolades <code>{ }</code> appartient à ce dernier. L'ensemble que définit <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span> et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span>. On prend soin de terminer chaque instruction par un point-virgule <code>;</code>. <span class="ycr-hashtag" data-index-entry="hello, world" data-tag=""></span></p>
 <p>L'appel d'une fonction comme  <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> peut prendre des <strong>paramètres</strong> comme ici le texte <code>Hello world!\n</code> dont le <code>\n</code> représente un retour à la ligne.</p>
 <p>Une fois ce code écrit, il faut le <span class="ycr-hashtag" data-index-entry="compiler" data-tag="compiler">compiler</span>. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard vous utiliserez votre éditeur de texte favori pour écrire vos programmes.</p>
-<p>Pour obtenir un invité de commande, vous devez ouvrir un terminal. Comme nous avons choisi de travailler sur un système compatible <span class="ycr-hashtag" data-index-entry="POSIX" data-tag="posix"><abbr title="Portable Operating System Interface">POSIX</abbr></span>, sur n'importe quel système d'exploitation vous lancez un terminal et sous Windows vous devez installer WSL2. Une fois lancée la console ressemble à ceci :</p>
+<p>Pour obtenir un invité de commande, vous devez ouvrir un terminal. Comme nous avons choisi de travailler sur un système compatible <span class="ycr-hashtag" data-index-entry="POSIX" data-tag="posix"><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a></span>, sur n'importe quel système d'exploitation vous lancez un terminal et sous Windows vous devez installer WSL2. Une fois lancée la console ressemble à ceci :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>$
 </span></code></pre></div>
 <p>C'est intimidant si l'on n’en a pas l'habitude, mais vraiment puissant, croyez-moi ! La première étape est de s'assurer que le fichier <span class="ycr-hashtag" data-index-entry="test.c" data-tag="test.c"><code>test.c</code></span> contient bien notre programme. Pour ce faire on utilise un autre programme <a href="https://fr.wikipedia.org/wiki/Cat_(Unix)">cat</a> qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :</p>
@@ -6555,7 +6557,7 @@ flowchart LR
 <p>Utilisez donc la commande suivante pour compiler votre programme :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>$<span class="w"> </span>gcc<span class="w"> </span>hello.c
 </span></code></pre></div>
-<p>Rien ne s'est affiché ? C'est une excellente nouvelle ! La philosophie <abbr title="Portable Operating System Interface">POSIX</abbr> veut qu'un programme soit aussi discret que possible : si tout s'est bien déroulé, il n'est pas nécessaire d'en informer l'utilisateur. Toutefois, cela ne signifie pas que la commande n'a eu aucun effet. En réalité, vous devriez maintenant trouver dans le répertoire courant votre fichier source ainsi que le résultat de la compilation, à savoir le fichier <span class="ycr-hashtag" data-index-entry="a.out" data-tag="a.out"><code>a.out</code></span>. Pour vérifier cela, nous allons utiliser le programme <a href="https://fr.wikipedia.org/wiki/Ls">ls</a>, qui liste les fichiers présents dans un répertoire : <span class="ycr-hashtag" data-index-entry="ls" data-tag=""></span></p>
+<p>Rien ne s'est affiché ? C'est une excellente nouvelle ! La philosophie <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> veut qu'un programme soit aussi discret que possible : si tout s'est bien déroulé, il n'est pas nécessaire d'en informer l'utilisateur. Toutefois, cela ne signifie pas que la commande n'a eu aucun effet. En réalité, vous devriez maintenant trouver dans le répertoire courant votre fichier source ainsi que le résultat de la compilation, à savoir le fichier <span class="ycr-hashtag" data-index-entry="a.out" data-tag="a.out"><code>a.out</code></span>. Pour vérifier cela, nous allons utiliser le programme <a href="https://fr.wikipedia.org/wiki/Ls">ls</a>, qui liste les fichiers présents dans un répertoire : <span class="ycr-hashtag" data-index-entry="ls" data-tag=""></span></p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>$<span class="w"> </span>ls
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>hello.c<span class="w">       </span>a.out
 </span></code></pre></div>
@@ -6593,7 +6595,7 @@ flowchart LR
 <h2 id="exercices-de-revision">Exercices de Révision<a class="headerlink" href="#exercices-de-revision" title="Lien permanent">¤</a></h2>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 1 : </span>Exercice<span class="exercise-title"></span></p>
-<p>Ouvrez le standard <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></a> et cherchez la valeur maximale possible de la constante <span class="ycr-hashtag" data-index-entry="ULLONG_MAX" data-tag="ULLONG_MAX"><code>ULLONG_MAX</code></span>. Que vaut-elle ?</p>
+<p>Ouvrez le standard <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99</a> et cherchez la valeur maximale possible de la constante <span class="ycr-hashtag" data-index-entry="ULLONG_MAX" data-tag="ULLONG_MAX"><code>ULLONG_MAX</code></span>. Que vaut-elle ?</p>
 <details class="solution">
 <summary>Solution</summary>
 <p>Au paragraphe §5.2.4.2.1-1 on peut lire que <span class="ycr-hashtag" data-index-entry="ULLONG_MAX" data-tag="ULLONG_MAX"><code>ULLONG_MAX</code></span> est encodé sur 64-bits et donc que sa valeur est <span class="arithmatex">\(2^{64}-1\)</span> donc <code>18'446'744'073'709'551'615</code>.</p>
@@ -6788,7 +6790,7 @@ flowchart LR
 </defs>
 </svg>
 </div>
-<abbr title="Standard ISO/IEC 9899:1999">C99</abbr>
+   C99
 </li>
 <li class="flex-container">
 <div class="exercise-checkbox">
@@ -7123,7 +7125,7 @@ facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du progra
 </ul>
 <details class="solution">
 <summary>Solution</summary>
-<p><span class="ycr-hashtag" data-index-entry="cat" data-tag="cat"><code>cat</code></span> est un programme normalisé <abbr title="Portable Operating System Interface">POSIX</abbr> prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier <span class="ycr-hashtag" data-index-entry="hello.c" data-tag="hello.c"><code>hello.c</code></span> est bel et bien celui attendu.</p>
+<p><span class="ycr-hashtag" data-index-entry="cat" data-tag="cat"><code>cat</code></span> est un programme normalisé <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier <span class="ycr-hashtag" data-index-entry="hello.c" data-tag="hello.c"><code>hello.c</code></span> est bel et bien celui attendu.</p>
 </details>
 </div>
 

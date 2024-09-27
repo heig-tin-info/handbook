@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../css/tables.css">
     
+      <link rel="stylesheet" href="../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../exercise.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -5950,7 +5952,7 @@ les outils associés.
 
 <h1 id="threads">Threads<a class="headerlink" href="#threads" title="Lien permanent">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Lien permanent">¤</a></h2>
-<p>La gestion de l'ordonnancement des processus et des threads (processus légers) par le noyau d'un système d'exploitation a évolué avec le temps, notamment sous les systèmes <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr> et Linux. Historiquement, en effet, les threads étaient souvent gérés au niveau utilisateur par des bibliothèques de threads, comme la bibliothèque <abbr title="Portable Operating System Interface">POSIX</abbr> Threads (pthreads) sous <abbr title="Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970.">UNIX</abbr>. Cette approche est connue sous le nom de threads au niveau utilisateur (User-Level Threads). Cependant, les systèmes modernes, y compris Linux, utilisent une approche différente qui permet une meilleure intégration avec l'ordonnanceur du noyau.</p>
+<p>La gestion de l'ordonnancement des processus et des threads (processus légers) par le noyau d'un système d'exploitation a évolué avec le temps, notamment sous les systèmes <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Unix">UNIX</a> et Linux. Historiquement, en effet, les threads étaient souvent gérés au niveau utilisateur par des bibliothèques de threads, comme la bibliothèque <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> Threads (pthreads) sous <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Unix">UNIX</a>. Cette approche est connue sous le nom de threads au niveau utilisateur (User-Level Threads). Cependant, les systèmes modernes, y compris Linux, utilisent une approche différente qui permet une meilleure intégration avec l'ordonnanceur du noyau.</p>
 <h2 id="threads-au-niveau-utilisateur">Threads au Niveau Utilisateur<a class="headerlink" href="#threads-au-niveau-utilisateur" title="Lien permanent">¤</a></h2>
 <p>Dans les modèles de threads au niveau utilisateur, l'ordonnancement des threads est géré entièrement par la bibliothèque de threads dans l'espace utilisateur. Le noyau n'est pas conscient de la présence de threads au sein des processus ; il ne voit et n'ordonnance que des processus. Cette approche permet une grande flexibilité et une portabilité entre différents systèmes d'exploitation, mais présente plusieurs inconvénients :</p>
 <ul>

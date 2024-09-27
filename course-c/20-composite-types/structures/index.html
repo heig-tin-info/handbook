@@ -124,6 +124,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6133,7 +6135,7 @@ les outils associés.
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mf">3060426.957</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mf">3192003.220</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mf">4581359.381</span><span class="w"> </span><span class="p">};</span>
 </span></code></pre></div>
 <p>Comme pour un tableau, les valeurs omises sont initialisées à zéro. Et de la même manière qu'un tableau, il est possible d'initialiser une structure à zéro avec <code>= {0};</code>.</p>
-<p>Il faut savoir que <strong><abbr title="Standard ISO/IEC 9899:1999">C99</abbr></strong> restreint l'ordre dans lequel les éléments peuvent être initialisés. Ce dernier doit être l'ordre dans lequel les variables sont déclarées dans la structure.</p>
+<p>Il faut savoir que <strong>C99</strong> restreint l'ordre dans lequel les éléments peuvent être initialisés. Ce dernier doit être l'ordre dans lequel les variables sont déclarées dans la structure.</p>
 <p>Notons que des structures comportant des types différents peuvent aussi être initialisées de la même manière :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Product</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span><span class="w"> </span><span class="c1">// Grams</span>
@@ -6201,7 +6203,7 @@ les outils associés.
 <p>Lorsqu'un membre d'une structure est accédé, via son pointeur, on utilise la notation <code>-&gt;</code> au lieu de <code>.</code> car il est nécessaire de déréférencer le pointeur. Il s'agit d'un sucre syntaxique permettant d'écrire <code>p-&gt;x</code> au lieu de <code>(*p).x</code></p>
 </div>
 <h2 id="structures-flexibles">Structures flexibles<a class="headerlink" href="#structures-flexibles" title="Lien permanent">¤</a></h2>
-<p>Introduits avec <abbr title="Standard ISO/IEC 9899:1999">C99</abbr>, les membres de structures flexibles ou <em>flexible array members</em> (§6.7.2.1) est un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.</p>
+<p>Introduits avec C99, les membres de structures flexibles ou <em>flexible array members</em> (§6.7.2.1) est un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Vector</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span><span class="w"> </span><span class="c1">// name of the vector</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="c1">// length of the vector</span>
