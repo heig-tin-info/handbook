@@ -1653,6 +1653,8 @@ les outils associés.
       
         
       
+        
+      
     
     
       
@@ -1816,6 +1818,33 @@ les outils associés.
     
   
     Fichiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/abi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    ABI
   
 
     
@@ -5938,37 +5967,38 @@ les outils associés.
 </span><span id="__span-1-28"><a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>                    | &lt;enum_specifier&gt;
 </span><span id="__span-1-29"><a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>                    | &lt;typedef_name&gt;
 </span><span id="__span-1-30"><a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>
-</span><span id="__span-1-31"><a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>&lt;struct_or_union_specifier&gt; ::= &lt;struct_or_union&gt; &lt;identifier&gt; { {&lt;struct_declaration&gt;}+ }
-</span><span id="__span-1-32"><a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>                                | &lt;struct_or_union&gt; { {&lt;struct_declaration&gt;}+ }
-</span><span id="__span-1-33"><a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>                                | &lt;struct_or_union&gt; &lt;identifier&gt;
-</span><span id="__span-1-34"><a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a>
-</span><span id="__span-1-35"><a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>&lt;struct_or_union&gt; ::= "struct"
-</span><span id="__span-1-36"><a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a>                    | "union"
-</span><span id="__span-1-37"><a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a>
-</span><span id="__span-1-38"><a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a>&lt;struct_declaration&gt; ::= {&lt;specifier_qualifier&gt;}* &lt;struct_declarator_list&gt;
-</span><span id="__span-1-39"><a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a>
-</span><span id="__span-1-40"><a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a>&lt;specifier_qualifier&gt; ::= &lt;type_specifier&gt;
-</span><span id="__span-1-41"><a href="#__codelineno-1-41" id="__codelineno-1-41" name="__codelineno-1-41"></a>                        | &lt;type_qualifier&gt;
-</span><span id="__span-1-42"><a href="#__codelineno-1-42" id="__codelineno-1-42" name="__codelineno-1-42"></a>
-</span><span id="__span-1-43"><a href="#__codelineno-1-43" id="__codelineno-1-43" name="__codelineno-1-43"></a>&lt;struct_declarator_list&gt; ::= &lt;struct_declarator&gt;
-</span><span id="__span-1-44"><a href="#__codelineno-1-44" id="__codelineno-1-44" name="__codelineno-1-44"></a>                            | &lt;struct_declarator_list&gt; "," &lt;struct_declarator&gt;
-</span><span id="__span-1-45"><a href="#__codelineno-1-45" id="__codelineno-1-45" name="__codelineno-1-45"></a>
-</span><span id="__span-1-46"><a href="#__codelineno-1-46" id="__codelineno-1-46" name="__codelineno-1-46"></a>&lt;struct_declarator&gt; ::= &lt;declarator&gt;
-</span><span id="__span-1-47"><a href="#__codelineno-1-47" id="__codelineno-1-47" name="__codelineno-1-47"></a>                        | &lt;declarator&gt; ":" &lt;constant_expression&gt;
-</span><span id="__span-1-48"><a href="#__codelineno-1-48" id="__codelineno-1-48" name="__codelineno-1-48"></a>                        | ":" &lt;constant_expression&gt;
-</span><span id="__span-1-49"><a href="#__codelineno-1-49" id="__codelineno-1-49" name="__codelineno-1-49"></a>
-</span><span id="__span-1-50"><a href="#__codelineno-1-50" id="__codelineno-1-50" name="__codelineno-1-50"></a>&lt;declarator&gt; ::= {&lt;pointer&gt;}? &lt;direct_declarator&gt;
-</span><span id="__span-1-51"><a href="#__codelineno-1-51" id="__codelineno-1-51" name="__codelineno-1-51"></a>
-</span><span id="__span-1-52"><a href="#__codelineno-1-52" id="__codelineno-1-52" name="__codelineno-1-52"></a>&lt;pointer&gt; ::= * {&lt;type_qualifier&gt;}* {&lt;pointer&gt;}?
-</span><span id="__span-1-53"><a href="#__codelineno-1-53" id="__codelineno-1-53" name="__codelineno-1-53"></a>
-</span><span id="__span-1-54"><a href="#__codelineno-1-54" id="__codelineno-1-54" name="__codelineno-1-54"></a>&lt;type_qualifier&gt; ::= "const"
-</span><span id="__span-1-55"><a href="#__codelineno-1-55" id="__codelineno-1-55" name="__codelineno-1-55"></a>                    | "volatile"
-</span><span id="__span-1-56"><a href="#__codelineno-1-56" id="__codelineno-1-56" name="__codelineno-1-56"></a>
-</span><span id="__span-1-57"><a href="#__codelineno-1-57" id="__codelineno-1-57" name="__codelineno-1-57"></a>&lt;direct_declarator&gt; ::= &lt;identifier&gt;
-</span><span id="__span-1-58"><a href="#__codelineno-1-58" id="__codelineno-1-58" name="__codelineno-1-58"></a>                        | ( &lt;declarator&gt; )
-</span><span id="__span-1-59"><a href="#__codelineno-1-59" id="__codelineno-1-59" name="__codelineno-1-59"></a>                        | &lt;direct_declarator&gt; "[" {&lt;constant_expression&gt;}? "]"
-</span><span id="__span-1-60"><a href="#__codelineno-1-60" id="__codelineno-1-60" name="__codelineno-1-60"></a>                        | &lt;direct_declarator&gt; "(" &lt;parameter_type_list&gt; ")"
-</span><span id="__span-1-61"><a href="#__codelineno-1-61" id="__codelineno-1-61" name="__codelineno-1-61"></a>                        | &lt;direct_declarator&gt; "(" {&lt;identifier&gt;}* ")"
+</span><span id="__span-1-31"><a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>&lt;struct_or_union_specifier&gt; ::= &lt;struct_or_union&gt; &lt;identifier&gt; {
+</span><span id="__span-1-32"><a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>            {&lt;struct_declaration&gt;}+ }
+</span><span id="__span-1-33"><a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>            | &lt;struct_or_union&gt; { {&lt;struct_declaration&gt;}+ }
+</span><span id="__span-1-34"><a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a>            | &lt;struct_or_union&gt; &lt;identifier&gt;
+</span><span id="__span-1-35"><a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>
+</span><span id="__span-1-36"><a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a>&lt;struct_or_union&gt; ::= "struct"
+</span><span id="__span-1-37"><a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a>                    | "union"
+</span><span id="__span-1-38"><a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a>
+</span><span id="__span-1-39"><a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a>&lt;struct_declaration&gt; ::= {&lt;specifier_qualifier&gt;}* &lt;struct_declarator_list&gt;
+</span><span id="__span-1-40"><a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a>
+</span><span id="__span-1-41"><a href="#__codelineno-1-41" id="__codelineno-1-41" name="__codelineno-1-41"></a>&lt;specifier_qualifier&gt; ::= &lt;type_specifier&gt;
+</span><span id="__span-1-42"><a href="#__codelineno-1-42" id="__codelineno-1-42" name="__codelineno-1-42"></a>                        | &lt;type_qualifier&gt;
+</span><span id="__span-1-43"><a href="#__codelineno-1-43" id="__codelineno-1-43" name="__codelineno-1-43"></a>
+</span><span id="__span-1-44"><a href="#__codelineno-1-44" id="__codelineno-1-44" name="__codelineno-1-44"></a>&lt;struct_declarator_list&gt; ::= &lt;struct_declarator&gt;
+</span><span id="__span-1-45"><a href="#__codelineno-1-45" id="__codelineno-1-45" name="__codelineno-1-45"></a>                            | &lt;struct_declarator_list&gt; "," &lt;struct_declarator&gt;
+</span><span id="__span-1-46"><a href="#__codelineno-1-46" id="__codelineno-1-46" name="__codelineno-1-46"></a>
+</span><span id="__span-1-47"><a href="#__codelineno-1-47" id="__codelineno-1-47" name="__codelineno-1-47"></a>&lt;struct_declarator&gt; ::= &lt;declarator&gt;
+</span><span id="__span-1-48"><a href="#__codelineno-1-48" id="__codelineno-1-48" name="__codelineno-1-48"></a>                        | &lt;declarator&gt; ":" &lt;constant_expression&gt;
+</span><span id="__span-1-49"><a href="#__codelineno-1-49" id="__codelineno-1-49" name="__codelineno-1-49"></a>                        | ":" &lt;constant_expression&gt;
+</span><span id="__span-1-50"><a href="#__codelineno-1-50" id="__codelineno-1-50" name="__codelineno-1-50"></a>
+</span><span id="__span-1-51"><a href="#__codelineno-1-51" id="__codelineno-1-51" name="__codelineno-1-51"></a>&lt;declarator&gt; ::= {&lt;pointer&gt;}? &lt;direct_declarator&gt;
+</span><span id="__span-1-52"><a href="#__codelineno-1-52" id="__codelineno-1-52" name="__codelineno-1-52"></a>
+</span><span id="__span-1-53"><a href="#__codelineno-1-53" id="__codelineno-1-53" name="__codelineno-1-53"></a>&lt;pointer&gt; ::= * {&lt;type_qualifier&gt;}* {&lt;pointer&gt;}?
+</span><span id="__span-1-54"><a href="#__codelineno-1-54" id="__codelineno-1-54" name="__codelineno-1-54"></a>
+</span><span id="__span-1-55"><a href="#__codelineno-1-55" id="__codelineno-1-55" name="__codelineno-1-55"></a>&lt;type_qualifier&gt; ::= "const"
+</span><span id="__span-1-56"><a href="#__codelineno-1-56" id="__codelineno-1-56" name="__codelineno-1-56"></a>                    | "volatile"
+</span><span id="__span-1-57"><a href="#__codelineno-1-57" id="__codelineno-1-57" name="__codelineno-1-57"></a>
+</span><span id="__span-1-58"><a href="#__codelineno-1-58" id="__codelineno-1-58" name="__codelineno-1-58"></a>&lt;direct_declarator&gt; ::= &lt;identifier&gt;
+</span><span id="__span-1-59"><a href="#__codelineno-1-59" id="__codelineno-1-59" name="__codelineno-1-59"></a>                        | ( &lt;declarator&gt; )
+</span><span id="__span-1-60"><a href="#__codelineno-1-60" id="__codelineno-1-60" name="__codelineno-1-60"></a>                        | &lt;direct_declarator&gt; "[" {&lt;constant_expression&gt;}? "]"
+</span><span id="__span-1-61"><a href="#__codelineno-1-61" id="__codelineno-1-61" name="__codelineno-1-61"></a>                        | &lt;direct_declarator&gt; "(" &lt;parameter_type_list&gt; ")"
+</span><span id="__span-1-62"><a href="#__codelineno-1-62" id="__codelineno-1-62" name="__codelineno-1-62"></a>                        | &lt;direct_declarator&gt; "(" {&lt;identifier&gt;}* ")"
 </span></code></pre></div>
 <p>Ce que l'on observe par exemple c'est que la grammaire du C est récursive. Cela signifie que l'on peut définir un élément en fonction de lui-même. Par exemple, un <span class="ycr-hashtag" data-index-entry="declarator" data-tag="declarator"><code>declarator</code></span> peut contenir un <span class="ycr-hashtag" data-index-entry="pointer" data-tag="pointer"><code>pointer</code></span> qui peut lui-même contenir un <span class="ycr-hashtag" data-index-entry="pointer" data-tag="pointer"><code>pointer</code></span>.</p>
 <p>Comment est-ce que cela fonctionne derrière les coulisses ?</p>
@@ -6012,7 +6042,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">20 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">27 septembre 2024</span>
   </span>
 
     

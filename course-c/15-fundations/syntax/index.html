@@ -1830,6 +1830,8 @@ les outils associés.
       
         
       
+        
+      
     
     
       
@@ -1993,6 +1995,33 @@ les outils associés.
     
   
     Fichiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/abi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    ABI
   
 
     
@@ -6375,23 +6404,22 @@ les outils associés.
 <p>Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (<span class="ycr-hashtag" data-index-entry="EOL" data-tag="EOL"><code>EOL</code></span>: <em>End Of Line</em>) il faut utiliser, faite preuve de bon sens et surtout, soyez cohérent.</p>
 <h2 id="mots-cles">Mots clés<a class="headerlink" href="#mots-cles" title="Lien permanent">¤</a></h2>
 <p><span class="ycr-hashtag" data-index-entry="mot clé" data-tag=""></span></p>
-<p>Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">_Bool</span><span class="w">       </span><span class="k">do</span><span class="w">        </span><span class="kt">int</span><span class="w">       </span><span class="k">switch</span>
-</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kt">_Complex</span><span class="w">    </span><span class="kt">double</span><span class="w">    </span><span class="kt">long</span><span class="w">      </span><span class="k">typedef</span>
-</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">_Imaginary</span><span class="w">  </span><span class="k">else</span><span class="w">      </span><span class="k">register</span><span class="w">  </span><span class="k">union</span>
-</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="nc">auto</span><span class="w">        </span><span class="k">enum</span><span class="w">      </span><span class="kr">restrict</span><span class="w">  </span><span class="kt">unsigned</span>
-</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="k">break</span><span class="w">       </span><span class="k">extern</span><span class="w">    </span><span class="k">return</span><span class="w">    </span><span class="kt">void</span>
-</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="k">case</span><span class="w">        </span><span class="no">float</span><span class="w">     </span><span class="no">short</span><span class="w">     </span><span class="no">volatile</span>
-</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="no">char</span><span class="w">        </span><span class="no">for</span><span class="w">       </span><span class="no">signed</span><span class="w">    </span><span class="no">while</span>
-</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="no">const</span><span class="w">       </span><span class="no">goto</span><span class="w">      </span><span class="no">sizeof</span>
-</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="no">continue</span><span class="w">    </span><span class="no">if</span><span class="w">        </span><span class="no">static</span>
-</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="no">default</span><span class="w">     </span><span class="no">inline</span><span class="w">    </span><span class="no">struct</span>
+<p>Le langage de programmation C tel que défini par C17 comporte 44 mots clés :</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">auto</span><span class="w">       </span><span class="k">break</span><span class="w">      </span><span class="k">case</span><span class="w">       </span><span class="no">char</span><span class="w">       </span><span class="no">const</span>
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="no">continue</span><span class="w">   </span><span class="no">default</span><span class="w">    </span><span class="no">do</span><span class="w">         </span><span class="no">double</span><span class="w">     </span><span class="no">else</span>
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="no">enum</span><span class="w">       </span><span class="no">extern</span><span class="w">     </span><span class="no">float</span><span class="w">      </span><span class="no">for</span><span class="w">        </span><span class="no">goto</span>
+</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="no">if</span><span class="w">         </span><span class="no">inline</span><span class="w">     </span><span class="no">int</span><span class="w">        </span><span class="no">long</span><span class="w">       </span><span class="no">register</span>
+</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="no">restrict</span><span class="w">   </span><span class="no">return</span><span class="w">     </span><span class="no">short</span><span class="w">      </span><span class="no">signed</span><span class="w">     </span><span class="no">sizeof</span>
+</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="no">static</span><span class="w">     </span><span class="no">struct</span><span class="w">     </span><span class="no">switch</span><span class="w">     </span><span class="no">typedef</span><span class="w">    </span><span class="no">union</span>
+</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="no">unsigned</span><span class="w">   </span><span class="no">void</span><span class="w">       </span><span class="no">volatile</span><span class="w">   </span><span class="no">while</span><span class="w">      </span><span class="no">_Alignas</span>
+</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="no">_Alignof</span><span class="w">   </span><span class="no">_Atomic</span><span class="w">    </span><span class="no">_Bool</span><span class="w">      </span><span class="no">_Complex</span><span class="w">   </span><span class="no">_Generic</span>
+</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="no">_Imaginary</span><span class="w"> </span><span class="no">_Noreturn</span><span class="w">  </span><span class="no">_Static_assert</span><span class="w">        </span><span class="no">_Thread_local</span>
 </span></code></pre></div>
 <p><span class="ycr-hashtag" data-index-entry="_Bool" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="_Complex" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="_Imaginary" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="auto" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="break" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="case" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="char" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="const" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="continue" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="default" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="do" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="double" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="else" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="enum" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="extern" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="float" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="for" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="goto" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="if" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="inline" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="int" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="long" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="register" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="restrict" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="return" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="short" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="signed" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="sizeof" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="static" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="struct" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="switch" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="typedef" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="union" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="unsigned" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="void" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="volatile" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="while" data-tag=""></span></p>
 <p>Dans ce cours, l'usage des mots clés suivants est découragé, car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">_Bool</span><span class="p">,</span><span class="w"> </span><span class="n">_imaginary</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="p">,</span><span class="w"> </span><span class="k">goto</span><span class="p">,</span><span class="w"> </span><span class="kr">inline</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="k">register</span><span class="p">,</span><span class="w"> </span><span class="kr">restrict</span><span class="p">,</span><span class="w"> </span><span class="kt">short</span>
 </span></code></pre></div>
-<p>Il n'y a donc plus que 28 mots clés à connaître pour être un bon développeur C.</p>
+<p>Il n'y a donc plus que 35 mots clés à connaître pour être un bon développeur C.</p>
 <p>Notons que les mots clés <span class="ycr-hashtag" data-index-entry="true" data-tag="true"><code>true</code></span> et <span class="ycr-hashtag" data-index-entry="false" data-tag="false"><code>false</code></span> ne sont pas standardisés en C, mais ils le sont en C++. <span class="ycr-hashtag" data-index-entry="true" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="false" data-tag=""></span></p>
 <p>Ces mots clés font partie intégrante de la <a class="autorefs autorefs-internal" href="../grammar/#la-grammaire">grammaire</a> du langage et ne peuvent être utilisés pour identifier des variables, des fonctions ou des étiquettes.</p>
 <details class="info">

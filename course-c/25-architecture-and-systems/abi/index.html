@@ -15,31 +15,31 @@ les outils associés.
         <meta name="author" content="Yves Chevallier">
       
       
-        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/45-software-design/">
+        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/25-architecture-and-systems/abi/">
       
       
-        <link rel="prev" href="../40-algorithms/popular-algorithms/shunting-yard/">
+        <link rel="prev" href="../files/">
       
       
-        <link rel="next" href="teamwork/">
+        <link rel="next" href="../../27-data-structures/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/icons/favicon.ico">
+      <link rel="icon" href="../../../assets/icons/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36+insiders-4.53.13">
     
     
       
-        <title>Introduction - L'informatique pour ingénieurs</title>
+        <title>ABI - L'informatique pour ingénieurs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.fe49db16.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fe49db16.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
   
@@ -114,21 +114,21 @@ les outils associés.
       
     
     
-      <link rel="stylesheet" href="../../assets/_markdown_exec_pyodide.css">
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
     
-      <link rel="stylesheet" href="../../css/french.css">
+      <link rel="stylesheet" href="../../../css/french.css">
     
-      <link rel="stylesheet" href="../../css/callout.css">
+      <link rel="stylesheet" href="../../../css/callout.css">
     
-      <link rel="stylesheet" href="../../css/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
     
-      <link rel="stylesheet" href="../../css/tables.css">
+      <link rel="stylesheet" href="../../../css/tables.css">
     
-      <link rel="stylesheet" href="../../css/drawio.css">
+      <link rel="stylesheet" href="../../../css/drawio.css">
     
-      <link rel="stylesheet" href="../../exercise.css">
+      <link rel="stylesheet" href="../../../exercise.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -144,7 +144,7 @@ les outils associés.
 
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -153,7 +153,7 @@ les outils associés.
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -172,7 +172,7 @@ les outils associés.
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#abi" class="md-skip">
           Aller au contenu
         </a>
       
@@ -205,7 +205,7 @@ les outils associés.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction
+              ABI
             
           </span>
         </div>
@@ -319,7 +319,7 @@ les outils associés.
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -348,7 +348,7 @@ les outils associés.
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../00-preface/" class="md-tabs__link">
+        <a href="../../00-preface/" class="md-tabs__link">
           
   
     
@@ -371,7 +371,7 @@ les outils associés.
     
     
       <li class="md-tabs__item">
-        <a href="../../course-cpp/cpp/" class="md-tabs__link">
+        <a href="../../../course-cpp/cpp/" class="md-tabs__link">
           
   
     
@@ -391,7 +391,7 @@ les outils associés.
     
     
       <li class="md-tabs__item">
-        <a href="../../course-concurrent/os/" class="md-tabs__link">
+        <a href="../../../course-concurrent/os/" class="md-tabs__link">
           
   
     
@@ -417,7 +417,7 @@ les outils associés.
     
     
       <li class="md-tabs__item">
-        <a href="../../tools/dev/bash/" class="md-tabs__link">
+        <a href="../../../tools/dev/bash/" class="md-tabs__link">
           
   
     
@@ -440,7 +440,7 @@ les outils associés.
     
     
       <li class="md-tabs__item">
-        <a href="../../appendix/bibliography/" class="md-tabs__link">
+        <a href="../../../appendix/bibliography/" class="md-tabs__link">
           
   
     
@@ -504,7 +504,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -638,7 +638,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../00-preface/" class="md-nav__link ">
+            <a href="../../00-preface/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -742,7 +742,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../05-introduction/programming/" class="md-nav__link">
+      <a href="../../05-introduction/programming/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -769,7 +769,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../05-introduction/code-of-conduct/" class="md-nav__link">
+      <a href="../../05-introduction/code-of-conduct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -796,7 +796,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../05-introduction/me-and-my-computer/" class="md-nav__link">
+      <a href="../../05-introduction/me-and-my-computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -823,7 +823,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../05-introduction/c-lang/" class="md-nav__link">
+      <a href="../../05-introduction/c-lang/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -885,7 +885,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../10-numeration/" class="md-nav__link ">
+            <a href="../../10-numeration/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -928,7 +928,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../10-numeration/data/" class="md-nav__link">
+      <a href="../../10-numeration/data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -955,7 +955,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../10-numeration/bases/" class="md-nav__link">
+      <a href="../../10-numeration/bases/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -982,7 +982,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../10-numeration/numbers/" class="md-nav__link">
+      <a href="../../10-numeration/numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1085,7 +1085,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../15-fundations/syntax/" class="md-nav__link">
+      <a href="../../15-fundations/syntax/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1112,7 +1112,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../15-fundations/datatype/" class="md-nav__link">
+      <a href="../../15-fundations/datatype/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1139,7 +1139,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../15-fundations/operators/" class="md-nav__link">
+      <a href="../../15-fundations/operators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1166,7 +1166,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../15-fundations/stdio/" class="md-nav__link">
+      <a href="../../15-fundations/stdio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1193,7 +1193,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../15-fundations/control-structures/" class="md-nav__link">
+      <a href="../../15-fundations/control-structures/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1220,7 +1220,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../15-fundations/preprocessor/" class="md-nav__link">
+      <a href="../../15-fundations/preprocessor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1247,7 +1247,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../15-fundations/functions/" class="md-nav__link">
+      <a href="../../15-fundations/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1274,7 +1274,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../15-fundations/scope/" class="md-nav__link">
+      <a href="../../15-fundations/scope/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1301,7 +1301,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../15-fundations/grammar/" class="md-nav__link">
+      <a href="../../15-fundations/grammar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1369,7 +1369,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../20-composite-types/" class="md-nav__link ">
+            <a href="../../20-composite-types/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1412,7 +1412,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../20-composite-types/arrays/" class="md-nav__link">
+      <a href="../../20-composite-types/arrays/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1439,7 +1439,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../20-composite-types/strings/" class="md-nav__link">
+      <a href="../../20-composite-types/strings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1466,7 +1466,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../20-composite-types/structures/" class="md-nav__link">
+      <a href="../../20-composite-types/structures/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1493,7 +1493,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../20-composite-types/unions/" class="md-nav__link">
+      <a href="../../20-composite-types/unions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1520,7 +1520,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../20-composite-types/pointers/" class="md-nav__link">
+      <a href="../../20-composite-types/pointers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1547,7 +1547,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../20-composite-types/generic-programming/" class="md-nav__link">
+      <a href="../../20-composite-types/generic-programming/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1579,8 +1579,10 @@ les outils associés.
                 
   
   
+    
   
   
+  
     
     
       
@@ -1602,11 +1604,11 @@ les outils associés.
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
         
           
           <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
@@ -1626,7 +1628,7 @@ les outils associés.
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1644,7 +1646,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../25-architecture-and-systems/computer/" class="md-nav__link">
+      <a href="../computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1671,7 +1673,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../25-architecture-and-systems/mcu/" class="md-nav__link">
+      <a href="../mcu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1698,7 +1700,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../25-architecture-and-systems/memory-management/" class="md-nav__link">
+      <a href="../memory-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1725,7 +1727,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../25-architecture-and-systems/programs-and-processes/" class="md-nav__link">
+      <a href="../programs-and-processes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1752,7 +1754,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../25-architecture-and-systems/files/" class="md-nav__link">
+      <a href="../files/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1776,10 +1778,36 @@ les outils associés.
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../25-architecture-and-systems/abi/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    ABI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1794,6 +1822,48 @@ les outils associés.
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ELF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eabi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EABI
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1847,7 +1917,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../27-data-structures/" class="md-nav__link ">
+            <a href="../../27-data-structures/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1890,7 +1960,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../27-data-structures/dynamic-array/" class="md-nav__link">
+      <a href="../../27-data-structures/dynamic-array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1917,7 +1987,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../27-data-structures/lists/" class="md-nav__link">
+      <a href="../../27-data-structures/lists/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1944,7 +2014,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../27-data-structures/trees/" class="md-nav__link">
+      <a href="../../27-data-structures/trees/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1971,7 +2041,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../27-data-structures/maps/" class="md-nav__link">
+      <a href="../../27-data-structures/maps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1998,7 +2068,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../27-data-structures/graphs/" class="md-nav__link">
+      <a href="../../27-data-structures/graphs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2025,7 +2095,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../27-data-structures/performances/" class="md-nav__link">
+      <a href="../../27-data-structures/performances/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2085,7 +2155,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../30-modular-programming/" class="md-nav__link ">
+            <a href="../../30-modular-programming/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2128,7 +2198,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../30-modular-programming/translation-units/" class="md-nav__link">
+      <a href="../../30-modular-programming/translation-units/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2155,7 +2225,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../30-modular-programming/libraries/" class="md-nav__link">
+      <a href="../../30-modular-programming/libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2246,7 +2316,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../35-libraries/introduction/" class="md-nav__link">
+      <a href="../../35-libraries/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2273,7 +2343,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../35-libraries/standard-library/" class="md-nav__link">
+      <a href="../../35-libraries/standard-library/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2300,7 +2370,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../35-libraries/third-party-libraries/" class="md-nav__link">
+      <a href="../../35-libraries/third-party-libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2370,7 +2440,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../40-algorithms/" class="md-nav__link ">
+            <a href="../../40-algorithms/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2413,7 +2483,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/introduction/" class="md-nav__link">
+      <a href="../../40-algorithms/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2440,7 +2510,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/utilities/" class="md-nav__link">
+      <a href="../../40-algorithms/utilities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2467,7 +2537,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/recursion/" class="md-nav__link">
+      <a href="../../40-algorithms/recursion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2494,7 +2564,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/automata/" class="md-nav__link">
+      <a href="../../40-algorithms/automata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2521,7 +2591,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/searching/" class="md-nav__link">
+      <a href="../../40-algorithms/searching/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2604,7 +2674,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/sorting/count-sort/" class="md-nav__link">
+      <a href="../../40-algorithms/sorting/count-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2631,7 +2701,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/sorting/heap-sort/" class="md-nav__link">
+      <a href="../../40-algorithms/sorting/heap-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2658,7 +2728,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/sorting/quick-sort/" class="md-nav__link">
+      <a href="../../40-algorithms/sorting/quick-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2765,7 +2835,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/popular-algorithms/a-star/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/a-star/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2792,7 +2862,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/popular-algorithms/conway/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/conway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2819,7 +2889,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/popular-algorithms/fast-exp/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/fast-exp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2846,7 +2916,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/popular-algorithms/fast-inverse-square-root/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/fast-inverse-square-root/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2873,7 +2943,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2900,7 +2970,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/popular-algorithms/huffman/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/huffman/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2927,7 +2997,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/popular-algorithms/infography/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/infography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2954,7 +3024,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/popular-algorithms/lindenmayer/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/lindenmayer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2981,7 +3051,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/popular-algorithms/rabin-karp/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/rabin-karp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3008,7 +3078,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/popular-algorithms/random/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/random/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3035,7 +3105,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../40-algorithms/popular-algorithms/shunting-yard/" class="md-nav__link">
+      <a href="../../40-algorithms/popular-algorithms/shunting-yard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3075,8 +3145,6 @@ les outils associés.
                 
   
   
-    
-  
   
   
     
@@ -3104,16 +3172,16 @@ les outils associés.
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../45-software-design/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3130,13 +3198,13 @@ les outils associés.
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_11">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3156,7 +3224,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="teamwork/" class="md-nav__link">
+      <a href="../../45-software-design/teamwork/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3183,7 +3251,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="software-project/" class="md-nav__link">
+      <a href="../../45-software-design/software-project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3210,7 +3278,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="dependencies/" class="md-nav__link">
+      <a href="../../45-software-design/dependencies/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3237,7 +3305,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="contribute/" class="md-nav__link">
+      <a href="../../45-software-design/contribute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3264,7 +3332,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="licenses/" class="md-nav__link">
+      <a href="../../45-software-design/licenses/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3291,7 +3359,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="testing/" class="md-nav__link">
+      <a href="../../45-software-design/testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3357,7 +3425,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../47-gui/" class="md-nav__link ">
+            <a href="../../47-gui/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3400,7 +3468,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../47-gui/introduction/" class="md-nav__link">
+      <a href="../../47-gui/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3427,7 +3495,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../47-gui/window/" class="md-nav__link">
+      <a href="../../47-gui/window/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3454,7 +3522,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../47-gui/opengl/" class="md-nav__link">
+      <a href="../../47-gui/opengl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3481,7 +3549,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../47-gui/sdl/" class="md-nav__link">
+      <a href="../../47-gui/sdl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3508,7 +3576,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../47-gui/gtk/" class="md-nav__link">
+      <a href="../../47-gui/gtk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3570,7 +3638,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../48-network/" class="md-nav__link ">
+            <a href="../../48-network/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3613,7 +3681,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../48-network/osi/" class="md-nav__link">
+      <a href="../../48-network/osi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3640,7 +3708,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../48-network/protocoles/" class="md-nav__link">
+      <a href="../../48-network/protocoles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3667,7 +3735,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../48-network/sockets/" class="md-nav__link">
+      <a href="../../48-network/sockets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3754,7 +3822,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../60-safety/introduction/" class="md-nav__link">
+      <a href="../../60-safety/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3843,7 +3911,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../70-philosophy/philosophy/" class="md-nav__link">
+      <a href="../../70-philosophy/philosophy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3870,7 +3938,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../70-philosophy/funny/" class="md-nav__link">
+      <a href="../../70-philosophy/funny/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3926,7 +3994,7 @@ les outils associés.
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../90-exercises/" class="md-nav__link ">
+            <a href="../../90-exercises/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -4035,7 +4103,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../course-cpp/cpp/" class="md-nav__link">
+      <a href="../../../course-cpp/cpp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4062,7 +4130,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../course-cpp/garbage-collection/" class="md-nav__link">
+      <a href="../../../course-cpp/garbage-collection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4089,7 +4157,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../course-cpp/shared-memory/" class="md-nav__link">
+      <a href="../../../course-cpp/shared-memory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4191,7 +4259,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../course-concurrent/os/" class="md-nav__link">
+      <a href="../../../course-concurrent/os/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4218,7 +4286,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../course-concurrent/arch/" class="md-nav__link">
+      <a href="../../../course-concurrent/arch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4245,7 +4313,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../course-concurrent/threads/" class="md-nav__link">
+      <a href="../../../course-concurrent/threads/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4272,7 +4340,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../course-concurrent/mutex/" class="md-nav__link">
+      <a href="../../../course-concurrent/mutex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4299,7 +4367,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../course-concurrent/semaphores/" class="md-nav__link">
+      <a href="../../../course-concurrent/semaphores/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4326,7 +4394,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../course-concurrent/memory/" class="md-nav__link">
+      <a href="../../../course-concurrent/memory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4353,7 +4421,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../course-concurrent/async/" class="md-nav__link">
+      <a href="../../../course-concurrent/async/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4380,7 +4448,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../course-concurrent/thread-pool/" class="md-nav__link">
+      <a href="../../../course-concurrent/thread-pool/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4407,7 +4475,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../course-concurrent/summary/" class="md-nav__link">
+      <a href="../../../course-concurrent/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4569,7 +4637,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/dev/bash/" class="md-nav__link">
+      <a href="../../../tools/dev/bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4596,7 +4664,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/dev/config/" class="md-nav__link">
+      <a href="../../../tools/dev/config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4623,7 +4691,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/dev/docker/" class="md-nav__link">
+      <a href="../../../tools/dev/docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4650,7 +4718,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/dev/environment/" class="md-nav__link">
+      <a href="../../../tools/dev/environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4677,7 +4745,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/dev/git/" class="md-nav__link">
+      <a href="../../../tools/dev/git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4704,7 +4772,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/dev/windows/" class="md-nav__link">
+      <a href="../../../tools/dev/windows/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4731,7 +4799,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/dev/wsl/" class="md-nav__link">
+      <a href="../../../tools/dev/wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4818,7 +4886,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/arch/filesystem/" class="md-nav__link">
+      <a href="../../../tools/arch/filesystem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4911,7 +4979,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/c-cpp/gcc/" class="md-nav__link">
+      <a href="../../../tools/c-cpp/gcc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4938,7 +5006,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/c-cpp/gdb/" class="md-nav__link">
+      <a href="../../../tools/c-cpp/gdb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4965,7 +5033,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/c-cpp/conan/" class="md-nav__link">
+      <a href="../../../tools/c-cpp/conan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4992,7 +5060,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/c-cpp/vcpkg/" class="md-nav__link">
+      <a href="../../../tools/c-cpp/vcpkg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5085,7 +5153,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/build-system/make/" class="md-nav__link">
+      <a href="../../../tools/build-system/make/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5112,7 +5180,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/build-system/cmake/" class="md-nav__link">
+      <a href="../../../tools/build-system/cmake/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5139,7 +5207,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/build-system/ninja/" class="md-nav__link">
+      <a href="../../../tools/build-system/ninja/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5166,7 +5234,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/build-system/meson/" class="md-nav__link">
+      <a href="../../../tools/build-system/meson/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5255,7 +5323,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/editor/vim/" class="md-nav__link">
+      <a href="../../../tools/editor/vim/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5282,7 +5350,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/editor/vscode/" class="md-nav__link">
+      <a href="../../../tools/editor/vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5369,7 +5437,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/python/python/" class="md-nav__link">
+      <a href="../../../tools/python/python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5458,7 +5526,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/analysis/analysis/" class="md-nav__link">
+      <a href="../../../tools/analysis/analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5485,7 +5553,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../tools/analysis/binutils/" class="md-nav__link">
+      <a href="../../../tools/analysis/binutils/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5587,7 +5655,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../appendix/bibliography/" class="md-nav__link">
+      <a href="../../../appendix/bibliography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5614,7 +5682,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../appendix/grammar/" class="md-nav__link">
+      <a href="../../../appendix/grammar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5641,7 +5709,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../appendix/laboratories/" class="md-nav__link">
+      <a href="../../../appendix/laboratories/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5668,7 +5736,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../appendix/unit/" class="md-nav__link">
+      <a href="../../../appendix/unit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5695,7 +5763,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../appendix/refcards/" class="md-nav__link">
+      <a href="../../../appendix/refcards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5742,6 +5810,36 @@ les outils associés.
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ELF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eabi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EABI
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5764,7 +5862,7 @@ les outils associés.
         
   
     <li class="md-path__item">
-      <a href="../.." class="md-path__link">
+      <a href="../../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -5785,7 +5883,7 @@ les outils associés.
     
     
       <li class="md-path__item">
-        <a href="../00-preface/" class="md-path__link">
+        <a href="../../00-preface/" class="md-path__link">
           
   <span class="md-ellipsis">
     Cours C
@@ -5805,10 +5903,10 @@ les outils associés.
     
     
       <li class="md-path__item">
-        <a href="./" class="md-path__link">
+        <a href="../computer/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Conception Logicielle
+    Architecture et Systèmes
   </span>
 
         </a>
@@ -5827,7 +5925,7 @@ les outils associés.
 
 
   
-    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/45-software-design/index.md" title="Editer cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/25-architecture-and-systems/abi.md" title="Editer cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
     </a>
@@ -5836,17 +5934,56 @@ les outils associés.
     
       
     
-    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/45-software-design/index.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/25-architecture-and-systems/abi.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
     </a>
   
 
 
-<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Lien permanent">¤</a></h1>
-<p>Dans cette partie, nous allons aborder une partie fondamentale et souvent négligée dans les cours d'informatique : la conception logicielle ou en anglais <em>Software Design</em>.</p>
-<p>Nous aborderons également de façon plus générale la gestion de projets informatiques. Travailler seul ou en équipe sur un projet informatique nécessite une organisation rigoureuse pour garantir la qualité, le respect des délais et le succès du projet. La gestion de projets informatiques est une discipline à part entière, qui repose sur des méthodes, des outils et des bonnes pratiques spécifiques.</p>
-<p>Plus un projet évolue plus il devient complexe et difficile à appréhender. Sans un effort constant de la part de l'équipe, de la dette de code s'accumule, des bugs apparaissent, des fonctionnalités sont oubliées, des délais sont dépassés, etc. Pour éviter ces écueils, nous allons voir comment organiser un projet informatique de manière efficace et structurée.</p>
+<h1 id="abi">ABI<a class="headerlink" href="#abi" title="Lien permanent">¤</a></h1>
+<p>Une <em>Application Binary Interface</em> (ABI) est une interface entre deux modules de code binaire, souvent un programme et une bibliothèque, au niveau de l'assembleur. L'ABI définit comment les fonctions, les données et les structures sont organisées et accessibles dans le code binaire. Elle spécifie des conventions pour les appels de fonctions, la gestion de la mémoire, le format des données, etc.</p>
+<p>Nous avons vu par exemple que l'appel d'une fonction en C peut être réalisé en utilisant la pile. Mais comment est-ce que cela fonctionne derrière les coulisses ? L'ABI définit comment les arguments sont passés à une fonction, comment les valeurs de retour sont retournées, comment les variables locales sont stockées, etc. Elle définit quels sont les registres qui doivent être sauvegardés avant un appel de fonction et ceux qui sont utilisés pour passer des arguments. En somme, c'est une convention qui permet à des modules de code binaire de communiquer entre eux.</p>
+<p>En outre, sur un système d'exploitation, un programme communique avec le noyau du système d'exploitation en utilisant des appels système. L'ABI définit comment ces appels système sont réalisés. Par exemple, sur Linux, les appels système sont réalisés en utilisant le registre <span class="ycr-hashtag" data-index-entry="eax" data-tag="eax"><code>eax</code></span> pour passer le numéro de l'appel système et les arguments sont passés dans les registres <span class="ycr-hashtag" data-index-entry="ebx" data-tag="ebx"><code>ebx</code></span>, <span class="ycr-hashtag" data-index-entry="ecx" data-tag="ecx"><code>ecx</code></span>, <span class="ycr-hashtag" data-index-entry="edx" data-tag="edx"><code>edx</code></span>, <span class="ycr-hashtag" data-index-entry="esi" data-tag="esi"><code>esi</code></span>, <span class="ycr-hashtag" data-index-entry="edi" data-tag="edi"><code>edi</code></span>, <span class="ycr-hashtag" data-index-entry="ebp" data-tag="ebp"><code>ebp</code></span>. Le résultat de l'appel système est retourné dans le registre <span class="ycr-hashtag" data-index-entry="eax" data-tag="eax"><code>eax</code></span>.</p>
+<p>L'ABI est donc spécifique à une architecture matérielle et à un système d'exploitation. Par exemple, l'ABI pour les programmes Linux sur une architecture x86-64 est différente de celle pour les programmes Windows sur la même architecture. Cela signifie que les programmes compilés pour une architecture et un système d'exploitation ne peuvent pas être exécutés sur une autre architecture ou un autre système d'exploitation car ces conventions ne sont pas respectées. C'est pourquoi il est important de connaître l'ABI de la plateforme cible lors de la compilation d'un programme.</p>
+<h2 id="elf"><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a><a class="headerlink" href="#elf" title="Lien permanent">¤</a></h2>
+<p>Le format de fichier exécutable et de liaison (Executable and Linkable Format, <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a>) est un format de fichier binaire standard pour les fichiers exécutables, les fichiers objet, les bibliothèques partagées et les fichiers de base de données de débogage. Il est utilisé sur la plupart des systèmes d'exploitation Unix et Unix-like, y compris Linux, Solaris, FreeBSD, etc.</p>
+<p>Lorsque vous compilez un programme avec GCC, le compilateur génère un fichier binaire au format <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a>. Vous pouvez en avoir la preuve avec la commande <span class="ycr-hashtag" data-index-entry="file" data-tag="file"><code>file</code></span> sur un programme compilé avec gcc sous Linux :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>$<span class="w"> </span>file<span class="w"> </span>a.out
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>a.out:<span class="w"> </span>ELF<span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>LSB<span class="w"> </span>pie<span class="w"> </span>executable,<span class="w"> </span>x86-64,<span class="w"> </span>version<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>SYSV<span class="o">)</span>,
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>dynamically<span class="w"> </span>linked,<span class="w"> </span>interpreter<span class="w"> </span>/lib64/ld-linux-x86-64.so.2,
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>BuildID<span class="o">[</span>sha1<span class="o">]=</span>2066ecb2b4fed0b91adbcc63d0e7c13a8bea14a8,
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">for</span><span class="w"> </span>GNU/Linux<span class="w"> </span><span class="m">3</span>.2.0,<span class="w"> </span>not<span class="w"> </span>stripped
+</span></code></pre></div>
+<p>On peut également consulter le contenu d'un fichier <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> avec la commande <span class="ycr-hashtag" data-index-entry="readelf" data-tag="readelf"><code>readelf</code></span>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>$<span class="w"> </span>readelf<span class="w"> </span>-h<span class="w"> </span>a.out
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>ELF<span class="w"> </span>Header:
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span>Magic:<span class="w">   </span>7f<span class="w"> </span><span class="m">45</span><span class="w"> </span>4c<span class="w"> </span><span class="m">46</span><span class="w"> </span><span class="m">02</span><span class="w"> </span><span class="m">01</span><span class="w"> </span><span class="m">01</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span>Class:<span class="w">                             </span>ELF64
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span>Data:<span class="w">                              </span><span class="m">2</span><span class="err">'</span>s<span class="w"> </span>complement,<span class="w"> </span>little<span class="w"> </span>endian
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">  </span>Version:<span class="w">                           </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>current<span class="o">)</span>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">  </span>OS/ABI:<span class="w">                            </span>UNIX<span class="w"> </span>-<span class="w"> </span>System<span class="w"> </span>V
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">  </span>ABI<span class="w"> </span>Version:<span class="w">                       </span><span class="m">0</span>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">  </span>Type:<span class="w">                              </span>DYN<span class="w"> </span><span class="o">(</span>Position-Independent<span class="w"> </span>Executable<span class="w"> </span>file<span class="o">)</span>
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">  </span>Machine:<span class="w">                           </span>Advanced<span class="w"> </span>Micro<span class="w"> </span>Devices<span class="w"> </span>X86-64
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">  </span>Version:<span class="w">                           </span>0x1
+</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">  </span>Entry<span class="w"> </span>point<span class="w"> </span>address:<span class="w">               </span>0x1060
+</span><span id="__span-1-13"><a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">  </span>Start<span class="w"> </span>of<span class="w"> </span>program<span class="w"> </span>headers:<span class="w">          </span><span class="m">64</span><span class="w"> </span><span class="o">(</span>bytes<span class="w"> </span>into<span class="w"> </span>file<span class="o">)</span>
+</span><span id="__span-1-14"><a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">  </span>Start<span class="w"> </span>of<span class="w"> </span>section<span class="w"> </span>headers:<span class="w">          </span><span class="m">13968</span><span class="w"> </span><span class="o">(</span>bytes<span class="w"> </span>into<span class="w"> </span>file<span class="o">)</span>
+</span><span id="__span-1-15"><a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">  </span>Flags:<span class="w">                             </span>0x0
+</span><span id="__span-1-16"><a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">  </span>Size<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>header:<span class="w">               </span><span class="m">64</span><span class="w"> </span><span class="o">(</span>bytes<span class="o">)</span>
+</span><span id="__span-1-17"><a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">  </span>Size<span class="w"> </span>of<span class="w"> </span>program<span class="w"> </span>headers:<span class="w">           </span><span class="m">56</span><span class="w"> </span><span class="o">(</span>bytes<span class="o">)</span>
+</span><span id="__span-1-18"><a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">  </span>Number<span class="w"> </span>of<span class="w"> </span>program<span class="w"> </span>headers:<span class="w">         </span><span class="m">13</span>
+</span><span id="__span-1-19"><a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">  </span>Size<span class="w"> </span>of<span class="w"> </span>section<span class="w"> </span>headers:<span class="w">           </span><span class="m">64</span><span class="w"> </span><span class="o">(</span>bytes<span class="o">)</span>
+</span><span id="__span-1-20"><a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">  </span>Number<span class="w"> </span>of<span class="w"> </span>section<span class="w"> </span>headers:<span class="w">         </span><span class="m">31</span>
+</span><span id="__span-1-21"><a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">  </span>Section<span class="w"> </span>header<span class="w"> </span>string<span class="w"> </span>table<span class="w"> </span>index:<span class="w"> </span><span class="m">30</span>
+</span></code></pre></div>
+<p>Ce que l'on constate c'est que le format <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> est composé de plusieurs parties, notamment un en-tête <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a>, des en-têtes de programme, des en-têtes de section, des tables de symboles, des réimplantations dynamiques, etc. Chaque partie a un rôle spécifique dans la gestion des fichiers binaires et des bibliothèques partagées. Dans cet exemple on observe que cet <span class="ycr-hashtag" data-index-entry="elf" data-tag="elf"><code>elf</code></span> est pour l'ABI <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Unix">UNIX</a> - System V.</p>
+<p>Le <strong>System V</strong> est une version d'Unix développée par AT&amp;T et commercialisée par Sun Microsystems. Elle a été l'une des premières versions d'Unix à être largement utilisée dans l'industrie. Le format <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> est donc un standard pour les systèmes Unix et Unix-like qui suit les conventions de l'ABI System V.</p>
+<p>Sous Windows, le format de fichier exécutable est le format Portable Executable (PE) qui est différent du format <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a>. Cela signifie que les programmes compilés pour Windows ne peuvent pas être exécutés sur un système Unix et vice versa sans une couche de compatibilité spécifique.</p>
+<p>Sous macOS, le format de fichier exécutable est le format Mach-O (Mach Object) qui est également différent du format <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a>. Cela signifie que les programmes compilés pour macOS ne peuvent pas être exécutés sur un système Unix ou Windows sans une couche de compatibilité spécifique.</p>
+<h2 id="eabi">EABI<a class="headerlink" href="#eabi" title="Lien permanent">¤</a></h2>
+<p>L'ABI embarqué (Embedded ABI, EABI) est une version de l'ABI conçue pour les systèmes embarqués, c'est-à-dire des systèmes informatiques spécialisés qui sont intégrés dans des appareils électroniques. Les systèmes embarqués sont souvent limités en termes de ressources matérielles et logicielles, ce qui nécessite des conventions spécifiques pour les appels de fonctions, la gestion de la mémoire, le format des données, etc.</p>
 
 
 
@@ -5869,7 +6006,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">17 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">27 septembre 2024</span>
   </span>
 
     
@@ -5879,7 +6016,7 @@ les outils associés.
     <span class="md-icon" title="Créé">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">17 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">27 septembre 2024</span>
   </span>
 
     
@@ -5899,6 +6036,29 @@ les outils associés.
   </span>
 
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributeurs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
+          
+          <img src="https://avatars.githubusercontent.com/u/52489316?v=4&size=72" alt="yves-chevallier">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 
@@ -5971,7 +6131,7 @@ les outils associés.
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../40-algorithms/popular-algorithms/shunting-yard/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Algorithme de Shunting Yard">
+          <a href="../files/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Fichiers">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5981,20 +6141,20 @@ les outils associés.
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Algorithme de Shunting Yard
+                Fichiers
               </div>
             </div>
           </a>
         
         
           
-          <a href="teamwork/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Travail en équipe">
+          <a href="../../27-data-structures/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Conteneurs de données">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Travail en équipe
+                Conteneurs de données
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6124,24 +6284,24 @@ les outils associés.
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.c7c1ca2c.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.c7c1ca2c.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a59f24f2.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a59f24f2.min.js"></script>
       
-        <script src="../../assets/_markdown_exec_pyodide.js"></script>
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
       
-        <script src="../../js/viewer.min.js"></script>
+        <script src="../../../js/viewer.min.js"></script>
       
-        <script src="../../js/drawio.js"></script>
+        <script src="../../../js/drawio.js"></script>
       
-        <script src="../../js/wiki-tips.js"></script>
+        <script src="../../../js/wiki-tips.js"></script>
       
-        <script src="../../js/feedback.js"></script>
+        <script src="../../../js/feedback.js"></script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../../js/mathjax.js"></script>
       
-        <script src="../../js/navcolor.js"></script>
+        <script src="../../../js/navcolor.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
@@ -6151,7 +6311,7 @@ les outils associés.
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="../../exercise.js"></script>
+        <script src="../../../exercise.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
