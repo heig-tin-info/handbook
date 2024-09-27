@@ -104,7 +104,7 @@ The files involved are:
 
 Mermaid diagrams can be rendered directly in the browser, but they don’t support figure captions. This hook extracts the first comment in the Mermaid code and displays it as a caption.
 
-![Example of Mermaid with caption](docs/assets/snapshots/mermaid-title.png)
+![Example of Mermaid with caption](docs/assets/snapshots/mermaid-titles.png)
 
 The files involved are:
 
