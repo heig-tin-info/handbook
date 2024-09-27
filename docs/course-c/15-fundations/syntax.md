@@ -137,19 +137,18 @@ Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (`
 
 [[||mot clé]]
 
-Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés :
+Le langage de programmation C tel que défini par C17 comporte 44 mots clés :
 
 ```c
-_Bool       do        int       switch
-_Complex    double    long      typedef
-_Imaginary  else      register  union
-auto        enum      restrict  unsigned
-break       extern    return    void
-case        float     short     volatile
-char        for       signed    while
-const       goto      sizeof
-continue    if        static
-default     inline    struct
+auto       break      case       char       const
+continue   default    do         double     else
+enum       extern     float      for        goto
+if         inline     int        long       register
+restrict   return     short      signed     sizeof
+static     struct     switch     typedef    union
+unsigned   void       volatile   while      _Alignas
+_Alignof   _Atomic    _Bool      _Complex   _Generic
+_Imaginary _Noreturn  _Static_assert        _Thread_local
 ```
 
 [[||_Bool]] [[||_Complex]] [[||_Imaginary]] [[||auto]] [[||break]] [[||case]] [[||char]] [[||const]] [[||continue]] [[||default]] [[||do]] [[||double]] [[||else]] [[||enum]] [[||extern]] [[||float]] [[||for]] [[||goto]] [[||if]] [[||inline]] [[||int]] [[||long]] [[||register]] [[||restrict]] [[||return]] [[||short]] [[||signed]] [[||sizeof]] [[||static]] [[||struct]] [[||switch]] [[||typedef]] [[||union]] [[||unsigned]] [[||void]] [[||volatile]] [[||while]]
@@ -160,7 +159,7 @@ Dans ce cours, l'usage des mots clés suivants est découragé, car leur utilisa
 _Bool, _imaginary, auto, goto, inline, long, register, restrict, short
 ```
 
-Il n'y a donc plus que 28 mots clés à connaître pour être un bon développeur C.
+Il n'y a donc plus que 35 mots clés à connaître pour être un bon développeur C.
 
 Notons que les mots clés `true` et `false` ne sont pas standardisés en C, mais ils le sont en C++. [[||true]] [[||false]]
 

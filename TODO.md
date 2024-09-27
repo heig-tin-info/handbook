@@ -21,6 +21,7 @@
 
 ## Bugs
 
+- [ ] When `[](){#...}` before first title in a page it affects the title in toc
 - [ ] Allow for code inline and markdown inline in table captions
 - [ ] Code with title doesn't display well in LaTeX
 - [ ] Image with width should be included with the correct size
@@ -30,15 +31,17 @@
 - [ ] Autres tables, largeur, ajuster au contenu ? tabularx ?
 - [ ] Find a way to have "short caption" on figures (maybe use alt text)
 - [ ] Label for tables are cropped, should be placed above tables
-- [ ] Exercise plugin cause code to be renamed exercise
-- [ ] Two/Three columns for exercises ?
-- [ ] See solution of exercises without specific type.
-- [ ] Multicolumn for exercises (Validité des identificateurs)
-- [ ] Exercises numbering (restart at each section)
-- [ ] Exercises Colors for fill-in-the-blank in slate theme
+- [ ] Exercises
+  - [ ] Exercise plugin cause code to be renamed exercise
+  - [ ] Exercises numbering (restart at each section)
+  - [ ] Exercises Colors for fill-in-the-blank in slate theme
+  - [ ] See solution of exercises without specific type.
+  - [ ] Vertical alignment of multiple choices
+  - [ ] Multicolumn for exercises (Validité des identificateurs)
+  - [ ] Two/Three columns for exercises not working
+  - [ ] Exercise in title Exercice 35 : Exercise : Promotion numérique
 - [ ] Mkdocs Material Highlights tags by adding a space after the highlight.
 - [ ] Mermaid width too wide
-- [ ] Exercise in title Exercice 35 : Exercise : Promotion numérique
 - [ ] [Albatros](/assets/src/albatros.txt) ref null
 - [ ] Remove preambule… text introductif dans introductions ?
 - [ ] Mal géré en LaTeX enuermate followed by itemize
@@ -69,6 +72,8 @@
 
 ## Changelog
 
+- [x] Split template LaTeX in imprint and titlepage
+- [x] Add content MCU, CPU and some figures
 - [x] Adds some information about processors
 - [x] Adds DEVEL.md for documentation
 - [x] Adds a new hook for linking abbreviations to wikipedia

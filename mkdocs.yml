@@ -216,6 +216,7 @@ extra:
         copy_files:
           docs/assets/c-logo.pdf: assets/
           tex/*.sty: .
+          tex/*.tex: .
       - root: Outils
         cover:
           name: circles
@@ -230,6 +231,7 @@ extra:
         copy_files:
           tex/tool-hero.pdf: assets/
           tex/*.sty: .
+          tex/*.tex: .
   admonition_translations:
     tip: Astuce
     warning: Avertissement

@@ -5,59 +5,70 @@
 \RequirePackage[svgnames,dvipsnames,x11names]{xcolor}
 \RequirePackage{tikz}
 \RequirePackage{textcomp} % For ©, ™
-\RequirePackage{amsmath} % For ±
-\RequirePackage{amssymb} % For ®
-\RequirePackage{gensymb} % For ±
+\RequirePackage{amsmath} % For \text
+\RequirePackage{amssymb} % For √, ∞, etc.
+\RequirePackage{gensymb} % For °, ℃, ℉, etc.
 \RequirePackage{nicefrac}
 \RequirePackage{fancyhdr}
 \RequirePackage[normalem]{ulem}
 \RequirePackage{graphicx}
-\RequirePackage{unicode-math} % For using Unicode math symbols
+\RequirePackage{unicode-math}
 \RequirePackage{fontawesome5}
 \RequirePackage{multicol}
-%\RequirePackage{parskip}  % For no paragraph indentation
 \RequirePackage{stackengine}
 \RequirePackage{booktabs}
 \RequirePackage{minted}
-\RequirePackage[many,minted]{tcolorbox}% version 3.03 or better
-%\RequirePackage[french]{minitoc}
+\RequirePackage[many,minted]{tcolorbox}
 \RequirePackage{csquotes}
 \RequirePackage{epigraph}
 \RequirePackage{capt-of}
 \RequirePackage[acronym,xindy]{glossaries}
 \RequirePackage{imakeidx}
-\RequirePackage{fvextra} % For better verbatim environments
-\RequirePackage{titlesec} % Pour la personnalisation des titres
-\RequirePackage{enumitem} % Pour personnaliser les listes
+\RequirePackage{fvextra}
+\RequirePackage{titlesec}
+\RequirePackage{enumitem}
 \RequirePackage{etoolbox}
 \RequirePackage{tocloft}
-\RequirePackage{adjustbox} % Auto resize tables to fit page width
+\RequirePackage{adjustbox}
 \RequirePackage{caption}
-\RequirePackage{microtype} % Avoid overfull with fonts
+\RequirePackage{microtype}
 \RequirePackage[french]{babel}
-\RequirePackage{emptypage} % Nothing on empty pages
+\RequirePackage{emptypage}
 \RequirePackage{heiglogo}
+
+\definecolor{linkcolor}{RGB}{34, 18, 104}
+\definecolor{urlcolor}{RGB}{104, 18, 55}
+
+\RequirePackage[
+  colorlinks=true,
+  plainpages=true,
+  linkcolor=black,
+  citecolor=black,
+  plainpages=false,
+  unicode=true,
+  urlcolor=urlcolor]{hyperref}
+
+\RequirePackage[
+  paperwidth=160mm,
+  paperheight=240mm,
+  top=20mm,
+  bottom=20mm,
+  left=20mm,
+  right=15mm,
+  headheight=6mm,
+  headsep=5mm,
+  marginparsep=4mm,
+  heightrounded]{geometry}
+
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{calc}
 \usetikzlibrary{shadows}
 
-\makeglossaries
-\makeindex
-%\dominitoc
+%
+% Fonts
+%
 
-% Prevent too many overful \hbox (with some fonts)
-\tolerance=2000
-\emergencystretch=10pt
-
-% Give more spaces on Table of content (between numbers and text)
-\setlength{\cftpartnumwidth}{4em}
-\setlength{\cftsectionnumwidth}{3em}
-\setlength{\cftsubsectionnumwidth}{3.5em}
-\setlength{\cftfigurenumwidth}{3em}
-\setlength{\cfttablenumwidth}{3em}
-
-\captionsetup[table]{skip=10pt}
-
+% Set fallback fonts
 \directlua{luaotfload.add_fallback
   ("fontfallback",
   {
@@ -83,14 +94,6 @@
   RawFeature={fallback=fontfallback}
 ]
 
-% \setmainfont{Noto Serif}[
-%   RawFeature={fallback=fontfallback}
-% ]
-
-% \setsansfont{Noto Sans}[
-%   RawFeature={fallback=fontfallback}
-% ]
-
 \setmonofont{Noto Sans Mono}[
   Scale=0.9,
   ItalicFont=lmmono10-italic.otf,
@@ -101,11 +104,27 @@
 \newfontfamily\creativecommonfont{Creative Commons}
 \DeclareTextFontCommand\creativecommon{\creativecommonfont}
 
+\graphicspath{{assets/}}
+
+%
+% Adjust spacing
+%
+
+% Prevent too many overful \hbox (with some fonts)
+\tolerance=2000
+\emergencystretch=10pt
+
+% Give more spaces on Table of content (between numbers and text)
+\setlength{\cftpartnumwidth}{4em}
+\setlength{\cftsectionnumwidth}{3em}
+\setlength{\cftsubsectionnumwidth}{3.5em}
+\setlength{\cftfigurenumwidth}{3em}
+\setlength{\cfttablenumwidth}{3em}
+
+\captionsetup[table]{skip=10pt}
+
 % Make quotations italic and smaller
 \AtBeginEnvironment{displayquote}{\small\itshape}
-
-% Make tables slightly smaller
-%\AtBeginEnvironment{tabular}{\small}
 
 % Fit table to page width
 \let\oldtabular\tabular
@@ -122,39 +141,31 @@
    \fi
   }
 
-\definecolor{linkcolor}{RGB}{34, 18, 104}
-\definecolor{urlcolor}{RGB}{104, 18, 55}
-
-\RequirePackage[
-  colorlinks=true,
-  plainpages=true,
-  linkcolor=black,
-  citecolor=black,
-  plainpages=false,
-  unicode=true,
-  urlcolor=urlcolor]{hyperref}
-
-\RequirePackage[
-  paperwidth=160mm,
-  paperheight=240mm,
-  top=20mm,
-  bottom=20mm,
-  left=20mm,
-  right=15mm, % Margin for binding
-  headheight=6mm,
-  headsep=5mm,
-  marginparsep=4mm,
-  heightrounded]{geometry}
-
-
 % Custom epigraph style
 \setlength\epigraphwidth{.8\textwidth}
 \setlength\epigraphrule{0pt}
 
+%
+% Headers and footers
+%
 
+% No line on the footer
 \renewcommand{\footrulewidth}{0pt}
 
-% All pages of mainmatter
+% Part head pages
+\fancypagestyle{part}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% Chapter head pages
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[LE,RO]{\thepage}
+}
+
+% Mainmatter regular page style
 \fancypagestyle{fancy}{%
   \fancyhf{}
   \renewcommand{\headrulewidth}{0.5pt}
@@ -163,21 +174,7 @@
   \fancyfoot[LE,RO]{\thepage}
 }
 
-% Chapter pages
-\fancypagestyle{plain}{%
-  \fancyhf{}
-  \renewcommand{\headrulewidth}{0pt}
-  \fancyfoot[LE,RO]{\thepage}
-}
-
-% Part pages
-\fancypagestyle{part}{%
-  \fancyhf{}
-  \renewcommand{\headrulewidth}{0pt}
-}
-
-% \apptocmd{\chapter}{\minitoc}{}{}
-
+% Associate the part page style to the part
 \patchcmd{\part}{\thispagestyle{plain}}{\thispagestyle{part}}{}{}
 
 \newcommand{\changelocaltocdepth}[1]{%
@@ -198,19 +195,9 @@
 }{}{}
 
 
-\graphicspath{{assets/}}
-
-% Allow hyphenation after a hyphen
-\providecommand{\allowhyphens}{\ifvmode\else\nobreak\hspace{0pt}\fi}
-
-% Redéfinir l'itemize pour utiliser des demi-cadratins (en-dash) comme puces
-\setlist[itemize,1]{label=--}
-
-% Pour numérotation des paragraphes et subparagraphes
-\setcounter{secnumdepth}{5}
-
-% \setlength{\parindent}{0pt}
-% \setlength\parskip{\medskipamount}
+%
+% Callouts
+%
 
 \definecolor{calloutNoteBg}{HTML}{ECF3FF}
 \definecolor{calloutNoteFrame}{HTML}{448AFF}
@@ -390,6 +377,10 @@
   after title={~#2}
 }
 
+%
+% Listing / Code configuration
+%
+
 \setminted{style=trac}
 \setmintedinline{style=trac} %,bgcolor=gray!20}
 
@@ -466,6 +457,10 @@
   #1
 }
 
+%
+% Keyboard keys symbols
+%
+
 \newcommand*\keystroke[1]{%
   \tikz[baseline=(key.base)]
   \node[%
@@ -482,6 +477,23 @@
   ;
 }
 
+%
+% Tweaks
+%
+
+% Allow hyphenation after a hyphen
+\providecommand{\allowhyphens}{\ifvmode\else\nobreak\hspace{0pt}\fi}
+
+% Redefine bullet list character to a dash (demi-cadratin)
+\setlist[itemize,1]{label=--}
+
+% To number paragraphs and subparagraphs
+\setcounter{secnumdepth}{5}
+
+% Paragraph indentation
+% \setlength{\parindent}{0pt}
+% \setlength\parskip{\medskipamount}
+
 % Avoid orphans at the end of a page, encourage page breaks if there are
 % a section with less than 3 lines
 % https://tex.stackexchange.com/a/723704/85416
@@ -497,7 +509,6 @@
 % \newcommand{\extraPartText}[1]{\def\@extraPartText{#1}}
 % \pretocmd{\@endpart}{\vspace{8ex}\begingroup\centering\@extraPartText\par\endgroup\let\@extraPartText\relax}{}{}
 % \makeatother
-
 
 % Description item and text are displayed by default on the same line
 % this is not very readable. This command changes the style to display
@@ -518,7 +529,9 @@
   \item[\mintinline{#1}{#2}]%
 }
 
+% Highlight text in yellow
 \newtcbox{\hl}{on line, boxrule=0.5pt, colframe=black, colback=yellow!30, sharp corners, boxsep=0pt, left=2pt, right=2pt, top=2pt, bottom=2pt}
 
+% For exercises and solutions
 \newcommand\correctchoice{\stackinset{c}{}{c}{}{$\times$}{$\bigcirc$}}
 \newcommand\choice{$\bigcirc$}

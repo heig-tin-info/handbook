@@ -1,4 +1,5 @@
 [](){#pointers}
+
 # Pointeurs
 
 [Attention les vélos](https://fr.wikiquote.org/wiki/Le_Jour_de_gloire), nous nous aventurons aujourd'hui sur un terrain délicat, subtil et parfois déroutant, mais ô combien fondamental pour quiconque aspire à maîtriser l'art de la programmation. Un sujet d'une importance cruciale, presque incontournable : les [pointeurs](https://fr.wikipedia.org/wiki/Pointeur_(programmation)).
