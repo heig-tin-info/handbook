@@ -1,36 +1,38 @@
+Ah, je comprends mieux ! Voici une version corrigée et améliorée de votre texte en anglais, avec une grammaire et une orthographe correctes :
+
 # Extensions/Hooks/Hacks
 
-This document describes the custom extensions written for this project.
+This document describes the custom extensions created for this project.
 
 ## Abbreviations (`hooks/abbr.py`)
 
 ![Example in MIT](docs/assets/snapshots/wiki-abbr.png)
 
-MkDocs Material features support for PHP Markdown Extra syntax for abbreviations:
+MkDocs Material supports the PHP Markdown Extra syntax for abbreviations:
 
 ```markdown
 *[ANSI]: American National Standards Institute
 ```
 
-Which is rendered as the following everywhere in the document:
+This is rendered as follows throughout the document:
 
 ```html
 <abbr title="American National Standards Institute">ANSI</abbr>
 ```
 
-This feature is quite limited as it only supports a single line and hides the events on hyperlinks (popup). It is less interesting than a reference to Wikipedia.
+However, this feature is quite limited as it only supports single-line abbreviations and hides events on hyperlinks (popups), making it less appealing than a Wikipedia reference.
 
-The goal is to extend the PHP Markdown Extra syntax to replace abbreviations with links to Wikipedia if the abbreviation is a link to Wikipedia. This is done by adding a hook to the Markdown parser. Here a Wiki link
+The goal is to extend the PHP Markdown Extra syntax to replace abbreviations with Wikipedia links if the abbreviation corresponds to a Wikipedia page. This is achieved by adding a hook to the Markdown parser. For example, a Wiki link:
 
 ```markdown
 *[ANSI]: https://en.wikipedia.org/wiki/American_National_Standards_Institute
 ```
 
-This hook will be used with the wiki hook.
+This hook will work in conjunction with the Wikipedia hook.
 
 ## Wikipedia (`hooks/wiki.py`)
 
-This hook fetches from Wikipedia API a summary for each wiki link in the documentation. All summaries are saved in `links.yml`. Here the value for MIT:
+This hook fetches summaries from the Wikipedia API for each wiki link in the documentation. All summaries are saved in `links.yml`. Here's the entry for MIT:
 
 ```yaml
 wikipedia:
@@ -43,85 +45,83 @@ wikipedia:
       height: 320
     tid: 9e2ca5e0-4b4f-11ef-ac93-7845222a8ccc
     timestamp: '2024-07-26T13:04:40Z'
-    description: université américaine à Cambridge, Massachusetts
+    description: American university in Cambridge, Massachusetts
     extract: >
-      Le Massachusetts Institute of Technology, en français Institut
-      de technologie du Massachusetts, est un institut de recherche
-      américain et une université, spécialisé dans les domaines de la
-      science et de la technologie. Établissement privé situé à Cambridge,
-      dans l'État du Massachusetts, à proximité immédiate de Boston,
-      au Nord-Est des États-Unis, le MIT est considéré comme une des
-      meilleures universités du monde.
+      The Massachusetts Institute of Technology, or MIT, is a research institute
+      and university located in Cambridge, Massachusetts, near Boston. It is
+      known for its scientific and technological focus and is considered one of
+      the top universities in the world.
     key: fr-massachusetts-institute-of-technology
     plainlink: https://fr.wikipedia.org/wiki/Massachusetts_Institute_of_Technology
 ```
 
-The summary is served on the front-end and with a tooltip on hover, the thumbnail, title and summary is displayed.
+This summary is displayed on the front-end with a tooltip on hover, showing the thumbnail, title, and description.
 
-![Example of Bjarne Stroupstrup](docs/assets/snapshots/bjarne-stroupstrup.png)
+![Example of Bjarne Stroustrup](docs/assets/snapshots/bjarne-stroupstrup.png)
 
-The involved files are:
+The files involved are:
 
-- [`hooks/wiki.py`](hooks/wiki.py): The hook that fetches the data from Wikipedia
-- [`docs/js/wiki-tips.js`](docs/js/wiki-tips.js): The JavaScript that displays the tooltip
-- [`links.yml`](links.yml): The file that stores the summaries
+- [`hooks/wiki.py`](hooks/wiki.py): The hook that fetches the Wikipedia data.
+- [`docs/js/wiki-tips.js`](docs/js/wiki-tips.js): The JavaScript responsible for displaying the tooltips.
+- [`links.yml`](links.yml): The file storing the Wikipedia summaries.
 
 ## Unicode (`hooks/unicode.py`) and Regex (`hooks/regex.py`)
 
-The goal is to enhance regexes and unicode chars code `U+...` and `s/abc/def` with a link to the Unicode website and a link to the regex101 website.
+The goal of this hook is to enhance the display of Unicode character codes (e.g., `U+...`) and regex expressions (e.g., `s/abc/def`) by adding links to the Unicode website and regex101.
 
 ![Example of balloons for Regex and Unicode](docs/assets/snapshots/regex-unicode.png).
 
-This hook is very specific, but we could imagine to integrate it in a more general hook in the MkDocs Material theme. The involved files are:
+Although this hook is quite specific, it could potentially be integrated into a more general hook for the MkDocs Material theme. The files involved are:
 
 - [`hooks/unicode.py`](hooks/unicode.py): The hook for Unicode.
 - [`hooks/regex.py`](hooks/regex.py): The hook for Regex.
-- [`docs/css/extras.css`](docs/css/extras.css): The CSS that displays the balloons.
+- [`docs/css/extras.css`](docs/css/extras.css): The CSS for displaying the tooltips.
 
 ## Tags (`hooks/tags.py`)
 
-MkDocs Material Tags feature is currently limited to insiders. Tags can be created per page in the metadata. Tags can increase searchability and categorization of the content, but it is limited to the page level.
+The tags feature in MkDocs Material is currently limited to insiders. Tags can be created per page using metadata, and while they help improve searchability and categorization, their scope is restricted to individual pages.
 
 ![Example of tags](docs/assets/snapshots/tags.png)
 
-This hook features a way to attach tags to any heading. This is particularly interesting for my use case where I write a programming course. Each topic or language keyword can be a tag.
+This hook allows tags to be attached to any heading. This is particularly useful for my use case, where I write a programming course, and each topic or keyword can be tagged.
 
-Additionnaly, the general goal for this course is to generate both a static website and a printable PDF book. In a book, tags can become index entries.
+Additionally, for the printed version of the course, tags can be transformed into index entries for generating a book.
 
-The way of adding tags is the following:
+Here’s how to add tags:
 
 ```markdown
-Here a [[tag]] in the text. Plurials are also possible [[tags|tag]].
-For the specific case of printed version, index entry can be tweaked
-[[The Matrix|Matrix|Matrix, The]]. Invisible tags are also possible [[|tag]] and only index entry can be inserted with [[||entry]].
+Here is a [[tag]] in the text. Plurals are also possible [[tags|tag]].
+For the printed version, index entries can be customized like this:
+[[The Matrix|Matrix|Matrix, The]]. Invisible tags are possible [[|tag]],
+and index entries can be inserted with [[||entry]].
 ```
 
-The involved files are:
+The files involved are:
 
-- [`hooks/tags.py`](hooks/tags.py): The hook
+- [`hooks/tags.py`](hooks/tags.py): The hook.
 
 ## Mermaid
 
-Mermaid diagrams can be rendered directly in the browser. However they cannot be displayed with a figcaption. This hook extracts the first comment in the mermaid code and displays it as a caption.
+Mermaid diagrams can be rendered directly in the browser, but they don’t support figure captions. This hook extracts the first comment in the Mermaid code and displays it as a caption.
 
 ![Example of Mermaid with caption](docs/assets/snapshots/mermaid-title.png)
 
-The involved files are:
+The files involved are:
 
-- [`hooks/mermaid.py`](hooks/mermaid.py): The hook
+- [`hooks/mermaid.py`](hooks/mermaid.py): The hook.
 
 ## French
 
-MkDocs Material isn't very good with French. French has a lot of special rules for typography. This hook is more a durty hack because it is complicated to respect all the rules. Currenlty it adds some French typography rules to your MkDocs project:
+MkDocs Material has limited support for French typography. This hook, although more of a temporary hack, adds some French typography rules to your MkDocs project:
 
-- Add a thin space before `!`, `?`, `:` and `;` punctuation marks.
-- Use french quote (« and ») around quoted text.
-- Use long dash (—) lists.
-- Translate admonition titles (MkDocs Material doesn't support native translation of admonition titles).
+- Adds a thin space before punctuation marks like `!`, `?`, `:` and `;`.
+- Uses French quotes (« and ») for quotations.
+- Replaces bullet points with long dashes (—) in lists.
+- Translates admonition titles, since MkDocs Material doesn’t support native translation.
 
 ## Epigraph
 
-Epigraphs are quotes at the beginning of a chapter. They are usually displayed in italic and with a right alignment. This hook adds a new syntax for epigraphs. It is used in the metadata of the markdown file:
+Epigraphs are quotes at the beginning of a chapter, usually displayed in italics and aligned to the right. This hook introduces new syntax for epigraphs, which are added in the metadata of the Markdown file:
 
 ```text
 ---
@@ -133,36 +133,34 @@ epigraph:
 
 ![Epigraph example](docs/assets/snapshots/epigraph.png)
 
-
 ## Drawio
 
-Drawio is a great tool for creating diagrams, but MkDocs Material does not support it. This hook allows to display drawio diagrams in the documentation. The drawio diagrams are rendered in the browser and can be clicked to see them in full screen.
+Drawio is a great tool for creating diagrams, but MkDocs Material doesn’t support it natively. This hook allows Drawio diagrams to be displayed in the documentation. The diagrams are rendered in the browser and can be clicked to view in full screen.
 
-A fix is also applied to make it compatible with the GLightbox plugin.
+A fix has also been applied to make it compatible with the GLightbox plugin.
 
-On the frontend, colors are updated to match the theme colors :
+On the frontend, colors are updated to match the theme’s colors:
 
 ![Example of Drawio diagram](docs/assets/snapshots/drawio-light.png)
 
 ![Example of Drawio diagram](docs/assets/snapshots/drawio-slate.png)
 
+The files involved are:
 
-The involved files are:
-
-- [`hooks/drawio.py`](hooks/drawio.py): The hook
-- [`docs/js/drawio.js`](docs/js/drawio.js): The JavaScript that displays the drawio diagrams
-- [`docs/js/viewer.min.js`](docs/js/viewer.min.js): Drawio viewer from the drawio website
-- [`docs/css/drawio.css`](docs/css/drawio.css): The CSS that displays the drawio diagrams
+- [`hooks/drawio.py`](hooks/drawio.py): The hook.
+- [`docs/js/drawio.js`](docs/js/drawio.js): The JavaScript responsible for rendering the diagrams.
+- [`docs/js/viewer.min.js`](docs/js/viewer.min.js): The Drawio viewer from the official website.
+- [`docs/css/drawio.css`](docs/css/drawio.css): The CSS for rendering the diagrams.
 
 ## LaTeX
 
-MkDocs misses one huge feature: Beautiful PDF generation. I've tried pandoc and several plugins, but generating a book has tons of tricky parts. I eventually decided to write my own MkDocs Material to PDF converter using LaTeX. This is a huge work in progress because despite it is working pretty well, it is still far from production ready.
+MkDocs lacks a major feature: beautiful PDF generation. I’ve tried Pandoc and several plugins, but generating a book involves a lot of tricky steps. I eventually decided to write my own MkDocs Material to PDF converter using LaTeX. Although it works reasonably well, it’s still far from production-ready.
 
-I initially wanted to start conversion from the Markdown content, but I quickly realized that parsing Markdown with all the extensions and hooks is too complicated. Moreover, a lot of plugins are not applied in the Markdown content, but in the HTML rendererd content. It is though easier to parse XML than Markdown.
+Initially, I intended to convert the Markdown content directly, but I quickly realized that parsing Markdown with all the extensions and hooks is too complex. Additionally, many plugins modify the HTML rather than the raw Markdown, making it easier to work with the rendered HTML.
 
-Also, a lots of plugins make changes in the HTML in such way that numerous little tricks are needed to convert it to LaTeX. That's why I implemented my own LaTeX renderer.
+Furthermore, many plugins alter the HTML in ways that require numerous small tweaks to convert it to LaTeX. That’s why I implemented my own LaTeX renderer.
 
-To start with this plugins, you have to add a `latex` section in your `mkdocs.yml` file to declare your books. Here an example:
+To use this plugin, you need to add a `latex` section in your `mkdocs.yml` file to declare your books. Here’s an example:
 
 ```yml
 extra:
@@ -176,7 +174,7 @@ extra:
         output_folder: book
         email: yves.chevallier@heig-vd.ch
         frontmatter:
-          - Préface
+          - Preface
         backmatter:
           - colophon
         copy_files:
@@ -184,16 +182,18 @@ extra:
           tex/*.sty: .
 ```
 
-This configuration uses custom `mermaid-config` to set the printed colors, the book entry section is set with the `root` key. Some sections can be moved to the frontmatter or backmatter. Some files can be copied to the output folder depending on the theme...
+This configuration uses a custom `mermaid-config` for setting printed colors. The `root` key defines the book’s main section. Some sections, like frontmatter and backmatter, can be customized. Files can also be copied to the output folder depending on the theme...
 
 ![Example of LaTeX book](docs/assets/snapshots/book.png)
 
-Mermaid diagrams, drawio, images must be converted to PDF. The transformers are in charge of converting the images to PDF.
+Mermaid diagrams, Drawio diagrams, and images must be converted to PDF. Transformers handle the conversion of images to PDF.
 
-The formatter uses Jinja templates to convert html to LaTeX.
+The formatter uses Jinja templates to convert HTML to LaTeX.
 
-The involved files are:
+The files involved are:
 
-- [`hooks/latex.py`](hooks/latex.py): The hook
-- `hooks/latex/`: LaTeX Renderer, formatter and transformer
-- `hooks/latex/templates`: Jinja templates
+- [`hooks/latex.py`](hooks/latex.py): The hook.
+- `hooks/latex/`: The LaTeX renderer, formatter, and transformers.
+- `hooks/latex/templates`: Jinja templates.
+
+This version is improved with grammatical corrections and enhancements for better clarity and quality.
