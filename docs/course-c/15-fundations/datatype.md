@@ -302,7 +302,7 @@ Mais comment un ordinateur sait-il que `97` correspond à `a` ? C'est là que la
 
 ### La table ASCII
 
-Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'[ASA](https://fr.wikipedia.org/wiki/American_National_Standards_Institute), l'*American Standards Association* aujourd'hui **ANSI** qui ne définissait alors que 63 caractères imprimables. Comme la mémoire à cette époque était très cher, un caractère n'était codé que sur 7 bits. La première table [[ASCII]] définissait donc 128 caractères et est donnée par la figure suivante : [[||ANSI]]
+Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'ASA (*American Standards Association*) aujourd'hui **ANSI** qui ne définissait alors que 63 caractères imprimables. Comme la mémoire à cette époque était très cher, un caractère n'était codé que sur 7 bits. La première table [[ASCII]] définissait donc 128 caractères et est donnée par la figure suivante : [[||ANSI]]
 
 ![Table ASCII ASA X3.4 établie en 1963](/assets/images/ascii-1963.drawio)
 
@@ -515,7 +515,7 @@ En C, un [[type incomplet]] est un type de données dont la taille n'est pas enc
 
 ### VLQ
 
-Dans certains systèmes, on peut stocker des nombres entiers à taille variable. C'est-à-dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers [VLQ](https://en.wikipedia.org/wiki/Variable-length_quantity) utilisés dans le protocole [[MIDI]]
+Dans certains systèmes, on peut stocker des nombres entiers à taille variable. C'est-à-dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers VLQ utilisés dans le protocole [[MIDI]]
 
 On peut stocker un nombre [[VLQ]] en mémoire, mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée, mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.
 

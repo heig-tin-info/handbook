@@ -263,8 +263,6 @@ extra:
           note: >-
             Merci pour votre retour !
   homepage: https://heig-tin-info.github.io/handbook
-  # version:
-  #   provider: mike
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/heig-tin-info/handbook
@@ -283,11 +281,13 @@ hooks:
   - hooks/epigraph.py # Quote at the beginning of a page
   - hooks/tags.py # Custom tags
   - hooks/mermaid.py # Support for captions in mermaid diagrams
+  - hooks/abbr.py # Abbreviations to Wiki links
 extra_css:
   - css/french.css
   - css/callout.css
   - css/extra.css
   - css/tables.css
+  - css/drawio.css
 extra_javascript:
   - js/viewer.min.js  # https://github.com/jgraph/drawio/blob/dev/src/main/webapp/js/viewer.min.js
   - js/drawio.js

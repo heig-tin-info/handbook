@@ -27,22 +27,26 @@ La présentation d'un imprimé est différente de celle d'un site web. On peut i
 
 - Un site utilise des liens hypertextes pour naviguer entre les pages, un livre utilise des références croisées basées sur des identifiants de section ou d'élément (figure, table).
 - Les sections web n'ont pas besoin d'être numérotées alors que les sections d'un livre doivent l'être pour permettre les références croisées.
-- Les figures, les tableaux et les équations peuvent être des flottants, c'est à dire qu'elles peuvent être déplacées par le moteur de composition pour une meilleure harmonie de la page alors que sur un site internet elles sont insérées à l'endroit où elles sont déclarées puisque la page n'a pas de bornes fixes.
-- Une référence un flottant peut être relatif à sa position dans le texte (en-dessous, en-dessus) alors que dans un livre, elle doit être absolue (page, section).
+- Les figures, les tableaux et les équations peuvent être des flottants, c'est-à-dire qu'elles peuvent être déplacées par le moteur de composition pour une meilleure harmonie de la page alors que sur un site internet elles sont insérées à l'endroit où elles sont déclarées puisque la page n'a pas de bornes fixes.
+- Une référence un flottant peut être relatif à sa position dans le texte (en dessous, en dessus) alors que dans un livre, elle doit être absolu (page, section).
 - Dans un site web, des liens hypertextes externes peuvent être utilisés pour référencer à des ressources en provenance d'autres sites (Wikipédia, etc.) alors que dans un livre, il est préférable de citer la source directement dans le texte par exemple avec une note de base de page ou une référence bibliographique.
-- Il est courant de voir des reférences externes informatives sur un site web, c'est à dire des liens hypertextes vers des ressources externes pour approfondir un sujet mais qui ne servent pas le propos du document. Ces liens informatifs ne sont généralement pas présents dans un livre qui ne ferait que gonfler la bibliographie sans valeur ajoutée aucune.
+- Il est courant de voir des références externes informatives sur un site web, c'est-à-dire des liens hypertextes vers des ressources externes pour approfondir un sujet, mais qui ne servent pas le propos du document. Ces liens informatifs ne sont généralement pas présents dans un livre qui ne ferait que gonfler la bibliographie sans valeur ajoutée aucune.
 - La hiérarchie des titres à une importance moindre sur un site web, il n'est pas rare de faire figurer du texte après un titre de premier niveau alors que dans un livre, les parties et les chapitres influencent la mise en page et aucun texte n'est généralement permis après un titre de premier (partie) ou de second niveau (chapitre).
-- Un livre contient généralement une table des matières, un index, une bibliography, un glossaire, une liste des figures et des tableaux ainsi qu'une liste des acronymes, termes et définitions. Ces éléments sont généralement absents d'un site web.
+- Un livre contient généralement une table des matières, un index, une bibliographie, un glossaire, une liste des figures et des tableaux ainsi qu'une liste des acronymes, termes et définitions. Ces éléments sont généralement absents d'un site web.
 
 ### Limites de la technologie
 
 Le langage Markdown dans sa forme la plus simple ne permet pas de définir des éléments de structure complexes. Heureusement des extensions existent pour combler ces lacunes. Cependant, ces extensions s'efforcent de ne pas casser le parseur Markdown de base. Cela signifie que certaines constructions ne sont pas possibles ou sont très difficiles à réaliser. Par exemple, il est difficile de définir des environnements flottants ou d'associer à des liens des attributs supplémentaires. Il a fallu alors développer quelques extensions très spécifiques au besoin pour combler ces lacunes.
 
+### Notes sur les plugins et extensions
+
+Vous pouvez consulter le fichier [DEVEL.md](DEVEL.md) pour plus d'informations sur les plugins et extensions développés pour ce projet.
+
 ### Règles et conventions
 
 #### Liens hypertextes
 
-Un lien hyper texte Markdown est défini par `[texte](url)`. Pour les liens externes et `[texte][identifiant]` (plugin [autorefs](https://mkdocstrings.github.io/autorefs/)) pour les liens internes. Un lien externe peut être *informatif* ou *cité*. Les liens informatifs superposés à un texte sont laissés dans le documents PDF mais inaccessibles dans l'imprimé. S'il s'agit d'un lien cité, il doit figurer dans la bibliographie. Voici quelques exemples:
+Un lien hyper texte Markdown est défini par `[texte](url)`. Pour les liens externes et `[texte][identifiant]` (plugin [autorefs](https://mkdocstrings.github.io/autorefs/)) pour les liens internes. Un lien externe peut être *informatif* ou *cité*. Les liens informatifs superposés à un texte sont laissés dans le document PDF, mais inaccessibles dans l'imprimé. S'il s'agit d'un lien cité, il doit figurer dans la bibliographie. Voici quelques exemples:
 
 > Le site [Stack Overflow](https://stackoverflow.com) est une ressource incontournable pour les développeurs. (informatif)
 
@@ -111,7 +115,7 @@ Dans un imprimé, il n'y a pas de champ de recherche, le lecteur se réfère gé
 L'informaticien [[Brian Kernighan]] est connu pour avoir co-écrit le livre *The C Programming Language* avec [[Dennis Ritchie]].
 ```
 
-Parfois, il existe des entrées d'index qui doivent être écrites différement dans le texte et dans l'index. Le film `[[The Matrix|Matrix|Matrix, the]]` est un exemple de ce cas. Dans le texte, on verra `The Matrix`, un tag MkDocs sera associé à cette section `Matrix` et l'entrée d'index sera `Matrix, the`. Une entrée supplémentaire `[[||Matrix]]` permet de n'insérer aucun texte mais d'avoir une référence `Matrix` dans l'index pointant vers la section dans laquelle elle est déclarée.
+Parfois, il existe des entrées d'index qui doivent être écrites différemment dans le texte et dans l'index. Le film `[[The Matrix|Matrix|Matrix, the]]` est un exemple de ce cas. Dans le texte, on verra `The Matrix`, un tag MkDocs sera associé à cette section `Matrix` et l'entrée d'index sera `Matrix, the`. Une entrée supplémentaire `[[||Matrix]]` permet de n'insérer aucun texte, mais d'avoir une référence `Matrix` dans l'index pointant vers la section dans laquelle elle est déclarée.
 
 #### Glossaire
 
@@ -121,9 +125,9 @@ En LaTeX, il est possible de définir un glossaire avec le package `glossaries` 
 *[OS]: Système d'exploitation
 ```
 
-#### Liens Wikipedia
+#### Liens Wikipédia
 
-Il est courant de faire référence à des articles Wikipedia pour approfondir un sujet. Dans un imprimé, ces liens n'étant pas accessibles, il est possible d'extraire de Wikipedia le résumé de la page ainsi que son titre qui peut faire office de référence bibliographique et de glossaire.
+Il est courant de faire référence à des articles Wikipédia pour approfondir un sujet. Dans un imprimé, ces liens n'étant pas accessibles, il est possible d'extraire de Wikipédia le résumé de la page ainsi que son titre qui peut faire office de référence bibliographique et de glossaire.
 
 ## Développement
 

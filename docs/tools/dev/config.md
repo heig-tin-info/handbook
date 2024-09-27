@@ -8,7 +8,7 @@ Dans un projet, vous aurez très souvent un tas de fichiers de configuration. Il
 
 ### .clang-format
 
-Ce fichier est au format [YAML](https://fr.wikipedia.org/wiki/YAML) et contient des directives pour formater votre code automatiquement soit à partir de VsCode si vous avez installé l'extension [Clang-Format](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format) et l'exécutable `clang-format` (`sudo apt install -y clang-format`). [Clang-format](https://clang.llvm.org/docs/ClangFormat.html) est un utilitaire de la suite LLVM, proposant Clang un compilateur alternatif à GCC.
+Ce fichier est au format YAML et contient des directives pour formater votre code automatiquement soit à partir de VsCode si vous avez installé l'extension [Clang-Format](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format) et l'exécutable `clang-format` (`sudo apt install -y clang-format`). [Clang-format](https://clang.llvm.org/docs/ClangFormat.html) est un utilitaire de la suite LLVM, proposant Clang un compilateur alternatif à GCC.
 
 On voit que le texte passé sur `stdin` (jusqu'à EOF) est ensuite formaté proprement :
 

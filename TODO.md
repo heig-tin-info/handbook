@@ -69,6 +69,9 @@
 
 ## Changelog
 
+- [x] Adds some information about processors
+- [x] Adds DEVEL.md for documentation
+- [x] Adds a new hook for linking abbreviations to wikipedia
 - [x] Move LaTeX class definition in a separate file mkbook.cls
 - [x] Add wikipedia links in glossary
 - [x] Update project readme

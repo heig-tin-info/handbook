@@ -224,7 +224,7 @@ int getopt(int, char * const [], const char *);
 
 ### Extension GNU
 
-Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension [GNU](https://fr.wikipedia.org/wiki/GNU) et son en-tête `<getopt.h>` permet l'accès à la fonction `getopt_long` laquelle permet d'interpréter aussi les options longues `--version` qui sont devenues très répandues.
+Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension GNU et son en-tête `<getopt.h>` permet l'accès à la fonction `getopt_long` laquelle permet d'interpréter aussi les options longues `--version` qui sont devenues très répandues.
 
 ```c
 int getopt_long (int argc, char *const *argv, const char *shortopts,

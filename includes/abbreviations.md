@@ -1,12 +1,45 @@
-*[HTML]: Hyper Text Markup Language
-*[W3C]: World Wide Web Consortium
-*[C99]: Standard ISO/IEC 9899:1999
-*[POSIX]: Portable Operating System Interface
-*[GNU]: GNU's Not Unix
-*[GPL]: General Public License
-*[MIT]: Massachusetts Institute of Technology
-*[BSD]: Berkeley Software Distribution
-*[ANSI]: American National Standards Institute
-*[K&R]: Kernighan and Ritchie
-*[BNF]: Backus-Naur Form
-*[UNIX]: Unix, officiellement UNIX, est une famille de systèmes d'exploitation multitâche et multi-utilisateur dérivé de l'Unix d'origine créé par AT&T, le développement de ce dernier ayant commencé dans les années 1970.
+*[ANSI]: https://fr.wikipedia.org/wiki/American_National_Standards_Institute
+*[API]: https://fr.wikipedia.org/wiki/Interface_de_programmation
+*[ARP]: https://fr.wikipedia.org/wiki/Address_Resolution_Protocol
+*[ASCII]: https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange
+*[BNF]: https://fr.wikipedia.org/wiki/Forme_de_Backus-Naur
+*[BSD]: https://fr.wikipedia.org/wiki/Berkeley_Software_Distribution
+*[CLI]: https://fr.wikipedia.org/wiki/Interface_en_ligne_de_commande
+*[CPU]: https://fr.wikipedia.org/wiki/Processeur
+*[DHCP]: https://fr.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol
+*[DNS]: https://fr.wikipedia.org/wiki/Domain_Name_System
+*[ELF]: https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format
+*[EOF]: https://fr.wikipedia.org/wiki/End-of-file
+*[EOL]: https://fr.wikipedia.org/wiki/Fin_de_ligne
+*[FIFO]: https://fr.wikipedia.org/wiki/File_(structure_de_donn%C3%A9es)
+*[FLOPS]: https://fr.wikipedia.org/wiki/FLOPS
+*[FTP]: https://fr.wikipedia.org/wiki/File_Transfer_Protocol
+*[GNU]: https://fr.wikipedia.org/wiki/GNU
+*[GPL]: https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU
+*[GUI]: https://fr.wikipedia.org/wiki/Interface_graphique
+*[HTML]: https://fr.wikipedia.org/wiki/Hypertext_Markup_Language
+*[HTTP]: https://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+*[HTTPS]: https://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol_Secure
+*[IDE]: https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement
+*[K&R]: https://fr.wikipedia.org/wiki/The_C_Programming_Language
+*[LIFO]: https://fr.wikipedia.org/wiki/Last_in,_first_out
+*[MIT]: https://fr.wikipedia.org/wiki/Massachusetts_Institute_of_Technology
+*[OOP]: https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet
+*[OS]: https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation
+*[PDF]: https://fr.wikipedia.org/wiki/Portable_Document_Format
+*[POSIX]: https://fr.wikipedia.org/wiki/POSIX
+*[SDK]: https://fr.wikipedia.org/wiki/Kit_de_d%C3%A9veloppement
+*[SDL]: https://fr.wikipedia.org/wiki/Simple_DirectMedia_Layer
+*[SIMD]: https://fr.wikipedia.org/wiki/Single_instruction_multiple_data
+*[SSH]: https://fr.wikipedia.org/wiki/Secure_Shell
+*[SVG]: https://fr.wikipedia.org/wiki/Scalable_Vector_Graphics
+*[TCP]: https://fr.wikipedia.org/wiki/Transmission_Control_Protocol
+*[TTY]: https://fr.wikipedia.org/wiki/Tty_(Unix)
+*[UDP]: https://fr.wikipedia.org/wiki/User_Datagram_Protocol
+*[UNIX]: https://fr.wikipedia.org/wiki/Unix
+*[UTF-8]: https://fr.wikipedia.org/wiki/UTF-8
+*[VLQ]: https://en.wikipedia.org/wiki/Variable-length_quantity
+*[W3C]: https://fr.wikipedia.org/wiki/World_Wide_Web_Consortium
+*[XML]: https://fr.wikipedia.org/wiki/Extensible_Markup_Language
+*[YAML]: https://fr.wikipedia.org/wiki/YAML
+*[GTK]: https://fr.wikipedia.org/wiki/GTK_(bo%C3%AEte_%C3%A0_outils)

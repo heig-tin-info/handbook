@@ -126,7 +126,7 @@ c=0)                            :( O
 
 À l'instar des premières machines à écrire, les [téléscripteurs](https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur) possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme [retour chariot](https://fr.wikipedia.org/wiki/Retour_chariot) est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC [IBM compatibles](https://fr.wikipedia.org/wiki/Compatible_PC) ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères: un retour chariot (`CR`) et une nouvelle ligne (`LF`) ou en C `\r\n`. Les premiers [Macintosh](https://fr.wikipedia.org/wiki/Macintosh) d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère `\r`. Enfin, les ordinateurs UNIX ont eu le même raisonnement, mais ils ont choisi de ne garder que `\n`.
 
-Heureusement, depuis qu'Apple a migré son système sur une base [BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) (UNIX) en 2001, les systèmes d'exploitation modernes ont adopté le standard UNIX et il n'y a plus de problème de compatibilité entre les systèmes. En sommes, il existe aujourd'hui deux types de fin de ligne :
+Heureusement, depuis qu'Apple a migré son système sur une base BSD (UNIX) en 2001, les systèmes d'exploitation modernes ont adopté le standard UNIX et il n'y a plus de problème de compatibilité entre les systèmes. En sommes, il existe aujourd'hui deux types de fin de ligne :
 
 - `LF` ou `\n` sur tous les ordinateurs de la planète à l'exception de Windows,
 - `CRLF` ou `\r\n` sur les ordinateurs Windows.
@@ -189,7 +189,7 @@ En addition de cette grammaire, voici quelques règles :
 1. Un identificateur ne peut pas être l'un des mots clés du langage.
 2. Les identificateurs sont sensibles à la [casse](https://fr.wikipedia.org/wiki/Casse_(typographie)) (majuscule/minuscule).
 3. Le standard C99, se réserve l'usage de tous les identificateurs débutant par `_` suivi d'une lettre majuscule ou un autre *underscore* `_`.
-4. Le standard [POSIX](https://fr.wikipedia.org/wiki/POSIX), se réserve l'usage de tous les identificateurs finissant par `_t`.
+4. Le standard POSIX, se réserve l'usage de tous les identificateurs finissant par `_t`.
 
 !!! tip "Expression régulière"
 

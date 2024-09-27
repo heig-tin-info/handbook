@@ -1,6 +1,6 @@
 # SDL
 
-[SDL](https://www.libsdl.org/) (*Simple DirectMedia Layer*) est une bibliothèque multiplateforme qui permet de créer des applications graphiques. Elle est utilisée dans de nombreux jeux vidéo et applications multimédia. Elle est écrite en C, mais des bindings existent pour de nombreux langages, dont Python ou C++.
+SDL (*Simple DirectMedia Layer*) est une bibliothèque multiplateforme qui permet de créer des applications graphiques. Elle est utilisée dans de nombreux jeux vidéo et applications multimédia. Elle est écrite en C, mais des bindings existent pour de nombreux langages, dont Python ou C++.
 
 La biblithèque a été créée en 1998 par Sam Lantinga, un développeur alors employé par Loki Software, une société spécialisée dans le portage de jeux vidéo sur Linux. À l’époque, il était difficile pour les développeurs de créer des jeux multiplateformes, car chaque système d'exploitation (Windows, Linux, macOS) utilisait des bibliothèques et des API différentes pour gérer les graphismes, le son et les entrées. SDL a été développée pour offrir une interface unique et simple permettant d'accéder à ces fonctionnalités sur plusieurs plateformes, facilitant ainsi le développement de jeux et d'applications multimédias multiplateformes.
 

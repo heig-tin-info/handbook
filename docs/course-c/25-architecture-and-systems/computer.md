@@ -110,3 +110,87 @@ Le **chipset** est relié au processeur par un bus de données appelé **FSB** (
 À l'époque le BIOS offrait un accès très minimaliste à l'utilisateur. On pouvait le configurer avec un clavier et un écran qui n'affichait que des caractères.
 
 De nos jours, le BIOS a été remplacé par l'**UEFI** (*Unified Extensible Firmware Interface*). L'UEFI est un logiciel plus évolué qui permet de configurer la carte mère avec une interface graphique. Il est possible de configurer la carte mère avec une souris et un écran tactile.
+
+## Le processeur
+
+Le processeur est le cerveau de l'ordinateur. C'est lui qui exécute les instructions des programmes. La figure suivante montre un processeur Intel i7-12700K dans son format LGA 1700. C'est à dire qu'il comporte 1700 broches pour se connecter à la carte mère.
+
+![Processeur Intel i7](/assets/images/cpu-i7.png)
+
+Sur les 1700 broches on distingue plusieurs types de broches:
+
+- Les broches d'alimentation qui représentent 40..60% des broches. Elles sont nécessaires pour alimenter le processeur avec une tension de 1.2V.
+- Le contrôleur mémoire (DDR4/DDR5) qui permet de connecter la mémoire vive au processeur. Cela représente environ 5..15% des broches.
+- Les interfaces PCIe qui permettent de connecter des cartes d'extension comme des cartes graphiques, des cartes réseau, des cartes son, etc. Ce processeur supporte jusqu'à 20 lignes différentielles soit 40 broches.
+- L'accès DMI, c'est l'interface entre lwe processeur et le chipset. Un DMI 4.0 x8 signifie qu'il y a 8 lignes (Rx/Tx), soit envron 16 broches.
+- L'USB, quelques dizaines de broches.
+- Le contrôleur graphique intégré (iGPU) qui comporte des ports HDMI/DisplayPort pour connecter un écran directement au processeur.
+- Les interconnexions spécifiques (I2C, SPI, etc.)
+
+Si on consulte le SDM (*Software Developer Manual*) d'Intel, un document de 5000 pages, on peut trouver des informations très intéressntes. Par exemple le chapitre sur les types numériques montre les différents type d'entiers ( `byte`, `word`, `dword`, `qword`), de flottants (`half`, `single`, `double`, `extended`) et de vecteurs (`xmm`, `ymm`, `zmm`, `kmm`). Il est expliqué que le processeur fonctionne avec le complément à 2 pour les entiers et le IEEE 754 pour les flottants, qu'il est en *little-endian* et que les registres sont de 64 bits. Le langage C au final est très proche de l'assembleur du processeur.
+
+### Protection ring
+
+Les *protection rings* (ou anneaux de protection) sont un mécanisme de sécurité utilisé dans l'architecture des processeurs, principalement dans les systèmes d'exploitation modernes, pour contrôler l'accès aux ressources du système par différents types de code (comme les applications ou les composants du système d'exploitation).
+
+L'idée des anneaux de protection repose sur la séparation des niveaux de privilège ou de contrôle en plusieurs couches. Chaque couche, ou ring (anneau), est un niveau de privilège qui détermine ce qu’un programme ou une instruction peut faire. Dans l'architecture x86 d'Intel, il y a généralement quatre anneaux (de 0 à 3), bien que les systèmes d'exploitation modernes n’utilisent souvent que deux de ces niveaux (Ring 0 et Ring 3).
+
+![Anneaux de protection](/assets/images/protection-rings.drawio)
+
+Le ring 0 correspond au noyau (kernel) du système d'exploitation, qui a accès à toutes les ressources matérielles de l'ordinateur. Il peut exécuter n'importe quelle instruction, accéder à la mémoire directement, et gérer le matériel sans restriction. On parle souvent de mode superviseur ou mode noyau pour désigner les opérations effectuées dans cet anneau. C’est le niveau le plus privilégié.
+
+Les niveaux intermédiaires 1 et 2 peuvent être utilisés par certains systèmes pour les pilotes ou des services du système qui ont besoin d'un accès contrôlé aux ressources, mais ne nécessitent pas le même niveau de privilège que le noyau. Toutefois, la plupart des systèmes d'exploitation modernes ne les utilisent pas directement.
+
+Enfin, le niveau 3 est réservé aux applications utilisateur. Il s’agit du mode utilisateur (user mode), dans lequel les programmes n’ont pas un accès direct au matériel ou à la mémoire, et doivent passer par des appels système pour demander des services au noyau. En cas de violation des règles (comme essayer d’accéder directement au matériel), une exception ou une erreur est générée, et le programme est bloqué.
+
+### Bref historique
+
+#### 1978 : Processeurs 16 bits
+
+L'introduction des processeurs 8086 et 8088 a marqué le début de l'architecture IA-32 avec des registres 16 bits et une adresse mémoire maximale de 1 Mo. La segmentation permettait d'adresser jusqu'à 256 Ko sans changement de segment, ouvrant la voie à une gestion plus efficace de la mémoire.
+
+#### 1982 : Intel 286
+
+Le processeur Intel 286 a introduit le mode protégé, permettant une meilleure gestion de la mémoire avec un adressage sur 24 bits et la possibilité de gérer jusqu'à 16 Mo de mémoire physique. Le mode protégé apportait également des mécanismes de protection tels que la vérification des limites des segments et plusieurs niveaux de privilèges.
+
+#### 1985 : Intel 386
+
+Première architecture véritablement 32 bits, l'Intel 386 a introduit des registres 32 bits et un bus d'adressage permettant de gérer jusqu'à 4 Go de mémoire physique. Il proposait aussi un mode de mémoire virtuelle et un modèle mémoire à pages de 4 Ko, facilitant la gestion efficace de la mémoire.
+
+#### 1989 : Intel 486
+
+Le processeur Intel 486 a ajouté des capacités de traitement parallèle avec cinq étapes de pipeline d’exécution, permettant l’exécution simultanée d'instructions. Il a également introduit un cache de 8 Ko sur la puce et un coprocesseur mathématique intégré (FPU).
+
+#### 1993 : Intel Pentium
+
+L'Intel Pentium a marqué une nouvelle avancée avec l'ajout de deux pipelines d'exécution, permettant l'exécution de deux instructions par cycle d'horloge. Il a également intégré un système de prédiction de branchement et augmenté le bus de données externe à 64 bits. Plus tard, la technologie MMX a été introduite, optimisant le traitement parallèle de données pour les applications multimédia.
+
+#### 1995 : Famille P6
+
+La famille P6 a apporté une nouvelle microarchitecture superscalaire avec un processus de fabrication de 0,6 micron, améliorant considérablement les performances tout en maintenant la compatibilité avec les technologies existantes.
+
+#### 2000 : Intel Pentium 4
+
+Basé sur l'architecture NetBurst, le Pentium 4 a introduit les extensions SIMD Streaming (SSE2), puis SSE3, pour accélérer les calculs multimédias. Le support du 64 bits avec l'Intel 64 architecture a également fait son apparition, ainsi que la technologie Hyper-Threading pour exécuter plusieurs threads simultanément.
+
+#### 2001 : Intel Xeon
+
+La gamme Xeon, basée également sur l'architecture NetBurst, a été conçue pour les serveurs multiprocesseurs et les stations de travail. Elle a introduit le multithreading (Hyper-Threading) et, plus tard, des processeurs multi-cœurs pour augmenter les performances dans les environnements professionnels.
+
+#### 2008 : Intel Core i7
+
+La microarchitecture Nehalem, utilisée dans la première génération d'Intel Core i7, a marqué l'avènement du 45 nm, avec des fonctionnalités comme le Turbo Boost, l’Hyper-Threading, un contrôleur mémoire intégré, et un cache Smart Cache de 8 Mo. Le lien QuickPath Interconnect (QPI) a remplacé l’ancien bus pour des échanges plus rapides avec le chipset.
+
+#### 2011 : Intel Core Sandy Bridge
+
+Cette génération, construite en 32 nm, a apporté des améliorations en termes de performance et d'efficacité énergétique, avec des innovations comme l'intégration des graphismes dans le processeur et l'Intel Quick Sync Video. La gamme incluait les processeurs Core i3, i5, et i7.
+
+#### 2012 : Intel Core Ivy Bridge
+
+L'Ivy Bridge a introduit une finesse de gravure de 22 nm, permettant une meilleure gestion de la consommation énergétique tout en améliorant les performances graphiques et générales du processeur. Cette génération a également marqué l'arrivée de processeurs Xeon plus puissants pour les serveurs.
+
+#### 2013 : Intel Core Haswell
+
+La quatrième génération, basée sur l’architecture Haswell, a continué d'améliorer les performances et l'efficacité énergétique, tout en proposant des améliorations comme l’intégration de la gestion de l’alimentation et des performances graphiques améliorées pour répondre aux besoins des utilisateurs modernes.
+
+Ce résumé souligne les progrès constants en termes de puissance de traitement, de gestion mémoire, de parallélisme, et d’efficacité énergétique des processeurs Intel au fil des générations.

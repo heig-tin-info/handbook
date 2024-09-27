@@ -474,6 +474,8 @@ class LaTeXRenderer:
     def render_heading(self, soup: Tag, **kwargs):
         base_level = kwargs.get("base_level", 0)
         for el in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6"]):
+            for a in el.find_all("a"): # No links in headings
+                a.unwrap()
             self.render_inlines(el)
             title = self.get_safe_text(el)
             level = int(el.name[1:]) + base_level - 1
@@ -1069,6 +1071,7 @@ class LaTeXRenderer:
         """Replace all inline elements."""
 
         self.render_autoref(soup)
+        self.render_links(soup)
         self.render_index(soup)
         self.render_columns(soup)
         self.render_table(soup)

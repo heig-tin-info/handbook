@@ -179,7 +179,7 @@ Figure: Représentation graphique des notions de compilateur, IDE, toolchain...
 
 Parmi les plus connus on peut citer IntelliJ IDEA, Eclipse, Visual Studio, Visual Studio Code, Xcode, etc.
 
-On notera que l'ensemble des outils nécessaires à créer un logiciel exécutable est appelé chaîne de compilation, plus communément appelée [toolchain](https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_compilation). Cette dernière est communément associée à une [SDK](https://fr.wikipedia.org/wiki/Kit_de_d%C3%A9veloppement) (*Software Development Kit*), un ensemble d'outils logiciels permettant de développer des logiciels pour une cible donnée (microcontroller, Raspberry Pi, smartphones, etc.).
+On notera que l'ensemble des outils nécessaires à créer un logiciel exécutable est appelé chaîne de compilation, plus communément appelée [toolchain](https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_compilation). Cette dernière est communément associée à une SDK (*Software Development Kit*), un ensemble d'outils logiciels permettant de développer des logiciels pour une cible donnée (microcontroller, Raspberry Pi, smartphones, etc.).
 
 ## Exercices de révision
 
