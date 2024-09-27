@@ -72,7 +72,7 @@ Pour améliorer votre navigation sur ce site, voici quelques raccourcis clavier 
 
 ### Cookies
 
-Ce site utilise des cookies pour sauvegarder vos préférences de thème ainsi que votre progression dans les exericices.
+Ce site utilise des cookies pour sauvegarder vos préférences de thème ainsi que votre progression dans les exercices.
 
 Des information d'analyse de fréquentation sont également collectées pour améliorer le contenu de ce livre.
 
@@ -158,7 +158,7 @@ Des encadrés sont utilisés pour mettre en avant des informations complémentai
 
 ## Anglicismes
 
-Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exercice difficile. Il est parfois moins lourd de parler de *hardware* que de *matériel informatique*. Certains termes n'ont pas de traduction en français. Par exemple, le terme *set* appliqué à un ensemble de données n'a pas de traduction crédible en français. La table [][anglisismes] quelques termes qui seront utilisés dans cet ouvrage:
+Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exercice difficile. Il est parfois moins lourd de parler de *hardware* que de *matériel informatique*. Certains termes n'ont pas de traduction en français. Par exemple, le terme *set* appliqué à un ensemble de données n'a pas de traduction crédible en français. La table [][anglisismes] ci-dessous montre quelques termes qui seront utilisés dans cet ouvrage:
 
 Table: Anglicismes
 
@@ -190,7 +190,7 @@ De nombreuses références et sources de ce livre sont issues de Wikipedia, de l
 
 ## Comment contribuer ?
 
-Vous avez remarqué une erreur, une faute de frappe ou une information manquante ? Vous auriez désiré une explication plus détaillée sur un sujet ? Vous pouvez contribuer à l'amélioration de ce livre en soumettant une [issue](https://github.com/heig-tin-info/handbook/issues). Alternativement, vous pouvez faire un *fork* du projet et proposer une *pull request*. Ce travail est donc une oeuvre vivante qui évolue avec le temps et les contributions de chacun.
+Vous avez remarqué une erreur, une faute de frappe ou une information manquante ? Vous auriez désiré une explication plus détaillée sur un sujet ? Vous pouvez contribuer à l'amélioration de ce livre en soumettant une [issue](https://github.com/heig-tin-info/handbook/issues). Alternativement, vous pouvez faire un *fork* du projet et proposer une *pull request*. Ce travail est donc une œuvre vivante qui évolue avec le temps et les contributions de chacun.
 
 La version imprimée sera néanmoins figée à un moment donné, mais la version en ligne sera toujours mise à jour.
 
@@ -200,6 +200,6 @@ Ce livre est écrit en [Markdown](https://fr.wikipedia.org/wiki/Markdown) et gé
 
 La plupart des illustrations sont réalisées avec [Draw.io](https://www.draw.io/), un outil de dessin vectoriel en ligne. Les schémas sont rendus dans le navigateur avec `GraphViewer`. Les diagrammes utilisent la technologie [Mermaid](https://mermaid-js.github.io/mermaid/#/). Les autres sources d'images sont issues en grande partie de [Wikimedia Commons](https://commons.wikimedia.org/) et [Wikipedia](https://www.wikipedia.org/).
 
-La génération de l'ouvrage en PDF est utilise son propre convertisseur vers LaTeX. Les extraits de code sources sont colorés avec [Pygments](https://pygments.org/) en utilisant le paquet [minted](https://ctan.org/pkg/minted).
+La génération de l'ouvrage en PDF utilise son propre convertisseur vers LaTeX. Les extraits de code sources sont colorés avec [Pygments](https://pygments.org/) en utilisant le paquet [minted](https://ctan.org/pkg/minted).
 
 L'orthographe et la grammaire ont été revues avec [Antidote](https://www.antidote.info/).

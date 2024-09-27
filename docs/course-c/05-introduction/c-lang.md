@@ -274,7 +274,7 @@ Une fois généré le fichier assembleur, il doit encore est transformé en lang
 
 ### Édition de liens (*link*)
 
-L'édition de liens permet d'assembler ensemble les différents fichiers binaires (`.o`) issus de la compilation et d'autres fichiers binaires nécessaires au programme pour former un exécutable complet. Ces autres fichiers binaires sont appelés des **bibliothèques** ou plus communément *librairies*. Elles peuvent appartenir au système d'exploitation, ou avoir été installées manuellement avec l'environnement de développement. L'édition de liens à pour rôle de résoudre les références entre les différents fichiers binaires et de générer un exécutable complet.
+L'édition de liens permet d'assembler ensemble les différents fichiers binaires (`.o`) issus de la compilation et d'autres fichiers binaires nécessaires au programme pour former un exécutable complet. Ces autres fichiers binaires sont appelés des **bibliothèques** ou plus communément *librairies*. Elles peuvent appartenir au système d'exploitation, ou avoir été installées manuellement avec l'environnement de développement. L'édition de liens a pour rôle de résoudre les références entre les différents fichiers binaires et de générer un exécutable complet.
 
 Imaginez un livre dont vous êtes le héros. Plusieurs auteurs différents peuvent prendre en charge des chapitres différents et lors des choix laissez des marques substitutives pour le numéro de page où le lecteur doit se rendre :
 
