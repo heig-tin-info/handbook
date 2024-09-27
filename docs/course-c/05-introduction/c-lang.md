@@ -141,9 +141,9 @@ Pour mieux comprendre, voici un exemple sous forme de [pseudo-code](https://fr.w
 
 ```text
 POUR CHAQUE œuf DANS le panier :
-    jaune, blanc 🠔 CASSER(œuf)
-    omelette 🠔 MELANGER(jaune, blanc)
-    omelette_cuite 🠔 CUIRE(omelette)
+    jaune, blanc ← CASSER(œuf)
+    omelette ← MELANGER(jaune, blanc)
+    omelette_cuite ← CUIRE(omelette)
 
 SERVIR(omelette_cuite)
 ```
@@ -157,7 +157,7 @@ POUR CHAQUE 〜 DANS 〜:
 
 où les `〜` sont des marques substitutives ([placeholder](https://fr.wikipedia.org/wiki/Marque_substitutive)) qui seront remplacées par le développeur par ce qui convient.
 
-Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. On l'appelle la [grammaire][grammar] du langage C. C'est un peu le Bescherelle du C. On observe dans ce formalisme une syntaxe rigoureuse, l'utilisation de termes en majuscules, la séparation de mots par des virgules, la présence de parenthèses et de flèches (`🠔`). Cette syntaxe diffère d'un langage à l'autre, mais selon le paradigme du langage de grandes similarités peuvent exister.
+Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. On l'appelle la [grammaire][grammar] du langage C. C'est un peu le Bescherelle du C. On observe dans ce formalisme une syntaxe rigoureuse, l'utilisation de termes en majuscules, la séparation de mots par des virgules, la présence de parenthèses et de flèches (`←`). Cette syntaxe diffère d'un langage à l'autre, mais selon le paradigme du langage de grandes similarités peuvent exister.
 
 [](){#paradigm}
 
@@ -200,25 +200,25 @@ Ce que nous devons retenir c'est que le langage C est **impératif** et **procé
 ```text
 POUR REALISER un œuf:
     CHERCHER poule
-    œuf 🠔 PONDRE(poule)
+    œuf ← PONDRE(poule)
 
 POUR REALISER du lait:
     CHERCHER vache
-    lait 🠔 TRAITRE(vache)
+    lait ← TRAITRE(vache)
 
 POUR REALISER de la farine:
     PLANTER blé
     ATTENDRE 6 mois
-    moisson 🠔 MOISSONNER(blé)
-    farine 🠔 MOUDRE(moisson)
+    moisson ← MOISSONNER(blé)
+    farine ← MOUDRE(moisson)
 
 POUR REALISER une pâte à crèpes:
-    œuf 🠔 REALISER(œuf)
-    jaune, blanc 🠔 CASSER(œuf)
-    œuf-liquide 🠔 MELANGER(jaune, blanc)
-    farine 🠔 REALISER(farine)
-    lait 🠔 REALISER(lait)
-    pâte 🠔 MELANGER(œuf-liquide, farine, lait)
+    œuf ← REALISER(œuf)
+    jaune, blanc ← CASSER(œuf)
+    œuf-liquide ← MELANGER(jaune, blanc)
+    farine ← REALISER(farine)
+    lait ← REALISER(lait)
+    pâte ← MELANGER(œuf-liquide, farine, lait)
 ```
 
 Dans cet exemple, les séquences d'instructions ont été regroupées en procédures, c'est de la programmation procédurale. Les procédures permettent de découper un programme en morceaux plus petits, plus faciles à comprendre et à maintenir.
