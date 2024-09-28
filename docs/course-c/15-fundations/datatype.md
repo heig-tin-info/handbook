@@ -134,7 +134,7 @@ Notez l'importance du $-1$ dans la définition du maximum, car la valeur minimum
 
 Les entiers signés peuvent être **négatifs**, **nuls** ou **positifs** et peuvent prendre des valeurs comprises entre $-2^{N-1}$ et $+2^{N-1}-1$ où $N$ correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Notez l'asymétrie entre la borne positive et négative.
 
-Comme il sont signés (*signed* en anglais), il est par conséquent correct d'écrire `signed int` bien que le préfixe `signed` soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.
+Comme ils sont signés (*signed* en anglais), il est par conséquent correct d'écrire `signed int` bien que le préfixe `signed` soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.
 
 Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information :
 
@@ -302,7 +302,7 @@ Mais comment un ordinateur sait-il que `97` correspond à `a` ? C'est là que la
 
 ### La table ASCII
 
-Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'ASA (*American Standards Association*) aujourd'hui **ANSI** qui ne définissait alors que 63 caractères imprimables. Comme la mémoire à cette époque était très cher, un caractère n'était codé que sur 7 bits. La première table [[ASCII]] définissait donc 128 caractères et est donnée par la figure suivante : [[||ANSI]]
+Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'ASA (*American Standards Association*) aujourd'hui **ANSI** qui ne définissait alors que 63 caractères imprimables. Comme la mémoire à cette époque était très chère, un caractère n'était codé que sur 7 bits. La première table [[ASCII]] définissait donc 128 caractères et est donnée par la figure suivante : [[||ANSI]]
 
 ![Table ASCII ASA X3.4 établie en 1963](/assets/images/ascii-1963.drawio)
 
@@ -441,7 +441,7 @@ Bien qu'un booléen puisse être stocké sur un seul bit, en pratique, il est st
 00 00 00 00 00 00 00 01   true
 ```
 
-Néanmoins, il est possible d'utiliser le type `char` pour stocker un booléen. On peut également utiliser de l'arithmétique binaire pour stocker 8 booléen sur un `uint8_t`. Voici un exemple de stockage de 8 booléens sur un `uint8_t` :
+Néanmoins, il est possible d'utiliser le type `char` pour stocker un booléen. On peut également utiliser de l'arithmétique binaire pour stocker 8 booléens sur un `uint8_t`. Voici un exemple de stockage de 8 booléens sur un `uint8_t` :
 
 ```c
 #include <stdint.h>
