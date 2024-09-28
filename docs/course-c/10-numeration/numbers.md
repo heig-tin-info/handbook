@@ -205,7 +205,7 @@ Pour résumer les avantages et inconvénients du complément à un :
 [](){#twos_complement}
 ### Complément à deux
 
-Le [[complément à deux]] n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles et de 2 (`0` et `1`). On ne peut pas trouver un chiffre tel que la somme donne `2`. C'est la même idée que de demander le complément à 10 en base 10. Vous ne pouvez pas sur la base d'un chiffre unique obtenir un autre chiffre dont la somme est égale à 10 sans avoir recours à un autre chiffre.
+Le [[complément à deux]] n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles est de 2 (`0` et `1`). On ne peut pas trouver un chiffre tel que la somme donne `2`. C'est la même idée que de demander le complément à 10 en base 10. Vous ne pouvez pas sur la base d'un chiffre unique obtenir un autre chiffre dont la somme est égale à 10 sans avoir recours à un autre chiffre.
 
 Pour réaliser ce complément à deux (complément à un plus un), il y a deux étapes :
 
@@ -301,7 +301,7 @@ Depuis l'exemple précédent, imaginons que l'on sacrifie 3 bits sur les 8 pour 
    └────────────> / 2¹ ----> 19 / 2 = 9.5
 ```
 
-Notre construction nous permet toujours d'exprimer des grandeurs réelles, mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre $1\cdot2^{7}=0.0078125$ et $63$. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32-bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.
+Notre construction nous permet toujours d'exprimer des grandeurs réelles, mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre $1\cdot2^{7}=0.0078125$ et $63$. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32 bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.
 
 Poursuivons notre raisonnement. Cette fois-ci nous choisissons d'étendre notre espace de stockage à 4 octets. Un bit de signe est réservé pour exprimer les grandeurs négatives, 8 bits pour l'[[exposant]] et 23 bits pour la [[mantisse]] :
 
@@ -479,7 +479,7 @@ Néanmoins les nombres complexes ne sont pas supportés par les opérateurs du l
     from math import sqrt
     a, b, c = 1, 2, 3
     delta = b**2 - 4*a*c # Calcul du discriminant qui sera négatif
-    x1, x1 = (-b + sqrt(delta)) / (2*a), (-b - sqrt(delta)) / (2*a)
+    x1, x2 = (-b + sqrt(delta)) / (2*a), (-b - sqrt(delta)) / (2*a)
     ```
 
     `x1` et `x2` sont des nombres complexes.
@@ -529,7 +529,7 @@ Pour convertir un nombre **Q4.12** en sa valeur réelle il faut :
 1. Prendre le nombre encodé en **Q4.12** ($12867$)
 2. Diviser sa valeur 2 à la puissance du nombre de bits ($12867 / 2^{12} = 3.141357421875$)
 
-On peut noter une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : $1 / 2^12 = 0.00024$. Il convient alors d'arrondir le nombre à la troisième décimale, soit $3.141$.
+On peut noter une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : $1 / 2^{12} = 0.00024$. Il convient alors d'arrondir le nombre à la troisième décimale, soit $3.141$.
 
 Les opérations arithmétiques restent triviales entre des nombres de mêmes types. Le chapitre sur les [algorithmes][fast-sin] décrit une implémentation de calcul de sinus en utilisant ce format. [[||q format]]
 

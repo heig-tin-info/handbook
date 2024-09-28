@@ -5,7 +5,7 @@ epigraph:
 ---
 # Syntaxe
 
-Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il traite des généralités propres au langage, mais aussi des notions élémentaires permettant d'interpréter du code source. Notons que ce chapitre est transversal, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maîtrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.
+Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il traite des généralités propres au langage, mais aussi des notions élémentaires permettant d'interpréter du code source. Notons que ce chapitre est transversal, à sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maîtrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.
 
 ## L'alphabet
 
@@ -49,7 +49,7 @@ On notera ici que l'alphabet latin est tout particulièrement adapté à la prog
 
 Outre ces caractères, la séparation des symboles est assurée par [une espace](https://fr.wikipedia.org/wiki/Espace_(typographie)), une tabulation horizontale, une [[tabulation]] verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le [pied-de-mouche](https://fr.wikipedia.org/wiki/Pied-de-mouche) `¶` U+00B6 pour indiquer les fins de paragraphes qui sont également des caractères non imprimables. [[||pied-de-mouche (¶)]] [[||caractère non imprimable]] [[||U+00B6]]
 
-La convention est de nommer les caractères non imprimables soit par leur acronyme `LF` pour *Line Feed* ou soit par leur convention C échappée par un *backslash* `\n`:
+La convention est de nommer les caractères non imprimables soit par leur acronyme `LF` pour *Line Feed* ou soit par leur convention C échappée par un *backslash n* `\n`:
 
 Table: Caractères non imprimables
 
@@ -88,7 +88,7 @@ Ces subtilités de la machine à écrire ont été partiellement reprises dans l
 
 Ces héritages historiques font qu'il est difficile aujourd'hui de traiter sans bogue les textes multilingues. Les cas particuliers sont nombreux et bien souvent, les informaticiens utilisent des bibliothèques logicielles pour gérer ces cas particuliers.
 
-Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la commission responsable de standardiser C a intégré au standard les **trigraphes** et plus tard les **digraphes** qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi `<:` est le digraphe de `[` et `??<` est le trigraphe de `{`. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables. Par ailleurs, le standard C et C++ songent à les retirer.
+Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la commission responsable de standardiser C a intégré au standard les **trigraphes** et plus tard les **digraphes** qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi `<:` est le digraphe de `[` et `??<` est le trigraphe de `{`. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables. Par ailleurs, le standard C et C++ songe à les retirer.
 
 Retenez que C peut être un langage extrêmement cryptique tant il est permissif sur sa syntaxe. Il existe d'ailleurs un concours international d'obfuscation, le [The International Obfuscated C Code Contest](https://www.ioccc.org/) qui prime des codes les plus subtils et illisibles comme le code suivant écrit par [Chris Mills](https://www.ioccc.org/2015/mills2/prog.c). Il s'agit d'ailleurs d'un exemple qui compile parfaitement sur la plupart des compilateurs.
 

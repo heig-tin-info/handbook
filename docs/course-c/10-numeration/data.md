@@ -15,7 +15,7 @@ Un **bit** est l'unité d'information fondamentale qui ne peut prendre que deux 
 
 Le bit est l'abréviation de *binary digit* ([[chiffre]] binaire) et il est central à la théorie de l'information. C'est un concept a été popularisé par [[Claude Shannon]] dans son article fondateur de la théorie de l'information en 1948: *A Mathematical Theory of Communication*. Shannon y introduit le bit comme unité fondamentale de mesure de l'information.
 
-S'il existe un meuble avec huit casiers assez grands pour une pomme, et que l'on souhaite connaître le nombre de possibilités de rangement, on sait que chaque casier peut contenir soit une pomme, soit aucune. Le nombre de possibilités d'agencer des pommes dans ce meuble est de $2^8 = 256$. $2$ représente le nombre d'état que peut prendre un casier (pomme ou pas pomme) et $8$ est le nombre de casiers. On définit que la quantité d'information nécessaire à connaître l'état du meuble est de 8 bits.
+S'il existe un meuble avec huit casiers assez grands pour une pomme, et que l'on souhaite connaître le nombre de possibilités de rangement, on sait que chaque casier peut contenir soit une pomme, soit aucune. Le nombre de possibilités d'agencer des pommes dans ce meuble est de $2^8 = 256$. $2$ représente le nombre d'état que peut prendre un casier (pomme ou pas pomme) et $8$ est le nombre de casiers. On définit que la quantité d'information nécessaire pour connaître l'état du meuble est de 8 bits.
 
 On pourrait très bien utiliser ce meuble et ces pommes pour représenter son âge. Un individu de 42 ans n'aurait pas besoin de 42 pommes, mais seulement de 3. En effet, si on représente l'absence de pomme par `0` et la présence d'une pomme par `1`, on peut représenter l'âge de 42 ans par :
 
@@ -29,7 +29,7 @@ $$2^{64} = 18'446'744'073'709'551'616$$
 
 ou 64 bits. Cela permet de représenter le nombre de grains de sable sur Terre, le nombre de secondes dans 584'942 années, ou le nombre de combinaisons possibles pour un mot de passe de 8 caractères. Alternativement, si on admet qu'un individu peut vivre jusqu'à 127 ans maximum, 7 bits suffisent à représenter l'âge d'une personne. Avec 64 pommes maximum, on peut dont donc représenter l'âge d'environ 9 personnes.
 
-Ce nombre peu importe la manière dont il est interprété représente une certaine quantité d'information qui peut s'exprimer par la formule générale suivante :
+Ce nombre, peu importe la manière dont il est interprété, représente une certaine quantité d'information qui peut s'exprimer par la formule générale suivante :
 
 $$I = \log_2(N)$$
 
@@ -39,7 +39,7 @@ Les informaticiens ont l'habitude d'agencer les bits par groupe de 8 pour former
 
 Lorsque vous achetez un disque de stockage pour votre ordinateur, vous pouvez par exemple lire sur l'emballage que l'unité de stockage dispose d'une capacité de 1 Tio (Tébi-octet). Un Tébi-octet est égal à $2^{40}$ octets, soit $1'099'511'627'776$ octets. Un octet étant égal à 8 bits, donc un tébi (millier de milliards) d'octet est égal à $8'796'093'022'208$ bits. À titre d'information l'entièreté d'encyclopédie libre Wikipédia en pèse environ 22 Go (Giga-octet). On peut affirmer que notre disque de 1 Tio, acheté environ 50 dollars, permettrait de stocker 45 copies de Wikipédia.
 
-Pour représenter l'état de Wikipédia, il suffirait donc d'avoir $10'225'593'776'312$ pommes et bien entendu de l'armoire idoine.
+Pour représenter l'état de Wikipédia, il suffirait donc d'avoir $10'225'593'776'312$ pommes et bien entendu, l'armoire idoine.
 
 !!! exercise "Pile ou face"
 
@@ -105,7 +105,7 @@ $$1 \times 10^2 + 2 \times 10^1 + 3 \times 10^0$$
 
 On parle ici de notation positionnelle, car la position des chiffres est importante, comme nos pommes dans nos casiers. Le chiffre le plus à droite est le chiffre des unités, le chiffre à sa gauche est le chiffre des dizaines, puis des centaines, etc. Cela peut vous sembler d'une grande trivialité, car notre civilisation moderne y est familiarisée depuis des siècles. Néanmoins, les systèmes de numération les plus anciens, comme ceux basés sur les os d'Ishango (datant d'environ 20'000 ans avant notre ère), n'utilisaient pas ce concept. Ces systèmes se contentaient souvent de représenter des quantités par des marques ou des symboles sans utiliser la position pour indiquer des valeurs différentes.
 
-La véritable apparition de la notation positionnelle est attribuée aux mathématiciens indiens, autour du 5^e siècle de notre ère. Le système de numération indien utilisait dix symboles ($0$ à $9$), et la position de chaque chiffre dans un nombre indiquait sa valeur multiplicative par une puissance de dix. Ce système a été révolutionnaire, car il simplifiait grandement les calculs, rendant les opérations arithmétiques plus efficaces.
+La véritable apparition de la notation positionnelle est attribuée aux mathématiciens indiens, autour du $5^e$ siècle de notre ère. Le système de numération indien utilisait dix symboles ($0$ à $9$), et la position de chaque chiffre dans un nombre indiquait sa valeur multiplicative par une puissance de dix. Ce système a été révolutionnaire, car il simplifiait grandement les calculs, rendant les opérations arithmétiques plus efficaces.
 
 Ce système indien a ensuite été transmis aux Arabes, qui l'ont adopté et perfectionné avant de le diffuser en Europe au cours du Moyen Âge. C'est ce système, connu aujourd'hui sous le nom de "système décimal" ou "système indo-arabe", qui est à la base de la notation positionnelle utilisée universellement de nos jours.
 
@@ -140,7 +140,7 @@ bool is_negative(int32_t n) {
 
 On a vu plus haut que les nombres en informatiques sont stockés sous forme de bits agencés en octets et dont l'ordre est important. Cette méthode permet de représenter des nombres entiers positifs, mais pour représenter les nombres négatifs ou les nombres à virgule, il faut utiliser des méthodes de codification spécifiques.
 
-La norme *IEEE 754* est utilisée pour représenter les nombres à virgule et le *complément à deux* pour représenter les nombres négatifs. Ces deux méthodes sur lesquels nous reviendrons plus tard sont essentielles pour comprendre comment les nombres sont stockés en mémoire et comment les opérations arithmétiques sont effectuées. En outre, une succession de bits peut représenter bien plus que des nombres. Ils peuvent représenter du texte, des images ou des programmes, mais *in fine* tout est stocké sous forme de bits, et c'est à l'interprétation de ces bits que l'on peut en extraire un contenu utile.
+La norme *IEEE 754* est utilisée pour représenter les nombres à virgule et le *complément à deux* pour représenter les nombres négatifs. Ces deux méthodes sur lesquels nous reviendrons plus tard sont essentielles pour comprendre comment les nombres sont stockés en mémoire et comment les opérations arithmétiques sont effectuées. En outre, une succession de bits peut représenter bien plus que des nombres. Ils peuvent représenter du texte, des images ou des programmes, mais *in fine* tout est stocké sous forme de bits, et c'est de l'interprétation de ces bits que l'on peut extraire un contenu utile.
 
 ## Transmission de l'information
 

@@ -40,7 +40,7 @@ Il s'agit d'une numération additive.
 
 ![1506 en écriture hiéroglyphique](../../assets/images/hieroglyph.drawio)
 
-Notre système de représentation des nombres décimaux est le système de numération [[indo-arabe]] qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf et un nombre peut se décomposer en puissance successive :
+Notre système de représentation des nombres décimaux est le système de numération [[indo-arabe]] qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf et un nombre peut se décomposer en puissances successives :
 
 $$
 1506_{10} = 1 \cdot 10^{3} + 5 \cdot 10^{2} + 0 \cdot 10^{1} + 6 \cdot 10^{0}
@@ -79,7 +79,7 @@ $$
 
 En termes techniques ces états sont le plus souvent représentés par des signaux électriques dont souvent l'un des deux états est dit récessif tandis que l'autre est dit dominant. Par exemple si l'état `0` est symbolisé par un verre vide et l'état `1` par un verre contenant du liquide. L'état dominant est l'état `1`. En effet, si le verre contient déjà du liquide, en rajouter ne changera pas l'état actuel, il y aura juste plus de liquide dans le verre.
 
-Un nombre binaire peut être également décomposé en puissance successive :
+Un nombre binaire peut être également décomposé en puissances successives :
 
 $$
 1101_{2} = 1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 1 \cdot 2^{0}
@@ -113,7 +113,7 @@ Inventé par [Charles XII de Suède](https://fr.wikipedia.org/wiki/Charles_XII) 
 0 1 2 3 4 5 6 7
 ```
 
-Notons que l'utilisation des 8 premiers symboles du système indo-arabe est une convention d'usage bien pratique, car tout humain occidental est familier de ces symboles. L'inconvénient est qu'un nombre écrit en octal pourrait être confondu avec un nombre écrit en décimal. Comme pour le système décimal, un nombre octal peut également être décomposé en puissance successive :
+Notons que l'utilisation des 8 premiers symboles du système indo-arabe est une convention d'usage bien pratique, car tout humain occidental est familier de ces symboles. L'inconvénient est qu'un nombre écrit en octal pourrait être confondu avec un nombre écrit en décimal. Comme pour le système décimal, un nombre octal peut également être décomposé en puissances successives :
 
 $$
 1607_{8} = 1 \cdot 8^{3} + 6 \cdot 8^{2} + 0 \cdot 8^{1} + 7 \cdot 8^{0}
@@ -155,7 +155,7 @@ Ce système de numération positionnel en base 16 est le plus utilisé en inform
 0 1 2 3 4 5 6 7 8 9 A B C D E F
 ```
 
-Comme pour les autres bases, l'écriture peut également être décomposée en puissance successive :
+Comme pour les autres bases, l'écriture peut également être décomposée en puissances successives :
 
 $$
 1AC7_{16} = (1 \cdot 16^{3} + 10 \cdot 16^{2} + 12 \cdot 16^{1} + 7 \cdot 16^{0})_{10} = 41415_{10}
