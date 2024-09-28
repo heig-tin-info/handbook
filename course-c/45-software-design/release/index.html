@@ -15,13 +15,13 @@ les outils associés.
         <meta name="author" content="Yves Chevallier">
       
       
-        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/48-network/osi/">
+        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/45-software-design/release/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../licenses/">
       
       
-        <link rel="next" href="../protocoles/">
+        <link rel="next" href="../testing/">
       
       
         
@@ -32,7 +32,7 @@ les outils associés.
     
     
       
-        <title>Modèle OSI - L'informatique pour ingénieurs</title>
+        <title>Deployement - L'informatique pour ingénieurs</title>
       
     
     
@@ -172,7 +172,7 @@ les outils associés.
     <div data-md-component="skip">
       
         
-        <a href="#modele-osi" class="md-skip">
+        <a href="#deployement" class="md-skip">
           Aller au contenu
         </a>
       
@@ -205,7 +205,7 @@ les outils associés.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Modèle OSI
+              Deployement
             
           </span>
         </div>
@@ -3075,6 +3075,8 @@ les outils associés.
                 
   
   
+    
+  
   
   
     
@@ -3104,16 +3106,16 @@ les outils associés.
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../45-software-design/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3136,7 +3138,7 @@ les outils associés.
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_11">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3156,7 +3158,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-software-design/teamwork/" class="md-nav__link">
+      <a href="../teamwork/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3183,7 +3185,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-software-design/software-project/" class="md-nav__link">
+      <a href="../software-project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3210,7 +3212,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-software-design/dependencies/" class="md-nav__link">
+      <a href="../dependencies/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3237,7 +3239,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-software-design/contribute/" class="md-nav__link">
+      <a href="../contribute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3264,7 +3266,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-software-design/licenses/" class="md-nav__link">
+      <a href="../licenses/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3288,10 +3290,36 @@ les outils associés.
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../45-software-design/release/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployement
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -3306,6 +3334,87 @@ les outils associés.
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#semantic-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic Versioning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changelog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catégories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nom-du-fichier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nom du fichier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3318,7 +3427,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../../45-software-design/testing/" class="md-nav__link">
+      <a href="../testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3567,8 +3676,6 @@ les outils associés.
                 
   
   
-    
-  
   
   
     
@@ -3590,16 +3697,16 @@ les outils associés.
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../48-network/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3622,7 +3729,7 @@ les outils associés.
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_13">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3639,36 +3746,10 @@ les outils associés.
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    
-  
-    Modèle OSI
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../48-network/osi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3683,70 +3764,6 @@ les outils associés.
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Introduction
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#les-couches" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Les couches
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#encapsulation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Encapsulation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#protocoles-internet" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Protocoles Internet
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3759,7 +3776,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../protocoles/" class="md-nav__link">
+      <a href="../../48-network/protocoles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3786,7 +3803,7 @@ les outils associés.
   
   
     <li class="md-nav__item">
-      <a href="../sockets/" class="md-nav__link">
+      <a href="../../48-network/sockets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5868,10 +5885,10 @@ les outils associés.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#semantic-versioning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Introduction
+        Semantic Versioning
       
     </span>
   </a>
@@ -5879,35 +5896,52 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-couches" class="md-nav__link">
+  <a href="#changelog" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les couches
+        Changelog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catégories
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#encapsulation" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#nom-du-fichier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Encapsulation
+        Nom du fichier
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#protocoles-internet" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#exemple" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Protocoles Internet
+        Exemple
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5979,7 +6013,7 @@ les outils associés.
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Réseau
+    Conception Logicielle
   </span>
 
         </a>
@@ -5998,7 +6032,7 @@ les outils associés.
 
 
   
-    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/48-network/osi.md" title="Editer cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/45-software-design/release.md" title="Editer cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
     </a>
@@ -6007,116 +6041,83 @@ les outils associés.
     
       
     
-    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/48-network/osi.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/45-software-design/release.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
     </a>
   
 
 
-<h1 id="modele-osi">Modèle OSI<a class="headerlink" href="#modele-osi" title="Lien permanent">¤</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Lien permanent">¤</a></h2>
-<p>Le modèle OSI (Open Systems Interconnection) est un modèle de référence pour les communications entre ordinateurs. Il a été créé par l'ISO (International Organization for Standardization) en 1984.</p>
-<p>Le modèle OSI est divisé en 7 couches, chacune ayant un rôle spécifique dans le processus de communication. Chaque couche communique avec les couches adjacentes pour transmettre les données.</p>
-<h2 id="les-couches">Les couches<a class="headerlink" href="#les-couches" title="Lien permanent">¤</a></h2>
-<p>La figure suivante illustre les 7 couches du modèle OSI en comparaison du PDU (Protocol Data Unit) associé à chaque couche et du modèle internet <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a>/IP qui est apparu avant la standardisation du modèle OSI. En effet ce modèle est plus ancien et ne comporte que 4 couches et ses couches ne sont pas conformes au modèle OSI. En effet, comme nous le verrons plus tard, une pile de protocoles ne doit pas dépendre des protocoles des autres couches, or dans <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a>/IP la somme de contrôle de la couche de transport fait intervenir une partie de l'en-tête IP.</p>
-<p><figure id="_figure-1"><img alt="Modèle OSI" class="drawio-diagram" src="../../../assets/images/osi-model.drawio"/><figcaption> Modèle OSI</figcaption></figure></p>
-<ol>
-<li>
-<p><strong>Couche physique (Physical Layer)</strong>: Cette couche est responsable de la transmission des données brutes sur le support de communication. Elle définit les caractéristiques électriques, mécaniques et fonctionnelles du matériel de communication.</p>
-</li>
-<li>
-<p><strong>Couche liaison de données (Data Link Layer)</strong>: Cette couche est responsable de la transmission des données entre les nœuds voisins sur le réseau local. Elle gère les erreurs de transmission, le contrôle de flux et l'accès au support.</p>
-</li>
-<li>
-<p><strong>Couche réseau (Network Layer)</strong>: Cette couche est responsable de la transmission des données entre les nœuds distants sur le réseau. Elle gère le routage des données à travers le réseau.</p>
-</li>
-<li>
-<p><strong>Couche transport (Transport Layer)</strong>: Cette couche est responsable de la transmission des données de bout en bout entre les applications. Elle gère le contrôle de flux, la segmentation et le réassemblage des données.</p>
-</li>
-<li>
-<p><strong>Couche session (Session Layer)</strong>: Cette couche est responsable de l'établissement, de la gestion et de la fin des sessions de communication entre les applications.</p>
-</li>
-<li>
-<p><strong>Couche présentation (Presentation Layer)</strong>: Cette couche est responsable de la traduction, de la compression et du chiffrement des données pour la communication entre les applications.</p>
-</li>
-<li>
-<p><strong>Couche application (Application Layer)</strong>: Cette couche est responsable de la communication entre les applications. Elle fournit des services de haut niveau tels que l'authentification, la messagerie et le partage de fichiers.</p>
-</li>
-</ol>
-<h2 id="encapsulation">Encapsulation<a class="headerlink" href="#encapsulation" title="Lien permanent">¤</a></h2>
-<p>L'interopérabilité entre différents systèmes est souvent rendue possible grâce à un concept nommé encapsulation. C'est un concept également clé en programmation orientée objet. L'encapsulation consiste à dissimuler de la complexité non nécessaire à comprendre la partie intéressante d'un problème dans un ensemble isolé et qui peut être considéré comme <em>une boîte noire</em>.</p>
-<p>En communication réseau, par exemple lorsque vous êtes au téléphone, vous n'avez pas besoin de savoir quelle est la nature de la ligne de transport qui véhicule votre voix. Est-ce une ligne de cuivre, une fibre optique, une liaison satellite, cela n'a pas d'importance. Néanmoins vous n'êtes que l'utilisateur final de cette communication, il y a d'autres étapes intermédiaires. Celle qui véhicule réellement votre voix accompagnée éventuellement de votre vidéo et des touches que vous appuyez sur votre téléphone. Cette étape est la couche application, son besoin c'est de pouvoir communiquer d'un téléphone à l'autre, le reste d'a pas d'importance. En dessous de cette couche, il y a la couche transport qui va s'occuper de découper les différentes données en paquets qui pourront être acheminés par différentes routes (via le Wi-Fi, le réseau cellulaire, etc.). Cette couche ne sait pas ce qu'elle transporte comme données et ne sait pas non plus sur quoi sont transportées ces données. Tout en bas de la pile, il y a la couche physique, c'est précisément le type de média qui est utilisé pour transporter les données (câble, fibre optique ...).</p>
-<p>Vous imaginez probablement que les données sont transmises sous forme de bits, ce qui est vrai en partie. En effet, en transmission par câble ou sans fil, les données ne sont pas simplement des états logiques 0 ou 1, souvent elles sont modulées pour être transportées plus efficacement. Cela donne d'ailleurs le nom aux dispositifs qui s'occupent de moduler et démoduler les signaux, les <a href="https://fr.wikipedia.org/wiki/Modem">modems</a>.</p>
-<p>L'encapsulation ici sert donc à découper les responsabilités. Si vous souhaitez véhiculer des bits d'un point à un autre, vous n'avez pas besoin de savoir comment cela se fait, vous devez juste vous reposer sur la couche physique.</p>
-<h2 id="protocoles-internet">Protocoles Internet<a class="headerlink" href="#protocoles-internet" title="Lien permanent">¤</a></h2>
-<p>La pile de protocoles Internet est assez complexe, mais elle est très bien documentée. Les RFC (<em>Request For Comments</em>) sont des documents qui décrivent les protocoles Internet. Ils sont publiés par l'IETF (<em>Internet Engineering Task Force</em>) et sont des standards de facto. Chaque protocole que l'on utilise pour communiquer sur un réseau informatique est décrit dans un RFC. Par exemple, le protocole <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a> (HyperText Transfer Protocol) responsable de communiquer les pages web visibles dans votre navigateur est décrit dans le <a href="https://tools.ietf.org/html/rfc2616">RFC 2616</a>. Ce protocole est encapsulé dans le protocole <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> normalisé par le <a href="https://tools.ietf.org/html/rfc793">RFC 793</a> (Transmission Control Protocol) qui lui-même est encapsulé dans le protocole IP (<a href="https://tools.ietf.org/html/rfc791">RFC 791</a>). Ce dernier est également encapsulé dans le protocole MAC <a href="https://tools.ietf.org/html/rfc3422">RFC 3422</a> (Media Access Control) qui est lui-même encapsulé dans le protocole Ethernet (<a href="https://tools.ietf.org/html/rfc894">RFC 894</a>).</p>
-<div class="admonition info">
-<p class="admonition-title">RFC</p>
-<p>Un fait notable avec les RFC est le format de rédaction. Ces documents sont écrits en pur texte <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> sans outils de mise en page. Ce n'est pas du Markdown, du Word, du LaTeX, c'est du texte brut mais très bien structuré avec des figures, des tables des matières, des références croisées, etc.</p>
-<p>La raison à cela est que les RFC sont des documents de référence et doivent être accessibles par tous et à toute époque. Les informaticiens savaient déjà que les formats de fichiers sont éphémères et que les outils de traitement de texte ne sont pas toujours compatibles entre eux. Le texte brut est donc le format le plus sûr pour garantir la pérennité des documents. Et ils ont raison car depuis 50 ans, les RFC sont toujours lisibles et utilisables.</p>
-</div>
-<p>En termes informatiques, et surtout en programmation, chaque protocole dispose de ses propres champs de données. Par exemple voici le la figure 3 du RFC 793 telle que publiée en 1981 :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a> 0                   1                   2                   3
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>|          Source Port          |       Destination Port        |
-</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>|                        Sequence Number                        |
-</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>|                    Acknowledgment Number                      |
-</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>|  Data |           |U|A|P|R|S|F|                               |
-</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>| Offset| Reserved  |R|C|S|S|Y|I|            Window             |
-</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>|       |           |G|K|H|T|N|N|                               |
-</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>|           Checksum            |         Urgent Pointer        |
-</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>|                    Options                    |    Padding    |
-</span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>|                             data                              |
-</span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+<h1 id="deployement">Deployement<a class="headerlink" href="#deployement" title="Lien permanent">¤</a></h1>
+<h2 id="semantic-versioning">Semantic Versioning<a class="headerlink" href="#semantic-versioning" title="Lien permanent">¤</a></h2>
+<p>La version d'un logiciel est un numéro qui permet d'identifier une version spécifique d'un logiciel. La version est généralement composée de trois nombres séparés par des points, par exemple <code>1.2.3</code>. La première partie est le numéro de version majeure, la deuxième partie est le numéro de version mineure et la troisième partie est le numéro de version de correctif.</p>
+<p>Le site <a href="https://semver.org/">semver.org</a> propose des recommandations pour la numérotation des versions de logiciels.</p>
+<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Lien permanent">¤</a></h2>
+<p>Un <em>changelog</em> prend souvent la forme d'un fichier texte ou Markdown qui liste les modifications apportées à un projet. Il est généralement inclus dans le dépôt du projet et est utilisé pour informer les utilisateurs des mises à jour et des nouvelles fonctionnalités. L'objectif est de pouvoir informer les utilisateurs des changements lié à une nouvelle version du logiciel.</p>
+<p>L'excellent site <a href="https://keepachangelog.com/">Keep a Changelog</a> propose des recommandations pour la rédaction de <em>changelog</em>. On peut notament y lire :</p>
+<ul>
+<li>Un changelog est un fichier qui contient une liste épurée, chronologique des changements apportés à chaque version d'un projet.</li>
+<li>Il facilite la vie des utilisateurs et contributeurs en permettant de voir les changements notables entre chaque version.</li>
+</ul>
+<h3 id="categories">Catégories<a class="headerlink" href="#categories" title="Lien permanent">¤</a></h3>
+<p>Les catégories recommandées pour un <em>changelog</em> sont les suivantes :</p>
+<ul>
+<li><span class="ycr-hashtag" data-index-entry="Added" data-tag="Added"><code>Added</code></span> pour les nouvelles fonctionnalités.</li>
+<li><span class="ycr-hashtag" data-index-entry="Changed" data-tag="Changed"><code>Changed</code></span> pour les modifications de fonctionnalités existantes.</li>
+<li><span class="ycr-hashtag" data-index-entry="Deprecated" data-tag="Deprecated"><code>Deprecated</code></span> pour les fonctionnalités obsolètes qui seront supprimées dans les prochaines versions.</li>
+<li><span class="ycr-hashtag" data-index-entry="Removed" data-tag="Removed"><code>Removed</code></span> pour les fonctionnalités supprimées.</li>
+<li><span class="ycr-hashtag" data-index-entry="Fixed" data-tag="Fixed"><code>Fixed</code></span> pour les corrections de bugs.</li>
+<li><span class="ycr-hashtag" data-index-entry="Security" data-tag="Security"><code>Security</code></span> pour les correctifs de sécurité.</li>
+</ul>
+<h3 id="nom-du-fichier">Nom du fichier<a class="headerlink" href="#nom-du-fichier" title="Lien permanent">¤</a></h3>
+<p>La recommandation est de nommer votre fichier <span class="ycr-hashtag" data-index-entry="CHANGELOG.md" data-tag="CHANGELOG.md"><code>CHANGELOG.md</code></span> ou <span class="ycr-hashtag" data-index-entry="CHANGELOG.txt" data-tag="CHANGELOG.txt"><code>CHANGELOG.txt</code></span> et de le placer à la racine de votre dépôt, certains le nomment également <span class="ycr-hashtag" data-index-entry="HISTORY" data-tag="HISTORY"><code>HISTORY</code></span>, <span class="ycr-hashtag" data-index-entry="NEWS" data-tag="NEWS"><code>NEWS</code></span> ou <span class="ycr-hashtag" data-index-entry="RELEASES" data-tag="RELEASES"><code>RELEASES</code></span>.</p>
+<h3 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Lien permanent">¤</a></h3>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gh"># Changelog</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>All notable changes to this project will be documented in this file.
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>The format is based on [<span class="nt">Keep a Changelog</span>](<span class="na">https://keepachangelog.com/en/1.1.0/</span>),
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>and this project adheres to [<span class="nt">Semantic Versioning</span>](<span class="na">https://semver.org/spec/v2.0.0.html</span>).
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="gu">## [Unreleased]</span>
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="gu">### Added</span>
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">-</span><span class="w"> </span>v1.1 German Translation
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="gu">### Changed</span>
+</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="k">-</span><span class="w"> </span>Internal socket connection now use <span class="sb">`libuv`</span> instead of native bindings.
+</span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="k">-</span><span class="w"> </span>Use extended precision for matrix calculations (#358).
+</span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>
+</span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="gu">### Removed</span>
+</span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="k">-</span><span class="w"> </span>SSOT attribute in <span class="sb">`User`</span> model, <span class="sb">`age`</span> can be calculated from birthdate.
+</span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="gu">## [1.1.1] - 2023-03-05</span>
+</span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="gu">### Added</span>
+</span><span id="__span-0-26"><a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a>
+</span><span id="__span-0-27"><a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">-</span><span class="w"> </span>Arabic translation (#444).
+</span><span id="__span-0-28"><a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="k">-</span><span class="w"> </span>Centralize all links into <span class="sb">`/data/links.json`</span> so they can be updated easily.
+</span><span id="__span-0-29"><a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="gu">### Fixed</span>
+</span><span id="__span-0-31"><a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a>
+</span><span id="__span-0-32"><a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="k">-</span><span class="w"> </span>Rounding error in algorithm for <span class="sb">`tan()`</span> function (#442).
+</span><span id="__span-0-33"><a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">-</span><span class="w"> </span>Typo in the French translation (#443).
+</span><span id="__span-0-34"><a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>
+</span><span id="__span-0-35"><a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="gu">### Changed</span>
+</span><span id="__span-0-36"><a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>
+</span><span id="__span-0-37"><a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="k">-</span><span class="w"> </span>Upgrade dependencies to use <span class="sb">`sdl2`</span> for better performance.
+</span><span id="__span-0-38"><a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a>
+</span><span id="__span-0-39"><a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="gu">### Removed</span>
+</span><span id="__span-0-40"><a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a>
+</span><span id="__span-0-41"><a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a>...
+</span><span id="__span-0-42"><a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a>
+</span><span id="__span-0-43"><a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="gu">## [1.1.0] - 2019-02-15</span>
+</span><span id="__span-0-44"><a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a>
+</span><span id="__span-0-45"><a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a>...
 </span></code></pre></div>
-<p>Ce schéma décrit l'en-tête du protocole <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a>. Il est composé de plusieurs champs qui sont utilisés pour la communication entre les machines. On voit par exemple que ce protocole utilise la notion de <strong>port</strong> pour identifier les applications qui communiquent. Les ports sont des numéros qui sont attribués à chaque application. Par exemple, le port 80 est utilisé pour le protocole <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a>, le port 443 pour le protocole <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol_Secure">HTTPS</a>, le 21 est utilisé pour le protocole <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/File_Transfer_Protocol">FTP</a> tandis que le port 22 est utilisé pour le protocole <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Secure_Shell">SSH</a>. Outre les ports, les données peuvent être fragmentées en plusieurs paquets c'est pourquoi chaque paquet contient un numéro de séquence et un numéro d'acquittement. À la fin de l'en-tête se trouvent les données des couches supérieures.</p>
-<p>Le protocole de transport <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> est basé sur le protocole IP. On trouve également dans son standard (RFC 791, figure 4) un en-tête similaire qui va contenir l'adresse IP (p. ex. 192.168.45.20) source et destination, le protocole utilisé en dessus (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a>, <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a>, ICMP, etc.), la taille du paquet, etc.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a> 0                   1                   2                   3
-</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>|Version|  IHL  |Type of Service|          Total Length         |
-</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>|         Identification        |Flags|      Fragment Offset    |
-</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>|  Time to Live |    Protocol   |         Header Checksum       |
-</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>|                       Source Address                          |
-</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>|                    Destination Address                        |
-</span><span id="__span-1-13"><a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span><span id="__span-1-14"><a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>|                    Options                    |    Padding    |
-</span><span id="__span-1-15"><a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</span></code></pre></div>
-<p>En C, si l'on devait réimplémenter ces protocoles, on pourrait utiliser des structures. Voici par exemple comment on pourrait définir les en-têtes des protocoles MAC et IP :</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">mac_header</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">destination_mac</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span><span class="w">  </span><span class="c1">// Adresse MAC de destination</span>
-</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">source_mac</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span><span class="w">       </span><span class="c1">// Adresse MAC source</span>
-</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">ethertype</span><span class="p">;</span><span class="w">  </span><span class="c1">// Protocole encapsulé (p. ex. 0x0800 pour IPv4)</span>
-</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">};</span>
-</span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="k">struct</span><span class="w"> </span><span class="nc">ip_header</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">version_ihl</span><span class="p">;</span>
-</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">dscp_ecn</span><span class="p">;</span>
-</span><span id="__span-2-10"><a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">total_length</span><span class="p">;</span>
-</span><span id="__span-2-11"><a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">identification</span><span class="p">;</span>
-</span><span id="__span-2-12"><a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">flags_fragment_offset</span><span class="p">;</span>
-</span><span id="__span-2-13"><a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">ttl</span><span class="p">;</span><span class="w">                 </span><span class="c1">// Time To Live (durée de vie)</span>
-</span><span id="__span-2-14"><a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">protocol</span><span class="p">;</span><span class="w">            </span><span class="c1">// Protocole de couche supérieure (ex. TCP = 6)</span>
-</span><span id="__span-2-15"><a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">checksum</span><span class="p">;</span>
-</span><span id="__span-2-16"><a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">source_ip</span><span class="p">;</span><span class="w">          </span><span class="c1">// Adresse IP source</span>
-</span><span id="__span-2-17"><a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">destination_ip</span><span class="p">;</span><span class="w">     </span><span class="c1">// Adresse IP de destination</span>
-</span><span id="__span-2-18"><a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="p">};</span>
-</span></code></pre></div>
-<p>En pratique c'est plus complexe que cela, d'une part par que les données sont véhiculées en big-endian (octets de poids fort en premier) et que les champs de données sont de taille variable. Par exemple, l'adresse IP est codée sur 32 bits, mais elle peut être représentée en IPv4 (4 octets) ou en IPv6 (16 octets).</p>
-<p>L'idée ici est juste de montrer l'intérêt des structures dans ce type de situation.</p>
 
 
 
@@ -6139,7 +6140,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">16 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">28 septembre 2024</span>
   </span>
 
     
@@ -6149,7 +6150,7 @@ les outils associés.
     <span class="md-icon" title="Créé">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">12 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">28 septembre 2024</span>
   </span>
 
     
@@ -6264,7 +6265,7 @@ les outils associés.
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Introduction">
+          <a href="../licenses/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Les Licences">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6274,20 +6275,20 @@ les outils associés.
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Introduction
+                Les Licences
               </div>
             </div>
           </a>
         
         
           
-          <a href="../protocoles/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Protocoles">
+          <a href="../testing/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Qualité et Testabilité">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Protocoles
+                Qualité et Testabilité
               </div>
             </div>
             <div class="md-footer__button md-icon">
