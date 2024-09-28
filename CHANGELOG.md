@@ -98,6 +98,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - When I enable navigation.tabs, I dont see the fold/unfold
   - Fixed by not enabling the navigation.sections
 - CI cannot get insiders version of mkdocs.
-  - Fixed by adding git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "git@github.com:"
+  - Fixed by adding git config --global url."https://${GH_TOKEN}@github.com/".insteadOf `git@github.com:`
 - Tables
   - Rowspan

@@ -2,8 +2,8 @@
 
 ## Content update
 
-- [ ] Hand drawn flow diagram https://i.sstatic.net/WdbInYwX.png
-- [ ] Show top-down approach https://i.sstatic.net/wC9Tb8Y8.png
+- [ ] Hand drawn flow diagram `https://i.sstatic.net/WdbInYwX.png`
+- [ ] Show top-down approach `https://i.sstatic.net/wC9Tb8Y8.png`
 - [ ] Part metaprogramming (Jinja/Python...)
 - [ ] Compilation croisée
 - [ ] Threading? SIMD

@@ -1,5 +1,3 @@
-Ah, je comprends mieux ! Voici une version corrigée et améliorée de votre texte en anglais, avec une grammaire et une orthographe correctes :
-
 # Extensions/Hooks/Hacks
 
 This document describes the custom extensions created for this project.
