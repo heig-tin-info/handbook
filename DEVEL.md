@@ -197,3 +197,34 @@ The files involved are:
 - `hooks/latex/templates`: Jinja templates.
 
 This version is improved with grammatical corrections and enhancements for better clarity and quality.
+
+## Plugins Ideas
+
+### Circled annotations
+
+The goal is to annotate code with circled numbers anywhere, then use refer these numbers directly in the text.
+
+The proposed syntax is simply `((1))` where the number can go from `1..50` (Matching unicode circled numbers). These numbers can be refered in the text with the same syntax `((1))`.
+
+Numbers are linked to the closest code block located in the same section. If the code block is located in another section, the number is not linked and a warning is displayed.
+
+An animation can be triggered when hovering the number, showing the corresponding tag in code block.
+
+### Tags/Index
+
+My hook `tags` allows for creating tags related to a section. On LaTeX side it adds an index entry. The syntax is the following:
+
+```markdown
+The [[tag]] will be added in the index. But when we have several [[tags|tag]], we want to only add the singular form.
+Alternatively, we could add a tag or an index entry without text [[|tag]]. Sometime we want different values for :
+
+- The text in the document
+- The tag in MkDocs
+- The entry in the index table
+
+We can therefore use: [[text|tag|entry]], for exemple for this wonderful movie, [[The Matrix|Matrix|Matrix, The]].
+```
+
+### Code execution
+
+Sometime I say `C language has been in the wild for more than 25 years`. It wuld be better to say `{{years_since(1972)}}`. Year since would be a script located in a script folder and executed by MkDocs. It could be a function or a filename.
