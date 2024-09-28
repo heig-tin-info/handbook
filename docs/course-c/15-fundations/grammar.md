@@ -59,9 +59,10 @@ Une grammaire formelle est souvent écrite en utilisant une notation appelée "B
                     | <enum_specifier>
                     | <typedef_name>
 
-<struct_or_union_specifier> ::= <struct_or_union> <identifier> { {<struct_declaration>}+ }
-                                | <struct_or_union> { {<struct_declaration>}+ }
-                                | <struct_or_union> <identifier>
+<struct_or_union_specifier> ::= <struct_or_union> <identifier> {
+            {<struct_declaration>}+ }
+            | <struct_or_union> { {<struct_declaration>}+ }
+            | <struct_or_union> <identifier>
 
 <struct_or_union> ::= "struct"
                     | "union"

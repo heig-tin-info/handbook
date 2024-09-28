@@ -1,8 +1,4 @@
----
-orphan: true
----
-
-# Résumé
+# Résumé Info 1
 
 ## Introduction
 
@@ -26,21 +22,25 @@ Le cycle de développement se compose toujours des phases: étude, écriture du 
 
 Faire évoluer un logiciel est aussi un processus itératif :
 
-- Editer le code avec un éditeur comme `vi` ou `vscode`
+- Éditer le code avec un éditeur comme `vi` ou `vscode`
 - Compilation et prétraitement
-  : ```console
+
+    ```console
     $ gcc -std=c99 -O2 -Wall -c foo.c -o foo.o
     $ gcc -std=c99 -O2 -Wall -c bar.c -o bar.o
     ```
-- Edition des liens
-  : ```console
+
+- Édition des liens
+
+    ```console
     $ gcc -o foobar foo.o bar.o -lm
     ```
+
 - Tests
 
 ## Make
 
-Souvent, pour s'éviter de répéter les mêmes commandes les développeurs utilisent un outil comme `make` qui tire des règles de compilations d'un fichier nommé `Makefile`. Cet outil permet d'automatiquement recompiler les fichiers qui ne sont plus à jour et régénérer automatiquement l'exécutable. Certaines recettes de `make` sont souvent utilisées comme :
+Souvent, pour s'éviter de répéter les mêmes commandes, les développeurs utilisent un outil comme `make` qui tire des règles de compilations d'un fichier nommé `Makefile`. Cet outil permet d'automatiquement recompiler les fichiers qui ne sont plus à jour et régénérer automatiquement l'exécutable. Certaines recettes de `make` sont souvent utilisées comme :
 
 - `make all` Pour compiler tout le projet
 - `make clean` Pour supprimer tous les fichiers intermédiaires générés
@@ -70,9 +70,7 @@ Un certain nombre de commandes sont utilisées durant ce cours et voici un résu
 Le diagramme de flux est beaucoup utilisé pour exprimer un algorithme comme celui d'Euclide pour
 chercher le plus grand diviseur commun.
 
-:::{figure} {assets}/figures/dist/algorithm/euclide-gcd.*
-Algorithme de calcul du PGCD d'Euclide.
-:::
+![Algorithme de calcul du PGCD d'Euclide](/assets/images/pgcd.drawio)
 
 ### Langage C
 
@@ -99,9 +97,7 @@ Les caractères de fin de ligne dépendent du système d'exploitation et sont ap
 
 ## Identificateurs
 
-:::{figure} {assets}/figures/dist/grammar/identifier.*
-Grammaire d'un identificateur C
-:::
+![Grammaire d'un identificateur C](/assets/images/identifier.drawio)
 
 Le format des identificateurs peut également être exprimé par une expression régulière :
 
@@ -165,20 +161,20 @@ Il existe deux types de commentaires :
 
 - Les commentaires de lignes (depuis C99)
 
-  ```c
-  // This is a single line comment.
-  ```
+    ```c
+    // This is a single line comment.
+    ```
 
 - Les commentaires de blocs
 
-  ```c
-  /* This is a
-     Multi-line comment */
-  ```
+    ```c
+    /* This is a
+       Multi-line comment */
+    ```
 
 ## Fonction main
 
-La fonction main peut s'érire sous deux formes :
+La fonction main peut s'écrire sous deux formes :
 
 ```c
 int main(void) {
@@ -197,19 +193,24 @@ int main(int argc, char *argv[]) {
 Les données dans l'ordinateur sont stockées sous forme binaire et le *type* d'une variable permet de définir son interprétation.
 
 - Une valeur **entière** et **non signée** est exprimée sous la forme binaire pure :
-  : ```text
+
+    ```text
     ┌─┬─┬─┬─┬─┬─┬─┬─┐
     │0│1│0│1│0│0│1│1│ = 0b1010011 = 83
     └─┴─┴─┴─┴─┴─┴─┴─┘
     ```
+
 - Une valeur **entière** et **signée** est exprimée en complément à deux :
-  : ```text
+
+    ```text
     ┌─┬─┬─┬─┬─┬─┬─┬─┐     ┌─┬─┬─┬─┬─┬─┬─┬─┐
     │1│1│0│1│0│0│1│1│ = ! │0│0│1│0│1│1│0│0│ = (-1) * (0b101100 + 1) = -45
     └─┴─┴─┴─┴─┴─┴─┴─┘     └─┴─┴─┴─┴─┴─┴─┴─┘
     ```
+
 - Une valeur **réelle** ou **flottante** est exprimée selon le standard **IEEE-754** et comporte un bit de signe, un exposant et une mantisse.
-  : ```
+
+    ```text
     ┌ Signe 1 bit
     │        ┌ Exposant 8 bits
     │        │                             ┌ Mantisse 23 bits
@@ -223,7 +224,7 @@ Les données dans l'ordinateur sont stockées sous forme binaire et le *type* d'
 
 Les opérateurs appliquent une opération entre une ou plusieurs valeurs :
 
-- Les opérateurs **unaire** s'appliquent à un seul opérande (`!12`, `~23`)
+- Les opérateurs **unaires** s'appliquent à un seul opérande (`!12`, `~23`)
 - Les opérateurs standards s'appliquent à deux opérandes (`12 ^ 32`)
 
 Les opérateurs ont une priorité et une direction d'associativité:
@@ -248,7 +249,7 @@ Donc la priorité de ces opérations sera :
 (u = ((((++a) + (b * (c++))) >> 3) ^ 2))
 ```
 
-Dans le cas des opérateurs de pré et post incrémentation, ils sont en effet les plus prioritaires mais leur action est décalée dans le temps au précédent/suivant point de séquence. C'est-à-dire :
+Dans le cas des opérateurs de pré et postincrémentation, ils sont en effet les plus prioritaires, mais leur action est décalée dans le temps au précédent/suivant point de séquence. C'est-à-dire :
 
 ```text
 a += 1;
@@ -258,7 +259,7 @@ c += 1;
 
 ## Valeur gauche
 
-Une valeur gauche *lvalue* défini ce qui peut se trouver à gauche d'une affectation. C'est un terme qui apparaît souvent dans les erreurs de compilation. L'exemple suivant retourne l'erreur: *lvalue required as increment operand* car le résultat de `a + b` n'a pas d'emplacement mémoire et il n'est pas possible de l'assigner à quelque chose pour effectuer l'opération de pré-incrémentation.
+Une valeur gauche *lvalue* définit ce qui peut se trouver à gauche d'une affectation. C'est un terme qui apparaît souvent dans les erreurs de compilation. L'exemple suivant retourne l'erreur: *lvalue required as increment operand* car le résultat de `a + b` n'a pas d'emplacement mémoire et il n'est pas possible de l'assigner à quelque chose pour effectuer l'opération de préincrémentation.
 
 ```c
 c = ++(a + b);
@@ -280,7 +281,7 @@ de donnée **LP64**
 | `float`        | 32-bit     | Nombre réel (23 bit de mantisse) |
 | `double`       | 64-bit     | Nombre réel (54 bit de mantisse) |
 
-Pour s'assurer d'une taille donnée on peut utiliser les types standard **C99** en incluant la bibliothèque `<stdint.h>`
+Pour s'assurer d'une taille donnée, on peut utiliser les types standard **C99** en incluant la bibliothèque `<stdint.h>`
 
 ```c
 #include <stdint.h>
@@ -297,25 +298,17 @@ Les valeurs signées sont exprimées en **complément à deux** c'est-à-dire qu
 
 La construction des types standards :
 
-:::{figure} {assets}/figures/dist/datatype/ansi-integers.*
-:alt: "Entiers standardis\xE9s **C89**"
-:width: 100 %
-:::
+![Entiers standardisés](/assets/images/ansi-integers.drawio)
 
 La construction des types portables :
 
-:::{figure} {assets}/figures/dist/datatype/c99-integers.*
-:alt: "Entiers standardis\xE9s **C99**"
-:width: 100 %
-:::
+![Entiers standardisés](/assets/images/c99-integers.drawio)
 
 ## Caractères
 
 Un caractère est une valeur binaire codée sur 8-bit et dont l'interprétation est confiée à une table de correspondance nommée ASCII :
 
-:::{figure} {assets}/figures/dist/encoding/ascii.*
-Table ANSI INCITS 4-1986 (standard actuel)
-:::
+![Table ANSI INCITS 4-1986 (standard actuel)](/assets/images/ascii.drawio)
 
 Seul ces valeurs sont garanties d'être stockées sur 8-bit. Pour les caractères accentués ou les émoticônes, la manière dont ils sont codés en mémoire dépend de l'encodage des caractères. Souvent on utilise le type d'encodage **utf-8**.
 
@@ -332,7 +325,7 @@ a = 0141;
 
 ## Chaîne de caractère
 
-Une chaîne de caractère est exprimée avec des guillemets double. Une chaîne de caractère comporte toujours un caractère terminal `\0`.
+Une chaîne de caractère est exprimée avec des guillemets doubles. Une chaîne de caractère comporte toujours un caractère terminal `\0`.
 
 ```c
 char str[] = "Hello";
@@ -464,14 +457,12 @@ while (i > 0) {
 | `stderr`      | Sortie d'erreur standard                   |
 | `argc`        | Nombre d'arguments                         |
 | `argv`        | Valeurs des arguments                      |
-| `exit-status` | Status de sortie d'un programme `$?`       |
+| `exit-status` | Statut de sortie d'un programme `$?`       |
 | `signaux`     | Interaction avec le système d'exploitation |
 
-:::{figure} {assets}/figures/dist/process/program.*
-Résumé des interactions avec un programme
-:::
+![Résumé des interactions avec un programme](/assets/images/program.drawio)
 
-### Entrées Sorties
+### Entrées sorties
 
 ## `printf`
 
@@ -503,11 +494,9 @@ Les sorties formatées utilisent `printf` dont le format est :
 
 `type`
 
-: Type de formatage souhaité
+:   Type de formatage souhaité
 
-:::{figure} {assets}/figures/dist/string/formats.*
-Formatage d'un marqueur
-:::
+    ![Formattage d'un marqueur](/assets/images/formats.drawio)
 
 ### Techniques de programmation
 

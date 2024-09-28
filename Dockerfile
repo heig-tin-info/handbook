@@ -44,13 +44,13 @@ RUN mkdir -p /usr/share/fonts/truetype/creativecommons && \
     -P /usr/share/fonts/truetype/creativecommons
 
 RUN mkdir -p /tmp/texmf-cache
-RUN chmod -R 777 /tmp/texmf-cache
 ENV TEXMFCACHE=/tmp/texmf-cache
 ENV TERM=xterm
 
 RUN fc-cache -fv
 RUN updmap-sys
 RUN luaotfload-tool -u -v
+RUN chmod -R 777 /tmp/texmf-cache
 
 RUN apk add --no-cache \
     make ghostscript fontconfig ttf-freefont py3-pygments ncurses clisp
