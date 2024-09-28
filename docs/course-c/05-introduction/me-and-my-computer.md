@@ -22,7 +22,7 @@ Votre système d'exploitation c'est votre interface cohérente et conviviale hum
 
 Pour écrire un programme, vous aurez besoin d'un **éditeur de code**, c'est un programme (oui, lui aussi) qui vous permet d'écrire du texte et de le sauvegarder dans un fichier ; il en existe des centaines, certains plus aboutis que d'autres.
 
-Si vous trouvez une [Doloréane](https://fr.wikipedia.org/wiki/DeLorean_(Retour_vers_le_futur)) munie d'un convecteur temporel, et que vous dépassez les 88 miles à l'heure, avec une énergie de 2.21 Gigot-Watt vous pouvez vous rendre en 1973 et utiliser un éditeur de code qui s'appelle `ed` (prononcé "idi") écrit par Ken Thompson (un des créateurs d'Unix et du langage C, mais nous reviendrons sur lui plus tard).
+Si vous trouvez une [DeLorean](https://fr.wikipedia.org/wiki/DeLorean_(Retour_vers_le_futur)) munie d'un convecteur temporel, et que vous dépassez les 88 miles à l'heure, avec une énergie de 2.21 Gigot-Watt vous pouvez vous rendre en 1973 et utiliser un éditeur de code qui s'appelle `ed` (prononcé "idi") écrit par Ken Thompson (un des créateurs d'Unix et du langage C, mais nous reviendrons sur lui plus tard).
 
 C'est un éditeur de texte qui a été écrit à l'époque des [télétypes][teletype] et qui curieusement a traversé les âges, car il est encore intégré au standard POSIX. Il est par conséquent toujours disponible sur nos systèmes d'exploitation modernes. Toutefois à cette époque, il n'y avait pas d'écran, et nos homologues de cette époque utilisaient des imprimantes pour afficher un résultat. Cet éditeur primitif n'était donc pas très interactif.
 

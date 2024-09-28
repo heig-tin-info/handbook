@@ -1057,7 +1057,7 @@ En logique booléenne on exprime la négation par une barre p.ex. $\overline{P}$
 [](){#rounding}
 ## Arrondis
 
-En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus délicate que l'on peut l'imaginer de prime abord.Un nombre réel dans $\mathbb{R}$ peut être converti en un nombre entier de plusieurs manières. Les méthodes les plus courantes sont données dans la table suivante.
+En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus délicate que l'on peut l'imaginer de prime abord. Un nombre réel dans $\mathbb{R}$ peut être converti en un nombre entier de plusieurs manières. Les méthodes les plus courantes sont données dans la table suivante.
 
 Table: Méthodes d'arrondi
 
