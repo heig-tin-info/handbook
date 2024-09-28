@@ -6573,7 +6573,7 @@ les outils associés.
 <p>Notez l'importance du <span class="arithmatex">\(-1\)</span> dans la définition du maximum, car la valeur minimum <span class="arithmatex">\(0\)</span> fait partie de l'information même si elle représente une quantité nulle. Il y a donc 256 valeurs possibles pour un nombre entier non signé 8-bits, bien que la valeur maximale ne soit que de 255.</p>
 <h3 id="les-entiers-bornes-signes">Les entiers bornés signés<a class="headerlink" href="#les-entiers-bornes-signes" title="Lien permanent">¤</a></h3>
 <p>Les entiers signés peuvent être <strong>négatifs</strong>, <strong>nuls</strong> ou <strong>positifs</strong> et peuvent prendre des valeurs comprises entre <span class="arithmatex">\(-2^{N-1}\)</span> et <span class="arithmatex">\(+2^{N-1}-1\)</span> où <span class="arithmatex">\(N\)</span> correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Notez l'asymétrie entre la borne positive et négative.</p>
-<p>Comme il sont signés (<em>signed</em> en anglais), il est par conséquent correct d'écrire <code>signed int</code> bien que le préfixe <span class="ycr-hashtag" data-index-entry="signed" data-tag="signed"><code>signed</code></span> soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.</p>
+<p>Comme ils sont signés (<em>signed</em> en anglais), il est par conséquent correct d'écrire <code>signed int</code> bien que le préfixe <span class="ycr-hashtag" data-index-entry="signed" data-tag="signed"><code>signed</code></span> soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.</p>
 <p>Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information :</p>
 <table id="_table-2">
 <caption style="caption-side:top"> Stockage d'un entier signé sur différentes profondeurs</caption><thead>
@@ -7045,7 +7045,7 @@ les outils associés.
 <p>Un caractère du clavier enregistré en mémoire c'est donc un nombre entier de 8-bits. En C, le type de donnée <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span> est utilisé pour stocker un caractère.</p>
 <p>Mais comment un ordinateur sait-il que <code>97</code> correspond à <code>a</code> ? C'est là que la notion d'encodage entre en jeu.</p>
 <h3 id="la-table-ascii">La table <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a><a class="headerlink" href="#la-table-ascii" title="Lien permanent">¤</a></h3>
-<p>Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'ASA (<em>American Standards Association</em>) aujourd'hui <strong><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ANSI</a></strong> qui ne définissait alors que 63 caractères imprimables. Comme la mémoire à cette époque était très cher, un caractère n'était codé que sur 7 bits. La première table <span class="ycr-hashtag" data-index-entry="ASCII" data-tag="ascii"><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a></span> définissait donc 128 caractères et est donnée par la figure suivante : <span class="ycr-hashtag" data-index-entry="ANSI" data-tag=""></span></p>
+<p>Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'ASA (<em>American Standards Association</em>) aujourd'hui <strong><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ANSI</a></strong> qui ne définissait alors que 63 caractères imprimables. Comme la mémoire à cette époque était très chère, un caractère n'était codé que sur 7 bits. La première table <span class="ycr-hashtag" data-index-entry="ASCII" data-tag="ascii"><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a></span> définissait donc 128 caractères et est donnée par la figure suivante : <span class="ycr-hashtag" data-index-entry="ANSI" data-tag=""></span></p>
 <p><figure id="_figure-4"><img alt="Table ASCII ASA X3.4 établie en 1963" class="drawio-diagram" src="../../../assets/images/ascii-1963.drawio"/><figcaption> Table ASCII ASA X3.4 établie en 1963</figcaption></figure></p>
 <p>En 1986, la table <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> a été étendue pour couvrir les caractères majuscules et minuscules. Cette réforme est donnée par la figure suivante. Il s'agit de la table <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> standard actuelle.</p>
 <p><figure id="_figure-5"><img alt="Table ANSI INCITS 4-1986 (standard actuel)" class="drawio-diagram" src="../../../assets/images/ascii.drawio"/><figcaption> Table ANSI INCITS 4-1986 (standard actuel)</figcaption></figure></p>
@@ -7135,7 +7135,7 @@ flowchart LR
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>00 00 00 00 00 00 00 00   false
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>00 00 00 00 00 00 00 01   true
 </span></code></pre></div>
-<p>Néanmoins, il est possible d'utiliser le type <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span> pour stocker un booléen. On peut également utiliser de l'arithmétique binaire pour stocker 8 booléen sur un <span class="ycr-hashtag" data-index-entry="uint8_t" data-tag="uint8_t"><code>uint8_t</code></span>. Voici un exemple de stockage de 8 booléens sur un <span class="ycr-hashtag" data-index-entry="uint8_t" data-tag="uint8_t"><code>uint8_t</code></span> :</p>
+<p>Néanmoins, il est possible d'utiliser le type <span class="ycr-hashtag" data-index-entry="char" data-tag="char"><code>char</code></span> pour stocker un booléen. On peut également utiliser de l'arithmétique binaire pour stocker 8 booléens sur un <span class="ycr-hashtag" data-index-entry="uint8_t" data-tag="uint8_t"><code>uint8_t</code></span>. Voici un exemple de stockage de 8 booléens sur un <span class="ycr-hashtag" data-index-entry="uint8_t" data-tag="uint8_t"><code>uint8_t</code></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="kt">uint8_t</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span>
@@ -7642,7 +7642,7 @@ correspondant.</p>
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">27 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">28 septembre 2024</span>
   </span>
 
     
@@ -7662,12 +7662,13 @@ correspondant.</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributeurs">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>
+        <a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>, 
+        <a href="mailto:pierre.bressy@heig-vd.ch">pierrebressy</a>
     </nav>
   </span>
 
@@ -7684,6 +7685,11 @@ correspondant.</p>
 
     
     <nav>
+      
+        <a href="https://github.com/pierrebressy" class="md-author" title="@pierrebressy">
+          
+          <img src="https://avatars.githubusercontent.com/u/613165?v=4&size=72" alt="pierrebressy">
+        </a>
       
         <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
           
