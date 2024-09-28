@@ -6304,7 +6304,7 @@ les outils associés.
 
 <h1 id="syntaxe">Syntaxe<a class="headerlink" href="#syntaxe" title="Lien permanent">¤</a></h1>
 <blockquote class="epigraph">Tout devrait être rendu aussi simple que possible, mais pas plus simple.<footer>Albert Einstein</footer></blockquote>
-<p>Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il traite des généralités propres au langage, mais aussi des notions élémentaires permettant d'interpréter du code source. Notons que ce chapitre est transversal, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maîtrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.</p>
+<p>Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il traite des généralités propres au langage, mais aussi des notions élémentaires permettant d'interpréter du code source. Notons que ce chapitre est transversal, à sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maîtrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.</p>
 <h2 id="lalphabet">L'alphabet<a class="headerlink" href="#lalphabet" title="Lien permanent">¤</a></h2>
 <p><span class="ycr-hashtag" data-index-entry="alphabet, l'" data-tag=""></span></p>
 <p>Heureusement pour nous occidentaux, l'alphabet de C est composé de 52 caractères latins et de 10 <a href="https://fr.wikipedia.org/wiki/Chiffres_arabes">chiffres indo-arabes</a> :</p>
@@ -6334,7 +6334,7 @@ les outils associés.
 </span></code></pre></div>
 <p>On notera ici que l'alphabet latin est tout particulièrement adapté à la programmation, car, d'une part ce fut le premier alphabet à être utilisé pour l'écriture de programmes informatiques et d'autre part, il reste assez simple pour être utilisé par des machines. On peut noter en outre que les pays qui utilisent leur propre alphabet doivent impérativement apprendre et maîtriser l'alphabet latin pour pouvoir programmer. Ceci implique qu'ils doivent également disposer d'un clavier latin pour pouvoir saisir leur code. Ayez à l'esprit que nous sommes des privilégiés de ne pas devoir jongler avec plusieurs alphabets pour écrire du code...</p>
 <p>Outre ces caractères, la séparation des symboles est assurée par <a href="https://fr.wikipedia.org/wiki/Espace_(typographie)">une espace</a>, une tabulation horizontale, une <span class="ycr-hashtag" data-index-entry="tabulation" data-tag="tabulation">tabulation</span> verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le <a href="https://fr.wikipedia.org/wiki/Pied-de-mouche">pied-de-mouche</a> <code>¶</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//00B6" target="_blank">00B6</a> pour indiquer les fins de paragraphes qui sont également des caractères non imprimables. <span class="ycr-hashtag" data-index-entry="pied-de-mouche (¶)" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="caractère non imprimable" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="klzzwxh:0010" data-tag=""></span></p>
-<p>La convention est de nommer les caractères non imprimables soit par leur acronyme <code>LF</code> pour <em>Line Feed</em> ou soit par leur convention C échappée par un <em>backslash</em> <code>\n</code>:</p>
+<p>La convention est de nommer les caractères non imprimables soit par leur acronyme <code>LF</code> pour <em>Line Feed</em> ou soit par leur convention C échappée par un <em>backslash n</em> <code>\n</code>:</p>
 <table id="_table-1">
 <caption style="caption-side:top"> Caractères non imprimables</caption><thead>
 <tr>
@@ -6396,7 +6396,7 @@ les outils associés.
 <li>Utiliser le caractère <code>é</code> <a class="ycr-callout ycr-unicode" href="https://symbl.cc/fr//00E9" target="_blank">00E9</a> directement. <span class="ycr-hashtag" data-index-entry="klzzwxh:0407" data-tag=""></span> <span class="ycr-hashtag" data-index-entry="klzzwxh:0408" data-tag=""></span></li>
 </ol>
 <p>Ces héritages historiques font qu'il est difficile aujourd'hui de traiter sans bogue les textes multilingues. Les cas particuliers sont nombreux et bien souvent, les informaticiens utilisent des bibliothèques logicielles pour gérer ces cas particuliers.</p>
-<p>Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la commission responsable de standardiser C a intégré au standard les <strong>trigraphes</strong> et plus tard les <strong>digraphes</strong> qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi <code>&lt;:</code> est le digraphe de <code>[</code> et <code>??&lt;</code> est le trigraphe de <code>{</code>. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables. Par ailleurs, le standard C et C++ songent à les retirer.</p>
+<p>Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la commission responsable de standardiser C a intégré au standard les <strong>trigraphes</strong> et plus tard les <strong>digraphes</strong> qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi <code>&lt;:</code> est le digraphe de <code>[</code> et <code>??&lt;</code> est le trigraphe de <code>{</code>. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables. Par ailleurs, le standard C et C++ songe à les retirer.</p>
 <p>Retenez que C peut être un langage extrêmement cryptique tant il est permissif sur sa syntaxe. Il existe d'ailleurs un concours international d'obfuscation, le <a href="https://www.ioccc.org/">The International Obfuscated C Code Contest</a> qui prime des codes les plus subtils et illisibles comme le code suivant écrit par <a href="https://www.ioccc.org/2015/mills2/prog.c">Chris Mills</a>. Il s'agit d'ailleurs d'un exemple qui compile parfaitement sur la plupart des compilateurs.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">I</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="n">O</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">e</span><span class="p">(</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">L</span><span class="p">){</span><span class="w"> </span><span class="n">o</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="n">L</span><span class="o">&gt;&gt;++</span><span class="n">l</span><span class="o">&amp;&amp;</span>
@@ -7138,7 +7138,7 @@ désactiver cette portion de code.</p>
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">27 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">28 septembre 2024</span>
   </span>
 
     
@@ -7158,12 +7158,13 @@ désactiver cette portion de code.</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributeurs">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>
+        <a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>, 
+        <a href="mailto:pierre.bressy@heig-vd.ch">pierrebressy</a>
     </nav>
   </span>
 
@@ -7180,6 +7181,11 @@ désactiver cette portion de code.</p>
 
     
     <nav>
+      
+        <a href="https://github.com/pierrebressy" class="md-author" title="@pierrebressy">
+          
+          <img src="https://avatars.githubusercontent.com/u/613165?v=4&size=72" alt="pierrebressy">
+        </a>
       
         <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
           

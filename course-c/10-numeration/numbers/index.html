@@ -6442,7 +6442,7 @@ b^n - y
 </ol>
 <p><a href="" id="twos_complement"></a></p>
 <h3 id="complement-a-deux">Complément à deux<a class="headerlink" href="#complement-a-deux" title="Lien permanent">¤</a></h3>
-<p>Le <span class="ycr-hashtag" data-index-entry="complément à deux" data-tag="complement-a-deux">complément à deux</span> n'est rien d'autre que le complément à un <strong>plus</strong> un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles et de 2 (<code>0</code> et <code>1</code>). On ne peut pas trouver un chiffre tel que la somme donne <code>2</code>. C'est la même idée que de demander le complément à 10 en base 10. Vous ne pouvez pas sur la base d'un chiffre unique obtenir un autre chiffre dont la somme est égale à 10 sans avoir recours à un autre chiffre.</p>
+<p>Le <span class="ycr-hashtag" data-index-entry="complément à deux" data-tag="complement-a-deux">complément à deux</span> n'est rien d'autre que le complément à un <strong>plus</strong> un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles est de 2 (<code>0</code> et <code>1</code>). On ne peut pas trouver un chiffre tel que la somme donne <code>2</code>. C'est la même idée que de demander le complément à 10 en base 10. Vous ne pouvez pas sur la base d'un chiffre unique obtenir un autre chiffre dont la somme est égale à 10 sans avoir recours à un autre chiffre.</p>
 <p>Pour réaliser ce complément à deux (complément à un plus un), il y a deux étapes :</p>
 <ol>
 <li>Calculer le complément à un du nombre d'entrées.</li>
@@ -6507,7 +6507,7 @@ b^n - y
 </span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>└─┴─┴─┴─┴─┴─┴─┴─┘
 </span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>   └────────────&gt; / 2¹ ----&gt; 19 / 2 = 9.5
 </span></code></pre></div>
-<p>Notre construction nous permet toujours d'exprimer des grandeurs réelles, mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre <span class="arithmatex">\(1\cdot2^{7}=0.0078125\)</span> et <span class="arithmatex">\(63\)</span>. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32-bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.</p>
+<p>Notre construction nous permet toujours d'exprimer des grandeurs réelles, mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre <span class="arithmatex">\(1\cdot2^{7}=0.0078125\)</span> et <span class="arithmatex">\(63\)</span>. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32 bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.</p>
 <p>Poursuivons notre raisonnement. Cette fois-ci nous choisissons d'étendre notre espace de stockage à 4 octets. Un bit de signe est réservé pour exprimer les grandeurs négatives, 8 bits pour l'<span class="ycr-hashtag" data-index-entry="exposant" data-tag="exposant">exposant</span> et 23 bits pour la <span class="ycr-hashtag" data-index-entry="mantisse" data-tag="mantisse">mantisse</span> :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a> ┌ Signe 1 bit
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a> │        ┌ Exposant 8 bits
@@ -6666,7 +6666,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">delta</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span> <span class="c1"># Calcul du discriminant qui sera négatif</span>
-</span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">x1</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+</span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
 </span></code></pre></div>
 <p><code>x1</code> et <code>x2</code> sont des nombres complexes.</p>
 </div>
@@ -6709,7 +6709,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <li>Prendre le nombre encodé en <strong>Q4.12</strong> (<span class="arithmatex">\(12867\)</span>)</li>
 <li>Diviser sa valeur 2 à la puissance du nombre de bits (<span class="arithmatex">\(12867 / 2^{12} = 3.141357421875\)</span>)</li>
 </ol>
-<p>On peut noter une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : <span class="arithmatex">\(1 / 2^12 = 0.00024\)</span>. Il convient alors d'arrondir le nombre à la troisième décimale, soit <span class="arithmatex">\(3.141\)</span>.</p>
+<p>On peut noter une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : <span class="arithmatex">\(1 / 2^{12} = 0.00024\)</span>. Il convient alors d'arrondir le nombre à la troisième décimale, soit <span class="arithmatex">\(3.141\)</span>.</p>
 <p>Les opérations arithmétiques restent triviales entre des nombres de mêmes types. Le chapitre sur les <a class="autorefs autorefs-internal" href="../../40-algorithms/popular-algorithms/fast-sin/#sinus-rapide">algorithmes</a> décrit une implémentation de calcul de sinus en utilisant ce format. <span class="ycr-hashtag" data-index-entry="q format" data-tag=""></span></p>
 <h3 id="addition">Addition<a class="headerlink" href="#addition" title="Lien permanent">¤</a></h3>
 <p>L'addition peut se faire avec ou sans saturation :</p>
@@ -6789,7 +6789,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">24 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">28 septembre 2024</span>
   </span>
 
     
@@ -6809,12 +6809,13 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributeurs">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>
+        <a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>, 
+        <a href="mailto:pierre.bressy@heig-vd.ch">pierrebressy</a>
     </nav>
   </span>
 
@@ -6831,6 +6832,11 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 
     
     <nav>
+      
+        <a href="https://github.com/pierrebressy" class="md-author" title="@pierrebressy">
+          
+          <img src="https://avatars.githubusercontent.com/u/613165?v=4&size=72" alt="pierrebressy">
+        </a>
       
         <a href="https://github.com/yves-chevallier" class="md-author" title="@yves-chevallier">
           
