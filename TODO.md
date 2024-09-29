@@ -11,6 +11,7 @@
 
 ## Improvements
 
+- [ ] Find a way to add crop cut on PDF as we don't use A4 format
 - [ ] Better separation terms and definitions, acronyms, glossary
 - [ ] Integrate bibliography (extra pages in backmatter)
 - [ ] Chapter "Crédits des illustrations" in backmatter (ai generated?)
