@@ -12,6 +12,7 @@
 ## Improvements
 
 - [ ] Find a way to add crop cut on PDF as we don't use A4 format
+- [ ] Improve deployment on gh-pages, reduce the number of changes
 - [ ] Better separation terms and definitions, acronyms, glossary
 - [ ] Integrate bibliography (extra pages in backmatter)
 - [ ] Chapter "Crédits des illustrations" in backmatter (ai generated?)
@@ -22,6 +23,7 @@
 
 ## Bugs
 
+- [ ] Badge shows falling on README
 - [ ] When `[](){#...}` before first title in a page it affects the title in toc
 - [ ] Allow for code inline and markdown inline in table captions
 - [ ] Code with title doesn't display well in LaTeX
