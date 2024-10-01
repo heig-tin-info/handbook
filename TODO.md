@@ -11,6 +11,7 @@
 
 ## Improvements
 
+- [ ] Wrap table columns with syntax such as `>>>` or better a `yaml` table extension.
 - [ ] Find a way to add crop cut on PDF as we don't use A4 format
 - [ ] Improve deployment on gh-pages, reduce the number of changes
 - [ ] Better separation terms and definitions, acronyms, glossary

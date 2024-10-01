@@ -226,3 +226,24 @@ We can therefore use: [[text|tag|entry]], for exemple for this wonderful movie, 
 ### Code execution
 
 Sometime I say `C language has been in the wild for more than 25 years`. It wuld be better to say `{{years_since(1972)}}`. Year since would be a script located in a script folder and executed by MkDocs. It could be a function or a filename.
+
+### YML Table
+
+```yaml
+columns:
+  - name: "Nom"
+    align: "left"
+    width: "30%"
+    wrap: "true"
+data:
+  - - Yves Chevallier
+    - 42
+    - Male
+  - - John Doe
+    - 25
+    - cell:
+        data: Male
+        align: center
+vspan:
+  ? [2,1]
+```

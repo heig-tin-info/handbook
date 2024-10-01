@@ -1,8 +1,6 @@
-# Systèmes à microcontrôleurs
+# Microcontrôleur
 
 ## Introduction
-
-## Les microcontrôleurs
 
 Un microcontrôleur est un ordinateur sur une puce. Il est composé d'un processeur, de mémoire et de périphériques d'entrée/sortie. Les microcontrôleurs sont utilisés dans de nombreux systèmes embarqués, tels que les télécommandes, les jouets, les appareils électroménagers, les instruments de mesure, les systèmes de contrôle de moteurs etc. Nous avons déjà évoqué la [machine à café][coffee-maker] en début de cours qui est un bon exemple de système embarqué.
 

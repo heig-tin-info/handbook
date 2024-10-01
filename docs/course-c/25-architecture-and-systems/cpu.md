@@ -1,4 +1,4 @@
-# CPU
+# Processeur
 
 ## Introduction
 
@@ -199,9 +199,11 @@ Sur de petits microcontrôleurs ou des architectures plus anciennes, il n'y a pa
 
 Le coeur du processeur est un monstre de technologies. Il est composé de plusieurs unités fonctionnelles qui travaillent ensemble pour exécuter les instructions.
 
+![Die shot d'un coeur de processeur de 2009](/assets/images/die.drawio)
+
 L'objectif ici n'est pas d'entrer dans le détail de chaque unité, mais d'avoir un aperçu général du fonctionnement. La figure suivante représente la structure interne d'un processeur moderne.
 
-![Diagramme d'un coeur de processeur](/assets/images/cpu-core-diagram.drawio)
+![Diagramme d'un coeur de processeur](/assets/images/cpu-core-diagram2.drawio)
 
 On voit le cache L3 partagé par tous les coeurs, en dehors de ce dernier. Le cache L2 est propre à chaque coeur et communique par un bus à 256 bit avec le cache L1. Le cache L1 est divisé en deux parties, une pour les instructions et une pour les données.
 
@@ -216,94 +218,55 @@ On distingue généralement les unités fonctionnelles suivantes :
 - **Unité de calcul d'adresse (AGU)** : Elle calcule les adresses mémoire pour les accès en lecture et en écriture.
 - **Unité de branchement (Branch Unit)** : Elle gère les instructions de branchement (if, for, while, etc.).
 
-## Processeur minimal
-
-Pour mieux comprendre le fonctionnement d'un processeur, il est intéressant de concevoir un processeur minimal.
-Imaginons donc un processeur le plus simple sachant qu'un compromis doit être trouvé entre simplicité et fonctionnalité.
-
-En effet, un processeur dispose des caractéristiques fondamentales suivantes :
-
-- Largeur du bus de données
-- Nombre d'instructions
-
-Avec un jeu d'instruction très réduit comme comme sur l'OISC (*One Instruction Set Computer*) ou le CPU Zero, on peut concevoir un processeur minimaliste avec l'instruction *Subtract and Branch if Negative* (SBN). C'est une instruction qui soustrait deux valeurs et saute à une adresse si le résultat est négatif. Avec cette seule instruction, il est possible de simuler toutes les opérations qui seraient normaelemnt effectuées par un ensemble d'instructions plus riche comme l'addition, la soustraction, les comparaisons et les sauts conditionnels.
-
-La quantité d'instructions dans un processeur classifie sa nature, on distingue les processeurs RISC (*Reduced Instruction Set Computer*) et CISC (*Complex Instruction Set Computer*). Les processeurs RISC ont un jeu d'instructions réduit, ce qui les rend plus simples et plus rapides. Les processeurs CISC ont un jeu d'instructions plus riche, ce qui les rend plus complexes mais plus polyvalents. Il y eut longtemps le débat entre les deux architectures, mais de nos jours, les processeurs modernes sont hybrides, ils combinent les avantages des deux architectures.
-
-Pour notre processeur, on retiendra une dizaine d'instructions regroupant les opérations de base comme l'addition, la soustraction, les opérations logiques, les sauts conditionnels et les opérations de transfert de données.
-
-Sur la figure suivante, on peut voir l'architecture minimale d'un processeur avec un jeu d'instructions réduit:
-
-![Architecture minimale](/assets/images/cpu-zero.drawio)
-
-
-- `ADD` : additionne `A` et `B` et stocke le résultat dans `C`
-- `SUB` : soustrait `A` et `B` et stocke le résultat dans `C`
-- `AND` : fait un `ET` logique entre `A` et `B` et stocke le résultat dans `C`
-- `OR` : fait un `OU` logique entre `A` et `B` et stocke le résultat dans `C`
-- `XOR` : fait un `OU EXCLUSIF` logique entre `A` et `B` et stocke le résultat dans `C`
-- `JNZ` : si `A` est non nul, saute à l'instruction `B`
-- `MOV A, Rx` : copie le registe `Rx` dans `A`
-- `MOV B, Rx` : copie le registe `Rx` dans `B`
-- `MOV Rx, C` : copie `C` dans le registe `Rx`
-- `MOV Rx, Ry` : copie le registe `Ry` dans le registe `Rx`
-- `MOV Rx, @Ry,Ry+1` : copie la valeur pointée par le registe `Ry` dans le registe `Rx`
-
-- L'architecture est 8-bit, et la mémoire est de 256 bytes.
-- L'adresse `0x0000` est le point d'entrée du programme.
-- L'adresse `0xFFFE` est la queue d'entrée, une valeur lue
-- L'adresse `0xFFFF` est la queue de sortie, l'affichage de la sortie, chaque valeur écrite est imprimée en ASCII sur une imprimante.
-
-OP: `Opcode`, c'est le code de l'instruction à exécuter. Il est chargé dans l'ALU pour sa configuration. Si l'OP est `ADD` l'ALU exécute combinatoirement l'addition de `A` et `B` et le résultat est disponible sur `C`.
-
-ST: C'est le statut de l'ALU. On y trouve les flags `Z` (zero), `N` (negative), `C` (carry) et `O` (overflow).
-
-PC: C'est le pointeur d'instruction. Il pointe sur l'adresse de la prochaine instruction à exécuter.
-
-ADDH et ADDL c'est l'adresse de la mémoire à laquelle on veut accéder.
-
-`DATA` c'est la valeur lue, ou que l'on souhaite écrire dans la mémoire.
-
-Ce CPU à un pipeline simple. A chaque coup d'horloge :
-
-1. PC est copié dans l'adresse de la mémoire à laquelle on veut accéder.
-2. RD est activé pour lire la mémoire.
-3. La valeur lue est chargée dans OP.
-4. L'instruction est exécutée.
-5. PC est incrémenté de 1.
-
-Exemple d'exécution de `MOV A, R0` :
-
-1. L'OE est activé sur R0.
-2. Latch est activé sur A.
-3. Latch est désactivé sur A.
-4. L'OE est désactivé.
-
-- 16 instructions donc 4 bits pour l'OP
-- 8 registres donc 3 bits pour les registres
-
-
-| Opcode     | Instruction | Exemple     | Description                           |
-| ---------- | ----------- | ----------- | ------------------------------------- |
-| 0b0000xxxx | ADD         |             |                                       |
-| 0b0001xxxx | SUB         |             |                                       |
-| 0b0010xxxx | AND         |             |                                       |
-| 0b0011xxxx | OR          |             |                                       |
-| 0b0100xxxx | XOR         |             |                                       |
-| 0b0101xxxx | JNZ         | 0b0101'xxxx | Saut relatif de B (PC += B) si A != 0 |
-| 0b01100rrr | MOV A, Rx   | 0b0110'0001 | MOV A, R1                             |
-| 0b01101rrr | MOV B, Rx   | 0b0111'0010 | MOV B, R2                             |
-| 0b0111xrrr | MOV Rx, C   | 0b0111'1000 | MOV R0, C                             |
-| 0b10rrrsss | MOV Rx, Ry  | 0b1000'0010 | MOV R0, R2                            |
-| 0b11rrrsss | MOV Rx, @Ry | 0b1100'0010 | MOV R0, @(R2, R3)                     |
-
 ## Registres
 
-Dans une architecture super-scalaire hors-ordre (*out-of-order*) comme le x86-64, lorsqu'un programme est écrit en assembleur ou en langage machine, il fait appel à des registres architecturaux comme RAX, RBX etc. Ces registres font partie du **modèle de programmation** x86-64 et chaque programmeur ou compilateur les voit comme des éléments physiques qu'ils peuvent manipuler.
+Traditionnellement, dans un processeur, l'utilisateur dispose de registres de travail. Ce sont des emplacements de mémoire ultra-rapide utilisés pour stocker des données temporaires. Les registres sont des emplacements de mémoire ultra-rapide utilisés pour stocker des données temporaires. Ils sont utilisés pour stocker les données et les résultats intermédiaires des calculs effectués par le processeur. Les registres sont des emplacements de mémoire ultra-rapide utilisés pour stocker des données temporaires. Ils sont utilisés pour stocker les données et les résultats intermédiaires des calculs effectués par le processeur.
 
-Cependant, dans un processeur moderne hors-ordre (comme les Intel Core i7/i9, AMD Ryzen, etc.), la réalité matérielle est plus complexe. Les registres que le programmeur n'existent pas directement sous cette forme dans le matériel. Les processeurs modernes sont capables d'exécuter plusieurs instructions en parallèle grâce à une technique appelée exécution **hors-ordre**. Dans ce contexte, il est nécessaire de gérer plusieurs versions d'un même registre (comme RAX) à différents moments, car plusieurs instructions peuvent essayer de modifier ou d'utiliser ce registre de manière simultanée ou presque.
+Imaginons un processeur très primitif. Il ne peut faire cinq choses :
 
-C'est là qu'intervient le concept de renommage des registres. Le processeur dispose d'un ensemble de registres physiques (ou registres de données) qui stockent les valeurs des registres architecturaux. Ces registres physiques sont opaques pour le programmeur. Lorsque le processeur exécute un programme, il utilise une technique appelée renommage des registres pour associer temporairement chaque registre architectural (comme RAX) à un registre physique spécifique. Cela permet au processeur d'éviter les conflits entre instructions qui voudraient utiliser le même registre en même temps.
+- Additionner deux registres
+- Soustraire deux registres
+- Déplacer une valeur d'un registre à un autre
+- Sauter à une autre instruction
+- Sauter à une autre instruction si un registre est nul
+
+La programmation est impérative, les instructions sont exécutées séquentiellement. Pour déplacer une valeur du registre `R0` au registre `R1`, on écrirait `MOV R1, R0`. Pour ajouter deux valeurs, on écrirait `ADD R2, R0, R1`. Pour sauter à une autre instruction si un registre est nul, on écrirait `JNZ R0, 10` (sauter à l'instruction 10 si `R0` n'est pas nul).
+
+Tenant compte de ces précisions, l'algorithme serait alors le suivant, où le calcul du reste de la division est calculé par des soustractions successives :
+
+```nasm
+01 MOV R0, 30   # a
+02 MOV R1, 42   # b
+03 MOV R2, R1   # Met b dans R2
+04 JNZ R2, 6    # Si b vaut 0 alors saute à l'instruction 6
+05 JMP 16       # Saute à l'instruction 16
+06 MOV R3, R0   # Met a dans R3
+07 MOV R4, 0    # Met 0 dans R4
+08 SUB R3, R1   # Soustrait b à a
+09 JNZ R3, 11   # Si le résultat est nul, saute à l'instruction 11
+10 JMP 13       # Saute à l'instruction 13
+11 ADD R4, 1    # Incrémente le reste de la division
+12 JMP 8        # Saute à l'instruction 8 (boucle)
+13 MOV R0, R1   # Met b dans a
+14 MOV R1, R3   # Met le reste de la division dans b
+15 JMP 3        # Saute à l'instruction 3 (boucle)
+16 NOP          # Fin du programme
+```
+
+Dans un processeur moderne, il y a également des registres mais qui ont des noms différents. Par exemple, dans un processeur x86-64, on a les registres suivants :
+
+- **Registres généraux** : RAX, RBX, RCX, RDX, RSI, RDI, RBP, RSP, R8-R15
+- **Registres de segment** : CS, DS, ES, FS, GS, SS
+- **Registres d'index** : RSI, RDI, RBP, RSP
+- **Registres de pointeur** : RIP, RFLAGS
+- **Registres de contrôle** : CR0-CR4
+- **Registres SIMD** : XMM0-XMM15, YMM0-YMM15, ZMM0-ZMM31
+
+Depuis longtemps, les processeurs sont capables d'exécuter plusieurs instructions en parallèle. Cela signifie que les registres sont partagés entre les différentes instructions. Par exemple, si une instruction veut ajouter deux valeurs, elle doit attendre que les registres soient disponibles et c'est un goulet d'etranglement. Pour éviter cela, les processeurs modernes utilisent une technique appelée **renommage des registres**. Les registres que l'on utiliise pour programmer n'existe pas réellement dans le processeur mais ils sont associés à des registres physiques. Cela permet d'éviter les conflits entre instructions qui voudraient utiliser le même registre en même temps.
+
+On appelle ces architectures des architectures **hors-ordre** superscalaires. Cela signifie que les instructions sont exécutées dans l'ordre dans lequel elles sont décodées, mais les résultats peuvent être renvoyés dans un ordre différent. Cela signifie que les instructions peuvent être exécutées dans un ordre différent de celui dans lequel elles apparaissent dans le code source.
+
+Les processeurs comme les Intel Core i7/i9, AMD Ryzen, etc. utilisent ce concept.
 
 Voici comment cela fonctionne :
 
@@ -311,14 +274,27 @@ Voici comment cela fonctionne :
 2. Exécution hors-ordre : Les instructions sont exécutées dans l'ordre dans lequel elles sont décodées, mais les résultats peuvent être renvoyés dans un ordre différent. Cela signifie que les instructions peuvent être exécutées dans un ordre différent de celui dans lequel elles apparaissent dans le code source.
 3. Retirement (retrait) : une fois que les instructions sont exécutées et validées, les résultats des registres physiques sont reflétés dans les registres architecturaux lors de l'étape de retrait (retirement). À ce stade, le programmeur ou le système voit les registres comme étant mis à jour dans l'ordre correct.
 
-Le *Reorder Buffer (ROB)* est une structure clé dans ce processus. Il permet au processeur de garder une trace des instructions en cours d'exécution hors-ordre et il s'assure que les instructions sont retirées (c'est-à-dire, finalisées et appliquées aux registres architecturaux) dans le bon ordre, tel que prévu par le programmeur. Au moment du retrait, via le ROB, les résultats des registres physiques sont copiés vers les registres architecturaux visibles par le programmeur. C'est ce moment-là où, du point de vue du programmeur, le registre RAX ou RBX est mis à jour.
-
+Les éléments clés de ce concept sont le *Reorder Buffer* et le *Retirement Unit*. Le *Reorder Buffer (ROB)* permet au processeur de garder une trace des instructions en cours d'exécution hors-ordre et il s'assure que les instructions sont retirées (c'est-à-dire, finalisées et appliquées aux registres architecturaux) dans le bon ordre, tel que prévu par le programmeur. Au moment du retrait, via le ROB, les résultats des registres physiques sont copiés vers les registres architecturaux visibles par le programmeur. C'est ce moment-là où, du point de vue du programmeur, le registre RAX ou RBX est mis à jour.
 
 ## L'assembleur
 
-Le saviez-vous, il n'est pas indispensable de connaître le C pour développer des programmes sur un ordinateur. 85% des processeurs équipant les ordinateurs personnels sont sur une base x86-64. C'est à dire que si l'on connaît l'architecture, on peut écrire des programmes directement en assembleur. C'est un langage de bas niveau qui permet de contrôler directement le processeur.
+Avant le C, le Fortran ou le Cobol, il était possible de programmer directement en assembleur. L'assembleur est le langage du plus bas niveau que l'on puisse utiliser pour programmer un ordinateur. Il se compose des instructions primitives que le processeur peut exécuter directement. Ces instructions primitives sont généralement très simples, comme ajouter deux nombres, déplacer des données d'un emplacement à un autre, ou effectuer des opérations logiques sur des bits.
 
-Admettons que l'on souhaite réécrire notre programme `hello.c` mais en assembleur. Ici, il ne faut pas imaginer accéder directement à l'écran pour écrire du texte. Il faut passer par le système d'exploitation. Pour cela, on utilise les appels systèmes. C'est exactement ce que fait `printf`.
+Nos processeurs modernes étant déjà très complexes, les instructions de base de l'assembleur sont également complexes. L'architecture X86-64 dispose d'environ 200 instructions différentes. Charger une valeur à une adresse mémoire contenue dans le registre `RBX` dans le registre `RAX` s'écrirait `MOV RAX, [RBX]`, et cette ligne d'assembleur peut être traduite en langage machine `488B03`.
+
+```txt
+4  Utilisation des registres étendus (64 bits)
+8  Utilisation des registres hauts (RAX, RBX)
+8B Instruction MOV
+03 ModRM qu'il faut décortiquer:
+   0b00  Adressage indirect
+   0b000 Registre 0 (RAX)
+   0b011 Registre 3 (RBX)
+```
+
+Ecrire un programme en langage machine est compliqué et fastidieux. C'est pourquoi on utilise un langage textuel appelé assembleur qui peut facilement être converti en langage machine.
+
+Pour mieux comprendre, admettons que l'on souhaite réécrire notre programme `hello.c` mais en assembleur (`hello.s`). Ici, il ne faut pas imaginer accéder directement à l'écran pour écrire du texte. Il faut passer par le système d'exploitation. Pour cela, on utilise les appels systèmes. C'est exactement ce que fait `printf`. Vous noterez la présence de nombreux commentaires, il est courant d'ajouter des commentaires pour mieux expliquer le code assembleur qui est souvent, par sa nature assez cryptique :
 
 ```nasm
 section .data
@@ -338,7 +314,7 @@ _start:
 
     ; Appel système pour terminer le programme (sys_exit)
     mov rax, 60             ; Numéro d'appel système pour sys_exit
-    xor rdi, rdi            ; Code de sortie 0
+    xor rdi, rdi            ; Code de sortie 0 (plus rapide que mov rdi, 0)
     syscall                 ; Appel système
 ```
 
@@ -419,11 +395,7 @@ _start:
     syscall
 ```
 
-## Composants
-
-## Fonctionnalités spécifiques supplémentaires
-
-### Prédicteur d'embranchement
+## Fonctionnalités internes
 
 ### Protection ring
 
@@ -569,9 +541,141 @@ Lorsque vous télécharge un binaire, par exemple Gimp, il sera compilé pour un
 
 Sous Windows, cette culture de la compilation est moins répandue, les logiciels sont généralement distribués sous forme de binaire, et il est rare de trouver des versions optimisées pour une architecture spécifique et de nombreux logiciels sont très peu optimisés.
 
+## Processeur minimal
+
+Pour mieux comprendre le fonctionnement d'un processeur, il est intéressant de concevoir un processeur minimal. Imaginons donc un processeur ultra simple  sachant qu'un compromis doit être trouvé entre simplicité et fonctionnalité. En effet, un processeur dispose en autre des caractéristiques suivantes :
+
+- Largeur du bus de données et d'adresse
+- Nombre d'instructions
+
+Avec un jeu d'instruction très réduit comme comme sur l'OISC (*One Instruction Set Computer*) ou le CPU Zero, on peut concevoir un processeur minimaliste avec l'instruction *Subtract and Branch if Negative* (SBN). C'est une instruction qui soustrait deux valeurs et saute à une adresse si le résultat est négatif. Avec cette seule instruction, il est possible de simuler toutes les opérations qui seraient normalement effectuées par un ensemble d'instructions plus riche comme l'addition, la soustraction, les comparaisons et les sauts conditionnels.
+
+La quantité d'instructions dans un processeur classifie sa nature, on distingue les processeurs RISC (*Reduced Instruction Set Computer*) et CISC (*Complex Instruction Set Computer*). Les processeurs RISC ont un jeu d'instructions réduit, ce qui les rend plus simples et plus rapides. Les processeurs CISC ont un jeu d'instructions plus riche, ce qui les rend plus complexes mais plus polyvalents. Il y eut longtemps le débat entre les deux architectures, mais de nos jours, les processeurs modernes sont hybrides, ils combinent les avantages des deux architectures.
+
+Pour notre processeur, on retiendra une dizaine d'instructions regroupant les opérations de base comme l'addition, la soustraction, les opérations logiques, les sauts conditionnels et les opérations de transfert de données.
+
+Sur la figure suivante, on propose une  architecture minimale d'un processeur avec un jeu d'instructions réduit:
+
+![Architecture minimale](/assets/images/cpu-zero.drawio)
+
+Les instructions retenues sont les suivantes :
+
+- `ADD` : additionne `A` et `B` et stocke le résultat dans `C`
+- `SUB` : soustrait `A` et `B` et stocke le résultat dans `C`
+- `AND` : fait un `ET` logique entre `A` et `B` et stocke le résultat dans `C`
+- `OR` : fait un `OU` logique entre `A` et `B` et stocke le résultat dans `C`
+- `XOR` : fait un `OU EXCLUSIF` logique entre `A` et `B` et stocke le résultat dans `C`
+- `JNZ` : si `A` est non nul, saute à l'instruction `B`
+- `MOV A, Rx` : copie le registe `Rx` dans `A`
+- `MOV B, Rx` : copie le registe `Rx` dans `B`
+- `MOV Rx, C` : copie `C` dans le registe `Rx`
+- `MOV Rx, Ry` : copie le registe `Ry` dans le registe `Rx`
+- `MOV Rx, @Ry,Ry+1` : copie la valeur pointée par le registe `Ry` dans le registe `Rx`
+
+Fixons quelques caractéristiques de notre processeur minimal :
+
+- L'architecture est 16-bit, donc le bus d'adresse et de données sont de 16-bit. Cela signifie que le processeur peut adresser $2^16 = 65536$ adresses mémoire différentes, et que les données sont stockées sur des `short` de 16 bits.
+- L'adresse `0x0000` est le point d'entrée du programme, c'est là qu'au démarrage du processeur, le programme commence à s'exécuter.
+- L'adresse `0xFFFE` est l'entrée standard, c'est une queue. Lorsque le buffer est vide, la valeur lue est `0x00FF`.
+- L'adresse `0xFFFF` est la queue de sortie, l'affichage de la sortie, chaque valeur écrite est imprimée en ASCII sur une imprimante, les valeurs sont donc des caractères ASCII de 8 bits.
+
+Le processeur dispose de registres
+
+- `A` : Accumulateur, première entrée de l'ALU
+- `B` : Deuxième entrée de l'ALU (temporaire)
+- `C` : Résultat de l'ALU
+- `R0 à R7` : registres généraux de 16 bits
+- `OP` : instruction en cours d'exécution
+- `ST` : statut de l'ALU (zéro, négatif, carry, overflow)
+- `PC` : pointeur d'instruction, il contient l'adresse de la prochaine instruction à exécuter
+- `ADDR` : adresse de la mémoire à laquelle on veut accéder
+- `DATA` : valeur lue ou que l'on souhaite écrire dans la mémoire
+
+Une machine t'état est utilisée pour contrôler le processeur. Elle permet de générer les signaux de contrôle suivants:
+
+- `RD` : active la lecture de la mémoire pointée par `ADDR`
+- `WR` : active l'écriture dans la mémoire pointée par `ADDR`
+- `LA` : latch `ADDR`
+- `LPC` : latch `PC`
+- `LA` : latch la valeur sur le bus dans `A`
+- `LB` : latch la valeur sur le bus dans `B`
+- `LC` : Expose sur le bus la valeur de `C`
+- `LAOP` : latch l'OP
+- `LST` : Expose le status sur le bus
+
+Ce CPU à un pipeline simple. A chaque coup d'horloge :
+
+1. PC est copié dans l'adresse de la mémoire à laquelle on veut accéder.
+2. RD est activé pour lire la mémoire.
+3. La valeur lue est chargée dans OP.
+4. L'instruction est exécutée.
+5. PC est incrémenté de 1.
+
+Exemple d'exécution de `MOV A, R0` :
+
+1. L'OE est activé sur R0.
+2. Latch est activé sur A.
+3. Latch est désactivé sur A.
+4. L'OE est désactivé.
+
+- 16 instructions donc 4 bits pour l'OP
+- 8 registres donc 3 bits pour les registres
+
+
+| Opcode     | Instruction | Exemple     | Description                           |
+| ---------- | ----------- | ----------- | ------------------------------------- |
+| 0b0000xxxx | ADD         |             |                                       |
+| 0b0001xxxx | SUB         |             |                                       |
+| 0b0010xxxx | AND         |             |                                       |
+| 0b0011xxxx | OR          |             |                                       |
+| 0b0100xxxx | XOR         |             |                                       |
+| 0b0101xxxx | JNZ         | 0b0101'xxxx | Saut relatif de B (PC += B) si A != 0 |
+| 0b01100rrr | MOV A, Rx   | 0b0110'0001 | MOV A, R1                             |
+| 0b01101rrr | MOV B, Rx   | 0b0111'0010 | MOV B, R2                             |
+| 0b0111xrrr | MOV Rx, C   | 0b0111'1000 | MOV R0, C                             |
+| 0b10rrrsss | MOV Rx, Ry  | 0b1000'0010 | MOV R0, R2                            |
+| 0b11rrrsss | MOV Rx, @Ry | 0b1100'0010 | MOV R0, @(R2, R3)                     |
+
+
+## Extensions x86
+
+Effectivement, il existe d'autres extensions pour l'architecture x86, notamment **CLMUL**, **RDRAND**, et **TXT**. Voici la table mise à jour avec ces extensions et d'autres supplémentaires :
+
+Table: Résumé des extensions x86 les plus courantes
+
+| Extension | Description                                                                                                                                                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AES-NI    | Instructions matérielles pour accélérer les opérations de chiffrement et de déchiffrement AES.                                                                                                                                              |
+| AVX       | Advanced Vector Extensions, extension SIMD pour améliorer les performances des calculs flottants et vectoriels, notamment dans les applications scientifiques et multimédia.                                                                |
+| AVX2      | Advanced Vector Extensions 2, amélioration de l'AVX avec prise en charge des entiers 256 bits et optimisation des opérations sur des données vectorielles.                                                                                  |
+| AVX-512   | Advanced Vector Extensions 512 bits, extension SIMD avec des registres de 512 bits pour des performances accrues dans les calculs intensifs, utilisé dans les applications scientifiques, cryptographiques et de machine learning.          |
+| BMI1/BMI2 | Bit Manipulation Instructions, ensembles d'instructions pour la manipulation efficace des bits et des entiers, utiles dans des opérations comme le hachage ou la compression de données.                                                    |
+| CLMUL     | Carry-less Multiplication, instructions pour la multiplication sans retenue, souvent utilisées dans les algorithmes cryptographiques, notamment pour l'implémentation de Galois/Counter Mode (GCM).                                         |
+| FMA3      | Fused Multiply-Add 3, permet de réaliser une multiplication suivie d'une addition en une seule instruction, réduisant le temps de calcul et améliorant la précision.                                                                        |
+| FMA4      | Fused Multiply-Add 4, similaire au FMA3 mais avec une légère différence dans la gestion des opérandes, utilisé principalement par AMD.                                                                                                      |
+| MMX       | MultiMedia eXtensions, première extension SIMD d'Intel conçue pour améliorer les performances des applications multimédia telles que le traitement d'images, l'audio et la vidéo.                                                           |
+| RDRAND    | Random Number Generator, instruction pour générer des nombres aléatoires de manière matérielle, utile dans les applications cryptographiques et de sécurité.                                                                                |
+| RDSEED    | Random Seed Generator, similaire à RDRAND, mais conçu pour générer des graines (seeds) pour des générateurs de nombres aléatoires avec des propriétés cryptographiques renforcées.                                                          |
+| SSE       | Streaming SIMD Extensions, extension SIMD améliorant les performances des calculs en virgule flottante, notamment dans les applications graphiques et de jeu.                                                                               |
+| SSE2      | Streaming SIMD Extensions 2, extension de SSE avec support des entiers 128 bits et des nombres en virgule flottante double précision.                                                                                                       |
+| SSE3      | Streaming SIMD Extensions 3, extension de SSE2 avec des instructions supplémentaires pour améliorer les performances en virgule flottante et pour le multithreading.                                                                        |
+| SSE4      | Streaming SIMD Extensions 4, extension de SSE3, optimisée pour les calculs complexes, notamment les opérations de traitement d'images et de vidéo.                                                                                          |
+| SSE4.1    | Streaming SIMD Extensions 4.1, sous-ensemble de SSE4, avec des instructions supplémentaires pour la manipulation de données et la gestion de texte.                                                                                         |
+| SSE4.2    | Streaming SIMD Extensions 4.2, ajoute des instructions pour l'accélération des comparaisons de chaînes de caractères, utile dans les applications de traitement de texte et de recherche.                                                   |
+| SSSE3     | Supplemental Streaming SIMD Extensions 3, améliore SSE3 avec des instructions supplémentaires pour la manipulation de données packées, utilisées dans les algorithmes de cryptographie et de hachage.                                       |
+| TXT       | Trusted Execution Technology, technologie visant à assurer une exécution sécurisée en garantissant que le matériel, le firmware et les logiciels utilisés au démarrage sont intègres et sécurisés.                                          |
+| TSX       | Transactional Synchronization Extensions, extension pour améliorer les performances du parallélisme matériel et logiciel en permettant la synchronisation transactionnelle, réduisant les conflits dans les accès concurrents à la mémoire. |
+| VNNI      | Vector Neural Network Instructions, extension SIMD pour accélérer les réseaux neuronaux et les calculs d'inférence en intelligence artificielle, notamment pour le traitement de données de machine learning.                               |
+
 ## Principales architectures
 
+Les différentes architectures sont très nombreuses et évoluent rapidement, néanmoins les compilateurs restent compatibles avec les anciennes architectures. Voici une liste des principales architectures x86-64 et de leurs principales caractéristiques ainsi que les options `-march` associées pour `gcc`. Elles peuvent être utiles pour optimiser un programme pour une architecture spécifique.
+
+Nous citerons ici les deux grandes familles de processeurs, Intel et AMD, ainsi que quelques autres architectures.
+
 ### Intel
+
+Table: Principales architectures Intel
 
 | Architecture    | `-march`         | Année | Fonctionnalités                                            |
 | --------------- | ---------------- | ----- | ---------------------------------------------------------- |
@@ -594,6 +698,8 @@ Sous Windows, cette culture de la compilation est moins répandue, les logiciels
 
 ### AMD
 
+Table: Principales architectures AMD
+
 | Architecture       | `-march`    | Année | Fonctionnalités                                   |
 | ------------------ | ----------- | ----- | ------------------------------------------------- |
 | K8 (Athlon 64)     | `k8`        | 2003  | Première architecture x86-64 d'AMD, supporte SSE2 |
@@ -607,6 +713,8 @@ Sous Windows, cette culture de la compilation est moins répandue, les logiciels
 
 ### Autres architectures
 
+Table: Autres architectures
+
 | Architecture  | `-march`       | Année | Fonctionnalités Supplémentaires                                |
 | ------------- | -------------- | ----- | -------------------------------------------------------------- |
 | Atom          | `atom`         | 2008  | Faible consommation, optimisé pour l'efficacité                |
@@ -617,6 +725,8 @@ Sous Windows, cette culture de la compilation est moins répandue, les logiciels
 
 ### Gamme x86-64-vN
 
+Table: Versions de l'architecture x86-64
+
 | Nom de l'Architecture | Option GCC `-march` | Fonctionnalités Supplémentaires                          |
 | --------------------- | ------------------- | -------------------------------------------------------- |
 | x86-64                | `x86-64`            | Basique 64 bits, compatible avec les premiers cpu x86-64 |
@@ -626,196 +736,68 @@ Sous Windows, cette culture de la compilation est moins répandue, les logiciels
 
 ## Historique
 
-L'introduction des processeurs 8086 et 8088 a marqué le début de l'architecture IA-32 avec des registres 16 bits et une adresse mémoire maximale de 1 Mo. La segmentation permettait d'adresser jusqu'à 256 Ko sans changement de segment, ouvrant la voie à une gestion plus efficace de la mémoire, c'est cette architecture qui a été utilisée pour les premiers PC IBM, et qui a été le début de l'ère des ordinateurs personnels.
-
-En 1982 sort le processeur Intel 286 qui a introduit le mode protégé, permettant une meilleure gestion de la mémoire avec un adressage sur 24 bits et la possibilité de gérer jusqu'à 16 Mo de mémoire physique. Le mode protégé apportait également des mécanismes de protection tels que la vérification des limites des segments et plusieurs niveaux de privilèges.
-
-En 1985, sort la première architecture véritablement 32 bits, l'Intel 386 a introduit des registres 32 bits et un bus d'adressage permettant de gérer jusqu'à 4 Go de mémoire physique. Il proposait aussi un mode de mémoire virtuelle et un modèle mémoire à pages de 4 Ko, facilitant la gestion efficace de la mémoire.
-
-Le processeur Intel 486 sorti en 1989 a ajouté des capacités de traitement parallèle avec cinq étapes de pipeline d’exécution, permettant l’exécution simultanée d'instructions. Il a également introduit un cache de 8 Ko sur la puce et un coprocesseur mathématique intégré (FPU) permettant pour la première fois des calculs en virgule flottante en matériel.
-
-L'Intel Pentium arrivé en 1993 a marqué une nouvelle avancée avec l'ajout de deux pipelines d'exécution, permettant l'exécution de deux instructions par cycle d'horloge. Il a également intégré un système de prédiction de branchement et augmenté le bus de données externe à 64 bits. Plus tard, la technologie MMX a été introduite, optimisant le traitement parallèle de données pour les applications multimédia.
-
-Le Pentium 4 signe un nouveau siècle. Basé sur l'architecture NetBurst, le Pentium 4 a introduit les extensions SIMD Streaming (SSE2), puis SSE3, pour accélérer les calculs multimédias. Le support du 64 bits avec l'Intel 64 architecture a également fait son apparition, ainsi que la technologie Hyper-Threading pour exécuter plusieurs threads simultanément.
-
-La microarchitecture Nehalem, utilisée dans la première génération d'Intel Core i7, a marqué l'avènement du 45 nm, avec des fonctionnalités comme le Turbo Boost, l’Hyper-Threading, un contrôleur mémoire intégré, et un cache Smart Cache de 8 Mo. Le lien QuickPath Interconnect (QPI) a remplacé l’ancien bus pour des échanges plus rapides avec le chipset.
-
-Les années se succères, Sandy Bridge (2011), Ivy Bridge (2012), Haswell (2013) en réduisant le process de fabrication, 32nm, 22nm, 14nm... ont apporté des améliorations en termes de performance et d'efficacité énergétique, avec des innovations comme l'intégration des graphismes dans le processeur et l'Intel Quick Sync Video.
-
-En 2024, les processeurs sont en 7nm, les performances sont multipliées par 1000 par rapport à un processeur de 2000, les puces sont de plus en plus petites, les fréquences de plus en plus élevées, les caches de plus en plus grands, les instructions de plus en plus complexes, les processeurs sont de plus en plus puissants, et les applications de plus en plus gourmandes.
-
-On trouvera la chronologie des différentes évolutions des processeurs ci-dessous.
+Ci-dessous se trouve la chronologie des principales évolutions des processeurs.
 
 ### Avant 1970
 
-**1945 : Architecture de Von Neumann**
+Les premiers ordinateurs utilisaient des tubes à vide et des relais pour effectuer des calculs.
 
-: Modèle théorique de base des ordinateurs modernes.
-**1954 : Transistors**
+En 1945, l'architecture de Von Neumann introduit le concept de programme stocké, où les instructions et les données sont placées dans une même mémoire.
 
-: Remplacement des tubes à vide dans les processeurs (IBM 704).
-**1964 : Architecture CISC (Complex Instruction Set Computing)**
+Près de dix ans plus tard, en 1954, les transistors remplacent les tubes à vide, réduisant ainsi la taille et la consommation d'énergie des ordinateurs.
 
-: Premier processeur CISC avec l'IBM System/360.
-**1965 : Processeur 16-bit**
+En 1964, l'IBM System/360 inaugure l'architecture CISC (Complex Instruction Set Computing), avec un jeu d'instructions complexe permettant de nombreuses opérations.
 
-: Introduction des premières architectures 16-bit (PDP-11, IBM System/360).
-**1968 : Premier microprocesseur** (Intel 4004)
-
-: Microprocesseur 4-bit, basé sur la technologie MOS (Metal-Oxide Semiconductor).
+La technologie MOS (Metal-Oxide-Semiconductor) permet de réduire encore la taille des transistors et d'accroître la densité des circuits intégrés. Le premier microprocesseur, l'Intel 4004, un modèle 4 bits, fait son apparition en 1971. Il fonctionne à une fréquence de 740 kHz et contient 2 300 transistors, réalisant 92 000 opérations par seconde, contre 3,6 milliards pour un processeur moderne. Gravé en 10 µm, il est bien loin des procédés actuels en 7 nm.
 
 ### Années 1970
 
-**1970 : Mémoire cache** (IBM System/360 Model 85)
+La mémoire cache fait ses débuts avec l'IBM System/360 Model 85, permettant de stocker temporairement les données les plus fréquemment utilisées afin d'accélérer les accès mémoire.
 
-: Premier usage de la mémoire cache pour réduire les temps d'accès.
+En 1974, les premières unités de calcul en virgule flottante (FPU, Floating Point Unit) apparaissent avec les processeurs Intel 8008 et 8080 pour prendre en charge les calculs en virgule flottante.
 
-**1972 : Introduction du FPU**
+En 1978, l'Intel 8086 introduit l'architecture x86, avec des registres de 16 bits et la segmentation de la mémoire. La mémoire est alors divisée en segments de 64 Ko, chaque segment étant lui-même découpé en blocs de 16 octets. Ce mécanisme permet une gestion plus efficace de la mémoire en segments de taille variable.
 
-: (Floating Point Unit) avec les processeurs **Intel 8008** et **8080** pour supporter les opérations en virgule flottante.
+En 1982, le mode protégé est introduit avec l'Intel 80286, offrant une gestion plus rigoureuse de la mémoire grâce à des niveaux de privilèges, équivalents aux anneaux de protection dans les systèmes Unix.
 
-**1974 : Processeur 8-bit**
+En 1985, l'Intel 80386 introduit l'architecture x86 en 32 bits avec un bus d'adressage de 32 bits et un mode de mémoire virtuelle, permettant de gérer jusqu'à 4 Go de mémoire physique. Cette architecture perdurera jusqu'à l'arrivée des processeurs 64 bits développés dans les années 2000.
 
-: Intel 8080 introduit les processeurs 8-bit.
-
-**1978 : Intel 8086**
-
-: Premier processeur 16-bit et introduction de la segmentation pour adresser la mémoire.
-
-### Années 1980
-
-**1980 : Cache de niveau L1**
-
-: Apparition de la première forme de cache de niveau L1 dans les processeurs (IBM System/370).
-
-**1982 : Mode protégé et segmentation** (Intel 80286)
-
-: Amélioration de la gestion mémoire avec des niveaux de privilèges.
-
-**1985 : 32-bit** et **mémoire virtuelle** (Intel 80386)
-
-: Extension de l'architecture x86 vers un adressage 32-bit.
-
-**1986 : Instruction pipelining**
-
-: Utilisation de pipeline avec des étapes plus nombreuses pour augmenter le parallélisme (Intel 80386).
-
-**1989 : Cache de niveau L2**
-
-: Les premiers systèmes commencent à adopter des caches de niveau L2 (ajouté en externe au processeur).
+Le concept de pipeline, qui permet d'exécuter plusieurs instructions en parallèle, est introduit avec l'Intel 80486 en 1989, améliorant ainsi considérablement les performances. Les premiers caches de niveau L2 apparaissent également, ajoutés de manière externe au processeur.
 
 ### Années 1990
 
-**1991 : Pipeline 5 étapes**
+Intel introduit, avec le processeur Pentium, le premier coprocesseur mathématique directement intégré, permettant de réaliser plus rapidement les calculs en virgule flottante. Un pipeline à cinq étapes est également implémenté dans l'Intel 80486 pour améliorer le traitement parallèle.
 
-: Introduit avec l'Intel 80486 pour améliorer les performances du traitement parallèle.
+En 1995, avec le Pentium Pro, un prédicteur d'embranchements est introduit, optimisant les performances en prédisant les sauts conditionnels afin d'éviter les ruptures de pipeline.
 
-**1993 : Coprocesseur mathématique intégré** (Intel Pentium)
+Le cache de niveau L2 est finalement intégré directement au processeur.
 
-: Le FPU est directement intégré dans le CPU.
-
-**1995 : Prédiction d'embranchement**
-
-: Optimisation du flux d'instructions (Intel Pentium Pro).
-
-**1995 : Architecture superscalaire**
-
-: Le Pentium Pro peut exécuter plusieurs instructions par cycle.
-
-**1996 : Cache L2 sur la puce**
-
-: Cache L2 intégré directement sur le processeur.
-
-**1997 : Technologie MMX**
-
-: Extension multimédia pour accélérer les calculs graphiques (Intel Pentium MMX).
-
-**1998 : SSE (Streaming SIMD Extensions)**
-
-: Amélioration des performances pour les opérations vectorielles (Intel Pentium III).
+En 1999, Intel lance les instructions SIMD (Single Instruction, Multiple Data) avec les extensions SSE (Streaming SIMD Extensions), augmentant ainsi les performances dans les calculs vectoriels.
 
 ### Années 2000
 
-**2000 : Bus à 64-bit externe** (Intel Pentium 4)
+Le premier bus externe 64 bits apparaît avec le Pentium 4 en 2000, facilitant la gestion d'une plus grande quantité de mémoire, tandis que le pipeline est étendu à 20 étapes pour atteindre des fréquences plus élevées.
 
-: Bus externe permettant de gérer plus de mémoire.
+En 2001, Intel introduit les SSE2 (Streaming SIMD Extensions 2) afin d'améliorer les performances des calculs en virgule flottante.
 
-**2000 : Architecture Netburst** (Pentium 4)
+Le cache de niveau 3 (L3) fait son apparition en 2004 avec les processeurs Itanium 2 et Xeon, optimisant les performances des accès mémoire.
 
-: Augmentation des pipelines jusqu'à 20 étapes pour viser de hautes fréquences.
+En 2006, les premiers processeurs multi-cœurs, avec l'Intel Core Duo, voient le jour, et la technologie Hyper-Threading est intégrée, améliorant les performances des applications multi-threadées.
 
-**2001 : SSE2 (Streaming SIMD Extensions 2)**
-
-: Instructions SIMD améliorées pour manipuler les données en virgule flottante (Intel Pentium 4).
-
-**2004 : SSE3**
-
-: Troisième extension SIMD (Intel Prescott).
-
-**2004 : Cache L3**
-
-: Premier cache de niveau 3 utilisé dans les processeurs Itanium 2 et Xeon.
-
-**2004 : Technologie 64-bit x86-64** (AMD Opteron et Intel Xeon EM64T)
-
-: Introduction du support 64-bit avec AMD, suivi par Intel.
-
-**2006 : Processeurs multi-cœurs**
-
-: Premier processeur double cœur avec Intel Core Duo.
-
-**2006 : Hyper-threading**
-
-: Technologie Intel permettant à un cœur physique de gérer deux threads en simultané.
-
-**2008 : Turbo Boost**
-
-: Fréquence d'horloge dynamique pour augmenter temporairement la performance (Intel Core i7).
-
-**2008 : Smart Cache**
-
-: Partage dynamique du cache entre les cœurs pour améliorer l'efficacité.
+En 2008, Intel introduit la technologie Smart Cache, permettant un partage dynamique du cache entre les cœurs, augmentant ainsi l'efficacité du processeur. Les procédés de fabrication sont réduits à 45 nm et les fréquences des processeurs atteignent 3 GHz.
 
 ### Années 2010
 
-**2010 : QuickPath Interconnect (QPI)**
+En 2010, Intel introduit le QuickPath Interconnect (QPI) pour remplacer le bus frontal, améliorant les performances de l'interconnexion entre les différents composants.
 
-: Remplacement du bus front-side par une technologie d'interconnexion point à point (Intel Nehalem).
+En 2011, l'extension AVX (Advanced Vector Extensions) vient enrichir les instructions SIMD de la technologie SSE, optimisant ainsi les performances dans les calculs scientifiques.
 
-**2010 : Intel Quick Sync Video**
-
-: Accélération matérielle de l'encodage et du décodage vidéo (Intel Sandy Bridge).
-
-**2011 : AVX (Advanced Vector Extensions)**
-
-: Introduction des instructions AVX pour améliorer les performances dans les calculs scientifiques (Intel Sandy Bridge).
-
-**2013 : AVX2**
-
-: Extension des instructions AVX avec des performances encore améliorées (Intel Haswell).
-
-**2014 : Mode de réduction de puissance (Intel Skylake)**
-
-: Introduction de modes d'économie d'énergie sophistiqués (C-states, P-states).
-
-**2017 : AVX-512**
-
-: Instructions vectorielles 512-bit pour des opérations massivement parallèles (Intel Skylake-X).
-
-**2019 : Intel Deep Learning Boost**
-
-: Instructions pour accélérer l'inférence en machine learning (Intel Cascade Lake).
+La génération Skylake, en 2014, introduit des modes d'économie d'énergie sophistiqués pour réduire la consommation. Les procédés de fabrication sont abaissés à 14 nm, améliorant à la fois les performances et l'efficacité énergétique. Les processeurs atteignent alors des fréquences de 4 GHz.
 
 ### Années 2020
 
-**2021 : Intel Hybrid Technology** (Alder Lake)
+La technologie EUV (Extreme Ultraviolet Lithography) permet de réduire les procédés de fabrication à 7 nm, compensant l'impossibilité d'augmenter davantage la fréquence des processeurs en raison des contraintes thermiques.
 
-: Mélange de cœurs performants et efficaces dans une architecture hybride (P-cores et E-cores).
+En 2021, l'architecture hybride Alder Lake est introduite, combinant des cœurs à haute performance et des cœurs à haute efficacité pour un meilleur équilibre entre performances et efficacité énergétique.
 
-**2021 : Support des instructions 128-bit et au-delà**
-
-: avec l'évolution des instructions SIMD et AVX-512.
-
-**2021 : Photolithographie en EUV** (Extreme Ultraviolet Lithography)
-
-: Avancée majeure dans le processus de fabrication des puces, utilisée pour créer des transistors toujours plus petits (par exemple les nœuds de 5 nm et 7 nm).
+Les processeurs modernes comptent entre 8 et 24 cœurs, et malgré leur prix comparable à celui de l'Intel 4004 de 1971, leur puissance de calcul est 15,36 milliards de fois supérieure (en tenant compte du fait que l'Intel 4004 fonctionnait en 4 bits et ne pouvait réaliser que quelques centaines d'opérations flottantes par seconde).
