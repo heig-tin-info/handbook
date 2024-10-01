@@ -18,10 +18,10 @@ les outils associés.
         <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/25-architecture-and-systems/cpu/">
       
       
-        <link rel="prev" href="../mcu/">
+        <link rel="prev" href="../computer/">
       
       
-        <link rel="next" href="../memory-management/">
+        <link rel="next" href="../mcu/">
       
       
         
@@ -32,7 +32,7 @@ les outils associés.
     
     
       
-        <title>CPU - L'informatique pour ingénieurs</title>
+        <title>Processeur - L'informatique pour ingénieurs</title>
       
     
     
@@ -172,7 +172,7 @@ les outils associés.
     <div data-md-component="skip">
       
         
-        <a href="#cpu" class="md-skip">
+        <a href="#processeur" class="md-skip">
           Aller au contenu
         </a>
       
@@ -205,7 +205,7 @@ les outils associés.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CPU
+              Processeur
             
           </span>
         </div>
@@ -1672,33 +1672,6 @@ les outils associés.
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../mcu/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Systèmes à microcontrôleurs
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1717,7 +1690,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    CPU
+    Processeur
   
 
     
@@ -1734,7 +1707,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    CPU
+    Processeur
   
 
     
@@ -1832,17 +1805,6 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
-  <a href="#processeur-minimal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Processeur minimal
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#registres" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1865,38 +1827,16 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
-  <a href="#composants" class="md-nav__link">
+  <a href="#fonctionnalites-internes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Composants
+        Fonctionnalités internes
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fonctionnalites-specifiques-supplementaires" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fonctionnalités spécifiques supplémentaires
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Fonctionnalités spécifiques supplémentaires">
+    <nav class="md-nav" aria-label="Fonctionnalités internes">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#predicteur-dembranchement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prédicteur d'embranchement
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#protection-ring" class="md-nav__link">
@@ -2025,6 +1965,28 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
+  <a href="#processeur-minimal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processeur minimal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions-x86" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extensions x86
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#principales-architectures" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2120,17 +2082,6 @@ les outils associés.
 </li>
         
           <li class="md-nav__item">
-  <a href="#annees-1980" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Années 1980
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#annees-1990" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2183,6 +2134,33 @@ les outils associés.
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Microcontrôleur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -6345,17 +6323,6 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
-  <a href="#processeur-minimal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Processeur minimal
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#registres" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6378,38 +6345,16 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
-  <a href="#composants" class="md-nav__link">
+  <a href="#fonctionnalites-internes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Composants
+        Fonctionnalités internes
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fonctionnalites-specifiques-supplementaires" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fonctionnalités spécifiques supplémentaires
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Fonctionnalités spécifiques supplémentaires">
+    <nav class="md-nav" aria-label="Fonctionnalités internes">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#predicteur-dembranchement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prédicteur d'embranchement
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#protection-ring" class="md-nav__link">
@@ -6538,6 +6483,28 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
+  <a href="#processeur-minimal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processeur minimal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions-x86" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extensions x86
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#principales-architectures" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6626,17 +6593,6 @@ les outils associés.
     <span class="md-ellipsis">
       
         Années 1970
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#annees-1980" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Années 1980
       
     </span>
   </a>
@@ -6795,7 +6751,7 @@ les outils associés.
   
 
 
-<h1 id="cpu"><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a><a class="headerlink" href="#cpu" title="Lien permanent">¤</a></h1>
+<h1 id="processeur">Processeur<a class="headerlink" href="#processeur" title="Lien permanent">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Lien permanent">¤</a></h2>
 <p>Le processeur, c'est le cerveau de l'ordinateur. C'est l'unité centrale de traitement (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a>) qui exécute les instructions et les calculs nécessaires pour faire fonctionner un système informatique. Par analogie à la [Machine de Turing][turing-machine], un processeur est un automate <strong>Turing complet</strong> qui exécute des instructions séquentiellement. Il a besoin pour cela d'une mémoire de travail pour stocker les calculs en cours, et une mémoire de programme qui contient la liste des instructions à exécuter.</p>
 <p>Une mémoire fonctionne comme un livre, pour obtenir un contenu (données), on doit l'ouvrir à une page spécifique (adresse). En pratique les mémoires sont adressables par octets. Avec une adresse de 64 bits, on peut adresser 2^64 octets, soit 16 exaoctets, ce qui ne sera pas un problème pour les prochaines décennies.</p>
@@ -6967,8 +6923,9 @@ Le DMI (Direct Media Interface chez Intel) ou QPI (QuickPath Interconnect chez I
 <p>Sur de petits microcontrôleurs ou des architectures plus anciennes, il n'y a pas de prédicteur d'embranchement, et donc les décisions (p.ex. <code>if</code>) sont très coûteuses en termes de performances, on privilégiera alors une architecture de programme qui minimise la prise de décision.</p>
 <h3 id="coeur">Coeur<a class="headerlink" href="#coeur" title="Lien permanent">¤</a></h3>
 <p>Le coeur du processeur est un monstre de technologies. Il est composé de plusieurs unités fonctionnelles qui travaillent ensemble pour exécuter les instructions.</p>
+<p><figure id="_figure-6"><img alt="Die shot d'un coeur de processeur de 2009" class="drawio-diagram" src="../../../assets/images/die.drawio"/><figcaption> Die shot d'un coeur de processeur de 2009</figcaption></figure></p>
 <p>L'objectif ici n'est pas d'entrer dans le détail de chaque unité, mais d'avoir un aperçu général du fonctionnement. La figure suivante représente la structure interne d'un processeur moderne.</p>
-<p><figure id="_figure-6"><img alt="Diagramme d'un coeur de processeur" class="drawio-diagram" src="../../../assets/images/cpu-core-diagram.drawio"/><figcaption> Diagramme d'un coeur de processeur</figcaption></figure></p>
+<p><figure id="_figure-7"><img alt="Diagramme d'un coeur de processeur" class="drawio-diagram" src="../../../assets/images/cpu-core-diagram2.drawio"/><figcaption> Diagramme d'un coeur de processeur</figcaption></figure></p>
 <p>On voit le cache L3 partagé par tous les coeurs, en dehors de ce dernier. Le cache L2 est propre à chaque coeur et communique par un bus à 256 bit avec le cache L1. Le cache L1 est divisé en deux parties, une pour les instructions et une pour les données.</p>
 <p>Prenons le chemin d'une instruction. Une fois chargée dans L1, l'unité de <em>Fetch</em> s'occupe de charger l'instruction dans le pipeline. L'unité de <em>Decode</em> décode l'instruction pour déterminer l'opération à effectuer. Dans un processeur moderne, une instruction assembleur est en réalité scindée en plusieurs micro-opérations qui sont exécutées par les différentes unités fonctionnelles du processeur. Les instructions font souvent références à des registres du processeur, qui sont des emplacements de mémoire ultra-rapide utilisés pour stocker des données temporaires. Ces registres sont renommés (rebaptisés) pour accroître les performances de calculs. Aussi, les micro opérations sont réagencées pour optimiser l'utilisation des unités fonctionnelles. Par exemple, si une instruction doit attendre le résultat d'une autre instruction, le processeur peut exécuter une autre instruction en attendant. C'est ce qu'on appelle l'exécution <strong>hors ordre</strong>.</p>
 <p>Ces micro-opérations une fois établies sont placées dans une file d'attente pour ensuite être transmises aux unités fonctionnelles via l'<em>issue port</em>.</p>
@@ -6979,19 +6936,256 @@ Le DMI (Direct Media Interface chez Intel) ou QPI (QuickPath Interconnect chez I
 <li><strong>Unité de calcul d'adresse (AGU)</strong> : Elle calcule les adresses mémoire pour les accès en lecture et en écriture.</li>
 <li><strong>Unité de branchement (Branch Unit)</strong> : Elle gère les instructions de branchement (if, for, while, etc.).</li>
 </ul>
-<h2 id="processeur-minimal">Processeur minimal<a class="headerlink" href="#processeur-minimal" title="Lien permanent">¤</a></h2>
-<p>Pour mieux comprendre le fonctionnement d'un processeur, il est intéressant de concevoir un processeur minimal.
-Imaginons donc un processeur le plus simple sachant qu'un compromis doit être trouvé entre simplicité et fonctionnalité.</p>
-<p>En effet, un processeur dispose des caractéristiques fondamentales suivantes :</p>
+<h2 id="registres">Registres<a class="headerlink" href="#registres" title="Lien permanent">¤</a></h2>
+<p>Traditionnellement, dans un processeur, l'utilisateur dispose de registres de travail. Ce sont des emplacements de mémoire ultra-rapide utilisés pour stocker des données temporaires. Les registres sont des emplacements de mémoire ultra-rapide utilisés pour stocker des données temporaires. Ils sont utilisés pour stocker les données et les résultats intermédiaires des calculs effectués par le processeur. Les registres sont des emplacements de mémoire ultra-rapide utilisés pour stocker des données temporaires. Ils sont utilisés pour stocker les données et les résultats intermédiaires des calculs effectués par le processeur.</p>
+<p>Imaginons un processeur très primitif. Il ne peut faire cinq choses :</p>
 <ul>
-<li>Largeur du bus de données</li>
+<li>Additionner deux registres</li>
+<li>Soustraire deux registres</li>
+<li>Déplacer une valeur d'un registre à un autre</li>
+<li>Sauter à une autre instruction</li>
+<li>Sauter à une autre instruction si un registre est nul</li>
+</ul>
+<p>La programmation est impérative, les instructions sont exécutées séquentiellement. Pour déplacer une valeur du registre <code>R0</code> au registre <code>R1</code>, on écrirait <code>MOV R1, R0</code>. Pour ajouter deux valeurs, on écrirait <code>ADD R2, R0, R1</code>. Pour sauter à une autre instruction si un registre est nul, on écrirait <code>JNZ R0, 10</code> (sauter à l'instruction 10 si <code>R0</code> n'est pas nul).</p>
+<p>Tenant compte de ces précisions, l'algorithme serait alors le suivant, où le calcul du reste de la division est calculé par des soustractions successives :</p>
+<div class="language-nasm highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="err">01</span><span class="w"> </span><span class="nf">MOV</span><span class="w"> </span><span class="nb">R0</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="w">   </span><span class="c1"># a</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="err">02</span><span class="w"> </span><span class="nf">MOV</span><span class="w"> </span><span class="nb">R1</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="w">   </span><span class="c1"># b</span>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="err">03</span><span class="w"> </span><span class="nf">MOV</span><span class="w"> </span><span class="nb">R2</span><span class="p">,</span><span class="w"> </span><span class="nb">R1</span><span class="w">   </span><span class="c1"># Met b dans R2</span>
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="err">04</span><span class="w"> </span><span class="nf">JNZ</span><span class="w"> </span><span class="nb">R2</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="w">    </span><span class="c1"># Si b vaut 0 alors saute à l'instruction 6</span>
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="err">05</span><span class="w"> </span><span class="nf">JMP</span><span class="w"> </span><span class="mi">16</span><span class="w">       </span><span class="c1"># Saute à l'instruction 16</span>
+</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="err">06</span><span class="w"> </span><span class="nf">MOV</span><span class="w"> </span><span class="nb">R3</span><span class="p">,</span><span class="w"> </span><span class="nb">R0</span><span class="w">   </span><span class="c1"># Met a dans R3</span>
+</span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="err">07</span><span class="w"> </span><span class="nf">MOV</span><span class="w"> </span><span class="nb">R4</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="c1"># Met 0 dans R4</span>
+</span><span id="__span-4-8"><a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="err">08</span><span class="w"> </span><span class="nf">SUB</span><span class="w"> </span><span class="nb">R3</span><span class="p">,</span><span class="w"> </span><span class="nb">R1</span><span class="w">   </span><span class="c1"># Soustrait b à a</span>
+</span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="err">09</span><span class="w"> </span><span class="nf">JNZ</span><span class="w"> </span><span class="nb">R3</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="w">   </span><span class="c1"># Si le résultat est nul, saute à l'instruction 11</span>
+</span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="err">10</span><span class="w"> </span><span class="nf">JMP</span><span class="w"> </span><span class="mi">13</span><span class="w">       </span><span class="c1"># Saute à l'instruction 13</span>
+</span><span id="__span-4-11"><a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="err">11</span><span class="w"> </span><span class="nf">ADD</span><span class="w"> </span><span class="nb">R4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">    </span><span class="c1"># Incrémente le reste de la division</span>
+</span><span id="__span-4-12"><a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="err">12</span><span class="w"> </span><span class="nf">JMP</span><span class="w"> </span><span class="mi">8</span><span class="w">        </span><span class="c1"># Saute à l'instruction 8 (boucle)</span>
+</span><span id="__span-4-13"><a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="err">13</span><span class="w"> </span><span class="nf">MOV</span><span class="w"> </span><span class="nb">R0</span><span class="p">,</span><span class="w"> </span><span class="nb">R1</span><span class="w">   </span><span class="c1"># Met b dans a</span>
+</span><span id="__span-4-14"><a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="err">14</span><span class="w"> </span><span class="nf">MOV</span><span class="w"> </span><span class="nb">R1</span><span class="p">,</span><span class="w"> </span><span class="nb">R3</span><span class="w">   </span><span class="c1"># Met le reste de la division dans b</span>
+</span><span id="__span-4-15"><a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="err">15</span><span class="w"> </span><span class="nf">JMP</span><span class="w"> </span><span class="mi">3</span><span class="w">        </span><span class="c1"># Saute à l'instruction 3 (boucle)</span>
+</span><span id="__span-4-16"><a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="err">16</span><span class="w"> </span><span class="nf">NOP</span><span class="w">          </span><span class="c1"># Fin du programme</span>
+</span></code></pre></div>
+<p>Dans un processeur moderne, il y a également des registres mais qui ont des noms différents. Par exemple, dans un processeur x86-64, on a les registres suivants :</p>
+<ul>
+<li><strong>Registres généraux</strong> : RAX, RBX, RCX, RDX, RSI, RDI, RBP, RSP, R8-R15</li>
+<li><strong>Registres de segment</strong> : CS, DS, ES, FS, GS, SS</li>
+<li><strong>Registres d'index</strong> : RSI, RDI, RBP, RSP</li>
+<li><strong>Registres de pointeur</strong> : RIP, RFLAGS</li>
+<li><strong>Registres de contrôle</strong> : CR0-CR4</li>
+<li><strong>Registres <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a></strong> : XMM0-XMM15, YMM0-YMM15, ZMM0-ZMM31</li>
+</ul>
+<p>Depuis longtemps, les processeurs sont capables d'exécuter plusieurs instructions en parallèle. Cela signifie que les registres sont partagés entre les différentes instructions. Par exemple, si une instruction veut ajouter deux valeurs, elle doit attendre que les registres soient disponibles et c'est un goulet d'etranglement. Pour éviter cela, les processeurs modernes utilisent une technique appelée <strong>renommage des registres</strong>. Les registres que l'on utiliise pour programmer n'existe pas réellement dans le processeur mais ils sont associés à des registres physiques. Cela permet d'éviter les conflits entre instructions qui voudraient utiliser le même registre en même temps.</p>
+<p>On appelle ces architectures des architectures <strong>hors-ordre</strong> superscalaires. Cela signifie que les instructions sont exécutées dans l'ordre dans lequel elles sont décodées, mais les résultats peuvent être renvoyés dans un ordre différent. Cela signifie que les instructions peuvent être exécutées dans un ordre différent de celui dans lequel elles apparaissent dans le code source.</p>
+<p>Les processeurs comme les Intel Core i7/i9, AMD Ryzen, etc. utilisent ce concept.</p>
+<p>Voici comment cela fonctionne :</p>
+<ol>
+<li>Lorsqu'une instruction est décodée, le processeur associe chaque registre architectural à un registre physique. Le processeur gère une table de renommage qui fait correspondre chaque registre architectural à un registre physique.</li>
+<li>Exécution hors-ordre : Les instructions sont exécutées dans l'ordre dans lequel elles sont décodées, mais les résultats peuvent être renvoyés dans un ordre différent. Cela signifie que les instructions peuvent être exécutées dans un ordre différent de celui dans lequel elles apparaissent dans le code source.</li>
+<li>Retirement (retrait) : une fois que les instructions sont exécutées et validées, les résultats des registres physiques sont reflétés dans les registres architecturaux lors de l'étape de retrait (retirement). À ce stade, le programmeur ou le système voit les registres comme étant mis à jour dans l'ordre correct.</li>
+</ol>
+<p>Les éléments clés de ce concept sont le <em>Reorder Buffer</em> et le <em>Retirement Unit</em>. Le <em>Reorder Buffer (ROB)</em> permet au processeur de garder une trace des instructions en cours d'exécution hors-ordre et il s'assure que les instructions sont retirées (c'est-à-dire, finalisées et appliquées aux registres architecturaux) dans le bon ordre, tel que prévu par le programmeur. Au moment du retrait, via le ROB, les résultats des registres physiques sont copiés vers les registres architecturaux visibles par le programmeur. C'est ce moment-là où, du point de vue du programmeur, le registre RAX ou RBX est mis à jour.</p>
+<h2 id="lassembleur">L'assembleur<a class="headerlink" href="#lassembleur" title="Lien permanent">¤</a></h2>
+<p>Avant le C, le Fortran ou le Cobol, il était possible de programmer directement en assembleur. L'assembleur est le langage du plus bas niveau que l'on puisse utiliser pour programmer un ordinateur. Il se compose des instructions primitives que le processeur peut exécuter directement. Ces instructions primitives sont généralement très simples, comme ajouter deux nombres, déplacer des données d'un emplacement à un autre, ou effectuer des opérations logiques sur des bits.</p>
+<p>Nos processeurs modernes étant déjà très complexes, les instructions de base de l'assembleur sont également complexes. L'architecture X86-64 dispose d'environ 200 instructions différentes. Charger une valeur à une adresse mémoire contenue dans le registre <span class="ycr-hashtag" data-index-entry="RBX" data-tag="RBX"><code>RBX</code></span> dans le registre <span class="ycr-hashtag" data-index-entry="RAX" data-tag="RAX"><code>RAX</code></span> s'écrirait <code>MOV RAX, [RBX]</code>, et cette ligne d'assembleur peut être traduite en langage machine <code>488B03</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>4  Utilisation des registres étendus (64 bits)
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>8  Utilisation des registres hauts (RAX, RBX)
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>8B Instruction MOV
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>03 ModRM qu'il faut décortiquer:
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>   0b00  Adressage indirect
+</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>   0b000 Registre 0 (RAX)
+</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>   0b011 Registre 3 (RBX)
+</span></code></pre></div>
+<p>Ecrire un programme en langage machine est compliqué et fastidieux. C'est pourquoi on utilise un langage textuel appelé assembleur qui peut facilement être converti en langage machine.</p>
+<p>Pour mieux comprendre, admettons que l'on souhaite réécrire notre programme <span class="ycr-hashtag" data-index-entry="hello.c" data-tag="hello.c"><code>hello.c</code></span> mais en assembleur (<span class="ycr-hashtag" data-index-entry="hello.s" data-tag="hello.s"><code>hello.s</code></span>). Ici, il ne faut pas imaginer accéder directement à l'écran pour écrire du texte. Il faut passer par le système d'exploitation. Pour cela, on utilise les appels systèmes. C'est exactement ce que fait <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span>. Vous noterez la présence de nombreux commentaires, il est courant d'ajouter des commentaires pour mieux expliquer le code assembleur qui est souvent, par sa nature assez cryptique :</p>
+<div class="language-nasm highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">section</span><span class="w"> </span><span class="nv">.data</span>
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="nf">message</span><span class="w"> </span><span class="nv">db</span><span class="w"> </span><span class="s">"Hello, World!"</span><span class="p">,</span><span class="w"> </span><span class="mh">0xA</span>
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="no">len</span><span class="w"> </span><span class="kd">equ</span><span class="w"> </span><span class="kc">$</span><span class="o">-</span><span class="nv">message</span><span class="w">       </span><span class="c1">; Taille du message</span>
+</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="k">section</span><span class="w"> </span><span class="nv">.text</span>
+</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="k">global</span><span class="w"> </span><span class="nv">_start</span>
+</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="nl">_start:</span>
+</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="c1">; Appel système pour écrire (sys_write)</span>
+</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">              </span><span class="c1">; Numéro d'appel système pour sys_write</span>
+</span><span id="__span-6-11"><a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdi</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">              </span><span class="c1">; Descripteur de fichier 1 (stdout)</span>
+</span><span id="__span-6-12"><a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rsi</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="w">        </span><span class="c1">; Adresse du message</span>
+</span><span id="__span-6-13"><a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdx</span><span class="p">,</span><span class="w"> </span><span class="nv">len</span><span class="w">            </span><span class="c1">; Longueur du message</span>
+</span><span id="__span-6-14"><a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">    </span><span class="nf">syscall</span><span class="w">                 </span><span class="c1">; Appel système</span>
+</span><span id="__span-6-15"><a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a>
+</span><span id="__span-6-16"><a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">    </span><span class="c1">; Appel système pour terminer le programme (sys_exit)</span>
+</span><span id="__span-6-17"><a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="w">             </span><span class="c1">; Numéro d'appel système pour sys_exit</span>
+</span><span id="__span-6-18"><a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">    </span><span class="nf">xor</span><span class="w"> </span><span class="nb">rdi</span><span class="p">,</span><span class="w"> </span><span class="nb">rdi</span><span class="w">            </span><span class="c1">; Code de sortie 0 (plus rapide que mov rdi, 0)</span>
+</span><span id="__span-6-19"><a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="w">    </span><span class="nf">syscall</span><span class="w">                 </span><span class="c1">; Appel système</span>
+</span></code></pre></div>
+<p>Pour le compiler, on utilisera <span class="ycr-hashtag" data-index-entry="nasm" data-tag="nasm"><code>nasm</code></span> et <code>ld</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>nasm<span class="w"> </span>-f<span class="w"> </span>elf64<span class="w"> </span>hello.s<span class="w"> </span>-o<span class="w"> </span>hello.o
+</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>ld<span class="w"> </span>hello.o<span class="w"> </span>-o<span class="w"> </span>hello
+</span></code></pre></div>
+<p>Ce programme ne comporte que deux appel systèmes <span class="ycr-hashtag" data-index-entry="write" data-tag="write"><code>write</code></span> et <span class="ycr-hashtag" data-index-entry="exit" data-tag="exit"><code>exit</code></span>.</p>
+<p>Admettons que l'on souhaite multiplier 12345 avec 67890 et afficher le résultat sur la sortie standard. Ce programme est déjà plus compliqué. Les deux valeurs peuvent être stockées dans un registre 64-bit comme <span class="ycr-hashtag" data-index-entry="rax" data-tag="rax"><code>rax</code></span> et <span class="ycr-hashtag" data-index-entry="rbx" data-tag="rbx"><code>rbx</code></span>. Pour afficher le résultat, il faut convertir le nombre en chaîne de caractères, c'est ce que fait normalement <code>%d</code> dans <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> mais ici nous sommes en assembleur, nous n'avons pas accès à cette fonction facilement. La stratégie est donc de diviser le nombre par 10 et de stocker le reste dans un tampon. On répète l'opération jusqu'à ce que le quotient soit nul. Ensuite, on inverse le tampon pour obtenir le nombre correct.</p>
+<div class="language-nasm highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">section</span><span class="w"> </span><span class="nv">.data</span>
+</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="nf">message</span><span class="w"> </span><span class="nv">db</span><span class="w"> </span><span class="s">"12345 * 67890 = "</span><span class="w">  </span><span class="c1">; Message à afficher</span>
+</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="no">len</span><span class="w"> </span><span class="kd">equ</span><span class="w"> </span><span class="kc">$</span><span class="o">-</span><span class="nv">message</span><span class="w">              </span><span class="c1">; Taille du message</span>
+</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="k">section</span><span class="w"> </span><span class="nv">.bss</span>
+</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="nf">buffer</span><span class="w"> </span><span class="nv">resb</span><span class="w"> </span><span class="mi">20</span><span class="w">                     </span><span class="c1">; Tampon pour stocker le résultat converti</span>
+</span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="k">section</span><span class="w"> </span><span class="nv">.text</span>
+</span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="k">global</span><span class="w"> </span><span class="nv">_start</span>
+</span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="c1">; Fonction int_to_string : Convertit un entier en chaîne de caractères</span>
+</span><span id="__span-8-12"><a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="c1">; Entrée : rdi = entier à convertir, rsi = tampon pour stocker la chaîne (ptr)</span>
+</span><span id="__span-8-13"><a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="c1">; Sortie : rbx = longueur de la chaîne (entier)</span>
+</span><span id="__span-8-14"><a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="nl">int_to_string:</span>
+</span><span id="__span-8-15"><a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rbx</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">              </span><span class="c1">; Longueur initiale de la chaîne</span>
+</span><span id="__span-8-16"><a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rcx</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w">             </span><span class="c1">; Diviseur (10 pour conversion décimale)</span>
+</span><span id="__span-8-17"><a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a>
+</span><span id="__span-8-18"><a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="nl">.convert_loop:</span>
+</span><span id="__span-8-19"><a href="#__codelineno-8-19" id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="w">    </span><span class="nf">xor</span><span class="w"> </span><span class="nb">rdx</span><span class="p">,</span><span class="w"> </span><span class="nb">rdx</span><span class="w">            </span><span class="c1">; Réinitialiser rdx</span>
+</span><span id="__span-8-20"><a href="#__codelineno-8-20" id="__codelineno-8-20" name="__codelineno-8-20"></a><span class="w">    </span><span class="nf">div</span><span class="w"> </span><span class="nb">rcx</span><span class="w">                 </span><span class="c1">; Diviser rax par 10, quotient dans rax, reste dans rdx</span>
+</span><span id="__span-8-21"><a href="#__codelineno-8-21" id="__codelineno-8-21" name="__codelineno-8-21"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="nb">dl</span><span class="p">,</span><span class="w"> </span><span class="s">'0'</span><span class="w">             </span><span class="c1">; Convertir le chiffre en caractère ASCII</span>
+</span><span id="__span-8-22"><a href="#__codelineno-8-22" id="__codelineno-8-22" name="__codelineno-8-22"></a><span class="w">    </span><span class="nf">dec</span><span class="w"> </span><span class="nb">rsi</span><span class="w">                 </span><span class="c1">; Déplacer le pointeur dans le tampon</span>
+</span><span id="__span-8-23"><a href="#__codelineno-8-23" id="__codelineno-8-23" name="__codelineno-8-23"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="p">],</span><span class="w"> </span><span class="nb">dl</span><span class="w">           </span><span class="c1">; Stocker le caractère dans le tampon</span>
+</span><span id="__span-8-24"><a href="#__codelineno-8-24" id="__codelineno-8-24" name="__codelineno-8-24"></a><span class="w">    </span><span class="nf">inc</span><span class="w"> </span><span class="nb">rbx</span><span class="w">                 </span><span class="c1">; Augmenter la longueur de la chaîne</span>
+</span><span id="__span-8-25"><a href="#__codelineno-8-25" id="__codelineno-8-25" name="__codelineno-8-25"></a><span class="w">    </span><span class="nf">test</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="nb">rax</span><span class="w">           </span><span class="c1">; Vérifier si le quotient est zéro</span>
+</span><span id="__span-8-26"><a href="#__codelineno-8-26" id="__codelineno-8-26" name="__codelineno-8-26"></a><span class="w">    </span><span class="nf">jnz</span><span class="w"> </span><span class="nv">.convert_loop</span><span class="w">       </span><span class="c1">; Si ce n'est pas zéro, continuer la conversion</span>
+</span><span id="__span-8-27"><a href="#__codelineno-8-27" id="__codelineno-8-27" name="__codelineno-8-27"></a>
+</span><span id="__span-8-28"><a href="#__codelineno-8-28" id="__codelineno-8-28" name="__codelineno-8-28"></a><span class="w">    </span><span class="c1">; Retourner le début de la chaîne</span>
+</span><span id="__span-8-29"><a href="#__codelineno-8-29" id="__codelineno-8-29" name="__codelineno-8-29"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="nb">rsi</span><span class="w">            </span><span class="c1">; Placer le pointeur vers la chaîne convertie dans rax</span>
+</span><span id="__span-8-30"><a href="#__codelineno-8-30" id="__codelineno-8-30" name="__codelineno-8-30"></a><span class="w">    </span><span class="nf">ret</span>
+</span><span id="__span-8-31"><a href="#__codelineno-8-31" id="__codelineno-8-31" name="__codelineno-8-31"></a>
+</span><span id="__span-8-32"><a href="#__codelineno-8-32" id="__codelineno-8-32" name="__codelineno-8-32"></a><span class="nl">_start:</span>
+</span><span id="__span-8-33"><a href="#__codelineno-8-33" id="__codelineno-8-33" name="__codelineno-8-33"></a><span class="w">    </span><span class="c1">; Afficher le message</span>
+</span><span id="__span-8-34"><a href="#__codelineno-8-34" id="__codelineno-8-34" name="__codelineno-8-34"></a><span class="w">    </span><span class="c1">; rax = 1 (sys_write), rdi = 1 (stdout), rsi = message, rdx = len</span>
+</span><span id="__span-8-35"><a href="#__codelineno-8-35" id="__codelineno-8-35" name="__codelineno-8-35"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-8-36"><a href="#__codelineno-8-36" id="__codelineno-8-36" name="__codelineno-8-36"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdi</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-8-37"><a href="#__codelineno-8-37" id="__codelineno-8-37" name="__codelineno-8-37"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rsi</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span>
+</span><span id="__span-8-38"><a href="#__codelineno-8-38" id="__codelineno-8-38" name="__codelineno-8-38"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdx</span><span class="p">,</span><span class="w"> </span><span class="nv">len</span>
+</span><span id="__span-8-39"><a href="#__codelineno-8-39" id="__codelineno-8-39" name="__codelineno-8-39"></a><span class="w">    </span><span class="nf">syscall</span>
+</span><span id="__span-8-40"><a href="#__codelineno-8-40" id="__codelineno-8-40" name="__codelineno-8-40"></a>
+</span><span id="__span-8-41"><a href="#__codelineno-8-41" id="__codelineno-8-41" name="__codelineno-8-41"></a><span class="w">    </span><span class="c1">; Multiplication non signée de 12345 par 67890</span>
+</span><span id="__span-8-42"><a href="#__codelineno-8-42" id="__codelineno-8-42" name="__codelineno-8-42"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">12345</span>
+</span><span id="__span-8-43"><a href="#__codelineno-8-43" id="__codelineno-8-43" name="__codelineno-8-43"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rbx</span><span class="p">,</span><span class="w"> </span><span class="mi">67890</span>
+</span><span id="__span-8-44"><a href="#__codelineno-8-44" id="__codelineno-8-44" name="__codelineno-8-44"></a><span class="w">    </span><span class="nf">imul</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="nb">rbx</span>
+</span><span id="__span-8-45"><a href="#__codelineno-8-45" id="__codelineno-8-45" name="__codelineno-8-45"></a>
+</span><span id="__span-8-46"><a href="#__codelineno-8-46" id="__codelineno-8-46" name="__codelineno-8-46"></a><span class="w">    </span><span class="c1">; Appel de la sous-routine pour convertir l'entier en chaîne</span>
+</span><span id="__span-8-47"><a href="#__codelineno-8-47" id="__codelineno-8-47" name="__codelineno-8-47"></a><span class="w">    </span><span class="c1">; rdi = rax (résultat calcul), rsi = buffer + 20 (fin du tampon)</span>
+</span><span id="__span-8-48"><a href="#__codelineno-8-48" id="__codelineno-8-48" name="__codelineno-8-48"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdi</span><span class="p">,</span><span class="w"> </span><span class="nb">rax</span>
+</span><span id="__span-8-49"><a href="#__codelineno-8-49" id="__codelineno-8-49" name="__codelineno-8-49"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rsi</span><span class="p">,</span><span class="w"> </span><span class="nv">buffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">20</span>
+</span><span id="__span-8-50"><a href="#__codelineno-8-50" id="__codelineno-8-50" name="__codelineno-8-50"></a><span class="w">    </span><span class="nf">call</span><span class="w"> </span><span class="nv">int_to_string</span>
+</span><span id="__span-8-51"><a href="#__codelineno-8-51" id="__codelineno-8-51" name="__codelineno-8-51"></a>
+</span><span id="__span-8-52"><a href="#__codelineno-8-52" id="__codelineno-8-52" name="__codelineno-8-52"></a><span class="w">    </span><span class="c1">; Afficher le résultat (chaîne convertie)</span>
+</span><span id="__span-8-53"><a href="#__codelineno-8-53" id="__codelineno-8-53" name="__codelineno-8-53"></a><span class="w">    </span><span class="c1">; rax = 1 (sys_write), rdi = 1 (stdout), rdx = longueur de la chaîne</span>
+</span><span id="__span-8-54"><a href="#__codelineno-8-54" id="__codelineno-8-54" name="__codelineno-8-54"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-8-55"><a href="#__codelineno-8-55" id="__codelineno-8-55" name="__codelineno-8-55"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdi</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-8-56"><a href="#__codelineno-8-56" id="__codelineno-8-56" name="__codelineno-8-56"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdx</span><span class="p">,</span><span class="w"> </span><span class="nb">rbx</span>
+</span><span id="__span-8-57"><a href="#__codelineno-8-57" id="__codelineno-8-57" name="__codelineno-8-57"></a><span class="w">    </span><span class="nf">syscall</span>
+</span><span id="__span-8-58"><a href="#__codelineno-8-58" id="__codelineno-8-58" name="__codelineno-8-58"></a>
+</span><span id="__span-8-59"><a href="#__codelineno-8-59" id="__codelineno-8-59" name="__codelineno-8-59"></a><span class="w">    </span><span class="c1">; Fin du programme</span>
+</span><span id="__span-8-60"><a href="#__codelineno-8-60" id="__codelineno-8-60" name="__codelineno-8-60"></a><span class="w">    </span><span class="c1">; rax = 60 (sys_exit), rdi = 0 (code de sortie)</span>
+</span><span id="__span-8-61"><a href="#__codelineno-8-61" id="__codelineno-8-61" name="__codelineno-8-61"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span>
+</span><span id="__span-8-62"><a href="#__codelineno-8-62" id="__codelineno-8-62" name="__codelineno-8-62"></a><span class="w">    </span><span class="nf">xor</span><span class="w"> </span><span class="nb">rdi</span><span class="p">,</span><span class="w"> </span><span class="nb">rdi</span>
+</span><span id="__span-8-63"><a href="#__codelineno-8-63" id="__codelineno-8-63" name="__codelineno-8-63"></a><span class="w">    </span><span class="nf">syscall</span>
+</span></code></pre></div>
+<h2 id="fonctionnalites-internes">Fonctionnalités internes<a class="headerlink" href="#fonctionnalites-internes" title="Lien permanent">¤</a></h2>
+<h3 id="protection-ring">Protection ring<a class="headerlink" href="#protection-ring" title="Lien permanent">¤</a></h3>
+<p>Les <em>protection rings</em> (ou anneaux de protection) sont un mécanisme de sécurité utilisé dans l'architecture des processeurs, principalement dans les systèmes d'exploitation modernes, pour contrôler l'accès aux ressources du système par différents types de code (comme les applications ou les composants du système d'exploitation).</p>
+<p>L'idée des anneaux de protection repose sur la séparation des niveaux de privilège ou de contrôle en plusieurs couches. Chaque couche, ou ring (anneau), est un niveau de privilège qui détermine ce qu’un programme ou une instruction peut faire. Dans l'architecture x86 d'Intel, il y a généralement quatre anneaux (de 0 à 3), bien que les systèmes d'exploitation modernes n’utilisent souvent que deux de ces niveaux (Ring 0 et Ring 3).</p>
+<p><figure id="_figure-8"><img alt="Anneaux de protection" class="drawio-diagram" src="../../../assets/images/protection-rings.drawio"/><figcaption> Anneaux de protection</figcaption></figure></p>
+<p>Le ring 0 correspond au noyau (kernel) du système d'exploitation, qui a accès à toutes les ressources matérielles de l'ordinateur. Il peut exécuter n'importe quelle instruction, accéder à la mémoire directement, et gérer le matériel sans restriction. On parle souvent de mode superviseur ou mode noyau pour désigner les opérations effectuées dans cet anneau. C’est le niveau le plus privilégié.</p>
+<p>Les niveaux intermédiaires 1 et 2 peuvent être utilisés par certains systèmes pour les pilotes ou des services du système qui ont besoin d'un accès contrôlé aux ressources, mais ne nécessitent pas le même niveau de privilège que le noyau. Toutefois, la plupart des systèmes d'exploitation modernes ne les utilisent pas directement.</p>
+<p>Enfin, le niveau 3 est réservé aux applications utilisateur. Il s’agit du mode utilisateur (user mode), dans lequel les programmes n’ont pas un accès direct au matériel ou à la mémoire, et doivent passer par des appels système pour demander des services au noyau. En cas de violation des règles (comme essayer d’accéder directement au matériel), une exception ou une erreur est générée, et le programme est bloqué.</p>
+<h3 id="memoire-cache_1">Mémoire cache<a class="headerlink" href="#memoire-cache_1" title="Lien permanent">¤</a></h3>
+<p>Cache L1, L2, L3, Le cache L1 est apparu dans les années 1980, le cache L2 est apparu dans les années 1990 (d'abord externe, puis intégré), et le cache L3 est devenu standard dans les années 2000.</p>
+<h3 id="fpu">FPU<a class="headerlink" href="#fpu" title="Lien permanent">¤</a></h3>
+<p>Précision simple, double, étendue (Extended Precision),  Apparue avec les coprocesseurs mathématiques (x87 FPU), et les extensions SSE ont introduit la gestion des calculs en virgule flottante sur des registres 128-bit.</p>
+<h3 id="virtualisation-intel-vt-x-amd-v">Virtualisation (Intel VT-x, AMD-V)<a class="headerlink" href="#virtualisation-intel-vt-x-amd-v" title="Lien permanent">¤</a></h3>
+<p>Support pour l'exécution de machines virtuelles directement via le matériel, introduit dans les années 2000.</p>
+<h3 id="reduction-de-consommation">Réduction de consommation<a class="headerlink" href="#reduction-de-consommation" title="Lien permanent">¤</a></h3>
+<p>(Intel SpeedStep, AMD Cool'n'Quiet)** : Ces technologies permettent au processeur de diminuer sa consommation en adaptant dynamiquement sa fréquence et son voltage.</p>
+<h3 id="pipeline_1">Pipeline<a class="headerlink" href="#pipeline_1" title="Lien permanent">¤</a></h3>
+<p>Pipelines avec plusieurs niveaux (Netburst), La microarchitecture Netburst d'Intel Pentium 4 introduit des pipelines de plus de 30 niveaux pour viser des fréquences élevées, bien que cela ait compromis les performances générales.</p>
+<h3 id="micro-operations-et-scheduling">Micro-opérations et scheduling<a class="headerlink" href="#micro-operations-et-scheduling" title="Lien permanent">¤</a></h3>
+<p>Les architectures modernes décomposent les instructions complexes en micro-opérations (Intel Core) pour mieux les planifier via un scheduler intégré.</p>
+<h3 id="alu">ALU<a class="headerlink" href="#alu" title="Lien permanent">¤</a></h3>
+<p>L'<em>Arithmetic Logic Unit</em> (ALU) est l'une des principales composantes d'un processeur. C'est l'unité qui effectue les opérations arithmétiques et logiques sur les données. L'ALU est capable d'effectuer des opérations telles que l'addition, la soustraction, la multiplication, la division, les opérations logiques (ET, OU, NON, XOR), les décalages de bits, etc.</p>
+<h3 id="barrel-shifter">Barrel Shifter<a class="headerlink" href="#barrel-shifter" title="Lien permanent">¤</a></h3>
+<p>Le <em>barrel shifter</em> est un circuit logique qui permet de décaler un nombre binaire vers la gauche ou vers la droite. Il est utilisé dans les processeurs pour effectuer des opérations de décalage et de rotation sur les données. Sur un processeur 32 bits, le <em>barrel shifter</em> peut effectuer des décalages de 1 à 31 bits en une seule opération, ce qui le rend très efficace pour les opérations de manipulation de bits.</p>
+<p><figure id="_figure-9"><img alt="Barrel Shifter" class="drawio-diagram" src="../../../assets/images/barrel-shifter.drawio"/><figcaption> Barrel Shifter</figcaption></figure></p>
+<p>Rappelons qu'un décalage des bits vers la gauche correspond à une multiplication par 2, tandis qu'un décalage vers la droite correspond à une division par 2. Les puissance de 2 sont donc très efficaces car elles correspondent à des décalages de bits pouvant être effectués très rapidement par le <em>barrel shifter</em>.</p>
+<p>Un <em>barrel shifter</em> peut également gérer la rotation des bits, c'est-à-dire déplacer les bits d'un mot binaire d'un certain nombre de positions vers la gauche ou vers la droite, en déplaçant les bits qui sortent d'un côté à l'autre du mot. Cela permet de réaliser des opérations de permutation et de cryptographie sur les données.</p>
+<p>Dans un processeur ARM, une instruction de décalage peut être incluse directement dans une instruction arithmétique, ce qui permet d'effectuer des opérations de décalage en même temps que des opérations arithmétiques, sans avoir besoin d'une instruction séparée pour le décalage :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>ADD r0, r1, r2, LSR #5  ; r0 = (r1 + r2) &gt;&gt; 5
+</span></code></pre></div>
+<h3 id="sse-et-avx">SSE et AVX<a class="headerlink" href="#sse-et-avx" title="Lien permanent">¤</a></h3>
+<p>Les instructions SSE (<em>Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions</em>) sont une extension de l'architecture x86 introduite par Intel en 1999 avec les processeurs Pentium III. Elles permettent d'effectuer des opérations vectorielles sur des registres de 128 bits (<span class="ycr-hashtag" data-index-entry="xmm" data-tag="xmm"><code>xmm</code></span>), ce qui améliore les performances pour les calculs intensifs en parallèle.</p>
+<p>Les instructions AVX (<em>Advanced Vector Extensions</em>) sont une extension de l'architecture x86 introduite par Intel en 2011 avec les processeurs Sandy Bridge. Elles permettent d'effectuer des opérations vectorielles sur des registres de 256 bits (<span class="ycr-hashtag" data-index-entry="ymm" data-tag="ymm"><code>ymm</code></span>), et avec l'AVX-512 des registres de 512 bits (<span class="ycr-hashtag" data-index-entry="zmm" data-tag="zmm"><code>zmm</code></span>), ce qui améliore les performances pour les calculs intensifs en parallèle.</p>
+<p>Le <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> (<em>Single Instruction, Multiple Data</em>) est une technique de parallélisme de données qui permet d'effectuer la même opération sur plusieurs données simultanément.</p>
+<p>Les applications possibles sont nombreuses : filtre d'image, mélange de couleurs, compression d'image, traitement audio, multiplication de matrices, etc.</p>
+<p>Dans gcc, on peut utiliser les options <code>-msse</code> ou <code>-msse2</code> pour activer les instructions SSE, alternativement on peut utiliser <code>-march=skylake</code> pour activer les instructions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> spécifiques à l'architecture du processeur.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">a</span><span class="p">,</span>
+</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">             </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
+</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="p">{</span>
+</span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-10-5"><a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">        </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-10-6"><a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Ce code compile en donnant l'assembleur suivant :</p>
+<div class="language-nasm highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="nl">compute:</span>
+</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">  </span><span class="nf">vmovups</span><span class="w"> </span><span class="nb">ymm0</span><span class="p">,</span><span class="w"> </span><span class="nv">ymmword</span><span class="w"> </span><span class="nv">ptr</span><span class="w"> </span><span class="p">[</span><span class="nb">rdi</span><span class="p">]</span>
+</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">  </span><span class="nf">vaddps</span><span class="w">  </span><span class="nb">ymm0</span><span class="p">,</span><span class="w"> </span><span class="nb">ymm0</span><span class="p">,</span><span class="w"> </span><span class="nv">ymmword</span><span class="w"> </span><span class="nv">ptr</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="p">]</span>
+</span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">  </span><span class="nf">vmovups</span><span class="w"> </span><span class="nv">ymmword</span><span class="w"> </span><span class="nv">ptr</span><span class="w"> </span><span class="p">[</span><span class="nb">rdx</span><span class="p">],</span><span class="w"> </span><span class="nb">ymm0</span>
+</span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">  </span><span class="nf">vzeroupper</span>
+</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">  </span><span class="nf">ret</span>
+</span></code></pre></div>
+<p>Notons ici que le mot clé <span class="ycr-hashtag" data-index-entry="restrict" data-tag="restrict"><code>restrict</code></span> est indispensable pour indiquer au compilateur que les pointeurs ne se chevauchent pas.</p>
+<p>L'instruction <span class="ycr-hashtag" data-index-entry="vmovups" data-tag="vmovups"><code>vmovups</code></span> charge un vecteur de 8 floats (format spécifié avec <span class="ycr-hashtag" data-index-entry="ymmword" data-tag="ymmword"><code>ymmword</code></span>) dans le registre <span class="ycr-hashtag" data-index-entry="ymm0" data-tag="ymm0"><code>ymm0</code></span>. L'instruction <span class="ycr-hashtag" data-index-entry="vaddps" data-tag="vaddps"><code>vaddps</code></span> additionne les éléments d'un vecteur de nombre flottants (<code>ps</code> pour <em>packed single-precision floating-point values</em>). <span class="ycr-hashtag" data-index-entry="ymm0" data-tag="ymm0"><code>ymm0</code></span> contient déjà les valeurs de <code>a</code>, on ajoute donc les valeurs de <code>b</code>. Enfin, l'instruction <span class="ycr-hashtag" data-index-entry="vmovups" data-tag="vmovups"><code>vmovups</code></span> stocke le résultat dans le tableau <code>c</code>. L'instruction <span class="ycr-hashtag" data-index-entry="vzeroupper" data-tag="vzeroupper"><code>vzeroupper</code></span> est utilisée pour réinitialiser les registres AVX supérieurs.</p>
+<p>Avant les architectures superscalaires, le code assembleur généré aurait été probablement similaire à ceci :</p>
+<div class="language-nasm highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nl">compute:</span>
+</span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">  </span><span class="nf">fld</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdi</span><span class="p">]</span>
+</span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="nf">fadd</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="p">]</span>
+</span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="nf">fstp</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdx</span><span class="p">]</span>
+</span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="nf">fld</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdi</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span>
+</span><span id="__span-12-7"><a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="nf">fadd</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span>
+</span><span id="__span-12-8"><a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="nf">fstp</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdx</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span>
+</span><span id="__span-12-9"><a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a>
+</span><span id="__span-12-10"><a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">  </span><span class="nf">fld</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdi</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span>
+</span><span id="__span-12-11"><a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">  </span><span class="nf">fadd</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span>
+</span><span id="__span-12-12"><a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">  </span><span class="nf">fstp</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdx</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span>
+</span><span id="__span-12-13"><a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">  </span><span class="nf">fld</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdi</span><span class="o">+</span><span class="mi">12</span><span class="p">]</span>
+</span><span id="__span-12-15"><a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">  </span><span class="nf">fadd</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="o">+</span><span class="mi">12</span><span class="p">]</span>
+</span><span id="__span-12-16"><a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">  </span><span class="nf">fstp</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdx</span><span class="o">+</span><span class="mi">12</span><span class="p">]</span>
+</span><span id="__span-12-17"><a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a>
+</span><span id="__span-12-18"><a href="#__codelineno-12-18" id="__codelineno-12-18" name="__codelineno-12-18"></a><span class="w">  </span><span class="c1">; Répéter pour les 4 autres éléments...</span>
+</span><span id="__span-12-19"><a href="#__codelineno-12-19" id="__codelineno-12-19" name="__codelineno-12-19"></a>
+</span><span id="__span-12-20"><a href="#__codelineno-12-20" id="__codelineno-12-20" name="__codelineno-12-20"></a><span class="w">  </span><span class="nf">ret</span>
+</span></code></pre></div>
+<p>La comparaison des performances est évidente, les instructions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> permettent de traiter 8 éléments en une seule instruction, tandis que les instructions FPU ne peuvent traiter qu'un seul élément à la fois. Il faut environ 7 cycles d'horloge avec SSE/AVX contre 60 à 70 cycles avec FPU.</p>
+<h2 id="compatibilite">Compatibilité<a class="headerlink" href="#compatibilite" title="Lien permanent">¤</a></h2>
+<p>Nous avons vu, les processeurs évoluent au fil des générations le SS2 a été introduit avec le Pentium III, l'AVX 256 bits avec Sandy Bridge, l'AVX 512 bits avec Skylake, etc. Cela pose un problème de compatibilité car si vous compilez avec <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span> votre programme aujourd'hui, il ne fonctionnera probablement pas sur une ancienne architecture, pourtant c'est un exécutable x86-64 en format <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a>.</p>
+<p>Par défaut, <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span> compile pour une architecture générique, c'est à dire qu'il fait un compromis entre les différentes architectures pour garantir une certaine compatibilité. Pour compiler pour une architecture spécifique, il faut utiliser l'option <code>-march</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>gcc<span class="w"> </span>-march<span class="o">=</span>skylake<span class="w"> </span>main.c
+</span></code></pre></div>
+<p>Notons que si ce programme est executé sur un processeur plus ancien, il ne fonctionnera pas, le processeur ne comprendra pas certaines instructions et générera une exception matérielle (généralement <em>Illegal Instruction</em>). Cela se traduit par le signal <span class="ycr-hashtag" data-index-entry="SIGILL" data-tag="SIGILL"><code>SIGILL</code></span> envoyé à un processus lorsqu'il tente d'exécuter une instruction illégale. Sans gestion de cette exception, le processus sera arrêté avec un message d'erreur :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>Illegal instruction (core dumped)
+</span></code></pre></div>
+<p>Il y a donc un compromis à faire entre la performance et la compatibilité. Si vous développez un logiciel grand public, vous voudrez probablement le rendre compatible avec un maximum de processeurs, mais si vous développez un logiciel pour un environnement spécifique, vous pouvez optimiser pour une architecture particulière. C'est pour cette raison que sous Linux/Unix il est courant de compiler ses logiciels soi-même pour obtenir les meilleures performances, c'est notament le cas de la distribution Gentoo dans lequel l'utilisateur doit compiler la plupart des logiciels (ce qui est un enfer pour les non-geeks).</p>
+<p>Lorsque vous télécharge un binaire, par exemple Gimp, il sera compilé pour une architecture générique, ce qui garantit une certaine compatibilité, mais il ne sera pas optimisé pour votre processeur. Si vous voulez obtenir les meilleures performances, vous devrez le compiler vous-même.</p>
+<p>Sous Windows, cette culture de la compilation est moins répandue, les logiciels sont généralement distribués sous forme de binaire, et il est rare de trouver des versions optimisées pour une architecture spécifique et de nombreux logiciels sont très peu optimisés.</p>
+<h2 id="processeur-minimal">Processeur minimal<a class="headerlink" href="#processeur-minimal" title="Lien permanent">¤</a></h2>
+<p>Pour mieux comprendre le fonctionnement d'un processeur, il est intéressant de concevoir un processeur minimal. Imaginons donc un processeur ultra simple  sachant qu'un compromis doit être trouvé entre simplicité et fonctionnalité. En effet, un processeur dispose en autre des caractéristiques suivantes :</p>
+<ul>
+<li>Largeur du bus de données et d'adresse</li>
 <li>Nombre d'instructions</li>
 </ul>
-<p>Avec un jeu d'instruction très réduit comme comme sur l'OISC (<em>One Instruction Set Computer</em>) ou le <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> Zero, on peut concevoir un processeur minimaliste avec l'instruction <em>Subtract and Branch if Negative</em> (SBN). C'est une instruction qui soustrait deux valeurs et saute à une adresse si le résultat est négatif. Avec cette seule instruction, il est possible de simuler toutes les opérations qui seraient normaelemnt effectuées par un ensemble d'instructions plus riche comme l'addition, la soustraction, les comparaisons et les sauts conditionnels.</p>
+<p>Avec un jeu d'instruction très réduit comme comme sur l'OISC (<em>One Instruction Set Computer</em>) ou le <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> Zero, on peut concevoir un processeur minimaliste avec l'instruction <em>Subtract and Branch if Negative</em> (SBN). C'est une instruction qui soustrait deux valeurs et saute à une adresse si le résultat est négatif. Avec cette seule instruction, il est possible de simuler toutes les opérations qui seraient normalement effectuées par un ensemble d'instructions plus riche comme l'addition, la soustraction, les comparaisons et les sauts conditionnels.</p>
 <p>La quantité d'instructions dans un processeur classifie sa nature, on distingue les processeurs RISC (<em>Reduced Instruction Set Computer</em>) et CISC (<em>Complex Instruction Set Computer</em>). Les processeurs RISC ont un jeu d'instructions réduit, ce qui les rend plus simples et plus rapides. Les processeurs CISC ont un jeu d'instructions plus riche, ce qui les rend plus complexes mais plus polyvalents. Il y eut longtemps le débat entre les deux architectures, mais de nos jours, les processeurs modernes sont hybrides, ils combinent les avantages des deux architectures.</p>
 <p>Pour notre processeur, on retiendra une dizaine d'instructions regroupant les opérations de base comme l'addition, la soustraction, les opérations logiques, les sauts conditionnels et les opérations de transfert de données.</p>
-<p>Sur la figure suivante, on peut voir l'architecture minimale d'un processeur avec un jeu d'instructions réduit :</p>
-<p><figure id="_figure-7"><img alt="Architecture minimale" class="drawio-diagram" src="../../../assets/images/cpu-zero.drawio"/><figcaption> Architecture minimale</figcaption></figure></p>
+<p>Sur la figure suivante, on propose une  architecture minimale d'un processeur avec un jeu d'instructions réduit :</p>
+<p><figure id="_figure-10"><img alt="Architecture minimale" class="drawio-diagram" src="../../../assets/images/cpu-zero.drawio"/><figcaption> Architecture minimale</figcaption></figure></p>
+<p>Les instructions retenues sont les suivantes :</p>
 <ul>
 <li><span class="ycr-hashtag" data-index-entry="ADD" data-tag="ADD"><code>ADD</code></span> : additionne <code>A</code> et <code>B</code> et stocke le résultat dans <code>C</code></li>
 <li><span class="ycr-hashtag" data-index-entry="SUB" data-tag="SUB"><code>SUB</code></span> : soustrait <code>A</code> et <code>B</code> et stocke le résultat dans <code>C</code></li>
@@ -7003,21 +7197,39 @@ Imaginons donc un processeur le plus simple sachant qu'un compromis doit être t
 <li><code>MOV B, Rx</code> : copie le registe <code>Rx</code> dans <code>B</code></li>
 <li><code>MOV Rx, C</code> : copie <code>C</code> dans le registe <code>Rx</code></li>
 <li><code>MOV Rx, Ry</code> : copie le registe <code>Ry</code> dans le registe <code>Rx</code></li>
-<li>
-<p><code>MOV Rx, @Ry,Ry+1</code> : copie la valeur pointée par le registe <code>Ry</code> dans le registe <code>Rx</code></p>
-</li>
-<li>
-<p>L'architecture est 8-bit, et la mémoire est de 256 bytes.</p>
-</li>
-<li>L'adresse <code>0x0000</code> est le point d'entrée du programme.</li>
-<li>L'adresse <code>0xFFFE</code> est la queue d'entrée, une valeur lue</li>
-<li>L'adresse <code>0xFFFF</code> est la queue de sortie, l'affichage de la sortie, chaque valeur écrite est imprimée en <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> sur une imprimante.</li>
+<li><code>MOV Rx, @Ry,Ry+1</code> : copie la valeur pointée par le registe <code>Ry</code> dans le registe <code>Rx</code></li>
 </ul>
-<p>OP : <span class="ycr-hashtag" data-index-entry="Opcode" data-tag="Opcode"><code>Opcode</code></span>, c'est le code de l'instruction à exécuter. Il est chargé dans l'ALU pour sa configuration. Si l'OP est <span class="ycr-hashtag" data-index-entry="ADD" data-tag="ADD"><code>ADD</code></span> l'ALU exécute combinatoirement l'addition de <code>A</code> et <code>B</code> et le résultat est disponible sur <code>C</code>.</p>
-<p>ST : C'est le statut de l'ALU. On y trouve les flags <code>Z</code> (zero), <code>N</code> (negative), <code>C</code> (carry) et <code>O</code> (overflow).</p>
-<p>PC : C'est le pointeur d'instruction. Il pointe sur l'adresse de la prochaine instruction à exécuter.</p>
-<p>ADDH et ADDL c'est l'adresse de la mémoire à laquelle on veut accéder.</p>
-<p><span class="ycr-hashtag" data-index-entry="DATA" data-tag="DATA"><code>DATA</code></span> c'est la valeur lue, ou que l'on souhaite écrire dans la mémoire.</p>
+<p>Fixons quelques caractéristiques de notre processeur minimal :</p>
+<ul>
+<li>L'architecture est 16-bit, donc le bus d'adresse et de données sont de 16-bit. Cela signifie que le processeur peut adresser <span class="arithmatex">\(2^16 = 65536\)</span> adresses mémoire différentes, et que les données sont stockées sur des <span class="ycr-hashtag" data-index-entry="short" data-tag="short"><code>short</code></span> de 16 bits.</li>
+<li>L'adresse <code>0x0000</code> est le point d'entrée du programme, c'est là qu'au démarrage du processeur, le programme commence à s'exécuter.</li>
+<li>L'adresse <code>0xFFFE</code> est l'entrée standard, c'est une queue. Lorsque le buffer est vide, la valeur lue est <code>0x00FF</code>.</li>
+<li>L'adresse <code>0xFFFF</code> est la queue de sortie, l'affichage de la sortie, chaque valeur écrite est imprimée en <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> sur une imprimante, les valeurs sont donc des caractères <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> de 8 bits.</li>
+</ul>
+<p>Le processeur dispose de registres</p>
+<ul>
+<li><code>A</code> : Accumulateur, première entrée de l'ALU</li>
+<li><code>B</code> : Deuxième entrée de l'ALU (temporaire)</li>
+<li><code>C</code> : Résultat de l'ALU</li>
+<li><code>R0 à R7</code> : registres généraux de 16 bits</li>
+<li><code>OP</code> : instruction en cours d'exécution</li>
+<li><code>ST</code> : statut de l'ALU (zéro, négatif, carry, overflow)</li>
+<li><code>PC</code> : pointeur d'instruction, il contient l'adresse de la prochaine instruction à exécuter</li>
+<li><span class="ycr-hashtag" data-index-entry="ADDR" data-tag="ADDR"><code>ADDR</code></span> : adresse de la mémoire à laquelle on veut accéder</li>
+<li><span class="ycr-hashtag" data-index-entry="DATA" data-tag="DATA"><code>DATA</code></span> : valeur lue ou que l'on souhaite écrire dans la mémoire</li>
+</ul>
+<p>Une machine t'état est utilisée pour contrôler le processeur. Elle permet de générer les signaux de contrôle suivants :</p>
+<ul>
+<li><code>RD</code> : active la lecture de la mémoire pointée par <span class="ycr-hashtag" data-index-entry="ADDR" data-tag="ADDR"><code>ADDR</code></span></li>
+<li><code>WR</code> : active l'écriture dans la mémoire pointée par <span class="ycr-hashtag" data-index-entry="ADDR" data-tag="ADDR"><code>ADDR</code></span></li>
+<li><code>LA</code> : latch <span class="ycr-hashtag" data-index-entry="ADDR" data-tag="ADDR"><code>ADDR</code></span></li>
+<li><span class="ycr-hashtag" data-index-entry="LPC" data-tag="LPC"><code>LPC</code></span> : latch <code>PC</code></li>
+<li><code>LA</code> : latch la valeur sur le bus dans <code>A</code></li>
+<li><code>LB</code> : latch la valeur sur le bus dans <code>B</code></li>
+<li><code>LC</code> : Expose sur le bus la valeur de <code>C</code></li>
+<li><span class="ycr-hashtag" data-index-entry="LAOP" data-tag="LAOP"><code>LAOP</code></span> : latch l'OP</li>
+<li><span class="ycr-hashtag" data-index-entry="LST" data-tag="LST"><code>LST</code></span> : Expose le status sur le bus</li>
+</ul>
 <p>Ce <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> à un pipeline simple. A chaque coup d'horloge :</p>
 <ol>
 <li>PC est copié dans l'adresse de la mémoire à laquelle on veut accéder.</li>
@@ -7117,203 +7329,108 @@ Imaginons donc un processeur le plus simple sachant qu'un compromis doit être t
 </tr>
 </tbody>
 </table>
-<h2 id="registres">Registres<a class="headerlink" href="#registres" title="Lien permanent">¤</a></h2>
-<p>Dans une architecture super-scalaire hors-ordre (<em>out-of-order</em>) comme le x86-64, lorsqu'un programme est écrit en assembleur ou en langage machine, il fait appel à des registres architecturaux comme RAX, RBX etc. Ces registres font partie du <strong>modèle de programmation</strong> x86-64 et chaque programmeur ou compilateur les voit comme des éléments physiques qu'ils peuvent manipuler.</p>
-<p>Cependant, dans un processeur moderne hors-ordre (comme les Intel Core i7/i9, AMD Ryzen, etc.), la réalité matérielle est plus complexe. Les registres que le programmeur n'existent pas directement sous cette forme dans le matériel. Les processeurs modernes sont capables d'exécuter plusieurs instructions en parallèle grâce à une technique appelée exécution <strong>hors-ordre</strong>. Dans ce contexte, il est nécessaire de gérer plusieurs versions d'un même registre (comme RAX) à différents moments, car plusieurs instructions peuvent essayer de modifier ou d'utiliser ce registre de manière simultanée ou presque.</p>
-<p>C'est là qu'intervient le concept de renommage des registres. Le processeur dispose d'un ensemble de registres physiques (ou registres de données) qui stockent les valeurs des registres architecturaux. Ces registres physiques sont opaques pour le programmeur. Lorsque le processeur exécute un programme, il utilise une technique appelée renommage des registres pour associer temporairement chaque registre architectural (comme RAX) à un registre physique spécifique. Cela permet au processeur d'éviter les conflits entre instructions qui voudraient utiliser le même registre en même temps.</p>
-<p>Voici comment cela fonctionne :</p>
-<ol>
-<li>Lorsqu'une instruction est décodée, le processeur associe chaque registre architectural à un registre physique. Le processeur gère une table de renommage qui fait correspondre chaque registre architectural à un registre physique.</li>
-<li>Exécution hors-ordre : Les instructions sont exécutées dans l'ordre dans lequel elles sont décodées, mais les résultats peuvent être renvoyés dans un ordre différent. Cela signifie que les instructions peuvent être exécutées dans un ordre différent de celui dans lequel elles apparaissent dans le code source.</li>
-<li>Retirement (retrait) : une fois que les instructions sont exécutées et validées, les résultats des registres physiques sont reflétés dans les registres architecturaux lors de l'étape de retrait (retirement). À ce stade, le programmeur ou le système voit les registres comme étant mis à jour dans l'ordre correct.</li>
-</ol>
-<p>Le <em>Reorder Buffer (ROB)</em> est une structure clé dans ce processus. Il permet au processeur de garder une trace des instructions en cours d'exécution hors-ordre et il s'assure que les instructions sont retirées (c'est-à-dire, finalisées et appliquées aux registres architecturaux) dans le bon ordre, tel que prévu par le programmeur. Au moment du retrait, via le ROB, les résultats des registres physiques sont copiés vers les registres architecturaux visibles par le programmeur. C'est ce moment-là où, du point de vue du programmeur, le registre RAX ou RBX est mis à jour.</p>
-<h2 id="lassembleur">L'assembleur<a class="headerlink" href="#lassembleur" title="Lien permanent">¤</a></h2>
-<p>Le saviez-vous, il n'est pas indispensable de connaître le C pour développer des programmes sur un ordinateur. 85% des processeurs équipant les ordinateurs personnels sont sur une base x86-64. C'est à dire que si l'on connaît l'architecture, on peut écrire des programmes directement en assembleur. C'est un langage de bas niveau qui permet de contrôler directement le processeur.</p>
-<p>Admettons que l'on souhaite réécrire notre programme <span class="ycr-hashtag" data-index-entry="hello.c" data-tag="hello.c"><code>hello.c</code></span> mais en assembleur. Ici, il ne faut pas imaginer accéder directement à l'écran pour écrire du texte. Il faut passer par le système d'exploitation. Pour cela, on utilise les appels systèmes. C'est exactement ce que fait <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span>.</p>
-<div class="language-nasm highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">section</span><span class="w"> </span><span class="nv">.data</span>
-</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="nf">message</span><span class="w"> </span><span class="nv">db</span><span class="w"> </span><span class="s">"Hello, World!"</span><span class="p">,</span><span class="w"> </span><span class="mh">0xA</span>
-</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="no">len</span><span class="w"> </span><span class="kd">equ</span><span class="w"> </span><span class="kc">$</span><span class="o">-</span><span class="nv">message</span><span class="w">       </span><span class="c1">; Taille du message</span>
-</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="k">section</span><span class="w"> </span><span class="nv">.text</span>
-</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="k">global</span><span class="w"> </span><span class="nv">_start</span>
-</span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>
-</span><span id="__span-4-8"><a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="nl">_start:</span>
-</span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="c1">; Appel système pour écrire (sys_write)</span>
-</span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">              </span><span class="c1">; Numéro d'appel système pour sys_write</span>
-</span><span id="__span-4-11"><a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdi</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">              </span><span class="c1">; Descripteur de fichier 1 (stdout)</span>
-</span><span id="__span-4-12"><a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rsi</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="w">        </span><span class="c1">; Adresse du message</span>
-</span><span id="__span-4-13"><a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdx</span><span class="p">,</span><span class="w"> </span><span class="nv">len</span><span class="w">            </span><span class="c1">; Longueur du message</span>
-</span><span id="__span-4-14"><a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">    </span><span class="nf">syscall</span><span class="w">                 </span><span class="c1">; Appel système</span>
-</span><span id="__span-4-15"><a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>
-</span><span id="__span-4-16"><a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">    </span><span class="c1">; Appel système pour terminer le programme (sys_exit)</span>
-</span><span id="__span-4-17"><a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="w">             </span><span class="c1">; Numéro d'appel système pour sys_exit</span>
-</span><span id="__span-4-18"><a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">    </span><span class="nf">xor</span><span class="w"> </span><span class="nb">rdi</span><span class="p">,</span><span class="w"> </span><span class="nb">rdi</span><span class="w">            </span><span class="c1">; Code de sortie 0</span>
-</span><span id="__span-4-19"><a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">    </span><span class="nf">syscall</span><span class="w">                 </span><span class="c1">; Appel système</span>
-</span></code></pre></div>
-<p>Pour le compiler, on utilisera <span class="ycr-hashtag" data-index-entry="nasm" data-tag="nasm"><code>nasm</code></span> et <code>ld</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>nasm<span class="w"> </span>-f<span class="w"> </span>elf64<span class="w"> </span>hello.s<span class="w"> </span>-o<span class="w"> </span>hello.o
-</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>ld<span class="w"> </span>hello.o<span class="w"> </span>-o<span class="w"> </span>hello
-</span></code></pre></div>
-<p>Ce programme ne comporte que deux appel systèmes <span class="ycr-hashtag" data-index-entry="write" data-tag="write"><code>write</code></span> et <span class="ycr-hashtag" data-index-entry="exit" data-tag="exit"><code>exit</code></span>.</p>
-<p>Admettons que l'on souhaite multiplier 12345 avec 67890 et afficher le résultat sur la sortie standard. Ce programme est déjà plus compliqué. Les deux valeurs peuvent être stockées dans un registre 64-bit comme <span class="ycr-hashtag" data-index-entry="rax" data-tag="rax"><code>rax</code></span> et <span class="ycr-hashtag" data-index-entry="rbx" data-tag="rbx"><code>rbx</code></span>. Pour afficher le résultat, il faut convertir le nombre en chaîne de caractères, c'est ce que fait normalement <code>%d</code> dans <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> mais ici nous sommes en assembleur, nous n'avons pas accès à cette fonction facilement. La stratégie est donc de diviser le nombre par 10 et de stocker le reste dans un tampon. On répète l'opération jusqu'à ce que le quotient soit nul. Ensuite, on inverse le tampon pour obtenir le nombre correct.</p>
-<div class="language-nasm highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">section</span><span class="w"> </span><span class="nv">.data</span>
-</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="nf">message</span><span class="w"> </span><span class="nv">db</span><span class="w"> </span><span class="s">"12345 * 67890 = "</span><span class="w">  </span><span class="c1">; Message à afficher</span>
-</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="no">len</span><span class="w"> </span><span class="kd">equ</span><span class="w"> </span><span class="kc">$</span><span class="o">-</span><span class="nv">message</span><span class="w">              </span><span class="c1">; Taille du message</span>
-</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>
-</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="k">section</span><span class="w"> </span><span class="nv">.bss</span>
-</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="nf">buffer</span><span class="w"> </span><span class="nv">resb</span><span class="w"> </span><span class="mi">20</span><span class="w">                     </span><span class="c1">; Tampon pour stocker le résultat converti</span>
-</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>
-</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="k">section</span><span class="w"> </span><span class="nv">.text</span>
-</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="k">global</span><span class="w"> </span><span class="nv">_start</span>
-</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>
-</span><span id="__span-6-11"><a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="c1">; Fonction int_to_string : Convertit un entier en chaîne de caractères</span>
-</span><span id="__span-6-12"><a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="c1">; Entrée : rdi = entier à convertir, rsi = tampon pour stocker la chaîne (ptr)</span>
-</span><span id="__span-6-13"><a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="c1">; Sortie : rbx = longueur de la chaîne (entier)</span>
-</span><span id="__span-6-14"><a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="nl">int_to_string:</span>
-</span><span id="__span-6-15"><a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rbx</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">              </span><span class="c1">; Longueur initiale de la chaîne</span>
-</span><span id="__span-6-16"><a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rcx</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w">             </span><span class="c1">; Diviseur (10 pour conversion décimale)</span>
-</span><span id="__span-6-17"><a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a>
-</span><span id="__span-6-18"><a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="nl">.convert_loop:</span>
-</span><span id="__span-6-19"><a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="w">    </span><span class="nf">xor</span><span class="w"> </span><span class="nb">rdx</span><span class="p">,</span><span class="w"> </span><span class="nb">rdx</span><span class="w">            </span><span class="c1">; Réinitialiser rdx</span>
-</span><span id="__span-6-20"><a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="w">    </span><span class="nf">div</span><span class="w"> </span><span class="nb">rcx</span><span class="w">                 </span><span class="c1">; Diviser rax par 10, quotient dans rax, reste dans rdx</span>
-</span><span id="__span-6-21"><a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="nb">dl</span><span class="p">,</span><span class="w"> </span><span class="s">'0'</span><span class="w">             </span><span class="c1">; Convertir le chiffre en caractère ASCII</span>
-</span><span id="__span-6-22"><a href="#__codelineno-6-22" id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="w">    </span><span class="nf">dec</span><span class="w"> </span><span class="nb">rsi</span><span class="w">                 </span><span class="c1">; Déplacer le pointeur dans le tampon</span>
-</span><span id="__span-6-23"><a href="#__codelineno-6-23" id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="p">],</span><span class="w"> </span><span class="nb">dl</span><span class="w">           </span><span class="c1">; Stocker le caractère dans le tampon</span>
-</span><span id="__span-6-24"><a href="#__codelineno-6-24" id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="w">    </span><span class="nf">inc</span><span class="w"> </span><span class="nb">rbx</span><span class="w">                 </span><span class="c1">; Augmenter la longueur de la chaîne</span>
-</span><span id="__span-6-25"><a href="#__codelineno-6-25" id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="w">    </span><span class="nf">test</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="nb">rax</span><span class="w">           </span><span class="c1">; Vérifier si le quotient est zéro</span>
-</span><span id="__span-6-26"><a href="#__codelineno-6-26" id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="w">    </span><span class="nf">jnz</span><span class="w"> </span><span class="nv">.convert_loop</span><span class="w">       </span><span class="c1">; Si ce n'est pas zéro, continuer la conversion</span>
-</span><span id="__span-6-27"><a href="#__codelineno-6-27" id="__codelineno-6-27" name="__codelineno-6-27"></a>
-</span><span id="__span-6-28"><a href="#__codelineno-6-28" id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="w">    </span><span class="c1">; Retourner le début de la chaîne</span>
-</span><span id="__span-6-29"><a href="#__codelineno-6-29" id="__codelineno-6-29" name="__codelineno-6-29"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="nb">rsi</span><span class="w">            </span><span class="c1">; Placer le pointeur vers la chaîne convertie dans rax</span>
-</span><span id="__span-6-30"><a href="#__codelineno-6-30" id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="w">    </span><span class="nf">ret</span>
-</span><span id="__span-6-31"><a href="#__codelineno-6-31" id="__codelineno-6-31" name="__codelineno-6-31"></a>
-</span><span id="__span-6-32"><a href="#__codelineno-6-32" id="__codelineno-6-32" name="__codelineno-6-32"></a><span class="nl">_start:</span>
-</span><span id="__span-6-33"><a href="#__codelineno-6-33" id="__codelineno-6-33" name="__codelineno-6-33"></a><span class="w">    </span><span class="c1">; Afficher le message</span>
-</span><span id="__span-6-34"><a href="#__codelineno-6-34" id="__codelineno-6-34" name="__codelineno-6-34"></a><span class="w">    </span><span class="c1">; rax = 1 (sys_write), rdi = 1 (stdout), rsi = message, rdx = len</span>
-</span><span id="__span-6-35"><a href="#__codelineno-6-35" id="__codelineno-6-35" name="__codelineno-6-35"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
-</span><span id="__span-6-36"><a href="#__codelineno-6-36" id="__codelineno-6-36" name="__codelineno-6-36"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdi</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
-</span><span id="__span-6-37"><a href="#__codelineno-6-37" id="__codelineno-6-37" name="__codelineno-6-37"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rsi</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span>
-</span><span id="__span-6-38"><a href="#__codelineno-6-38" id="__codelineno-6-38" name="__codelineno-6-38"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdx</span><span class="p">,</span><span class="w"> </span><span class="nv">len</span>
-</span><span id="__span-6-39"><a href="#__codelineno-6-39" id="__codelineno-6-39" name="__codelineno-6-39"></a><span class="w">    </span><span class="nf">syscall</span>
-</span><span id="__span-6-40"><a href="#__codelineno-6-40" id="__codelineno-6-40" name="__codelineno-6-40"></a>
-</span><span id="__span-6-41"><a href="#__codelineno-6-41" id="__codelineno-6-41" name="__codelineno-6-41"></a><span class="w">    </span><span class="c1">; Multiplication non signée de 12345 par 67890</span>
-</span><span id="__span-6-42"><a href="#__codelineno-6-42" id="__codelineno-6-42" name="__codelineno-6-42"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">12345</span>
-</span><span id="__span-6-43"><a href="#__codelineno-6-43" id="__codelineno-6-43" name="__codelineno-6-43"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rbx</span><span class="p">,</span><span class="w"> </span><span class="mi">67890</span>
-</span><span id="__span-6-44"><a href="#__codelineno-6-44" id="__codelineno-6-44" name="__codelineno-6-44"></a><span class="w">    </span><span class="nf">imul</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="nb">rbx</span>
-</span><span id="__span-6-45"><a href="#__codelineno-6-45" id="__codelineno-6-45" name="__codelineno-6-45"></a>
-</span><span id="__span-6-46"><a href="#__codelineno-6-46" id="__codelineno-6-46" name="__codelineno-6-46"></a><span class="w">    </span><span class="c1">; Appel de la sous-routine pour convertir l'entier en chaîne</span>
-</span><span id="__span-6-47"><a href="#__codelineno-6-47" id="__codelineno-6-47" name="__codelineno-6-47"></a><span class="w">    </span><span class="c1">; rdi = rax (résultat calcul), rsi = buffer + 20 (fin du tampon)</span>
-</span><span id="__span-6-48"><a href="#__codelineno-6-48" id="__codelineno-6-48" name="__codelineno-6-48"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdi</span><span class="p">,</span><span class="w"> </span><span class="nb">rax</span>
-</span><span id="__span-6-49"><a href="#__codelineno-6-49" id="__codelineno-6-49" name="__codelineno-6-49"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rsi</span><span class="p">,</span><span class="w"> </span><span class="nv">buffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">20</span>
-</span><span id="__span-6-50"><a href="#__codelineno-6-50" id="__codelineno-6-50" name="__codelineno-6-50"></a><span class="w">    </span><span class="nf">call</span><span class="w"> </span><span class="nv">int_to_string</span>
-</span><span id="__span-6-51"><a href="#__codelineno-6-51" id="__codelineno-6-51" name="__codelineno-6-51"></a>
-</span><span id="__span-6-52"><a href="#__codelineno-6-52" id="__codelineno-6-52" name="__codelineno-6-52"></a><span class="w">    </span><span class="c1">; Afficher le résultat (chaîne convertie)</span>
-</span><span id="__span-6-53"><a href="#__codelineno-6-53" id="__codelineno-6-53" name="__codelineno-6-53"></a><span class="w">    </span><span class="c1">; rax = 1 (sys_write), rdi = 1 (stdout), rdx = longueur de la chaîne</span>
-</span><span id="__span-6-54"><a href="#__codelineno-6-54" id="__codelineno-6-54" name="__codelineno-6-54"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
-</span><span id="__span-6-55"><a href="#__codelineno-6-55" id="__codelineno-6-55" name="__codelineno-6-55"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdi</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
-</span><span id="__span-6-56"><a href="#__codelineno-6-56" id="__codelineno-6-56" name="__codelineno-6-56"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rdx</span><span class="p">,</span><span class="w"> </span><span class="nb">rbx</span>
-</span><span id="__span-6-57"><a href="#__codelineno-6-57" id="__codelineno-6-57" name="__codelineno-6-57"></a><span class="w">    </span><span class="nf">syscall</span>
-</span><span id="__span-6-58"><a href="#__codelineno-6-58" id="__codelineno-6-58" name="__codelineno-6-58"></a>
-</span><span id="__span-6-59"><a href="#__codelineno-6-59" id="__codelineno-6-59" name="__codelineno-6-59"></a><span class="w">    </span><span class="c1">; Fin du programme</span>
-</span><span id="__span-6-60"><a href="#__codelineno-6-60" id="__codelineno-6-60" name="__codelineno-6-60"></a><span class="w">    </span><span class="c1">; rax = 60 (sys_exit), rdi = 0 (code de sortie)</span>
-</span><span id="__span-6-61"><a href="#__codelineno-6-61" id="__codelineno-6-61" name="__codelineno-6-61"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span>
-</span><span id="__span-6-62"><a href="#__codelineno-6-62" id="__codelineno-6-62" name="__codelineno-6-62"></a><span class="w">    </span><span class="nf">xor</span><span class="w"> </span><span class="nb">rdi</span><span class="p">,</span><span class="w"> </span><span class="nb">rdi</span>
-</span><span id="__span-6-63"><a href="#__codelineno-6-63" id="__codelineno-6-63" name="__codelineno-6-63"></a><span class="w">    </span><span class="nf">syscall</span>
-</span></code></pre></div>
-<h2 id="composants">Composants<a class="headerlink" href="#composants" title="Lien permanent">¤</a></h2>
-<h2 id="fonctionnalites-specifiques-supplementaires">Fonctionnalités spécifiques supplémentaires<a class="headerlink" href="#fonctionnalites-specifiques-supplementaires" title="Lien permanent">¤</a></h2>
-<h3 id="predicteur-dembranchement">Prédicteur d'embranchement<a class="headerlink" href="#predicteur-dembranchement" title="Lien permanent">¤</a></h3>
-<h3 id="protection-ring">Protection ring<a class="headerlink" href="#protection-ring" title="Lien permanent">¤</a></h3>
-<p>Les <em>protection rings</em> (ou anneaux de protection) sont un mécanisme de sécurité utilisé dans l'architecture des processeurs, principalement dans les systèmes d'exploitation modernes, pour contrôler l'accès aux ressources du système par différents types de code (comme les applications ou les composants du système d'exploitation).</p>
-<p>L'idée des anneaux de protection repose sur la séparation des niveaux de privilège ou de contrôle en plusieurs couches. Chaque couche, ou ring (anneau), est un niveau de privilège qui détermine ce qu’un programme ou une instruction peut faire. Dans l'architecture x86 d'Intel, il y a généralement quatre anneaux (de 0 à 3), bien que les systèmes d'exploitation modernes n’utilisent souvent que deux de ces niveaux (Ring 0 et Ring 3).</p>
-<p><figure id="_figure-8"><img alt="Anneaux de protection" class="drawio-diagram" src="../../../assets/images/protection-rings.drawio"/><figcaption> Anneaux de protection</figcaption></figure></p>
-<p>Le ring 0 correspond au noyau (kernel) du système d'exploitation, qui a accès à toutes les ressources matérielles de l'ordinateur. Il peut exécuter n'importe quelle instruction, accéder à la mémoire directement, et gérer le matériel sans restriction. On parle souvent de mode superviseur ou mode noyau pour désigner les opérations effectuées dans cet anneau. C’est le niveau le plus privilégié.</p>
-<p>Les niveaux intermédiaires 1 et 2 peuvent être utilisés par certains systèmes pour les pilotes ou des services du système qui ont besoin d'un accès contrôlé aux ressources, mais ne nécessitent pas le même niveau de privilège que le noyau. Toutefois, la plupart des systèmes d'exploitation modernes ne les utilisent pas directement.</p>
-<p>Enfin, le niveau 3 est réservé aux applications utilisateur. Il s’agit du mode utilisateur (user mode), dans lequel les programmes n’ont pas un accès direct au matériel ou à la mémoire, et doivent passer par des appels système pour demander des services au noyau. En cas de violation des règles (comme essayer d’accéder directement au matériel), une exception ou une erreur est générée, et le programme est bloqué.</p>
-<h3 id="memoire-cache_1">Mémoire cache<a class="headerlink" href="#memoire-cache_1" title="Lien permanent">¤</a></h3>
-<p>Cache L1, L2, L3, Le cache L1 est apparu dans les années 1980, le cache L2 est apparu dans les années 1990 (d'abord externe, puis intégré), et le cache L3 est devenu standard dans les années 2000.</p>
-<h3 id="fpu">FPU<a class="headerlink" href="#fpu" title="Lien permanent">¤</a></h3>
-<p>Précision simple, double, étendue (Extended Precision),  Apparue avec les coprocesseurs mathématiques (x87 FPU), et les extensions SSE ont introduit la gestion des calculs en virgule flottante sur des registres 128-bit.</p>
-<h3 id="virtualisation-intel-vt-x-amd-v">Virtualisation (Intel VT-x, AMD-V)<a class="headerlink" href="#virtualisation-intel-vt-x-amd-v" title="Lien permanent">¤</a></h3>
-<p>Support pour l'exécution de machines virtuelles directement via le matériel, introduit dans les années 2000.</p>
-<h3 id="reduction-de-consommation">Réduction de consommation<a class="headerlink" href="#reduction-de-consommation" title="Lien permanent">¤</a></h3>
-<p>(Intel SpeedStep, AMD Cool'n'Quiet)** : Ces technologies permettent au processeur de diminuer sa consommation en adaptant dynamiquement sa fréquence et son voltage.</p>
-<h3 id="pipeline_1">Pipeline<a class="headerlink" href="#pipeline_1" title="Lien permanent">¤</a></h3>
-<p>Pipelines avec plusieurs niveaux (Netburst), La microarchitecture Netburst d'Intel Pentium 4 introduit des pipelines de plus de 30 niveaux pour viser des fréquences élevées, bien que cela ait compromis les performances générales.</p>
-<h3 id="micro-operations-et-scheduling">Micro-opérations et scheduling<a class="headerlink" href="#micro-operations-et-scheduling" title="Lien permanent">¤</a></h3>
-<p>Les architectures modernes décomposent les instructions complexes en micro-opérations (Intel Core) pour mieux les planifier via un scheduler intégré.</p>
-<h3 id="alu">ALU<a class="headerlink" href="#alu" title="Lien permanent">¤</a></h3>
-<p>L'<em>Arithmetic Logic Unit</em> (ALU) est l'une des principales composantes d'un processeur. C'est l'unité qui effectue les opérations arithmétiques et logiques sur les données. L'ALU est capable d'effectuer des opérations telles que l'addition, la soustraction, la multiplication, la division, les opérations logiques (ET, OU, NON, XOR), les décalages de bits, etc.</p>
-<h3 id="barrel-shifter">Barrel Shifter<a class="headerlink" href="#barrel-shifter" title="Lien permanent">¤</a></h3>
-<p>Le <em>barrel shifter</em> est un circuit logique qui permet de décaler un nombre binaire vers la gauche ou vers la droite. Il est utilisé dans les processeurs pour effectuer des opérations de décalage et de rotation sur les données. Sur un processeur 32 bits, le <em>barrel shifter</em> peut effectuer des décalages de 1 à 31 bits en une seule opération, ce qui le rend très efficace pour les opérations de manipulation de bits.</p>
-<p><figure id="_figure-9"><img alt="Barrel Shifter" class="drawio-diagram" src="../../../assets/images/barrel-shifter.drawio"/><figcaption> Barrel Shifter</figcaption></figure></p>
-<p>Rappelons qu'un décalage des bits vers la gauche correspond à une multiplication par 2, tandis qu'un décalage vers la droite correspond à une division par 2. Les puissance de 2 sont donc très efficaces car elles correspondent à des décalages de bits pouvant être effectués très rapidement par le <em>barrel shifter</em>.</p>
-<p>Un <em>barrel shifter</em> peut également gérer la rotation des bits, c'est-à-dire déplacer les bits d'un mot binaire d'un certain nombre de positions vers la gauche ou vers la droite, en déplaçant les bits qui sortent d'un côté à l'autre du mot. Cela permet de réaliser des opérations de permutation et de cryptographie sur les données.</p>
-<p>Dans un processeur ARM, une instruction de décalage peut être incluse directement dans une instruction arithmétique, ce qui permet d'effectuer des opérations de décalage en même temps que des opérations arithmétiques, sans avoir besoin d'une instruction séparée pour le décalage :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>ADD r0, r1, r2, LSR #5  ; r0 = (r1 + r2) &gt;&gt; 5
-</span></code></pre></div>
-<h3 id="sse-et-avx">SSE et AVX<a class="headerlink" href="#sse-et-avx" title="Lien permanent">¤</a></h3>
-<p>Les instructions SSE (<em>Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions</em>) sont une extension de l'architecture x86 introduite par Intel en 1999 avec les processeurs Pentium III. Elles permettent d'effectuer des opérations vectorielles sur des registres de 128 bits (<span class="ycr-hashtag" data-index-entry="xmm" data-tag="xmm"><code>xmm</code></span>), ce qui améliore les performances pour les calculs intensifs en parallèle.</p>
-<p>Les instructions AVX (<em>Advanced Vector Extensions</em>) sont une extension de l'architecture x86 introduite par Intel en 2011 avec les processeurs Sandy Bridge. Elles permettent d'effectuer des opérations vectorielles sur des registres de 256 bits (<span class="ycr-hashtag" data-index-entry="ymm" data-tag="ymm"><code>ymm</code></span>), et avec l'AVX-512 des registres de 512 bits (<span class="ycr-hashtag" data-index-entry="zmm" data-tag="zmm"><code>zmm</code></span>), ce qui améliore les performances pour les calculs intensifs en parallèle.</p>
-<p>Le <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> (<em>Single Instruction, Multiple Data</em>) est une technique de parallélisme de données qui permet d'effectuer la même opération sur plusieurs données simultanément.</p>
-<p>Les applications possibles sont nombreuses : filtre d'image, mélange de couleurs, compression d'image, traitement audio, multiplication de matrices, etc.</p>
-<p>Dans gcc, on peut utiliser les options <code>-msse</code> ou <code>-msse2</code> pour activer les instructions SSE, alternativement on peut utiliser <code>-march=skylake</code> pour activer les instructions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> spécifiques à l'architecture du processeur.</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">a</span><span class="p">,</span>
-</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">             </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
-</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="p">{</span>
-</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">        </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>Ce code compile en donnant l'assembleur suivant :</p>
-<div class="language-nasm highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="nl">compute:</span>
-</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">  </span><span class="nf">vmovups</span><span class="w"> </span><span class="nb">ymm0</span><span class="p">,</span><span class="w"> </span><span class="nv">ymmword</span><span class="w"> </span><span class="nv">ptr</span><span class="w"> </span><span class="p">[</span><span class="nb">rdi</span><span class="p">]</span>
-</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">  </span><span class="nf">vaddps</span><span class="w">  </span><span class="nb">ymm0</span><span class="p">,</span><span class="w"> </span><span class="nb">ymm0</span><span class="p">,</span><span class="w"> </span><span class="nv">ymmword</span><span class="w"> </span><span class="nv">ptr</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="p">]</span>
-</span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">  </span><span class="nf">vmovups</span><span class="w"> </span><span class="nv">ymmword</span><span class="w"> </span><span class="nv">ptr</span><span class="w"> </span><span class="p">[</span><span class="nb">rdx</span><span class="p">],</span><span class="w"> </span><span class="nb">ymm0</span>
-</span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">  </span><span class="nf">vzeroupper</span>
-</span><span id="__span-9-6"><a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">  </span><span class="nf">ret</span>
-</span></code></pre></div>
-<p>Notons ici que le mot clé <span class="ycr-hashtag" data-index-entry="restrict" data-tag="restrict"><code>restrict</code></span> est indispensable pour indiquer au compilateur que les pointeurs ne se chevauchent pas.</p>
-<p>L'instruction <span class="ycr-hashtag" data-index-entry="vmovups" data-tag="vmovups"><code>vmovups</code></span> charge un vecteur de 8 floats (format spécifié avec <span class="ycr-hashtag" data-index-entry="ymmword" data-tag="ymmword"><code>ymmword</code></span>) dans le registre <span class="ycr-hashtag" data-index-entry="ymm0" data-tag="ymm0"><code>ymm0</code></span>. L'instruction <span class="ycr-hashtag" data-index-entry="vaddps" data-tag="vaddps"><code>vaddps</code></span> additionne les éléments d'un vecteur de nombre flottants (<code>ps</code> pour <em>packed single-precision floating-point values</em>). <span class="ycr-hashtag" data-index-entry="ymm0" data-tag="ymm0"><code>ymm0</code></span> contient déjà les valeurs de <code>a</code>, on ajoute donc les valeurs de <code>b</code>. Enfin, l'instruction <span class="ycr-hashtag" data-index-entry="vmovups" data-tag="vmovups"><code>vmovups</code></span> stocke le résultat dans le tableau <code>c</code>. L'instruction <span class="ycr-hashtag" data-index-entry="vzeroupper" data-tag="vzeroupper"><code>vzeroupper</code></span> est utilisée pour réinitialiser les registres AVX supérieurs.</p>
-<p>Avant les architectures superscalaires, le code assembleur généré aurait été probablement similaire à ceci :</p>
-<div class="language-nasm highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nl">compute:</span>
-</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">  </span><span class="nf">fld</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdi</span><span class="p">]</span>
-</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">  </span><span class="nf">fadd</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="p">]</span>
-</span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">  </span><span class="nf">fstp</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdx</span><span class="p">]</span>
-</span><span id="__span-10-5"><a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>
-</span><span id="__span-10-6"><a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">  </span><span class="nf">fld</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdi</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span>
-</span><span id="__span-10-7"><a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">  </span><span class="nf">fadd</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span>
-</span><span id="__span-10-8"><a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">  </span><span class="nf">fstp</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdx</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span>
-</span><span id="__span-10-9"><a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a>
-</span><span id="__span-10-10"><a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">  </span><span class="nf">fld</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdi</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span>
-</span><span id="__span-10-11"><a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">  </span><span class="nf">fadd</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span>
-</span><span id="__span-10-12"><a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">  </span><span class="nf">fstp</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdx</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span>
-</span><span id="__span-10-13"><a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a>
-</span><span id="__span-10-14"><a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="w">  </span><span class="nf">fld</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdi</span><span class="o">+</span><span class="mi">12</span><span class="p">]</span>
-</span><span id="__span-10-15"><a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">  </span><span class="nf">fadd</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="o">+</span><span class="mi">12</span><span class="p">]</span>
-</span><span id="__span-10-16"><a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">  </span><span class="nf">fstp</span><span class="w"> </span><span class="kt">DWORD</span><span class="w"> </span><span class="nv">PTR</span><span class="w"> </span><span class="p">[</span><span class="nb">rdx</span><span class="o">+</span><span class="mi">12</span><span class="p">]</span>
-</span><span id="__span-10-17"><a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a>
-</span><span id="__span-10-18"><a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="w">  </span><span class="c1">; Répéter pour les 4 autres éléments...</span>
-</span><span id="__span-10-19"><a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a>
-</span><span id="__span-10-20"><a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="w">  </span><span class="nf">ret</span>
-</span></code></pre></div>
-<p>La comparaison des performances est évidente, les instructions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> permettent de traiter 8 éléments en une seule instruction, tandis que les instructions FPU ne peuvent traiter qu'un seul élément à la fois. Il faut environ 7 cycles d'horloge avec SSE/AVX contre 60 à 70 cycles avec FPU.</p>
-<h2 id="compatibilite">Compatibilité<a class="headerlink" href="#compatibilite" title="Lien permanent">¤</a></h2>
-<p>Nous avons vu, les processeurs évoluent au fil des générations le SS2 a été introduit avec le Pentium III, l'AVX 256 bits avec Sandy Bridge, l'AVX 512 bits avec Skylake, etc. Cela pose un problème de compatibilité car si vous compilez avec <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span> votre programme aujourd'hui, il ne fonctionnera probablement pas sur une ancienne architecture, pourtant c'est un exécutable x86-64 en format <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a>.</p>
-<p>Par défaut, <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span> compile pour une architecture générique, c'est à dire qu'il fait un compromis entre les différentes architectures pour garantir une certaine compatibilité. Pour compiler pour une architecture spécifique, il faut utiliser l'option <code>-march</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>gcc<span class="w"> </span>-march<span class="o">=</span>skylake<span class="w"> </span>main.c
-</span></code></pre></div>
-<p>Notons que si ce programme est executé sur un processeur plus ancien, il ne fonctionnera pas, le processeur ne comprendra pas certaines instructions et générera une exception matérielle (généralement <em>Illegal Instruction</em>). Cela se traduit par le signal <span class="ycr-hashtag" data-index-entry="SIGILL" data-tag="SIGILL"><code>SIGILL</code></span> envoyé à un processus lorsqu'il tente d'exécuter une instruction illégale. Sans gestion de cette exception, le processus sera arrêté avec un message d'erreur :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>Illegal instruction (core dumped)
-</span></code></pre></div>
-<p>Il y a donc un compromis à faire entre la performance et la compatibilité. Si vous développez un logiciel grand public, vous voudrez probablement le rendre compatible avec un maximum de processeurs, mais si vous développez un logiciel pour un environnement spécifique, vous pouvez optimiser pour une architecture particulière. C'est pour cette raison que sous Linux/Unix il est courant de compiler ses logiciels soi-même pour obtenir les meilleures performances, c'est notament le cas de la distribution Gentoo dans lequel l'utilisateur doit compiler la plupart des logiciels (ce qui est un enfer pour les non-geeks).</p>
-<p>Lorsque vous télécharge un binaire, par exemple Gimp, il sera compilé pour une architecture générique, ce qui garantit une certaine compatibilité, mais il ne sera pas optimisé pour votre processeur. Si vous voulez obtenir les meilleures performances, vous devrez le compiler vous-même.</p>
-<p>Sous Windows, cette culture de la compilation est moins répandue, les logiciels sont généralement distribués sous forme de binaire, et il est rare de trouver des versions optimisées pour une architecture spécifique et de nombreux logiciels sont très peu optimisés.</p>
+<h2 id="extensions-x86">Extensions x86<a class="headerlink" href="#extensions-x86" title="Lien permanent">¤</a></h2>
+<p>Effectivement, il existe d'autres extensions pour l'architecture x86, notamment <strong>CLMUL</strong>, <strong>RDRAND</strong>, et <strong>TXT</strong>. Voici la table mise à jour avec ces extensions et d'autres supplémentaires :</p>
+<table id="_table-2">
+<caption style="caption-side:top"> Résumé des extensions x86 les plus courantes</caption><thead>
+<tr>
+<th>Extension</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AES-NI</td>
+<td>Instructions matérielles pour accélérer les opérations de chiffrement et de déchiffrement AES.</td>
+</tr>
+<tr>
+<td>AVX</td>
+<td>Advanced Vector Extensions, extension <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> pour améliorer les performances des calculs flottants et vectoriels, notamment dans les applications scientifiques et multimédia.</td>
+</tr>
+<tr>
+<td>AVX2</td>
+<td>Advanced Vector Extensions 2, amélioration de l'AVX avec prise en charge des entiers 256 bits et optimisation des opérations sur des données vectorielles.</td>
+</tr>
+<tr>
+<td>AVX-512</td>
+<td>Advanced Vector Extensions 512 bits, extension <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> avec des registres de 512 bits pour des performances accrues dans les calculs intensifs, utilisé dans les applications scientifiques, cryptographiques et de machine learning.</td>
+</tr>
+<tr>
+<td>BMI1/BMI2</td>
+<td>Bit Manipulation Instructions, ensembles d'instructions pour la manipulation efficace des bits et des entiers, utiles dans des opérations comme le hachage ou la compression de données.</td>
+</tr>
+<tr>
+<td>CLMUL</td>
+<td>Carry-less Multiplication, instructions pour la multiplication sans retenue, souvent utilisées dans les algorithmes cryptographiques, notamment pour l'implémentation de Galois/Counter Mode (GCM).</td>
+</tr>
+<tr>
+<td>FMA3</td>
+<td>Fused Multiply-Add 3, permet de réaliser une multiplication suivie d'une addition en une seule instruction, réduisant le temps de calcul et améliorant la précision.</td>
+</tr>
+<tr>
+<td>FMA4</td>
+<td>Fused Multiply-Add 4, similaire au FMA3 mais avec une légère différence dans la gestion des opérandes, utilisé principalement par AMD.</td>
+</tr>
+<tr>
+<td>MMX</td>
+<td>MultiMedia eXtensions, première extension <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> d'Intel conçue pour améliorer les performances des applications multimédia telles que le traitement d'images, l'audio et la vidéo.</td>
+</tr>
+<tr>
+<td>RDRAND</td>
+<td>Random Number Generator, instruction pour générer des nombres aléatoires de manière matérielle, utile dans les applications cryptographiques et de sécurité.</td>
+</tr>
+<tr>
+<td>RDSEED</td>
+<td>Random Seed Generator, similaire à RDRAND, mais conçu pour générer des graines (seeds) pour des générateurs de nombres aléatoires avec des propriétés cryptographiques renforcées.</td>
+</tr>
+<tr>
+<td>SSE</td>
+<td>Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions, extension <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> améliorant les performances des calculs en virgule flottante, notamment dans les applications graphiques et de jeu.</td>
+</tr>
+<tr>
+<td>SSE2</td>
+<td>Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions 2, extension de SSE avec support des entiers 128 bits et des nombres en virgule flottante double précision.</td>
+</tr>
+<tr>
+<td>SSE3</td>
+<td>Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions 3, extension de SSE2 avec des instructions supplémentaires pour améliorer les performances en virgule flottante et pour le multithreading.</td>
+</tr>
+<tr>
+<td>SSE4</td>
+<td>Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions 4, extension de SSE3, optimisée pour les calculs complexes, notamment les opérations de traitement d'images et de vidéo.</td>
+</tr>
+<tr>
+<td>SSE4.1</td>
+<td>Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions 4.1, sous-ensemble de SSE4, avec des instructions supplémentaires pour la manipulation de données et la gestion de texte.</td>
+</tr>
+<tr>
+<td>SSE4.2</td>
+<td>Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions 4.2, ajoute des instructions pour l'accélération des comparaisons de chaînes de caractères, utile dans les applications de traitement de texte et de recherche.</td>
+</tr>
+<tr>
+<td>SSSE3</td>
+<td>Supplemental Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions 3, améliore SSE3 avec des instructions supplémentaires pour la manipulation de données packées, utilisées dans les algorithmes de cryptographie et de hachage.</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>Trusted Execution Technology, technologie visant à assurer une exécution sécurisée en garantissant que le matériel, le firmware et les logiciels utilisés au démarrage sont intègres et sécurisés.</td>
+</tr>
+<tr>
+<td>TSX</td>
+<td>Transactional Synchronization Extensions, extension pour améliorer les performances du parallélisme matériel et logiciel en permettant la synchronisation transactionnelle, réduisant les conflits dans les accès concurrents à la mémoire.</td>
+</tr>
+<tr>
+<td>VNNI</td>
+<td>Vector Neural Network Instructions, extension <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> pour accélérer les réseaux neuronaux et les calculs d'inférence en intelligence artificielle, notamment pour le traitement de données de machine learning.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="principales-architectures">Principales architectures<a class="headerlink" href="#principales-architectures" title="Lien permanent">¤</a></h2>
+<p>Les différentes architectures sont très nombreuses et évoluent rapidement, néanmoins les compilateurs restent compatibles avec les anciennes architectures. Voici une liste des principales architectures x86-64 et de leurs principales caractéristiques ainsi que les options <code>-march</code> associées pour <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span>. Elles peuvent être utiles pour optimiser un programme pour une architecture spécifique.</p>
+<p>Nous citerons ici les deux grandes familles de processeurs, Intel et AMD, ainsi que quelques autres architectures.</p>
 <h3 id="intel">Intel<a class="headerlink" href="#intel" title="Lien permanent">¤</a></h3>
-<table>
-<thead>
+<table id="_table-3">
+<caption style="caption-side:top"> Principales architectures Intel</caption><thead>
 <tr>
 <th>Architecture</th>
 <th><code>-march</code></th>
@@ -7421,8 +7538,8 @@ Imaginons donc un processeur le plus simple sachant qu'un compromis doit être t
 </tbody>
 </table>
 <h3 id="amd">AMD<a class="headerlink" href="#amd" title="Lien permanent">¤</a></h3>
-<table>
-<thead>
+<table id="_table-4">
+<caption style="caption-side:top"> Principales architectures AMD</caption><thead>
 <tr>
 <th>Architecture</th>
 <th><code>-march</code></th>
@@ -7482,8 +7599,8 @@ Imaginons donc un processeur le plus simple sachant qu'un compromis doit être t
 </tbody>
 </table>
 <h3 id="autres-architectures">Autres architectures<a class="headerlink" href="#autres-architectures" title="Lien permanent">¤</a></h3>
-<table>
-<thead>
+<table id="_table-5">
+<caption style="caption-side:top"> Autres architectures</caption><thead>
 <tr>
 <th>Architecture</th>
 <th><code>-march</code></th>
@@ -7525,8 +7642,8 @@ Imaginons donc un processeur le plus simple sachant qu'un compromis doit être t
 </tbody>
 </table>
 <h3 id="gamme-x86-64-vn">Gamme x86-64-vN<a class="headerlink" href="#gamme-x86-64-vn" title="Lien permanent">¤</a></h3>
-<table>
-<thead>
+<table id="_table-6">
+<caption style="caption-side:top"> Versions de l'architecture x86-64</caption><thead>
 <tr>
 <th>Nom de l'Architecture</th>
 <th>Option GCC <code>-march</code></th>
@@ -7557,201 +7674,39 @@ Imaginons donc un processeur le plus simple sachant qu'un compromis doit être t
 </tbody>
 </table>
 <h2 id="historique">Historique<a class="headerlink" href="#historique" title="Lien permanent">¤</a></h2>
-<p>L'introduction des processeurs 8086 et 8088 a marqué le début de l'architecture IA-32 avec des registres 16 bits et une adresse mémoire maximale de 1 Mo. La segmentation permettait d'adresser jusqu'à 256 Ko sans changement de segment, ouvrant la voie à une gestion plus efficace de la mémoire, c'est cette architecture qui a été utilisée pour les premiers PC IBM, et qui a été le début de l'ère des ordinateurs personnels.</p>
-<p>En 1982 sort le processeur Intel 286 qui a introduit le mode protégé, permettant une meilleure gestion de la mémoire avec un adressage sur 24 bits et la possibilité de gérer jusqu'à 16 Mo de mémoire physique. Le mode protégé apportait également des mécanismes de protection tels que la vérification des limites des segments et plusieurs niveaux de privilèges.</p>
-<p>En 1985, sort la première architecture véritablement 32 bits, l'Intel 386 a introduit des registres 32 bits et un bus d'adressage permettant de gérer jusqu'à 4 Go de mémoire physique. Il proposait aussi un mode de mémoire virtuelle et un modèle mémoire à pages de 4 Ko, facilitant la gestion efficace de la mémoire.</p>
-<p>Le processeur Intel 486 sorti en 1989 a ajouté des capacités de traitement parallèle avec cinq étapes de pipeline d’exécution, permettant l’exécution simultanée d'instructions. Il a également introduit un cache de 8 Ko sur la puce et un coprocesseur mathématique intégré (FPU) permettant pour la première fois des calculs en virgule flottante en matériel.</p>
-<p>L'Intel Pentium arrivé en 1993 a marqué une nouvelle avancée avec l'ajout de deux pipelines d'exécution, permettant l'exécution de deux instructions par cycle d'horloge. Il a également intégré un système de prédiction de branchement et augmenté le bus de données externe à 64 bits. Plus tard, la technologie MMX a été introduite, optimisant le traitement parallèle de données pour les applications multimédia.</p>
-<p>Le Pentium 4 signe un nouveau siècle. Basé sur l'architecture NetBurst, le Pentium 4 a introduit les extensions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Streaming (SSE2), puis SSE3, pour accélérer les calculs multimédias. Le support du 64 bits avec l'Intel 64 architecture a également fait son apparition, ainsi que la technologie Hyper-Threading pour exécuter plusieurs threads simultanément.</p>
-<p>La microarchitecture Nehalem, utilisée dans la première génération d'Intel Core i7, a marqué l'avènement du 45 nm, avec des fonctionnalités comme le Turbo Boost, l’Hyper-Threading, un contrôleur mémoire intégré, et un cache Smart Cache de 8 Mo. Le lien QuickPath Interconnect (QPI) a remplacé l’ancien bus pour des échanges plus rapides avec le chipset.</p>
-<p>Les années se succères, Sandy Bridge (2011), Ivy Bridge (2012), Haswell (2013) en réduisant le process de fabrication, 32nm, 22nm, 14nm... ont apporté des améliorations en termes de performance et d'efficacité énergétique, avec des innovations comme l'intégration des graphismes dans le processeur et l'Intel Quick Sync Video.</p>
-<p>En 2024, les processeurs sont en 7nm, les performances sont multipliées par 1000 par rapport à un processeur de 2000, les puces sont de plus en plus petites, les fréquences de plus en plus élevées, les caches de plus en plus grands, les instructions de plus en plus complexes, les processeurs sont de plus en plus puissants, et les applications de plus en plus gourmandes.</p>
-<p>On trouvera la chronologie des différentes évolutions des processeurs ci-dessous.</p>
+<p>Ci-dessous se trouve la chronologie des principales évolutions des processeurs.</p>
 <h3 id="avant-1970">Avant 1970<a class="headerlink" href="#avant-1970" title="Lien permanent">¤</a></h3>
-<dl>
-<dt><strong>1945 : Architecture de Von Neumann</strong></dt>
-<dd>
-<p>Modèle théorique de base des ordinateurs modernes.
-<strong>1954 : Transistors</strong></p>
-</dd>
-<dd>
-<p>Remplacement des tubes à vide dans les processeurs (IBM 704).
-<strong>1964 : Architecture CISC (Complex Instruction Set Computing)</strong></p>
-</dd>
-<dd>
-<p>Premier processeur CISC avec l'IBM System/360.
-<strong>1965 : Processeur 16-bit</strong></p>
-</dd>
-<dd>
-<p>Introduction des premières architectures 16-bit (PDP-11, IBM System/360).
-<strong>1968 : Premier microprocesseur</strong> (Intel 4004)</p>
-</dd>
-<dd>
-<p>Microprocesseur 4-bit, basé sur la technologie MOS (Metal-Oxide Semiconductor).</p>
-</dd>
-</dl>
+<p>Les premiers ordinateurs utilisaient des tubes à vide et des relais pour effectuer des calculs.</p>
+<p>En 1945, l'architecture de Von Neumann introduit le concept de programme stocké, où les instructions et les données sont placées dans une même mémoire.</p>
+<p>Près de dix ans plus tard, en 1954, les transistors remplacent les tubes à vide, réduisant ainsi la taille et la consommation d'énergie des ordinateurs.</p>
+<p>En 1964, l'IBM System/360 inaugure l'architecture CISC (Complex Instruction Set Computing), avec un jeu d'instructions complexe permettant de nombreuses opérations.</p>
+<p>La technologie MOS (Metal-Oxide-Semiconductor) permet de réduire encore la taille des transistors et d'accroître la densité des circuits intégrés. Le premier microprocesseur, l'Intel 4004, un modèle 4 bits, fait son apparition en 1971. Il fonctionne à une fréquence de 740 kHz et contient 2 300 transistors, réalisant 92 000 opérations par seconde, contre 3,6 milliards pour un processeur moderne. Gravé en 10 µm, il est bien loin des procédés actuels en 7 nm.</p>
 <h3 id="annees-1970">Années 1970<a class="headerlink" href="#annees-1970" title="Lien permanent">¤</a></h3>
-<dl>
-<dt><strong>1970 : Mémoire cache</strong> (IBM System/360 Model 85)</dt>
-<dd>
-<p>Premier usage de la mémoire cache pour réduire les temps d'accès.</p>
-</dd>
-<dt><strong>1972 : Introduction du FPU</strong></dt>
-<dd>
-<p>(Floating Point Unit) avec les processeurs <strong>Intel 8008</strong> et <strong>8080</strong> pour supporter les opérations en virgule flottante.</p>
-</dd>
-<dt><strong>1974 : Processeur 8-bit</strong></dt>
-<dd>
-<p>Intel 8080 introduit les processeurs 8-bit.</p>
-</dd>
-<dt><strong>1978 : Intel 8086</strong></dt>
-<dd>
-<p>Premier processeur 16-bit et introduction de la segmentation pour adresser la mémoire.</p>
-</dd>
-</dl>
-<h3 id="annees-1980">Années 1980<a class="headerlink" href="#annees-1980" title="Lien permanent">¤</a></h3>
-<dl>
-<dt><strong>1980 : Cache de niveau L1</strong></dt>
-<dd>
-<p>Apparition de la première forme de cache de niveau L1 dans les processeurs (IBM System/370).</p>
-</dd>
-<dt><strong>1982 : Mode protégé et segmentation</strong> (Intel 80286)</dt>
-<dd>
-<p>Amélioration de la gestion mémoire avec des niveaux de privilèges.</p>
-</dd>
-<dt><strong>1985 : 32-bit</strong> et <strong>mémoire virtuelle</strong> (Intel 80386)</dt>
-<dd>
-<p>Extension de l'architecture x86 vers un adressage 32-bit.</p>
-</dd>
-<dt><strong>1986 : Instruction pipelining</strong></dt>
-<dd>
-<p>Utilisation de pipeline avec des étapes plus nombreuses pour augmenter le parallélisme (Intel 80386).</p>
-</dd>
-<dt><strong>1989 : Cache de niveau L2</strong></dt>
-<dd>
-<p>Les premiers systèmes commencent à adopter des caches de niveau L2 (ajouté en externe au processeur).</p>
-</dd>
-</dl>
+<p>La mémoire cache fait ses débuts avec l'IBM System/360 Model 85, permettant de stocker temporairement les données les plus fréquemment utilisées afin d'accélérer les accès mémoire.</p>
+<p>En 1974, les premières unités de calcul en virgule flottante (FPU, Floating Point Unit) apparaissent avec les processeurs Intel 8008 et 8080 pour prendre en charge les calculs en virgule flottante.</p>
+<p>En 1978, l'Intel 8086 introduit l'architecture x86, avec des registres de 16 bits et la segmentation de la mémoire. La mémoire est alors divisée en segments de 64 Ko, chaque segment étant lui-même découpé en blocs de 16 octets. Ce mécanisme permet une gestion plus efficace de la mémoire en segments de taille variable.</p>
+<p>En 1982, le mode protégé est introduit avec l'Intel 80286, offrant une gestion plus rigoureuse de la mémoire grâce à des niveaux de privilèges, équivalents aux anneaux de protection dans les systèmes Unix.</p>
+<p>En 1985, l'Intel 80386 introduit l'architecture x86 en 32 bits avec un bus d'adressage de 32 bits et un mode de mémoire virtuelle, permettant de gérer jusqu'à 4 Go de mémoire physique. Cette architecture perdurera jusqu'à l'arrivée des processeurs 64 bits développés dans les années 2000.</p>
+<p>Le concept de pipeline, qui permet d'exécuter plusieurs instructions en parallèle, est introduit avec l'Intel 80486 en 1989, améliorant ainsi considérablement les performances. Les premiers caches de niveau L2 apparaissent également, ajoutés de manière externe au processeur.</p>
 <h3 id="annees-1990">Années 1990<a class="headerlink" href="#annees-1990" title="Lien permanent">¤</a></h3>
-<dl>
-<dt><strong>1991 : Pipeline 5 étapes</strong></dt>
-<dd>
-<p>Introduit avec l'Intel 80486 pour améliorer les performances du traitement parallèle.</p>
-</dd>
-<dt><strong>1993 : Coprocesseur mathématique intégré</strong> (Intel Pentium)</dt>
-<dd>
-<p>Le FPU est directement intégré dans le <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a>.</p>
-</dd>
-<dt><strong>1995 : Prédiction d'embranchement</strong></dt>
-<dd>
-<p>Optimisation du flux d'instructions (Intel Pentium Pro).</p>
-</dd>
-<dt><strong>1995 : Architecture superscalaire</strong></dt>
-<dd>
-<p>Le Pentium Pro peut exécuter plusieurs instructions par cycle.</p>
-</dd>
-<dt><strong>1996 : Cache L2 sur la puce</strong></dt>
-<dd>
-<p>Cache L2 intégré directement sur le processeur.</p>
-</dd>
-<dt><strong>1997 : Technologie MMX</strong></dt>
-<dd>
-<p>Extension multimédia pour accélérer les calculs graphiques (Intel Pentium MMX).</p>
-</dd>
-<dt><strong>1998 : SSE (Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions)</strong></dt>
-<dd>
-<p>Amélioration des performances pour les opérations vectorielles (Intel Pentium III).</p>
-</dd>
-</dl>
+<p>Intel introduit, avec le processeur Pentium, le premier coprocesseur mathématique directement intégré, permettant de réaliser plus rapidement les calculs en virgule flottante. Un pipeline à cinq étapes est également implémenté dans l'Intel 80486 pour améliorer le traitement parallèle.</p>
+<p>En 1995, avec le Pentium Pro, un prédicteur d'embranchements est introduit, optimisant les performances en prédisant les sauts conditionnels afin d'éviter les ruptures de pipeline.</p>
+<p>Le cache de niveau L2 est finalement intégré directement au processeur.</p>
+<p>En 1999, Intel lance les instructions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> (Single Instruction, Multiple Data) avec les extensions SSE (Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions), augmentant ainsi les performances dans les calculs vectoriels.</p>
 <h3 id="annees-2000">Années 2000<a class="headerlink" href="#annees-2000" title="Lien permanent">¤</a></h3>
-<dl>
-<dt><strong>2000 : Bus à 64-bit externe</strong> (Intel Pentium 4)</dt>
-<dd>
-<p>Bus externe permettant de gérer plus de mémoire.</p>
-</dd>
-<dt><strong>2000 : Architecture Netburst</strong> (Pentium 4)</dt>
-<dd>
-<p>Augmentation des pipelines jusqu'à 20 étapes pour viser de hautes fréquences.</p>
-</dd>
-<dt><strong>2001 : SSE2 (Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions 2)</strong></dt>
-<dd>
-<p>Instructions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> améliorées pour manipuler les données en virgule flottante (Intel Pentium 4).</p>
-</dd>
-<dt><strong>2004 : SSE3</strong></dt>
-<dd>
-<p>Troisième extension <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> (Intel Prescott).</p>
-</dd>
-<dt><strong>2004 : Cache L3</strong></dt>
-<dd>
-<p>Premier cache de niveau 3 utilisé dans les processeurs Itanium 2 et Xeon.</p>
-</dd>
-<dt><strong>2004 : Technologie 64-bit x86-64</strong> (AMD Opteron et Intel Xeon EM64T)</dt>
-<dd>
-<p>Introduction du support 64-bit avec AMD, suivi par Intel.</p>
-</dd>
-<dt><strong>2006 : Processeurs multi-cœurs</strong></dt>
-<dd>
-<p>Premier processeur double cœur avec Intel Core Duo.</p>
-</dd>
-<dt><strong>2006 : Hyper-threading</strong></dt>
-<dd>
-<p>Technologie Intel permettant à un cœur physique de gérer deux threads en simultané.</p>
-</dd>
-<dt><strong>2008 : Turbo Boost</strong></dt>
-<dd>
-<p>Fréquence d'horloge dynamique pour augmenter temporairement la performance (Intel Core i7).</p>
-</dd>
-<dt><strong>2008 : Smart Cache</strong></dt>
-<dd>
-<p>Partage dynamique du cache entre les cœurs pour améliorer l'efficacité.</p>
-</dd>
-</dl>
+<p>Le premier bus externe 64 bits apparaît avec le Pentium 4 en 2000, facilitant la gestion d'une plus grande quantité de mémoire, tandis que le pipeline est étendu à 20 étapes pour atteindre des fréquences plus élevées.</p>
+<p>En 2001, Intel introduit les SSE2 (Streaming <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> Extensions 2) afin d'améliorer les performances des calculs en virgule flottante.</p>
+<p>Le cache de niveau 3 (L3) fait son apparition en 2004 avec les processeurs Itanium 2 et Xeon, optimisant les performances des accès mémoire.</p>
+<p>En 2006, les premiers processeurs multi-cœurs, avec l'Intel Core Duo, voient le jour, et la technologie Hyper-Threading est intégrée, améliorant les performances des applications multi-threadées.</p>
+<p>En 2008, Intel introduit la technologie Smart Cache, permettant un partage dynamique du cache entre les cœurs, augmentant ainsi l'efficacité du processeur. Les procédés de fabrication sont réduits à 45 nm et les fréquences des processeurs atteignent 3 GHz.</p>
 <h3 id="annees-2010">Années 2010<a class="headerlink" href="#annees-2010" title="Lien permanent">¤</a></h3>
-<dl>
-<dt><strong>2010 : QuickPath Interconnect (QPI)</strong></dt>
-<dd>
-<p>Remplacement du bus front-side par une technologie d'interconnexion point à point (Intel Nehalem).</p>
-</dd>
-<dt><strong>2010 : Intel Quick Sync Video</strong></dt>
-<dd>
-<p>Accélération matérielle de l'encodage et du décodage vidéo (Intel Sandy Bridge).</p>
-</dd>
-<dt><strong>2011 : AVX (Advanced Vector Extensions)</strong></dt>
-<dd>
-<p>Introduction des instructions AVX pour améliorer les performances dans les calculs scientifiques (Intel Sandy Bridge).</p>
-</dd>
-<dt><strong>2013 : AVX2</strong></dt>
-<dd>
-<p>Extension des instructions AVX avec des performances encore améliorées (Intel Haswell).</p>
-</dd>
-<dt><strong>2014 : Mode de réduction de puissance (Intel Skylake)</strong></dt>
-<dd>
-<p>Introduction de modes d'économie d'énergie sophistiqués (C-states, P-states).</p>
-</dd>
-<dt><strong>2017 : AVX-512</strong></dt>
-<dd>
-<p>Instructions vectorielles 512-bit pour des opérations massivement parallèles (Intel Skylake-X).</p>
-</dd>
-<dt><strong>2019 : Intel Deep Learning Boost</strong></dt>
-<dd>
-<p>Instructions pour accélérer l'inférence en machine learning (Intel Cascade Lake).</p>
-</dd>
-</dl>
+<p>En 2010, Intel introduit le QuickPath Interconnect (QPI) pour remplacer le bus frontal, améliorant les performances de l'interconnexion entre les différents composants.</p>
+<p>En 2011, l'extension AVX (Advanced Vector Extensions) vient enrichir les instructions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> de la technologie SSE, optimisant ainsi les performances dans les calculs scientifiques.</p>
+<p>La génération Skylake, en 2014, introduit des modes d'économie d'énergie sophistiqués pour réduire la consommation. Les procédés de fabrication sont abaissés à 14 nm, améliorant à la fois les performances et l'efficacité énergétique. Les processeurs atteignent alors des fréquences de 4 GHz.</p>
 <h3 id="annees-2020">Années 2020<a class="headerlink" href="#annees-2020" title="Lien permanent">¤</a></h3>
-<dl>
-<dt><strong>2021 : Intel Hybrid Technology</strong> (Alder Lake)</dt>
-<dd>
-<p>Mélange de cœurs performants et efficaces dans une architecture hybride (P-cores et E-cores).</p>
-</dd>
-<dt><strong>2021 : Support des instructions 128-bit et au-delà</strong></dt>
-<dd>
-<p>avec l'évolution des instructions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Single_instruction_multiple_data">SIMD</a> et AVX-512.</p>
-</dd>
-<dt><strong>2021 : Photolithographie en EUV</strong> (Extreme Ultraviolet Lithography)</dt>
-<dd>
-<p>Avancée majeure dans le processus de fabrication des puces, utilisée pour créer des transistors toujours plus petits (par exemple les nœuds de 5 nm et 7 nm).</p>
-</dd>
-</dl>
+<p>La technologie EUV (Extreme Ultraviolet Lithography) permet de réduire les procédés de fabrication à 7 nm, compensant l'impossibilité d'augmenter davantage la fréquence des processeurs en raison des contraintes thermiques.</p>
+<p>En 2021, l'architecture hybride Alder Lake est introduite, combinant des cœurs à haute performance et des cœurs à haute efficacité pour un meilleur équilibre entre performances et efficacité énergétique.</p>
+<p>Les processeurs modernes comptent entre 8 et 24 cœurs, et malgré leur prix comparable à celui de l'Intel 4004 de 1971, leur puissance de calcul est 15,36 milliards de fois supérieure (en tenant compte du fait que l'Intel 4004 fonctionnait en 4 bits et ne pouvait réaliser que quelques centaines d'opérations flottantes par seconde).</p>
 
 
 
@@ -7774,7 +7729,7 @@ Imaginons donc un processeur le plus simple sachant qu'un compromis doit être t
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">30 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">1 octobre 2024</span>
   </span>
 
     
@@ -7899,7 +7854,7 @@ Imaginons donc un processeur le plus simple sachant qu'un compromis doit être t
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../mcu/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Systèmes à microcontrôleurs">
+          <a href="../computer/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: L&#39;ordinateur personnel">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -7909,20 +7864,20 @@ Imaginons donc un processeur le plus simple sachant qu'un compromis doit être t
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Systèmes à microcontrôleurs
+                L'ordinateur personnel
               </div>
             </div>
           </a>
         
         
           
-          <a href="../memory-management/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Gestion de la Mémoire">
+          <a href="../mcu/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Microcontrôleur">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Gestion de la Mémoire
+                Microcontrôleur
               </div>
             </div>
             <div class="md-footer__button md-icon">

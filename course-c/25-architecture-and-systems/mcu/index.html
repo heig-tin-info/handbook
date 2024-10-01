@@ -18,10 +18,10 @@ les outils associés.
         <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/25-architecture-and-systems/mcu/">
       
       
-        <link rel="prev" href="../computer/">
+        <link rel="prev" href="../cpu/">
       
       
-        <link rel="next" href="../cpu/">
+        <link rel="next" href="../memory-management/">
       
       
         
@@ -32,7 +32,7 @@ les outils associés.
     
     
       
-        <title>Systèmes à microcontrôleurs - L'informatique pour ingénieurs</title>
+        <title>Microcontrôleur - L'informatique pour ingénieurs</title>
       
     
     
@@ -172,7 +172,7 @@ les outils associés.
     <div data-md-component="skip">
       
         
-        <a href="#systemes-a-microcontroleurs" class="md-skip">
+        <a href="#microcontroleur" class="md-skip">
           Aller au contenu
         </a>
       
@@ -205,7 +205,7 @@ les outils associés.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Systèmes à microcontrôleurs
+              Microcontrôleur
             
           </span>
         </div>
@@ -1672,6 +1672,33 @@ les outils associés.
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Processeur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1690,7 +1717,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Systèmes à microcontrôleurs
+    Microcontrôleur
   
 
     
@@ -1707,7 +1734,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Systèmes à microcontrôleurs
+    Microcontrôleur
   
 
     
@@ -1737,17 +1764,6 @@ les outils associés.
     <span class="md-ellipsis">
       
         Introduction
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#les-microcontroleurs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Les microcontrôleurs
       
     </span>
   </a>
@@ -1880,33 +1896,6 @@ les outils associés.
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cpu/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    CPU
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -6008,17 +5997,6 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-microcontroleurs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Les microcontrôleurs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#style-de-programmation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6243,9 +6221,8 @@ les outils associés.
   
 
 
-<h1 id="systemes-a-microcontroleurs">Systèmes à microcontrôleurs<a class="headerlink" href="#systemes-a-microcontroleurs" title="Lien permanent">¤</a></h1>
+<h1 id="microcontroleur">Microcontrôleur<a class="headerlink" href="#microcontroleur" title="Lien permanent">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Lien permanent">¤</a></h2>
-<h2 id="les-microcontroleurs">Les microcontrôleurs<a class="headerlink" href="#les-microcontroleurs" title="Lien permanent">¤</a></h2>
 <p>Un microcontrôleur est un ordinateur sur une puce. Il est composé d'un processeur, de mémoire et de périphériques d'entrée/sortie. Les microcontrôleurs sont utilisés dans de nombreux systèmes embarqués, tels que les télécommandes, les jouets, les appareils électroménagers, les instruments de mesure, les systèmes de contrôle de moteurs etc. Nous avons déjà évoqué la <a class="autorefs autorefs-internal" href="../../05-introduction/programming/#les-systemes-a-microcontroleurs">machine à café</a> en début de cours qui est un bon exemple de système embarqué.</p>
 <h2 id="style-de-programmation">Style de programmation<a class="headerlink" href="#style-de-programmation" title="Lien permanent">¤</a></h2>
 <p>D'ordinaire les petits microcontrôleurs sont programmés en langage C, néanmoins certaines possibilités du langage sont généralement prohibées. Par exemple, les pointeurs de fonction sont rarement utilisés, les fonctions récursives sont à proscrire, les allocations dynamiques de mémoire sont interdites, etc. Les microcontrôleurs ont des ressources limitées et le programmeur doit en tenir compte.</p>
@@ -6425,7 +6402,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">27 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">1 octobre 2024</span>
   </span>
 
     
@@ -6550,7 +6527,7 @@ les outils associés.
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../computer/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: L&#39;ordinateur personnel">
+          <a href="../cpu/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Processeur">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6560,20 +6537,20 @@ les outils associés.
                 Précédent
               </span>
               <div class="md-ellipsis">
-                L'ordinateur personnel
+                Processeur
               </div>
             </div>
           </a>
         
         
           
-          <a href="../cpu/" class="md-footer__link md-footer__link--next" aria-label="Suivant: CPU">
+          <a href="../memory-management/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Gestion de la Mémoire">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                CPU
+                Gestion de la Mémoire
               </div>
             </div>
             <div class="md-footer__button md-icon">
