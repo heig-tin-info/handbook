@@ -541,102 +541,6 @@ Lorsque vous télécharge un binaire, par exemple Gimp, il sera compilé pour un
 
 Sous Windows, cette culture de la compilation est moins répandue, les logiciels sont généralement distribués sous forme de binaire, et il est rare de trouver des versions optimisées pour une architecture spécifique et de nombreux logiciels sont très peu optimisés.
 
-## Processeur minimal
-
-Pour mieux comprendre le fonctionnement d'un processeur, il est intéressant de concevoir un processeur minimal. Imaginons donc un processeur ultra simple  sachant qu'un compromis doit être trouvé entre simplicité et fonctionnalité. En effet, un processeur dispose en autre des caractéristiques suivantes :
-
-- Largeur du bus de données et d'adresse
-- Nombre d'instructions
-
-Avec un jeu d'instruction très réduit comme comme sur l'OISC (*One Instruction Set Computer*) ou le CPU Zero, on peut concevoir un processeur minimaliste avec l'instruction *Subtract and Branch if Negative* (SBN). C'est une instruction qui soustrait deux valeurs et saute à une adresse si le résultat est négatif. Avec cette seule instruction, il est possible de simuler toutes les opérations qui seraient normalement effectuées par un ensemble d'instructions plus riche comme l'addition, la soustraction, les comparaisons et les sauts conditionnels.
-
-La quantité d'instructions dans un processeur classifie sa nature, on distingue les processeurs RISC (*Reduced Instruction Set Computer*) et CISC (*Complex Instruction Set Computer*). Les processeurs RISC ont un jeu d'instructions réduit, ce qui les rend plus simples et plus rapides. Les processeurs CISC ont un jeu d'instructions plus riche, ce qui les rend plus complexes mais plus polyvalents. Il y eut longtemps le débat entre les deux architectures, mais de nos jours, les processeurs modernes sont hybrides, ils combinent les avantages des deux architectures.
-
-Pour notre processeur, on retiendra une dizaine d'instructions regroupant les opérations de base comme l'addition, la soustraction, les opérations logiques, les sauts conditionnels et les opérations de transfert de données.
-
-Sur la figure suivante, on propose une  architecture minimale d'un processeur avec un jeu d'instructions réduit:
-
-![Architecture minimale](/assets/images/cpu-zero.drawio)
-
-Les instructions retenues sont les suivantes :
-
-- `ADD` : additionne `A` et `B` et stocke le résultat dans `C`
-- `SUB` : soustrait `A` et `B` et stocke le résultat dans `C`
-- `AND` : fait un `ET` logique entre `A` et `B` et stocke le résultat dans `C`
-- `OR` : fait un `OU` logique entre `A` et `B` et stocke le résultat dans `C`
-- `XOR` : fait un `OU EXCLUSIF` logique entre `A` et `B` et stocke le résultat dans `C`
-- `JNZ` : si `A` est non nul, saute à l'instruction `B`
-- `MOV A, Rx` : copie le registe `Rx` dans `A`
-- `MOV B, Rx` : copie le registe `Rx` dans `B`
-- `MOV Rx, C` : copie `C` dans le registe `Rx`
-- `MOV Rx, Ry` : copie le registe `Ry` dans le registe `Rx`
-- `MOV Rx, @Ry,Ry+1` : copie la valeur pointée par le registe `Ry` dans le registe `Rx`
-
-Fixons quelques caractéristiques de notre processeur minimal :
-
-- L'architecture est 16-bit, donc le bus d'adresse et de données sont de 16-bit. Cela signifie que le processeur peut adresser $2^16 = 65536$ adresses mémoire différentes, et que les données sont stockées sur des `short` de 16 bits.
-- L'adresse `0x0000` est le point d'entrée du programme, c'est là qu'au démarrage du processeur, le programme commence à s'exécuter.
-- L'adresse `0xFFFE` est l'entrée standard, c'est une queue. Lorsque le buffer est vide, la valeur lue est `0x00FF`.
-- L'adresse `0xFFFF` est la queue de sortie, l'affichage de la sortie, chaque valeur écrite est imprimée en ASCII sur une imprimante, les valeurs sont donc des caractères ASCII de 8 bits.
-
-Le processeur dispose de registres
-
-- `A` : Accumulateur, première entrée de l'ALU
-- `B` : Deuxième entrée de l'ALU (temporaire)
-- `C` : Résultat de l'ALU
-- `R0 à R7` : registres généraux de 16 bits
-- `OP` : instruction en cours d'exécution
-- `ST` : statut de l'ALU (zéro, négatif, carry, overflow)
-- `PC` : pointeur d'instruction, il contient l'adresse de la prochaine instruction à exécuter
-- `ADDR` : adresse de la mémoire à laquelle on veut accéder
-- `DATA` : valeur lue ou que l'on souhaite écrire dans la mémoire
-
-Une machine t'état est utilisée pour contrôler le processeur. Elle permet de générer les signaux de contrôle suivants:
-
-- `RD` : active la lecture de la mémoire pointée par `ADDR`
-- `WR` : active l'écriture dans la mémoire pointée par `ADDR`
-- `LA` : latch `ADDR`
-- `LPC` : latch `PC`
-- `LA` : latch la valeur sur le bus dans `A`
-- `LB` : latch la valeur sur le bus dans `B`
-- `LC` : Expose sur le bus la valeur de `C`
-- `LAOP` : latch l'OP
-- `LST` : Expose le status sur le bus
-
-Ce CPU à un pipeline simple. A chaque coup d'horloge :
-
-1. PC est copié dans l'adresse de la mémoire à laquelle on veut accéder.
-2. RD est activé pour lire la mémoire.
-3. La valeur lue est chargée dans OP.
-4. L'instruction est exécutée.
-5. PC est incrémenté de 1.
-
-Exemple d'exécution de `MOV A, R0` :
-
-1. L'OE est activé sur R0.
-2. Latch est activé sur A.
-3. Latch est désactivé sur A.
-4. L'OE est désactivé.
-
-- 16 instructions donc 4 bits pour l'OP
-- 8 registres donc 3 bits pour les registres
-
-
-| Opcode     | Instruction | Exemple     | Description                           |
-| ---------- | ----------- | ----------- | ------------------------------------- |
-| 0b0000xxxx | ADD         |             |                                       |
-| 0b0001xxxx | SUB         |             |                                       |
-| 0b0010xxxx | AND         |             |                                       |
-| 0b0011xxxx | OR          |             |                                       |
-| 0b0100xxxx | XOR         |             |                                       |
-| 0b0101xxxx | JNZ         | 0b0101'xxxx | Saut relatif de B (PC += B) si A != 0 |
-| 0b01100rrr | MOV A, Rx   | 0b0110'0001 | MOV A, R1                             |
-| 0b01101rrr | MOV B, Rx   | 0b0111'0010 | MOV B, R2                             |
-| 0b0111xrrr | MOV Rx, C   | 0b0111'1000 | MOV R0, C                             |
-| 0b10rrrsss | MOV Rx, Ry  | 0b1000'0010 | MOV R0, R2                            |
-| 0b11rrrsss | MOV Rx, @Ry | 0b1100'0010 | MOV R0, @(R2, R3)                     |
-
-
 ## Extensions x86
 
 Effectivement, il existe d'autres extensions pour l'architecture x86, notamment **CLMUL**, **RDRAND**, et **TXT**. Voici la table mise à jour avec ces extensions et d'autres supplémentaires :
@@ -801,3 +705,11 @@ La technologie EUV (Extreme Ultraviolet Lithography) permet de réduire les proc
 En 2021, l'architecture hybride Alder Lake est introduite, combinant des cœurs à haute performance et des cœurs à haute efficacité pour un meilleur équilibre entre performances et efficacité énergétique.
 
 Les processeurs modernes comptent entre 8 et 24 cœurs, et malgré leur prix comparable à celui de l'Intel 4004 de 1971, leur puissance de calcul est 15,36 milliards de fois supérieure (en tenant compte du fait que l'Intel 4004 fonctionnait en 4 bits et ne pouvait réaliser que quelques centaines d'opérations flottantes par seconde).
+
+## Travaux intéressants
+
+Le **LC-3** est un processeur pédagogique conçu pour l'apprentissage de l'architecture des ordinateurs. Il est simple, mais suffisamment complet pour illustrer les concepts fondamentaux de l'architecture des ordinateurs. Il est utilisé dans de nombreux cours d'informatique pour enseigner les principes de base de l'architecture des ordinateurs.
+
+Le **SAP-1** (Simple As Possible) est un autre processeur pédagogique conçu pour être simple et facile à comprendre. Il est basé sur des registres de décalage et des circuits logiques discrets, ce qui le rend idéal pour l'apprentissage des bases de l'architecture des ordinateurs.
+
+Le **RISC-V** est une architecture de jeu d'instructions ouverte et libre, conçue pour être simple, modulaire et extensible. Elle est de plus en plus populaire dans le domaine de l'informatique, en particulier pour les applications embarquées et les systèmes à faible consommation d'énergie.
