@@ -1965,17 +1965,6 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
-  <a href="#processeur-minimal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Processeur minimal
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#extensions-x86" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2127,6 +2116,17 @@ les outils associés.
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travaux-interessants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travaux intéressants
+      
+    </span>
+  </a>
   
 </li>
       
@@ -6483,17 +6483,6 @@ les outils associés.
 </li>
       
         <li class="md-nav__item">
-  <a href="#processeur-minimal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Processeur minimal
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#extensions-x86" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6645,6 +6634,17 @@ les outils associés.
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travaux-interessants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travaux intéressants
+      
+    </span>
+  </a>
   
 </li>
       
@@ -7174,161 +7174,6 @@ Le DMI (Direct Media Interface chez Intel) ou QPI (QuickPath Interconnect chez I
 <p>Il y a donc un compromis à faire entre la performance et la compatibilité. Si vous développez un logiciel grand public, vous voudrez probablement le rendre compatible avec un maximum de processeurs, mais si vous développez un logiciel pour un environnement spécifique, vous pouvez optimiser pour une architecture particulière. C'est pour cette raison que sous Linux/Unix il est courant de compiler ses logiciels soi-même pour obtenir les meilleures performances, c'est notament le cas de la distribution Gentoo dans lequel l'utilisateur doit compiler la plupart des logiciels (ce qui est un enfer pour les non-geeks).</p>
 <p>Lorsque vous télécharge un binaire, par exemple Gimp, il sera compilé pour une architecture générique, ce qui garantit une certaine compatibilité, mais il ne sera pas optimisé pour votre processeur. Si vous voulez obtenir les meilleures performances, vous devrez le compiler vous-même.</p>
 <p>Sous Windows, cette culture de la compilation est moins répandue, les logiciels sont généralement distribués sous forme de binaire, et il est rare de trouver des versions optimisées pour une architecture spécifique et de nombreux logiciels sont très peu optimisés.</p>
-<h2 id="processeur-minimal">Processeur minimal<a class="headerlink" href="#processeur-minimal" title="Lien permanent">¤</a></h2>
-<p>Pour mieux comprendre le fonctionnement d'un processeur, il est intéressant de concevoir un processeur minimal. Imaginons donc un processeur ultra simple  sachant qu'un compromis doit être trouvé entre simplicité et fonctionnalité. En effet, un processeur dispose en autre des caractéristiques suivantes :</p>
-<ul>
-<li>Largeur du bus de données et d'adresse</li>
-<li>Nombre d'instructions</li>
-</ul>
-<p>Avec un jeu d'instruction très réduit comme comme sur l'OISC (<em>One Instruction Set Computer</em>) ou le <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> Zero, on peut concevoir un processeur minimaliste avec l'instruction <em>Subtract and Branch if Negative</em> (SBN). C'est une instruction qui soustrait deux valeurs et saute à une adresse si le résultat est négatif. Avec cette seule instruction, il est possible de simuler toutes les opérations qui seraient normalement effectuées par un ensemble d'instructions plus riche comme l'addition, la soustraction, les comparaisons et les sauts conditionnels.</p>
-<p>La quantité d'instructions dans un processeur classifie sa nature, on distingue les processeurs RISC (<em>Reduced Instruction Set Computer</em>) et CISC (<em>Complex Instruction Set Computer</em>). Les processeurs RISC ont un jeu d'instructions réduit, ce qui les rend plus simples et plus rapides. Les processeurs CISC ont un jeu d'instructions plus riche, ce qui les rend plus complexes mais plus polyvalents. Il y eut longtemps le débat entre les deux architectures, mais de nos jours, les processeurs modernes sont hybrides, ils combinent les avantages des deux architectures.</p>
-<p>Pour notre processeur, on retiendra une dizaine d'instructions regroupant les opérations de base comme l'addition, la soustraction, les opérations logiques, les sauts conditionnels et les opérations de transfert de données.</p>
-<p>Sur la figure suivante, on propose une  architecture minimale d'un processeur avec un jeu d'instructions réduit :</p>
-<p><figure id="_figure-10"><img alt="Architecture minimale" class="drawio-diagram" src="../../../assets/images/cpu-zero.drawio"/><figcaption> Architecture minimale</figcaption></figure></p>
-<p>Les instructions retenues sont les suivantes :</p>
-<ul>
-<li><span class="ycr-hashtag" data-index-entry="ADD" data-tag="ADD"><code>ADD</code></span> : additionne <code>A</code> et <code>B</code> et stocke le résultat dans <code>C</code></li>
-<li><span class="ycr-hashtag" data-index-entry="SUB" data-tag="SUB"><code>SUB</code></span> : soustrait <code>A</code> et <code>B</code> et stocke le résultat dans <code>C</code></li>
-<li><span class="ycr-hashtag" data-index-entry="AND" data-tag="AND"><code>AND</code></span> : fait un <code>ET</code> logique entre <code>A</code> et <code>B</code> et stocke le résultat dans <code>C</code></li>
-<li><code>OR</code> : fait un <code>OU</code> logique entre <code>A</code> et <code>B</code> et stocke le résultat dans <code>C</code></li>
-<li><span class="ycr-hashtag" data-index-entry="XOR" data-tag="XOR"><code>XOR</code></span> : fait un <code>OU EXCLUSIF</code> logique entre <code>A</code> et <code>B</code> et stocke le résultat dans <code>C</code></li>
-<li><span class="ycr-hashtag" data-index-entry="JNZ" data-tag="JNZ"><code>JNZ</code></span> : si <code>A</code> est non nul, saute à l'instruction <code>B</code></li>
-<li><code>MOV A, Rx</code> : copie le registe <code>Rx</code> dans <code>A</code></li>
-<li><code>MOV B, Rx</code> : copie le registe <code>Rx</code> dans <code>B</code></li>
-<li><code>MOV Rx, C</code> : copie <code>C</code> dans le registe <code>Rx</code></li>
-<li><code>MOV Rx, Ry</code> : copie le registe <code>Ry</code> dans le registe <code>Rx</code></li>
-<li><code>MOV Rx, @Ry,Ry+1</code> : copie la valeur pointée par le registe <code>Ry</code> dans le registe <code>Rx</code></li>
-</ul>
-<p>Fixons quelques caractéristiques de notre processeur minimal :</p>
-<ul>
-<li>L'architecture est 16-bit, donc le bus d'adresse et de données sont de 16-bit. Cela signifie que le processeur peut adresser <span class="arithmatex">\(2^16 = 65536\)</span> adresses mémoire différentes, et que les données sont stockées sur des <span class="ycr-hashtag" data-index-entry="short" data-tag="short"><code>short</code></span> de 16 bits.</li>
-<li>L'adresse <code>0x0000</code> est le point d'entrée du programme, c'est là qu'au démarrage du processeur, le programme commence à s'exécuter.</li>
-<li>L'adresse <code>0xFFFE</code> est l'entrée standard, c'est une queue. Lorsque le buffer est vide, la valeur lue est <code>0x00FF</code>.</li>
-<li>L'adresse <code>0xFFFF</code> est la queue de sortie, l'affichage de la sortie, chaque valeur écrite est imprimée en <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> sur une imprimante, les valeurs sont donc des caractères <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> de 8 bits.</li>
-</ul>
-<p>Le processeur dispose de registres</p>
-<ul>
-<li><code>A</code> : Accumulateur, première entrée de l'ALU</li>
-<li><code>B</code> : Deuxième entrée de l'ALU (temporaire)</li>
-<li><code>C</code> : Résultat de l'ALU</li>
-<li><code>R0 à R7</code> : registres généraux de 16 bits</li>
-<li><code>OP</code> : instruction en cours d'exécution</li>
-<li><code>ST</code> : statut de l'ALU (zéro, négatif, carry, overflow)</li>
-<li><code>PC</code> : pointeur d'instruction, il contient l'adresse de la prochaine instruction à exécuter</li>
-<li><span class="ycr-hashtag" data-index-entry="ADDR" data-tag="ADDR"><code>ADDR</code></span> : adresse de la mémoire à laquelle on veut accéder</li>
-<li><span class="ycr-hashtag" data-index-entry="DATA" data-tag="DATA"><code>DATA</code></span> : valeur lue ou que l'on souhaite écrire dans la mémoire</li>
-</ul>
-<p>Une machine t'état est utilisée pour contrôler le processeur. Elle permet de générer les signaux de contrôle suivants :</p>
-<ul>
-<li><code>RD</code> : active la lecture de la mémoire pointée par <span class="ycr-hashtag" data-index-entry="ADDR" data-tag="ADDR"><code>ADDR</code></span></li>
-<li><code>WR</code> : active l'écriture dans la mémoire pointée par <span class="ycr-hashtag" data-index-entry="ADDR" data-tag="ADDR"><code>ADDR</code></span></li>
-<li><code>LA</code> : latch <span class="ycr-hashtag" data-index-entry="ADDR" data-tag="ADDR"><code>ADDR</code></span></li>
-<li><span class="ycr-hashtag" data-index-entry="LPC" data-tag="LPC"><code>LPC</code></span> : latch <code>PC</code></li>
-<li><code>LA</code> : latch la valeur sur le bus dans <code>A</code></li>
-<li><code>LB</code> : latch la valeur sur le bus dans <code>B</code></li>
-<li><code>LC</code> : Expose sur le bus la valeur de <code>C</code></li>
-<li><span class="ycr-hashtag" data-index-entry="LAOP" data-tag="LAOP"><code>LAOP</code></span> : latch l'OP</li>
-<li><span class="ycr-hashtag" data-index-entry="LST" data-tag="LST"><code>LST</code></span> : Expose le status sur le bus</li>
-</ul>
-<p>Ce <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> à un pipeline simple. A chaque coup d'horloge :</p>
-<ol>
-<li>PC est copié dans l'adresse de la mémoire à laquelle on veut accéder.</li>
-<li>RD est activé pour lire la mémoire.</li>
-<li>La valeur lue est chargée dans OP.</li>
-<li>L'instruction est exécutée.</li>
-<li>PC est incrémenté de 1.</li>
-</ol>
-<p>Exemple d'exécution de <code>MOV A, R0</code> :</p>
-<ol>
-<li>L'OE est activé sur R0.</li>
-<li>Latch est activé sur A.</li>
-<li>Latch est désactivé sur A.</li>
-<li>
-<p>L'OE est désactivé.</p>
-</li>
-<li>
-<p>16 instructions donc 4 bits pour l'OP</p>
-</li>
-<li>8 registres donc 3 bits pour les registres</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>Opcode</th>
-<th>Instruction</th>
-<th>Exemple</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0b0000xxxx</td>
-<td>ADD</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>0b0001xxxx</td>
-<td>SUB</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>0b0010xxxx</td>
-<td>AND</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>0b0011xxxx</td>
-<td>OR</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>0b0100xxxx</td>
-<td>XOR</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>0b0101xxxx</td>
-<td>JNZ</td>
-<td>0b0101'xxxx</td>
-<td>Saut relatif de B (PC += B) si A != 0</td>
-</tr>
-<tr>
-<td>0b01100rrr</td>
-<td>MOV A, Rx</td>
-<td>0b0110'0001</td>
-<td>MOV A, R1</td>
-</tr>
-<tr>
-<td>0b01101rrr</td>
-<td>MOV B, Rx</td>
-<td>0b0111'0010</td>
-<td>MOV B, R2</td>
-</tr>
-<tr>
-<td>0b0111xrrr</td>
-<td>MOV Rx, C</td>
-<td>0b0111'1000</td>
-<td>MOV R0, C</td>
-</tr>
-<tr>
-<td>0b10rrrsss</td>
-<td>MOV Rx, Ry</td>
-<td>0b1000'0010</td>
-<td>MOV R0, R2</td>
-</tr>
-<tr>
-<td>0b11rrrsss</td>
-<td>MOV Rx, @Ry</td>
-<td>0b1100'0010</td>
-<td>MOV R0, @(R2, R3)</td>
-</tr>
-</tbody>
-</table>
 <h2 id="extensions-x86">Extensions x86<a class="headerlink" href="#extensions-x86" title="Lien permanent">¤</a></h2>
 <p>Effectivement, il existe d'autres extensions pour l'architecture x86, notamment <strong>CLMUL</strong>, <strong>RDRAND</strong>, et <strong>TXT</strong>. Voici la table mise à jour avec ces extensions et d'autres supplémentaires :</p>
 <table id="_table-2">
@@ -7707,6 +7552,10 @@ Le DMI (Direct Media Interface chez Intel) ou QPI (QuickPath Interconnect chez I
 <p>La technologie EUV (Extreme Ultraviolet Lithography) permet de réduire les procédés de fabrication à 7 nm, compensant l'impossibilité d'augmenter davantage la fréquence des processeurs en raison des contraintes thermiques.</p>
 <p>En 2021, l'architecture hybride Alder Lake est introduite, combinant des cœurs à haute performance et des cœurs à haute efficacité pour un meilleur équilibre entre performances et efficacité énergétique.</p>
 <p>Les processeurs modernes comptent entre 8 et 24 cœurs, et malgré leur prix comparable à celui de l'Intel 4004 de 1971, leur puissance de calcul est 15,36 milliards de fois supérieure (en tenant compte du fait que l'Intel 4004 fonctionnait en 4 bits et ne pouvait réaliser que quelques centaines d'opérations flottantes par seconde).</p>
+<h2 id="travaux-interessants">Travaux intéressants<a class="headerlink" href="#travaux-interessants" title="Lien permanent">¤</a></h2>
+<p>Le <strong>LC-3</strong> est un processeur pédagogique conçu pour l'apprentissage de l'architecture des ordinateurs. Il est simple, mais suffisamment complet pour illustrer les concepts fondamentaux de l'architecture des ordinateurs. Il est utilisé dans de nombreux cours d'informatique pour enseigner les principes de base de l'architecture des ordinateurs.</p>
+<p>Le <strong>SAP-1</strong> (Simple As Possible) est un autre processeur pédagogique conçu pour être simple et facile à comprendre. Il est basé sur des registres de décalage et des circuits logiques discrets, ce qui le rend idéal pour l'apprentissage des bases de l'architecture des ordinateurs.</p>
+<p>Le <strong>RISC-V</strong> est une architecture de jeu d'instructions ouverte et libre, conçue pour être simple, modulaire et extensible. Elle est de plus en plus populaire dans le domaine de l'informatique, en particulier pour les applications embarquées et les systèmes à faible consommation d'énergie.</p>
 
 
 
@@ -7729,7 +7578,7 @@ Le DMI (Direct Media Interface chez Intel) ou QPI (QuickPath Interconnect chez I
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">1 octobre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2 octobre 2024</span>
   </span>
 
     
