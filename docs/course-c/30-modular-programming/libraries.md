@@ -92,7 +92,7 @@ gmp.c:(.text+0x146): undefined reference to `__gmpz_clear'
 collect2: error: ld returned 1 exit status
 ```
 
-Cette fois-ci on peut lire que le compilateur à fait sont travail, mais ne parvient pas à trouver les symboles des fonctions que l'on utilise p.ex. `__gmpz_add_ui`. C'est normal parce que l'on n'a pas renseigné la bibliothèque à utiliser.
+Cette fois-ci on peut lire que le compilateur à fait son travail, mais ne parvient pas à trouver les symboles des fonctions que l'on utilise p.ex. `__gmpz_add_ui`. C'est normal parce que l'on n'a pas renseigné la bibliothèque à utiliser.
 
 ```console
 $ gcc gmp.c -lgmp
