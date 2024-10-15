@@ -253,7 +253,7 @@ Une variable est définie par :
 - Son **type** (*type*), qui est la convention d'interprétation du contenu binaire en mémoire.
 - Sa **valeur** (*value*), qui est le contenu interprété connaissant son **type**.
 - Son **adresse** (*address*) qui est l'emplacement mémoire ou la représentation binaire sera enregistrée.
-- Sa **portée** (*scope*) qui est la portion de code ou le symbole est définie et accessible.
+- Sa **portée** (*scope*) qui est la portion de code où le symbole est défini et accessible.
 - Sa **visibilité** (*visibility*) qui ne peut être que *public* en C.
 
 Pour mieux comprendre ce concept fondamental, imaginons la plage de Donnant à Belle-Île-en-Mer. Quelqu'un a écrit sur le sable, bien visible depuis la colline adjacente, le mot `COIN`. L'identificateur c'est `Donnant`, la valeur c'est `COIN`, le type permet de savoir comment interpréter la valeur. Cela peut s'agir d'une pièce de monnaie en anglais, du coin d'une table en français ou du lapin en néerlandais.
