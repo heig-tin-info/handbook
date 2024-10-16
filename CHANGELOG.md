@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Update MkDocs Material, remove fix for tags in search
 - Split template LaTeX in imprint and titlepage
 - Add content MCU, CPU and some figures
 - Adds some information about processors
