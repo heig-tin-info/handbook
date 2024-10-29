@@ -8,7 +8,7 @@ level: 2
 
 Conçu comme un résumé du savoir nécessaire à l'ingénieur pour s'initier à la programmation et prendre en main le langage C, cet ouvrage n'est pas un manuel de référence. Il se réfère à de nombreuses ressources internet et livres que le lecteur pourra consulter au besoin pour approfondir certains concepts.
 
-Chaque chapitre est composé d'exercices, mais à des fins pédagogiques, l'intégralité des solutions ne sont pas fournies; certains exercices sont destinés à être faits en études.
+Chaque chapitre est composé d'exercices, mais à des fins pédagogiques, l'intégralité des solutions n'est pas fournie; certains exercices sont destinés à être faits en études.
 
 Cet ouvrage est destiné aux étudiants futurs ingénieurs de première année n'ayant aucune expérience en programmation.
 
