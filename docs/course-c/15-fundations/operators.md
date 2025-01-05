@@ -79,23 +79,6 @@ int a = 5 / 2;      // 2
 double b = 5.0 / 2; // 2.5
 ```
 
-Le modulo (*mod*, `%`) est le reste de la division entière. L'assertion suivante est donc vraie, car 13 divisé par 4 égal 3 et il reste 1 : [[||modulo]]
-[[||%]]
-
-```c
-assert(13 % 4 == 1)
-```
-
-$$
-\begin{array}{rr|l}
-  1 & 3 & 4 \\
-\hline
- - & 8   & \textbf{2} \\
-  & \textbf{5}   & \\
-  & &
-\end{array}
-$$
-
 Il est important de noter aussi que les opérateurs arithmétiques sont tributaires des types sur lesquels ils s'appliquent. Par exemple, l'addition de deux entiers 8 bits `120 + 120` ne fera pas, `240` car le type ne permet pas de stocker des valeurs plus grandes que `127` :
 
 ```c
@@ -212,6 +195,100 @@ Table: Addition binaire
               ---+--------
                 1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
             ```
+
+#### Modulo
+
+Nous avons tous appris à l'école les quatre opérations de base, mais le modulo est souvent oublié et pourtant il s'agit d'une opération courante dans notre quotidien.
+
+C'est halloween, on frappe à la porte, vous ouvrez. Trois enfants déguisés en fantômes se tiennent devant vous. Vous avez une boîte de 13 bonbons, combien de bonbons allez-vous donner à chaque enfant ? Vous souhaitez être équitable. Intuitivement, vous allez donc donner 4 bonbons à chaque enfant et il vous restera un bonbon. L'opération que vous venez de faire est une division entière avec un modulo :
+
+```c
+int bonbons = 13;
+int enfants = 3;
+int bonbons_par_enfant = bonbons / enfants; // 4
+int reste = bonbons % enfants; // 1
+```
+
+L'opération modulo est donc complémentaire à la division entière. En pratique, l'ALU est capable de calculer le modulo en même temps que la division entière et parfois il est utile de récupérer à la fois le quotient et le reste.
+
+Par exemple, pour convertir un nombre en base 10 en base 16, il est possible de récupérer le reste de la division par 16 pour obtenir le chiffre hexadécimal :
+
+```c
+int nombre = 148;
+int quotient = nombre / 16; // 9
+int reste = nombre % 16; // 4
+// La valeur en hexadécimal est donc 94
+```
+
+Le modulo (*mod*, `%`) est le reste de la division entière. L'assertion suivante est donc vraie, car 13 divisé par 4 égal 3 et il reste 1 : [[||modulo]]
+[[||%]]
+
+```c
+assert(13 % 4 == 1)
+```
+
+$$
+\begin{array}{rr|l}
+  1 & 3 & 4 \\
+\hline
+ - & 8   & \textbf{2} \\
+  & \textbf{5}   & \\
+  & &
+\end{array}
+$$
+
+!!! note "Optimisation"
+
+    L'ALU de votre processeur est capable de calculer le modulo en même temps que la division entière. Il est donc plus efficace de récupérer le reste de la division en même temps que le quotient. Imaginons cette fonction :
+
+    ```c
+    void moddiv(int value, int divisor, int *quotient, int *reminder) {
+        *quotient = value / divisor;
+        *reminder = value % divisor;
+    }
+    ```
+
+    Dans une architecture X86, elle sera probablement implémentée de la façon suivante :
+
+    ```asm
+    mov     eax, edi
+    mov     r8, rdx
+    cdq
+    idiv    esi  // eax = value / divisor, edx = value % divisor
+    mov     DWORD PTR [r8], eax
+    mov     DWORD PTR [rcx], edx
+    ret
+    ```
+
+    L'opération `idiv` effectue à la fois la division entière et le modulo. Le registre `eax` contient le quotient et le registre `edx` contient le reste.
+
+Le modulo dispose de quelques propriétés :
+
+Distributivité sur l'addition :
+
+$$
+(a + b) \% n = [(a \% n) + (b \% n)] \% n
+$$
+
+Distributivité sur la soustraction (On ajoute \( n \) pour éviter des résultats négatifs) :
+
+$$
+(a - b) \% n = [(a \% n) - (b \% n) + n] \% n
+$$
+
+Distributivité sur la multiplication :
+
+$$
+(a \times b) \% n = [(a \% n) \times (b \% n)] \% n
+$$
+
+Comparaison : si \( a \% n = b \% n \), alors \( a \) et \( b \) sont congruents modulo \( n \).
+
+$$
+a \equiv b \mod n
+$$
+
+Deux nombres sont **congruents modulo $n$** lorsqu'ils ont le même reste dans la division euclidienne par un entier $n$.
 
 ### Opérateurs relationnels
 

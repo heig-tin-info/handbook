@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Le processeur, c'est le cerveau de l'ordinateur. C'est l'unité centrale de traitement (CPU) qui exécute les instructions et les calculs nécessaires pour faire fonctionner un système informatique. Par analogie à la [Machine de Turing][turing-machine], un processeur est un automate **Turing complet** qui exécute des instructions séquentiellement. Il a besoin pour cela d'une mémoire de travail pour stocker les calculs en cours, et une mémoire de programme qui contient la liste des instructions à exécuter.
+Le processeur, c'est le cerveau de l'ordinateur. C'est l'unité centrale de traitement (CPU) qui exécute les instructions et les calculs nécessaires pour faire fonctionner un système informatique. Par analogie à la [Machine de Turing][turingmachine], un processeur est un automate **Turing complet** qui exécute des instructions séquentiellement. Il a besoin pour cela d'une mémoire de travail pour stocker les calculs en cours, et une mémoire de programme qui contient la liste des instructions à exécuter.
 
 Une mémoire fonctionne comme un livre, pour obtenir un contenu (données), on doit l'ouvrir à une page spécifique (adresse). En pratique les mémoires sont adressables par octets. Avec une adresse de 64 bits, on peut adresser 2^64 octets, soit 16 exaoctets, ce qui ne sera pas un problème pour les prochaines décennies.
 
