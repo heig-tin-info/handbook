@@ -657,6 +657,12 @@ En 2021, l'architecture hybride Alder Lake est introduite, combinant des cœurs 
 
 Les processeurs modernes comptent entre 8 et 24 cœurs, et malgré leur prix comparable à celui de l'Intel 4004 de 1971, leur puissance de calcul est 15,36 milliards de fois supérieure (en tenant compte du fait que l'Intel 4004 fonctionnait en 4 bits et ne pouvait réaliser que quelques centaines d'opérations flottantes par seconde).
 
+## Cas du Intel 4004
+
+À la lecture de ce chapitre vous êtes certainement encore plus perdu qu'au début, tentons ici de démystifier ce qui se trouve réellement sur une puce de silicium. Pour cela, nous sommes contraints de remonter dans le temps, en 1971, pour étudier le premier microprocesseur commercialisé, l'Intel 4004. Il est d'une part très simple avec ses 2500 transistors, réalisé dans un process de 10 µm ce qui permet de le voir avec un microscope optique et enfin son design a été publié par Intel, ce qui permet de le reproduire et de s'intéresser à son schéma interne.
+
+![Schéma bloc de l'Intel 4004](/assets/images/intel-4004-block-diagram.png)
+
 ## Travaux intéressants
 
 Le **LC-3** est un processeur pédagogique conçu pour l'apprentissage de l'architecture des ordinateurs. Il est simple, mais suffisamment complet pour illustrer les concepts fondamentaux de l'architecture des ordinateurs. Il est utilisé dans de nombreux cours d'informatique pour enseigner les principes de base de l'architecture des ordinateurs.
