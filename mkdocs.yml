@@ -126,6 +126,7 @@ plugins:
   #           warning: Avertissement
 
   - tags
+  - epigraph
   - glightbox:
       skip_classes:
         - drawio-diagram
@@ -173,7 +174,6 @@ markdown_extensions:
   - pymdownx.magiclink
   - admonition
   - footnotes
-  - material.extensions.preview
   - pymdownx.arithmatex:
       generic: true
   - def_list
@@ -280,7 +280,6 @@ hooks:
   - hooks/french.py # French typography
   - hooks/wiki.py # Wiki tips on hover
   - hooks/latex.py # LaTeX conversion
-  - hooks/epigraph.py # Quote at the beginning of a page
   - hooks/tags.py # Custom tags
   - hooks/mermaid.py # Support for captions in mermaid diagrams
   - hooks/abbr.py # Abbreviations to Wiki links
