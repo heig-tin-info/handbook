@@ -115,18 +115,9 @@ plugins:
         position: top
   # - social # Not supporting external logo link
   - awesome-pages
-
-  # - i18n:
-  #     languages:
-  #       - locale: fr
-  #         default: true
-  #         name: Français
-  #         admonition_translations:
-  #           tip: Astuce
-  #           warning: Avertissement
-
   - tags
   - epigraph
+  - pills
   - glightbox:
       skip_classes:
         - drawio-diagram
@@ -274,9 +265,7 @@ watch:
 hooks:
   - hooks/index.py # Index keywords in codes (language)
   - hooks/drawio.py # Embedded draw.io diagrams
-  - hooks/unicode.py # Box around unicode codes U+XXXX
   - hooks/spantable.py # Adds span table support
-  - hooks/regex.py # Box around regex `#!regex a/b`
   - hooks/french.py # French typography
   - hooks/wiki.py # Wiki tips on hover
   - hooks/latex.py # LaTeX conversion
@@ -285,7 +274,6 @@ hooks:
   - hooks/abbr.py # Abbreviations to Wiki links
 extra_css:
   - css/french.css
-  - css/callout.css
   - css/extra.css
   - css/tables.css
   - css/drawio.css

@@ -1852,6 +1852,21 @@ jsmin = ">=3.0.1"
 mkdocs = ">=1.4.1"
 
 [[package]]
+name = "mkdocs-pills"
+version = "0.1.0"
+description = "Add pillss to your MkDocs documentation"
+optional = false
+python-versions = "<4.0,>=3.9"
+groups = ["main"]
+files = [
+    {file = "mkdocs_pills-0.1.0-py3-none-any.whl", hash = "sha256:e2d3bed88601fbebc7f5ed2e712c5689e670a230eaaaab86e829f5279b763557"},
+    {file = "mkdocs_pills-0.1.0.tar.gz", hash = "sha256:a172cb81e3f695dc66a3943a1fbbe4fa3a3e7f6ff8f613d250f224c23a0faa26"},
+]
+
+[package.dependencies]
+mkdocs = ">=1.6.1,<2.0.0"
+
+[[package]]
 name = "mkdocs-plugin-exercises"
 version = "0.2.0"
 description = "Provide Exercises to Mkdocs"
@@ -3572,4 +3587,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "2919500d3cd8b1b8e8219064d1292470d03c85f5c83fd994c3f5d3a3e44a8e01"
+content-hash = "b157ddd2e2e727d86b965dd3496ba79c41ae7c35b7e48d250b564834288e1043"
