@@ -194,7 +194,7 @@ Il se peut que des utilisateurs ou des actions inutiles ait été ajoutées ou q
 
 #### Analyse du besoin
 
-L'analyse du besoin est la seconde étape dans la gestion d'un projet d'ingénierie ou de génie logiciel. Elle consiste à Elle consiste à identifier les besoins des utilisateurs finaux qui ont été identifiés plus haut. Ceci permettant par la suite d'identifier les fonctionnalités du logiciel en conséquence. Cette étape permet de s'assurer que le logiciel répondra aux attentes des utilisateurs et qu'il sera adapté à leur contexte d'utilisation.
+L'analyse du besoin est la seconde étape dans la gestion d'un projet d'ingénierie ou de génie logiciel. Elle consiste à identifier les besoins des utilisateurs finaux qui ont été identifiés plus haut. Ceci permettant par la suite d'identifier les fonctionnalités du logiciel en conséquence. Cette étape permet de s'assurer que le logiciel répondra aux attentes des utilisateurs et qu'il sera adapté à leur contexte d'utilisation.
 
 L'analyse du besoin utilise deux armes redoutables, la question "Comment" et la question "Pourquoi". Hiérarchiquement un "Comment" permet de rentrer dans le détail, on descend dans le niveau de granularité. Un "Pourquoi" permet de remonter dans la hiérarchie, de comprendre les motivations et les objectifs des utilisateurs. L'exercice doit pouvoir se répéter jusqu'à ce que la réponse sorte du cadre du projet. Cela permet de fixer le cadre général du projet.
 
