@@ -3,14 +3,16 @@
 Cet algorithme permet de calculer rapidement des puissances entières ($a^n$). La méthode naïve consiste à calculer les puissances avec une boucle :
 
 ```c
-long long pow(long long a, long long n) {
-    for (int i = 0; i < n - 1; i++) {
-        a *= a;
+long long pow_naive(long long a, long long n) {
+    long long res = 1;
+    for (long long i = 0; i < n; ++i) {
+        res *= a;
     }
+    return res;
 }
 ```
 
-La complexité de cet algorithme est $O(n)$. Il est possible de faire mieux en $O(n log n)$.
+La complexité de cet algorithme est $O(n)$. Il est possible de faire mieux en $O(\log n)$.
 
 ```c
 long long bin_pow(long long a, long long b) {

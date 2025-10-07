@@ -35,7 +35,7 @@ int linear_search(void *array, int size,
 
 La complexité de la recherche linéaire est en $O(n)$, où $n$ est la taille du tableau. Si les recherches sont fréquentes, et que la fonction de comparaison est complexe, cette méthode n'est pas la plus efficace.
 
-L'utilisation d'une fonction de comparaison permet de réaliser des recherches sur des tableaux qui ne se limites pas à des entiers. On peut ainsi rechercher des chaînes de caractères, des structures ou des objets plus complexes. Voici par exemple une fonction de comparaison pour des chaînes de caractères :
+L'utilisation d'une fonction de comparaison permet de réaliser des recherches sur des tableaux qui ne se limitent pas à des entiers. On peut ainsi rechercher des chaînes de caractères, des structures ou des objets plus complexes. Voici par exemple une fonction de comparaison pour des chaînes de caractères :
 
 ```c
 int cmp_str(void *a, void *b) {
@@ -47,7 +47,7 @@ int cmp_str(void *a, void *b) {
 
 La recherche dichotomique est une méthode plus efficace pour trouver un élément dans un tableau mais elle impose que ce dernier soit trié. Elle consiste à diviser le tableau en deux parties égales et à comparer l'élément recherché avec l'élément au milieu du tableau. Si l'élément est égal à l'élément au milieu, la recherche s'arrête. Sinon, si l'élément est plus petit, la recherche continue dans la première moitié du tableau, sinon dans la seconde moitié.
 
-Cette méthode est celle que vous appliquez quand on demande de devinez un nombre choisi par un tier entre 1 et 100. Plutôt que choisir une valeur aléatoire à chaque essai, vous annoncez en premier 50, puis 25 ou 75, puis 12 ou 37 ou 62 ou 87, etc. À chaque essai vous éliminez la moitié des possibilités. On dit que la progression est logarithmique en base 2.
+Cette méthode est celle que vous appliquez quand on vous demande de deviner un nombre choisi par un tiers entre 1 et 100. Plutôt que choisir une valeur aléatoire à chaque essai, vous annoncez en premier 50, puis 25 ou 75, puis 12 ou 37 ou 62 ou 87, etc. À chaque essai vous éliminez la moitié des possibilités. On dit que la progression est logarithmique en base 2.
 
 Une implémentation pour une recherche d'entier serait la suivante :
 
@@ -81,13 +81,13 @@ Il est possible de s'affranchir du risque de collision en utilisant une table de
 
 La complexité de recherche n'est pas le seul critère à prendre en compte pour choisir un algorithme de recherche. Le fonctionnement de l'ordinateur impose des contraintes matérielles qui peuvent influencer les performances. Par exemple, la recherche linéaire peut être plus rapide que la recherche dichotomique pour des tableaux de petite taille, car elle exploite mieux la localité des données en mémoire.
 
-Nous l'avons abordé lors de l'explication du [fonctionnement de la mémoire][light-speed] que l'accès à la RAM est lent par rapport au processeur. Pour ce faire le processeur fait appel à une mémoire cache très rapide mais beaucoup plus petite. Lorsque vous parcourez un tableau, les éléments sont chargés en mémoire cache et la recherche linéaire exploite mieux cette localité des données. Si le tableau est très grand, à chaque saut de la recherche dichotomique vous ne profitez pas de la mémoire cache et le temps d'accès à la RAM devient prépondérant. Aussi dans l'élaboration d'un algorithme on cherche à optimiser la **localité des données**, à la foi spatiale (les éléments sont proches en mémoire) et temporelle (les éléments sont utilisés dans un court laps de temps) afin de minimiser les temps d'accès à la RAM.
+Nous l'avons abordé lors de l'explication du [fonctionnement de la mémoire][light-speed] que l'accès à la RAM est lent par rapport au processeur. Pour ce faire le processeur fait appel à une mémoire cache très rapide mais beaucoup plus petite. Lorsque vous parcourez un tableau, les éléments sont chargés en mémoire cache et la recherche linéaire exploite mieux cette localité des données. Si le tableau est très grand, à chaque saut de la recherche dichotomique vous ne profitez pas de la mémoire cache et le temps d'accès à la RAM devient prépondérant. Aussi dans l'élaboration d'un algorithme on cherche à optimiser la **localité des données**, à la fois spatiale (les éléments sont proches en mémoire) et temporelle (les éléments sont utilisés dans un court laps de temps) afin de minimiser les temps d'accès à la RAM.
 
 ## Recherche sur de gros volumes de données
 
 Si on prend l'exemple d'un moteur de recherche sur internet, la recherche dichotomique n'est pas adaptée. En effet, les données sont stockées sur des serveurs distants et le temps d'accès à ces données est bien plus long que le temps de calcul de l'algorithme. Dans ce cas, la recherche par hashage est plus adaptée car elle permet de réduire le temps d'accès aux données en les regroupant localement. D'autre part, ce type de problème n'est pas implémenté avec un tableau d'entiers programmé en C. Lorsque la collection et le traitement des données deviennent trop volumineux, on utilise des bases de données car d'une part elles offrent les outils nécessaire à la gestion des données et d'autre part elles permettent le stockage des données sur un disque dur.
 
-Dans les problèmes courant d'ingénierie, une base de donnée SqlLite peut être un excellent choix pour stocker des données structurées et effectuer des recherches complexes. Voici un exemple de recherche sur une base de donnée SqlLite :
+Dans les problèmes courants d'ingénierie, une base de données SQLite peut être un excellent choix pour stocker des données structurées et effectuer des recherches complexes. Voici un exemple de recherche sur une base de données SQLite :
 
 ```c
 #include <stdio.h>

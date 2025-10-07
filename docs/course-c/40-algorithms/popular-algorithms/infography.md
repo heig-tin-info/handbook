@@ -2,11 +2,11 @@
 
 Les algorithmes d'infographie sont des algorithmes utilisés pour générer des images numériques. Ils sont utilisés dans de nombreux domaines, tels que les jeux vidéo, les films d'animation, la réalité virtuelle, etc.
 
-## Bressenham
+## Bresenham
 
 L'algorithme de Bresenham est une méthode efficace pour tracer des lignes droites sur une grille de pixels en utilisant uniquement des opérations entières. Il est particulièrement adapté aux écrans d'ordinateur où les positions des pixels sont discrètes. L'algorithme détermine quels pixels doivent être allumés pour former la meilleure approximation possible d'une ligne droite entre deux points.
 
-![Algorithme de Bressenham](/assets/images/bressenham.gif)
+![Algorithme de Bresenham](/assets/images/bressenham.gif)
 
 ### Principe de l'algorithme
 
@@ -128,7 +128,7 @@ Point bezier(Point p, Point c, Point q, float t) {
 
 Le point $p$ est le point de départ de la courbe, le point $q$ est le point d'arrivée et le point $c$ est le point de contrôle. La valeur de $t$ varie de 0 à 1 pour déterminer la position le long de la courbe.
 
-En pratique, la valeur $t$ est incrémentée à chaque itération pour tracer des tronçons de la courbes par des segments de droite.
+En pratique, la valeur $t$ est incrémentée à chaque itération pour tracer des tronçons de la courbe par des segments de droite.
 
 ```c
 void drawBezierCurve(SDL_Renderer *renderer, Point p, Point q, Point c) {
@@ -142,4 +142,4 @@ void drawBezierCurve(SDL_Renderer *renderer, Point p, Point q, Point c) {
 }
 ```
 
-## Floyd-Stenberg
+## Floyd-Steinberg

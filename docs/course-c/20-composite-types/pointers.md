@@ -475,7 +475,7 @@ char conjonctions[][5] = {
 };
 ```
 
-Néanmoins dans ce cas, de l'espace mémoire est gaspillé car chaque chaîne de caractères doit avoir la même taille, et pour déclarer le tableau il faut connaître la taille de la plus grande chaîne de caractères. En revanche cette méthode est de réduire le niveau d'imbrications. Il n'y a plus de tableau intermédiaire de pointeurs.
+Néanmoins dans ce cas, de l'espace mémoire est gaspillé car chaque chaîne de caractères doit avoir la même taille, et pour déclarer le tableau il faut connaître la taille de la plus grande chaîne de caractères. En revanche cette méthode permet de réduire le niveau d'imbrication. Il n'y a plus de tableau intermédiaire de pointeurs.
 
 ## Structures
 
@@ -522,7 +522,7 @@ for (size_t i = 0; i < MAX; i++) {
 }
 ```
 
-Cette écriture est déroutante et peut être une cause fréquente de trichotillomanie (arraquage de cheveux). Prenons l'exemple de deux fonctions, l'une prenant un pointeur vers une date et l'autre une structure date:
+Cette écriture est déroutante et peut être une cause fréquente de trichotillomanie (arrachement de cheveux). Prenons l'exemple de deux fonctions, l'une prenant un pointeur vers une date et l'autre une structure date :
 
 ```c
 void print_date1(Date *date) {

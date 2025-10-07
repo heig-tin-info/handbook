@@ -13,7 +13,7 @@ Le format B/S est utilisé pour définir les règles de transition. B signifie *
 | Nom          | Règle        | Description                     |
 | ------------ | ------------ | ------------------------------- |
 | Game of Life | B3/S23       | La règle classique de Conway    |
-| Mazes        | B3/S12345    | Dessine une sorte de labirynthe |
+| Mazes        | B3/S12345    | Dessine une sorte de labyrinthe |
 | Mazectric    | B3/S1234     | Une autre variante              |
 | HighLife     | B36/S23      | Une variante de Conway          |
 | Day & Night  | B3678/S34678 | Une autre variante              |
@@ -22,8 +22,8 @@ Le format B/S est utilisé pour définir les règles de transition. B signifie *
 
 Pour implémenter le jeu de la vie de Conway, il faut une grille et un pas temporel pour faire évoluer les cellules. On peut utiliser un tableau à deux dimensions pour représenter la grille. Chaque cellule est représentée par un 0 (mort) ou un 1 (vivant). On peut bien entendu utiliser un tableau de taille fixe ou un tableau dynamique pour représenter la grille.
 
-A chaque pas de temps, on applique les règles de transition pour chaque cellule. On peut utiliser un tableau temporaire pour stocker les nouvelles valeurs des cellules. On peut aussi utiliser un seul tableau pour stocker les valeurs actuelles et futures des cellules. Il suffit de basculer entre les deux tableaux à chaque pas de temps.
+À chaque pas de temps, on applique les règles de transition pour chaque cellule. On peut utiliser un tableau temporaire pour stocker les nouvelles valeurs des cellules. On peut aussi utiliser un seul tableau pour stocker les valeurs actuelles et futures des cellules. Il suffit de basculer entre les deux tableaux à chaque pas de temps.
 
 La complexité de l'algorithme est en $O(n^2)$ où $n$ est le nombre de cellules dans la grille. On sait que ce type d'algorithme est très gourmand en ressources et on est en droit de se demander s'il est possible de faire mieux.
 
-L'algorithme de *Hashlife* est une optimisation de l'algorithme de Conway qui permet de réduire la complexité de l'algorithme à $O(n \log n)$. Il est basé sur une structure de données appelée *quadtree* qui permet de stocker les cellules vivantes de manière compacte. L'algorithme de *Hashlife* est plus complexe à implémenter mais il permet de gérer des grilles de taille importante de manière plus efficace au détriments de la complexité de l'algorithme et d'un espace de stockage plus important.
+L'algorithme de *Hashlife* est une optimisation de l'algorithme de Conway qui permet de réduire la complexité de l'algorithme à $O(n \log n)$. Il est basé sur une structure de données appelée *quadtree* qui permet de stocker les cellules vivantes de manière compacte. L'algorithme de *Hashlife* est plus complexe à implémenter mais il permet de gérer des grilles de taille importante de manière plus efficace au détriment de la complexité de l'algorithme et d'un espace de stockage plus important.

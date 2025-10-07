@@ -77,7 +77,7 @@ Un tableau dynamique peut être représenté par la figure suivante :
 
 Un espace mémoire est réservé dynamiquement sur le tas. Comme `malloc` ne retourne pas la taille de l'espace mémoire alloué, mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 `int32_t` représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par `malloc` n'est généralement pas vide, mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau, il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.
 
-Les composants de cette structure de donnée sont donc :
+Les composants de cette structure de données sont donc :
 
 La capacité
 
@@ -102,7 +102,7 @@ typedef struct vector {
     size_t capacity;
     size_t size;
     int* data;
-} Vector```
+} Vector;
 ```
 
 ### Pop (*pop_back*)
@@ -138,11 +138,11 @@ Figure: Suppression du premier élément dans un tableau dynamique
 ```c
 if (elements <= 0) exit(EXIT_FAILURE);
 int value = data[0];
-for (int k = 0; k < capacity; k++)
-    data[k] = data[k+1];
+for (int k = 0; k < elements - 1; k++)
+    data[k] = data[k + 1];
 ```
 
-Une optimisation peut être faite en déplaçant le pointeur de donnée de 1 permettant de réduite la complexité à O(1) :
+Une optimisation peut être faite en déplaçant le pointeur de données de 1 permettant de réduire la complexité à O(1) :
 
 ```c
 if (elements <= 0) exit(EXIT_FAILURE);
@@ -151,6 +151,8 @@ int value = data[0];
 data++;
 capacity--;
 ```
+
+Il est toutefois indispensable de conserver séparément un pointeur vers le bloc initial pour pouvoir le libérer correctement avec `free`.
 
 ### Unshift (*push_front*)
 

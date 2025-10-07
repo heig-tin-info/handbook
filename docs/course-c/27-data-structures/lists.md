@@ -66,7 +66,7 @@ el.index_next_element = k;
 elements[el.index_next_element] = new;
 ```
 
-Cette solution d'utiliser un lien vers l'élément suivant et s'appelle liste chaînée. Chaque élément dispose d'un lien vers l'élément suivant situé quelque part en mémoire. Les opérations d'insertion et de suppression au milieu de la chaîne sont maintenant effectuées en $O(1)$ contre $O(n)$ pour un tableau standard. En revanche l'espace nécessaire pour stocker ce tableau est doublé puisqu'il faut associer à chaque valeur le lien vers l'élément suivant.
+Cette solution, qui consiste à utiliser un lien vers l'élément suivant, s'appelle une liste chaînée. Chaque élément dispose d'un lien vers l'élément suivant situé quelque part en mémoire. Les opérations d'insertion et de suppression au milieu de la chaîne sont maintenant effectuées en $O(1)$ contre $O(n)$ pour un tableau standard. En revanche l'espace nécessaire pour stocker ce tableau est doublé puisqu'il faut associer à chaque valeur le lien vers l'élément suivant.
 
 D'autre part, la solution proposée n'est pas optimale :
 
@@ -86,7 +86,7 @@ Un élément est caractérisé par :
 
 Les listes chaînées réduisent la complexité liée à la manipulation d'éléments dans une liste. L'empreinte mémoire d'une liste chaînée est plus grande qu'avec un tableau, car à chaque élément de donnée est associé un pointeur vers l'élément suivant ou précédent.
 
-Ce surcoût est souvent part du compromis entre la complexité d'exécution du code et la mémoire utilisée par ce programme.
+Ce surcoût fait souvent partie du compromis entre la complexité d'exécution du code et la mémoire utilisée par ce programme.
 
 Table: Coût des opérations dans des structures de données récursives
 

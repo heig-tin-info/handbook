@@ -6,7 +6,7 @@ $$
 X_{n+1} = (a \cdot X_n + c) \mod m
 $$
 
-Où :
+où :
 
 $X_n$
 
@@ -62,7 +62,7 @@ int main() {
 }
 ```
 
-Néanmoins si vous rappelez votre programme durant la même seconde, vous obtiendrez la même séquence de nombres pseudo-aléatoires. Pour obtenir une séquence différente à chaque exécution, vous pouvez utiliser inclure le PID du processus :
+Néanmoins, si vous relancez votre programme durant la même seconde, vous obtiendrez la même séquence de nombres pseudo-aléatoires. Pour obtenir une séquence différente à chaque exécution, vous pouvez inclure le PID du processus :
 
 ```c
 #include <unistd.h>
@@ -78,7 +78,7 @@ int main() {
 
 ## LCG et le standard C
 
-Curieusement, la norme ISO/IEC 9899:2018 §7.22.2.1 ne stipule pas que `rand()` doit être implémenté selon un générateur congruentiel linéaire. Cependant, la plupart des implémentations de la fonction `rand()` continuent d'utiliser un LCG. Ainsi la `libc` de GNU utilise bien ce mécanisme rudimentaire de génération de nombres pseudo-aléatoires alors qu'il existe depuis 2014 un appel système `getrandom()` qui permet de générer des nombres aléatoires de manière sécurisée.
+Curieusement, la norme ISO/IEC 9899:2018 §7.22.2.1 ne stipule pas que `rand()` doit être implémenté selon un générateur congruentiel linéaire. Cependant, la plupart des implémentations de la fonction `rand()` continuent d'utiliser un LCG. Ainsi, la `libc` de GNU utilise bien ce mécanisme rudimentaire de génération de nombres pseudo-aléatoires alors qu'il existe depuis 2014 un appel système `getrandom()` qui permet de générer des nombres aléatoires de manière sécurisée.
 
 ```c
 #include <sys/random.h>
