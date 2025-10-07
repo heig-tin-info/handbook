@@ -52,7 +52,7 @@ Imaginons un tableau de `int16_t` de 5 éléments. En mémoire ce tableau est un
 int16_t array[5] = {0x0201, 0x0403, 0x0605, 0x0807, 0x0A09};
 ```
 
-Rappelez-vous que les entiers sont stockés en mémoire en *little-endian*, c'est-à-dire que l'octet de poids faible est stocké en premier. Ainsi, l'entier `0x0201` est stocké en mémoire `0x01` puis `0x02`. Lorsque vous accédez à un élément du tableau. Chaque élément en mémoire possède une adresse qui lui est propre. Néanmoins lorsque l'on se réfère au tableau dans son ensemble (ici `array`), c'est l'adresse du premier élément qui est retournée soit `0xffacb10`.
+Rappelez-vous que les entiers sont stockés en mémoire en *little-endian*, c'est-à-dire que l'octet de poids faible est stocké en premier. Ainsi, l'entier `0x0201` est stocké en mémoire `0x01` puis `0x02`. Lorsque vous accédez à un élément du tableau, chaque élément en mémoire possède une adresse qui lui est propre. Néanmoins lorsque l'on se réfère au tableau dans son ensemble (ici `array`), c'est l'adresse du premier élément qui est retournée, soit `0xffacb10`.
 
 Comme le tableau est de type `int16_t`, chaque élément est de taille 2 bytes, donc lorsque l'on accède à l'élément 3, une arithmétique sur les adresse est effectuée:
 
@@ -63,7 +63,7 @@ $$
 \end{aligned}
 $$
 
-L'opérateur `sizeof` qui permet de retourner la taille d'une structure de donnée en mémoire est très utile pour les tableaux. Cependant, cet opérateur retourne la taille du tableau en bytes, et non le nombre d'éléments qui le compose. Dans l'exemple suivant `sizeof(array)` retourne $5\cdot2 = 40$ tandis que `sizeof(array[0])` retourne la taille d'un seul élément $2$; et donc, `sizeof(array) / sizeof(array[0])` est le nombre d'éléments de ce tableau, soit 5.
+L'opérateur `sizeof` qui permet de retourner la taille d'une structure de donnée en mémoire est très utile pour les tableaux. Cependant, cet opérateur retourne la taille du tableau en bytes, et non le nombre d'éléments qui le compose. Dans l'exemple suivant `sizeof(array)` retourne $5\cdot2 = 10$ bytes tandis que `sizeof(array[0])` retourne la taille d'un seul élément $2$; et donc, `sizeof(array) / sizeof(array[0])` est le nombre d'éléments de ce tableau, soit 5.
 
 ```c
 size_t length = sizeof(array) / sizeof(array[0]);
@@ -80,13 +80,13 @@ assert (length == 5);
     }
     ```
 
-Nous le verrons plus tard lorsque nous parlerons des [pointeurs][pointers], mais un tableau est en réalité un pointeur, c'est-à-dire la position mémoire à laquelle se trouvent les éléments du tableau (ici l'adresse `0xffacb10`). Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, ce n'est pas l'intégralité des données du tableau qui sont copiées sur la pile, mais seulement l'adresse de ce dernier. On dit que le tableau est passé par **référence**.
+Nous le verrons plus tard lorsque nous parlerons des [pointeurs][pointers], mais un tableau **n'est pas** un pointeur : il s'agit d'un type distinct dont la taille est connue du compilateur. En revanche, dans la plupart des expressions, un tableau « se transforme » en pointeur vers son premier élément. C'est cette conversion implicite qui donne l'impression que les deux notions se confondent. Ce qu'il est important de retenir, c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, ce n'est pas l'intégralité des données du tableau qui sont copiées sur la pile, mais seulement l'adresse du premier élément.
 
 Une preuve est que le contenu du tableau peut être modifié à distance :
 
 ```c
 void function(int i[5]) {
-   i[2] = 12
+   i[2] = 12;
 }
 
 int main(void) {
@@ -96,7 +96,7 @@ int main(void) {
 }
 ```
 
-Un fait remarquable est que l'opérateur `[]` est commutatif. En effet, l'opérateur *crochet* est un sucre syntaxique définit comme :
+Un fait remarquable est que l'opérateur `[]` est commutatif. En effet, l'opérateur *crochet* est un sucre syntaxique défini comme :
 
 ```c
 a[b] == *(a + b)
@@ -105,7 +105,7 @@ a[b] == *(a + b)
 Et cela fonctionne de la même manière avec les tableaux à plusieurs dimensions :
 
 ```c
-a[1][2] == *(*(a + 1) + 2))
+a[1][2] == *(*(a + 1) + 2)
 ```
 
 Pour résumer, un tableau permet de regrouper dans un même conteneur une liste d'éléments du même type. Il est possible d'accéder à ces éléments par leur indice, et il est possible de passer un tableau à une fonction par référence.
@@ -399,29 +399,30 @@ Pour cette raison, il est plus courant d'inverser les dimensions pour les tablea
 
 ## Tableaux et fonctions
 
-Le passage d'un tableau à une fonction est un peu particulier. En effet, comme nous l'avons évoqué, un tableau est en réalité un pointeur, c'est-à-dire l'adresse mémoire du premier élément du tableau.
+Le passage d'un tableau à une fonction est un peu particulier. Lorsqu'on fournit le nom d'un tableau en argument, le langage C le transforme automatiquement en pointeur vers son premier élément. Cette conversion, souvent appelée *array-to-pointer decay*, donne parfois l'impression qu'un tableau **est** un pointeur alors qu'il s'agit bien de deux types différents. Un tableau possède une taille fixe connue du compilateur, tandis qu'un pointeur ne transporte que l'adresse qu'il contient.
 
-Pour le cas le plus simple, lorsqu'une fonction reçoit un tableau, il est utile de passer la taille du tableau en paramètre, ceci permet de ne pas déborder du tableau. La fonction suivante reçoit un tableau de 5 entiers, passé par référence :
+Pour le cas le plus simple, lorsqu'une fonction reçoit un tableau, il est utile de passer la taille du tableau en paramètre, ceci permet de ne pas déborder du tableau. La fonction suivante reçoit un tableau de 5 entiers :
 
 ```c
 void function(int array[5]);
 ```
 
-Néanmoins, la taille du tableau n'est pas nécessaire, car un tableau est un pointeur et seul l'adresse du premier élément et le type des éléments sont nécessaires pour calculer les adresses des éléments suivants. La fonction suivante est donc strictement identique à la précédente :
+En paramètre de fonction, cette syntaxe est immédiatement ajustée en `int *array`. Autrement dit, le compilateur ne conserve pas l'information de taille du tableau formel et ne connaît plus que l'adresse du premier élément et le type des éléments suivants. On parle donc de passage de l'adresse du tableau. La fonction suivante est strictement identique à la précédente :
 
 ```c
 void function(int array[]);
 ```
 
-Néanmoins, pour un tableau multidimensionnel, il est nécessaire de passer la taille des dimensions suivantes afin de pouvoir calculer les adresses. En effet pour un tableau de 3x4x5 déclaré `int array[3][4][5]`, si on souhaite accéder à l'élément `array[2][3][4]`, le compilateur va effectuer le calcul suivant:
+Pour un tableau multidimensionnel, seul le premier niveau est converti en pointeur : `int array[3][4][5]` devient ainsi un pointeur vers un tableau de `4x5` entiers. Il reste donc nécessaire de connaître les dimensions suivantes afin de pouvoir calculer les adresses. En effet pour un tableau de 3x4x5 déclaré `int array[3][4][5]`, si l'on a besoin d'obtenir l'adresse de `array[2][3][4]`, le compilateur calcule l'offset en multipliant successivement les dimensions internes :
 
 ```c
-int* p = array + 2 * sizeof(int[4][5]) + 3 * sizeof(int[5]) + 4 * sizeof(int);
-     p = array + 2 * (4 * 5 * 4)       + 3 * (5 * 4)        + 4 * (4);
-     p = array + 2 * (80)              + 3 * (20)           + 4 * 4;
+int (*slice)[4][5] = array;                 // type après conversion du premier niveau
+int *flat = &slice[0][0][0];                // pointeur sur le tout premier élément
+size_t offset = ((2 * 4) + 3) * 5 + 4;      // nombre d'éléments à sauter
+int value = flat[offset];                   // équivalent à array[2][3][4]
 ```
 
-Le seul élément qui n'est pas nécessaire c'est la première dimension.
+Autrement dit, la première dimension n'intervient pas dans l'arithmétique réalisée une fois la conversion en pointeur effectuée, mais les tailles des dimensions restantes sont indispensables.
 
 ## Allocation mémoire
 
@@ -548,9 +549,9 @@ memcpy(b, a, 5);
 
     ??? solution
 
-        ```
-        int8_t a[50];
-        for (size_t i = 0; i < sizeof(a) / sizeof(a[0]; i++) {
+        ```c
+        int64_t a[50];
+        for (size_t i = 0; i < sizeof(a) / sizeof(a[0]); i++) {
             a[i] = i;
         }
         ```
@@ -680,14 +681,12 @@ memcpy(b, a, 5);
         Une solution triviale consiste à itérer tous les éléments jusqu'à trouver l'indice magique :
 
         ```c
-        int magic_index(int[] array) {
-            const size_t size = sizeof(array) / sizeof(array[0]);
-
+        int magic_index(const int array[], size_t size) {
             size_t i = 0;
 
-            while (i < size && array[i] != i) i++;
+            while (i < size && array[i] != (int)i) i++;
 
-            return i == size ? -1 : i;
+            return i == size ? -1 : (int)i;
         }
         ```
 
@@ -719,13 +718,9 @@ memcpy(b, a, 5);
         Il est possible de répéter cette approche de façon dichotomique :
 
         ```c
-        int magic_index(int[] array) {
-            return _magic_index(array, 0, sizeof(array) / sizeof(array[0]) - 1);
-        }
-
-        int _magic_index(int[] array, size_t start, size_t end) {
+        static int _magic_index(const int array[], int start, int end) {
             if (end < start) return -1;
-            int mid = (start + end) / 2;
+            int mid = start + (end - start) / 2;
             if (array[mid] == mid) {
                 return mid;
             } else if (array[mid] > mid) {
@@ -733,6 +728,11 @@ memcpy(b, a, 5);
             } else {
                 return _magic_index(array, mid + 1, end);
             }
+        }
+
+        int magic_index(const int array[], size_t size) {
+            if (size == 0) return -1;
+            return _magic_index(array, 0, (int)size - 1);
         }
         ```
 
@@ -785,13 +785,15 @@ memcpy(b, a, 5);
     L'image est représentée par un tableau bidimensionnel contenant des couleurs indexées :
 
     ```c
-    typedef enum { BLACK, RED, PURPLE, BLUE, GREEN YELLOW, WHITE } Color;
+    #include <stdbool.h>
+
+    typedef enum { BLACK, RED, PURPLE, BLUE, GREEN, YELLOW, WHITE } Color;
 
     #if 0 // Image declaration example
     Color image[100][100];
     #endif
 
-    boolean paint(Color* image, size_t rows, size_t cols, Color fill_color);
+    bool paint(size_t rows, size_t cols, Color image[rows][cols], Color fill_color);
     ```
 
     !!! hint
