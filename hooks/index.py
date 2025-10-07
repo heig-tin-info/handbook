@@ -2,7 +2,6 @@
 with tags hook to generate a search index."""
 import re
 
-from mkdocs.utils import log
 
 RE_KEYWORD = re.compile(r"<code>(<?[_\w.]{3,}>?)</code>", re.IGNORECASE)
 

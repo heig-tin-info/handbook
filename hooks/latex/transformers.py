@@ -17,7 +17,6 @@ import pillow_avif  # noqa
 import pypdf
 import requests
 import unidecode
-from IPython import embed
 from PIL import Image
 
 log = logging.getLogger("mkdocs")

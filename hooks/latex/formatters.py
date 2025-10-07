@@ -1,9 +1,7 @@
 import glob
-import os
 import urllib.parse
 from pathlib import Path
 
-from IPython import embed
 from jinja2 import Environment, FileSystemLoader
 
 TEMPLATE_DIR = Path(__file__).parent / 'templates'

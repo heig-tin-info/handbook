@@ -7,8 +7,7 @@ from typing import Union
 from urllib.parse import quote, urlparse, urlunparse
 
 import yaml
-from bs4 import BeautifulSoup, NavigableString, PageElement, ProcessingInstruction, Tag
-from IPython import embed
+from bs4 import BeautifulSoup, NavigableString, PageElement, Tag
 
 from .formatters import LaTeXFormatter
 from .transformers import (

@@ -1,5 +1,4 @@
-import logging, re
-import mkdocs.plugins
+import logging
 from bs4 import BeautifulSoup
 
 log = logging.getLogger('mkdocs')

@@ -126,7 +126,7 @@ class Wikipedia:
         links = yaml.load(self.filename.open(encoding="utf-8"))
         try:
             self.data = schema(links)
-        except Exception as e:
+        except Exception:
             log.error("Invalid links file, regenerate it...")
             self.data = default
             return

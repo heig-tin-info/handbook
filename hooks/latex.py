@@ -4,7 +4,6 @@ from pathlib import Path, PosixPath
 from typing import List
 
 import yaml
-from IPython import embed
 from latex.config import BookConfig, LaTeXConfig
 from latex.renderer import LaTeXRenderer
 from mkdocs.structure import StructureItem
