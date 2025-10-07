@@ -302,7 +302,11 @@ Mais comment un ordinateur sait-il que `97` correspond à `a` ? C'est là que la
 
 ### La table ASCII
 
-Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'ASA (*American Standards Association*) aujourd'hui **ANSI** qui ne définissait alors que 63 caractères imprimables. Comme la mémoire à cette époque était très chère, un caractère n'était codé que sur 7 bits. La première table [[ASCII]] définissait donc 128 caractères et est donnée par la figure suivante : [[||ANSI]]
+Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Chaque constructeur d'ordinateur avait sa propre table de correspondance. On peut naïvement penser qu'il serait simple de faire concorder les lettres `A` à `Z` avec les valeurs 1 à 26, puis de même pour les minuscules, les chiffres et les caractères spéciaux mais pourquoi dans cet ordre ? Et tous ces caractères invisibles comme le retour chariot, le saut de ligne, la tabulation, l'espace, etc. ?
+
+En 1963 l'ASA (*American Standards Association*) aujourd'hui **ANSI** propose un premier standard qui ne définissait alors que 63 caractères imprimables. Comme la mémoire à cette époque était très chère, un caractère n'était codé que sur 7 bits. En effet, l'oeuvre de la recherche du temps perdu de Marcel Proust - 7 tomes - pour 3000 pages et quelques 10.45 millions de signes demanderait 9.96 MiB de mémoire de stockage avec 8 bits et seulement contre 8.72 MiB sur 7 bits, soit 12% d'économie : une aubaine !
+
+La première table [[ASCII]] définissant 128 caractères est donnée par la figure suivante : [[||ANSI]]
 
 ![Table ASCII ASA X3.4 établie en 1963](/assets/images/ascii-1963.drawio)
 
@@ -343,7 +347,7 @@ C'est pourquoi, en 1991, l'**ISO** a proposé un standard universel nommé **Uni
 
 Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب), les Coréens (한국어), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.
 
-Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) et son encodage **UTF-8** (*Unicode Transformation Format*). Ce standard est capable d'encoder tous les caractères de toutes les langues du monde. Il est utilisé par la plupart des systèmes d'exploitation, des navigateurs web et des applications informatiques. Il est capable d'encoder 1'112'064 caractères en utilisant de 1 à 4 octets. La figure suivante montre la tendance de l'adoption de 2001 à 2012. Cette tendance est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
+Un fabuleux consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) et son encodage **UTF-8** (*Unicode Transformation Format*). Ce standard est capable d'encoder tous les caractères de toutes les langues du monde. Il est utilisé par la plupart des systèmes d'exploitation, des navigateurs web et des applications informatiques. Il est capable d'encoder 1'112'064 caractères en utilisant de 1 à 4 octets. La figure suivante montre la tendance de l'adoption de 2001 à 2012. Cette tendance est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
 
 Figure: Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2001, données collectées par Google et Erik van der Poel
 
@@ -353,26 +357,80 @@ Figure: Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2001, don
 
 En programmation C, un caractère `char` ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension. C'est-à-dire que vous ne pouvez pas exprimer un caractère Unicode en utilisant un `char`. Pour cela, il faudra utiliser un tableau de caractères `char` ou un tableau de caractères `wchar_t` qui est capable de stocker un caractère Unicode, mais nous verrons cela plus tard. [[||wchar]] [[||unicode]] [[||utf8]] [[||Ken Thompson]]
 
-Voici par exemple comment déclarer une variable contenant le caractère dollar :
+Ce nouveau standard devait résoudre de nombreux problème techniques. Le premier étant la rétro-compatibilité avec l'ASCII. La première excellente idée fut de calquer les 128 premiers caractères Unicode à la table ASCII. Ainsi, un texte ASCII est aussi un texte Unicode. Rappelez-vous la première table n'utilisant que 7 bits, le huitième bit était toujours à 0, et ce fut une idée brillante de s'approprier ce huitième bit pour définir des caractères supplémentaires. Mais comment faire pour caser les 1'112'064 caractères dans seulement 128 valeurs supplémentaires ?
 
-```c
-char c = '$';
+Unicode définit plusieurs encodages dont les plus courants sont **UTF-8**, **UTF-16** et **UTF-32**. Le plus utilisé, et de loin est **UTF-8** qui est un encodage à **longueur variable**. Le premier octet, s'il ne s'agit pas d'un caractère ASCII (0xxxxxxx), indique le nombre d'octets utilisés pour encoder le caractère. Par exemple, si le premier octet commence par `110xxxxx`, cela signifie que le caractère est encodé sur 2 octets. Si le premier octet commence par `1110xxxx`, cela signifie que le caractère est encodé sur 3 octets. Si le premier octet commence par `11110xxx`, cela signifie que le caractère est encodé sur 4 octets. Les bits `x` sont utilisés pour coder la valeur du caractère.
+
+Figure: Table de correspondance du nombre d'octets d'une séquence UTF-8 selon le premier octet
+
+![Nombre d'octets en UTF-8](/assets/images/unicode-table.drawio)
+
+Table: Longueur des séquences UTF-8
+
+| Longueur | Octet 1  | Octets suivants                              | Plage Unicode      |
+| -------- | -------- | -------------------------------------------- | ------------------ |
+| 1        | 0xxxxxxx |                                              | U+0000 à U+007F    |
+| 2        | 110xxxxx | 10xxxxxx                                     | U+0080 à U+07FF    |
+| 3        | 1110xxxx | 10xxxxxx 10xxxxxx                            | U+0800 à U+FFFF    |
+| 4        | 11110xxx | 10xxxxxx 10xxxxxx 10xxxxxx                   | U+10000 à U+10FFFF |
+| 5        | 111110xx | 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx          | Non utilisé        |
+| 6        | 1111110x | 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx | Non utilisé        |
+
+Originellement quant il a été inventé par Ken Thompson et Rob Pike en 1992, l'encodage UTF-8 pouvait utiliser jusqu'à 6 octets pour encoder un caractère. Mais comme le standard Unicode n'utilise que les plages U+0000 à U+10FFFF, les séquences de 5 et 6 octets ne sont plus utilisées.
+
+Il est intéressant de constater que les séquence débutant par `0xC0xx` ou `0xC1xx` ne sont pas valides car elles permetteraient de représenter des caractères ASCII en utilisant 2 octets. De même, les séquences débutant par `0xF5xx` à `0xF7xx` ne sont pas valides car elles permettraient de représenter des caractères au-delà de U+10FFFF.
+
+Il existe en effet une règle stricte d'encodage qui interdit les séquences surlongues (*overlong encoding*), c'est-à-dire l'utilisation de plusieurs octets pour encoder un caractère qui pourrait être représenté avec moins d'octets. Par exemple, le caractère ASCII `A` (U+0041) doit être encodé en UTF-8 avec un seul octet `0x41` et non pas avec deux octets `0xC1 0x81`. Voici l'exemple illustré :
+
+```text
+A        01   00 0001  (0x41 en ASCII)
+  110x xxxx 10xx xxxx  (2 octets)
+  1100 0001 1000 0001  (C1 81 en UTF-8)  <- Overlong encoding (interdit)
 ```
 
-!!! warning "3 ou '3'"
+C'est pour cette raison que parfois si un texte écrit en Latin1 est ouvert en UTF-8, des caractères inconnus peuvent apparaître (�) car ces séquences sont invalides.
 
-    Attention à la présence des guillemets simples car le caractère `'3'` n'est pas égal au nombre `3`. Le caractère 3 correspond selon la table ASCII standard à la valeur `0x33` et donc au nombre 51 en décimal.
+Notons que l'encodage à décidé de réserver deux bits pour les séquences suivantes. D'une part le huitième bit de chaque octet suivi d'un `0` (`10xxxxxx`). L'intérêt est de pouvoir immédiatement reconnaître toute séquence UTF-8, mais surtout de faciliter la recherche de la fin d'une séquence. En effet, si l'on rencontre un octet commençant par `0` ou `11`, on sait que l'on est au début d'une nouvelle séquence.
 
-    ```c
-    #include <stdio.h>
+Parlons de diacritiques (accents). En Unicode, un caractère accentué peut être représenté de deux manières différentes. Soit par un caractère unique, soit par une combinaison d'un caractère de base et d'un ou plusieurs caractères diacritiques. Par exemple, le caractère `é` peut être représenté par le code Unicode U+00E9 (caractère composé) ou par la combinaison du caractère `e` (U+0065) suivi du caractère diacritique `´` (U+0301), forme décomposée. Cette flexibilité permet de représenter des caractères accentués de manière plus cohérente, mais elle peut aussi poser des problèmes lors de la comparaison de chaînes de caractères. Pour ce faire il existe des algorithmes de normalisation Unicode qui permettent de convertir les chaînes de caractères en une forme standardisée comme la forme NFC (Normalization Form C), NFD (Normalization Form D), NFKC (Normalization Form KC) et NFKD (Normalization Form KD).
 
-    int main(void) {
-        char c = '3';
-        printf("Le caractère %c vaut 0x%x en hexadécimal ou %d en décimal.\n",
-            c, c, c);
-        return 0;
-    }
-    ```
+NFC
+
+:   Composée : les caractères sont combinés en un seul caractère lorsqu'une telle combinaison existe.
+
+NFD
+
+:   Décomposée : les caractères sont séparés en leurs composants de base.
+
+NFKC
+
+:   Composée compatible : similaire à NFC, mais applique des transformations de compatibilité.
+
+NFKD
+
+:   Décomposée compatible : similaire à NFD, mais applique des transformations de compatibilité.
+
+Cette superposition possible de caractère est très utile pour les langues comme le coréen qui utilise le mécanisme des superpositions pour former les syllabes. Par exemple, la syllabe 한 (han) peut être décomposée en trois caractères Unicode : ㅎ en haut à gauche (U+1112), ㅏ à droite (U+1161) et ㄴ en bas (U+11AB). Elle s'écrira donc en UTF-8 avec la séquence d'octets suivante :
+
+```text
+E1 84 92  E1 85 A1  E1 86 AB
+```
+
+Notons que c'est La forme composée (NFC) de 한 est U+D55C qui utilisée dans la plupart des textes coréens. La forme décomposée (NFD) U+1112 U+1161 U+11AB est quant à elle rarement utilisée.
+
+C'est au travail des moteurs de rendus comme [HarfBuzz](https://harfbuzz.github.io/) ou [Uniscribe](https://learn.microsoft.com/en-us/windows/win32/intl/uniscribe) que nous devons la capacité d'afficher correctement ces caractères complexes.
+
+Le problème principal d'unicode est la navigation et le calcul de la longueur d'une chaîne de caractères. En effet, un texte encodé en ASCII ou en Latin1 peut être parcouru octet par octet. Un texte de 1000 signes occupe 1000 octets et il est possible d'accéder directement au 500ème caractère en se déplaçant de 500 octets depuis le début du texte `text[500]`. En UTF-8, un texte de 1000 signes peut occuper entre 1000 et 4000 octets. Il est donc impossible d'accéder directement au 500ème caractère sans parcourir la chaîne depuis le début et en comptant les caractères rencontrés. Les éditeurs qui permettent de naviguer rapidement dans un texte utilisent des index pour accélérer la recherche. Une approche alternative est d'encoder les textes en UTF-32 où chaque caractère est codé sur 4 octets.
+
+En C moderne (C20 ou C23), il est possible d'écrire des chaînes de caractères Unicode en utilisant le préfixe `u8` pour UTF-8, `u` pour UTF-16 et `U` pour UTF-32. Par exemple :
+
+```c
+char *utf8_string = u8"Bonjour, 世界"; // Chaîne UTF-8
+char16_t *utf16_string = u"Bonjour, 世界"; // Chaîne UTF-16
+char32_t *utf32_string = U"Bonjour, 世界"; // Chaîne UTF-32
+```
+
+Le calcul de la longueur d'une chaîne de caractères peut être effectué en utilisant la fonction `strlen` pour les chaînes UTF-8, mais pour les chaînes UTF-16 et UTF-32, il est nécessaire d'utiliser des fonctions spécifiques comme `u16_strlen` et `u32_strlen` respectivement.
 
 ### Les emojis
 
@@ -381,6 +439,35 @@ Les [[emojis]] sont des caractères spéciaux qui ont été introduits en 2010 p
 Les émoticônes que vous pouvez envoyer à votre grand-mère via WhatsApp sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère U+2764 qui est le caractère `❤`. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.
 
 Ceci est vrai, mais encore faut-il que la police d'écriture utilisée par votre chère grand-maman soit capable d'afficher ce caractère. Si ce n'est pas le cas, elle verra probablement le caractère � qui est un caractère de remplacement très disgracieux et qui ne démontre pas tout l'amour que vous lui portez.
+
+### Les boxchars
+
+Les **boxchars** sont des caractères spéciaux utilisés pour dessiner des boîtes, des cadres et des lignes dans les interfaces en mode texte. Ils font partie de la table ASCII étendue et sont souvent utilisés dans les applications en ligne de commande pour améliorer l'apparence visuelle :
+
+```text
+┌───────────────┐
+│   Boxchars    │
+├───────────────┤
+│ ─ │ │ ┌ ┐ └ ┘ │
+│ ├ ┤ ┬ ┴ ┼     │
+└───────────────┘
+```
+
+Avec Unicode, il existe une vaste gamme de boxchars qui permettent de créer des interfaces utilisateur plus complexes et esthétiques. Voici quelques exemples courants de boxchars Unicode :
+
+```text
+U+2500 ─  (ligne horizontale)
+U+2502 │  (ligne verticale)
+U+250C ┌  (coin supérieur gauche)
+U+2510 ┐  (coin supérieur droit)
+U+2514 └  (coin inférieur gauche)
+U+2518 ┘  (coin inférieur droit)
+U+251C ├  (jonction gauche)
+U+2524 ┤  (jonction droite)
+U+252C ┬  (jonction haut)
+U+2534 ┴  (jonction bas)
+U+253C ┼  (jonction croisée)
+```
 
 ## Chaîne de caractères
 
