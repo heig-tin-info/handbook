@@ -67,6 +67,7 @@ int main() {
 ```
 
 [](){#endianess}
+
 ## Boutisme
 
 ![Boutisme par J. J. Grandville (1838)](/assets/images/endian.jpg){width=70%}
@@ -208,7 +209,6 @@ Table: Table des types entiers en C
 | `long long`, ...                | *signed*   | au moins 64 bits | `%lli` |
 | `unsigned long long`, ...       | *unsigned* | au moins 64 bits | `%llu` |
 
-
 Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête `stdint.h`. Cette bibliothèque standard offre les types suivants :
 
 ![Flux de construction d'un entier standardisé](/assets/images/c99-integers.drawio)
@@ -309,6 +309,23 @@ Historiquement, alors que les informations dans un ordinateur ne sont que des 1 
 En 1986, la table ASCII a été étendue pour couvrir les caractères majuscules et minuscules. Cette réforme est donnée par la figure suivante. Il s'agit de la table ASCII standard actuelle.
 
 ![Table ANSI INCITS 4-1986 (standard actuel)](/assets/images/ascii.drawio)
+
+!!! info "Majuscules et Minuscules"
+
+    Notez que dans la table ASCII, les lettres majuscules et minuscules sont séparées par une valeur de 32. Ainsi pour convertir une lettre majuscule en minuscule, il suffit d'ajouter 32 à sa valeur. Par exemple `A` vaut `65` et `a` vaut `97`. Inversement, pour convertir une lettre minuscule en majuscule, il suffit de soustraire 32 à sa valeur. La valeur 65 peut s'exprimer comme $2^6 + 1$ et la valeur 97 comme $2^6 + 2^5 + 1$. Ainsi, en utilisant les décalages de bits, on peut écrire :
+
+    ```c
+    printf("a = %c", 1<<6 + 1);        // Affiche a
+    printf("A = %c", 1<<6 + 1<<5 + 1); // Affiche A
+    ```
+
+    Pour convertir une valeur majuscule en minuscule, il suffit d'activer le 5ème bit (en comptant à partir de 0) :
+
+    ```c
+    char letter = 'p';
+    letter |= 1 << 5; // active le cinquième bit
+    printf("%c\n", letter); // Affiche P
+    ```
 
 Ainsi qu'évoqué plusieurs fois dans cet ouvrage, chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions offertes pour ajouter les caractères manquants telles que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard **ISO/IEC 8859** aussi appelé standard *Latin* définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**). Voici la table d'extension de l'[[ISO-8859-1]] et de l'[[ISO-8859-15]] :
 
@@ -582,7 +599,6 @@ passe directement à un type *int*.
     4. `c + sh * f / i + d;`
 
     ///
-
 
 !!! exercise "Expressions mixtes"
 
@@ -878,7 +894,6 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     6. Produit scalaire de deux vecteurs plans
     7. Nombre d'impulsions reçues par un capteur de position incrémental
 
-
 !!! exercise "Construction d'expressions"
 
     On considère un disque, divisé en 12 secteurs angulaires égaux, numérotés de 0
@@ -978,7 +993,6 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
             ```c
             percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;
             ```
-
 
 !!! exercise "Missile Patriot"
 
