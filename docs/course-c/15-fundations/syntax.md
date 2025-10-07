@@ -196,7 +196,6 @@ En addition de cette grammaire, voici quelques règles :
 
     `#!re /^[a-zA-Z_][a-zA-Z0-9_]*$/`
 
-
 !!! exercise "Validité des identificateurs"
 
     Pour chacune des suites de caractères ci-dessous, indiquez s'il s'agit d'un identificateur valide et utilisable en C. Justifier votre réponse.
@@ -242,6 +241,17 @@ En addition de cette grammaire, voici quelques règles :
         14. `INT` **valide**
 
         ///
+
+Il faut noter que le standard C autorise depuis C11 l'utilisation de caractères Unicode dans les identificateurs, mais cette fonctionnalité est rarement implémentée par les compilateurs. Avec gcc le programme suivant est valide:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int 💩 = 42;
+    printf("Salut %d", 💩);
+}
+```
 
 ## Variables
 
