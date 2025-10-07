@@ -1,6 +1,6 @@
-# Diagnostiques
+# Diagnostics
 
-Les outils de diagnostiques permettent de comprendre le comportement d'un programme en cours d'exécution. Ils permettent de voir les appels système, les appels de fonctions, les appels de bibliothèques, les appels de fonctions système, les appels de fonctions de bibliothèques.
+Les outils de diagnostic permettent de comprendre le comportement d'un programme en cours d'exécution. Ils permettent de voir les appels système, les appels de fonctions, les appels de bibliothèques, les appels de fonctions système, les appels de fonctions de bibliothèques.
 
 ## time
 
@@ -22,7 +22,7 @@ Un programme multi-threadé peut utiliser plus de 100% de CPU si plusieurs threa
 
 ## strace
 
-Strace a été initialement écrit pour SunOS par Paul Kranenburg en 1991. Il a été porté sur Linux par Branko Lankester en 1992. Strace est un outil de diagnostique qui permet de suivre les appels système et les signaux reçus par un processus. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution.
+Strace a été initialement écrit pour SunOS par Paul Kranenburg en 1991. Il a été porté sur Linux par Branko Lankester en 1992. Strace est un outil de diagnostic qui permet de suivre les appels système et les signaux reçus par un processus. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution.
 
 Son code source est bien entendu disponible sur [GitHub](https://github.com/strace/strace) et il est écrit en C.
 
@@ -42,9 +42,9 @@ strace ./a.out
 
 #### Analyse de performance
 
-Les performances d'un programmes peuvent être impactées par des appels système trop nombreux. Lorsqu'un programme communique avec le système d'exploitation (lecture disque, réseau, etc.), il doit passer par des appels système. Ces appels peuvent être coûteux en temps et en ressources car ils nécessitent un changement de contexte entre le mode utilisateur et le mode noyau. C'est à dire que le programme doit se mettre en pause pour laisser le noyau effectuer l'opération demandée. Lors de la mesure du temps d'exécution d'un programme, par exemple avec `time`, on peut noter le temps *system* qui correspond au temps passé dans le noyau. Si ce temps est trop élevé, cela peut indiquer que le programme n'est pas efficace car il passe son temps à attendre des opérations d'entrée/sortie. `strace` permet dans ce cas de mesurer le nombre d'appels système et de les analyser pour comprendre pourquoi le programme est lent.
+Les performances d'un programme peuvent être impactées par des appels système trop nombreux. Lorsqu'un programme communique avec le système d'exploitation (lecture disque, réseau, etc.), il doit passer par des appels système. Ces appels peuvent être coûteux en temps et en ressources car ils nécessitent un changement de contexte entre le mode utilisateur et le mode noyau. C'est-à-dire que le programme doit se mettre en pause pour laisser le noyau effectuer l'opération demandée. Lors de la mesure du temps d'exécution d'un programme, par exemple avec `time`, on peut noter le temps *system* qui correspond au temps passé dans le noyau. Si ce temps est trop élevé, cela peut indiquer que le programme n'est pas efficace car il passe son temps à attendre des opérations d'entrée/sortie. `strace` permet dans ce cas de mesurer le nombre d'appels système et de les analyser pour comprendre pourquoi le programme est lent.
 
-À titre d'exemple, prenons la sortie standard. Dans le standard POSIX, un programme n'est pas directement connecté à la sortie standard. La bibliothèque standard C utiliser un tampon pour stocker les données avant de les envoyer à la sortie standard. Ce tampon est automatiquement vidé selon certaines conditions notamment:
+À titre d'exemple, prenons la sortie standard. Dans le standard POSIX, un programme n'est pas directement connecté à la sortie standard. La bibliothèque standard C utilise un tampon pour stocker les données avant de les envoyer à la sortie standard. Ce tampon est automatiquement vidé selon certaines conditions notamment:
 
 - lorsqu'un caractère de fin de ligne est écrit,
 - lorsque le programme se termine,
@@ -78,12 +78,12 @@ int main() {
 ```
 
 ```text
-write(1, "f", 1f)     = 1
-write(1, "o", 1o)     = 1
-write(1, "o", 1o)     = 1
-write(1, "b", 1b)     = 1
-write(1, "a", 1a)     = 1
-write(1, "r", 1r)     = 1
+write(1, "f", 1)     = 1
+write(1, "o", 1)     = 1
+write(1, "o", 1)     = 1
+write(1, "b", 1)     = 1
+write(1, "a", 1)     = 1
+write(1, "r", 1)     = 1
 write(1, "\n", 1)     = 1
 ```
 
@@ -217,7 +217,7 @@ L'appel `PTRACE_GETREGS` permet au parent de lire les registres du processus enf
 
 ## ltrace
 
-`ltrace` (pour *library trace*) est un outil de diagnostique qui permet de suivre les appels aux fonctions des bibliothèques partagées. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution. `ltrace` est un outil plus simple que `strace` car il ne suit que les appels de fonctions et non les appels système. Prenons l'exemple du programme suivant :
+`ltrace` (pour *library trace*) est un outil de diagnostic qui permet de suivre les appels aux fonctions des bibliothèques partagées. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution. `ltrace` est un outil plus simple que `strace` car il ne suit que les appels de fonctions et non les appels système. Prenons l'exemple du programme suivant :
 
 ```c
 #include <stdio.h>
@@ -244,7 +244,7 @@ On peut voir notament que le compilateur à remplacé `printf` par `puts` car au
 
 ## perf
 
-`perf` est un outil très puissant de diagnostique qui permet de suivre les performances d'un programme en analysant les compteurs matériels du processeur.
+`perf` est un outil très puissant de diagnostic qui permet de suivre les performances d'un programme en analysant les compteurs matériels du processeur.
 
 Le processeur est un organe très complexe qui contient de nombreux compteurs matériels qui permettent de mesurer des métriques comme le nombre de cycles d'horloge, l'utilisation de la mémoire cache, le predicteur d'embranchement, les changements de contexte, etc. Ces compteurs sont très utiles pour comprendre le comportement d'un programme et identifier les goulots d'étranglement.
 
@@ -371,7 +371,7 @@ $ perf list
 
 ## valgrind
 
-`valgrind` est un outil de diagnostique qui permet de suivre les erreurs de mémoire dans un programme. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution. `valgrind` est un outil plus simple que `strace` car il ne suit que les erreurs de mémoire et non les appels système.
+`valgrind` est un outil de diagnostic qui permet de suivre les erreurs de mémoire dans un programme. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution. `valgrind` est un outil plus simple que `strace` car il ne suit que les erreurs de mémoire et non les appels système.
 
 L'outil est disponible sur Ubuntu et dérivés avec la commande suivante:
 

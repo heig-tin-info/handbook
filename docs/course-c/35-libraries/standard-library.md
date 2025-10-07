@@ -834,7 +834,7 @@ Cette bibliothèque est apparue en C99 et après 20 ans d'attente, elle introdui
 #define false 0
 ```
 
-Quelle belle mascarade ! On définit `bool` comme `_Bool`... En réalité ce dernier est un type natif du langage alors que `bool` n'est qu'une macro. C'est à dire que sans include `<stdbool.h>` vous pouvez tout de même définir un booléen en utilisant `_Bool`. Néanmoins, l'intérêt de cette bibliothèque est de standardiser le type booléen et les valeurs `true` et `false` pour une meilleure portabilité du code.
+Quelle belle mascarade ! On définit `bool` comme `_Bool`... En réalité ce dernier est un type natif du langage alors que `bool` n'est qu'une macro. C'est-à-dire que sans include `<stdbool.h>` vous pouvez tout de même définir un booléen en utilisant `_Bool`. Néanmoins, l'intérêt de cette bibliothèque est de standardiser le type booléen et les valeurs `true` et `false` pour une meilleure portabilité du code.
 
 On peut s'interroger pourquoi le standard à décidé, plutôt que d'ajouter un nouveau type `bool` natif, que de le définir dans un en-tête supplémentaire et de définir le type avec un `_` en préfixe. Le langage C a une longue histoire et de nombreux programmes n'ont pas attendu la sortie de cette bibliothèque pour définir leur propre type booléen. Il était donc nécessaire de ne pas casser la compatibilité avec les anciens programmes. C'est pourquoi le type `_Bool` a été introduit sous cette nomenclature. L'histoire est similaire avec `_Complex` et `_Imaginary` de la bibliothèque `<complex.h>`.
 

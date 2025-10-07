@@ -117,7 +117,7 @@ mkdir _install
 make configure prefix=$(pwd)/_install
 ```
 
-Le script `configure` est maintenant généré, il nous permet de configurer le projet, c'est à dire de choisir les options de compilation. Si l'on exécute configure avec l'option `--help`, on obtient la liste des options disponibles.
+Le script `configure` est maintenant généré, il nous permet de configurer le projet, c'est-à-dire de choisir les options de compilation. Si l'on exécute configure avec l'option `--help`, on obtient la liste des options disponibles.
 
 ```bash
 ./configure --help

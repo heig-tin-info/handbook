@@ -99,7 +99,7 @@ $$
 \end{array}
 $$
 
-L'exemple reste valable quelque soit la base, en binaire par exemple, on commence par additionner les bits de poids faible et on reporte les retenues. Ainsi en premier lieu on aura $1_2 + 1_2 = 10_2$. Donc le résultat est $0$ et la retenue (*carry*) est $1$ :
+L'exemple reste valable quelle que soit la base, en binaire par exemple, on commence par additionner les bits de poids faible et on reporte les retenues. Ainsi en premier lieu on aura $1_2 + 1_2 = 10_2$. Donc le résultat est $0$ et la retenue (*carry*) est $1$ :
 
 $$
 \begin{array}{lrrrrrrrr}

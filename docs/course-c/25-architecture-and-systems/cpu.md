@@ -474,7 +474,7 @@ La comparaison des performances est évidente, les instructions SIMD permettent 
 
 Nous avons vu, les processeurs évoluent au fil des générations le SS2 a été introduit avec le Pentium III, l'AVX 256 bitss avec Sandy Bridge, l'AVX 512 bits avec Skylake, etc. Cela pose un problème de compatibilité car si vous compilez avec `gcc` votre programme aujourd'hui, il ne fonctionnera probablement pas sur une ancienne architecture, pourtant c'est un exécutable x86-64 en format ELF.
 
-Par défaut, `gcc` compile pour une architecture générique, c'est à dire qu'il fait un compromis entre les différentes architectures pour garantir une certaine compatibilité. Pour compiler pour une architecture spécifique, il faut utiliser l'option `-march`:
+Par défaut, `gcc` compile pour une architecture générique, c'est-à-dire qu'il fait un compromis entre les différentes architectures pour garantir une certaine compatibilité. Pour compiler pour une architecture spécifique, il faut utiliser l'option `-march`:
 
 ```bash
 gcc -march=skylake main.c

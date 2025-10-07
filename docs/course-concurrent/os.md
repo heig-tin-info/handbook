@@ -177,7 +177,7 @@ Avec `htop`, vous pouvez observer les processus enfants en attente de signal. Ut
 
 Dans cet exemple, un segment de mémoire partagée est créé pour stocker une valeur entière. Le processus parent écrit une valeur dans la mémoire partagée et envoie un signal à chaque processus enfant. Chaque processus enfant est configuré pour exécuter un gestionnaire de signal qui lit la valeur de la mémoire partagée. Cela permet de communiquer des données entre le processus parent et les processus enfants de manière asynchrone.
 
-Néanmoins il faut d'avantage pour gérer la synchronisation et la communication entre les processus. Les exemples ci-dessus sont des simplifications pour illustrer les concepts de base.
+Néanmoins, il faut davantage pour gérer la synchronisation et la communication entre les processus. Les exemples ci-dessus sont des simplifications pour illustrer les concepts de base.
 
 #### Synchronisation de la mémoire partagée
 

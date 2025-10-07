@@ -46,7 +46,7 @@ Un tableau de chaîne de caractères est identique à un tableau multidimensionn
 char conjunctions[][10] = {"mais", "ou", "est", "donc", "or", "ni", "car"};
 ```
 
-Il est ici nécessaire de définir la taille de la seconde dimension, comme pour les tableaux. C'est à dire que la variable `conjunctions` aura une taille de 7x10 caractères et le contenu mémoire de `conjunctions[1]` sera équivalent à :
+Il est ici nécessaire de définir la taille de la seconde dimension, comme pour les tableaux. C'est-à-dire que la variable `conjunctions` aura une taille de 7x10 caractères et le contenu mémoire de `conjunctions[1]` sera équivalent à :
 
 ```c
 {'o', 'u', 0, 0, 0, 0, 0, 0, 0, 0}

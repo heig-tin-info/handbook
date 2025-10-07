@@ -444,7 +444,7 @@ Ces trois déclarations sont équivalentes en termes de taille et d'utilisation 
 
 Déclaration globale
 
-:  La mémoire est allouée lors de la compilation et est disponible tout au long de l'exécution du programme. Il est possible de modifier le contenu de la mémoire à tout moment. La visibilité de la variable est globale, c'est à dire que la variable est accessible depuis n'importe quelle fonction du programme ce qui peut être source de bogues.
+:  La mémoire est allouée lors de la compilation et est disponible tout au long de l'exécution du programme. Il est possible de modifier le contenu de la mémoire à tout moment. La visibilité de la variable est globale, c'est-à-dire que la variable est accessible depuis n'importe quelle fonction du programme ce qui peut être source de bogues.
 
 Déclaration sur la pile
 
@@ -505,7 +505,7 @@ C'est une fonctionnalité qui peut être très utile, mais elle n'est pas sans r
 
     Cette fois, l'utilisateur peut choisir la taille du tableau alloué sur la pile. Vous voyez le problème ?
 
-Pour les raisons évoquées, les VLA sont très controversés et il est recommandé de ne pas les utiliser. Il est préférable d'utiliser l'allocation dynamique de mémoire pour allouer des tableaux de taille variable. Du reste, avec C11, le support des VLA sont devenus optionnels, c'est à dire qu'un compilateur peut être compatible C11 sans supporter les VLA.
+Pour les raisons évoquées, les VLA sont très controversés et il est recommandé de ne pas les utiliser. Il est préférable d'utiliser l'allocation dynamique de mémoire pour allouer des tableaux de taille variable. Du reste, avec C11, le support des VLA sont devenus optionnels, c'est-à-dire qu'un compilateur peut être compatible C11 sans supporter les VLA.
 
 ## Copie d'un tableau
 

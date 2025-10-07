@@ -1,6 +1,6 @@
 # L'ordinateur personnel
 
-Un ordinateur personnel ([[PC]] pour *Personal Computer*) est un appareil électronique de petite taille destiné à un usage individuel. Il se distingue des ordinateurs centraux (ou *mainframes*) et des serveurs, qui eux, sont destinés exclusivement à un usage professionnel ou collectif en raison de leur prix exhorbitant. Néanmoins, quelle que soit la taille de l'ordinateur, les composants de base sont les mêmes. Un ordinateur est composé de plusieurs éléments principaux:
+Un ordinateur personnel ([[PC]] pour *Personal Computer*) est un appareil électronique de petite taille destiné à un usage individuel. Il se distingue des ordinateurs centraux (ou *mainframes*) et des serveurs, qui eux, sont destinés exclusivement à un usage professionnel ou collectif en raison de leur prix exorbitant. Néanmoins, quelle que soit la taille de l'ordinateur, les composants de base sont les mêmes. Un ordinateur est composé de plusieurs éléments principaux:
 
 Un **processeur** (ou **[[CPU]]** pour *Central Processing Unit*)
 
@@ -8,7 +8,7 @@ Un **processeur** (ou **[[CPU]]** pour *Central Processing Unit*)
 
 La **mémoire** (ou **[[RAM]]** pour *Random Access Memory*)
 
-: Elle est **volatile**, c'est à dire qu'elle perd son contenu lorsque l'ordinateur est éteint, mais elle est très rapide. Elle est utilisée pour stocker les données temporaires des programmes en cours d'exécution.
+: Elle est **volatile**, c'est-à-dire qu'elle perd son contenu lorsque l'ordinateur est éteint, mais elle est très rapide. Elle est utilisée pour stocker les données temporaires des programmes en cours d'exécution.
 
 Un **disque dur** (ou **[[HDD]]** pour *Hard Disk Drive*)
 
@@ -34,7 +34,7 @@ La [[mémoire vive]] est une mémoire de stockage temporaire, on l'appelle égal
 
 ![2 x 16 GB DDR5 DIMM Corsair Vengeance](/assets/images/sdram-corsair-vengeance.avif){ width=50% }
 
-Sous le capôt, on peut voir les puces de mémoire:
+Sous le capot, on peut voir les puces de mémoire:
 
 ![Crucial DDR4 16 GB](/assets/images/sdram.webp){ width=50% }
 
@@ -50,7 +50,7 @@ Une mémoire volatile est une mémoire qui perd son contenu lorsqu'elle n'est pl
 2. La quantité d'eau (courant) pour remplir le verre est plus grande.
 3. L'encombrement est plus grand puisque le verre est plus volumineux.
 
-Aussi, le choix technologique est d'avoir des tout petits verres. Ils sont si petits que l'eau contenue s'évapore très vite. Pour éviter cela, on doit constamment remplir les verres. C'est ce que l'on appelle la *rafraîchissement* de la mémoire. Périodiquement, environ toutes les 64 ms, on doit réécrire le contenu de la mémoire pour éviter que l'information ne se perde. Heureusement pour nous, cette opération est transparente pour l'utilisateur, c'est le contrôleur de mémoire qui s'en charge.
+Aussi, le choix technologique est d'avoir des tout petits verres. Ils sont si petits que l'eau contenue s'évapore très vite. Pour éviter cela, on doit constamment remplir les verres. C'est ce que l'on appelle le *rafraîchissement* de la mémoire. Périodiquement, environ toutes les 64 ms, on doit réécrire le contenu de la mémoire pour éviter que l'information ne se perde. Heureusement pour nous, cette opération est transparente pour l'utilisateur, c'est le contrôleur de mémoire qui s'en charge.
 
 Les caractéristiques de la mémoire sont les suivantes:
 
@@ -86,7 +86,7 @@ Sur la figure suivante, on voit le routage d'un circuit électronique. En rose, 
 
 ![Routage d'une mémoire](/assets/images/sdram-layout.png)
 
-Vous me direz, oui, mais 540 millions de km/h c'est super rapide et sur ce circuit les lignes ne font pas plus de 10 cm ce qui représente 600 ps pour parcourir la distance. Oui, mais voilà, on communique sur cette autoroute à 2000 MT/s (mégatransferts par seconde). Cela signifie que 2'000'000 de véhicules entrent sur chaque voie de l'autoroute chaque seconde circuler sur chaque voie de l'autoroute chaque seconde. N'est-ce pas incroyable?
+Vous me direz, oui, mais 540 millions de km/h c'est super rapide et sur ce circuit les lignes ne font pas plus de 10 cm ce qui représente 600 ps pour parcourir la distance. Oui, mais voilà, on communique sur cette autoroute à 2000 MT/s (mégatransferts par seconde). Cela signifie que 2'000'000 de véhicules entrent sur chaque voie de l'autoroute chaque seconde. N'est-ce pas incroyable?
 
 Malgré ces performances, la mémoire reste un goulot d'étranglement pour les processeurs. En effet, les processeurs sont de plus en plus rapides et les mémoires ne suivent pas le rythme. Un processeur qui calcule à 4 GHz peut exécuter 4 milliards d'instructions par seconde. Si chaque instruction nécessite un accès mémoire et que cet accès prend 100 cycles d'horloge, alors le processeur ne pourra exécuter que 40 millions d'instructions par seconde. Cela signifie que le processeur ne sera utilisé qu'à 1% de sa capacité.
 
@@ -114,7 +114,7 @@ Pour interfacer le processeur avec le disque dur, on utilise un contrôleur de d
 
 La carte mère est le composant principal de l'ordinateur. C'est elle qui relie tous les composants entre eux. Elle est composée d'un circuit imprimé sur lequel sont soudés les différents composants et une grande quantité de connecteurs.
 
-Le cœur de la carte mère est le **chipset**. C'est un ensemble de circuits électroniques qui gère les communications entre les différents composants. Il etait historiquement composé de deux parties, le *northbridge* responsable de la communication entre le processeur et la mémoire vive et le *southbridge* responsable de la communication entre les périphériques de stockage et les ports USB. Depuis plusieurs années, le contrôleur mémoire est intégré au processeur et le chipset est devenu un *southbridge* amélioré.
+Le cœur de la carte mère est le **chipset**. C'est un ensemble de circuits électroniques qui gère les communications entre les différents composants. Il était historiquement composé de deux parties, le *northbridge* responsable de la communication entre le processeur et la mémoire vive et le *southbridge* responsable de la communication entre les périphériques de stockage et les ports USB. Depuis plusieurs années, le contrôleur mémoire est intégré au processeur et le chipset est devenu un *southbridge* amélioré.
 
 Le **chipset** est relié au processeur par un bus de données appelé **FSB** (*Front Side Bus*). Ce bus transporte les données entre le processeur et le chipset. La configuration du chipset est stockée dans une mémoire flash appelée **BIOS** (*Basic Input/Output System*). Le BIOS est un logiciel qui permet de configurer les paramètres de la carte mère.
 
@@ -124,7 +124,7 @@ De nos jours, le BIOS a été remplacé par l'**UEFI** (*Unified Extensible Firm
 
 ## Le processeur
 
-Le processeur est le cerveau de l'ordinateur. C'est lui qui exécute les instructions des programmes. La figure suivante montre un processeur Intel i7-12700K dans son format LGA 1700. C'est à dire qu'il comporte 1700 broches pour se connecter à la carte mère.
+Le processeur est le cerveau de l'ordinateur. C'est lui qui exécute les instructions des programmes. La figure suivante montre un processeur Intel i7-12700K dans son format LGA 1700. C'est-à-dire qu'il comporte 1700 broches pour se connecter à la carte mère.
 
 ![Processeur Intel i7](/assets/images/cpu-i7.png)
 
@@ -133,12 +133,12 @@ Sur les 1700 broches on distingue plusieurs types de broches:
 - Les broches d'alimentation qui représentent 40..60% des broches. Elles sont nécessaires pour alimenter le processeur avec une tension de 1.2V.
 - Le contrôleur mémoire (DDR4/DDR5) qui permet de connecter la mémoire vive au processeur. Cela représente environ 5..15% des broches.
 - Les interfaces PCIe qui permettent de connecter des cartes d'extension comme des cartes graphiques, des cartes réseau, des cartes son, etc. Ce processeur supporte jusqu'à 20 lignes différentielles soit 40 broches.
-- L'accès DMI, c'est l'interface entre lwe processeur et le chipset. Un DMI 4.0 x8 signifie qu'il y a 8 lignes (Rx/Tx), soit envron 16 broches.
+- L'accès DMI, c'est l'interface entre le processeur et le chipset. Un DMI 4.0 x8 signifie qu'il y a 8 lignes (Rx/Tx), soit envron 16 broches.
 - L'USB, quelques dizaines de broches.
 - Le contrôleur graphique intégré (iGPU) qui comporte des ports HDMI/DisplayPort pour connecter un écran directement au processeur.
 - Les interconnexions spécifiques (I2C, SPI, etc.)
 
-Si on consulte le SDM (*Software Developer Manual*) d'Intel, un document de 5000 pages, on peut trouver des informations très intéressntes. Par exemple le chapitre sur les types numériques montre les différents type d'entiers ( `byte`, `word`, `dword`, `qword`), de flottants (`half`, `single`, `double`, `extended`) et de vecteurs (`xmm`, `ymm`, `zmm`, `kmm`). Il est expliqué que le processeur fonctionne avec le complément à 2 pour les entiers et le IEEE 754 pour les flottants, qu'il est en *little-endian* et que les registres sont de 64 bits. Le langage C au final est très proche de l'assembleur du processeur.
+Si on consulte le SDM (*Software Developer Manual*) d'Intel, un document de 5000 pages, on peut trouver des informations très intéressantes. Par exemple le chapitre sur les types numériques montre les différents types d'entiers ( `byte`, `word`, `dword`, `qword`), de flottants (`half`, `single`, `double`, `extended`) et de vecteurs (`xmm`, `ymm`, `zmm`, `kmm`). Il est expliqué que le processeur fonctionne avec le complément à 2 pour les entiers et le IEEE 754 pour les flottants, qu'il est en *little-endian* et que les registres sont de 64 bits. Le langage C au final est très proche de l'assembleur du processeur.
 
 ## Chipset
 

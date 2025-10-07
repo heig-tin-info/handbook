@@ -166,7 +166,7 @@ Table: Opérateurs de pointeurs
 
 ### Adresse d'une variable
 
-L'opérateur `&` utilisé comme opérateur unaire permet d'obtenir l'adresse mémoire d'une variable. C'est à dire que si `a` est une variable, `&a` est l'adresse mémoire de cette variable. Par exemple :
+L'opérateur `&` utilisé comme opérateur unaire permet d'obtenir l'adresse mémoire d'une variable. C'est-à-dire que si `a` est une variable, `&a` est l'adresse mémoire de cette variable. Par exemple :
 
 ```c
 int a = 42;
@@ -183,7 +183,7 @@ Le type `uintptr_t` est un type entier non signé qui est assez grand pour conte
 
 ### Déréférencement
 
-Le déréférencement correspond à l'opération de lecture de la valeur pointée par un pointeur. C'est à dire que si `ptr` est un pointeur sur un entier, `*ptr` est la valeur de cet entier. Dit autrement, si vous avez un post-it avec l'adresse d'un magasin de chaussures, la simple pocession de ce post-it ne vous permet pas d'avoir de nouvelles chaussures. Il vous faut vous rendre à l'adresse indiquée pour obtenir les chaussures. C'est exactement ce que fait l'opérateur `*`.
+Le déréférencement correspond à l'opération de lecture de la valeur pointée par un pointeur. C'est-à-dire que si `ptr` est un pointeur sur un entier, `*ptr` est la valeur de cet entier. Dit autrement, si vous avez un post-it avec l'adresse d'un magasin de chaussures, la simple possession de ce post-it ne vous permet pas d'avoir de nouvelles chaussures. Il vous faut vous rendre à l'adresse indiquée pour obtenir les chaussures. C'est exactement ce que fait l'opérateur `*`.
 
 ```c
 char* shoe = "Nike Mag";
@@ -278,7 +278,7 @@ Prenons un autre exemple. Imaginons que l'on souhaite représenter le carré mag
 └───┴───┴───┘
 ```
 
-On peut le représenter en mémoire linéairement et utiliser de l'arithmétique de pointeur pour le dessiner. C'est à dire qu'il n'est pas nécessaire de déclarer explicitement un tableau à deux dimensions. On peut le représenter de la manière suivante :
+On peut le représenter en mémoire linéairement et utiliser de l'arithmétique de pointeur pour le dessiner. C'est-à-dire qu'il n'est pas nécessaire de déclarer explicitement un tableau à deux dimensions. On peut le représenter de la manière suivante :
 
 ```c
 char magic[] = "492" "357" "816"; // Équivalent à "492357816"
@@ -306,7 +306,7 @@ for (size_t row = 0; row < 3; row++) {
 
 On peut pousser l'exemple plus loin. Imaginons que vous avez des données en mémoires, agencées linéairements, mais que vous ne connaissez pas à priori la taille de la matrice, c'est le cas de la déclaration `char magic[] = "492357816";`. Dans ce cas, seul la première solution est envisageable. Cependant, la seconde est bien plus élégante et plus lisible. Peut-on avoir le beurre et l'argent du beurre ? Oui, avec un peu de ruse.
 
-On peut déclarer un nouveau pointeur de type tableau à deux dimensions et le caster sur le pointeur `magic`. C'est à dire que l'on va dire au compilateur que le pointeur `magic` est en réalité un tableau à deux dimensions. C'est une pratique courante en C.
+On peut déclarer un nouveau pointeur de type tableau à deux dimensions et le caster sur le pointeur `magic`. C'est-à-dire que l'on va dire au compilateur que le pointeur `magic` est en réalité un tableau à deux dimensions. C'est une pratique courante en C.
 
 ```c
 #include <stdio.h>
@@ -361,7 +361,7 @@ putchar(((char(*)[size])magic)[row][col]);
 
 ### Cas d'un tableau
 
-Cela n'aura plus de secret pour vous, un tableau est un pointeur. Néanmoins il existe quelques subtilités. D'une part un tableau est un pointeur constant, c'est à dire que l'adresse mémoire ne peut être modifiée. L'écriture suivante est donc incorrecte :
+Cela n'aura plus de secret pour vous, un tableau est un pointeur. Néanmoins il existe quelques subtilités. D'une part un tableau est un pointeur constant, c'est-à-dire que l'adresse mémoire ne peut être modifiée. L'écriture suivante est donc incorrecte :
 
 ```c
 int array[10];
@@ -393,13 +393,13 @@ Table: Types de pointeurs associés à un tableau à deux dimensions
 | `array[0]`    | `int *`          | Pointeur sur un entier                             |
 | `array[0][0]` | `int`            | Entier                                             |
 
-Vous avez vonstaté lors de l'exemple du carré magique qu'il n'était pas possible d'écrire `magic[row][col]` à partir de la déclaration de pointeur `char *magic` car le compilateur ne connaissait pas la taille de la deuxième dimension. Dans le cas d'une déclaration de type `int (*)[3]` le compilateur sait que la deuxième dimension est de taille 3. On peut donc écrire `array[row][col]` sans problème.
+Vous avez constaté lors de l'exemple du carré magique qu'il n'était pas possible d'écrire `magic[row][col]` à partir de la déclaration de pointeur `char *magic` car le compilateur ne connaissait pas la taille de la deuxième dimension. Dans le cas d'une déclaration de type `int (*)[3]` le compilateur sait que la deuxième dimension est de taille 3. On peut donc écrire `array[row][col]` sans problème.
 
-L'écriture `&array` mérite une explication. En effet, `&array` est un pointeur sur un tableau de 3 tableaux de 3 entiers. C'est à dire que `&array` est équivalent à `int (*)[3][3]`. C'est une subtilité de la syntaxe C. En effet, `&array` est l'adresse du tableau `array` qui est un tableau de 3 tableaux de 3 entiers, alors que `array` est simplement un pointeur sur un tableau de 3 entiers. Pourquoi cette subtilité ?
+L'écriture `&array` mérite une explication. En effet, `&array` est un pointeur sur un tableau de 3 tableaux de 3 entiers. C'est-à-dire que `&array` est équivalent à `int (*)[3][3]`. C'est une subtilité de la syntaxe C. En effet, `&array` est l'adresse du tableau `array` qui est un tableau de 3 tableaux de 3 entiers, alors que `array` est simplement un pointeur sur un tableau de 3 entiers. Pourquoi cette subtilité ?
 
-Lorsque l'on utilise des pointeurs, l'objectif est d'utiliser l'arithmétique de pointeurs pour parcourir les données en mémoire. Donc pour un tableau on s'attends à qu'ajouter une unité au pointeur nous mène à la valeur suivante. Pour le cas `int array[3][3]`, ajouter une unité au pointeur `array` nous mène à la première valeur du tableau suivant. C'est à dire que `array + 1` pointe sur le tableau `array[1]` et `array + 2` pointe sur le tableau `array[2]`, ce qui confirme le sucre syntaxique de l'opérateur crochet `[]` qui est équivalent à l'arithmétique de pointeur `*(array + i)`.
+Lorsque l'on utilise des pointeurs, l'objectif est d'utiliser l'arithmétique de pointeurs pour parcourir les données en mémoire. Donc pour un tableau on s'attend à ce qu'ajouter une unité au pointeur nous mène à la valeur suivante. Pour le cas `int array[3][3]`, ajouter une unité au pointeur `array` nous mène à la première valeur du tableau suivant. C'est-à-dire que `array + 1` pointe sur le tableau `array[1]` et `array + 2` pointe sur le tableau `array[2]`, ce qui confirme le sucre syntaxique de l'opérateur crochet `[]` qui est équivalent à l'arithmétique de pointeur `*(array + i)`.
 
-Néanmoins si on considère l'entièreté de `array` et que l'on souhaite avec `+1` aller après le dernier élément du tableau, il est nécessaire de connaître la taille totale du tableau c'est à dire 9 éléments. Demander explicitement *l'adresse de* `array` retourne un pointeur sur un tableau de 3 tableaux de 3 entiers. C'est à dire que `&array + 1` pointe sur le tableau suivant de 3 tableaux de 3 entiers, car on pourrait très bien imaginer `array` comme un élément d'un tableau plus grand:
+Néanmoins si on considère l'entièreté de `array` et que l'on souhaite avec `+1` aller après le dernier élément du tableau, il est nécessaire de connaître la taille totale du tableau c'est-à-dire 9 éléments. Demander explicitement *l'adresse de* `array` retourne un pointeur sur un tableau de 3 tableaux de 3 entiers. C'est-à-dire que `&array + 1` pointe sur le tableau suivant de 3 tableaux de 3 entiers, car on pourrait très bien imaginer `array` comme un élément d'un tableau plus grand:
 
 ```c
 int matrices[2][3][3] = {
@@ -507,7 +507,7 @@ Le langage C introduit un autre sucre syntaxique pour déréférencer un éléme
 a->b ≡ (*a).b
 ```
 
-Ajoutons que concernant l'arithmétique de pointeur, il est important de noter que l'opération `p + 1` incrémente le pointeur de `sizeof(Date)` bytes. C'est à dire que `p + 1` pointe sur la structure suivante de type `Date`. On peut donc avoir un tableau de structures de la manière suivante :
+Ajoutons que concernant l'arithmétique de pointeur, il est important de noter que l'opération `p + 1` incrémente le pointeur de `sizeof(Date)` bytes. C'est-à-dire que `p + 1` pointe sur la structure suivante de type `Date`. On peut donc avoir un tableau de structures de la manière suivante :
 
 ```c
 #define MAX 10
@@ -534,7 +534,7 @@ void print_date2(Date date) {
 }
 ```
 
-Lorsque vous décidez de modifier le type de l'argument de la fonction vous devez ajuster les déréférencements. C'est à dire que si vous décidez de passer de `Date` à `Date*` vous devez modifier `.` en `->` et vice versa. En pratique il est toujours préférable de passer par des pointeurs pour éviter de copier des structures sur la pile. Pour éviter de les modifier, il est possible de déclarer les structures comme `const`:
+Lorsque vous décidez de modifier le type de l'argument de la fonction vous devez ajuster les déréférencements. C'est-à-dire que si vous décidez de passer de `Date` à `Date*` vous devez modifier `.` en `->` et vice versa. En pratique il est toujours préférable de passer par des pointeurs pour éviter de copier des structures sur la pile. Pour éviter de les modifier, il est possible de déclarer les structures comme `const`:
 
 ```c
 void print_date(const Date *date) {
@@ -652,7 +652,7 @@ if (status == 0) {
 
 ## Transtypage (*cast*)
 
-Nous avons expliqué plus haut qu'un pointeur est généralement associé à un type permettant l'arithmétique de pointeurs. Néanmoins il existe un cas particulier, celui du type `void`. Un pointeur sur `void` est un pointeur neutre, c'est à dire qu'il peut pointer sur n'importe quel type de données. Comme le type n'est pas connu, l'arithmétique de pointeurs n'est pas possible. Il est nécessaire alors de transtyper le pointeur pour pouvoir l'utiliser.
+Nous avons expliqué plus haut qu'un pointeur est généralement associé à un type permettant l'arithmétique de pointeurs. Néanmoins il existe un cas particulier, celui du type `void`. Un pointeur sur `void` est un pointeur neutre, c'est-à-dire qu'il peut pointer sur n'importe quel type de données. Comme le type n'est pas connu, l'arithmétique de pointeurs n'est pas possible. Il est nécessaire alors de transtyper le pointeur pour pouvoir l'utiliser.
 
 ```c
 int a = 42;
@@ -848,7 +848,7 @@ int main(void) {
 }
 ```
 
-Les pointeurs de fonctions sont également utilisés pour effectuer des opérations différentes selon des critères. Admettons que l'on souhaite réaliser un parseur d'expressions mathématiques en format infixé. C'est à dire que les opérateurs sont placés après les nombres. `2+3*8-2` s'écrirait `238*+2-`.
+Les pointeurs de fonctions sont également utilisés pour effectuer des opérations différentes selon des critères. Admettons que l'on souhaite réaliser un parseur d'expressions mathématiques en format infixé. C'est-à-dire que les opérateurs sont placés après les nombres. `2+3*8-2` s'écrirait `238*+2-`.
 
 Les opérateurs selon la table ASCII sont `+` (43), `-` (45), `*` (42) et `/` (47). Un tableau de correspondance peut être créé pour associer un opérateur à une fonction :
 

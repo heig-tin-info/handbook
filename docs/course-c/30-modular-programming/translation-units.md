@@ -300,7 +300,7 @@ collect2: error: ld returned 1 exit status
 
 Le *linker* se termine avec une erreur : *référence à 'main' inexistante*.
 
-En revanche, il est possible de compiler un objet, c'est à dire générer les instructions assembleur. La fonction `bar` étant manquante, le compilateur suppose qu'elle existe quelque part en mémoire et se contentera de dire *moi j'appelle cette fonction ou qu'elle se trouve*.
+En revanche, il est possible de compiler un objet, c'est-à-dire générer les instructions assembleur. La fonction `bar` étant manquante, le compilateur suppose qu'elle existe quelque part en mémoire et se contentera de dire *moi j'appelle cette fonction ou qu'elle se trouve*.
 
 ```sh
 $objdump -d foo.o
