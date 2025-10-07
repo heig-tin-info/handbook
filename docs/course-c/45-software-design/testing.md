@@ -2,7 +2,7 @@
 
 ![Bogue de l'an 2000](/assets/images/y2k-bug.jpg)
 
-Surveiller et assurer la qualité d'un code est primordial dans toute institution et quelques soit le produit. Dans l'industrie automobile par exemple, un bogue qui serait découvert plusieurs années après la commercialisation d'un modèle d'automobile aurait des conséquences catastrophiques.
+Surveiller et assurer la qualité d'un code est primordial dans toute institution et quel que soit le produit. Dans l'industrie automobile par exemple, un bogue qui serait découvert plusieurs années après la commercialisation d'un modèle d'automobile aurait des conséquences catastrophiques.
 
 Voici quelques exemples célèbres de ratés logiciels :
 
@@ -26,10 +26,10 @@ La division entière sur Pentium
 
 La norme ISO/IEC 25010 (qui remplace ISO/IEC 9126-1) décrit les caractéristiques définissant la qualité d'un logiciel. L'acronyme **SQuaRE** (*Software product Quality Requirements and Evaluation*) définit le standard international. Voici quelques critères d'un code de qualité :
 
-- Maintenabilié
+- Maintenabilité
 - Modifiabilité
 - Testabilité
-- Analisabilité
+- Analysabilité
 - Stabilité
 - Changeabilité
 - Réutilisabilité

@@ -453,7 +453,7 @@ Un shader est un programme qui s'exécute sur la carte graphique. Il est écrit 
 
 Le GLSL est très similaire au C du point de vue de la syntaxe mais il est beaucoup plus limité. Il n'y a pas de pointeurs, pas de structures, pas de fonctions récursives, pas de boucles infinies, pas de gestion de la mémoire, etc. En effet, les processeurs graphiques sont des processeurs spécialisés qui n'ont pas besoin de ces fonctionnalités. Ils sont très simples mais très nombreux.
 
-Dans une carte graphique de type GTX 3090 sortie en 2020 et capable de faire tourner un jeu comme Cyberpunk 2077 en 4K, il y a 82 *streaming multiprocessors* ou **SMs**. Chaque SM contient 128 CUDA cores et donc la carte graphique contient 10496 CUDA cores. Chaque CUDA core peut exécuter différent type de shaders : vertex, tessellation, geometry, fragment, etc. En outre, cette carte graphique tourne à 1.7 GHz, c'est à dire que chaque CUDA core peut exécuter 1.7 milliard d'instructions par seconde.
+Dans une carte graphique de type GTX 3090 sortie en 2020 et capable de faire tourner un jeu comme Cyberpunk 2077 en 4K, il y a 82 *streaming multiprocessors* ou **SMs**. Chaque SM contient 128 CUDA cores et donc la carte graphique contient 10496 CUDA cores. Chaque CUDA core peut exécuter différent type de shaders : vertex, tessellation, geometry, fragment, etc. En outre, cette carte graphique tourne à 1.7 GHz, c'est-à-dire que chaque CUDA core peut exécuter 1.7 milliard d'instructions par seconde.
 
 En d'autres termes, un shader GLSL de 10 instructions qui sera exécuté pour chaque pixel d'un écran de 3840x2160 pixels sera exécuté en :
 

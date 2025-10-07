@@ -45,7 +45,7 @@ Chaque élément qui contient d'autres éléments est appelé un **répertoire**
 
 `..`
 
-: Un fichier qui symbolise le répertoire parent, c'est à dire `home` lorsque je suis dans `john`.
+: Un fichier qui symbolise le répertoire parent, c'est-à-dire `home` lorsque je suis dans `john`.
 
 La localisation d'un fichier au sein d'un système de fichier peut être soit **absolue** soit **relative**. Cette localisation s'appelle un **chemin** ou *path*. La convention est d'utiliser le symbole :
 

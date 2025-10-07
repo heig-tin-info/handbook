@@ -36,7 +36,7 @@ Une fois installé, vous pouvez ouvrir le programme `MSYS2 MINGW64` qui tourne d
     }
     ```
 
-4. Attention à bien adapter le chemin et veillez à ce que le fichier JSON soit bien formé, c'est à dire que les virgules soient bien placées.
+4. Attention à bien adapter le chemin et veillez à ce que le fichier JSON soit bien formé, c'est-à-dire que les virgules soient bien placées.
 5. Sauvegarder le fichier JSON et fermer Windows Terminal
 6. Ouvrir Windows Terminal et sélectionner le profil MinGW dans le menu déroulant.
 

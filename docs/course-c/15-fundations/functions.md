@@ -129,13 +129,13 @@ Le [prototype](https://en.wikipedia.org/wiki/Function_prototype) d'une fonction 
 
 Notons qu'il n'y a pas d'accolades ici.
 
-Rappelons-le, C est un langage impératif et déclaratif, c'est-à-dire que les instructions sont séquentielles et que les déclarations du code sont interprétées dans l'ordre ou elles apparaissent. Si bien si je veux appeler la fonction `make_coffee`, il faut qu'elle ait été déclarée avant, c'est à dire plus haut.
+Rappelons-le, C est un langage impératif et déclaratif, c'est-à-dire que les instructions sont séquentielles et que les déclarations du code sont interprétées dans l'ordre ou elles apparaissent. Ainsi, si je veux appeler la fonction `make_coffee`, il faut qu'elle ait été déclarée avant, c'est-à-dire plus haut.
 
 Le code suivant fonctionne :
 
 ```c
 int make_coffee(void) {
-    printf("Please wait...\n)";
+    printf("Please wait...\n");
 }
 
 int main(void) {
@@ -151,7 +151,7 @@ int main(void) {
 }
 
 int make_coffee(void) {
-    printf("Please wait...\n)";
+    printf("Please wait...\n");
 }
 ```
 

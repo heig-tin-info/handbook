@@ -158,7 +158,7 @@ Un [[tas binaire]] est une structure de données qui permet de stocker des élé
     --8<-- "docs/assets/src/min-heap/min-heap.c"
     ```
 
-Le tas binaire utilise un tableau dynamique pour stocker les éléments. La règle est que chaque élément voit son enfant de gauche à l'indice `2 * k + 1` et l'enfant de droite à l'indice `2 * k + 2`. Le parent d'un élément est à l'indice `(k - 1) / 2` quelque soit l'indice `k`.
+Le tas binaire utilise un tableau dynamique pour stocker les éléments. La règle est que chaque élément voit son enfant de gauche à l'indice `2 * k + 1` et l'enfant de droite à l'indice `2 * k + 2`. Le parent d'un élément est à l'indice `(k - 1) / 2` quel que soit l'indice `k`.
 
 La propriété principale du tas binaire est que chaque element de l'arbre est plus petit que ses enfants. Cela signifie que la racine de l'arbre est le plus petit élément. Lorsqu'on retire un élément du tas, on retire la racine et on la remplace par le dernier élément du tableau il faut ensuite manipuler le tas pour que la propriété soit respectée. On appelle cette opération *heapify*.
 

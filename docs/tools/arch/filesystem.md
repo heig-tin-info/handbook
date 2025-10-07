@@ -22,7 +22,7 @@ Le premier système de fichier a été inventé par IBM en 1956 pour le disque d
 
 Le système de fichier FAT (File Allocation Table) est un système de fichier simple et robuste. Il a été inventé par Microsoft en 1977 pour le système d'exploitation MS-DOS. Il est toujours utilisé aujourd'hui pour les clés USB, les cartes mémoire, etc. C'est très certainement celui-ci qu'un ingénieur embarqué utiliserait sur une carte SD interfacée avec un microcontrôleur.
 
-L'API de FAT, c'est à dire les fonctions primitives pour contrôler le système de fichier contient par exemple les fonctions suivantes :
+L'API de FAT, c'est-à-dire les fonctions primitives pour contrôler le système de fichier contient par exemple les fonctions suivantes :
 
 - `fopen` : Ouvrir un fichier à partir d'un chemin
 - `fread` : Lire de données depuis un fichier ouvert
@@ -70,7 +70,7 @@ Reprenons. Notre pomme serait un fruit, une image de fruit. On indiquerait alors
 /maison/cuisine/frigo/rayonnage2/droite/pomme.jpg
 ```
 
-Tient ? Pourquoi un `slash` au début ? C'est pour indiquer le répertoire racine : le répertoire d'origine, le point de départ de l'arborescence. Evidemment si vous vous trouvez déjà dans la cuisine, vous n'avez pas besoin de préciser `/maison/cuisine`. Vous pouvez simplement écrire : `frigo/rayonnage2/droite/pomme.jpg`. Donc un chemin peut, ou non avoir un `slash` au début. On dit qu'il est **absolu** ou **relatif**.
+Tiens ? Pourquoi un `slash` au début ? C'est pour indiquer le répertoire racine : le répertoire d'origine, le point de départ de l'arborescence. Évidemment si vous vous trouvez déjà dans la cuisine, vous n'avez pas besoin de préciser `/maison/cuisine`. Vous pouvez simplement écrire : `frigo/rayonnage2/droite/pomme.jpg`. Donc un chemin peut, ou non avoir un `slash` au début. On dit qu'il est **absolu** ou **relatif**.
 
 !!! note "Windows"
 

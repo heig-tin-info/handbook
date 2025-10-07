@@ -63,25 +63,25 @@ Plusieurs exemples vont être donnés:
 
 Pour chaque exemple, il est important de désactiver certaines fonctionnalités du processeur pour éviter des comportement inattendus.
 
-1. Désactiver la randomisation de l'espace d'adressage, c'est à dire que les adresses mémoires sont toujours les mêmes à chaque exécution du programme.
+1. Désactiver la randomisation de l'espace d'adressage, c'est-à-dire que les adresses mémoires sont toujours les mêmes à chaque exécution du programme.
 
    ```bash
    $ sudo bash -c "echo 0 > /proc/sys/kernel/randomize_va_space"
    ```
 
-2. Désactiver le turbo mode, c'est à dire que le processeur ne peut pas augmenter sa fréquence pour accélérer les calculs.
+2. Désactiver le turbo mode, c'est-à-dire que le processeur ne peut pas augmenter sa fréquence pour accélérer les calculs.
 
    ```bash
    $ sudo bash -c "echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo"
    ```
 
-3. Désactiver l'hyper-threading, c'est à dire que chaque cœur du processeur est utilisé par un seul thread. Cela doit être fait pour chaque cœur du processeur.
+3. Désactiver l'hyper-threading, c'est-à-dire que chaque cœur du processeur est utilisé par un seul thread. Cela doit être fait pour chaque cœur du processeur.
 
    ```bash
     $ sudo bash -c "echo 0 > /sys/devices/system/cpu/cpuX/online"
     ```
 
-4. Désactiver le C-state, c'est à dire que le processeur ne peut pas passer en mode veille pour économiser de l'énergie.
+4. Désactiver le C-state, c'est-à-dire que le processeur ne peut pas passer en mode veille pour économiser de l'énergie.
 
     ```bash
     $ sudo cpupower frequency-set --governor performance

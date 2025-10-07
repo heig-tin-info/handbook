@@ -34,7 +34,7 @@ Dans un système embarqué ou un microcontrôleur, une [[interruption]] est un m
 
 Voici comment cela se passe, étape par étape, de manière plus technique :
 
-1. **Détection de l'événement** : Une interruption est déclenchée par un événement spécifique. Cela peut être, par exemple, l'appui sur un bouton, l'arrivée d'une donnée par un port série, ou encore une alarme temporelle. Ces événements sont surveillés en arrière-plan, pendant que le microcontrôleur poursuit normalement l'exécution de son programme, c'est à dire exécuter les instructions les unes après les autres.
+1. **Détection de l'événement** : Une interruption est déclenchée par un événement spécifique. Cela peut être, par exemple, l'appui sur un bouton, l'arrivée d'une donnée par un port série, ou encore une alarme temporelle. Ces événements sont surveillés en arrière-plan, pendant que le microcontrôleur poursuit normalement l'exécution de son programme, c'est-à-dire exécuter les instructions les unes après les autres.
 
 2. **Suspension du programme principal** : Lorsqu'une interruption est détectée, le microcontrôleur interrompt son programme principal. Il mémorise l'endroit précis où il s’est arrêté (l’adresse de l’instruction suivante) dans une **pile** (ou *stack*). Cela permet de reprendre exactement là où il s'était arrêté une fois l’interruption gérée.
 

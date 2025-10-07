@@ -477,7 +477,7 @@ soit depuis la ligne de commande :
 $ gcc main.c -DSTABLE_SORT
 ```
 
-L'instruction `#ifdef` est un sucre syntaxique pour `#if defined`, autrement dit : *si la définition est déclarée et quelque soit sa valeur*. En effet, une déclaration sans valeur est tout à fait possible. Néanmoins cela peut créer de la confusion. Penons l'exemple suivant pour lequel le message `Dynamic allocation is allowed` sera affiché bien que la valeur de `ALLOW_DYNAMIC_ALLOCATION` soit `0` :
+L'instruction `#ifdef` est un sucre syntaxique pour `#if defined`, autrement dit : *si la définition est déclarée et quelle que soit sa valeur*. En effet, une déclaration sans valeur est tout à fait possible. Néanmoins cela peut créer de la confusion. Prenons l'exemple suivant pour lequel le message `Dynamic allocation is allowed` sera affiché bien que la valeur de `ALLOW_DYNAMIC_ALLOCATION` soit `0` :
 
 ```c
 #define ALLOW_DYNAMIC_ALLOCATION 0
@@ -516,7 +516,7 @@ Une bonne pratique est soit de lever une erreur si la valeur n'est pas définie,
 #endif
 ```
 
-Par analogie à l'instruction `if`, il est possible d'utiliser `#else` (`else`)et `#elif` (`else if`) pour définir des alternatives :
+Par analogie à l'instruction `if`, il est possible d'utiliser `#else` (`else`) et `#elif` (`else if`) pour définir des alternatives :
 
 ```c
 #define MODE_UPPERCASE 0

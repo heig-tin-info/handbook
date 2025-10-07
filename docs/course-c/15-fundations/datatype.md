@@ -1064,7 +1064,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     ??? solution
 
         1. Le développeur s'attend à obtenir le pourcentage de bonnes pièces avec plusieurs décimales après la virgule.
-        2. En pratique, il obtient un entier, c'est à dire toujours 0.
+        2. En pratique, il obtient un entier, c'est-à-dire toujours 0.
         3. La promotion implicite des entiers peut être découpée comme suit :
 
             ```c

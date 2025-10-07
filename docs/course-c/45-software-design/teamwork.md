@@ -311,7 +311,7 @@ Chaque organe identifié peut lui-même disposer de ses propres besoins, ses pro
 
 La cinquième étape est l'identification des spécifications techniques attendues pour le système, et pour chaque organe du système. Cette étape permet de déterminer les caractéristiques techniques du système, les contraintes techniques à respecter, et les normes à suivre.
 
-Une spécification **doit** être vérifiable, c'est à dire qu'à la fin du projet, on doit pouvoir vérifier que chaque élément de la spécification a été respecté et est dans les normes acceptables.
+Une spécification **doit** être vérifiable, c'est-à-dire qu'à la fin du projet, on doit pouvoir vérifier que chaque élément de la spécification a été respecté et est dans les normes acceptables.
 
 Table : Spécifications techniques
 

@@ -7,7 +7,7 @@ Ce chapitre se concentre sur quatre caractéristiques d'une variable :
 - La durée de vie
 - Son qualificatif de type
 
-Dans les quatre cas, elles décrivent l'accessibilité, c'est à dire jusqu'à ou jusqu'à quand une variable est accessible, et de quelle manière
+Dans les quatre cas, elles décrivent l'accessibilité, c'est-à-dire jusqu'où ou jusqu'à quand une variable est accessible, et de quelle manière.
 
 ![Brouillard matinal sur le Golden Gate Bridge, San Francisco](/assets/images/visibility.jpg)
 
@@ -77,9 +77,9 @@ void foo(int a) { //   ┬ b
 }                 //   ┴ ┴
 ```
 
-Une variable déclarée globalement, c'est à dire en dehors d'une fonction à une durée de vie sur l'entier du module (*translation unit*) quel que soit l'endroit où elle est déclarée, en revanche elle n'est visible que depuis l'endroit ou elle est déclarée. Les deux variables `i` et `j` sont globales au module, c'est-à-dire qu'elles peuvent être accédées depuis n'importe quelle fonction contenue dans ce module.
+Une variable déclarée globalement, c'est-à-dire en dehors d'une fonction a une durée de vie sur l'entier du module (*translation unit*) quel que soit l'endroit où elle est déclarée, en revanche elle n'est visible que depuis l'endroit où elle est déclarée. Les deux variables `i` et `j` sont globales au module, c'est-à-dire qu'elles peuvent être accédées depuis n'importe quelle fonction contenue dans ce module.
 
-En revanche la variable `j`, bien qu'elle ait ait une durée de vie sur toute l'exécution du programme et que sa portée est globale, elle ne pourra être accédée depuis, `main` car elle n'est pas visible.
+En revanche la variable `j`, bien qu'elle ait une durée de vie sur toute l'exécution du programme et que sa portée est globale, elle ne pourra être accédée depuis `main` car elle n'est pas visible.
 
 ```text
 #include <stdio.h>

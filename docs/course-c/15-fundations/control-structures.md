@@ -663,7 +663,7 @@ Elles peuvent être représentées par les diagrammes de flux suivants :
 
 ![Aperçu des trois structures de boucles](/assets/images/for.drawio)
 
-On observe que quelque soit la structure de boucle, une **condition de maintien** est nécessaire. Cette condition est évaluée avant ou après l'exécution de la séquence. Si la condition est fausse, la séquence est interrompue et le programme continue son exécution.
+On observe que quelle que soit la structure de boucle, une **condition de maintien** est nécessaire. Cette condition est évaluée avant ou après l'exécution de la séquence. Si la condition est fausse, la séquence est interrompue et le programme continue son exécution.
 
 [](){#loop-while}
 
@@ -832,7 +832,7 @@ z-a y-b x-c w-d v-e u-f t-g s-h r-i q-j p-k o-l n-m
 
 ### Boucles infinies
 
-Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort *La boucle principale* aussi nommée [run loop](https://en.wikipedia.org/wiki/Event_loop). Lorsqu'un programme est exécuté *bare-metal*, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction `main` telle que :
+Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort *La boucle principale* aussi nommée [run loop](https://en.wikipedia.org/wiki/Event_loop). Lorsqu'un programme est exécuté *bare-metal*, c'est-à-dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction `main` telle que :
 
 ```c
 void main_loop() {
