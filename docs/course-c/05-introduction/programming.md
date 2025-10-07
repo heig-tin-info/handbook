@@ -92,7 +92,7 @@ Les différentes étapes du tri à bulles sont illustrées ci-dessous :
 
 ![Étape par étape du tri à bulles.](/assets/images/bubblesort-steps.drawio)
 
-Pour les cycles $3$ et $4$, nous ne montrons pas les étapes ou il n'y a pas eu d'échange. Au cinquième cycle, aucun échange n'est nécessaire, l'algorithme se termine.
+Pour les cycles $3$ et $4$, nous ne montrons pas les étapes où il n'y a pas eu d'échange. Au cinquième cycle, aucun échange n'est nécessaire, l'algorithme se termine.
 
 On peut compter le nombre de cycles assez facilement. Pour ce tableau de $N = 5$ valeurs, il y a $5$ cycles. Durant un cycle, il faut regarder $N - 1$ paires d'éléments. Donc pour un tableau de $N$ valeurs, il y a $N^2 - N$ comparaisons. Ce type d'algorithme est dit de complexité $O(N^2)$. Cela signifie que le nombre d'opérations à effectuer est proportionnel au carré du nombre d'éléments à trier. Nous verrons plus tard que la complexité d'un algorithme est un critère important. Nous verrons comment le calculer.
 
@@ -120,7 +120,7 @@ Les *informaticiens-tisserands* responsables de la création des cartes perforé
 
 ![Armoiries des ducs de Mayenne](/assets/images/armoiries.drawio)
 
-Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qui le maîtrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de [[Mayenne|Mayenne, Duc de]] aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :
+Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qui le maîtrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries du duc de [[Mayenne|Mayenne, Duc de]] aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :
 
 ```text
 Écartelé, en 1 et 4 :

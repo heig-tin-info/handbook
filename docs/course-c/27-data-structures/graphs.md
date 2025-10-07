@@ -16,13 +16,13 @@ Un [[graphe]] sans cycle est appelé une [[forêt]]. Une forêt est un ensemble 
 
 Un graphe orienté est un graphe dont les arêtes ont une direction. Les graphes orientés sont utilisés pour modéliser des relations asymétriques. Par exemple, un graphe orienté peut être utilisé pour représenter un réseau de transport où les arêtes représentent des routes à sens unique.
 
-![Exemple de graph orienté](/assets/images/oriented.drawio)
+![Exemple de graphe orienté](/assets/images/oriented.drawio)
 
 ### Graphes pondérés
 
 Un graphe pondéré est un graphe dont les arêtes ont un poids. Les graphes pondérés sont utilisés pour modéliser des relations quantitatives. Par exemple, un graphe pondéré peut être utilisé pour représenter un réseau de transport où les arêtes représentent des routes avec une longueur ou un coût associé.
 
-![Exemple de graph pondéré](/assets/images/weighted.drawio)
+![Exemple de graphe pondéré](/assets/images/weighted.drawio)
 
 ### Graphes bipartis
 
@@ -36,7 +36,7 @@ Il existe plusieurs façons de représenter un graphe en mémoire. Les deux repr
 
 ### Liste d'adjacence
 
-Dans une liste d'adjacence, chaque sommet est associé à une liste de ses voisins. Une liste d'adjacence est une structure de données dynamique qui permet d'ajouter et de supprimer des arêtes facilement. Cependant, elle nécessite plus de mémoire que les matrices d'adjacence.
+Dans une liste d'adjacence, chaque sommet est associé à une liste de ses voisins. Une liste d'adjacence est une structure de données dynamique qui permet d'ajouter et de supprimer des arêtes facilement. Cependant, elle nécessite généralement moins de mémoire que les matrices d'adjacence pour des graphes clairsemés.
 
 ### Matrice d'adjacence
 

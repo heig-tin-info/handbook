@@ -2,11 +2,11 @@
 
 Les tableaux de hachage (*Hash Table*) sont une structure particulière dans laquelle une fonction dite de *hachage* est utilisée pour transformer les entrées en des indices d'un tableau.
 
-L'objectif est de stocker des chaînes de caractères correspondant a des noms simples ici utilisés pour l'exemple. Une possible répartition serait la suivante :
+L'objectif est de stocker des chaînes de caractères correspondant à des noms simples ici utilisés pour l'exemple. Une possible répartition serait la suivante :
 
 ![Tableau de hachage simple](/assets/images/hash-linear.drawio)
 
-Si l'on cherche l'indice correspondant à `Ada`, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé *hash*, il existe une infinité de méthodes. Dans cet exemple, considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :
+Si l'on cherche l'indice correspondant à `Ada`, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractères. Pour calculer cet indice aussi appelé *hash*, il existe une infinité de méthodes. Dans cet exemple, considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :
 
 ```console
 Nom    Valeurs ASCII     Somme  Modulo 10
@@ -27,9 +27,9 @@ Ted -> {84, 101, 100} -> 285 -> 10
 Pour trouver l'indice de `"Mia"` il suffit donc d'appeler la fonction suivante :
 
 ```c
-int hash_str(char *s) {
+int hash_str(const char *s) {
     int sum = 0;
-    while (*s != '\0') sum += s++;
+    while (*s != '\0') sum += *s++;
     return sum % 10;
 }
 ```
@@ -40,7 +40,7 @@ L'assertion suivante est donc vraie :
 assert(strcmp(table[hash_str("Mia")], "Mia") == 0);
 ```
 
-Rechercher `"Mia"` et obtenir `"Mia"` n'est certainement pas l'exemple le plus utile. Néanmoins il est possible d'encoder plus qu'une chaîne de caractère et utiliser plutôt une structure de donnée :
+Rechercher `"Mia"` et obtenir `"Mia"` n'est certainement pas l'exemple le plus utile. Néanmoins il est possible d'encoder plus qu'une chaîne de caractères et utiliser plutôt une structure de données :
 
 ```c
 struct Person {
@@ -61,13 +61,11 @@ struct Person {
 };
 ```
 
-Dans ce cas, le calcul du hash se ferait sur la première clé d'un élément :
+Dans ce cas, le calcul du hash se ferait sur la première clé d'un élément en réutilisant la chaîne de caractères `name` :
 
 ```c
-int hash_person(struct Person person) {
-    int sum = 0;
-    while (*person.name != '\0') sum += s++;
-    return sum % 10;
+int hash_person(const struct Person *person) {
+    return hash_str(person->name);
 }
 ```
 
@@ -93,7 +91,7 @@ Person people[10] = {0}
 
 // Add Mia
 Person mia = {.name="Mia", .born={.day=1,.month=4,.year=1991}};
-int hash = hash_person(mia);
+int hash = hash_person(&mia);
 while (people[hash].name[0] != '\0') hash++;
 people[hash] = mia;
 ```
@@ -102,12 +100,12 @@ Récupérer une valeur dans le tableau demande une comparaison supplémentaire :
 
 ```c
 char key[] = "Mia";
-int hash = hash_str(key)
-while (strcmp(people[hash], key) != 0) hash++;
+int hash = hash_str(key);
+while (people[hash].name[0] != '\0' && strcmp(people[hash].name, key) != 0) hash++;
 Person person = people[hash];
 ```
 
-Lorsque le nombre de collisions est négligeable par rapport à la table de hachage, la recherche d'un élément est toujours en moyenne égale à $O(1)$, mais lorsque le nombre de collisions est prépondérant, la complexité se rapproche de celle de la recherche linéaire $O(n)$ et on perd tout avantage à cette structure de donnée.
+Lorsque le nombre de collisions est négligeable par rapport à la table de hachage, la recherche d'un élément est toujours en moyenne égale à $O(1)$, mais lorsque le nombre de collisions est prépondérant, la complexité se rapproche de celle de la recherche linéaire $O(n)$ et on perd tout avantage à cette structure de données.
 
 Dans le cas extrême, pour garantir un accès unitaire pour tous les noms de trois lettres, il faudrait un tableau de hachage d'une taille $26^3 = 17576$ personnes. L'empreinte mémoire peut être considérablement réduite en stockant non pas une structure `struct Person` mais plutôt l'adresse vers cette structure :
 
@@ -135,9 +133,9 @@ $$
 \text{Facteur de charge} = \frac{\text{Nombre total d'éléments}}{\text{Taille de la table}}
 $$
 
-Plus ce facteur de charge est élevé, dans le cas du *linear probing*, moins bon sera la performance de la table de hachage.
+Plus ce facteur de charge est élevé, dans le cas du *linear probing*, moins bonnes seront les performances de la table de hachage.
 
-Certains algorithmes permettent de redimensionner dynamiquement la table de hachage pour conserver un facteur de charge le plus faible possible. Quand le facteur de charge dépasse un certain seuil (souvent 0.7), la table de hachage est agrandi (souvent doublée comme pour un tableau dynamique) et les éléments sont re-hachés dans la nouvelle table.
+Certains algorithmes permettent de redimensionner dynamiquement la table de hachage pour conserver un facteur de charge le plus faible possible. Quand le facteur de charge dépasse un certain seuil (souvent 0.7), la table de hachage est agrandie (souvent doublée comme pour un tableau dynamique) et les éléments sont re-hachés dans la nouvelle table.
 
 ## Chaînage
 
@@ -149,7 +147,7 @@ Le chaînage ou *chaining* est une autre méthode pour mieux gérer les collisio
 
 L'adressage ouvert est une autre méthode pour gérer les collisions. Lorsqu'une collision est détectée, une autre position est calculée pour stocker l'élément.
 
-Si une collision est détectée, on regardera la position suivante dans la table. Si elle est libre on l'utilise, sinon la suitante, jusqu'à trouver une position libre. Cette méthode est appelée *linear probing*.
+Si une collision est détectée, on regardera la position suivante dans la table. Si elle est libre on l'utilise, sinon la suivante, jusqu'à trouver une position libre. Cette méthode est appelée *linear probing*.
 
 Une autre méthode consiste à utiliser une fonction de hachage secondaire pour calculer la position suivante. Cette méthode est appelée *double hashing*.
 
@@ -157,7 +155,7 @@ Si la méthode est plus facile à implémenter, l'opération de suppression est 
 
 ## Fonction de hachage
 
-Nous avons vu plus haut une fonction de hachage calculant le modulo sur la somme des caractères ASCII d'une chaîne de caractères. Nous avons également vu que cette fonction de hachage est source de nombreuses collisions. Les chaînes `"Rea"` ou `"Rae"` auront les même *hash* puisqu'ils contiennent les mêmes lettres. De même une fonction de hachage qui ne répartit pas bien les éléments dans la table de hachage sera mauvaise. On sait par exemple que les voyelles sont nombreuses dans les mots et qu'il n'y en a que six et que la probabilité que nos noms de trois lettres contiennent une voyelle en leur milieu est très élevée.
+Nous avons vu plus haut une fonction de hachage calculant le modulo sur la somme des caractères ASCII d'une chaîne de caractères. Nous avons également vu que cette fonction de hachage est source de nombreuses collisions. Les chaînes `"Rea"` ou `"Rae"` auront les mêmes *hash* puisqu'ils contiennent les mêmes lettres. De même une fonction de hachage qui ne répartit pas bien les éléments dans la table de hachage sera mauvaise. On sait par exemple que les voyelles sont nombreuses dans les mots et qu'il n'y en a que six et que la probabilité que nos noms de trois lettres contiennent une voyelle en leur milieu est très élevée.
 
 L'idée générale des fonctions de hachage est de répartir **uniformément** les clés sur les indices de la table de hachage. L'approche la plus courante est de mélanger les bits de notre clé dans un processus reproductible.
 
@@ -387,7 +385,7 @@ Pire, selon l'algorithme utlisé, il est possible que si la fonction de hachage 
 
 !!! note "Python"
 
-    En Python les tables de hachages sont des structures de base du langage appelées `dict`. Avant la version 3.7, l'ordre des éléments n'était pas conservé. Depuis la version 3.7, l'ordre d'insertion est conservé. Cela est dû à l'implémentation de la table de hachage qui utilise une seconde structure de donnée de type liste chaînée pour conserver l'ordre d'insertion. Cela a un impact sur la quantité de mémoire utilisée et la performance de la table de hachage car à chaque insertion il faut également mettre à jour la liste chaînée.
+    En Python les tables de hachages sont des structures de base du langage appelées `dict`. Avant la version 3.7, l'ordre des éléments n'était pas conservé. Depuis la version 3.7, l'ordre d'insertion est conservé. Cela est dû à l'implémentation de la table de hachage qui utilise une seconde structure de données de type liste chaînée pour conserver l'ordre d'insertion. Cela a un impact sur la quantité de mémoire utilisée et la performance de la table de hachage car à chaque insertion il faut également mettre à jour la liste chaînée.
 
 ## Complexité et implémentation
 

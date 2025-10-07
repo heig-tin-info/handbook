@@ -37,10 +37,10 @@ Dans une architecture légère qui ne dispose pas de support pour les nombres en
 
 ### Approximation du cinquième ordre
 
-L'objectif pédagogique est de montrer que les mathématiques peuvent être très utiles dans l'élaboration d'un algorithme. Nous allons voir comment approximer un sinus en utilisant un polynôme de degré 5 en utilisant les technologies suivantes:
+L'objectif pédagogique est de montrer que les mathématiques peuvent être très utiles dans l'élaboration d'un algorithme. Nous allons voir comment approximer un sinus à l’aide d’un polynôme de degré 5 en recourant aux outils suivants :
 
 - **Systèmes d'équations linéaires** pour résoudre les coefficients du polynôme;
-- **Calcul intégral** pour minimiser l'erreur moyenne (moindre carrés);
+- **Calcul intégral** pour minimiser l'erreur moyenne (moindres carrés);
 - **Virgule fixe** pour représenter les nombres en mémoire.
 
 Le domaine du sinus est infini mais il est possible de le réduire à l'intervalle ci-dessous car toutes les autres sorties peuvent être obtenues en utilisant les propriétés de symétrie du sinus. En effet il suffit du dessin du quart de sinus pour obtenir le sinus complet.
@@ -58,7 +58,7 @@ $$
 Le polynôme de degré 5 peut être exprimé de la manière suivante :
 
 $$
-\sin(z) \approx S_5(z) = cz - bz^**3** + az^5
+\sin(z) \approx S_5(z) = cz - bz^3 + az^5
 $$
 
 Pour trouver les coefficients de ce polynôme, on peut utiliser les propriétés du sinus et de ses dérivées. Nous allons donc raisonner sur ces deux fonctions :
@@ -102,7 +102,7 @@ b = 2a-\frac{5}{2},\quad
 c = a-\frac{3}{2}
 $$
 
-Cette solution triviale n'est généralement pas optimale car un critère fondamental n'a pas été respecté, celui de minimiser l'erreur moyenne avec le sacrifice potentiel de la précision des valeurs extrêmes. Une approche plus rigoureuse consiste donc minimiser l'erreur moyenne sur l'intervalle $[0, 1]$. On utilise pour ce faire la méthode des **moindre carrés** qui consiste à minimiser l'erreur quadratique est la somme des carrés des différences entre la fonction cible \( \sin\left(\frac{\pi}{2}x\right) \) et l'approximation polynomiale \( p(x) \). Pour ce faire, on calcule l'intégrale suivante :
+Cette solution triviale n'est généralement pas optimale car un critère fondamental n'a pas été respecté, celui de minimiser l'erreur moyenne avec le sacrifice potentiel de la précision des valeurs extrêmes. Une approche plus rigoureuse consiste donc à minimiser l'erreur moyenne sur l'intervalle $[0, 1]$. On utilise pour ce faire la méthode des **moindres carrés**, où l'erreur quadratique est la somme des carrés des différences entre la fonction cible \( \sin\left(\frac{\pi}{2}x\right) \) et l'approximation polynomiale \( p(x) \). Pour ce faire, on calcule l'intégrale suivante :
 
 \[
 E(a, b, c) = \int_0^1 \left( \sin\left(\frac{\pi}{2}x\right) - (az^5 - bz^3 + cz) \right)^2 dx
