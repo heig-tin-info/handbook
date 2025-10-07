@@ -30,7 +30,7 @@ Le **Tas** (*Heap*) est une zone de mémoire à taille dynamique. Lorsqu'un prog
 
 ### `.stack`
 
-La **Pile** (*Stack*) est une zone de mémoire à taille fixe, utilisée principalement pour la gestion des appels de fonctions. Lorsqu'une fonction est appelée, les variables locales, les paramètres, ainsi que les informations nécessaires pour gérer l'appel et le retour de la fonction sont empilés sur la pile. La pile est également sollicitée par la fonction `alloca` de la bibliothèque `<malloc.h>`, qui permet d'allouer de la mémoire de manière temporaire. L'ordre d'exécution des fonctions étant imprévisible, la pile s'avère indispensable pour une gestion fluide et dynamique des ressources.
+La **Pile** (*Stack*) est une zone de mémoire à taille fixe, utilisée principalement pour la gestion des appels de fonctions. Lorsqu'une fonction est appelée, les variables locales, les paramètres, ainsi que les informations nécessaires pour gérer l'appel et le retour de la fonction sont empilés sur la pile. La pile est également sollicitée par la fonction `alloca`, déclarée dans `<alloca.h>` sur les systèmes POSIX (et dans `<malloc.h>` sous Windows), qui permet d'allouer de la mémoire de manière temporaire. L'ordre d'exécution des fonctions étant imprévisible, la pile s'avère indispensable pour une gestion fluide et dynamique des ressources.
 
 ## Points de vigilance
 

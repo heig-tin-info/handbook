@@ -1636,9 +1636,7 @@ Pourquoi le 1er janvier 1970 ? C'est une convention qui remonte aux premiers sys
 
 !!! bug "Problème de l'an 2038"
 
-    Le temps Unix est stocké sur 32 bits. Cela signifie que le temps Unix ne pourra plus être stocké sur 32 bits à partir du 19 janvier 2038. C'est ce qu'on appelle le bug de l'an 2038. Il est donc nécessaire de passer à un temps stocké sur 64 bits pour éviter ce problème.
-
-    La taille de `time_t` dépend de l'implémentation. Sur la plupart des systèmes, `time_t` est un alias pour `long`. Sur les systèmes 64 bits, `time_t` est un alias pour `long long`.
+    Sur de nombreux systèmes 32 bits historiques, le type `time_t` est codé sur 32 bits signés. Dans ce cas, la valeur maximale représente le 19 janvier 2038 à 03:14:07 UTC : au-delà, l'entier déborde et les dates rebasculent en 1901. C'est ce qu'on appelle le bug de l'an 2038. Les plates-formes modernes utilisent désormais un `time_t` sur 64 bits (par exemple un `long` sur les systèmes Linux 64 bits ou un `long long` sur Windows récents), ce qui repousse l'échéance à des horizons astronomiquement lointains.
 
 Pourquoi avoir deux moyen de retourner le temps ? C'est une question de style. Certains préfèrent récupérer le temps dans une variable, d'autres préfèrent le récupérer directement sans variable intermédiaire.
 
