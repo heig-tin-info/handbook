@@ -6,21 +6,21 @@ Le standard C++ 2020 s'est vu étendu avec la bibliothèque `ranges` qui propose
 
 ## Vues
 
-Une vue est un objet qui encapsule un intervalle. Elle permet de manipuler cet intervalle de manière paraisseuse, c'est-à-dire que les opérations ne sont effectuées que lorsque c'est nécessaire.
+Une vue est un objet qui encapsule un intervalle. Elle permet de le manipuler de manière paresseuse, c’est-à-dire que les opérations ne sont effectuées que lorsque cela devient nécessaire.
 
 Traditionnellement un objet itérable en C++ est un objet qui implémente les méthodes `begin()` et `end()`. La méthode `begin()` retourne un itérateur sur le premier élément de la collection et la méthode `end()` retourne un itérateur sur l'élément après le dernier élément de la collection (*passed-the-end*). L'itérateur dispose d'une méthode `operator++` pour avancer à l'élément suivant et d'une méthode `operator*` pour accéder à la valeur de l'élément courant.
 
-Les vues introduisent un nouveau concept d'itérateur, l'itérateur de vue défini par une interface `std::ranges::view` qui propose des méthodes pour manipuler l'intervalle de manière paraisseuse.
+Les vues introduisent un nouveau concept d’itérateur : l’itérateur de vue, défini par l’interface `std::ranges::view`, qui propose des méthodes pour manipuler l’intervalle de manière paresseuse.
 
-Il existe plusieurs types de vues dans la bibliothèque `ranges`:
+Il existe plusieurs types de vues dans la bibliothèque `ranges` :
 
 Transformations (`std::ranges::transform_view`)
 
-: Elles de modifier les éléments de l'intervalle en appliquant une fonction de transformation (foncteur) à chaque élément (p.ex. doubler chaque élément).
+: Elles permettent de modifier les éléments de l’intervalle en appliquant une fonction de transformation (foncteur) à chaque élément (p. ex. doubler chaque valeur).
 
 Filtrage (`std::ranges::filter_view`)
 
-: Elles permettent de filtrer les éléments de l'intervalle en appliquant une fonction de filtrage (prédicat) à chaque élément. Cela réduit généralement la taille de l'intervalle en ne selectionnant que les éléments qui satisfont le prédicat (p.ex. que les éléments pairs).
+: Elles filtrent les éléments de l’intervalle en appliquant un prédicat à chacun. Cela réduit généralement la taille de l’intervalle en ne sélectionnant que les éléments qui satisfont la condition (p. ex. conserver uniquement les nombres pairs).
 
 ## Algorithmes
 
@@ -40,7 +40,6 @@ int main() {
     auto view = v | views::filter([](int i) { return i % 2 == 0; });
 
     auto it = find_if(view.begin(), view.end(), [](int i) { return i > 5; });
-  find_if
     if (it != view.end()) {
         cout << *it << endl;
     }

@@ -1,6 +1,6 @@
 # Diagnostiques
 
-Les outils de diagnostiques permettent de comprendre le comportement d'un programme en cours d'exécution. Ils permettent de voir les appels systèmes, les appels de fonctions, les appels de bibliothèques, les appels de fonctions système, les appels de fonctions de bibliothèques.
+Les outils de diagnostiques permettent de comprendre le comportement d'un programme en cours d'exécution. Ils permettent de voir les appels système, les appels de fonctions, les appels de bibliothèques, les appels de fonctions système, les appels de fonctions de bibliothèques.
 
 ## time
 
@@ -14,7 +14,7 @@ time ./a.out
 On note plusieurs métriques:
 
 - `user` est le temps passé dans l'espace utilisateur, c'est le temps réel passé par le programme à exécuter des instructions.
-- `system` est le temps passé dans l'espace noyau, c'est le temps passé par le programme à exécuter des appels systèmes.
+- `system` est le temps passé dans l'espace noyau, c'est le temps passé par le programme à exécuter des appels système.
 - `wall` ou `real` est le temps réel passé par le programme à s'exécuter. C'est le temps qui s'écoule entre le lancement du programme et sa fin.
 - `cpu` est le pourcentage de temps CPU utilisé par le programme.
 
@@ -22,7 +22,7 @@ Un programme multi-threadé peut utiliser plus de 100% de CPU si plusieurs threa
 
 ## strace
 
-Strace a été initialement écrit pour SunOS par Paul Kranenburg en 1991. Il a été porté sur Linux par Branko Lankester en 1992. Strace est un outil de diagnostique qui permet de suivre les appels systèmes et les signaux reçus par un processus. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution.
+Strace a été initialement écrit pour SunOS par Paul Kranenburg en 1991. Il a été porté sur Linux par Branko Lankester en 1992. Strace est un outil de diagnostique qui permet de suivre les appels système et les signaux reçus par un processus. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution.
 
 Son code source est bien entendu disponible sur [GitHub](https://github.com/strace/strace) et il est écrit en C.
 
@@ -42,7 +42,7 @@ strace ./a.out
 
 #### Analyse de performance
 
-Les performances d'un programmes peuvent être impactées par des appels systèmes trop nombreux. Lorsqu'un programme communique avec le système d'exploitation (lecture disque, réseau, etc.), il doit passer par des appels systèmes. Ces appels peuvent être coûteux en temps et en ressources car ils nécessitent un changement de contexte entre le mode utilisateur et le mode noyau. C'est à dire que le programme doit se mettre en pause pour laisser le noyau effectuer l'opération demandée. Lors de la mesure du temps d'exécution d'un programme, par exemple avec `time`, on peut noter le temps *system* qui correspond au temps passé dans le noyau. Si ce temps est trop élevé, cela peut indiquer que le programme n'est pas efficace car il passe son temps à attendre des opérations d'entrée/sortie. `strace` permet dans ce cas de mesurer le nombre d'appels systèmes et de les analyser pour comprendre pourquoi le programme est lent.
+Les performances d'un programmes peuvent être impactées par des appels système trop nombreux. Lorsqu'un programme communique avec le système d'exploitation (lecture disque, réseau, etc.), il doit passer par des appels système. Ces appels peuvent être coûteux en temps et en ressources car ils nécessitent un changement de contexte entre le mode utilisateur et le mode noyau. C'est à dire que le programme doit se mettre en pause pour laisser le noyau effectuer l'opération demandée. Lors de la mesure du temps d'exécution d'un programme, par exemple avec `time`, on peut noter le temps *system* qui correspond au temps passé dans le noyau. Si ce temps est trop élevé, cela peut indiquer que le programme n'est pas efficace car il passe son temps à attendre des opérations d'entrée/sortie. `strace` permet dans ce cas de mesurer le nombre d'appels système et de les analyser pour comprendre pourquoi le programme est lent.
 
 À titre d'exemple, prenons la sortie standard. Dans le standard POSIX, un programme n'est pas directement connecté à la sortie standard. La bibliothèque standard C utiliser un tampon pour stocker les données avant de les envoyer à la sortie standard. Ce tampon est automatiquement vidé selon certaines conditions notamment:
 
@@ -65,7 +65,7 @@ Cette exécution est reportée avec la ligne suivante. On observe que les trois 
 write(1, "foobar\n", 7)                 = 7
 ```
 
-En revanche, si le programme est modifié pour vider le tampon après chaque caractère, on observe davantage d'appels systèmes:
+En revanche, si le programme est modifié pour vider le tampon après chaque caractère, on observe davantage d'appels système:
 
 ```c
 int main() {
@@ -91,7 +91,7 @@ write(1, "\n", 1)     = 1
 
 `strace` permet de suivre les opérations d'entrée/sortie d'un programme. Cela peut être utile pour comprendre pourquoi un programme ne fonctionne pas correctement. Par exemple, si un programme lit un fichier et que le fichier n'est pas trouvé, `strace` permet de voir l'appel système `open` et le code d'erreur `ENOENT` qui indique que le fichier n'existe pas.
 
-Dans ce cas on ne sera sensible qu'aux appels systèmes `open`  et `write`:
+Dans ce cas on ne sera sensible qu'aux appels système `open`  et `write`:
 
 ```bash
 strace -e trace=open,read,write ./a.out
@@ -142,11 +142,11 @@ On observe donc des éléments importants de l'exécution d'un programme. Les bi
 
 #### Suivi des threads
 
-Lors d'un programme concurrent, il est possible de suivre la création et la terminaison des threads avec `strace`, notament au moyen des appels systèmes `fork`, `clone` ou `exec`. Les appels à `futex` permettent de voir les opérations de synchronisation entre les threads utilisés par les mutex et les variables de condition.
+Lors d'un programme concurrent, il est possible de suivre la création et la terminaison des threads avec `strace`, notament au moyen des appels système `fork`, `clone` ou `exec`. Les appels à `futex` permettent de voir les opérations de synchronisation entre les threads utilisés par les mutex et les variables de condition.
 
 ### Fonctionnement interne
 
-Le fonctionnement de cet outil repose sur `ptrace` qui est une fonction du noyau Linux qui permet de suivre l'exécution d'un processus. `strace` utilise cette fonction pour intercepter les appels systèmes et les signaux. `ptrace` est notament utilisé par les débogueurs comme `gdb`. À chaque fois qu'un processus enfant execute un appel système, le processus traceur est notifié et peut inspecter les registres du processus enfant.
+Le fonctionnement de cet outil repose sur `ptrace` qui est une fonction du noyau Linux qui permet de suivre l'exécution d'un processus. `strace` utilise cette fonction pour intercepter les appels système et les signaux. `ptrace` est notament utilisé par les débogueurs comme `gdb`. À chaque fois qu'un processus enfant execute un appel système, le processus traceur est notifié et peut inspecter les registres du processus enfant.
 
 Pour mieux comprendre comment fonctionn `strace`, voici un exemple simple d'un programme C qui utilise `ptrace` pour tracer l'appel système `write` notament utilisé par `printf`.
 
@@ -212,12 +212,12 @@ Hello from the child process!
 
 Ce programme utilise deux processus légers (threads), l'enfant simule le processus tracé et le parent est le traceur. Au moment du `fork` le programme est dupliqué et s'exécute en parallèle. Pour distinguer le parent de l'enfant, on utilise la valeur de retour de `fork`. Si la valeur est `0`, c'est que le processus est l'enfant, sinon c'est le parent. Il y a donc deux chemins possibles dans le programme.
 
-L'enfant autorise le parent à le tracer avec `PTRACE_TRACEME` et se met en pause avec `raise(SIGSTOP);`. Le parent attend que l'enfant soit en pause avec `waitpid(child, &status, 0);` et commence à tracer les appels systèmes avec `PTRACE_SYSCALL, child`. Cette instruction demande au noyau de laisser l'enfant continuer son exécution, mais avec une interception à chaque entrée et sortie d'un appel système. Cela signifie que chaque fois que l'enfant effectue un appel système, il sera suspendu, et le parent sera notifié. Le point de sortie de la boucle while est le test de `WIFEXITED` qui vérifie si le processus enfant s'est terminé, dans ce cas, le parent sort de la boucle.
+L'enfant autorise le parent à le tracer avec `PTRACE_TRACEME` et se met en pause avec `raise(SIGSTOP);`. Le parent attend que l'enfant soit en pause avec `waitpid(child, &status, 0);` et commence à tracer les appels système avec `PTRACE_SYSCALL, child`. Cette instruction demande au noyau de laisser l'enfant continuer son exécution, mais avec une interception à chaque entrée et sortie d'un appel système. Cela signifie que chaque fois que l'enfant effectue un appel système, il sera suspendu, et le parent sera notifié. Le point de sortie de la boucle while est le test de `WIFEXITED` qui vérifie si le processus enfant s'est terminé, dans ce cas, le parent sort de la boucle.
 L'appel `PTRACE_GETREGS` permet au parent de lire les registres du processus enfant. Ces registres contiennent des informations cruciales comme le numéro de l'appel système dans le registre `orig_rax` pour les systèmes `x86_64`. Si l'appel système intercepté est `SYS_write`, le parent affiche les informations sur l'appel système. Enfin, le parent laisse l'enfant continuer son exécution avec `PTRACE_SYSCALL` et attend le suivant.
 
 ## ltrace
 
-`ltrace` (pour *library trace*) est un outil de diagnostique qui permet de suivre les appels aux fonctions des bibliothèques partagées. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution. `ltrace` est un outil plus simple que `strace` car il ne suit que les appels de fonctions et non les appels systèmes. Prenons l'exemple du programme suivant :
+`ltrace` (pour *library trace*) est un outil de diagnostique qui permet de suivre les appels aux fonctions des bibliothèques partagées. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution. `ltrace` est un outil plus simple que `strace` car il ne suit que les appels de fonctions et non les appels système. Prenons l'exemple du programme suivant :
 
 ```c
 #include <stdio.h>
@@ -371,7 +371,7 @@ $ perf list
 
 ## valgrind
 
-`valgrind` est un outil de diagnostique qui permet de suivre les erreurs de mémoire dans un programme. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution. `valgrind` est un outil plus simple que `strace` car il ne suit que les erreurs de mémoire et non les appels systèmes.
+`valgrind` est un outil de diagnostique qui permet de suivre les erreurs de mémoire dans un programme. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution. `valgrind` est un outil plus simple que `strace` car il ne suit que les erreurs de mémoire et non les appels système.
 
 L'outil est disponible sur Ubuntu et dérivés avec la commande suivante:
 
@@ -397,7 +397,7 @@ Voici une liste des fonctionnalités typiques de `valgrind`:
 
 - **Débogage multithread** : Valgrind aide à détecter les **erreurs de synchronisation** dans les programmes multithread, comme les **data races** (accès concurrents non protégés à des variables partagées) ou les **verrous non libérés**.
 
-- **Vérification des appels système incorrects** : Valgrind détecte les mauvais usages des appels systèmes, comme la fermeture de descripteurs de fichiers qui ne sont pas ouverts.
+- **Vérification des appels système incorrects** : Valgrind détecte les mauvais usages des appels système, comme la fermeture de descripteurs de fichiers qui ne sont pas ouverts.
 
 - **Analyse des performances** : Avec l'outil **Callgrind** (inclus dans Valgrind), il permet de **profiler les programmes** en comptant les instructions exécutées et en générant des informations sur l'utilisation du CPU et des fonctions, utile pour l'optimisation des performances.
 

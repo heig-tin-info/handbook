@@ -1,10 +1,10 @@
 # Programmation Asynchrone
 
-Un paradigme de programmation asynchrone est un style de programmation concurrente qui permet de gérer des événements de manière non bloquante. C'est une manière de gérer des événements qui ne sont pas nécessairement liés à l'exécution du programme et une amélioation de la programmation concurrente classique utilisant explicitement des threads.
+Un paradigme de programmation asynchrone est un style de programmation concurrente qui permet de gérer des événements de manière non bloquante. Il traite des événements qui ne sont pas nécessairement liés au flot principal d'exécution et constitue une amélioration par rapport à la programmation concurrente classique reposant explicitement sur des threads.
 
-Ce paradigme est devenu populaire avec l'arrivée des applications web et des interfaces graphiques. En effet, ces applications ont besoin de réagir à des événements de manière asynchrone pour ne pas bloquer l'interface utilisateur. Le langage JavaScript est un exemple de langage qui utilise ce paradigme.
+Ce paradigme est devenu populaire avec l'arrivée des applications web et des interfaces graphiques. Ces applications doivent en effet réagir à des événements sans bloquer l'interface utilisateur. Le langage JavaScript illustre bien cette approche.
 
-Prenons l'exemple d'une page web qui affiche des données provenant d'un serveur. Lorsque la page est chargée, une requête est envoyée au serveur pour récupérer les données. Si la requête était bloquante, l'interface utilisateur serait figée jusqu'à ce que les données soient reçues. Avec la programmation asynchrone, la requête est envoyée et le programme continue de s'exécuter. Lorsque les données sont reçues, un événement est déclenché et le programme réagit à cet événement en affichant les données. Voici un exemple web simplifié :
+Prenons l'exemple d'une page web qui affiche des données provenant d'un serveur. Lorsque la page est chargée, une requête est envoyée pour récupérer ces données. Si la requête était bloquante, l'interface resterait figée jusqu'à réception de la réponse. Grâce à la programmation asynchrone, la requête est envoyée tandis que le programme continue de s'exécuter. À la réception des données, un événement est déclenché et le programme affiche le résultat. Voici un exemple simplifié :
 
 ```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -30,21 +30,21 @@ Prenons l'exemple d'une page web qui affiche des données provenant d'un serveur
 </html>
 ```
 
-Vous pouvez exécuter cet exemple en enregistrant le code dans un fichier HTML et en l'ouvrant dans un navigateur. Vous devriez voir les données affichées dans la page.
+Vous pouvez exécuter cet exemple en enregistrant le code dans un fichier HTML puis en l'ouvrant dans un navigateur. Les données récupérées s'affichent alors dans la page.
 
-Dans cet exemple, la requête est envoyée au serveur avec la fonction `fetch`, qui renvoie une **promesse**. Lorsque la promesse est résolue (c'est-à-dire lorsque les données sont reçues), la fonction `then` est appelée pour afficher les données dans la page.
+Dans cet exemple, la requête est envoyée grâce à la fonction `fetch`, qui renvoie une **promesse**. Lorsque cette promesse est résolue (c'est-à-dire lorsque les données sont reçues), la fonction `then` est appelée pour les afficher dans la page.
 
-JavaScript utilise une notation très particulière qui permet de chaîner les actions. C'est implémenté en retournant l'objet courant (`this` en C++).
+JavaScript propose une notation qui facilite le chaînage des actions, mise en œuvre en retournant l'objet courant (`this` en C++).
 
-La méthode `fetch` retourne donc une instance de `Promise` qui est un objet représentant la résolution ou le rejet d'une valeur asynchrone. Une promesse peut être dans l'un des trois états suivants :
+La méthode `fetch` retourne donc une instance de `Promise`, objet représentant la résolution ou le rejet d'une valeur asynchrone. Une promesse peut être dans l'un des trois états suivants :
 
-1. en attente,
-2. résolue ou
+1. en attente ;
+2. résolue ;
 3. rejetée.
 
-Lorsqu'une promesse est résolue, la méthode `then` est appelée avec la valeur de la promesse. Si la promesse est rejetée, la méthode `catch` est appelée avec l'erreur.
+Lorsqu'une promesse est résolue, la méthode `then` est appelée avec la valeur associée. Si la promesse est rejetée, la méthode `catch` est invoquée avec l'erreur.
 
-En JavaScript les fonctions lambda aussi appelées fonctions fléchées (`=>`) sont très utilisées. Elles permettent de définir des fonctions de manière plus concise. Par exemple le code traduit en C++ pourrait ressembler à ceci :
+En JavaScript, les fonctions lambda — aussi appelées fonctions fléchées (`=>`) — sont très utilisées. Elles permettent de définir des fonctions de manière concise. Le code traduit en C++ pourrait ressembler à ceci :
 
 ```cpp
 fetch("https://jsonplaceholder.typicode.com/posts")
@@ -56,21 +56,21 @@ fetch("https://jsonplaceholder.typicode.com/posts")
     });
 ```
 
-On note donc que la fonction `fetch` n'est pas bloquante, une action est associée lorsque la promesse sera résolue. On voit ici une chaîne d'actions qui se déclenchent les unes après les autres.
+On remarque donc que la fonction `fetch` n'est pas bloquante : une action est associée lorsque la promesse sera résolue. On observe ainsi une chaîne d'opérations déclenchées successivement.
 
-1. On fait la promesse qu'une réponse sera reçue
-2. Une fois les données reçu, on promet de les transformer en JSON
-3. Une fois les données transformées, on promet de les afficher dans la page
+1. On fait la promesse qu'une réponse sera reçue.
+2. Une fois les données reçues, on promet de les transformer en JSON.
+3. Une fois les données transformées, on promet de les afficher dans la page.
 
 C'est une manière de gérer des événements de manière asynchrone sans bloquer le programme.
 
 ## C++ et la programmation asynchrone
 
-En C++ la notion de promesse et de future ont été introduites en C++11. Leur fonctionnement est similaire à celui des promesses en JavaScript.
+En C++, la notion de promesse et celle de `future` ont été introduites avec C++11. Leur fonctionnement est similaire à celui des promesses en JavaScript.
 
-Une future est un objet qui contient une valeur qui sera disponible dans le futur. Elle est associée à une promesse qui est l'objet qui promet de fournir la valeur.
+Un `std::future` est un objet qui contient une valeur disponible ultérieurement. Il est associé à une promesse, objet chargé de fournir cette valeur.
 
-L'exemple donné en JavaScript n'est pas directement transposable en C++ car le langage ne possède pas de fonction `fetch` qui permet de faire des requêtes HTTP de manière asynchrone. Néanmoins l'utilisation de la bibliothèque **CURL** et `nlohmann/json` peut nous aider.
+L'exemple JavaScript n'est pas directement transposable en C++ car le langage ne propose pas nativement de fonction `fetch` pour réaliser des requêtes HTTP asynchrones. Néanmoins, la combinaison de la bibliothèque **CURL** et de `nlohmann/json` peut nous y aider.
 
 ```bash
 sudo apt install libcurl4 libcurl4-openssl-dev nlohmann-json3-dev
@@ -135,13 +135,14 @@ int main() {
 }
 ```
 
+
 On peut observer que le code est moins concis que le code JavaScript. L'asynchronisme est plus explicite et nécessite la création d'un thread pour effectuer la requête. La promesse est utilisée pour transmettre le résultat de la requête au thread principal.
 
-## std::async
+## `std::async`
 
-Async est une fonction qui permet de lancer une fonction de manière asynchrone, autrement dit dans un thread séparé mais sans avoir à gérer la création du thread.
+La fonction `std::async` permet d'exécuter une fonction de manière asynchrone, autrement dit dans un thread séparé, sans avoir à gérer explicitement la création de ce thread.
 
-Elle retourne une future qui contient le résultat de la fonction. C'est une manière plus simple de lancer une fonction de manière asynchrone sans avoir à gérer la création d'un thread.
+Elle retourne un `std::future` qui contient le résultat de la fonction. C'est une manière simple de lancer une tâche asynchrone tout en récupérant son résultat ultérieurement.
 
 ```cpp
 #include <iostream>

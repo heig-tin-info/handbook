@@ -24,7 +24,7 @@ Une autre approche consisterait à rediriger le flux non *seekable* vers un fich
 
 #### Analyse de la solution proposée
 
-La solution actuelle a néanmoins des aspects qui méritent d'être discutés. Tout d'abord, la taille du tampon initial est fixée arbitrairement à `256` caractères. Pour de grands fichiers, cette taille modeste entraînera un nombre élevé d'appels systèmes à `read`, ce qui peut affecter les performances globales. Une meilleure approche serait de permettre à l'utilisateur de spécifier la taille initiale du tampon en tant qu'argument optionnel de la fonction, avec une valeur par défaut appropriée si un argument nul ou zéro est fourni.
+La solution actuelle a néanmoins des aspects qui méritent d'être discutés. Tout d'abord, la taille du tampon initial est fixée arbitrairement à `256` caractères. Pour de grands fichiers, cette taille modeste entraînera un nombre élevé d'appels système à `read`, ce qui peut affecter les performances globales. Une meilleure approche serait de permettre à l'utilisateur de spécifier la taille initiale du tampon en tant qu'argument optionnel de la fonction, avec une valeur par défaut appropriée si un argument nul ou zéro est fourni.
 
 Par ailleurs, la fonction pourrait échouer dans le cas où le fichier à lire est trop volumineux pour tenir en mémoire. Une amélioration serait de permettre la définition d'une taille maximale à charger en mémoire, transmise en paramètre. Si le fichier dépasse cette limite, la fonction pourrait retourner un pointeur `NULL`, signalant ainsi au programme appelant que le fichier ne peut pas être traité entièrement en mémoire.
 

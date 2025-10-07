@@ -13,7 +13,7 @@ Dans les années 1970 et 1980, les langages de programmation n’étaient pas en
 
 L’idée de **C with Classes**, qui deviendra par la suite **C++**, était de conserver la robustesse de C tout en y introduisant les concepts de la programmation orientée objet (POO), un paradigme qui, à l’époque, commençait à démontrer son efficacité pour organiser le code, le rendre plus réutilisable, et gérer la complexité croissante des systèmes logiciels modernes.
 
-![Bjarne Stroupstrup](/assets/images/bjarne-stroupstrup.png)
+![Bjarne Stroustrup](/assets/images/bjarne-stroupstrup.png)
 
 Le paradigme objet qui a fait sa grande entrée avec **Simula** en 1967, puis **Smalltalk** en 1972, était une révolution dans la manière de concevoir les programmes. Il permettait de regrouper les données et les fonctions qui les manipulent dans des entités cohérentes appelées **objets**, et de définir des relations entre ces objets, en termes d’héritage, de polymorphisme, et d’encapsulation. C++ allait donc s’inscrire dans cette lignée, en apportant sa propre vision de la POO, plus proche de C que de Simula, mais tout aussi puissante.
 

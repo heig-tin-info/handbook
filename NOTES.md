@@ -1,4 +1,4 @@
-# Queqlues notes
+# Quelques notes
 
 Ce document contient quelques notes éparses sur la programmation et l'informatique destinées à être intégrées dans le cours.
 

@@ -15,28 +15,28 @@ La version web est disponible sur cette [page](https://heig-tin-info.github.io/h
 
 Le livre est écrit en Markdown en utilisant [MkDocs](https://www.mkdocs.org/) et le thème [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) accompagné de nombreuses extensions et plugins personnels. Les graphiques sont générés avec [Mermaid](https://mermaid.js.org/) et [Draw.io](https://www.drawio.com/).
 
-La valeur ajoutée est la génération d'un livre PDF à partir du site web en respectant une mise en page stricte et soignée. Ceci est rendu possible à l'aide du moteur [LaTeX](https://www.latex-project.org/) (LuA)TeX. Un générateur LaTeX a totalement été écrit pour permettre la génération du livre en PDF car les outils existants ne répondaient pas à nos besoins.
+La valeur ajoutée réside dans la génération d'un livre PDF à partir du site web tout en respectant une mise en page stricte et soignée. Ce résultat est rendu possible à l'aide du moteur [LaTeX](https://www.latex-project.org/) (LuA)TeX. Un générateur LaTeX a été entièrement écrit pour permettre la création du livre PDF, car les outils existants ne répondaient pas à nos besoins.
 
 ## Contribuer
 
 ### Différences livre web et PDF
 
-Le contenu Markdown est la seule source de données pour la génération du site web static et le livre PDF. Aussi, il est important de respecter quelques  règles pour éviter des problèmes lors de la génération.
+Le contenu Markdown est la seule source de données pour la génération du site web statique et du livre PDF. Il est donc important de respecter quelques règles afin d'éviter des problèmes lors de la génération.
 
 La présentation d'un imprimé est différente de celle d'un site web. On peut identifier les différences suivantes :
 
 - Un site utilise des liens hypertextes pour naviguer entre les pages, un livre utilise des références croisées basées sur des identifiants de section ou d'élément (figure, table).
 - Les sections web n'ont pas besoin d'être numérotées alors que les sections d'un livre doivent l'être pour permettre les références croisées.
 - Les figures, les tableaux et les équations peuvent être des flottants, c'est-à-dire qu'elles peuvent être déplacées par le moteur de composition pour une meilleure harmonie de la page alors que sur un site internet elles sont insérées à l'endroit où elles sont déclarées puisque la page n'a pas de bornes fixes.
-- Une référence un flottant peut être relatif à sa position dans le texte (en dessous, en dessus) alors que dans un livre, elle doit être absolu (page, section).
-- Dans un site web, des liens hypertextes externes peuvent être utilisés pour référencer à des ressources en provenance d'autres sites (Wikipédia, etc.) alors que dans un livre, il est préférable de citer la source directement dans le texte par exemple avec une note de base de page ou une référence bibliographique.
-- Il est courant de voir des références externes informatives sur un site web, c'est-à-dire des liens hypertextes vers des ressources externes pour approfondir un sujet, mais qui ne servent pas le propos du document. Ces liens informatifs ne sont généralement pas présents dans un livre qui ne ferait que gonfler la bibliographie sans valeur ajoutée aucune.
-- La hiérarchie des titres à une importance moindre sur un site web, il n'est pas rare de faire figurer du texte après un titre de premier niveau alors que dans un livre, les parties et les chapitres influencent la mise en page et aucun texte n'est généralement permis après un titre de premier (partie) ou de second niveau (chapitre).
+- Une référence à un flottant peut être relative à sa position dans le texte (en dessous, au-dessus) alors que, dans un livre, elle doit être absolue (page, section).
+- Dans un site web, des liens hypertextes externes peuvent être utilisés pour référencer des ressources en provenance d'autres sites (Wikipédia, etc.) alors que, dans un livre, il est préférable de citer la source directement dans le texte, par exemple avec une note de bas de page ou une référence bibliographique.
+- Il est courant de voir des références externes informatives sur un site web, c'est-à-dire des liens hypertextes vers des ressources externes pour approfondir un sujet, mais qui ne servent pas directement le propos du document. Ces liens informatifs ne sont généralement pas présents dans un livre, car ils ne feraient que gonfler la bibliographie sans apporter de valeur ajoutée.
+- La hiérarchie des titres a une importance moindre sur un site web. Il n'est pas rare de faire figurer du texte après un titre de premier niveau, alors que, dans un livre, les parties et les chapitres influencent la mise en page et aucun texte n'est généralement permis après un titre de premier (partie) ou de second niveau (chapitre).
 - Un livre contient généralement une table des matières, un index, une bibliographie, un glossaire, une liste des figures et des tableaux ainsi qu'une liste des acronymes, termes et définitions. Ces éléments sont généralement absents d'un site web.
 
 ### Limites de la technologie
 
-Le langage Markdown dans sa forme la plus simple ne permet pas de définir des éléments de structure complexes. Heureusement des extensions existent pour combler ces lacunes. Cependant, ces extensions s'efforcent de ne pas casser le parseur Markdown de base. Cela signifie que certaines constructions ne sont pas possibles ou sont très difficiles à réaliser. Par exemple, il est difficile de définir des environnements flottants ou d'associer à des liens des attributs supplémentaires. Il a fallu alors développer quelques extensions très spécifiques au besoin pour combler ces lacunes.
+Le langage Markdown dans sa forme la plus simple ne permet pas de définir des éléments de structure complexes. Heureusement des extensions existent pour combler ces lacunes. Cependant, ces extensions s'efforcent de ne pas casser le parseur Markdown de base. Cela signifie que certaines constructions ne sont pas possibles ou sont très difficiles à réaliser. Par exemple, il est difficile de définir des environnements flottants ou d'associer à des liens des attributs supplémentaires. Il a donc fallu développer des extensions très spécifiques pour combler ces lacunes.
 
 ### Notes sur les plugins et extensions
 
@@ -46,11 +46,11 @@ Vous pouvez consulter le fichier [DEVEL.md](DEVEL.md) pour plus d'informations s
 
 #### Liens hypertextes
 
-Un lien hyper texte Markdown est défini par `[texte](url)`. Pour les liens externes et `[texte][identifiant]` (plugin [autorefs](https://mkdocstrings.github.io/autorefs/)) pour les liens internes. Un lien externe peut être *informatif* ou *cité*. Les liens informatifs superposés à un texte sont laissés dans le document PDF, mais inaccessibles dans l'imprimé. S'il s'agit d'un lien cité, il doit figurer dans la bibliographie. Voici quelques exemples:
+Un lien hypertexte Markdown est défini par `[texte](url)` pour les liens externes et `[texte][identifiant]` (plugin [autorefs](https://mkdocstrings.github.io/autorefs/)) pour les liens internes. Un lien externe peut être *informatif* ou *cité*. Les liens informatifs superposés à un texte sont laissés dans le document PDF, mais inaccessibles dans l'imprimé. S'il s'agit d'un lien cité, il doit figurer dans la bibliographie. Voici quelques exemples :
 
 > Le site [Stack Overflow](https://stackoverflow.com) est une ressource incontournable pour les développeurs. (informatif)
 
-Ce dernier peut être résolu par
+Ce cas peut être résolu de plusieurs manières :
 
 1. une note de bas de page
 2. une référence bibliographique en fin d'ouvrage
@@ -65,13 +65,13 @@ Le propos de l'ouvrage s'appuie sur une référence bibliographique comme élém
 1. une note de bas de page (`[1]`)
 2. une référence bibliographique en fin d'ouvrage (`[tombre2003]`)
 
-Dans les deux cas et pour ne pas encombrer le texte, le lien, ainsi que le texte associé est déplacé, on obtient alors :
+Dans les deux cas, et afin de ne pas encombrer le texte, le lien ainsi que le texte associé sont déplacés. On obtient alors :
 
 ```markdown
 Karl Tombre dans son ouvrage [tombre2023] introduit la programmation objet par l'école de programmation Algol.
 ```
 
-Par défaut le texte du lien est conservé, mais il peut être caché avec `{ .hide }`
+Par défaut, le texte du lien est conservé, mais il peut être masqué avec `{ .hide }`.
 
 #### Références à des flottants
 
@@ -85,10 +85,10 @@ Table: Exemple de tableau {#table-example}
 | Ligne 1   | Ligne 1   |
 ```
 
-Dans le texte d'une page web on trouvera volontiers :
+Dans le texte d'une page web, on trouvera volontiers :
 
 ```markdown
-En Markdown on peut insérer des tabeaux comme le montre la table [#table-exemple].
+En Markdown, on peut insérer des tableaux comme le montre la table [#table-exemple].
 ```
 
 Cette référence peut être résolue par :
@@ -97,7 +97,7 @@ Cette référence peut être résolue par :
 2. Le titre de la table si la table n'est pas numérotée.
 3. Le texte `ci-dessus`, `supra` ou `ci-dessous`, `infra`.
 
-En outre, un flottant est référencé dans un imprimé dans une liste des tables/figures par un descriptif court. En LaTeX on utilise `\caption[court]{long}` pour définir le descriptif destiné à la liste des tables ou figures, et la légende du flottant. En Markdown, il n'y a pas de syntaxe pour définir un descriptif court. On peut utiliser `{ .short="descriptif court" }` pour définir un descriptif court.
+En outre, un flottant est référencé dans un imprimé, dans une liste des tables ou des figures, par un descriptif court. En LaTeX, on utilise `\caption[court]{long}` pour définir le descriptif destiné à la liste des tables ou figures, et la légende du flottant. En Markdown, il n'existe pas de syntaxe pour définir un descriptif court. On peut utiliser `{ .short="descriptif court" }` pour définir un descriptif court.
 
 Pour les figures, on peut profiter de la syntaxe Markdown pour le descriptif court :
 
@@ -119,7 +119,7 @@ Parfois, il existe des entrées d'index qui doivent être écrites différemment
 
 #### Glossaire
 
-En LaTeX, il est possible de définir un glossaire avec le package `glossaries` qui permet d'associer une définition à un terme. En Markdown, il n'y a pas de syntaxe pour cela. [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/tooltips/#adding-abbreviations) défini une syntaxe pour ajouter des abbréviations (acronymes) qui peuvent être utilisées comme entrées de glossaire. Par exemple, `OS` est défini comme `Système d'exploitation`. Lorsque le lecteur survole `OS`, il verra la définition `Système d'exploitation`. La syntaxe proposée par Material for MkDocs est transparente, il suffit de définir quelque part dans le document :
+En LaTeX, il est possible de définir un glossaire avec le package `glossaries` qui permet d'associer une définition à un terme. En Markdown, il n'y a pas de syntaxe pour cela. [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/tooltips/#adding-abbreviations) définit une syntaxe pour ajouter des abréviations (acronymes) qui peuvent être utilisées comme entrées de glossaire. Par exemple, `OS` est défini comme `Système d'exploitation`. Lorsque le lecteur survole `OS`, il voit la définition `Système d'exploitation`. La syntaxe proposée par Material for MkDocs est transparente : il suffit de définir quelque part dans le document :
 
 ```markdown
 *[OS]: Système d'exploitation
@@ -127,7 +127,7 @@ En LaTeX, il est possible de définir un glossaire avec le package `glossaries` 
 
 #### Liens Wikipédia
 
-Il est courant de faire référence à des articles Wikipédia pour approfondir un sujet. Dans un imprimé, ces liens n'étant pas accessibles, il est possible d'extraire de Wikipédia le résumé de la page ainsi que son titre qui peut faire office de référence bibliographique et de glossaire.
+Il est courant de faire référence à des articles Wikipédia pour approfondir un sujet. Dans un imprimé, ces liens n'étant pas accessibles, il est possible d'extraire de Wikipédia le résumé de la page ainsi que son titre, qui peuvent faire office de référence bibliographique et d'entrée de glossaire.
 
 ## Développement
 
@@ -142,7 +142,7 @@ sudo fc-cache -fv
 
 L'image Docker `Dockerfile` permet alternativement de compiler le livre en PDF.
 
-Initialisez le dépôt  avec :
+Initialisez le dépôt avec :
 
 ```bash
 git clone https://github.com/heig-tin-info/handbook.git

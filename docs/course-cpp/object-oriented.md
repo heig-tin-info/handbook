@@ -40,7 +40,10 @@ L'OO repose sur quelques concepts clés qui constituent son fondement et qui per
 
 **Polymorphisme**
 
-: Le polymorphisme permet à des objets de différentes classes de répondre à un même message ou appel de méthode de manières distinctes. Il peut être de deux types: polymorphisme statique (ou surcharge) comme plusieurs méthodes portant le même nom mais avec des signatures différentes ou le polymorphisme dynamique (ou substitutivité) lorsqu'une méthode peut être redéfinie dans une sous-classe pour se comporter différemment tout en conservant le même nom.
+: Le polymorphisme permet à des objets de différentes classes de répondre à un même message ou appel de méthode de manières distinctes. Il peut être de deux types :
+
+- **polymorphisme statique** (ou surcharge), lorsque plusieurs méthodes partagent le même nom mais présentent des signatures différentes ;
+- **polymorphisme dynamique** (ou substitutivité), lorsqu’une sous-classe redéfinit une méthode afin de modifier le comportement tout en conservant la même interface.
 
 Ces concepts, bien que simples en apparence, offrent une immense flexibilité pour modéliser des systèmes logiciels complexes tout en assurant une gestion claire de la structure et du comportement des objets.
 
@@ -141,7 +144,7 @@ Ici, la classe `Animal` définit deux attributs, `nom` et `age`, ainsi qu'une m�
 
 ### Instance
 
-Une **instance** est créé à partir d'une classe. Chaque instance possède ses propres valeurs pour les attributs de la classe et peut exécuter les méthodes définies par celle-ci. Si la classe est le plan d'une maison, une instance est une maison réelle construite selon ce plan.
+Une **instance** est créée à partir d'une classe. Chaque instance possède ses propres valeurs pour les attributs de la classe et peut exécuter les méthodes définies par celle-ci. Si la classe est le plan d'une maison, une instance est une maison réelle construite selon ce plan.
 
 ### Objet
 

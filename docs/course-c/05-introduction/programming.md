@@ -515,7 +515,7 @@ Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates cl�
 
     - 1,714,810,000,000,000,000 multiplications par seconde (1.1 exaflops)
     - 9472 processeurs Trento à 64 cœurs de 2 GHz (606 208 cœurs)
-    - 37888 processeurs graphiques MI250x (8 335 360 coeurs)
+    - 37888 processeurs graphiques MI250x (8 335 360 cœurs)
     - 22.7 MW (5 locomotives électriques ou 56'750 foyers européens)
     - 62.68 GFlops/watt
 
