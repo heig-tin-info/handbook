@@ -171,7 +171,7 @@ $$
 fpsin_5(x) = \left. 2^o\left(az - bz^3 + cz^5\right)\right|_{z = \frac{2x}{\pi}}
 $$
 
-Or, l'équation doit pouvoir être réécrite seulement en terme de multiplications d'entiers, d'additions et de décalages. En outre, il est essentiel de factoriser au maximum l'équation pour éviter tout calcul redondant. On commence par factoriser l'équation:
+Or, l'équation doit pouvoir être réécrite seulement en termes de multiplications d'entiers, d'additions et de décalages. En outre, il est essentiel de factoriser au maximum l'équation pour éviter tout calcul redondant. On commence par factoriser l'équation:
 
 $$
 fpsin_5(x) = \left. z2^o\left(a - z^2\left(b + cz^2\right)\right)\right|_{z = \frac{2x}{\pi}}

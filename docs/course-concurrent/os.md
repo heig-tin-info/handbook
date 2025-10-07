@@ -421,7 +421,7 @@ $ cat /proc/12345/maps
 $ cat /proc/12345/smaps
 ```
 
-## Appels systèmes utiles
+## Appels système utiles
 
 | Appel système         | Description                                                                          |
 | --------------------- | ------------------------------------------------------------------------------------ |

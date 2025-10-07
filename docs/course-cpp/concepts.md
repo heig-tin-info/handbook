@@ -1,51 +1,49 @@
 # Concepts C++
 
-RVO (Return Value Optimization)
+**RVO (Return Value Optimization)**
 
-: Il s'agit d'une optimisation du compilateur qui permet d'éviter des copies inutiles lors du retour d'une valeur.
+: Optimisation du compilateur qui évite des copies inutiles lorsqu’une fonction retourne une valeur en construisant directement le résultat à l’emplacement final.
 
-RAII (Resource Acquisition Is Initialization)
+**RAII (Resource Acquisition Is Initialization)**
 
-: Un très mauvais nom pour un concept très important. En C++, la ressource est acquise lors de l'initialisation d'un objet et libérée lors de sa destruction. Cela permet de garantir que la ressource est libérée même en cas d'exception.
+: Nom malheureux pour une idée essentielle : en C++, on acquiert la ressource lors de l’initialisation d’un objet et on la libère dans son destructeur. Même en cas d’exception, la ressource est donc restituée correctement.
 
-SFINAE (Substitution Failure Is Not An Error)
+**SFINAE (Substitution Failure Is Not An Error)**
 
-:   Le SFINAE (Substitution Failure Is Not An Error) est une caractéristique des templates en C++ permettant une sélection conditionnelle de fonctions et de classes en fonction des types de paramètres fournis. SFINAE signifie que si, lors de la substitution des types dans un template, le code résultant est incorrect, cela n’entraîne pas d’erreur de compilation mais élimine simplement cette option de l'ensemble des solutions possibles.
+: Mécanisme de métaprogrammation qui permet au compilateur d’éliminer une surcharge de fonction ou une spécialisation de classe lorsqu’une substitution de types échoue, sans déclencher d’erreur de compilation. Seules les alternatives valides restent alors candidates.
 
     ```cpp
     template <typename T>
-    typename std::enable_if<std::is_integral<T>::value>::type
+    std::enable_if_t<std::is_integral_v<T>>
     foo(T value) {
-        // Cette fonction ne sera disponible que pour les types intégral (int, char, etc.)
+        // Cette fonction n’est disponible que pour les types entiers (int, char, etc.).
     }
 
     template <typename T>
-    typename std::enable_if<!std::is_integral<T>::value>::type
+    std::enable_if_t<!std::is_integral_v<T>>
     foo(T value) {
-        // Cette fonction ne sera disponible que pour les types non-intégral (double, float, etc.)
+        // Cette fonction ne peut être appelée que pour les types non entiers (double, float, etc.).
     }
     ```
 
-Cette technique est souvent utilisée pour réaliser des sélections de fonctions en fonction de critères spécifiques, comme l’existence d’une méthode particulière ou l’évaluation de types lors de la compilation.
+Ce principe est largement utilisé pour activer ou désactiver des portions de code selon l’existence d’une méthode, d’un membre ou d’une propriété de type évaluée à la compilation.
 
-CRTP (Curiously Recurring Template Pattern)
+**CRTP (Curiously Recurring Template Pattern)**
 
-: Un design pattern en C++ qui permet d'implémenter des classes de base qui dépendent de la classe dérivée.
+: Modèle de conception dans lequel une classe de base prend la classe dérivée en paramètre de template. Il permet d’exprimer du polymorphisme statique et de factoriser du code commun.
 
-Rule of Three
+**Rule of Three**
 
-: En C++, si une classe définit un destructeur, un constructeur de copie ou un opérateur d'affectation, elle devrait probablement définir les trois.
+: Si une classe définit un destructeur, un constructeur de copie ou un opérateur d’affectation, elle doit probablement définir les trois pour gérer correctement la ressource sous-jacente.
 
-Rule of Five
+**Rule of Five**
 
-: En C++, si une classe définit un destructeur, un constructeur de copie, un opérateur d'affectation, un constructeur de déplacement ou un opérateur de déplacement, elle devrait probablement définir les cinq.
+: Avec C++11 et suivants, si une classe définit l’une des fonctions spéciales (destructeur, constructeur de copie, opérateur d’affectation, constructeur de déplacement ou opérateur de déplacement), elle devrait généralement toutes les définir pour garantir une gestion cohérente des ressources.
 
-Rule of Zero
+**Rule of Zero**
 
-: En C++, si une classe ne gère pas de ressources, elle ne devrait pas définir de destructeur, de constructeur de copie ou d'opérateur d'affectation. Avec les outils modernes de C++ (comme les smart pointers et les conteneurs de la bibliothèque standard), il est possible d’éviter complètement de gérer manuellement les ressources. La "Rule of Zero" signifie que vous n'avez besoin de définir aucune des fonctions spéciales (constructeur de copie, destructeur, etc.) si vous utilisez des types RAII et les outils de la STL. La classe se concentrera uniquement sur sa logique métier, tandis que la bibliothèque standard gérera les ressources.
+: Idéalement, une classe qui ne gère pas directement de ressource ne définit aucune fonction spéciale. En s’appuyant sur les conteneurs de la bibliothèque standard et les pointeurs intelligents, on laisse C++ gérer automatiquement l’acquisition et la libération des ressources.
 
-AS-IF Rule
+**As-if Rule**
 
-: L’As-if rule est une règle d’optimisation en C++ qui permet aux compilateurs de transformer le code de manière à optimiser les performances, tant que le comportement observable du programme reste le même pour l’utilisateur. En d'autres termes, le compilateur peut modifier le code généré (par exemple, en supprimant des opérations redondantes, en modifiant l’ordre des instructions, ou en inlining des fonctions) tant que le résultat final est comme si le code original avait été exécuté sans modification.
-
-Cela permet au compilateur d'appliquer des optimisations sans affecter l'exactitude de l'exécution du programme du point de vue de l'utilisateur.
+: Principe qui autorise le compilateur à transformer le code tant que le comportement observable reste identique à celui du programme source. Le compilateur peut réordonner des instructions, supprimer des opérations redondantes ou insérer des optimisations, du moment que le résultat final perçu par l’utilisateur est inchangé.

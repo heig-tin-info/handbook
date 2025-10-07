@@ -4,7 +4,7 @@ Un ordinateur personnel ([[PC]] pour *Personal Computer*) est un appareil élect
 
 Un **processeur** (ou **[[CPU]]** pour *Central Processing Unit*)
 
-: C'est le coeur computationnel de l'ordinateur. Il exécute les instructions des programmes et contrôle les autres composants de l'ordinateur.
+: C'est le cœur computationnel de l'ordinateur. Il exécute les instructions des programmes et contrôle les autres composants de l'ordinateur.
 
 La **mémoire** (ou **[[RAM]]** pour *Random Access Memory*)
 

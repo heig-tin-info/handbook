@@ -14,19 +14,19 @@ POSIX (Portable Operating System Interface) est une norme qui définit une inter
 - `open` : Ouvre un fichier.
 - `close` : Ferme un fichier.
 - `read` : Lit des données depuis un fichier.
-- `write` : Ecrit des données dans un fichier.
+- `write` : Écrit des données dans un fichier.
 - `mmap` : Mappe un fichier en mémoire (new, malloc).
 - ...
 
 ### Processus
 
-Un processus c'est un programme en cours d'exécution. Il possède un espace d'adressage, un identifiant unique (PID), un état (running, waiting, sleeping, zombie), un parent (PPID), des ressources (fichiers ouverts, mémoire allouée, ...).
+Un processus est un programme en cours d'exécution. Il possède un espace d'adressage, un identifiant unique (PID), un état (running, waiting, sleeping, zombie), un parent (PPID) ainsi que des ressources (fichiers ouverts, mémoire allouée, etc.).
 
-Pour créer un processus on a vu que l'appel système `fork` permet de dupliquer le processus appelant. Le processus fils hérite de l'espace d'adressage du processus parent. A ce moment là la mémoire est copiée en mode "copy-on-write". Cela signifie que la mémoire n'est pas copiée immédiatement mais seulement lorsqu'elle est modifiée. Et les deux processus sont indépendants. Donc c'est lourd en mémoire.
+Pour créer un processus, on a vu que l'appel système `fork` permet de dupliquer le processus appelant. Le processus fils hérite de l'espace d'adressage du processus parent. À ce moment-là, la mémoire est copiée en mode *copy-on-write*. Cela signifie que la copie n’est effectuée que lorsque les pages sont modifiées. Les deux processus restent indépendants, mais l’opération peut devenir coûteuse en mémoire.
 
 ### Processus légers ou threads
 
-Un processus léger se crée avec l'appel système `clone`. Il est plus léger qu'un processus car il partage le même espace d'adressage que le processus parent. Cela signifie que les threads partagent les mêmes variables globales, les mêmes fichiers ouverts, les mêmes signaux, ... Mais cela peut poser des problèmes de synchronisation: des accès concurrents à des ressources partagées.
+Un processus léger se crée avec l'appel système `clone`. Il est plus léger qu'un processus classique car il partage le même espace d'adressage que le processus parent. Les threads partagent ainsi les mêmes variables globales, les mêmes fichiers ouverts, les mêmes signaux, etc. Cette proximité facilite la communication mais complique la synchronisation : des accès concurrents peuvent se produire sur les ressources partagées.
 
 ### Mécanismes de synchronisation
 
@@ -34,23 +34,24 @@ Pour synchroniser les threads on utilise des primitives de synchronisation. Les 
 
 La notion de concurrence a été imaginée par Edsger Dijkstra en 1965 pour résoudre les problèmes de synchronisation dans les systèmes d'exploitation. Il était d'origine néerlandaise et a travaillé pour la compagnie Philips.
 
-Il a inventé le concept de sémaphore. Un sémaphore est un objet de synchronisation qui possède un compteur. Il possède deux opérations atomiques: `wait` et `post`. `wait` décrémente le compteur et bloque si le compteur est négatif. `post` incrémente le compteur et réveille un thread en attente si le compteur est négatif.
+Il a inventé le concept de sémaphore. Un sémaphore est un objet de synchronisation qui possède un compteur. Il propose deux opérations atomiques : `wait`, qui décrémente le compteur et bloque si celui-ci devient négatif, et `post`, qui l’incrémente et réveille un thread en attente lorsque le compteur redevient positif.
 Historiquement les noms donnés par Dijkstra étaient `P` et `V` pour `Proberen` et `Verhogen` en néerlandais.
 
 Le sémaphore compte des ressources disponibles. Si le sémaphore est à zéro, il n'y a plus de ressources disponibles. Si le sémaphore est à un, il y a une ressource disponible. Si le sémaphore est à deux...
 
-Plus tard sont venu des opérations atomiques dans les processeurs comme le `test-and-set` ou le `compare-and-swap`. Ces opérations permettent de réaliser des primitives de synchronisation plus complexes comme les mutex. Le gros avantage c'est l'absence d'attente active. L'attente active c'est une boucle qui teste une condition en permanence. C'est très gourmand en CPU.
+Plus tard sont venues des opérations atomiques dans les processeurs comme `test-and-set` ou `compare-and-swap`. Elles permettent de réaliser des primitives de synchronisation plus complexes comme les mutex. Leur grand avantage est d’éviter l’attente active : une boucle qui teste une condition en permanence et qui est très gourmande en CPU.
 
 Une opération atomique dans le cadre de l'informatique c'est une opération qui s'exécute en une seule instruction machine. Cela signifie que l'opération est indivisible. C'est soit tout ou rien. C'est soit l'opération s'exécute complètement, soit elle ne s'exécute pas du tout.
 
 #### Mutex
 
-En C++ le mutex est une classe qui permet de protéger des ressources partagées entre plusieurs threads. Il possède deux méthodes: `lock` et `unlock`. `lock` bloque le mutex si il est déjà verrouillé. `unlock` déverrouille le mutex.
+En C++, le mutex est une classe qui permet de protéger des ressources partagées entre plusieurs threads. Il possède deux méthodes : `lock`, qui bloque le mutex et attend s’il est déjà verrouillé, et `unlock`, qui déverrouille le mutex.
 
 ```cpp
 #include <iostream>
 #include <thread>
 #include <mutex>
+#include <condition_variable>
 
 std::mutex mtx;
 
@@ -69,7 +70,7 @@ int main() {
 
 On appelle section critique une portion de code qui accède à des ressources partagées. Il est important de protéger cette section critique avec un mutex pour éviter les accès concurrents.
 
-En général on utilise pas le `lock`/`unlock` directement mais plutôt un `std::lock_guard` qui est un RAII (Resource Acquisition Is Initialization). C'est une classe qui s'occupe de libérer les ressources automatiquement à la fin du bloc.
+En général, on n’utilise pas directement `lock` et `unlock`, mais plutôt un `std::lock_guard`, qui applique le principe RAII (*Resource Acquisition Is Initialization*). Cette classe s’occupe de libérer automatiquement la ressource à la fin du bloc.
 
 ```cpp
 void func() {
@@ -81,7 +82,7 @@ void func() {
 }
 ```
 
-On peut implémenter très facilement un lock_guard de la manière suivante:
+On peut implémenter très facilement un `lock_guard` de la manière suivante :
 
 ```cpp
 struct LockGuard {
@@ -92,7 +93,7 @@ private:
 };
 ```
 
-Aternativement au `lock_guard` on peut utiliser un `std::unique_lock`. La différence c'est qu'un `unique_lock` est un verrou de portée manuelle. Il peut être déverrouillé et verrouillé à nouveau.
+Alternativement au `lock_guard`, on peut utiliser un `std::unique_lock`. La différence est qu’un `unique_lock` est un verrou à portée manuelle : il peut être déverrouillé puis verrouillé à nouveau.
 
 ```cpp
 void func() {
@@ -102,21 +103,21 @@ void func() {
 }
 ```
 
-Le unique_lock sera utilisé par exemple dans les variables conditions.
+Le `std::unique_lock` est par exemple utilisé avec les variables de condition.
 
-#### Variable condition
+#### Variable de condition
 
-Une variable condition est un objet de synchronisation qui permet de mettre un thread en attente tant qu'une condition n'est pas remplie. Elle utilise un mutex pour protéger la condition et permet de notifier des threads.
+Une variable de condition est un objet de synchronisation qui permet de mettre un thread en attente tant qu'une condition n'est pas remplie. Elle utilise un mutex pour protéger la condition partagée et permet de notifier les threads.
 
 Les méthodes les plus courantes sont `wait`, `wait_for`, `wait_until`, `notify_one` et `notify_all`.
 
 ```cpp
 int beers_in_fridge = 0;
 std::mutex mtx;
-std::variable_condition cv;
+std::condition_variable cv;
 
 void drinker() {
-    while(true) {
+    while (true) {
         std::unique_lock<std::mutex> lock(mtx);
         cv.wait(lock, []{ return beers_in_fridge > 0; });
         beers_in_fridge--;
@@ -124,7 +125,7 @@ void drinker() {
 }
 
 void gf() {
-    while(true) {
+    while (true) {
         std::unique_lock<std::mutex> lock(mtx);
         beers_in_fridge++;
         cv.notify_one();
@@ -139,7 +140,7 @@ int main() {
 }
 ```
 
-Dans cet exemple, il y a un problème c'est que la copine (gf) peut mettre une bière dans le frigo alors qu'il est déjà plein. Il faudrait ajouter un sémaphore pour gérer le nombre de bières dans le frigo. Puisqu'un sémaphore est un compteur de ressources.
+Dans cet exemple, un problème subsiste : la copine (gf) peut mettre une bière dans le frigo alors qu'il est déjà plein. Il faudrait ajouter un sémaphore pour gérer le nombre de bières, puisqu'un sémaphore sert à compter les ressources disponibles.
 
 Mais ici, on est dans un cas de producteur-consommateur. Un producteur met des bières dans le frigo et un consommateur les boit.
 
@@ -147,16 +148,16 @@ Mais ici, on est dans un cas de producteur-consommateur. Un producteur met des b
 
 Le problème du producteur-consommateur est un problème classique de synchronisation.
 
-On peut le résoudre de deux manières:
+On peut le résoudre de deux manières :
 
-1. Avec deux sémaphores: un pour le producteur et un pour le consommateur.
-2. Avec une variable condition.
+1. Avec deux sémaphores : un pour le producteur et un pour le consommateur.
+2. Avec une variable de condition.
 
 #### Moniteur
 
 Un moniteur est un objet de synchronisation qui encapsule des données et des opérations sur ces données. Il permet de protéger les données et de synchroniser les threads qui accèdent à ces données.
 
-Concrètement c'est un classe qui contient des données et des méthodes pour accéder à ces données. Les méthodes sont protégées par un mutex pour éviter les accès concurrents.
+Concrètement, c'est une classe qui contient des données et des méthodes pour y accéder. Les méthodes sont protégées par un mutex pour éviter les accès concurrents.
 
 ```cpp
 class Fridge {
@@ -179,7 +180,7 @@ public:
 private:
     std::vector<int> beers;
     std::mutex mtx;
-    std::variable_condition cv;
+    std::condition_variable cv;
 };
 ```
 
@@ -187,11 +188,11 @@ Si on veut l'utiliser dans l'exemple précédent on peut faire:
 
 ```cpp
 void drinker(Fridge &fridge) {
-    while(true) { int beer = fridge.get(); }
+    while (true) { int beer = fridge.get(); }
 }
 
 void gf(Fridge &fridge) {
-    while(true) { fridge.put(1); }
+    while (true) { fridge.put(1); }
 }
 
 int main() {
@@ -250,7 +251,7 @@ En C++ on peut utiliser les threads, les promesses et les tâches pour réaliser
 
 La programmation parallèle est un style de programmation qui permet d'exécuter des tâches de manière concurrente sur plusieurs processeurs ou cœurs de processeur. Cela permet d'améliorer les performances en répartissant la charge de calcul sur plusieurs unités de calcul.
 
-En C++ on va souvent utiliser `std::hardware_concurrency` pour connaître le nombre de coeurs disponibles sur la machine. Pourquoi on va créer uniquement le nombre de thread qui correspond au nombre de coeurs ? Parce que si on crée plus de threads que de coeurs, on va créer des threads qui vont se partager le temps de calcul des coeurs. On va perdre beaucoup de temps dans les changements de contexte.
+En C++ on va souvent utiliser `std::hardware_concurrency` pour connaître le nombre de cœurs disponibles sur la machine. Pourquoi on va créer uniquement le nombre de thread qui correspond au nombre de cœurs ? Parce que si on crée plus de threads que de cœurs, on va créer des threads qui vont se partager le temps de calcul des cœurs. On va perdre beaucoup de temps dans les changements de contexte.
 
 En pratique il est rare d'utiliser directement les thread pour paralléliser des tâches. On va plutôt utiliser des librairies comme OpenMP ou des frameworks comme Qt.
 

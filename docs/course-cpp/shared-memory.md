@@ -1,6 +1,6 @@
 ## Mémoire partagée
 
-Nous le verrons plus loin au chapitre sur la MMU, mais la mémoire d'un processus mémoire (programme) ne peut pas être accédée par un autre programme. Le système d'exploitation l'en empêche.
+Comme nous le verrons plus loin dans le chapitre consacré à la MMU, la mémoire d’un processus (un programme en cours d’exécution) est isolée de celle des autres. Le système d’exploitation fait respecter cette séparation pour éviter tout accès non autorisé.
 
 Lorsque l'on souhaite communiquer entre plusieurs programmes, il est possible d'utiliser différentes méthodes :
 
@@ -10,9 +10,9 @@ Lorsque l'on souhaite communiquer entre plusieurs programmes, il est possible d'
 
 Vous avez déjà vu les flux au chapitre précédent, et les sockets ne font pas partie de ce cours d'introduction.
 
-Notons que la mémoire partagée est un mécanisme propre à chaque système d'exploitation. Sous POSIX elle est normalisée et donc un programme compatible POSIX et utilisant la mémoire partagée pourra fonctionner sous Linux, WSL ou macOS, mais pas sous Windows.
+Notons que la mémoire partagée est un mécanisme propre à chaque système d’exploitation. Sous POSIX, elle est normalisée : un programme compatible POSIX et utilisant la mémoire partagée pourra fonctionner sous Linux, WSL ou macOS, mais pas nécessairement sous Windows.
 
-C'est principalement l'appel système `mmap` qui est utilisé. Il permet de mapper ou démapper des fichiers ou des périphériques dans la mémoire.
+C’est principalement l’appel système `mmap` qui est utilisé. Il permet de mapper ou de démapper des fichiers ou des périphériques en mémoire.
 
 ```c
 void *mmap(
@@ -49,7 +49,7 @@ void* create_shared_memory(size_t size) {
 
 ### File memory mapping
 
-Traditionnellement lorsque l'on souhaite travailler sur un fichier, il convient de l'ouvrir avec `fopen` et de lire son contenu. Lorsque cela est nécessaire, ce fichier est copié en mémoire :
+Traditionnellement, lorsqu’on souhaite travailler sur un fichier, on l’ouvre avec `fopen` puis on lit son contenu. Au besoin, ce fichier est copié en mémoire :
 
 ```c
 FILE *fp = fopen("foo", "r");
@@ -61,7 +61,7 @@ fread(file, filesize, sizeof(char), fp);
 fclose(fp);
 ```
 
-Cette copie n'est pas nécessairement nécessaire. Une approche **POSIX**, qui n'est donc pas couverte par le standard **C99** consiste à lier le fichier dans un espace mémoire partagé.
+Cette copie n’est pas toujours indispensable. Une approche **POSIX** — non couverte par le standard **C99** — consiste à lier le fichier dans un espace mémoire partagé.
 
 Ceci nécessite l'utilisation de fonctions bas niveau.
 
@@ -78,7 +78,7 @@ int main() {
 }
 ```
 
-Les avantages de cette méthode sont :
+Les avantages de cette méthode sont les suivants :
 
 - pas nécessaire de copier l'intégralité du fichier en mémoire ;
 - possibilité de partager le même fichier ouvert entre plusieurs processus ;

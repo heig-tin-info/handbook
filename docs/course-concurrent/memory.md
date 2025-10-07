@@ -75,7 +75,7 @@ Pour chaque exemple, il est important de désactiver certaines fonctionnalités 
    $ sudo bash -c "echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo"
    ```
 
-3. Désactiver l'hyper-threading, c'est à dire que chaque coeur du processeur est utilisé par un seul thread. Cela doit être fait pour chaque coeur du processeur.
+3. Désactiver l'hyper-threading, c'est à dire que chaque cœur du processeur est utilisé par un seul thread. Cela doit être fait pour chaque cœur du processeur.
 
    ```bash
     $ sudo bash -c "echo 0 > /sys/devices/system/cpu/cpuX/online"

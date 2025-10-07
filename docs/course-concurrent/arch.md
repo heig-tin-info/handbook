@@ -67,11 +67,11 @@ A titre d'exemple, une mémoire DDR4 a une latence de 15 ns alors qu'un processe
 
 Pour palier à ce problème, les processeurs se sont équipés de mémoires intermédiaires nommées mémoires caches. On distingue ajourd'hui 3 niveaux de caches :
 
-- L1 : cache de niveau 1, très rapide, souvent intégré dans le coeur du processeur et à proximité directe de l'ALU.
+- L1 : cache de niveau 1, très rapide, souvent intégré dans le cœur du processeur et à proximité directe de l'ALU.
 - L2 : cache de niveau 2, plus lent que le L1 mais plus gros.
-- L3 : cache de niveau 3, plus lent que le L2 mais plus gros et partagé entre plusieurs coeurs processeur.
+- L3 : cache de niveau 3, plus lent que le L2 mais plus gros et partagé entre plusieurs cœurs processeur.
 
-Ceci nous amène aux architectures modernes multicoeurs. Un processeur Intel ou AMD moderne comporte très souvent 6 ou 8 processeurs indépendants reliés entre eux par une mémoire cache de niveau L3. Chaque coeur dispose de sa propre mémoire cache de niveau L1 et L2.
+Ceci nous amène aux architectures modernes multicœurs. Un processeur Intel ou AMD moderne comporte très souvent 6 ou 8 processeurs indépendants reliés entre eux par une mémoire cache de niveau L3. Chaque cœur dispose de sa propre mémoire cache de niveau L1 et L2.
 
 ## Processeur moderne
 
@@ -79,8 +79,8 @@ La figure suivante représente la vue aérienne d'un processeur moderne. Le *die
 
 ![cpu](/assets/images/die.jpeg)
 
-On peut voir sur cette figure la mémoire cache de niveau L3 facilement identifiable à son pattern de grille. On peut également voir les différents coeurs qui l'entourent, ils se ressemblent tous et on voit qu'ils sont également composés d'un motif répétitif qui est la mémoire cache de niveau L1 et L2. Souvent ces processeurs intègrent également une partie GPU qui est utilisée pour les calculs graphiques lorsqu'il n'y a pas de carte graphique intégrée.
+On peut voir sur cette figure la mémoire cache de niveau L3 facilement identifiable à son pattern de grille. On peut également voir les différents cœurs qui l'entourent, ils se ressemblent tous et on voit qu'ils sont également composés d'un motif répétitif qui est la mémoire cache de niveau L1 et L2. Souvent ces processeurs intègrent également une partie GPU qui est utilisée pour les calculs graphiques lorsqu'il n'y a pas de carte graphique intégrée.
 
-Si l'on s'intéresse à un coeur en particulier, on peut voir qu'il est composé de plusieurs éléments. Tout d'abord à droite on trouve la mémoire cache L2 qui représente environ 20% de la surface du coeur. Ensuite le prédicteur d'embranchement très proche du cache L1 contenant les prochaines instructions à exécuter. Le décodeur d'instructions est à proximité du I-Cache et du prédicteur d'embranchement. Il est couplé à un ordonnanceur de micro-opérations qui adresse chaque calcul soit sur l'ALU pour de la virgule fixe, soit sur la FPU pour les calculs en virgule flottante. Dans la partie inférieure, on trouve l'ALU 64-bits, le cache de données L1 et le gestionnaire de mémoire permettant de lire/écrire des données en mémoire.
+Si l'on s'intéresse à un cœur en particulier, on peut voir qu'il est composé de plusieurs éléments. Tout d'abord à droite on trouve la mémoire cache L2 qui représente environ 20% de la surface du cœur. Ensuite le prédicteur d'embranchement très proche du cache L1 contenant les prochaines instructions à exécuter. Le décodeur d'instructions est à proximité du I-Cache et du prédicteur d'embranchement. Il est couplé à un ordonnanceur de micro-opérations qui adresse chaque calcul soit sur l'ALU pour de la virgule fixe, soit sur la FPU pour les calculs en virgule flottante. Dans la partie inférieure, on trouve l'ALU 64-bits, le cache de données L1 et le gestionnaire de mémoire permettant de lire/écrire des données en mémoire.
 
 ![core](/assets/images/zen2.png)

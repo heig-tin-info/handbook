@@ -604,7 +604,7 @@ int main() {
 
 ## Commentaires
 
-Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source. Par ailleurs, comme nous l'avons vu en [introduction][preproc-intro], le préprocesseur C supprime les commentaires du code source avant la compilation. [[||commentaire]]
+Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lus que par le développeur qui possède le code source. Par ailleurs, comme nous l'avons vu en [introduction][preproc-intro], le préprocesseur C supprime les commentaires du code source avant la compilation. [[||commentaire]]
 
 ![Les carafes dans la Vivonne](/assets/images/vivonne.drawio)
 
@@ -623,7 +623,7 @@ Il existe deux manières d'écrire un commentaire en C, les commentaires de lign
        Multi-line comment */
     ```
 
-Il est important de rappeler que les commentaires sont traités par le préprocesseur, aussi ils n'influencent pas le fonctionnement d'un programme, mais seulement sa lecture. Rappelons qu'un code est plus souvent lu qu'écrit, car on ne l'écrit qu'une seule fois, mais comme tout développement doit être si possible **réutilisable**, il est plus probable qu'il soit lu part d'autres développeurs.
+Il est important de rappeler que les commentaires sont traités par le préprocesseur, aussi ils n'influencent pas le fonctionnement d'un programme, mais seulement sa lecture. Rappelons qu'un code est plus souvent lu qu'écrit, car on ne l'écrit qu'une seule fois, mais comme tout développement doit être si possible **réutilisable**, il est plus probable qu'il soit lu par d'autres développeurs.
 
 En conséquence, il est important de clarifier toute zone d'ombre lorsque l'on s'éloigne des consensus établis, ou lorsque le code seul n'est pas suffisant pour bien comprendre son fonctionnement.
 
