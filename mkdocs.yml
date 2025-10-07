@@ -118,6 +118,7 @@ plugins:
   - tags
   - epigraph
   - pills
+  - drawio
   - glightbox:
       skip_classes:
         - drawio-diagram
@@ -264,7 +265,7 @@ watch:
   - overrides
 hooks:
   - hooks/index.py # Index keywords in codes (language)
-  - hooks/drawio.py # Embedded draw.io diagrams
+  #- hooks/drawio.py # Embedded draw.io diagrams
   - hooks/spantable.py # Adds span table support
   - hooks/french.py # French typography
   - hooks/wiki.py # Wiki tips on hover
@@ -279,7 +280,7 @@ extra_css:
   - css/drawio.css
 extra_javascript:
   - js/viewer.min.js  # https://github.com/jgraph/drawio/blob/dev/src/main/webapp/js/viewer.min.js
-  - js/drawio.js
+#  - js/drawio.js
   - js/wiki-tips.js
   - js/feedback.js
   - js/mathjax.js
@@ -288,3 +289,5 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/vega@5
   - https://cdn.jsdelivr.net/npm/vega-lite@5
   - https://cdn.jsdelivr.net/npm/vega-embed@6
+  - https://viewer.diagrams.net/js/viewer-static.min.js
+  - js/drawio-reload.js
