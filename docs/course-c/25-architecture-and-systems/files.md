@@ -244,7 +244,6 @@ Le manuel [man fseek](http://man7.org/linux/man-pages/man3/fseek.3.html) indique
 
 : Positionne le curseur à la fin du fichier.
 
-
 Si un fichier est seekable, il est possible de se déplacer dans le fichier. Par exemple, pour lire le dernier caractère d'un fichier :
 
 ```c
@@ -298,14 +297,14 @@ L'utilisation avec `stdin` et `stdout` comme descripteur de fichier est possible
 Les nouvelles fonctions à connaître sont les suivantes :
 
 ```c
-size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
+size_t fread(void *ptr, size_t size, size_t count, FILE *stream)
 ```
 
-Elle permet une lecture arbitraire de `nmemb * size` bytes depuis le flux `stream` dans le buffer `ptr`:
+Elle permet une lecture arbitraire de `count * size` bytes depuis le flux `stream` dans le buffer `ptr`:
 
 ```c
 int32_t buffer[12] = {0};
-fread(buffer, 2, sizeof(int32_t), stdin);
+fread(buffer, sizeof(int32_t), 2, stdin);
 printf("%x\n%x\n", buffer[0], buffer[1]);
 ```
 
