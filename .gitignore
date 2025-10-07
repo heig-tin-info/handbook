@@ -1,38 +1,61 @@
-127.0.0.1_files/
-*.zip
-*.out
-*.o
-build/
-venv/
-.drawio_cache/
-drawio-exporter/
-*:Zone.Identifier
-site/
-__pycache__/
+# Generated files from local previews and exports
 127.0.0.1.*
+127.0.0.1_files/
 127.0.0.1_files/build/
+drawio-exporter/
+
+# Build artifacts
+build/
+site/
+sandbox/
+
+# Python artifacts
+__pycache__/
+*.pyc
+venv/
+
+# Generic cache files
 .cache/
 *.bkp
 *.dtmp
-*.xdv
+
+# Draw.io
+.drawio_cache/
+
+# Platform specific metadata
+*:Zone.Identifier
+
+# Archive
+*.zip
+
+# Object and binary artifacts
+*.out
+*.o
+
+# LaTeX artifacts
 *.aux
-*.log
-*.fls
 *.fdb_latexmk
-*.mypyg
+*.fls
+*.glsdefs
 *.lol
+*.log
+*.mypyg
+*.synctex.gz
+*.xdv
+*_minted-*/
 *.acn
-*.ind
-*.ilg
-*.idx
+*.acr
+*.alg
 *.glo
+*.glg
+*.gls
+*.idx
+*.ilg
+*.ind
 *.ist
 *.listing
-_minted-*/
-build/
-*.glsdefs
-*.listing
-*.synctex.gz
+*.maf
+*.mtc*
+*.toc
+
 test.pdf
-sandbox/
-home/
