@@ -1,0 +1,12 @@
+blockquote.epigraph {
+  width: auto;
+  font-style: italic;
+  text-align: right;
+  margin: 1em 0;
+  border-left: none !important;
+  padding-left: 30% !important;
+}
+
+blockquote.epigraph>footer::before {
+  content: "— ";
+}

@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="fr" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="fr" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -28,15 +25,15 @@ les outils associés.
       
       
       <link rel="icon" href="../../../assets/icons/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41+insiders-4.53.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49+insiders-4.53.14">
     
     
       
-        <title>Diagnostiques - L'informatique pour ingénieurs</title>
+        <title>Diagnostics - L'informatique pour ingénieurs</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.12320a83.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f50c755.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -109,7 +106,7 @@ les outils associés.
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -118,13 +115,15 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/french.css">
     
-      <link rel="stylesheet" href="../../../css/callout.css">
-    
       <link rel="stylesheet" href="../../../css/extra.css">
     
       <link rel="stylesheet" href="../../../css/tables.css">
     
       <link rel="stylesheet" href="../../../css/drawio.css">
+    
+      <link rel="stylesheet" href="../../../css/epigraph.css">
+    
+      <link rel="stylesheet" href="../../../css/pills.css">
     
       <link rel="stylesheet" href="../../../exercise.css">
     
@@ -144,16 +143,17 @@ les outils associés.
 
     
     
-   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -172,7 +172,7 @@ les outils associés.
     <div data-md-component="skip">
       
         
-        <a href="#diagnostiques" class="md-skip">
+        <a href="#diagnostics" class="md-skip">
           Aller au contenu
         </a>
       
@@ -186,14 +186,14 @@ les outils associés.
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="En-tête">
-    <a href="https://heig-tin-info.github.io/handbook" title="L&#39;informatique pour ingénieurs" class="md-header__button md-logo" aria-label="L'informatique pour ingénieurs" data-md-component="logo">
+    <a href="https://heig-tin-info.github.io/handbook" title="L'informatique pour ingénieurs" class="md-header__button md-logo" aria-label="L'informatique pour ingénieurs" data-md-component="logo">
       
   <img src="https://raw.githubusercontent.com/HEIG-VD/logos/main/heig-vd/heig-vd-white.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -205,7 +205,7 @@ les outils associés.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Diagnostiques
+              Diagnostics
             
           </span>
         </div>
@@ -218,20 +218,20 @@ les outils associés.
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
       </label>
     
   
@@ -245,7 +245,7 @@ les outils associés.
     
       <label class="md-header__button md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -254,20 +254,20 @@ les outils associés.
       <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Recherche">
         
           <a href="javascript:void(0)" class="md-search__icon md-icon" title="Partager" aria-label="Partager" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -292,7 +292,7 @@ les outils associés.
         <a href="https://github.com/heig-tin-info/handbook" title="Aller au dépôt" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
   </div>
   <div class="md-source__repository">
     heig-tin-info/handbook
@@ -464,7 +464,7 @@ les outils associés.
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -475,7 +475,7 @@ les outils associés.
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://heig-tin-info.github.io/handbook" title="L&#39;informatique pour ingénieurs" class="md-nav__button md-logo" aria-label="L'informatique pour ingénieurs" data-md-component="logo">
+    <a href="https://heig-tin-info.github.io/handbook" title="L'informatique pour ingénieurs" class="md-nav__button md-logo" aria-label="L'informatique pour ingénieurs" data-md-component="logo">
       
   <img src="https://raw.githubusercontent.com/HEIG-VD/logos/main/heig-vd/heig-vd-white.svg" alt="logo">
 
@@ -487,7 +487,7 @@ les outils associés.
       <a href="https://github.com/heig-tin-info/handbook" title="Aller au dépôt" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
   </div>
   <div class="md-source__repository">
     heig-tin-info/handbook
@@ -574,7 +574,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -628,7 +628,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1">
         
           
           
@@ -699,7 +699,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -875,7 +875,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
         
           
           
@@ -1042,7 +1042,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
         
           
           <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
@@ -1359,7 +1359,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
         
           
           
@@ -1603,7 +1603,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
         
           
           <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
@@ -1866,7 +1866,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
         
           
           
@@ -2104,7 +2104,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
         
           
           
@@ -2232,7 +2232,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9">
         
           
           <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
@@ -2389,7 +2389,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10">
         
           
           
@@ -2590,7 +2590,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10_7">
         
           
           <label class="md-nav__link" for="__nav_2_10_7" id="__nav_2_10_7_label" tabindex="0">
@@ -2751,7 +2751,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_10_8" id="__nav_2_10_8_label" tabindex="0">
@@ -3132,7 +3132,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11">
         
           
           
@@ -3403,7 +3403,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12">
         
           
           
@@ -3616,7 +3616,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13">
         
           
           
@@ -3767,7 +3767,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14">
         
           
           <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
@@ -3856,7 +3856,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15">
         
           
           <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
@@ -3972,7 +3972,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_16">
         
           
           
@@ -4048,7 +4048,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -4204,7 +4204,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -4356,7 +4356,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Semaphore
+    Sémaphores
   
 
     
@@ -4437,7 +4437,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Thread Pool
+    Pool de threads
   
 
     
@@ -4587,7 +4587,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1">
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -4836,7 +4836,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2">
         
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -4929,7 +4929,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3">
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
@@ -5103,7 +5103,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
@@ -5273,7 +5273,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5">
         
           
           <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
@@ -5387,7 +5387,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6">
         
           
           <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
@@ -5531,7 +5531,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Diagnostiques
+    Diagnostics
   
 
     
@@ -5548,7 +5548,7 @@ les outils associés.
   <span class="md-ellipsis">
     
   
-    Diagnostiques
+    Diagnostics
   
 
     
@@ -5754,6 +5754,8 @@ les outils associés.
       
         
       
+        
+      
     
     
       
@@ -5764,7 +5766,7 @@ les outils associés.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -5910,6 +5912,33 @@ les outils associés.
   
   
     <li class="md-nav__item">
+      <a href="../../../appendix/demos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Demos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../appendix/refcards/" class="md-nav__link">
         
   
@@ -5945,7 +5974,7 @@ les outils associés.
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -6092,7 +6121,7 @@ les outils associés.
   
 
 
-  <nav class="md-path" aria-label="Navigation" >
+  <nav class="md-path" aria-label="Navigation">
     <ol class="md-path__list">
       
         
@@ -6163,7 +6192,7 @@ les outils associés.
   
     <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/tools/analysis/analysis.md" title="Editer cette page" class="md-content__button md-icon">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
     </a>
   
   
@@ -6172,13 +6201,13 @@ les outils associés.
     
     <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/tools/analysis/analysis.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"></path></svg>
     </a>
   
 
 
-<h1 id="diagnostiques">Diagnostiques<a class="headerlink" href="#diagnostiques" title="Lien permanent">¤</a></h1>
-<p>Les outils de diagnostiques permettent de comprendre le comportement d'un programme en cours d'exécution. Ils permettent de voir les appels systèmes, les appels de fonctions, les appels de bibliothèques, les appels de fonctions système, les appels de fonctions de bibliothèques.</p>
+<h1 id="diagnostics">Diagnostics<a class="headerlink" href="#diagnostics" title="Lien permanent">¤</a></h1>
+<p>Les outils de diagnostic permettent de comprendre le comportement d'un programme en cours d'exécution. Ils permettent de voir les appels système, les appels de fonctions, les appels de bibliothèques, les appels de fonctions système, les appels de fonctions de bibliothèques.</p>
 <h2 id="time">time<a class="headerlink" href="#time" title="Lien permanent">¤</a></h2>
 <p><span class="ycr-hashtag" data-index-entry="time" data-tag="time"><code>time</code></span> est une commande Unix qui permet de mesurer le temps d'exécution d'un programme. Elle est utilisée pour mesurer le temps d'exécution d'un programme et les ressources utilisées par ce programme. L'utilisation typique est la suivante :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">time</span><span class="w"> </span>./a.out
@@ -6187,13 +6216,13 @@ les outils associés.
 <p>On note plusieurs métriques :</p>
 <ul>
 <li><span class="ycr-hashtag" data-index-entry="user" data-tag="user"><code>user</code></span> est le temps passé dans l'espace utilisateur, c'est le temps réel passé par le programme à exécuter des instructions.</li>
-<li><span class="ycr-hashtag" data-index-entry="system" data-tag="system"><code>system</code></span> est le temps passé dans l'espace noyau, c'est le temps passé par le programme à exécuter des appels systèmes.</li>
+<li><span class="ycr-hashtag" data-index-entry="system" data-tag="system"><code>system</code></span> est le temps passé dans l'espace noyau, c'est le temps passé par le programme à exécuter des appels système.</li>
 <li><span class="ycr-hashtag" data-index-entry="wall" data-tag="wall"><code>wall</code></span> ou <span class="ycr-hashtag" data-index-entry="real" data-tag="real"><code>real</code></span> est le temps réel passé par le programme à s'exécuter. C'est le temps qui s'écoule entre le lancement du programme et sa fin.</li>
 <li><span class="ycr-hashtag" data-index-entry="cpu" data-tag="cpu"><code>cpu</code></span> est le pourcentage de temps <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> utilisé par le programme.</li>
 </ul>
 <p>Un programme multi-threadé peut utiliser plus de 100% de <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> si plusieurs threads sont exécutés en parallèle. Par exemple un programme qui s'exécuterait de manière parallèle sur 5 processeurs et dont le temps mur serait de 1 secondes, aurait un temps <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> de 500% et un temps <span class="ycr-hashtag" data-index-entry="user" data-tag="user"><code>user</code></span> de 5 seconde.</p>
 <h2 id="strace">strace<a class="headerlink" href="#strace" title="Lien permanent">¤</a></h2>
-<p>Strace a été initialement écrit pour SunOS par Paul Kranenburg en 1991. Il a été porté sur Linux par Branko Lankester en 1992. Strace est un outil de diagnostique qui permet de suivre les appels systèmes et les signaux reçus par un processus. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution.</p>
+<p>Strace a été initialement écrit pour SunOS par Paul Kranenburg en 1991. Il a été porté sur Linux par Branko Lankester en 1992. Strace est un outil de diagnostic qui permet de suivre les appels système et les signaux reçus par un processus. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution.</p>
 <p>Son code source est bien entendu disponible sur <a href="https://github.com/strace/strace">GitHub</a> et il est écrit en C.</p>
 <p>L'utilisation typique est la suivante, où <span class="ycr-hashtag" data-index-entry="PID" data-tag="PID"><code>PID</code></span> est le numéro de processus du programme à tracer.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>strace<span class="w"> </span>-o<span class="w"> </span>/tmp/strace.log<span class="w"> </span>-f<span class="w"> </span>-e<span class="w"> </span><span class="nv">trace</span><span class="o">=</span>all<span class="w"> </span>-p<span class="w"> </span>PID
@@ -6203,8 +6232,8 @@ les outils associés.
 </span></code></pre></div>
 <h3 id="cas-dutilisation">Cas d'utilisation<a class="headerlink" href="#cas-dutilisation" title="Lien permanent">¤</a></h3>
 <h4 id="analyse-de-performance">Analyse de performance<a class="headerlink" href="#analyse-de-performance" title="Lien permanent">¤</a></h4>
-<p>Les performances d'un programmes peuvent être impactées par des appels systèmes trop nombreux. Lorsqu'un programme communique avec le système d'exploitation (lecture disque, réseau, etc.), il doit passer par des appels systèmes. Ces appels peuvent être coûteux en temps et en ressources car ils nécessitent un changement de contexte entre le mode utilisateur et le mode noyau. C'est à dire que le programme doit se mettre en pause pour laisser le noyau effectuer l'opération demandée. Lors de la mesure du temps d'exécution d'un programme, par exemple avec <span class="ycr-hashtag" data-index-entry="time" data-tag="time"><code>time</code></span>, on peut noter le temps <em>system</em> qui correspond au temps passé dans le noyau. Si ce temps est trop élevé, cela peut indiquer que le programme n'est pas efficace car il passe son temps à attendre des opérations d'entrée/sortie. <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span> permet dans ce cas de mesurer le nombre d'appels systèmes et de les analyser pour comprendre pourquoi le programme est lent.</p>
-<p>À titre d'exemple, prenons la sortie standard. Dans le standard <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, un programme n'est pas directement connecté à la sortie standard. La bibliothèque standard C utiliser un tampon pour stocker les données avant de les envoyer à la sortie standard. Ce tampon est automatiquement vidé selon certaines conditions notamment :</p>
+<p>Les performances d'un programme peuvent être impactées par des appels système trop nombreux. Lorsqu'un programme communique avec le système d'exploitation (lecture disque, réseau, etc.), il doit passer par des appels système. Ces appels peuvent être coûteux en temps et en ressources car ils nécessitent un changement de contexte entre le mode utilisateur et le mode noyau. C'est-à-dire que le programme doit se mettre en pause pour laisser le noyau effectuer l'opération demandée. Lors de la mesure du temps d'exécution d'un programme, par exemple avec <span class="ycr-hashtag" data-index-entry="time" data-tag="time"><code>time</code></span>, on peut noter le temps <em>system</em> qui correspond au temps passé dans le noyau. Si ce temps est trop élevé, cela peut indiquer que le programme n'est pas efficace car il passe son temps à attendre des opérations d'entrée/sortie. <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span> permet dans ce cas de mesurer le nombre d'appels système et de les analyser pour comprendre pourquoi le programme est lent.</p>
+<p>À titre d'exemple, prenons la sortie standard. Dans le standard <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, un programme n'est pas directement connecté à la sortie standard. La bibliothèque standard C utilise un tampon pour stocker les données avant de les envoyer à la sortie standard. Ce tampon est automatiquement vidé selon certaines conditions notamment :</p>
 <ul>
 <li>lorsqu'un caractère de fin de ligne est écrit,</li>
 <li>lorsque le programme se termine,</li>
@@ -6219,7 +6248,7 @@ les outils associés.
 <p>Cette exécution est reportée avec la ligne suivante. On observe que les trois opérations <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> sont regroupées dans un seul appel système.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>write(1, "foobar\n", 7)                 = 7
 </span></code></pre></div>
-<p>En revanche, si le programme est modifié pour vider le tampon après chaque caractère, on observe davantage d'appels systèmes :</p>
+<p>En revanche, si le programme est modifié pour vider le tampon après chaque caractère, on observe davantage d'appels système :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"foobar</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -6228,17 +6257,17 @@ les outils associés.
 </span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">   </span><span class="p">}</span>
 </span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>write(1, "f", 1f)     = 1
-</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>write(1, "o", 1o)     = 1
-</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>write(1, "o", 1o)     = 1
-</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>write(1, "b", 1b)     = 1
-</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>write(1, "a", 1a)     = 1
-</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>write(1, "r", 1r)     = 1
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>write(1, "f", 1)     = 1
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>write(1, "o", 1)     = 1
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>write(1, "o", 1)     = 1
+</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>write(1, "b", 1)     = 1
+</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>write(1, "a", 1)     = 1
+</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>write(1, "r", 1)     = 1
 </span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>write(1, "\n", 1)     = 1
 </span></code></pre></div>
 <h4 id="suivi-des-operations-dentreesortie">Suivi des opérations d'entrée/sortie<a class="headerlink" href="#suivi-des-operations-dentreesortie" title="Lien permanent">¤</a></h4>
 <p><span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span> permet de suivre les opérations d'entrée/sortie d'un programme. Cela peut être utile pour comprendre pourquoi un programme ne fonctionne pas correctement. Par exemple, si un programme lit un fichier et que le fichier n'est pas trouvé, <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span> permet de voir l'appel système <span class="ycr-hashtag" data-index-entry="open" data-tag="open"><code>open</code></span> et le code d'erreur <span class="ycr-hashtag" data-index-entry="ENOENT" data-tag="ENOENT"><code>ENOENT</code></span> qui indique que le fichier n'existe pas.</p>
-<p>Dans ce cas on ne sera sensible qu'aux appels systèmes <span class="ycr-hashtag" data-index-entry="open" data-tag="open"><code>open</code></span>  et <span class="ycr-hashtag" data-index-entry="write" data-tag="write"><code>write</code></span>:</p>
+<p>Dans ce cas on ne sera sensible qu'aux appels système <span class="ycr-hashtag" data-index-entry="open" data-tag="open"><code>open</code></span>  et <span class="ycr-hashtag" data-index-entry="write" data-tag="write"><code>write</code></span>:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>strace<span class="w"> </span>-e<span class="w"> </span><span class="nv">trace</span><span class="o">=</span>open,read,write<span class="w"> </span>./a.out
 </span></code></pre></div>
 <h4 id="resolution-des-dependances">Résolution des dépendances<a class="headerlink" href="#resolution-des-dependances" title="Lien permanent">¤</a></h4>
@@ -6280,9 +6309,9 @@ les outils associés.
 </ol>
 <p>On observe donc des éléments importants de l'exécution d'un programme. Les bibliothèques dynamiques sont chargées en mémoire au début de l'exécution du programme. Si ces bibliothèques sont absentes du système, il ne pourra pas être exécuté.</p>
 <h4 id="suivi-des-threads">Suivi des threads<a class="headerlink" href="#suivi-des-threads" title="Lien permanent">¤</a></h4>
-<p>Lors d'un programme concurrent, il est possible de suivre la création et la terminaison des threads avec <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span>, notament au moyen des appels systèmes <span class="ycr-hashtag" data-index-entry="fork" data-tag="fork"><code>fork</code></span>, <span class="ycr-hashtag" data-index-entry="clone" data-tag="clone"><code>clone</code></span> ou <span class="ycr-hashtag" data-index-entry="exec" data-tag="exec"><code>exec</code></span>. Les appels à <span class="ycr-hashtag" data-index-entry="futex" data-tag="futex"><code>futex</code></span> permettent de voir les opérations de synchronisation entre les threads utilisés par les mutex et les variables de condition.</p>
+<p>Lors d'un programme concurrent, il est possible de suivre la création et la terminaison des threads avec <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span>, notament au moyen des appels système <span class="ycr-hashtag" data-index-entry="fork" data-tag="fork"><code>fork</code></span>, <span class="ycr-hashtag" data-index-entry="clone" data-tag="clone"><code>clone</code></span> ou <span class="ycr-hashtag" data-index-entry="exec" data-tag="exec"><code>exec</code></span>. Les appels à <span class="ycr-hashtag" data-index-entry="futex" data-tag="futex"><code>futex</code></span> permettent de voir les opérations de synchronisation entre les threads utilisés par les mutex et les variables de condition.</p>
 <h3 id="fonctionnement-interne">Fonctionnement interne<a class="headerlink" href="#fonctionnement-interne" title="Lien permanent">¤</a></h3>
-<p>Le fonctionnement de cet outil repose sur <span class="ycr-hashtag" data-index-entry="ptrace" data-tag="ptrace"><code>ptrace</code></span> qui est une fonction du noyau Linux qui permet de suivre l'exécution d'un processus. <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span> utilise cette fonction pour intercepter les appels systèmes et les signaux. <span class="ycr-hashtag" data-index-entry="ptrace" data-tag="ptrace"><code>ptrace</code></span> est notament utilisé par les débogueurs comme <span class="ycr-hashtag" data-index-entry="gdb" data-tag="gdb"><code>gdb</code></span>. À chaque fois qu'un processus enfant execute un appel système, le processus traceur est notifié et peut inspecter les registres du processus enfant.</p>
+<p>Le fonctionnement de cet outil repose sur <span class="ycr-hashtag" data-index-entry="ptrace" data-tag="ptrace"><code>ptrace</code></span> qui est une fonction du noyau Linux qui permet de suivre l'exécution d'un processus. <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span> utilise cette fonction pour intercepter les appels système et les signaux. <span class="ycr-hashtag" data-index-entry="ptrace" data-tag="ptrace"><code>ptrace</code></span> est notament utilisé par les débogueurs comme <span class="ycr-hashtag" data-index-entry="gdb" data-tag="gdb"><code>gdb</code></span>. À chaque fois qu'un processus enfant execute un appel système, le processus traceur est notifié et peut inspecter les registres du processus enfant.</p>
 <p>Pour mieux comprendre comment fonctionn <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span>, voici un exemple simple d'un programme C qui utilise <span class="ycr-hashtag" data-index-entry="ptrace" data-tag="ptrace"><code>ptrace</code></span> pour tracer l'appel système <span class="ycr-hashtag" data-index-entry="write" data-tag="write"><code>write</code></span> notament utilisé par <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span>.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -6340,10 +6369,10 @@ les outils associés.
 </span><span id="__span-10-5"><a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>Hello from the child process!
 </span></code></pre></div>
 <p>Ce programme utilise deux processus légers (threads), l'enfant simule le processus tracé et le parent est le traceur. Au moment du <span class="ycr-hashtag" data-index-entry="fork" data-tag="fork"><code>fork</code></span> le programme est dupliqué et s'exécute en parallèle. Pour distinguer le parent de l'enfant, on utilise la valeur de retour de <span class="ycr-hashtag" data-index-entry="fork" data-tag="fork"><code>fork</code></span>. Si la valeur est <code>0</code>, c'est que le processus est l'enfant, sinon c'est le parent. Il y a donc deux chemins possibles dans le programme.</p>
-<p>L'enfant autorise le parent à le tracer avec <span class="ycr-hashtag" data-index-entry="PTRACE_TRACEME" data-tag="PTRACE_TRACEME"><code>PTRACE_TRACEME</code></span> et se met en pause avec <code>raise(SIGSTOP);</code>. Le parent attend que l'enfant soit en pause avec <code>waitpid(child, &amp;status, 0);</code> et commence à tracer les appels systèmes avec <code>PTRACE_SYSCALL, child</code>. Cette instruction demande au noyau de laisser l'enfant continuer son exécution, mais avec une interception à chaque entrée et sortie d'un appel système. Cela signifie que chaque fois que l'enfant effectue un appel système, il sera suspendu, et le parent sera notifié. Le point de sortie de la boucle while est le test de <span class="ycr-hashtag" data-index-entry="WIFEXITED" data-tag="WIFEXITED"><code>WIFEXITED</code></span> qui vérifie si le processus enfant s'est terminé, dans ce cas, le parent sort de la boucle.
+<p>L'enfant autorise le parent à le tracer avec <span class="ycr-hashtag" data-index-entry="PTRACE_TRACEME" data-tag="PTRACE_TRACEME"><code>PTRACE_TRACEME</code></span> et se met en pause avec <code>raise(SIGSTOP);</code>. Le parent attend que l'enfant soit en pause avec <code>waitpid(child, &amp;status, 0);</code> et commence à tracer les appels système avec <code>PTRACE_SYSCALL, child</code>. Cette instruction demande au noyau de laisser l'enfant continuer son exécution, mais avec une interception à chaque entrée et sortie d'un appel système. Cela signifie que chaque fois que l'enfant effectue un appel système, il sera suspendu, et le parent sera notifié. Le point de sortie de la boucle while est le test de <span class="ycr-hashtag" data-index-entry="WIFEXITED" data-tag="WIFEXITED"><code>WIFEXITED</code></span> qui vérifie si le processus enfant s'est terminé, dans ce cas, le parent sort de la boucle.
 L'appel <span class="ycr-hashtag" data-index-entry="PTRACE_GETREGS" data-tag="PTRACE_GETREGS"><code>PTRACE_GETREGS</code></span> permet au parent de lire les registres du processus enfant. Ces registres contiennent des informations cruciales comme le numéro de l'appel système dans le registre <span class="ycr-hashtag" data-index-entry="orig_rax" data-tag="orig_rax"><code>orig_rax</code></span> pour les systèmes <span class="ycr-hashtag" data-index-entry="x86_64" data-tag="x86_64"><code>x86_64</code></span>. Si l'appel système intercepté est <span class="ycr-hashtag" data-index-entry="SYS_write" data-tag="SYS_write"><code>SYS_write</code></span>, le parent affiche les informations sur l'appel système. Enfin, le parent laisse l'enfant continuer son exécution avec <span class="ycr-hashtag" data-index-entry="PTRACE_SYSCALL" data-tag="PTRACE_SYSCALL"><code>PTRACE_SYSCALL</code></span> et attend le suivant.</p>
 <h2 id="ltrace">ltrace<a class="headerlink" href="#ltrace" title="Lien permanent">¤</a></h2>
-<p><span class="ycr-hashtag" data-index-entry="ltrace" data-tag="ltrace"><code>ltrace</code></span> (pour <em>library trace</em>) est un outil de diagnostique qui permet de suivre les appels aux fonctions des bibliothèques partagées. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution. <span class="ycr-hashtag" data-index-entry="ltrace" data-tag="ltrace"><code>ltrace</code></span> est un outil plus simple que <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span> car il ne suit que les appels de fonctions et non les appels systèmes. Prenons l'exemple du programme suivant :</p>
+<p><span class="ycr-hashtag" data-index-entry="ltrace" data-tag="ltrace"><code>ltrace</code></span> (pour <em>library trace</em>) est un outil de diagnostic qui permet de suivre les appels aux fonctions des bibliothèques partagées. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution. <span class="ycr-hashtag" data-index-entry="ltrace" data-tag="ltrace"><code>ltrace</code></span> est un outil plus simple que <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span> car il ne suit que les appels de fonctions et non les appels système. Prenons l'exemple du programme suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>
@@ -6362,7 +6391,7 @@ L'appel <span class="ycr-hashtag" data-index-entry="PTRACE_GETREGS" data-tag="PT
 </span></code></pre></div>
 <p>On peut voir notament que le compilateur à remplacé <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> par <span class="ycr-hashtag" data-index-entry="puts" data-tag="puts"><code>puts</code></span> car aucun format n'est utilisé.</p>
 <h2 id="perf">perf<a class="headerlink" href="#perf" title="Lien permanent">¤</a></h2>
-<p><span class="ycr-hashtag" data-index-entry="perf" data-tag="perf"><code>perf</code></span> est un outil très puissant de diagnostique qui permet de suivre les performances d'un programme en analysant les compteurs matériels du processeur.</p>
+<p><span class="ycr-hashtag" data-index-entry="perf" data-tag="perf"><code>perf</code></span> est un outil très puissant de diagnostic qui permet de suivre les performances d'un programme en analysant les compteurs matériels du processeur.</p>
 <p>Le processeur est un organe très complexe qui contient de nombreux compteurs matériels qui permettent de mesurer des métriques comme le nombre de cycles d'horloge, l'utilisation de la mémoire cache, le predicteur d'embranchement, les changements de contexte, etc. Ces compteurs sont très utiles pour comprendre le comportement d'un programme et identifier les goulots d'étranglement.</p>
 <p>Les PMU (<em>Performance Monitoring Units</em>) sont des composants matériels qui permettent de mesurer ces métriques. Les PMU sont spécifiques à chaque processeur et sont généralement accessibles via des instructions spécifiques.
 Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Intel Core i7 de 10e génération ne dispose pas des mêmes compteurs qu'un processeur AMD Ryzen 9. L'installation de <span class="ycr-hashtag" data-index-entry="perf" data-tag="perf"><code>perf</code></span> n'est donc pas triviale, surtout sur des systèmes hypervisés ou virtualisés.</p>
@@ -6462,7 +6491,7 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
 </span><span id="__span-18-24"><a href="#__codelineno-18-24" id="__codelineno-18-24" name="__codelineno-18-24"></a>  system_time                          [Tool event]
 </span></code></pre></div>
 <h2 id="valgrind">valgrind<a class="headerlink" href="#valgrind" title="Lien permanent">¤</a></h2>
-<p><span class="ycr-hashtag" data-index-entry="valgrind" data-tag="valgrind"><code>valgrind</code></span> est un outil de diagnostique qui permet de suivre les erreurs de mémoire dans un programme. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution. <span class="ycr-hashtag" data-index-entry="valgrind" data-tag="valgrind"><code>valgrind</code></span> est un outil plus simple que <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span> car il ne suit que les erreurs de mémoire et non les appels systèmes.</p>
+<p><span class="ycr-hashtag" data-index-entry="valgrind" data-tag="valgrind"><code>valgrind</code></span> est un outil de diagnostic qui permet de suivre les erreurs de mémoire dans un programme. Il est très utile pour comprendre le comportement d'un programme en cours d'exécution. <span class="ycr-hashtag" data-index-entry="valgrind" data-tag="valgrind"><code>valgrind</code></span> est un outil plus simple que <span class="ycr-hashtag" data-index-entry="strace" data-tag="strace"><code>strace</code></span> car il ne suit que les erreurs de mémoire et non les appels système.</p>
 <p>L'outil est disponible sur Ubuntu et dérivés avec la commande suivante :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>valgrind
 </span></code></pre></div>
@@ -6487,7 +6516,7 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
 <p><strong>Débogage multithread</strong> : Valgrind aide à détecter les <strong>erreurs de synchronisation</strong> dans les programmes multithread, comme les <strong>data races</strong> (accès concurrents non protégés à des variables partagées) ou les <strong>verrous non libérés</strong>.</p>
 </li>
 <li>
-<p><strong>Vérification des appels système incorrects</strong> : Valgrind détecte les mauvais usages des appels systèmes, comme la fermeture de descripteurs de fichiers qui ne sont pas ouverts.</p>
+<p><strong>Vérification des appels système incorrects</strong> : Valgrind détecte les mauvais usages des appels système, comme la fermeture de descripteurs de fichiers qui ne sont pas ouverts.</p>
 </li>
 <li>
 <p><strong>Analyse des performances</strong> : Avec l'outil <strong>Callgrind</strong> (inclus dans Valgrind), il permet de <strong>profiler les programmes</strong> en comptant les instructions exécutées et en générant des informations sur l'utilisation du <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> et des fonctions, utile pour l'optimisation des performances.</p>
@@ -6519,9 +6548,9 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
       
   <span class="md-source-file__fact">
     <span class="md-icon" title="Dernière mise à jour">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">23 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="7 octobre 2025 20:32:53 UTC">7 octobre 2025</span>
   </span>
 
     
@@ -6529,9 +6558,9 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
       
   <span class="md-source-file__fact">
     <span class="md-icon" title="Créé">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">22 septembre 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="22 septembre 2024 11:52:32 UTC">22 septembre 2024</span>
   </span>
 
     
@@ -6541,11 +6570,12 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributeurs">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"></path></svg>
       
     </span>
     <nav>
       
+        <a href="mailto:52489316+yves-chevallier@users.noreply.github.com">Yves Chevallier</a>, 
         <a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>
     </nav>
   </span>
@@ -6568,11 +6598,11 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
         <div class="md-feedback__list">
           
             <button class="md-feedback__icon md-icon" type="submit" title="Cette page m'a été utile" data-md-value="1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"></path></svg>
             </button>
           
             <button class="md-feedback__icon md-icon" type="submit" title="Cette page pourrait être améliorée" data-md-value="0">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"></path></svg>
             </button>
           
         </div>
@@ -6610,7 +6640,7 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Retour en haut de la page
 </button>
         
@@ -6620,13 +6650,13 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page">
         
           
           <a href="../../python/python/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Python">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -6651,7 +6681,7 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -6663,7 +6693,7 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier - <a href="#__consent">Paramètres des cookies</a>
+      Copyright © 2019 - 2024 HEIG-VD Yves Chevallier - <a href="#__consent">Paramètres des cookies</a>
 
     </div>
   
@@ -6685,7 +6715,7 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
       
     
     <a href="https://github.com/heig-tin-info/handbook" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
     </a>
   
 </div>
@@ -6724,7 +6754,7 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
 
 <h4>Cookie consent</h4>
 <p>Nous utilisons des cookies pour reconnaître vos visites répétées et vos préférences, ainsi que pour mesurer l'efficacité de notre documentation et savoir si les utilisateurs trouvent ce qu'ils recherchent. Avec votre consentement, vous nous aidez à améliorer notre documentation.</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
+<input class="md-toggle" type="checkbox" id="__settings">
 <div class="md-consent__settings">
   <ul class="task-list">
     
@@ -6779,13 +6809,11 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "content.footnote.tooltips", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.preview", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.c7c1ca2c.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.203fd0bc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b71cdcd1.min.js"></script>
       
         <script src="../../../assets/_markdown_exec_pyodide.js"></script>
       
         <script src="../../../js/viewer.min.js"></script>
-      
-        <script src="../../../js/drawio.js"></script>
       
         <script src="../../../js/wiki-tips.js"></script>
       
@@ -6803,10 +6831,14 @@ Ils dépendent grandement du processeur utilisé. Par exemple, un processeur Int
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
+        <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+      
+        <script src="../../../js/drawio-reload.js"></script>
+      
         <script src="../../../exercise.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
