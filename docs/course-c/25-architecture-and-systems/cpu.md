@@ -661,7 +661,7 @@ Les processeurs modernes comptent entre 8 et 24 cœurs, et malgré leur prix com
 
 À la lecture de ce chapitre vous êtes certainement encore plus perdu qu'au début, tentons ici de démystifier ce qui se trouve réellement sur une puce de silicium. Pour cela, nous sommes contraints de remonter dans le temps, en 1971, pour étudier le premier microprocesseur commercialisé, l'Intel 4004. Il est d'une part très simple avec ses 2500 transistors, réalisé dans un process de 10 µm ce qui permet de le voir avec un microscope optique et enfin son design a été publié par Intel, ce qui permet de le reproduire et de s'intéresser à son schéma interne.
 
-![Schéma bloc de l'Intel 4004](/assets/images/intel-4004-block-diagram.png)
+![Schéma bloc de l'Intel 4004](/assets/images/intel-4004-block-diagram.drawio)
 
 ## Travaux intéressants
 
