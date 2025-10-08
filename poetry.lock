@@ -1628,12 +1628,10 @@ name = "mkdocs-drawio"
 version = "1.11.2"
 description = "MkDocs plugin for embedding Drawio files"
 optional = false
-python-versions = "<4.0,>=3.8.0"
+python-versions = ">=3.8.0,<4.0"
 groups = ["main"]
-files = [
-    {file = "mkdocs_drawio-1.11.2-py3-none-any.whl", hash = "sha256:754f224dd467a90d76d170c41d544322daa1ba1f3bd322a33f98b9884d96ec71"},
-    {file = "mkdocs_drawio-1.11.2.tar.gz", hash = "sha256:73f23f7aac3147807908afa800463ab415a714d11df1cd12424500f375c9ebfa"},
-]
+files = []
+develop = false
 
 [package.dependencies]
 beautifulsoup4 = ">=4.0"
@@ -1641,6 +1639,12 @@ Jinja2 = ">=3.0"
 lxml = ">=4.0"
 mkdocs = ">=1.4"
 requests = ">=2.0"
+
+[package.source]
+type = "git"
+url = "https://github.com/yves-chevallier/mkdocs-drawio.git"
+reference = "HEAD"
+resolved_reference = "cc3e5906f6292fe26386ca85fbe1b7709c8ea878"
 
 [[package]]
 name = "mkdocs-drawio-exporter"
@@ -3900,4 +3904,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "6125bab3f12fa2399baa77e9dd89fce8329757ea853037ff997b0146e2bd082b"
+content-hash = "43288b6d6912c03a8de6498a8105f2d92a075592a95a6cb2008690b392b6b2f1"

@@ -1,5 +1,5 @@
-""" Adds a class to drawio images to prevent GLightbox to process them.
-GraphViwer will process them instead. """
+"""Adds a class to drawio images to prevent GLightbox to process them.
+GraphViwer will process them instead."""
 
 import re
 

@@ -1,5 +1,6 @@
-MD046:
-  style: "fenced"
+MD046: false # Conflic between code and admonition blocks
 
 MD013:
   line_length: 1000
+
+MD042: false # Allowing [](){#anchor} syntax for anchors

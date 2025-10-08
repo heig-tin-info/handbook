@@ -3,32 +3,34 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "settings": {
-    "python.pythonPath": "/usr/bin/python",
-    "C_Cpp.default.compilerPath": "/usr/bin/clang"
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/bin/python3",
+        "C_Cpp.default.compilerPath": "/usr/bin/clang"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pyright",
+        "ms-vscode.cpptools",
+        "ms-vscode.clang-format",
+        "yzhang.markdown-all-in-one",
+        "marp-team.marp-vscode",
+        "shuworks.vscode-table-formatter",
+        "trond-snekvik.simple-rst",
+        "editorconfig.editorconfig",
+        "tamasfe.even-better-toml",
+        "shd101wyy.markdown-preview-enhanced",
+        "davidanson.vscode-markdownlint",
+        "bierner.markdown-mermaid",
+        "hediet.vscode-drawio"
+      ]
+    }
   },
-  "extensions": [
-    "ms-python.python",
-    "yzhang.markdown-all-in-one",
-    "marp-team.marp-vscode",
-    "shuworks.vscode-table-formatter",
-    "ms-python.vscode-pyright",
-    "trond-snekvik.simple-rst",
-    "editorconfig.editorconfig",
-    "ms-vscode.cpptools",
-    "ms-vscode.clang-format",
-    "tamasfe.even-better-toml",
-    "shd101wyy.markdown-preview-enhanced",
-    "davidanson.vscode-markdownlint",
-    "bierner.markdown-mermaid",
-    "hediet.vscode-drawio"
-  ],
   "mounts": [
-    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
-    "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind",
     "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind"
   ],
   "postCreateCommand": "poetry install",
-  "remoteUser": "root"
+  "remoteUser": "vscode"
 }

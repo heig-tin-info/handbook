@@ -365,7 +365,7 @@ Figure: Table de correspondance du nombre d'octets d'une séquence UTF-8 selon l
 
 ![Nombre d'octets en UTF-8](/assets/images/unicode-table.drawio)
 
-Table: Longueur des séquences UTF-8
+Table: Longueur des séquences Unicode
 
 | Longueur | Octet 1  | Octets suivants                              | Plage Unicode      |
 | -------- | -------- | -------------------------------------------- | ------------------ |

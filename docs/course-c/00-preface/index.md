@@ -98,7 +98,7 @@ Aussi dans cet ouvrage, les expressions régulières sont mises en évidence ave
 
 Nous verrons que le signe d'égalité `=` peut aisément être confondu avec l'opérateur d'affectation du langage C qui s'écrit de la même manière. Dans certains exemples où l'on montre une égalité entre différentes écritures, le signe d'égalité triple U+2261 sera utilisé pour dissiper toute ambiguïté éventuelle:
 
-```
+```text
 'a' ≡ 0b1100001 ≡ 97 ≡ 0x61 ≡ 00141
 ```
 
@@ -161,7 +161,6 @@ Des encadrés sont utilisés pour mettre en avant des informations complémentai
 Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exercice difficile. Il est parfois moins lourd de parler de *hardware* que de *matériel informatique*. Certains termes n'ont pas de traduction en français. Par exemple, le terme *set* appliqué à un ensemble de données n'a pas de traduction crédible en français. La table [][anglisismes] ci-dessous montre quelques termes qui seront utilisés dans cet ouvrage:
 
 Table: Anglicismes
-
 
 | Anglais    | Français              | Préférence |
 | ---------- | --------------------- | ---------- |
