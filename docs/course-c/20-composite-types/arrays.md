@@ -306,7 +306,6 @@ target type [-Wdiscarded-qualifiers]
 
 ## Tableaux multidimensionnels
 
-
 Il est possible de déclarer un tableau à plusieurs dimensions. Si par exemple on souhaite définir une grille de jeu du *tic-tac-toe* ou morpion, il faudra une grille de 3x3.
 
 Pour ce faire, il est possible de définir un tableau de 6 éléments comme vu auparavant, et utiliser un artifice pour adresser les lignes et les colonnes :
@@ -542,7 +541,6 @@ memcpy(b, a, 5);
 
 ## Exercices
 
-
 !!! exercise "Assignation"
 
     Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.
@@ -669,11 +667,11 @@ memcpy(b, a, 5);
     Exemple :
 
     ```text
-        0   1   2   3   4   5   6   7   8   9   10
+      0   1   2   3   4   5   6   7   8   9   10
     ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
     │-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
     └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
-                                    ^
+                                  ^
     ```
 
     ??? solution

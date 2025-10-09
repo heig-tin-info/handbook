@@ -145,7 +145,6 @@ Pour mieux saisir la notion de point de séquence, il est essentiel de comprendr
 
 Les points de séquence jouent un rôle crucial en imposant des barrières explicites dans le flux d'instructions, garantissant qu'à ces points précis, tous les effets des calculs précédents sont achevés avant de passer à l'évaluation des instructions suivantes. En d'autres termes, ils empêchent le réordonnancement des instructions au-delà d'un point donné, assurant ainsi un comportement prévisible et conforme aux attentes du programmeur.
 
-
 [](){#conditional-jumps}
 
 ## Les sauts conditionnels
@@ -289,7 +288,7 @@ else {
 }
 ```
 
-!!! info "Allman, Stroustrup ou K&R ?"
+!!! info "Allman, Stroustrup ou K et R ?"
 
     Il existe plusieurs conventions de style pour écrire les blocs de code. Les plus connues sont les styles Allman, Stroustrup et K&R. Le style Allman place les accolades sur des lignes séparées, le style Stroustrup les place sur la même ligne que l'instruction de contrôle, et le style K&R les place sur la même ligne que l'instruction de contrôle mais avec un décalage.
 
@@ -647,8 +646,8 @@ switch (n % 8) {  // Détermine le point d'entrée initial dans la boucle
 - Les étiquettes `case` doivent être séparées par un retour à la ligne, il n'est pas possible d'avoir plusieurs étiquettes sur une même ligne.
 - Il est possible de chaîner les étiquettes sans `break` pour exécuter plusieurs instructions.
 
-
 [](){#loops}
+
 ## Les boucles
 
 ![Bien choisir sa structure de contrôle](/assets/images/road-runner.drawio)
@@ -895,6 +894,7 @@ int main(void)
 ```
 
 [](){#jumps}
+
 ## Les sauts
 
 Il existe 4 instructions en C permettant de contrôler le déroulement de

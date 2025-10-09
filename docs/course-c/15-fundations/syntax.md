@@ -47,7 +47,7 @@ Les Japonais quant à eux utilisent trois systèmes d'écriture, le [[Hiragana]]
 
 On notera ici que l'alphabet latin est tout particulièrement adapté à la programmation, car, d'une part ce fut le premier alphabet à être utilisé pour l'écriture de programmes informatiques et d'autre part, il reste assez simple pour être utilisé par des machines. On peut noter en outre que les pays qui utilisent leur propre alphabet doivent impérativement apprendre et maîtriser l'alphabet latin pour pouvoir programmer. Ceci implique qu'ils doivent également disposer d'un clavier latin pour pouvoir saisir leur code. Ayez à l'esprit que nous sommes des privilégiés de ne pas devoir jongler avec plusieurs alphabets pour écrire du code...
 
-Outre ces caractères, la séparation des symboles est assurée par [une espace](https://fr.wikipedia.org/wiki/Espace_(typographie)), une tabulation horizontale, une [[tabulation]] verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le [pied-de-mouche](https://fr.wikipedia.org/wiki/Pied-de-mouche) `¶` U+00B6 pour indiquer les fins de paragraphes qui sont également des caractères non imprimables. [[||pied-de-mouche (¶)]] [[||caractère non imprimable]] [[||U+00B6]]
+Outre ces caractères, la séparation des symboles est assurée par [une espace](https://fr.wikipedia.org/wiki/Espace_(typographie)), une tabulation horizontale, une [[tabulation]] verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le [pied-de-mouche](https://fr.wikipedia.org/wiki/Pied-de-mouche) `¶` U+00B6 pour indiquer les fins de paragraphes qui sont également des caractères non imprimables. [[||pied-de-mouche (¶)]] [[||caractère non imprimable]]
 
 La convention est de nommer les caractères non imprimables soit par leur acronyme `LF` pour *Line Feed* ou soit par leur convention C échappée par un *backslash n* `\n`:
 
@@ -83,8 +83,8 @@ Historiquement il y a donc bien une distinction entre ces deux caractères, mais
 
 Ces subtilités de la machine à écrire ont été partiellement reprises dans le format [Unicode][unicode]. Aussi pour écrire un accent aigu, il y a aujourd'hui plusieurs façons de le faire.
 
-1. Utiliser le caractère `e` U+0065 suivi du caractère `´` U+0301 aussi appelé *combining acute accent* pour obtenir `é`. [[||U+0301]]
-2. Utiliser le caractère `é` U+00E9 directement. [[||U+0065]] [[||U+00E9]]
+1. Utiliser le caractère `e` U+0065 suivi du caractère `´` U+0301 aussi appelé *combining acute accent* pour obtenir `é`. U+0301
+2. Utiliser le caractère `é` U+00E9 directement. U+0065 U+00E9
 
 Ces héritages historiques font qu'il est difficile aujourd'hui de traiter sans bogue les textes multilingues. Les cas particuliers sont nombreux et bien souvent, les informaticiens utilisent des bibliothèques logicielles pour gérer ces cas particuliers.
 
