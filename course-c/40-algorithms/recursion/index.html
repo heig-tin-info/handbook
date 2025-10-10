@@ -1080,10 +1080,10 @@ les outils associés.
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#utilisation-du-stack">
+<a class="md-nav__link" href="#utilisation-de-la-pile">
 <span class="md-ellipsis">
       
-        Utilisation du stack
+        Utilisation de la pile
       
     </span>
 </a>
@@ -2544,10 +2544,10 @@ les outils associés.
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#utilisation-du-stack">
+<a class="md-nav__link" href="#utilisation-de-la-pile">
 <span class="md-ellipsis">
       
-        Utilisation du stack
+        Utilisation de la pile
       
     </span>
 </a>
@@ -2633,7 +2633,7 @@ les outils associés.
 <h1 id="recursivite">Récursivité<a class="headerlink" href="#recursivite" title="Lien permanent">¤</a></h1>
 <blockquote class="epigraph">To understand what recursion is, you must first understand recursion.<footer>Internet</footer></blockquote>
 <p>La <a href="https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9">récursivité</a> est une technique de programmation dans laquelle une fonction s'appelle elle-même pour résoudre un problème. Cela signifie que la fonction résout une partie du problème et appelle ensuite la fonction elle-même pour résoudre le reste du problème.</p>
-<p>La récursivité est utilisée pour résoudre des problèmes qui peuvent être décomposés en problèmes plus petits de la même nature. Par exemple, la factorielle d'un nombre est le produit de tous les entiers positifs inférieurs ou égaux à ce nombre. La factorielle d'un nombre <code>n</code> est <code>n! = n * (n-1)!</code>.</p>
+<p>La récursivité est utilisée pour résoudre des problèmes qui peuvent être décomposés en sous-problèmes plus petits de même nature. Par exemple, la factorielle d'un nombre est le produit de tous les entiers positifs inférieurs ou égaux à ce nombre ; on la définit ainsi : <code>n! = n × (n - 1)!</code>.</p>
 <p>Au chapitre sur les fonctions, nous avions donné l'<a class="autorefs autorefs-internal" href="../../15-fundations/functions/#suite-de-fibonacci">exemple du calcul de la somme de la suite de Fibonacci</a> jusqu'à <code>n</code> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">{</span>
@@ -2650,17 +2650,17 @@ les outils associés.
 </span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
 </span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Il peut sembler plus logique de raisonner de façon récursive. Quelle que soit l'itération à laquelle l'on soit, l'assertion suivante est valable :</p>
+<p>Il peut sembler plus naturel de raisonner de façon récursive. Quelle que soit l'itération considérée, l'assertion suivante reste valable :</p>
 <div class="arithmatex">\[fib(n) == fib(n - 1) + fib(n - 2)\]</div>
-<p>Donc pourquoi ne pas réécrire cette fonction en employant ce caractère récursif ?</p>
+<p>Pourquoi ne pas réécrire cette fonction en exploitant cette relation de récurrence ?</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="p">{</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 </span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Le code est beaucoup plus simple à écrire, et même à lire. Néanmoins cet algorithme est notoirement connu pour être très mauvais en termes de performance. Calculer <code>fib(5)</code> revient à la chaîne d'appel suivant.</p>
-<p>Cette chaîne d'appel représente le nombre de fois que <span class="ycr-hashtag" data-index-entry="fib" data-tag="fib"><code>fib</code></span> est appelé et à quel niveau elle est appelée. Par exemple <code>fib(4)</code> est appelé dans <code>fib(5)</code> :</p>
+<p>Le code est beaucoup plus simple à écrire, et même à lire. Néanmoins, cet algorithme est tristement célèbre pour ses performances médiocres. Calculer <code>fib(5)</code> conduit à la chaîne d'appels suivante.</p>
+<p>Cette chaîne d'appels indique combien de fois <span class="ycr-hashtag" data-index-entry="fib" data-tag="fib"><code>fib</code></span> est invoquée et à quel niveau de la pile. Par exemple, <code>fib(4)</code> est appelé dans <code>fib(5)</code> :</p>
 <figure class="mermaid-figure"><pre class="mermaid"><code>%% Arbre d'appel de Fibonacci
 graph TD
 
@@ -2680,7 +2680,7 @@ graph TD
 32 --&gt; 14(("fib(1)"))
 
 23 --&gt; 15(("fib(1)"))</code></pre><figcaption>Arbre d'appel de Fibonacci</figcaption></figure>
-<p>Au final, <code>fib(1)</code> est appelé 5 fois, <code>fib(2)</code> 3 fois, <code>fib(3)</code> 2 fois, <code>fib(4)</code> et <code>fib(5)</code> 1 fois. Ce sont donc 12 appels à la fonction <span class="ycr-hashtag" data-index-entry="fib" data-tag="fib"><code>fib</code></span> pour calculer <code>fib(5)</code>.</p>
+<p>Au final, <code>fib(1)</code> est appelé cinq fois, <code>fib(2)</code> trois fois, <code>fib(3)</code> deux fois et <code>fib(4)</code> comme <code>fib(5)</code> une seule fois. Il faut donc douze appels à la fonction <span class="ycr-hashtag" data-index-entry="fib" data-tag="fib"><code>fib</code></span> pour calculer <code>fib(5)</code>.</p>
 <table>
 <thead>
 <tr>
@@ -2751,19 +2751,19 @@ graph TD
 </tr>
 </tbody>
 </table>
-<p>Il s'agit de la suite <a href="https://oeis.org/A000071">A000071</a> de l'OEIS. On constate que le nombre d'appels est exponentiel. Pour <code>fib(100)</code> il faudra neuf cent vingt-sept quintillions trois cent soixante-douze quadrillions six cent quatre-vingt-douze trillions cent quatre-vingt-treize milliards soixante-dix-huit millions neuf cent quatre-vingt-dix-neuf mille cent soixante-quinze appels à la fonction <span class="ycr-hashtag" data-index-entry="fib" data-tag="fib"><code>fib</code></span>. Pour un processeur capable de calculer 100 GFLOPS (milliards d'opérations par seconde), il faudra tout de même 294 ans. C'est un peu long...</p>
-<p>La complexité algorithmique de cette fonction est dite <span class="arithmatex">\(O(2^n)\)</span>. C'est-à-dire que le nombre d'appels suit une relation exponentielle. La réelle complexité est donnée par la relation :</p>
-<p>En revanche, dans l'approche itérative, on constate qu'une seule boucle <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span>. C'est-à-dire qu'il faudra seulement 100 itérations pour calculer la somme.</p>
-<p>Généralement les algorithmes récursifs (s'appelant eux-mêmes) sont moins performants que les algorithmes itératifs (utilisant des boucles). Néanmoins il est parfois plus facile d'écrire un algorithme récursif.</p>
-<p>Notons que tout algorithme récursif peut être écrit en un algorithme itératif, mais ce n'est pas toujours facile.</p>
+<p>Il s'agit de la suite <a href="https://oeis.org/A000071">A000071</a> de l'OEIS. On constate que le nombre d'appels explose de manière exponentielle. Pour <code>fib(100)</code>, il faudrait neuf cent vingt-sept quintillions trois cent soixante-douze quadrillions six cent quatre-vingt-douze trillions cent quatre-vingt-treize milliards soixante-dix-huit millions neuf cent quatre-vingt-dix-neuf mille cent soixante-quinze invocations de <span class="ycr-hashtag" data-index-entry="fib" data-tag="fib"><code>fib</code></span>. Avec un processeur capable de réaliser 100 GFLOPS (milliards d'opérations par seconde), cela représenterait tout de même près de 294 ans de calcul : un délai difficilement acceptable.</p>
+<p>La complexité algorithmique de cette fonction est dite <span class="arithmatex">\(O(2^n)\)</span>. Autrement dit, le nombre d'appels suit une relation exponentielle. La complexité exacte est donnée par la relation :</p>
+<p>En revanche, l'approche itérative ne requiert qu'une seule boucle <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span>. Il suffit donc de 100 itérations pour calculer la même somme.</p>
+<p>De manière générale, les algorithmes récursifs (qui s'appellent eux-mêmes) sont moins performants que leurs équivalents itératifs (basés sur des boucles). Néanmoins, il est parfois plus aisé de concevoir une version récursive.</p>
+<p>Notons que tout algorithme récursif peut être réécrit sous une forme itérative, mais l'exercice est loin d'être toujours trivial.</p>
 <h2 id="les-tours-de-hanoi">Les tours de Hanoï<a class="headerlink" href="#les-tours-de-hanoi" title="Lien permanent">¤</a></h2>
-<p>Les <a href="https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF">tours de Hanoï</a> est un jeu de réflexion inventé par le mathématicien français Édouard Lucas en 1889 et publié dans le tome 3 de ses Récréations mathématiques. Le jeu est composé de trois tiges et d'un certain nombre de disques de diamètres différents qui peuvent être empilés sur une tige. Le but du jeu est de déplacer tous les disques d'une tige à une autre, en respectant les règles suivantes :</p>
+<p>Les <a href="https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF">tours de Hanoï</a> sont un jeu de réflexion imaginé par le mathématicien français Édouard Lucas en 1889 et publié dans le tome 3 de ses <em>Récréations mathématiques</em>. Le dispositif comporte trois tiges et un certain nombre de disques de diamètres différents pouvant être empilés sur chaque tige. L'objectif est de déplacer tous les disques d'une tige à une autre en respectant les règles suivantes :</p>
 <ol>
 <li>On ne peut déplacer qu'un seul disque à la fois.</li>
 <li>Un disque ne peut être placé que sur un disque plus grand que lui ou sur une tige vide.</li>
 </ol>
 <p></p><figure id="_figure-1"><div class="mxgraph" data-mxgraph='{"tooltips":"0","border":5,"resize":"1","lightbox":1,"appearance":"automatic","url":"../../../assets/images/hanoi.drawio"}' style="max-width:100%;border:1px solid transparent;"></div><figcaption> Tours de Hanoï</figcaption></figure><p></p>
-<p>Ce problème se prête très bien à une résolution récursive. En effet, pour déplacer <code>n</code> disques de la tige <code>A</code> à la tige <code>C</code>, il suffit de déplacer <code>n-1</code> disques de la tige <code>A</code> à la tige <code>B</code>, puis de déplacer le disque restant de la tige <code>A</code> à la tige <code>C</code>, et enfin de déplacer les <code>n-1</code> disques de la tige <code>B</code> à la tige <code>C</code>.</p>
+<p>Ce problème se prête parfaitement à une résolution récursive. Pour déplacer <code>n</code> disques de la tige <code>A</code> vers la tige <code>C</code>, il suffit de transférer <code>n - 1</code> disques de <code>A</code> vers <code>B</code>, de déplacer le disque restant de <code>A</code> vers <code>C</code>, puis de déplacer les <code>n - 1</code> disques de <code>B</code> vers <code>C</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Algorithme Récursif</label><label for="__tabbed_1_2">Algorithme Itératif</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2873,7 +2873,7 @@ graph TD
 </div>
 </div>
 </div>
-<p>Ce qui donne le résultat suivant :</p>
+<p>L'exécution produit le résultat suivant :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>Déplacer le disque 1 de A à C
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>Déplacer le disque 2 de A à B
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>Déplacer le disque 1 de C à B
@@ -2882,11 +2882,11 @@ graph TD
 </span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>Déplacer le disque 2 de B à C
 </span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>Déplacer le disque 1 de A à C
 </span></code></pre></div>
-<p>On voit que l'implémentation itérative est bien plus complexe que l'implémentation récursive. C'est pourquoi il est souvent plus simple d'écrire un algorithme récursif, mais pas nécessairement plus performant.</p>
-<h2 id="utilisation-du-stack">Utilisation du stack<a class="headerlink" href="#utilisation-du-stack" title="Lien permanent">¤</a></h2>
-<p>En C, la récursivité est gérée par le stack. Chaque appel de fonction est empilé sur le stack. Lorsque la fonction retourne, elle est dépilée du stack. Il est important de noter que le stack a une taille limitée. Par défaut, sous Linux la taille du stack est de 8 Mio (donné par la commande <code>ulimit -s</code>), sous Windows c'est 1 Mio. Si la récursivité est trop profonde, il y a un risque de stack overflow.</p>
-<p>D'autre part, une fonction récursive qui utilise beaucoup de variables locales et beaucoup de paramètres seront tous empilés sur le stack. Cela peut rapidement saturer la mémoire.</p>
-<p>Prenons l'exemple suivant d'une fonction récursive qui déclare un tableau de 1Mio de caractères :</p>
+<p>On observe que l'implémentation itérative est sensiblement plus complexe que la version récursive. Voilà pourquoi il est souvent plus simple d'écrire un algorithme récursif, sans pour autant qu'il soit plus performant.</p>
+<h2 id="utilisation-de-la-pile">Utilisation de la pile<a class="headerlink" href="#utilisation-de-la-pile" title="Lien permanent">¤</a></h2>
+<p>En C, la récursivité est gérée par la pile d'exécution (<em>stack</em>). Chaque appel de fonction y est empilé. Lorsque la fonction retourne, son cadre est dépilé. Il est important de noter que la pile a une taille limitée : par défaut, sous Linux, elle est d'environ 8 Mio (valeur donnée par la commande <code>ulimit -s</code>) et, sous Windows, d'environ 1 Mio. Si la récursivité est trop profonde, le risque de dépassement de pile (<em>stack overflow</em>) devient réel.</p>
+<p>Par ailleurs, une fonction récursive qui utilise de nombreuses variables locales et paramètres stocke toutes ces données sur la pile. Celle-ci peut donc se saturer très rapidement.</p>
+<p>Considérons l'exemple suivant d'une fonction récursive qui déclare un tableau de 1 Mio de caractères :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
@@ -3168,7 +3168,7 @@ graph TD
 <span class="md-icon" title="Dernière mise à jour">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="7 octobre 2025 20:11:17 UTC">7 octobre 2025</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="10 octobre 2025 19:50:01 UTC">10 octobre 2025</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Créé">

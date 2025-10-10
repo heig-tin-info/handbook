@@ -2650,27 +2650,24 @@ les outils associés.
 </a>
 <h1 id="compilation-separee">Compilation séparée<a class="headerlink" href="#compilation-separee" title="Lien permanent">¤</a></h1>
 <h2 id="unite-de-traduction">Unité de traduction<a class="headerlink" href="#unite-de-traduction" title="Lien permanent">¤</a></h2>
-<p>En programmation, on appelle <em>translation unit</em> (unité de traduction), un code qui peut être <strong>compilé</strong> en un <strong>objet</strong> sans autre dépendance externe. Le plus souvent, une unité de traduction correspond à un fichier C.</p>
+<p>En programmation, on appelle <em>translation unit</em> (unité de traduction) toute portion de code qui peut être <strong>compilée</strong> en un <strong>objet</strong> sans dépendre d'autres fichiers. Dans la plupart des cas, une unité de traduction correspond à un fichier C unique.</p>
 <h2 id="diviser-pour-mieux-regner">Diviser pour mieux régner<a class="headerlink" href="#diviser-pour-mieux-regner" title="Lien permanent">¤</a></h2>
-<p>De même qu'un magazine illustré est divisé en sections pour accroître la lisibilité (sport, news, annonces, météo) de même un code source est organisé en éléments fonctionnels le plus souvent séparés en plusieurs fichiers et ces derniers parfois maintenus par différents développeurs.</p>
-<p>Rappelons-le (et c'est très important) :</p>
+<p>Tout comme un magazine illustré distingue ses rubriques (sport, actualités, météo, annonces) pour améliorer la lisibilité, un code source gagne à être structuré en composants. Ces éléments fonctionnels sont répartis dans plusieurs fichiers, souvent entretenus par des personnes différentes.</p>
+<p>Gardons en tête quelques règles de bon sens :</p>
 <ul>
-<li>une fonction ne devrait pas dépasser un écran de haut (~50 lignes) ;</li>
-<li>un fichier ne devrait pas dépasser 1000 lignes ;</li>
-<li>une ligne ne devrait pas dépasser 80 caractères.</li>
+<li>une fonction ne devrait pas dépasser la hauteur d'un écran (~50 lignes) ;</li>
+<li>un fichier ne devrait pas excéder 1 000 lignes ;</li>
+<li>une ligne ne devrait pas s'étirer au-delà de 80 caractères.</li>
 </ul>
-<p>Donc à un moment, il est essentiel de diviser son travail en créant plusieurs fichiers.</p>
-<p>Ainsi, lorsque le programme commence à être volumineux, sa lecture, sa compréhension et sa mise au point deviennent délicates même pour le plus aguerri des développeurs. Il est alors essentiel de scinder le code source en plusieurs fichiers. Prenons l'exemple d'un programme qui effectue des calculs sur les nombres complexes. Notre projet est donc constitué de trois fichiers :</p>
+<p>Lorsque le volume de code augmente, la lecture, la compréhension et le débogage deviennent rapidement ardus, même pour une équipe expérimentée. Diviser son travail en plusieurs fichiers permet de retrouver de la clarté. Prenons un exemple simple de programme qui manipule des nombres complexes. Notre projet comporte trois fichiers :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">$ </span>tree
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="go">.</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="go">├── complex.c</span>
 </span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="go">├── complex.h</span>
 </span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="go">└── main.c</span>
 </span></code></pre></div>
-<p>Le programme principal et la fonction <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span> est contenu dans <span class="ycr-hashtag" data-index-entry="main.c" data-tag="main.c"><code>main.c</code></span> quant au module <em>complex</em> il est composé de deux fichiers : <span class="ycr-hashtag" data-index-entry="complex.h" data-tag="complex.h"><code>complex.h</code></span> l'en-tête et <span class="ycr-hashtag" data-index-entry="complex.c" data-tag="complex.c"><code>complex.c</code></span>, l'implémentation du module.</p>
-<p>Le fichier <span class="ycr-hashtag" data-index-entry="main.c" data-tag="main.c"><code>main.c</code></span> devra inclure le fichier <span class="ycr-hashtag" data-index-entry="complex.h" data-tag="complex.h"><code>complex.h</code></span> afin de
-pouvoir utiliser correctement les fonctions du module de gestion des
-nombres complexes. Exemple :</p>
+<p>Le programme principal et la fonction <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span> sont contenus dans <span class="ycr-hashtag" data-index-entry="main.c" data-tag="main.c"><code>main.c</code></span>, tandis que le module <span class="ycr-hashtag" data-index-entry="complex" data-tag="complex"><code>complex</code></span> repose sur deux fichiers : <span class="ycr-hashtag" data-index-entry="complex.h" data-tag="complex.h"><code>complex.h</code></span>, l'en-tête, et <span class="ycr-hashtag" data-index-entry="complex.c" data-tag="complex.c"><code>complex.c</code></span>, l'implémentation proprement dite.</p>
+<p>Le fichier <span class="ycr-hashtag" data-index-entry="main.c" data-tag="main.c"><code>main.c</code></span> doit inclure <span class="ycr-hashtag" data-index-entry="complex.h" data-tag="complex.h"><code>complex.h</code></span> afin d'utiliser correctement les fonctions du module de gestion des nombres complexes. Exemple :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">// fichier main.c</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"complex.h"</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
@@ -2701,40 +2698,38 @@ nombres complexes. Exemple :</p>
 </span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="s">"%+.3lf + %+.3lf</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">real</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">imag</span><span class="p">);</span>
 </span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Un des avantages majeurs à la création de modules est qu'un module
-logiciel peut être réutilisé pour d'autres applications. Plus besoin de
-réinventer la roue à chaque application !</p>
-<p>Cet exemple sera compilé dans un environnement <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> de la façon suivante :</p>
+<p>L'un des bénéfices majeurs de cette organisation est la réutilisation. Un module logiciel bien conçu pourra servir dans plusieurs applications sans que l'on ait à réinventer la roue.</p>
+<p>Dans un environnement <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, ce projet se compile ainsi :</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="go">gcc -c complex.c -o complex.o</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="go">gcc -c main.c -o main.o</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="go">gcc complex.o main.o -oprogram -lm</span>
 </span></code></pre></div>
-<p>Nous verrons plus bas les éléments théoriques vous permettant de mieux comprendre ces lignes.</p>
+<p>Nous détaillerons plus loin les éléments théoriques qui se cachent derrière ces commandes.</p>
 <h2 id="module-logiciel">Module logiciel<a class="headerlink" href="#module-logiciel" title="Lien permanent">¤</a></h2>
-<p>Les applications modernes dépendent souvent de nombreux modules logiciels externes aussi utilisés dans d'autres projets. C'est avantageux à plus d'un titre :</p>
+<p>Les applications modernes s'appuient fréquemment sur des modules logiciels externes, eux-mêmes partagés entre plusieurs projets. Cette démarche est payante à plusieurs titres :</p>
 <ul>
-<li>les modules externes sont sous la responsabilité d'autres développeurs et le programme a développer comporte moins de code ;</li>
-<li>les modules externes sont souvent bien documentés et testés et il est facile de les utiliser ;</li>
-<li>la lisibilité du programme est accrue, car il est bien découpé en des ensembles fonctionnels ;</li>
-<li>les modules externes sont réutilisables et indépendants, ils peuvent donc être réutilisés sur plusieurs projets.</li>
+<li>les modules externes sont maintenus par d'autres développeuses et développeurs, ce qui réduit la quantité de code à écrire localement ;</li>
+<li>ces modules bénéficient souvent d'une documentation et de tests robustes, d'où une prise en main rapide ;</li>
+<li>la lisibilité du programme s'améliore grâce à un découpage clair en ensembles fonctionnels ;</li>
+<li>des modules autonomes et bien définis peuvent être réutilisés sur plusieurs projets sans effort supplémentaire.</li>
 </ul>
-<p>Lorsque vous utilisez la fonction <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span>, vous dépendez d'un module externe nommé <span class="ycr-hashtag" data-index-entry="stdio" data-tag="stdio"><code>stdio</code></span>. En réalité l'ensemble des modules <span class="ycr-hashtag" data-index-entry="stdio" data-tag="stdio"><code>stdio</code></span>, <span class="ycr-hashtag" data-index-entry="stdlib" data-tag="stdlib"><code>stdlib</code></span>, <span class="ycr-hashtag" data-index-entry="stdint" data-tag="stdint"><code>stdint</code></span>, <span class="ycr-hashtag" data-index-entry="ctype" data-tag="ctype"><code>ctype</code></span>... sont tous groupés dans une seule bibliothèque logicielle nommée <span class="ycr-hashtag" data-index-entry="libc" data-tag="libc"><code>libc</code></span> disponible sur tous les systèmes compatibles <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>. Sous Linux, le pendant libre <span class="ycr-hashtag" data-index-entry="glibc" data-tag="glibc"><code>glibc</code></span> est utilisé. Il s'agit de la bibliothèque <a href="https://fr.wikipedia.org/wiki/GNU_C_Library">GNU C Library</a>.</p>
-<p>Un module logiciel peut se composer de fichiers sources, c'est-à-dire un ensemble de fichiers <code>.c</code> et <code>.h</code> ainsi qu'une documentation et un script de compilation (<span class="ycr-hashtag" data-index-entry="Makefile" data-tag="Makefile"><code>Makefile</code></span>). Alternativement, un module logiciel peut se composer de bibliothèques déjà compilées sous la forme de fichiers <code>.h</code>, <code>.a</code> et <code>.so</code>. Sous Windows on rencontre fréquemment l'extension <code>.dll</code>. Ces fichiers compilés ne donnent pas accès au code source, mais permettent d'utiliser les fonctionnalités quelles offrent dans des programmes C en mettant à disposition un ensemble de fonctions documentées.</p>
+<p>Lorsque vous utilisez la fonction <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span>, vous dépendez d'un module externe nommé <span class="ycr-hashtag" data-index-entry="stdio" data-tag="stdio"><code>stdio</code></span>. En réalité, l'ensemble des modules <span class="ycr-hashtag" data-index-entry="stdio" data-tag="stdio"><code>stdio</code></span>, <span class="ycr-hashtag" data-index-entry="stdlib" data-tag="stdlib"><code>stdlib</code></span>, <span class="ycr-hashtag" data-index-entry="stdint" data-tag="stdint"><code>stdint</code></span>, <span class="ycr-hashtag" data-index-entry="ctype" data-tag="ctype"><code>ctype</code></span>, etc. est regroupé au sein d'une unique bibliothèque logicielle nommée <span class="ycr-hashtag" data-index-entry="libc" data-tag="libc"><code>libc</code></span>, disponible sur tous les systèmes compatibles <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>. Sous <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GNU">GNU</a>/Linux, on utilise généralement sa version libre <span class="ycr-hashtag" data-index-entry="glibc" data-tag="glibc"><code>glibc</code></span>, c'est-à-dire la <a href="https://fr.wikipedia.org/wiki/GNU_C_Library">GNU C Library</a>.</p>
+<p>Un module logiciel peut se composer de fichiers sources, c'est-à-dire de fichiers <code>.c</code> et <code>.h</code>, accompagnés d'une documentation et d'un script de compilation (<span class="ycr-hashtag" data-index-entry="Makefile" data-tag="Makefile"><code>Makefile</code></span>). À l'inverse, il peut également être fourni directement sous forme binaire, via des fichiers <code>.h</code>, <code>.a</code> et <code>.so</code>. Sous Windows, on rencontre fréquemment l'extension <code>.dll</code>. Ces fichiers compilés ne dévoilent pas le code source, mais ils mettent à disposition un ensemble de fonctions documentées que l'on peut relier depuis un programme C.</p>
 <h2 id="compilation-avec-assemblage-differe">Compilation avec assemblage différé<a class="headerlink" href="#compilation-avec-assemblage-differe" title="Lien permanent">¤</a></h2>
-<p>Lorsque nous avions compilé notre premier exemple <a class="autorefs autorefs-internal" href="../../05-introduction/c-lang/#hello-world_1">Hello World</a> nous avions simplement appelé <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span> avec le fichier source <span class="ycr-hashtag" data-index-entry="hello.c" data-tag="hello.c"><code>hello.c</code></span> qui nous avait créé un exécutable <span class="ycr-hashtag" data-index-entry="a.out" data-tag="a.out"><code>a.out</code></span>. En réalité, GCC est passé par plusieurs sous-étapes de compilation :</p>
+<p>Lorsque nous avons compilé notre premier exemple <a class="autorefs autorefs-internal" href="../../05-introduction/c-lang/#hello-world_1">Hello World</a>, nous avons simplement invoqué <span class="ycr-hashtag" data-index-entry="gcc" data-tag="gcc"><code>gcc</code></span> sur le fichier source <span class="ycr-hashtag" data-index-entry="hello.c" data-tag="hello.c"><code>hello.c</code></span>, ce qui a produit un exécutable <span class="ycr-hashtag" data-index-entry="a.out" data-tag="a.out"><code>a.out</code></span>. En réalité, GCC enchaîne plusieurs étapes distinctes :</p>
 <ol>
-<li><strong>Préprocessing</strong> : les commentaires sont retirés, les directives préprocesseur sont remplacées par leur équivalent C.</li>
-<li><strong>Compilation</strong> : le code C d'une seule <em>translation unit</em> est converti en langage machine en un fichier objet <code>.o</code>.</li>
-<li><strong>Édition des liens</strong> : aussi nommés <em>link</em>, les différents fichiers objets sont réunis en un seul exécutable.</li>
+<li><strong>Prétraitement</strong> : les commentaires sont retirés et les directives du préprocesseur sont remplacées par leur équivalent en C.</li>
+<li><strong>Compilation</strong> : le code C d'une <em>translation unit</em> est transformé en langage machine dans un fichier objet <code>.o</code>.</li>
+<li><strong>Édition des liens</strong> (<em>linking</em>) : les différents fichiers objets sont rassemblés pour former un exécutable unique.</li>
 </ol>
-<p>Lorsqu'un seul fichier est fourni à GCC, les trois opérations sont effectuées en même temps, mais ce n'est plus possible aussitôt que le programme est composé de plusieurs unités de translation (plusieurs fichiers C). Il est alors nécessaire de compiler manuellement chaque fichier source et d'en créer.</p>
-<p>La figure suivante résume les différentes étapes de GCC. Les pointillés indiquent à quel niveau les opérations peuvent s'arrêter. Il est dès lors possible de passer par des fichiers intermédiaires assembleur (<code>.s</code>) ou objets (<code>.o</code>) en utilisant la bonne commande.</p>
+<p>Lorsqu'un seul fichier est fourni à GCC, ces trois opérations s'exécutent en une seule commande. Dès qu'un projet comporte plusieurs unités de traduction, il faut en revanche compiler chaque fichier séparément, puis demander explicitement l'édition des liens.</p>
+<p>La figure suivante résume ces étapes. Les pointillés indiquent à quel niveau le processus peut s'interrompre. On peut ainsi générer des fichiers intermédiaires assembleur (<code>.s</code>) ou objets (<code>.o</code>) en ajoutant les options appropriées.</p>
 <p></p><figure id="_figure-1"><div class="mxgraph" data-mxgraph='{"tooltips":"0","border":5,"resize":"1","lightbox":1,"appearance":"automatic","url":"../../../assets/images/gcc.drawio"}' style="max-width:100%;border:1px solid transparent;"></div><figcaption> Étapes intermédiaires de compilation avec GCC</figcaption></figure><p></p>
-<p>Notons que ces étapes existent, quel que soit le compilateur ou le système d'exploitation. Nous retrouverons ces exactes mêmes étapes avec Microsoft Visual Studio, mais le nom des commandes et les extensions des fichiers peuvent varier s'ils ne respectent pas la norme <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> (et <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GNU">GNU</a>).</p>
-<p>Notons que généralement, seul deux étapes de GCC sont utilisées :</p>
+<p>Ces étapes existent quel que soit le compilateur ou le système d'exploitation. On les retrouve par exemple dans Microsoft Visual Studio, même si les commandes et les extensions de fichiers diffèrent lorsqu'elles ne suivent pas les conventions <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> (et <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GNU">GNU</a>).</p>
+<p>En pratique, on ne retient souvent que deux commandes :</p>
 <ol>
-<li>Compilation avec <code>gcc -c &lt;fichier.c&gt;</code>, ceci génère automatiquement un fichier <code>.o</code> du même nom que le fichier d'entrée.</li>
-<li>Édition des liens avec <code>gcc &lt;fichier1.o&gt; &lt;fichier2.o&gt; ...</code>, ceci génère automatiquement un fichier exécutable <span class="ycr-hashtag" data-index-entry="a.out" data-tag="a.out"><code>a.out</code></span>.</li>
+<li><code>gcc -c &lt;fichier.c&gt;</code> : génère un fichier objet <code>.o</code> portant le même nom que le fichier source ;</li>
+<li><code>gcc &lt;fichier1.o&gt; &lt;fichier2.o&gt; ...</code> : assemble les objets listés en un exécutable <span class="ycr-hashtag" data-index-entry="a.out" data-tag="a.out"><code>a.out</code></span> (ou en un fichier nommé via l'option <code>-o</code>).</li>
 </ol>
 <h2 id="fichiers-den-tete-header">Fichiers d'en-tête (<em>header</em>)<a class="headerlink" href="#fichiers-den-tete-header" title="Lien permanent">¤</a></h2>
 <p>Les fichiers d'en-tête (<code>.h</code>) sont des fichiers écrits en langage C, mais qui ne contiennent pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de <span class="ycr-hashtag" data-index-entry="while" data-tag="while"><code>while</code></span>, de <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span> ou même de <code>if</code>. Par convention, ces fichiers ne contiennent que :</p>
@@ -2743,7 +2738,7 @@ réinventer la roue à chaque application !</p>
 <li>Des déclarations de types (<span class="ycr-hashtag" data-index-entry="typedef" data-tag="typedef"><code>typedef</code></span>, <span class="ycr-hashtag" data-index-entry="struct" data-tag="struct"><code>struct</code></span>).</li>
 <li>Des définitions préprocesseur (<code>#include</code>, <code>#define</code>).</li>
 </ul>
-<p>Nous l'avons vu dans le chapitre sur le préprocesseur, la directive <code>#include</code> ne fais qu'inclure le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fort déconseillé), d'avoir la situation suivante :</p>
+<p>Comme nous l'avons vu dans le chapitre sur le préprocesseur, la directive <code>#include</code> ne fait qu'insérer le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fortement déconseillé) d'obtenir la situation suivante :</p>
 <div class="language-c highlight"><span class="filename">main.c</span><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">   </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">"foobar.def"</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">}</span>
@@ -2778,8 +2773,8 @@ réinventer la roue à chaque application !</p>
 </span><span id="__span-7-19"><a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="go">printf("hello bar\n");</span>
 </span><span id="__span-7-20"><a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="go">}</span>
 </span></code></pre></div>
-<p>Lorsque l'on observe le résultat du préprocesseur, on s'aperçoit que toutes les directives préprocesseur ont disparues et que la directive <code>#include</code> a été remplacée par de contenu de <span class="ycr-hashtag" data-index-entry="foobar.def" data-tag="foobar.def"><code>foobar.def</code></span>. Remarquons que le fichier est inclus deux fois, nous verrons plus loin comme éviter cela.</p>
-<p>Nous avons vu au chapitre sur les <a class="autorefs autorefs-internal" href="../../15-fundations/functions/#function-prototype">prototypes de fonctions</a> qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de savoir combien d'arguments est composé une fonction sans nécessairement disposer de l'implémentation de cette fonction. Aussi on trouve dans tous les fichiers d'en-tête des déclarations en amont (<em>forward declaration</em>). Dans le fichier d'en-tête <span class="ycr-hashtag" data-index-entry="stdio.h" data-tag="stdio.h"><code>stdio.h</code></span> on trouvera la ligne : <code>int printf( const char *restrict format, ... );</code>.</p>
+<p>En observant le résultat du préprocesseur, on s'aperçoit que toutes les directives ont disparu et que <code>#include</code> a été remplacé par le contenu de <span class="ycr-hashtag" data-index-entry="foobar.def" data-tag="foobar.def"><code>foobar.def</code></span>. Le fichier est inclus deux fois ; nous verrons plus loin comment éviter ce piège.</p>
+<p>Nous avons vu au chapitre sur les <a class="autorefs autorefs-internal" href="../../15-fundations/functions/#function-prototype">prototypes de fonctions</a> qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de connaître le nombre d'arguments attendus sans disposer immédiatement de l'implémentation. On trouve donc dans tous les fichiers d'en-tête des déclarations en amont (<em>forward declarations</em>). Dans <span class="ycr-hashtag" data-index-entry="stdio.h" data-tag="stdio.h"><code>stdio.h</code></span>, on lira par exemple : <code>int printf( const char *restrict format, ... );</code>.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>$<span class="w"> </span>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; main.c</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="s">→ #include &lt;stdio.h&gt;</span>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="s">→ int main() { }</span>
@@ -2787,10 +2782,10 @@ réinventer la roue à chaque application !</p>
 </span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>$<span class="w"> </span>gcc<span class="w"> </span>-E<span class="w"> </span>main.c<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-P<span class="w"> </span><span class="s1">'\bprintf\b'</span>
 </span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>extern<span class="w"> </span>int<span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="o">(</span>const<span class="w"> </span>char<span class="w"> </span>*__restrict<span class="w"> </span>__format,<span class="w"> </span>...<span class="o">)</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Notons qu'ici le prototype est précédé par le mot clé <span class="ycr-hashtag" data-index-entry="extern" data-tag="extern"><code>extern</code></span>. Il s'agit d'un mot clé <strong>optionnel</strong> permettant de renforcer l'intention du développeur que la fonction déclarée n'est pas inclue dans fichier courant, mais qu'elle est implémentée ailleurs, dans un autre fichier. Et c'est le cas, car <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> est déjà compilée quelque part dans la bibliothèque <span class="ycr-hashtag" data-index-entry="libc" data-tag="libc"><code>libc</code></span> inclue par défaut lorsqu'un programme C est compilé dans un environnement <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>.</p>
+<p>Notons qu'ici le prototype est précédé par le mot-clé <span class="ycr-hashtag" data-index-entry="extern" data-tag="extern"><code>extern</code></span>. Ce mot-clé <strong>optionnel</strong> précise que la fonction déclarée n'est pas implémentée dans le fichier courant, mais ailleurs. C'est bien le cas : <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> est déjà compilée dans la bibliothèque <span class="ycr-hashtag" data-index-entry="libc" data-tag="libc"><code>libc</code></span>, liée par défaut lorsqu'un programme C est compilé dans un environnement <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>.</p>
 <p>Un fichier d'en-tête contiendra donc tout le nécessaire utile à pouvoir utiliser une bibliothèque externe.</p>
 <h3 id="protection-de-reentrance">Protection de réentrance<a class="headerlink" href="#protection-de-reentrance" title="Lien permanent">¤</a></h3>
-<p>La protection de réentrence aussi nommée <em>header guards</em> est une solution au problème d'inclusion multiple. Si par exemple on définit dans un fichier d'en-tête un nouveau type et que l'on inclut ce fichier, mais que ce dernier est déjà inclus par une autre bibliothèque, une erreur de compilation apparaîtra :</p>
+<p>La protection de réentrance, aussi nommée <em>header guard</em>, répond au problème des inclusions multiples. Si l'on définit un nouveau type dans un fichier d'en-tête et que ce fichier est inclus deux fois par des chemins différents, une erreur de compilation apparaîtra :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>$<span class="w"> </span>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; main.c</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="s">→ #include "foo.h"</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="s">→ #include "bar.h"</span>
@@ -2828,7 +2823,7 @@ réinventer la roue à chaque application !</p>
 </span><span id="__span-9-35"><a href="#__codelineno-9-35" id="__codelineno-9-35" name="__codelineno-9-35"></a>^~~
 </span><span id="__span-9-36"><a href="#__codelineno-9-36" id="__codelineno-9-36" name="__codelineno-9-36"></a>...
 </span></code></pre></div>
-<p>Dans cet exemple l'utilisateur ne sait pas forcément que <span class="ycr-hashtag" data-index-entry="bar.h" data-tag="bar.h"><code>bar.h</code></span> est déjà inclus avec <span class="ycr-hashtag" data-index-entry="foo.h" data-tag="foo.h"><code>foo.h</code></span> et le résultat après pré-processing est le suivant :</p>
+<p>Dans cet exemple, la personne qui écrit <span class="ycr-hashtag" data-index-entry="main.c" data-tag="main.c"><code>main.c</code></span> ignore que <span class="ycr-hashtag" data-index-entry="bar.h" data-tag="bar.h"><code>bar.h</code></span> est déjà inclus via <span class="ycr-hashtag" data-index-entry="foo.h" data-tag="foo.h"><code>foo.h</code></span>. Après prétraitement, le résultat est le suivant :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>$<span class="w"> </span>gcc<span class="w"> </span>-E<span class="w"> </span>main.c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'/^#/ d'</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>typedef<span class="w"> </span>struct<span class="w"> </span>Bar<span class="w"> </span><span class="o">{</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>int<span class="w"> </span>b,<span class="w"> </span>a,<span class="w"> </span>r<span class="p">;</span>
@@ -2844,7 +2839,7 @@ réinventer la roue à chaque application !</p>
 </span><span id="__span-10-13"><a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="o">}</span>
 </span></code></pre></div>
 <p>On y retrouve la définition de <span class="ycr-hashtag" data-index-entry="Bar" data-tag="Bar"><code>Bar</code></span> deux fois et donc, le compilateur génère une erreur.</p>
-<p>Une solution à ce problème est d'ajouter des gardes d'inclusion multiple par exemple avec ceci :</p>
+<p>Pour résoudre cette difficulté, on ajoute des gardes d'inclusion multiple, par exemple :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#ifndef BAR_H</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="cp">#define BAR_H</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>
@@ -2854,15 +2849,15 @@ réinventer la roue à chaque application !</p>
 </span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a>
 </span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="cp">#endif </span><span class="c1">// BAR_H</span>
 </span></code></pre></div>
-<p>Si aucune définition du type <code>#define BAR_H</code> n'existe, alors le fichier <span class="ycr-hashtag" data-index-entry="bar.h" data-tag="bar.h"><code>bar.h</code></span> n'a jamais été inclus auparavant et le contenu de la directive <code>#ifndef BAR_H</code> dans lequel on commence par définir <span class="ycr-hashtag" data-index-entry="BAR_H" data-tag="BAR_H"><code>BAR_H</code></span> est exécuté. Lors d'une future inclusion de <span class="ycr-hashtag" data-index-entry="bar.h" data-tag="bar.h"><code>bar.h</code></span>, la valeur de <span class="ycr-hashtag" data-index-entry="BAR_H" data-tag="BAR_H"><code>BAR_H</code></span> aura déjà été définie et le contenu de la directive <code>#ifndef BAR_H</code> ne sera jamais exécuté.</p>
-<p>Alternativement, il existe une solution <strong>non standard</strong>, mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma :</p>
+<p>Si aucune définition <code>#define BAR_H</code> n'existe, c'est que le fichier <span class="ycr-hashtag" data-index-entry="bar.h" data-tag="bar.h"><code>bar.h</code></span> n'a encore jamais été inclus et le contenu de la directive <code>#ifndef BAR_H</code> — qui commence par définir <span class="ycr-hashtag" data-index-entry="BAR_H" data-tag="BAR_H"><code>BAR_H</code></span> — est exécuté. Lors d'une inclusion ultérieure, <span class="ycr-hashtag" data-index-entry="BAR_H" data-tag="BAR_H"><code>BAR_H</code></span> sera déjà défini et le contenu de la directive sera ignoré.</p>
+<p>Il existe aussi une solution <strong>non standard</strong>, mais supportée par la plupart des compilateurs :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#pragma once</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Bar</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
 </span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="p">}</span><span class="w"> </span><span class="n">Bar</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un <code>#endif</code> à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT, car le nom du fichier <span class="ycr-hashtag" data-index-entry="bar.h" data-tag="bar.h"><code>bar.h</code></span> n'apparaît pas dans le fichier <span class="ycr-hashtag" data-index-entry="BAR_H" data-tag="BAR_H"><code>BAR_H</code></span>.</p>
+<p>Cette directive est équivalente à la méthode traditionnelle et présente plusieurs avantages. Elle est atomique — pas besoin de <code>#endif</code> — et respecte naturellement la règle <em>single source of truth</em>, car le nom du fichier n'est pas dupliqué dans une constante.</p>
 <h2 id="en-profondeur">En profondeur<a class="headerlink" href="#en-profondeur" title="Lien permanent">¤</a></h2>
 <p>Pour mieux comprendre la compilation séparée, tentons d'observer le code assembleur généré. Considérons le fichier <span class="ycr-hashtag" data-index-entry="foo.c" data-tag="foo.c"><code>foo.c</code></span> :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
@@ -2871,15 +2866,15 @@ réinventer la roue à chaque application !</p>
 </span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Puisqu'il ne contient pas de fonction main, il n'est pas possible de compiler ce fichier en un exécutable car il manque un point d'entrée :</p>
+<p>Puisqu'il ne contient pas de fonction <span class="ycr-hashtag" data-index-entry="main" data-tag="main"><code>main</code></span>, il est impossible d'en faire un exécutable : il manque un point d'entrée.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>gcc<span class="w"> </span>foo.c
 </span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>/usr/bin/ld:<span class="w"> </span>/usr/lib/x86_64-linux-gnu/Scrt1.o:<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="s1">'_start'</span>:
 </span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="o">(</span>.text+0x24<span class="o">)</span>:<span class="w"> </span>undefined<span class="w"> </span>reference<span class="w"> </span>to<span class="w"> </span><span class="s1">'main'</span>
 </span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a>collect2:<span class="w"> </span>error:<span class="w"> </span>ld<span class="w"> </span>returned<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span>status
 </span></code></pre></div>
-<p>Le <em>linker</em> se termine avec une erreur : <em>référence à 'main' inexistante</em>.</p>
-<p>En revanche, il est possible de compiler un objet, c'est-à-dire générer les instructions assembleur. La fonction <span class="ycr-hashtag" data-index-entry="bar" data-tag="bar"><code>bar</code></span> étant manquante, le compilateur suppose qu'elle existe quelque part en mémoire et se contentera de dire <em>moi j'appelle cette fonction ou qu'elle se trouve</em>.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="nv">$objdump</span><span class="w"> </span>-d<span class="w"> </span>foo.o
+<p>L'éditeur de liens signale alors l'erreur suivante : <em>référence à 'main' inexistante</em>.</p>
+<p>En revanche, on peut compiler un objet, c'est-à-dire générer les instructions assembleur. La fonction <span class="ycr-hashtag" data-index-entry="bar" data-tag="bar"><code>bar</code></span> étant manquante, le compilateur suppose qu'elle sera fournie ailleurs et se contente de dire : <em>j'appellerai cette fonction, où qu'elle se trouve</em>.</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>$<span class="w"> </span>objdump<span class="w"> </span>-d<span class="w"> </span>foo.o
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>foo.o:<span class="w">     </span>file<span class="w"> </span>format<span class="w"> </span>elf64-x86-64
 </span><span id="__span-15-4"><a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>
@@ -2898,7 +2893,7 @@ réinventer la roue à chaque application !</p>
 </span><span id="__span-15-17"><a href="#__codelineno-15-17" id="__codelineno-15-17" name="__codelineno-15-17"></a>1c:<span class="w">   </span>c9<span class="w">                </span>leaveq
 </span><span id="__span-15-18"><a href="#__codelineno-15-18" id="__codelineno-15-18" name="__codelineno-15-18"></a>1d:<span class="w">   </span>c3<span class="w">                </span>retq
 </span></code></pre></div>
-<p>On constate à la ligne <code>19</code> que l'addition à bien lieu <code>eax + 42</code>, et que l'appel de la fonction <span class="ycr-hashtag" data-index-entry="bar" data-tag="bar"><code>bar</code></span> se produit à la ligne <code>14</code>.</p>
+<p>On constate à la ligne <code>19</code> que l'addition a bien lieu (<code>eax + 42</code>) et que l'appel de <span class="ycr-hashtag" data-index-entry="bar" data-tag="bar"><code>bar</code></span> se produit à la ligne <code>14</code>.</p>
 <p>Maintenant, considérons le programme principal :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
@@ -2913,7 +2908,7 @@ réinventer la roue à chaque application !</p>
 </span><span id="__span-16-11"><a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>En générant l'objet <code>gcc -c main.c</code>, on peut également afficher l'assembleur généré avec <span class="ycr-hashtag" data-index-entry="objdump" data-tag="objdump"><code>objdump</code></span> :</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nv">$objdump</span><span class="w"> </span>-d<span class="w"> </span>main.o
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>$<span class="w"> </span>objdump<span class="w"> </span>-d<span class="w"> </span>main.o
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>main.o:<span class="w">     </span>file<span class="w"> </span>format<span class="w"> </span>elf64-x86-64
 </span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a>
@@ -2943,8 +2938,8 @@ réinventer la roue à chaque application !</p>
 </span><span id="__span-17-28"><a href="#__codelineno-17-28" id="__codelineno-17-28" name="__codelineno-17-28"></a>3c:<span class="w">   </span>5d<span class="w">                      </span>pop<span class="w">    </span>%rbp
 </span><span id="__span-17-29"><a href="#__codelineno-17-29" id="__codelineno-17-29" name="__codelineno-17-29"></a>3d:<span class="w">   </span>c3<span class="w">                      </span>retq
 </span></code></pre></div>
-<p>On observe l'appel de la fonction <span class="ycr-hashtag" data-index-entry="foo" data-tag="foo"><code>foo</code></span> à la ligne <code>1f</code> et l'appel de <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> à la ligne <code>32</code>.</p>
-<p>L'assemblage de ces deux fichiers en un exécutable résout les liens en modifiant les adresses d'appel des fonctions puisqu'elles sont maintenant connues (notons que certaines lignes ont été retirées pour plus de lisibilité) :</p>
+<p>On observe l'appel de <span class="ycr-hashtag" data-index-entry="foo" data-tag="foo"><code>foo</code></span> à la ligne <code>1f</code> et celui de <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> à la ligne <code>32</code>.</p>
+<p>L'assemblage de ces deux fichiers en un exécutable résout les liens en mettant à jour les adresses d'appel des fonctions désormais connues (certaines lignes sont retirées ci-dessous pour alléger la lecture) :</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>$<span class="w"> </span>gcc<span class="w"> </span>foo.o<span class="w"> </span>main.o
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>$<span class="w"> </span>objdump<span class="w"> </span>-d<span class="w"> </span>a.out
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>
@@ -2992,18 +2987,18 @@ réinventer la roue à chaque application !</p>
 </span><span id="__span-18-45"><a href="#__codelineno-18-45" id="__codelineno-18-45" name="__codelineno-18-45"></a><span class="w">    </span>11ac:<span class="w">       </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span>
 </span><span id="__span-18-46"><a href="#__codelineno-18-46" id="__codelineno-18-46" name="__codelineno-18-46"></a><span class="w">    </span>11af:<span class="w">       </span><span class="m">90</span><span class="w">                      </span>nop
 </span></code></pre></div>
-<p>On constate que les appels de fonctions ont été bien remplacés par les bons noms :</p>
+<p>On constate que les appels de fonctions ont été correctement résolus :</p>
 <ul>
-<li><code>115d</code> Appel de <span class="ycr-hashtag" data-index-entry="bar" data-tag="bar"><code>bar</code></span></li>
-<li><code>1186</code> Appel de <span class="ycr-hashtag" data-index-entry="foo" data-tag="foo"><code>foo</code></span></li>
-<li><code>1199</code> Appel de <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span></li>
+<li><code>115d</code> appel de <span class="ycr-hashtag" data-index-entry="bar" data-tag="bar"><code>bar</code></span> ;</li>
+<li><code>1186</code> appel de <span class="ycr-hashtag" data-index-entry="foo" data-tag="foo"><code>foo</code></span> ;</li>
+<li><code>1199</code> appel de <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span>.</li>
 </ul>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Dernière mise à jour">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="7 octobre 2025 20:32:53 UTC">7 octobre 2025</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="10 octobre 2025 19:50:01 UTC">10 octobre 2025</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Créé">
@@ -3075,7 +3070,7 @@ réinventer la roue à chaque application !</p>
 </main>
 <footer class="md-footer">
 <nav aria-label="Pied de page" class="md-footer__inner md-grid">
-<a aria-label="Précédent: Programmation Modulaire" class="md-footer__link md-footer__link--prev" href="../">
+<a aria-label="Précédent: Programmation modulaire" class="md-footer__link md-footer__link--prev" href="../">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
@@ -3084,7 +3079,7 @@ réinventer la roue à chaque application !</p>
                 Précédent
               </span>
 <div class="md-ellipsis">
-                Programmation Modulaire
+                Programmation modulaire
               </div>
 </div>
 </a>

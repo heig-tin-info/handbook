@@ -2810,16 +2810,16 @@ les outils associés.
 </a>
 <h1 id="nombres">Nombres<a class="headerlink" href="#nombres" title="Lien permanent">¤</a></h1>
 <blockquote class="epigraph">Les nombres gouvernent le monde.<footer>Pythagore</footer></blockquote>
-<p>Vous avez tous appris dans votre enfance à compter, puis vous avez appris que les nombres se classifient dans des ensembles. Les mathématiciens ont défini des ensembles de nombres pour lesquels des propriétés particulières sont vérifiées ; ces ensembles sont imbriqués les uns dans les autres, et chaque ensemble est un sous-ensemble de l'ensemble suivant. La figure suivante illustre cette hiérarchie.</p>
+<p>Dans notre enfance, nous apprenons à compter, puis à ranger les nombres dans divers ensembles. Les mathématicien·nes ont défini des familles de nombres qui vérifient des propriétés particulières ; elles s'emboîtent les unes dans les autres, chaque ensemble étant inclus dans le suivant. La figure suivante illustre cette hiérarchie.</p>
 <div class="arithmatex">\[
 \mathbb{N} \in \mathbb{Z} \in \mathbb{Q} \in \mathbb{R} \in \mathbb{C} \in \mathbb{H} \in \mathbb{O} \in \mathbb{S}
 \]</div>
 <p></p><figure id="_figure-1"><div class="mxgraph" data-mxgraph='{"tooltips":"0","border":5,"resize":"1","lightbox":1,"appearance":"automatic","url":"../../../assets/images/ensembles.drawio"}' style="max-width:100%;border:1px solid transparent;"></div><figcaption> Ensemble des nombres</figcaption></figure><p></p>
-<p>Les ensembles de nombres sont :</p>
+<p>Les principaux ensembles de nombres sont les suivants :</p>
 <ul>
 <li><span class="arithmatex">\(\mathbb{N}\)</span> : ensemble des <span class="ycr-hashtag" data-index-entry="entiers naturels" data-tag="entiers-naturels">entiers naturels</span> (0, 1, 2, 3, ...)</li>
 <li><span class="arithmatex">\(\mathbb{Z}\)</span> : ensemble des <span class="ycr-hashtag" data-index-entry="entiers relatifs" data-tag="entiers-relatifs">entiers relatifs</span> (..., -3, -2, -1, 0, 1, 2, 3, ...)</li>
-<li><span class="arithmatex">\(\mathbb{D}\)</span> : ensemble des décimaux (-0.1, 0, 0.1, 0.2, 0.3, ...)</li>
+<li><span class="arithmatex">\(\mathbb{D}\)</span> : ensemble des décimaux (-0,1, 0, 0,1, 0,2, 0,3, ...)</li>
 <li><span class="arithmatex">\(\mathbb{Q}\)</span> : ensemble des rationnels (0, 1, ½, ⅓, ¼, ...)</li>
 <li><span class="arithmatex">\(\mathbb{R}\)</span> : ensemble des réels (<span class="arithmatex">\(\pi\)</span>, <span class="arithmatex">\(\sqrt{2}\)</span>, ...)</li>
 <li><span class="arithmatex">\(\mathbb{C}\)</span> : ensemble des complexes (<span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(1 + i\)</span>, ...)</li>
@@ -2830,24 +2830,24 @@ les outils associés.
 <div class="admonition info">
 <p class="admonition-title">Quaternions, octonions et sédénions</p>
 <p>Les <span class="ycr-hashtag" data-index-entry="quaternions" data-tag="quaternions">quaternions</span>, <span class="ycr-hashtag" data-index-entry="octonions" data-tag="octonions">octonions</span> et <span class="ycr-hashtag" data-index-entry="sédénions" data-tag="sedenions">sédénions</span> sont des <span class="ycr-hashtag" data-index-entry="nombres hypercomplexes" data-tag="nombres-hypercomplexes">nombres hypercomplexes</span> qui généralisent les <span class="ycr-hashtag" data-index-entry="nombres complexes" data-tag="nombres-complexes">nombres complexes</span>. Ils sont utilisés en physique pour décrire les rotations dans l'espace.</p>
-<p>Les quaternions sont utilisés en informatique pour représenter les rotations en 3D. Les octonions et sédénions sont des généralisations des quaternions, mais ils sont moins utilisés en pratique.</p>
-<p>À chaque fois que s'éloigne du réel (et c'est une manière amusante de le dire), on perd des propriétés intéressantes. Les nombres complexes ne sont pas ordonnés, les quaternions ne sont pas commutatifs, les octonions ne sont pas associatifs, et les sédénions ne sont même pas alternatifs. Un nombre alternatif est un nombre pour lequel la formule suivante est vérifiée :</p>
+<p>Les quaternions sont couramment utilisés en informatique pour représenter les rotations en 3D. Les octonions et sédénions prolongent ce modèle, mais restent plus confidentiels en pratique.</p>
+<p>À chaque fois que l'on s'éloigne du réel (et c'est une manière amusante de le formuler), on perd des propriétés intéressantes. Les nombres complexes ne sont pas ordonnés, les quaternions ne sont pas commutatifs, les octonions ne sont pas associatifs et les sédénions ne sont même pas alternatifs. Un nombre alternatif vérifie la relation suivante :</p>
 <div class="arithmatex">\[
 (a \cdot a) \cdot b = a \cdot (a \cdot b)
 \]</div>
-<p>En pratique dans une carrière d'ingénieur, vous n'aurez jamais à manipuler ni des quaternions, ni des octonions ou des sédénions. Les nombres complexes sont néanmoins une extension des nombres réels qui sont utilisés en physique et en mathématiques et qui peuvent être utilisés en C sous certaines conditions.</p>
+<p>Dans une carrière d'ingénieur·e, il est rare d'avoir à manipuler quaternions, octonions ou sédénions. Les nombres complexes constituent néanmoins une extension utile des nombres réels, très présente en physique et en mathématiques, et exploitable en C sous certaines conditions.</p>
 </div>
-<p><span class="ycr-hashtag" data-index-entry="Archimède" data-tag="archimede">Archimède</span> disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : donnez-moi un nombre et je vous construirai un univers ! Bien entendu la quantité d'information dans l'univers est gargantuesque, elle croît avec l'entropie et donc avec le temps qui passe, mais à sa genèse à l'origine du temps et de l'espace, il n'est pas impensable que l'univers ait pu être créé à partir d'un nombre. C'est une idée qui a été explorée par <span class="ycr-hashtag" data-index-entry="Stephen Wolfram" data-tag="stephen-wolfram">Stephen Wolfram</span> dans son livre <span class="ycr-hashtag" data-index-entry="A New Kind of Science" data-tag="a-new-kind-of-science">A New Kind of Science</span>. Cette vision repose sur l'idée que l'univers pourrait être vu comme une sorte de système informatique ou algorithmique, où des lois fondamentales simples évoluent pour produire la diversité des phénomènes que nous observons.</p>
-<p>Dans le jeu <span class="ycr-hashtag" data-index-entry="Minecraft" data-tag="minecraft">Minecraft</span>, lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un monde aléatoire. Cette <span class="ycr-hashtag" data-index-entry="graine" data-tag="graine">graine</span> est un nombre fini qui sert de base à l'algorithme de génération de monde. Si vous utilisez la même graine, vous obtiendrez le même <span class="ycr-hashtag" data-index-entry="monde" data-tag="monde">monde</span>. La graine -5584399987456711267 permet par exemple d'obtenir de merveilleux cerisiers en fleurs qui rappelle la saison de <span class="ycr-hashtag" data-index-entry="Sakura" data-tag="sakura">Sakura</span> à <span class="ycr-hashtag" data-index-entry="Kyoto" data-tag="kyoto">Kyoto</span>. Mais pour que cela fonctionne il vous faut le code source de Minecraft, lui aussi c'est une succession de 0 et de 1, et donc c'est un nombre, lui aussi fini.</p>
+<p><span class="ycr-hashtag" data-index-entry="Archimède" data-tag="archimede">Archimède</span> disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : « Donnez-moi un nombre et je vous construirai un univers ! » Bien entendu, la quantité d'information dans l'univers est gargantuesque ; elle croît avec l'entropie et donc avec le temps. Mais à l'origine du temps et de l'espace, il n'est pas impensable que l'univers ait pu naître d'un nombre. <span class="ycr-hashtag" data-index-entry="Stephen Wolfram" data-tag="stephen-wolfram">Stephen Wolfram</span> explore cette idée dans son ouvrage <span class="ycr-hashtag" data-index-entry="A New Kind of Science" data-tag="a-new-kind-of-science">A New Kind of Science</span>, où il imagine l'univers comme un système informatique ou algorithmique régi par des lois fondamentales simples dont l'évolution produit la diversité des phénomènes observés.</p>
+<p>Dans le jeu <span class="ycr-hashtag" data-index-entry="Minecraft" data-tag="minecraft">Minecraft</span>, lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un univers pseudo-aléatoire. Cette <span class="ycr-hashtag" data-index-entry="graine" data-tag="graine">graine</span> est un nombre fini qui sert de base à l'algorithme de génération. Si vous utilisez la même graine, vous obtenez le même <span class="ycr-hashtag" data-index-entry="monde" data-tag="monde">monde</span>. La graine -5584399987456711267 permet par exemple d'obtenir de splendides cerisiers en fleurs rappelant la saison du <span class="ycr-hashtag" data-index-entry="sakura" data-tag="sakura">sakura</span> à <span class="ycr-hashtag" data-index-entry="Kyoto" data-tag="kyoto">Kyoto</span>. Pour que cela fonctionne, il faut toutefois le code source de Minecraft : lui aussi n'est qu'une succession de 0 et de 1, donc un nombre fini.</p>
 <p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Monde correspondant à la graine -5584399987456711267" data-type="image" data-width="auto" href="../../../assets/images/minecraft.png"><img alt="Monde correspondant à la graine -5584399987456711267" src="../../../assets/images/minecraft.png"/></a><figcaption> Monde correspondant à la graine -5584399987456711267</figcaption></figure><p></p>
-<p>Lorsque vous jouez, vos actions génèrent de l'information qui influence le monde, et donc la quantité d'information dans le monde croît avec l'entropie que vous injectez dans le système. C'est pour cela que plus vous jouez, plus la sauvegarde de votre monde devient grande, mais vous pouvez toujours la représenter aussi avec un nombre fini : une succession de 0 et de 1.</p>
-<p>À noter que les mémoires des ordinateurs ne sont pas infinies, elles sont limitées par la quantité de transistors qui les composent. Il n'est donc pas possible d'y stocker n'importe quel nombre. <span class="arithmatex">\(\pi\)</span> ne peut pas être stocké en mémoire, mais une approximation de <span class="arithmatex">\(\pi\)</span> peut l'être. Aussi, l'informatique impose certaines limitations sur les nombres que l'on peut manipuler. Les nombres entiers sont les plus simples à manipuler, mais ils sont limités par la taille de la mémoire et la manière dont on les enregistre en mémoire. Il est donc utile de se fixer des limites, de définir des bornes en fonction de l'usage que l'on veut en faire. La graine de Minecraft est par exemple un nombre de 64 bits et c'est un nombre entier.</p>
+<p>Lorsque vous jouez, vos actions génèrent de l'information qui influence le monde ; la quantité d'information croît avec l'entropie que vous injectez dans le système. C'est pourquoi plus vous jouez, plus la sauvegarde de votre monde grossit, tout en demeurant représentable par un nombre fini : une succession de 0 et de 1.</p>
+<p>Notons que les mémoires des ordinateurs sont finies, limitées par le nombre de transistors qui les composent. Il n'est donc pas possible d'y stocker n'importe quelle valeur. <span class="arithmatex">\(\pi\)</span> ne peut pas être enregistré intégralement, mais une approximation de <span class="arithmatex">\(\pi\)</span> le peut. L'informatique impose ainsi des contraintes sur les nombres que l'on peut manipuler. Les entiers sont les plus simples à gérer, mais ils restent bornés par la taille de la mémoire et la manière dont on les encode. Il est donc utile de définir des bornes selon l'usage visé. La graine de Minecraft est, par exemple, un entier de 64 bits.</p>
 <h2 id="entiers-naturels">Entiers naturels<a class="headerlink" href="#entiers-naturels" title="Lien permanent">¤</a></h2>
-<p>En mathématiques, un <a href="https://fr.wikipedia.org/wiki/Entier_naturel">entier naturel</a> est un nombre positif ou nul. Chaque nombre à un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, et donc sans signe et sans virgule. L'ensemble des entiers naturels est défini de la façon suivante :</p>
+<p>En mathématiques, un <a href="https://fr.wikipedia.org/wiki/Entier_naturel">entier naturel</a> est un nombre positif ou nul. Chaque nombre a un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, donc sans signe ni virgule. L'ensemble des entiers naturels est défini de la façon suivante :</p>
 <div class="arithmatex">\[
 \mathbb{N} = {0, 1, 2, 3, ...}
 \]</div>
-<p>Les entiers sont les premiers types de données manipulés par les ordinateurs. Ils sont stockés en mémoire sous forme de bits. En choisissant la taille de stockage des entiers, on détermine la plage de valeurs que l'on peut représenter. Un entier de 8 bits peut par exemple représenter <span class="arithmatex">\(2^8 = 256\)</span> valeurs différentes, de 0 à 255. Un entier de 16 bits peut quant à lui représenter <span class="arithmatex">\(2^{16} = 65536\)</span> valeurs différentes, de 0 à 65535. À chaque bit supplémentaire, on double la plage de valeurs représentables.</p>
+<p>Les entiers constituent les premiers types de données manipulés par les ordinateurs. Stockés en mémoire sous forme de bits, ils offrent une plage de valeurs dépendant de la taille réservée. Un entier de 8 bits peut, par exemple, représenter <span class="arithmatex">\(2^8 = 256\)</span> valeurs différentes, de 0 à 255. Un entier de 16 bits en représente <span class="arithmatex">\(2^{16} = 65 536\)</span>, de 0 à 65 535. Chaque bit supplémentaire double la plage disponible.</p>
 <div class="admonition example">
 <p class="admonition-title">Exemple</p>
 <p>Le nombre 142 peut s'écrire sur 8 bits en binaire, avec une notation positionnelle (où les bits sont alignés par poids décroissants) on peut écrire :</p>
@@ -2864,8 +2864,8 @@ les outils associés.
 <div class="arithmatex">\[
 \mathbb{Z} = {..., -3, -2, -1, 0, 1, 2, 3, ...}
 \]</div>
-<p>Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son <span class="ycr-hashtag" data-index-entry="encodage" data-tag="encodage">encodage</span> et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car manque une information permettant d'encoder le symbole pour le signe <code>-</code> (ni même d'ailleurs <code>+</code>).</p>
-<p>Une approche naïve serait de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. Un peu comme si vous aviez deux boîtes chez vous, l'une pour les choses qui se mangent (le frigo) et une pour les choses qui ne se mangent plus (la poubelle).</p>
+<p>Vous le savez désormais, l'interprétation d'une valeur binaire n'est possible qu'en connaissant son <span class="ycr-hashtag" data-index-entry="encodage" data-tag="encodage">encodage</span>. S'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car il manque une information pour représenter le signe <code>-</code> (et, de la même manière, le signe <code>+</code>).</p>
+<p>Une première idée consisterait à réserver une partie de la mémoire aux entiers positifs et une autre aux entiers négatifs, en stockant la correspondance binaire/décimale séparément. Ce serait un peu comme disposer chez soi de deux boîtes : l'une pour les aliments encore consommables (le réfrigérateur), l'autre pour ceux qui ne le sont plus (la poubelle).</p>
 <p>L'ennui pour les <strong>variables</strong> c'est que le contenu peut changer et qu'un <span class="ycr-hashtag" data-index-entry="nombre négatif" data-tag="nombre-negatif">nombre négatif</span> pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meilleure méthode.</p>
 <p>On pourrait alors renseigner la nature du nombre, c'est-à-dire son signe avec sa valeur.</p>
 <h3 id="bit-de-signe">Bit de signe<a class="headerlink" href="#bit-de-signe" title="Lien permanent">¤</a></h3>
@@ -2877,9 +2877,9 @@ les outils associés.
 </span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>│1││1│0│1│0│0│1│1│ = (1 * (-1)) * 0b1010011 = -83
 </span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>└─┘└─┴─┴─┴─┴─┴─┴─┘
 </span></code></pre></div>
-<p>Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable est n'est plus que de <code>[-127..127]</code>. Néanmoins, elle présente un autre inconvénient majeur : la représentation du zéro.</p>
-<p>Dans cette représentation, il existe deux zéros : le <span class="ycr-hashtag" data-index-entry="zéro" data-tag="zero">zéro</span> négatif <code>0b00000000</code>, et le zéro positif <code>0b10000000</code> ce qui peut poser des problèmes pour les comparaisons. Est-ce que <span class="arithmatex">\(0\)</span> est égal <span class="arithmatex">\(-0\)</span> ? En un sens oui, mais en termes de l'information stockée, ce n'est pas le même nombre.</p>
-<p>En termes de calculs, l'<span class="ycr-hashtag" data-index-entry="addition" data-tag="addition">addition</span> ne fonctionne plus si on raisonne sur les bits. Car si on additionne au zéro positif (<code>0b10000000</code>) la valeur 1 on aura 1, mais si on additionne au zéro négatif (<code>0b00000000</code>) la valeur 1 on obtiendra -1 et c'est un peu déroutant :</p>
+<p>Cette méthode impose de sacrifier un bit ; l'intervalle représentable se limite donc à <code>[-127..127]</code>. Elle souffre en outre d'un autre inconvénient majeur : la représentation du zéro.</p>
+<p>Dans cette représentation, il existe deux zéros : le <span class="ycr-hashtag" data-index-entry="zéro" data-tag="zero">zéro</span> négatif <code>0b00000000</code> et le zéro positif <code>0b10000000</code>, ce qui complique les comparaisons. <span class="arithmatex">\(0\)</span> est-il égal à <span class="arithmatex">\(-0\)</span> ? Conceptuellement oui, mais l'information stockée diffère.</p>
+<p>Du point de vue des calculs, l'<span class="ycr-hashtag" data-index-entry="addition" data-tag="addition">addition</span> n'est plus cohérente si l'on raisonne directement sur les bits. En ajoutant 1 au zéro positif (<code>0b10000000</code>), on obtient 1, tandis qu'en ajoutant 1 au zéro négatif (<code>0b00000000</code>), on obtient −1 : résultat pour le moins déroutant.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>000   001   010   011   100   101   110   111
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>─┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼───&gt;
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
@@ -3288,7 +3288,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 <span class="md-icon" title="Dernière mise à jour">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 septembre 2024 16:07:36 UTC">28 septembre 2024</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="10 octobre 2025 19:50:01 UTC">10 octobre 2025</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Créé">
@@ -3302,6 +3302,7 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </span>
 <nav>
 <a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>, 
+        <a href="mailto:52489316+yves-chevallier@users.noreply.github.com">Yves Chevallier</a>, 
         <a href="mailto:pierre.bressy@heig-vd.ch">pierrebressy</a>
 </nav>
 </span>
@@ -3311,11 +3312,11 @@ x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{
 </span>
 <span>GitHub</span>
 <nav>
-<a class="md-author" href="https://github.com/pierrebressy" title="@pierrebressy">
-<img alt="pierrebressy" src="https://avatars.githubusercontent.com/u/613165?v=4&amp;size=72"/>
-</a>
 <a class="md-author" href="https://github.com/yves-chevallier" title="@yves-chevallier">
 <img alt="yves-chevallier" src="https://avatars.githubusercontent.com/u/52489316?v=4&amp;size=72"/>
+</a>
+<a class="md-author" href="https://github.com/pierrebressy" title="@pierrebressy">
+<img alt="pierrebressy" src="https://avatars.githubusercontent.com/u/613165?v=4&amp;size=72"/>
 </a>
 </nav>
 </span>

@@ -2776,10 +2776,10 @@ les outils associés.
 <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Lien permanent">¤</a></h1>
 <blockquote class="epigraph">... conduire par ordre mes pensées, en commençant par les objets les plus simples et les plus aisés à connaître, pour monter peu à peu, comme par degrés, jusques à la connaissance des plus composés ; et supposant même de l'ordre entre ceux qui ne se précèdent point naturellement les uns les autres.<footer>René Descartes, Discours de la méthode</footer></blockquote>
 <p>L'algorithmique est le domaine scientifique qui étudie les algorithmes, une suite finie et non ambiguë d'opérations ou d'instructions permettant de résoudre un problème ou de traiter des données.</p>
-<p>Un algorithme peut être également considéré comme étant n'importe quelle séquence d'opérations pouvant être simulées par un système <a href="https://fr.wikipedia.org/wiki/Turing-complet">Turing-complet</a>. Un système est déclaré Turing-complet s'il peut simuler n'importe quelle <a href="https://fr.wikipedia.org/wiki/Machine_de_Turing">machine de Turing</a>. For heureusement, le langage C est Turing-complet puisqu'il possède tous les ingrédients nécessaires à la simulation de ces machines, soit compter, comparer, lire, écrire...</p>
-<p>Dans le cas qui concerne cet ouvrage, un algorithme est une recette exprimée en une liste d'instructions et permettant de résoudre un problème informatique. Cette recette contient à peu de choses près les éléments programmatiques que nous avons déjà entre aperçus : des structures de contrôle, des variables, etc.</p>
-<p>Généralement un algorithme peut être exprimé graphiquement en utilisant un organigramme (<em>flowchart</em>) ou un structogramme (<em>Nassi-Shneiderman diagram</em>) afin de s'affranchir du langage de programmation cible.</p>
-<p>La <strong>conception</strong> aussi appelée <a href="https://fr.wikipedia.org/wiki/Architecture_logicielle">Architecture logicielle</a> est l'art de penser un programme avant son implémentation. La phase de conception fait bien souvent appel à des algorithmes.</p>
+<p>Un algorithme peut également être considéré comme toute séquence d'opérations pouvant être simulées par un système <a href="https://fr.wikipedia.org/wiki/Turing-complet">Turing-complet</a>. Un système est déclaré Turing-complet s'il peut simuler n'importe quelle <a href="https://fr.wikipedia.org/wiki/Machine_de_Turing">machine de Turing</a>. Fort heureusement, le langage C est Turing-complet puisqu'il dispose de tous les ingrédients nécessaires à la simulation de ces machines : compter, comparer, lire, écrire...</p>
+<p>Dans le cas qui concerne cet ouvrage, un algorithme est une recette exprimée en une liste d'instructions permettant de résoudre un problème informatique. Cette recette contient, à peu de choses près, les éléments programmatiques que nous avons déjà entrevus : structures de contrôle, variables, fonctions, etc.</p>
+<p>Généralement, un algorithme peut être exprimé graphiquement à l'aide d'un organigramme (<em>flowchart</em>) ou d'un structogramme (<em>Nassi-Shneiderman diagram</em>) afin de s'affranchir du langage de programmation cible.</p>
+<p>La <strong>conception</strong>, aussi appelée <a href="https://fr.wikipedia.org/wiki/Architecture_logicielle">architecture logicielle</a>, est l'art de penser un programme avant son implémentation. Cette phase fait bien souvent appel à des algorithmes.</p>
 <p>Pour être qualifiées d'algorithmes, certaines propriétés doivent être respectées :</p>
 <ol>
 <li><strong>Entrées</strong>, un algorithme doit posséder 0 ou plus d'entrées en provenance de l'extérieur de l'algorithme.</li>
@@ -2789,13 +2789,13 @@ les outils associés.
 <li><strong>Répétable</strong>, un algorithme doit fournir un résultat répétable.</li>
 </ol>
 <h2 id="complexite-algorithmique">Complexité Algorithmique<a class="headerlink" href="#complexite-algorithmique" title="Lien permanent">¤</a></h2>
-<p>Il est souvent utile de savoir quelle est la performance d'un algorithme afin de le comparer à un autre algorithme équivalent. On peut s'intéresser à deux indicateurs :</p>
+<p>Il est souvent utile de connaître la performance d'un algorithme afin de le comparer à un autre algorithme équivalent. On peut s'intéresser à deux indicateurs principaux :</p>
 <ul>
-<li><strong>La complexité en temps</strong> : combien de temps <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> consomme un algorithme pour s'exécuter.</li>
-<li><strong>La complexité en mémoire</strong> : combien de mémoire tampon consomme un algorithme pour s'exécuter.</li>
+<li><strong>La complexité en temps</strong> : quelle quantité de temps <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a> un algorithme consomme pour s'exécuter.</li>
+<li><strong>La complexité en mémoire</strong> : quel volume de mémoire tampon l'algorithme consomme durant son exécution.</li>
 </ul>
-<p>Bien évidemment, la complexité d'un algorithme dépend des données en entrée. Par exemple si on vous donne à corriger un examen de 100 copies, et le protocol de correction associé, votre temps de travail dépendra du nombre de copies à corriger, je sais de quoi je parle...</p>
-<p>La complexité en temps et en mémoire d'un algorithme est souvent exprimée en utilisant la notation en O (<em>Big O notation</em>). Cette notation a été introduite par le mathématicien et informaticien allemand Paul Bachmann en 1984 dans son ouvrage <em>Analytische Zahlentheorie</em>. Cependant, c'est le mathématicien austro-hongrois Edmund Landau qui a popularisé cette notation dans le contexte de la théorie des nombres.</p>
+<p>Bien évidemment, la complexité d'un algorithme dépend des données en entrée. Par exemple, si l'on vous confie la correction d'un examen de 100 copies, accompagné du protocole de correction, votre temps de travail dépendra directement du nombre de copies à corriger — croyez-en l'expérience !</p>
+<p>La complexité en temps et en mémoire d'un algorithme est souvent exprimée à l'aide de la notation en O (<em>Big O notation</em>). Cette notation fut introduite par le mathématicien et informaticien allemand Paul Bachmann à la fin du XIXᵉ siècle dans son ouvrage <em>Analytische Zahlentheorie</em>. Elle a ensuite été popularisée par le mathématicien austro-hongrois Edmund Landau dans le contexte de la théorie des nombres.</p>
 <p>En substance, la complexité en temps d'un algorithme qui demanderait 10 étapes pour être résolu s'écrirait :</p>
 <div class="arithmatex">\[
 O(10)
@@ -2805,8 +2805,8 @@ O(10)
 \log_2(100'000) = 16.6
 \]</div>
 <p>C'est bien plus rapide que de parcourir le dictionnaire de manière linéaire, en tournant les pages une à une.</p>
-<p>Prenons un algoritme qui prend un certain temps pour s'exécuter. L'algorithme <span class="arithmatex">\(A\)</span> prend <span class="arithmatex">\(f(n)\)</span> unités de temps pour une entrée de taille <span class="arithmatex">\(n\)</span>. On peut dire que <span class="arithmatex">\(A\)</span> est en <span class="arithmatex">\(O(g(n))\)</span> si <span class="arithmatex">\(f(n) \leq c \cdot g(n)\)</span> pour tout <span class="arithmatex">\(n \geq n_0\)</span>, où <span class="arithmatex">\(c\)</span> est une constante et <span class="arithmatex">\(n_0\)</span> est un entier.</p>
-<p>On pourrait faire le raccourcis que la complexité algorithmique mesure le nombre d'opérations élémentaires nécessaires pour résoudre un problème. Cepender, la complexité algorithmique ne mesure ni le temps en secondes ni le nombre d'opérations élémentaires. Elle mesure la croissance du nombre d'opérations élémentaires en fonction de la taille de l'entrée. C'est très différent. Prenons l'exemple suivant :</p>
+<p>Prenons un algorithme qui prend un certain temps pour s'exécuter. L'algorithme <span class="arithmatex">\(A\)</span> prend <span class="arithmatex">\(f(n)\)</span> unités de temps pour une entrée de taille <span class="arithmatex">\(n\)</span>. On peut dire que <span class="arithmatex">\(A\)</span> est en <span class="arithmatex">\(O(g(n))\)</span> si <span class="arithmatex">\(f(n) \leq c \cdot g(n)\)</span> pour tout <span class="arithmatex">\(n \geq n_0\)</span>, où <span class="arithmatex">\(c\)</span> est une constante positive et <span class="arithmatex">\(n_0\)</span> un entier.</p>
+<p>On pourrait faire le raccourci que la complexité algorithmique mesure le nombre d'opérations élémentaires nécessaires pour résoudre un problème. Cependant, la complexité algorithmique ne mesure ni le temps en secondes ni le nombre exact d'opérations élémentaires. Elle mesure la croissance du nombre d'opérations élémentaires en fonction de la taille de l'entrée. C'est très différent. Prenons l'exemple suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">}</span>
@@ -2822,7 +2822,7 @@ O(10)
 </span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Cette fois-ci on observe une imbrication de deux boucles <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span>. La complexité de cet algorithme est <span class="arithmatex">\(O(n \cdot m)\)</span>. On peut dire que la complexité de cet algorithme est quadratique.</p>
+<p>Cette fois-ci, on observe une imbrication de deux boucles <span class="ycr-hashtag" data-index-entry="for" data-tag="for"><code>for</code></span>. La complexité de cet algorithme est $O(n \cdot m)`. On dit que la complexité est quadratique.</p>
 <p>Enfin, imaginons que nous devons appliquer 10 opérations sur chaque élément avant l'affichage :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2832,7 +2832,7 @@ O(10)
 </span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Naïvement on pourrait penser que la complexité de cet algorithme est <span class="arithmatex">\(O(10 \cdot n \cdot m) = O(n \cdot m)\)</span>. Cependant, la complexité de cet algorithme est <span class="arithmatex">\(O(10 \cdot n \cdot m) = O(n \cdot m)\)</span>. En effet, la constante 10 n'a pas d'impact sur la croissance de la complexité de l'algorithme. On peut dire que la complexité de cet algorithme est quadratique.</p>
+<p>De prime abord, on pourrait penser que la complexité de cet algorithme est <span class="arithmatex">\(O(10 \cdot n \cdot m)\)</span>. En réalité, elle reste <span class="arithmatex">\(O(n \cdot m)\)</span>, car la constante 10 n'a aucun impact sur la croissance asymptotique. Là encore, la complexité est quadratique.</p>
 <h3 id="suppression-des-constantes">Suppression des constantes<a class="headerlink" href="#suppression-des-constantes" title="Lien permanent">¤</a></h3>
 <p>Dans la notation Big O, les constantes sont ignorées. Par exemple, si un algorithme prend <span class="arithmatex">\(5n^2 + 3n + 2\)</span> unités de temps pour une entrée de taille <span class="arithmatex">\(n\)</span>, on dira que cet algorithme est en <span class="arithmatex">\(O(n^2)\)</span>. En effet, pour de grandes valeurs de <span class="arithmatex">\(n\)</span>, la croissance de <span class="arithmatex">\(5n^2 + 3n + 2\)</span> est dominée par <span class="arithmatex">\(n^2\)</span>.</p>
 <table id="_table-1">
@@ -2869,7 +2869,7 @@ O(10)
 </tr>
 </tbody>
 </table>
-<p>Cette règle est valable our l'addition, mais pour la multiplication, les constantes ne sont pas ignorées. Dans le cas de <span class="arithmatex">\(O(n\cdot\log(n))\)</span> la valeur de <span class="arithmatex">\(\log(n)\)</span> est importante.</p>
+<p>Cette règle est valable pour l'addition, mais pour la multiplication les constantes ne sont pas systématiquement ignorées. Dans le cas de <span class="arithmatex">\(O(n\cdot\log(n))\)</span>, la valeur de <span class="arithmatex">\(\log(n)\)</span> reste déterminante.</p>
 <h3 id="indicateurs-de-landau">Indicateurs de Landau<a class="headerlink" href="#indicateurs-de-landau" title="Lien permanent">¤</a></h3>
 <p>Il existe différents indicateurs de Landau :</p>
 <dl>
@@ -2882,7 +2882,7 @@ O(10)
 </dd>
 <dt><strong>Notation Big Omega (Ω)</strong></dt>
 <dd>
-<p>Utilisée pour décrire une borne inférieure asymptotique. Cela signifie qu'une fonction <span class="arithmatex">\( f(n) \)</span> est en <span class="arithmatex">\( \Omega(g(n)) \)</span> s'il existe des constantes <span class="arithmatex">\( c &gt; 0 \)</span> et <span class="arithmatex">\( n_0 \)</span> telles que <span class="arithmatex">\( f(n) \geq c \cdot g(n) \)</span> pour tout <span class="arithmatex">\( n \geq n_0 \)</span>. En d'autres termes, <span class="arithmatex">\( g(n) \)</span> est une limite inférieure sur le comportement de <span class="arithmatex">\( f(n) \)</span> pour de grandes valeurs de <span class="arithmatex">\( n \)</span>.</p>
+<p>Utilisée pour décrire une borne inférieure asymptotique. Cela signifie qu'une fonction <span class="arithmatex">\( f(n) \)</span> est en <span class="arithmatex">\( \Omega(g(n)) \)</span> s'il existe des constantes <span class="arithmatex">\( c &gt; 0 \)</span> et <span class="arithmatex">\( n_0 \)</span> telles que <span class="arithmatex">\( f(n) \geq c \cdot g(n) \)</span> pour tout <span class="arithmatex">\( n \geq n_0 \)</span>. En d'autres termes, <span class="arithmatex">\( g(n) \)</span> est une limite inférieure du comportement de <span class="arithmatex">\( f(n) \)</span> pour de grandes valeurs de <span class="arithmatex">\( n \)</span>.</p>
 </dd>
 <dd>
 <p>Big Omega est souvent utilisée pour décrire le meilleur cas.</p>
@@ -3002,7 +3002,7 @@ O(10)
 </div>
 <div class="admonition example">
 <p class="admonition-title">Identifier les valeurs paires et impaires</p>
-<p>À titre d'exemple, le programme suivant qui se charge de remplacer les valeurs paires d'un tableau par un <span class="arithmatex">\(0\)</span> et les valeurs impaires par un <span class="arithmatex">\(1\)</span> à une complexité en temps de <span class="arithmatex">\(O(n)\)</span> où <code>n</code> est le nombre d'éléments du tableau.</p>
+<p>À titre d'exemple, le programme suivant, qui remplace les valeurs paires d'un tableau par <span class="arithmatex">\(0\)</span> et les valeurs impaires par <span class="arithmatex">\(1\)</span>, présente une complexité en temps de <span class="arithmatex">\(O(n)\)</span> où <code>n</code> est le nombre d'éléments du tableau.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">discriminate</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="p">{</span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
@@ -3034,7 +3034,7 @@ O(10)
 </div>
 </div>
 </div>
-<p>Ensuite vous vous posez la question de savoir si vous pouvez faire mieux. En effet, il existe une formule mathématique permettant de calculer la somme des entiers de <span class="arithmatex">\(1\)</span> à <span class="arithmatex">\(n\)</span> :</p>
+<p>Ensuite, vous pouvez vous demander s'il est possible de faire mieux. En effet, il existe une formule mathématique permettant de calculer la somme des entiers de <span class="arithmatex">\(1\)</span> à <span class="arithmatex">\(n\)</span> :</p>
 <div class="arithmatex">\[
 \sum_{i=1}^{n} i = \frac{n \cdot (n + 1)}{2}
 \]</div>
@@ -3055,7 +3055,7 @@ O(10)
 </div>
 </div>
 </div>
-<p>D'une manière générale, la plupart des algorithmes que l'ingénieur écrira appartiendront à ces catégories exprimées du meilleur au plus mauvais :</p>
+<p>De manière générale, la plupart des algorithmes qu'une ou un ingénieur écrira appartiendront à ces catégories, classées du meilleur au pire :</p>
 <table id="_table-2">
 <caption style="caption-side:top"> Temps pour différentes complexités d'algorithmes</caption><thead>
 <tr>
@@ -3087,24 +3087,24 @@ O(10)
 </tr>
 <tr>
 <td><span class="arithmatex">\(O(2^n)\)</span></td>
-<td>très très grand</td>
-<td>Le soleil devenu géante rouge</td>
+<td>très, très grand</td>
+<td>Quand le Soleil deviendra géante rouge</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>aura ingurgité la terre</td>
+<td>il aura déjà englouti la Terre</td>
 </tr>
 <tr>
-<td>$O(n !)`</td>
-<td>trop trop grand</td>
+<td><span class="arithmatex">\(O(n !)\)</span></td>
+<td>trop, trop grand</td>
 <td>La galaxie ne sera plus que poussière</td>
 </tr>
 </tbody>
 </table>
 <p>Les différentes complexités peuvent être résumées sur la figure suivante :</p>
 <p></p><figure id="_figure-1"><div class="mxgraph" data-mxgraph='{"tooltips":"0","border":5,"resize":"1","lightbox":1,"appearance":"automatic","url":"../../../assets/images/complexity.drawio"}' style="max-width:100%;border:1px solid transparent;"></div><figcaption> Différentes complexités d'algorithmes</figcaption></figure><p></p>
-<p>Un algorithme en <span class="arithmatex">\(O(n^2)\)</span>, doit éveiller chez le développeur la volonté de voir s'il n'y a pas moyen d'optimiser l'algorithme en réduisant sa complexité, souvent on s'aperçoit qu'un algorithme peut être optimisé et s'intéresser à sa complexité est un excellent point d'entrée.</p>
+<p>Un algorithme en <span class="arithmatex">\(O(n^2)\)</span> doit éveiller chez la développeuse ou le développeur le désir de vérifier s'il n'existe pas moyen de réduire cette complexité. Bien souvent, on s'aperçoit qu'une solution peut être optimisée, et s'intéresser à la complexité constitue un excellent point d'entrée.</p>
 <p>Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyons par exemple les deux algorithmes suivants :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAX_INT</span><span class="p">;</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MIN_INT</span><span class="p">;</span>
@@ -3148,8 +3148,8 @@ O(10)
 </div>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 3 : </span>L'entier manquant<span class="exercise-title"></span></p>
-<p>On vous donne un gros fichier de 3'000'000'000 entiers positifs 32-bits, il vous faut générer un entier qui n'est pas dans la liste. Le hic, c'est que vous n'avez que 500 MiB de mémoire de travail. Quel algorithme proposez-vous ?</p>
-<p>Une fois le travail terminé, votre manager vient vous voir pour vous annoncer que le cahier des charges a été modifié. Le client dit qu'il n'a que 10 MiB. Pensez-vous pouvoir résoudre le problème quand même ?</p>
+<p>On vous donne un gros fichier de 3'000'000'000 entiers positifs 32 bits : il vous faut générer un entier absent de la liste. Problème, vous n'avez que 500 Mio de mémoire de travail. Quel algorithme proposez-vous ?</p>
+<p>Une fois le travail terminé, votre responsable revient vous voir pour annoncer que le cahier des charges a été modifié. Le client n'a finalement que 10 Mio disponibles. Pensez-vous pouvoir résoudre le problème quand même ?</p>
 </div>
 <h2 id="diagrammes-visuels">Diagrammes visuels<a class="headerlink" href="#diagrammes-visuels" title="Lien permanent">¤</a></h2>
 <ul>
@@ -3161,17 +3161,17 @@ O(10)
 </ul>
 <h2 id="type-dalgorithmes">Type d'algorithmes<a class="headerlink" href="#type-dalgorithmes" title="Lien permanent">¤</a></h2>
 <h3 id="algorithmes-en-ligne-incremental">Algorithmes en ligne (incrémental)<a class="headerlink" href="#algorithmes-en-ligne-incremental" title="Lien permanent">¤</a></h3>
-<p>Un algorithme incrémental ou <a href="https://fr.wikipedia.org/wiki/Algorithme_online">online</a> est un algorithme qui peut s'exécuter sur un flux de données continu en entrée. C'est-à-dire qu'il est en mesure de prendre des décisions sans avoir besoin d'une visibilité complète sur le set de données.</p>
-<p>Un exemple typique est le <a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_secr%C3%A9taire">problème de la secrétaire</a>. On souhaite recruter une nouvelle secrétaire et le recruteur voit défiler les candidats. Il doit décider à chaque entretien s'il engage ou non le candidat et ne peut pas attendre la fin du processus d'entretiens pour obtenir le score attribué à chaque candidat. Il ne peut comparer la performance de l'un qu'à celle de deux déjà entrevus. L'objectif est de trouver la meilleure stratégie.</p>
-<p>La solution à ce problème est de laisser passer 37% des candidats sans les engager. Ceci correspond à une proportion de <span class="arithmatex">\(1/e\)</span>. Ensuite il suffit d'attendre un ou une candidate meilleure que tous ceux/celles du premier échantillon.</p>
+<p>Un algorithme incrémental ou <a href="https://fr.wikipedia.org/wiki/Algorithme_online">en ligne</a> est un algorithme qui peut s'exécuter sur un flux de données continu en entrée. Il est en mesure de prendre des décisions sans disposer d'une visibilité complète sur l'ensemble des données.</p>
+<p>Un exemple typique est le <a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_secr%C3%A9taire">problème de la secrétaire</a>. On souhaite recruter une nouvelle personne et le recruteur voit défiler les candidatures. Il doit décider à chaque entretien s'il engage ou non la personne et ne peut pas attendre la fin du processus pour obtenir le score attribué à chaque candidature. Il ne peut comparer la performance de l'une qu'à celles déjà observées. L'objectif est de trouver la meilleure stratégie.</p>
+<p>La solution à ce problème est de laisser passer 37 % des candidat·es sans les engager, soit une proportion de <span class="arithmatex">\(1/e\)</span>. Ensuite, il suffit d'attendre une personne meilleure que toutes celles du premier échantillon.</p>
 <h2 id="methodes-de-resolution">Méthodes de résolution<a class="headerlink" href="#methodes-de-resolution" title="Lien permanent">¤</a></h2>
-<p>Il existe deux méthodes quasiment infaillibles pour résoudre un problème complexe :</p>
+<p>Il existe deux méthodes quasiment infaillibles pour aborder un problème complexe :</p>
 <ol>
 <li>La réduction du problème en sous-problèmes plus simples.</li>
 <li>Le raisonnement par l'inverse.</li>
 </ol>
-<p>La rédiction aussi appelée <a href="https://fr.wikipedia.org/wiki/Diviser_pour_r%C3%A9gner">Divide and Conquer</a> consiste à diviser un problème en sous-problèmes plus simples, les résoudre et combiner les solutions pour obtenir la solution du problème initial. C'est une méthode très utilisée en informatique pour résoudre des problèmes complexes. Par exemple, le tri fusion, le tri rapide, la recherche dichotomique sont des méthodes de résolution de problèmes basées sur la réduction.</p>
-<p>Le raisonnement par l'inverse consiste à partir de la solution pour remonter au problème en posant des hypothèses. Par exemple, si vous avez un problème de recherche de chemin, vous pouvez partir de la destination pour remonter au point de départ. C'est une méthode très utilisée en mathématiques pour résoudre des problèmes complexes. Par exemple, la méthode de Newton pour trouver les racines d'une fonction est basée sur le raisonnement par l'inverse.</p>
+<p>La réduction, aussi appelée <a href="https://fr.wikipedia.org/wiki/Diviser_pour_r%C3%A9gner">divide and conquer</a>, consiste à diviser un problème en sous-problèmes plus simples, à les résoudre puis à combiner les solutions partielles pour obtenir la solution finale. De nombreux algorithmes emblématiques, comme le tri fusion, le tri rapide ou la recherche dichotomique, reposent sur cette méthode.</p>
+<p>Le raisonnement par l'inverse consiste à partir de la solution pour remonter au problème en posant des hypothèses successives. Par exemple, si vous cherchez un chemin, vous pouvez partir de la destination pour remonter au point de départ. Cette méthode, très utilisée en mathématiques, inspire notamment la méthode de Newton pour trouver les racines d'une fonction.</p>
 <h2 id="les-problemes-np-et-np-complet">Les Problèmes NP et NP-Complet<a class="headerlink" href="#les-problemes-np-et-np-complet" title="Lien permanent">¤</a></h2>
 <p>La théorie de la complexité computationnelle est une branche fascinante de l'informatique théorique qui s'intéresse à la classification des problèmes en fonction de la difficulté à les résoudre. Au cœur de cette théorie se trouvent les classes de problèmes NP et NP-complet, concepts essentiels pour comprendre pourquoi certains problèmes sont si difficiles à résoudre. Pour les néophytes, ces termes peuvent sembler abstraits, mais leur compréhension révèle des enjeux fondamentaux pour la science et l'ingénierie modernes.</p>
 <h3 id="quest-ce-quun-probleme-np">Qu'est-ce qu'un problème NP ?<a class="headerlink" href="#quest-ce-quun-probleme-np" title="Lien permanent">¤</a></h3>
@@ -3258,7 +3258,7 @@ O(10)
 <span class="md-icon" title="Dernière mise à jour">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="24 septembre 2024 20:42:53 UTC">24 septembre 2024</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="10 octobre 2025 19:50:01 UTC">10 octobre 2025</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Créé">
@@ -3268,10 +3268,11 @@ O(10)
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Contributeurs">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"></path></svg>
 </span>
 <nav>
-<a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>
+<a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>, 
+        <a href="mailto:52489316+yves-chevallier@users.noreply.github.com">Yves Chevallier</a>
 </nav>
 </span>
 </aside>
