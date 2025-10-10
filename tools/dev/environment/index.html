@@ -125,6 +125,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/pills.css">
     
+      <link rel="stylesheet" href="../../../css/drawio-darkmode.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6226,9 +6228,9 @@ les outils associés.
 <p>Historiquement sous Windows, le terminal était une application graphique appelée <span class="ycr-hashtag" data-index-entry="cmd" data-tag="cmd"><code>cmd</code></span>. Elle n'a pas évolué depuis Windows NT. Son interface est limitée à un nombre fini de caractères par ligne et ne supportait que quelques couleurs. Elle ne supportait pas les caractères Unicode et ne supportait pas les raccourcis clavier comme <code>Ctrl+C</code> ou <code>Ctrl+V</code>.</p>
 <p>Heureusement Windows a évolué et propose PowerShell. PowerShell est un terminal plus moderne qui supporte les couleurs, les raccourcis clavier, les caractères Unicode, etc. PowerShell est un terminal plus puissant que <span class="ycr-hashtag" data-index-entry="cmd" data-tag="cmd"><code>cmd</code></span>.</p>
 <p>L'interface du terminal était également rudimentaire (pas d'onglets, pas de séparateurs, etc.). Heureusement Windows propose depuis 2019 <a href="https://en.wikipedia.org/wiki/Windows_Terminal">Windows Terminal</a>. Windows Terminal est un terminal moderne multionglets qui supporte plusieurs terminaux (cmd, PowerShell, WSL, etc.). S'il n'est pas installé, vous pouvez le faire via le <a href="https://www.microsoft.com/fr-ch/p/windows-terminal/9n0dx20hk701">Microsoft Store</a>.</p>
-<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/cmd.png"><img alt="Interface de cmd.exe dans Windows Terminal" src="../../../assets/images/cmd.png"></a><figcaption> Interface de cmd.exe dans Windows Terminal</figcaption></figure><p></p>
-<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/powershell.png"><img alt="Interface de PowerShell dans Windows Terminal" src="../../../assets/images/powershell.png"></a><figcaption> Interface de PowerShell dans Windows Terminal</figcaption></figure><p></p>
-<p></p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/bash.png"><img alt="Interface de Ubuntu dans Windows Terminal" src="../../../assets/images/bash.png"></a><figcaption> Interface de Ubuntu dans Windows Terminal</figcaption></figure><p></p>
+<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Interface de cmd.exe dans Windows Terminal" data-type="image" data-width="auto" href="../../../assets/images/cmd.png"><img alt="Interface de cmd.exe dans Windows Terminal" src="../../../assets/images/cmd.png"></a><figcaption> Interface de cmd.exe dans Windows Terminal</figcaption></figure><p></p>
+<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Interface de PowerShell dans Windows Terminal" data-type="image" data-width="auto" href="../../../assets/images/powershell.png"><img alt="Interface de PowerShell dans Windows Terminal" src="../../../assets/images/powershell.png"></a><figcaption> Interface de PowerShell dans Windows Terminal</figcaption></figure><p></p>
+<p></p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Interface de Ubuntu dans Windows Terminal" data-type="image" data-width="auto" href="../../../assets/images/bash.png"><img alt="Interface de Ubuntu dans Windows Terminal" src="../../../assets/images/bash.png"></a><figcaption> Interface de Ubuntu dans Windows Terminal</figcaption></figure><p></p>
 <h2 id="variables-denvironnement">Variables d'environnement<a class="headerlink" href="#variables-denvironnement" title="Lien permanent">¤</a></h2>
 <p>Que vous soyez sous <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> ou Windows, votre système d'exploitation dispose de variables d'environnement. Il s'agit de variables qui sont accessibles par toutes les applications. Elles sont utilisées pour stocker des informations comme le chemin d'accès à un exécutable, le nom de l'utilisateur, le répertoire de travail, etc.</p>
 <p>La variable la plus importante est <span class="ycr-hashtag" data-index-entry="PATH" data-tag="PATH"><code>PATH</code></span>. Elle contient une liste de chemins d'accès aux exécutables. Lorsque vous tapez une commande dans un terminal, le système d'exploitation parcourt les chemins d'accès de la variable <span class="ycr-hashtag" data-index-entry="PATH" data-tag="PATH"><code>PATH</code></span> pour trouver l'exécutable correspondant à la commande. Si vous avez installé Python, Git, LaTeX, etc., dans des répertoires différents, il est nécessaire de les ajouter à la variable <span class="ycr-hashtag" data-index-entry="PATH" data-tag="PATH"><code>PATH</code></span>. Parfois les installateurs le font automatiquement, parfois non. Il est donc nécessaire de vérifier manuellement.</p>
@@ -6698,11 +6700,9 @@ les outils associés.
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+        <script src="../../../js/viewer-static.min.js"></script>
       
-        <script src="../../../js/drawio.js"></script>
-      
-        <script src="../../../js/drawio-reload.js"></script>
+        <script src="../../../js/drawio-mkdocs.js"></script>
       
         <script src="../../../exercise.js"></script>
       

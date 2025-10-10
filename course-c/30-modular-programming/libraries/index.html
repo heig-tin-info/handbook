@@ -125,6 +125,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/pills.css">
     
+      <link rel="stylesheet" href="../../../css/drawio-darkmode.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6073,7 +6075,7 @@ les outils associés.
 
 
 <h1 id="bibliotheques">Bibliothèques<a class="headerlink" href="#bibliotheques" title="Lien permanent">¤</a></h1>
-<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/library.jpg"><img alt="Bibliothèque du Trinity College de Dublin" src="../../../assets/images/library.jpg"></a><figcaption> Bibliothèque du Trinity College de Dublin</figcaption></figure><p></p>
+<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Bibliothèque du Trinity College de Dublin" data-type="image" data-width="auto" href="../../../assets/images/library.jpg"><img alt="Bibliothèque du Trinity College de Dublin" src="../../../assets/images/library.jpg"></a><figcaption> Bibliothèque du Trinity College de Dublin</figcaption></figure><p></p>
 <p>Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La <span class="ycr-hashtag" data-index-entry="printf" data-tag="printf"><code>printf</code></span> est une de ces fonctionnalités et offerte par le header <code>&lt;stdio.h&gt;</code> faisant partie de la bibliothèque <span class="ycr-hashtag" data-index-entry="libc6" data-tag="libc6"><code>libc6</code></span>.</p>
 <p>L'anglicisme <em>library</em>, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme <code>&lt;stdlib.h&gt;</code> étant la concaténation de <em>standard library</em> par exemple. Notez que librairie n'est pas la traduction correcte de <em>library</em> qui est un <a href="https://fr.wikipedia.org/wiki/Faux-ami">faux ami</a>.</p>
 <p>Une <em>library</em>, à l'instar d'une bibliothèque, contient du contenu (livre écrit dans une langue donnée) et un index (registre). En informatique il s'agit d'un fichier binaire compilé pour une architecture donnée ainsi qu'un ou plusieurs fichiers d'en-tête (<em>header</em>) contenant les définitions de cette bibliothèque.</p>
@@ -6203,7 +6205,7 @@ les outils associés.
 <h2 id="exemple-ncurses">Exemple : ncurses<a class="headerlink" href="#exemple-ncurses" title="Lien permanent">¤</a></h2>
 <p>La bibliothèque <a href="https://fr.wikipedia.org/wiki/Ncurses">ncurses</a> traduction de <em>nouvelles malédictions</em> est une évolution de <a href="https://fr.wikipedia.org/wiki/Curses">curses</a> développé originellement par <a href="https://en.wikipedia.org/wiki/Ken_Arnold">Ken Arnold</a> . Il s'agit d'une bibliothèque pour la création d'interfaces graphique en ligne de commande, toujours très utilisée.</p>
 <p>La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...</p>
-<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/linux-menuconfig.png"><img alt="Exemple avec ncurses" src="../../../assets/images/linux-menuconfig.png"></a><figcaption> Exemple d'interface graphique écrite avec <span class="ycr-hashtag" data-index-entry="ncurses" data-tag="ncurses"><code>ncurses</code></span>. Ici la configuration du noyau Linux.</figcaption></figure><p></p>
+<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Exemple avec ncurses" data-type="image" data-width="auto" href="../../../assets/images/linux-menuconfig.png"><img alt="Exemple avec ncurses" src="../../../assets/images/linux-menuconfig.png"></a><figcaption> Exemple d'interface graphique écrite avec <span class="ycr-hashtag" data-index-entry="ncurses" data-tag="ncurses"><code>ncurses</code></span>. Ici la configuration du noyau Linux.</figcaption></figure><p></p>
 <p>L'écriture d'un programme Hello World avec cette bibliothèque pourrait être :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ncurses.h&gt;</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
@@ -6628,11 +6630,9 @@ les outils associés.
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+        <script src="../../../js/viewer-static.min.js"></script>
       
-        <script src="../../../js/drawio.js"></script>
-      
-        <script src="../../../js/drawio-reload.js"></script>
+        <script src="../../../js/drawio-mkdocs.js"></script>
       
         <script src="../../../exercise.js"></script>
       

@@ -125,6 +125,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../../css/pills.css">
     
+      <link rel="stylesheet" href="../../../../css/drawio-darkmode.css">
+    
       <link rel="stylesheet" href="../../../../exercise.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -5960,10 +5962,10 @@ les outils associés.
 
 
 <h1 id="racine-carree-inverse-rapide">Racine carrée inverse rapide<a class="headerlink" href="#racine-carree-inverse-rapide" title="Lien permanent">¤</a></h1>
-<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../../assets/images/quake-iii-arena.jpg"><img alt="Quake III Arena" src="../../../../assets/images/quake-iii-arena.jpg"></a><figcaption> Quake III Arena</figcaption></figure><p></p>
+<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Quake III Arena" data-type="image" data-width="auto" href="../../../../assets/images/quake-iii-arena.jpg"><img alt="Quake III Arena" src="../../../../assets/images/quake-iii-arena.jpg"></a><figcaption> Quake III Arena</figcaption></figure><p></p>
 <p>Cet algorithme a été développé chez Silicon Graphics au début des années 90. Il a été utilisé dans des jeux vidéo comme <a href="https://fr.wikipedia.org/wiki/Quake_III_Arena">Quake III Arena</a> pour améliorer la performance du calcul des angles d'incidence dans la réflexion des lumières et est attribué à John Carmack, un des fondateurs de <a href="https://fr.wikipedia.org/wiki/Id_Software">id Software</a>, qui a publié le code source de Quake III Arena en 2005.</p>
 <p>Il est utilisé pour les vecteurs normaux dans les calculs de réflexion de la lumière.</p>
-<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../../assets/images/vector-field.svg"><img alt="Réflexion de la lumière" src="../../../../assets/images/vector-field.svg"></a><figcaption> Réflexion de la lumière</figcaption></figure><p></p>
+<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Réflexion de la lumière" data-type="image" data-width="auto" href="../../../../assets/images/vector-field.svg"><img alt="Réflexion de la lumière" src="../../../../assets/images/vector-field.svg"></a><figcaption> Réflexion de la lumière</figcaption></figure><p></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">float</span><span class="w"> </span><span class="nf">Q_rsqrt</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">number</span><span class="p">)</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">{</span>
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">threehalfs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.5F</span><span class="p">;</span>
@@ -6283,11 +6285,9 @@ les outils associés.
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+        <script src="../../../../js/viewer-static.min.js"></script>
       
-        <script src="../../../../js/drawio.js"></script>
-      
-        <script src="../../../../js/drawio-reload.js"></script>
+        <script src="../../../../js/drawio-mkdocs.js"></script>
       
         <script src="../../../../exercise.js"></script>
       

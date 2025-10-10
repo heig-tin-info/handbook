@@ -125,6 +125,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../../css/pills.css">
     
+      <link rel="stylesheet" href="../../../../css/drawio-darkmode.css">
+    
       <link rel="stylesheet" href="../../../../exercise.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6129,7 +6131,7 @@ les outils associés.
 <p>Les algorithmes d'infographie sont des algorithmes utilisés pour générer des images numériques. Ils sont utilisés dans de nombreux domaines, tels que les jeux vidéo, les films d'animation, la réalité virtuelle, etc.</p>
 <h2 id="bresenham">Bresenham<a class="headerlink" href="#bresenham" title="Lien permanent">¤</a></h2>
 <p>L'algorithme de Bresenham est une méthode efficace pour tracer des lignes droites sur une grille de pixels en utilisant uniquement des opérations entières. Il est particulièrement adapté aux écrans d'ordinateur où les positions des pixels sont discrètes. L'algorithme détermine quels pixels doivent être allumés pour former la meilleure approximation possible d'une ligne droite entre deux points.</p>
-<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../../assets/images/bressenham.gif"><img alt="Algorithme de Bresenham" src="../../../../assets/images/bressenham.gif"></a><figcaption> Algorithme de Bresenham</figcaption></figure><p></p>
+<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Algorithme de Bresenham" data-type="image" data-width="auto" href="../../../../assets/images/bressenham.gif"><img alt="Algorithme de Bresenham" src="../../../../assets/images/bressenham.gif"></a><figcaption> Algorithme de Bresenham</figcaption></figure><p></p>
 <h3 id="principe-de-lalgorithme">Principe de l'algorithme<a class="headerlink" href="#principe-de-lalgorithme" title="Lien permanent">¤</a></h3>
 <p>Considérons le tracé d'une ligne entre deux points :</p>
 <p>$<span class="arithmatex">\(p=(x_0, y_0), q=(x_1, y_1)\)</span></p>
@@ -6157,7 +6159,7 @@ les outils associés.
 </span></code></pre></div>
 <h2 id="xiaolin-wu">Xiaolin Wu<a class="headerlink" href="#xiaolin-wu" title="Lien permanent">¤</a></h2>
 <p>L'algorithme de Xiaolin Wu est une méthode améliorée pour le tracé d'antialiasing de lignes. Il utilise des techniques de subpixel pour rendre les lignes plus lisses et plus précises. L'algorithme de Xiaolin Wu est basé sur l'algorithme de Bresenham, mais il ajoute des étapes supplémentaires pour gérer les valeurs de couleurs partielles des pixels. Il fut publié en 1991 dans le journal Computer Graphics (<a href="https://cgg.mff.cuni.cz/~pepca/ref/WU.pdf">An Efficient Antialiasing Technique</a>).</p>
-<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../../assets/images/xiaolin-wu.gif"><img alt="Algorithme de Xiaolin Wu" src="../../../../assets/images/xiaolin-wu.gif"></a><figcaption> Algorithme de Xiaolin Wu</figcaption></figure><p></p>
+<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Algorithme de Xiaolin Wu" data-type="image" data-width="auto" href="../../../../assets/images/xiaolin-wu.gif"><img alt="Algorithme de Xiaolin Wu" src="../../../../assets/images/xiaolin-wu.gif"></a><figcaption> Algorithme de Xiaolin Wu</figcaption></figure><p></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">wuLine</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">p0</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="p">,</span><span class="w"> </span><span class="n">SDL_Renderer</span><span class="w"> </span><span class="o">*</span><span class="n">renderer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">   </span><span class="kt">bool</span><span class="w"> </span><span class="n">steep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">abs</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p0</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">abs</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p0</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
@@ -6222,7 +6224,7 @@ les outils associés.
 </span></code></pre></div>
 <h2 id="courbes-de-bezier">Courbes de Bézier<a class="headerlink" href="#courbes-de-bezier" title="Lien permanent">¤</a></h2>
 <p>Les courbes de Bézier sont des courbes mathématiques utilisées pour représenter des formes lisses et régulières. Elles sont largement utilisées en infographie pour le tracé de courbes.</p>
-<p></p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../../assets/images/bezier.gif"><img alt="Courbes de Bézier" src="../../../../assets/images/bezier.gif"></a><figcaption> Courbes de Bézier</figcaption></figure><p></p>
+<p></p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Courbes de Bézier" data-type="image" data-width="auto" href="../../../../assets/images/bezier.gif"><img alt="Courbes de Bézier" src="../../../../assets/images/bezier.gif"></a><figcaption> Courbes de Bézier</figcaption></figure><p></p>
 <p>Le calcul de Bézier est donné par l'algorithme suivant :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">Point</span><span class="w"> </span><span class="nf">bezier</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
@@ -6544,11 +6546,9 @@ les outils associés.
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+        <script src="../../../../js/viewer-static.min.js"></script>
       
-        <script src="../../../../js/drawio.js"></script>
-      
-        <script src="../../../../js/drawio-reload.js"></script>
+        <script src="../../../../js/drawio-mkdocs.js"></script>
       
         <script src="../../../../exercise.js"></script>
       

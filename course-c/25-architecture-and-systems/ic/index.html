@@ -125,6 +125,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/pills.css">
     
+      <link rel="stylesheet" href="../../../css/drawio-darkmode.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -5932,7 +5934,7 @@ les outils associés.
 
 <h1 id="circuits-integres">Circuits intégrés<a class="headerlink" href="#circuits-integres" title="Lien permanent">¤</a></h1>
 <p>La figure suivante montre les différentes couches d'un circuit intégré sur silicium. Chaque couleur représente une couche différente, avec en jaune la couche inférieure ou sont gravés les transistors.</p>
-<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/die-sem.png"><img alt="Vue d'un circuit au microscope électronique" src="../../../assets/images/die-sem.png"></a><figcaption> Vue d'un circuit au microscope électronique</figcaption></figure><p></p>
+<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Vue d'un circuit au microscope électronique" data-type="image" data-width="auto" href="../../../assets/images/die-sem.png"><img alt="Vue d'un circuit au microscope électronique" src="../../../assets/images/die-sem.png"></a><figcaption> Vue d'un circuit au microscope électronique</figcaption></figure><p></p>
 <p>Aujourd'hui, dans les process de fabrication les plus avancés basée sur la technologie <em>Extreme Ultraviolet Lithography</em> (EUV), les transistors sont gravés avec une finesse de 5 nm. Cela signifie que la distance entre deux transistors est de 5 nm. Pour donner un ordre de grandeur, un atome de silicium a un diamètre de 0.2 nm. Le processus de Lithography se répète jusqu'à 100 fois pour fabriquer un circuit intégré. Généralement seul les premières couches critiques sont gravées avec une finesse de 5 nm, les autres couches sont souvent plus épaisses.</p>
 
 
@@ -6257,11 +6259,9 @@ les outils associés.
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+        <script src="../../../js/viewer-static.min.js"></script>
       
-        <script src="../../../js/drawio.js"></script>
-      
-        <script src="../../../js/drawio-reload.js"></script>
+        <script src="../../../js/drawio-mkdocs.js"></script>
       
         <script src="../../../exercise.js"></script>
       

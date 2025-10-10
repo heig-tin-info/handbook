@@ -125,6 +125,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/pills.css">
     
+      <link rel="stylesheet" href="../../../css/drawio-darkmode.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6716,7 +6718,7 @@ X11 : Protocole de communication entre le serveur et les clients.</p>
 <p>Selon l'éclairage de la scène, le <em>vertex shader</em> peut également calculer la couleur de chaque sommet en fonction de la position de la lumière. Cette couleur est ensuite interpolée entre les sommets pour obtenir une couleur lisse sur toute la surface du triangle.</p>
 <p>Enfin le <em>vertex shader</em> peut également calculer les coordonnées de texture pour chaque sommet. Une texture est une image (comme une photo ou une illustration) qui est appliquée à la surface d'un objet pour lui donner un aspect réaliste.</p>
 <p>Dans notre exemple, imagions que notre pyramide est celle de Kheops, de Khéphren ou de Mykérinos et que notre caméra est un drone qui survole le Caire. Il est 17h, le soleil est bas sur l'horizon et éclaire la pyramide.</p>
-<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/caire.png"><img alt="Pyramide depuis le Caire" src="../../../assets/images/caire.png"></a><figcaption> Pyramide depuis le Caire</figcaption></figure><p></p>
+<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Pyramide depuis le Caire" data-type="image" data-width="auto" href="../../../assets/images/caire.png"><img alt="Pyramide depuis le Caire" src="../../../assets/images/caire.png"></a><figcaption> Pyramide depuis le Caire</figcaption></figure><p></p>
 <p>(donner un exemple concret avec les données de la caméra, de la lumière et une texture de brique, une transformation de perspective de la lentille de la caméra, let normales des faces pour le calcul de l'éclairage. Donner un exemple en GLSL du vertex shader pour la pyramide.)</p>
 <h3 id="tessellation">Tessellation<a class="headerlink" href="#tessellation" title="Lien permanent">¤</a></h3>
 <p>La tessellation est une étape optionnelle du pipeline graphique qui permet de subdiviser les primitives en triangles plus petits. Cette technique est utilisée pour augmenter la densité de triangles dans les zones de la scène qui nécessitent plus de détails, comme les courbes ou les surfaces complexes. La tessellation est particulièrement utile pour le rendu de surfaces lisses et organiques, comme les visages humains ou les paysages naturels.</p>
@@ -7144,7 +7146,7 @@ pour définir les attributs d'un vertex.</p>
 <p>Après compilation avec la commande suivante, on obtient un triangle blanc comme illustré ci-dessous</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>gcc<span class="w"> </span>-o<span class="w"> </span>triangle<span class="w"> </span>triangle.c<span class="w"> </span>-lglfw<span class="w"> </span>-lGLEW<span class="w"> </span>-lGL<span class="w"> </span>-lm
 </span></code></pre></div>
-<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/triangle1.png"><img alt="Triangle Blanc" src="../../../assets/images/triangle1.png"></a><figcaption> Triangle Blanc</figcaption></figure><p></p>
+<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Triangle Blanc" data-type="image" data-width="auto" href="../../../assets/images/triangle1.png"><img alt="Triangle Blanc" src="../../../assets/images/triangle1.png"></a><figcaption> Triangle Blanc</figcaption></figure><p></p>
 <h2 id="matrices">Matrices<a class="headerlink" href="#matrices" title="Lien permanent">¤</a></h2>
 <p>Le risque avec l'OpenGL bas niveau c'est qu'à un moment donné on se retrouve à devoir gérer des matrices de transformation et donc de faire des maths. Si nous voulons rendre notre exemple plus interfactif, nous pourrions par exemple ajouter une rotation au triangle, d'abord dans le plan <span class="arithmatex">\(xy\)</span> puis plus tard en 3D.</p>
 <p>Pour mémoire, en mathémathique, un vecteur est une matrice de <span class="arithmatex">\(n \times 1\)</span> soit avec une seule colonne, tandiqu'un point est une matrice de <span class="arithmatex">\(1 \times n\)</span> soit avec une seule ligne. La matrice qui n'a pas d'effet sur un vecteur est la matrice identité. La matrice identité est une matrice carrée de taille <span class="arithmatex">\(n \times n\)</span> avec des <span class="arithmatex">\(1\)</span> sur la diagonale principale et des <span class="arithmatex">\(0\)</span> ailleurs. La matrice identité est notée <span class="arithmatex">\(I_n\)</span>. En 3D nous avons donc :</p>
@@ -7539,11 +7541,9 @@ R_x(\theta) = \begin{bmatrix}
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+        <script src="../../../js/viewer-static.min.js"></script>
       
-        <script src="../../../js/drawio.js"></script>
-      
-        <script src="../../../js/drawio-reload.js"></script>
+        <script src="../../../js/drawio-mkdocs.js"></script>
       
         <script src="../../../exercise.js"></script>
       

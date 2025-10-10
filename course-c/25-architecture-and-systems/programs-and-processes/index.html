@@ -1,35 +1,37 @@
-<!DOCTYPE html><html class="no-js" lang="fr"><head>
-<meta charset="utf-8">
-<meta content="width=device-width,initial-scale=1" name="viewport">
+<!DOCTYPE html>
+<html class="no-js" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Cours d'informatique pour les étudiants en ingénierie du département des
 technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
 les outils associés.
-" name="description">
-<meta content="Yves Chevallier" name="author">
-<link href="https://heig-tin-info.github.io/handbook/course-c/25-architecture-and-systems/programs-and-processes/" rel="canonical">
-<link href="../memory-management/" rel="prev">
-<link href="../files/" rel="next">
-<link href="../../../assets/icons/favicon.ico" rel="icon">
-<meta content="mkdocs-1.6.1, mkdocs-material-9.5.49+insiders-4.53.14" name="generator">
+" name="description"/>
+<meta content="Yves Chevallier" name="author"/>
+<link href="https://heig-tin-info.github.io/handbook/course-c/25-architecture-and-systems/programs-and-processes/" rel="canonical"/>
+<link href="../memory-management/" rel="prev"/>
+<link href="../files/" rel="next"/>
+<link href="../../../assets/icons/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.49+insiders-4.53.14" name="generator"/>
 <title>Programmes et Processus - L'informatique pour ingénieurs</title>
-<link href="../../../assets/stylesheets/main.6f50c755.min.css" rel="stylesheet">
-<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet">
+<link href="../../../assets/stylesheets/main.6f50c755.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775m1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13.274 9.537zl-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074M4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.637 2.363zl1.676.335c.09.018.164.084.19.173a.25.25 0 0 1-.062.249l-1.373 1.374a.88.88 0 0 1-.619.256H12.31L9.45 7.611A1.5 1.5 0 1 1 6.5 8a1.5 1.5 0 0 1 1.889-1.449l2.861-2.862V2.552c0-.232.092-.455.256-.619L12.88.559a.25.25 0 0 1 .249-.062c.089.026.155.1.173.19Z"/><path d="M2 8a6 6 0 1 0 11.769-1.656.751.751 0 1 1 1.442-.413 7.502 7.502 0 0 1-12.513 7.371A7.501 7.501 0 0 1 10.069.789a.75.75 0 0 1-.413 1.442A6 6 0 0 0 2 8"/><path d="M5 8a3.002 3.002 0 0 0 4.699 2.476 3 3 0 0 0 1.28-2.827.748.748 0 0 1 1.045-.782.75.75 0 0 1 .445.61A4.5 4.5 0 1 1 8.516 3.53a.75.75 0 1 1-.17 1.49A3 3 0 0 0 5 8"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a9 9 0 0 0-.542-.68q-.126-.149-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259q-.142.172-.268.319c-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848q.113-.133.213-.253c.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75M5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13M6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.76 2.76 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6 6 0 0 0-.26.16 1 1 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1 1 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.61.61 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1 1 0 0 0-.34.398M9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0M9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343za8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746m1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275M6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.75.75 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L6.94 8 4.97 6.03a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005 0-.009.004"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.5 3.5 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327q0 .15-.025.292c.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5q-.002.615-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A5 5 0 0 1 8 16a5 5 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5 5 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.7 1.7 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06m.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.17.17 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5m4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5m0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5M2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.693 1.066a.75.75 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702q-.417 0-.816-.036a.75.75 0 0 1 .133-1.494Q7.649 11 8 11c1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.75.75 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.7.7 0 0 0-.5-.203.7.7 0 0 0-.5.203c-.125.124-.25.347-.25.735"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.217 6.962A3.75 3.75 0 0 1 0 3.25v-.5C0 1.784.784 1 1.75 1h1.356c.228-.585.796-1 1.462-1h6.864c.647 0 1.227.397 1.462 1h1.356c.966 0 1.75.784 1.75 1.75v.5a3.75 3.75 0 0 1-3.217 3.712 5.01 5.01 0 0 1-2.771 3.117l.144 1.446c.005.05.03.12.114.204.086.087.217.17.373.227.283.103.618.274.89.568.285.31.467.723.467 1.226v.75h1.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H4v-.75c0-.503.182-.916.468-1.226.27-.294.606-.465.889-.568q.21-.074.373-.227c.084-.085.109-.153.114-.204l.144-1.446a5.01 5.01 0 0 1-2.77-3.117ZM4.5 1.568V5.5a3.5 3.5 0 1 0 7 0V1.568a.07.07 0 0 0-.068-.068H4.568a.07.07 0 0 0-.068.068m2.957 8.902-.12 1.204c-.093.925-.858 1.47-1.467 1.691a.8.8 0 0 0-.3.176c-.037.04-.07.093-.07.21v.75h5v-.75c0-.117-.033-.17-.07-.21a.8.8 0 0 0-.3-.176c-.609-.221-1.374-.766-1.466-1.69l-.12-1.204a5 5 0 0 1-1.087 0ZM13 2.5v2.872a2.25 2.25 0 0 0 1.5-2.122v-.5a.25.25 0 0 0-.25-.25zm-10 0H1.75a.25.25 0 0 0-.25.25v.5c0 .98.626 1.813 1.5 2.122Z"/></svg>');--md-admonition-icon--hint:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a9 9 0 0 0-.542-.68q-.126-.149-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259q-.142.172-.268.319c-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848q.113-.133.213-.253c.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75M5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75"/></svg>');--md-admonition-icon--foobar:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0m10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042"/></svg>');--md-admonition-icon--reload:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.49 5.49 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5"/></svg>');}</style>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../assets/_markdown_exec_pyodide.css" rel="stylesheet">
-<link href="../../../css/french.css" rel="stylesheet">
-<link href="../../../css/extra.css" rel="stylesheet">
-<link href="../../../css/tables.css" rel="stylesheet">
-<link href="../../../css/drawio.css" rel="stylesheet">
-<link href="../../../css/epigraph.css" rel="stylesheet">
-<link href="../../../css/pills.css" rel="stylesheet">
-<link href="../../../exercise.css" rel="stylesheet">
+<link href="../../../assets/_markdown_exec_pyodide.css" rel="stylesheet"/>
+<link href="../../../css/french.css" rel="stylesheet"/>
+<link href="../../../css/extra.css" rel="stylesheet"/>
+<link href="../../../css/tables.css" rel="stylesheet"/>
+<link href="../../../css/drawio.css" rel="stylesheet"/>
+<link href="../../../css/epigraph.css" rel="stylesheet"/>
+<link href="../../../css/pills.css" rel="stylesheet"/>
+<link href="../../../css/drawio-darkmode.css" rel="stylesheet"/>
+<link href="../../../exercise.css" rel="stylesheet"/>
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-FVF0WYPMYM"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-FVF0WYPMYM",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-FVF0WYPMYM",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
-<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -41,8 +43,8 @@ les outils associés.
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
 <body data-md-color-accent="light-blue" data-md-color-primary="red" data-md-color-scheme="default" dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox">
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
 <a class="md-skip" href="#programmes-et-processus">
@@ -54,10 +56,10 @@ les outils associés.
 <header class="md-header" data-md-component="header">
 <nav aria-label="En-tête" class="md-header__inner md-grid">
 <a aria-label="L'informatique pour ingénieurs" class="md-header__button md-logo" data-md-component="logo" href="https://heig-tin-info.github.io/handbook" title="L'informatique pour ingénieurs">
-<img alt="logo" src="https://raw.githubusercontent.com/heig-vd/logos/main/heig-vd/svg/heig-vd-white.svg">
+<img alt="logo" src="https://raw.githubusercontent.com/heig-vd/logos/main/heig-vd/svg/heig-vd-white.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
 </label>
 <div class="md-header__title" data-md-component="header-title">
 <div class="md-header__ellipsis">
@@ -76,34 +78,34 @@ les outils associés.
 </div>
 </div>
 <form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="red" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="red" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
 </label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="lime" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="lime" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
 </label>
 </form>
 <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
 </label>
 <div class="md-search" data-md-component="search" role="dialog">
 <label class="md-search__overlay" for="__search"></label>
 <div class="md-search__inner" role="search">
 <form class="md-search__form" name="search">
-<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
 <label class="md-search__icon md-icon" for="__search">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </label>
 <nav aria-label="Recherche" class="md-search__options">
 <a aria-label="Partager" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Partager">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
 </a>
 <button aria-label="Effacer" class="md-search__icon md-icon" tabindex="-1" title="Effacer" type="reset">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
 </button>
 </nav>
 <div class="md-search__suggest" data-md-component="search-suggest"></div>
@@ -123,7 +125,7 @@ les outils associés.
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/heig-tin-info/handbook" title="Aller au dépôt">
 <div class="md-source__icon md-icon">
-<svg viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </div>
 <div class="md-source__repository">
     heig-tin-info/handbook
@@ -207,14 +209,14 @@ les outils associés.
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="L'informatique pour ingénieurs" class="md-nav__button md-logo" data-md-component="logo" href="https://heig-tin-info.github.io/handbook" title="L'informatique pour ingénieurs">
-<img alt="logo" src="https://raw.githubusercontent.com/heig-vd/logos/main/heig-vd/svg/heig-vd-white.svg">
+<img alt="logo" src="https://raw.githubusercontent.com/heig-vd/logos/main/heig-vd/svg/heig-vd-white.svg"/>
 </a>
     L'informatique pour ingénieurs
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/heig-tin-info/handbook" title="Aller au dépôt">
 <div class="md-source__icon md-icon">
-<svg viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </div>
 <div class="md-source__repository">
     heig-tin-info/handbook
@@ -235,7 +237,7 @@ les outils associés.
 </a>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
 <span class="md-ellipsis">
     
@@ -258,7 +260,7 @@ les outils associés.
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../00-preface/">
 <span class="md-ellipsis">
@@ -285,7 +287,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -359,7 +361,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../10-numeration/">
 <span class="md-ellipsis">
@@ -425,7 +427,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -559,7 +561,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../20-composite-types/">
 <span class="md-ellipsis">
@@ -661,7 +663,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_6" type="checkbox">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -732,7 +734,7 @@ les outils associés.
 </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
     
@@ -929,7 +931,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_7" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../27-data-structures/">
 <span class="md-ellipsis">
@@ -1031,7 +1033,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_8" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../30-modular-programming/">
 <span class="md-ellipsis">
@@ -1085,7 +1087,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_9" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -1147,7 +1149,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_10" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_10" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../40-algorithms/">
 <span class="md-ellipsis">
@@ -1234,7 +1236,7 @@ les outils associés.
 </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_10_7" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_10_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_10_7" id="__nav_2_10_7_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -1296,7 +1298,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_10_8" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_10_8" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_10_8" id="__nav_2_10_8_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -1457,7 +1459,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_11" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_11" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../45-software-design/">
 <span class="md-ellipsis">
@@ -1571,7 +1573,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_12" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_12" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../47-gui/">
 <span class="md-ellipsis">
@@ -1661,7 +1663,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_13" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_13" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../48-network/">
 <span class="md-ellipsis">
@@ -1727,7 +1729,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_14" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_14" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -1765,7 +1767,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_15" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_15" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -1815,7 +1817,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_16" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_2_16" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../90-exercises/">
 <span class="md-ellipsis">
@@ -1845,7 +1847,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -1907,7 +1909,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -2041,7 +2043,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -2064,7 +2066,7 @@ les outils associés.
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_1" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_5_1" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -2174,7 +2176,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -2212,7 +2214,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -2286,7 +2288,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_4" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_5_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -2360,7 +2362,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_5" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_5_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -2410,7 +2412,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_6" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_5_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -2448,7 +2450,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_7" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_5_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -2501,7 +2503,7 @@ les outils associés.
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
 <span class="md-ellipsis">
     
@@ -2783,10 +2785,10 @@ les outils associés.
 </nav>
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/25-architecture-and-systems/programs-and-processes.md" title="Editer cette page">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
 </a>
 <a class="md-content__button md-icon" href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/25-architecture-and-systems/programs-and-processes.md" title="Consulter la source de cette page">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"></path></svg>
 </a>
 <h1 id="programmes-et-processus">Programmes et Processus<a class="headerlink" href="#programmes-et-processus" title="Lien permanent">¤</a></h1>
 <blockquote class="epigraph">L'informatique est avant tout une science de l'abstraction. Il s'agit de créer le bon modèle pour un problème et d'imaginer les bonnes techniques automatisables et appropriées pour le résoudre. Toutes les autres sciences considèrent l'univers tel qu'il est. Par exemple, le travail d'un physicien est de comprendre le monde et non pas d'inventer un monde dans lequel les lois de la physique seraient plus simples et auxquelles il serait plus agréable de se conformer. À l'opposé, les informaticiens doivent créer des abstractions des problèmes du monde réel qui pourraient être représentées et manipulées dans un ordinateur.<footer>Alfred Vaino Aho et Jeffrey David Ullman</footer></blockquote>
@@ -2799,7 +2801,7 @@ les outils associés.
 </ul>
 <p>Un <strong>processus</strong> est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation">systèmes d'exploitation</a> tels que Windows sont dits <a href="https://fr.wikipedia.org/wiki/Multit%C3%A2che">multitâches</a> car ils peuvent faire s'exécuter plusieurs processus en parallèle. Le <strong>temps processeur</strong> est ainsi partagé entre chaque processus.</p>
 <p>Quelque soit le langage de programmation utilisé, sur un ordinateur le processeur adopte un flot d'exécution séquentiel. Les instructions sont exécutées les unes après les autres.</p>
-<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/vintage-programmer.jpg"><img alt="Programmeuse à côté de cartes perforées" src="../../../assets/images/vintage-programmer.jpg" width="60%"></a><figcaption> Programmeuse en tenue décontractée à côté de 62'500 cartes perforées</figcaption></figure><p></p>
+<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Programmeuse à côté de cartes perforées" data-type="image" data-width="auto" href="../../../assets/images/vintage-programmer.jpg"><img alt="Programmeuse à côté de cartes perforées" src="../../../assets/images/vintage-programmer.jpg" width="60%"/></a><figcaption> Programmeuse en tenue décontractée à côté de 62'500 cartes perforées</figcaption></figure><p></p>
 <h3 id="code-source">Code source<a class="headerlink" href="#code-source" title="Lien permanent">¤</a></h3>
 <p>Le <strong>code source</strong> est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes <a href="https://fr.wikipedia.org/wiki/Langage_Ladder">Ladder</a> utilisés dans les automates programmables et respectant la norme <a href="https://fr.wikipedia.org/wiki/CEI_61131-3">IEC 61131-3</a>, ou <a href="https://fr.wikipedia.org/wiki/LabVIEW">LabView</a> un outil de développement graphique.</p>
 <p>Le plus souvent le code source est organisé en une <a href="https://fr.wikipedia.org/wiki/Arborescence">arborescence</a> de fichiers. Des programmes complexes comme le noyau Linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.</p>
@@ -2917,7 +2919,7 @@ les outils associés.
 <li>La sortie d'erreur standard <span class="ycr-hashtag" data-index-entry="STDERR" data-tag="STDERR"><code>STDERR</code></span> contient des détails sur les éventuelles erreurs d'exécution du programme.</li>
 </ul>
 <p>La figure suivante résume les interactions qu'un programme peut avoir sur son environnement. Les appels système (<a href="https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me">syscall</a>) sont des ordres transmis directement au système d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.</p>
-<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/program.drawio"><div class="mxgraph" data-mxgraph="{&quot;toolbar&quot;: &quot;zoom&quot;, &quot;tooltips&quot;: &quot;1&quot;, &quot;border&quot;: 5, &quot;resize&quot;: &quot;1&quot;, &quot;edit&quot;: &quot;_blank&quot;, &quot;xml&quot;: &quot;<mxfile host=\&quot;Electron\&quot; modified=\&quot;2024-08-02T08:44:42.094Z\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36\&quot; etag=\&quot;VrnhfEtU5tBGM6WxVo5S\&quot; version=\&quot;22.0.3\&quot; type=\&quot;device\&quot;>\n  <diagram name=\&quot;Page 1\&quot; id=\&quot;Page-1\&quot;>\n    <mxGraphModel dx=\&quot;1084\&quot; dy=\&quot;926\&quot; grid=\&quot;1\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;1\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;800\&quot; pageHeight=\&quot;400\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;>\n      <root>\n        <mxCell id=\&quot;0\&quot;/>\n        <mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot;/>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;font-size: 1px&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size:14.11px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1&amp;quot;&amp;gt;Programme&amp;lt;br/&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;\&quot; tags=\&quot;Background\&quot; id=\&quot;2\&quot;>\n          <mxCell style=\&quot;verticalAlign=middle;align=center;overflow=width;vsdxID=1;fillColor=#ffffff;gradientColor=none;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);strokeColor=#000000;points=[[1,0.5,0],[0.5,0,0],[0.5,0.5,0],[0.5,0.5,0],[0.27,0,0],[0.78,0,0],[1,0.23,0],[1,0.76,0]];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;240.5\&quot; y=\&quot;143\&quot; width=\&quot;180\&quot; height=\&quot;100\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Background\&quot; id=\&quot;3\&quot;>\n          <mxCell style=\&quot;vsdxID=2;fillColor=#ffffff;gradientColor=none;shape=stencil(rVFBDsIwDHtNj5VCK14wxj8ilm0VZZ3SAuX3tAoIBhwQ4mbHjhMlyjZxxJmUgZg47OnsujQqu1HGuGkkdqkgZVtlmz4wDRyOUyd8xuqs6BBONSFLH9QOAxdha6FbcSLvisR5oQEvvfegFXyMgqwxu6g5JEwuTIupHnkgXcbo3uNwyxEpnonmt/Ivi/1nLfhirQIeZ+6d9/KlZ/31LaUkL7XtFQ==);strokeColor=#000000;points=[[0.5,0,0],[0.5,0.5,0],[0.5,0.5,0],[0.5,0.5,0],[1,0.5,0],[0.15,0.85,0],[0.85,0.85,0],[0.85,0.15,0],[0.15,0.15,0]];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;63.5\&quot; y=\&quot;174\&quot; width=\&quot;37\&quot; height=\&quot;37\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Background\&quot; id=\&quot;4\&quot;>\n          <mxCell style=\&quot;vsdxID=4;fillColor=#ffffff;gradientColor=none;shape=stencil(rVFBDsIwDHtNj5VCK14wxj8ilm0VZZ3SAuX3tAoIBhwQ4mbHjhMlyjZxxJmUgZg47OnsujQqu1HGuGkkdqkgZVtlmz4wDRyOUyd8xuqs6BBONSFLH9QOAxdha6FbcSLvisR5oQEvvfegFXyMgqwxu6g5JEwuTIupHnkgXcbo3uNwyxEpnonmt/Ivi/1nLfhirQIeZ+6d9/KlZ/31LaUkL7XtFQ==);strokeColor=#000000;points=[[0.5,0,0],[0.5,0.5,0],[0.5,0.5,0],[0.5,0.5,0],[1,0.5,0],[0.15,0.85,0],[0.85,0.85,0],[0.85,0.15,0],[0.15,0.15,0]];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;560.5\&quot; y=\&quot;147\&quot; width=\&quot;37\&quot; height=\&quot;37\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Background\&quot; id=\&quot;5\&quot;>\n          <mxCell style=\&quot;vsdxID=6;fillColor=#ffffff;gradientColor=none;shape=stencil(rVFBDsIwDHtNj5VCK14wxj8ilm0VZZ3SAuX3tAoIBhwQ4mbHjhMlyjZxxJmUgZg47OnsujQqu1HGuGkkdqkgZVtlmz4wDRyOUyd8xuqs6BBONSFLH9QOAxdha6FbcSLvisR5oQEvvfegFXyMgqwxu6g5JEwuTIupHnkgXcbo3uNwyxEpnonmt/Ivi/1nLfhirQIeZ+6d9/KlZ/31LaUkL7XtFQ==);strokeColor=#000000;points=[[0.5,0,0],[0.5,0.5,0],[0.5,0.5,0],[0.5,0.5,0],[1,0.5,0],[0.15,0.85,0],[0.85,0.85,0],[0.85,0.15,0],[0.15,0.15,0]];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;269.5\&quot; y=\&quot;45\&quot; width=\&quot;37\&quot; height=\&quot;37\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Background\&quot; id=\&quot;6\&quot;>\n          <mxCell style=\&quot;vsdxID=7;fillColor=#ffffff;gradientColor=none;shape=stencil(rVFBDsIwDHtNj5VCK14wxj8ilm0VZZ3SAuX3tAoIBhwQ4mbHjhMlyjZxxJmUgZg47OnsujQqu1HGuGkkdqkgZVtlmz4wDRyOUyd8xuqs6BBONSFLH9QOAxdha6FbcSLvisR5oQEvvfegFXyMgqwxu6g5JEwuTIupHnkgXcbo3uNwyxEpnonmt/Ivi/1nLfhirQIeZ+6d9/KlZ/31LaUkL7XtFQ==);strokeColor=#000000;points=[[0.5,0,0],[0.5,0.5,0],[0.5,0.5,0],[0.5,0.5,0],[1,0.5,0],[0.15,0.85,0],[0.85,0.85,0],[0.85,0.15,0],[0.15,0.15,0]];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;361.5\&quot; y=\&quot;45\&quot; width=\&quot;37\&quot; height=\&quot;37\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;font-size: 1px&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1&amp;quot;&amp;gt;Entr\u00e9e standard&amp;lt;br/&amp;gt;(STDIN)&amp;lt;br/&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;\&quot; tags=\&quot;Background\&quot; id=\&quot;7\&quot;>\n          <mxCell style=\&quot;verticalAlign=middle;align=center;overflow=width;vsdxID=10;fillColor=none;gradientColor=none;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);strokeColor=none;strokeWidth=2;points=[];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;15\&quot; y=\&quot;228\&quot; width=\&quot;134\&quot; height=\&quot;37\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;font-size: 1px&amp;quot;&amp;gt;&amp;lt;p style=&amp;quot;text-align:left;margin-left:0;margin-right:0;margin-top:0px;margin-bottom:0px;text-indent:0;vertical-align:middle;direction:ltr;&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1&amp;quot;&amp;gt;Sortie standard (STDOUT)&amp;lt;br/&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;\&quot; tags=\&quot;Background\&quot; id=\&quot;8\&quot;>\n          <mxCell style=\&quot;verticalAlign=middle;align=left;overflow=width;vsdxID=12;fillColor=none;gradientColor=none;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);strokeColor=none;strokeWidth=2;points=[];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;606.5\&quot; y=\&quot;151\&quot; width=\&quot;178.5\&quot; height=\&quot;28\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Background\&quot; id=\&quot;9\&quot;>\n          <mxCell style=\&quot;vsdxID=13;fillColor=#ffffff;gradientColor=none;shape=stencil(rVFBDsIwDHtNj5VCK14wxj8ilm0VZZ3SAuX3tAoIBhwQ4mbHjhMlyjZxxJmUgZg47OnsujQqu1HGuGkkdqkgZVtlmz4wDRyOUyd8xuqs6BBONSFLH9QOAxdha6FbcSLvisR5oQEvvfegFXyMgqwxu6g5JEwuTIupHnkgXcbo3uNwyxEpnonmt/Ivi/1nLfhirQIeZ+6d9/KlZ/31LaUkL7XtFQ==);strokeColor=#000000;points=[[0.5,0,0],[0.5,0.5,0],[0.5,0.5,0],[0.5,0.5,0],[1,0.5,0],[0.15,0.85,0],[0.85,0.85,0],[0.85,0.15,0],[0.15,0.15,0]];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;560.5\&quot; y=\&quot;200\&quot; width=\&quot;37\&quot; height=\&quot;37\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;font-size: 1px&amp;quot;&amp;gt;&amp;lt;p style=&amp;quot;text-align:left;margin-left:0;margin-right:0;margin-top:0px;margin-bottom:0px;text-indent:0;vertical-align:middle;direction:ltr;&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1&amp;quot;&amp;gt;Erreur standard (STDERR)&amp;lt;br/&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;\&quot; tags=\&quot;Background\&quot; id=\&quot;10\&quot;>\n          <mxCell style=\&quot;verticalAlign=middle;align=left;overflow=width;vsdxID=15;fillColor=none;gradientColor=none;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);strokeColor=none;strokeWidth=2;points=[];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;606.5\&quot; y=\&quot;204\&quot; width=\&quot;178.5\&quot; height=\&quot;28\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;font-size: 1px&amp;quot;&amp;gt;&amp;lt;p style=&amp;quot;text-align:left;margin-left:0;margin-right:0;margin-top:0px;margin-bottom:0px;text-indent:0;vertical-align:middle;direction:ltr;&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1&amp;quot;&amp;gt;Arguments&amp;lt;br/&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;\&quot; tags=\&quot;Background\&quot; id=\&quot;11\&quot;>\n          <mxCell style=\&quot;verticalAlign=middle;align=left;overflow=width;vsdxID=16;fillColor=none;gradientColor=none;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);strokeColor=none;strokeWidth=2;points=[];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;237.5\&quot; y=\&quot;8\&quot; width=\&quot;107\&quot; height=\&quot;28\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;font-size: 1px&amp;quot;&amp;gt;&amp;lt;p style=&amp;quot;text-align:left;margin-left:0;margin-right:0;margin-top:0px;margin-bottom:0px;text-indent:0;vertical-align:middle;direction:ltr;&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1&amp;quot;&amp;gt;Environment&amp;lt;br/&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;\&quot; tags=\&quot;Background\&quot; id=\&quot;12\&quot;>\n          <mxCell style=\&quot;verticalAlign=middle;align=left;overflow=width;vsdxID=17;fillColor=none;gradientColor=none;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);strokeColor=none;strokeWidth=2;points=[];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;327.5\&quot; y=\&quot;8\&quot; width=\&quot;107\&quot; height=\&quot;28\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Background\&quot; id=\&quot;23\&quot;>\n          <mxCell style=\&quot;vsdxID=18;edgeStyle=none;startArrow=none;endArrow=block;startSize=5;endSize=5;strokeColor=#000000;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;verticalAlign=middle;html=1;labelBackgroundColor=#ffffff;rounded=0;\&quot; parent=\&quot;1\&quot; edge=\&quot;1\&quot;>\n            <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n              <Array as=\&quot;points\&quot;/>\n              <mxPoint x=\&quot;270.5\&quot; y=\&quot;257\&quot; as=\&quot;sourcePoint\&quot;/>\n              <mxPoint x=\&quot;269.5\&quot; y=\&quot;337\&quot; as=\&quot;targetPoint\&quot;/>\n            </mxGeometry>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Background\&quot; id=\&quot;24\&quot;>\n          <mxCell style=\&quot;vsdxID=19;edgeStyle=none;startArrow=none;endArrow=block;startSize=5;endSize=5;strokeColor=#000000;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;verticalAlign=middle;html=1;labelBackgroundColor=#ffffff;rounded=0;\&quot; parent=\&quot;1\&quot; edge=\&quot;1\&quot;>\n            <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n              <Array as=\&quot;points\&quot;/>\n              <mxPoint x=\&quot;282.5\&quot; y=\&quot;348\&quot; as=\&quot;sourcePoint\&quot;/>\n              <mxPoint x=\&quot;283.5\&quot; y=\&quot;268\&quot; as=\&quot;targetPoint\&quot;/>\n            </mxGeometry>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;font-size: 1px&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size:14.11px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1&amp;quot;&amp;gt;Syst\u00e8me d\u2019exploitation&amp;lt;br/&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;\&quot; tags=\&quot;Background\&quot; id=\&quot;13\&quot;>\n          <mxCell style=\&quot;verticalAlign=middle;align=center;overflow=width;vsdxID=20;fillColor=#ffffff;gradientColor=none;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);strokeColor=#000000;points=[[1,0.5,0],[0.5,0,0],[0.5,0.5,0],[0.5,0.5,0],[0.27,0,0],[0.78,0,0],[1,0.23,0],[1,0.76,0]];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;189.5\&quot; y=\&quot;360\&quot; width=\&quot;180\&quot; height=\&quot;37\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;font-size: 1px&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1&amp;quot;&amp;gt;Appel syst\u00e8me&amp;lt;br/&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;\&quot; tags=\&quot;Background\&quot; id=\&quot;14\&quot;>\n          <mxCell style=\&quot;verticalAlign=middle;align=center;overflow=width;vsdxID=21;fillColor=none;gradientColor=none;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);strokeColor=none;strokeWidth=2;points=[];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;142.5\&quot; y=\&quot;290\&quot; width=\&quot;127\&quot; height=\&quot;28\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Background\&quot; id=\&quot;15\&quot;>\n          <mxCell style=\&quot;vsdxID=1000;fillColor=#ffffff;gradientColor=none;shape=stencil(rVFBDsIwDHtNj5VCK14wxj8ilm0VZZ3SAuX3tAoIBhwQ4mbHjhMlyjZxxJmUgZg47OnsujQqu1HGuGkkdqkgZVtlmz4wDRyOUyd8xuqs6BBONSFLH9QOAxdha6FbcSLvisR5oQEvvfegFXyMgqwxu6g5JEwuTIupHnkgXcbo3uNwyxEpnonmt/Ivi/1nLfhirQIeZ+6d9/KlZ/31LaUkL7XtFQ==);strokeColor=#000000;points=[[0.5,0,0],[0.5,0.5,0],[0.5,0.5,0],[0.5,0.5,0],[1,0.5,0],[0.15,0.85,0],[0.85,0.85,0],[0.85,0.15,0],[0.15,0.15,0]];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;560.5\&quot; y=\&quot;270\&quot; width=\&quot;37\&quot; height=\&quot;37\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;font-size: 1px&amp;quot;&amp;gt;&amp;lt;p style=&amp;quot;text-align:left;margin-left:0;margin-right:0;margin-top:0px;margin-bottom:0px;text-indent:0;vertical-align:middle;direction:ltr;&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size:16.93px;font-family:Calibri;color:#000000;direction:ltr;letter-spacing:0px;line-height:120%;opacity:1&amp;quot;&amp;gt;Status de sortie&amp;lt;br/&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;\&quot; tags=\&quot;Background\&quot; id=\&quot;16\&quot;>\n          <mxCell style=\&quot;verticalAlign=middle;align=left;overflow=width;vsdxID=1001;fillColor=none;gradientColor=none;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);strokeColor=none;strokeWidth=2;points=[];labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;606.5\&quot; y=\&quot;275\&quot; width=\&quot;168.5\&quot; height=\&quot;28\&quot; as=\&quot;geometry\&quot;/>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Lien\&quot; id=\&quot;17\&quot;>\n          <mxCell style=\&quot;vsdxID=1002;edgeStyle=none;startArrow=none;endArrow=block;startSize=5;endSize=5;strokeColor=#000000;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;verticalAlign=middle;html=1;labelBackgroundColor=#ffffff;rounded=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5135135135135135;entryDx=0;entryDy=0;entryPerimeter=0;curved=0;\&quot; parent=\&quot;1\&quot; source=\&quot;2\&quot; target=\&quot;15\&quot; edge=\&quot;1\&quot;>\n            <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n              <mxPoint as=\&quot;offset\&quot;/>\n              <Array as=\&quot;points\&quot;>\n                <mxPoint x=\&quot;330.5\&quot; y=\&quot;289.2\&quot;/>\n              </Array>\n            </mxGeometry>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Lien\&quot; id=\&quot;18\&quot;>\n          <mxCell style=\&quot;vsdxID=14;edgeStyle=none;startArrow=none;endArrow=block;startSize=5;endSize=5;strokeColor=#000000;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;verticalAlign=middle;html=1;labelBackgroundColor=#ffffff;rounded=0;exitX=1;exitY=0.76;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5135135135135135;entryDx=0;entryDy=0;entryPerimeter=0;\&quot; parent=\&quot;1\&quot; source=\&quot;2\&quot; target=\&quot;9\&quot; edge=\&quot;1\&quot;>\n            <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n              <mxPoint as=\&quot;offset\&quot;/>\n              <Array as=\&quot;points\&quot;>\n                <mxPoint x=\&quot;435.5\&quot; y=\&quot;219\&quot;/>\n                <mxPoint x=\&quot;435.5\&quot; y=\&quot;219.04\&quot;/>\n              </Array>\n            </mxGeometry>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Lien\&quot; id=\&quot;19\&quot;>\n          <mxCell style=\&quot;vsdxID=3;edgeStyle=none;startArrow=none;endArrow=block;startSize=5;endSize=5;strokeColor=#000000;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;verticalAlign=middle;html=1;labelBackgroundColor=#ffffff;rounded=0;exitX=1;exitY=0.5135135135135135;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;\&quot; parent=\&quot;1\&quot; source=\&quot;3\&quot; target=\&quot;2\&quot; edge=\&quot;1\&quot;>\n            <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n              <mxPoint as=\&quot;offset\&quot;/>\n              <Array as=\&quot;points\&quot;/>\n            </mxGeometry>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Lien\&quot; id=\&quot;20\&quot;>\n          <mxCell style=\&quot;vsdxID=5;edgeStyle=none;startArrow=none;endArrow=block;startSize=5;endSize=5;strokeColor=#000000;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;verticalAlign=middle;html=1;labelBackgroundColor=#ffffff;rounded=0;exitX=1;exitY=0.23;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5135135135135135;entryDx=0;entryDy=0;entryPerimeter=0;\&quot; parent=\&quot;1\&quot; source=\&quot;2\&quot; target=\&quot;4\&quot; edge=\&quot;1\&quot;>\n            <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n              <mxPoint as=\&quot;offset\&quot;/>\n              <Array as=\&quot;points\&quot;>\n                <mxPoint x=\&quot;435.5\&quot; y=\&quot;166\&quot;/>\n                <mxPoint x=\&quot;435.5\&quot; y=\&quot;166.05\&quot;/>\n              </Array>\n            </mxGeometry>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Lien\&quot; id=\&quot;21\&quot;>\n          <mxCell style=\&quot;vsdxID=8;edgeStyle=none;startArrow=none;endArrow=block;startSize=5;endSize=5;strokeColor=#000000;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;verticalAlign=middle;html=1;labelBackgroundColor=#ffffff;rounded=0;exitX=0.5135135135135135;exitY=1.027027027027027;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.26666666666666666;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;\&quot; parent=\&quot;1\&quot; source=\&quot;5\&quot; target=\&quot;2\&quot; edge=\&quot;1\&quot;>\n            <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n              <mxPoint x=\&quot;9\&quot; as=\&quot;offset\&quot;/>\n              <Array as=\&quot;points\&quot;>\n                <mxPoint x=\&quot;288.5\&quot; y=\&quot;98\&quot;/>\n                <mxPoint x=\&quot;288.7\&quot; y=\&quot;98\&quot;/>\n              </Array>\n            </mxGeometry>\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;\&quot; tags=\&quot;Lien\&quot; id=\&quot;22\&quot;>\n          <mxCell style=\&quot;vsdxID=9;edgeStyle=none;startArrow=none;endArrow=block;startSize=5;endSize=5;strokeColor=#000000;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;verticalAlign=middle;html=1;labelBackgroundColor=#ffffff;rounded=0;exitX=0.5135135135135135;exitY=1.027027027027027;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.7777777777777778;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;\&quot; parent=\&quot;1\&quot; source=\&quot;6\&quot; target=\&quot;2\&quot; edge=\&quot;1\&quot;>\n            <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n              <mxPoint x=\&quot;9\&quot; as=\&quot;offset\&quot;/>\n              <Array as=\&quot;points\&quot;>\n                <mxPoint x=\&quot;380.5\&quot; y=\&quot;98\&quot;/>\n                <mxPoint x=\&quot;380.76\&quot; y=\&quot;98\&quot;/>\n              </Array>\n            </mxGeometry>\n          </mxCell>\n        </UserObject>\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>&quot;}" style="max-width:100%;border:1px solid transparent;"></div></a><figcaption> Résumé des interactions avec un programme</figcaption></figure><p></p>
+<p></p><figure id="_figure-2"><div class="mxgraph" data-mxgraph='{"tooltips":"0","border":5,"resize":"1","lightbox":1,"appearance":"automatic","url":"../../../assets/images/program.drawio"}' style="max-width:100%;border:1px solid transparent;"></div><figcaption> Résumé des interactions avec un programme</figcaption></figure><p></p>
 <p><a href="" id="signals"></a></p>
 <h3 id="signaux">Signaux<a class="headerlink" href="#signaux" title="Lien permanent">¤</a></h3>
 <p>Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des <a href="https://fr.wikipedia.org/wiki/Signal_(informatique)">signaux</a>. Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.</p>
@@ -3152,7 +3154,7 @@ les outils associés.
 </span></code></pre></div>
 <p>Dans cet exemple ci-dessus, le programme <span class="ycr-hashtag" data-index-entry="echo" data-tag="echo"><code>echo</code></span> prend en argument la chaîne de caractère <span class="ycr-hashtag" data-index-entry="Bonjour" data-tag="Bonjour"><code>Bonjour</code></span> qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme <code>tr</code> qui effectue une opération de <a href="https://fr.wikipedia.org/wiki/ROT13">ROT13</a> et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier <span class="ycr-hashtag" data-index-entry="data.txt" data-tag="data.txt"><code>data.txt</code></span>.
 La commande suivante <span class="ycr-hashtag" data-index-entry="cat" data-tag="cat"><code>cat</code></span> lis le contenu du fichier dont le nom est passé en argument et écrit le contenu sur la sortie standard.</p>
-<p></p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/rot13.drawio"><div class="mxgraph" data-mxgraph="{&quot;toolbar&quot;: &quot;zoom&quot;, &quot;tooltips&quot;: &quot;1&quot;, &quot;border&quot;: 5, &quot;resize&quot;: &quot;1&quot;, &quot;edit&quot;: &quot;_blank&quot;, &quot;xml&quot;: &quot;<mxfile host=\&quot;Electron\&quot; modified=\&quot;2024-09-24T08:52:39.454Z\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36\&quot; etag=\&quot;PpGRdZc2uXl6zLoKA-X0\&quot; version=\&quot;22.0.3\&quot; type=\&quot;device\&quot;>\n  <diagram name=\&quot;Page-1\&quot; id=\&quot;-qoU-4EIT0c3KqDeZ-9C\&quot;>\n    <mxGraphModel dx=\&quot;619\&quot; dy=\&quot;329\&quot; grid=\&quot;1\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;1\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;600\&quot; pageHeight=\&quot;200\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;>\n      <root>\n        <mxCell id=\&quot;0\&quot;/>\n        <mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot;/>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-27\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-1\&quot; target=\&quot;XvheGI2hN2237C690OXO-14\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-1\&quot; value=\&quot;A\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;138\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-28\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-2\&quot; target=\&quot;XvheGI2hN2237C690OXO-15\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-2\&quot; value=\&quot;B\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#B9E0A5;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;163\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-29\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-3\&quot; target=\&quot;XvheGI2hN2237C690OXO-16\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-3\&quot; value=\&quot;C\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;188\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-30\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-4\&quot; target=\&quot;XvheGI2hN2237C690OXO-17\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-4\&quot; value=\&quot;D\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;213\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-31\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-5\&quot; target=\&quot;XvheGI2hN2237C690OXO-18\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-5\&quot; value=\&quot;E\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#67AB9F;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;238\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-32\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-6\&quot; target=\&quot;XvheGI2hN2237C690OXO-19\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-6\&quot; value=\&quot;F\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;263\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-33\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-7\&quot; target=\&quot;XvheGI2hN2237C690OXO-20\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-7\&quot; value=\&quot;G\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;288\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-34\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-8\&quot; target=\&quot;XvheGI2hN2237C690OXO-21\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-8\&quot; value=\&quot;H\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#A9C4EB;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;313\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-35\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-9\&quot; target=\&quot;XvheGI2hN2237C690OXO-22\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-9\&quot; value=\&quot;I\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;338\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-36\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-10\&quot; target=\&quot;XvheGI2hN2237C690OXO-23\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-10\&quot; value=\&quot;J\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;363\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-37\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-11\&quot; target=\&quot;XvheGI2hN2237C690OXO-24\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-11\&quot; value=\&quot;K\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;388\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-38\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-12\&quot; target=\&quot;XvheGI2hN2237C690OXO-25\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-12\&quot; value=\&quot;L\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#CDA2BE;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;413\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-39\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-13\&quot; target=\&quot;XvheGI2hN2237C690OXO-26\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-13\&quot; value=\&quot;M\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;438\&quot; y=\&quot;213\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-14\&quot; value=\&quot;N\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;138\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-15\&quot; value=\&quot;O\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#B9E0A5;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;163\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-16\&quot; value=\&quot;P\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;188\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-17\&quot; value=\&quot;Q\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;213\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-18\&quot; value=\&quot;R\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#67AB9F;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;238\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-19\&quot; value=\&quot;S\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;263\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-20\&quot; value=\&quot;T\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;288\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-21\&quot; value=\&quot;U\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#A9C4EB;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;313\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-22\&quot; value=\&quot;V\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;338\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-23\&quot; value=\&quot;W\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;363\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-24\&quot; value=\&quot;X\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;388\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-25\&quot; value=\&quot;Y\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#CDA2BE;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;413\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-26\&quot; value=\&quot;Z\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;438\&quot; y=\&quot;268\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-40\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-41\&quot; target=\&quot;XvheGI2hN2237C690OXO-50\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-41\&quot; value=\&quot;H\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#A9C4EB;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;238\&quot; y=\&quot;308\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-42\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-43\&quot; target=\&quot;XvheGI2hN2237C690OXO-51\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-43\&quot; value=\&quot;E\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#67AB9F;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;263\&quot; y=\&quot;308\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-44\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-45\&quot; target=\&quot;XvheGI2hN2237C690OXO-52\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-45\&quot; value=\&quot;L\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#CDA2BE;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;288\&quot; y=\&quot;308\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-46\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-47\&quot; target=\&quot;XvheGI2hN2237C690OXO-53\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-47\&quot; value=\&quot;L\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#CDA2BE;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;313\&quot; y=\&quot;308\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-48\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;XvheGI2hN2237C690OXO-49\&quot; target=\&quot;XvheGI2hN2237C690OXO-54\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-49\&quot; value=\&quot;O\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#B9E0A5;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;338\&quot; y=\&quot;308\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-50\&quot; value=\&quot;U\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#A9C4EB;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;238\&quot; y=\&quot;363\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-51\&quot; value=\&quot;R\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#67AB9F;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;263\&quot; y=\&quot;363\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-52\&quot; value=\&quot;Y\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#CDA2BE;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;288\&quot; y=\&quot;363\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-53\&quot; value=\&quot;Y\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#CDA2BE;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;313\&quot; y=\&quot;363\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n        <mxCell id=\&quot;XvheGI2hN2237C690OXO-54\&quot; value=\&quot;B\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#B9E0A5;fillOpacity=60;strokeOpacity=100;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;338\&quot; y=\&quot;363\&quot; width=\&quot;25\&quot; height=\&quot;25\&quot; as=\&quot;geometry\&quot;/>\n        </mxCell>\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>&quot;}" style="max-width:100%;border:1px solid transparent;"></div></a><figcaption> Rot13</figcaption></figure><p></p>
+<p></p><figure id="_figure-3"><div class="mxgraph" data-mxgraph='{"tooltips":"0","border":5,"resize":"1","lightbox":1,"appearance":"automatic","url":"../../../assets/images/rot13.drawio"}' style="max-width:100%;border:1px solid transparent;"></div><figcaption> Rot13</figcaption></figure><p></p>
 <p>Dans le cas où un de ces programmes génère une alerte (<em>warning</em>), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie : <span class="ycr-hashtag" data-index-entry="stdout" data-tag="stdout"><code>stdout</code></span> pour la sortie standard et <span class="ycr-hashtag" data-index-entry="stderr" data-tag="stderr"><code>stderr</code></span> pour les messages de diagnostic et les erreurs.</p>
 <h2 id="boucle-dattente">Boucle d'attente<a class="headerlink" href="#boucle-dattente" title="Lien permanent">¤</a></h2>
 <p>Comme évoqué, un programme est souvent destiné à tourner sur un système d'exploitation. Un programme simple comme celui-ci :</p>
@@ -3192,19 +3194,19 @@ La commande suivante <span class="ycr-hashtag" data-index-entry="cat" data-tag="
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Dernière mise à jour">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
 <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="27 septembre 2024 14:45:17 UTC">27 septembre 2024</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Créé">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
 </span>
 <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 juin 2024 15:13:09 UTC">28 juin 2024</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Contributeurs">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"></path></svg>
 </span>
 <nav>
 <a href="mailto:yves.chevallier@heig-vd.ch">Yves Chevallier</a>
@@ -3212,12 +3214,12 @@ La commande suivante <span class="ycr-hashtag" data-index-entry="cat" data-tag="
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Contributeurs">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
 </span>
 <span>GitHub</span>
 <nav>
 <a class="md-author" href="https://github.com/yves-chevallier" title="@yves-chevallier">
-<img alt="yves-chevallier" src="https://avatars.githubusercontent.com/u/52489316?v=4&amp;size=72">
+<img alt="yves-chevallier" src="https://avatars.githubusercontent.com/u/52489316?v=4&amp;size=72"/>
 </a>
 </nav>
 </span>
@@ -3229,10 +3231,10 @@ La commande suivante <span class="ycr-hashtag" data-index-entry="cat" data-tag="
 <div class="md-feedback__inner">
 <div class="md-feedback__list">
 <button class="md-feedback__icon md-icon" data-md-value="1" title="Cette page m'a été utile" type="submit">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"></path></svg>
 </button>
 <button class="md-feedback__icon md-icon" data-md-value="0" title="Cette page pourrait être améliorée" type="submit">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"></path></svg>
 </button>
 </div>
 <div class="md-feedback__note">
@@ -3259,7 +3261,7 @@ La commande suivante <span class="ycr-hashtag" data-index-entry="cat" data-tag="
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
 <button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Retour en haut de la page
 </button>
 </main>
@@ -3267,7 +3269,7 @@ La commande suivante <span class="ycr-hashtag" data-index-entry="cat" data-tag="
 <nav aria-label="Pied de page" class="md-footer__inner md-grid">
 <a aria-label="Précédent: Gestion de la Mémoire" class="md-footer__link md-footer__link--prev" href="../memory-management/">
 <div class="md-footer__button md-icon">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
 <div class="md-footer__title">
 <span class="md-footer__direction">
@@ -3288,7 +3290,7 @@ La commande suivante <span class="ycr-hashtag" data-index-entry="cat" data-tag="
               </div>
 </div>
 <div class="md-footer__button md-icon">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
 </div>
 </a>
 </nav>
@@ -3307,7 +3309,7 @@ La commande suivante <span class="ycr-hashtag" data-index-entry="cat" data-tag="
 </div>
 <div class="md-social">
 <a class="md-social__link" href="https://github.com/heig-tin-info/handbook" rel="noopener" target="_blank" title="github.com">
-<svg viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </a>
 </div>
 </div>
@@ -3324,19 +3326,19 @@ La commande suivante <span class="ycr-hashtag" data-index-entry="cat" data-tag="
 <form class="md-consent__form md-grid md-typeset" name="consent">
 <h4>Cookie consent</h4>
 <p>Nous utilisons des cookies pour reconnaître vos visites répétées et vos préférences, ainsi que pour mesurer l'efficacité de notre documentation et savoir si les utilisateurs trouvent ce qu'ils recherchent. Avec votre consentement, vous nous aidez à améliorer notre documentation.</p>
-<input class="md-toggle" id="__settings" type="checkbox">
+<input class="md-toggle" id="__settings" type="checkbox"/>
 <div class="md-consent__settings">
 <ul class="task-list">
 <li class="task-list-item">
 <label class="task-list-control">
-<input checked="" name="analytics" type="checkbox">
+<input checked="" name="analytics" type="checkbox"/>
 <span class="task-list-indicator"></span>
           Google Analytics
         </label>
 </li>
 <li class="task-list-item">
 <label class="task-list-control">
-<input checked="" name="github" type="checkbox">
+<input checked="" name="github" type="checkbox"/>
 <span class="task-list-indicator"></span>
           GitHub
         </label>
@@ -3362,11 +3364,9 @@ La commande suivante <span class="ycr-hashtag" data-index-entry="cat" data-tag="
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-<script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
-<script src="../../../js/drawio.js"></script>
-<script src="../../../js/drawio-reload.js"></script>
+<script src="../../../js/viewer-static.min.js"></script>
+<script src="../../../js/drawio-mkdocs.js"></script>
 <script src="../../../exercise.js"></script>
-<script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(()=>{ lightbox.reload(); });
 </script></body></html>

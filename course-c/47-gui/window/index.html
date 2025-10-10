@@ -125,6 +125,8 @@ les outils associés.
     
       <link rel="stylesheet" href="../../../css/pills.css">
     
+      <link rel="stylesheet" href="../../../css/drawio-darkmode.css">
+    
       <link rel="stylesheet" href="../../../exercise.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -6321,7 +6323,7 @@ les outils associés.
 </span></code></pre></div>
 <p>Alternativement, vous pouvez utiliser l'environnement officiel de développement de Microsoft Visual Studio, qui fournit un ensemble complet d'outils pour le développement d'applications Windows mais son installation est plus lourde et dépasse le cadre de ce cours.</p>
 <h2 id="gtk"><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GTK_(bo%C3%AEte_%C3%A0_outils)">GTK</a><a class="headerlink" href="#gtk" title="Lien permanent">¤</a></h2>
-<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/gui.png"><img alt="GUI avec GTK" src="../../../assets/images/gui.png"></a><figcaption> GUI avec GTK</figcaption></figure><p></p>
+<p></p><figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="GUI avec GTK" data-type="image" data-width="auto" href="../../../assets/images/gui.png"><img alt="GUI avec GTK" src="../../../assets/images/gui.png"></a><figcaption> GUI avec GTK</figcaption></figure><p></p>
 <h2 id="rendu-logiciel-ou-materiel">Rendu logiciel ou matériel<a class="headerlink" href="#rendu-logiciel-ou-materiel" title="Lien permanent">¤</a></h2>
 <p>Les premiers ordinateurs personnels, comme le <a href="https://fr.wikipedia.org/wiki/Macintosh">Macintosh</a> d'Apple ou l'Amiga d'Atari, utilisaient un rendu graphique purement logiciel. Cela signifie que le processeur central (<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Processeur">CPU</a>) était responsable de dessiner les pixels à l'écran, en calculant les couleurs, les textures, les ombres, et autres effets visuels. Historiquement avant les systèmes d'exploitation multitâches, pour afficher un pixel à l'écran, il suffisait ou presque d'écrire une valeur dans la mémoire vidéo.</p>
 <p>Depuis ces ages immémoriaux, les systèmes d'exploitations sont devenus beaucoup plus restrictifs et n'autorisent plus l'accès direct à la mémoire vidéo. D'ailleurs les cartes graphiques modernes fonctionnent très différemment. Néanmoins beaucoup de bibliothèques graphiques de haut niveau comme <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GTK_(bo%C3%AEte_%C3%A0_outils)">GTK</a>, Qt, <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Simple_DirectMedia_Layer">SDL</a> ou Allegro peuvent encore utiliser un rendu logiciel pour dessiner certains éléments graphiques à l'écran. Plutôt qu'accéder à la mémoire vidéo ces bibliothèques utilisent un <em>framebuffer</em>. Il s'agit d'une zone de mémoire correspondant à l'intérieur de la fenêtre graphique où les pixels sont dessinés. Une fois que le dessin est terminé, le contenu du <em>framebuffer</em> est copié dans la mémoire vidéo par le <em>window manager</em>.</p>
@@ -6381,7 +6383,7 @@ les outils associés.
 </span><span id="__span-5-52"><a href="#__codelineno-5-52" id="__codelineno-5-52" name="__codelineno-5-52"></a><span class="w">   </span><span class="n">glutMainLoop</span><span class="p">();</span>
 </span><span id="__span-5-53"><a href="#__codelineno-5-53" id="__codelineno-5-53" name="__codelineno-5-53"></a><span class="p">}</span>
 </span></code></pre></div>
-<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/teapot.png"><img alt="Théière en 3D" src="../../../assets/images/teapot.png"></a><figcaption> Théière en 3D</figcaption></figure><p></p>
+<p></p><figure id="_figure-2"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Théière en 3D" data-type="image" data-width="auto" href="../../../assets/images/teapot.png"><img alt="Théière en 3D" src="../../../assets/images/teapot.png"></a><figcaption> Théière en 3D</figcaption></figure><p></p>
 <p>La bibliothèque Cairo est un exemple de bibliothèque de rendu 2D qui peut fonctionner en mode logiciel ou matériel. Cairo est utilisé par <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GTK_(bo%C3%AEte_%C3%A0_outils)">GTK</a> pour le rendu graphique de ses composants. Il est également utilisé par d'autres applications comme Inkscape, Firefox, et WebKit. Voici l'exemple d'un programme qui trace une ligne noir sous la souris :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gtk/gtk.h&gt;</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
@@ -6446,7 +6448,7 @@ les outils associés.
 </span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>x.c<span class="w"> </span>-lgtk-3<span class="w"> </span>-lgdk-3<span class="w"> </span>-lz<span class="w"> </span>-lpangocairo-1.0<span class="w"> </span>-lpango-1.0<span class="w"> </span>-lharfbuzz<span class="w"> </span>-latk-1.0
 </span><span id="__span-8-10"><a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>-lcairo-gobject<span class="w"> </span>-lcairo<span class="w"> </span>-lgdk_pixbuf-2.0<span class="w"> </span>-lgio-2.0<span class="w"> </span>-lgobject-2.0<span class="w"> </span>-lglib-2.0
 </span></code></pre></div>
-<p></p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/framebuffer.png"><img alt="Hello tracé avec la souris" src="../../../assets/images/framebuffer.png"></a><figcaption> Hello tracé avec la souris</figcaption></figure><p></p>
+<p></p><figure id="_figure-3"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Hello tracé avec la souris" data-type="image" data-width="auto" href="../../../assets/images/framebuffer.png"><img alt="Hello tracé avec la souris" src="../../../assets/images/framebuffer.png"></a><figcaption> Hello tracé avec la souris</figcaption></figure><p></p>
 <h2 id="bibliotheques-graphiques-de-haut-niveau">Bibliothèques graphiques de haut niveau<a class="headerlink" href="#bibliotheques-graphiques-de-haut-niveau" title="Lien permanent">¤</a></h2>
 <p>Pour faciliter le développement d'interfaces graphiques, des bibliothèques de plus haut niveau ont été créées. Celles-ci encapsulent les détails complexes du protocole X11 et fournissent des composants graphiques prêts à l'emploi, comme des boutons, des champs de texte, des boîtes de dialogue, et bien plus.</p>
 <p>Sous Linux, l'une des bibliothèques graphiques les plus populaires est <strong><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GTK_(bo%C3%AEte_%C3%A0_outils)">GTK</a></strong> (GIMP Toolkit). <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/GTK_(bo%C3%AEte_%C3%A0_outils)">GTK</a> est une bibliothèque open source écrite en C, largement utilisée pour développer des interfaces graphiques multiplateformes. Elle est notamment à la base de l'environnement de bureau GNOME et est utilisée dans des logiciels libres majeurs tels que GIMP et Inkscape.</p>
@@ -6491,7 +6493,7 @@ les outils associés.
 <h2 id="allegro">Allegro<a class="headerlink" href="#allegro" title="Lien permanent">¤</a></h2>
 <p><a href="https://liballeg.org/">Allegro</a> est une bibliothèque graphique multiplateforme qui fournit des fonctionnalités pour la création de jeux vidéo et d'applications multimédia. Elle est plus orientée vers les jeux vidéo que les interfaces graphiques traditionnelles, mais elle peut être utilisée pour des applications plus générales. Allegro fournit des fonctionnalités pour la création de fenêtres, la gestion des événements utilisateur, le rendu graphique, la lecture de sons et de musiques, et bien plus encore. Elle est écrite en C et est compatible avec de nombreux systèmes d'exploitation, y compris Windows, Linux, macOS, iOS et Android et elle est utilisable sur de nombreux langages de programmation, dont le C.</p>
 <p>Voici un exemple simple d'utilisation d'Allegro pour créer une fenêtre graphique avec un cercle rouge qui rebondit sur les bords de la fenêtre :</p>
-<p></p><figure id="_figure-4"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../../../assets/images/bouncing-ball.gif"><img alt="Balle qui rebondit" src="../../../assets/images/bouncing-ball.gif"></a><figcaption> Balle qui rebondit</figcaption></figure><p></p>
+<p></p><figure id="_figure-4"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Balle qui rebondit" data-type="image" data-width="auto" href="../../../assets/images/bouncing-ball.gif"><img alt="Balle qui rebondit" src="../../../assets/images/bouncing-ball.gif"></a><figcaption> Balle qui rebondit</figcaption></figure><p></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;allegro5/allegro.h&gt;</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;allegro5/allegro_image.h&gt;</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;allegro5/allegro_primitives.h&gt;</span>
@@ -6875,11 +6877,9 @@ les outils associés.
       
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
-        <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+        <script src="../../../js/viewer-static.min.js"></script>
       
-        <script src="../../../js/drawio.js"></script>
-      
-        <script src="../../../js/drawio-reload.js"></script>
+        <script src="../../../js/drawio-mkdocs.js"></script>
       
         <script src="../../../exercise.js"></script>
       
