@@ -1,4 +1,4 @@
-r""" Adds custom cats to the search index.
+r"""Adds custom cats to the search index.
 
 MkDocs Material only supports tags for a whole document, not for individual sections.
 This hook adds the syntax [[tag]] or [[text|tag]] to the markdown files which only
@@ -35,6 +35,7 @@ The tags are rendered as:
 
 The class purpose is to style the tags.
 """
+
 import json
 import os
 import re
@@ -48,27 +49,29 @@ from mkdocs import plugins
 
 
 class TagInlineProcessor(InlineProcessor):
+    """Process the [[tag]] syntax."""
+
     def _to_kebab_case(self, text):
         return inflection.parameterize(text)
 
     def handleMatch(self, m, data):
         text = m.group(1)
         tag = self._to_kebab_case(text if m.group(2) is None else m.group(2))
-        attrib = {
-            'class': 'ycr-hashtag',
-            'data-tag': tag
-        }
+        attrib = {"class": "ycr-hashtag", "data-tag": tag}
         entry = [x for x in [m.group(3), text, tag] if x is not None][0]
-        attrib['data-index-entry'] = entry
-        el = etree.Element('span', attrib=attrib)
+        attrib["data-index-entry"] = entry
+        el = etree.Element("span", attrib=attrib)
         el.text = text
         return el, m.start(0), m.end(0)
 
+
 class TagExtension(Extension):
+    """Markdown extension to process [[tag]] syntax."""
+
     def extendMarkdown(self, md):
-        TAG_RE = r'\[\[([^\]|]*)(?:\|([^\]]*?)(?:\|([^\]]+))?)?\]\]'
+        TAG_RE = r"\[\[([^\]|]*)(?:\|([^\]]*?)(?:\|([^\]]+))?)?\]\]"
         tag_processor = TagInlineProcessor(TAG_RE, md)
-        md.inlinePatterns.register(tag_processor, 'tag_inline', 175)
+        md.inlinePatterns.register(tag_processor, "tag_inline", 175)
 
 
 hashtags = defaultdict(set)
@@ -76,34 +79,39 @@ hashtags = defaultdict(set)
 RE_HEADERLINK = re.compile(r'<a\s*[^>]*?headerlink[^>]*?href="(#[^"]+)"[^>]*?>')
 RE_DATATAG = re.compile(r'<\w+\s+[^>]*data-tag="([^"]+)"[^>]*>')
 
+
 def on_config(config):
+    """Load the TagExtension into the Markdown configuration."""
     config.markdown_extensions.append(TagExtension())
 
+
 def on_page_content(html, page, config, files):
+    """Process the page content to find tags."""
     global hashtags
 
-    last_heading_tag = ''
+    last_heading_tag = ""
     headings = 0
-    for line in html.split('\n'):
+    for line in html.split("\n"):
         if heading := RE_HEADERLINK.search(line):
             last_heading_tag = heading.group(1)
             headings += 1
 
         for tag in RE_DATATAG.findall(line):
             if headings > 1:
-                location = f'{page.url}{last_heading_tag}'
+                location = f"{page.url}{last_heading_tag}"
             else:
                 location = page.url
             hashtags[location].add(tag)
 
     return html
 
+
 @plugins.event_priority(-100)
 def on_post_build(config):
-    """ Must be called after the search index has been generated. """
+    """Must be called after the search index has been generated."""
     base = os.path.join(config.site_dir, "search")
     path = os.path.join(base, "search_index.json")
-    with open(path, 'r', encoding='utf-8') as f:
+    with open(path, "r", encoding="utf-8") as f:
         search_index = json.load(f)
 
     for entry in search_index["docs"]:
@@ -112,5 +120,5 @@ def on_post_build(config):
                 entry["tags"] = []
             entry["tags"] += list(hashtags[entry["location"]])
 
-    with open(path, 'w', encoding='utf-8') as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(search_index, f)

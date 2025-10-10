@@ -1,14 +1,17 @@
-""" Generate tags from inline code blocks. They will be used
+"""Generate tags from inline code blocks. They will be used
 with tags hook to generate a search index."""
-import re
 
+import re
 
 RE_KEYWORD = re.compile(r"<code>(<?[_\w.]{3,}>?)</code>", re.IGNORECASE)
 
 # Ignore numbers and hexadecimals
 RE_IGNORE = re.compile(r"0[xb].+|[.\d-]+")
 
+
 def on_page_content(html, page, config, files):
+    """Process the page content to generate tags."""
+
     def replace_code(m):
         if RE_IGNORE.match(m.group(1)) or len(m.group(1)) > 15:
             return m.group(0)

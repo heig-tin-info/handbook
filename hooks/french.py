@@ -1,4 +1,4 @@
-""" French typography for MkDocs.
+"""French typography for MkDocs.
 
 This plugin adds some French typography rules to your MkDocs project:
 

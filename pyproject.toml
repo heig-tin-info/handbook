@@ -79,3 +79,20 @@ ipdb = "^0.13.13"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+preview = true
+
+[tool.ruff.lint]
+ignore = ["F401", "F403", "F405"]
+select = ["E", "F", "I"]
+fixable = ["I"]
+
+[tool.pylint.main]
+extension-pkg-allow-list = ["lxml", "lxml.etree"]

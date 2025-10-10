@@ -14,10 +14,14 @@ class CommonConfig(BaseModel):
     mermaid_config: Optional[Path] = None
     project_dir: Optional[Path] = None  # Set internally
 
+
 class CoverConfig(BaseModel):
-    name: str = Field('default', description="Cover template name")
-    color: Optional[str] = Field('black', description="Primary color")
+    """Configuration for the cover page."""
+
+    name: str = Field("default", description="Cover template name")
+    color: Optional[str] = Field("black", description="Primary color")
     logo: Optional[str] = Field(None, description="Logo path")
+
 
 class BookConfig(CommonConfig):
     """Configuration for a book."""
@@ -38,7 +42,7 @@ class BookConfig(CommonConfig):
     author: Optional[str] = None
     index_is_foreword: Optional[bool] = False
     drop_title_index: Optional[bool] = False
-    cover: Optional[CoverConfig] = CoverConfig(name='default')
+    cover: Optional[CoverConfig] = CoverConfig(name="default")
 
     @model_validator(mode="after")
     def set_folder_and_build_dir(self):
@@ -59,6 +63,7 @@ class LaTeXConfig(CommonConfig):
     @model_validator(mode="after")
     @classmethod
     def propagate(cls, data: Any) -> Any:
+        """Propagate common configuration to each book."""
         for book in data.books:
             to_propagate = ["build_dir", "mermaid_config", "save_html", "project_dir"]
             for key in to_propagate:

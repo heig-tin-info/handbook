@@ -16,6 +16,7 @@ from bs4 import BeautifulSoup, Tag
 
 
 def on_page_content(html, page, config, files):
+    """Process mermaid diagrams in the page content."""
     soup = BeautifulSoup(html, "html.parser")
     for el in soup.find_all("pre", class_="mermaid"):
         title = None

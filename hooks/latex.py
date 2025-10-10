@@ -16,6 +16,7 @@ def path_representer(dumper, data):
     data = data.resolve().relative_to(Path(".").resolve())
     return dumper.represent_scalar("tag:yaml.org,2002:str", str(data))
 
+
 yaml.add_representer(PosixPath, path_representer)
 
 saved_nav = []
@@ -132,7 +133,7 @@ class Book:
             if self.config.index_is_foreword and item.file.name == "index":
                 if self.config.drop_title_index:
                     item.drop_title = True
-                    #level -= 1
+                    # level -= 1
                 item.numbered = False
 
         for child in item.children or []:
@@ -227,14 +228,14 @@ class Book:
         # Copy class file
         shutil.copy2(
             Path(__file__).parent / "latex/templates/mkbook.cls",
-            build_dir / 'mkbook.cls'
+            build_dir / "mkbook.cls",
         )
 
         # Copy assets
         for src_pattern, dest_dir in self.config.copy_files.items():
             src_pattern = current_config.project_dir / src_pattern
             dest_dir = build_dir / dest_dir
-            if '*' not in src_pattern.name and not src_pattern.exists():
+            if "*" not in src_pattern.name and not src_pattern.exists():
                 log.warning("Pattern %s does not exist", src_pattern)
                 continue
             for src in src_pattern.parent.glob(src_pattern.name):

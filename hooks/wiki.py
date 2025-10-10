@@ -16,29 +16,30 @@ from ruamel.yaml import YAML
 from unidecode import unidecode
 from voluptuous import Optional, Required, Schema
 
-schema = Schema(
-    {
-        Required("version"): str,
-        Required("wikipedia"): {
-            str: {
-                Required("title"): str,
-                Optional("tid"): str,
-                Optional("description"): str,
-                Optional("extract"): str,
-                Optional("key"): str,
-                Optional("thumbnail"): {
-                    Required("source"): str,
-                    Required("width"): int,
-                    Required("height"): int,
-                },
-                Optional("timestamp"): str,
-                Optional("plainlink"): str,
-            }
+schema = Schema({
+    Required("version"): str,
+    Required("wikipedia"): {
+        str: {
+            Required("title"): str,
+            Optional("tid"): str,
+            Optional("description"): str,
+            Optional("extract"): str,
+            Optional("key"): str,
+            Optional("thumbnail"): {
+                Required("source"): str,
+                Required("width"): int,
+                Required("height"): int,
+            },
+            Optional("timestamp"): str,
+            Optional("plainlink"): str,
         }
-    }
-)
+    },
+})
+
 
 class Wikipedia:
+    """Class to manage wikipedia links."""
+
     def __init__(self, filename=Path("links.yml"), lang="en", timeout=5):
         self.filename = Path(filename)
         self.language = lang
@@ -49,6 +50,7 @@ class Wikipedia:
         self.data = {}  # Populated by load()
 
     def get_api_url(self, language=None):
+        """Get the API URL for a given language."""
         if not language:
             language = self.language
         return f"https://{language}.wikipedia.org/api/rest_v1"
@@ -72,7 +74,11 @@ class Wikipedia:
         )
 
         if response.status_code != 200:
-            log.error("Error while fetching wikipedia search for keyword: %s (%s)", keyword, self.search_url)
+            log.error(
+                "Error while fetching wikipedia search for keyword: %s (%s)",
+                keyword,
+                self.search_url,
+            )
             return None
 
         data = response.json()
@@ -103,21 +109,27 @@ class Wikipedia:
         }
 
     def fetch_summary(self, page_title, language=None):
+        """Fetch the summary of a wikipedia page."""
         api_url = self.get_api_url(language)
         summary_url = f"{api_url}/page/summary/{page_title}"
         response = requests.get(summary_url, timeout=self.timeout)
         if response.status_code != 200:
-            log.error("Error while fetching wikipedia summary for page: %s (%s)", page_title, summary_url)
+            log.error(
+                "Error while fetching wikipedia summary for page: %s (%s)",
+                page_title,
+                summary_url,
+            )
             return None
         data = response.json()
         keep_keys = ["title", "thumbnail", "timestamp", "description", "extract", "tid"]
 
-        data['extract'] = data['extract'].strip()
+        data["extract"] = data["extract"].strip()
 
         return {k: v for k, v in data.items() if k in keep_keys}
 
     def load(self):
-        default = schema({"wikipedia": {}, "version": '0.2'})
+        """Load the links from the YAML file."""
+        default = schema({"wikipedia": {}, "version": "0.2"})
         yaml = YAML()
         yaml.preserve_quotes = True
         if not self.filename.exists():
@@ -126,15 +138,16 @@ class Wikipedia:
         links = yaml.load(self.filename.open(encoding="utf-8"))
         try:
             self.data = schema(links)
-        except Exception:
-            log.error("Invalid links file, regenerate it...")
+        except Exception as e:
+            log.error("Invalid links file, regenerate it: %s", e)
             self.data = default
             return
-        if 'version' not in self.data or self.data['version'] != '0.2':
+        if "version" not in self.data or self.data["version"] != "0.2":
             log.error("Invalid version in links file, regenerate it...")
             self.data = default
 
     def save(self):
+        """Save the links to the YAML file."""
         yaml = YAML()
         yaml.dump(self.data, self.filename.open("w", encoding="utf-8"))
 
@@ -143,6 +156,7 @@ class Wikipedia:
 
     @property
     def non_validated_links(self):
+        """Return the non validated links."""
         return {k: v for k, v in self.data["wikipedia"].items() if not v["validated"]}
 
     def __iter__(self):
@@ -155,24 +169,33 @@ class Wikipedia:
         self.data["wikipedia"][keyword] = value
 
 
-RE_WIKI_LINK = re.compile(r'<a[^>]+?href="(https?://([a-z]{2,3})\.wikipedia.org\/wiki\/([^"]+))"')
+RE_WIKI_LINK = re.compile(
+    r'<a[^>]+?href="(https?://([a-z]{2,3})\.wikipedia.org\/wiki\/([^"]+))"'
+)
 
 wiki = Wikipedia(lang="fr")
 
 
 def on_config(config):
+    """Load the wikipedia links file."""
     wiki.load()
 
+
 def to_ascii(key):
-    key = urllib.parse.unquote(unescape(key)).replace('_', '-').lower()
+    """Convert a key to an ASCII-safe format."""
+    key = urllib.parse.unquote(unescape(key)).replace("_", "-").lower()
     key = unidecode(key)
     key = re.sub(r"[^\w-]", "", key)
     return key
 
+
 def to_human_url(key):
+    """Convert a URL-encoded key to a human-readable format."""
     return urllib.parse.unquote(unescape(key))
 
+
 def on_page_content(html, page, config, files):
+    """Process the page content to find wikipedia links."""
     for link in re.finditer(RE_WIKI_LINK, html):
         language = link.group(2)
         page_title = link.group(3)
@@ -180,11 +203,13 @@ def on_page_content(html, page, config, files):
         url = f"https://{language}.wikipedia.org/wiki/{page_title}"
         if url not in wiki:
             log.info("Fetching wikipedia summary for '%s'", to_human_url(page_title))
-            summary = wiki.fetch_summary(page_title.replace('/', r'%2F'), language)
+            summary = wiki.fetch_summary(page_title.replace("/", r"%2F"), language)
             if summary:
                 wiki[url] = summary
-                wiki[url]['key'] = key
-                wiki[url]['plainlink'] = to_human_url(url)
+                wiki[url]["key"] = key
+                wiki[url]["plainlink"] = to_human_url(url)
+
 
 def on_env(env, config, files):
+    """Make the wikipedia links available in the Jinja2 environment."""
     wiki.save()

@@ -1,4 +1,4 @@
-""" Emulates MkDocs Insiders Breadcrumb"""
+"""Emulates MkDocs Insiders Breadcrumb"""
 
 caret = """
 <svg class="breadcrumb-caret" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
@@ -7,6 +7,8 @@ caret = """
 
 
 def on_page_content(html, page, config, files):
+    """Process the page content to generate breadcrumbs."""
+
     elements = [page]
     while elements[-1].parent:
         elements.append(elements[-1].parent)
