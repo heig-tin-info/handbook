@@ -1,21 +1,24 @@
 # Handbook
 
-![.github/workflows/ci.yml](https://github.com/heig-tin-info/handbook/workflows/.github/workflows/ci.yml/badge.svg)
+![CI](https://github.com/heig-tin-info/handbook/actions/workflows/ci.yml/badge.svg)
 
 ![version](https://img.shields.io/github/v/release/heig-tin-info/handbook)
 ![downloads](https://img.shields.io/github/downloads/heig-tin-info/handbook/latest/total)
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/heig-tin-info/handbook)
+![MkDocs](https://img.shields.io/badge/MkDocs-Documentation-2A3D8F?logo=mkdocs&logoColor=white)
+![Material for MkDocs](https://img.shields.io/badge/Material%20for%20MkDocs-Theme-526CFE?logo=materialformkdocs&logoColor=white)
+![LaTeX](https://img.shields.io/badge/LaTeX-Typesetting-008080?logo=latex&logoColor=white)
 
-Ce référentiel contient un livre sur l'informatique. Il est destiné à être utilisé comme support de cours pour les étudiants de la [HEIG-VD](http://www.heig-vd.ch), département TIN. Il couvre les bases de l'informatique, de l'architecture des ordinateurs à la programmation en C. Il est prévu de l'étendre à C++ et Python.
+Ce dépôt contient un manuel consacré à l'informatique. Il est destiné à servir de support de cours pour les étudiants de la [HEIG-VD](http://www.heig-vd.ch), département TIN. Il couvre les bases de l'informatique, de l'architecture des ordinateurs à la programmation en C, avec pour objectif d'étendre progressivement le contenu vers le C++ et Python.
 
 La version web est disponible sur cette [page](https://heig-tin-info.github.io/handbook/).
 
 ## Technologie
 
-Le livre est écrit en Markdown en utilisant [MkDocs](https://www.mkdocs.org/) et le thème [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) accompagné de nombreuses extensions et plugins personnels. Les graphiques sont générés avec [Mermaid](https://mermaid.js.org/) et [Draw.io](https://www.drawio.com/).
+Le livre est écrit en Markdown en utilisant [MkDocs](https://www.mkdocs.org/) et le thème [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), accompagnés de nombreuses extensions et plugins maison. Les graphiques sont générés avec [Mermaid](https://mermaid.js.org/) et [Draw.io](https://www.drawio.com/).
 
-La valeur ajoutée réside dans la génération d'un livre PDF à partir du site web tout en respectant une mise en page stricte et soignée. Ce résultat est rendu possible à l'aide du moteur [LaTeX](https://www.latex-project.org/) (LuA)TeX. Un générateur LaTeX a été entièrement écrit pour permettre la création du livre PDF, car les outils existants ne répondaient pas à nos besoins.
+La valeur ajoutée réside dans la génération d'un livre PDF à partir du site web tout en respectant une mise en page stricte et soignée. Ce résultat est rendu possible grâce au moteur [LaTeX](https://www.latex-project.org/) (Lua)TeX. Un générateur LaTeX a été entièrement développé pour permettre la création du livre PDF, car les outils existants ne répondaient pas à nos besoins.
 
 ## Contribuer
 
