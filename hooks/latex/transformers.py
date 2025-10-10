@@ -1,4 +1,4 @@
-""" This module contains functions to convert various formats to PDF. """
+"""This module contains functions to convert various formats to PDF."""
 
 import logging
 import mimetypes
@@ -13,7 +13,8 @@ from pathlib import Path
 from typing import Union
 
 import cairosvg
-import pillow_avif  # noqa
+
+# import pillow_avif  # noqa
 import pypdf
 import requests
 import unidecode
