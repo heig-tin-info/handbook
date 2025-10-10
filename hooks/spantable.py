@@ -7,6 +7,7 @@ from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.structure.files import Files
 from mkdocs.structure.pages import Page
 
+
 def add_class(element: Tag, classname: str) -> None:
     """Append a CSS class to a BeautifulSoup element."""
 
@@ -45,7 +46,9 @@ def rowspan(soup: BeautifulSoup) -> BeautifulSoup:
 
                 cell["rowspan"] = span_rows
 
-                next_col_is_spanned = index + 1 < len(spanned_cols) and not spanned_cols[index + 1]
+                next_col_is_spanned = (
+                    index + 1 < len(spanned_cols) and not spanned_cols[index + 1]
+                )
                 prev_col_is_spanned = index - 1 >= 0 and not spanned_cols[index - 1]
                 if next_col_is_spanned:
                     add_class(cell, "ycr-rowspan--right")
@@ -102,6 +105,7 @@ def separators(soup: BeautifulSoup) -> BeautifulSoup:
                         add_class(col, "ycr-right-border")
     return soup
 
+
 # def on_page_markdown(markdown, page, config, files):
 #     # Search for tables separators
 #     lines = markdown.split('\n')
@@ -127,6 +131,7 @@ def separators(soup: BeautifulSoup) -> BeautifulSoup:
 #         new_lines.append(line)
 
 #     return markdown
+
 
 def on_page_content(
     html: str,

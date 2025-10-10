@@ -14,7 +14,10 @@ TEMPLATE_DIR = Path(__file__).parent / "templates"
 
 
 def optimize_list(numbers: Iterable[int]) -> list[str]:
-    """Merge consecutive integers into human-readable ranges."""
+    """Merge consecutive integers into human-readable ranges.
+    >>> optimize_list([1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 14, 15, 16])
+    ['1-6', '8-10', '12', '14-16']
+    """
 
     values = sorted(numbers)
     if not values:
@@ -51,12 +54,15 @@ class LaTeXFormatter:
         template_paths: list[Path] = []
         for ext in (".tex", ".cls"):
             template_paths.extend(
-                Path(path) for path in glob.glob(f"{template_dir}/**/*{ext}", recursive=True)
+                Path(path)
+                for path in glob.glob(f"{template_dir}/**/*{ext}", recursive=True)
             )
 
         templates = [path.relative_to(template_dir) for path in template_paths]
         self.templates: dict[str, Template] = {
-            str(filename.with_suffix("")).replace("/", "_"): self.env.get_template(str(filename))
+            str(filename.with_suffix("")).replace("/", "_"): self.env.get_template(
+                str(filename)
+            )
             for filename in templates
         }
 
@@ -110,7 +116,9 @@ class LaTeXFormatter:
         )
 
     def url(self, text: str, url: str) -> str:
-        from .renderer import escape_latex_chars  # Local import to avoid circular dependency
+        from .renderer import (
+            escape_latex_chars,
+        )  # Local import to avoid circular dependency
 
         safe_url = escape_latex_chars(urllib.parse.quote(url, safe=":/?&="))
         return self.templates["url"].render(text=text, url=safe_url)

@@ -1,4 +1,15 @@
-"""Wrap Mermaid diagrams with figures when a title comment is present."""
+r"""Wrap Mermaid diagrams with figures when a title comment is present.
+
+<figure id="_figure-1"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image"
+data-width="auto" href="http://127.0.0.1:8000/handbook/assets/images/thompson-kernighan-ritchie.webp">
+
+<img alt="Les p�res fondateurs du C" src="http://127.0.0.1:8000/handbook/assets/images/thompson-kernighan-ritchie.webp"></a>
+
+<figcaption> Les p�res fondateurs du C</figcaption></figure>
+
+<div class="mermaid"></div>
+
+"""
 
 from __future__ import annotations
 

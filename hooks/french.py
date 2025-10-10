@@ -51,7 +51,7 @@ def on_page_markdown(
             title = match.group("title")
             if (title is None or not title.strip()) and admonition_type in translations:
                 translated = translations[admonition_type]
-                line = f"{match.group('pre')} \"{translated}\""
+                line = f'{match.group("pre")} "{translated}"'
         out.append(line)
     return "\n".join(out)
 
@@ -79,6 +79,37 @@ def process_html(html: str) -> str:
         result += entity + part
 
     return result
+
+
+def ligatures(html):
+    map = {
+        "coeur": "cœur",
+        "soeur": "sœur",
+        "boeuf": "bœuf",
+        "coelacanthe": "cœlacanthe",
+        "noeud": "nœud",
+        "oeil": "œil",
+        "oeuf": "œuf",
+        "oeuvre": "œuvre",
+        "oeuvrer": "œuvrer",
+        "oedeme": "œdème",
+        "oestrogène": "œstrogène",
+        "oecuménique": "œcuménique",
+        "oeillet": "œillet",
+        "oe": "œ",
+        "foetus": "fœtus",
+        "oedipe": "œdipe",
+        "caecum": "cæcum",
+        "tænia": "tænia",
+        "vitae": "vitæ",
+        "ex aequo": "ex æquo",
+        "cænotype": "cænotype",
+        "voeu": "vœu",
+    }
+
+    abbreviations = {
+        "cie": "C^{ie}",
+    }
 
 
 def on_page_content(

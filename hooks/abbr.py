@@ -1,4 +1,3 @@
-
 """Custom abbreviation handling for MkDocs with Wikipedia links."""
 
 from __future__ import annotations
@@ -49,7 +48,9 @@ class AbbrWikiTreeprocessor(AbbrTreeprocessor):
         abbr.tail = tail
         return abbr
 
-    def iter_element(self, el: etree.Element, parent: etree.Element | None = None) -> None:
+    def iter_element(
+        self, el: etree.Element, parent: etree.Element | None = None
+    ) -> None:
         """Recursively replace abbreviation text with anchor elements."""
 
         for child in reversed(el):
@@ -66,7 +67,9 @@ class AbbrWikiTreeprocessor(AbbrTreeprocessor):
                         match.group(0),
                     )
                     continue
-                abbr = self.create_element(abbr_value, match.group(0), text[match.end():])
+                abbr = self.create_element(
+                    abbr_value, match.group(0), text[match.end() :]
+                )
                 el.insert(0, abbr)
                 text = text[: match.start()]
             el.text = text
@@ -78,7 +81,9 @@ class AbbrWikiTreeprocessor(AbbrTreeprocessor):
                 abbr_value = self.abbrs.get(match.group(0))
                 if not abbr_value:
                     continue
-                abbr = self.create_element(abbr_value, match.group(0), tail[match.end():])
+                abbr = self.create_element(
+                    abbr_value, match.group(0), tail[match.end() :]
+                )
                 parent.insert(index, abbr)
                 tail = tail[: match.start()]
             el.tail = tail

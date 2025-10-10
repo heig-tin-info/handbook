@@ -388,7 +388,7 @@ class LaTeXRenderer:
             if width > 140:
                 # ratio = round(140 / width, 2)
                 ratio = 1.0
-                width = f"{ratio*100}%"
+                width = f"{ratio * 100}%"
             else:
                 width = f"{width}mm"
 
@@ -473,7 +473,7 @@ class LaTeXRenderer:
     def render_heading(self, soup: Tag, **kwargs):
         base_level = kwargs.get("base_level", 0)
         for el in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6"]):
-            for a in el.find_all("a"): # No links in headings
+            for a in el.find_all("a"):  # No links in headings
                 a.unwrap()
             self.render_inlines(el)
             title = self.get_safe_text(el)
@@ -494,7 +494,6 @@ class LaTeXRenderer:
         return soup
 
     def render_autoref(self, soup: Tag, **kwargs):
-
         for el in soup.find_all("autoref", attrs={"identifier": True}):
             tag = el.get("identifier")
             text = self.get_safe_text(el)
@@ -1030,9 +1029,10 @@ class LaTeXRenderer:
                     self.glossary[key] = {
                         "name": escape_latex_chars(data["title"]),
                         "description": (
-                            f'{escape_latex_chars(data["extract"])} '
-                            f'\\newline(\\url{{{escape_latex_chars(data["plainlink"])}}})'
-                    )}
+                            f"{escape_latex_chars(data['extract'])} "
+                            f"\\newline(\\url{{{escape_latex_chars(data['plainlink'])}}})"
+                        ),
+                    }
                     self.apply(el, "glossary", key=key)
                     continue
 

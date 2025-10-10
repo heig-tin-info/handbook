@@ -261,4 +261,3 @@ def on_env(env: Any, config: MkDocsConfig, files: Files) -> None:
 
     del env, config, files
     wiki.save()
-

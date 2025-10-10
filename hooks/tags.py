@@ -1,4 +1,40 @@
-"""Section-level tags for MkDocs Material pages."""
+r"""Adds custom cats to the search index.
+
+MkDocs Material only supports tags for a whole document, not for individual sections.
+This hook adds the syntax [[tag]] or [[text|tag]] to the markdown files which only
+applies in non-code blocks.
+
+Custom tags can be added, for example to use a different name for the tag than the text.
+
+Example: This shadder has several [[vertices|vertex]] and [[faces|face]].
+
+Found tags are injected to the search_index.json in the hard way, because this
+is not configurable in the Material theme.
+
+## Why this feature?
+
+When generating a printed version of the document, interactive
+search is obvously not available. Tags can be used to create an index of the document.
+For example with LaTeX, it is easy to adds \index{tag}.
+
+## Syntax
+
+- [[tag]]: The tag is the same as the text.
+- [[text|tag]]: The tag is different from the text.
+- [[|tag]]: The tag is used without text.
+- [[text|tag|entry]]: The third part is only used for printed version, it is the entry
+  in the index table for example [[The Matrix|Matrix|Matrix, The]].
+
+## HTML output
+
+The tags are rendered as:
+
+```html
+<span class="ycr-hashtag" data-tag="tag">text</span>.
+```
+
+The class purpose is to style the tags.
+"""
 
 from __future__ import annotations
 
@@ -109,4 +145,3 @@ def on_post_build(config: MkDocsConfig) -> None:
 
     with open(path, "w", encoding="utf-8") as fh:
         json.dump(search_index, fh)
-

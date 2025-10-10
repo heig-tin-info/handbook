@@ -81,4 +81,3 @@ class LaTeXConfig(CommonConfig):
 
         for key, value in extra_data.items():
             object.__setattr__(self, key, value)
-

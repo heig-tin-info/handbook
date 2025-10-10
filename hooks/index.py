@@ -9,7 +9,9 @@ from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.structure.files import Files
 from mkdocs.structure.pages import Page
 
-RE_KEYWORD: re.Pattern[str] = re.compile(r"<code>(<?[_\w.]{3,}>?)</code>", re.IGNORECASE)
+RE_KEYWORD: re.Pattern[str] = re.compile(
+    r"<code>(<?[_\w.]{3,}>?)</code>", re.IGNORECASE
+)
 RE_IGNORE: re.Pattern[str] = re.compile(r"0[xb].+|[.\d-]+")
 
 

@@ -8,8 +8,16 @@ output_csv = "output.csv"
 
 headers = ["SIZE", "Output"]
 
+
 def compile_and_run(size):
-    compile_command = ["g++", "-std=c++17", f"-DSIZE={size}", source_file, "-o", executable]
+    compile_command = [
+        "g++",
+        "-std=c++17",
+        f"-DSIZE={size}",
+        source_file,
+        "-o",
+        executable,
+    ]
     try:
         subprocess.run(compile_command, check=True)
         print(f"Exécution avec SIZE={size}...")
@@ -19,7 +27,8 @@ def compile_and_run(size):
         print(f"Erreur lors de la compilation ou l'exécution avec SIZE={size}: {e}")
         return None
 
-with open(output_csv, mode='w', newline='') as file:
+
+with open(output_csv, mode="w", newline="") as file:
     writer = csv.writer(file)
     writer.writerow(headers)
 

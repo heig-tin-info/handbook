@@ -32,5 +32,4 @@ def on_page_content(
         return f"<span>{element.title}</span>"
 
     breadcrumb = caret.join(render_link(el) for el in reversed(elements))
-    return f"<div class=\"breadcrumb\">{breadcrumb}</div>{html}"
-
+    return f'<div class="breadcrumb">{breadcrumb}</div>{html}'
