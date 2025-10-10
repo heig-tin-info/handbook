@@ -3,15 +3,15 @@
 
 ## Définition
 
-Un tableau dynamique (aussi nommé vecteur en C++ ou liste en Python) est une structure de données qui transcende les limitations rigides du tableau classique en offrant une flexibilité d’utilisation accrue. Dans un tableau statique, la taille est déterminée dès l'initialisation et ne peut plus être modifiée, ce qui impose au développeur de prédire, parfois avec difficulté, la quantité exacte d'espace nécessaire. Un tableau dynamique, en revanche, s’ajuste à la croissance ou à la diminution des données qu’il contient, répondant ainsi aux besoins évolutifs du programme.
+Un tableau dynamique (aussi nommé *vector* en C++ ou liste en Python) est une structure de données qui dépasse les limitations rigides du tableau classique en offrant une grande souplesse d’utilisation. Dans un tableau statique, la taille est déterminée dès l'initialisation et ne peut plus être modifiée, ce qui impose à la personne qui programme de prédire, souvent avec difficulté, la quantité exacte d'espace nécessaire. Un tableau dynamique, en revanche, s’ajuste à la croissance comme à la diminution des données qu’il contient et répond ainsi aux besoins évolutifs du programme.
 
-Le fonctionnement d’un tableau dynamique repose sur un mécanisme fondamental : la gestion dynamique de la mémoire. Initialement, un tableau dynamique est alloué avec une taille déterminée, souvent modeste, pour accueillir les premiers éléments. Cependant, lorsque le tableau atteint sa capacité maximale, une nouvelle allocation de mémoire plus vaste est effectuée. Ce processus implique la création d'un nouveau tableau plus grand, la copie des éléments du tableau original vers ce nouveau tableau, et enfin la libération de la mémoire allouée au tableau initial.
+Le fonctionnement d’un tableau dynamique repose sur un mécanisme essentiel : la gestion dynamique de la mémoire. Initialement, un tableau dynamique est alloué avec une taille déterminée, souvent modeste, pour accueillir les premiers éléments. Lorsque le tableau atteint sa capacité maximale, une nouvelle allocation de mémoire plus vaste est effectuée. Ce processus implique la création d'un tableau plus grand, la copie des éléments du tableau original vers ce nouvel espace, puis la libération de la mémoire utilisée par le tableau initial.
 
-Cette flexibilité a un coût, celui de la performance, car la réallocation et la copie des éléments lors de l'agrandissement du tableau sont des opérations coûteuses en temps, surtout si elles sont fréquentes. Pour atténuer cet inconvénient, les tableaux dynamiques sont souvent conçus pour doubler leur capacité à chaque réallocation, réduisant ainsi la fréquence de ces opérations.
+Cette flexibilité a un coût en matière de performances : réallouer la mémoire et copier les éléments lors de l'agrandissement du tableau sont des opérations coûteuses en temps, surtout si elles se répètent. Pour atténuer cet inconvénient, les tableaux dynamiques sont souvent conçus pour doubler leur capacité à chaque réallocation, ce qui réduit la fréquence des copies.
 
-Outre la gestion de la capacité, un tableau dynamique offre également des opérations d'insertion et de suppression d'éléments plus souples que celles d'un tableau statique. Là où un tableau statique nécessiterait de déplacer manuellement les éléments pour insérer ou supprimer une valeur, le tableau dynamique gère ces opérations en interne, rendant son utilisation plus intuitive.
+Outre la gestion de la capacité, un tableau dynamique offre aussi des opérations d'insertion et de suppression plus souples que celles d'un tableau statique. Là où un tableau statique impose de déplacer manuellement les éléments pour insérer ou supprimer une valeur, le tableau dynamique orchestre ces opérations, ce qui rend son utilisation plus intuitive.
 
-Néanmoins, cette puissance de flexibilité s'accompagne d'une exigence de gestion rigoureuse. Le développeur doit rester conscient de la manière dont la mémoire est utilisée, surtout dans des langages comme le C où le contrôle manuel de l'allocation et de la libération de la mémoire est requis. Une mauvaise gestion de ces aspects peut conduire à des fuites de mémoire ou à des inefficacités critiques.
+Néanmoins, cette flexibilité exige une gestion rigoureuse. La personne qui développe doit rester consciente de la manière dont la mémoire est utilisée, surtout dans des langages comme le C où l'allocation et la libération demeurent manuelles. Une mauvaise gestion peut conduire à des fuites de mémoire ou à des inefficacités critiques.
 
 ## Exemple
 
@@ -25,7 +25,7 @@ buffer[1] = 'e';
 buffer[2] = 'l'; // Le buffer est plein...
 ```
 
-À ce stade, le buffer a atteint sa capacité maximale. Si nous souhaitons ajouter davantage de caractères, il nous faut augmenter la taille du buffer en réallouant dynamiquement de l'espace mémoire :
+À ce stade, le tampon a atteint sa capacité maximale. Si nous souhaitons ajouter d'autres caractères, il faut augmenter la taille disponible en réallouant dynamiquement de la mémoire :
 
 ```c
 // Augmente dynamiquement la taille du buffer à 5 caractères
@@ -46,7 +46,7 @@ free(buffer);
 
 Lors de la réallocation, la taille du nouvel espace mémoire est souvent augmentée selon un facteur de croissance prédéfini. Ce facteur varie généralement entre 1,5 et 2, selon le langage de programmation ou le compilateur utilisé. Ainsi, si l’on suit un facteur de 2, les tailles successives du tableau pourraient être 1, 2, 4, 8, 16, 32, et ainsi de suite.
 
-Il est également possible de réduire la taille allouée lorsque le nombre d'éléments devient significativement inférieur à la taille effective du tableau. Toutefois, en pratique, cette opération est rarement mise en œuvre, car elle peut s’avérer inefficace et coûteuse en termes de performance, comme l’explique cette [réponse sur StackOverflow](https://stackoverflow.com/a/60827815/2612235).
+Il est également possible de réduire la taille allouée lorsque le nombre d'éléments devient nettement inférieur à la capacité effective. En pratique, cette opération est rarement appliquée, car elle se révèle souvent inefficace et coûteuse en performances, comme l’explique cette [réponse sur StackOverflow](https://stackoverflow.com/a/60827815/2612235).
 
 Ainsi, la gestion dynamique de la mémoire à travers des opérations de réallocation permet une flexibilité précieuse, mais elle nécessite une gestion attentive pour éviter des inefficacités et des problèmes de performances.
 
@@ -75,7 +75,7 @@ Un tableau dynamique peut être représenté par la figure suivante :
 
 ![Tableau dynamique](/assets/images/dyn-array.drawio)
 
-Un espace mémoire est réservé dynamiquement sur le tas. Comme `malloc` ne retourne pas la taille de l'espace mémoire alloué, mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 `int32_t` représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par `malloc` n'est généralement pas vide, mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau, il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.
+Un espace mémoire est réservé dynamiquement sur le tas. Comme `malloc` ne retourne pas la taille de l'espace alloué mais seulement un pointeur, il est nécessaire de conserver la capacité du tableau dans une variable dédiée. Notons qu'un tableau de dix `int32_t` occupe 10 × 4 octets, soit 40 octets. La mémoire réservée par `malloc` n'est généralement pas vide : elle contient les vestiges d’anciennes allocations. Pour connaître le nombre d'éléments effectifs du tableau, il faut également stocker cette information. Enfin, le pointeur vers l'espace mémoire doit être mémorisé.
 
 Les composants de cette structure de données sont donc :
 
@@ -129,7 +129,7 @@ data[elements++] = value;
 
 ### Shift (*pop_front*)
 
-L'opération `shift` retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque élément qu'il contient.
+L'opération `shift` retire un élément depuis le début. Elle a une complexité en $O(n)$ puisqu'à chaque exécution il faut déplacer l'ensemble des éléments restants.
 
 Figure: Suppression du premier élément dans un tableau dynamique
 
@@ -142,7 +142,7 @@ for (int k = 0; k < elements - 1; k++)
     data[k] = data[k + 1];
 ```
 
-Une optimisation peut être faite en déplaçant le pointeur de données de 1 permettant de réduire la complexité à O(1) :
+Une optimisation consiste à déplacer le pointeur de données d'une position, ce qui réduit la complexité à $O(1)$ :
 
 ```c
 if (elements <= 0) exit(EXIT_FAILURE);
@@ -166,7 +166,7 @@ for (int k = elements; k >= 1; k--)
 data[0] = value;
 ```
 
-Dans le cas ou le nombre d'éléments atteint la capacité maximum du tableau, il est nécessaire de réallouer l'espace mémoire avec `realloc`. Généralement on se contente de doubler l'espace alloué.
+Dans le cas où le nombre d'éléments atteint la capacité maximale du tableau, il faut réallouer l'espace mémoire avec `realloc`. En pratique, on se contente souvent de doubler l'espace alloué.
 
 ```c
 if (elements >= capacity) {
@@ -182,7 +182,7 @@ Accès par index $O(1)$
 
 Push $O(1)$ *amorti*
 
-: En général, ajouter un élément à la fin d'un tableau dynamique prend un temps constant $O(1)$. Cependant, si la capacité du tableau est atteinte, le tableau doit être redimensionné, ce qui implique de copier tous les éléments existants vers un nouveau tableau, ce qui a un coût $O(n)$. Grâce à l'amortissement, la complexité moyenne reste $O(1)$ sur une série d'opérations d'insertion.
+: En général, ajouter un élément à la fin d'un tableau dynamique prend un temps constant $O(1)$. Cependant, si la capacité est atteinte, le tableau doit être redimensionné, ce qui implique de copier tous les éléments existants vers un nouveau bloc de mémoire et coûte $O(n)$. Grâce à l'amortissement, la complexité moyenne reste $O(1)$ sur une série d'insertion.
 
 Insertion au début (unshift) ou au milieu $O(n)$
 
@@ -190,13 +190,13 @@ Insertion au début (unshift) ou au milieu $O(n)$
 
 Pop $O(1)$
 
-: La suppression du dernier élément est une opération constante, puisqu'il n'y a pas besoin de réarranger les autres éléments, ou bien réserver davantage d'espace mémoire.
+: La suppression du dernier élément est une opération constante, puisqu'il n'y a ni réarrangement des autres valeurs ni rallocation mémoire.
 
 Suppression au début (shift) ou au milieu $O(n)$
 
 : Comme pour l'insertion, la suppression d'un élément en début ou au milieu du tableau nécessite de décaler les éléments restants, ce qui entraîne une complexité de $O(n)$.
 
-Lors d'un redimensionnement il faut parfois copier les éléments dans un nouveau tableau si `realloc` ne parviens pas à agrandir l'espace existant, ce qui a un coût de $O(n)$. Toutefois, cette opération ne se produit que de temps en temps. On dit que le coût d'un redimensionnement est est amorti sur les nombreuses opérations d'insertion. Prenons un exemple.
+Lors d'un redimensionnement, il faut parfois copier les éléments dans un nouveau tableau si `realloc` ne parvient pas à agrandir l'espace existant, ce qui coûte $O(n)$. Toutefois, cette opération reste ponctuelle. On dit que le coût d'un redimensionnement est amorti sur les nombreuses opérations d'insertion. Prenons un exemple.
 
 ```
 Élements, Capacité, Redimensionnements
@@ -214,7 +214,7 @@ Lors d'un redimensionnement il faut parfois copier les éléments dans un nouvea
 33..64    64        6 (64)
 ```
 
-Si on insert 64 éléments on a du redimensionner le tableau 6 fois et on à du copier $64 + 32 + 16 + 8 + 4 + 2 = 126$ éléments en totalité. En moyenne c'est comme si chaque insertion avait coûté $126 / 64 \approx 2$, soit une constante que l'on écrit $O(1)$. Comme ce coût est amorti sur l'ensemble des éléments, on dit que la complexité d'insertion est de $O(1)$ *amorti*.
+Si l'on insère 64 éléments, on doit redimensionner le tableau six fois et copier $64 + 32 + 16 + 8 + 4 + 2 = 126$ valeurs au total. En moyenne, chaque insertion revient donc à $126 / 64 \approx 2$, soit une constante notée $O(1)$. Ce coût étant amorti sur l'ensemble des opérations, la complexité d'insertion demeure $O(1)$ *amorti*.
 
 ## Pile
 
@@ -222,19 +222,19 @@ Une pile est une structure de données utilisée pour empiler des données de ma
 
 ![Pile ou *stack*](/assets/images/dyn-array-stack.drawio)
 
-Nous avons vu que certaines opérations sont plus onéreuses que d'autres. Les opérations `push-back` et `pop-back` sont les moins gourmandes. Puisque la pile n'a que deux opérations, on peut en tirer parti.
+Nous avons vu que certaines opérations sont plus coûteuses que d'autres. Les opérations `push-back` et `pop-back` sont les moins gourmandes. Puisque la pile ne repose que sur ces deux actions, on peut en tirer parti.
 
-Une pile peut donc être implémentée sous forme d'un tableau dynamique dans lequel on ne conserverai que deux opérations.
+Une pile peut donc être implémentée sous forme d'un tableau dynamique dans lequel on ne conserve que ces deux opérations.
 
 ## Queue
 
-Une queue est une structure de données utilisée comme file d'attente. C'est ce que l'on nomme un FIFO (*First In, First Out*). Les éléments sont ajoutés à la fin et retirés au début. Néanmoins, afin d'éviter le déplacement constant des éléments en $O(n)$, une file circulaire est souvent utilisée.
+Une queue est une structure de données utilisée comme file d'attente, ce que l'on appelle un FIFO (*First In, First Out*). Les éléments sont ajoutés à la fin et retirés au début. Pour éviter le déplacement constant des éléments en $O(n)$, on met généralement en place une file circulaire.
 
 ## Buffer circulaire
 
-Un **tampon circulaire** aussi appelé *buffer circulaire* ou *ring buffer* en anglais est généralement d'une taille fixe et possède deux pointeurs. L'un pointant sur le dernier élément (*tail*) et l'un sur le premier élément (*head*).
+Un **tampon circulaire**, aussi appelé *buffer circulaire* ou *ring buffer* en anglais, est généralement de taille fixe et dispose de deux pointeurs : l'un vers le dernier élément (*tail*), l'autre vers le premier (*head*).
 
-Lorsqu'un élément est supprimé du buffer, le pointeur de fin est incrémenté. Lorsqu'un élément est ajouté, le pointeur de début est incrémenté.
+Lorsqu'un élément est supprimé du tampon, le pointeur de fin est incrémenté. Lorsqu'un élément est ajouté, c'est le pointeur de début qui avance.
 
 Pour permettre la circulation, les indices sont calculés modulo la taille du buffer.
 
@@ -242,13 +242,13 @@ Il est possible de représenter schématiquement ce buffer comme un cercle et se
 
 ![Exemple d'un tampon circulaire](/assets/images/ring.drawio)
 
-Le nombre d'éléments dans le buffer est la différence entre le pointeur de tête et le pointeur de queue, modulo la taille du buffer. Néanmoins, l'opérateur `%` en C ne fonctionne que sur des nombres positifs et ne retourne pas le résidu positif le plus petit. En sommes, `-2 % 5` devrait donner `3`, ce qui est le cas en Python, mais en C, en C++ ou en PHP la valeur retournée est `-2`. Le modulo vrai, mathématiquement correct, peut être calculé ainsi :
+Le nombre d'éléments dans le tampon est la différence entre le pointeur de tête et le pointeur de queue, modulo la taille du buffer. Néanmoins, l'opérateur `%` en C ne fonctionne que sur des nombres positifs et ne retourne pas toujours le résidu positif minimal. En somme, `-2 % 5` devrait donner `3`, ce qui est le cas en Python, mais en C, en C++ ou en PHP la valeur retournée est `-2`. Le modulo mathématiquement correct peut être calculé ainsi :
 
 ```c
 ((A % M) + M) % M
 ```
 
-Les indices sont bouclés sur la taille du buffer, l'élément suivant est donc défini par :
+Les indices s'enroulent sur la taille du tampon ; l'élément suivant est donc défini par :
 
 ```c
 (i + 1) % SIZE
@@ -272,7 +272,7 @@ void init(Ring *ring) {
 }
 
 int count(Ring *ring) {
-    return MOD(ring->head - ring->tail, size);
+    return MOD(ring->head - ring->tail, SIZE);
 }
 
 bool is_full(Ring *ring) {

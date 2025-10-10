@@ -2,11 +2,11 @@
 
 ![Arbre binaire IRL](/assets/images/binary-tree.jpg)
 
-Les [[arbres]] sont des structures de données non linéaires qui sont composées de nœuds. Chaque nœud a un ou plusieurs enfants, sauf pour le nœud racine qui n'a pas de parent. Les arbres sont souvent utilisés pour représenter des hiérarchies, comme les systèmes de fichiers, les arbres généalogiques, les arbres de décision, etc.
+Les [[arbres]] sont des structures de données non linéaires composées de nœuds. Chaque nœud possède un ou plusieurs enfants, à l’exception de la racine qui n'a pas de parent. Les arbres servent fréquemment à modéliser des hiérarchies telles que les systèmes de fichiers, les arbres généalogiques ou encore les arbres de décision.
 
-Voici un exemple d'arbre, il représente par exemple une structure de documents stockés sur un ordinateur. En haut on voit le disque C: qui contient des dossiers et des fichiers. Chaque dossier peut contenir d'autres dossiers ou des fichiers. Il y a donc une [[hiérarchie]] entre les éléments. Chaque dossier peut contenir plusieurs éléments, mais chaque élément ne peut être contenu que dans un seul dossier.
+Voici un exemple d'arbre : il représente une structure de documents stockés sur un ordinateur. En haut figure le disque C:, qui contient des dossiers et des fichiers. Chaque dossier peut abriter d'autres dossiers ou des fichiers. Il existe donc une [[hiérarchie]] entre les éléments : chaque dossier accepte plusieurs contenus, mais chaque élément appartient à un seul dossier.
 
-On appelle ce type d'arbre un **arbre n-aire dirigé**. C'est-à-dire que chaque nœud peut avoir plusieurs enfants. L'arbre est dirigé car il y a un sens de la racine vers les feuilles. Il y a donc des flèches qui indiquent le sens de la hiérarchie.
+Ce type d'arbre est appelé **arbre n-aire dirigé** : chaque nœud peut avoir plusieurs enfants et les arêtes suivent un sens unique de la racine vers les feuilles. Les flèches indiquent ainsi la direction de la hiérarchie.
 
 ```mermaid
 %% Arbre n-aire dirigé
@@ -57,13 +57,13 @@ graph LR
 
 ## Arbre binaire
 
-Un [[arbre binaire]] est un arbre où chaque nœud a au plus deux enfants. Les enfants sont généralement appelés le fils gauche et le fils droit. Les arbres binaires sont souvent utilisés pour implémenter des structures de données comme les arbres de recherche binaires, les tas binaires, les arbres d'expression, etc.
+Un [[arbre binaire]] est un arbre dans lequel chaque nœud possède au plus deux enfants, généralement appelés fils gauche et fils droit. Les arbres binaires servent couramment à implémenter des structures comme les arbres de recherche, les tas ou les arbres d'expression.
 
-C'est une structure de donnée très utilisée en informatique. En pratique, il est rare d'implémenter un arbre binaire de manière explicite. On utilise plutôt des structures de données qui sont basées sur des arbres binaires.
+Il s'agit d'une structure de données très répandue en informatique. En pratique, on implémente rarement un arbre binaire nu : on privilégie des structures de plus haut niveau qui s'appuient sur cette représentation.
 
-Le C étant un langage très bas niveau, il n'y a pas de structure de données arbre binaire dans la bibliothèque standard. En C++ en revanche il y a de nombreux conteneurs qui utilisent des arbres binaires comme `std::set`, `std::map`, `std::multiset`, `std::multimap`, `std::priority_queue`, etc.
+Le langage C étant très bas niveau, il ne propose pas de structure d'arbre binaire dans sa bibliothèque standard. En C++, de nombreux conteneurs reposent en revanche sur des arbres binaires, comme `std::set`, `std::map`, `std::multiset`, `std::multimap` ou `std::priority_queue`.
 
-Voici l'exemple d'un arbre binaire. Chaque nœud est composé de deux enfants sauf pour les feuilles qui n'ont pas d'enfants. Le nœud `40` n'a lui que 1 enfant : l'enfant de droite.
+Voici un exemple d'arbre binaire. Chaque nœud possède deux enfants, sauf les feuilles qui n'en ont aucun. Le nœud `40`, par exemple, ne dispose que d'un enfant à droite.
 
 ```mermaid
 %% Arbre binaire
@@ -97,7 +97,7 @@ graph TD
     linkStyle 8 display: none;
 ```
 
-Un arbre peut être **équilibré** ou **déséquilibré**. Un arbre est équilibré si la hauteur de ses sous-arbres gauche et droit diffère d'au plus un. Un arbre équilibré est souvent plus efficace pour les opérations de recherche, d'insertion et de suppression.
+Un arbre peut être **équilibré** ou **déséquilibré**. Il est dit équilibré lorsque la hauteur de ses sous-arbres gauche et droit diffère d'au plus une unité. Cette propriété garantit des opérations de recherche, d'insertion et de suppression plus efficaces.
 
 Voici l'exemple d'un arbre déséquilibré :
 
@@ -130,23 +130,23 @@ graph LR
 
 ### Heap
 
-La structure de donnée `heap` aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit "presque complet", dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est-à-dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.
+La structure de données `heap`, ou tas binaire, ne doit pas être confondue avec la zone mémoire du même nom utilisée pour l'allocation dynamique. Il s'agit d'une forme particulière d'arbre binaire dit "presque complet", dans lequel l'écart de niveau entre les feuilles n'excède pas une unité : toutes les feuilles se situent à la même profondeur ou à une profondeur voisine.
 
 Un tas peut aisément être représenté sous forme de tableau en utilisant la règle suivante :
 
-Table: Opération d'accès à un élément d'un heap
+Table: Opérations d'accès aux éléments d'un tas
 
-| Cible            | Début à 0        | Début à 1      |
-| ---------------- | ---------------- | -------------- |
-| Enfant de gauche | $2*k  + 1$       | $2 * k$        |
-| Enfant de droite | $2*k  + 2$       | $2 * k + 1$    |
-| Parent           | $floor(k-1) / 2$ | $floor(k) / 2$ |
+| Cible            | Début à 0              | Début à 1            |
+| ---------------- | ---------------------- | -------------------- |
+| Enfant de gauche | $2k + 1$               | $2k$                 |
+| Enfant de droite | $2k + 2$               | $2k + 1$             |
+| Parent           | $\lfloor (k - 1) / 2 \rfloor$ | $\lfloor k / 2 \rfloor$ |
 
 ![Représentation d'un *heap*](/assets/images/heap.drawio)
 
 ### Min-heap
 
-Un [[tas binaire]] est une structure de données qui permet de stocker des éléments de manière ordonnée. Un tas binaire est un arbre binaire complet où chaque nœud est **plus petit que ses enfants**. Un tas binaire est souvent utilisé pour implémenter une file de priorité.
+Un [[tas binaire]] stocke des éléments en conservant un ordre partiel. C'est un arbre binaire complet dans lequel chaque nœud est **plus petit que ses enfants**. Les tas binaires sont fréquemment utilisés pour implémenter des files de priorité.
 
 !!! example "Implémentation en C"
 
@@ -158,13 +158,13 @@ Un [[tas binaire]] est une structure de données qui permet de stocker des élé
     --8<-- "docs/assets/src/min-heap/min-heap.c"
     ```
 
-Le tas binaire utilise un tableau dynamique pour stocker les éléments. La règle est que chaque élément voit son enfant de gauche à l'indice `2 * k + 1` et l'enfant de droite à l'indice `2 * k + 2`. Le parent d'un élément est à l'indice `(k - 1) / 2` quel que soit l'indice `k`.
+Le tas binaire s'appuie sur un tableau dynamique pour stocker les éléments. Chaque nœud voit son enfant gauche à l'indice `2 * k + 1` et son enfant droit à l'indice `2 * k + 2`. Le parent d'un élément se trouve à l'indice `(k - 1) / 2`, quel que soit l'indice `k`.
 
-La propriété principale du tas binaire est que chaque element de l'arbre est plus petit que ses enfants. Cela signifie que la racine de l'arbre est le plus petit élément. Lorsqu'on retire un élément du tas, on retire la racine et on la remplace par le dernier élément du tableau il faut ensuite manipuler le tas pour que la propriété soit respectée. On appelle cette opération *heapify*.
+La propriété principale du tas binaire impose que chaque nœud soit plus petit que ses enfants. La racine est donc le plus petit élément. Lorsqu'on retire une valeur, on supprime la racine et on la remplace par le dernier élément du tableau, puis on réorganise le tas pour restaurer l'invariant. Cette opération est appelée *heapify*.
 
-L'algorithme *heapify* est un algorithme récursif qui permet de rétablir la propriété du tas binaire. On part du dernier élément de l'arbre qui possède au moins un enfant. On compare la valeur de l'élément avec celle de son ou de ses enfants. Si la valeur de l'élément est plus grande que celle de ses enfants, on échange les valeurs. On continue récursivement avec les enfants jusqu'à ce que la propriété soit respectée.
+L'algorithme *heapify* est récursif : il sert à rétablir la propriété du tas binaire. On part du dernier élément qui possède au moins un enfant, on compare sa valeur à celle de ses enfants et, si nécessaire, on échange les éléments. L'opération se poursuit récursivement jusqu'à ce que l'invariant soit satisfait.
 
-Si on insert un élément dans le tableau dynamique, on l'ajoute à la fin du tableau. Puis on doit rétablir la propriété du tas binaire. On compare la valeur de l'élément avec celle de son parent. Si la valeur de l'élément est plus petite que celle de son parent, on échange les valeurs. On continue récursivement avec le parent jusqu'à ce que la propriété soit respectée, en remontant la branche.
+Lorsqu'on insère un nouvel élément dans le tableau, on l'ajoute à la fin puis on restaure l'invariant du tas binaire. On compare la valeur introduite avec celle de son parent ; si elle est plus petite, on échange les deux et l'on remonte récursivement jusqu'à ce que la propriété soit respectée.
 
 Prenons l'exemple initial de cet arbre stocké en tableau :
 

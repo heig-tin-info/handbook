@@ -7,20 +7,20 @@ epigraph:
 
 **Objectifs**
 
-- Comprendre les valeurs et les bonnes pratiques du développement logiciel.
+- Cerner les valeurs et les bonnes pratiques du développement logiciel.
 - Saisir l'importance d'apprendre par soi-même.
-- Reconnaître l'importance de l'anglais en informatique.
-- Comprendre le rôle fondamental de la communauté des développeurs.
+- Mesurer le rôle pivot de l'anglais en informatique.
+- Comprendre l'apport fondamental de la communauté des développeurs et développeuses.
 
-Devenir développeur logiciel, que ce soit professionnellement ou par passion, ne se résume pas simplement à écrire du code. C’est une discipline qui exige une certaine finesse dans l’exécution, le respect de règles, de consensus partagés, et l’adoption de bonnes pratiques.
+Devenir développeuse ou développeur logiciel, que ce soit par métier ou par passion, ne se limite pas à écrire du code. Cette discipline requiert une finesse d’exécution, le respect de règles, de consensus partagés et l’appropriation de bonnes pratiques.
 
-J’ai souvent observé, tant dans les milieux académiques que professionnels, des individus se revendiquant experts ou professeurs, inculquant à leurs élèves ou collègues des pratiques dogmatiques issues de croyances personnelles ou d'habitudes désuètes. L’informatique est une [[discipline]] vivante, fondée sur la collaboration, l’écoute et l’introspection. Ainsi, il est primordial d’avoir l’esprit ouvert et de faire preuve d’humilité.
+J’ai souvent observé, dans les milieux académiques comme professionnels, des personnes se revendiquant expertes ou professeures transmettre à leurs élèves ou collègues des pratiques dogmatiques nourries de croyances personnelles ou d’habitudes désuètes. Or l’informatique est une [[discipline]] vivante, fondée sur la collaboration, l’écoute et l’introspection. Il est donc primordial d’avoir l’esprit ouvert et de cultiver l’humilité.
 
-On ne développe pas sur la base de certitudes figées, mais en s’appuyant sur des principes et des valeurs qui évoluent avec le temps et varient en fonction du contexte. Un [[développeur]] web n’adoptera pas les mêmes approches qu’un scientifique utilisant Python, ou qu’un programmeur embarqué.
+On ne développe pas sur la base de certitudes figées, mais en s’appuyant sur des principes et des valeurs qui évoluent avec le temps et changent selon le contexte. Un ou une [[développeur·euse]] web n’adoptera pas les mêmes approches qu’un scientifique utilisant Python ou qu’une personne spécialisée dans l’embarqué.
 
-Dans le cadre de projets personnels, vous pouvez coder de manière isolée. Cependant, dans une entreprise, vous faites partie d’une équipe. Le code que vous écrivez doit pouvoir perdurer après votre départ. Il doit être lisible, maintenable, testable, évolutif. Il doit être conforme aux standards de l’entreprise, respecter les conventions de codage, les bonnes pratiques, les règles de sécurité et les normes de qualité. Il doit être documenté, commenté, versionné et archivé. En somme, il doit pouvoir être partagé, diffusé, échangé. Pour cela, il existe des méthodes de travail bien établies que nous aborderons dans ce cours.
+Dans le cadre de projets personnels, il est possible de coder seul·e. Mais en entreprise, vous faites partie d’une équipe. Le code que vous écrivez doit pouvoir perdurer après votre départ. Il doit rester lisible, maintenable, testable et évolutif. Il doit se conformer aux standards de l’entreprise, respecter les conventions de codage, les bonnes pratiques, les règles de sécurité et les normes de qualité. Il doit être documenté, commenté, versionné et archivé. Bref, il doit pouvoir être partagé, diffusé, échangé. Des méthodes de travail éprouvées existent pour cela, et nous les aborderons dans ce cours.
 
-Cependant, les valeurs humaines fondamentales du développement logiciel transcendent les considérations purement techniques et méthodologiques. Elles sont immuables, les mêmes qui régissent la société humaine depuis des millénaires. Parmi ces valeurs, on trouve l’ouverture d’esprit, l’humilité, la [[curiosité]], la rigueur, la [[patience]], la persévérance, l’écoute, l’entraide et le partage.
+Cependant, les valeurs humaines fondamentales du développement logiciel transcendent les considérations purement techniques et méthodologiques. Elles restent stables, comme celles qui régissent la société depuis des millénaires : ouverture d’esprit, humilité, [[curiosité]], rigueur, [[patience]], persévérance, écoute, entraide et partage.
 
 ## Les règles évoluent
 
@@ -28,43 +28,43 @@ En [[1750]] av. J.-C., le roi [[Hammurabi de Babylone]] a gravé sur une stèle 
 
 ![Code d'Hammurabi (1750 av. J.-C.)](/assets/images/hammurabi.png)
 
-Ce que l'on doit retenir de cette analogie avec le développement logiciel, c’est que, tout comme les conventions sociales, les règles et les consensus en informatique évoluent avec le temps. Les bonnes pratiques d'aujourd'hui seront probablement différentes demain.
+Ce qu’il faut retenir de cette analogie avec le développement logiciel, c’est que, tout comme les conventions sociales, les règles et les consensus en informatique changent avec le temps. Les bonnes pratiques d’aujourd’hui seront probablement différentes demain.
 
-Hélas, l’inertie des institutions, des entreprises et des individus conduit à la perpétuation des habitudes et à l’établissement de dogmes sans que l'on s'en aperçoive. Il est donc indispensable de faire preuve d'ouverture d’esprit, de remise en question et de curiosité pour s’adapter à un monde en perpétuelle évolution.
+Hélas, l’inertie des institutions, des entreprises et des individus conduit à la perpétuation d’habitudes et à l’établissement de dogmes sans que l’on s’en aperçoive. Il est donc indispensable de faire preuve d’ouverture d’esprit, de remise en question et de curiosité pour s’adapter à un monde en perpétuelle évolution.
 
-En d’autres termes, ce que je vous transmets aujourd'hui n'est pas une vérité absolue. Elle est teintée par mon vécu, mes expériences et mes valeurs. Il vous appartient donc de la remettre en question, d’y réfléchir avec un esprit critique.
+En d’autres termes, ce que je vous transmets aujourd’hui n’est pas une vérité absolue. Mon propos est teinté par mon vécu, mes expériences et mes valeurs. Il vous appartient donc de le questionner et d’y réfléchir avec esprit critique.
 
 ## L'Anglais
 
 ![La langue, une barrière](/assets/images/english.png)
 
-En programmation, quel que soit le langage utilisé, l’anglais est omniprésent. Les mots-clés des langages de programmation sont majoritairement issus de l'anglais, et bon nombre d'outils de développement sont exclusivement disponibles dans cette langue. Pourquoi cela ? Tout comme un article de journal local n’intéressera que peu des lecteurs à l’autre bout du globe, un code informatique doit pouvoir être réutilisé pour économiser les coûts de développement, et donc s’affranchir des barrières linguistiques.
+En programmation, quel que soit le langage utilisé, l’anglais est omniprésent. Les mots-clés des langages sont majoritairement issus de l’anglais, et bon nombre d’outils de développement sont exclusivement disponibles dans cette langue. Pourquoi cela ? Tout comme un article de journal local n’intéressera que peu de lectrices et lecteurs à l’autre bout du globe, un code informatique doit pouvoir être réutilisé pour réduire les coûts de développement et s’affranchir des barrières linguistiques.
 
-On réutilise ainsi volontiers un algorithme écrit par un illustre programmeur japonais, ou une bibliothèque de calcul matriciel développée en Amérique du Sud. Pour que chacun puisse corriger, maintenir ou améliorer le code des autres, une langue commune est nécessaire, et l'anglais est naturellement devenu cette langue.
+On réutilise ainsi volontiers un algorithme écrit par un programmeur japonais ou une bibliothèque de calcul matriciel développée en Amérique du Sud. Pour que chacune et chacun puisse corriger, maintenir ou améliorer le code des autres, une langue commune s’impose, et l’anglais est naturellement devenu cette langue.
 
-Dans ce cours, bien que rédigé en français, l’anglais sera privilégié pour les exemples de code et les noms des symboles (variables, constantes, etc.). Les termes techniques seront traduits lorsqu'un consensus existe, mais sinon l'anglicisme sera préféré. En effet, bien que l’on pourrait parler de "feu d’alerte" à la place de *warning*, le terme perdrait sa pertinence technique. J'opte donc, même au risque de froisser l’Académie, pour préserver les usages établis parmi les développeurs.
+Dans ce cours, bien que rédigé en français, l’anglais sera privilégié pour les exemples de code et les noms des symboles (variables, constantes, etc.). Les termes techniques seront traduits lorsqu’un consensus existe ; à défaut, l’anglicisme restera la référence. Parler de « feu d’alerte » à la place de *warning* ferait perdre la nuance technique. J’opte donc, même au risque de froisser l’Académie, pour préserver les usages établis parmi les développeuses et développeurs.
 
-Un autre point mérite d'être mentionné : l’interaction constante d’un développeur avec Internet pour y puiser exemples, conseils ou assistance dans l’utilisation d'outils développés par d'autres. La majorité de ces ressources sont en [[anglais]].
+Un autre point mérite d’être souligné : la consultation quasi constante d’Internet par toute personne qui programme pour y puiser exemples, conseils ou assistance dans l’utilisation d’outils développés par d’autres. La majorité de ces ressources sont en [[anglais]].
 
 !!! tip "Apprenez les langues"
 
-    Ne négligez pas les cours de langues. Partez à l’étranger, lisez des livres en anglais, regardez des films en version originale, écoutez des podcasts, des conférences et des tutoriels en anglais : cela vous ouvrira les portes de la connaissance.
+    Ne négligez pas les cours de langues. Partez à l’étranger, lisez des livres en anglais, regardez des films en version originale, écoutez des podcasts, des conférences et des tutoriels en anglais : cela vous ouvrira d’innombrables portes.
 
-    De surcroît, sans cette compétence, trouver un emploi pourra s’avérer plus difficile, car les entreprises sont souvent internationales et les équipes de développement multiculturelles.
+    Sans cette compétence, trouver un emploi peut s’avérer bien plus difficile, car les entreprises sont souvent internationales et les équipes de développement multiculturelles.
 
 ## Apprendre à pêcher
 
 ![Un père et son fils pêchant](/assets/images/fisherman.png)
 
-Un jeune homme s'en va à la mer avec son père et lui demande: "papa, j'ai faim, comment ramènes-tu du poisson?" Le père, fier, lance sa ligne à la mer et lui ramène un beau poisson. Plus tard, alors que le jeune homme revient d'une balade sur les estrans, il demande à son père: "papa, j'ai faim, me ramènerais-tu du poisson?" Le père, sort de son étui sa plus belle canne et l'équipant d'un bel hameçon, lance sa ligne à la mer et ramène un gros poisson. Durant longtemps, le jeune homme mange ainsi à sa faim cependant que le père ramène du poisson pour son fils.
+Un jeune homme part en mer avec son père et lui demande : « Papa, j’ai faim, comment ramènes-tu du poisson ? » Le père, fier, lance sa ligne et lui rapporte un beau poisson. Plus tard, alors que le jeune homme revient d’une balade sur l’estran, il demande : « Papa, j’ai faim, me ramènerais-tu du poisson ? » Le père sort de son étui sa plus belle canne, l’équipe d’un hameçon et, d’un geste précis, ramène encore une belle prise. Pendant longtemps, le fils mange ainsi à sa faim grâce à la patience de son père.
 
-Un jour, alors que le fils invective son père l'estomac vide, le père annonce. "Fils, il est temps pour toi d'apprendre à pêcher, je peux te montrer encore longtemps comment je ramène du poisson, mais ce ne serait pas t'aider, voici donc cette canne et cet hameçon."
+Un jour pourtant, alors que le fils s’impatiente l’estomac vide, le père lui annonce : « Il est temps pour toi d’apprendre à pêcher. Je pourrais continuer à t’apporter du poisson, mais ce ne serait pas t’aider. Voici donc cette canne et cet hameçon. »
 
-Le jeune homme tente de répéter les gestes de son père, mais il ne parvient pas à ramener le poisson qui le rassasierait. Il demande à son père de l'aide que ce dernier refuse. "Fils, c'est par la pratique et avec la faim au ventre que tu parviendras à prendre du poisson, persévère et tu deviendras meilleur pêcheur que moi, la lignée sera ainsi assurée de toujours manger à sa faim".
+Le jeune homme tente de reproduire les gestes de son père, sans parvenir à attraper le poisson qui le rassasierait. Il réclame de l’aide, que son père refuse : « C’est par la pratique, avec la faim au ventre, que tu apprendras à prendre du poisson. Persévère et tu deviendras un meilleur pêcheur que moi ; ainsi la lignée mangera toujours à sa faim. »
 
-La morale de cette histoire est plus que jamais applicable en programmation, confier aux expérimentés l'écriture d'algorithmes compliqués, ou se contenter d'observer les réponses des exercices pour se dire: j'ai compris ce n'est pas si compliqué, est une erreur, car pêcher ou expliquer comment pêcher n'est pas la même chose.
+La morale de cette histoire s’applique parfaitement à la programmation : confier aux plus expérimentés l’écriture des algorithmes difficiles ou se contenter d’observer les corrigés pour se dire « j’ai compris, ce n’est pas si compliqué » est une erreur, car pêcher et expliquer comment pêcher n’est pas la même chose.
 
-Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le développement logiciel et non un guide exhaustif du langage, car le standard C99/C11 est disponible sur internet ainsi que le K&R qui reste l'ouvrage de référence pour apprendre le C. Il est donc inutile de paraphraser les exemples donnés quand internet apporte toutes les réponses, pour tous les publics du profane réservé au hacker passionné.
+Cet ouvrage se veut donc un guide pour apprendre à apprendre le développement logiciel, et non un manuel exhaustif du langage. Le standard C99/C11 est accessible en ligne, tout comme le K&R qui demeure l’ouvrage de référence pour découvrir le C. Inutile de paraphraser ces ressources : Internet regorge déjà de réponses pour tous les publics, du profane curieux au hacker passionné.
 
 
 ## Une affaire de consensus

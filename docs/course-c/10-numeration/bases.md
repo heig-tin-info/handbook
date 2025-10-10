@@ -5,9 +5,9 @@ epigraph:
 ---
 # Bases
 
-Une [[base]] désigne la valeur dont les puissances successives interviennent dans l'écriture des nombres dans la numération positionnelle, laquelle est un procédé par lequel l'écriture des nombres est composée de chiffres ou symboles reliés à leur position voisine par un multiplicateur, appelé base du système de numération.
+Une [[base]] correspond à la valeur dont les puissances successives interviennent dans l'écriture des nombres d'un système positionnel. Dans un tel système, chaque chiffre occupe une place déterminée et cette position est reliée à la suivante par un multiplicateur : la base même du système de numération.
 
-Sans cette connaissance à priori du système de numération utilisé, il vous est impossible d'interpréter les nombres suivants :
+Sans connaître **a priori** la base employée, il est impossible d'interpréter correctement les nombres suivants :
 
 ```
 69128
@@ -18,45 +18,45 @@ j4b12
 九千 零十八
 ```
 
-En effet, au-delà de l'ordre des symboles (de gauche à droite), la base du système utilisé est cruciale pour interpréter ces nombres. Cette base détermine le nombre de symboles distincts qui peuvent être employés pour chaque position, et par conséquent, elle régit la structure même du nombre. Par exemple, une base dix (décimale) utilise dix symboles (0-9), tandis qu'une base deux (binaire) n'en utilise que deux (0 et 1). Sans cette compréhension, les nombres demeurent incompréhensibles et dépourvus de signification.
+En effet, au-delà de l'ordre des symboles (de gauche à droite), la base employée conditionne l'interprétation du nombre. Elle fixe le nombre de symboles distincts autorisés pour chaque position et, ce faisant, gouverne la structure entière de l'écriture. Une base dix (décimale) mobilise ainsi dix symboles (0-9), tandis qu'une base deux (binaire) n'en retient que deux (0 et 1). Faute de cette clé de lecture, les nombres restent opaques et dénués de signification.
 
 !!! exercise "Symboles binaires"
 
-    Dans la notation binaire, composés de 1 et de 0, combien de symboles existent et combien de positions y-a-t-il dans le nombre `11001` ?
+    Dans la notation binaire, composée des chiffres 1 et 0, combien de symboles existent et combien de positions y a-t-il dans le nombre `11001` ?
 
     ??? solution
 
-        Le nombre `11001` est composé de 5 positions et de deux symboles possibles par position : `1` et `0`. La quantité d'information est donc e 5 bits.
+        Le nombre `11001` comporte 5 positions et propose deux symboles possibles par position : `1` et `0`. La quantité d'information véhiculée est donc de 5 bits.
 
 ## Système décimal
 
-Le [[système décimal]] est le système de numération utilisant la base **dix** et le plus utilisé par l'humanité au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base [[sexagésimale]] (60) toujours utilisé pour la représentation des heures ou des angles, la civilisation maya utilisait un système de base 20 encore ancrée dans la culture française de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
+Le [[système décimal]] repose sur la base **dix** et demeure aujourd'hui le plus répandu. Cela n'a toutefois pas toujours été le cas : les civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel [[sexagésimal]] (base 60), toujours présent pour mesurer les heures ou les angles, tandis que la civilisation maya préférait une base 20. Cette dernière laisse encore une empreinte dans certaines langues celtiques et dans le français courant avec la dénomination *quatre-vingts*.
 
 L'exemple suivant montre l'écriture de 1506 en écriture [hiéroglyphique](https://fr.wikipedia.org/wiki/%C3%89criture_hi%C3%A9roglyphique_%C3%A9gyptienne) de :
 
 $$ 1000+100+100+100+100+100+1+1+1+1+1+1$$
 
-Il s'agit d'une numération additive.
+Il s'agit ici d'une numération additive.
 
 ![1506 en écriture hiéroglyphique](../../assets/images/hieroglyph.drawio)
 
-Notre système de représentation des nombres décimaux est le système de numération [[indo-arabe]] qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf et un nombre peut se décomposer en puissances successives :
+Notre système de représentation des nombres décimaux est la numération [[indo-arabe]]. Elle emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf ; tout nombre peut ainsi se décomposer en puissances successives :
 
 $$
 1506_{10} = 1 \cdot 10^{3} + 5 \cdot 10^{2} + 0 \cdot 10^{1} + 6 \cdot 10^{0}
 $$
 
-Nous l'avons vu au chapitre précédent, la base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la manipulation de dix états, ce qui est difficile avec les systèmes logiques à deux états; le stockage d'un bit en mémoire étant généralement assuré par des transistors.
+Comme évoqué au chapitre précédent, la base dix n'est pas utilisée dans les ordinateurs, car elle imposerait la manipulation de dix états distincts, difficilement compatibles avec des systèmes logiques binaires. Le stockage d'un bit en mémoire repose d'ailleurs le plus souvent sur des transistors adoptant deux états stables.
 
 !!! exercise "Deux mains"
 
-    Un dessin représentant deux mains humaines (composées chacune de cinq doigts) est utilisé pour représenter un chiffre. Les doigts peuvent être soit levés, soit baissés mais un seul doigt peut être levé. Quelle est la base utilisée ?
+    Un dessin représentant deux mains humaines (composées chacune de cinq doigts) est utilisé pour symboliser un chiffre. Chaque doigt peut être levé ou baissé, mais un seul est autorisé à être levé à la fois. Quelle est la base utilisée ?
 
     ??? solution
 
-        Deux mains de cinq doigts forment une paire composée de 10 doigts. Il existe donc dix possibilités, la base est donc décimale : 10.
+        Deux mains de cinq doigts totalisent 10 doigts. Il existe donc dix possibilités, la base est décimale : 10.
 
-        Si plusieurs doigts peuvent être levés à la fois, il faut réduire le système à l'unité de base "le doigt" pouvant prendre deux états : levé ou baissé. Avec dix doigts (dix positions) et 2 symboles par doigts, un ombre binaire est ainsi représenté.
+        Si plusieurs doigts pouvaient être levés simultanément, il faudrait réduire le système à l'unité de base « le doigt », lequel peut prendre deux états : levé ou baissé. Avec dix doigts (dix positions) et deux symboles par doigt, on obtient alors un nombre binaire.
 
 ## Système binaire
 
@@ -77,7 +77,7 @@ F
 \end{bmatrix}
 $$
 
-En termes techniques ces états sont le plus souvent représentés par des signaux électriques dont souvent l'un des deux états est dit récessif tandis que l'autre est dit dominant. Par exemple si l'état `0` est symbolisé par un verre vide et l'état `1` par un verre contenant du liquide. L'état dominant est l'état `1`. En effet, si le verre contient déjà du liquide, en rajouter ne changera pas l'état actuel, il y aura juste plus de liquide dans le verre.
+En pratique, ces états sont généralement portés par des signaux électriques dont l'un est dit récessif et l'autre dominant. Imaginons, par exemple, que l'état `0` soit symbolisé par un verre vide et l'état `1` par un verre rempli : `1` est alors l'état dominant. Si le verre contient déjà du liquide, en ajouter davantage ne modifie pas l'information transmise ; seul le volume change.
 
 Un nombre binaire peut être également décomposé en puissances successives :
 
@@ -85,13 +85,13 @@ $$
 1101_{2} = 1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 1 \cdot 2^{0}
 $$
 
-Le nombre de possibilités pour un nombre de positions $E$ et une quantité de symboles (ou base) $b$ de 2 est simplement exprimé par :
+Le nombre de valeurs distinctes pour $E$ positions et une base $b$ est donné par :
 
 $$
 N = b^E
 $$
 
-Avec un seul `bit` il est donc possible d'exprimer 2 valeurs distinctes.
+Avec un seul `bit`, il est donc possible d'exprimer deux valeurs distinctes.
 
 !!! exercise "Base 2"
 
@@ -99,33 +99,33 @@ Avec un seul `bit` il est donc possible d'exprimer 2 valeurs distinctes.
 
     ??? solution
 
-        Avec une base binaire 2 et 10 bits, le total représentable est :
+        Avec une base binaire égale à 2 et 10 bits, le total représentable est :
 
-        $$2^10 = 1024$$
+        $$2^{10} = 1024$$
 
-        Soit les nombres de 0 à 1023.
+        On peut donc représenter les nombres de 0 à 1023.
 
 ## Système octal
 
-Inventé par [Charles XII de Suède](https://fr.wikipedia.org/wiki/Charles_XII) , le système de numération octal utilise 8 symboles empruntés au système indo-arabe. Ce système pourrait avoir été utilisé par l'homme en comptant soit les jointures des phalanges proximales (trous entre les doigts), ou les doigts différents des pouces.
+Inventé par [Charles XII de Suède](https://fr.wikipedia.org/wiki/Charles_XII), le système de numération octal utilise huit symboles empruntés au système indo-arabe. Certain·es avancent qu'il aurait émergé d'un comptage fondé sur les jointures des phalanges proximales (les interstices entre les doigts) ou encore sur les doigts, hors pouces.
 
 ```text
 0 1 2 3 4 5 6 7
 ```
 
-Notons que l'utilisation des 8 premiers symboles du système indo-arabe est une convention d'usage bien pratique, car tout humain occidental est familier de ces symboles. L'inconvénient est qu'un nombre écrit en octal pourrait être confondu avec un nombre écrit en décimal. Comme pour le système décimal, un nombre octal peut également être décomposé en puissances successives :
+Notons que l'utilisation des huit premiers symboles indo-arabes est une convention commode : elles et ils nous sont familiers. L'inconvénient est qu'un nombre octal peut être confondu avec un nombre décimal. Comme en base dix, un nombre octal se décompose en puissances successives :
 
 $$
 1607_{8} = 1 \cdot 8^{3} + 6 \cdot 8^{2} + 0 \cdot 8^{1} + 7 \cdot 8^{0}
 $$
 
-Au début de l'informatique, la base octale fut très utilisée, car il est très facile de la construire à partir de la numération binaire, en regroupant les chiffres par triplets :
+Aux débuts de l'informatique, la base octale fut très employée, car il suffit de regrouper les chiffres binaires par triplets pour y basculer :
 
 ```text
 010'111'100'001₂ = 2741₈
 ```
 
-En C, un nombre octal est écrit en préfixant la valeur à représenter d'un zéro. Attention donc à ne pas confondre :
+En C, un nombre octal s'écrit en préfixant la valeur d'un zéro. Prenez donc garde à ne pas confondre :
 
 ``` { .c .annotate }
 int octal = 042; // (1)!
@@ -136,7 +136,7 @@ assert(octal != decimal);
 
 1. La valeur `042` est un nombre octal, soit $4 \cdot 8^1 + 2 \cdot 8^0 = 34$ en décimal. En C un nombre octal est préfixé par un zéro.
 
-Il est également possible de faire référence à un caractère en utilisant l'échappement octal dans une chaîne de caractère :
+Il est également possible de faire référence à un caractère en utilisant un échappement octal dans une chaîne de caractères :
 
 ```c
 char cr = '\015';
@@ -145,7 +145,7 @@ char msg = "Hell\0157\040World!";
 
 !!! important
 
-    N'essayez pas de préfixer vos nombres avec des zéros lorsque vous programmer car ces nombres seraient alors interprétés en octal et non en décimal.
+    Évitez de préfixer vos nombres par des zéros lorsque vous programmez : ils seraient interprétés en octal et non en décimal.
 
 ## Système hexadécimal
 
@@ -182,7 +182,7 @@ Table: Correspondance binaire, octale, hexadécimale
 | `0b0110` | `0x6`       | `06`  | `6`     |
 | `0b0111` | `0x7`       | `07`  | `7`     |
 | `0b1000` | `0x8`       | `10`  | `8`     |
-| `0b1001` | `0x9`       | `11`  | `0`     |
+| `0b1001` | `0x9`       | `11`  | `9`     |
 | `0b1010` | `0xA`       | `12`  | `10`    |
 | `0b1011` | `0xB`       | `13`  | `11`    |
 | `0b1100` | `0xC`       | `14`  | `12`    |
@@ -269,7 +269,7 @@ Par cet exercice, on observe néanmoins l'élégance de l'encodage hexadécimal 
 
 ## Conversions de bases
 
-La conversion d'une base quelconque en système décimal utilise la relation suivante :
+La conversion d'une base quelconque vers le système décimal s'appuie sur la relation suivante :
 
 $$
 \sum_{i=0}^{n-1} h_i\cdot b^i
@@ -289,7 +289,7 @@ $h_i$
 
 : La valeur du chiffre à la position $i$
 
-Ainsi, la valeur `AP7` exprimée en [[base tritrigesimale]] (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimales après avoir pris connaissance de la correspondance d'un symbole tritrigesimal vers le système décimal :
+Ainsi, la valeur `AP7` exprimée en [[base tritrigesimale]] (base 33), utilisée pour les plaques d'immatriculation à Hong Kong, peut se convertir en décimal dès que l'on connaît la correspondance entre symboles tritrigesimaux et chiffres décimaux :
 
 ```text
 Tritrigesimal -> Décimal :
@@ -305,11 +305,11 @@ Conversion :
 AP7 -> 10 * pow(33, 2) + 23 * pow(33, 1) + 7 * pow(33, 0) -> 11'656
 ```
 
-La conversion d'une grandeur décimale vers une base quelconque est malheureusement plus compliquée et nécessite d'appliquer un algorithme.
+La conversion d'un nombre décimal vers une autre base se révèle plus délicate et demande l'application d'un algorithme.
 
-La conversion d'un nombre du système décimal au système binaire s'effectue simplement par une suite de divisions pour lesquelles on notera le reste.
+Pour passer du système décimal au système binaire, on effectue une suite de divisions successives en notant systématiquement le reste.
 
-Pour chaque division par 2, on note le reste et tant que le quotient n'est pas nul, on itère l'opération. Le résultat en binaire est la suite des restes lus dans le sens inverse :
+Pour chaque division par 2, on consigne le reste et l'on recommence tant que le quotient reste non nul. Le résultat binaire s'obtient en lisant les restes de bas en haut :
 
 ```text
 n = 209
@@ -330,13 +330,13 @@ n = 209
 
     ![Les Shadocks](../../assets/images/shadocks.drawio)
 
-    Les [[Shadocks||Shadocks, les]] ne connaissent que quatre mots: `GA`, `BU`, `ZO`, `MEU`. La vidéo éducative [comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ) en explique le principe. Ils utilisent par conséquent une base quaternaire.
+    Les [[Shadocks||Shadocks, les]] ne connaissent que quatre mots : `GA`, `BU`, `ZO`, `MEU`. La vidéo éducative [comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ) en détaille le principe. Ils et elles utilisent par conséquent une base quaternaire.
 
     Convertir `−⨼○◿○` (`BU ZO GA MEU GA`) en décimal.
 
     ??? solution
 
-        Le système Shadock est un système quaternaire similaire au système du génome humain basé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks les symboles du système indo-arabe que nous connaissons mieux :
+        Le système Shadock est une numération quaternaire, comparable au code génétique fondé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks ceux du système indo-arabe, plus familiers :
 
         ```text
         0 ○ (GA)
@@ -351,7 +351,7 @@ n = 209
         −⨼○◿○ ≡ 12030₄
         ```
 
-        En appliquant la méthode du cours, on obtient :
+        En appliquant la méthode décrite dans ce cours, on obtient :
 
         $$
             1 \cdot 4^4 + 2 \cdot 4^3 + 0 \cdot 4^2 + 3 \cdot 4^1 + 0 \cdot 4^0 = 396_{10}
@@ -367,9 +367,9 @@ n = 209
 
 Une autre base couramment utilisée est la [base64](https://fr.wikipedia.org/wiki/Base64), qui utilise les 26 lettres de l'alphabet latin (majuscules et minuscules), les 10 chiffres et deux symboles additionnels. Cette base est souvent utilisée pour encoder des données binaires en ASCII, par exemple pour les pièces jointes des courriels.
 
-Elle n'est pas à proprement parler une base fondamentale, mais plutôt une méthode de codage qui utilise 64 caractères imprimables. [[||base64]]
+Elle ne constitue pas, à proprement parler, une base fondamentale, mais plutôt une méthode de codage qui exploite 64 caractères imprimables. [[||base64]]
 
-On peut transmettre de l'information en binaire, mais cela implique de pouvoir gérer un contenu arbitraire qui n'est pas toujours évident dans des environnements prévus pour des caractères imprimables. On pourrait se dire qu'on utilise la représentation ASCII des caractères, mais de nombreux caractères ne sont pas imprimables. La base64 est une solution élégante pour encoder des données binaires en ASCII.
+On peut bien sûr transmettre directement de l'information en binaire, mais cela suppose de gérer un contenu arbitraire, ce qui n'est pas toujours évident dans des environnements pensés pour des caractères imprimables. Utiliser la représentation ASCII n'est pas non plus suffisant, nombre de caractères n'étant pas imprimables. La base64 propose une solution élégante pour encoder des données binaires en ASCII.
 
 Prenons l'exemple de la phrase suivante:
 
@@ -388,7 +388,7 @@ $ echo -ne 'La fleur en bouquet fâne... et jamais ne renait !'  | hexdump -C
 0032
 ```
 
-En [[base64]], le message est découpé en mot de 6 bits, soit 64 valeurs possibles. Chaque mot de 6 bits est ensuite converti en un caractère [[ASCII]] avec la table de codage suivante:
+En [[base64]], le message est découpé en mots de 6 bits, soit 64 valeurs possibles. Chaque mot de 6 bits est ensuite converti en un caractère [[ASCII]] selon la table de codage suivante :
 
 ```text
 0  000000 A    17 010001 R    34 100010 i    51 110011 z

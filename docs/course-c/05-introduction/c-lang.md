@@ -5,11 +5,11 @@ epigraph:
 ---
 # Le langage C
 
-Le langage C est l'un des premiers langages de programmation. Il se situe très près de l'assembleur, ce langage de bas niveau utilisé par les processeurs. Le C permet ainsi de concevoir des applications extrêmement performantes, et il est exploité dans une multitude de domaines informatiques, que ce soit pour une montre connectée, un stimulateur cardiaque (*pacemaker*) ou encore une [machine à café][mcu].
+Le langage C compte parmi les tout premiers langages de programmation modernes. Proche de l’assembleur — ce langage de bas niveau exécuté directement par les processeurs — il autorise la conception d’applications d’une efficacité redoutable. On le retrouve aussi bien dans les montres connectées que dans les stimulateurs cardiaques (*pacemakers*) ou encore les [machines à café][mcu].
 
-Bien qu'il soit ancien (il date de [[1972]]), le langage C reste largement employé et enseigné, grâce à son efficacité et sa capacité à inculquer les bases fondamentales de la programmation.
+Même s’il est apparu en [[1972]], le C demeure largement utilisé et enseigné. Sa sobriété et sa rigueur en font un formidable outil pour assimiler les fondements de la programmation structurée.
 
-En vérité, en 2024, il n'existe guère d'alternative aussi mûre et éprouvée que le C pour développer des applications embarquées à haute performance ou pour le noyau des systèmes d'exploitation. Des langages plus récents tels que [[Rust]] ou [[Zig]] commencent certes à émerger, mais ils peinent encore à s'imposer dans l'industrie.
+En 2024, rares sont les alternatives aussi mûres et éprouvées que le C pour le développement d’applications embarquées hautes performances ou pour les noyaux de systèmes d’exploitation. Des langages plus récents comme [[Rust]] ou [[Zig]] gagnent en visibilité, mais ils ne se sont pas encore généralisés dans l’industrie.
 
 [](){ #c-history }
 
@@ -23,13 +23,13 @@ Cependant, la fin de la décennie est marquée par des remous. Les laboratoires 
 
 Le système d'exploitation que Thompson et Ritchie développent aux laboratoires Bell s’appelle d'abord UNICS, par opposition à Multics, où *Multiplexed* est remplacé par *Uniplexed*. Le nom évolue ensuite pour devenir [[UNIX]], un pilier dans l'histoire de l'informatique.
 
-Plus tard, [Brian Kernighan](https://fr.wikipedia.org/wiki/Brian_Kernighan) contribue à la popularisation de ce nouveau langage. Il est l'auteur principal du livre *The C Programming Language*, tandis que Dennis Ritchie s’est concentré sur les annexes.
+Plus tard, [Brian Kernighan](https://fr.wikipedia.org/wiki/Brian_Kernighan) contribue à la diffusion du langage. Principal auteur du livre *The C Programming Language*, il laisse à Dennis Ritchie le soin de rédiger les annexes techniques.
 
-Les évolutions du C continuent, notamment avec [Bjarne Stroustrup](https://fr.wikipedia.org/wiki/Bjarne_Stroustrup) qui, dans les années 1980, étend le langage en y apportant la programmation orientée objet (OOP). Ce concept sera étudié dans un autre cours. La figure suivante présente le trio fondateur du langage C. [[||Bjarne Stroustrup]]
+L’évolution du C se poursuit dans les années 1980, lorsque [Bjarne Stroustrup](https://fr.wikipedia.org/wiki/Bjarne_Stroustrup) y adjoint des mécanismes de programmation orientée objet (OOP). Ce paradigme, que nous étudierons dans un autre cours, enrichit la boîte à outils des développeuses et développeurs C++. La figure suivante présente le trio fondateur du langage C. [[||Bjarne Stroustrup]]
 
 ![Les pères fondateurs du C](/assets/images/thompson-kernighan-ritchie.drawio)
 
-Il faut attendre [[1989]] pour que le langage C soit normalisé par l’ANSI (*American National Standards Institute*). L’année suivante, l’ISO (*International Organization for Standardization*) ratifie le standard *ISO/IEC 9899:1990*, communément appelé **C90**. Dès lors, le C devient un standard international et s’impose comme le langage dominant dans le domaine de l’informatique.
+Il faut attendre [[1989]] pour que le langage C soit normalisé par l’ANSI (*American National Standards Institute*). L’année suivante, l’ISO (*International Organization for Standardization*) ratifie le standard *ISO/IEC 9899:1990*, communément appelé **C90**. Le C s’impose alors comme un standard international et renforce sa position dominante dans l’informatique.
 
 Les langages de programmation se nourrissent souvent les uns des autres, et le C ne fait pas exception. La figure suivante illustre quelques-unes des influences entre langages :
 
@@ -50,15 +50,15 @@ flowchart LR
     B --> C
 ```
 
-Cinquante ans plus tard, le C reste l'un des langages les plus utilisés par les ingénieurs. Alliant une vision de haut niveau avec la possibilité de manipulations de bas niveau, il s’avère être un choix privilégié pour les applications embarquées sur microcontrôleurs, ou pour l’optimisation de code afin d’obtenir des performances maximales, comme dans les noyaux de systèmes d'exploitation tels que le [[noyau]] [[Linux]] ([[Kernel]]) ou Windows.
+Cinquante ans plus tard, le C demeure l'un des langages les plus prisés par les ingénieures et ingénieurs. Sa capacité à mêler une vision de haut niveau à des manipulations de bas niveau en fait un allié précieux pour les applications embarquées sur microcontrôleurs ou pour optimiser du code critique, comme dans les noyaux de systèmes d'exploitation tels que le [[noyau]] [[Linux]] ([[Kernel]]) ou Windows.
 
-Retenons simplement que **C** est un langage à la fois simple et puissant. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont probablement été, au moins partiellement, programmés en C.
+Retenons simplement que **C** est un langage à la fois sobre et puissant : votre machine à café, votre voiture ou vos écouteurs Bluetooth ont probablement été, au moins en partie, programmés en C.
 
 ## Standardisation
 
 Comme nous l'avons vu, le langage C a un long historique. Il a fallu attendre près de vingt ans après sa création pour qu’il fasse l’objet d’une [[normalisation]] internationale.
 
-Le standard le plus couramment utilisé en 2024 reste sans doute [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf). [[C11]] commence à le remplacer dans l'industrie, mais l'évolution se poursuit avec [[C17]], [[C18]] et [[C23]]. La figure suivante résume les différents standards internationaux du C :
+Le standard le plus courant en 2024 demeure [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf). [[C11]] commence à le supplanter dans certains secteurs, tandis que l’évolution se poursuit avec [[C17]], [[C18]] et [[C23]]. La figure suivante synthétise les principaux standards internationaux du C :
 
 Table: Normes internationales du langage C
 
@@ -73,20 +73,20 @@ Table: Normes internationales du langage C
 | C17/C18         | [ISO/IEC 9899:2018](https://www.iso.org/standard/74528.html) | 2018 |
 | C23             | [ISO/IEC 9899:2023](https://www.iso.org/standard/82075.html) | 2023 |
 
-En substance, **C18** n'apporte pas de nouvelles fonctionnalités majeures au langage, mais se concentre sur la clarification des ambiguïtés laissées par **C11**, qui, lui-même, n’introduisait que peu de changements fondamentaux pour le développement sur microcontrôleurs.
+En pratique, **C18** n'apporte pas de nouvelles fonctionnalités majeures au langage : il clarifie surtout les ambiguïtés laissées par **C11**, lequel introduisait déjà relativement peu de changements fondamentaux pour le développement sur microcontrôleurs.
 
 
 !!! info
 
     Vous entendrez ou lirez souvent des références à **ANSI C** ou **K&R**. Privilégiez toutefois une compatibilité avec **C99** au minimum.
 
-Le standard C est, il faut bien l’admettre, dense et ardu à lire. Avec ses quelque 552 pages pour C99, il est peu probable que vous y trouviez un grand plaisir. Et pourtant, il est parfois nécessaire de s’y plonger pour démêler certaines subtilités du langage, rarement explicitées dans les manuels. Vous vous retrouverez un jour ou l’autre confronté à des problèmes non documentés, et c’est souvent dans le standard que se trouve la solution.
+Le standard C est, il faut bien l’admettre, dense et ardu à lire. Avec ses quelque 552 pages pour C99, difficile d’y trouver un réel plaisir. Et pourtant, il faut parfois s’y plonger pour démêler des subtilités rarement explicitées dans les manuels. Face à un comportement étrange ou à un bogue mal documenté, la réponse se niche souvent dans les pages du standard.
 
-Comme mentionné plus haut, bien que C99 soit le standard le plus utilisé en 2024, il a déjà plus de 25 ans. Vous vous demandez peut-être pourquoi l'industrie semble si en retard face aux dernières versions. Contrairement au domaine des logiciels grand public, où chaque mise à jour est adoptée avec enthousiasme, le secteur industriel est régi par des processus de validation stricts. Migrer vers un nouveau standard est une opération coûteuse, tant en termes de tests que de conformité, et les entreprises préfèrent souvent s’en tenir à des versions éprouvées plutôt que de risquer de coûteuses erreurs, notamment dans des domaines critiques comme l’aéronautique ou la médecine.
+Comme mentionné plus haut, bien que C99 soit le standard le plus utilisé en 2024, il compte déjà plus de 25 ans. Vous vous demandez peut-être pourquoi l'industrie semble si en retard. Contrairement au monde des logiciels grand public, où l’on adopte volontiers chaque mise à jour, le secteur industriel obéit à des processus de validation rigoureux. Migrer vers un nouveau standard coûte cher en tests et en démarches de conformité ; les entreprises privilégient donc des versions éprouvées plutôt que de risquer des erreurs onéreuses, notamment dans des domaines critiques comme l’aéronautique ou la médecine.
 
 ## Le C et les autres...
 
-Si ce cours se concentre principalement sur le langage C, il est loin d'être le seul langage de programmation, et ce n'est certainement pas le seul que vous apprendrez au cours de votre carrière. La table suivante présente une liste non exhaustive de langages de programmation ainsi que leur année de création. Cette liste permet de mieux comprendre l'évolution des langages de programmation et leurs usages typiques :
+Si ce cours se concentre principalement sur le langage C, il n’est évidemment pas le seul langage de programmation, et vous en découvrirez bien d’autres au fil de votre parcours. La table suivante propose une liste non exhaustive de langages et de leur année de création afin d’illustrer l’évolution des usages :
 
 Table: Langages de programmation et leur année de création
 
@@ -127,13 +127,13 @@ Table: Top 10 des langages de programmation
 | 9      | Visual Basic             |
 | 10     | Fortran                  |
 
-Sur le podium, [[Python]] est un langage de très haut niveau simple à apprendre, mais éloigné du matériel. [[C++]] est un langage de programmation orientée objet, très puissant, mais complexe à dompter. Avec la médaille d'argent, C est un excellent compromis entre les deux, il est simple, mais permet de comprendre les bases de la programmation et de la manipulation du matériel. C'est pour cela que ce cours est basé sur le langage C. Ai-je réussi à vous convaincre ?
+Sur le podium, [[Python]] est un langage de très haut niveau, simple à appréhender mais éloigné du matériel. [[C++]] se distingue par sa richesse orientée objet et sa puissance, au prix d’une complexité certaine. Avec la médaille d’argent, C offre un excellent compromis : il reste accessible tout en ouvrant les portes de la programmation bas niveau. C’est pour cette raison que ce cours repose sur le langage C. Ai-je réussi à vous convaincre ?
 
 [](){#structured-text-programming}
 
 ## Programmation texte structurée
 
-Le C comme la plupart des langages de programmation utilise du texte structuré, c'est-à-dire que le langage peut être défini par un **vocabulaire**, une **grammaire** et se compose d'un **alphabet**. À l'inverse des [langages naturels](https://fr.wikipedia.org/wiki/Langage_naturel) comme le Français, un langage de programmation est un [langage formel](https://fr.wikipedia.org/wiki/Langage_formel) et se veut exact dans sa grammaire et son vocabulaire, il n'y a pas de cas particuliers ni d'ambiguïtés possibles dans l'écriture. Les **compilateurs** sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.
+Le C, comme la plupart des langages de programmation, repose sur du texte structuré. Il est défini par un **vocabulaire**, une **grammaire** et un **alphabet**. À la différence des [langages naturels](https://fr.wikipedia.org/wiki/Langage_naturel) comme le français, un langage de programmation est un [langage formel](https://fr.wikipedia.org/wiki/Langage_formel) : sa syntaxe et son lexique ne souffrent ni exceptions ni ambiguïtés. Les **compilateurs** s’appuient sur cette grammaire épurée — par souci d’économie de mémoire et de précision — afin d’éliminer toute ambiguïté et d’accroître la productivité des personnes qui développent.
 
 [](){ #omelette }
 
@@ -163,13 +163,13 @@ Les grammaires des langages de programmation sont souvent formalisées à l'aide
 
 ## Les paradigmes de programmation
 
-Chaque langage de programmation que ce soit C, C++, Python, ADA, COBOL et Lisp sont d'une manière générale assez proche les uns des autres. Nous citions par exemple le langage B, précurseur du C (c. f. [thompson]{c-history}). Ces deux langages, et bien que leurs syntaxes soient différentes, ils demeurent assez proches, comme l'espagnol et l'italien qui partagent des racines latines. En programmation on dit que ces langages partagent le même [paradigme de programmation](https://fr.wikipedia.org/wiki/Paradigme_(programmation)).
+Chaque langage de programmation — C, C++, Python, Ada, COBOL ou Lisp — possède sa propre identité tout en partageant parfois de fortes similitudes avec les autres. Nous avons cité plus haut le langage B, précurseur du C (voir [thompson]{c-history}). Malgré des syntaxes distinctes, ces deux langages restent proches, à l’image de l’espagnol et de l’italien qui puisent dans une même racine latine. En programmation, on dit alors qu’ils partagent le même [paradigme de programmation](https://fr.wikipedia.org/wiki/Paradigme_(programmation)).
 
-Certains paradigmes sont plus adaptés que d'autres à la résolution de certains problèmes et de nombreux langages de programmation sont dit **multi-paradigmes**, c'est-à-dire qu'ils supportent différents paradigmes.
+Certains paradigmes se prêtent mieux que d’autres à la résolution de problèmes spécifiques, et de nombreux langages sont qualifiés de **multi-paradigmes** : ils prennent en charge plusieurs approches complémentaires.
 
-Nous citions plus haut le C++ qui permet la programmation orientée objet, laquelle est un paradigme de programmation qui n'existe pas en C. Ce qu'il est essentiel de retenir c'est qu'un langage de programmation peut aisément être substitué par un autre pour autant qu'ils s'appuient sur les mêmes paradigmes.
+Nous évoquions plus haut C++, qui introduit la programmation orientée objet, un paradigme absent du langage C. L’essentiel à retenir est qu’un langage peut souvent en remplacer un autre dès lors qu’ils reposent sur des paradigmes similaires.
 
-Le langage C répond aux paradigmes suivants :
+Le langage C s’inscrit dans les paradigmes suivants :
 
 [Impératif](https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative)
 
@@ -183,7 +183,7 @@ Le langage C répond aux paradigmes suivants :
 
 : Programmation impérative possédant des appels de procédures isolées qui regroupent une séquence d'instructions.
 
-D'autres langages comme le C++ apportent les paradigmes supplémentaires à C :
+D'autres langages, comme C++, ajoutent des paradigmes supplémentaires au C :
 
 [Fonctionnel](https://fr.wikipedia.org/wiki/Programmation_fonctionnelle)
 
@@ -193,9 +193,9 @@ D'autres langages comme le C++ apportent les paradigmes supplémentaires à C :
 
 : Programmation basée sur la définition de classes et d'objets. Utilisé dans les langages C++, Java, Python. Une classe associe des données à des actions qui manipulent ces données.
 
-Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la [programmation réflective](https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)) ou la [programmation événementielle](https://fr.wikipedia.org/wiki/Programmation_%C3%A9v%C3%A9nementielle).
+Des langages de plus haut niveau, tels que Python ou C#, proposent encore d’autres paradigmes, comme la [programmation réflective](https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)) ou la [programmation événementielle](https://fr.wikipedia.org/wiki/Programmation_%C3%A9v%C3%A9nementielle).
 
-Ce que nous devons retenir c'est que le langage C est **impératif** et **procédural**, c'est-à-dire qu'il est basé sur des séquences d'instructions séparées les unes des autres qui s'exécutent dans un ordre donné et lesquelles peuvent être regroupées en procédures. En reprenant notre exemple d'[omelette][omelette], si nous souhaitons cette fois-ci réaliser une bonne pâte à crêpes, nous pourrions écrire :
+Retenons que le langage C est à la fois **impératif** et **procédural**. Il repose sur des séquences d’instructions exécutées dans un ordre déterminé et regroupables au sein de procédures. En reprenant notre exemple d’[omelette][omelette], si nous souhaitions cette fois préparer une pâte à crêpes, nous pourrions écrire :
 
 ```text
 POUR REALISER un œuf:

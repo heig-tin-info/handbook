@@ -1,8 +1,8 @@
 # Tableaux
 
-Les [tableaux](https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)) (*arrays*) représentent une séquence finie d'éléments d'un type donné que l'on peut accéder par leur position (indice) dans la séquence. Un tableau est par conséquent une liste indexée de variables du même type.
+Les [tableaux](https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)) (*arrays*) modélisent une séquence finie d'éléments d'un type donné accessible par position (indice) dans cette séquence. Autrement dit, un tableau constitue une liste indexée de variables de même nature.
 
-Un exemple typique d'utilisation d'un tableau est le [Crible d'Ératosthène](https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne) qui permet de trouver tous les nombres premiers inférieurs à un entier donné. Dans cet algorithme, un tableau de booléens est utilisé pour marquer les nombres qui ne sont pas premiers. Le code est en 4 parties. D'abord la capture d'une valeur donnée par l'utilisateur stockée dans `n`, puis l'initialisation des valeurs du tableau à `true` avec une boucle, suivi de l'algorithme du crible qui contient deux boucles imbriquées et enfin l'affichage du résultat. Notons que la plus ancienne référence connue au crible (en grec ancien : κόσκινον Ἐρατοσθένους, kóskinon Eratosthénous) se trouve dans l'Introduction à l'arithmétique de Nicomachus de Gérasa, un ouvrage du début du IIᵉ siècle de notre ère, qui l'attribue à Ératosthène de Cyrène, un mathématicien grec du IIIᵉ siècle avant J.-C., bien qu'il décrive le criblage par les nombres impairs plutôt que par les nombres premiers.
+Un exemple classique est le [Crible d'Ératosthène](https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne), qui calcule l'ensemble des nombres premiers inférieurs à une borne donnée. L'algorithme manipule un tableau de booléens pour marquer les nombres composés. Le code se divise en quatre étapes : la lecture de la limite saisie par la personne qui utilise le programme, l'initialisation du tableau à `true`, l'exécution du crible avec deux boucles imbriquées, puis l'affichage du résultat. La plus ancienne mention connue du procédé (en grec ancien : κόσκινον Ἐρατοσθένους, *kóskinon Eratosthénous*) figure dans l' *Introduction à l'arithmétique* de Nicomaque de Gérase, un traité du début du IIᵉ siècle de notre ère. L'auteur y attribue la méthode à Ératosthène de Cyrène, mathématicien du IIIᵉ siècle av. J.-C., même s'il décrit un criblage par les nombres impairs plutôt que par les nombres premiers.
 
 ```c
 #define MAX 1000
@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-L'opérateur crochet `[]` est utilisé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau :
+L'opérateur crochet `[]` sert à la fois à accéder à un élément par son indice et à définir la taille d'un tableau lors de sa déclaration :
 
 La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon suivante :
 
@@ -37,14 +37,14 @@ La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon s
 int array[10];
 ```
 
-Par la suite il est possible d'accéder aux différents éléments ici l'élément 1 et 3 (deuxième et quatrième position du tableau) :
+Par la suite, il devient possible d'accéder aux différents éléments, par exemple aux indices 1 et 3 (deuxième et quatrième positions du tableau) :
 
 ```c
 array[1];
 array[5 - 2];
 ```
 
-Imaginons un tableau de `int16_t` de 5 éléments. En mémoire ce tableau est une succession de 10 bytes (5 éléments de 2 bytes chacun).
+Imaginons maintenant un tableau de `int16_t` de 5 éléments. En mémoire, il correspond à une succession de 10 bytes (5 valeurs de 2 bytes chacune).
 
 ![Tableau en mémoire](/assets/images/array.drawio)
 
@@ -52,9 +52,9 @@ Imaginons un tableau de `int16_t` de 5 éléments. En mémoire ce tableau est un
 int16_t array[5] = {0x0201, 0x0403, 0x0605, 0x0807, 0x0A09};
 ```
 
-Rappelez-vous que les entiers sont stockés en mémoire en *little-endian*, c'est-à-dire que l'octet de poids faible est stocké en premier. Ainsi, l'entier `0x0201` est stocké en mémoire `0x01` puis `0x02`. Lorsque vous accédez à un élément du tableau, chaque élément en mémoire possède une adresse qui lui est propre. Néanmoins lorsque l'on se réfère au tableau dans son ensemble (ici `array`), c'est l'adresse du premier élément qui est retournée, soit `0xffacb10`.
+Rappelons que, sur l'architecture visée, les entiers sont stockés en mémoire en *little-endian*, c'est-à-dire en plaçant l'octet de poids faible en premier. L'entier `0x0201` apparaît donc en mémoire sous la forme `0x01` puis `0x02`. Chaque case du tableau possède sa propre adresse ; toutefois, lorsqu'on fait référence au tableau dans son ensemble (ici `array`), c'est l'adresse du premier élément qui est retournée, par exemple `0xffacb10`.
 
-Comme le tableau est de type `int16_t`, chaque élément est de taille 2 bytes, donc lorsque l'on accède à l'élément 3, une arithmétique sur les adresse est effectuée:
+Puisque le tableau est de type `int16_t`, chaque élément occupe 2 bytes ; accéder à l'élément d'indice 3 revient donc à effectuer une arithmétique d'adresses :
 
 $$
 \begin{aligned}
@@ -63,7 +63,7 @@ $$
 \end{aligned}
 $$
 
-L'opérateur `sizeof` qui permet de retourner la taille d'une structure de donnée en mémoire est très utile pour les tableaux. Cependant, cet opérateur retourne la taille du tableau en bytes, et non le nombre d'éléments qui le compose. Dans l'exemple suivant `sizeof(array)` retourne $5\cdot2 = 10$ bytes tandis que `sizeof(array[0])` retourne la taille d'un seul élément $2$; et donc, `sizeof(array) / sizeof(array[0])` est le nombre d'éléments de ce tableau, soit 5.
+L'opérateur `sizeof`, qui retourne la taille d'une structure de données en mémoire, est très utile pour manipuler les tableaux. Il fournit toutefois la taille totale en bytes et non le nombre d'éléments. Dans l'exemple suivant, `sizeof(array)` renvoie $5\cdot2 = 10$ bytes tandis que `sizeof(array[0])` renvoie la taille d'un élément, soit 2 bytes. Le rapport `sizeof(array) / sizeof(array[0])` donne donc le nombre d'éléments, ici 5.
 
 ```c
 size_t length = sizeof(array) / sizeof(array[0]);
@@ -72,7 +72,7 @@ assert (length == 5);
 
 !!! warning "L'indice zéro"
 
-    L'index d'un tableau commence toujours à **zéro** et par conséquent l'index maximum d'un tableau de 5 éléments sera 4. Il est donc fréquent dans une boucle d'utiliser `<` et non `<=`:
+    L'indice d'un tableau commence toujours à **zéro** ; l'indice maximum d'un tableau de 5 éléments vaut donc 4. C'est pourquoi, dans les boucles, on privilégie `<` plutôt que `<=` :
 
     ```c
     for(size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++) {
@@ -80,7 +80,7 @@ assert (length == 5);
     }
     ```
 
-Nous le verrons plus tard lorsque nous parlerons des [pointeurs][pointers], mais un tableau **n'est pas** un pointeur : il s'agit d'un type distinct dont la taille est connue du compilateur. En revanche, dans la plupart des expressions, un tableau « se transforme » en pointeur vers son premier élément. C'est cette conversion implicite qui donne l'impression que les deux notions se confondent. Ce qu'il est important de retenir, c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, ce n'est pas l'intégralité des données du tableau qui sont copiées sur la pile, mais seulement l'adresse du premier élément.
+Nous le verrons plus tard en abordant les [pointeurs][pointers], mais un tableau **n'est pas** un pointeur : c'est un type distinct dont la taille est connue du compilateur. En revanche, dans la plupart des expressions, un tableau « se transforme » implicitement en pointeur vers son premier élément. Cette conversion explique la confusion fréquente entre les deux notions. Retenez surtout que, lorsqu'un tableau est passé à une fonction comme ci-dessous, ce n'est pas tout son contenu qui est copié sur la pile mais seulement l'adresse du premier élément.
 
 Une preuve est que le contenu du tableau peut être modifié à distance :
 
@@ -163,7 +163,7 @@ sequence[4] = 23;
 sequence[5] = 42;
 ```
 
-Cette écriture n'est certainement pas la plus optimisée, car l'initialisation du tableau n'est pas réalisée à la compilation, mais à l'exécution du programme ; et ce sera pas moins de six opérations qui seront nécessaires à l'initialiser. En pratique on utilise la notation par accolades `{}` pour initialiser un tableau :
+Cette écriture n'est évidemment pas la plus efficace : l'initialisation du tableau n'intervient qu'à l'exécution et requiert six affectations successives. En pratique, on privilégie la notation avec accolades `{}` pour initialiser un tableau :
 
 ```c
 int32_t sequence[6] = {4, 8, 15, 16, 23, 42};
@@ -171,19 +171,19 @@ int32_t sequence[6] = {4, 8, 15, 16, 23, 42};
 
 Ici, les accolades ne forment pas un bloc de code, mais une liste d'éléments, chacun séparé par une virgule.
 
-Dans cette dernière écriture, on notera une redondance d'information. La liste  d'initialisation `{4, 8, 15, 16, 23, 42}` comporte six éléments et le tableau est déclaré avec six éléments `[6]`. Pour éviter une double source de vérité, il est ici possible d'omettre la taille du tableau :
+Dans cette dernière écriture, on note une redondance d'information : la liste d'initialisation `{4, 8, 15, 16, 23, 42}` contient six éléments, tout comme le tableau déclaré `[6]`. Pour éviter cette double source de vérité, on peut laisser le compilateur déduire la taille :
 
 ```c
 int32_t sequence[] = {4, 8, 15, 16, 23, 42};
 ```
 
-Le compilateur peut inférer la taille du tableau en fonction du nombre d'éléments de la liste d'initialisation. Néanmoins, une liste d'initialisation n'initialise pas nécessairement tous les éléments du tableau. Il est possible par exemple de déclarer un tableau de 100 éléments où seul les premiers sont initialisés :
+Le compilateur infère ainsi la taille à partir du nombre d'éléments présents dans la liste. Néanmoins, une telle liste n'initialise pas nécessairement toutes les cases du tableau. On peut, par exemple, déclarer un tableau de 100 éléments dont seuls les premiers sont explicitement définis :
 
 ```c
 int32_t sequence[100] = {4, 8, 15, 16, 23, 42 /* le reste vaudra zéro */ };
 ```
 
-Dans ce cas, les éléments 6 à 99 seront initialisés à zéro. Pour s'en donner la preuve, observons le code assembleur généré par le compilateur :
+Dans ce cas, les éléments 6 à 99 sont implicitement initialisés à zéro. Pour s'en convaincre, observons le code assembleur généré par le compilateur :
 
 ```
 mov     rbp, rsp
@@ -205,25 +205,25 @@ mov     DWORD PTR [rbp-384], 23
 mov     DWORD PTR [rbp-380], 42
 ```
 
-Donc, lors de l'initialisation d'un tableau de 100 éléments dans une fonction on peut noter:
+Ainsi, lors de l'initialisation d'un tableau de 100 éléments dans une fonction, on constate :
 
 1. Le tableau est déclaré sur la pile.
 2. Tous les éléments sont initialisés à zéro.
 3. Puis, les éléments 0 à 5 sont initialisés explicitement.
 
-Le langage C permet également d'initialiser un tableau de façon partielle. Dans l'exemple suivant, les éléments 0 à 5 sont initialisés, les autres éléments sont initialisés à zéro :
+Le langage C permet également d'initialiser un tableau de manière partielle. Dans l'exemple suivant, les éléments 0 à 5 reçoivent une valeur explicite tandis que les autres sont mis à zéro :
 
 ```c
 int32_t sequence[100] = {[0]=4, [2]=8, [4]=15, [6]=16, [8]=23, [10]=42};
 ```
 
-Notons que lorsque la notation `[]=` est utilisée, les valeurs qui suivent seront positionnées aux indices suivants. On peut donc écrire :
+Lorsque la notation `[]=` est utilisée, les valeurs qui suivent s'enchaînent aux indices immédiatement suivants. On peut donc écrire :
 
 ```c
 int32_t sequence[6] = {[0]=4, 8, [3]=16, 23, 42};
 ```
 
-Dans l'exemple ci-dessus `sequence[2]` vaudra zéro.
+Dans l'exemple ci-dessus, `sequence[2]` prendra la valeur zéro.
 
 !!! bug "Initialisation tardive"
 
@@ -238,7 +238,7 @@ Dans l'exemple ci-dessus `sequence[2]` vaudra zéro.
 
 ## Initialisation à zéro
 
-Pour initialiser un tableau à zéro, on devrait être autorisé à écrire le code suivant puisque tous les éléments non explicitement initialisés sont initialisés à zéro :
+Pour initialiser un tableau à zéro, on pourrait être tenté d'écrire ce qui suit, puisque tous les éléments non explicitement définis sont mis à zéro :
 
 ```c
 int32_t sequence[6] = {};
@@ -262,7 +262,7 @@ int32_t sequence[6] = {0};
 
 ## Initialisation à une valeur particulière
 
-Cette écriture n'est pas normalisée **C99**, mais est généralement compatible avec la majorité des compilateurs.
+Cette écriture n'est pas conforme à la norme **C99**, mais elle reste acceptée par la plupart des compilateurs.
 
 ```c
 int array[1024] = { [ 0 ... 1023 ] = -1 };

@@ -1,16 +1,14 @@
 # Bibliothèques standard
 
-Aux premières heures de l'informatique (années 1950 et 1960), les programmeurs écrivaient du code très spécifique à la machine, généralement en langage assembleur. Il n'y avait pas de bibliothèques standard ou de frameworks, et les programmeurs devaient souvent écrire eux-mêmes des fonctionnalités de base comme la gestion des entrées/sorties ou les opérations mathématiques. L'idée de réutilisabilité de code était encore peu développée. Les langages étaient souvent conçus pour une seule machine, ce qui limitait les possibilités de portabilité.
+Aux débuts de l’informatique (années 1950 et 1960), chaque programme était intimement lié à la machine qui l’exécutait. Les codeuses et codeurs travaillaient quasi exclusivement en assembleur et devaient implémenter eux-mêmes la moindre fonctionnalité : lecture depuis le clavier, écriture sur bande magnétique, calculs numériques de base. L’idée de partager des briques logicielles réutilisables n’était pas encore ancrée dans les pratiques, et la portabilité d’un système à l’autre relevait de l’exploit.
 
-Le langage C est l'un des premiers langages à introduire une bibliothèque standard appelée [C standard library](https://fr.wikipedia.org/wiki/Biblioth%C3%A8que_standard_du_C) (*libc*). Cette bibliothèque visait à fournir un ensemble de fonctions de base pour faciliter le développement d'applications. Elle contenait des fonctions pour la gestion des chaînes de caractères, des fichiers, de la mémoire, des maths, etc. Avant cela, ces fonctionnalités devaient être écrites par chaque programmeur pour chaque projet. L'ajout de cette bibliothèque standard a permis de simplifier considérablement le développement en évitant de réinventer la roue pour chaque projet.
+Le langage C a profondément changé ce paysage en proposant très tôt une bibliothèque standard, la [C standard library](https://fr.wikipedia.org/wiki/Biblioth%C3%A8que_standard_du_C), communément appelée *libc*. Son objectif était double : fournir un socle commun d’outils fiables et encourager l’écriture de programmes portables. Y figurent, entre autres, la manipulation des chaînes de caractères, la gestion des fichiers, l’allocation dynamique ou encore les opérations mathématiques usuelles. Cette démarche a évité aux équipes de réécrire continuellement les mêmes routines et a contribué à la diffusion rapide du langage.
 
-Java, lancé par Sun Microsystems, a introduit une bibliothèque standard extrêmement riche dès sa première version, connue sous le nom de Java Standard Library. Elle couvrait un large éventail de domaines (gestion des entrées/sorties, interfaces graphiques, réseau, etc.). Le fait que Java soit livré avec une bibliothèque complète et uniforme a joué un rôle crucial dans sa popularité. Java a également introduit des frameworks comme **Swing** pour les interfaces graphiques et a encouragé l'utilisation d'APIs standardisées. Python, créé par Guido van Rossum en 1991, a aussi adopté très tôt l'idée d'une bibliothèque standard complète, appelée **Python Standard Library**. Python est souvent loué pour son approche "batteries included" ("batteries incluses"), signifiant que le langage fournit une vaste gamme d'outils prêts à l'emploi. Cela a fait de Python un langage très populaire pour le développement rapide d'applications.
+À partir des années 1990, d’autres langages ont poussé encore plus loin cette approche. Java a été livré dès sa première version avec un ensemble très riche de bibliothèques standardisé, couvrant l’interface graphique, le réseau, les collections ou la sécurité. Python a popularisé le slogan « batteries incluses », pour souligner qu’une grande variété d’outils est disponible directement après l’installation. Rust, Go, Swift ou Kotlin perpétuent cette tradition en associant à leurs bibliothèques standard des gestionnaires de paquets qui facilitent l’accès aux extensions tierces.
 
-Aujourd'hui, pratiquement tous les langages modernes (comme Rust, Go, Swift, Kotlin) sont livrés avec des bibliothèques standard étendues, ainsi que des frameworks et des outils de gestion de paquets (comme npm pour JavaScript, pip pour Python, cargo pour Rust, etc.). Ces outils permettent aux développeurs d’accéder à des milliers de bibliothèques tierces et à des frameworks qui simplifient la construction d’applications complexes.
+En C, la situation demeure plus frugale : la bibliothèque standard reste volontairement compacte afin de préserver la portabilité et la simplicité du langage. Ce minimalisme a un coût — certaines fonctionnalités modernes sont absentes — mais il garantit que le même code peut se compiler sur une grande diversité de plateformes. Pour combler ces lacunes, le monde du C s’appuie sur une multitude de bibliothèques supplémentaires, parfois spécifiques à un système, parfois normalisées par POSIX.
 
-En C, la situation n'a pas beaucoup évoluée depuis les années 70. Le langage C est un langage de bas niveau qui ne fournit toujours pas de bibliothèque standard étendue. Si une des raison est la portabilité des programmes, une autre raison est que le langage C est un langage minimaliste. Il a été conçu pour être simple et efficace, et les concepteurs ont délibérément choisi de ne pas inclure de fonctionnalités avancées dans le langage lui-même. Il existe donc en C une seule bibliothèque la *libc* qui souffre de quelques lacunes et incohérences par le fait de son ancienneté et de la nécessité de conserver la compatibilité avec les anciennes versions.
-
-La *libc* reste néanmoins un outil indispensable pour le développeur C. Nous allons voir dans ce chapitre les différents fichiers d'en-tête et fonctions qu'elle propose en montrant quelques exemples d'utilisation.
+La *libc* n’en reste pas moins indispensable. Les sections qui suivent résument ses principaux en-têtes, détaillent les points d’attention pour les utiliser correctement et proposent des exemples concrets montrant comment s’appuyer sur ces outils dans vos propres projets.
 
 Table: En-têtes standard
 
@@ -51,14 +49,14 @@ Table: En-têtes standard
 [](){#libc-assert}
 ## `<assert.h>`
 
-On peut bien se demander à quoi sert un en-tête `<assert.h>` qui ne contient qu'une seule fonction. La fonction `assert` est une fonction très utile pour valider des prérequis. Elle s'utilise principalement pour du débogage mais parfois pour s'assurer qu'une expression qui à priori ne devrait jamais valoir `false` est bien vraie. L'en-tête offre deux prototypes qui sont en réalité des macros :
+Même si `<assert.h>` semble modeste, il introduit des mécanismes précieux pour valider les hypothèses de votre code. La macro `assert` vérifie qu’une condition est vraie ; si ce n’est pas le cas, elle interrompt le programme et affiche un message descriptif. `static_assert` réalise une vérification similaire mais à la compilation, ce qui permet de bloquer un programme avant même qu’il soit exécuté lorsque la configuration est incohérente.
 
 ```c
 int assert(int expression);
 static_assert(int expression, "message");
 ```
 
-L'utilisation de assert permet de détecter les erreurs pendant la phase de développement ou de test. Si une condition critique n'est pas respectée (par exemple, un pointeur nul ou une division par zéro), le programme s'arrête avec une information précieuse pour le débogage.
+Ces prototypes illustrent l’intention, mais rappelons qu’il s’agit en pratique de macros. Leur emploi systématique pendant le développement aide à repérer très tôt les erreurs de logique, comme l’utilisation d’un pointeur nul ou une division par zéro, et offre un message clair pour comprendre la situation.
 
 ```c
 #include <assert.h>
@@ -70,7 +68,7 @@ int main() {
 }
 ```
 
-La grande force d'assert est qu'elle peut être désactivée dans un environnement de production en définissant la macro `NDEBUG`. Lorsque `NDEBUG` est défini, toutes les assertions sont remplacées par des expressions nulles (ne font rien), ce qui élimine toute surcharge due aux vérifications. D'une façon simplifiée, `NDEBUG` pourrait être implémenté comme ceci :
+La grande force d’`assert` est qu’il peut être désactivé dans un environnement de production en définissant la macro `NDEBUG`. Lorsque `NDEBUG` est présent, toutes les assertions deviennent inactives, supprimant le coût de ces vérifications. On peut schématiser ce fonctionnement de la manière suivante :
 
 ```c
 #ifdef NDEBUG
@@ -81,7 +79,7 @@ La grande force d'assert est qu'elle peut être désactivée dans un environneme
 #endif
 ```
 
-Si vous souhaitez désactiver les assertions, vous pouvez aussi le faire en ajoutant `-DNDEBUG` à la ligne de commande du compilateur. Par exemple :
+Pour désactiver les assertions, il suffit d’ajouter `-DNDEBUG` à la ligne de commande du compilateur, comme dans l’exemple suivant :
 
 ```bash
 gcc -DNDEBUG -o foo main.c
@@ -89,14 +87,14 @@ gcc -DNDEBUG -o foo main.c
 
 !!! warning "Avant l'en-tête"
 
-    Il est important de déclarer `NDEBUG` avant d'inclure l'en-tête `<assert.h>`. En effet, l'en-tête `<assert.h>` va définir la macro `assert` qui sera utilisée dans le code. Si `NDEBUG` est défini après l'inclusion de l'en-tête, la macro `assert` ne sera pas correctement définie.
+    Définissez `NDEBUG` avant d’inclure `<assert.h>`. Une définition tardive laisserait la macro `assert` active, car l’en-tête aura déjà généré sa version instrumentée.
 
 [](){#libc-errno}
 ## `<errno.h>`
 
-La bibliothèque `<errno.h>` est utilisée pour gérer les erreurs. Elle définit une variable **globale** `errno` qui est un entier qui contient le code de l'erreur modifié par certaines fonctions de la bibliothèque standard.
+L’en-tête `<errno.h>` propose un mécanisme simple pour transmettre des informations d’erreur entre une fonction et son appelant. Il fournit une variable globale `errno`, qui stocke le dernier code d’erreur défini par certaines fonctions de la bibliothèque standard ou par des extensions POSIX.
 
-Des macros sont également définies selon le standard POSIX pour les codes d'erreurs. Par exemple, `EACCES` pour une erreur d'accès, `ENOENT` pour un fichier ou répertoire inexistant, `ENOMEM` pour une erreur d'allocation mémoire, etc. La liste étant relativement longue elle peut être consultée directmenet sur le [standard POSIX](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/errno.h.html). Néanmoins voici les erreurs les plus courantes :
+Le standard POSIX complète ce dispositif avec de nombreuses macros nommées (`EACCES`, `ENOENT`, `ENOMEM`, etc.) décrivant des situations précises. La liste complète est disponible sur la [documentation officielle](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/errno.h.html). Ci-dessous figurent les codes les plus fréquents :
 
 Table: Codes d'erreurs POSIX les plus courants
 
@@ -112,7 +110,7 @@ Table: Codes d'erreurs POSIX les plus courants
 | `ENOMEM`       | Pas assez de mémoire disponible              |
 | `ENOSPC`       | Plus d'espace disponible sur le périphérique |
 
-Par exemple, lors du calcul du logarithme d'un nombre négatif, la fonction `log` va définir `errno` à `EDOM` pour indiquer une erreur de domaine. Il est possible de réinitialiser `errno` à zéro en utilisant la fonction `clearerr` ou `errno = 0`.
+Prenons un exemple : calculer le logarithme d’un nombre négatif déclenche une erreur de domaine (`EDOM`). Avant d’appeler `log`, on réinitialise `errno` à zéro pour éviter de confondre une erreur actuelle avec un ancien état. Après l’appel, on peut afficher le message associé à l’aide de `strerror`.
 
 ```c
 #include <stdio.h>
@@ -135,7 +133,7 @@ int main(void)
 [](){#libc-math}
 ## `<math.h>`
 
-La bibliothèque mathématique est une des plus utilisées. Elle contient des fonctions pour les opérations mathématiques de base. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement. Le fichier d'en-tête est le suivant et le flag de compilation est `-lm`.
+La bibliothèque mathématique est l’une des plus sollicitées. Elle regroupe les fonctions d’analyse numérique de base (exponentielles, logarithmes, racines, trigonométrie) et décline la plupart d’entre elles pour `float`, `double` et `long double` via les suffixes `f` et `l`. Sur de nombreux systèmes Unix, il faut ajouter l’option `-lm` lors de l’édition de liens pour profiter de ces symboles.
 
 Table: Constantes mathématiques
 
@@ -147,7 +145,7 @@ Table: Constantes mathématiques
 
 !!! warning "Windows"
 
-    Attention, ces constantes ne sont pas définies par le standard C, mais par le standard POSIX. Il est donc possible que certaines implémentations ne les définissent pas, en particulier sous Windows.
+    Ces constantes ne font pas partie du standard ISO C, mais de POSIX. Elles peuvent donc manquer sur certaines plates-formes, notamment sous Windows ; dans ce cas, il faut les définir soi-même ou s’appuyer sur une bibliothèque alternative.
 
 Table: Fonctions mathématiques
 
