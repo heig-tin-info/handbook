@@ -206,7 +206,6 @@ def pdf2pdf15(filename: Path, output_path: Path) -> Path:
 
 
 def drawio2pdf(filename: Path, output_path: Path) -> Path:
-
     pdfpath = get_filename_from_content(filename.read_bytes(), output_path).with_suffix(
         ".drawio.pdf"
     )

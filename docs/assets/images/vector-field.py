@@ -30,15 +30,23 @@ normal_z_vec = normal_z[::step, ::step]
 
 # Plot the surface and normal vectors
 fig = plt.figure(figsize=(10, 7))
-ax = fig.add_subplot(111, projection='3d')
-ax.plot_surface(x, y, z, color='yellow', alpha=0.7)
+ax = fig.add_subplot(111, projection="3d")
+ax.plot_surface(x, y, z, color="yellow", alpha=0.7)
 
 # Scale normal vectors for better visualization
 scale = 0.5
-ax.quiver(x_vec, y_vec, z_vec, normal_x_vec * scale, normal_y_vec * scale, normal_z_vec * scale, color='blue')
+ax.quiver(
+    x_vec,
+    y_vec,
+    z_vec,
+    normal_x_vec * scale,
+    normal_y_vec * scale,
+    normal_z_vec * scale,
+    color="blue",
+)
 
-ax.set_xlabel('X')
-ax.set_ylabel('Y')
-ax.set_zlabel('Z')
+ax.set_xlabel("X")
+ax.set_ylabel("Y")
+ax.set_zlabel("Z")
 
-plt.savefig('vector-field.svg')
+plt.savefig("vector-field.svg")
