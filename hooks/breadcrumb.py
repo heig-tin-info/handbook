@@ -1,4 +1,10 @@
-""" Emulates MkDocs Insiders Breadcrumb"""
+"""Emulate MkDocs Insiders breadcrumbs for the public edition."""
+
+from __future__ import annotations
+
+from mkdocs.config.defaults import MkDocsConfig
+from mkdocs.structure.files import Files
+from mkdocs.structure.pages import Page
 
 caret = """
 <svg class="breadcrumb-caret" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
@@ -6,15 +12,25 @@ caret = """
 </svg>"""
 
 
-def on_page_content(html, page, config, files):
-    elements = [page]
+def on_page_content(
+    html: str,
+    page: Page,
+    config: MkDocsConfig,
+    files: Files,
+) -> str:
+    """Inject a breadcrumb trail at the top of each page."""
+
+    del config, files  # MkDocs requires this signature even if unused.
+
+    elements: list[Page] = [page]
     while elements[-1].parent:
         elements.append(elements[-1].parent)
 
-    def getlink(element):
-        if hasattr(element, "url"):
+    def render_link(element: Page) -> str:
+        if getattr(element, "url", None):
             return f'<a href="{element.url}">{element.title}</a>'
         return f"<span>{element.title}</span>"
 
-    breadcrumb = caret.join(reversed([getlink(el) for el in elements]))
-    return f"""<div class="breadcrumb">{breadcrumb}</div>{html}"""
+    breadcrumb = caret.join(render_link(el) for el in reversed(elements))
+    return f"<div class=\"breadcrumb\">{breadcrumb}</div>{html}"
+

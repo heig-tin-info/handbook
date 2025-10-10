@@ -1,20 +1,36 @@
-"""Adds a class to drawio images to prevent GLightbox to process them.
-GraphViwer will process them instead."""
+"""Ensure Draw.io diagrams bypass GLightbox processing."""
+
+from __future__ import annotations
 
 import re
+from typing import Match
 
-RE_IMG = re.compile(r"(!\[.*?\]\(.*?\.drawio.*?\))(\s*\{.*?\})?")
+from mkdocs.config.defaults import MkDocsConfig
+from mkdocs.structure.files import Files
+from mkdocs.structure.pages import Page
+
+RE_IMG: re.Pattern[str] = re.compile(r"(!\[.*?\]\(.*?\.drawio.*?\))(\s*\{.*?\})?")
 
 
-def on_page_markdown(markdown, page, config, files):
-    def add_class(match):
-        img_tag = match.group(1)
-        content = match.group(2) if match.group(2) else ""
-        if "drawio-diagram" in content:
-            return img_tag + content
-        elif content:
-            return f'{img_tag}{content.rstrip("}")} .drawio-diagram}}'
-        else:
-            return f"{img_tag}{{.drawio-diagram}}"
+def _add_class(match: Match[str]) -> str:
+    """Append the ``.drawio-diagram`` class to a Markdown image."""
 
-    return RE_IMG.sub(add_class, markdown)
+    img_tag = match.group(1)
+    content = match.group(2) or ""
+    if "drawio-diagram" in content:
+        return img_tag + content
+    if content:
+        return f"{img_tag}{content.rstrip('}')} .drawio-diagram}}"
+    return f"{img_tag}{{.drawio-diagram}}"
+
+
+def on_page_markdown(
+    markdown: str,
+    page: Page,
+    config: MkDocsConfig,
+    files: Files,
+) -> str:
+    """Update Markdown images that refer to ``.drawio`` assets."""
+
+    del page, config, files
+    return RE_IMG.sub(_add_class, markdown)

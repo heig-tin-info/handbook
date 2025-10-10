@@ -1,17 +1,37 @@
-""" Generate tags from inline code blocks. They will be used
-with tags hook to generate a search index."""
+"""Generate tags from inline code blocks for the search index."""
+
+from __future__ import annotations
+
 import re
+from typing import Match
+
+from mkdocs.config.defaults import MkDocsConfig
+from mkdocs.structure.files import Files
+from mkdocs.structure.pages import Page
+
+RE_KEYWORD: re.Pattern[str] = re.compile(r"<code>(<?[_\w.]{3,}>?)</code>", re.IGNORECASE)
+RE_IGNORE: re.Pattern[str] = re.compile(r"0[xb].+|[.\d-]+")
 
 
-RE_KEYWORD = re.compile(r"<code>(<?[_\w.]{3,}>?)</code>", re.IGNORECASE)
+def _wrap_keyword(match: Match[str]) -> str:
+    """Wrap eligible inline code blocks in a tag span."""
 
-# Ignore numbers and hexadecimals
-RE_IGNORE = re.compile(r"0[xb].+|[.\d-]+")
+    keyword = match.group(1)
+    if RE_IGNORE.match(keyword) or len(keyword) > 15:
+        return match.group(0)
+    return (
+        f'<span class="ycr-hashtag" data-index-entry="{keyword}" '
+        f'data-tag="{keyword}">{match.group(0)}</span>'
+    )
 
-def on_page_content(html, page, config, files):
-    def replace_code(m):
-        if RE_IGNORE.match(m.group(1)) or len(m.group(1)) > 15:
-            return m.group(0)
-        return f'<span class="ycr-hashtag" data-index-entry="{m.group(1)}" data-tag="{m.group(1)}">{m.group(0)}</span>'
 
-    return RE_KEYWORD.sub(replace_code, html)
+def on_page_content(
+    html: str,
+    page: Page,
+    config: MkDocsConfig,
+    files: Files,
+) -> str:
+    """Inject tag spans around inline code keywords."""
+
+    del page, config, files
+    return RE_KEYWORD.sub(_wrap_keyword, html)

@@ -1,97 +1,105 @@
-import logging
-from bs4 import BeautifulSoup
+"""Enhance HTML tables with additional classes for custom styling."""
 
-log = logging.getLogger('mkdocs')
+from __future__ import annotations
 
-def addclass(element, classname):
-    if 'class' in element.attrs:
-        element['class'].append(classname)
-    else:
-        element['class'] = [classname]
+from bs4 import BeautifulSoup, Tag
+from mkdocs.config.defaults import MkDocsConfig
+from mkdocs.structure.files import Files
+from mkdocs.structure.pages import Page
 
-def rowspan(soup):
-    for table in soup.find_all('table'):
-        cells_to_remove = []
+def add_class(element: Tag, classname: str) -> None:
+    """Append a CSS class to a BeautifulSoup element."""
+
+    element["class"] = [*element.get("class", []), classname]
+
+
+def rowspan(soup: BeautifulSoup) -> BeautifulSoup:
+    """Expand ``@span`` markers into actual ``rowspan`` attributes."""
+
+    for table in soup.find_all("table"):
+        cells_to_remove: list[Tag] = []
         apply = False
-        for row in table.find_all('tr'):
-            cols = row.find_all('td')
+        for row in table.find_all("tr"):
+            columns = row.find_all("td")
 
-            # Identify columns with rowspan
             spanned_cols = []
-            for i, cell in enumerate(cols):
-                has_span = '@span' in cell.text
+            for index, cell in enumerate(columns):
+                has_span = "@span" in cell.text
                 spanned_cols.append(has_span)
                 if has_span:
-                    cell.string = cell.text.replace('@span', '')
+                    cell.string = cell.text.replace("@span", "")
                     apply = True
 
-            # Process rowspan
-            for i, cell in enumerate(cols):
-                if not spanned_cols[i]:
+            for index, cell in enumerate(columns):
+                if not spanned_cols[index]:
                     continue
                 span_rows = 1
-                next_row = row.find_next_sibling('tr')
+                next_row = row.find_next_sibling("tr")
                 while next_row is not None:
-                    col = next_row.find_all('td')[i]
-                    if col.text != '':
+                    col = next_row.find_all("td")[index]
+                    if col.text != "":
                         break
                     span_rows += 1
                     cells_to_remove.append(col)
-                    next_row = next_row.find_next_sibling('tr')
+                    next_row = next_row.find_next_sibling("tr")
 
-                cell['rowspan'] = span_rows
+                cell["rowspan"] = span_rows
 
-                next_col_is_spanned = i + 1 < len(spanned_cols) and not spanned_cols[i + 1]
-                prev_col_is_spanned = i - 1 >= 0 and not spanned_cols[i - 1]
+                next_col_is_spanned = index + 1 < len(spanned_cols) and not spanned_cols[index + 1]
+                prev_col_is_spanned = index - 1 >= 0 and not spanned_cols[index - 1]
                 if next_col_is_spanned:
-                    addclass(cell, 'ycr-rowspan--right')
+                    add_class(cell, "ycr-rowspan--right")
                 if prev_col_is_spanned:
-                    addclass(cell, 'ycr-rowspan--left')
+                    add_class(cell, "ycr-rowspan--left")
         if apply:
             for cell in cells_to_remove:
                 cell.decompose()
     return soup
 
 
-def auto_width(soup):
-    for table in soup.find_all('table'):
+def auto_width(soup: BeautifulSoup) -> BeautifulSoup:
+    """Mark tables that contain a ``@flex`` header for flexible width layouts."""
+
+    for table in soup.find_all("table"):
         is_flex = False
-        flexible_column = None
-        for row in table.find_all('tr'):
-            for i, col in enumerate(row.find_all('th')):
-                if '@flex' in col.text:
-                    flexible_column = i
-                    col.string = col.text.replace('@flex', '')
+        flexible_column: int | None = None
+        for row in table.find_all("tr"):
+            for index, col in enumerate(row.find_all("th")):
+                if "@flex" in col.text:
+                    flexible_column = index
+                    col.string = col.text.replace("@flex", "")
                     break
         if flexible_column is not None:
-            for row in table.find_all('tr'):
-                for i, col in enumerate(row.find_all(['td', 'th'])):
-                    if i == flexible_column:
-                        col['class'] = ['ycr-flex-column']
+            for row in table.find_all("tr"):
+                for index, col in enumerate(row.find_all(["td", "th"])):
+                    if index == flexible_column:
+                        col["class"] = ["ycr-flex-column"]
                         is_flex = True
 
         if is_flex:
-            addclass(table, 'ycr-flex-table')
+            add_class(table, "ycr-flex-table")
     return soup
 
 
-def separators(soup):
-    for table in soup.find_all('table'):
-        cols_idx = []
-        for row in table.find_all('tr'):
-            for i, col in enumerate(row.find_all(['th', 'td'])):
-                if '@rb' in col.text:
-                    col.string = col.text.replace('@rb', '')
-                    cols_idx.append(i)
-                if '@bb' in col.text:
-                    col.string = col.text.replace('@bb', '')
-                    addclass(row, 'ycr-bottom-border')
+def separators(soup: BeautifulSoup) -> BeautifulSoup:
+    """Convert marker tokens (``@rb``/``@bb``) into CSS classes."""
 
-        if len(cols_idx) > 0:
-            for row in table.find_all('tr'):
-                for i, col in enumerate(row.find_all(['td', 'th'])):
-                    if i in cols_idx:
-                        addclass(col, 'ycr-right-border')
+    for table in soup.find_all("table"):
+        cols_idx: list[int] = []
+        for row in table.find_all("tr"):
+            for index, col in enumerate(row.find_all(["th", "td"])):
+                if "@rb" in col.text:
+                    col.string = col.text.replace("@rb", "")
+                    cols_idx.append(index)
+                if "@bb" in col.text:
+                    col.string = col.text.replace("@bb", "")
+                    add_class(row, "ycr-bottom-border")
+
+        if cols_idx:
+            for row in table.find_all("tr"):
+                for index, col in enumerate(row.find_all(["td", "th"])):
+                    if index in cols_idx:
+                        add_class(col, "ycr-right-border")
     return soup
 
 # def on_page_markdown(markdown, page, config, files):
@@ -120,8 +128,17 @@ def separators(soup):
 
 #     return markdown
 
-def on_page_content(html, page, config, files):
-    soup = BeautifulSoup(html, 'html.parser')
+def on_page_content(
+    html: str,
+    page: Page,
+    config: MkDocsConfig,
+    files: Files,
+) -> str:
+    """Post-process rendered HTML tables for advanced layouts."""
+
+    del page, config, files
+
+    soup = BeautifulSoup(html, "html.parser")
     soup = auto_width(soup)
     soup = separators(soup)
     soup = rowspan(soup)
