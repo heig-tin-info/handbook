@@ -118,11 +118,14 @@ plugins:
   - tags
   - epigraph
   - pills
-  - drawio:
-      use_page_attribute: true
   - glightbox:
-      skip_classes:
-        - drawio-diagram
+      auto_themed: true
+      auto_caption: true
+  - drawio:
+      tooltips: false
+      use_page_attribute: true
+      darkmode: true
+      edit: false
   - markdown-exec
   - search
   - exercises
@@ -288,6 +291,6 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/vega@5
   - https://cdn.jsdelivr.net/npm/vega-lite@5
   - https://cdn.jsdelivr.net/npm/vega-embed@6
-  - https://viewer.diagrams.net/js/viewer-static.min.js
-  - js/drawio.js
-  - js/drawio-reload.js
+  #- https://viewer.diagrams.net/js/viewer-static.min.js
+  # - js/drawio.js
+  #- js/drawio-reload.js
