@@ -1,36 +1,36 @@
 # L'ordinateur personnel
 
-Un ordinateur personnel ([[PC]] pour *Personal Computer*) est un appareil électronique de petite taille destiné à un usage individuel. Il se distingue des ordinateurs centraux (ou *mainframes*) et des serveurs, qui eux, sont destinés exclusivement à un usage professionnel ou collectif en raison de leur prix exorbitant. Néanmoins, quelle que soit la taille de l'ordinateur, les composants de base sont les mêmes. Un ordinateur est composé de plusieurs éléments principaux:
+Un ordinateur personnel ([[PC]] pour *Personal Computer*) est un appareil électronique de format relativement compact destiné à un usage individuel ou familial. Il se distingue des ordinateurs centraux (ou *mainframes*) et des serveurs, plutôt réservés à des tâches professionnelles ou collectives, souvent en raison de leur coût élevé et de leur encombrement. Quelle que soit la taille de la machine, ses composants essentiels demeurent pourtant identiques. On retrouve ainsi plusieurs éléments principaux :
 
 Un **processeur** (ou **[[CPU]]** pour *Central Processing Unit*)
 
-: C'est le cœur computationnel de l'ordinateur. Il exécute les instructions des programmes et contrôle les autres composants de l'ordinateur.
+: Il constitue le cœur de calcul de l'ordinateur. Le processeur exécute les instructions des programmes et coordonne l'activité des autres composants matériels.
 
 La **mémoire** (ou **[[RAM]]** pour *Random Access Memory*)
 
-: Elle est **volatile**, c'est-à-dire qu'elle perd son contenu lorsque l'ordinateur est éteint, mais elle est très rapide. Elle est utilisée pour stocker les données temporaires des programmes en cours d'exécution.
+: Cette mémoire est **volatile**, c'est-à-dire qu'elle perd son contenu lorsque l'ordinateur est éteint, mais elle offre un accès extrêmement rapide. Elle stocke temporairement les données des programmes en cours d'exécution.
 
 Un **disque dur** (ou **[[HDD]]** pour *Hard Disk Drive*)
 
-: Il agit comme un périphérique de stockage de masse, il stocke les données de manière permanente.
+: Il assure le stockage de masse et conserve les données de manière persistante entre deux mises sous tension.
 
 Une **carte graphique** (ou **[[GPU]]**)
 
-: Elle s'occupe de l'affichage des images sur l'écran et du calcul 3D. De nos jours elle est aussi utilisée pour accélérer les calculs parallèles comme ceux des modèles de langage.
+: Elle gère l'affichage des images à l'écran ainsi que les calculs 3D. Aujourd'hui, elle contribue également à accélérer les traitements parallèles, notamment pour l'entraînement des modèles de langage.
 
 Une **carte mère** (*motherboard*)
 
-: Elle relie tous les composants physiques de l'ordinateur entre eux.
+: Elle relie entre eux l'ensemble des composants physiques de l'ordinateur et assure leur alimentation.
 
 Un **chipset**
 
-: C'est un ensemble de circuits électroniques qui gère les communications entre les différents composants, il est composé de deux parties: le **Northbridge** et le **Southbridge**
+: Cet ensemble de circuits électroniques orchestre les communications entre les différents composants. Historiquement, il se divisait en deux parties : le **Northbridge** et le **Southbridge**.
 
 ![Architecture d'un ordinateur](/assets/images/pc-architecture.drawio)
 
 ## La RAM
 
-La [[mémoire vive]] est une mémoire de stockage temporaire, on l'appelle également mémoire non volatile. Le plus souvent une mémoire vive est amovible, il s'agit d'une barrette enfichable sur la carte mère. Avec l'évolution de la technologie, ces mémoires sont carénées et munies d'un dissipateur thermique.
+La [[mémoire vive]] est une mémoire de stockage temporaire ; on la qualifie parfois de mémoire non permanente. Le plus souvent, une barrette de mémoire est amovible et vient s'insérer directement sur la carte mère. Avec l'évolution de la technologie, ces modules sont carénés et munis d'un dissipateur thermique.
 
 ![2 x 16 GB DDR5 DIMM Corsair Vengeance](/assets/images/sdram-corsair-vengeance.avif){ width=50% }
 
@@ -38,19 +38,19 @@ Sous le capot, on peut voir les puces de mémoire:
 
 ![Crucial DDR4 16 GB](/assets/images/sdram.webp){ width=50% }
 
-Cette mémoire dispose de 16 Gibioctets de mémoire, soit $16 \times 2^30 = 17179869184$ octets. Chaque octet est composé de $8$ bits, soit $17179869184 \times 8 = 137438953472$ bits. Comme nous voyons $4$ puces de mémoire, chaque puce contient $4$ Gibioctets.
+Cette barrette offre 16 Gibioctets de capacité, soit $16 \times 2^30 = 17\,179\,869\,184$ octets. Chaque octet étant composé de $8$ bits, on obtient $17\,179\,869\,184 \times 8 = 137\,438\,953\,472$ bits. Comme nous observons $4$ puces de mémoire, chacune d'elles contient donc $4$ Gibioctets.
 
 Généralement, ces mémoires sont vendues en nombre de bits, soit ici 32 Gibibits.
 
-Sur le circuit électronique ou PCB (*Printed Circuit Board*), on voit les 4 puces de mémoire soudées. Il s'agit d'un composant de la société Micron, un MT40A1G8.
+Sur le circuit électronique, ou PCB (*Printed Circuit Board*), on distingue nettement les quatre puces de mémoire soudées. Le modèle présenté provient de la société Micron et porte la référence MT40A1G8.
 
-Une mémoire volatile est une mémoire qui perd son contenu lorsqu'elle n'est plus alimentée en électricité. La raison est simple. Stocker un état électrique demande de l'énergie pour accumuler des charges électriques. Si l'on fait l'analogie que l'électricité est de l'eau, alors chaque bit de la mémoire est un verre d'eau que l'on peut remplir ou vider. Le seul moyen de lire le contenu du verre est de voir s'il y a de l'eau dedans, c'est-à-dire de le vider. Si le verre est grand, alors il faut plus de temps pour le remplir et plus de temps pour le vider ceci présente plusieurs inconvénients :
+Une mémoire volatile perd son contenu dès qu'elle n'est plus alimentée en électricité. La raison est simple : stocker un état électrique requiert de l'énergie afin d'accumuler des charges. Si l'on compare l'électricité à de l'eau, chaque bit de la mémoire devient un verre que l'on peut remplir ou vider. Pour connaître l'état du verre, il faut vérifier la présence d'eau, c'est-à-dire le vider. Plus le verre est grand, plus le temps nécessaire pour le remplir ou le vider augmente, ce qui engendre plusieurs inconvénients :
 
 1. La vitesse de lecture est plus lente.
 2. La quantité d'eau (courant) pour remplir le verre est plus grande.
 3. L'encombrement est plus grand puisque le verre est plus volumineux.
 
-Aussi, le choix technologique est d'avoir des tout petits verres. Ils sont si petits que l'eau contenue s'évapore très vite. Pour éviter cela, on doit constamment remplir les verres. C'est ce que l'on appelle le *rafraîchissement* de la mémoire. Périodiquement, environ toutes les 64 ms, on doit réécrire le contenu de la mémoire pour éviter que l'information ne se perde. Heureusement pour nous, cette opération est transparente pour l'utilisateur, c'est le contrôleur de mémoire qui s'en charge.
+Le choix technologique consiste donc à réduire la taille des verres. Ils deviennent si petits que l'eau qu'ils contiennent s'évapore très vite. Pour éviter la perte d'information, il faut les remplir en permanence : c'est l'opération de *rafraîchissement* de la mémoire. En pratique, environ toutes les 64 ms, le contrôleur réécrit automatiquement le contenu pour préserver les données ; cette opération reste transparente pour l'utilisatrice ou l'utilisateur.
 
 Les caractéristiques de la mémoire sont les suivantes:
 
@@ -65,22 +65,22 @@ Les caractéristiques de la mémoire sont les suivantes:
 
 ### Technologies
 
-Il existe plusieurs technologies de mémoire vive. Les plus courantes sont: SDRAM, DDR, DDR2, DDR3, DDR4. Contrairement à la SDRAM qui est une mémoire synchrone, les mémoires DDR (*Double Data Rate*) sont des mémoires asynchrones. Cela signifie que la mémoire peut lire et écrire des données sur le flanc montant et descendant du signal d'horloge ce qui double la bande passante de la mémoire. Chaque génération améliore les performances en augmentant la fréquence de fonctionnement, la densité des puces mémoires et en réduisant la tension d'alimentation.
+Il existe plusieurs technologies de mémoire vive. Les plus courantes sont : SDRAM, DDR, DDR2, DDR3 et DDR4. Contrairement à la SDRAM, qui est une mémoire synchrone, les mémoires DDR (*Double Data Rate*) fonctionnent de manière asynchrone. Elles peuvent lire et écrire des données sur les flancs montant et descendant du signal d'horloge, ce qui double la bande passante disponible. À chaque génération, les performances progressent grâce à une fréquence plus élevée, à une densité accrue des puces et à une réduction de la tension d'alimentation.
 
 [](){#light-speed}
 ### Vitesse de la lumière
 
 ![Autoroute de l'information](/assets/images/highway.png)
 
-La vitesse de la lumière est de 299 792 458 m/s. Elle est fixée par la convention du mètre. C'est la vitesse maximale que peut atteindre un objet dans l'univers. Pour donner un ordre de grandeur, un signal électrique se propage dans un câble à environ 2/3 de la vitesse de la lumière. Cela signifie que pour parcourir 1 mètre, un signal électrique met environ 5 ns.
+La vitesse de la lumière est de 299 792 458 m/s, valeur fixée par la définition du mètre. Il s'agit de la vitesse maximale atteignable dans l'univers. Pour donner un ordre de grandeur, un signal électrique se propage dans un câble à environ deux tiers de cette vitesse. Parcourir un mètre lui demande donc près de 5 ns.
 
-Plus haut on a vu que le bus de données de la mémoire est souvent de 64-bits. Cela correspond à une autoroute de 64 voies avec quelques limitations :
+Plus haut, nous avons vu que le bus de données de la mémoire est souvent large de 64 bits. On peut le comparer à une autoroute à 64 voies présentant toutefois quelques contraintes :
 
-- Les voies sont unidirectionnelles, c'est-à-dire que l'on ne peut circuler que dans un sens.
-- Les voies sont séparées par des barrières, c'est-à-dire que l'on ne peut pas changer de voie.
-- Les véhicules se déplacent tous à la vitesse d'environ 540 millions de km/h. Ils ne peuvent pas freiner, accélérer ou s'arrêter.
+- Les voies sont unidirectionnelles : on ne circule que dans un sens.
+- Les voies sont séparées par des barrières : impossible de changer de voie en cours de route.
+- Les véhicules se déplacent à environ 540 millions de km/h et ne peuvent ni freiner, ni accélérer, ni s'arrêter.
 
-Pour transmettre une information, par exemple un nombre entier de 64 bits (`long long` en C), il faut faire entrer 64 véhicules sur chacune des voies. Chaque véhicule représente un bit. Pour que l'information soit transmise, il faut que les 64 véhicules soient alignés et qu'ils arrivent tous au même moment.
+Pour transmettre une information — par exemple un entier de 64 bits (`long long` en C) — il faut faire entrer un véhicule sur chacune des 64 voies. Chaque véhicule représente un bit. Pour que le message soit transmis correctement, les 64 véhicules doivent être alignés et atteindre la destination simultanément.
 
 Sur la figure suivante, on voit le routage d'un circuit électronique. En rose, ce sont les composants physiques. À gauche un processeur et au milieu en bas deux circuits mémoire labélisés *DDR1* et *DDR2*. En bleu clair ce sont les lignes électriques qui relient les composants. On observe des tas de petites circonvolutions. Les lignes sont artificiellement rallongées pour que la longueur de chaque voie de l'autoroute soit la même, afin de garantir une vitesse de propagation identique pour chaque ligne de donnée.
 
@@ -94,51 +94,51 @@ Malgré ces performances, la mémoire reste un goulot d'étranglement pour les p
 
 ![Disque dur](/assets/images/hdd.jpg)
 
-Le disque dur est un dispositif de [[stockage de masse]]. Il est composé de plusieurs plateaux métalliques qui tournent à grande vitesse. Un bras mécanique se déplace sur les plateaux pour lire ou écrire les données. Les disques durs sont lents par rapport à la mémoire vive. Ils sont utilisés pour stocker des données de manière permanente.
+Le disque dur est un dispositif de [[stockage de masse]]. Il se compose de plusieurs plateaux métalliques qui tournent à grande vitesse. Un bras mécanique se déplace au-dessus des surfaces magnétiques pour lire ou écrire les données. Comparés à la mémoire vive, les disques durs demeurent lents, mais ils sont privilégiés pour conserver les données de manière durable.
 
-De nos jours ces disques sont remplacés par des disques SSD (*Solid State Drive*) qui sont plus rapides et plus fiables. Les disques SSD sont composés de mémoire flash qui ne nécessite pas de pièces mobiles. Contrairement à la mémoire vive, les disques SSD sont des mémoires non volatiles. Cela signifie que les données sont conservées même lorsque l'alimentation est coupée.
+De nos jours, ils sont progressivement supplantés par des disques SSD (*Solid State Drive*) plus rapides et plus fiables. Les SSD reposent sur de la mémoire flash et ne contiennent aucune pièce mobile. Contrairement à la mémoire vive, il s'agit d'une mémoire non volatile : les données restent disponibles même lorsque l'alimentation est coupée.
 
 ![SSD de 2 TiB](/assets/images/ssd-990pro.avif){ width=50% }
 
-Mais si les SSD peuvent stocker beaucoup plus de données sur le même espace, pourquoi sont-ils plus lents que la mémoire vive? La raison est simple. Les disques SSD sont organisés en blocs de données, que l'on appelle *pages* et *clusters*. Pour lire ou écrire une donnée, il faut lire ou écrire tout le bloc. Cela signifie que si l'on veut lire un octet, il faut lire 4'096 octets. C'est ce que l'on appelle le *page size*.
+On pourrait se demander pourquoi les SSD, capables de stocker beaucoup plus de données dans un volume identique, restent plus lents que la mémoire vive. La réponse tient à leur organisation interne en blocs, appelés *pages* et *clusters*. Pour lire ou écrire une donnée, il faut manipuler tout le bloc. Autrement dit, pour accéder à un seul octet, il est nécessaire de transférer 4'096 octets : c'est la notion de *page size*.
 
 ![Évolution du prix des HDD et SSD](/assets/images/ssd-hdd-price.drawio)
 
-La communication entre le processeur et le disque SSD ou HDD utilise un protocole de communication série appelé *SATA* (*Serial ATA*). Ce protocole permet de transférer des données à une vitesse de 6 Gbit/s. Cela signifie que pour transférer un octet, il faut 8 bits, soit 8 ns. Cela semble rapide, mais si l'on veut lire un bloc de 4'096 octets, il faut 32'768 bits, soit 32'768 x 8 ns = 262'144 ns, soit 262 µs. C'est 262'144 fois plus lent que la mémoire vive.
+La communication entre le processeur et un disque SSD ou HDD passe par un protocole série appelé *SATA* (*Serial ATA*). Il autorise un débit maximal de 6 Gbit/s. Transférer un octet nécessite donc 8 bits, soit 8 ns. Cela paraît rapide, mais lire un bloc de 4'096 octets impose d'acheminer 32'768 bits, donc 32'768 × 8 ns = 262'144 ns, c'est-à-dire 262 µs. On se retrouve alors avec un temps d'accès 262'144 fois plus élevé que celui de la mémoire vive.
 
-Pour interfacer le processeur avec le disque dur, on utilise un contrôleur de disque. Ce contrôleur est un circuit électronique qui gère les accès disque. Il est composé lui-même d'un microprocesseur, de mémoire vive et de mémoire flash.
+Pour interfacer le processeur avec le disque, on recourt à un contrôleur dédié. Ce circuit électronique pilote les accès disque et intègre généralement un microprocesseur, de la mémoire vive et de la mémoire flash.
 
 ## La carte mère
 
 ![Carte mère](/assets/images/motherboard.webp){ width=50% }
 
-La carte mère est le composant principal de l'ordinateur. C'est elle qui relie tous les composants entre eux. Elle est composée d'un circuit imprimé sur lequel sont soudés les différents composants et une grande quantité de connecteurs.
+La carte mère constitue l'épine dorsale de l'ordinateur. Elle relie tous les composants entre eux grâce à un circuit imprimé sur lequel sont soudés les éléments actifs et une multitude de connecteurs.
 
-Le cœur de la carte mère est le **chipset**. C'est un ensemble de circuits électroniques qui gère les communications entre les différents composants. Il était historiquement composé de deux parties, le *northbridge* responsable de la communication entre le processeur et la mémoire vive et le *southbridge* responsable de la communication entre les périphériques de stockage et les ports USB. Depuis plusieurs années, le contrôleur mémoire est intégré au processeur et le chipset est devenu un *southbridge* amélioré.
+Au centre de la carte mère se trouve le **chipset**, un ensemble de circuits électroniques qui gèrent les communications entre les différents composants. Historiquement, il se décomposait en deux parties : le *northbridge*, chargé des échanges entre processeur et mémoire vive, et le *southbridge*, responsable des périphériques de stockage et des ports USB. Depuis plusieurs années, le contrôleur mémoire est intégré au processeur et le chipset se rapproche d'un *southbridge* amélioré.
 
-Le **chipset** est relié au processeur par un bus de données appelé **FSB** (*Front Side Bus*). Ce bus transporte les données entre le processeur et le chipset. La configuration du chipset est stockée dans une mémoire flash appelée **BIOS** (*Basic Input/Output System*). Le BIOS est un logiciel qui permet de configurer les paramètres de la carte mère.
+Le **chipset** est relié au processeur par un bus de données appelé **FSB** (*Front Side Bus*), qui assure la circulation des informations entre ces deux composants. Sa configuration est stockée dans une mémoire flash appelée **BIOS** (*Basic Input/Output System*), un logiciel qui permet de définir les paramètres de la carte mère.
 
-À l'époque le BIOS offrait un accès très minimaliste à l'utilisateur. On pouvait le configurer avec un clavier et un écran qui n'affichait que des caractères.
+Pendant longtemps, le BIOS proposait une interface très minimaliste : on le configurait au clavier sur un écran monochrome ne présentant que des caractères.
 
-De nos jours, le BIOS a été remplacé par l'**UEFI** (*Unified Extensible Firmware Interface*). L'UEFI est un logiciel plus évolué qui permet de configurer la carte mère avec une interface graphique. Il est possible de configurer la carte mère avec une souris et un écran tactile.
+Aujourd'hui, le BIOS cède la place à l'**UEFI** (*Unified Extensible Firmware Interface*), un logiciel plus évolué qui offre une interface graphique. On peut désormais configurer la carte mère à la souris, voire au doigt sur un écran tactile.
 
 ## Le processeur
 
-Le processeur est le cerveau de l'ordinateur. C'est lui qui exécute les instructions des programmes. La figure suivante montre un processeur Intel i7-12700K dans son format LGA 1700. C'est-à-dire qu'il comporte 1700 broches pour se connecter à la carte mère.
+Le processeur fait figure de cerveau de l'ordinateur : il exécute les instructions des programmes. La figure suivante présente un processeur Intel i7-12700K au format LGA 1700, c'est-à-dire muni de 1 700 contacts pour se fixer sur la carte mère.
 
 ![Processeur Intel i7](/assets/images/cpu-i7.png)
 
-Sur les 1700 broches on distingue plusieurs types de broches:
+Sur les 1 700 broches, on distingue plusieurs familles :
 
-- Les broches d'alimentation qui représentent 40..60% des broches. Elles sont nécessaires pour alimenter le processeur avec une tension de 1.2V.
-- Le contrôleur mémoire (DDR4/DDR5) qui permet de connecter la mémoire vive au processeur. Cela représente environ 5..15% des broches.
-- Les interfaces PCIe qui permettent de connecter des cartes d'extension comme des cartes graphiques, des cartes réseau, des cartes son, etc. Ce processeur supporte jusqu'à 20 lignes différentielles soit 40 broches.
-- L'accès DMI, c'est l'interface entre le processeur et le chipset. Un DMI 4.0 x8 signifie qu'il y a 8 lignes (Rx/Tx), soit envron 16 broches.
-- L'USB, quelques dizaines de broches.
-- Le contrôleur graphique intégré (iGPU) qui comporte des ports HDMI/DisplayPort pour connecter un écran directement au processeur.
-- Les interconnexions spécifiques (I2C, SPI, etc.)
+- Les broches d'alimentation représentent 40 à 60 % de l'ensemble et fournissent au processeur une tension d'environ 1,2 V.
+- Le contrôleur mémoire (DDR4/DDR5) relie la mémoire vive au processeur et mobilise environ 5 à 15 % des broches.
+- Les interfaces PCIe accueillent des cartes d'extension (graphique, réseau, son, etc.). Ce processeur gère jusqu'à 20 lignes différentielles, soit 40 broches.
+- L'accès DMI constitue l'interface entre processeur et chipset. Un lien DMI 4.0 ×8 s'appuie sur 8 lignes (Rx/Tx), soit environ 16 broches.
+- L'USB requiert quelques dizaines de broches supplémentaires.
+- Le contrôleur graphique intégré (iGPU) expose des ports HDMI ou DisplayPort pour relier directement un écran au processeur.
+- Des interconnexions spécifiques (I2C, SPI, etc.) complètent l'ensemble.
 
-Si on consulte le SDM (*Software Developer Manual*) d'Intel, un document de 5000 pages, on peut trouver des informations très intéressantes. Par exemple le chapitre sur les types numériques montre les différents types d'entiers ( `byte`, `word`, `dword`, `qword`), de flottants (`half`, `single`, `double`, `extended`) et de vecteurs (`xmm`, `ymm`, `zmm`, `kmm`). Il est expliqué que le processeur fonctionne avec le complément à 2 pour les entiers et le IEEE 754 pour les flottants, qu'il est en *little-endian* et que les registres sont de 64 bits. Le langage C au final est très proche de l'assembleur du processeur.
+Si l'on consulte le SDM (*Software Developer Manual*) d'Intel, un document de 5 000 pages, on y découvre une foule d'informations passionnantes. Le chapitre consacré aux types numériques présente, par exemple, les différentes tailles d'entiers (`byte`, `word`, `dword`, `qword`), de flottants (`half`, `single`, `double`, `extended`) et de vecteurs (`xmm`, `ymm`, `zmm`, `kmm`). On y apprend que le processeur utilise le complément à deux pour les entiers et la norme IEEE 754 pour les flottants, qu'il fonctionne en *little-endian* et que ses registres sont larges de 64 bits. Le langage C demeure ainsi très proche de l'assembleur du processeur.
 
 ## Chipset
 

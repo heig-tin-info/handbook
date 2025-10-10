@@ -2,21 +2,21 @@
 
 # Pointeurs
 
-[Attention les vélos](https://fr.wikiquote.org/wiki/Le_Jour_de_gloire), nous nous aventurons aujourd'hui sur un terrain délicat, subtil et parfois déroutant, mais ô combien fondamental pour quiconque aspire à maîtriser l'art de la programmation. Un sujet d'une importance cruciale, presque incontournable : les [pointeurs](https://fr.wikipedia.org/wiki/Pointeur_(programmation)).
+[Accrochez vos guidons](https://fr.wikiquote.org/wiki/Le_Jour_de_gloire) : nous nous aventurons aujourd'hui sur un terrain délicat, subtil et parfois déroutant, mais ô combien fondamental pour quiconque souhaite maîtriser l'art de la programmation. Nous abordons un sujet central, quasiment incontournable : les [pointeurs](https://fr.wikipedia.org/wiki/Pointeur_(programmation)).
 
-Les pointeurs sont des **variables** d'une nature singulière : au lieu de contenir directement une valeur, ils stockent une **adresse mémoire**. À quoi bon, me demanderez-vous ? L'objectif est de permettre des indirections, d'optimiser la gestion des données et de rendre l'exécution du code plus fluide et efficiente.
+Les pointeurs sont des **variables** d'une nature singulière : au lieu de contenir directement une valeur, ils stockent une **adresse mémoire**. À quoi cela sert-il ? À introduire des indirections, à optimiser la gestion des données et à rendre l'exécution du code plus souple et plus efficiente.
 
-Imaginons une scène tirée des intrigues galantes du XVIIIe siècle. Le [Vicomte de Valmont](https://fr.wikipedia.org/wiki/Vicomte_de_Valmont), séducteur invétéré, s'apprête à écrire une missive enflammée à la Marquise de Merteuil. Après avoir rédigé sa lettre, il la scelle soigneusement avant de la déposer dans sa boîte aux lettres, en espérant que le facteur l'acheminera à bon port. Ce simple geste pourrait se traduire dans le langage des machines par la déclaration suivante :
+Imaginons une scène tirée des intrigues galantes du XVIIIᵉ siècle. Le [vicomte de Valmont](https://fr.wikipedia.org/wiki/Vicomte_de_Valmont), séducteur invétéré, rédige une missive enflammée à la marquise de Merteuil. Après l'avoir scellée avec soin, il la dépose dans sa boîte aux lettres en espérant que le facteur l'acheminera à bon port. Ce simple geste pourrait se traduire dans le langage des machines par la déclaration suivante :
 
 ```c
 char lettre[] = "Chère Marquise, ...";
 ```
 
-Cette variable `lettre` est alors stockée en mémoire à une adresse spécifique, disons `0x12345abc`, qui correspondrait à l'emplacement de la boîte aux lettres du Vicomte dans ce grand réseau qu'est la mémoire.
+Cette variable `lettre` est alors stockée en mémoire à une adresse spécifique, disons `0x12345abc`, qui représenterait l'emplacement de la boîte du vicomte dans le vaste réseau qu'est la mémoire.
 
-Le facteur, fidèle à son devoir mais pas à l'abri des aléas du quotidien, découvre avec horreur que la chaleur étouffante a fait fondre le sceau de cire, collant irrémédiablement la lettre au fond de la boîte. En s'efforçant de la détacher, il finit par la déchirer, révélant par inadvertance son contenu.
+Le facteur, fidèle à son devoir mais pas à l'abri des aléas du quotidien, découvre avec horreur que la chaleur étouffante a fait fondre le sceau de cire, collant irrémédiablement la lettre au fond de la boîte. En tentant de la détacher, il la déchire et en révèle involontairement le contenu.
 
-Bien entendu, il faut admettre que cette pirouette est une métaphore pour illustrer le fait qu'une valeur en mémoire ne peut être transportée simplement. Notre pauvre facteur, dont la mémoire n'est plus ce qu'elle était, décide de mémoriser laborieusement les premiers mots de la lettre : `Chère Ma`. Il enfourche alors son vélo tout nickelé, fait un premier voyage et les retranscrit dans la boîte de la Marquise de Merteuil. Cette opération se répète encore et encore, jusqu'à ce que la lettre soit entièrement copiée.
+Cette pirouette n'est bien sûr qu'une métaphore destinée à illustrer qu'une valeur en mémoire ne se transporte pas aisément. Notre pauvre facteur, dont la mémoire n'est plus ce qu'elle était, décide de retenir laborieusement les premiers mots de la lettre : `Chère Ma`. Il enfourche alors son vélo tout nickelé, effectue un premier trajet et retranscrit ces quelques caractères dans la boîte de la marquise de Merteuil. L'opération se répète encore et encore jusqu'à ce que la lettre soit intégralement recopiée.
 
 Nous obtenons alors une **copie** de la lettre dans la boîte de la Marquise :
 
@@ -25,30 +25,30 @@ char valmont_mailbox[] = "Chère Marquise, ...";
 char merteuil_mailbox[] = "Chère Marquise, ...";
 ```
 
-Mais la chaleur persistante et les imperfections de cette méthode ne satisfont guère la Marquise, qui décide de résoudre le problème en se rendant à [Tarente](https://fr.wikipedia.org/wiki/Pierre_Choderlos_de_Laclos) – choix discutable en pleine canicule. Là-bas, elle grave sa réponse sur le mur sud du Castello Aragonese, prenant soin de noter avec précision les coordonnées GPS du mur :`0x8F313233` (en réalité `8FGMPXJ7+2V` selon l'[OLC](https://fr.wikipedia.org/wiki/Open_Location_Code)).
+Mais la chaleur persistante et les limites de cette méthode ne satisfont guère la marquise, qui décide de résoudre le problème en se rendant à [Tarente](https://fr.wikipedia.org/wiki/Pierre_Choderlos_de_Laclos) – choix discutable en pleine canicule. Là-bas, elle grave sa réponse sur le mur sud du Castello Aragonese, prenant soin de noter avec précision les coordonnées GPS du mur : `0x8F313233` (en réalité `8FGMPXJ7+2V` selon l'[OLC](https://fr.wikipedia.org/wiki/Open_Location_Code)).
 
 ```c
 char castello_wall[] = "Cher Vicomte ...";
 char (*gps_position)[] = &castello_wall;
 ```
 
-De retour chez elle, elle confie au facteur l'adresse en mémoire (`0x30313233`), un message que celui-ci, soulagé, peut enfin retenir sans effort.
+De retour chez elle, elle confie au facteur l'adresse en mémoire (`0x30313233`), un renseignement que celui-ci, soulagé, peut enfin retenir sans effort.
 
-Ainsi, la variable `gps_position` ne contient pas directement le message, mais uniquement l'adresse où celui-ci est stocké : un **pointeur sur un tableau de caractères**.
+Ainsi, la variable `gps_position` ne contient pas directement le message, mais uniquement l'adresse où celui-ci est stocké : c'est un **pointeur vers un tableau de caractères**.
 
-Pendant ce temps, le Vicomte, moins disposé à l'effort, s'est muni d'un téléscripteur capable d'interpréter le code C. En récupérant l'adresse fournie, il parvient à lire le message de la Marquise :
+Pendant ce temps, le vicomte, peu enclin aux efforts, s'est muni d'un téléscripteur capable d'interpréter le code C. En récupérant l'adresse fournie, il parvient à lire le message de la marquise :
 
 ```c
 printf("%s", *gps_position);
 ```
 
-S'il avait omis l'astérisque (`*`, U+002A) dans cette ligne, il n'aurait vu que `0123`, l'adresse elle-même, au lieu du message qu'elle contient.
+S'il avait omis l'astérisque (`*`, U+002A) dans cette ligne, il n'aurait vu que `0123`, c'est-à-dire l'adresse elle-même, au lieu du message qu'elle désigne.
 
-L'astérisque joue donc un rôle essentiel : celui du **déréférencement**, c'est-à-dire l'acte de demander au facteur d'aller chercher le contenu à l'adresse spécifiée.
+L'astérisque joue donc un rôle essentiel : celui du **déréférencement**, autrement dit l'action qui consiste à demander au facteur d'aller chercher le contenu à l'adresse spécifiée.
 
-Mais pourquoi donc avons-nous utilisé l'esperluette (`&`, U+0026) pour obtenir cette adresse : `&castello_wall` ? L'esperluette, précédant une variable, se traduit par **l'adresse de** cette variable, tout comme la Marquise avait relevé la position GPS du mur.
+Mais pourquoi avoir utilisé l'esperluette (`&`, U+0026) pour obtenir cette adresse `&castello_wall` ? Placée devant une variable, l'esperluette signifie **l'adresse de** cette variable, tout comme la marquise avait relevé la position GPS du mur.
 
-Quant à l'astérisque dans `(*gps_position)[]`, il ne signifie pas un déréférencement dans ce contexte, mais participe à la déclaration du pointeur. C'est souvent ici que les novices perdent le fil. Revenons à l'essentiel.
+Quant à l'astérisque dans `(*gps_position)[]`, il ne déclenche pas un déréférencement dans ce contexte : il participe à la déclaration du pointeur. C'est souvent à ce stade que les débutantes et débutants se perdent ; revenons donc à l'essentiel.
 
 En C, l'astérisque peut signifier plusieurs choses :
 

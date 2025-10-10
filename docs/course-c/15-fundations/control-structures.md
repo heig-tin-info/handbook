@@ -6,11 +6,11 @@ epigraph:
 
 # Structures de contrôle
 
-Les structures de contrôle appartiennent aux langages de programmation impératifs et [structuré](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e). Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. On peut citer les catégories suivantes:
+Les structures de contrôle constituent un pilier des langages de programmation impératifs et [structurés](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e). Elles autorisent la modification de l'ordre des opérations lors de l'exécution du code. On distingue traditionnellement les catégories suivantes :
 
 Les séquences
 
-: On défini par séquences les instructions qui s'exécutent les unes après les autres. Celles-ci peuvent être jalonnées explicitement par une instruction de fin d'instruction, implicitement par un point de séquence ou regroupé dans un bloc. On peut distinguer trois types de séquences :
+: On définit comme **séquences** les instructions qui s'exécutent les unes après les autres. Elles peuvent être jalonnées explicitement par un délimiteur de fin d'instruction, implicitement par un point de séquence ou regroupées dans un bloc. On peut distinguer trois types de séquences :
 
     - [les séquences de code][sequence-code] (`;`);
     - [les blocs de code][sequence-block] (`{}`);
@@ -18,24 +18,24 @@ Les séquences
 
 Les sélections ou sauts
 
-: Il existe des instructions qui permettent de modifier le flux d'exécution du programme, c'est-à-dire de sauter à une autre partie du code. Les sauts conditionnels dépendent d'une condition, tandis que les sauts inconditionnels sont toujours exécutés. On peut distinguer les sauts d’instructions suivantes :
+: Il existe des instructions qui permettent de modifier le flux d'exécution du programme, c'est-à-dire de se diriger vers une autre partie du code. Les sauts conditionnels dépendent d'une condition, tandis que les sauts inconditionnels sont toujours exécutés. On peut distinguer les instructions de saut suivantes :
 
     - [sauts conditionnels][conditional-jumps] (`if`, `switch`);
     - [sauts inconditionnels][jumps] (`break`, `continue`, `goto`, `return`).
 
 Les itérations ou boucles
 
-: Une boucle est une structure de contrôle qui permet de répéter une instruction ou un bloc d'instructions tant qu'une condition est vraie. On peut distinguer les boucles suivantes :
+: Une boucle est une structure de contrôle qui permet de répéter une instruction ou un bloc d'instructions tant qu'une condition est vraie. On peut distinguer les familles de boucles suivantes :
 
     - [boucles itératives][loop-for] sur une valeur connue `for`;
     - [boucles sur condition][loop-while] `while`;
     - [boucles sur condition avec test à la fin][loop-do-while] `do`...`while`.
 
-Sans structure de contrôle, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènements extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement. L'intelligence d'un programme réside donc dans sa capacité à prendre des décisions en fonction de l'état du système et des données qu'il manipule. Les structures de contrôle permettent de définir ces décisions, un peu comme un livre dont vous êtes le héros où chaque choix vous mène à une page différente par un saut.
+Sans structure de contrôle, un programme se comporterait toujours de la même manière et ne pourrait pas réagir aux événements extérieurs, faute de pouvoir modifier conditionnellement son flux d'exécution. L'intelligence d'un programme réside donc dans sa capacité à prendre des décisions en fonction de l'état du système et des données qu'il manipule. Les structures de contrôle définissent précisément ces décisions, à la manière d'un livre dont vous êtes la personne héroïne, où chaque choix vous conduit vers une page distincte.
 
-Historiquement, les premiers langages de programmation ne disposaient pas de structures de contrôle évoluées. Au niveau assembleur on il est possible d'être Turing complet avec deux types de sauts : inconditionnel (`jmp`) et conditionnel `jz` (*jump if zero*: saut si la valeur de la condition est nulle). Avec plus de 100 ans de recul, et des milliers de langages de programmation, la programmation impérative n'a pas beaucoup évoluée. Les structures de contrôle sont restées les mêmes, seules les syntaxes ont évolué. Certains langages comme le Python on même décidé de simplifier certaines structures de contrôle comme le `do...while` qui n'existe pas.
+Historiquement, les premiers langages de programmation ne disposaient pas de structures de contrôle élaborées. Au niveau assembleur, il est possible d'être Turing complet avec seulement deux types de sauts : l'inconditionnel (`jmp`) et le conditionnel `jz` (*jump if zero* : saut si la valeur de la condition est nulle). Avec plus d'un demi-siècle de recul et des milliers de langages conçus, la programmation impérative a finalement peu évolué. Les structures de contrôle sont restées similaires ; seules les syntaxes ont changé. Certains langages comme Python ont même décidé de simplifier certaines structures, en supprimant par exemple le `do...while`.
 
-On peut néanmoins citer certaines fonctions d'ordre supérieur en programmation fonctionnelle (p. ex. `map`, `filter`, `reduce`) qui permettent de manipuler des séquences de données sans utiliser de boucles explicites. Ces fonctions sont souvent plus expressives et plus sûres que les boucles traditionnelles, mais elles ne remplacent pas les structures de contrôle classiques et elles n'existent pas en C. Les monades en Haskell sont un autre exemple de structures de contrôle avancées qui permettent de gérer des effets de bord de manière sûre et contrôlée. Des langages comme Kotlin ou JavaScript ont introduit des concepts similaires comme les coroutines ou les promesses pour gérer de manière asynchrone des tâches longues, mais une fois de plus ce sont des concepts qui n'existent pas en C.
+On peut néanmoins citer certaines fonctions d'ordre supérieur en programmation fonctionnelle (p. ex. `map`, `filter`, `reduce`) qui permettent de manipuler des séquences de données sans utiliser de boucles explicites. Ces fonctions sont souvent plus expressives et plus sûres que les boucles traditionnelles, mais elles ne remplacent pas les structures de contrôle classiques et elles n'existent pas en C. Les monades en Haskell sont un autre exemple de mécanismes avancés permettant de gérer les effets de bord de manière sûre et contrôlée. Des langages comme Kotlin ou JavaScript ont introduit des concepts similaires, tels que les coroutines ou les promesses, pour gérer de manière asynchrone des tâches longues, mais une fois de plus ce sont des concepts absents du langage C.
 
 ## Séquences
 
@@ -45,7 +45,7 @@ Formellement, une séquence peut être vue comme une composition de plusieurs in
 
 La notion de séquence est au cœur de la **programmation structurée**, qui préconise l'utilisation de structures de contrôle bien définies (séquences, sélections, itérations) pour améliorer la lisibilité, la maintenabilité et la fiabilité du code. En évitant les sauts non structurés comme le `goto`, les programmes deviennent plus faciles à comprendre et à vérifier formellement.
 
-En pratique, les séquences en code source sont souvent délimitées par des symboles spécifiques ou des conventions syntaxiques du langage utilisé. Par exemple : en C, les instructions sont terminées par un point-virgule `;`, et les blocs de code sont délimités par des accolades `{}`, en Python,  l'indentation définit les blocs de code, et chaque instruction est généralement écrite sur une nouvelle ligne.
+En pratique, les séquences en code source sont souvent délimitées par des symboles spécifiques ou des conventions syntaxiques propres au langage. Par exemple : en C, les instructions se terminent par un point-virgule `;` et les blocs de code sont délimités par des accolades `{}` ; en Python, l'indentation définit les blocs et chaque instruction est généralement écrite sur une nouvelle ligne.
 
 Il est important de noter que même si les séquences représentent l'exécution linéaire de code, elles peuvent contenir des appels à des fonctions ou des procédures qui encapsulent elles-mêmes des structures de contrôle plus complexes. Ainsi, la séquence constitue le fondement sur lequel sont bâties les constructions plus élaborées d'un programme.
 
@@ -64,7 +64,7 @@ int main() {
 
 ### Séquences de code
 
-En C, chaque instruction est séparée de la suivante par un point-virgule `;` U+003B. On appelle ce caractère le délimiteur d'instruction. Nous noterons que le retour à la ligne n'est pas un délimiteur d'instruction, mais un séparateur visuel qui permet de rendre le code plus lisible. Il est donc possible d'écrire plusieurs instructions sur une seule ligne :
+En C, chaque instruction est séparée de la suivante par un point-virgule `;` (U+003B). Ce caractère fait office de délimiteur d'instruction. Le retour à la ligne n'est pas un délimiteur, mais un simple séparateur visuel qui améliore la lisibilité du code. Il est donc possible d'écrire plusieurs instructions sur une seule ligne :
 
 ```c
 #include <stdio.h> // doit être sur une seule ligne
@@ -75,13 +75,13 @@ Seuls les directives du préprocesseur (qui commencent par `#`) et les commentai
 
 !!! tip "Le point-virgule grec"
 
-    N'allez pas confondre le point virgule `;` (U+003B) avec le `;` (U+037E), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
+    Ne confondez pas le point-virgule `;` (U+003B) avec le `;` (U+037E), point d'interrogation grec (*ερωτηματικό*). Certain·es farceur·ses s'amusent à le substituer dans le code de leurs camarades, ce qui provoque invariablement des erreurs de compilation.
 
 [](){#sequence-block}
 
 ### Séquence bloc
 
-Une séquence bloc ou instruction composée (*compound statement*) est une suite d'instructions regroupées en un bloc matérialisé par des accolades `{}`:
+Une séquence bloc, ou instruction composée (*compound statement*), est une suite d'instructions regroupées dans un bloc matérialisé par des accolades `{}` :
 
 ```c
 {
@@ -90,9 +90,9 @@ Une séquence bloc ou instruction composée (*compound statement*) est une suite
 }
 ```
 
-Il est possible d'ajouter autant de blocs que vous voulez, mais il est recommandé de ne pas imbriquer les blocs de manière excessive. Un bloc est une unité de code qui peut être traité comme une seule instruction, mais qui n'est pas terminé par un point-virgule.
+Il est possible d'ajouter autant de blocs que souhaité, mais il est recommandé de ne pas les imbriquer de manière excessive. Un bloc constitue une unité de code traitée comme une seule instruction, mais il n'est pas suivi d'un point-virgule.
 
-Il est possible de déclarer des variables locales dans un bloc, ces variables n'étant accessibles que dans le bloc où elles sont déclarées. L'exemple suivant montre plusieurs variables locales dont la visibilité est limitée à leur bloc respectif :
+Il est possible de déclarer des variables locales dans un bloc ; ces variables ne sont accessibles que dans ce bloc précis. L'exemple suivant montre plusieurs variables locales dont la visibilité est limitée à leur bloc respectif :
 
 ```c
 {
@@ -111,9 +111,9 @@ Il est possible de déclarer des variables locales dans un bloc, ces variables n
 
 !!! info "Limites de profondeur"
 
-    Le standard C99 §5.2.4.1 impose qu'un compilateur C doit supporter au moins 127 niveaux d'imbrication de blocs, ce qui est emplement suffisant. Cette valeur n'a pas été introduite par hasard, 127 est la valeur maximale d'un entier signé sur 8 bits (`char`) et les ordinateurs ne savent pas manipuler efficacement des types de données plus petits.
+    Le standard C99 §5.2.4.1 impose qu'un compilateur C doit supporter au moins 127 niveaux d'imbrication de blocs, ce qui est amplement suffisant. Cette valeur n'a pas été introduite par hasard : 127 est la valeur maximale d'un entier signé sur 8 bits (`char`) et les ordinateurs ne manipulent pas efficacement des types de données plus petits.
 
-    Ceci étant, le nombre d'imbrication de structures conditionnelles est limité à 63, ce qui est déjà beaucoup trop. Si vous avez besoin de plus de 63 niveaux d'imbrication, il est temps de revoir votre conception !
+    Ceci étant, le nombre d'imbrications de structures conditionnelles est limité à 63, ce qui est déjà considérable. Si vous avez besoin de plus de 63 niveaux, il est temps de revoir votre conception !
 
     Notons néanmoins que les compilateurs modernes ne limitent pas le nombre d'imbrication de blocs et de structures conditionnelles.
 
@@ -188,13 +188,13 @@ else
     printf("even\n");
 ```
 
-De même que comme des `;` séparent les instructions, on peut aussi écrire:
+De la même manière que des `;` séparent les instructions, on peut aussi écrire :
 
 ```c
 if (value % 2) printf("odd\n"); else printf("even\n");
 ```
 
-Dans certaines normes pour le médical ou l'aéronautique, comme [MISRA](https://fr.wikipedia.org/wiki/MISRA_C), l'absence d'accollades est interdite pour éviter les erreurs de logique. C'est généralement une bonne pratique à suivre sauf lorsque la lisibilité du code est améliorée par l'absence d'accollades.
+Dans certaines normes pour le médical ou l'aéronautique, comme [MISRA](https://fr.wikipedia.org/wiki/MISRA_C), l'absence d'accolades est interdite pour éviter les erreurs de logique. C'est généralement une bonne pratique à suivre, sauf lorsque la lisibilité du code est réellement améliorée par l'absence d'accolades.
 
 !!! info
 
@@ -204,7 +204,7 @@ Dans certaines normes pour le médical ou l'aéronautique, comme [MISRA](https:/
     printf("%s\n", value % 2 ? "odd" : "even");
     ```
 
-Le mot clé `else` est facultatif. Si l'on ne souhaite pas exécuter d'instruction lorsque la condition est fausse, il est possible de ne pas la spécifier.
+Le mot clé `else` est facultatif. Si l'on ne souhaite pas exécuter d'instruction lorsque la condition est fausse, il est possible de ne pas le préciser.
 
 ```c
 int a = 42;
@@ -218,7 +218,7 @@ if (b == 0) {
 printf("a / b = %d\n", a / b);
 ```
 
-En C il n'y a pas d'instruction `if..else if` comme on peut le trouver dans d'autres langages de programmation (p. ex. Python avec `elif`). Faire suivre une sous condition à `else` est néanmoins possible puisque `if` est une instruction comme une autre la preuve est donnée par la [grammaire][grammar] du langage qui détermine qu'une instruction de sélection (`selection_statement`), qui est une instruction (`statement`), peut être suivie d'une autre instruction, et donc d'une autre instruction de sélection.
+En C, il n'existe pas d'instruction `if..else if` comme on peut en trouver dans d'autres langages de programmation (p. ex. Python avec `elif`). Faire suivre une sous-condition à `else` reste néanmoins possible puisque `if` est une instruction comme une autre. La [grammaire][grammar] du langage précise qu'une instruction de sélection (`selection_statement`), qui est elle-même une instruction (`statement`), peut être suivie d'une autre instruction, et donc d'une nouvelle instruction de sélection.
 
 ```text
 selection_statement
@@ -228,7 +228,7 @@ selection_statement
     ;
 ```
 
-Voici un exemple d'imbriquement de conditions :
+Voici un exemple d'imbrication de conditions :
 
 ```c
 if (value < 0) {
@@ -258,7 +258,7 @@ else {
 }
 ```
 
-Une condition n'est pas nécessairement unique, elle peut-être la concaténation logique de plusieurs conditions séparées :
+Une condition n'est pas nécessairement unique : elle peut être la concaténation logique de plusieurs conditions séparées :
 
 ```c
 if((0 < x && x < 10) || (100 < x && x < 110) || (200 < x && x < 210))
@@ -296,9 +296,9 @@ else {
 
     Le style de codage est prisé par les managers qui ne savent pas programmer, ils ont appris à repérer les incohérences de style et pense qu'il s'agit d'un indicateur de qualité du code. C'est un peu comme si un chef cuisinier jugeait la qualité d'un plat à la couleur de l'assiette. Peu importe la couleur de l'assiette, ce qui compte c'est le goût du plat. Néanmoins un restaurant qui n'aurait pas de cohérence dans la couleur de ses assiettes pourrait être perçu comme négligé.
 
-!!! bug "Point virgule en trop"
+!!! bug "Point-virgule en trop"
 
-    Il peut arriver par reflexe d'ajouter un point virgule derrière un `if` qui a pour effet de terminer prématurément le bloc. Par exemple :
+    Il peut arriver par réflexe d'ajouter un point-virgule derrière un `if`, ce qui a pour effet de terminer prématurément le bloc. Par exemple :
 
     ```c
     if (z == 0);
@@ -309,7 +309,7 @@ else {
 
 !!! bug "Affectation dans un test"
 
-    Le test de la valeur d'une variable s'écrit avec l'opérateur d'égalité `==` et non l'opérateur d'affectation `=`. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.
+    Le test de la valeur d'une variable s'écrit avec l'opérateur d'égalité `==` et non avec l'opérateur d'affectation `=`. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.
 
     ```c
     if (z = 0)               // set z to zero !!
@@ -318,12 +318,12 @@ else {
 
 !!! bug "L'oubli des accolades"
 
-    Dans le cas ou vous souhaitez exécuter plusieurs instructions, vous devez impérativement déclarer un bloc d'instructions. Si vous omettez les accolades, seule la première instruction sera exécutée puisque la séquence se termine par un point virgule ou un bloc.
+    Dans le cas où vous souhaitez exécuter plusieurs instructions, vous devez impérativement déclarer un bloc d'instructions. Si vous omettez les accolades, seule la première instruction sera exécutée puisque la séquence se termine par un point-virgule ou un bloc.
 
     ```c
     if (z == 0)
         printf("z est nul");
-        is_valid = false;  // Ne fait par partie du bloc et s'exécute toujours
+        is_valid = false;  // Ne fait pas partie du bloc et s'exécute toujours
     ```
 
 On peut utiliser des conditions multiples pour déterminer le comportement d'un programme. Par exemple, le programme suivant affiche un message différent en fonction de la valeur de `value` :
@@ -339,7 +339,7 @@ else if (value > 500)
 }
 else if (!(value % 5))
 {
-    printf("La valeur est paire, inférieur à 500 et divisible par 5.");
+    printf("La valeur est paire, inférieure à 500 et divisible par 5.");
 }
 else
 {
@@ -358,7 +358,7 @@ else
 
 !!! exercise "D'autres si ?"
 
-    Compte tenu de la déclaration `int i = 8;`, indiquer pour chaque expression si elles impriment ou non `i vaut 8`:
+    Compte tenu de la déclaration `int i = 8;`, indiquez pour chaque expression si elle affiche ou non `i vaut 8` :
 
     1. &#32;
        ```c
@@ -406,7 +406,7 @@ else
 
     9. &#32;
        ```c
-       if (i == 1 << 3) printf ("i vaut 8\n");
+       if (i == 1 << 3) printf("i vaut 8\n");
        ```
 
     10. &#32;
@@ -432,13 +432,13 @@ else if (defcon == 3)
     printf("Accroissement de la préparation des forces");
 else if (defcon == 4)
     printf("Mesures de sécurité renforcées et renseignements accrus");
-else if (defcon == 5
+else if (defcon == 5)
     printf("Rien à signaler, temps de paix");
 else
     printf("ERREUR: Niveau d'alerte DEFCON invalide");
 ```
 
-Voici la même séquence utilisant `switch`. Notez que chaque condition est plus claire :
+Voici la même séquence utilisant `switch`. Chaque condition devient plus explicite :
 
 ```c
 switch (defcon)
@@ -463,9 +463,9 @@ switch (defcon)
 }
 ```
 
-La valeur par défaut `default` est optionnelle, mais recommandée pour traiter les cas d'erreurs possibles.
+La valeur par défaut `default` est optionnelle, mais elle reste recommandée pour traiter les cas d'erreur.
 
-La structure d'un `switch` est composée d'une condition `switch (condition)` suivie d'une séquence `{}`. Les instructions de cas `case 42:` sont appelées étiquettes (*labels*). Notez la présence de l'instruction `break` qui est nécessaire pour terminer l'exécution de chaque condition. Par ailleurs, les labels peuvent être chaînés sans instructions intermédiaires ni `break`:
+La structure d'un `switch` repose sur une expression `switch (condition)` suivie d'un bloc `{}`. Les instructions `case 42:` sont appelées étiquettes (*labels*). Notez la présence de l'instruction `break`, nécessaire pour terminer l'exécution de chaque branche. Par ailleurs, les étiquettes peuvent être chaînées sans instructions intermédiaires ni `break` :
 
 ```c
 switch (coffee)
@@ -487,9 +487,9 @@ switch (coffee)
 }
 ```
 
-Notons que le compilateur est capable d'optimiser les `switch` en fonction des valeurs des étiquettes. Il n'est pas nécessaire que les étiquettes soient triées, car le compilateur peut réordonner les cas pour optimiser l'exécution. Néanmoins des étiquettes à progression logique p. ex. `{12, 13, 14, 15}` sont plus efficaces que des étiquettes aléatoires p. ex. `{1, 109, 9, 42}`.
+Notons que le compilateur est capable d'optimiser les `switch` en fonction des valeurs des étiquettes. Il n'est pas nécessaire que les étiquettes soient triées, car le compilateur peut réordonner les cas pour optimiser l'exécution. Néanmoins, des étiquettes à progression logique p. ex. `{12, 13, 14, 15}` sont plus efficaces que des étiquettes aléatoires p. ex. `{1, 109, 9, 42}`.
 
-La construction d'une étiquette `case` implique une constante littérale. Il n'est pas possible d'utiliser une expression ou une variable. En outre, il ne peut y avoir qu'une seule étiquette par ligne, car cette dernière doit être située après un retour à la ligne. Voici un exemple permettant de déterminer le nombre de jours dans un mois :
+La construction d'une étiquette `case` impose l'utilisation d'une constante littérale : il n'est pas possible d'utiliser une expression ou une variable. En outre, il ne peut y avoir qu'une seule étiquette par ligne, car celle-ci doit apparaître après un retour à la ligne. Voici un exemple permettant de déterminer le nombre de jours dans un mois :
 
 ```c
 int ndays = -1;
@@ -544,7 +544,7 @@ int main(int argc) {
 }
 ```
 
-À la compilation on notera l'erreur suivante:
+À la compilation, on notera l'erreur suivante :
 
 ```text
 test.c: In function ‘main’:
@@ -553,9 +553,9 @@ test.c:5:11: warning: statement will never be executed [-Wswitch-unreachable]
       |           ^
 ```
 
-En effet, cette instruction se trouve avant le premier label `case` et ne sera donc jamais exécuté. La variable est belle et bien déclarée, mais elle ne sera pas initialisée.
+En effet, cette instruction se trouve avant le premier label `case` et ne sera donc jamais exécutée. La variable est belle et bien déclarée, mais elle ne sera pas initialisée.
 
-En outre, la déclaration de `j = 23` pose également problème, l'erreur de compilation suivante apparaît:
+En outre, la déclaration de `j = 23` pose également problème ; l'erreur de compilation suivante apparaît :
 
 ```text
 test.c: In function ‘main’:
@@ -567,7 +567,7 @@ test.c:7:14: note: previous definition of ‘j’ with type ‘int’
       |            ^
 ```
 
-Vous savez qu'il n'est pas possible de redéclarer une variable déjà existante dans le même bloc. La solution à ce problème est de déclarer les variables propres à un cas dans un bloc séparé. Notez que la variable `k` n'étant utilisée qu'une fois, elle peut être dans le contexte global du `switch` mais situé après le premier label `case`. En pratique, n'essayez pas de jouer avec les limites de la syntaxe, cela ne fera que rendre votre code plus difficile à lire et à maintenir.
+Vous savez qu'il n'est pas possible de redéclarer une variable déjà existante dans le même bloc. La solution à ce problème consiste à déclarer les variables propres à un cas dans un bloc séparé. Notez que la variable `k`, n'étant utilisée qu'une fois, peut rester dans le contexte global du `switch`, pourvu qu'elle soit située après le premier label `case`. En pratique, évitez de flirter avec les limites de la syntaxe : cela ne fera que rendre votre code plus difficile à lire et à maintenir.
 
 ```c
 #include <stdio.h>
@@ -594,12 +594,12 @@ int main(int argc) {
 
 #### Imbrication
 
-Il est possible d'imbriquer différents niveaux dans un switch :
+Il est possible d'imbriquer différents niveaux dans un `switch` :
 
 ```c
-switch(a) {
+switch (a) {
     case 100:
-        switch(b) {
+        switch (b) {
             case 200:
                 printf("a=100, b=200\n");
                 break;
@@ -613,9 +613,9 @@ switch(a) {
 
 #### Appareil de Duff
 
-Le [Duff's device](https://en.wikipedia.org/wiki/Duff%27s_device) est une technique d'optimisation assez originale en langage C, qui permet de dérouler une boucle de manière partiellement manuelle, dans le but de gagner en performance, notamment sur des architectures matérielles plus anciennes. Il a été inventé par Tom Duff en 1983 lorsqu'il travaillait chez Lucasfilm.
+Le [Duff's device](https://en.wikipedia.org/wiki/Duff%27s_device), ou *dispositif de Duff*, est une technique d'optimisation assez originale en langage C qui permet de dérouler une boucle de manière partiellement manuelle afin de gagner en performance, notamment sur des architectures matérielles plus anciennes. Tom Duff l'a inventée en 1983 lorsqu'il travaillait chez Lucasfilm.
 
-L'objectif du Duff's device est de dérouler manuellement une boucle afin de réduire le nombre d'itérations et d'optimiser l'exécution, notamment dans les situations où le coût d'un saut conditionnel dans une boucle pouvait être élevé. Cette optimisation est souvent appelée unrolling, où plusieurs itérations de la boucle sont "fusionnées" en une seule.
+L'objectif du dispositif est de dérouler manuellement une boucle afin de réduire le nombre d'itérations et d'optimiser l'exécution, en particulier lorsque le coût d'un saut conditionnel dans une boucle est élevé. Cette optimisation est souvent appelée *unrolling*, car plusieurs itérations de la boucle sont « fusionnées » en une seule.
 
 La particularité du Duff's device est qu'il combine à la fois une structure de boucle `while` et un `switch` de manière surprenante et astucieuse. Voici à quoi ressemble le code original :
 
@@ -652,7 +652,7 @@ switch (n % 8) {  // Détermine le point d'entrée initial dans la boucle
 
 ![Bien choisir sa structure de contrôle](/assets/images/road-runner.drawio)
 
-Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :
+Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C, il existe trois types de boucles :
 
 1. `#!c for`
 2. `#!c while`
@@ -662,13 +662,13 @@ Elles peuvent être représentées par les diagrammes de flux suivants :
 
 ![Aperçu des trois structures de boucles](/assets/images/for.drawio)
 
-On observe que quelle que soit la structure de boucle, une **condition de maintien** est nécessaire. Cette condition est évaluée avant ou après l'exécution de la séquence. Si la condition est fausse, la séquence est interrompue et le programme continue son exécution.
+On observe que, quelle que soit la structure de boucle, une **condition de maintien** est nécessaire. Cette condition est évaluée avant ou après l'exécution de la séquence. Si la condition est fausse, la séquence est interrompue et le programme poursuit son exécution.
 
 [](){#loop-while}
 
 ### while
 
-La structure `while` répète une séquence **tant que** la condition est vraie. Dans l'exemple suivant, tant que le poids d'un objet déposé sur une balance est inférieur à une valeur constante, une masse est ajoutée et le système patiente avant stabilisation.
+La structure `while` répète une séquence **tant que** la condition est vraie. Dans l'exemple suivant, tant que le poids d'un objet déposé sur une balance reste inférieur à une valeur constante, une masse est ajoutée et le système patiente avant stabilisation.
 
 ```c
 while (get_weight() < 420 /* newtons */) {
@@ -677,7 +677,7 @@ while (get_weight() < 420 /* newtons */) {
 }
 ```
 
-Séquentiellement une boucle `while` teste la condition, puis exécute la séquence associée.
+Séquentiellement, une boucle `while` teste la condition puis exécute la séquence associée.
 
 !!! exercise "Tant que..."
 
@@ -736,7 +736,7 @@ Expression 3
 
 : Action de fin de tour. À la fin de l'exécution de la séquence, cette action est exécutée avant le tour suivant. Cette action permet par exemple d'incrémenter une variable.
 
-Voici comment répéter 10x un bloc de code :
+Voici comment répéter dix fois un bloc de code :
 
 ```c
 for (size_t i = 0; i < 10; i++) {
@@ -744,7 +744,7 @@ for (size_t i = 0; i < 10; i++) {
 }
 ```
 
-Notons que les portions de `for` sont optionnels et que la structure suivante est strictement identique à la boucle `while`:
+Notons que les trois expressions d'un `for` sont optionnelles et que la structure suivante est strictement identique à la boucle `while` :
 
 ```c
 for (; get_weight() < 420 ;) {
@@ -754,24 +754,24 @@ for (; get_weight() < 420 ;) {
 
 !!! exercise "Pour quelques tours"
 
-    Comment est-ce que ces expressions se comportent-elles ?
+    Comment ces expressions se comportent-elles ?
 
     ```c
     int i, k;
     ```
 
-    1. `#!c for (i = 'a'; i < 'd'; printf ("%i\n", ++i));`
-    2. `#!c for (i = 'a'; i < 'd'; printf ("%c\n", ++i));`
-    3. `#!c for (i = 'a'; i++ < 'd'; printf ("%c\n", i ));`
-    4. `#!c for (i = 'a'; i <= 'a' + 25; printf ("%c\n", i++ ));`
-    5. `#!c for (i = 1 / 3; i ; printf("%i\n", i++ ));`
-    6. `#!c for (i = 0; i != 1 ; printf("%i\n", i += 1 / 3 ));`
-    7. `#!c for (i = 12, k = 1; k++ < 5 ; printf("%i\n", i-- ));`
-    8. `#!c for (i = 12, k = 1; k++ < 5 ; k++, printf("%i\n", i-- ));`
+    1. `#!c for (i = 'a'; i < 'd'; printf("%i\n", ++i));`
+    2. `#!c for (i = 'a'; i < 'd'; printf("%c\n", ++i));`
+    3. `#!c for (i = 'a'; i++ < 'd'; printf("%c\n", i));`
+    4. `#!c for (i = 'a'; i <= 'a' + 25; printf("%c\n", i++));`
+    5. `#!c for (i = 1 / 3; i; printf("%i\n", i++));`
+    6. `#!c for (i = 0; i != 1; printf("%i\n", i += 1 / 3));`
+    7. `#!c for (i = 12, k = 1; k++ < 5; printf("%i\n", i--));`
+    8. `#!c for (i = 12, k = 1; k++ < 5; k++, printf("%i\n", i--));`
 
 !!! exercise "Erreur"
 
-    Identifier les deux erreurs dans ce code suivant :
+    Identifiez les deux erreurs dans le code suivant :
 
     ```c
     for (size_t = 100; i >= 0; --i)
@@ -788,7 +788,7 @@ for (; get_weight() < 420 ;) {
 
     Quelle est la structure de contrôle la plus adaptée à cette situation ?
 
-L'opérateur `,` est un opérateur de séquence qui permet de séparer des expressions. Il est souvent utilisé dans les boucles `for` pour exécuter plusieurs instructions dans les différentes parties de la boucle. Par exemple pour définir deux variables `i` et `j` dans la partie d'initialisation de la boucle. Voici par exemple comment afficher les lettres de l'alphabet en alternance `z-a y-b x-c`... :
+L'opérateur `,` est un opérateur de séquence qui permet de séparer des expressions. Il est souvent utilisé dans les boucles `for` pour exécuter plusieurs instructions dans les différentes parties de la boucle, par exemple pour définir simultanément deux variables `i` et `j` dans la partie d'initialisation. Voici par exemple comment afficher les lettres de l'alphabet en alternance `z-a y-b x-c`... :
 
 ```c
 for (char i = 'z', j = 'a'; i > j; i--, j++) {
@@ -812,9 +812,9 @@ z-a y-b x-c w-d v-e u-f t-g s-h r-i q-j p-k o-l n-m
     }
     ```
 
-    Dans cet exemple, `i` est une variable non signée de type `size_t`. Lorsque `i` atteint 0, la condition `i >= 0` est toujours vraie, car `size_t` est un type non signé et ne peut pas être négatif. Par conséquent, la boucle ne se termine jamais et entraîne un débordement de la variable `i`.
+    Dans cet exemple, `i` est une variable non signée de type `size_t`. Lorsque `i` atteint 0, la condition `i >= 0` reste toujours vraie, car `size_t` ne peut pas être négatif. Par conséquent, la boucle ne se termine jamais et entraîne un débordement de la variable `i`.
 
-    En pratique on utilisera simplement un `int` pour les variables d'induction néanmoins pour une grande portabilité on utilisera `int_fast32_t` ou `int_fast64_t` pour garantir une taille de variable optimale.
+    En pratique, on utilisera simplement un `int` pour les variables d'induction. Pour une grande portabilité, on pourra retenir `int_fast32_t` ou `int_fast64_t`, qui garantissent une taille de variable optimale.
 
 !!! exercise "Opérateur virgule dans une boucle"
 
@@ -831,7 +831,7 @@ z-a y-b x-c w-d v-e u-f t-g s-h r-i q-j p-k o-l n-m
 
 ### Boucles infinies
 
-Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort *La boucle principale* aussi nommée [run loop](https://en.wikipedia.org/wiki/Event_loop). Lorsqu'un programme est exécuté *bare-metal*, c'est-à-dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction `main` telle que :
+Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort *la boucle principale*, aussi nommée [run loop](https://en.wikipedia.org/wiki/Event_loop). Lorsqu'un programme est exécuté *bare metal*, c'est-à-dire directement sur le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction `main` telle que :
 
 ```c
 void main_loop() {
@@ -856,9 +856,9 @@ while (true) { }
 do { } while (true);
 ```
 
-Notions que l'expression `while (1)` que l'on rencontre fréquemment dans des exemples n'est pas syntaxiquement exacte. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire `1` devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire `while (1 == 1)` ou simplement `while (true)`. D'ailleurs pourquoi utiliser `1` et non pas `42` ? Moi j'aime bien `while (42)`, c'est plus fun...
+Notons que l'expression `while (1)`, que l'on rencontre fréquemment dans des exemples, n'est pas la plus explicite. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire `1` devrait préalablement être transformée en une valeur booléenne. Il est donc préférable d'écrire `while (true)`. D'ailleurs, pourquoi utiliser `1` et non pas `42` ? Personnellement, j'apprécie `while (42)`, c'est plus facétieux...
 
-Certains développeurs préfèrent l'écriture `for (;;)` qui ne fait pas intervenir de conditions extérieures ou de valeurs bulgares, car, avant **C99** définir la valeur `true` était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :
+Certain·es développeur·ses préfèrent l'écriture `for (;;)` qui ne fait pas intervenir de conditions extérieures ou de valeurs « magiques », car, avant **C99**, définir la valeur `true` était à la charge de la personne qui écrivait le code. On pourrait alors imaginer cette plaisanterie de mauvais goût :
 
 ```c
 _Bool true = 0;
@@ -866,7 +866,7 @@ _Bool true = 0;
 while (true) { /* ... */ }
 ```
 
-Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c. f. [signals][signals]). On rajoute alors une condition de sortie à la boucle principale :
+Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c. f. [signals][signals]). On ajoute alors une condition de sortie à la boucle principale :
 
 ```c
 #include <stdlib.h>
@@ -897,12 +897,11 @@ int main(void)
 
 ## Les sauts
 
-Il existe 4 instructions en C permettant de contrôler le déroulement de
-l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un autre endroit du programme.
+Il existe quatre instructions en C permettant de contrôler le déroulement de l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un autre endroit du programme.
 
 `break`
 
-: Cette instruction nterrompt la structure de contrôle en cours. Elle est valide pour `while`, `do`...`while`, `for` et `switch`.
+: Cette instruction interrompt la structure de contrôle en cours. Elle est valide pour `while`, `do`...`while`, `for` et `switch`.
 
 `continue`
 
@@ -918,13 +917,13 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 
 ### `goto`
 
-Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison, car dans la très vaste majorité des cas où vous pensez avoir besoin de `goto`, une autre solution plus élégante existe.
+Il s'agit de l'instruction la plus controversée en C. Cherchez sur Internet et vous trouverez de nombreux détracteurs, et ils ont partiellement raison : dans la très vaste majorité des cas où vous pensez avoir besoin de `goto`, une autre solution plus élégante existe.
 
-Néanmoins, il est important de comprendre que `goto` était dans certains langages de programmation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine, car la plupart des processeurs ne connaissent que cette instruction souvent appelée `JUMP`. Il est par conséquent possible d'imiter le comportement de n'importe quelle structure de contrôle si l'on dispose de `if` et de `goto`.
+Néanmoins, il est important de comprendre que `goto` était, dans certains langages de programmation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine, car la plupart des processeurs ne connaissent que cette instruction souvent appelée `JUMP`. Il est par conséquent possible d'imiter le comportement de n'importe quelle structure de contrôle si l'on dispose de `if` et de `goto`.
 
 `goto` effectue un saut inconditionnel à un *label* défini en C par un [identificateur][identifier] suivi d'un `:`.
 
-L'un des seuls cas de figure autorisés est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code :
+L'un des cas de figure encore justifiés est celui d'un traitement d'erreur centralisé lorsque de multiples points de retour existent dans une fonction, ce qui évite de répéter du code :
 
 ```c
 #include <time.h>
@@ -944,15 +943,15 @@ int parse_message(int message)
 
     return 0;
 
-    error:
-        printf("ERROR: Une erreur a été commise\n");
-        return -1;
+error:
+    printf("ERROR: Une erreur a été commise\n");
+    return -1;
 }
 ```
 
 ### `continue`
 
-Le mot clé `continue` ne peut exister qu'à l'intérieur d'une boucle. Il permet d'interrompre le cycle en cours et directement passer au cycle suivant.
+Le mot clé `continue` ne peut exister qu'à l'intérieur d'une boucle. Il permet d'interrompre le cycle en cours et de passer directement au cycle suivant.
 
 ```c
 uint8_t airplane_seat = 100;
@@ -967,7 +966,7 @@ while (--airplane_seat)
 }
 ```
 
-Cette structure est équivalente à l'utilisation d'un goto avec un label placé à la fin de la séquence de boucle, mais promettez-moi que vous n'utiliserez jamais cet exemple :
+Cette structure est équivalente à l'utilisation d'un `goto` avec un label placé à la fin de la séquence de boucle, mais promettez-moi que vous n'utiliserez jamais cet exemple :
 
 ```c
 while (true)
@@ -984,16 +983,16 @@ while (true)
 
 ### `break`
 
-Le mot-clé `break` peut être utilisé dans une boucle ou dans un `switch`. Il permet d'interrompre l'exécution de la boucle ou de la structure `switch` la plus proche. Nous avions déjà évoqué l'utilisation dans un `switch` (c.f. [switch][switch]).
+Le mot-clé `break` peut être utilisé dans une boucle ou dans un `switch`. Il permet d'interrompre l'exécution de la boucle ou de la structure `switch` la plus proche. Nous avons déjà évoqué son utilisation dans un `switch` (c.f. [switch][switch]).
 
 ### `return`
 
-Le mot clé `return` suivi d'une valeur de retour ne peut apparaître que dans une fonction dont le type de retour n'est pas `void`. Ce mot-clé permet de stopper l'exécution d'une fonction et de retourner à son point d'appel.
+Le mot clé `return`, suivi d'une valeur de retour, ne peut apparaître que dans une fonction dont le type de retour n'est pas `void`. Ce mot-clé permet de stopper l'exécution d'une fonction et de retourner à son point d'appel.
 
 ```c
 void unlock(int password)
 {
-    static tries = 0;
+    static int tries = 0;
 
     if (password == 4710 /* MacGuyver: A Retrospective 1986 */) {
         open_door();
@@ -1001,8 +1000,7 @@ void unlock(int password)
         return;
     }
 
-    if (tries++ == 3)
-    {
+    if (tries++ == 3) {
         alert_security_guards();
     }
 }

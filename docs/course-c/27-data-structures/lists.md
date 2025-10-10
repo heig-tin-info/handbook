@@ -5,13 +5,13 @@
 
 ## Définition
 
-Les listes chaînées, en informatique, représentent une structure de données d'une élégance discrète, dont la simplicité apparente dissimule une puissance d'adaptation remarquable. Contrairement aux tableaux dynamiques, qui dépendent d'une allocation contiguë en mémoire et nécessitent des réallocations coûteuses lorsque leur capacité est dépassée, les listes chaînées se distinguent par leur nature flexible et décentralisée.
+En informatique, les listes chaînées constituent une structure de données discrète dont la simplicité masque une remarquable capacité d’adaptation. Contrairement aux tableaux dynamiques, qui reposent sur une allocation contiguë en mémoire et exigent des réallocations coûteuses lorsque leur capacité est dépassée, les listes chaînées se distinguent par leur flexibilité et leur nature décentralisée.
 
-Une liste chaînée se compose d'une série de nœuds, chacun contenant un élément de données ainsi qu'un pointeur vers le nœud suivant. Cette architecture singulière permet à la liste de croître et de se contracter sans nécessiter de réallocation massive de mémoire : il suffit d'ajouter ou de retirer des nœuds au gré des besoins, sans déplacer les éléments existants. En d'autres termes, la mémoire n'est allouée que lorsque cela est nécessaire, éliminant ainsi les gâchis d'espace que peuvent entraîner les tableaux dynamiques lorsque ceux-ci sont sous-utilisés.
+Une liste chaînée se compose d'une série de nœuds, chacun contenant une donnée et un pointeur vers le nœud suivant. Cette organisation permet à la liste de croître ou de se contracter sans réallocation massive : il suffit d'ajouter ou de retirer des nœuds au gré des besoins, sans déplacer les éléments existants. La mémoire n'est ainsi allouée que lorsqu'elle est utile, ce qui évite les pertes d'espace observées avec des tableaux dynamiques sous-utilisés.
 
-L’avantage principal de cette structure réside dans sa capacité à insérer ou supprimer des éléments avec une efficacité redoutable. Là où un tableau dynamique doit parfois déplacer de grandes portions de données pour insérer ou retirer un élément, une liste chaînée ne demande que la modification des quelques pointeurs concernés. Cette opération, d'une légèreté exemplaire, confère à la liste chaînée une fluidité dans la manipulation des données que les tableaux, même dynamiques, ne sauraient égaler.
+L’avantage principal de cette structure réside dans sa capacité à insérer ou supprimer des éléments avec une grande efficacité. Là où un tableau dynamique doit parfois déplacer de vastes portions de données pour insérer ou retirer un élément, une liste chaînée ne demande que la mise à jour de quelques pointeurs. Cette souplesse confère à la liste chaînée une fluidité que les tableaux, même dynamiques, peinent à égaler.
 
-Cependant, cette flexibilité n'est pas sans contrepartie. L'accès direct à un élément particulier est plus lent dans une liste chaînée que dans un tableau, car il faut parcourir les nœuds un à un, en suivant les pointeurs. Cette absence d'accès indexé, qui fait la force du tableau, devient ici une faiblesse relative, surtout pour les opérations qui nécessitent de fréquentes consultations des données.
+Cependant, cette flexibilité a un revers. L'accès direct à un élément particulier est plus lent que dans un tableau, car il faut parcourir les nœuds un à un en suivant les pointeurs. L'absence d'accès indexé, qui fait la force du tableau, devient ici une faiblesse, surtout pour les opérations qui requièrent des consultations fréquentes.
 
 ## Exemple
 
@@ -26,18 +26,18 @@ struct Element {
 struct Element elements[100];
 ```
 
-Considérons les dix premiers éléments de la séquence de nombre [A130826](https://oeis.org/A130826) dans un tableau statique. Ensuite, répartissons ces valeurs aléatoirement dans notre tableau `elements` déclaré plus haut entre les indices 0 et 19.
+Considérons les dix premiers éléments de la séquence de nombres [A130826](https://oeis.org/A130826) dans un tableau statique. Répartissons ensuite ces valeurs aléatoirement dans notre tableau `elements` déclaré plus haut, entre les indices 0 et 19.
 
-![Construction d'une liste chainée à l'aide d'un tableau](/assets/images/static-linked-list.drawio)
+![Construction d'une liste chaînée à l'aide d'un tableau](/assets/images/static-linked-list.drawio)
 
-On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire, car il est possible facilement de chercher l'élément suivant de la liste avec cette relation :
+La figure ci-dessus montre que les éléments n'ont plus besoin de se suivre en mémoire, car il suffit de consulter l'indice stocké pour retrouver l'élément suivant :
 
 ```c
 struct Element current = elements[4];
-struct Element next = elements[current.index_next_element]
+struct Element next = elements[current.index_next_element];
 ```
 
-De même, insérer une nouvelle valeur `13` après la valeur `42` est très facile:
+De même, insérer une nouvelle valeur `13` après la valeur `42` se fait aisément :
 
 ```c
 // Recherche de l'élément contenant la valeur 42
@@ -61,18 +61,18 @@ struct Element new = (Element){
     .index_next_element = -1
 };
 
-// Insertion de l'élément quelque part dans le tableau
+// Insertion de l'élément nouvellement créé dans le tableau
 el.index_next_element = k;
 elements[el.index_next_element] = new;
 ```
 
-Cette solution, qui consiste à utiliser un lien vers l'élément suivant, s'appelle une liste chaînée. Chaque élément dispose d'un lien vers l'élément suivant situé quelque part en mémoire. Les opérations d'insertion et de suppression au milieu de la chaîne sont maintenant effectuées en $O(1)$ contre $O(n)$ pour un tableau standard. En revanche l'espace nécessaire pour stocker ce tableau est doublé puisqu'il faut associer à chaque valeur le lien vers l'élément suivant.
+Cette solution, qui consiste à relier chaque élément au suivant, définit une liste chaînée. Chaque nœud pointe vers l'élément suivant situé ailleurs en mémoire. Les opérations d'insertion et de suppression au milieu de la chaîne s'exécutent désormais en $O(1)$, contre $O(n)$ pour un tableau standard. En revanche, l'espace nécessaire est plus important car chaque valeur doit conserver un pointeur supplémentaire.
 
-D'autre part, la solution proposée n'est pas optimale :
+Cependant, la solution proposée n'est pas optimale :
 
-- L'élément 0 est un cas particulier qu'il faut traiter différemment. Le premier élément de la liste doit toujours être positionné à l'indice 0 du tableau. Insérer un nouvel élément en début de tableau demande de déplacer cet élément ailleurs en mémoire.
+- L'élément 0 reste un cas particulier à traiter. Le premier élément de la liste doit toujours être positionné à l'indice 0 du tableau, ce qui impose de le déplacer ailleurs en mémoire pour insérer une nouvelle valeur en tête.
 - Rechercher un élément libre prend du temps.
-- Supprimer un élément dans le tableau laisse une place mémoire vide. Il devient alors difficile de savoir où sont les emplacements mémoires disponibles.
+- Supprimer un élément laisse une case mémoire vacante, ce qui complique l'identification des emplacements encore disponibles.
 
 Une liste chaînée est une structure de données permettant de lier des éléments structurés entre eux. La liste est caractérisée par :
 
@@ -84,9 +84,9 @@ Un élément est caractérisé par :
 - un contenu (*payload*),
 - une référence vers l'élément suivant et/ou précédent dans la liste.
 
-Les listes chaînées réduisent la complexité liée à la manipulation d'éléments dans une liste. L'empreinte mémoire d'une liste chaînée est plus grande qu'avec un tableau, car à chaque élément de donnée est associé un pointeur vers l'élément suivant ou précédent.
+Les listes chaînées réduisent la complexité de manipulation d'une collection d'éléments. Leur empreinte mémoire est toutefois supérieure à celle d'un tableau, car chaque donnée doit être associée à un pointeur vers l'élément suivant ou précédent.
 
-Ce surcoût fait souvent partie du compromis entre la complexité d'exécution du code et la mémoire utilisée par ce programme.
+Ce surcoût s'inscrit dans le compromis classique entre complexité d'exécution et consommation mémoire du programme.
 
 Table: Coût des opérations dans des structures de données récursives
 
@@ -98,11 +98,9 @@ Table: Coût des opérations dans des structures de données récursives
 
 ## Liste simplement chaînée (*linked-list*)
 
-La figure suivante illustre un set d'éléments liés entre eux à l'aide d'un pointeur rattaché à chaque élément. On peut s'imaginer que chaque élément peut se situer n'importe où en mémoire et
-qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.
+La figure suivante illustre un ensemble d'éléments reliés par un pointeur associé à chacun. Chaque nœud peut se situer n'importe où en mémoire ; il n'est donc pas nécessaire que les éléments se suivent physiquement.
 
-Il est indispensable de bien identifier le dernier élément de la liste grâce à son pointeur associé
-à la valeur `NULL`.
+Il reste indispensable d'identifier le dernier élément de la liste grâce à un pointeur fixé à la valeur `NULL`.
 
 ![Liste chaînée simple](/assets/images/list.drawio)
 
@@ -135,7 +133,7 @@ int main(void)
 
     for (size_t i = 0; i < 10; i++)
     {
-        printf("%d. P(x, y, z) = %0.2f, %0.2f, %0.2f\n",
+        printf("%zu. P(x, y, z) = %0.2f, %0.2f, %0.2f\n",
             i,
             walk->point.x,
             walk->point.y,
@@ -150,25 +148,18 @@ int main(void)
 ### Opérations sur une liste chaînée
 
 - Création
-- Nombre d'éléments
+- Comptage d'éléments
 - Recherche
 - Insertion
 - Suppression
 - Concaténation
 - Destruction
 
-Lors de la création d'un élément, on utilise principalement le mécanisme
-de l'allocation dynamique ce qui permet de récupérer l'adresse de
-l'élément et de faciliter sa manipulation au travers de la liste.  Ne
-pas oublier de libérer la mémoire allouée pour les éléments lors de leur
-suppression…
+Lors de la création d'un élément, on recourt principalement à l'allocation dynamique afin d'obtenir l'adresse du nœud et de faciliter sa manipulation dans la liste. Il ne faut pas oublier de libérer cette mémoire lorsqu'un élément est supprimé.
 
 ### Calcul du nombre d'éléments dans la liste
 
-Pour évaluer le nombre d'éléments dans une liste, on effectue le
-parcours de la liste à partir de la tête, et on passe d'élément en
-élément grâce au champ *next* de la structure `Element`. On incrément
-le nombre d'éléments jusqu'à ce que le pointeur *next* soit égal à `NULL`.
+Pour évaluer le nombre d'éléments dans une liste, on la parcourt depuis la tête en suivant le champ *next* de la structure `Element`. On incrémente un compteur jusqu'à rencontrer un pointeur *next* égal à `NULL`.
 
 ```c
 size_t count = 0;

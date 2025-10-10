@@ -1,14 +1,14 @@
 # Automates finis
 
-Dans le contexte de l'algorithmique, il est intéressant de d'aborder les automates finis. Les automates finis sont des machines abstraites qui peuvent être dans un nombre fini d'états. Ils sont utilisés pour modéliser des systèmes de transitions d'états très utile dans l'élaboration d'algorithmes notament pour le traitement de langage naturel, la reconnaissance de formes, où l'analyse de données.
+Dans le contexte de l'algorithmique, il est pertinent d'aborder les automates finis. Ces machines abstraites peuvent se trouver dans un nombre limité d'états. Elles servent à modéliser des systèmes de transitions d'état, très utiles pour élaborer des algorithmes de traitement du langage naturel, de reconnaissance de formes ou encore d'analyse de données.
 
 ![Hiérarchie des automates](/assets/images/automata-classes.drawio)
 
-Nous avions abordé en introduction de cet ouvrage la [machine de Turing][turingmachine], ce modèle théorique permettant de réaliser n'importe quel algorithme. Bien que la très grande majorité des langages de programmation sont dit Turing-complet, il est parfois plus intéressant d'utiliser des automates finis pour des problèmes spécifiques car il existe une règle en informatique qui dit qu'il est généralement optimum d'aligner la complexité d'un langage avec la complexité du problème à résoudre. L'idée sous-jacente est que si un problème a une structure ou une complexité faible, il est généralement plus efficace de le résoudre avec un modèle computationnel ou un langage de programmation dont la complexité est alignée avec celle du problème. Utiliser un outil plus puissant ou plus complexe que nécessaire peut entraîner des inefficacités, des erreurs, ou des solutions surdimensionnées.
+Nous avions évoqué, en introduction de cet ouvrage, la [machine de Turing][turingmachine], modèle théorique capable d'exécuter n'importe quel algorithme. Bien que la très grande majorité des langages de programmation soient dits Turing-complets, il reste parfois plus judicieux de recourir à des automates finis pour certains problèmes spécifiques. Une règle pragmatique en informatique recommande d'aligner la complexité de l'outil sur celle du problème à résoudre. Autrement dit, si un problème possède une structure simple, il est plus efficace d'utiliser un modèle computationnel ou un langage de programmation d'une complexité comparable. Employer un outil plus puissant que nécessaire peut engendrer des inefficacités, des erreurs ou des solutions inutilement lourdes.
 
-On rencontre les automates finis dans de très nombreux domaines, du distributeur automatique de boisson aux ascenceurs en passant par les feux de circulation.
+On rencontre les automates finis dans de très nombreux domaines, du distributeur automatique de boissons aux ascenseurs en passant par les feux de circulation.
 
-Contrairement à un système turing-complete, un automate fini ne peut pas réaliser n'importe quel algorithme. Il est limité par sa structure et son nombre fini d'états. Voici l'exemple d'un automate fini simple qui modélise un ascenseur :
+Contrairement à un système Turing-complet, un automate fini ne peut pas réaliser n'importe quel algorithme. Sa structure et son nombre d'états limités restreignent ses capacités. Voici, par exemple, un automate simple qui modélise un ascenseur :
 
 ![Ascenseur](/assets/images/elevator-states.drawio)
 
@@ -25,15 +25,15 @@ Ces états peuvent également être représentés par un tableau de transition :
 
 ## La chèvre et le chou
 
-Un autre exemple classique d'automate fini est le problème de la chèvre, du chou et du loup. Il s'agit d'un problème de logique dans lequel un fermier doit transporter une chèvre, un chou et un loup d'une rive à l'autre d'une rivière. Le fermier ne peut transporter qu'un seul élément à la fois et ne peut pas laisser la chèvre seule avec le loup ou le chou seul avec la chèvre. Le problème est de trouver une séquence de déplacements qui permet de transporter les trois éléments d'une rive à l'autre sans enfreindre les règles.
+Un autre exemple classique d'automate fini est le problème de la chèvre, du chou et du loup. Un fermier doit transporter ces trois éléments d'une rive à l'autre d'une rivière. Il ne peut déplacer qu'un seul passager à la fois et ne doit jamais laisser la chèvre seule avec le loup ni le chou seul avec la chèvre. Le défi consiste à trouver une séquence de traversées qui respecte toutes ces contraintes.
 
-Ce problème peut être modélisé par un automate fini. Chaque état est nommé selon les éléments présents sur la rive d'arrivée. Par exemple l'état CFS signifie que la chèvre, le loup et le fermier sont sur la rive d'arrivée. Les transitions indiquent les éléments qui transitent d'une rive à l'autre. Notons que l'on appelle `S` le chou (comme Salade), pour éviter la confusion avec la chèvre. Voici le diagramme d'états :
+Ce problème peut être modélisé par un automate fini. Chaque état est nommé d'après les éléments déjà arrivés. Par exemple, l'état CFS signifie que le chou, le fermier et le loup ont traversé. Les transitions précisent quels éléments passent d'une rive à l'autre. Notons que l'on désigne le chou par `S` (comme *salade*) afin d'éviter la confusion avec la chèvre. Voici le diagramme d'états :
 
 ![La chèvre, le loup et le chou](/assets/images/river-crossing.drawio)
 
 ### Implémentation
 
-Généralement on commence par définir les états et les transitions de l'automate. On ajoute volontairement une entrée [manglée](https://fr.wikipedia.org/wiki/D%C3%A9coration_de_nom) `COUNT` pour facilement connaître le nombre d'éléments dans l'énumération.
+On commence généralement par définir les états et les transitions de l'automate. On ajoute volontairement une entrée [manglée](https://fr.wikipedia.org/wiki/D%C3%A9coration_de_nom) `COUNT` afin de connaître facilement le nombre d'éléments dans l'énumération.
 
 ```c
 typedef enum {
@@ -58,7 +58,7 @@ void moveElevator() { printf("The elevator is moving.\n"); }
 void stopElevator() { printf("The elevator stops.\n"); }
 ```
 
-L'objectif est de pouvoir émettre des transitions simplement:
+L'objectif est de pouvoir déclencher les transitions simplement :
 
 ```c
 int main() {
@@ -73,7 +73,7 @@ int main() {
 }
 ```
 
-Les automates finis peuvent être implémentés de différentes manières. Une solution courante est d'utiliser un `switch-case`. Voici l'exemple en C:
+Les automates finis peuvent être implémentés de différentes manières. Une solution courante consiste à utiliser une instruction `switch-case`. Voici un exemple en C :
 
 ```c
 State transition(State currentState, Input input) {
@@ -122,7 +122,7 @@ State transition(State currentState, Input input) {
 }
 ```
 
-Une autre approche est d'utiliser un table de transition. Cela permet de séparer la logique de transition de l'implémentation. Voici un exemple:
+Une autre approche consiste à utiliser un tableau de transition. Cette représentation sépare la logique de transition de son implémentation. Voici un exemple :
 
 ```c
 typedef void (*ActionFunction)();
@@ -163,19 +163,19 @@ State transition(State currentState, Input input) {
 
 ## DFA et NFA
 
-Il existe deux types d'automates finis : les automates finis déterministes (DFA) et les automates finis non déterministes (NFA). Les DFA sont des automates finis dont les transitions sont déterminées par l'état actuel et l'entrée. Les NFA sont des automates finis dont les transitions peuvent être non déterministes, c'est-à-dire qu'il peut y avoir plusieurs transitions possibles pour un état et une entrée donnés.
+Il existe deux grandes familles d'automates finis : les automates déterministes (DFA) et les automates non déterministes (NFA). Dans un DFA, la transition est entièrement déterminée par l'état courant et l'entrée reçue. Dans un NFA, plusieurs transitions peuvent coexister pour un même couple état/entrée, laissant au modèle le soin de choisir son chemin.
 
-Pour un ordinateur, il est plus facile de traiter un automate fini déterministe qu'un automate fini non déterministe. Cependant, les NFA sont plus puissants que les DFA, car ils peuvent représenter des langages plus complexes. Heureusement il existe des algorithmes pour convertir un NFA en un DFA équivalent, mais cela peut entraîner une explosion de l'espace d'état.
+Pour un ordinateur, il est plus simple d'exécuter un automate déterministe qu'un automate non déterministe. Cependant, les NFA sont plus expressifs, car ils peuvent représenter des langages plus complexes. Heureusement, des algorithmes permettent de convertir un NFA en DFA équivalent, quitte à provoquer une explosion du nombre d'états.
 
-Un cas typique d'utilisation de ces diagrammes d'états sont les expressions régulières. Pour rappel, une expression régulière est une chaîne de caractère qui décrit un ensemble de chaînes de caractères. On les utilises pour rechercher des motifs complexes.
+Un cas typique d'utilisation de ces diagrammes d'états est la conception d'expressions régulières. Pour rappel, une expression régulière est une chaîne de caractères qui décrit un ensemble de chaînes. On les utilise pour rechercher des motifs parfois très complexes.
 
-L'objectif n'est pas de rentrer dans le détail mais de vous donner un aperçu de ce qu'il est possible de faire avec les automates finis. Admettons que l'on souhaite rechercher des motifs de texte contenant les lettres `A` et `B`. On peut avoir plusieurs combinaisons par exemple on recherche soit un `A` ou un `B` `#!re /A|B/` ou bien un `A` suivi d'un `B` `#!re /AB/`. En utilisant l'étoile de [Kleene](https://fr.wikipedia.org/wiki/%C3%89toile_de_Kleene) `*` on peut également rechercher zéro ou plusieurs occurences de `A`: `#!re /A*/`.
+L'objectif n'est pas de rentrer dans le détail, mais de donner un aperçu de ce qu'il est possible de faire avec les automates finis. Admettons que l'on souhaite rechercher des motifs de texte contenant les lettres `A` et `B`. Plusieurs combinaisons sont envisageables : on peut rechercher `A` ou `B` (`#!re /A|B/`), ou bien `A` suivi de `B` (`#!re /AB/`). En utilisant l'étoile de [Kleene](https://fr.wikipedia.org/wiki/%C3%89toile_de_Kleene) `*`, on peut également accepter zéro ou plusieurs occurrences de `A` (`#!re /A*/`).
 
 Dans ces exemples, à chaque état un caractère est capturé sur la chaîne de recherche (le curseur avance d'un caractère) :
 
 ![DFA simples](/assets/images/regex-nfas.drawio)
 
-À partir de ces éléments simples, il est possible de construire une expression plus complexe comme `#!re /Z|X(X|Y)*/` : la lettre `Z` seule ou bien `X` suivi de `A` ou `B` zéro ou plusieurs fois. Pour le cas de figure de l'étoile de Kleene, il n'est pas évident de constuire cette expression. Pour résoudre ce problème on introduit la notion de transition epsilon `ε` qui permet de passer d'un état à un autre sans consommer de caractère. On peut en mettre autant que l'on veut :
+À partir de ces éléments simples, il est possible de construire une expression plus complexe comme `#!re /Z|X(X|Y)*/` : la lettre `Z` seule ou `X` suivi de `X` ou `Y`, répétés zéro ou plusieurs fois. Pour l'étoile de Kleene, la construction n'est pas toujours évidente. Pour résoudre ce problème, on introduit la notion de transition epsilon `ε`, qui permet de passer d'un état à un autre sans consommer de caractère. On peut en ajouter autant que nécessaire :
 
 ![NFA avec epsilon](/assets/images/regex-nfa.drawio)
 

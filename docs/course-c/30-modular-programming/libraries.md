@@ -2,17 +2,15 @@
 
 ![Bibliothèque du Trinity College de Dublin](/assets/images/library.jpg)
 
-Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La `printf` est une de ces fonctionnalités et offerte par le header `<stdio.h>` faisant partie de la bibliothèque `libc6`.
+Une bibliothèque logicielle est un ensemble de fichiers proposant des fonctionnalités prêtes à l'emploi. L'appel à `printf` en est un exemple emblématique : la fonction est déclarée dans l'en-tête `<stdio.h>` et son implémentation est fournie par la bibliothèque standard `libc`.
 
-L'anglicisme *library*, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme `<stdlib.h>` étant la concaténation de *standard library* par exemple. Notez que librairie n'est pas la traduction correcte de *library* qui est un [faux ami](https://fr.wikipedia.org/wiki/Faux-ami).
+Dans la pratique, l'anglicisme *library* est très courant, car il est bref et universel dans le milieu informatique. Il ne faut toutefois pas le confondre avec l'anglais *bookstore*, qui correspond à notre « librairie ». Les bibliothèques logicielles se composent le plus souvent d'un ou plusieurs fichiers binaires compilés pour une architecture donnée et d'en-têtes (*headers*) décrivant les fonctions disponibles.
 
-Une *library*, à l'instar d'une bibliothèque, contient du contenu (livre écrit dans une langue donnée) et un index (registre). En informatique il s'agit d'un fichier binaire compilé pour une architecture donnée ainsi qu'un ou plusieurs fichiers d'en-tête (*header*) contenant les définitions de cette bibliothèque.
+Les exemples qui suivent sont tirés d'un environnement POSIX. Sous Windows, la procédure diffère légèrement, mais les concepts restent les mêmes : une bibliothèque expose des fonctions ou des structures de données, et un programme les relie lors de l'édition des liens.
 
-Dans ce chapitre on donnera plusieurs exemples sur un environnement POSIX. Sous Windows, les procédures choses sont plus compliquées, mais les concepts restent les mêmes.
+## Exemple : libgmp
 
-## Exemple: libgmp
-
-Voyons ensemble le cas de [libgmp](https://packages.ubuntu.com/jammy/libgmp-dev). Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que `libgmp` est disponible pour différentes architectures `amd64`, `arm64`, `s390x`, `i386`, ... Un développement sur un Raspberry-PI nécessitera `arm64` alors qu'un développement sur un PC utilisera `amd64`. En [cliquant](https://packages.ubuntu.com/jammy/amd64/libgmp-dev/filelist) sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C):
+[libgmp](https://packages.ubuntu.com/jammy/libgmp-dev) fournit des fonctions d'arithmétique multiprécision très utilisées. En consultant le paquet Debian, on constate qu'il existe des variantes pour plusieurs architectures (`amd64`, `arm64`, `s390x`, `i386`, etc.). Un ordinateur de bureau x86_64 nécessitera la variante `amd64`, tandis qu'un Raspberry Pi demandera `arm64`. La liste des fichiers installés pour l'architecture choisie comprend notamment :
 
 ```
 # Fichier d'en-tête C
@@ -22,46 +20,41 @@ Voyons ensemble le cas de [libgmp](https://packages.ubuntu.com/jammy/libgmp-dev)
 /usr/lib/x86_64-linux-gnu/libgmp.a
 /usr/lib/x86_64-linux-gnu/libgmp.so
 
-# Documentation de la libgmp
+# Documentation de libgmp
 /usr/share/doc/libgmp-dev/AUTHORS
 /usr/share/doc/libgmp-dev/README
 /usr/share/doc/libgmp-dev/changelog.gz
 /usr/share/doc/libgmp-dev/copyright
 ```
 
-On a donc :
+On y retrouve donc :
 
 `gmp.h`
-
-: Fichier d'en-tête à include dans un fichier source pour utiliser les fonctionnalités
+: Fichier d'en-tête à inclure pour utiliser les fonctionnalités.
 
 `libgmp.a`
-
-: Bibliothèque **statique** qui contient l'implémentation en langage machine des fonctionnalités à référer au *linker* lors de la compilation
+: Bibliothèque **statique** contenant l'implémentation en langage machine des fonctions. Elle doit être mentionnée explicitement lors de l'édition des liens.
 
 `libgmp.so`
+: Bibliothèque **dynamique** qui contient elle aussi le code machine, mais qui sera chargée au moment de l'exécution.
 
-: Bibliothèque **dynamique** qui contient aussi l'implémentation en langage machine des fonctionnalités
-
-Imaginons que l'on souhaite bénéficier des fonctionnalités de cette bibliothèque pour le calcul d'orbites pour un satellite d'observation de Jupyter. Pour prendre en main cet *libary* on écrit ceci :
+Supposons que l'on souhaite calculer des orbites pour un satellite d'observation de Jupiter. Pour apprivoiser cette *library*, on écrit :
 
 ```c
 --8<-- "docs/assets/src/gmp.c"
 ```
 
-Puis on compile :
+Première tentative de compilation :
 
 ```console
 $ gcc gmp.c
 gmp.c:1:10: fatal error: gmp.h: No such file or directory
 #include <gmp.h>
-        ^~~~~~~
+         ^~~~~~~
 compilation terminated.
 ```
 
-Aïe! La bibliothèque n'est pas installée...
-
-Pour l'installer, cela dépend de votre système d'exploitation :
+La bibliothèque n'est pas installée sur la machine. On l'installe alors :
 
 === "Ubuntu"
 
@@ -75,7 +68,7 @@ Pour l'installer, cela dépend de votre système d'exploitation :
     $ brew install gmp
     ```
 
-Deuxième tentative :
+Nouvelle compilation :
 
 ```console
 $ gcc gmp.c
@@ -92,7 +85,7 @@ gmp.c:(.text+0x146): undefined reference to `__gmpz_clear'
 collect2: error: ld returned 1 exit status
 ```
 
-Cette fois-ci on peut lire que le compilateur à fait son travail, mais ne parvient pas à trouver les symboles des fonctions que l'on utilise p.ex. `__gmpz_add_ui`. C'est normal parce que l'on n'a pas renseigné la bibliothèque à utiliser.
+Cette fois, le compilateur a bien produit un fichier objet, mais l'éditeur de liens ne sait pas où trouver les symboles, comme `__gmpz_add_ui`. Il suffit de préciser la bibliothèque à charger :
 
 ```console
 $ gcc gmp.c -lgmp
@@ -103,140 +96,131 @@ $ ./a.out
 392475051329485669436248957939688603493163430354043714007714400000000000004
 ```
 
-Cette manière de faire utilise le fichier `libgmp.so` qui est la bibliothèque **dynamique**, c'est-à-dire que ce fichier est nécessaire pour que le programme puisse fonctionner. Si je donne mon exécutable à un ami qui n'as pas install libgmp sur son ordinateur, il ne sera pas capable de l'exécuter.
+La commande ci-dessus utilise `libgmp.so`, la version dynamique. L'exécutable obtenu reste donc dépendant de la présence de libgmp sur la machine cible. Si l'on transmet le binaire à une personne qui n'a pas installé la bibliothèque, l'exécution échouera.
 
-Alternativement on peut compiler le même programme en utilisant la librairie **statique**
+On peut au contraire créer un exécutable autonome en liant explicitement la bibliothèque statique :
 
 ```console
 $ gcc gmp.c /usr/lib/x86_64-linux-gnu/libgmp.a
 ```
 
-C'est-à-dire qu'à la compilation toutes les fonctionnalités ont été intégrées à l'exécutable et il ne dépend de plus rien d'autre que le système d'exploitation. Je peux prendre ce fichier le donner à quelqu'un qui utilise la même architecture et il pourra l'exécuter. En revanche, la taille du programme est plus grosse :
+Dans ce cas, tout le code nécessaire est intégré dans l'exécutable et il suffit de partager ce fichier avec quelqu'un utilisant la même architecture. Le revers de la médaille est la taille plus importante du binaire :
 
 ```console
 # ~167 KiB
 $ gcc gmp.c -l:libgmp.a
 $ size a.out
-text    data     bss     dec     hex filename
-155494     808      56  156358   262c6 ./a.out
+   text    data     bss     dec     hex filename
+ 155494     808      56  156358   262c6 ./a.out
 
 # ~8.5 KiB
 $ gcc gmp.c -lgmp
 $ size a.out
-text    data     bss     dec     hex filename
-2752     680      16    3448     d78 ./a.out
+  2752     680      16    3448     d78 ./a.out
 ```
 
-## Exemple: ncurses
+## Exemple : ncurses
 
-La bibliothèque [ncurses](https://fr.wikipedia.org/wiki/Ncurses) traduction de *nouvelles malédictions* est une évolution de [curses](https://fr.wikipedia.org/wiki/Curses) développé originellement par [Ken Arnold](https://en.wikipedia.org/wiki/Ken_Arnold) . Il s'agit d'une bibliothèque pour la création d'interfaces graphique en ligne de commande, toujours très utilisée.
+La bibliothèque [ncurses](https://fr.wikipedia.org/wiki/Ncurses), évolution de [curses](https://fr.wikipedia.org/wiki/Curses) conçue par [Ken Arnold](https://en.wikipedia.org/wiki/Ken_Arnold), permet de créer des interfaces textuelles riches. Elle offre le positionnement arbitraire du curseur, le dessin de fenêtres, de menus, d'ombres ou encore de jeux de couleurs.
 
-La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...
-
-Figure: Exemple d'interface graphique écrite avec `ncurses`. Ici la configuration du noyau Linux.
+Figure : Exemple d'interface graphique écrite avec `ncurses`. Ici, la configuration du noyau Linux.
 
 ![Exemple avec ncurses](/assets/images/linux-menuconfig.png)
 
-L'écriture d'un programme Hello World avec cette bibliothèque pourrait être :
+Un programme minimal peut ressembler à ceci :
 
 ```c
 #include <ncurses.h>
 
-int main()
+int main(void)
 {
-    initscr();              // Start curses mode
-    printw("hello, world"); // Print Hello World
-    refresh();              // Print it on to the real screen
-    getch();                    // Wait for user input
-    endwin();               // End curses mode
+    initscr();              // Démarrer ncurses
+    printw("hello, world"); // Afficher un message
+    refresh();              // Mettre à jour l'écran réel
+    getch();                // Attendre une frappe
+    endwin();               // Quitter ncurses proprement
 
     return 0;
 }
 ```
 
-La compilation n'est possible que si :
-
-1. La bibliothèque est installée sur l'ordinateur
-2. Le lien vers la bibliothèque dynamique est mentionné à la compilation
+La compilation n'aboutit que si la bibliothèque est installée **et** si le lien est mentionné :
 
 ```console
-$ gcc ncurses-hello.c -ohello -lncurses
+$ gcc ncurses-hello.c -o hello -lncurses
 ```
 
 ## Bibliothèques statiques
 
-Une *static library* est un fichier binaire compilé pour une architecture donnée et portant les extensions :
+Une *static library* est une archive d'objets compilés pour une architecture donnée. On rencontre les extensions suivantes :
 
-- `.a` sur un système POSIX (Android, Mac OS, Linux, Unix)
-- `.lib` sous Windows
+- `.a` sur les systèmes POSIX (GNU/Linux, macOS, Unix, Android) ;
+- `.lib` sous Windows.
 
-Une bibliothèque statique n'est rien d'autre qu'une archive d’un ou plusieurs objets. Rappelons-le un objet est le résultat d'une compilation.
-
-Par exemple si l'on souhaite écrire une bibliothèque statique pour le [code de César](https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage) on écrira un fichier source `caesar.c`:
+Pour illustrer la création d'une bibliothèque statique, reprenons le [chiffrement de César](https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage). On écrit d'abord un fichier source `caesar.c` :
 
 ```c title="caesar.c"
 --8<-- "docs/assets/src/caesar.c"
 ```
 
-Ainsi qu'un fichier d'en-tête `caesar.h`:
+et le fichier d'en-tête correspondant :
 
 ```c title="caesar.h"
 --8<-- "docs/assets/src/caesar.h"
 ```
 
-Pour créer une bibliothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiver crée l'amalgame :
+La création de la bibliothèque se déroule en deux étapes : génération de l'objet, puis archivage :
 
 ```console
 $ gcc -c -o caesar.o caesar.c
 $ ar rcs caesar.a caesar.o
 ```
 
-Puis il suffit d'écrire un programme pour utiliser cette bibliothèque :
+On peut ensuite écrire un programme utilisateur :
 
 ```c title="encrypt.c"
 --8<-- "docs/assets/src/encrypt.c"
 ```
 
-Et de compiler le tout. Ici on utilise `-I.` et `-L.` pour dire au compilateur de chercher le fichier d'en-tête et la bibliothèque dans le répertoire courant.
+La compilation se fait en précisant où trouver les en-têtes (`-I.`) et la bibliothèque (`-L.`) :
 
 ```console
 $ gcc encrypt.c -I. -L. -l:caesar.a
 ```
 
-La procédure sous Windows est plus compliquée et ne sera pas décrite ici.
+Sous Windows, les outils diffèrent et la procédure demande quelques étapes supplémentaires, que nous n'abordons pas ici.
 
 ## Bibliothèques dynamiques
 
-Une *dynamic library* est un fichier binaire compilé pour une architecture donnée et portant les extensions :
+Une *dynamic library* est, elle aussi, un binaire compilé pour une architecture donnée. Elle porte en général l'extension :
 
-- `.so` sur un système POSIX (Android, Mac OS, Linux, Unix)
-- `.dll` sous Windows
+- `.so` sur les systèmes POSIX ;
+- `.dll` sous Windows.
 
-L'avantage principal est de ne pas charger pour rien chaque exécutable compilé de fonctionnalités qui pourraient très bien être partagées. L'inconvénient est que l'utilisateur du programme doit impérativement avoir installé la bibliothèque. Dans un environnement POSIX les bibliothèques dynamiques disposent d'un emplacement spécifique ou elles sont toute stockées. Malheureusement sous Windows le consensus est plus partagé et il n'est pas rare de voir plusieurs applications différentes héberger une copie des *dll* localement si bien que l'avantage de la bibliothèque dynamique est anéanti par un défaut de cohérence.
+Son avantage principal est de partager le code entre plusieurs exécutables, réduisant l'espace disque et la mémoire consommée. En contrepartie, l'utilisateur doit disposer de la bibliothèque au moment de l'exécution. Sous un environnement POSIX, les bibliothèques dynamiques sont stockées dans des répertoires dédiés et référencées par l'éditeur de liens. Sous Windows, l'organisation est moins uniformisée et chaque application peut embarquer sa propre copie des `.dll`.
 
-Reprenant l'exemple de César vu plus haut, on peut créer une bibliothèque dynamique :
+En reprenant l'exemple du chiffrement de César, on produit d'abord la bibliothèque dynamique :
 
 ```console
 $ gcc -shared -o libcaesar.so caesar.o
 ```
 
-Puis compiler notre programme pour utiliser cette bibliothèque. Avec une bibliothèque dynamique, il faut spécifier au compilateur quels sont les chemins vers lesquels il pourra trouver les bibliothèques installées. Comme ici on ne souhaite pas **installer** la bibliothèque et la rendre disponible pour tous les programmes, il faut ajouter aux chemins par défaut, le chemin local `$(pwd .)`, en créant une **variable d'environnement** nommée `LIBRARY_PATH`.
+Pour compiler le programme, il faut indiquer les chemins dans lesquels chercher les bibliothèques. Comme nous ne souhaitons pas installer `libcaesar.so` globalement, nous ajoutons le répertoire courant à la variable d'environnement `LIBRARY_PATH` au moment de la compilation :
 
 ```console
 $ LIBRARY_PATH=$(pwd .) gcc encrypt.c -I. -lcaesar
 ```
 
-Le problème est identique à l'exécution, car il faut spécifier (ici avec `LD_LIBRARY_PATH`) le chemin ou le système d'exploitation s'attendra à trouver la bibliothèque.
+À l'exécution, la même logique s'applique avec `LD_LIBRARY_PATH`, afin que le système sache où charger la bibliothèque :
 
 ```console
 $ LD_LIBRARY_PATH=$(pwd .) ./a.out ferrugineux
 sreehtvarhk
 ```
 
-Car sinon c'est l'erreur :
+En omettant cette variable, on obtient l'erreur suivante :
 
 ```console
 $ LIBRARY_PATH=$(pwd .) ./a.out Hey?
-./a.out: error while loading shared libraries: libcaesar.so :
-cannot open shared object file: No such file or directory
+./a.out: error while loading shared libraries: libcaesar.so: cannot open shared object file: No such file or directory
 ```

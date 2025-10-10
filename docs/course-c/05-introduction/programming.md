@@ -14,17 +14,17 @@ epigraph:
 - Bref historique de l'informatique.
 - Introduction à la machine de Turing.
 
-La **programmation**, également appelée **codage**, est l'art subtil et rigoureux de transformer des concepts abstraits en instructions exécutables par une machine. À travers cette discipline, le programmeur devient l'architecte d'un univers logique, où chaque ligne de code est une brique ajoutée à une structure plus vaste, guidée par un plan précis : l'**algorithme**. Ce dernier, semblable à une partition musicale, dicte la succession des opérations que la machine, fidèle exécutante, doit suivre sans faillir.
+La **programmation**, également appelée **codage**, est l'art subtil et rigoureux de transformer des concepts abstraits en instructions exécutables par une machine. À travers cette discipline, la programmeuse ou le programmeur devient l'architecte d'un univers logique, où chaque ligne de code ajoute une brique à une structure plus vaste, guidée par un plan précis : l'**algorithme**. Celui-ci, comparable à une partition musicale, précise la succession des opérations que la machine, fidèle exécutante, doit suivre sans faillir.
 
-L'essence même de la programmation réside donc dans la traduction de ces algorithmes en un **langage formel**, une sorte de langage commun, épuré et sans ambiguïté, où l'esprit humain et le processeur se rencontrent. Cette activité, à la croisée des chemins entre la science, l'ingénierie et l'art, est avant tout une quête de précision, d'efficacité, et d'élégance.
+L'essence même de la programmation réside dans la traduction de ces algorithmes en un **langage formel**, terrain d'entente épuré et sans ambiguïté où l'esprit humain rencontre le processeur. Cette activité, à la croisée des chemins entre la science, l'ingénierie et l'art, est avant tout une quête de précision, d'efficacité et d'élégance.
 
-Dans le cadre d'un enseignement académique, on parle souvent de **cours d'Algorithmique et de Programmation**, soulignant ainsi la dualité indissociable entre la conception d'une solution (l'algorithme) et sa mise en œuvre concrète (la programmation). Ces deux notions, bien que distinctes, s'entrelacent pour former le cœur battant de l'informatique, où l'abstraction des idées prend forme dans la rigueur du code. C'est à ce croisement que nous allons maintenant nous attarder, pour éclaircir ces concepts et en dévoiler toute la richesse.
+Dans le cadre d'un enseignement académique, on parle souvent de **cours d'Algorithmique et de Programmation**, soulignant la dualité indissociable entre la conception d'une solution (l'algorithme) et sa mise en œuvre concrète (la programmation). Ces deux notions, bien que distinctes, s'entrelacent pour former le cœur battant de l'informatique, où l'abstraction des idées prend corps dans la rigueur du code. C'est à ce croisement que nous allons nous attarder pour éclaircir ces concepts et en dévoiler toute la richesse.
 
 ![L'un des premiers ordinateurs: l'Eniac](/assets/images/eniac.jpg)
 
 ## Algorithmique
 
-L'**algorithmique**, et non l'*algorithmie* (qui n'a pas sa place dans la langue française), est la science qui se consacre à l'élaboration des règles et techniques régissant la création et la conception des [algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Ce domaine, que nous explorerons plus en détail dans le chapitre dédié aux [algorithmes et à leur conception][algorithmsanddesign], dépasse largement le cadre de l'informatique. L'algorithmique ne se cantonne pas aux ordinateurs; elle est omniprésente dans notre quotidien, se manifestant dans des contextes aussi variés que :
+L'**algorithmique**, et non l'*algorithmie* (terme fautif en français), est la science qui se consacre à l'élaboration des règles et techniques régissant la création et la conception des [algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Ce domaine, que nous explorerons plus en détail dans le chapitre dédié aux [algorithmes et à leur conception][algorithmsanddesign], dépasse largement le cadre de l'informatique. L'algorithmique ne se cantonne pas aux ordinateurs ; elle est omniprésente dans notre quotidien et se manifeste dans des contextes aussi variés que :
 
 - l'art de concocter une recette de cuisine,
 - la maîtrise du tissage des tapis persans,
@@ -32,7 +32,7 @@ L'**algorithmique**, et non l'*algorithmie* (qui n'a pas sa place dans la langue
 - l'élaboration de tactiques sportives,
 - ou encore dans les méandres des procédures administratives.
 
-Ainsi, l'algorithmique n'est rien de moins que l'essence même de la pensée organisée, une discipline qui transcende les frontières du numérique pour s'infiltrer dans les moindres recoins de la vie courante, là où la logique et la méthode s'imposent comme les guides naturels de toute action efficace.
+Ainsi, l'algorithmique constitue l'essence même de la pensée organisée. Elle transcende les frontières du numérique pour s'infiltrer dans les moindres recoins de la vie courante, là où la logique et la méthode s'imposent comme guides naturels de toute action efficace.
 
 ### Algorithme d'Euclide
 
@@ -76,9 +76,9 @@ Table: Exemple de calcul du PGCD entre 42 et 30
 
 ### Tri à bulles
 
-Un autre algorithme célèbre est celui du [tri à bulles](https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles), un procédé de tri simple qui consiste à comparer les éléments adjacents et à les échanger si nécessaire afin de les organiser dans l'ordre souhaité.
+Un autre algorithme célèbre est celui du [tri à bulles](https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles), procédé de tri simple qui compare des éléments adjacents et les échange si nécessaire afin de les organiser dans l'ordre souhaité.
 
-Pour mieux l'illustrer, imaginez que vous avez un jeu de 54 cartes mélangé et que vous souhaitez le trier par ordre croissant (As, 2, 3, ..., 10, Valet, Dame, Roi). Vous disposez les cartes en ligne et procédez par échanges successifs de deux cartes adjacentes mal placées, répétant l'opération jusqu'à ce que l'ensemble du jeu soit correctement ordonné.
+Pour mieux l'illustrer, imaginez un jeu de 54 cartes mélangé que vous souhaitez trier par ordre croissant (As, 2, 3, ..., 10, Valet, Dame, Roi). Disposez les cartes en ligne et procédez par échanges successifs de deux cartes adjacentes mal placées, en répétant l'opération jusqu'à ce que l'ensemble du jeu soit correctement ordonné.
 
 Voici un diagramme de flux représentant l'algorithme du tri à bulles :
 
@@ -88,19 +88,19 @@ Soit un tableau de $N = 5$ valeurs à trier donné ci-dessous, le cycle se rép�
 
 $$T = {5, 3, 8, 4, 2}$$
 
-Les différentes étapes du tri à bulles sont illustrées ci-dessous :
+Les différentes étapes du tri à bulles sont illustrées ci-dessous :
 
 ![Étape par étape du tri à bulles.](/assets/images/bubblesort-steps.drawio)
 
-Pour les cycles $3$ et $4$, nous ne montrons pas les étapes où il n'y a pas eu d'échange. Au cinquième cycle, aucun échange n'est nécessaire, l'algorithme se termine.
+Pour les cycles $3$ et $4$, nous ne montrons pas les étapes sans échange. Au cinquième cycle, aucun échange n'est nécessaire : l'algorithme se termine.
 
-On peut compter le nombre de cycles assez facilement. Pour ce tableau de $N = 5$ valeurs, il y a $5$ cycles. Durant un cycle, il faut regarder $N - 1$ paires d'éléments. Donc pour un tableau de $N$ valeurs, il y a $N^2 - N$ comparaisons. Ce type d'algorithme est dit de complexité $O(N^2)$. Cela signifie que le nombre d'opérations à effectuer est proportionnel au carré du nombre d'éléments à trier. Nous verrons plus tard que la complexité d'un algorithme est un critère important. Nous verrons comment le calculer.
+On peut compter le nombre de cycles assez facilement. Pour ce tableau de $N = 5$ valeurs, il y a $5$ cycles. Durant un cycle, il faut examiner $N - 1$ paires d'éléments. Pour un tableau de $N$ valeurs, cela représente donc $N^2 - N$ comparaisons. Ce type d'algorithme est dit de complexité $O(N^2)$ : le nombre d'opérations à effectuer est proportionnel au carré du nombre d'éléments à trier. Nous verrons plus tard que la complexité d'un algorithme est un critère essentiel et comment la calculer rigoureusement.
 
 ### Conclusion
 
 Les algorithmes se déclinent en une multitude de formes, des plus simples aux plus complexes, et trouvent leur utilité dans des domaines aussi variés que la cryptographie, la bio-informatique, la finance ou encore la robotique.
 
-En tant que développeur, vous serez souvent amené à concevoir des algorithmes pour résoudre divers problèmes. Avant de plonger tête baissée dans l'écriture du code, il est essentiel de prendre un moment pour réfléchir posément. Sortez une feuille de papier, un crayon, et laissez vos neurones travailler. Comprendre profondément le problème est une étape cruciale, souvent négligée par les jeunes développeurs qui, pressés de passer à l'action, se jettent dans le code sans plan précis, "touillant" leur syntaxe à la vaudoise à la recherche d'une solution miraculeuse qui naîtrait du hasard. Prenez le temps de mûrir votre réflexion, imaginez des exemples concrets, testez vos hypothèses, et vous découvrirez que la programmation, loin d'être un combat, peut devenir un jeu d'enfant, empreint de logique et de clarté.
+En tant que développeuse ou développeur, vous serez souvent amené·e à concevoir des algorithmes pour résoudre des problèmes variés. Avant de plonger tête baissée dans l'écriture du code, prenez un moment pour réfléchir posément. Sortez une feuille de papier, un crayon, et laissez vos neurones travailler. Comprendre profondément le problème est une étape cruciale, souvent négligée par les débutantes et débutants qui, pressés de passer à l'action, se jettent dans le code sans plan précis, « touillant » leur syntaxe à la vaudoise à la recherche d'une solution miraculeuse née du hasard. Prenez le temps de mûrir votre réflexion, imaginez des exemples concrets, testez vos hypothèses, et vous découvrirez que la programmation, loin d'être un combat, peut devenir un jeu d'enfant empreint de logique et de clarté.
 
 ## Programmation
 
@@ -108,7 +108,7 @@ Parlons couture ! La machine Jacquard est un [métier à tisser](https://fr.wiki
 
 ![Mécanisme Jacquard au Musée des arts et métiers de Paris.](/assets/images/loom.png)
 
-Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. Elles sont donc le programme de la machine et dont le format (largeur, dimension des trous, etc.) est spécifique à la machine. En termes informatiques, on dirait que les cartes perforées sont écrites en **langage machine**.
+Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. Elles font office de programme pour la machine, et leur format (largeur, dimensions des trous, etc.) reste spécifique à chaque modèle. En termes informatiques, on dirait que les cartes perforées sont écrites en **langage machine**.
 
 !!! info "La révolte des canuts"
 
@@ -116,11 +116,11 @@ Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des
 
 La [programmation](https://fr.wikipedia.org/wiki/Programmation_informatique) définit toute activité menant à l'écriture de programmes. En informatique, un programme est défini comme un ensemble ordonné d'instructions codées avec un langage donné et décrivant les étapes menant à la résolution d'un problème. Comme nous l'avons vu, il s'agit le plus souvent d'une écriture formelle d'un algorithme par l'intermédiaire d'un langage de programmation.
 
-Les *informaticiens-tisserands* responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons par exemple un ouvrier spécialisé en [héraldique](https://fr.wikipedia.org/wiki/H%C3%A9raldique) et devant créer des motifs complexes de blasons.
+Les *informaticiens-tisserands* responsables de la création des cartes perforées auraient pu se demander comment simplifier leur travail en concevant un langage formel pour décrire des motifs complexes dont les composants de base se répètent d'un ouvrage à l'autre. Prenons par exemple un ouvrier spécialisé en [héraldique](https://fr.wikipedia.org/wiki/H%C3%A9raldique) et chargé de créer des motifs de blasons élaborés.
 
 ![Armoiries des ducs de Mayenne](/assets/images/armoiries.drawio)
 
-Nul n'est sans savoir que l'héraldique a son langage parfois obscur et celui qui le maîtrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries du duc de [[Mayenne|Mayenne, Duc de]] aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :
+Nul n'ignore que l'héraldique possède son langage parfois obscur, et celle ou celui qui le maîtrise souhaiterait l'utiliser plutôt que de percer manuellement les cartes pour chaque point de couture. Ainsi, l'anachronique informaticien-tisserand désireux de tisser le motif des armoiries du duc de [[Mayenne|Mayenne, Duc de]] aurait sans doute rédigé un programme informatique dans sa langue. Ce programme aurait pu ressembler à ceci :
 
 ```text
 Écartelé, en 1 et 4 :

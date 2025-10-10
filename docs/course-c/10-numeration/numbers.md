@@ -4,7 +4,8 @@ epigraph:
     source: Pythagore
 ---
 # Nombres
-Vous avez tous appris dans votre enfance à compter, puis vous avez appris que les nombres se classifient dans des ensembles. Les mathématiciens ont défini des ensembles de nombres pour lesquels des propriétés particulières sont vérifiées ; ces ensembles sont imbriqués les uns dans les autres, et chaque ensemble est un sous-ensemble de l'ensemble suivant. La figure suivante illustre cette hiérarchie.
+
+Dans notre enfance, nous apprenons à compter, puis à ranger les nombres dans divers ensembles. Les mathématicien·nes ont défini des familles de nombres qui vérifient des propriétés particulières ; elles s'emboîtent les unes dans les autres, chaque ensemble étant inclus dans le suivant. La figure suivante illustre cette hiérarchie.
 
 $$
 \mathbb{N} \in \mathbb{Z} \in \mathbb{Q} \in \mathbb{R} \in \mathbb{C} \in \mathbb{H} \in \mathbb{O} \in \mathbb{S}
@@ -12,11 +13,11 @@ $$
 
 ![Ensemble des nombres](/assets/images/ensembles.drawio)
 
-Les ensembles de nombres sont :
+Les principaux ensembles de nombres sont les suivants :
 
 - $\mathbb{N}$ : ensemble des [[entiers naturels]] (0, 1, 2, 3, ...)
 - $\mathbb{Z}$ : ensemble des [[entiers relatifs]] (..., -3, -2, -1, 0, 1, 2, 3, ...)
-- $\mathbb{D}$ : ensemble des décimaux (-0.1, 0, 0.1, 0.2, 0.3, ...)
+- $\mathbb{D}$ : ensemble des décimaux (-0,1, 0, 0,1, 0,2, 0,3, ...)
 - $\mathbb{Q}$ : ensemble des rationnels (0, 1, 1/2, 1/3, 1/4, ...)
 - $\mathbb{R}$ : ensemble des réels ($\pi$, $\sqrt{2}$, ...)
 - $\mathbb{C}$ : ensemble des complexes ($i$, $1 + i$, ...)
@@ -28,35 +29,35 @@ Les ensembles de nombres sont :
 
     Les [[quaternions]], [[octonions]] et [[sédénions]] sont des [[nombres hypercomplexes]] qui généralisent les [[nombres complexes]]. Ils sont utilisés en physique pour décrire les rotations dans l'espace.
 
-    Les quaternions sont utilisés en informatique pour représenter les rotations en 3D. Les octonions et sédénions sont des généralisations des quaternions, mais ils sont moins utilisés en pratique.
+    Les quaternions sont couramment utilisés en informatique pour représenter les rotations en 3D. Les octonions et sédénions prolongent ce modèle, mais restent plus confidentiels en pratique.
 
-    À chaque fois que s'éloigne du réel (et c'est une manière amusante de le dire), on perd des propriétés intéressantes. Les nombres complexes ne sont pas ordonnés, les quaternions ne sont pas commutatifs, les octonions ne sont pas associatifs, et les sédénions ne sont même pas alternatifs. Un nombre alternatif est un nombre pour lequel la formule suivante est vérifiée :
+    À chaque fois que l'on s'éloigne du réel (et c'est une manière amusante de le formuler), on perd des propriétés intéressantes. Les nombres complexes ne sont pas ordonnés, les quaternions ne sont pas commutatifs, les octonions ne sont pas associatifs et les sédénions ne sont même pas alternatifs. Un nombre alternatif vérifie la relation suivante :
 
     $$
     (a \cdot a) \cdot b = a \cdot (a \cdot b)
     $$
 
-    En pratique dans une carrière d'ingénieur, vous n'aurez jamais à manipuler ni des quaternions, ni des octonions ou des sédénions. Les nombres complexes sont néanmoins une extension des nombres réels qui sont utilisés en physique et en mathématiques et qui peuvent être utilisés en C sous certaines conditions.
+    Dans une carrière d'ingénieur·e, il est rare d'avoir à manipuler quaternions, octonions ou sédénions. Les nombres complexes constituent néanmoins une extension utile des nombres réels, très présente en physique et en mathématiques, et exploitable en C sous certaines conditions.
 
-[[Archimède]] disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : donnez-moi un nombre et je vous construirai un univers ! Bien entendu la quantité d'information dans l'univers est gargantuesque, elle croît avec l'entropie et donc avec le temps qui passe, mais à sa genèse à l'origine du temps et de l'espace, il n'est pas impensable que l'univers ait pu être créé à partir d'un nombre. C'est une idée qui a été explorée par [[Stephen Wolfram]] dans son livre [[A New Kind of Science]]. Cette vision repose sur l'idée que l'univers pourrait être vu comme une sorte de système informatique ou algorithmique, où des lois fondamentales simples évoluent pour produire la diversité des phénomènes que nous observons.
+[[Archimède]] disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : « Donnez-moi un nombre et je vous construirai un univers ! » Bien entendu, la quantité d'information dans l'univers est gargantuesque ; elle croît avec l'entropie et donc avec le temps. Mais à l'origine du temps et de l'espace, il n'est pas impensable que l'univers ait pu naître d'un nombre. [[Stephen Wolfram]] explore cette idée dans son ouvrage [[A New Kind of Science]], où il imagine l'univers comme un système informatique ou algorithmique régi par des lois fondamentales simples dont l'évolution produit la diversité des phénomènes observés.
 
-Dans le jeu [[Minecraft]], lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un monde aléatoire. Cette [[graine]] est un nombre fini qui sert de base à l'algorithme de génération de monde. Si vous utilisez la même graine, vous obtiendrez le même [[monde]]. La graine -5584399987456711267 permet par exemple d'obtenir de merveilleux cerisiers en fleurs qui rappelle la saison de [[Sakura]] à [[Kyoto]]. Mais pour que cela fonctionne il vous faut le code source de Minecraft, lui aussi c'est une succession de 0 et de 1, et donc c'est un nombre, lui aussi fini.
+Dans le jeu [[Minecraft]], lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un univers pseudo-aléatoire. Cette [[graine]] est un nombre fini qui sert de base à l'algorithme de génération. Si vous utilisez la même graine, vous obtenez le même [[monde]]. La graine -5584399987456711267 permet par exemple d'obtenir de splendides cerisiers en fleurs rappelant la saison du [[sakura]] à [[Kyoto]]. Pour que cela fonctionne, il faut toutefois le code source de Minecraft : lui aussi n'est qu'une succession de 0 et de 1, donc un nombre fini.
 
 ![Monde correspondant à la graine -5584399987456711267](/assets/images/minecraft.png)
 
-Lorsque vous jouez, vos actions génèrent de l'information qui influence le monde, et donc la quantité d'information dans le monde croît avec l'entropie que vous injectez dans le système. C'est pour cela que plus vous jouez, plus la sauvegarde de votre monde devient grande, mais vous pouvez toujours la représenter aussi avec un nombre fini : une succession de 0 et de 1.
+Lorsque vous jouez, vos actions génèrent de l'information qui influence le monde ; la quantité d'information croît avec l'entropie que vous injectez dans le système. C'est pourquoi plus vous jouez, plus la sauvegarde de votre monde grossit, tout en demeurant représentable par un nombre fini : une succession de 0 et de 1.
 
-À noter que les mémoires des ordinateurs ne sont pas infinies, elles sont limitées par la quantité de transistors qui les composent. Il n'est donc pas possible d'y stocker n'importe quel nombre. $\pi$ ne peut pas être stocké en mémoire, mais une approximation de $\pi$ peut l'être. Aussi, l'informatique impose certaines limitations sur les nombres que l'on peut manipuler. Les nombres entiers sont les plus simples à manipuler, mais ils sont limités par la taille de la mémoire et la manière dont on les enregistre en mémoire. Il est donc utile de se fixer des limites, de définir des bornes en fonction de l'usage que l'on veut en faire. La graine de Minecraft est par exemple un nombre de 64 bits et c'est un nombre entier.
+Notons que les mémoires des ordinateurs sont finies, limitées par le nombre de transistors qui les composent. Il n'est donc pas possible d'y stocker n'importe quelle valeur. $\pi$ ne peut pas être enregistré intégralement, mais une approximation de $\pi$ le peut. L'informatique impose ainsi des contraintes sur les nombres que l'on peut manipuler. Les entiers sont les plus simples à gérer, mais ils restent bornés par la taille de la mémoire et la manière dont on les encode. Il est donc utile de définir des bornes selon l'usage visé. La graine de Minecraft est, par exemple, un entier de 64 bits.
 
 ## Entiers naturels
 
-En mathématiques, un [entier naturel](https://fr.wikipedia.org/wiki/Entier_naturel) est un nombre positif ou nul. Chaque nombre à un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, et donc sans signe et sans virgule. L'ensemble des entiers naturels est défini de la façon suivante :
+En mathématiques, un [entier naturel](https://fr.wikipedia.org/wiki/Entier_naturel) est un nombre positif ou nul. Chaque nombre a un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, donc sans signe ni virgule. L'ensemble des entiers naturels est défini de la façon suivante :
 
 $$
 \mathbb{N} = {0, 1, 2, 3, ...}
 $$
 
-Les entiers sont les premiers types de données manipulés par les ordinateurs. Ils sont stockés en mémoire sous forme de bits. En choisissant la taille de stockage des entiers, on détermine la plage de valeurs que l'on peut représenter. Un entier de 8 bits peut par exemple représenter $2^8 = 256$ valeurs différentes, de 0 à 255. Un entier de 16 bits peut quant à lui représenter $2^{16} = 65536$ valeurs différentes, de 0 à 65535. À chaque bit supplémentaire, on double la plage de valeurs représentables.
+Les entiers constituent les premiers types de données manipulés par les ordinateurs. Stockés en mémoire sous forme de bits, ils offrent une plage de valeurs dépendant de la taille réservée. Un entier de 8 bits peut, par exemple, représenter $2^8 = 256$ valeurs différentes, de 0 à 255. Un entier de 16 bits en représente $2^{16} = 65 536$, de 0 à 65 535. Chaque bit supplémentaire double la plage disponible.
 
 !!! example
 
@@ -79,9 +80,9 @@ $$
 \mathbb{Z} = {..., -3, -2, -1, 0, 1, 2, 3, ...}
 $$
 
-Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son [[encodage]] et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car manque une information permettant d'encoder le symbole pour le signe `-` (ni même d'ailleurs `+`).
+Vous le savez désormais, l'interprétation d'une valeur binaire n'est possible qu'en connaissant son [[encodage]]. S'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car il manque une information pour représenter le signe `-` (et, de la même manière, le signe `+`).
 
-Une approche naïve serait de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. Un peu comme si vous aviez deux boîtes chez vous, l'une pour les choses qui se mangent (le frigo) et une pour les choses qui ne se mangent plus (la poubelle).
+Une première idée consisterait à réserver une partie de la mémoire aux entiers positifs et une autre aux entiers négatifs, en stockant la correspondance binaire/décimale séparément. Ce serait un peu comme disposer chez soi de deux boîtes : l'une pour les aliments encore consommables (le réfrigérateur), l'autre pour ceux qui ne le sont plus (la poubelle).
 
 L'ennui pour les **variables** c'est que le contenu peut changer et qu'un [[nombre négatif]] pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meilleure méthode.
 
@@ -100,11 +101,11 @@ Pourquoi ne pas se réserver un [[bit de signe]], par exemple le 8^e^ bit de not
 └─┘└─┴─┴─┴─┴─┴─┴─┘
 ```
 
-Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable est n'est plus que de `[-127..127]`. Néanmoins, elle présente un autre inconvénient majeur : la représentation du zéro.
+Cette méthode impose de sacrifier un bit ; l'intervalle représentable se limite donc à `[-127..127]`. Elle souffre en outre d'un autre inconvénient majeur : la représentation du zéro.
 
-Dans cette représentation, il existe deux zéros : le [[zéro]] négatif `0b00000000`, et le zéro positif `0b10000000` ce qui peut poser des problèmes pour les comparaisons. Est-ce que $0$ est égal $-0$ ? En un sens oui, mais en termes de l'information stockée, ce n'est pas le même nombre.
+Dans cette représentation, il existe deux zéros : le [[zéro]] négatif `0b00000000` et le zéro positif `0b10000000`, ce qui complique les comparaisons. $0$ est-il égal à $-0$ ? Conceptuellement oui, mais l'information stockée diffère.
 
-En termes de calculs, l'[[addition]] ne fonctionne plus si on raisonne sur les bits. Car si on additionne au zéro positif (`0b10000000`) la valeur 1 on aura 1, mais si on additionne au zéro négatif (`0b00000000`) la valeur 1 on obtiendra -1 et c'est un peu déroutant :
+Du point de vue des calculs, l'[[addition]] n'est plus cohérente si l'on raisonne directement sur les bits. En ajoutant 1 au zéro positif (`0b10000000`), on obtient 1, tandis qu'en ajoutant 1 au zéro négatif (`0b00000000`), on obtient −1 : résultat pour le moins déroutant.
 
 ```text
 000   001   010   011   100   101   110   111

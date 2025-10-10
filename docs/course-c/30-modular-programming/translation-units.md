@@ -2,21 +2,19 @@
 
 ## Unité de traduction
 
-En programmation, on appelle *translation unit* (unité de traduction), un code qui peut être **compilé** en un **objet** sans autre dépendance externe. Le plus souvent, une unité de traduction correspond à un fichier C.
+En programmation, on appelle *translation unit* (unité de traduction) toute portion de code qui peut être **compilée** en un **objet** sans dépendre d'autres fichiers. Dans la plupart des cas, une unité de traduction correspond à un fichier C unique.
 
 ## Diviser pour mieux régner
 
-De même qu'un magazine illustré est divisé en sections pour accroître la lisibilité (sport, news, annonces, météo) de même un code source est organisé en éléments fonctionnels le plus souvent séparés en plusieurs fichiers et ces derniers parfois maintenus par différents développeurs.
+Tout comme un magazine illustré distingue ses rubriques (sport, actualités, météo, annonces) pour améliorer la lisibilité, un code source gagne à être structuré en composants. Ces éléments fonctionnels sont répartis dans plusieurs fichiers, souvent entretenus par des personnes différentes.
 
-Rappelons-le (et c'est très important) :
+Gardons en tête quelques règles de bon sens :
 
-- une fonction ne devrait pas dépasser un écran de haut (~50 lignes) ;
-- un fichier ne devrait pas dépasser 1000 lignes ;
-- une ligne ne devrait pas dépasser 80 caractères.
+- une fonction ne devrait pas dépasser la hauteur d'un écran (~50 lignes) ;
+- un fichier ne devrait pas excéder 1 000 lignes ;
+- une ligne ne devrait pas s'étirer au-delà de 80 caractères.
 
-Donc à un moment, il est essentiel de diviser son travail en créant plusieurs fichiers.
-
-Ainsi, lorsque le programme commence à être volumineux, sa lecture, sa compréhension et sa mise au point deviennent délicates même pour le plus aguerri des développeurs. Il est alors essentiel de scinder le code source en plusieurs fichiers. Prenons l'exemple d'un programme qui effectue des calculs sur les nombres complexes. Notre projet est donc constitué de trois fichiers :
+Lorsque le volume de code augmente, la lecture, la compréhension et le débogage deviennent rapidement ardus, même pour une équipe expérimentée. Diviser son travail en plusieurs fichiers permet de retrouver de la clarté. Prenons un exemple simple de programme qui manipule des nombres complexes. Notre projet comporte trois fichiers :
 
 ```console
 $ tree
@@ -26,11 +24,9 @@ $ tree
 └── main.c
 ```
 
-Le programme principal et la fonction `main` est contenu dans `main.c` quant au module *complex* il est composé de deux fichiers : `complex.h` l'en-tête et `complex.c`, l'implémentation du module.
+Le programme principal et la fonction `main` sont contenus dans `main.c`, tandis que le module `complex` repose sur deux fichiers : `complex.h`, l'en-tête, et `complex.c`, l'implémentation proprement dite.
 
-Le fichier `main.c` devra inclure le fichier `complex.h` afin de
-pouvoir utiliser correctement les fonctions du module de gestion des
-nombres complexes. Exemple :
+Le fichier `main.c` doit inclure `complex.h` afin d'utiliser correctement les fonctions du module de gestion des nombres complexes. Exemple :
 
 ```c
 // fichier main.c
@@ -68,11 +64,9 @@ void complex_fprint(FILE* fp, const Complex c) {
 }
 ```
 
-Un des avantages majeurs à la création de modules est qu'un module
-logiciel peut être réutilisé pour d'autres applications. Plus besoin de
-réinventer la roue à chaque application !
+L'un des bénéfices majeurs de cette organisation est la réutilisation. Un module logiciel bien conçu pourra servir dans plusieurs applications sans que l'on ait à réinventer la roue.
 
-Cet exemple sera compilé dans un environnement POSIX de la façon suivante :
+Dans un environnement POSIX, ce projet se compile ainsi :
 
 ```console
 gcc -c complex.c -o complex.o
@@ -80,42 +74,42 @@ gcc -c main.c -o main.o
 gcc complex.o main.o -oprogram -lm
 ```
 
-Nous verrons plus bas les éléments théoriques vous permettant de mieux comprendre ces lignes.
+Nous détaillerons plus loin les éléments théoriques qui se cachent derrière ces commandes.
 
 ## Module logiciel
 
-Les applications modernes dépendent souvent de nombreux modules logiciels externes aussi utilisés dans d'autres projets. C'est avantageux à plus d'un titre :
+Les applications modernes s'appuient fréquemment sur des modules logiciels externes, eux-mêmes partagés entre plusieurs projets. Cette démarche est payante à plusieurs titres :
 
-- les modules externes sont sous la responsabilité d'autres développeurs et le programme a développer comporte moins de code ;
-- les modules externes sont souvent bien documentés et testés et il est facile de les utiliser ;
-- la lisibilité du programme est accrue, car il est bien découpé en des ensembles fonctionnels ;
-- les modules externes sont réutilisables et indépendants, ils peuvent donc être réutilisés sur plusieurs projets.
+- les modules externes sont maintenus par d'autres développeuses et développeurs, ce qui réduit la quantité de code à écrire localement ;
+- ces modules bénéficient souvent d'une documentation et de tests robustes, d'où une prise en main rapide ;
+- la lisibilité du programme s'améliore grâce à un découpage clair en ensembles fonctionnels ;
+- des modules autonomes et bien définis peuvent être réutilisés sur plusieurs projets sans effort supplémentaire.
 
-Lorsque vous utilisez la fonction `printf`, vous dépendez d'un module externe nommé `stdio`. En réalité l'ensemble des modules `stdio`, `stdlib`, `stdint`, `ctype`... sont tous groupés dans une seule bibliothèque logicielle nommée `libc` disponible sur tous les systèmes compatibles POSIX. Sous Linux, le pendant libre `glibc` est utilisé. Il s'agit de la bibliothèque [GNU C Library](https://fr.wikipedia.org/wiki/GNU_C_Library).
+Lorsque vous utilisez la fonction `printf`, vous dépendez d'un module externe nommé `stdio`. En réalité, l'ensemble des modules `stdio`, `stdlib`, `stdint`, `ctype`, etc. est regroupé au sein d'une unique bibliothèque logicielle nommée `libc`, disponible sur tous les systèmes compatibles POSIX. Sous GNU/Linux, on utilise généralement sa version libre `glibc`, c'est-à-dire la [GNU C Library](https://fr.wikipedia.org/wiki/GNU_C_Library).
 
-Un module logiciel peut se composer de fichiers sources, c'est-à-dire un ensemble de fichiers `.c` et `.h` ainsi qu'une documentation et un script de compilation (`Makefile`). Alternativement, un module logiciel peut se composer de bibliothèques déjà compilées sous la forme de fichiers `.h`, `.a` et `.so`. Sous Windows on rencontre fréquemment l'extension `.dll`. Ces fichiers compilés ne donnent pas accès au code source, mais permettent d'utiliser les fonctionnalités quelles offrent dans des programmes C en mettant à disposition un ensemble de fonctions documentées.
+Un module logiciel peut se composer de fichiers sources, c'est-à-dire de fichiers `.c` et `.h`, accompagnés d'une documentation et d'un script de compilation (`Makefile`). À l'inverse, il peut également être fourni directement sous forme binaire, via des fichiers `.h`, `.a` et `.so`. Sous Windows, on rencontre fréquemment l'extension `.dll`. Ces fichiers compilés ne dévoilent pas le code source, mais ils mettent à disposition un ensemble de fonctions documentées que l'on peut relier depuis un programme C.
 
 ## Compilation avec assemblage différé
 
-Lorsque nous avions compilé notre premier exemple [Hello World][hello-world] nous avions simplement appelé `gcc` avec le fichier source `hello.c` qui nous avait créé un exécutable `a.out`. En réalité, GCC est passé par plusieurs sous-étapes de compilation :
+Lorsque nous avons compilé notre premier exemple [Hello World][hello-world], nous avons simplement invoqué `gcc` sur le fichier source `hello.c`, ce qui a produit un exécutable `a.out`. En réalité, GCC enchaîne plusieurs étapes distinctes :
 
-1. **Préprocessing** : les commentaires sont retirés, les directives préprocesseur sont remplacées par leur équivalent C.
-2. **Compilation** : le code C d'une seule *translation unit* est converti en langage machine en un fichier objet `.o`.
-3. **Édition des liens** : aussi nommés *link*, les différents fichiers objets sont réunis en un seul exécutable.
+1. **Prétraitement** : les commentaires sont retirés et les directives du préprocesseur sont remplacées par leur équivalent en C.
+2. **Compilation** : le code C d'une *translation unit* est transformé en langage machine dans un fichier objet `.o`.
+3. **Édition des liens** (*linking*) : les différents fichiers objets sont rassemblés pour former un exécutable unique.
 
-Lorsqu'un seul fichier est fourni à GCC, les trois opérations sont effectuées en même temps, mais ce n'est plus possible aussitôt que le programme est composé de plusieurs unités de translation (plusieurs fichiers C). Il est alors nécessaire de compiler manuellement chaque fichier source et d'en créer.
+Lorsqu'un seul fichier est fourni à GCC, ces trois opérations s'exécutent en une seule commande. Dès qu'un projet comporte plusieurs unités de traduction, il faut en revanche compiler chaque fichier séparément, puis demander explicitement l'édition des liens.
 
-La figure suivante résume les différentes étapes de GCC. Les pointillés indiquent à quel niveau les opérations peuvent s'arrêter. Il est dès lors possible de passer par des fichiers intermédiaires assembleur (`.s`) ou objets (`.o`) en utilisant la bonne commande.
+La figure suivante résume ces étapes. Les pointillés indiquent à quel niveau le processus peut s'interrompre. On peut ainsi générer des fichiers intermédiaires assembleur (`.s`) ou objets (`.o`) en ajoutant les options appropriées.
 
 ![Étapes intermédiaires de compilation avec GCC](/assets/images/gcc.drawio)
 
 
-Notons que ces étapes existent, quel que soit le compilateur ou le système d'exploitation. Nous retrouverons ces exactes mêmes étapes avec Microsoft Visual Studio, mais le nom des commandes et les extensions des fichiers peuvent varier s'ils ne respectent pas la norme POSIX (et GNU).
+Ces étapes existent quel que soit le compilateur ou le système d'exploitation. On les retrouve par exemple dans Microsoft Visual Studio, même si les commandes et les extensions de fichiers diffèrent lorsqu'elles ne suivent pas les conventions POSIX (et GNU).
 
-Notons que généralement, seul deux étapes de GCC sont utilisées :
+En pratique, on ne retient souvent que deux commandes :
 
-1. Compilation avec `gcc -c <fichier.c>`, ceci génère automatiquement un fichier `.o` du même nom que le fichier d'entrée.
-2. Édition des liens avec `gcc <fichier1.o> <fichier2.o> ...`, ceci génère automatiquement un fichier exécutable `a.out`.
+1. `gcc -c <fichier.c>` : génère un fichier objet `.o` portant le même nom que le fichier source ;
+2. `gcc <fichier1.o> <fichier2.o> ...` : assemble les objets listés en un exécutable `a.out` (ou en un fichier nommé via l'option `-o`).
 
 ## Fichiers d'en-tête (*header*)
 
@@ -125,7 +119,7 @@ Les fichiers d'en-tête (`.h`) sont des fichiers écrits en langage C, mais qui 
 - Des déclarations de types (`typedef`, `struct`).
 - Des définitions préprocesseur (`#include`, `#define`).
 
-Nous l'avons vu dans le chapitre sur le préprocesseur, la directive `#include` ne fais qu'inclure le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fort déconseillé), d'avoir la situation suivante :
+Comme nous l'avons vu dans le chapitre sur le préprocesseur, la directive `#include` ne fait qu'insérer le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fortement déconseillé) d'obtenir la situation suivante :
 
 ```c title="main.c"
 int main() {
@@ -170,9 +164,9 @@ printf("hello bar\n");
 }
 ```
 
-Lorsque l'on observe le résultat du préprocesseur, on s'aperçoit que toutes les directives préprocesseur ont disparues et que la directive `#include` a été remplacée par de contenu de `foobar.def`. Remarquons que le fichier est inclus deux fois, nous verrons plus loin comme éviter cela.
+En observant le résultat du préprocesseur, on s'aperçoit que toutes les directives ont disparu et que `#include` a été remplacé par le contenu de `foobar.def`. Le fichier est inclus deux fois ; nous verrons plus loin comment éviter ce piège.
 
-Nous avons vu au chapitre sur les [prototypes de fonctions][function-prototype] qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de savoir combien d'arguments est composé une fonction sans nécessairement disposer de l'implémentation de cette fonction. Aussi on trouve dans tous les fichiers d'en-tête des déclarations en amont (*forward declaration*). Dans le fichier d'en-tête `stdio.h` on trouvera la ligne : `int printf( const char *restrict format, ... );`.
+Nous avons vu au chapitre sur les [prototypes de fonctions][function-prototype] qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de connaître le nombre d'arguments attendus sans disposer immédiatement de l'implémentation. On trouve donc dans tous les fichiers d'en-tête des déclarations en amont (*forward declarations*). Dans `stdio.h`, on lira par exemple : `int printf( const char *restrict format, ... );`.
 
 ```bash
 $ cat << EOF > main.c
@@ -183,13 +177,13 @@ $ gcc -E main.c | grep -P '\bprintf\b'
 extern int printf (const char *__restrict __format, ...);
 ```
 
-Notons qu'ici le prototype est précédé par le mot clé `extern`. Il s'agit d'un mot clé **optionnel** permettant de renforcer l'intention du développeur que la fonction déclarée n'est pas inclue dans fichier courant, mais qu'elle est implémentée ailleurs, dans un autre fichier. Et c'est le cas, car `printf` est déjà compilée quelque part dans la bibliothèque `libc` inclue par défaut lorsqu'un programme C est compilé dans un environnement POSIX.
+Notons qu'ici le prototype est précédé par le mot-clé `extern`. Ce mot-clé **optionnel** précise que la fonction déclarée n'est pas implémentée dans le fichier courant, mais ailleurs. C'est bien le cas : `printf` est déjà compilée dans la bibliothèque `libc`, liée par défaut lorsqu'un programme C est compilé dans un environnement POSIX.
 
 Un fichier d'en-tête contiendra donc tout le nécessaire utile à pouvoir utiliser une bibliothèque externe.
 
 ### Protection de réentrance
 
-La protection de réentrence aussi nommée *header guards* est une solution au problème d'inclusion multiple. Si par exemple on définit dans un fichier d'en-tête un nouveau type et que l'on inclut ce fichier, mais que ce dernier est déjà inclus par une autre bibliothèque, une erreur de compilation apparaîtra :
+La protection de réentrance, aussi nommée *header guard*, répond au problème des inclusions multiples. Si l'on définit un nouveau type dans un fichier d'en-tête et que ce fichier est inclus deux fois par des chemins différents, une erreur de compilation apparaîtra :
 
 ```bash
 $ cat << EOF > main.c
@@ -230,7 +224,7 @@ bar.h:3:3: error: conflicting types for ‘Bar’
 ...
 ```
 
-Dans cet exemple l'utilisateur ne sait pas forcément que `bar.h` est déjà inclus avec `foo.h` et le résultat après pré-processing est le suivant :
+Dans cet exemple, la personne qui écrit `main.c` ignore que `bar.h` est déjà inclus via `foo.h`. Après prétraitement, le résultat est le suivant :
 
 ```bash
 $ gcc -E main.c | sed '/^#/ d'
@@ -250,7 +244,7 @@ foo(bar);
 
 On y retrouve la définition de `Bar` deux fois et donc, le compilateur génère une erreur.
 
-Une solution à ce problème est d'ajouter des gardes d'inclusion multiple par exemple avec ceci:
+Pour résoudre cette difficulté, on ajoute des gardes d'inclusion multiple, par exemple :
 
 ```c
 #ifndef BAR_H
@@ -263,9 +257,9 @@ int b, a, r;
 #endif // BAR_H
 ```
 
-Si aucune définition du type `#define BAR_H` n'existe, alors le fichier `bar.h` n'a jamais été inclus auparavant et le contenu de la directive `#ifndef BAR_H` dans lequel on commence par définir `BAR_H` est exécuté. Lors d'une future inclusion de `bar.h`, la valeur de `BAR_H` aura déjà été définie et le contenu de la directive `#ifndef BAR_H` ne sera jamais exécuté.
+Si aucune définition `#define BAR_H` n'existe, c'est que le fichier `bar.h` n'a encore jamais été inclus et le contenu de la directive `#ifndef BAR_H` — qui commence par définir `BAR_H` — est exécuté. Lors d'une inclusion ultérieure, `BAR_H` sera déjà défini et le contenu de la directive sera ignoré.
 
-Alternativement, il existe une solution **non standard**, mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma :
+Il existe aussi une solution **non standard**, mais supportée par la plupart des compilateurs :
 
 ```c
 #pragma once
@@ -275,7 +269,7 @@ int b, a, r;
 } Bar;
 ```
 
-Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un `#endif` à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT, car le nom du fichier `bar.h` n'apparaît pas dans le fichier `BAR_H`.
+Cette directive est équivalente à la méthode traditionnelle et présente plusieurs avantages. Elle est atomique — pas besoin de `#endif` — et respecte naturellement la règle *single source of truth*, car le nom du fichier n'est pas dupliqué dans une constante.
 
 ## En profondeur
 
@@ -289,7 +283,7 @@ int foo(int a) {
 }
 ```
 
-Puisqu'il ne contient pas de fonction main, il n'est pas possible de compiler ce fichier en un exécutable car il manque un point d'entrée :
+Puisqu'il ne contient pas de fonction `main`, il est impossible d'en faire un exécutable : il manque un point d'entrée.
 
 ```sh
 gcc foo.c
@@ -298,12 +292,12 @@ gcc foo.c
 collect2: error: ld returned 1 exit status
 ```
 
-Le *linker* se termine avec une erreur : *référence à 'main' inexistante*.
+L'éditeur de liens signale alors l'erreur suivante : *référence à 'main' inexistante*.
 
-En revanche, il est possible de compiler un objet, c'est-à-dire générer les instructions assembleur. La fonction `bar` étant manquante, le compilateur suppose qu'elle existe quelque part en mémoire et se contentera de dire *moi j'appelle cette fonction ou qu'elle se trouve*.
+En revanche, on peut compiler un objet, c'est-à-dire générer les instructions assembleur. La fonction `bar` étant manquante, le compilateur suppose qu'elle sera fournie ailleurs et se contente de dire : *j'appellerai cette fonction, où qu'elle se trouve*.
 
 ```sh
-$objdump -d foo.o
+$ objdump -d foo.o
 
 foo.o:     file format elf64-x86-64
 
@@ -323,7 +317,7 @@ Disassembly of section .text:
 1d:   c3                retq
 ```
 
-On constate à la ligne `19` que l'addition à bien lieu `eax + 42`, et que l'appel de la fonction `bar` se produit à la ligne `14`.
+On constate à la ligne `19` que l'addition a bien lieu (`eax + 42`) et que l'appel de `bar` se produit à la ligne `14`.
 
 Maintenant, considérons le programme principal :
 
@@ -344,7 +338,7 @@ int main() {
 En générant l'objet `gcc -c main.c`, on peut également afficher l'assembleur généré avec `objdump` :
 
 ```sh
-$objdump -d main.o
+$ objdump -d main.o
 
 main.o:     file format elf64-x86-64
 
@@ -375,9 +369,9 @@ Disassembly of section .text:
 3d:   c3                      retq
 ```
 
-On observe l'appel de la fonction `foo` à la ligne `1f` et l'appel de `printf` à la ligne `32`.
+On observe l'appel de `foo` à la ligne `1f` et celui de `printf` à la ligne `32`.
 
-L'assemblage de ces deux fichiers en un exécutable résout les liens en modifiant les adresses d'appel des fonctions puisqu'elles sont maintenant connues (notons que certaines lignes ont été retirées pour plus de lisibilité) :
+L'assemblage de ces deux fichiers en un exécutable résout les liens en mettant à jour les adresses d'appel des fonctions désormais connues (certaines lignes sont retirées ci-dessous pour alléger la lecture) :
 
 ```sh
 $ gcc foo.o main.o
@@ -428,8 +422,8 @@ Disassembly of section .text:
     11af:       90                      nop
 ```
 
-On constate que les appels de fonctions ont été bien remplacés par les bons noms :
+On constate que les appels de fonctions ont été correctement résolus :
 
-- `115d` Appel de `bar`
-- `1186` Appel de `foo`
-- `1199` Appel de `printf`
+- `115d` appel de `bar` ;
+- `1186` appel de `foo` ;
+- `1199` appel de `printf`.

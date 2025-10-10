@@ -8,7 +8,7 @@ epigraph:
 
 La [récursivité](https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9) est une technique de programmation dans laquelle une fonction s'appelle elle-même pour résoudre un problème. Cela signifie que la fonction résout une partie du problème et appelle ensuite la fonction elle-même pour résoudre le reste du problème.
 
-La récursivité est utilisée pour résoudre des problèmes qui peuvent être décomposés en problèmes plus petits de la même nature. Par exemple, la factorielle d'un nombre est le produit de tous les entiers positifs inférieurs ou égaux à ce nombre. La factorielle d'un nombre `n` est `n! = n * (n-1)!`.
+La récursivité est utilisée pour résoudre des problèmes qui peuvent être décomposés en sous-problèmes plus petits de même nature. Par exemple, la factorielle d'un nombre est le produit de tous les entiers positifs inférieurs ou égaux à ce nombre ; on la définit ainsi : `n! = n × (n - 1)!`.
 
 Au chapitre sur les fonctions, nous avions donné l'[exemple du calcul de la somme de la suite de Fibonacci][fib-iterative] jusqu'à `n` :
 
@@ -29,11 +29,11 @@ int fib(int n)
 }
 ```
 
-Il peut sembler plus logique de raisonner de façon récursive. Quelle que soit l'itération à laquelle l'on soit, l'assertion suivante est valable :
+Il peut sembler plus naturel de raisonner de façon récursive. Quelle que soit l'itération considérée, l'assertion suivante reste valable :
 
 $$fib(n) == fib(n - 1) + fib(n - 2)$$
 
-Donc pourquoi ne pas réécrire cette fonction en employant ce caractère récursif ?
+Pourquoi ne pas réécrire cette fonction en exploitant cette relation de récurrence ?
 
 ```c
 int fib(int n)
@@ -43,9 +43,9 @@ int fib(int n)
 }
 ```
 
-Le code est beaucoup plus simple à écrire, et même à lire. Néanmoins cet algorithme est notoirement connu pour être très mauvais en termes de performance. Calculer `fib(5)` revient à la chaîne d'appel suivant.
+Le code est beaucoup plus simple à écrire, et même à lire. Néanmoins, cet algorithme est tristement célèbre pour ses performances médiocres. Calculer `fib(5)` conduit à la chaîne d'appels suivante.
 
-Cette chaîne d'appel représente le nombre de fois que `fib` est appelé et à quel niveau elle est appelée. Par exemple `fib(4)` est appelé dans `fib(5)` :
+Cette chaîne d'appels indique combien de fois `fib` est invoquée et à quel niveau de la pile. Par exemple, `fib(4)` est appelé dans `fib(5)` :
 
 ```mermaid
 %% Arbre d'appel de Fibonacci
@@ -69,7 +69,7 @@ graph TD
 23 --> 15(("fib(1)"))
 ```
 
-Au final, `fib(1)` est appelé 5 fois, `fib(2)` 3 fois, `fib(3)` 2 fois, `fib(4)` et `fib(5)` 1 fois. Ce sont donc 12 appels à la fonction `fib` pour calculer `fib(5)`.
+Au final, `fib(1)` est appelé cinq fois, `fib(2)` trois fois, `fib(3)` deux fois et `fib(4)` comme `fib(5)` une seule fois. Il faut donc douze appels à la fonction `fib` pour calculer `fib(5)`.
 
 | Calcul   | Appels                      |
 | -------- | --------------------------- |
@@ -89,26 +89,26 @@ Au final, `fib(1)` est appelé 5 fois, `fib(2)` 3 fois, `fib(3)` 2 fois, `fib(4)
 | fib(50)  | 32'951'280'098              |
 | fib(100) | 927'372'692'193'078'999'175 |
 
-Il s'agit de la suite [A000071](https://oeis.org/A000071) de l'OEIS. On constate que le nombre d'appels est exponentiel. Pour `fib(100)` il faudra neuf cent vingt-sept quintillions trois cent soixante-douze quadrillions six cent quatre-vingt-douze trillions cent quatre-vingt-treize milliards soixante-dix-huit millions neuf cent quatre-vingt-dix-neuf mille cent soixante-quinze appels à la fonction `fib`. Pour un processeur capable de calculer 100 GFLOPS (milliards d'opérations par seconde), il faudra tout de même 294 ans. C'est un peu long...
+Il s'agit de la suite [A000071](https://oeis.org/A000071) de l'OEIS. On constate que le nombre d'appels explose de manière exponentielle. Pour `fib(100)`, il faudrait neuf cent vingt-sept quintillions trois cent soixante-douze quadrillions six cent quatre-vingt-douze trillions cent quatre-vingt-treize milliards soixante-dix-huit millions neuf cent quatre-vingt-dix-neuf mille cent soixante-quinze invocations de `fib`. Avec un processeur capable de réaliser 100 GFLOPS (milliards d'opérations par seconde), cela représenterait tout de même près de 294 ans de calcul : un délai difficilement acceptable.
 
-La complexité algorithmique de cette fonction est dite $O(2^n)$. C'est-à-dire que le nombre d'appels suit une relation exponentielle. La réelle complexité est donnée par la relation :
+La complexité algorithmique de cette fonction est dite $O(2^n)$. Autrement dit, le nombre d'appels suit une relation exponentielle. La complexité exacte est donnée par la relation :
 
-En revanche, dans l'approche itérative, on constate qu'une seule boucle `for`. C'est-à-dire qu'il faudra seulement 100 itérations pour calculer la somme.
+En revanche, l'approche itérative ne requiert qu'une seule boucle `for`. Il suffit donc de 100 itérations pour calculer la même somme.
 
-Généralement les algorithmes récursifs (s'appelant eux-mêmes) sont moins performants que les algorithmes itératifs (utilisant des boucles). Néanmoins il est parfois plus facile d'écrire un algorithme récursif.
+De manière générale, les algorithmes récursifs (qui s'appellent eux-mêmes) sont moins performants que leurs équivalents itératifs (basés sur des boucles). Néanmoins, il est parfois plus aisé de concevoir une version récursive.
 
-Notons que tout algorithme récursif peut être écrit en un algorithme itératif, mais ce n'est pas toujours facile.
+Notons que tout algorithme récursif peut être réécrit sous une forme itérative, mais l'exercice est loin d'être toujours trivial.
 
 ## Les tours de Hanoï
 
-Les [tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF) est un jeu de réflexion inventé par le mathématicien français Édouard Lucas en 1889 et publié dans le tome 3 de ses Récréations mathématiques. Le jeu est composé de trois tiges et d'un certain nombre de disques de diamètres différents qui peuvent être empilés sur une tige. Le but du jeu est de déplacer tous les disques d'une tige à une autre, en respectant les règles suivantes :
+Les [tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF) sont un jeu de réflexion imaginé par le mathématicien français Édouard Lucas en 1889 et publié dans le tome 3 de ses *Récréations mathématiques*. Le dispositif comporte trois tiges et un certain nombre de disques de diamètres différents pouvant être empilés sur chaque tige. L'objectif est de déplacer tous les disques d'une tige à une autre en respectant les règles suivantes :
 
 1. On ne peut déplacer qu'un seul disque à la fois.
 2. Un disque ne peut être placé que sur un disque plus grand que lui ou sur une tige vide.
 
 ![Tours de Hanoï](/assets/images/hanoi.drawio)
 
-Ce problème se prête très bien à une résolution récursive. En effet, pour déplacer `n` disques de la tige `A` à la tige `C`, il suffit de déplacer `n-1` disques de la tige `A` à la tige `B`, puis de déplacer le disque restant de la tige `A` à la tige `C`, et enfin de déplacer les `n-1` disques de la tige `B` à la tige `C`.
+Ce problème se prête parfaitement à une résolution récursive. Pour déplacer `n` disques de la tige `A` vers la tige `C`, il suffit de transférer `n - 1` disques de `A` vers `B`, de déplacer le disque restant de `A` vers `C`, puis de déplacer les `n - 1` disques de `B` vers `C`.
 
 === "Algorithme Récursif"
 
@@ -122,7 +122,7 @@ Ce problème se prête très bien à une résolution récursive. En effet, pour 
     --8<-- "docs/assets/src/hanoi-iterative.c"
     ```
 
-Ce qui donne le résultat suivant :
+L'exécution produit le résultat suivant :
 
 ```text
 Déplacer le disque 1 de A à C
@@ -134,15 +134,15 @@ Déplacer le disque 2 de B à C
 Déplacer le disque 1 de A à C
 ```
 
-On voit que l'implémentation itérative est bien plus complexe que l'implémentation récursive. C'est pourquoi il est souvent plus simple d'écrire un algorithme récursif, mais pas nécessairement plus performant.
+On observe que l'implémentation itérative est sensiblement plus complexe que la version récursive. Voilà pourquoi il est souvent plus simple d'écrire un algorithme récursif, sans pour autant qu'il soit plus performant.
 
-## Utilisation du stack
+## Utilisation de la pile
 
-En C, la récursivité est gérée par le stack. Chaque appel de fonction est empilé sur le stack. Lorsque la fonction retourne, elle est dépilée du stack. Il est important de noter que le stack a une taille limitée. Par défaut, sous Linux la taille du stack est de 8 Mio (donné par la commande `ulimit -s`), sous Windows c'est 1 Mio. Si la récursivité est trop profonde, il y a un risque de stack overflow.
+En C, la récursivité est gérée par la pile d'exécution (*stack*). Chaque appel de fonction y est empilé. Lorsque la fonction retourne, son cadre est dépilé. Il est important de noter que la pile a une taille limitée : par défaut, sous Linux, elle est d'environ 8 Mio (valeur donnée par la commande `ulimit -s`) et, sous Windows, d'environ 1 Mio. Si la récursivité est trop profonde, le risque de dépassement de pile (*stack overflow*) devient réel.
 
-D'autre part, une fonction récursive qui utilise beaucoup de variables locales et beaucoup de paramètres seront tous empilés sur le stack. Cela peut rapidement saturer la mémoire.
+Par ailleurs, une fonction récursive qui utilise de nombreuses variables locales et paramètres stocke toutes ces données sur la pile. Celle-ci peut donc se saturer très rapidement.
 
-Prenons l'exemple suivant d'une fonction récursive qui déclare un tableau de 1Mio de caractères :
+Considérons l'exemple suivant d'une fonction récursive qui déclare un tableau de 1 Mio de caractères :
 
 ```c
 --8<-- "docs/assets/src/stack-overflow.c"

@@ -2,86 +2,86 @@
 
 ## Introduction
 
-Le processeur, c'est le cerveau de l'ordinateur. C'est l'unité centrale de traitement (CPU) qui exécute les instructions et les calculs nécessaires pour faire fonctionner un système informatique. Par analogie à la [Machine de Turing][turingmachine], un processeur est un automate **Turing complet** qui exécute des instructions séquentiellement. Il a besoin pour cela d'une mémoire de travail pour stocker les calculs en cours, et une mémoire de programme qui contient la liste des instructions à exécuter.
+Le processeur est souvent présenté comme le cerveau de l'ordinateur. Cette unité centrale de traitement (CPU) exécute les instructions et réalise les calculs nécessaires au fonctionnement du système informatique. Par analogie avec la [Machine de Turing][turingmachine], un processeur est un automate **Turing-complet** qui traite les instructions de façon séquentielle. Pour ce faire, il s'appuie sur une mémoire de travail, où sont stockés les calculs en cours, et sur une mémoire de programme qui contient la liste des opérations à effectuer.
 
-Une mémoire fonctionne comme un livre, pour obtenir un contenu (données), on doit l'ouvrir à une page spécifique (adresse). En pratique les mémoires sont adressables par octets. Avec une adresse de 64 bits, on peut adresser 2^64 octets, soit 16 exaoctets, ce qui ne sera pas un problème pour les prochaines décennies.
+Une mémoire s'utilise comme un livre : pour accéder à une information, il faut l'ouvrir à une page précise, l'adresse. En pratique, les mémoires modernes sont adressables au niveau de l'octet. Avec un bus d'adresses sur 64 bits, il est possible de désigner $2^{64}$ octets, soit 16 exaoctets, de quoi voir venir pendant de nombreuses décennies.
 
-Depuis le début de l'ère informatique, les processeurs n'ont cessé de se perfectionner pour offrir des performances toujours plus élevées. Les processeurs modernes sont des architectures très complexes que nous ne pourrons approfondir dans ce cours, mais nous allons voir les principaux composants et fonctionnalités qui les caractérisent.
+Depuis le début de l'ère informatique, les processeurs se perfectionnent sans relâche pour offrir des performances toujours plus élevées. Leur architecture contemporaine est extrêmement riche, et nous n'en ferons pas une étude exhaustive dans ce cours. Nous nous concentrerons cependant sur les composants et les fonctionnalités clés qui permettent de comprendre leur fonctionnement.
 
 ![Puce de processeur](/assets/images/die-finger.png)
 
 ## Architecture de bus
 
-Comme évoqué, le processeur interagit principalement avec de la mémoire. Cette dernière peut être connectée au processeur de différentes manières. On parle de l'architecture de bus. Les deux principales architectures sont l'architecture Von Neumann et l'architecture Harvard. Elles sont deux modèles fondamentaux d'organisation d'un système informatique, qui se distinguent principalement par la façon dont elles gèrent la mémoire et le bus de données.
+Comme évoqué, le processeur dialogue essentiellement avec la mémoire. Celle-ci peut être reliée au processeur selon plusieurs schémas : on parle alors d'architecture de bus. Les deux modèles historiques sont l'architecture de von Neumann et l'architecture Harvard, qui se différencient principalement par leur gestion de la mémoire et des bus de données.
 
-Chacune a ses avantages et inconvénients, et elles sont utilisées dans différents contextes selon les besoins spécifiques du système.
+Chaque modèle présente ses forces et ses limites, et ils sont employés dans des contextes variés en fonction des contraintes du système.
 
 ![Comparaison Harvard et Von Neumann](/assets/images/von-neumann-harvard.drawio)
 
-Dans le modèle de John von Neumann (a), les instructions et les données sont stockées dans une mémoire unifiée, et le processeur utilise le même bus pour accéder à la mémoire, qu'il s'agisse d'instructions ou de données. Cela rend l'architecture plus simple et plus flexible, mais peut entraîner des goulets d'étranglement si le processeur doit accéder à la mémoire pour les deux types d'opérations simultanément.
+Dans le modèle de John von Neumann (a), instructions et données partagent une mémoire unifiée, et le processeur utilise le même bus pour y accéder. L'architecture reste ainsi simple et flexible, mais elle peut créer des goulets d'étranglement lorsque instructions et données sont demandées simultanément.
 
-Avec l'architecture de Harvard, les instructions et les données sont stockées dans des mémoires séparées, chacune ayant son propre bus de données. Cela permet au processeur d'accéder simultanément à une instruction et à des données, améliorant les performances globales du système.
+L'architecture Harvard, elle, sépare instructions et données dans des mémoires distinctes, chacune desservie par son propre bus. Le processeur peut alors récupérer une instruction et une donnée en parallèle, ce qui améliore les performances globales.
 
-De nos jours, les processeurs modernes (x86-64, ARM, etc.) utilisent une architecture hybride qui combine des éléments des deux modèles. Par exemple, les caches de niveau 1 et 2 stockent à la fois les instructions et les données, tandis que la mémoire principale est organisée de manière Von Neumann. Cela permet de combiner les avantages des deux approches pour obtenir des performances optimales.
+Les processeurs modernes (x86-64, ARM, etc.) adoptent une approche hybride qui marie les deux modèles. Les caches de niveau 1 et 2 isolent souvent instructions et données, tandis que la mémoire principale reste organisée à la manière de von Neumann. Cette combinaison permet de tirer parti des atouts de chaque architecture.
 
 ## Structure interne
 
-Un processeur moderne prend la forme d'une puce de silicium (*die*) d'environ 1 à 2 cm². Elle contient plusieurs milliards de transistors organisés en différents blocs fonctionnels pour effectuer les opérations nécessaires au fonctionnement du processeur.
+Un processeur moderne prend la forme d'une puce de silicium (*die*) d'environ 1 à 2 cm². Elle renferme plusieurs milliards de transistors organisés en blocs fonctionnels spécialisés afin d'assurer toutes les opérations nécessaires.
 
 ![Diagramme d'un processeur](/assets/images/cpu-diagram.drawio)
 
-La figure ci-dessus représente un diagramme simplifié d'un processeur. Ce dernier se compose de 8 cœurs (ou *cores*) qui sont les unités de calcul principales du processeur. Historiquement les processeurs étaient monoprocesseurs, c'est-à-dire qu'ils ne disposaient que d'un seul cœur. Avec l'évolution de la technologie, et surtout l'impossibilité d'augmenter la fréquence des processeurs, les fabricants ont opté pour des processeurs multi-cœurs. Chaque cœur dispose d'une mémoire ultra-rapide appelée **Mémoire cache L2**, c'est l'équivalent de votre mémoire de travail à court terme, celle qui vous permet par exemple de retenir un numéro de téléphone le temps de le composer. Au centre des cœurs, on trouve une autre mémoire cache appelée **Mémoire cache L3** qui est partagée par tous les cœurs et permet de faciliter l'accès aux données partagées entre plusieurs processus. En haut à gauche, il y a deux contrôleurs de mémoire RAM connectés vers l'extérieur et reliés aux barrettes de mémoire.
+La figure ci-dessus représente un diagramme simplifié d'un processeur. Celui-ci comporte huit cœurs (ou *cores*), qui constituent ses unités de calcul principales. Historiquement, les processeurs n'offraient qu'un seul cœur, mais la montée en puissance des applications et la difficulté à augmenter encore la fréquence d'horloge ont poussé les fabricants vers le multicœur. Chaque cœur dispose d'une mémoire ultra-rapide appelée **cache L2**, comparable à une mémoire de travail à court terme qui permet, par exemple, de retenir un numéro de téléphone le temps de le composer. Au centre, une **mémoire cache L3** partagée facilite l'accès aux données communes à plusieurs processus. En haut à gauche, deux contrôleurs de mémoire relient la puce aux barrettes de RAM.
 
-Le DMI (Direct Media Interface chez Intel) ou QPI (QuickPath Interconnect chez Intel) est un bus qui est destiné à connecter le processeur au **chipset** qui gère les périphériques externes (USB, SATA, Ethernet, etc.). Le bus PCIe (Peripheral Component Interconnect Express) est un bus qui permet de connecter des cartes d'extension comme des cartes graphiques ou des dispositifs de stockage NVMe. Enfin, le processeur dispose souvent d'une ou plusieurs connectiques USB 3.
+Le DMI (*Direct Media Interface* chez Intel) ou le QPI (*QuickPath Interconnect*) relie le processeur au **chipset**, lequel gère les périphériques externes (USB, SATA, Ethernet, etc.). Le bus PCIe (*Peripheral Component Interconnect Express*) accueille des cartes d'extension comme les cartes graphiques ou les dispositifs de stockage NVMe. Enfin, la puce expose souvent une ou plusieurs connexions USB 3.x directement sur son boîtier.
 
-Lorsque vous démarrez un programme, le système d'exploitation charge le programme en mémoire, puis choisit un cœur pour exécuter le programme. Un processeur à 8 cœurs peut donc exécuter jusqu'à 8 programmes en parallèle. Dans certaines conditions, on peut avoir jusqu'à 16 programmes en parallèle si le processeur dispose de l'hyper-threading. L'hyper-threading est une technologie qui permet à un cœur de simuler deux cœurs logiques, ce qui permet de mieux exploiter les ressources du processeur.
+Lorsqu'un programme démarre, le système d'exploitation le charge en mémoire puis désigne un cœur pour l'exécuter. Un processeur à huit cœurs peut donc gérer jusqu'à huit tâches simultanées. Dans certaines conditions, il peut en traiter jusqu'à seize grâce à l'*hyper-threading*, une technologie qui permet à chaque cœur physique de présenter deux cœurs logiques et d'exploiter plus finement les ressources disponibles.
 
 ### Mémoire cache
 
-La mémoire cache est un élément clé de la performance d'un processeur. Elle permet de stocker temporairement les données les plus fréquemment utilisées par le processeur, ce qui permet d'accélérer l'accès à ces données et d'améliorer les performances globales du système. Rappelez-vous que la vitesse de la lumière est limitée. Avec une autoroute de 20 à 30 cm de distance entre le processeur et la mémoire, plus les péages, les bouchons et les accidents, le processeur a le temps d'exécuter entre 50 et 200 opérations avant qu'une donnée ne puisse être écrite ou lue depuis la RAM. La mémoire cache est donc une mémoire tampon, placée le plus proche possible du processeur (sur la même puce). Un processeur moderne dispose de plusieurs niveaux de cache.
+La mémoire cache est un élément clé de la performance d'un processeur. Elle stocke temporairement les données les plus fréquemment utilisées, accélérant leur accès et améliorant les performances globales du système. Souvenez-vous que la vitesse de propagation des signaux reste limitée : avec une « autoroute » de 20 à 30 cm entre processeur et mémoire, ponctuée de péages et de bouchons, le processeur peut exécuter entre 50 et 200 opérations avant qu'une donnée ne soit transférée depuis la RAM. La mémoire cache joue donc le rôle de tampon, installée au plus près du cœur de calcul, directement sur la puce. Un processeur moderne comporte plusieurs niveaux de cache.
 
 **L1**
 
-: Elle est très rapide, mais minuscule (quelques Kio). Elle est divisée en deux parties, une pour les instructions et une pour les données (selon le modèle de Harvard). Chaque cœur dispose de sa propre mémoire cache L1.
+: Elle est extrêmement rapide mais minuscule (quelques Kio). Elle se divise en deux blocs, l'un pour les instructions et l'autre pour les données, conformément au modèle Harvard. Chaque cœur possède sa propre L1.
 
 
 **L2**
 
-: Elle est plus grande (quelques Mio) et plus lente que la L1. Elle est propre à chaque cœur mais contient les instructions et les données mélangées (selon le modèle de Von Neumann).
+: Elle est plus vaste (quelques Mio) et légèrement plus lente que la L1. Propre à chaque cœur, elle mélange instructions et données à la manière de von Neumann.
 
 **L3**
 
-: Elle est encore plus grande (quelques dizaines de Mio) et plus lente que la L2. Elle est partagée par tous les cœurs et contient les instructions et les données mélangées.
+: Encore plus grande (quelques dizaines de Mio) et plus lente que la L2, elle est partagée par l'ensemble des cœurs et mêle instructions et données.
 
 Voici sur la figure suivante un exemple de hiérarchie de mémoire cache pour un processeur moderne. Plus l'accès est rapide, plus la mémoire est petite et plus elle est proche du processeur.
 
 ![Hiérarchie des mémoires cache](/assets/images/cache-hierarchy.drawio)
 
-Lorsque l'on cherche des performances, même si on ne connaît pas bien le fonctionnement interne d'un processeur, il est important de comprendre que la mémoire cache joue un rôle crucial car un programme d'apparence bien écrit, mais qui ne tient pas compte des limites de la mémoire cache, peut être des dizaines de fois plus lent qu'un programme qui les prend en compte. Que faut-il retenir ?
+Quand on vise la performance, même sans maîtriser chaque détail de l'architecture interne, il faut garder en tête le rôle central de la mémoire cache. Un programme apparemment soigné mais ignorant les contraintes de cache peut se révéler des dizaines de fois plus lent qu'une version pensée pour respecter ces limites. Que faut-il retenir ?
 
-Une mémoire cache est une mémoire temporaire, c'est votre pense-bête qui permet de vous rappeler des fleurs du jardin de votre grand-mère. Sans sortir de chez vous, vous pouvez savoir que de magnifiques renoncules poussent à l'ombre du cerisier. Cela reste vrai, pour autant qu'aucun mouton ne les ait mangées. Sans se rendre sur place, impossible de le savoir, et votre pense-bête ne vous est ici d'aucune utilité. Un autre problème, c'est que votre pense-bête ne comporte que quelques pages, alors que le jardin de votre grand-mère c'est Versailles, vous ne pouvez pas tout noter.
+On peut comparer la mémoire cache à un précieux pense-bête. Sans quitter votre salon, vous vous souvenez que de magnifiques renoncules s'épanouissent à l'ombre du cerisier de votre grand-mère — à condition qu'aucun mouton ne les ait grignotées entre-temps. Impossible d'en avoir la certitude tant que vous n'êtes pas allé vérifier sur place. Autre contrainte : ce pense-bête ne contient que quelques pages, alors que le jardin de votre grand-mère ressemble à Versailles. Vous ne pouvez pas tout y consigner.
 
-Ce qu'il faut retenir, c'est qu'une mémoire cache ne reste utile que pour autant que les copies des données qu'elle contient soient à jour avec la mémoire principale. Si un autre programme ou un autre cœur processeur modifie les données en mémoire, la mémoire cache devra être mise à jour. De la même manière, si vous voulez accéder à une donnée que vous n'avez pas en cache, vous devez la charger depuis la mémoire principale, puis remplacer une donnée existante dans la mémoire cache (car cette mémoire est petite). En termes techniques, ces différents soucis ont des noms :
+En pratique, la mémoire cache ne reste utile que si les copies qu'elle abrite demeurent synchronisées avec la mémoire principale. Si un autre programme ou un autre cœur modifie une donnée, le cache doit être mis à jour. De même, lorsqu'on accède à une donnée absente du cache, il faut la charger depuis la mémoire principale et évincer l'une des entrées existantes, faute d'espace. Ces difficultés portent des noms spécifiques :
 
 **Cohérence de cache**
 
-: C'est le problème de s'assurer que les copies des données en cache sont à jour avec la mémoire principale. Il existe plusieurs protocoles de cohérence de cache, comme le protocole MESI (Modified, Exclusive, Shared, Invalid) qui permet de gérer les accès concurrents aux données.
+: Il s'agit de garantir que les copies en cache reflètent bien la mémoire principale. Plusieurs protocoles, comme MESI (Modified, Exclusive, Shared, Invalid), coordonnent les accès concurrents aux données.
 
 **Consistance de cache**
 
-: C'est le problème de s'assurer que les données en cache sont cohérentes entre elles. Par exemple, si un cœur modifie une donnée, les autres cœurs doivent être informés de ce changement pour éviter les incohérences.
+: Elle consiste à maintenir une vision uniforme des données entre les différents caches. Lorsqu'un cœur modifie une valeur, les autres doivent en être informés pour éviter les incohérences.
 
 Un programme qui interagit avec la mémoire cache peut rencontrer deux cas de figure :
 
 **Cache miss**
 
-: C'est le problème de ne pas trouver une donnée en cache, ce qui oblige le processeur à la charger depuis la mémoire principale. Cela peut entraîner un ralentissement des performances, car l'accès à la mémoire principale est beaucoup plus lent que l'accès à la mémoire cache.
+: La donnée cherchée n'est pas en cache ; le processeur doit la rapatrier depuis la mémoire principale, beaucoup plus lente, ce qui pénalise les performances.
 
 **Cache hit**
 
-: C'est le contraire d'un cache miss, c'est-à-dire trouver une donnée en cache. Cela permet d'accélérer l'accès à la donnée, car elle est déjà stockée dans la mémoire cache (pour le coup c'est une bonne chose).
+: C'est l'inverse : la donnée se trouve déjà en cache. L'accès devient quasi immédiat, ce qui accélère nettement l'exécution (une excellente nouvelle !).
 
-Si une donnée est accessible depuis le cache L1, elle peut être directement chargée dans le processeur en un seul cycle d'horloge. Si elle est accessible depuis le cache L2, cela prendra quelques cycles d'horloge supplémentaires. Voici un tableau récapitulatif des temps d'accès typiques pour chaque niveau de cache :
+Si une donnée se trouve en cache L1, le processeur la charge en un seul cycle d'horloge. Depuis le cache L2, quelques cycles supplémentaires sont nécessaires. Le tableau suivant récapitule des ordres de grandeur typiques :
 
 Table: Temps d'accès typiques pour chaque niveau de cache
 
@@ -92,7 +92,7 @@ Table: Temps d'accès typiques pour chaque niveau de cache
 | L3              | 30-60                            | 2 Mio à 64 Mio    |
 | RAM             | 100-200                          | 8 Gio à 64 Gio    |
 
-La mémoire cache fonctionne sur le principe de la localité. On note deux types de localité :
+La mémoire cache repose sur le principe de la localité, qui se décline en deux formes :
 
 **Localité temporelle**
 
@@ -102,13 +102,13 @@ La mémoire cache fonctionne sur le principe de la localité. On note deux types
 
 : C'est le principe selon lequel si une donnée a été accédée, il y a de fortes chances que les données voisines soient également accédées. C'est pourquoi les données sont stockées en blocs contigus en cache pour améliorer les performances.
 
-Une donnée qui n'a pas été accédée depuis longtemps a de fortes chances de ne plus être disponible dans le cache. De même, une donnée très éloignée en mémoire d'une donnée récemment accédée a de fortes chances de ne pas y résider non plus. Il est donc essentiel de structurer son programme pour exploiter au mieux la localité temporelle et spatiale.
+Une donnée que l'on n'a pas consultée depuis longtemps risque de ne plus résider dans le cache. De même, une valeur éloignée en mémoire d'une donnée récemment lue a peu de chances d'y figurer. Il est donc essentiel de structurer son programme pour exploiter au mieux la localité temporelle et spatiale.
 
-Un autre point fondamental à retenir est que la mémoire cache fonctionne par **lignes de cache**. Une ligne contient typiquement 64 octets de données, contigus en mémoire. Lorsqu'une donnée est chargée depuis la RAM, le système récupère également les octets voisins dans cette même ligne. Cette stratégie améliore les performances lors d'accès successifs à des zones proches. En termes de vitesse de transfert, c'est comme affréter un convoi : faire venir dix camions chargés de babioles de Zurich à Lausanne ne prend guère plus de temps qu'un seul, car ce qui limite réellement, c'est la vitesse du trajet.
+Autre point essentiel : la mémoire cache fonctionne par **lignes de cache**. Une ligne contient typiquement 64 octets contigus. Lorsqu'une donnée est chargée depuis la RAM, le système rapatrie aussi les octets voisins appartenant à cette ligne. Cette stratégie optimise les accès successifs à des zones proches. En matière de débit, imaginez un convoi : envoyer dix camions de Zurich à Lausanne ne prend guère plus de temps qu'un seul, car la limite réelle vient du trajet lui-même.
 
-Néanmoins, ce mécanisme pose un problème. Si une donnée d'une ligne de cache est invalidée, c'est toute la ligne qui sera invalidée. Donc pour un octet de donnée modifié, c'est 64 octets qui devront être rechargés depuis la mémoire principale.
+Ce mécanisme a cependant un revers : si une donnée d'une ligne est invalidée, c'est toute la ligne qui doit être actualisée. Pour un octet modifié, ce sont donc 64 octets qu'il faudra recharger depuis la mémoire principale.
 
-Pour mieux comprendre ces limitations, prenons un exemple en C. Il s'agit d'une matrice de 100'000 x 100'000 éléments où nous souhaitons calculer la somme de tous les éléments. On pourrait écrire le programme comme ceci :
+Pour mieux comprendre ces limites, examinons un exemple en C. Nous disposons d'une matrice de 100'000 × 100'000 éléments et souhaitons calculer la somme de toutes les cases. Une implémentation naïve ressemble à ceci :
 
 ```c
 #include <stdio.h>
@@ -128,27 +128,27 @@ int main() {
 }
 ```
 
-Chaque ligne de la matrice représente environ 390 Kio. Une ligne de cache L1 peut contenir 64 octets, soit 16 entiers de 4 octets. Au début du programme, lorsque l'on accède à `matrix[0][0]`, le processeur interroge d'abord L1, qui ne connaît pas la donnée, puis L2, puis L3, avant d'aller la chercher en RAM. En chemin, il repère que les éléments voisins seront probablement utiles et précharge plusieurs lignes de cache dans L3, L2 et L1. Les accès suivants deviennent ainsi nettement plus rapides.
+Chaque ligne de la matrice représente environ 390 Kio. Une ligne de cache L1 contient 64 octets, soit 16 entiers de 4 octets. Au début du programme, lorsque l'on accède à `matrix[0][0]`, le processeur interroge d'abord L1, puis L2 et L3 avant d'aller chercher la donnée en RAM. Au passage, il détecte que les éléments voisins seront sans doute sollicités et précharge plusieurs lignes en L3, puis en L2 et en L1. Les accès suivants s'en trouvent grandement accélérés.
 
-Maintenant considérons le même programme mais avec une petite modification :
+Considérons maintenant le même programme avec une légère modification :
 
 ```c
 sum += matrix[j][i];
 ```
 
-Nous avons inversé `i` et `j`. Au lieu de parcourir la matrice linéairement en mémoire, chaque lecture provoque un saut d'environ 390 Kio. Les données voisines préchargées ne servent alors plus à rien : à chaque itération, le cache doit aller chercher la valeur directement en RAM.
+Nous avons inversé `i` et `j`. Au lieu de parcourir la matrice linéairement, chaque lecture entraîne un saut d'environ 390 Kio. Les données voisines préchargées ne sont plus utiles : à chaque itération, le cache doit retourner en RAM.
 
-La première version du programme est environ 10 à 20 fois plus rapide que la seconde. Cela montre l'importance de la localité spatiale dans la performance d'un programme.
+La première version s'exécute environ 10 à 20 fois plus vite que la seconde. Cet exemple illustre l'importance de la localité spatiale dans les performances d'un programme.
 
 ### Pipeline
 
-Pour délivrer davantage d'instructions par seconde, les processeurs modernes s'appuient sur le **pipeline**. Une instruction ne s'exécute pas en un bloc : elle traverse une succession d'étapes (chargement, décodage, exécution, accès mémoire, écriture du résultat). En enchaînant ces étapes comme une chaîne de montage, le processeur peut traiter simultanément plusieurs instructions se trouvant à des stades différents du pipeline.
+Pour délivrer davantage d'instructions par seconde, les processeurs modernes s'appuient sur le **pipeline**. Une instruction ne s'exécute pas en bloc : elle traverse une succession d'étapes (chargement, décodage, exécution, accès mémoire, écriture du résultat). En les chaînant comme sur une ligne d'assemblage, le processeur traite simultanément plusieurs instructions à des stades différents.
 
 ![Aperçu d'un pipeline](/assets/images/pipeline.drawio)
 
-Cette organisation se compare volontiers à une cuisine professionnelle : tandis que le serveur prend une nouvelle commande, le chef décode la précédente, un commis prépare les ingrédients et un autre dresse l'assiette. Si tout se passe bien, un plat sort à chaque « cycle ». Mais au moindre imprévu — une commande annulée, un ingrédient manquant — toute la chaîne doit être vidée et relancée. C'est ce que l'on appelle un *pipeline stall*.
+Cette organisation se compare volontiers à une cuisine professionnelle : pendant qu'une personne prend la commande suivante, la cheffe ou le chef décode la précédente, un·e commis prépare les ingrédients et un autre dresse l'assiette. Si tout se déroule sans accroc, un plat sort à chaque « cycle ». Au moindre imprévu — commande annulée, ingrédient manquant — la chaîne doit être purgée et relancée : c'est le *pipeline stall*.
 
-Dans un processeur, ce type d'interruption survient notamment lors d'un embranchement (`if`, `while`, `for`). Tant que la condition n'est pas évaluée, le processeur ignore quelle suite d'instructions préparer. Les architectures récentes disposent donc d'un **prédicteur de branchement** : elles parient sur le chemin le plus probable, chargent les instructions correspondantes et ne paient le prix d'un stall que si la prédiction était erronée. Les microcontrôleurs plus modestes, dépourvus de prédicteur, doivent eux attendre le résultat et subissent davantage de bulles dans leur pipeline.
+Dans un processeur, ce type d'interruption survient notamment lors d'un embranchement (`if`, `while`, `for`). Tant que la condition n'est pas évaluée, il ignore quelle suite d'instructions préparer. Les architectures récentes s'équipent donc d'un **prédicteur de branchement** : elles parient sur le chemin le plus probable, chargent les instructions correspondantes et ne paient le coût d'un stall qu'en cas d'erreur. Les microcontrôleurs plus modestes, dépourvus de prédicteur, doivent attendre le résultat et accumulent davantage de bulles dans leur pipeline.
 
 ### Cœur
 
