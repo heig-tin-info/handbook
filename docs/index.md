@@ -15,9 +15,9 @@ Bienvenue dans le cours de programmation
 
 Cet ouvrage s'adresse aux étudiantes et étudiants de première année Bachelor de la [HEIG-VD](http://heig-vd.ch), département TIN et filières Génie électrique. Il propose une introduction progressive à la programmation en C et accompagne l'ensemble du cycle des cours Informatique&nbsp;1 ([Info1](#info1)) et Informatique&nbsp;2 ([Info2](#info2)).
 
-Le contenu de ce cours suit fidèlement les fiches officielles des unités et modules suivants :
+Le contenu de ce cours suit les fiches officielles des unités et modules suivants :
 
-- Module **InfoMicro** (`InfoMicro`), consacré à la découverte des systèmes embarqués et de leur programmation.
+- Module **InfoMicro** (`InfoMicro`), consacré à la découverte des systèmes à microcontrôleurs et de leur programmation.
 - Unité **Informatique 1** ([Info1](#info1)), centrée sur les fondements de la programmation structurée.
 - Unité **Informatique 2** ([Info2](#info2)), qui approfondit les notions avancées et les méthodologies logicielles.
 
