@@ -3,7 +3,7 @@ import re
 from hashlib import sha256
 from html import unescape
 from pathlib import Path
-from typing import Union
+from typing import Any, Union
 from urllib.parse import quote, urlparse, urlunparse
 
 import yaml
@@ -23,6 +23,7 @@ log = logging.getLogger("mkdocs")
 
 
 def resolve_asset_path(file_path, path):
+    """Resolve a relative path from a given file path."""
     if Path(file_path).name == "index.md":
         file_path = file_path.parent
     path = (file_path / path).resolve()
@@ -32,6 +33,7 @@ def resolve_asset_path(file_path, path):
 
 
 def safe_quote(url):
+    """Percent-encode a URL, preserving reserved characters."""
     parsed_url = urlparse(url)
     encoded_path = quote(parsed_url.path)
     encoded_query = quote(parsed_url.query)
@@ -49,6 +51,7 @@ def safe_quote(url):
 
 
 def is_valid_url(url):
+    """Check if a URL is valid."""
     try:
         result = urlparse(url)
         return all([result.scheme, result.netloc])
@@ -79,6 +82,7 @@ def find_all_dfs(soup: Tag, *args, **kwargs):
 
 
 def escape_latex_chars(text):
+    """Escape LaTeX special characters in a string."""
     mapping = [
         ("&", r"\&"),
         ("%", r"\%"),
@@ -95,7 +99,12 @@ def escape_latex_chars(text):
 
 
 class LaTeXRenderer:
-    def __init__(self, output_path=Path("build"), config={}):
+    """A renderer that converts HTML elements to LaTeX using LaTeXFormatter."""
+
+    def __init__(self, output_path=Path("build"), config=None):
+        if config is None:
+            config = {}
+
         self.config = config
         self.formatter = LaTeXFormatter()
         self.output_path = Path(output_path) / "assets"
@@ -142,7 +151,7 @@ class LaTeXRenderer:
         # Wiki links
         link_file = Path("links.yml")
         if link_file.exists():
-            with open(link_file, "r") as f:
+            with open(link_file, "r", encoding="utf-8") as f:
                 self.links = yaml.load(f, Loader=yaml.FullLoader)
             self.wikimap = {}
             for key, value in self.links.get("wikipedia", {}).items():
@@ -163,8 +172,12 @@ class LaTeXRenderer:
 
         self.level = 0
 
-    def discard_unwanted(self, soup: Tag, **kwargs):
+    def discard_unwanted(self, soup: Tag, **_: Any):
+        """Discard unwanted elements from the HTML tree."""
         unwanted = [
+            ("html", [], "unwrap"),
+            ("head", [], "discard"),
+            ("body", [], "unwrap"),
             ("a", ["headerlink", "footnote-backref"], "extract"),
             ("a", ["glightbox"], "unwrap"),
             ("div", ["latex-ignore"], "extract"),
@@ -174,11 +187,14 @@ class LaTeXRenderer:
         ]
 
         for tag, classes, mode in unwanted:
-            for el in soup.find_all(tag, class_=classes):
+            kwargs = {"class_": classes} if classes else {}
+            for el in soup.find_all(tag, **kwargs):
                 if mode == "unwrap":
                     el.unwrap()
                 elif mode == "extract":
                     el.extract()
+                elif mode == "discard":
+                    el.decompose()
 
         return soup
 
@@ -463,7 +479,7 @@ class LaTeXRenderer:
             )
         return soup
 
-    def render_quote(self, soup: Tag, **kwargs):
+    def render_quote(self, soup: Tag, **_: Any):
         for el in soup.find_all(["blockquote"]):
             self.render_inlines(el)
             text = self.get_safe_text(el)
@@ -493,7 +509,7 @@ class LaTeXRenderer:
             )
         return soup
 
-    def render_autoref(self, soup: Tag, **kwargs):
+    def render_autoref(self, soup: Tag, **_: Any):
         for el in soup.find_all("autoref", attrs={"identifier": True}):
             tag = el.get("identifier")
             text = self.get_safe_text(el)
@@ -506,7 +522,7 @@ class LaTeXRenderer:
             self.apply(el, "ref", text, ref=identifier)
         return soup
 
-    def render_math(self, soup: Tag, **kwargs):
+    def render_math(self, soup: Tag, **_: Any):
         """Replace all math elements.
 
         <span class="arithmatex">...</span>
@@ -518,7 +534,7 @@ class LaTeXRenderer:
             el.replace_with(node)
         return soup
 
-    def render_math_block(self, soup: Tag, **kwargs):
+    def render_math_block(self, soup: Tag, **_: Any):
         for math_block in soup.find_all(["div"], class_="arithmatex"):
             text = self.get_safe_text(math_block)
             node = NavigableString(f"\n{text}\n")
@@ -526,7 +542,7 @@ class LaTeXRenderer:
             math_block.replace_with(node)
         return soup
 
-    def render_abbreviation(self, soup: Tag, **kwargs):
+    def render_abbreviation(self, soup: Tag, **_: Any):
         for abbr in soup.find_all("abbr"):
             text = escape_latex_chars(abbr.get("title"))
             short = self.get_safe_text(abbr)
@@ -538,7 +554,7 @@ class LaTeXRenderer:
             self.apply(abbr, "acronym", tag)
         return soup
 
-    def render_emoji(self, soup: Tag, **kwargs):
+    def render_emoji(self, soup: Tag, **_: Any):
         """Twemoji can be rendered as inline SVG or CDN link.
 
         <img alt="🙋‍♂️" class="twemoji" src="img.svg" title=":man_raising_hand:"/>
@@ -568,7 +584,7 @@ class LaTeXRenderer:
             self.apply(span, "icon", filename)
         return soup
 
-    def render_critics(self, soup: Tag, **kwargs):
+    def render_critics(self, soup: Tag, **_: Any):
         """Critics from CriticMarkup are rendered as follows"""
 
         # Strikethrough with red background
@@ -632,7 +648,7 @@ class LaTeXRenderer:
             self.apply(el, mapper[el.name], text)
         return soup
 
-    def render_footnotes(self, soup: Tag, **kwargs):
+    def render_footnotes(self, soup: Tag, **_: Any):
         footnotes = {}
         for el in soup.find_all(["div"], class_="footnote"):
             for li in el.find_all("li"):
@@ -648,7 +664,7 @@ class LaTeXRenderer:
             self.apply(el, "footnote", footnotes[footnote_id])
         return soup
 
-    def render_list(self, soup: Tag, **kwargs):
+    def render_list(self, soup: Tag, **_: Any):
         def is_checkbox(item):
             if item.startswith("[ ]"):
                 return -1
@@ -682,7 +698,7 @@ class LaTeXRenderer:
                         self.apply(el, "unordered_list", items=items)
         return soup
 
-    def render_description_list(self, soup: Tag, **kwargs):
+    def render_description_list(self, soup: Tag, **_: Any):
         for dl in soup.find_all(["dl"]):
             items = []
             title = None
@@ -717,7 +733,7 @@ class LaTeXRenderer:
 
         return None
 
-    def render_tabbed(self, soup: Tag, **kwargs):
+    def render_tabbed(self, soup: Tag, **_: Any):
         for div in soup.find_all(["div"], class_="tabbed-set"):
             level = self.get_heading_level(div)
             # Get titles

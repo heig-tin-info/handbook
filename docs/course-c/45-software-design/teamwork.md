@@ -1,3 +1,8 @@
+---
+epigraph:
+    text: "Aucune de nous ne sait ce que nous savons tous ensemble."
+    source: Euripide (Apocryphe ?)
+---
 # Travail en équipe
 
 ## Introduction

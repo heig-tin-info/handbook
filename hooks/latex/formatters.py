@@ -103,6 +103,7 @@ class LaTeXFormatter:
         filename: str | None = None,
         lineno: bool = False,
         highlight: Iterable[int] | None = None,
+        **kwargs: Any,
     ) -> str:
         """Render code blocks with optional line numbers and highlights."""
 
@@ -116,9 +117,8 @@ class LaTeXFormatter:
         )
 
     def url(self, text: str, url: str) -> str:
-        from .renderer import (
-            escape_latex_chars,
-        )  # Local import to avoid circular dependency
+        # Local import to avoid circular dependency
+        from .renderer import escape_latex_chars
 
         safe_url = escape_latex_chars(urllib.parse.quote(url, safe=":/?&="))
         return self.templates["url"].render(text=text, url=safe_url)
