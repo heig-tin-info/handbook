@@ -3177,7 +3177,7 @@ graph LR
 </ol>
 <p>De la même manière que l'arbre AVL, il y a des opérations de rotation pour rééquilibrer l'arbre rouge-noir. Les rotations sont plus simples que dans un arbre AVL car il n'y a que deux types de rotations : la rotation gauche et la rotation droite.</p>
 <h2 id="trie">Trie<a class="headerlink" href="#trie" title="Lien permanent">¤</a></h2>
-<p>Un <em>trie</em> est une structure de données qui stocke un ensemble de chaînes de caractères. Il est souvent utilisé pour stocker des mots dans un dictionnaire ou pour rechercher des mots dans un texte. Un trie est donc un arbre où chaque nœud est associé à une lettre et un marqueur de fin de mot. Un noeud peut avoir de 1 à 26 enfants, un pour chaque lettre de l'alphabet (si on se limite à l'alphabet latin minuscule).</p>
+<p>Un <em>trie</em> est une structure de données qui stocke un ensemble de chaînes de caractères. Il est souvent utilisé pour stocker des mots dans un dictionnaire ou pour rechercher des mots dans un texte. Un trie est donc un arbre où chaque nœud est associé à une lettre et un marqueur de fin de mot. Un nœud peut avoir de 1 à 26 enfants, un pour chaque lettre de l'alphabet (si on se limite à l'alphabet latin minuscule).</p>
 <p>Prenons l'exemple des mots suivants :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">words</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="s">"cadeaux"</span><span class="p">,</span><span class="w"> </span><span class="s">"le"</span><span class="p">,</span><span class="w"> </span><span class="s">"car"</span><span class="p">,</span><span class="w"> </span><span class="s">"cette"</span><span class="p">,</span><span class="w"> </span><span class="s">"cadre"</span><span class="p">,</span><span class="w"> </span><span class="s">"cause"</span><span class="p">,</span>
@@ -3186,7 +3186,7 @@ graph LR
 </span></code></pre></div>
 <p>On peut construire le trie suivant :</p>
 <p></p><figure id="_figure-6"><div class="mxgraph" data-mxgraph='{"tooltips":"0","border":5,"resize":"1","lightbox":1,"appearance":"automatic","url":"../../../assets/images/trie.drawio"}' style="max-width:100%;border:1px solid transparent;"></div><figcaption> Trie</figcaption></figure><p></p>
-<p>En vert, les nœuds qui marquent la fin d'un mot. En orange la racine de l'arbre. La structure de données de chaque noeud pourrait être la suivante :</p>
+<p>En vert, les nœuds qui marquent la fin d'un mot. En orange la racine de l'arbre. La structure de données de chaque nœud pourrait être la suivante :</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">occurences</span><span class="p">;</span><span class="w">  </span><span class="c1">// Number of occurences of the word</span>
 </span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">children</span><span class="p">[</span><span class="mi">26</span><span class="p">];</span><span class="w">  </span><span class="c1">// Children nodes</span>
@@ -3217,7 +3217,7 @@ Comment allez-vous implémenter le trie ?</p>
 </defs>
 </svg>
 </div>
-   Comme une liste chaînée, chaque noeud est alloué dynamiquement sur le <em>heap</em>.
+   Comme une liste chaînée, chaque nœud est alloué dynamiquement sur le <em>heap</em>.
 </li>
 <li class="flex-container">
 <div class="exercise-checkbox">
@@ -3239,7 +3239,7 @@ Comment allez-vous implémenter le trie ?</p>
 </defs>
 </svg>
 </div>
-   Un tableau statique sur la pile ou chaque élément est un noeud.
+   Un tableau statique sur la pile ou chaque élément est un nœud.
 </li>
 <li class="flex-container">
 <div class="exercise-checkbox">
@@ -3261,7 +3261,7 @@ Comment allez-vous implémenter le trie ?</p>
 </defs>
 </svg>
 </div>
-   Un tableau dynamique sur le <em>heap</em>, l'allocation est amortie et chaque noeud contient un tableau de pointeurs sur ses enfants.
+   Un tableau dynamique sur le <em>heap</em>, l'allocation est amortie et chaque nœud contient un tableau de pointeurs sur ses enfants.
 </li>
 <li class="flex-container">
 <div class="exercise-checkbox">
@@ -3283,7 +3283,7 @@ Comment allez-vous implémenter le trie ?</p>
 </defs>
 </svg>
 </div>
-   Un tableau dynamique sur le <em>heap</em>, l'allocation est amortie et chaque noeud contient non pas un pointeur des enfants mais l'indice de l'enfant dans le tableau.
+   Un tableau dynamique sur le <em>heap</em>, l'allocation est amortie et chaque nœud contient non pas un pointeur des enfants mais l'indice de l'enfant dans le tableau.
 </li>
 <li class="flex-container">
 <div class="exercise-checkbox">
@@ -3309,10 +3309,10 @@ Comment allez-vous implémenter le trie ?</p>
 </li>
 </ul>
 </div>
-<p>Discutons de plusieurs implémentations possibles d'un noeud d'un trie :</p>
+<p>Discutons de plusieurs implémentations possibles d'un nœud d'un trie :</p>
 <ul>
 <li>
-<p><strong>Liste chaînée</strong> : Chaque noeud est alloué dynamiquement sur le <em>heap</em>. C'est une solution simple mais qui peut être coûteuse en mémoire et en temps d'allocation. Néanmoins le noeud peut prendre un tableau flexible pour les enfants. Ce qui permet de ne pas allouer de mémoire inutile.</p>
+<p><strong>Liste chaînée</strong> : Chaque nœud est alloué dynamiquement sur le <em>heap</em>. C'est une solution simple mais qui peut être coûteuse en mémoire et en temps d'allocation. Néanmoins le nœud peut prendre un tableau flexible pour les enfants. Ce qui permet de ne pas allouer de mémoire inutile.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">occurences</span><span class="p">;</span><span class="w">  </span><span class="c1">// Number of occurences of the word</span>
 </span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">children</span><span class="p">[];</span><span class="w">  </span><span class="c1">// Children nodes, variable size</span>
@@ -3328,7 +3328,7 @@ Comment allez-vous implémenter le trie ?</p>
 </span></code></pre></div>
 </li>
 <li>
-<p><strong>Chunks</strong> : Chaque chunk contient un certain nombre de noeuds. Un chaunk d'une taille donnée est réservée. Lorsque le chunk est plein, un nouveau chunk est alloué. Cela permet de réduire le nombre d'appels à <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span> et de réduire la fragmentation de la mémoire. Cette méthode permet de réduire le nombre d'appels à <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span> et de réduire la fragmentation de la mémoire. Elle résoud aussi le problème de la taille fixe du tableau des enfants en autorisant à nouveau un tableau flexible.</p>
+<p><strong>Chunks</strong> : Chaque chunk contient un certain nombre de nœuds. Un chaunk d'une taille donnée est réservée. Lorsque le chunk est plein, un nouveau chunk est alloué. Cela permet de réduire le nombre d'appels à <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span> et de réduire la fragmentation de la mémoire. Cette méthode permet de réduire le nombre d'appels à <span class="ycr-hashtag" data-index-entry="malloc" data-tag="malloc"><code>malloc</code></span> et de réduire la fragmentation de la mémoire. Elle résoud aussi le problème de la taille fixe du tableau des enfants en autorisant à nouveau un tableau flexible.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">occurences</span><span class="p">;</span><span class="w">  </span><span class="c1">// Number of occurences of the word</span>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">children</span><span class="p">[];</span><span class="w">  </span><span class="c1">// Children nodes</span>
@@ -3415,8 +3415,8 @@ Comment allez-vous implémenter le trie ?</p>
 </span></code></pre></div>
 <div class="admonition exercise">
 <p class="admonition-title"><span class="exercise-label">Exercice 2 : </span>Regroupement ?<span class="exercise-title"></span></p>
-<p>Demandons-nous s'il ne serait pas préférable de regrouper les noeuds communs ensemble comme le montre la figure suivante :</p>
-<p></p><figure id="_figure-7"><div class="mxgraph" data-mxgraph='{"tooltips":"0","border":5,"resize":"1","lightbox":1,"appearance":"automatic","url":"../../../assets/images/trie-not.drawio"}' style="max-width:100%;border:1px solid transparent;"></div><figcaption> Trie : arbre avec noeuds communs</figcaption></figure><p></p>
+<p>Demandons-nous s'il ne serait pas préférable de regrouper les nœuds communs ensemble comme le montre la figure suivante :</p>
+<p></p><figure id="_figure-7"><div class="mxgraph" data-mxgraph='{"tooltips":"0","border":5,"resize":"1","lightbox":1,"appearance":"automatic","url":"../../../assets/images/trie-not.drawio"}' style="max-width:100%;border:1px solid transparent;"></div><figcaption> Trie : arbre avec nœuds communs</figcaption></figure><p></p>
 <p>D'après vous est-ce une bonne idée ? Pourquoi ?</p>
 <details class="solution">
 <summary>Solution</summary>
@@ -3424,8 +3424,8 @@ Comment allez-vous implémenter le trie ?</p>
 </details>
 </div>
 <h2 id="radix-trie">Radix Trie<a class="headerlink" href="#radix-trie" title="Lien permanent">¤</a></h2>
-<p>On l'a vu l'implémentation d'un trie est simple mais elle peut conduire à une utilisation excessive de la mémoire. En effet, chaque noeud contient un tableau de 26 éléments, même si un mot ne contient que quelques lettres. Pour réduire la consommation de mémoire, on peut utiliser un <a href="https://fr.wikipedia.org/wiki/Arbre_radix">radix trie</a>. Cet arbre est également nommé <em>PATRICIA trie</em> pour <em>Practical Algorithm to Retrieve Information Coded in Alphanumeric</em>.</p>
-<p>Plutôt que de stocker une seule lettre par noeud, on stocke un préfixe commun à plusieurs mots. On peut alors réduire le nombre de noeuds et donc la consommation de mémoire.</p>
+<p>On l'a vu l'implémentation d'un trie est simple mais elle peut conduire à une utilisation excessive de la mémoire. En effet, chaque nœud contient un tableau de 26 éléments, même si un mot ne contient que quelques lettres. Pour réduire la consommation de mémoire, on peut utiliser un <a href="https://fr.wikipedia.org/wiki/Arbre_radix">radix trie</a>. Cet arbre est également nommé <em>PATRICIA trie</em> pour <em>Practical Algorithm to Retrieve Information Coded in Alphanumeric</em>.</p>
+<p>Plutôt que de stocker une seule lettre par nœud, on stocke un préfixe commun à plusieurs mots. On peut alors réduire le nombre de nœuds et donc la consommation de mémoire.</p>
 <h2 id="navigation-dans-un-arbre">Navigation dans un arbre<a class="headerlink" href="#navigation-dans-un-arbre" title="Lien permanent">¤</a></h2>
 <p>La navigation dans un arbre binaire est une opération courante. Il existe plusieurs façons de parcourir un arbre binaire :</p>
 <ul>
@@ -3474,7 +3474,7 @@ Comment allez-vous implémenter le trie ?</p>
 <span class="md-icon" title="Dernière mise à jour">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="10 octobre 2025 19:50:01 UTC">10 octobre 2025</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="12 octobre 2025 09:44:44 UTC">12 octobre 2025</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Créé">

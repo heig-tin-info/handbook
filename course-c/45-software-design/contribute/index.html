@@ -6263,7 +6263,7 @@ les outils associés.
 <dd>
 <p>Utilisé comme serveur web ou reverse proxy, il alimente une grande partie des sites web dans le monde. Selon certaines estimations, il gère plus de 30 % des sites web actifs, ce qui se traduit par des centaines de millions d'utilisateurs finaux.</p>
 </dd>
-<dt><a href="https://github.com/apache/httpd">Apache HTTP Server</a></dt>
+<dt><a href="https://github.com/apache/httpd">Apache </a><a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a> Server</dt>
 <dd>
 <p>Autre serveur web très populaire, il est utilisé sur une part significative des sites web. Bien que Nginx l'ait surpassé en popularité dans certains cas, Apache reste extrêmement répandu.</p>
 </dd>
@@ -6330,8 +6330,8 @@ les outils associés.
 </span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>...
 </span></code></pre></div>
 <p>On peut voir par exemple que Git est compilé par défaut sans <span class="ycr-hashtag" data-index-entry="libpcre" data-tag="libpcre"><code>libpcre</code></span>. Cette bibliothèque permet le support avancé des expressions régulières Perl. Souvent les connaisseurs de Perl préfère cette senteur aux expressions régulières <a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>. Pour pouvoir l'utiliser il faut donc activer cette option, et nécessairement disposer de la bibliothèque <span class="ycr-hashtag" data-index-entry="libpcre2" data-tag="libpcre2"><code>libpcre2</code></span> sur le système.</p>
-<p>On commence donc par installer cette bibliothèque :
-</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libpcre2-dev
+<p>On commence donc par installer cette bibliothèque :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libpcre2-dev
 </span></code></pre></div>
 <p>Puis configurer le projet :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>$<span class="w"> </span>./configure<span class="w"> </span>--with-libpcre2<span class="w"> </span>--prefix<span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/_install
@@ -6541,7 +6541,7 @@ les outils associés.
 </span><span id="__span-20-6"><a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a>
 </span><span id="__span-20-7"><a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a>meson.build:364:0:<span class="w"> </span>ERROR:<span class="w"> </span>Dependency<span class="w"> </span><span class="s2">"atk"</span><span class="w"> </span>not<span class="w"> </span>found,<span class="w"> </span>tried<span class="w"> </span>pkgconfig<span class="w"> </span>and<span class="w"> </span>cmake
 </span></code></pre></div>
-<p>Nous avons un problème. La dépendance <span class="ycr-hashtag" data-index-entry="atk" data-tag="atk"><code>atk</code></span> n'est pas trouvée. Un rapide coup d'oeil à la documentation nous indique que <span class="ycr-hashtag" data-index-entry="atk" data-tag="atk"><code>atk</code></span> est une bibliothèque graphique et la version 2.4.0 est nécessaire. Or la version que l'on trouve sous Debian est <code>libatk1.0-dev</code> qui est la 2.30.0. Comme seule la version mineure est différente il ne devrait pas y avoir de problème de compatibilité. Nous allons donc installer la version 2.30.0 et voir si cela fonctionne.</p>
+<p>Nous avons un problème. La dépendance <span class="ycr-hashtag" data-index-entry="atk" data-tag="atk"><code>atk</code></span> n'est pas trouvée. Un rapide coup d'œil à la documentation nous indique que <span class="ycr-hashtag" data-index-entry="atk" data-tag="atk"><code>atk</code></span> est une bibliothèque graphique et la version 2.4.0 est nécessaire. Or la version que l'on trouve sous Debian est <code>libatk1.0-dev</code> qui est la 2.30.0. Comme seule la version mineure est différente il ne devrait pas y avoir de problème de compatibilité. Nous allons donc installer la version 2.30.0 et voir si cela fonctionne.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>apt<span class="w"> </span>install<span class="w"> </span>libatk1.0-dev
 </span></code></pre></div>
 <p>Notons que la bibliothèque se nomme <code>libatk1.0-dev</code> le <code>1.0</code> est la version de l'<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Interface_de_programmation">API</a> mais cela ne signifie pas que la version de la bibliothèque est 1.0. En fait tant que l'<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Interface_de_programmation">API</a> est compatible, la version installée peut être plus récente. On peut noter toutefois que normalement si une version majeur change, cela signifie une rupture de compatibilité dans l'<a class="ycr-abbr" href="https://fr.wikipedia.org/wiki/Interface_de_programmation">API</a>. Ici on voit que les développeurs ont décidé de ne pas rompre la compatibilité.</p>
@@ -6610,7 +6610,7 @@ les outils associés.
     <span class="md-icon" title="Dernière mise à jour">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="7 octobre 2025 20:32:53 UTC">7 octobre 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="12 octobre 2025 09:44:44 UTC">12 octobre 2025</span>
   </span>
 
     
