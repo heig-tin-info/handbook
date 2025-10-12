@@ -24,7 +24,7 @@ Table: Fréquence de Huffman
 | C         | 1         |
 | D         | 1         |
 
-Chaque élément est un noeud qui est placé dans une file de priorité (*min-heap*) où la priorité est la fréquence du caractère. Voici le pseudo code du tas minimum :
+Chaque élément est un nœud qui est placé dans une file de priorité (*min-heap*) où la priorité est la fréquence du caractère. Voici le pseudo code du tas minimum :
 
 ```text
 Min-Heap : [(1, 'C'), (1, 'D'), (2, 'B'), (2, 'R'), (5, 'A')]
@@ -32,11 +32,11 @@ Min-Heap : [(1, 'C'), (1, 'D'), (2, 'B'), (2, 'R'), (5, 'A')]
 
 ### Fusion
 
-On va fusionner les deux noeuds de plus faible fréquence, c'est facile parce qu'un *min-heap* nous permet de récupérer les deux éléments de plus faible fréquence en temps constant. Après fusion, on obtient une chaîne de caractère qui représente les deux noeuds fusionnés. On ajoute ce nouveau noeud à la file de priorité en prenant en compte la fréquence totale des deux noeuds fusionnés.
+On va fusionner les deux nœuds de plus faible fréquence, c'est facile parce qu'un *min-heap* nous permet de récupérer les deux éléments de plus faible fréquence en temps constant. Après fusion, on obtient une chaîne de caractère qui représente les deux nœuds fusionnés. On ajoute ce nouveau nœud à la file de priorité en prenant en compte la fréquence totale des deux nœuds fusionnés.
 
-Notons que qu'en cas de priorité égale, on peut choisir arbitrairement l'ordre des noeuds.
+Notons que qu'en cas de priorité égale, on peut choisir arbitrairement l'ordre des nœuds.
 
-Les noeuds `C` et `D` sont les deux noeuds de plus faible fréquence. On les fusionne pour obtenir `CD` qui a une priorité de `2`.
+Les nœuds `C` et `D` sont les deux nœuds de plus faible fréquence. On les fusionne pour obtenir `CD` qui a une priorité de `2`.
 
 ```text
 Min-Heap : [(2, 'CD'), (2, 'B'), (2, 'R'), (5, 'A')]
@@ -48,7 +48,7 @@ CD("CD (2)") --> C("C (1)")
 CD --> D("D (1)")
 ```
 
-Il nous reste des noeuuds à fusionner. On fusionne les noeuds `CD` et `B` pour obtenir `CDB` qui a une priorité de `4`.
+Il nous reste des noeuuds à fusionner. On fusionne les nœuds `CD` et `B` pour obtenir `CDB` qui a une priorité de `4`.
 
 ```text
 Min-Heap : [(2, 'R'), (4, 'CDB'), (5, 'A')]
@@ -62,7 +62,7 @@ graph TD
     CD --> D("D (1)")
 ```
 
-On continue car il nous reste des noeuds à fusionner. On fusionne les noeuds `CDB` et `R` pour obtenir `CDBR` qui a une priorité de `6`.
+On continue car il nous reste des nœuds à fusionner. On fusionne les nœuds `CDB` et `R` pour obtenir `CDBR` qui a une priorité de `6`.
 
 ```text
 Min-Heap : [(5, 'A'), (6, 'RCDB')]
@@ -78,7 +78,7 @@ graph TD
     CD --> D("D (1)")
 ```
 
-Enfin, on fusionne les noeuds `RCDB` et `A` pour obtenir `ACDBR` qui a une priorité de `11`.
+Enfin, on fusionne les nœuds `RCDB` et `A` pour obtenir `ACDBR` qui a une priorité de `11`.
 
 ```text
 Min-Heap : [(11, 'ARCDB')]
@@ -98,7 +98,7 @@ graph TD
 
 ### Génération des codes
 
-Pour générer les codes, on parcourt l'arbre de Huffman en partant de la racine. On ajoute un `0` à chaque fois qu'on descend à gauche et un `1` à chaque fois qu'on descend à droite. Les noeuds fusionnés sont des noeuds internes, on ne les prend pas en compte.
+Pour générer les codes, on parcourt l'arbre de Huffman en partant de la racine. On ajoute un `0` à chaque fois qu'on descend à gauche et un `1` à chaque fois qu'on descend à droite. Les nœuds fusionnés sont des nœuds internes, on ne les prend pas en compte.
 
 | Caractère | Code |
 | --------- | ---- |
@@ -107,7 +107,6 @@ Pour générer les codes, on parcourt l'arbre de Huffman en partant de la racine
 | B         | 111  |
 | C         | 1100 |
 | D         | 1101 |
-
 
 ### Encodage du texte
 

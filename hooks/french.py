@@ -43,7 +43,7 @@ def ligatures(content):
         "oestrogène": "œstrogène",
         "oecuménique": "œcuménique",
         "oeillet": "œillet",
-        "oe": "œ",
+        # "oe": "œ",
         "foetus": "fœtus",
         "oedipe": "œdipe",
         "caecum": "cæcum",

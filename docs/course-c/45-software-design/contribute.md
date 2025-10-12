@@ -131,6 +131,7 @@ Le script `configure` est maintenant généré, il nous permet de configurer le 
 On peut voir par exemple que Git est compilé par défaut sans `libpcre`. Cette bibliothèque permet le support avancé des expressions régulières Perl. Souvent les connaisseurs de Perl préfère cette senteur aux expressions régulières POSIX. Pour pouvoir l'utiliser il faut donc activer cette option, et nécessairement disposer de la bibliothèque `libpcre2` sur le système.
 
 On commence donc par installer cette bibliothèque:
+
 ```bash
 sudo apt install libpcre2-dev
 ```
@@ -280,9 +281,9 @@ Gimp est un logiciel de retouche d'image très populaire. C'est la version libre
 
 En cherchant sous Google "gimp source code", on tombe sur le site officiel:
 
-https://www.gimp.org/source/
+<https://www.gimp.org/source/>
 
-Il est indiqué que le code source est hébergé sur le référentiel de GNOME, un environnement de bureau libre pour les systèmes Unix. Ce site redirige sur https://developer.gimp.org/ où l'on trouve les instructions pour les développeurs. De liens en liens on arrive sur la page [Building GIMP](https://developer.gimp.org/core/setup/build/) qui donne les instructions pour compiler Gimp.
+Il est indiqué que le code source est hébergé sur le référentiel de GNOME, un environnement de bureau libre pour les systèmes Unix. Ce site redirige sur <https://developer.gimp.org/> où l'on trouve les instructions pour les développeurs. De liens en liens on arrive sur la page [Building GIMP](https://developer.gimp.org/core/setup/build/) qui donne les instructions pour compiler Gimp.
 
 Il est indiqué que Gimp utilise l'environnement Meson pour la compilation. Meson est un système de build open-source qui permet de générer des fichiers de configuration pour les projets C/C++. Il est écrit en Python et est très rapide.
 
@@ -397,7 +398,7 @@ Run-time dependency atk found: NO (tried pkgconfig and cmake)
 meson.build:364:0: ERROR: Dependency "atk" not found, tried pkgconfig and cmake
 ```
 
-Nous avons un problème. La dépendance `atk` n'est pas trouvée. Un rapide coup d'oeil à la documentation nous indique que `atk` est une bibliothèque graphique et la version 2.4.0 est nécessaire. Or la version que l'on trouve sous Debian est `libatk1.0-dev` qui est la 2.30.0. Comme seule la version mineure est différente il ne devrait pas y avoir de problème de compatibilité. Nous allons donc installer la version 2.30.0 et voir si cela fonctionne.
+Nous avons un problème. La dépendance `atk` n'est pas trouvée. Un rapide coup d'œil à la documentation nous indique que `atk` est une bibliothèque graphique et la version 2.4.0 est nécessaire. Or la version que l'on trouve sous Debian est `libatk1.0-dev` qui est la 2.30.0. Comme seule la version mineure est différente il ne devrait pas y avoir de problème de compatibilité. Nous allons donc installer la version 2.30.0 et voir si cela fonctionne.
 
 ```bash
 apt install libatk1.0-dev

@@ -212,9 +212,9 @@ On sait qu'un arbre binaire peut être représenté sous forme d'une liste, la r
 int nodes[] = {1, 2, 3, 5, -1, 4, -1, 6, 8, -1, -1, -1, -1, -1, 7};
 ```
 
-La valeur `-1` indique un noeud vide. La racine de l'arbre est le premier élément de la liste, ici `1`. Les enfants d'un noeud `i` sont `2*i` et `2*i+1`. Par exemple, les enfants de `1` sont `2` et `3`. Si l'arbre n'est pas complet et fortement déséquilibré, le stockage ne sera pas optimal car la plupart des noeuds seront vides. Dans ce cas il est plus élégant de représenter l'arbre avec une liste chaînée.
+La valeur `-1` indique un nœud vide. La racine de l'arbre est le premier élément de la liste, ici `1`. Les enfants d'un nœud `i` sont `2*i` et `2*i+1`. Par exemple, les enfants de `1` sont `2` et `3`. Si l'arbre n'est pas complet et fortement déséquilibré, le stockage ne sera pas optimal car la plupart des nœuds seront vides. Dans ce cas il est plus élégant de représenter l'arbre avec une liste chaînée.
 
-Bien entendu, les noeuds seront plus complexes que des entiers, un noeud peut par exemple être associé à un identifiant, et ses coordonnées X et Y:
+Bien entendu, les nœuds seront plus complexes que des entiers, un nœud peut par exemple être associé à un identifiant, et ses coordonnées X et Y:
 
 ```c
 typedef struct node {
@@ -223,7 +223,7 @@ typedef struct node {
 } Node;
 ```
 
-Dans notre exemple pour économiser de l'espace, nous pouvons utiliser une liste pour les noeuds, et un tableau pour l'arbre:
+Dans notre exemple pour économiser de l'espace, nous pouvons utiliser une liste pour les nœuds, et un tableau pour l'arbre:
 
 ```c
 Node nodes[] = {
@@ -240,7 +240,7 @@ Node nodes[] = {
 int tree[] = {0, 1, 2, 4, -1, 3, -1, 5, 7, -1, -1, -1, -1, -1, 6};
 ```
 
-L'accès à un élément s'écrirait alors : `nodes[tree[1]]` pour accéder au noeud `2`, à condition que le noeud ne soit pas vide.
+L'accès à un élément s'écrirait alors : `nodes[tree[1]]` pour accéder au nœud `2`, à condition que le nœud ne soit pas vide.
 
 ### Recherche du voisin le plus proche
 
@@ -287,7 +287,7 @@ Reconsidérons notre figure précédente. On souhaite maintenant chercher les po
 
 ### Implémentation
 
-L'implémentation passe par la définition d'un noeud:
+L'implémentation passe par la définition d'un nœud:
 
 ```c
 typedef struct Node {
@@ -342,7 +342,7 @@ void search_closest(Node* root, double x, double y, int depth,
 }
 ```
 
-Pour insérer un noeud à la position `x`, `y`, on utilisera :
+Pour insérer un nœud à la position `x`, `y`, on utilisera :
 
 ```c
 Node* new_node = (Node*)malloc(sizeof(Node));

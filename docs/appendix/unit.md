@@ -2,6 +2,8 @@
 
 Les fiches d'unités sont les documents de référence pour les cours d'info1 et d'info2, ici présentées sous forme de données brutes au format **YAML**.
 
+[](){#info1}
+
 ## Informatique 1
 
 ```yaml
@@ -34,6 +36,8 @@ Les fiches d'unités sont les documents de référence pour les cours d'info1 et
 | 5       | **Préparation Examens** |
 | 6       | **Examens**             |
 | 7       | Relâches                |
+
+[](){#info2}
 
 ## Informatique 2
 

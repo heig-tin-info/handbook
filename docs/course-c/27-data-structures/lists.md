@@ -308,7 +308,6 @@ typedef struct Node {
 } Node;
 ```
 
-
 ## Piles ou LIFO (*Last In First Out*)
 
 Une pile est une structure de donnée très similaire à un tableau dynamique, mais dans laquelle les opérations sont limitées. Par exemple, il n'est possible que :

@@ -212,7 +212,7 @@ Typiquement si la copine (gf) attend que le frigo soit vide pour mettre une biè
 
 C'est aussi le cas dans le dilemme des philosophes. Chaque philosophe a besoin de deux fourchettes pour manger. Si chaque philosophe prend une fourchette et attend que l'autre fourchette soit libre, il y a un deadlock: y'a cinq philosophes, une fouchette à gauche et une fourchette à droite, la table est ronde. Donc on a 5 fourchettes et 5 philosophes ce qui ne permet pas que tout le monde mange en même temps.
 
-En théorie de programmation concurrente ce problème des philosphophe peut être décrit comme ayant un cycle dans le graphe des ressources. Chaque philosophe est un noeud et chaque fourchette est une arête. Si on a un cycle dans le graphe, il y a un deadlock.
+En théorie de programmation concurrente ce problème des philosphophe peut être décrit comme ayant un cycle dans le graphe des ressources. Chaque philosophe est un nœud et chaque fourchette est une arête. Si on a un cycle dans le graphe, il y a un deadlock.
 
 La starvation (famine) est une situation où un thread n'arrive pas à accéder à une ressource partagée à cause de l'ordonnancement du système. C'est un problème de synchronisation.
 

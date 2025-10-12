@@ -17,7 +17,8 @@
     "socket.h": "c",
     "stdio.h": "c",
     "string.h": "c",
-    "stdbool.h": "c"
+    "stdbool.h": "c",
+    "*.md": "markdown"
   },
   "search.useIgnoreFiles": false,
   "python.sortImports.args": [
@@ -32,5 +33,14 @@
   "python.formatting.blackArgs": [
     "--line-length",
     "88"
-  ]
+  ],
+  "markdown-preview-enhanced.parserConfig": {
+    "usePandocParser": false,
+    "markdownItPlugins": {
+      "markdown-it-footnote": true,
+      "markdown-it-deflist": true,
+      "markdown-it-container": true,
+      "markdown-it-attrs": true
+    }
+  },
 }
